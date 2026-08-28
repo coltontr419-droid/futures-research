@@ -1,0 +1,26 @@
+# Credentials. The Databento FTP account lives here; it must never enter git history,
+# because history is not deletable in any practical sense once pushed.
+.env
+.env.*
+!.env.example
+
+# Data. GLBX.MDP3 extracts are large and reproducible from the vendor; the trial log is
+# NOT data and IS committed (see CLAUDE_FUTURES.md §6).
+data/
+*.dbn
+*.dbn.zst
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db

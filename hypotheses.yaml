@@ -1,0 +1,512 @@
+# Hypothesis registry — Stage 0 of the research pipeline (see CLAUDE_FUTURES.md §5).
+#
+# Every hypothesis is registered HERE BEFORE it is tested. Nothing is tested that does not
+# appear in this file, and the `mechanism` field must name who is paying you and why. If it
+# cannot be written in plain language, the hypothesis is rejected.
+#
+# Prose, evidence grades, full signal pseudocode and the "why it might fail" notes live in
+# FUTURES_STRATEGY_HYPOTHESES.md. This file is the machine-readable registry.
+#
+# SCHEMA (required)   id · name · mechanism · condition · horizon_minutes · registered · status
+# SCHEMA (metadata)   grade · tier · param_cap · session · hold_hours · test_order · symbols
+#
+# status values
+#   untested                    registered, Stage 1 not yet run
+#   stage1_inconclusive         Stage 1 ran and settled nothing — see below
+#   stage1_passed               Stage 1 cleared; not scheduled onward — see below
+#   retired                     withdrawn from testing, kept in the registry
+#   excluded                    never testable on this sample — see below
+#   dead                        structurally invalidated — do not test
+#
+# STATUS VOCABULARY CARRIED OVER FROM THE CRYPTO PROJECT, where the distinctions were
+# learned the hard way:
+#
+#   retired vs stage1_inconclusive. Retirement says the evidence points AGAINST the
+#   mechanism. Inconclusive says the evidence points the way the mechanism predicts but
+#   does not clear the bar, and the shortfall is power or multiplicity rather than sign or
+#   story. Collapsing them loses the distinction that decides whether a hypothesis is ever
+#   worth revisiting — F05 is here at all because crypto's S09 was recorded inconclusive
+#   rather than retired.
+#
+#   stage1_passed IS NOT A PROMOTION. It records that the signal-level gate was cleared and
+#   nothing more; §5 has nine stages after it. Crypto's S08 cleared Stage 1 and was still
+#   uneconomic, and filing that as a failure would have lost the information that the
+#   effect exists.
+#
+#   excluded is NEW here. It means the hypothesis cannot be evaluated on this sample at
+#   all, on measured grounds, before any trial is spent. F12 and F13 carry it. This is not
+#   a soft rejection: it is the firing-rate gate and the decay literature doing their job
+#   in advance, and it costs zero trials.
+#
+# An entry that is not `untested` carries a reason field and `test_order: null`, so nothing
+# schedules it. Whatever trials it generated stay in trials.jsonl and stay in N. Every §6
+# correction moves in the optimistic direction as N falls, so withdrawing a hypothesis must
+# never become a route to shrinking it.
+#
+# Universal constraints (FUTURES_STRATEGY_HYPOTHESES.md, "Universal rules"):
+#   - every hypothesis tests on MNQ and MGC; they are genuinely uncorrelated, which makes
+#     §5 Stage 4 a real gate here rather than the near-formality it was at BTC/ETH ρ=0.835
+#   - ES/YM/RTY are ρ≈0.9 with NQ — robustness check only, NEVER Stage 4 evidence
+#   - FLAT BY 17:00 ET, no exceptions; every hold must provably terminate before it
+#   - sessions anchored in exchange local time and converted — never a fixed ET offset
+#   - param_cap is a HARD cap (CLAUDE_FUTURES.md §5 Stage 5)
+#   - every candidate beats a random-entry benchmark with matched holding-time distribution
+#   - every candidate beats scaled buy-and-hold (index futures have real drift)
+
+- id: F01
+  name: market_intraday_momentum
+  mechanism: >
+    The first half-hour market return, measured from the previous close, predicts the last
+    half-hour return (Gao, Han, Li & Zhou, JFE 2018). Baltussen, Da, Lammers & Martens
+    (JFE 2021) supply the mechanism: hedging demand. A 2x or 3x leveraged ETF must rebalance
+    daily to maintain its multiple — buying more exposure if the index rose, selling if it
+    fell — which is structurally a short-gamma profile, and the resets are pegged to the
+    closing price so the adjustment concentrates in the final minutes. Options dealers who
+    are short gamma must trade the same direction to stay hedged. The counterparty is not a
+    trader forming a view; it is a risk system executing a formula whose direction is known
+    in advance from the day's return. Nomura estimated that at peak size every 1% move
+    required the leveraged ETF complex to trade $10 billion.
+  condition: >
+    r1 = return from previous close (16:00 ET) to 10:00 ET. At entry_time, if
+    |r1| > k * ATR(20d), enter in the direction of r1 and exit at 15:55 ET.
+    entry_time in {15:00, 15:30}, k in {0, 0.5, 1.0}, vol_filter in {none, >median, >p66}.
+    k=0 is the unconditional version and is tested — the papers find the effect
+    unconditionally, with volatility strengthening rather than enabling it.
+  horizon_minutes: [30, 60]
+  registered: 2026-08-28
+  status: untested
+  grade: A
+  tier: A
+  param_cap: 3
+  session: US
+  hold_hours: [0.5, 1]
+  test_order: 1
+  symbols: [MNQ, MGC]
+  falsification_note: >
+    Effect size is ~1 bps per session (2.47% annualized at Sharpe 0.49), which nets ~0.5 bps
+    against MNQ's 0.48 bps floor — positive but thin, and it would have been dead in crypto.
+    Published 2018 and widely known since, so decay is likely and must be tested by regime.
+    The leveraged-ETF literature is contested: Lenkey (2024) finds the associations
+    significant but argues the economic magnitudes are not. Take the mechanism as plausible,
+    not established. Exit at 15:55 rather than into the close, where the flow concentrates
+    but the spread is widest.
+
+- id: F02
+  name: order_imbalance_conditional_overnight_reversal
+  mechanism: >
+    Intermediaries absorb order imbalances at the NYSE close and are compensated for
+    carrying that inventory through higher overnight returns, earning much of it when
+    European markets open and the risk can be offloaded (Boyarchenko, Larsen & Whelan,
+    RFS 2023; Grossman-Miller inventory risk). The counterparty is the closing auction
+    participant who needed liquidity at 16:00. The conditional finding is asymmetric and
+    the asymmetry follows from the mechanism: a dealer absorbing a SELL imbalance holds
+    unwanted long inventory and must be paid to carry it, so selloffs generate robust
+    positive overnight reversals while reversals after rallies are much more modest.
+  condition: >
+    imb = return from 15:00 to 16:00 ET, a proxy for the closing order imbalance. If
+    imb < -k * sigma, enter long at the window open and exit at the window close; direction
+    is opposite the imbalance. The symmetric long-side condition is tested separately and
+    expected to be weaker. k in {0.5, 1.0, 1.5}, window in {Europe 01:30-04:00,
+    Asia 19:00-22:00}, hold in {1, 2, 4} h.
+  horizon_minutes: [60, 120, 240]
+  registered: 2026-08-28
+  status: untested
+  grade: A-
+  tier: A
+  param_cap: 3
+  session: Asia/Europe
+  hold_hours: [1, 4]
+  test_order: 4
+  symbols: [MNQ, MGC]
+  # REGIME SPLIT IS MANDATORY HERE, NOT OPTIONAL. See F13: the same authors published
+  # "The Disappearing Overnight Drift" in July 2026 reporting that the UNCONDITIONAL
+  # 02:00-03:00 window has averaged near zero since 2021, having previously carried more
+  # than 60% of the contract's 5.9% annualized close-to-close return. Pre-2021 and
+  # post-2021 are different objects and an aggregate over both is uninterpretable.
+  falsification_note: >
+    The headline effect is measured as decayed by its own authors, and the conditional
+    version may have gone with it. The closing return is a proxy for order imbalance, not
+    the imbalance itself — the paper had actual imbalance data and this project does not.
+    Test the Asian-window migration too: the authors note dealers increasingly offload
+    inventory shocks at the Asian open as trading there has grown.
+
+- id: F03
+  name: half_hour_periodicity
+  mechanism: >
+    Returns are persistent at the same half-hour interval across trading days, persisting up
+    to 40 trading days (Heston, Korajczyk & Sadka). The cause is institutional execution:
+    large parent orders are worked over multiple days at similar clock times, producing
+    repeating flow at the same positions in the session. Later work attributes this
+    specifically to REPETITIVE institutional traders — non-repetitive institutions show
+    little to no predictability. The counterparty is whoever provides liquidity into a
+    schedule that an execution algorithm is following regardless of price. This is the
+    futures analogue of the crypto quarter-hour hypothesis, with a better-documented cause.
+  condition: >
+    For each half-hour slot s in the RTH session, hist = mean return of slot s over the
+    trailing N days. If |hist| > threshold and the trailing t-stat is significant, enter at
+    the slot open in sign(hist) direction and exit at the slot close.
+    N in {10, 20, 40} days, threshold in {0.5, 1.0, 1.5} x slot sigma, all 13 RTH slots.
+  horizon_minutes: [30]
+  registered: 2026-08-28
+  status: untested
+  grade: A-
+  tier: A
+  param_cap: 3
+  session: US
+  hold_hours: [0.5]
+  test_order: 2
+  symbols: [MNQ, MGC]
+  # BH WITHIN THE HYPOTHESIS ACROSS 13 SLOTS is required by the condition itself, not just
+  # by §6. A scan over 13 slots at alpha=0.05 produces 0.65 hits by chance before any
+  # parameter is varied, and the full grid is 13 x 3 x 3 = 117 cells per instrument.
+  falsification_note: >
+    The original finding is on individual stocks, where one institution's order is large
+    relative to volume. An index future is the AGGREGATE, so idiosyncratic execution
+    schedules should largely cancel — this is the biggest weakness and the first thing to
+    test. 52,000 observations means excellent power, which cuts both ways: you will detect
+    small effects, including small artifacts.
+
+- id: F04
+  name: lbma_auction_flow
+  mechanism: >
+    The LBMA runs electronic gold price auctions twice per business day, at 10:30 and 15:00
+    London time. These set the benchmark prices institutions transact on, and asset
+    managers, funds and financial institutions use those windows to rebalance or to execute
+    transactions that require the official fixing price. The 15:00 auction is the more
+    important because it covers trading in both London and New York, giving commercial
+    participants higher liquidity, and many producers are North American. The counterparty
+    is whoever provides liquidity to a participant who must transact at the benchmark
+    regardless of price. This is the same class of mechanism as F01: scheduled,
+    benchmark-anchored, non-discretionary institutional flow.
+  condition: >
+    For each auction, converted from London local time to ET with DST handling:
+    pre = return over [T - pre_window, T]. Test whether pre predicts [T, T + hold]. Test
+    both continuation and reversion; the mechanism predicts temporary impact reverting once
+    the auction clears. auction in {AM, PM} tested separately, pre_window in {15, 30, 60}
+    min, hold in {30, 60, 120} min.
+  horizon_minutes: [30, 60, 120]
+  registered: 2026-08-28
+  status: untested
+  grade: B+
+  tier: A
+  param_cap: 3
+  session: Europe/US
+  hold_hours: [0.5, 2]
+  test_order: 3
+  symbols: [MGC, MNQ]
+  # THE CONFOUND CONTROL IS MANDATORY AND HAS NO CLEAN FORM. The 15:00 London auction is
+  # 10:00 ET — after US data has landed at 08:30 and while US liquidity peaks — so any
+  # effect could be a US-session effect wearing an auction costume. There are no
+  # non-auction weekdays to compare against, so use a same-clock-time, random-day benchmark
+  # with the signed direction sequence preserved, exactly as S04 required in the crypto work.
+  falsification_note: >
+    COMEX futures and the LBMA auction are different markets linked by arbitrage: the
+    auction is a physical OTC process and MGC is a paper future, so transmission is fast but
+    neither instantaneous nor complete. On sourcing: there is a substantial body of writing
+    claiming systematic suppression via the gold fix, typically citing an AM-higher-than-PM
+    pattern. Do not use it as evidence — the academic treatment is contested and the LBMA's
+    response notes that afternoon liquidity from the London/New York overlap and US data
+    releases account for the pattern without manipulation. Test the mechanism as scheduled
+    institutional flow; if a directional bias exists the data will show it.
+
+- id: F05
+  name: volatility_compression_expansion
+  mechanism: >
+    Volatility clustering is the single most robust empirical regularity in finance:
+    low-volatility periods are followed by expansion with high probability. This forecasts
+    MAGNITUDE, not direction, so there is no counterparty story for the directional half —
+    the trigger is a coin flip and any edge must come from payoff asymmetry rather than hit
+    rate. What is new here is session structure: compression into the cash open or into a
+    scheduled release is a mechanically different setup from compression at a random hour,
+    which is a distinction crypto's 24/7 tape could not express.
+  condition: >
+    If realized_vol(1h) is below the p20 of the trailing 20 sessions AT THE SAME CLOCK TIME,
+    arm the setup; on the first close beyond k*sigma from the compression midpoint, enter
+    that direction and exit at H or 16:55 ET, whichever comes first.
+    vol_pct in {15, 20, 25}, k in {1.5, 2, 2.5}, H in {1, 2, 3} h.
+  horizon_minutes: [60, 120, 180]
+  registered: 2026-08-28
+  status: untested
+  grade: B+
+  tier: A
+  param_cap: 3
+  session: both
+  hold_hours: [1, 3]
+  test_order: 5
+  symbols: [MNQ, MGC]
+  # CARRIED OVER FROM THE CRYPTO CATALOG AS S09, where it was recorded
+  # stage1_inconclusive rather than retired: 7 nominal hits on SOL against 2.7 expected,
+  # NONE surviving Benjamini-Hochberg at FDR 0.05, mechanism uncontradicted, and the drift
+  # explanation tested and REFUTED (signal 49.9% long, drift benchmark +/-0.00 bps). It
+  # failed on power and multiplicity, not on sign or story.
+  #
+  # It is re-registered rather than resumed. The instrument, the cost floor and the session
+  # structure are all different, so this is a new test of the same mechanism — crypto's 110
+  # trials stay in the crypto project's N and do not transfer here.
+  #
+  # WHAT A NULL MEANS. The hypothesis states its own direction is a coin flip. A hit rate
+  # near 50% is EXPECTED and is not evidence against; the mean per-event return carries the
+  # claim, because asymmetry moves the mean while leaving the hit rate at chance. A hit rate
+  # meaningfully ABOVE 50% contradicts the mechanism and indicates a bug.
+  falsification_note: >
+    Same weakness as in crypto: the variance forecast is sound and the direction is close to
+    a coin flip. Verify the win rate is near 50% and that the edge comes from payoff
+    asymmetry.
+
+- id: F06
+  name: cash_open_drive_continuation
+  mechanism: >
+    09:30 ET is a genuine liquidity event and the largest participant-composition change in
+    the day: overnight positioning meets cash liquidity and the imbalance resolves. Gao et
+    al. use the first half-hour precisely because that is where the day's directional
+    information concentrates. The counterparty is whoever holds the overnight position that
+    must be adjusted once real depth arrives. This differs from F01 by trading the NEAR
+    continuation rather than the close.
+  condition: >
+    range = high/low over [09:30, 09:30 + W]. On a close beyond the range boundary, enter
+    that direction and exit at H hours or 15:55 ET. W in {5, 15, 30} min, confirm in
+    {close beyond, 2 closes beyond}, H in {1, 2, 3} h, vol_filter in {none, >median}.
+  horizon_minutes: [60, 120, 180]
+  registered: 2026-08-28
+  status: untested
+  grade: B
+  tier: B
+  param_cap: 4
+  session: US
+  hold_hours: [1, 3]
+  test_order: 6
+  symbols: [MNQ, MGC]
+  falsification_note: >
+    Opening range breakout is possibly the most widely traded retail futures pattern in
+    existence, and any edge has had decades of attention. Treat a POSITIVE result with more
+    suspicion than a negative one — this is the one hypothesis in the catalog where a clean
+    pass is itself weak evidence of a bug.
+
+- id: F07
+  name: gold_session_specific_momentum
+  mechanism: >
+    Gold's intraday structure is not the equity structure. In the intraday momentum
+    literature, for gold the FIFTH half-hour return carries the highest and significantly
+    positive predictive power — not the first, as in equities. If that holds it says gold's
+    information arrival is anchored to a different point in the session, plausibly the
+    London/New York overlap rather than the cash open. The claim under test is that the
+    anchor differs between instruments, which is a cleaner question than testing either
+    alone.
+    NO COUNTERPARTY IS NAMED, AND THAT IS THE POINT. §5 Stage 0 requires a mechanism to say
+    who is paying you; this one cannot yet, because which slot carries the effect is being
+    discovered rather than predicted. It is registered as a SCAN, a deliberately weaker
+    object than a hypothesis: a positive result is a lead that must be re-registered with a
+    real counterparty story before it can be promoted, not a candidate in its own right.
+    Registering it honestly as exploratory is the alternative to inventing a mechanism to
+    fit whichever slot wins.
+  condition: >
+    For MGC, regress the last-half-hour return on each of the first 12 half-hour returns
+    separately and identify which slot predicts, if any. Compare against MNQ's slot
+    structure. slot in {1..12}, hold in {30, 60, 90} min.
+  horizon_minutes: [30, 60, 90]
+  registered: 2026-08-28
+  status: untested
+  grade: B
+  tier: B
+  param_cap: 3
+  session: US
+  hold_hours: [0.5, 1.5]
+  test_order: 8
+  symbols: [MGC, MNQ]
+  is_scan: true
+  # REGISTERED AS A SCAN, WHICH IS A WEAKER OBJECT THAN A HYPOTHESIS. The mechanism ("gold's
+  # session anchor differs from equities") is a real claim, but WHICH slot carries it is
+  # being discovered rather than predicted. All 12 slots are trials and BH applies within
+  # the hypothesis. A result here is a lead for a properly pre-registered hypothesis, not a
+  # candidate for promotion.
+  falsification_note: >
+    Closer to exploratory analysis than a hypothesis, and registered as such. Log all 12
+    slots as trials.
+
+- id: F08
+  name: cross_asset_risk_regime
+  mechanism: >
+    Gold and equities have an unstable but real relationship: risk-off flows bid gold and
+    sell equities, while a rising-real-yield regime pressures both. The relationship inverts
+    by regime, which is precisely why a conditional formulation is more defensible than an
+    unconditional one. The tradeable version is divergence — when MNQ and MGC both move the
+    same direction sharply during a risk-off signal, one of them is wrong, and the
+    counterparty is whoever is on the weaker-conviction side of that move.
+  condition: >
+    If sign(MNQ return over W) equals sign(MGC return over W) and both |r| > k*sigma, fade
+    the weaker-conviction leg (the lower volume-weighted move) and exit at H.
+    W in {30, 60} min, k in {1, 1.5, 2}, H in {1, 2, 3} h.
+  horizon_minutes: [60, 120, 180]
+  registered: 2026-08-28
+  status: untested
+  grade: B-
+  tier: B
+  param_cap: 3
+  session: both
+  hold_hours: [1, 3]
+  test_order: 9
+  symbols: [MNQ, MGC]
+  # PAYS TWO SETS OF COSTS. This is a pairs trade in disguise, so its floor is 1.13 bps
+  # (MNQ 0.48 + MGC 0.65), not 0.48. §4 requires the cost model to charge both legs, and
+  # any reported net figure that uses a single-leg floor is wrong by more than a factor of
+  # two.
+  falsification_note: >
+    The correlation regime IS the whole strategy and it is unstable across the sample, so a
+    regime split is mandatory rather than a robustness check.
+
+- id: F09
+  name: settlement_anchored_flow
+  mechanism: >
+    Daily settlement is the price institutions use for margining, P&L and risk models —
+    15:00 ET for equity index futures and 13:30 ET for COMEX gold. Positions marked against
+    it create flow into the window from anyone whose risk system references it, and
+    practitioner accounts describe a flurry of activity before the window followed by calm
+    after. The counterparty is whoever provides liquidity to a participant who must be
+    positioned by the settlement print regardless of price.
+  condition: >
+    pre = return over [S - pre_window, S - 15min]. Enter at S - 15min and exit at S + hold.
+    Test both continuation and reversion. instrument in {MNQ 15:00, MGC 13:30},
+    pre_window in {30, 60} min, hold in {30, 60, 90} min.
+  horizon_minutes: [30, 60, 90]
+  registered: 2026-08-28
+  status: untested
+  grade: B-
+  tier: B
+  param_cap: 3
+  session: US
+  hold_hours: [0.5, 1.5]
+  test_order: 7
+  symbols: [MNQ, MGC]
+  # NOT INDEPENDENT OF F01. MNQ's 15:00 ET settlement overlaps F01's entry window, so a hit
+  # on one may BE the other. §6 counts them as one family for any cross-hypothesis claim,
+  # and they must be tested jointly before either is treated as confirmed. Scheduling F09
+  # immediately after F01 (test_order 7 against F01's 1) is deliberate so the joint test is
+  # cheap to run while F01's cells are fresh.
+  falsification_note: >
+    The overlap with F01 is the main risk: two hypotheses firing in the same window on the
+    same instrument are one observation dressed as two.
+
+- id: F10
+  name: rsi_mean_reversion_control
+  mechanism: >
+    NOT A HYPOTHESIS. A control that exists to be FAILED by the harness. RSI(14) with 30/70
+    thresholds is the most widely published mean-reversion rule in retail trading; if it
+    carried an edge it would have been arbitraged decades ago. There is no counterparty
+    story, deliberately.
+  condition: >
+    RSI(14) crossing up through 30 goes long, crossing down through 70 goes short, exit
+    after hold. Thresholds and period are FIXED A PRIORI and never swept. hold is the only
+    parameter.
+  horizon_minutes: [30, 60, 120]
+  registered: 2026-08-28
+  status: untested
+  grade: D
+  tier: C
+  param_cap: 1
+  session: US
+  hold_hours: [0.5, 2]
+  test_order: null
+  symbols: [MNQ, MGC]
+  is_control: true
+  # CLEARING STAGE 1 IS A HARNESS BUG, NOT A FINDING. If this separates, HALT: do not
+  # investigate the result, run the §7.2 synthetic-noise test and find what is broken. A
+  # control that passes invalidates every result the harness has produced.
+
+- id: F11
+  name: ma_crossover_control
+  mechanism: >
+    NOT A HYPOTHESIS. The second control. A fast/slow moving-average crossover is the
+    canonical published trend rule and has no counterparty story. Two parameters rather than
+    F10's one, so the pair also gives a crude read on whether the harness's behaviour
+    depends on the size of the grid it is handed.
+  condition: >
+    Long when the fast MA is above the slow MA, short when below, evaluated at bar close.
+    fast and slow fixed a priori at round values; exit at the hold.
+  horizon_minutes: [30, 60, 120]
+  registered: 2026-08-28
+  status: untested
+  grade: D
+  tier: C
+  param_cap: 2
+  session: US
+  hold_hours: [0.5, 2]
+  test_order: null
+  symbols: [MNQ, MGC]
+  is_control: true
+
+- id: F12
+  name: pre_fomc_announcement_drift
+  mechanism: >
+    Lucca & Moench (2015) found the S&P 500 rises an average 49 basis points in the 24 hours
+    before scheduled FOMC announcements, accounting for roughly 80% of annual returns, with
+    a Sharpe of 1.14 for buying at 14:00 the prior day and selling 15 minutes before the
+    announcement, and a similar magnitude in the German DAX. The effect is not explained by
+    the announcement surprise — returns at and after the announcement are approximately zero.
+  condition: >
+    Buy at 14:00 ET the day before a scheduled FOMC announcement, sell 15 minutes before it.
+    NOT IMPLEMENTED — see the exclusion reason.
+  horizon_minutes: [1440]
+  registered: 2026-08-28
+  status: excluded
+  excluded: 2026-08-28
+  excluded_reason: >
+    Two independent reasons, either sufficient. FIRST, EVENT COUNT: eight announcements a
+    year is roughly 128 over the 2010-2026 sample, far below the firing-rate gate. A 49 bps
+    effect cannot be established on 128 observations against index volatility, and a null
+    would be uninterpretable — the test has no power to distinguish "absent" from
+    "undetectable". SECOND, THE PROP CONSTRAINT: a 24-hour hold from 14:00 the prior day
+    necessarily crosses the 17:00 ET hard exit, so the strategy as published cannot be
+    executed on this account at all. A truncated version is a different hypothesis and
+    needs its own registration and validation.
+  grade: A
+  tier: excluded
+  param_cap: 0
+  session: US
+  hold_hours: [24]
+  test_order: null
+  symbols: [MNQ]
+  # KEEP THIS ENTRY. It is this catalog's version of the crypto project's CME gap: a large,
+  # famous, well-documented effect that the pipeline cannot evaluate. Excluding it on
+  # MEASURED grounds before a single trial is spent is the gate doing its job, and recording
+  # it is what stops it being rediscovered and re-argued later.
+  #
+  # The literature is also split on whether the effect still exists — one line of work finds
+  # it essentially disappeared after 2015 in both press-conference and non-press-conference
+  # announcements, attributing it to reduced uncertainty; other commentary argues it
+  # persists. That question is unresolved AND unresolvable on this sample, which is a
+  # second-order reason rather than the reason.
+  #
+  # THE SAME EXCLUSION APPLIES TO CPI, NFP AND EVERY OTHER SCHEDULED RELEASE: ~200
+  # observations maximum over the sample, below the gate. Do not register them individually.
+
+- id: F13
+  name: unconditional_overnight_drift
+  mechanism: >
+    Boyarchenko, Larsen & Whelan (RFS 2023) documented that almost the entire US equity
+    premium accrued in the 02:00-03:00 ET window when European equity markets open — 3.6%
+    annualized over 1998-2019, and more than 60% of the contract's 5.9% annualized
+    close-to-close return.
+  condition: >
+    Buy at 02:00 ET, sell at 03:00 ET, unconditionally. NOT IMPLEMENTED — see the exclusion
+    reason.
+  horizon_minutes: [60]
+  registered: 2026-08-28
+  status: excluded
+  excluded: 2026-08-28
+  excluded_reason: >
+    Measured as decayed by its own authors. "The Disappearing Overnight Drift" (July 2026)
+    reports that the 02:00-03:00 ET window has averaged close to zero since 2021. Testing
+    the unconditional version would spend trials confirming a published null on a sample
+    where more than half the history predates the decay, and an aggregate across the break
+    would be uninterpretable in either direction. The CONDITIONAL version is registered
+    separately as F02, which is the tradeable form and carries a mandatory regime split.
+  grade: A
+  tier: excluded
+  param_cap: 0
+  session: Europe
+  hold_hours: [1]
+  test_order: null
+  symbols: [MNQ]
+  # RECORDED SO IT IS NOT REDISCOVERED. An entry that says "this was checked and it decayed"
+  # is worth more than an absent entry, because the absent entry gets re-proposed the next
+  # time someone reads the 2023 paper without the 2026 follow-up.

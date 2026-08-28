@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "futuresres"
+version = "0.1.0"
+description = "MNQ/MGC intraday futures research pipeline — process for distinguishing edge from noise"
+requires-python = ">=3.11"
+dependencies = [
+    "polars>=1.0",
+    "duckdb>=1.0",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "statsmodels>=0.14",
+    "pyarrow>=15.0",
+    "matplotlib>=3.8",
+    "pyyaml>=6.0",
+    # session mapping is load-bearing here in a way it was not for 24/7 crypto: every
+    # session-anchored hypothesis depends on it, and tzdata is what makes zoneinfo work
+    # on Windows, where the OS ships no IANA database.
+    "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integrity: load-bearing correctness tests — must pass before any result is believed",
+    "slow: long-running (bootstraps, CSCV, synthetic-noise sweeps)",
+]
+addopts = "-ra --strict-markers"
