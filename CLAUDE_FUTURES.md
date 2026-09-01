@@ -176,6 +176,41 @@ decides what a "return" means.
 - Canonical bar schema:
   `ts_event, symbol, contract, open, high, low, close, volume, trades`
 
+
+### STANDING CAVEAT: MGC trades only ~71% of RTH minutes
+
+Measured 2026-09-01 while running F03, on the front-month continuous series reindexed to
+the 390-minute RTH session:
+
+| instrument | RTH minutes actually traded |
+|---|---|
+| MNQ (spliced NQ+MNQ) | **98.31%** |
+| **MGC** | **70.85%** |
+
+**This applies to every MGC result, not to one hypothesis.** Nearly three minutes in ten
+inside US cash hours have no trade, so any analysis on a fixed minute grid is carrying the
+last price forward across them.
+
+Two consequences, and the second is the one that matters:
+
+1. **A carried price is a stale price.** Any condition keyed to a specific minute — a slot
+   open, a session anchor, a settlement window — may be reading a quote from several minutes
+   earlier, so the return attributed to that minute partly belongs to an earlier one.
+2. **Forward-filling inserts zero returns, which thins measured volatility.** A thinner
+   denominator inflates every t-like quantity built on it. The direction of the bias is
+   toward APPARENT SIGNIFICANCE, which means an MGC **null is weaker evidence than the same
+   null on MNQ**, while an MGC **positive is weaker evidence still**.
+
+**How to treat it.** An MGC result that agrees with MNQ is fine. An MGC result that stands
+alone — positive or null — carries a discount, and the report must say so rather than
+present the two instruments as equals. Where a hypothesis is retired on the strength of
+both, state which instrument actually carried the verdict; for F03 it was MNQ at 98%
+coverage, and MGC alone would not have been enough.
+
+This is not a data fault. `ohlcv-1m` emits no bar for a minute with no trade (§3, checks 5
+and 6), and MGC is simply a thinner book than MNQ. It is a property of the instrument that
+every MGC analysis inherits.
+
 ### Validation (run before any research; fail loudly)
 
 1. **Gap check** — enumerate expected 1m timestamps *within each session*, report every

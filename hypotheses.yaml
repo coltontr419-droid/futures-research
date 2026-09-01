@@ -148,13 +148,79 @@
     N in {10, 20, 40} days, threshold in {0.5, 1.0, 1.5} x slot sigma, all 13 RTH slots.
   horizon_minutes: [30]
   registered: 2026-08-28
-  status: untested
+  # RETIRED 2026-09-01 after Stage 1 on both instruments — reports/f03_stage1.md.
+  # 234 cells: 13 RTH slots x 3 lookbacks x 3 thresholds, MNQ and MGC, all scored.
+  #
+  # THE MECHANISM IS REFUTED, NOT UNDERPOWERED. That distinction is the whole reason
+  # this is `retired` and not `stage1_inconclusive`. F03 was one of the few hypotheses
+  # reports/detectability.md CLEARED on both instruments — it fires 13 times a session
+  # and reached 150,355 events on MNQ against a floor that resolves at 2.57 bps. It had
+  # the power. It found nothing.
+  #
+  #   MNQ   8 nominal separations against 5.9 expected by chance; 0 survive BH at
+  #         FDR 0.05 (smallest p 0.0066 against a rank-1 threshold of 0.000427)
+  #   MGC   0 nominal separations against 5.9 expected; smallest p 0.0707
+  #
+  # AND THE EIGHT ARE NOT EIGHT. All eight are NEGATIVE — significant losses, not
+  # gains — and SEVEN of them are the same 09:30-10:00 slot under near-duplicate
+  # (N, threshold) combinations. That is one slot counted seven times. A hypothesis
+  # whose only signal is one slot losing money is not a weak version of the claim; it
+  # is the absence of the claim.
+  #
+  # THE AGGREGATE IS NEGATIVE BEFORE COSTS. MNQ -0.46 bps GROSS across all 117 cells;
+  # MGC +0.03 bps, indistinguishable from zero. Net of the cost floor: -0.94 and -0.62.
+  #
+  # EVEN THE CHERRY-PICKED CELL FAILS. Best-of-117 is +1.60 bps on MNQ and +1.73 on
+  # MGC, against measured detection floors of 2.57 and 4.17 (reports/calibration.md).
+  # The best cell anyone could select sits BELOW the level at which a result would
+  # carry information, so there is nothing here to pursue at any parameter setting.
+  #
+  # THE CATALOG PREDICTED THIS EXACT FAILURE MODE and named it the biggest weakness:
+  # "the original finding is on individual stocks, where one institution's order is
+  # large relative to volume. An index future is the AGGREGATE, so idiosyncratic
+  # execution schedules should largely cancel. This is the biggest weakness and the
+  # first thing to test." It was tested first, and they cancelled. A pre-registered
+  # failure mode arriving as predicted is the strongest form this evidence takes.
+  #
+  # THRESHOLD READING, decided by measurement (reports/f03_stage1.md). The condition
+  # writes the threshold as "x slot sigma" while also demanding a significant trailing
+  # t-stat. Read literally that compares a mean of N days against a ONE-DAY sigma —
+  # 9.5 standard errors at N=40, thr=1.5 — and fires a median of 40 times across 13
+  # slots and ~3,500 sessions, which is not testable. The t-stat reading fires
+  # 5,756-29,465 and makes the two clauses one. The t-stat reading was used; the
+  # literal one remains available behind --literal.
+  #
+  # MGC CAVEAT APPLIES HERE TOO: 70.85% RTH coverage, so its null is weaker evidence
+  # than MNQ's. See the standing caveat in CLAUDE_FUTURES.md section 3. It does not
+  # change the verdict — MNQ carries it at 98.31% coverage — but MGC alone would not.
+  #
+  # All 234 cells stay in N.
+  status: retired
+  retired: 2026-09-01
+  retired_reason: >
+    The mechanism is refuted, not underpowered. F03 had the power —
+    detectability cleared it on both instruments and it reached 150,355
+    events on MNQ — and found nothing. 8 nominal hits against 5.9
+    expected on MNQ, none surviving Benjamini-Hochberg, ALL NEGATIVE,
+    and seven of the eight are the same 09:30-10:00 slot under
+    near-duplicate parameter combinations. The aggregate is negative on
+    MNQ before costs (-0.46 bps gross) and +0.03 bps on MGC. Even the
+    best-of-117 cell sits below the measured detection floor on both
+    instruments (+1.60 vs 2.57 on MNQ, +1.73 vs 4.17 on MGC), so no
+    parameter setting could have carried information. The catalog
+    predicted this failure mode and named it the biggest weakness: an
+    index future is the aggregate, so idiosyncratic execution schedules
+    cancel. They cancelled.
   grade: A-
   tier: A
   param_cap: 3
   session: US
   hold_hours: [0.5]
-  test_order: 2
+  # Retired; nothing should schedule it. The registration priority is
+  # preserved rather than renumbered away — the order records what was
+  # planned, and rewriting it would erase that F03 ran second.
+  registered_test_order: 2
+  test_order: null
   symbols: [MNQ, MGC]
   # BH WITHIN THE HYPOTHESIS ACROSS 13 SLOTS is required by the condition itself, not just
   # by §6. A scan over 13 slots at alpha=0.05 produces 0.65 hits by chance before any

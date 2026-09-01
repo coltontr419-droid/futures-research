@@ -185,6 +185,30 @@ that it would is in the report rather than merely asserted.
 
 ---
 
+## 11. MGC's 70.85% RTH coverage is a standing caveat, not an F03 footnote
+
+Measured while running F03: MGC trades **70.85%** of RTH minutes against MNQ's **98.31%**.
+Analyses on a fixed minute grid must forward-fill the rest.
+
+**Decided:** record it in `CLAUDE_FUTURES.md` §3 as a property of the instrument that every
+MGC result inherits, rather than as a note on the one hypothesis that surfaced it. Filing it
+under F03 would mean rediscovering it at F04, F05 and F07.
+
+**Why it biases toward significance.** Forward-filling inserts zero returns, thinning
+measured volatility; a thinner denominator inflates every t-like quantity built on it. So an
+MGC null is weaker evidence than the same null on MNQ, and an MGC positive weaker still.
+
+**Consequence adopted:** an MGC result that agrees with MNQ stands; an MGC result that
+stands alone carries an explicit discount. Where a verdict rests on both instruments, the
+report names which one carried it — for F03, MNQ at 98% coverage did, and MGC alone would
+not have sufficed.
+
+**Not decided:** whether to restrict MGC analysis to a liquid sub-era or to an event-time
+rather than clock-time grid. Both would change what is being tested and neither is needed
+until an MGC-only result actually matters.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -197,4 +221,6 @@ that it would is in the report rather than merely asserted.
 - **Spread is still an estimate, not a measurement.** §4 carries 0.10 bps for MNQ and 0.12
   for MGC as estimates. At 60m and 180m the detection floor is 5–33× the whole cost floor,
   so spread barely matters there; at 1m it is the dominant term.
-- **No Stage 1 has been run on any hypothesis**, as instructed.
+- **F03 is the only hypothesis Stage 1 has been run on.** Retired 2026-09-01: the
+  mechanism is refuted, not underpowered — it had the events and found nothing, and
+  the catalog predicted the exact failure mode. See `reports/f03_stage1.md`.

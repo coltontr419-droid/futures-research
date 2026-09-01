@@ -160,11 +160,44 @@ def test_only_untested_non_control_entries_have_a_test_order() -> None:
 
 
 @pytest.mark.integrity
-def test_test_order_is_a_permutation_with_no_ties() -> None:
-    orders = [e["test_order"] for e in REG.values() if e.get("test_order") is not None]
-    assert sorted(orders) == list(range(1, len(orders) + 1)), (
-        f"test_order must be 1..n with no gaps or ties, got {sorted(orders)}"
+def test_test_order_has_no_ties_and_every_gap_is_explained() -> None:
+    """Unique orders, and any gap must be a hypothesis that has since been resolved.
+
+    The original rule demanded a contiguous 1..n permutation. Retiring an entry breaks that
+    — F03 was order 2, and removing it leaves 1, 3, 4, ... The wrong fix is to renumber the
+    survivors, because `test_order` records the priority set at REGISTRATION and rewriting
+    it would erase that F03 was scheduled second and run second.
+
+    So a resolved entry keeps its `registered_test_order` while its live `test_order` goes
+    null, and a gap is legitimate exactly when some resolved entry claims it. A gap nobody
+    claims is still a registration error and still fails.
+    """
+    live = [e["test_order"] for e in REG.values() if e.get("test_order") is not None]
+    assert len(live) == len(set(live)), f"duplicate test_order: {sorted(live)}"
+    assert all(o >= 1 for o in live), f"test_order must be >= 1, got {sorted(live)}"
+
+    retired_orders = {e["registered_test_order"] for e in REG.values()
+                      if e.get("registered_test_order") is not None}
+    claimed = set(live) | retired_orders
+    assert claimed == set(range(1, max(claimed) + 1)), (
+        f"unexplained gap in test_order: live {sorted(live)}, "
+        f"retired {sorted(retired_orders)}"
     )
+
+
+@pytest.mark.integrity
+def test_a_resolved_entry_that_had_an_order_records_it() -> None:
+    """A hypothesis that was scheduled and then resolved must say where it sat.
+
+    Without this, retiring an entry silently deletes the fact that it was ever prioritised,
+    and the gap-explaining check above would have nothing to check against.
+    """
+    for hid, entry in REG.items():
+        if entry["status"] == "retired":
+            assert entry.get("registered_test_order") is not None, (
+                f"{hid} is retired but does not record the test_order it was registered "
+                f"with; the scheduling history is lost"
+            )
 
 
 @pytest.mark.integrity
