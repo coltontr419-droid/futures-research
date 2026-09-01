@@ -252,13 +252,94 @@
     min, hold in {30, 60, 120} min.
   horizon_minutes: [30, 60, 120]
   registered: 2026-08-28
-  status: untested
+  # RETIRED 2026-09-01 after Stage 1 on both instruments — reports/f04_stage1.md.
+  # 36 cells: 2 auctions x 3 pre-windows x 3 holds, MGC and MNQ.
+  #
+  # NO CELL SURVIVES BENJAMINI-HOCHBERG ON EITHER INSTRUMENT.
+  #   MGC  2 nominal separations against 0.9 expected; 0 survive BH at FDR 0.05
+  #        (smallest p 0.0341 against a rank-1 threshold of 0.002778)
+  #   MNQ  0 nominal separations against 0.3 expected, across its 6 informative cells
+  #
+  # AND THE BEST CELL IS NOWHERE NEAR THE FLOOR. Best of 18 MGC cells is +1.25 bps,
+  # which is 0.30x the measured detection floor at that hold. Cherry-picked from
+  # eighteen, it lands a THIRD of the way to informative. Across the three holds the
+  # best cells sit at 0.17x, 0.30x and 0.09x of their floors. The aggregate is
+  # +0.47 bps gross and -0.18 net of the 0.65 bps cost floor.
+  #
+  # THE 12 MNQ CELLS AT 30m AND 60m ARE UNINFORMATIVE, NOT EVIDENCE. The condition
+  # fires twice a business day and reaches ~8,250 events against the 19,722 at which a
+  # floor first resolves for MNQ at that horizon (reports/detectability.md). They are
+  # reported for completeness and excluded from the verdict: a null there is the
+  # absence of evidence, not evidence of absence. Only MNQ's six 120-minute cells
+  # count, and they separate on nothing.
+  #
+  # THE VERDICT RESTS ON MGC, AT 70.47% FILL COVERAGE. That is correct on the
+  # mechanism — the LBMA fixes gold, not the Nasdaq, and MNQ functions here as a
+  # confound control rather than a second test of the claim. But under the standing
+  # caveat (CLAUDE_FUTURES.md section 3) forward-filling inserts zero returns, thins
+  # measured volatility and biases toward APPARENT SIGNIFICANCE, so an MGC null is the
+  # weaker kind of null. The deciding instrument is the qualified one.
+  #
+  # THE GAP IS FAR OUTSIDE WHAT A FILL ARTEFACT COULD PRODUCE. The effect sits 3x to
+  # 11x below its floor. A coverage artefact biases toward finding MORE, not less, and
+  # nothing about carrying 30% of minutes forward moves an effect an order of magnitude
+  # in the direction of nothing. The caveat qualifies the strength of this null; it
+  # does not threaten its direction.
+  #
+  # THIS IS A WEAKER RETIREMENT THAN F03's, and the difference should not be flattened.
+  #
+  #                        F03                         F04
+  #   events          150,355 on MNQ              3,880 on MGC
+  #   deciding        MNQ at 98.31% coverage      MGC at 70.47% coverage
+  #   pre-registered  yes — the catalog named     no — the catalog's stated worry
+  #   failure mode    aggregation as the          was the 10:00 ET confound, which
+  #                   biggest weakness            was never reached
+  #
+  # F03 was refuted: it had 150,000 events on a 98%-covered instrument and the catalog
+  # predicted the exact failure mode that arrived. F04 is retired on a smaller sample,
+  # on the instrument that carries the coverage qualifier, without reaching the
+  # confound control that would have been the real test had anything separated. It is
+  # a sound retirement, not an equally strong one.
+  #
+  # THE DST CONVERSION WAS LOAD-BEARING. The auctions are 10:30 and 15:00 LONDON:
+  # 05:30 and 10:00 ET in normal weeks, 06:30 and 11:00 during the divergence weeks. A
+  # fixed ET offset would have placed every auction an hour wrong for ~8% of
+  # observations, in a hypothesis whose whole content is one specific minute.
+  #
+  # NO CONFOUND CONTROL WAS RUN. The catalog requires a same-clock-time random-day
+  # benchmark for the PM auction's collision with 10:00 ET US liquidity, but only for a
+  # cell that separates. None survived BH, so running it would have characterised noise.
+  # If this hypothesis is ever revived, that control is the first thing owed.
+  #
+  # DIRECTION: reversion, as the mechanism predicts. Continuation is its exact sign
+  # flip — same p-value, negated mean — so both readings are covered by one grid.
+  #
+  # All 36 cells stay in N.
+  status: retired
+  retired: 2026-09-01
+  retired_reason: >
+    No cell survives Benjamini-Hochberg on either instrument, and the
+    best of 18 MGC cells reaches 0.30x the measured detection floor —
+    cherry-picked from eighteen, it lands a third of the way to
+    informative. The 12 MNQ cells at 30m and 60m are recorded as
+    UNINFORMATIVE rather than as evidence: ~8,250 events against the
+    19,722 at which a floor resolves. The verdict rests on MGC at
+    70.47% fill coverage, which under the standing caveat is the
+    weaker kind of null — but the 3x to 11x gap to the floor is far
+    outside what a fill artefact could produce, and coverage bias runs
+    toward finding more rather than less. This is a WEAKER RETIREMENT
+    than F03's: fewer events, the deciding instrument carries the
+    coverage qualifier, and the catalog's own stated worry — the
+    10:00 ET confound — was never reached because nothing separated.
   grade: B+
   tier: A
   param_cap: 3
   session: Europe/US
   hold_hours: [0.5, 2]
-  test_order: 3
+  # Retired; nothing should schedule it. Registration priority preserved
+  # rather than renumbered away — see the note on F03.
+  registered_test_order: 3
+  test_order: null
   symbols: [MGC, MNQ]
   # THE CONFOUND CONTROL IS MANDATORY AND HAS NO CLEAN FORM. The 15:00 London auction is
   # 10:00 ET — after US data has landed at 08:30 and while US liquidity peaks — so any

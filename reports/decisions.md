@@ -209,6 +209,45 @@ until an MGC-only result actually matters.
 
 ---
 
+## 12. Retirements are graded, and the grade is recorded
+
+`retired` is one status but it does not carry one strength of evidence, and collapsing that
+would make the catalog read as more settled than it is.
+
+| | F03 | F04 |
+|---|---|---|
+| events on the deciding instrument | **150,355** | **3,880** |
+| deciding instrument | MNQ, **98.31%** coverage | MGC, **70.47%** coverage |
+| best cell vs detection floor | below on both | **0.30×** |
+| pre-registered failure mode | **yes** — the catalog named aggregation as the biggest weakness, and it arrived | no — the catalog's stated worry was the 10:00 ET confound, never reached |
+| confound control run | n/a | **no** — nothing separated, so it would have characterised noise |
+
+**F03 was refuted.** It had 150,000 events on a 98%-covered instrument, detectability had
+cleared it, and the catalog predicted the exact failure mode that then occurred. That is the
+strongest form this evidence takes.
+
+**F04 is soundly retired but not equally so.** Smaller sample, and the instrument that
+carries the verdict is the one carrying the coverage qualifier — under §11 an MGC null is
+the weaker kind. The 3–11× gap to the floor is far outside what a fill artefact could
+produce, and coverage bias runs toward finding *more* rather than less, so the direction is
+not in doubt. The strength is simply lower.
+
+**Decided:** every retirement records what carried it — the deciding instrument, its
+coverage, the sample size, the margin to the detection floor, and whether the failure mode
+was pre-registered. Where a retirement is weaker than an earlier one, the entry says so
+explicitly and names the comparison, as F04's does against F03's.
+
+**Why this matters later.** A catalog of nine retirements looks like nine equal facts. If
+one of them is ever revisited — because spread gets measured, or more data arrives, or a
+condition is restated — the question is which retirements were thin. That has to be legible
+from the registry, not reconstructed from git history.
+
+**Owed if F04 is revived:** the same-clock-time random-day confound control for the PM
+auction's collision with 10:00 ET US liquidity. The catalog requires it and it was never
+reached.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -221,6 +260,9 @@ until an MGC-only result actually matters.
 - **Spread is still an estimate, not a measurement.** §4 carries 0.10 bps for MNQ and 0.12
   for MGC as estimates. At 60m and 180m the detection floor is 5–33× the whole cost floor,
   so spread barely matters there; at 1m it is the dominant term.
-- **F03 is the only hypothesis Stage 1 has been run on.** Retired 2026-09-01: the
-  mechanism is refuted, not underpowered — it had the events and found nothing, and
-  the catalog predicted the exact failure mode. See `reports/f03_stage1.md`.
+- **Two hypotheses have been through Stage 1, both retired.** F03 (refuted: 150,355
+  events, found nothing, pre-registered failure mode arrived) and F04 (sound but
+  weaker: 3,880 events on the coverage-qualified instrument, best cell at 0.30x its
+  floor). See §12 for the grading and `reports/f03_stage1.md`, `reports/f04_stage1.md`.
+- **F04's confound control is owed if it is ever revived** — the same-clock-time
+  random-day benchmark for the PM auction against 10:00 ET US liquidity.
