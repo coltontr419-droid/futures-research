@@ -145,11 +145,56 @@ on futures moments.
 
 ---
 
-## 8. Still outstanding, and blocking
+## 8. The calibration seeding was unreproducible, and had to be redone
 
-- **The Stage 1 bootstrap α calibration is still crypto's.** CLAUDE_FUTURES.md §4 flags it;
-  build-order step 8 is where it gets re-measured. Nothing quotes a Stage 1 p-value until
-  then.
-- **The detection floor is still crypto's 0.1592× one-minute volatility.** The §7 run here
-  establishes the harness works on futures-shaped noise; it does not establish a floor.
+`cell_seed` originally used `abs(hash((seed, product, horizon, nb)))`. Python randomises
+string hashing per process, so the same key gave **1,576,282,033 in one interpreter and
+976,449,620 in the next** — the calibration could not be reproduced from its own recorded
+seed, which §10 requires ("seed all RNG; log seeds").
+
+**Decided:** SHA-256 of the joined key, verified stable across processes; and the first
+floor sweep, which had already completed under the unstable seeding, was **discarded and
+re-run** rather than kept. Its numbers were measured but not re-derivable, and in a project
+whose entire premise is that results can be checked, that is not a number worth keeping.
+
+**Also added:** per-cell checkpointing to both parts. Five session teardowns have killed a
+long run in this project; each cell now writes and flushes its own line, so an interruption
+costs the cell in flight rather than the run. Checkpointing is only *sound* because the
+seeding was fixed first — resuming with process-dependent seeds would silently stitch
+together cells drawn from different random streams.
+
+The crypto project had both of these and I did not carry them over at the start.
+
+---
+
+## 9. The α calibration is one number, not six
+
+The measurement was run per product and per horizon precisely because MNQ (γ₄ = 115) and
+MGC (γ₄ = 226) differ so much at one minute. **They do not separate.** The spread between
+cells at a given block count is 0.8–1.5 points against ±0.96 Monte Carlo error, and the
+horizons do not separate either.
+
+**Decided:** one calibration, and only two regimes within it — the per-block values above
+100 blocks were 0.0409 / 0.0411 / 0.0402 / 0.0413, a 0.0011 range against ±0.0039 error on
+each. Carrying five anchors would encode that wobble as structure and make the table
+non-monotone in a quantity with no reason to be. The 24 cells at ≥100 blocks are pooled
+into one number (48,000 reps, ±0.19).
+
+**Rejected:** per-product calibration. It would have been fitting noise, and the evidence
+that it would is in the report rather than merely asserted.
+
+---
+
+## 10. Still outstanding, and blocking
+
+- ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
+  measured at 0.0345 below 100 blocks and 0.0409 above, applied in `signals/stage1.py`.
+- ~~The detection floor is still crypto's 0.1592×.~~ **RESOLVED 2026-08-29** — measured per
+  product and horizon; see `reports/calibration.md`.
+- **20 of 60 (hypothesis, instrument, horizon) combinations cannot support a null**, all
+  limited by event rate rather than data. See `reports/detectability.md`. F01 — the
+  catalog's top-ranked hypothesis — is blocked at both its stated holds.
+- **Spread is still an estimate, not a measurement.** §4 carries 0.10 bps for MNQ and 0.12
+  for MGC as estimates. At 60m and 180m the detection floor is 5–33× the whole cost floor,
+  so spread barely matters there; at 1m it is the dominant term.
 - **No Stage 1 has been run on any hypothesis**, as instructed.

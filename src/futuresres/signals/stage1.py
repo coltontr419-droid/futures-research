@@ -89,36 +89,60 @@ def forward_returns(returns: np.ndarray, horizon: int) -> np.ndarray:
 #: Above ~500 the shortfall is inside one Monte Carlo standard error, so 0.05 is used
 #: directly rather than chasing noise.
 #: ==========================================================================================
-#: CARRIED OVER FROM CRYPTO AND NOT YET VALID HERE. CLAUDE_FUTURES.md §4, build step 8.
+#: MEASURED ON FUTURES, 2026-08-29. reports/calibration.md.
 #:
-#: These nominal alphas were fitted by resampling REAL BTCUSDT 1m RETURNS so that a
-#: percentile interval actually covers 95% on that tail. BTC's measured kurtosis is 199.9
-#: at 1m; index futures run an order of magnitude lower. A thinner tail needs a different
-#: nominal alpha, and the direction of the error is NOT known in advance — a calibration
-#: fitted to a fatter tail can over- or under-cover on a thinner one depending on where the
-#: block count lands.
+#: Nominal alpha that makes the percentile interval actually cover 95%, indexed by BLOCK
+#: COUNT. Measured on the signed shift this module computes, block-bootstrapped with these
+#: same 240-bar blocks, on contiguous windows of REAL MNQ and MGC returns — so the tail and
+#: the serial dependence are the market's own, not a model's. 12,000 replications per block
+#: count, pooled across MNQ and MGC at 1m, 60m and 180m.
 #:
-#: RE-MEASURE ON MNQ AND MGC BEFORE QUOTING ANY STAGE 1 RESULT. Do not reason about which
-#: way it moves; the crypto project's central lesson is that assumed statistical properties
-#: get falsified by measurement.
+#:     blocks   coverage at 0.05   alpha* for true 95%     crypto's alpha*
+#:        50         93.23%              0.0345                 0.0312
+#:       100         94.00%              0.0409                 0.0359
+#:       250         94.25%              0.0411                 0.0400
+#:       500         93.89%              0.0402                 0.0500
+#:      1000         94.14%              0.0413                  —
+#:
+#: TWO THINGS THIS OVERTURNS.
+#:
+#: 1. CRYPTO'S PLATEAU DOES NOT EXIST HERE. There, alpha* rose to 0.05 by 500 blocks and
+#:    nominal 0.05 was treated as correct above it. On futures alpha* is FLAT at ~0.041
+#:    from 100 blocks up and coverage never reaches 95% — it plateaus near 94%. Inheriting
+#:    the crypto table would have used 0.05 where 0.041 is needed, i.e. run Stage 1 about
+#:    20% too permissive at exactly the sample sizes most runs will sit at.
+#:
+#: 2. THE PER-PRODUCT SPLIT WAS NOT NEEDED, and that was worth measuring rather than
+#:    assuming. MNQ at kurtosis 115 and MGC at 226 produce coverage that cannot be told
+#:    apart: the spread between cells at a given block count is 0.8-1.5 points against a
+#:    Monte Carlo error of +/-0.96. One calibration is what the data supports; six would be
+#:    fitting noise.
 #: ==========================================================================================
+#: TWO REGIMES, NOT FIVE ANCHORS. The per-block-count values above are flat within noise
+#: from 100 up — 0.0409, 0.0411, 0.0402, 0.0413, a range of 0.0011 against a Monte Carlo
+#: error of +/-0.0039 on each. Carrying all five would encode that wobble as structure, and
+#: the dip at 500 would make the table non-monotone in a quantity that has no reason to be.
+#:
+#: So the cells at and above 100 blocks are POOLED — 24 cells, 48,000 replications, +/-0.19
+#: points — and the calibration is two numbers:
+#:
+#:      50 blocks      alpha* = 0.0345   (12,000 reps, +/-0.39 pts)
+#:     >=100 blocks    alpha* = 0.0409   (48,000 reps, +/-0.19 pts)
 COVERAGE_CALIBRATION: Final[tuple[tuple[int, float], ...]] = (
-    (50, 0.0312),
-    (100, 0.0359),
-    (250, 0.0400),
-    (500, 0.0500),
+    (50, 0.0345),
+    (100, 0.0409),
 )
 
 #: Below this the calibration is EXTRAPOLATED, not measured.
 CALIBRATION_MIN_N: Final[int] = 50
-#: At and above this, nominal 0.05 is already correct.
-CALIBRATION_PLATEAU_N: Final[int] = 500
+#: At and above this alpha* is flat — at ~0.041, NOT at the nominal 0.05.
+CALIBRATION_PLATEAU_N: Final[int] = 100
 
 
 def calibrated_alpha(n_effective: int) -> float:
     """Nominal α giving true 95% coverage at `n_effective` independent observations.
 
-    Log-linear interpolation between the measured anchors, flat at 0.05 from 500 up.
+    Log-linear interpolation between the two measured anchors, flat at 0.0409 from 100 up.
     `n_effective` is the number of INDEPENDENT units the bootstrap resamples — event
     count for an event hypothesis, block count for the block bootstrap over bars. Passing
     a bar count where blocks are meant would overstate the sample by the block length and

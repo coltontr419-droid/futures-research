@@ -36,6 +36,7 @@ from futuresres.integrity.synthetic import (
 )
 from futuresres.signals.search import _rolling_mean, crossover_signals, run_pipeline
 from futuresres.signals.stage1 import (
+    COVERAGE_CALIBRATION,
     bca_interval,
     calibrated_alpha,
     evaluate_signal,
@@ -130,11 +131,31 @@ def test_rotation_null_includes_the_observed_statistic_at_lag_zero():
 
 
 def test_calibrated_alpha_matches_the_measured_anchors():
-    """The anchors are measurements, not tuning knobs — changing one needs a new run."""
-    assert calibrated_alpha(50) == pytest.approx(0.0312)
-    assert calibrated_alpha(100) == pytest.approx(0.0359)
-    assert calibrated_alpha(250) == pytest.approx(0.0400)
-    assert calibrated_alpha(500) == pytest.approx(0.0500)
+    """The anchors are measurements, not tuning knobs — changing one needs a new run.
+
+    These are the FUTURES values (reports/calibration.md, 2026-08-29), measured on real MNQ
+    and MGC returns with 12,000 replications per block count. They replaced the inherited
+    crypto anchors (0.0312 / 0.0359 / 0.0400 / 0.0500), which differed most where it mattered
+    most: crypto reached 0.05 by 500 blocks, futures stay at ~0.041 indefinitely.
+    """
+    assert calibrated_alpha(50) == pytest.approx(0.0345)
+    assert calibrated_alpha(100) == pytest.approx(0.0409)
+    # Flat above 100: the per-block-count values there were 0.0409/0.0411/0.0402/0.0413,
+    # a 0.0011 range against +/-0.0039 error on each, so they are pooled into one number.
+    for n in (250, 500, 1000, 50_000):
+        assert calibrated_alpha(n) == pytest.approx(0.0409)
+
+
+def test_alpha_never_reaches_the_nominal_five_percent():
+    """Crypto's plateau does not exist here, and that is the operative difference.
+
+    There, α* rose to 0.05 by 500 blocks and nominal 0.05 was correct above it. On futures
+    coverage plateaus near 94%, so a correction applies at EVERY block count. A regression
+    that reintroduced the 0.05 plateau would make Stage 1 about 20% too permissive at the
+    sample sizes most runs sit at, which is the direction that manufactures false positives.
+    """
+    assert max(a for _, a in COVERAGE_CALIBRATION) < 0.045
+    assert calibrated_alpha(100_000) < 0.045
 
 
 def test_calibrated_alpha_is_monotone_and_never_looser_than_nominal():
@@ -148,9 +169,17 @@ def test_calibrated_alpha_is_monotone_and_never_looser_than_nominal():
     assert all(b >= a - 1e-12 for a, b in zip(values, values[1:]))
 
 
-def test_calibrated_alpha_is_flat_at_nominal_above_the_plateau():
+def test_calibrated_alpha_is_flat_above_the_plateau_but_never_at_nominal():
+    """Futures plateau at 0.0409, NOT at the nominal 0.05 — the operative difference.
+
+    Crypto's α* rose to 0.05 by 500 blocks, so above that no correction applied. On futures
+    coverage plateaus near 94% and a correction applies at every block count. Reintroducing
+    the 0.05 plateau would run Stage 1 roughly 20% too permissive at the sample sizes most
+    runs sit at, which is the direction that manufactures false positives.
+    """
     for n in (500, 1000, 20_000, 3_494_880):
-        assert calibrated_alpha(n) == pytest.approx(0.05)
+        assert calibrated_alpha(n) == pytest.approx(0.0409)
+        assert calibrated_alpha(n) < 0.05
 
 
 def test_calibrated_alpha_clamps_below_the_measured_range():
@@ -160,9 +189,9 @@ def test_calibrated_alpha_clamps_below_the_measured_range():
 
 
 def test_calibrated_alpha_interpolates_between_anchors():
-    mid = calibrated_alpha(158)          # geometric midpoint of 100 and 250
-    assert 0.0359 < mid < 0.0400
-    assert mid == pytest.approx(0.5 * (0.0359 + 0.0400), abs=0.002)
+    mid = calibrated_alpha(71)           # geometric midpoint of 50 and 100
+    assert 0.0345 < mid < 0.0409
+    assert mid == pytest.approx(0.5 * (0.0345 + 0.0409), abs=0.002)
 
 
 @pytest.mark.slow
