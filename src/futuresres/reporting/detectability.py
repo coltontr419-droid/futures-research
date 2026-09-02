@@ -64,15 +64,46 @@ SIGMA_BPS: Final[dict[tuple[str, int], float]] = {
 }
 COST_BPS: Final[dict[str, float]] = {"MNQ": 0.48, "MGC": 0.65}
 
-#: Firing rate per SESSION, read from each hypothesis's own condition. A hypothesis whose
-#: condition is not a countable per-session event is None and falls back to the data ceiling.
+#: Firing rate per SESSION **for a single Stage 1 cell**, not for the hypothesis as a whole.
 #:
-#: These are the catalog's own statements, not estimates invented here — F03 scans 13 RTH
-#: half-hour slots, F04 has two LBMA auctions a business day, F01/F06/F09 fire once at a
-#: fixed session time, F02 once per overnight window.
-FIRES_PER_SESSION: Final[dict[str, float]] = {
-    "F01": 1.0, "F02": 1.0, "F03": 13.0, "F04": 2.0, "F05": None,
-    "F06": 1.0, "F07": 12.0, "F08": None, "F09": 1.0, "F10": None, "F11": None,
+#: THE DISTINCTION IS THE WHOLE POINT, AND GETTING IT WRONG ONCE ALREADY CORRUPTED THIS GATE.
+#: A scan like F03 fires 13 times a session across its 13 RTH slots — but `slot` is a GRID
+#: AXIS, so each Stage 1 cell fixes one slot and sees one firing per session. Benjamini-
+#: Hochberg tests cells, so the sample that decides a cell is the per-cell one. The earlier
+#: version of this table stored the scan-wide count and inflated F03's ceiling 13x, F07's
+#: 12x and F04's 2x, marking cells RESOLVABLE whose real samples were far below the swept
+#: range. See `reports/decisions.md` section 13.
+#:
+#: The rule: divide the condition's firing rate by the multiplicity of whichever scanned
+#: dimension appears as a grid axis. What is left is what one cell actually sees.
+CELL_FIRES_PER_SESSION: Final[dict[str, float]] = {
+    "F01": 1.0, "F02": 1.0, "F03": 1.0, "F04": 1.0, "F05": None,
+    "F06": 1.0, "F07": 1.0, "F08": None, "F09": 1.0, "F10": None, "F11": None,
+}
+
+#: Whether the scanned positions are DISJOINT IN TIME, which decides whether pooling them
+#: actually restores sample.
+#:
+#: F03 scans 13 half-hour slots and each is its own non-overlapping trade — 09:30-10:00 is a
+#: different window from 10:00-10:30 — so the pooled series really does hold 13x the
+#: observations, and its aggregate is powered even though every cell is not.
+#:
+#: F07 scans 12 slots but they are 12 PREDICTORS OF ONE TARGET: the catalog regresses the
+#: LAST half-hour on each of the first twelve. Every cell enters at the same 15:30 minute on
+#: the same day. Pooling them stacks twelve correlated readings of ~4,000 sessions, not
+#: 48,000 independent ones, so the aggregate ceiling stays at the per-cell ceiling and the
+#: pooling escape route is closed. Treating overlap as sample would be the same error this
+#: gate was just corrected for, one level up.
+SCAN_POSITIONS_DISJOINT: Final[dict[str, bool]] = {
+    "F01": True, "F02": True, "F03": True, "F04": True, "F05": True,
+    "F06": True, "F07": False, "F08": True, "F09": True, "F10": True, "F11": True,
+}
+
+#: How many positions the condition scans per session, each of which becomes its own cell.
+#: This buys NO per-cell power — it is a trial-count cost, and it multiplies the aggregate.
+SCAN_POSITIONS: Final[dict[str, int]] = {
+    "F01": 1, "F02": 1, "F03": 13, "F04": 2, "F05": 1,
+    "F06": 1, "F07": 12, "F08": 1, "F09": 1, "F10": 1, "F11": 1,
 }
 
 
@@ -148,7 +179,9 @@ class Verdict:
     product: str
     horizon: int
     data_ceiling: int
-    event_ceiling: int | None
+    event_ceiling: int | None          # PER CELL - this gates BH
+    aggregate_ceiling: int | None      # pooled across the scan's cells
+    scan_positions: int
     effective: int
     proxy_horizon: int
     status: str            # RESOLVABLE | BELOW SWEPT RANGE | UNRESOLVABLE
@@ -165,7 +198,8 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
            session_counts: dict[str, int]) -> list[Verdict]:
     out: list[Verdict] = []
     measured_horizons = sorted({h for _, h in cells})
-    fires = FIRES_PER_SESSION.get(entry["id"])
+    fires = CELL_FIRES_PER_SESSION.get(entry["id"])
+    positions = SCAN_POSITIONS.get(entry["id"], 1)
     for product in (str(s).upper() for s in entry.get("symbols") or []):
         if product not in session_counts:
             continue
@@ -178,6 +212,12 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
             # Data ceiling scales with the hypothesis's OWN horizon, not the proxy's.
             data_ceiling = int(cell.available * proxy / horizon)
             event_ceiling = int(sessions * fires) if fires else None
+            # Overlapping positions pool into correlated readings of the SAME sessions,
+            # so they add no independent observations.
+            disjoint = SCAN_POSITIONS_DISJOINT.get(entry["id"], True)
+            aggregate_ceiling = (
+                event_ceiling * (positions if disjoint else 1)
+            ) if event_ceiling else None
             effective = min([x for x in (data_ceiling, event_ceiling) if x is not None])
 
             if not cell.ever_resolved:
@@ -198,7 +238,7 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
             sigma = SIGMA_BPS.get((product, proxy))
             out.append(Verdict(
                 entry["id"], entry["name"], product, horizon, data_ceiling,
-                event_ceiling, effective, proxy, status, floor,
+                event_ceiling, aggregate_ceiling, positions, effective, proxy, status, floor,
                 floor * sigma if (floor and sigma) else None, note,
             ))
     return out
@@ -218,6 +258,28 @@ def render(verdicts: list[Verdict], cells: dict[tuple[str, int], Cell],
       "the measured floor cells **before** Stage 1 runs, so an unresolvable combination is a "
       "scheduling decision rather than a retrospective excuse for a null.")
     a("")
+    a("## The event ceiling is counted PER CELL")
+    a("")
+    a("Benjamini-Hochberg tests cells, so the sample that decides a cell is the sample that "
+      "cell sees. A scan fires many times a session, but if the scanned dimension is a grid "
+      "axis then each cell fixes it and sees **one** firing per session. The scan breadth "
+      "buys trials, not power.")
+    a("")
+    a("| hypothesis | scanned positions | per-cell fires/session | aggregate fires/session |")
+    a("|---|---|---|---|")
+    for hid in sorted(SCAN_POSITIONS):
+        f = CELL_FIRES_PER_SESSION.get(hid)
+        n = SCAN_POSITIONS[hid]
+        if f is None:
+            continue
+        mark = " **<-**" if n > 1 else ""
+        a(f"| {hid} | {n} | {f:g} | {f * n:g}{mark}")
+    a("")
+    a("An earlier version of this gate stored the **aggregate** rate in the per-cell slot, "
+      "inflating F03's ceiling 13x, F07's 12x and F04's 2x. Cells were marked RESOLVABLE "
+      "whose real per-cell samples sat far below the swept range. The rows below are the "
+      "corrected ones; `reports/decisions.md` section 13 records what it changed.")
+    a("")
 
     blocked = [v for v in verdicts if v.blocked]
     affected = sorted({v.hypothesis for v in blocked})
@@ -225,6 +287,43 @@ def render(verdicts: list[Verdict], cells: dict[tuple[str, int], Cell],
       f"cannot support a null**, across {len(affected)} hypotheses: "
       f"{', '.join(affected) if affected else 'none'}.")
     a("")
+
+    scans = [v for v in verdicts if v.scan_positions > 1]
+    if scans:
+        a("## Where a scan's verdict can still live: the aggregate")
+        a("")
+        a("A scan whose every cell is below the swept range is not thereby untestable. "
+          "Pooling its cells restores the sample — the aggregate return series across all "
+          "scanned positions is the hypothesis's own portfolio, and it answers the question "
+          "the scan is really asking: does the effect exist ANYWHERE in this session "
+          "structure. It cannot say which position carries it. That is the trade.")
+        a("")
+        a("| hypothesis | product | horizon | per-cell | per-cell status | positions | aggregate | aggregate status |")
+        a("|---|---|---|---|---|---|---|---|")
+        for v in sorted(scans, key=lambda v: (v.hypothesis, v.product, v.horizon)):
+            cell = cells.get((v.product, v.proxy_horizon))
+            agg = v.aggregate_ceiling
+            eff_agg = min(agg, v.data_ceiling) if agg else None
+            if cell is None or not cell.ever_resolved or eff_agg is None:
+                agg_status = "UNRESOLVABLE"
+            elif eff_agg < (cell.smallest_resolving_n or 0):
+                agg_status = "BELOW SWEPT RANGE"
+            else:
+                agg_status = "**RESOLVABLE**"
+            dj = SCAN_POSITIONS_DISJOINT.get(v.hypothesis, True)
+            a(f"| {v.hypothesis} | {v.product} | {v.horizon}m | {v.effective:,} | "
+              f"{v.status} | {v.scan_positions} "
+              + ("disjoint" if dj else "**overlapping**")
+              + f" | {eff_agg:,} | {agg_status} |")
+        a("")
+        a("**F03's aggregate is powered; F07's is not, and the difference is overlap.** "
+          "Both have per-cell samples 12-13x smaller than the gate previously credited them "
+          "with, so every individual cell of both is uninformative. F03's 13 slots are "
+          "disjoint trades, so pooling genuinely multiplies its observations. F07's 12 slots "
+          "are twelve predictors of the SAME last-half-hour window, entered on the same "
+          "minute of the same session, so pooling stacks correlated readings of one ~4,000 "
+          "session sample and adds nothing. **F07 has no route to a verdict at any level.**")
+        a("")
 
     a("## The measured cells")
     a("")

@@ -452,13 +452,55 @@
     structure. slot in {1..12}, hold in {30, 60, 90} min.
   horizon_minutes: [30, 60, 90]
   registered: 2026-08-28
-  status: untested
+  # STAGE 1 RUN 2026-09-02, RECORDED UNINFORMATIVE — reports/f07_stage1.md.
+  # NOT retired: no evidence was obtainable at any level, so there is nothing to
+  # retire it ON. See reports/decisions.md section 13.
+  #
+  # NO ROUTE TO A VERDICT, ON EITHER INSTRUMENT, AT EITHER LEVEL.
+  #   per cell    ~4,000 events vs a swept range starting at 19,722  BELOW SWEPT RANGE
+  #   aggregate   ~4,000 events                                      BELOW SWEPT RANGE
+  #
+  # THE AGGREGATE DOES NOT RESCUE IT, AND THAT IS THE INTERESTING PART. F03's 13 slots
+  # are DISJOINT trades, so pooling multiplies its observations and its aggregate
+  # carries a verdict even though no single cell does. F07's 12 slots are twelve
+  # PREDICTORS OF ONE TARGET — the catalog regresses the last half-hour on each of the
+  # first twelve — so every cell enters on the same 15:30 minute of the same session.
+  # Pooling stacks twelve correlated readings of one ~4,000-session sample.
+  #
+  # WHAT THE NUMBERS WERE, AS DESCRIPTION ONLY. 0 nominal separations on both
+  # instruments against 1.8 expected; aggregate -0.00 bps on MGC and +0.09 on MNQ,
+  # both negative net of cost. No best-cell-to-floor ratio is quoted, because no floor
+  # resolved at this sample size and the denominator would be invented.
+  #
+  # COST: 72 trials, which enter N and raise SR* for everything still untested. They
+  # bought nothing. Recorded rather than hidden.
+  #
+  # THE REDESIGN THAT WOULD MAKE IT TESTABLE: enter at the CLOSE of slot s and hold h,
+  # rather than always at 15:30. That makes the 12 positions disjoint and restores a
+  # ~48,000-event aggregate. It is A DIFFERENT HYPOTHESIS — the catalog's F07 is the
+  # Gao-style claim about which slot ANCHORS the last-half-hour move; the redesign asks
+  # whether slot-by-slot momentum exists at all. It would need its own registration and
+  # its own pre-committed grid.
+  status: stage1_uninformative
+  stage1_run: 2026-09-02
+  stage1_reason: >
+    No route to a verdict at any level on either instrument. Per-cell
+    ~4,000 events against a swept range starting at 19,722, and the
+    aggregate does not rescue it because the 12 slots are twelve
+    predictors of ONE target rather than twelve disjoint trades — every
+    cell enters at the same 15:30 minute, so pooling stacks correlated
+    readings of one sample. 0 nominal separations against 1.8 expected,
+    aggregate -0.00 bps MGC and +0.09 MNQ, but none of that is evidence.
+    72 trials spent, entering N. Not retired: nothing to retire it on.
   grade: B
   tier: B
   param_cap: 3
   session: US
   hold_hours: [0.5, 1.5]
-  test_order: 8
+  # Ran and produced no obtainable evidence; nothing should reschedule
+  # it as registered. Registration priority preserved, not renumbered.
+  registered_test_order: 8
+  test_order: null
   symbols: [MGC, MNQ]
   is_scan: true
   # REGISTERED AS A SCAN, WHICH IS A WEAKER OBJECT THAN A HYPOTHESIS. The mechanism ("gold's

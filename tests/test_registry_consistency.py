@@ -32,13 +32,23 @@ REQUIRED_FIELDS: Final[frozenset[str]] = frozenset(
 )
 
 #: Closed set. A typo must not invent a category that later filters silently skip.
+#:
+#: `stage1_inconclusive` vs `stage1_uninformative` is a real distinction, not a synonym.
+#: INCONCLUSIVE means the test ran with adequate power and the reading did not resolve —
+#: S09 in the crypto catalog: nominal hits above chance, none surviving BH, mechanism
+#: uncontradicted. UNINFORMATIVE means the test could not have produced evidence at all,
+#: because the sample sits below the range where a detection floor was ever resolved. The
+#: first is a result; the second is the absence of one, and collapsing them would let an
+#: unpowered null read as a considered verdict. See reports/decisions.md section 13.
 ALLOWED_STATUSES: Final[frozenset[str]] = frozenset({
-    "untested", "stage1_inconclusive", "stage1_passed", "retired", "excluded", "dead",
+    "untested", "stage1_inconclusive", "stage1_uninformative", "stage1_passed",
+    "retired", "excluded", "dead",
 })
 
 #: Statuses that mean "will never be scheduled". Each needs a reason field.
 RESOLVED_STATUSES: Final[frozenset[str]] = frozenset({
-    "stage1_inconclusive", "stage1_passed", "retired", "excluded", "dead",
+    "stage1_inconclusive", "stage1_uninformative", "stage1_passed", "retired",
+    "excluded", "dead",
 })
 
 #: §5 Stage 4 needs two genuinely different instruments. MNQ and MGC are uncorrelated,
@@ -207,6 +217,7 @@ def test_resolved_entries_carry_a_reason() -> None:
         "retired": "retired_reason",
         "excluded": "excluded_reason",
         "stage1_inconclusive": "stage1_reason",
+        "stage1_uninformative": "stage1_reason",
         "stage1_passed": "stage1_reason",
     }
     for hid, entry in REG.items():
@@ -339,3 +350,27 @@ def test_f05_records_its_crypto_lineage() -> None:
     assert "do not transfer" in block, (
         "F05 must state that crypto's trials stay in the crypto project's N"
     )
+
+
+@pytest.mark.integrity
+def test_uninformative_entries_do_not_claim_a_verdict() -> None:
+    """An uninformative run must not read as evidence.
+
+    The whole reason this status exists is that a null from an underpowered cell looks
+    identical to a null from a powered one in a results table. So the reason text has to say
+    the sample could not support a verdict, and must not claim the mechanism was refuted.
+    """
+    for hid, entry in REG.items():
+        if entry["status"] != "stage1_uninformative":
+            continue
+        reason = entry["stage1_reason"].lower()
+        assert any(k in reason for k in ("below the swept range", "no route to a verdict",
+                                         "not evidence", "could not")), (
+            f"{hid} is stage1_uninformative but its reason does not say why no verdict "
+            f"was obtainable"
+        )
+        for banned in ("refuted", "is dead", "no edge exists"):
+            assert banned not in reason, (
+                f"{hid} is stage1_uninformative but its reason says {banned!r} — an "
+                f"unpowered run cannot refute anything"
+            )

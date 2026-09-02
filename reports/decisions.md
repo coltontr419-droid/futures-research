@@ -248,6 +248,60 @@ reached.
 
 ---
 
+## 13. The detectability gate was counting the wrong events, and two retirements rested on it
+
+**The error.** `FIRES_PER_SESSION` stored how often a hypothesis's condition fires *across
+its whole scan*. But Benjamini-Hochberg tests **cells**, and a cell fixes the scanned
+dimension — so the sample that decides a cell is one firing per session, not thirteen. The
+gate credited:
+
+| | gate said | per cell, actually | inflation |
+|---|---|---|---|
+| F03 | 53,625 | 234–2,384 (median 1,172) | **13×** |
+| F04 | 8,250 | 3,554–3,880 | **2×** |
+| F07 | 48,072 | ~4,000 | **12×** |
+
+Every combination those three ran was marked RESOLVABLE. Under the corrected gate, F03's
+cells are **all** below the swept range, F04 keeps only MGC at 120m, and F07 keeps nothing.
+
+**Found by** trying to schedule F07 and noticing its detectability row claimed 48,072 events
+for a condition that fires twelve times a session over ~4,000 sessions — the arithmetic only
+works if each cell gets all twelve firings, which it does not.
+
+**The second-order error, caught immediately after.** Pooling a scan's cells usually
+restores the sample, and that is how F03 keeps a verdict. But it only works when the
+positions are **disjoint in time**. F03's 13 half-hour slots are 13 separate trades, so
+pooling genuinely multiplies observations. F07's 12 slots are twelve predictors of *one*
+target — the catalog regresses the last half-hour on each of the first twelve — so every
+cell enters on the same 15:30 minute of the same session. Pooling stacks correlated readings
+of one ~4,000-session sample. Treating that overlap as sample would have repeated the
+original error one level up. `SCAN_POSITIONS_DISJOINT` now encodes it.
+
+**What changed, and what did not.**
+
+- **F03 stays retired, on different evidence.** Its per-cell BH result ("8 nominal hits
+  against 5.9 expected, none surviving") is now known to be uninformative — those cells were
+  never powered. The refutation rests entirely on the **aggregate**: 150,355 events across 13
+  disjoint slots, −0.46 bps gross and −0.94 net, on a 98%-covered instrument, with the
+  aggregate above the swept range. That is a real, powered, negative result. The verdict
+  survives; the reasoning behind it was corrected.
+- **F04 stays retired, on a narrower base.** Only MGC at 120m is per-cell informative, plus
+  both instruments' aggregates. The 0.30× best-cell-to-floor figure came from a 60m cell now
+  known to be uninformative and has been withdrawn; the surviving comparison is MGC 120m at
+  0.09× its floor, which points the same way.
+- **F07 is `stage1_uninformative`.** Not retired: no evidence was obtainable at any level.
+
+**Why the whole class of error is worth a section.** Both mistakes have the same shape —
+counting observations that are not independent as though they were. Scan breadth buys
+trials, never power; overlapping positions buy neither. A gate that gets this wrong is worse
+than no gate, because it launders an underpowered null into a confident one and the report
+reads identically either way.
+
+**Cost.** F07's 72 trials bought nothing and still enter N. F03's and F04's runs were not
+wasted — their aggregates carry their verdicts — but their per-cell sections were.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -260,9 +314,12 @@ reached.
 - **Spread is still an estimate, not a measurement.** §4 carries 0.10 bps for MNQ and 0.12
   for MGC as estimates. At 60m and 180m the detection floor is 5–33× the whole cost floor,
   so spread barely matters there; at 1m it is the dominant term.
-- **Two hypotheses have been through Stage 1, both retired.** F03 (refuted: 150,355
-  events, found nothing, pre-registered failure mode arrived) and F04 (sound but
-  weaker: 3,880 events on the coverage-qualified instrument, best cell at 0.30x its
-  floor). See §12 for the grading and `reports/f03_stage1.md`, `reports/f04_stage1.md`.
+- **Three hypotheses have been through Stage 1.** F03 and F04 retired, F07 recorded
+  `stage1_uninformative`. All three predate the §13 gate correction and their reports
+  should be read with §13 open. See §12 for how the two retirements are graded.
+- **The §13 correction has not been applied to the untested catalog's scheduling.**
+  Any hypothesis whose condition scans a grid axis now has a 1-per-session per-cell
+  ceiling, which will block combinations previously cleared. Re-read
+  `reports/detectability.md` before scheduling anything.
 - **F04's confound control is owed if it is ever revived** — the same-clock-time
   random-day benchmark for the PM auction against 10:00 ET US liquidity.
