@@ -880,7 +880,37 @@
   horizon_minutes: [30, 60, 120]
   hold_hours: [0.5, 2]
   registered: 2026-09-02
+  # STAGE 1 RUN 2026-09-02 - PASS. The control did not separate.
+  # reports/f14_stage1.md. 6 trials, natively logged - the first native records in
+  # trials.jsonl, every earlier one having been backfilled.
+  #
+  #   MNQ  47,866 events/cell   p = 0.9902, 0.6170, 0.7827   mean -0.00 to +0.10 bps
+  #   MGC  51,753 events/cell   p = 0.7693, 0.4952, 0.6510   mean -0.11 to -0.03 bps
+  #
+  # 0 nominal separations against 0.30 expected by chance. 0 BH survivors on either
+  # instrument. Aggregate +0.06 bps MNQ and -0.08 MGC, both negative net of cost.
+  # Long share 0.497 on both, so the hash is not degenerate.
+  #
+  # WHAT THIS LICENSES, AND ONLY THIS. The harness declines to promote a signal that
+  # cannot relate to future returns by construction, on real futures data with real
+  # gaps, real volatility clustering and real session boundaries, AT ~48,000-52,000
+  # EVENT SAMPLES. See control_scope: it says nothing about the once-a-session regime
+  # where F02, F04, F06 and F09 live, and no control can be built there.
+  #
+  # STAYS untested -> stage1_passed IS NOT USED HERE. A control that behaves correctly
+  # has not been 'passed' in the sense that status means for a hypothesis - it was
+  # never a candidate. It is recorded as control_result: pass, and it should be RE-RUN
+  # whenever the harness changes, which is the opposite of a resolved entry.
   status: untested
+  control_result: pass
+  control_last_run: 2026-09-02
+  control_reason: >
+    0 nominal separations against 0.30 expected, 0 BH survivors on
+    either instrument, aggregate +0.06 bps MNQ and -0.08 MGC and both
+    negative net of cost, across 47,866 events per cell on MNQ and
+    51,753 on MGC. Long share 0.497 on both, so the signal is not
+    degenerate. Re-run whenever the harness changes: a control is a
+    standing check, not a resolved entry.
   grade: D
   tier: C
   param_cap: 0

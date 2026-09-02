@@ -509,6 +509,48 @@ covered by F14's assurance.
 
 ---
 
+## 19. The control passed, and what that does and does not establish
+
+F14 ran on both instruments and **did not separate**: 0 nominal separations against 0.30
+expected by chance, 0 BH survivors, aggregate +0.06 bps on MNQ and -0.08 on MGC, both
+negative net of cost. Long share 0.497 on both, so the hash is not degenerate. No halt.
+
+**What it establishes.** The harness declines to promote a signal that cannot relate to
+future returns by construction, on real futures data with real gaps, real volatility
+clustering and real session boundaries, at ~48,000-52,000 event samples. That is strictly
+more than the §7.2 synthetic GARCH nulls establish, because those test idealised noise.
+
+**What it does not establish, and this is the part to keep saying.** Nothing about
+~4,000-event samples. F02, F04, F06 and F09 fire once a session, reach ~3,500 events, and
+have no real-data control available at any construction. A null from any of them carries the
+§7.2 synthetic assurance and nothing more.
+
+**Two design points that only surfaced by writing the runner.**
+
+*The hash is taken from the CALENDAR, not from the bar.* A grid position's timestamp is
+built from its session date and minute-of-day, so a forward-filled minute hashes identically
+to a traded one. Had the hash used the bar's own recorded timestamp, a filled minute would
+have inherited the previous trade's stamp - and the direction would have become a function
+of **trading activity**, which is a property of the market. That would have quietly turned
+the control into a hypothesis, by the same route that sank F11, and it would not have been
+visible in any result.
+
+*Event counts exceed the registration estimate, as expected.* `control_candidates.md`
+measured 9.2 firings a session by requiring a traded bar at the exact slot minute; the
+pipeline forward-fills, as F03 and F04 do, so all 13 slot opens fire. The registration
+figure was a conservative lower bound on the same quantity. More events, not fewer.
+
+**F14 stays `untested`.** `stage1_passed` is not used: a control behaving correctly has not
+passed in the sense that status carries for a hypothesis, because it was never a candidate.
+`control_result: pass` records the outcome, and the entry says it should be re-run whenever
+the harness changes - the opposite of a resolved entry.
+
+**These are the first natively logged trials.** Every earlier record in `trials.jsonl` was
+backfilled; F14's 6 were written by the runner inside `stage1_run`, which is what the wiring
+was for.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -543,8 +585,8 @@ covered by F14's assurance.
   MGC-only. See CLAUDE_FUTURES.md §5.9.
 - **[RESOLVED 2026-09-02] `trials.jsonl` is wired into every runner and backfilled**,
   and F03's MGC cells are persisted. See §16. An unlogged run now raises.
-- **[RESOLVED 2026-09-02] F14 registered as the control; F10 and F11 retired.** See
-  §17-18. F14 is untested and is the first thing that should run.
+- **[RESOLVED 2026-09-02] F14 registered AND run; the control passed.** See §17-19.
+  Re-run it whenever the harness changes.
 - **F01, F02, F04, F06 and F09 have NO real-data control and cannot get one.** They
   fire once a session (~3,500 events vs MNQ's 19,722); F14 covers F03-like counts
   only. Any null from those five must say so rather than borrowing F14's assurance.

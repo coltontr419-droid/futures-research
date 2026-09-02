@@ -1,0 +1,74 @@
+[
+  {
+    "product": "MNQ",
+    "hold": 30,
+    "events": 47866,
+    "mean_bps": -0.004485865729597014,
+    "sharpe": -0.00016713065128598446,
+    "p_value": 0.9902469306875814,
+    "hit_rate": 0.46751347511803787,
+    "separated": false,
+    "long_share": 0.49707516817782976,
+    "reason": "bootstrap CI [-2.372e-05, +2.338e-05] contains zero"
+  },
+  {
+    "product": "MNQ",
+    "hold": 60,
+    "events": 47866,
+    "mean_bps": 0.09996897010349624,
+    "sharpe": 0.002733492077831345,
+    "p_value": 0.6170304636055252,
+    "hit_rate": 0.47206785609827434,
+    "separated": false,
+    "long_share": 0.49707516817782976,
+    "reason": "bootstrap CI [-2.453e-05, +4.458e-05] contains zero"
+  },
+  {
+    "product": "MNQ",
+    "hold": 120,
+    "events": 47866,
+    "mean_bps": 0.0714523457544869,
+    "sharpe": 0.0014595680467865296,
+    "p_value": 0.7826729709654889,
+    "hit_rate": 0.47275728074207163,
+    "separated": false,
+    "long_share": 0.49707516817782976,
+    "reason": "bootstrap CI [-3.781e-05, +5.011e-05] contains zero"
+  },
+  {
+    "product": "MGC",
+    "hold": 30,
+    "events": 51753,
+    "mean_bps": -0.03262159676595552,
+    "sharpe": -0.001810070833138956,
+    "p_value": 0.7692934699024946,
+    "hit_rate": 0.4660212934515873,
+    "separated": false,
+    "long_share": 0.49747840704886676,
+    "reason": "bootstrap CI [-1.863e-05, +1.120e-05] contains zero"
+  },
+  {
+    "product": "MGC",
+    "hold": 60,
+    "events": 51753,
+    "mean_bps": -0.10959868619256272,
+    "sharpe": -0.004488545061391074,
+    "p_value": 0.4951836073473698,
+    "hit_rate": 0.4713543176240991,
+    "separated": false,
+    "long_share": 0.49747840704886676,
+    "reason": "bootstrap CI [-3.172e-05, +1.161e-05] contains zero"
+  },
+  {
+    "product": "MGC",
+    "hold": 120,
+    "events": 51753,
+    "mean_bps": -0.10571230474102765,
+    "sharpe": -0.0033643595638676543,
+    "p_value": 0.6510071415022276,
+    "hit_rate": 0.47587579463992424,
+    "separated": false,
+    "long_share": 0.49747840704886676,
+    "reason": "bootstrap CI [-3.998e-05, +1.628e-05] contains zero"
+  }
+]
