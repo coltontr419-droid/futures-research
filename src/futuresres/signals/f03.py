@@ -46,6 +46,7 @@ import numpy as np
 import polars as pl
 
 from futuresres.session.calendar import ET
+from futuresres.signals.logged_run import stage1_run
 from futuresres.signals.stage1 import evaluate_signed_signal
 from futuresres.stats.dsr import sharpe_ratio
 
@@ -405,20 +406,24 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--seed", type=int, default=20260830)
     ap.add_argument("--literal", action="store_true",
                     help="use the literal 'x slot sigma' threshold (fires ~40 times)")
+    ap.add_argument("--provenance", default="native", choices=["native", "reconstructed"],
+                    help="'reconstructed' marks a re-run reproducing trials already spent")
+    ap.add_argument("--log-note", default="", help="text attached to every trial written")
     args = ap.parse_args(argv)
 
-    t_form = not args.literal
-    grids = {prod: load(prod) for prod in args.products}
-    fills = {k: g.fill_fraction for k, g in grids.items()}
-    sessions = {k: g.n_sessions for k, g in grids.items()}
-
-    cells = run(args.products, t_form, args.seed)
-
-    REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text(render(cells, fills, sessions, t_form), encoding="utf-8")
-    CELLS.write_text(json.dumps([asdict(c) for c in cells], indent=2, default=str),
-                     encoding="utf-8")
-    print(f"\nwrote {REPORT}")
+    with stage1_run("F03", provenance=args.provenance,
+                    note=args.log_note) as recorder:
+        t_form = not args.literal
+        grids = {prod: load(prod) for prod in args.products}
+        fills = {k: g.fill_fraction for k, g in grids.items()}
+        sessions = {k: g.n_sessions for k, g in grids.items()}
+        cells = run(args.products, t_form, args.seed)
+        REPORT.parent.mkdir(parents=True, exist_ok=True)
+        REPORT.write_text(render(cells, fills, sessions, t_form), encoding="utf-8")
+        CELLS.write_text(json.dumps([asdict(c) for c in cells], indent=2, default=str),
+                         encoding="utf-8")
+        recorder.record(cells)
+    print(f"\nwrote {REPORT}  ({recorder.written} trials logged, {args.provenance})")
     return 0
 
 

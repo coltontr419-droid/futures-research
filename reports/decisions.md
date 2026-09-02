@@ -362,6 +362,68 @@ catalog's own record of what it has spent is weaker than its record of what it f
 
 ---
 
+## 16. The trial log is now the source of truth, and measurements are kept out of N
+
+**What was wrong.** `stats/trials.py` — the hash-chained append-only trial log — was ported
+from the crypto repo with its tests, and its tests passed, and no runner ever called it. N
+was being reconstructed by counting rows in `reports/f*_cells.json`. That reconstruction
+cannot detect a deleted trial, and it silently loses anything never persisted, which is
+exactly what happened to F03's 117 MGC cells: its retirement quoted an MGC aggregate whose
+per-cell results existed nowhere on disk.
+
+A log that nothing writes to is worse than no log. Its passing tests imply a discipline that
+is not being practised, and it invites exactly the false confidence that the log exists to
+prevent.
+
+**What was done.**
+
+- `signals/logged_run.py` provides `stage1_run(...)`, a context manager that **raises
+  `UnloggedRun` if the log did not grow** by the time the block exits. Every runner's
+  `main()` now runs inside it.
+- `tests/test_trial_logging.py` **discovers runner modules by glob** rather than by a list,
+  so a runner written next month is covered the moment it exists, not when someone remembers
+  to add it. It asserts each one wraps `main()` in `stage1_run` and calls `record(...)`
+  inside the block, and separately that the machinery raises when nothing is recorded.
+- F03, F04 and F07 were backfilled from their cell files, marked `reconstructed`.
+- F03 was re-run on both instruments to persist its missing MGC cells.
+
+**Reconstructed is a weaker record than native, and is marked so.** A backfilled trial's
+timestamp is the backfill's, its within-run ordering is whatever the output file happened to
+hold, and nothing proves that file was not edited between the run and the backfill — which
+is precisely the property an append-only hash chain provides and which these records, by
+construction, cannot have. They count toward N because a look at the data is a look at the
+data. They are not evidence that a log was being kept.
+
+**Firing-rate measurements are chained separately and are NOT in N.** This is the one real
+judgement call here. It is tempting to put all 102 rows in `trials.jsonl` so that everything
+lives in one file. That would be wrong:
+
+> N exists to deflate a Sharpe for the number of chances a candidate had to look good by
+> accident. A firing-rate measurement has no Sharpe and computes no return series — it
+> counts how often a condition triggers. It could never produce a candidate, so it cannot
+> have contributed a chance for one to appear by accident.
+
+Adding them would raise SR\*, making the bar stricter. Stricter sounds safe, and the
+instinct to err that way is usually right, but **a bar set by a category error is not
+conservative — it is just wrong**, and it would penalise every future candidate for looks
+that could not have found anything. They go to `measurements.jsonl`, same machinery, same
+guarantees, reported separately in `catalog_status.md`.
+
+**The re-run reproduced F03 exactly, which is the reproducibility check the repo never had.**
+Re-running both instruments to recover the missing MGC cells also re-computed MNQ's 117.
+All 117 matched the committed originals: identical event counts, identical `mean_bps` to
+1e-9, identical p-values to 1e-12. MGC's recovered aggregate is +0.03 bps, matching the
+figure its retirement quotes. That is evidence the SHA-256 cell seeding introduced earlier
+actually holds across processes and across months — previously asserted by a unit test, now
+demonstrated on a real 234-cell run.
+
+**What this does not fix.** The context manager guarantees the log grew; it cannot verify
+that *every* cell was passed to `record()`. Nothing inside a run can check that. The
+structural tests are what stand in for it, and they check the shape of the code rather than
+the completeness of a particular run.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -394,8 +456,8 @@ catalog's own record of what it has spent is weaker than its record of what it f
   by measuring the four firing rates. The earlier claim that every open per-cell route
   was on MGC was true when written and false within the day. F02, F04 and F06 remain
   MGC-only. See CLAUDE_FUTURES.md §5.9.
-- **`trials.jsonl` is not being written and F03's MGC cells were never persisted** —
-  see §15. The trial log must be wired into every Stage 1 runner before the next run.
+- **[RESOLVED 2026-09-02] `trials.jsonl` is wired into every runner and backfilled**,
+  and F03's MGC cells are persisted. See §16. An unlogged run now raises.
 - **F10, the negative control, cannot resolve on any combination.** The catalog cannot
   currently verify its own control. See §14.
 - **F05 should not be scheduled until its condition names a break deadline** — as

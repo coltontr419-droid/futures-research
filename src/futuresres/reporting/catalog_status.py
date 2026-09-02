@@ -26,35 +26,40 @@ from futuresres.reporting.detectability import (
     sessions_and_bars,
 )
 from futuresres.stats.dsr import expected_max_sharpe
+from futuresres.stats.trials import TrialLog
 
 ROOT: Final[Path] = Path(__file__).resolve().parents[3]
 REPORTS: Final[Path] = ROOT / "reports"
 REGISTRY: Final[Path] = ROOT / "hypotheses.yaml"
 REPORT: Final[Path] = REPORTS / "catalog_status.md"
 
-#: Cell files that exist, and what each is known to be MISSING. F03's report covers both
-#: instruments but its cell file holds only MNQ's 117, so 117 MGC trials were spent and not
-#: persisted. That gap is carried into N explicitly rather than silently understating it.
-KNOWN_UNPERSISTED: Final[dict[str, tuple[int, str]]] = {
-    "F03": (117, "MGC's 117 cells were run and reported but never written to "
-                 "reports/f03_cells.json"),
-}
+TRIAL_LOG: Final[Path] = ROOT / "trials.jsonl"
+MEASUREMENT_LOG: Final[Path] = ROOT / "measurements.jsonl"
 
 
-def trial_counts() -> tuple[dict[str, int], list[float], int]:
+def trial_counts() -> tuple[dict[str, int], list[float], dict[str, int], int, bool]:
+    """N per hypothesis, trial Sharpes, provenance split, measurements, chain status.
+
+    Read from the append-only log, which is now the single source of truth. It used not to
+    be: N was reconstructed by counting rows in `reports/f*_cells.json` because no runner
+    wrote to the log. That reconstruction could not detect a deleted trial and silently lost
+    anything never persisted - which is how F03's 117 MGC cells went missing from N while
+    its retirement quoted their aggregate.
+    """
+    log = TrialLog(TRIAL_LOG)
     counts: dict[str, int] = {}
     sharpes: list[float] = []
-    unpersisted = 0
-    for path in sorted(REPORTS.glob("f*_cells.json")):
-        hid = path.stem.split("_")[0].upper()
-        rows = json.loads(path.read_text(encoding="utf-8"))
-        counts[hid] = len(rows)
-        sharpes += [r["sharpe"] for r in rows if r.get("sharpe") is not None]
-    for hid, (extra, _) in KNOWN_UNPERSISTED.items():
-        if hid in counts:
-            counts[hid] += extra
-            unpersisted += extra
-    return counts, sharpes, unpersisted
+    provenance = {"native": 0, "reconstructed": 0}
+    for trial in log.read_all():
+        counts[trial.hypothesis_id] = counts.get(trial.hypothesis_id, 0) + 1
+        if trial.sharpe is not None:
+            sharpes.append(trial.sharpe)
+        for kind in provenance:
+            if f"provenance={kind}" in trial.note:
+                provenance[kind] += 1
+                break
+    measurements = len(TrialLog(MEASUREMENT_LOG)) if MEASUREMENT_LOG.exists() else 0
+    return counts, sharpes, provenance, measurements, log.verify_chain().ok
 
 
 def render() -> str:
@@ -68,7 +73,7 @@ def render() -> str:
             continue
         verdicts[entry["id"]] = assess(entry, cells, session_counts)
 
-    counts, sharpes, unpersisted = trial_counts()
+    counts, sharpes, provenance, n_measurements, chain_ok = trial_counts()
     n_trials = sum(counts.values())
     variance = float(np.var(sharpes, ddof=1)) if len(sharpes) > 1 else 0.0
     sr_star = expected_max_sharpe(n_trials, variance) if n_trials > 1 else 0.0
@@ -121,29 +126,35 @@ def render() -> str:
     a(f"| **N (trials spent)** | **{n_trials}** |")
     a(f"| variance of trial Sharpes, V | {variance:.6f} |")
     a(f"| **expected max Sharpe under the null, SR\\*** | **{sr_star:.4f}** |")
+    a(f"| natively logged | {provenance['native']} |")
+    a(f"| reconstructed by backfill | {provenance['reconstructed']} |")
+    a(f"| hash chain | {'**verified**' if chain_ok else '**BROKEN**'} |")
     a("")
     a("| hypothesis | trials |")
     a("|---|---|")
     for hid in sorted(counts):
-        note = ""
-        if hid in KNOWN_UNPERSISTED:
-            note = f" (incl. {KNOWN_UNPERSISTED[hid][0]} not persisted)"
-        a(f"| {hid} | {counts[hid]}{note} |")
+        a(f"| {hid} | {counts[hid]} |")
     a("")
-    a("SR\\* is the Sharpe the best of N random trials would be expected to reach by chance. "
-      f"Any candidate must clear **{sr_star:.4f}** before its Sharpe means anything, and "
-      "that bar rises with every trial spent — including the 72 spent on F07, which could "
-      "not have produced evidence.")
+    a("SR\\* is the Sharpe the best of N random trials would be expected to reach by "
+      f"chance. Any candidate must clear **{sr_star:.4f}** before its Sharpe means "
+      "anything, and that bar rises with every trial spent - including the 72 spent on "
+      "F07, which could not have produced evidence.")
     a("")
-    if unpersisted:
-        a(f"> **Integrity gap: {unpersisted} trials are counted from a report rather than "
-          f"from a cell file.** {KNOWN_UNPERSISTED['F03'][1]}. Worse, **`trials.jsonl` was "
-          f"never written at all**: `src/futuresres/stats/trials.py` — the hash-chained "
-          f"append-only log — was ported from the crypto repo with its tests, but no Stage 1 "
-          f"runner calls it. N above is reconstructed from output files, which is exactly "
-          f"the reconstruction the append-only log exists to make unnecessary. Every future "
-          f"Stage 1 run must write to it.")
-        a("")
+    a(f"**N now comes from `trials.jsonl`, whose chain verifies.** It used to be "
+      f"reconstructed by counting rows in output files, which could not detect a deleted "
+      f"trial and silently lost anything never persisted. All "
+      f"{provenance['reconstructed']} records predating the wiring are marked "
+      f"`reconstructed`: their timestamps are the backfill's, their within-run ordering is "
+      f"whatever the output file held, and nothing proves those files were not edited "
+      f"between the run and the backfill. They count toward N - a look at the data is a "
+      f"look at the data - but they are not evidence that a log was being kept.")
+    a("")
+    a(f"**{n_measurements} firing-rate measurements are chained separately in "
+      f"`measurements.jsonl` and are NOT in N.** They count how often a condition triggers "
+      f"and compute no return series, so they could never produce a candidate. Including "
+      f"them would raise SR\\* - a stricter bar, which sounds safe, but a bar set by a "
+      f"category error is not conservative. See `reports/decisions.md` §16.")
+    a("")
 
     # ------------------------------------------------------------------ per hypothesis
     a("## Every hypothesis")

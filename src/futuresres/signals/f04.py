@@ -54,6 +54,7 @@ import numpy as np
 import polars as pl
 
 from futuresres.session.calendar import ET, LONDON
+from futuresres.signals.logged_run import stage1_run
 from futuresres.signals.stage1 import evaluate_signed_signal
 from futuresres.stats.dsr import sharpe_ratio
 
@@ -380,14 +381,20 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="futuresres.signals.f04")
     ap.add_argument("--products", nargs="*", default=["MGC", "MNQ"])
     ap.add_argument("--seed", type=int, default=20260901)
+    ap.add_argument("--provenance", default="native", choices=["native", "reconstructed"],
+                    help="'reconstructed' marks a re-run reproducing trials already spent")
+    ap.add_argument("--log-note", default="", help="text attached to every trial written")
     args = ap.parse_args(argv)
 
-    cells, fills, sessions = run(args.products, args.seed)
-    REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text(render(cells, fills, sessions), encoding="utf-8")
-    CELLS.write_text(json.dumps([asdict(c) for c in cells], indent=2, default=str),
-                     encoding="utf-8")
-    print(f"\nwrote {REPORT}")
+    with stage1_run("F04", provenance=args.provenance,
+                    note=args.log_note) as recorder:
+        cells, fills, sessions = run(args.products, args.seed)
+        REPORT.parent.mkdir(parents=True, exist_ok=True)
+        REPORT.write_text(render(cells, fills, sessions), encoding="utf-8")
+        CELLS.write_text(json.dumps([asdict(c) for c in cells], indent=2, default=str),
+                         encoding="utf-8")
+        recorder.record(cells)
+    print(f"\nwrote {REPORT}  ({recorder.written} trials logged, {args.provenance})")
     return 0
 
 
