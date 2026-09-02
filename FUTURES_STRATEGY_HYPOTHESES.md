@@ -326,12 +326,37 @@ either as confirmed.**
 
 ## TIER C — Controls
 
-### F10 — RSI Mean Reversion (control)
-**Grade: D | 1 param (hold).** RSI(14) 30/70, fixed a-priori. Exists to fail. **Clearing
+### F14 — Timestamp Hash (control) — **the live control**
+**Grade: D | 0 params.** Direction is the low bit of SHA-256 of the bar's ISO timestamp,
+fired at each 30-minute RTH slot open, held 30/60/120 minutes, on MNQ and MGC. **Clearing
 Stage 1 indicates a harness bug — halt and run the synthetic-noise test.**
 
-### F11 — MA Crossover (control)
-**Grade: D | 2 params.** Same purpose.
+Its premise is that the signal **cannot** relate to future returns by construction — a
+deterministic function of the clock that never touches price, aperiodic, and unable to align
+with time-of-day because each date hashes differently. That is the only kind of premise a
+control may rest on. Parameters were fixed in writing before any run and there are none to
+sweep.
+
+**Scope, which is part of the claim.** It fires ~9.2 times a session on MNQ and 7.9 on MGC,
+reaching ~40,000 independent events, so it validates the harness at **F03-like event counts
+only**. It says nothing about ~4,000-event samples. **No control exists for the
+once-a-session regime on this data and none can be built** — a once-a-session condition over
+sixteen years yields ~3,500 events against MNQ's 19,722, which is a property of the sample
+rather than of any signal. F01, F02, F04, F06 and F09 all live in that regime and none of
+them has a control.
+
+### F10 — RSI Mean Reversion (control) — **RETIRED, unpowered**
+**Grade: D | 1 param (hold).** RSI(14) 30/70, fixed a-priori. Sound premise, but 1,585–5,594
+independent events against a swept range starting at 19,722, and no tuning fixes a firing
+rate. An unpowered control coming back empty is indistinguishable from a powered one working
+correctly. Never run.
+
+### F11 — MA Crossover (control) — **RETIRED, not a control**
+**Grade: D | 2 params.** Its premise was that a canonical published trend rule should have
+been arbitraged away — a contestable market prediction, not a construction. A fast/slow MA
+crossover is time-series momentum, the same family as **F01**, so a promotion would be
+unreadable as either harness failure or true detection. It was *powered*; it failed on
+premise and would have at any sample size. Never run.
 
 ---
 

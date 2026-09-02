@@ -474,6 +474,41 @@ is a call for the user.
 
 ---
 
+## 18. F14 registered as the control; both predecessors retired
+
+**Registered as F14, not F12.** F12 was requested, but F12 is the excluded
+`pre_fomc_announcement_drift` entry and reusing the id would have erased a deliberate
+exclusion and the two independent reasons behind it. F14 is the next free id.
+
+**Parameters fixed in writing before any run**, which is the entire point of the ordering:
+SHA-256 of the bar's ISO timestamp, low bit -> long/short, fired at each 30-minute RTH slot
+open, holds {30, 60, 120}, MNQ and MGC. `param_cap: 0` - there is nothing to sweep, so
+"fixed a priori" is checkable rather than asserted in good faith.
+
+**The scope statement lives in a FIELD, not a comment.** It was first written as a YAML
+comment block, which `yaml.safe_load` discards - so every tool reading the registry would
+have seen a control with no stated scope, and the test asserting the scope exists failed
+against the loaded entry rather than the file. Anything a tool must check has to survive
+parsing. `control_scope` now carries it and a test asserts both halves.
+
+**F11 retired on premise, F10 on power, and the distinction is preserved by a test.** F11
+was *powered* - 43,759 to 173,879 independent events, resolvable everywhere - and still
+could not serve, because its premise was that a canonical trend rule should have been
+arbitraged away. That is a contestable market prediction, and a fast/slow MA crossover is
+time-series momentum, the same family as F01. Recording it as merely another underpowered
+control would lose the only interesting thing about it, so
+`test_a_retired_control_says_which_of_the_two_failures_it_was` fails if the two reasons blur.
+
+Both keep `is_control: true` though retired: a reader tracing why the catalog's control
+changed needs to find them as controls, not as ordinary retired hypotheses.
+
+**What the catalog now cannot claim.** F14 covers F03-like event counts only. F01, F02, F04,
+F06 and F09 live in the once-a-session regime and have no real-data control, and none can be
+built on this sample. When reporting a null from any of them, that gap is stated rather than
+covered by F14's assurance.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -508,10 +543,11 @@ is a call for the user.
   MGC-only. See CLAUDE_FUTURES.md §5.9.
 - **[RESOLVED 2026-09-02] `trials.jsonl` is wired into every runner and backfilled**,
   and F03's MGC cells are persisted. See §16. An unlogged run now raises.
-- **Neither control can serve, for different reasons** — F10 unpowered, F11 not
-  mechanism-free (it is a momentum rule in a catalog containing a momentum
-  hypothesis). `hash-slot` is measured and recommended but NOT registered; see §17
-  and `reports/control_candidates.md`. Awaiting a decision.
+- **[RESOLVED 2026-09-02] F14 registered as the control; F10 and F11 retired.** See
+  §17-18. F14 is untested and is the first thing that should run.
+- **F01, F02, F04, F06 and F09 have NO real-data control and cannot get one.** They
+  fire once a session (~3,500 events vs MNQ's 19,722); F14 covers F03-like counts
+  only. Any null from those five must say so rather than borrowing F14's assurance.
 - **F05 should not be scheduled until its condition names a break deadline** — as
   registered it fires on 94% of armings. See §14.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times

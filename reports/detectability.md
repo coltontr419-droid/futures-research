@@ -17,14 +17,15 @@ Benjamini-Hochberg tests cells, so the sample that decides a cell is the sample 
 | F06 | 1 | 1 | 1
 | F07 | 12 | 1 | 12 **<-**
 | F09 | 1 | 1 | 1
+| F14 | 1 | 7.9 | 7.9
 
 An earlier version of this gate stored the **aggregate** rate in the per-cell slot, inflating F03's ceiling 13x, F07's 12x and F04's 2x. Cells were marked RESOLVABLE whose real per-cell samples sat far below the swept range. The rows below are the corrected ones; `reports/decisions.md` section 13 records what it changed.
 
-**38 of 60 (hypothesis, instrument, horizon) combinations cannot support a null**, across 9 hypotheses: F01, F02, F03, F04, F06, F07, F08, F09, F10.
+**38 of 66 (hypothesis, instrument, horizon) combinations cannot support a null**, across 9 hypotheses: F01, F02, F03, F04, F06, F07, F08, F09, F10.
 
 ## What the correction blocked
 
-**18 combinations were previously cleared and are now blocked.** 22 remain cleared.
+**18 combinations were previously cleared and are now blocked.** 28 remain cleared.
 
 | hypothesis | product | horizon | old ceiling | old verdict | new ceiling | now | why |
 |---|---|---|---|---|---|---|---|
@@ -66,6 +67,7 @@ Two routes exist. **Per-cell** is the ordinary one: each cell tested, Benjamini-
 | F09 | 0/6 | 1 | yes | **closed** — every cell below the swept range | n/a — nothing to pool |
 | F10 | 0/6 | 1 | yes | **closed** — every cell below the swept range | n/a — nothing to pool |
 | F11 | 6/6 | 1 | yes | **open** (6/6: MNQ 30m, MNQ 60m, MNQ 120m, MGC 30m, MGC 60m, MGC 120m) | n/a — nothing to pool |
+| F14 | 6/6 | 1 | yes | **open** (6/6: MNQ 30m, MNQ 60m, MNQ 120m, MGC 30m, MGC 60m, MGC 120m) | n/a — nothing to pool |
 
 **F07 is the only hypothesis with both routes closed on a measurement rather than a finding** — its cells are underpowered and its positions overlap, so nothing it produces can be evidence. That is why it is recorded `stage1_uninformative` rather than retired.
 
@@ -235,6 +237,12 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F11 | MNQ | 30m | 78,888 | 164,775 | **78,888** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
 | F11 | MNQ | 60m | 39,444 | 83,263 | **39,444** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
 | F11 | MNQ | 120m | 17,652 | 43,759 | **17,652** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
+| F14 | MGC | 30m | 63,182 | 31,647 | **31,647** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
+| F14 | MGC | 60m | 31,591 | 31,647 | **31,591** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
+| F14 | MGC | 120m | 12,285 | 31,647 | **12,285** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F14 | MNQ | 30m | 78,888 | 32,587 | **32,587** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
+| F14 | MNQ | 60m | 39,444 | 32,587 | **32,587** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
+| F14 | MNQ | 120m | 17,652 | 32,587 | **17,652** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
 
 ## How the ceilings were computed
 

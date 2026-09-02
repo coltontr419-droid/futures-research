@@ -111,11 +111,23 @@ def render() -> str:
         if n:
             a(f"| `{st}` | {n} | {meaning[st]} |")
     a("")
-    a("**Three of the four closures were decided by arithmetic rather than by evidence.** "
-      "Only F03 and F04 were closed by a result; F01 never ran, and F07 ran but could not "
-      "inform. That ratio is the honest summary of this catalog so far: the binding "
-      "constraint has been event scarcity, not the absence of signal — and those are "
-      "different findings that a results table would render identically.")
+    counts_pre, _, _, _, _ = trial_counts()
+    closed = [e for e in registry
+              if e["status"] in ("retired", "stage1_uninformative",
+                                 "blocked_insufficient_events")]
+    by_evidence = [e for e in closed
+                   if e["status"] == "retired" and counts_pre.get(e["id"], 0) > 0]
+    never_ran = [e for e in closed if counts_pre.get(e["id"], 0) == 0]
+    a(f"**{len(closed) - len(by_evidence)} of the {len(closed)} closures were decided "
+      f"without a result.** Only "
+      + " and ".join(e["id"] for e in by_evidence)
+      + " were closed by evidence. "
+      + ", ".join(e["id"] for e in never_ran)
+      + " never ran at all — arithmetic or premise closed them first — and F07 ran but "
+        "could not inform. That ratio is the honest summary of this catalog so far: the "
+        "binding constraint has been event scarcity and control design, not the absence of "
+        "signal, and those are different findings that a results table would render "
+        "identically.")
     a("")
 
     # ------------------------------------------------------------------ N and SR*
@@ -192,7 +204,8 @@ def render() -> str:
                       >= (c.smallest_resolving_n or 0)]
                 agg_route = f"**open** {len(ok)}/{len(vs)}" if ok else "closed"
         closed_by = {
-            "retired": "evidence",
+            "retired": ("evidence" if counts.get(hid, 0) > 0
+                        else "premise — never run"),
             "stage1_uninformative": "sample — ran, could not inform",
             "blocked_insufficient_events": "arithmetic — never ran",
             "excluded": "registration",

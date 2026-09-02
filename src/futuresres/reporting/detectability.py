@@ -106,6 +106,11 @@ CELL_FIRES_PER_SESSION: Final[dict[str, float | None]] = {
     "F10": None,
     # MA crossovers likewise. UNMEASURED.
     "F11": None,
+    # MEASURED before registration (reports/control_candidates.md): 9.2 firings a session
+    # on MNQ and 7.9 on MGC - not the 13 the RTH slot count implies, because a slot fires
+    # only when a bar exists at that exact minute. The lower of the two is declared, so the
+    # gate is never more optimistic than the worse instrument.
+    "F14": 7.9,
 }
 
 #: What the gate stored BEFORE the section 13 correction — kept so the report can show
@@ -130,6 +135,9 @@ SCAN_POSITIONS: Final[dict[str, int]] = {
     "F09": 1,    # one settlement time per instrument
     "F10": 1,
     "F11": 1,
+    # The 13 slots are not a grid axis here: F14's grid is the three holds, and every slot
+    # fires inside a single cell. So there is nothing to pool and nothing to divide by.
+    "F14": 1,
 }
 
 #: Whether the scanned positions are DISJOINT IN TIME, which decides whether pooling them
@@ -161,6 +169,7 @@ SCAN_POSITIONS_DISJOINT: Final[dict[str, bool]] = {
     "F09": True,
     "F10": True,
     "F11": True,
+    "F14": True,
 }
 
 

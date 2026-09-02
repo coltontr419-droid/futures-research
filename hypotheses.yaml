@@ -655,7 +655,32 @@
     parameter.
   horizon_minutes: [30, 60, 120]
   registered: 2026-08-28
-  status: untested
+  # RETIRED 2026-09-02: SOUND PREMISE, PERMANENTLY UNPOWERED. decisions.md section 17.
+  #
+  # 1,585 to 5,594 independent events against a swept range starting at 19,722. RSI(14)
+  # crossings through 30 and 70 are simply rare: 2,434 up and 3,160 down across sixteen
+  # years of MNQ. An unpowered control coming back empty is indistinguishable from a
+  # powered one working correctly, so it cannot support the one claim it exists to make.
+  #
+  # NO TUNING FIXES A FIRING RATE. The rate is a property of the condition and the data,
+  # not a parameter, and the thresholds are fixed a priori precisely so they cannot be
+  # moved. Loosening them to fire more often would be tuning a control, which is the one
+  # thing a control may never permit.
+  #
+  # Its premise was better than F11's - RSI(14) 30/70 on intraday futures has far less
+  # published support than time-series momentum - but 'should have been arbitraged away'
+  # is still a market prediction rather than a construction. Replaced by F14, which
+  # cannot relate to returns by construction. No trials were spent: it was never run.
+  status: retired
+  retired: 2026-09-02
+  retired_reason: >
+    SOUND PREMISE, PERMANENTLY UNPOWERED. 1,585-5,594 independent events
+    against a swept range starting at 19,722, and no tuning fixes a firing
+    rate: the rate is a property of the condition and the data, not a
+    parameter, and loosening the a-priori thresholds to fire more often
+    would be tuning a control. An unpowered control coming back empty is
+    indistinguishable from a powered one working correctly. Never run, no
+    trials spent. Replaced by F14.
   grade: D
   tier: C
   param_cap: 1
@@ -680,7 +705,32 @@
     fast and slow fixed a priori at round values; exit at the hold.
   horizon_minutes: [30, 60, 120]
   registered: 2026-08-28
-  status: untested
+  # RETIRED 2026-09-02: NOT A CONTROL. reports/decisions.md section 17.
+  #
+  # Its premise was that a canonical published trend rule SHOULD HAVE BEEN ARBITRAGED
+  # AWAY. That is a contestable prediction about the market, not a construction - and if
+  # the prediction is wrong, the control is silently a hypothesis. A fast/slow moving-
+  # average crossover is TIME-SERIES MOMENTUM, among the best-documented anomalies in
+  # futures specifically, and the managed-futures industry is built on it.
+  #
+  # DECISIVELY: F01 IN THIS CATALOG IS A MOMENTUM HYPOTHESIS and F11 is a slow momentum
+  # rule - the same family. A promotion would be unreadable: there would be no way to
+  # tell a harness failure from a true detection, which is exactly the distinction a
+  # negative control exists to draw.
+  #
+  # Note it was POWERED - 43,759 to 173,879 independent events, resolvable everywhere.
+  # It fails on premise, not on sample, and would have failed at any sample size. No
+  # trials were spent: it was never run.
+  status: retired
+  retired: 2026-09-02
+  retired_reason: >
+    NOT A CONTROL. Its premise was that a canonical published trend rule
+    should have been arbitraged away, which is a contestable market
+    prediction rather than a construction. A fast/slow MA crossover is
+    time-series momentum, the same family as F01, so a promotion would be
+    unreadable as either harness failure or true detection. It was POWERED
+    (43,759-173,879 independent events); it fails on premise and would have
+    failed at any sample size. Never run, no trials spent. Replaced by F14.
   grade: D
   tier: C
   param_cap: 2
@@ -766,3 +816,90 @@
   # RECORDED SO IT IS NOT REDISCOVERED. An entry that says "this was checked and it decayed"
   # is worth more than an absent entry, because the absent entry gets re-proposed the next
   # time someone reads the 2023 paper without the 2026 follow-up.
+
+- id: F14
+  name: timestamp_hash_control
+  # REGISTERED 2026-09-02 as the catalog's negative control, replacing F10 and F11.
+  # Firing rates measured BEFORE registration: reports/control_candidates.md.
+  #
+  # ID NOTE: requested as "F12", but F12 is the excluded pre_fomc_announcement_drift entry
+  # and reusing the id would have erased a deliberate exclusion and its two independent
+  # reasons. Registered as F14, the next free id.
+  #
+  # PARAMETERS ARE FIXED HERE, IN WRITING, BEFORE ANY RUN. That is the whole point of the
+  # ordering: a control whose parameters could be chosen after seeing a result is not a
+  # control. There are no free parameters at all - param_cap is 0, stronger than F10's 1
+  # and F11's 2 - so there is nothing to sweep and nothing to tune.
+  #
+  #     signal     SHA-256 of the bar's ISO timestamp, low bit: 1 -> long, 0 -> short
+  #     fires      at each 30-minute RTH slot open (09:30, 10:00, ... 15:30 ET)
+  #     holds      30, 60, 120 minutes
+  #     symbols    MNQ and MGC
+  #
+  # WHY IT IS MECHANISM-FREE BY CONSTRUCTION, which is the requirement F11 failed. The
+  # direction is a deterministic function of the CLOCK ALONE and never touches price. It is
+  # aperiodic, and because each date hashes differently it cannot align with time-of-day. A
+  # reader can recompute any single direction from the timestamp and confirm no price
+  # entered it. This is not a claim that the signal SHOULD have no edge; it is a claim that
+  # it CANNOT, which is the only kind of premise a control may rest on.
+  #
+  # MEASURED FIRING RATE, before registration: 9.2 firings per session on MNQ and 7.9 on
+  # MGC - NOT the 13 the RTH slot count implies, because a slot fires only when a bar exists
+  # at that exact minute. 45,513 independent events on MNQ and 38,494 on MGC, RESOLVABLE in
+  # all 12 of 12 combinations against a swept range starting at 19,722.
+  #
+  # ================= SCOPE OF WHAT THIS CONTROL LICENSES =================
+  #
+  # IT VALIDATES THE HARNESS AT F03-LIKE EVENT COUNTS ONLY. It fires roughly nine times a
+  # session, so it demonstrates that the pipeline declines to promote a mechanism-free
+  # signal on real futures data at ~40,000-event samples. It demonstrates NOTHING about
+  # behaviour at ~4,000-event samples, and that claim must not be generalised.
+  #
+  # NO CONTROL EXISTS FOR THE ONCE-A-SESSION REGIME ON THIS DATA, and none can be built. A
+  # once-a-session condition over sixteen years yields ~3,500 events against MNQ's 19,722.
+  # That is a property of the sample, not of any signal: measured candidates at that regime
+  # resolved in 2 of 12 combinations, and the two were MGC at the longest hold, on the
+  # instrument carrying the coverage caveat. F01, F02, F04, F06 and F09 all live in that
+  # regime and NONE of them has a control. The synthetic GARCH nulls in
+  # reports/integrity_futures.md remain the only check that applies there, and they test
+  # the harness on idealised noise rather than on real microstructure.
+  #
+  # =======================================================================
+  mechanism: >
+    NOT A HYPOTHESIS. The catalog's negative control, replacing F10 and F11. The direction
+    is the low bit of the SHA-256 hash of the bar's timestamp: a deterministic function of
+    the clock that never touches price, is aperiodic, and cannot align with time-of-day
+    because each date hashes differently. There is no counterparty story because there is
+    nothing for a counterparty to trade against. Unlike F10 and F11, the premise is not
+    that this effect should have been arbitraged away - a contestable prediction about the
+    market - but that it cannot relate to future returns BY CONSTRUCTION.
+  condition: >
+    At each 30-minute RTH slot open (09:30 through 15:30 ET), enter long if the low bit of
+    SHA-256 of the bar's ISO timestamp is 1, short otherwise, and exit after hold. hold in
+    {30, 60, 120} min. There are no other parameters and none may be added or swept.
+  horizon_minutes: [30, 60, 120]
+  hold_hours: [0.5, 2]
+  registered: 2026-09-02
+  status: untested
+  grade: D
+  tier: C
+  param_cap: 0
+  session: US
+  symbols: [MNQ, MGC]
+  is_control: true
+  test_order: null
+  # A machine-readable field, NOT a comment. The scope is part of the claim the control
+  # licenses, and yaml.safe_load discards comments - anything a tool must be able to check
+  # has to live in the data. This one is asserted by
+  # test_the_live_control_states_the_regime_it_validates.
+  control_scope: >
+    Validates the harness at F03-like event counts ONLY. F14 fires ~9.2 times a session on
+    MNQ and 7.9 on MGC, reaching ~45,513 and ~38,494 independent events, so it demonstrates
+    that the pipeline declines to promote a mechanism-free signal on real futures data at
+    ~40,000-event samples. It demonstrates NOTHING about ~4,000-event samples and the claim
+    must not be generalised. NO CONTROL EXISTS FOR THE ONCE-A-SESSION REGIME on this data
+    and none can be built: a once-a-session condition over sixteen years yields ~3,500
+    events against MNQ's 19,722, which is a property of the sample rather than of any
+    signal. F01, F02, F04, F06 and F09 all live in that regime and none of them has a
+    control; the synthetic GARCH nulls in reports/integrity_futures.md are the only check
+    that applies there, and they test idealised noise rather than real microstructure.

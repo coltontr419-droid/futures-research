@@ -706,7 +706,55 @@ Realized max drawdown is **one draw from a distribution**, not a property of the
 ---
 
 
+
+### 7.6 What a negative control may rest on, and what it licenses
+
+**A control's premise must be that the signal CANNOT relate to future returns by
+construction — never that it SHOULD have been arbitraged away.**
+
+The second is a prediction about the market. If the prediction is wrong, the control is
+silently a hypothesis, and its result becomes unreadable in the one direction that matters:
+a promotion could mean the harness is broken, or it could mean the effect is real. Both of
+this catalog's original controls rested on that premise and one of them was demolished by
+it — F11 was a fast/slow moving-average crossover, which is time-series momentum, the same
+family as F01, a registered hypothesis. It was powered, and it still could not serve.
+
+A construction-based premise is checkable by reading the signal's definition. F14's
+direction is the low bit of SHA-256 of the bar's timestamp: a deterministic function of the
+clock that never touches price, aperiodic, and unable to align with time-of-day because
+each date hashes differently. There is no market claim to be wrong about.
+
+**Fix the parameters in writing before the run.** A control whose parameters can be chosen
+after seeing a result is not a control. Prefer zero free parameters — F14 has none, so there
+is nothing to sweep and nothing to tune, and "fixed a priori" becomes a checkable fact
+rather than an assertion of good faith.
+
+**A control validates the event regime it fires in, and no other.** This is the part that is
+easy to skip and expensive to skip. A control firing nine times a session reaches ~40,000
+events and can demonstrate that the harness declines to promote noise at ~40,000-event
+samples. It demonstrates nothing at ~4,000-event samples. The claim does not generalise
+across regimes, and the entry must say which regime it covers — in a **field**, not a
+comment, because anything a tool has to check must survive `yaml.safe_load`.
+
+**On this data, no control exists for the once-a-session regime, and none can be built.** A
+once-a-session condition over sixteen years yields ~3,500 events against MNQ's 19,722. That
+is a property of the sample, not of any signal: measured candidates at that regime resolved
+in 2 of 12 combinations, both MGC at the longest hold on the instrument carrying the
+coverage caveat. Most of this catalog lives in that regime and has no real-data control. The
+synthetic GARCH nulls of §7.2 are the only check that reaches it, and they test the harness
+on idealised noise rather than on real microstructure. **Say so when reporting a null from a
+once-a-session hypothesis rather than borrowing F14's assurance.**
+
+**Rejected design, recorded because it is attractive.** A smooth periodic direction such as
+`sign(sin(t/500))` fires every bar and clears any sample requirement. It is rejected: a
+periodic signal beats against the session cycle and can pick up genuine time-of-day
+structure, at which point it detects a real effect rather than nothing. That exact
+construction is the §7.2 *positive* control — the property that makes it good there is what
+disqualifies it here.
+
+
 ---
+
 
 ## 8. Output artifacts
 

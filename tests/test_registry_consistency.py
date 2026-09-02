@@ -209,6 +209,10 @@ def test_a_resolved_entry_that_had_an_order_records_it() -> None:
     """
     for hid, entry in REG.items():
         if entry["status"] == "retired":
+            if entry.get("is_control"):
+                # Controls are never scheduled by test_order - they run alongside whatever
+                # they are controlling for - so there is no order for them to have lost.
+                continue
             assert entry.get("registered_test_order") is not None, (
                 f"{hid} is retired but does not record the test_order it was registered "
                 f"with; the scheduling history is lost"
@@ -335,11 +339,28 @@ def test_the_two_excluded_entries_are_the_expected_ones() -> None:
 
 
 @pytest.mark.integrity
-def test_the_two_controls_are_the_expected_ones() -> None:
+def test_the_controls_are_the_expected_ones() -> None:
+    """Which entries are controls, and which one is live.
+
+    F10 and F11 are retired but keep `is_control`: they were controls, and a reader
+    tracing why the catalog's control changed needs to find them as controls rather than
+    as ordinary retired hypotheses. F14 replaced them - F10 on power, F11 on premise.
+    """
     controls = {h for h, e in REG.items() if e.get("is_control")}
-    assert controls == {"F10", "F11"}, controls
+    assert controls == {"F10", "F11", "F14"}, controls
     for hid in controls:
         assert REG[hid]["grade"] == "D", f"{hid} is a control but is not graded D"
+
+    live = {h for h in controls if REG[h]["status"] == "untested"}
+    assert live == {"F14"}, (
+        f"exactly one live control expected, got {live}. A catalog with no live control "
+        f"cannot demonstrate that its harness declines to promote noise; a catalog with "
+        f"two invites the question of which one carries the claim."
+    )
+    assert REG["F14"]["param_cap"] == 0, (
+        "the control must have no free parameters at all - anything sweepable could be "
+        "tuned into passing or failing, which is the one thing a control may not permit"
+    )
 
 
 @pytest.mark.integrity
@@ -439,3 +460,35 @@ def test_blocked_entries_state_the_arithmetic_not_a_finding() -> None:
             assert banned not in reason, (
                 f"{hid} is blocked before ever running but its reason says {banned!r}"
             )
+
+
+@pytest.mark.integrity
+def test_the_live_control_states_the_regime_it_validates() -> None:
+    """A control validates the event regime it fires in, and no other.
+
+    F14 fires ~9 times a session and so speaks to ~40,000-event samples. Most of this
+    catalog's hypotheses fire once a session and reach ~4,000. If the entry did not say so,
+    a reader would reasonably take "the control came back empty" as covering the whole
+    catalog, which it cannot.
+    """
+    entry = REG["F14"]
+    blob = " ".join(str(v) for v in entry.values()).lower()
+    for phrase in ("f03-like", "once-a-session"):
+        assert phrase in blob, (
+            f"F14 must state that it validates {phrase} regimes explicitly - a control's "
+            f"scope is part of the claim it licenses"
+        )
+
+
+@pytest.mark.integrity
+def test_a_retired_control_says_which_of_the_two_failures_it_was() -> None:
+    """Unpowered and not-a-control are different failures and must not blur together."""
+    reasons = {h: REG[h]["retired_reason"].lower()
+               for h in ("F10", "F11")}
+    assert "unpowered" in reasons["F10"] and "not a control" not in reasons["F10"]
+    assert "not a control" in reasons["F11"]
+    assert "premise" in reasons["F11"], (
+        "F11 failed on premise rather than on sample, and its reason must say so - it was "
+        "powered, and recording it as merely another underpowered control would lose the "
+        "only interesting thing about it"
+    )
