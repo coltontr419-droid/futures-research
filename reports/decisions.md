@@ -317,9 +317,21 @@ wasted — their aggregates carry their verdicts — but their per-cell sections
 - **Three hypotheses have been through Stage 1.** F03 and F04 retired, F07 recorded
   `stage1_uninformative`. All three predate the §13 gate correction and their reports
   should be read with §13 open. See §12 for how the two retirements are graded.
-- **The §13 correction has not been applied to the untested catalog's scheduling.**
-  Any hypothesis whose condition scans a grid axis now has a 1-per-session per-cell
-  ceiling, which will block combinations previously cleared. Re-read
-  `reports/detectability.md` before scheduling anything.
+- **The §13 correction is now applied registry-wide** (2026-09-02). 35 of 40 previously
+  cleared combinations are blocked; 5 remain. `reports/detectability.md` carries the
+  before/after diff and a per-hypothesis table of which verdict routes are open.
+- **F05, F08, F10 and F11 are blocked on a MISSING MEASUREMENT, not a finding.** Their
+  conditions state no per-session firing rate and none was ever counted. An unmeasured
+  rate used to fall through to the data ceiling — the most generous possible assumption,
+  applied where least was known. It now blocks. **Counting those four firing rates is a
+  data measurement, not a Stage 1 run, and it is the single highest-value unblocking
+  task available.** F10 and F11 are the controls, so the catalog currently cannot say
+  what its own controls are powered to detect.
+- **Only F02, F04 and F06 have an open per-cell route, and all five open cells are MGC** —
+  the instrument carrying the standing coverage caveat. Any near-term per-cell verdict
+  will rest on the weaker kind of null. F02, F03 and F04 have open aggregate routes.
+- **F01's aggregate route is closed for the same reason as F07's**: its two entry times
+  (15:00, 15:30) share a 15:55 exit, so the positions overlap and pooling adds almost
+  nothing.
 - **F04's confound control is owed if it is ever revived** — the same-clock-time
   random-day benchmark for the PM auction against 10:00 ET US liquidity.

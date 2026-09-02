@@ -76,9 +76,60 @@ COST_BPS: Final[dict[str, float]] = {"MNQ": 0.48, "MGC": 0.65}
 #:
 #: The rule: divide the condition's firing rate by the multiplicity of whichever scanned
 #: dimension appears as a grid axis. What is left is what one cell actually sees.
-CELL_FIRES_PER_SESSION: Final[dict[str, float]] = {
-    "F01": 1.0, "F02": 1.0, "F03": 1.0, "F04": 1.0, "F05": None,
-    "F06": 1.0, "F07": 1.0, "F08": None, "F09": 1.0, "F10": None, "F11": None,
+#:
+#: None means UNMEASURED, and is now BLOCKING. It used to fall through to the data ceiling,
+#: which silently granted a hypothesis every observation in the sample — the most generous
+#: possible assumption, applied precisely where least was known. A rate that has not been
+#: measured cannot clear a gate.
+CELL_FIRES_PER_SESSION: Final[dict[str, float | None]] = {
+    # entry_time is a grid axis; a cell fixes it and fires at most once a session.
+    "F01": 1.0,
+    # window is a grid axis; one imbalance reading per session per window.
+    "F02": 1.0,
+    # slot is a grid axis: 13 slots, one firing each per session.
+    "F03": 1.0,
+    # auction is a grid axis: AM and PM, one firing each per session.
+    "F04": 1.0,
+    # "arm the setup, then the first close beyond k*sigma" — episodes per session are not
+    # stated by the condition and have never been counted. UNMEASURED.
+    "F05": None,
+    # one opening range per session, whatever W is.
+    "F06": 1.0,
+    # slot is a grid axis: 12 slots, one firing each per session.
+    "F07": 1.0,
+    # a continuously evaluated cross-asset agreement test; could fire many times a session
+    # or none. UNMEASURED.
+    "F08": None,
+    # one settlement per instrument per session.
+    "F09": 1.0,
+    # RSI crossings are irregular and have never been counted. UNMEASURED.
+    "F10": None,
+    # MA crossovers likewise. UNMEASURED.
+    "F11": None,
+}
+
+#: What the gate stored BEFORE the section 13 correction — kept so the report can show
+#: exactly which combinations the error was clearing. Not used for any live decision.
+PREVIOUS_FIRES_PER_SESSION: Final[dict[str, float | None]] = {
+    "F01": 1.0, "F02": 1.0, "F03": 13.0, "F04": 2.0, "F05": None,
+    "F06": 1.0, "F07": 12.0, "F08": None, "F09": 1.0, "F10": None, "F11": None,
+}
+
+#: How many positions the condition scans per session, each of which becomes its own cell.
+#: This buys NO per-cell power — it is a trial-count cost, and it multiplies the aggregate
+#: only when the positions are disjoint.
+SCAN_POSITIONS: Final[dict[str, int]] = {
+    "F01": 2,    # entry_time in {15:00, 15:30}
+    "F02": 2,    # window in {Europe, Asia}
+    "F03": 13,   # the 13 RTH half-hour slots
+    "F04": 2,    # auction in {AM, PM}
+    "F05": 1,
+    "F06": 1,    # W varies the range length, not the position — all three start at 09:30
+    "F07": 12,   # the 12 pre-close half-hour slots
+    "F08": 1,
+    "F09": 1,    # one settlement time per instrument
+    "F10": 1,
+    "F11": 1,
 }
 
 #: Whether the scanned positions are DISJOINT IN TIME, which decides whether pooling them
@@ -94,16 +145,22 @@ CELL_FIRES_PER_SESSION: Final[dict[str, float]] = {
 #: 48,000 independent ones, so the aggregate ceiling stays at the per-cell ceiling and the
 #: pooling escape route is closed. Treating overlap as sample would be the same error this
 #: gate was just corrected for, one level up.
+#:
+#: F01 is the same trap in miniature: its two entry times are 15:00 and 15:30 but BOTH exit
+#: at 15:55, so the two positions overlap for all but thirty minutes and pooling them adds
+#: almost nothing.
 SCAN_POSITIONS_DISJOINT: Final[dict[str, bool]] = {
-    "F01": True, "F02": True, "F03": True, "F04": True, "F05": True,
-    "F06": True, "F07": False, "F08": True, "F09": True, "F10": True, "F11": True,
-}
-
-#: How many positions the condition scans per session, each of which becomes its own cell.
-#: This buys NO per-cell power — it is a trial-count cost, and it multiplies the aggregate.
-SCAN_POSITIONS: Final[dict[str, int]] = {
-    "F01": 1, "F02": 1, "F03": 13, "F04": 2, "F05": 1,
-    "F06": 1, "F07": 12, "F08": 1, "F09": 1, "F10": 1, "F11": 1,
+    "F01": False,   # 15:00 and 15:30 entries share a 15:55 exit
+    "F02": True,    # Europe 01:30-04:00 and Asia 19:00-22:00 do not overlap
+    "F03": True,    # 13 consecutive non-overlapping half-hour trades
+    "F04": True,    # AM exits by 07:30 ET at the longest hold, PM opens at 10:00
+    "F05": True,
+    "F06": True,
+    "F07": False,   # 12 predictors of one 15:30 target
+    "F08": True,
+    "F09": True,
+    "F10": True,
+    "F11": True,
 }
 
 
@@ -184,7 +241,9 @@ class Verdict:
     scan_positions: int
     effective: int
     proxy_horizon: int
-    status: str            # RESOLVABLE | BELOW SWEPT RANGE | UNRESOLVABLE
+    status: str            # RESOLVABLE | BELOW SWEPT RANGE | UNRESOLVABLE | UNMEASURED
+    previous_status: str   # what the pre-section-13 gate said
+    previous_effective: int | None
     floor: float | None
     floor_bps: float | None
     note: str
@@ -192,6 +251,23 @@ class Verdict:
     @property
     def blocked(self) -> bool:
         return self.status != "RESOLVABLE"
+
+
+def _previous_verdict(entry: dict, cell: "Cell", data_ceiling: int,
+                      sessions: int) -> tuple[str, int | None]:
+    """What the gate said BEFORE the section 13 correction, for the report's diff.
+
+    Reproduces the old behaviour exactly: the scan-wide firing rate in the per-cell slot,
+    and an unmeasured rate falling through to the data ceiling rather than blocking.
+    """
+    fires = PREVIOUS_FIRES_PER_SESSION.get(entry["id"])
+    event_ceiling = int(sessions * fires) if fires else None
+    effective = min([x for x in (data_ceiling, event_ceiling) if x is not None])
+    if not cell.ever_resolved:
+        return "UNRESOLVABLE", effective
+    if effective < (cell.smallest_resolving_n or 0):
+        return "BELOW SWEPT RANGE", effective
+    return "RESOLVABLE", effective
 
 
 def assess(entry: dict, cells: dict[tuple[str, int], Cell],
@@ -220,7 +296,14 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
             ) if event_ceiling else None
             effective = min([x for x in (data_ceiling, event_ceiling) if x is not None])
 
-            if not cell.ever_resolved:
+            prev_status, prev_eff = _previous_verdict(entry, cell, data_ceiling, sessions)
+
+            if fires is None:
+                status = "FIRING RATE UNMEASURED"
+                note = ("the condition's firings per session have never been counted, so "
+                        "no event ceiling exists; this must be measured before scheduling")
+                floor = None
+            elif not cell.ever_resolved:
                 status = "UNRESOLVABLE"
                 note = (f"the sweep never resolved a floor for {product} {proxy}m at any "
                         f"tested sample size")
@@ -238,7 +321,8 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
             sigma = SIGMA_BPS.get((product, proxy))
             out.append(Verdict(
                 entry["id"], entry["name"], product, horizon, data_ceiling,
-                event_ceiling, aggregate_ceiling, positions, effective, proxy, status, floor,
+                event_ceiling, aggregate_ceiling, positions, effective, proxy, status,
+                prev_status, prev_eff, floor,
                 floor * sigma if (floor and sigma) else None, note,
             ))
     return out
@@ -286,6 +370,93 @@ def render(verdicts: list[Verdict], cells: dict[tuple[str, int], Cell],
     a(f"**{len(blocked)} of {len(verdicts)} (hypothesis, instrument, horizon) combinations "
       f"cannot support a null**, across {len(affected)} hypotheses: "
       f"{', '.join(affected) if affected else 'none'}.")
+    a("")
+
+    # ------------------------------------------------ what the correction changed
+    newly = [v for v in verdicts if v.previous_status == "RESOLVABLE" and v.blocked]
+    still = [v for v in verdicts if v.previous_status == "RESOLVABLE" and not v.blocked]
+    a("## What the correction blocked")
+    a("")
+    a(f"**{len(newly)} combinations were previously cleared and are now blocked.** "
+      f"{len(still)} remain cleared.")
+    a("")
+    if newly:
+        a("| hypothesis | product | horizon | old ceiling | old verdict | new ceiling | now | why |")
+        a("|---|---|---|---|---|---|---|---|")
+        for v in sorted(newly, key=lambda v: (v.hypothesis, v.product, v.horizon)):
+            why = ("firing rate never measured" if v.status == "FIRING RATE UNMEASURED"
+                   else f"per-cell sample is {v.scan_positions}x smaller than counted"
+                   if v.scan_positions > 1 else "per-cell sample below the swept range")
+            a(f"| {v.hypothesis} | {v.product} | {v.horizon}m | "
+              + (f"{v.previous_effective:,}" if v.previous_effective else "—")
+              + f" | {v.previous_status} | {v.effective:,} | **{v.status}** | {why} |")
+        a("")
+    a("Two separate causes are mixed in that table and they are not equally bad. The "
+      "**scan-multiplicity** rows (F03, F04, F07) were arithmetic: the gate counted firings "
+      "the cell never sees. The **unmeasured** rows (F05, F08, F10, F11) were worse — a "
+      "missing firing rate used to fall through to the data ceiling, which handed a "
+      "hypothesis every observation in the sample precisely where least was known about it. "
+      "Both now block.")
+    a("")
+
+    unmeasured = sorted({v.hypothesis for v in verdicts
+                         if v.status == "FIRING RATE UNMEASURED"})
+    if unmeasured:
+        a(f"**{', '.join(unmeasured)} are blocked on a missing measurement, not on a "
+          f"finding.** Their conditions do not state a per-session firing rate and it has "
+          f"never been counted: F05 arms on a volatility-compression episode, F08 on a "
+          f"continuously evaluated cross-asset agreement, F10 and F11 on indicator "
+          f"crossings. Counting those rates is a data measurement, not a Stage 1 run, and "
+          f"it is what unblocks them.")
+        a("")
+
+    # ------------------------------------------------ verdict routes
+    a("## Verdict routes, per hypothesis")
+    a("")
+    a("Two routes exist. **Per-cell** is the ordinary one: each cell tested, "
+      "Benjamini-Hochberg across them. **Aggregate** pools the scanned positions into one "
+      "series — available only when those positions are disjoint in time, because "
+      "overlapping ones stack correlated readings of the same sessions rather than "
+      "accumulating independent observations.")
+    a("")
+    a("| hypothesis | cells open | positions | disjoint | per-cell route | aggregate route |")
+    a("|---|---|---|---|---|---|")
+    for hid in sorted({v.hypothesis for v in verdicts}):
+        vs = [v for v in verdicts if v.hypothesis == hid]
+        pos = vs[0].scan_positions
+        dj = SCAN_POSITIONS_DISJOINT.get(hid, True)
+        open_cells = [v for v in vs if not v.blocked]
+        if vs[0].status == "FIRING RATE UNMEASURED":
+            cell_route = "**unknown** — rate unmeasured"
+        elif open_cells:
+            cell_route = (f"**open** ({len(open_cells)}/{len(vs)}: "
+                          + ", ".join(f"{v.product} {v.horizon}m" for v in open_cells) + ")")
+        else:
+            cell_route = "**closed** — every cell below the swept range"
+        if pos == 1:
+            agg_route = "n/a — nothing to pool"
+        elif not dj:
+            agg_route = "**closed** — positions overlap"
+        elif vs[0].status == "FIRING RATE UNMEASURED":
+            agg_route = "**unknown** — rate unmeasured"
+        else:
+            ok = []
+            for v in vs:
+                c = cells.get((v.product, v.proxy_horizon))
+                agg = min(v.aggregate_ceiling, v.data_ceiling) if v.aggregate_ceiling else None
+                if c and c.ever_resolved and agg and agg >= (c.smallest_resolving_n or 0):
+                    ok.append(v)
+            agg_route = (f"**open** ({len(ok)}/{len(vs)})" if ok
+                         else "**closed** — pooled sample still below range")
+        open_label = ("rate unmeasured" if vs[0].status == "FIRING RATE UNMEASURED"
+                      else f"{len(open_cells)}/{len(vs)}")
+        a(f"| {hid} | {open_label} | {pos} | "
+          + ("yes" if dj else "**no**") + f" | {cell_route} | {agg_route} |")
+    a("")
+    a("**F07 is the only hypothesis with both routes closed on a measurement rather than a "
+      "finding** — its cells are underpowered and its positions overlap, so nothing it "
+      "produces can be evidence. That is why it is recorded `stage1_uninformative` rather "
+      "than retired.")
     a("")
 
     scans = [v for v in verdicts if v.scan_positions > 1]
