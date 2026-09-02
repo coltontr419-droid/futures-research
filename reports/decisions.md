@@ -424,6 +424,56 @@ the completeness of a particular run.
 
 ---
 
+## 17. The negative control is not a control, and could not have been
+
+Two separate problems, found by asking whether F10 could be replaced.
+
+**F10 fails on power.** 1,585-5,594 independent events against a swept range starting at
+19,722. An unpowered control coming back empty is indistinguishable from a powered one
+working correctly, so it cannot support the one claim it exists to support.
+
+**F11 fails on premise, and would have failed at any sample size.** Its entry justifies it
+as "the canonical published trend rule [with] no counterparty story". That is a *prediction
+about the market* - that the rule is arbitraged away - and it is contestable: a fast/slow MA
+crossover is time-series momentum, which in futures specifically is among the
+best-documented anomalies in the literature, and the managed-futures industry is built on
+it. Decisively, **F01 in this catalog is a momentum hypothesis and F11 is a slow momentum
+rule.** If the harness promoted F11 there would be no way to separate a pipeline failure
+from a correct detection of a real effect - which is exactly the distinction a control
+exists to draw. The same objection applies more weakly to F10 against F02, the reversal
+hypothesis.
+
+**Decided:** a control's premise must be *"this cannot relate to future returns by
+construction"*, never *"this should have been arbitraged away"*. The second is a hypothesis
+wearing a control's label, and both current controls are that.
+
+**The structural finding, which is the important part.** Candidates were measured at three
+firing regimes (`reports/control_candidates.md`). A once-a-session condition yields ~3,500
+events against MNQ's 19,722. **No control of any construction can clear the bar on MNQ in
+the regime where most of this catalog's hypotheses live.** F10's problem was never RSI; it
+was firing rate, and any replacement matching those hypotheses' regime fails identically.
+
+So a replacement validates the harness **in a different regime from the one most hypotheses
+use**. It can show the pipeline does not promote a mechanism-free signal on real futures
+data at F03-like event counts. It cannot show that at F01-like counts, because at those
+counts nothing is demonstrable - which is why those hypotheses are blocked in the first
+place. Any claim the control licenses carries that scope, and must not be generalised past
+it.
+
+**Rejected design, recorded because it looked good.** `sign(sin(t/500))` fires every bar and
+clears the sample requirement easily. It is rejected because a periodic direction beats
+against the session cycle and can pick up genuine time-of-day structure. That exact
+construction is the §7 POSITIVE control - the property making it a good positive control
+disqualifies it as a negative one.
+
+**Nothing was registered.** `hash-slot` (SHA-256 of the bar timestamp, low bit, fired at each
+30-minute RTH slot open, holds 30/60/120) is the recommendation, resolvable in 12 of 12
+combinations, with its parameters fixed in writing before any run so that "fixed a priori"
+is checkable rather than asserted. Registering it, and deciding what to do with F10 and F11,
+is a call for the user.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -458,8 +508,10 @@ the completeness of a particular run.
   MGC-only. See CLAUDE_FUTURES.md §5.9.
 - **[RESOLVED 2026-09-02] `trials.jsonl` is wired into every runner and backfilled**,
   and F03's MGC cells are persisted. See §16. An unlogged run now raises.
-- **F10, the negative control, cannot resolve on any combination.** The catalog cannot
-  currently verify its own control. See §14.
+- **Neither control can serve, for different reasons** — F10 unpowered, F11 not
+  mechanism-free (it is a momentum rule in a catalog containing a momentum
+  hypothesis). `hash-slot` is measured and recommended but NOT registered; see §17
+  and `reports/control_candidates.md`. Awaiting a decision.
 - **F05 should not be scheduled until its condition names a break deadline** — as
   registered it fires on 94% of armings. See §14.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times
