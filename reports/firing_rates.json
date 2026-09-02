@@ -1,0 +1,1022 @@
+[
+  {
+    "hypothesis": "F10",
+    "product": "MNQ",
+    "cell": "RSI(14) 30/70 crossings",
+    "horizon": 30,
+    "firings": 5594,
+    "independent": 5594,
+    "per_session": 1.1253268959967813,
+    "note": "2,434 up through 30, 3,160 down through 70"
+  },
+  {
+    "hypothesis": "F10",
+    "product": "MNQ",
+    "cell": "RSI(14) 30/70 crossings",
+    "horizon": 60,
+    "firings": 2966,
+    "independent": 2966,
+    "per_session": 0.5966606316636491,
+    "note": "1,284 up through 30, 1,682 down through 70"
+  },
+  {
+    "hypothesis": "F10",
+    "product": "MNQ",
+    "cell": "RSI(14) 30/70 crossings",
+    "horizon": 120,
+    "firings": 1585,
+    "independent": 1585,
+    "per_session": 0.3188493260913297,
+    "note": "682 up through 30, 903 down through 70"
+  },
+  {
+    "hypothesis": "F11",
+    "product": "MNQ",
+    "cell": "MA(10)/MA(30) state",
+    "horizon": 30,
+    "firings": 164775,
+    "independent": 164775,
+    "per_session": 33.14725407362704,
+    "note": "CONTINUOUS EXPOSURE: 6,420 position changes over 164,775 bars; the state is true on every bar, so firings equal bars and the independent count is the data ceiling"
+  },
+  {
+    "hypothesis": "F11",
+    "product": "MNQ",
+    "cell": "MA(10)/MA(30) state",
+    "horizon": 60,
+    "firings": 83263,
+    "independent": 83263,
+    "per_session": 16.74974854154094,
+    "note": "CONTINUOUS EXPOSURE: 3,053 position changes over 83,263 bars; the state is true on every bar, so firings equal bars and the independent count is the data ceiling"
+  },
+  {
+    "hypothesis": "F11",
+    "product": "MNQ",
+    "cell": "MA(10)/MA(30) state",
+    "horizon": 120,
+    "firings": 43759,
+    "independent": 43759,
+    "per_session": 8.80285656809495,
+    "note": "CONTINUOUS EXPOSURE: 1,615 position changes over 43,759 bars; the state is true on every bar, so firings equal bars and the independent count is the data ceiling"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=1.5",
+    "horizon": 60,
+    "firings": 14846,
+    "independent": 14846,
+    "per_session": 3.073069757814117,
+    "note": "15,770 armings, 14,846 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=1.5",
+    "horizon": 120,
+    "firings": 14846,
+    "independent": 14846,
+    "per_session": 3.073069757814117,
+    "note": "15,770 armings, 14,846 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=1.5",
+    "horizon": 180,
+    "firings": 14846,
+    "independent": 14846,
+    "per_session": 3.073069757814117,
+    "note": "15,770 armings, 14,846 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=2.0",
+    "horizon": 60,
+    "firings": 14739,
+    "independent": 14739,
+    "per_session": 3.050921134340716,
+    "note": "15,770 armings, 14,739 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=2.0",
+    "horizon": 120,
+    "firings": 14739,
+    "independent": 14739,
+    "per_session": 3.050921134340716,
+    "note": "15,770 armings, 14,739 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=2.0",
+    "horizon": 180,
+    "firings": 14739,
+    "independent": 14739,
+    "per_session": 3.050921134340716,
+    "note": "15,770 armings, 14,739 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=2.5",
+    "horizon": 60,
+    "firings": 14559,
+    "independent": 14559,
+    "per_session": 3.0136617677499484,
+    "note": "15,770 armings, 14,559 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=2.5",
+    "horizon": 120,
+    "firings": 14559,
+    "independent": 14559,
+    "per_session": 3.0136617677499484,
+    "note": "15,770 armings, 14,559 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=15 k=2.5",
+    "horizon": 180,
+    "firings": 14559,
+    "independent": 14559,
+    "per_session": 3.0136617677499484,
+    "note": "15,770 armings, 14,559 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=1.5",
+    "horizon": 60,
+    "firings": 18254,
+    "independent": 18254,
+    "per_session": 3.7785137652659904,
+    "note": "19,376 armings, 18,254 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=1.5",
+    "horizon": 120,
+    "firings": 18254,
+    "independent": 18254,
+    "per_session": 3.7785137652659904,
+    "note": "19,376 armings, 18,254 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=1.5",
+    "horizon": 180,
+    "firings": 18254,
+    "independent": 18254,
+    "per_session": 3.7785137652659904,
+    "note": "19,376 armings, 18,254 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=2.0",
+    "horizon": 60,
+    "firings": 18111,
+    "independent": 18111,
+    "per_session": 3.748913268474436,
+    "note": "19,376 armings, 18,111 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=2.0",
+    "horizon": 120,
+    "firings": 18111,
+    "independent": 18111,
+    "per_session": 3.748913268474436,
+    "note": "19,376 armings, 18,111 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=2.0",
+    "horizon": 180,
+    "firings": 18111,
+    "independent": 18111,
+    "per_session": 3.748913268474436,
+    "note": "19,376 armings, 18,111 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=2.5",
+    "horizon": 60,
+    "firings": 17878,
+    "independent": 17878,
+    "per_session": 3.7006830883874975,
+    "note": "19,376 armings, 17,878 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=2.5",
+    "horizon": 120,
+    "firings": 17878,
+    "independent": 17878,
+    "per_session": 3.7006830883874975,
+    "note": "19,376 armings, 17,878 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=20 k=2.5",
+    "horizon": 180,
+    "firings": 17878,
+    "independent": 17878,
+    "per_session": 3.7006830883874975,
+    "note": "19,376 armings, 17,878 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=1.5",
+    "horizon": 60,
+    "firings": 21618,
+    "independent": 21618,
+    "per_session": 4.474849927551231,
+    "note": "22,975 armings, 21,618 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=1.5",
+    "horizon": 120,
+    "firings": 21618,
+    "independent": 21618,
+    "per_session": 4.474849927551231,
+    "note": "22,975 armings, 21,618 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=1.5",
+    "horizon": 180,
+    "firings": 21618,
+    "independent": 21618,
+    "per_session": 4.474849927551231,
+    "note": "22,975 armings, 21,618 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=2.0",
+    "horizon": 60,
+    "firings": 21427,
+    "independent": 21427,
+    "per_session": 4.435313599668806,
+    "note": "22,975 armings, 21,427 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=2.0",
+    "horizon": 120,
+    "firings": 21427,
+    "independent": 21427,
+    "per_session": 4.435313599668806,
+    "note": "22,975 armings, 21,427 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=2.0",
+    "horizon": 180,
+    "firings": 21427,
+    "independent": 21427,
+    "per_session": 4.435313599668806,
+    "note": "22,975 armings, 21,427 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=2.5",
+    "horizon": 60,
+    "firings": 21121,
+    "independent": 21121,
+    "per_session": 4.3719726764645,
+    "note": "22,975 armings, 21,121 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=2.5",
+    "horizon": 120,
+    "firings": 21121,
+    "independent": 21121,
+    "per_session": 4.3719726764645,
+    "note": "22,975 armings, 21,121 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MNQ",
+    "cell": "vol_pct=25 k=2.5",
+    "horizon": 180,
+    "firings": 21121,
+    "independent": 21121,
+    "per_session": 4.3719726764645,
+    "note": "22,975 armings, 21,121 broke k*sigma"
+  },
+  {
+    "hypothesis": "F10",
+    "product": "MGC",
+    "cell": "RSI(14) 30/70 crossings",
+    "horizon": 30,
+    "firings": 5141,
+    "independent": 5141,
+    "per_session": 1.051114291555919,
+    "note": "2,417 up through 30, 2,724 down through 70"
+  },
+  {
+    "hypothesis": "F10",
+    "product": "MGC",
+    "cell": "RSI(14) 30/70 crossings",
+    "horizon": 60,
+    "firings": 2928,
+    "independent": 2928,
+    "per_session": 0.5986505827029237,
+    "note": "1,342 up through 30, 1,586 down through 70"
+  },
+  {
+    "hypothesis": "F10",
+    "product": "MGC",
+    "cell": "RSI(14) 30/70 crossings",
+    "horizon": 120,
+    "firings": 1667,
+    "independent": 1667,
+    "per_session": 0.34083009609486814,
+    "note": "729 up through 30, 938 down through 70"
+  },
+  {
+    "hypothesis": "F11",
+    "product": "MGC",
+    "cell": "MA(10)/MA(30) state",
+    "horizon": 30,
+    "firings": 173879,
+    "independent": 173879,
+    "per_session": 35.55080760580658,
+    "note": "CONTINUOUS EXPOSURE: 6,869 position changes over 173,879 bars; the state is true on every bar, so firings equal bars and the independent count is the data ceiling"
+  },
+  {
+    "hypothesis": "F11",
+    "product": "MGC",
+    "cell": "MA(10)/MA(30) state",
+    "horizon": 60,
+    "firings": 89181,
+    "independent": 89181,
+    "per_session": 18.23369454099366,
+    "note": "CONTINUOUS EXPOSURE: 3,418 position changes over 89,181 bars; the state is true on every bar, so firings equal bars and the independent count is the data ceiling"
+  },
+  {
+    "hypothesis": "F11",
+    "product": "MGC",
+    "cell": "MA(10)/MA(30) state",
+    "horizon": 120,
+    "firings": 46695,
+    "independent": 46695,
+    "per_session": 9.547127376814558,
+    "note": "CONTINUOUS EXPOSURE: 1,784 position changes over 46,695 bars; the state is true on every bar, so firings equal bars and the independent count is the data ceiling"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=1.5",
+    "horizon": 60,
+    "firings": 10556,
+    "independent": 10556,
+    "per_session": 2.5368901706320597,
+    "note": "11,034 armings, 10,556 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=1.5",
+    "horizon": 120,
+    "firings": 10556,
+    "independent": 10556,
+    "per_session": 2.5368901706320597,
+    "note": "11,034 armings, 10,556 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=1.5",
+    "horizon": 180,
+    "firings": 10556,
+    "independent": 10556,
+    "per_session": 2.5368901706320597,
+    "note": "11,034 armings, 10,556 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=2.0",
+    "horizon": 60,
+    "firings": 10495,
+    "independent": 10495,
+    "per_session": 2.522230233117039,
+    "note": "11,034 armings, 10,495 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=2.0",
+    "horizon": 120,
+    "firings": 10495,
+    "independent": 10495,
+    "per_session": 2.522230233117039,
+    "note": "11,034 armings, 10,495 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=2.0",
+    "horizon": 180,
+    "firings": 10495,
+    "independent": 10495,
+    "per_session": 2.522230233117039,
+    "note": "11,034 armings, 10,495 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=2.5",
+    "horizon": 60,
+    "firings": 10413,
+    "independent": 10413,
+    "per_session": 2.5025234318673397,
+    "note": "11,034 armings, 10,413 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=2.5",
+    "horizon": 120,
+    "firings": 10413,
+    "independent": 10413,
+    "per_session": 2.5025234318673397,
+    "note": "11,034 armings, 10,413 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=15 k=2.5",
+    "horizon": 180,
+    "firings": 10413,
+    "independent": 10413,
+    "per_session": 2.5025234318673397,
+    "note": "11,034 armings, 10,413 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=1.5",
+    "horizon": 60,
+    "firings": 13114,
+    "independent": 13114,
+    "per_session": 3.1516462388848834,
+    "note": "13,709 armings, 13,114 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=1.5",
+    "horizon": 120,
+    "firings": 13114,
+    "independent": 13114,
+    "per_session": 3.1516462388848834,
+    "note": "13,709 armings, 13,114 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=1.5",
+    "horizon": 180,
+    "firings": 13114,
+    "independent": 13114,
+    "per_session": 3.1516462388848834,
+    "note": "13,709 armings, 13,114 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=2.0",
+    "horizon": 60,
+    "firings": 13028,
+    "independent": 13028,
+    "per_session": 3.1309781302571498,
+    "note": "13,709 armings, 13,028 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=2.0",
+    "horizon": 120,
+    "firings": 13028,
+    "independent": 13028,
+    "per_session": 3.1309781302571498,
+    "note": "13,709 armings, 13,028 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=2.0",
+    "horizon": 180,
+    "firings": 13028,
+    "independent": 13028,
+    "per_session": 3.1309781302571498,
+    "note": "13,709 armings, 13,028 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=2.5",
+    "horizon": 60,
+    "firings": 12900,
+    "independent": 12900,
+    "per_session": 3.1002162941600577,
+    "note": "13,709 armings, 12,900 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=2.5",
+    "horizon": 120,
+    "firings": 12900,
+    "independent": 12900,
+    "per_session": 3.1002162941600577,
+    "note": "13,709 armings, 12,900 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=20 k=2.5",
+    "horizon": 180,
+    "firings": 12900,
+    "independent": 12900,
+    "per_session": 3.1002162941600577,
+    "note": "13,709 armings, 12,900 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=1.5",
+    "horizon": 60,
+    "firings": 15559,
+    "independent": 15559,
+    "per_session": 3.7392453737082434,
+    "note": "16,282 armings, 15,559 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=1.5",
+    "horizon": 120,
+    "firings": 15559,
+    "independent": 15559,
+    "per_session": 3.7392453737082434,
+    "note": "16,282 armings, 15,559 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=1.5",
+    "horizon": 180,
+    "firings": 15559,
+    "independent": 15559,
+    "per_session": 3.7392453737082434,
+    "note": "16,282 armings, 15,559 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=2.0",
+    "horizon": 60,
+    "firings": 15454,
+    "independent": 15454,
+    "per_session": 3.7140110550348475,
+    "note": "16,282 armings, 15,454 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=2.0",
+    "horizon": 120,
+    "firings": 15454,
+    "independent": 15454,
+    "per_session": 3.7140110550348475,
+    "note": "16,282 armings, 15,454 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=2.0",
+    "horizon": 180,
+    "firings": 15454,
+    "independent": 15454,
+    "per_session": 3.7140110550348475,
+    "note": "16,282 armings, 15,454 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=2.5",
+    "horizon": 60,
+    "firings": 15288,
+    "independent": 15288,
+    "per_session": 3.674116798846431,
+    "note": "16,282 armings, 15,288 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=2.5",
+    "horizon": 120,
+    "firings": 15288,
+    "independent": 15288,
+    "per_session": 3.674116798846431,
+    "note": "16,282 armings, 15,288 broke k*sigma"
+  },
+  {
+    "hypothesis": "F05",
+    "product": "MGC",
+    "cell": "vol_pct=25 k=2.5",
+    "horizon": 180,
+    "firings": 15288,
+    "independent": 15288,
+    "per_session": 3.674116798846431,
+    "note": "16,282 armings, 15,288 broke k*sigma"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=1.0",
+    "horizon": 60,
+    "firings": 6151,
+    "independent": 6151,
+    "per_session": 1.313754805638616,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=1.0",
+    "horizon": 60,
+    "firings": 6151,
+    "independent": 6151,
+    "per_session": 1.313754805638616,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=1.0",
+    "horizon": 120,
+    "firings": 6151,
+    "independent": 6151,
+    "per_session": 1.313754805638616,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=1.0",
+    "horizon": 120,
+    "firings": 6151,
+    "independent": 6151,
+    "per_session": 1.313754805638616,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=1.0",
+    "horizon": 180,
+    "firings": 6151,
+    "independent": 6151,
+    "per_session": 1.313754805638616,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=1.0",
+    "horizon": 180,
+    "firings": 6151,
+    "independent": 6151,
+    "per_session": 1.313754805638616,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=1.5",
+    "horizon": 60,
+    "firings": 2095,
+    "independent": 2095,
+    "per_session": 0.4474583511319949,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=1.5",
+    "horizon": 60,
+    "firings": 2095,
+    "independent": 2095,
+    "per_session": 0.4474583511319949,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=1.5",
+    "horizon": 120,
+    "firings": 2095,
+    "independent": 2095,
+    "per_session": 0.4474583511319949,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=1.5",
+    "horizon": 120,
+    "firings": 2095,
+    "independent": 2095,
+    "per_session": 0.4474583511319949,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=1.5",
+    "horizon": 180,
+    "firings": 2095,
+    "independent": 2095,
+    "per_session": 0.4474583511319949,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=1.5",
+    "horizon": 180,
+    "firings": 2095,
+    "independent": 2095,
+    "per_session": 0.4474583511319949,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=2.0",
+    "horizon": 60,
+    "firings": 857,
+    "independent": 857,
+    "per_session": 0.18304143528406663,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=2.0",
+    "horizon": 60,
+    "firings": 857,
+    "independent": 857,
+    "per_session": 0.18304143528406663,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=2.0",
+    "horizon": 120,
+    "firings": 857,
+    "independent": 857,
+    "per_session": 0.18304143528406663,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=2.0",
+    "horizon": 120,
+    "firings": 857,
+    "independent": 857,
+    "per_session": 0.18304143528406663,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=30 k=2.0",
+    "horizon": 180,
+    "firings": 857,
+    "independent": 857,
+    "per_session": 0.18304143528406663,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=30 k=2.0",
+    "horizon": 180,
+    "firings": 857,
+    "independent": 857,
+    "per_session": 0.18304143528406663,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=1.0",
+    "horizon": 60,
+    "firings": 3141,
+    "independent": 3141,
+    "per_session": 0.6708671507902606,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=1.0",
+    "horizon": 60,
+    "firings": 3141,
+    "independent": 3141,
+    "per_session": 0.6708671507902606,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=1.0",
+    "horizon": 120,
+    "firings": 3141,
+    "independent": 3141,
+    "per_session": 0.6708671507902606,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=1.0",
+    "horizon": 120,
+    "firings": 3141,
+    "independent": 3141,
+    "per_session": 0.6708671507902606,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=1.0",
+    "horizon": 180,
+    "firings": 3141,
+    "independent": 3141,
+    "per_session": 0.6708671507902606,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=1.0",
+    "horizon": 180,
+    "firings": 3141,
+    "independent": 3141,
+    "per_session": 0.6708671507902606,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=1.5",
+    "horizon": 60,
+    "firings": 1168,
+    "independent": 1168,
+    "per_session": 0.24946604015378043,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=1.5",
+    "horizon": 60,
+    "firings": 1168,
+    "independent": 1168,
+    "per_session": 0.24946604015378043,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=1.5",
+    "horizon": 120,
+    "firings": 1168,
+    "independent": 1168,
+    "per_session": 0.24946604015378043,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=1.5",
+    "horizon": 120,
+    "firings": 1168,
+    "independent": 1168,
+    "per_session": 0.24946604015378043,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=1.5",
+    "horizon": 180,
+    "firings": 1168,
+    "independent": 1168,
+    "per_session": 0.24946604015378043,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=1.5",
+    "horizon": 180,
+    "firings": 1168,
+    "independent": 1168,
+    "per_session": 0.24946604015378043,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=2.0",
+    "horizon": 60,
+    "firings": 530,
+    "independent": 530,
+    "per_session": 0.11319948739854763,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=2.0",
+    "horizon": 60,
+    "firings": 530,
+    "independent": 530,
+    "per_session": 0.11319948739854763,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=2.0",
+    "horizon": 120,
+    "firings": 530,
+    "independent": 530,
+    "per_session": 0.11319948739854763,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=2.0",
+    "horizon": 120,
+    "firings": 530,
+    "independent": 530,
+    "per_session": 0.11319948739854763,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MNQ",
+    "cell": "W=60 k=2.0",
+    "horizon": 180,
+    "firings": 530,
+    "independent": 530,
+    "per_session": 0.11319948739854763,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  },
+  {
+    "hypothesis": "F08",
+    "product": "MGC",
+    "cell": "W=60 k=2.0",
+    "horizon": 180,
+    "firings": 530,
+    "independent": 530,
+    "per_session": 0.11319948739854763,
+    "note": "shared minutes only (3,307,036 of 4,728,809 MNQ bars)"
+  }
+]

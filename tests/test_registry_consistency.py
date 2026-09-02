@@ -40,15 +40,20 @@ REQUIRED_FIELDS: Final[frozenset[str]] = frozenset(
 #: because the sample sits below the range where a detection floor was ever resolved. The
 #: first is a result; the second is the absence of one, and collapsing them would let an
 #: unpowered null read as a considered verdict. See reports/decisions.md section 13.
+#: `blocked_insufficient_events` is distinct from both again: the hypothesis was never
+#: run at all, because arithmetic done BEFORE any test showed no route could carry a
+#: verdict. Uninformative means it ran and could not inform; blocked means it should not
+#: run. Keeping them apart is what stops a scheduling decision from later reading as a
+#: finding about the market.
 ALLOWED_STATUSES: Final[frozenset[str]] = frozenset({
     "untested", "stage1_inconclusive", "stage1_uninformative", "stage1_passed",
-    "retired", "excluded", "dead",
+    "blocked_insufficient_events", "retired", "excluded", "dead",
 })
 
 #: Statuses that mean "will never be scheduled". Each needs a reason field.
 RESOLVED_STATUSES: Final[frozenset[str]] = frozenset({
-    "stage1_inconclusive", "stage1_uninformative", "stage1_passed", "retired",
-    "excluded", "dead",
+    "stage1_inconclusive", "stage1_uninformative", "stage1_passed",
+    "blocked_insufficient_events", "retired", "excluded", "dead",
 })
 
 #: §5 Stage 4 needs two genuinely different instruments. MNQ and MGC are uncorrelated,
@@ -218,6 +223,7 @@ def test_resolved_entries_carry_a_reason() -> None:
         "excluded": "excluded_reason",
         "stage1_inconclusive": "stage1_reason",
         "stage1_uninformative": "stage1_reason",
+        "blocked_insufficient_events": "blocked_reason",
         "stage1_passed": "stage1_reason",
     }
     for hid, entry in REG.items():
@@ -373,4 +379,63 @@ def test_uninformative_entries_do_not_claim_a_verdict() -> None:
             assert banned not in reason, (
                 f"{hid} is stage1_uninformative but its reason says {banned!r} — an "
                 f"unpowered run cannot refute anything"
+            )
+
+
+@pytest.mark.integrity
+def test_every_hypothesis_has_a_declared_or_measured_firing_rate() -> None:
+    """An uncounted firing rate must BLOCK, never fall through to the data ceiling.
+
+    This is the §13 regression guard. The old gate treated a missing rate as "no event
+    constraint", which silently granted a hypothesis every observation in the sample
+    precisely where least was known about it. Every registered hypothesis must now either
+    declare a per-cell rate its condition determines, or have one measured and cached.
+    """
+    from futuresres.reporting.detectability import (
+        CELL_FIRES_PER_SESSION,
+        MEASURED,
+        SCAN_POSITIONS,
+        SCAN_POSITIONS_DISJOINT,
+    )
+
+    measured_ids = {k[0] for k in MEASURED}
+    for hid, entry in REG.items():
+        if entry["status"] == "excluded":
+            continue
+        declared = CELL_FIRES_PER_SESSION.get(hid)
+        assert declared is not None or hid in measured_ids, (
+            f"{hid} has neither a declared per-cell firing rate nor a measured one. It "
+            f"must not be schedulable: run `python -m futuresres.reporting.firing_rates` "
+            f"or add its rate with the reasoning that derives it from the condition."
+        )
+        assert hid in SCAN_POSITIONS and hid in SCAN_POSITIONS_DISJOINT, (
+            f"{hid} is missing a scan-position or disjointness declaration; without both, "
+            f"its aggregate route cannot be assessed"
+        )
+
+
+@pytest.mark.integrity
+def test_an_unknown_hypothesis_id_blocks_rather_than_clearing() -> None:
+    """The DEFAULT for something nobody has thought about must be 'blocked'."""
+    from futuresres.reporting.detectability import CELL_FIRES_PER_SESSION, MEASURED
+
+    unknown = "F99_never_registered"
+    assert CELL_FIRES_PER_SESSION.get(unknown) is None
+    assert not any(k[0] == unknown for k in MEASURED)
+
+
+@pytest.mark.integrity
+def test_blocked_entries_state_the_arithmetic_not_a_finding() -> None:
+    """A blocked hypothesis must not read as though the market was tested and found empty."""
+    for hid, entry in REG.items():
+        if entry["status"] != "blocked_insufficient_events":
+            continue
+        reason = entry["blocked_reason"].lower()
+        assert any(c.isdigit() for c in reason), (
+            f"{hid} is blocked_insufficient_events but its reason quotes no counts - the "
+            f"arithmetic is the justification and has to be visible"
+        )
+        for banned in ("refuted", "no edge", "found nothing", "does not work"):
+            assert banned not in reason, (
+                f"{hid} is blocked before ever running but its reason says {banned!r}"
             )

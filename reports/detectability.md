@@ -20,11 +20,11 @@ Benjamini-Hochberg tests cells, so the sample that decides a cell is the sample 
 
 An earlier version of this gate stored the **aggregate** rate in the per-cell slot, inflating F03's ceiling 13x, F07's 12x and F04's 2x. Cells were marked RESOLVABLE whose real per-cell samples sat far below the swept range. The rows below are the corrected ones; `reports/decisions.md` section 13 records what it changed.
 
-**55 of 60 (hypothesis, instrument, horizon) combinations cannot support a null**, across 11 hypotheses: F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11.
+**38 of 60 (hypothesis, instrument, horizon) combinations cannot support a null**, across 9 hypotheses: F01, F02, F03, F04, F06, F07, F08, F09, F10.
 
 ## What the correction blocked
 
-**35 combinations were previously cleared and are now blocked.** 5 remain cleared.
+**18 combinations were previously cleared and are now blocked.** 22 remain cleared.
 
 | hypothesis | product | horizon | old ceiling | old verdict | new ceiling | now | why |
 |---|---|---|---|---|---|---|---|
@@ -33,40 +33,21 @@ An earlier version of this gate stored the **aggregate** rate in the per-cell sl
 | F04 | MGC | 30m | 8,012 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 2x smaller than counted |
 | F04 | MGC | 60m | 8,012 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 2x smaller than counted |
 | F04 | MNQ | 120m | 8,250 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 2x smaller than counted |
-| F05 | MGC | 60m | 31,591 | RESOLVABLE | 31,591 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F05 | MGC | 120m | 12,285 | RESOLVABLE | 12,285 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F05 | MGC | 180m | 8,190 | RESOLVABLE | 8,190 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F05 | MNQ | 60m | 39,444 | RESOLVABLE | 39,444 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F05 | MNQ | 120m | 17,652 | RESOLVABLE | 17,652 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F05 | MNQ | 180m | 11,768 | RESOLVABLE | 11,768 | **FIRING RATE UNMEASURED** | firing rate never measured |
 | F07 | MGC | 30m | 48,072 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
 | F07 | MGC | 60m | 31,591 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
 | F07 | MGC | 90m | 21,060 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
 | F07 | MNQ | 30m | 49,500 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
 | F07 | MNQ | 60m | 39,444 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
 | F07 | MNQ | 90m | 26,296 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
-| F08 | MGC | 60m | 31,591 | RESOLVABLE | 31,591 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F08 | MGC | 120m | 12,285 | RESOLVABLE | 12,285 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F08 | MGC | 180m | 8,190 | RESOLVABLE | 8,190 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F08 | MNQ | 60m | 39,444 | RESOLVABLE | 39,444 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F08 | MNQ | 120m | 17,652 | RESOLVABLE | 17,652 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F08 | MNQ | 180m | 11,768 | RESOLVABLE | 11,768 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F10 | MGC | 30m | 63,182 | RESOLVABLE | 63,182 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F10 | MGC | 60m | 31,591 | RESOLVABLE | 31,591 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F10 | MGC | 120m | 12,285 | RESOLVABLE | 12,285 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F10 | MNQ | 30m | 78,888 | RESOLVABLE | 78,888 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F10 | MNQ | 60m | 39,444 | RESOLVABLE | 39,444 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F10 | MNQ | 120m | 17,652 | RESOLVABLE | 17,652 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F11 | MGC | 30m | 63,182 | RESOLVABLE | 63,182 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F11 | MGC | 60m | 31,591 | RESOLVABLE | 31,591 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F11 | MGC | 120m | 12,285 | RESOLVABLE | 12,285 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F11 | MNQ | 30m | 78,888 | RESOLVABLE | 78,888 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F11 | MNQ | 60m | 39,444 | RESOLVABLE | 39,444 | **FIRING RATE UNMEASURED** | firing rate never measured |
-| F11 | MNQ | 120m | 17,652 | RESOLVABLE | 17,652 | **FIRING RATE UNMEASURED** | firing rate never measured |
+| F08 | MNQ | 60m | 39,444 | RESOLVABLE | 530 | **BELOW SWEPT RANGE** | per-cell sample below the swept range |
+| F10 | MGC | 30m | 63,182 | RESOLVABLE | 5,141 | **BELOW SWEPT RANGE** | per-cell sample below the swept range |
+| F10 | MGC | 60m | 31,591 | RESOLVABLE | 2,928 | **BELOW SWEPT RANGE** | per-cell sample below the swept range |
+| F10 | MGC | 120m | 12,285 | RESOLVABLE | 1,667 | **BELOW SWEPT RANGE** | per-cell sample below the swept range |
+| F10 | MNQ | 30m | 78,888 | RESOLVABLE | 5,594 | **BELOW SWEPT RANGE** | per-cell sample below the swept range |
+| F10 | MNQ | 60m | 39,444 | RESOLVABLE | 2,966 | **BELOW SWEPT RANGE** | per-cell sample below the swept range |
+| F10 | MNQ | 120m | 17,652 | RESOLVABLE | 1,585 | **BELOW SWEPT RANGE** | per-cell sample below the swept range |
 
 Two separate causes are mixed in that table and they are not equally bad. The **scan-multiplicity** rows (F03, F04, F07) were arithmetic: the gate counted firings the cell never sees. The **unmeasured** rows (F05, F08, F10, F11) were worse — a missing firing rate used to fall through to the data ceiling, which handed a hypothesis every observation in the sample precisely where least was known about it. Both now block.
-
-**F05, F08, F10, F11 are blocked on a missing measurement, not on a finding.** Their conditions do not state a per-session firing rate and it has never been counted: F05 arms on a volatility-compression episode, F08 on a continuously evaluated cross-asset agreement, F10 and F11 on indicator crossings. Counting those rates is a data measurement, not a Stage 1 run, and it is what unblocks them.
 
 ## Verdict routes, per hypothesis
 
@@ -78,13 +59,13 @@ Two routes exist. **Per-cell** is the ordinary one: each cell tested, Benjamini-
 | F02 | 2/6 | 2 | yes | **open** (2/6: MGC 120m, MGC 240m) | **open** (5/6) |
 | F03 | 0/2 | 13 | yes | **closed** — every cell below the swept range | **open** (2/2) |
 | F04 | 1/6 | 2 | yes | **open** (1/6: MGC 120m) | **open** (4/6) |
-| F05 | rate unmeasured | 1 | yes | **unknown** — rate unmeasured | n/a — nothing to pool |
+| F05 | 6/6 | 1 | yes | **open** (6/6: MNQ 60m, MNQ 120m, MNQ 180m, MGC 60m, MGC 120m, MGC 180m) | n/a — nothing to pool |
 | F06 | 2/6 | 1 | yes | **open** (2/6: MGC 120m, MGC 180m) | n/a — nothing to pool |
 | F07 | 0/6 | 12 | **no** | **closed** — every cell below the swept range | **closed** — positions overlap |
-| F08 | rate unmeasured | 1 | yes | **unknown** — rate unmeasured | n/a — nothing to pool |
+| F08 | 5/6 | 1 | yes | **open** (5/6: MNQ 120m, MNQ 180m, MGC 60m, MGC 120m, MGC 180m) | n/a — nothing to pool |
 | F09 | 0/6 | 1 | yes | **closed** — every cell below the swept range | n/a — nothing to pool |
-| F10 | rate unmeasured | 1 | yes | **unknown** — rate unmeasured | n/a — nothing to pool |
-| F11 | rate unmeasured | 1 | yes | **unknown** — rate unmeasured | n/a — nothing to pool |
+| F10 | 0/6 | 1 | yes | **closed** — every cell below the swept range | n/a — nothing to pool |
+| F11 | 6/6 | 1 | yes | **open** (6/6: MNQ 30m, MNQ 60m, MNQ 120m, MGC 30m, MGC 60m, MGC 120m) | n/a — nothing to pool |
 
 **F07 is the only hypothesis with both routes closed on a measurement rather than a finding** — its cells are underpowered and its positions overlap, so nothing it produces can be evidence. That is why it is recorded `stage1_uninformative` rather than retired.
 
@@ -153,12 +134,6 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F04 | lbma_auction_flow | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
 | F04 | lbma_auction_flow | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
 | F04 | lbma_auction_flow | MNQ | 120m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F05 | volatility_compression_expansion | MGC | 60m | 31,591 | data | **FIRING RATE UNMEASURED** |
-| F05 | volatility_compression_expansion | MGC | 120m | 12,285 | data | **FIRING RATE UNMEASURED** |
-| F05 | volatility_compression_expansion | MGC | 180m | 8,190 | data | **FIRING RATE UNMEASURED** |
-| F05 | volatility_compression_expansion | MNQ | 60m | 39,444 | data | **FIRING RATE UNMEASURED** |
-| F05 | volatility_compression_expansion | MNQ | 120m | 17,652 | data | **FIRING RATE UNMEASURED** |
-| F05 | volatility_compression_expansion | MNQ | 180m | 11,768 | data | **FIRING RATE UNMEASURED** |
 | F06 | cash_open_drive_continuation | MGC | 60m | 4,006 | event rate | **BELOW SWEPT RANGE** |
 | F06 | cash_open_drive_continuation | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
 | F06 | cash_open_drive_continuation | MNQ | 120m | 4,125 | event rate | **BELOW SWEPT RANGE** |
@@ -169,30 +144,19 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F07 | gold_session_specific_momentum | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
 | F07 | gold_session_specific_momentum | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
 | F07 | gold_session_specific_momentum | MNQ | 90m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F08 | cross_asset_risk_regime | MGC | 60m | 31,591 | data | **FIRING RATE UNMEASURED** |
-| F08 | cross_asset_risk_regime | MGC | 120m | 12,285 | data | **FIRING RATE UNMEASURED** |
-| F08 | cross_asset_risk_regime | MGC | 180m | 8,190 | data | **FIRING RATE UNMEASURED** |
-| F08 | cross_asset_risk_regime | MNQ | 60m | 39,444 | data | **FIRING RATE UNMEASURED** |
-| F08 | cross_asset_risk_regime | MNQ | 120m | 17,652 | data | **FIRING RATE UNMEASURED** |
-| F08 | cross_asset_risk_regime | MNQ | 180m | 11,768 | data | **FIRING RATE UNMEASURED** |
+| F08 | cross_asset_risk_regime | MNQ | 60m | 530 | event rate | **BELOW SWEPT RANGE** |
 | F09 | settlement_anchored_flow | MGC | 30m | 4,006 | event rate | **BELOW SWEPT RANGE** |
 | F09 | settlement_anchored_flow | MGC | 60m | 4,006 | event rate | **BELOW SWEPT RANGE** |
 | F09 | settlement_anchored_flow | MGC | 90m | 4,006 | event rate | **BELOW SWEPT RANGE** |
 | F09 | settlement_anchored_flow | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
 | F09 | settlement_anchored_flow | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
 | F09 | settlement_anchored_flow | MNQ | 90m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F10 | rsi_mean_reversion_control | MGC | 30m | 63,182 | data | **FIRING RATE UNMEASURED** |
-| F10 | rsi_mean_reversion_control | MGC | 60m | 31,591 | data | **FIRING RATE UNMEASURED** |
-| F10 | rsi_mean_reversion_control | MGC | 120m | 12,285 | data | **FIRING RATE UNMEASURED** |
-| F10 | rsi_mean_reversion_control | MNQ | 30m | 78,888 | data | **FIRING RATE UNMEASURED** |
-| F10 | rsi_mean_reversion_control | MNQ | 60m | 39,444 | data | **FIRING RATE UNMEASURED** |
-| F10 | rsi_mean_reversion_control | MNQ | 120m | 17,652 | data | **FIRING RATE UNMEASURED** |
-| F11 | ma_crossover_control | MGC | 30m | 63,182 | data | **FIRING RATE UNMEASURED** |
-| F11 | ma_crossover_control | MGC | 60m | 31,591 | data | **FIRING RATE UNMEASURED** |
-| F11 | ma_crossover_control | MGC | 120m | 12,285 | data | **FIRING RATE UNMEASURED** |
-| F11 | ma_crossover_control | MNQ | 30m | 78,888 | data | **FIRING RATE UNMEASURED** |
-| F11 | ma_crossover_control | MNQ | 60m | 39,444 | data | **FIRING RATE UNMEASURED** |
-| F11 | ma_crossover_control | MNQ | 120m | 17,652 | data | **FIRING RATE UNMEASURED** |
+| F10 | rsi_mean_reversion_control | MGC | 30m | 5,141 | event rate | **BELOW SWEPT RANGE** |
+| F10 | rsi_mean_reversion_control | MGC | 60m | 2,928 | event rate | **BELOW SWEPT RANGE** |
+| F10 | rsi_mean_reversion_control | MGC | 120m | 1,667 | event rate | **BELOW SWEPT RANGE** |
+| F10 | rsi_mean_reversion_control | MNQ | 30m | 5,594 | event rate | **BELOW SWEPT RANGE** |
+| F10 | rsi_mean_reversion_control | MNQ | 60m | 2,966 | event rate | **BELOW SWEPT RANGE** |
+| F10 | rsi_mean_reversion_control | MNQ | 120m | 1,585 | event rate | **BELOW SWEPT RANGE** |
 
 - `F01` MGC 30m — 4,006 usable observations is below the smallest sample that resolved a floor (5,620)
 - `F01` MGC 60m — 4,006 usable observations is below the smallest sample that resolved a floor (5,620)
@@ -229,12 +193,12 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F04 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F04 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F04 | MNQ | 120m | 17,652 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F05 | MGC | 60m | 31,591 | — | **31,591** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F05 | MGC | 120m | 12,285 | — | **12,285** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F05 | MGC | 180m | 8,190 | — | **8,190** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F05 | MNQ | 60m | 39,444 | — | **39,444** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F05 | MNQ | 120m | 17,652 | — | **17,652** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F05 | MNQ | 180m | 11,768 | — | **11,768** | — | — | 0.48 | FIRING RATE UNMEASURED |
+| F05 | MGC | 60m | 31,591 | 10,413 | **10,413** | 0.3× | **7.86** | 0.65 | RESOLVABLE |
+| F05 | MGC | 120m | 12,285 | 10,413 | **10,413** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F05 | MGC | 180m | 8,190 | 10,413 | **8,190** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F05 | MNQ | 60m | 39,444 | 14,559 | **14,559** | 0.08446× | **2.57** | 0.48 | MIXED |
+| F05 | MNQ | 120m | 17,652 | 14,559 | **14,559** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
+| F05 | MNQ | 180m | 11,768 | 14,559 | **11,768** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
 | F06 | MGC | 60m | 31,591 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F06 | MGC | 120m | 12,285 | 4,006 | **4,006** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
 | F06 | MGC | 180m | 8,190 | 4,006 | **4,006** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
@@ -247,30 +211,30 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F07 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F07 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F07 | MNQ | 90m | 26,296 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F08 | MGC | 60m | 31,591 | — | **31,591** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F08 | MGC | 120m | 12,285 | — | **12,285** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F08 | MGC | 180m | 8,190 | — | **8,190** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F08 | MNQ | 60m | 39,444 | — | **39,444** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F08 | MNQ | 120m | 17,652 | — | **17,652** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F08 | MNQ | 180m | 11,768 | — | **11,768** | — | — | 0.48 | FIRING RATE UNMEASURED |
+| F08 | MGC | 60m | 31,591 | 530 | **530** | 0.1592× | **4.17** | 0.65 | MIXED |
+| F08 | MGC | 120m | 12,285 | 530 | **530** | 0.3× | **14.34** | 0.65 | MIXED |
+| F08 | MGC | 180m | 8,190 | 530 | **530** | 0.3× | **14.34** | 0.65 | MIXED |
+| F08 | MNQ | 60m | 39,444 | 530 | **530** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F08 | MNQ | 120m | 17,652 | 530 | **530** | 0.3× | **15.66** | 0.48 | MIXED |
+| F08 | MNQ | 180m | 11,768 | 530 | **530** | 0.3× | **15.66** | 0.48 | MIXED |
 | F09 | MGC | 30m | 63,182 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F09 | MGC | 60m | 31,591 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F09 | MGC | 90m | 21,060 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F09 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F09 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F09 | MNQ | 90m | 26,296 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F10 | MGC | 30m | 63,182 | — | **63,182** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F10 | MGC | 60m | 31,591 | — | **31,591** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F10 | MGC | 120m | 12,285 | — | **12,285** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F10 | MNQ | 30m | 78,888 | — | **78,888** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F10 | MNQ | 60m | 39,444 | — | **39,444** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F10 | MNQ | 120m | 17,652 | — | **17,652** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F11 | MGC | 30m | 63,182 | — | **63,182** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F11 | MGC | 60m | 31,591 | — | **31,591** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F11 | MGC | 120m | 12,285 | — | **12,285** | — | — | 0.65 | FIRING RATE UNMEASURED |
-| F11 | MNQ | 30m | 78,888 | — | **78,888** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F11 | MNQ | 60m | 39,444 | — | **39,444** | — | — | 0.48 | FIRING RATE UNMEASURED |
-| F11 | MNQ | 120m | 17,652 | — | **17,652** | — | — | 0.48 | FIRING RATE UNMEASURED |
+| F10 | MGC | 30m | 63,182 | 5,141 | **5,141** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F10 | MGC | 60m | 31,591 | 2,928 | **2,928** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F10 | MGC | 120m | 12,285 | 1,667 | **1,667** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F10 | MNQ | 30m | 78,888 | 5,594 | **5,594** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F10 | MNQ | 60m | 39,444 | 2,966 | **2,966** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F10 | MNQ | 120m | 17,652 | 1,585 | **1,585** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F11 | MGC | 30m | 63,182 | 173,879 | **63,182** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
+| F11 | MGC | 60m | 31,591 | 89,181 | **31,591** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
+| F11 | MGC | 120m | 12,285 | 46,695 | **12,285** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F11 | MNQ | 30m | 78,888 | 164,775 | **78,888** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
+| F11 | MNQ | 60m | 39,444 | 83,263 | **39,444** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
+| F11 | MNQ | 120m | 17,652 | 43,759 | **17,652** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
 
 ## How the ceilings were computed
 

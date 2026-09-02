@@ -302,6 +302,66 @@ wasted — their aggregates carry their verdicts — but their per-cell sections
 
 ---
 
+## 14. Choices made while counting the four uncounted firing rates
+
+The conditions for F05, F08, F10 and F11 do not fully determine how to count their firings.
+Each gap was resolved once, in public, rather than tuned.
+
+| hypothesis | the gap | chosen | why |
+|---|---|---|---|
+| F05 | condition names neither the compression midpoint nor sigma | midpoint = mean close of the armed hour, sigma = std of those same closes | the only quantities the armed window itself supplies; anything else imports an outside scale |
+| F05 | evaluated how often? | at each session hour boundary | "realized_vol(1h) ... at the same clock time" implies an hourly grid |
+| F08 | sigma over what window? | trailing 20 sessions at the **same clock time** | matches F05's convention; a flat rolling window would mix 03:00 volatility into a 14:00 threshold |
+| F10 | RSI on which bars? | bars of the hold's own length | otherwise RSI(14) means something different at each horizon and the three holds stop being comparable |
+| F11 | "round values", never specified | fast 10, slow 30 | the registry left this genuinely open; it is a free choice and had to be made once rather than swept |
+
+**F05's specification gap is the one worth flagging.** Its condition says to enter "on the
+first close beyond k*sigma from the compression midpoint" but never says *by when*. Given a
+whole session to break in, **14,846 of 15,770 armings break — a 94% rate**. The compression
+filter does real work; the break condition, unbounded, does almost none. That is a defect in
+the registered condition, not a property of the market, and F05 should not be scheduled
+until the condition names a deadline. Recorded here rather than silently patched, because
+choosing a deadline now would be choosing a parameter after seeing the data.
+
+**F11 is a state, not an event.** Long whenever the fast MA is above the slow one means
+always in the market: its firings equal its bar count and its independent count equals the
+data ceiling. Only 6,420 actual position changes underlie MNQ's 164,775 30-minute
+observations. The old fall-through-to-data-ceiling default was accidentally right for F11
+and wrong for the other three — which is why an accident is not a policy.
+
+**F10, a control, cannot resolve anywhere.** 5,594 independent events at best against 19,722
+needed on MNQ; RSI(14) crossings through 30 and 70 are simply rare. A control that comes
+back empty is supposed to be reassuring, but an underpowered control coming back empty is
+indistinguishable from a powered one doing its job. **The catalog currently cannot verify
+its own negative control**, and no amount of care elsewhere substitutes for that.
+
+**F08 loses 30% of its sample to the cross-asset join** — 3,307,036 of 4,728,809 MNQ minutes
+have a matching MGC minute. The standing MGC coverage caveat appears here as an outright
+sample cut rather than as forward-filling, and it binds the only genuinely cross-asset
+hypothesis in the catalog.
+
+---
+
+## 15. Two integrity gaps found while writing the status report
+
+**`trials.jsonl` has never been written.** `src/futuresres/stats/trials.py` — the
+hash-chained append-only trial log — was ported from the crypto repo with its tests, and its
+tests pass, but **no Stage 1 runner calls it**. N is currently reconstructed by counting rows
+in `reports/f*_cells.json`, which is exactly the reconstruction an append-only log exists to
+make unnecessary: it is unverifiable, it silently loses anything not persisted, and it would
+not detect a deleted trial. Every future Stage 1 run must write to it before anything else.
+
+**F03's MGC cells were never persisted.** Its report covers both instruments and its
+retirement quotes an MGC aggregate, but `reports/f03_cells.json` holds only MNQ's 117 rows.
+117 trials were spent and their per-cell results exist nowhere. They are added to N from the
+report rather than dropped, and the gap is marked in `reports/catalog_status.md` rather than
+hidden by a tidier-looking number.
+
+Both were found by trying to compute N honestly. Neither changes a verdict. Both mean the
+catalog's own record of what it has spent is weaker than its record of what it found.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -320,16 +380,26 @@ wasted — their aggregates carry their verdicts — but their per-cell sections
 - **The §13 correction is now applied registry-wide** (2026-09-02). 35 of 40 previously
   cleared combinations are blocked; 5 remain. `reports/detectability.md` carries the
   before/after diff and a per-hypothesis table of which verdict routes are open.
-- **F05, F08, F10 and F11 are blocked on a MISSING MEASUREMENT, not a finding.** Their
+- **[RESOLVED 2026-09-02] F05, F08, F10 and F11 firing rates are now measured** —
+  `reports/firing_rates.md`. F05 and F11 open on both instruments, F08 on five of
+  six, F10 on none. Superseded note follows:
+- ~~**F05, F08, F10 and F11 are blocked on a MISSING MEASUREMENT, not a finding.**~~ Their
   conditions state no per-session firing rate and none was ever counted. An unmeasured
   rate used to fall through to the data ceiling — the most generous possible assumption,
   applied where least was known. It now blocks. **Counting those four firing rates is a
   data measurement, not a Stage 1 run, and it is the single highest-value unblocking
   task available.** F10 and F11 are the controls, so the catalog currently cannot say
   what its own controls are powered to detect.
-- **Only F02, F04 and F06 have an open per-cell route, and all five open cells are MGC** —
-  the instrument carrying the standing coverage caveat. Any near-term per-cell verdict
-  will rest on the weaker kind of null. F02, F03 and F04 have open aggregate routes.
+- **[CORRECTED 2026-09-02] MNQ per-cell routes ARE open** — on F05, F08 and F11, opened
+  by measuring the four firing rates. The earlier claim that every open per-cell route
+  was on MGC was true when written and false within the day. F02, F04 and F06 remain
+  MGC-only. See CLAUDE_FUTURES.md §5.9.
+- **`trials.jsonl` is not being written and F03's MGC cells were never persisted** —
+  see §15. The trial log must be wired into every Stage 1 runner before the next run.
+- **F10, the negative control, cannot resolve on any combination.** The catalog cannot
+  currently verify its own control. See §14.
+- **F05 should not be scheduled until its condition names a break deadline** — as
+  registered it fires on 94% of armings. See §14.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times
   (15:00, 15:30) share a 15:55 exit, so the positions overlap and pooling adds almost
   nothing.

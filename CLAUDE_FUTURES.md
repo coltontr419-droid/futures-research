@@ -502,7 +502,55 @@ Pine config requirements:
 
 Route through AlgoWay to a demo/eval account. Measure real spread, slippage, and latency. Feed the measured values back into Stage 5 and re-verify the strategy still survives.
 
+### 5.9 Assess the verdict route and the instrument BEFORE registering, not after
+
+Every hypothesis has at most two ways to produce a verdict, and both can be closed by
+arithmetic that is available before a single bar is loaded.
+
+- **Per-cell.** Each parameter cell tested, Benjamini-Hochberg across them. Open only if the
+  cell's own event count clears the sample at which a detection floor resolved. A cell sees
+  the condition's firing rate **divided by** the multiplicity of any scanned dimension that
+  is also a grid axis.
+- **Aggregate.** Pool the scanned positions into one series. Open only if those positions are
+  **disjoint in time**. Overlapping positions stack correlated readings of the same sessions
+  and add no independent observations.
+
+Three hypotheses have already been closed by this arithmetic rather than by evidence — F01
+and F07 on both routes, F09 on its only one — and in two of those cases the defect was in
+the **exit** rule, not the entry. F01's two entry times are 15:00 and 15:30, which look
+disjoint until you notice they share a 15:55 exit, so the later position is entirely
+contained in the earlier. F07's twelve entry slots all predict one 15:30 target. **Read the
+exit rule before believing that scanned positions are distinct.**
+
+**A firing rate that has not been counted blocks scheduling.** It must never fall through to
+the data ceiling: that grants a hypothesis every observation in the sample precisely where
+least is known about it, and it silently cleared 24 combinations across four hypotheses
+before it was caught. Either the condition determines the rate, or
+`python -m futuresres.reporting.firing_rates` measures it. Counting is not a Stage 1 run and
+spends no trial.
+
+**On instruments, as of 2026-09-02.** The open per-cell routes are split: F05, F08 and F11
+have open routes on **MNQ** (99.13% coverage, the strong-form instrument), while F02, F04
+and F06 are open only on **MGC**, which carries the standing 70.47% coverage caveat from §3
+and therefore yields the weaker kind of null. The strong verdict routes in the catalog are
+those MNQ per-cell routes plus the disjoint aggregates on F02, F03 and F04.
+
+> This paragraph replaces an earlier claim that *every* open per-cell route was on MGC. That
+> was true when written and was overturned within the day by measuring the four uncounted
+> firing rates, which opened MNQ on F05, F08 and F11. Recorded rather than quietly edited,
+> because the lesson is the point: a catalog-level claim about coverage was wrong because a
+> measurement had not been taken, which is the same failure the rest of this section exists
+> to prevent. **Re-derive this paragraph from `reports/detectability.md` rather than trusting
+> it; it is a snapshot of a computed fact, not a standing rule.**
+
+The standing rule is only this: **before registering a hypothesis, state which verdict route
+it will use and on which instrument, and check that route is open.** A hypothesis whose only
+route runs through MGC should say so at registration, so that a weak-form verdict is an
+accepted cost rather than a discovery made after the trials are spent.
+
 ---
+
+
 
 ## 6. Statistical integrity — non-negotiable
 

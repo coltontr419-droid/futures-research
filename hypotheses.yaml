@@ -74,13 +74,69 @@
     unconditionally, with volatility strengthening rather than enabling it.
   horizon_minutes: [30, 60]
   registered: 2026-08-28
-  status: untested
+  # BLOCKED 2026-09-02 BEFORE ANY STAGE 1 RUN — reports/detectability.md.
+  # Closed on BOTH verdict routes. This is arithmetic done ahead of testing, not a
+  # finding about the market: F01 has never been run and nothing here says it would
+  # fail. It says the catalog could not tell if it had.
+  #
+  # PER-CELL ROUTE: CLOSED. entry_time is a grid axis, so a cell fixes it and fires at
+  # most once a session.
+  #     MNQ   4,125 events against 19,722 where a floor resolves   4.8x short
+  #     MGC   4,006 events against  5,620                          1.4x short
+  # All four (instrument, horizon) combinations are BELOW SWEPT RANGE.
+  #
+  # AGGREGATE ROUTE: ALSO CLOSED, AND FOR F07'S EXACT REASON. Pooling scanned positions
+  # restores sample only when they are DISJOINT IN TIME. F01's two entry times are
+  # 15:00 and 15:30 — but BOTH EXIT AT 15:55. The two positions therefore overlap for
+  # all but thirty minutes of their lives:
+  #
+  #     15:00 entry  |---------------------------|  exit 15:55  (55 min)
+  #     15:30 entry              |---------------|  exit 15:55  (25 min)
+  #                              ^^^^^^^^^^^^^^^^^  25 of 25 minutes shared
+  #
+  # The later position is entirely contained in the earlier one. Pooling them stacks
+  # two near-duplicate readings of the same ~4,000 sessions rather than accumulating
+  # 8,000 independent ones, so the aggregate ceiling stays at the per-cell ceiling.
+  # Same structural defect as F07, found by reading the EXIT rule rather than the
+  # entry times — two entries at different clock times still overlap if they share a
+  # fixed exit.
+  #
+  # SO F01 IS CLOSED ON BOTH ROUTES, not merely blocked at its stated holds. Extending
+  # the horizon list would not help: the constraint is the once-per-session event rate,
+  # and a longer hold lowers the independent count rather than raising it.
+  #
+  # WHAT WOULD UNBLOCK IT. Nothing available in this dataset. A once-a-session
+  # condition on sixteen years yields ~4,000 events; MNQ needs 19,722. That gap is a
+  # factor of five in SESSIONS, not in sampling effort — roughly eighty years of data.
+  # Either the condition fires more often, or F01 is not testable to this standard.
+  # Note the asymmetry: MGC is only 1.4x short, so a floor measured at a smaller sample
+  # would open MGC alone — but MGC carries the coverage caveat, so that route leads to
+  # a weak-form verdict on the wrong instrument for an EQUITY INDEX momentum claim.
+  #
+  # NO TRIALS SPENT. Nothing was run, so N is unchanged.
+  status: blocked_insufficient_events
+  blocked: 2026-09-02
+  blocked_reason: >
+    Closed on both verdict routes before any Stage 1 run. Per-cell:
+    entry_time is a grid axis so a cell fires once a session, giving
+    4,125 events on MNQ against the 19,722 at which a floor resolves
+    and 4,006 on MGC against 5,620 — all four combinations below the
+    swept range. Aggregate: the two entry times 15:00 and 15:30 BOTH
+    EXIT AT 15:55, so the later position is entirely contained in the
+    earlier one and pooling stacks two near-duplicate readings of the
+    same ~4,000 sessions instead of accumulating 8,000 independent
+    ones. Same structural defect as F07, found by reading the exit rule
+    rather than the entry times. This is arithmetic done ahead of
+    testing, not evidence: F01 was never run and nothing here says it
+    would fail. No trials spent.
   grade: A
   tier: A
   param_cap: 3
   session: US
   hold_hours: [0.5, 1]
-  test_order: 1
+  # Blocked before running; nothing should schedule it.
+  registered_test_order: 1
+  test_order: null
   symbols: [MNQ, MGC]
   falsification_note: >
     Effect size is ~1 bps per session (2.47% annualized at Sharpe 0.49), which nets ~0.5 bps
@@ -154,7 +210,11 @@
   # THE MECHANISM IS REFUTED, NOT UNDERPOWERED. That distinction is the whole reason
   # this is `retired` and not `stage1_inconclusive`. F03 was one of the few hypotheses
   # reports/detectability.md CLEARED on both instruments — it fires 13 times a session
-  # and reached 150,355 events on MNQ against a floor that resolves at 2.57 bps. It had
+  # and reached 53,625 INDEPENDENT events on MNQ against a floor that resolves at 2.57
+  # bps. (The 150,355 figure in reports/f03_stage1.md is the sum across all 117 cells,
+  # which double-counts: the 9 (N, threshold) variants of a slot trade the SAME slot
+  # and overlap. The independent aggregate is 13 disjoint slots x 4,125 sessions =
+  # 53,625, still comfortably above the 19,722 where a floor resolves.) It had
   # the power. It found nothing.
   #
   #   MNQ   8 nominal separations against 5.9 expected by chance; 0 survive BH at
@@ -199,7 +259,7 @@
   retired: 2026-09-01
   retired_reason: >
     The mechanism is refuted, not underpowered. F03 had the power —
-    detectability cleared it on both instruments and it reached 150,355
+    detectability cleared it on both instruments and it reached 53,625 independent
     events on MNQ — and found nothing. 8 nominal hits against 5.9
     expected on MNQ, none surviving Benjamini-Hochberg, ALL NEGATIVE,
     and seven of the eight are the same 09:30-10:00 slot under
@@ -260,11 +320,13 @@
   #        (smallest p 0.0341 against a rank-1 threshold of 0.002778)
   #   MNQ  0 nominal separations against 0.3 expected, across its 6 informative cells
   #
-  # AND THE BEST CELL IS NOWHERE NEAR THE FLOOR. Best of 18 MGC cells is +1.25 bps,
-  # which is 0.30x the measured detection floor at that hold. Cherry-picked from
-  # eighteen, it lands a THIRD of the way to informative. Across the three holds the
-  # best cells sit at 0.17x, 0.30x and 0.09x of their floors. The aggregate is
-  # +0.47 bps gross and -0.18 net of the 0.65 bps cost floor.
+  # AND THE BEST CELL IS NOWHERE NEAR THE FLOOR. Under the corrected per-cell gate
+  # (decisions.md section 13) only MGC 120m is per-cell informative; its best cell is
+  # 0.09x the measured detection floor. THE 0.30x FIGURE QUOTED IN THE ORIGINAL
+  # RETIREMENT IS WITHDRAWN — it came from a 60m cell now known to be below the swept
+  # range, and was never a valid comparison. The aggregate route stays open on both
+  # instruments and is negative on both: +0.47 bps gross, -0.18 net of the 0.65 bps
+  # cost floor on MGC.
   #
   # THE 12 MNQ CELLS AT 30m AND 60m ARE UNINFORMATIVE, NOT EVIDENCE. The condition
   # fires twice a business day and reaches ~8,250 events against the 19,722 at which a
@@ -318,19 +380,24 @@
   status: retired
   retired: 2026-09-01
   retired_reason: >
-    No cell survives Benjamini-Hochberg on either instrument, and the
-    best of 18 MGC cells reaches 0.30x the measured detection floor —
-    cherry-picked from eighteen, it lands a third of the way to
-    informative. The 12 MNQ cells at 30m and 60m are recorded as
-    UNINFORMATIVE rather than as evidence: ~8,250 events against the
-    19,722 at which a floor resolves. The verdict rests on MGC at
+    No cell survives Benjamini-Hochberg on either instrument. Under the
+    corrected per-cell gate (decisions.md section 13) ONLY MGC 120m is
+    per-cell informative, and its best cell sits at 0.09x the measured
+    detection floor. THE EARLIER 0.30x FIGURE IS WITHDRAWN: it came
+    from a 60m cell now known to be below the swept range, so it was
+    never a valid comparison. The surviving number is an order of
+    magnitude short of informative and points the same way. Both
+    instruments retain open AGGREGATE routes (MGC 4/6, MNQ 120m), and
+    the aggregate is negative on both: +0.47 bps gross and -0.18 net
+    on MGC. The 12 MNQ cells at 30m and 60m are recorded as
+    UNINFORMATIVE rather than as evidence. The verdict rests on MGC at
     70.47% fill coverage, which under the standing caveat is the
-    weaker kind of null — but the 3x to 11x gap to the floor is far
-    outside what a fill artefact could produce, and coverage bias runs
-    toward finding more rather than less. This is a WEAKER RETIREMENT
-    than F03's: fewer events, the deciding instrument carries the
-    coverage qualifier, and the catalog's own stated worry — the
-    10:00 ET confound — was never reached because nothing separated.
+    weaker kind of null — but coverage bias runs toward finding more
+    rather than less, so the direction is not in doubt. This is a
+    WEAKER RETIREMENT than F03's: fewer events, the deciding
+    instrument carries the coverage qualifier, and the catalog's own
+    stated worry — the 10:00 ET confound — was never reached because
+    nothing separated.
   grade: B+
   tier: A
   param_cap: 3

@@ -164,6 +164,24 @@ SCAN_POSITIONS_DISJOINT: Final[dict[str, bool]] = {
 }
 
 
+#: Measured per-cell counts from `reports/firing_rates.md`, for the hypotheses whose rate
+#: the condition does not state. Keyed (hypothesis, product, horizon) -> (min, max)
+#: independent events across that hypothesis's parameter cells. Written by
+#: `python -m futuresres.reporting.firing_rates`; absent means never counted.
+def load_measured() -> dict[tuple[str, str, int], tuple[int, int]]:
+    path = REPORTS / "firing_rates.json"
+    if not path.exists():
+        return {}
+    out: dict[tuple[str, str, int], list[int]] = {}
+    for r in json.loads(path.read_text(encoding="utf-8")):
+        key = (r["hypothesis"], r["product"], r["horizon"])
+        out.setdefault(key, []).append(int(r["independent"]))
+    return {k: (min(v), max(v)) for k, v in out.items()}
+
+
+MEASURED: Final[dict[tuple[str, str, int], tuple[int, int]]] = load_measured()
+
+
 @dataclass(slots=True)
 class Cell:
     """One (product, horizon) cell of the measured floor sweep."""
@@ -250,7 +268,10 @@ class Verdict:
 
     @property
     def blocked(self) -> bool:
-        return self.status != "RESOLVABLE"
+        """MIXED is not blocked outright - some of its cells resolve - but it is not clear
+        either, and the per-cell table is what says which. It counts as open here and the
+        report names it explicitly."""
+        return self.status not in ("RESOLVABLE", "MIXED")
 
 
 def _previous_verdict(entry: dict, cell: "Cell", data_ceiling: int,
@@ -298,11 +319,30 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
 
             prev_status, prev_eff = _previous_verdict(entry, cell, data_ceiling, sessions)
 
-            if fires is None:
+            measured = MEASURED.get((entry["id"], product, horizon))
+            if measured is not None:
+                # A counted rate supersedes a declared one: it is the same quantity,
+                # observed rather than asserted.
+                lo, hi = measured
+                event_ceiling = lo
+                aggregate_ceiling = lo * (positions if disjoint else 1)
+                effective = min(lo, data_ceiling)
+
+            if fires is None and measured is None:
                 status = "FIRING RATE UNMEASURED"
                 note = ("the condition's firings per session have never been counted, so "
-                        "no event ceiling exists; this must be measured before scheduling")
+                        "no event ceiling exists; this must be measured before scheduling. "
+                        "Run `python -m futuresres.reporting.firing_rates`.")
                 floor = None
+            elif measured is not None and cell.ever_resolved and (
+                    measured[0] < (cell.smallest_resolving_n or 0)
+                    <= min(measured[1], data_ceiling)):
+                status = "MIXED"
+                note = (f"measured {measured[0]:,}-{measured[1]:,} independent events "
+                        f"across parameter cells, straddling the "
+                        f"{cell.smallest_resolving_n:,} at which a floor resolves - some "
+                        f"cells of this hypothesis can carry a verdict and some cannot")
+                floor = cell.best_floor
             elif not cell.ever_resolved:
                 status = "UNRESOLVABLE"
                 note = (f"the sweep never resolved a floor for {product} {proxy}m at any "
