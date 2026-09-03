@@ -552,6 +552,65 @@ accepted cost rather than a discovery made after the trials are spent.
 
 
 
+
+### 5.10 Stage 0: name the instruments the mechanism can exist in
+
+**Every hypothesis must state which instruments its mechanism can hold in, and why. Two is
+not a default.**
+
+A mechanism is a story about a specific counterparty doing a specific thing. That story is
+usually not instrument-agnostic, and `symbols: [MNQ, MGC]` set by habit rather than by
+derivation produces trials in an instrument where the hypothesis is not defined.
+
+**F02 is the case that prompted this.** Its counterparty is the NYSE closing-auction
+participant, and the compensation is paid to dealers carrying *index* inventory overnight.
+Gold has no NYSE closing auction — the mechanism cannot exist in MGC, not weakly, not in
+attenuated form, not at all. **72 of its 144 trials went to an instrument where the claim was
+undefined.** They still count toward N, because the looks happened, but they could never have
+been evidence either way. That is a registration error, not a data problem, and no amount of
+care downstream would have caught it.
+
+The field is `mechanism_instruments` with a `primary`, a `secondary` (which may be null), and
+a `rationale`. Three outcomes are worth distinguishing:
+
+| | meaning | example |
+|---|---|---|
+| **holds** | the counterparty story works as written | F03 — execution schedules are not instrument-specific |
+| **attenuated** | the mechanism exists but is much weaker, and a null is correspondingly weaker evidence | F01 on MGC — leveraged gold ETFs exist but the complex is tiny and not pegged to the equity close |
+| **control** | the instrument is there to test the confound, not the claim | F04's MNQ, F07's MNQ |
+| **cannot hold** | the mechanism is undefined there — **do not run it** | F02 on MGC |
+
+An `attenuated` instrument may still be run; what it may not do is silently carry a verdict.
+
+### 5.11 No hypothesis is scheduled without a MEASURED firing rate
+
+**A declared rate is never trustworthy, because a test has no independent source to check a
+declaration against.** This is a scheduling precondition, not a reporting nicety: the gate
+reads `reports/measured_rates.json` and a hypothesis absent from it cannot be scheduled.
+
+Measuring means the condition's own threshold applied, any mandatory regime split applied
+with the worst era gating, counted per Stage 1 cell, and — for anything already run — taken
+from its own cell file.
+
+**The cost of the two routes to the same fact:**
+
+| | |
+|---|---|
+| measuring all twelve hypotheses | **16 seconds**, 0 trials |
+| discovering it by running F02 | **144 trials**, SR\* 0.0902 → 0.1402 |
+
+F02 declared one firing per session. It fires at 0.061. The gate cleared it on the
+declaration, and the run produced 106–707 events per cell against a predicted 4,006–4,125.
+Every subsequent hypothesis now has to clear a higher bar because of trials spent learning
+something a sixteen-second measurement would have shown first.
+
+`reports/gate_history.md` records this and the three other gate defects that preceded it.
+Read it before trusting any gate output — the recurring shape is a control that exists in
+form but not in effect.
+
+
+---
+
 ## 6. Statistical integrity — non-negotiable
 
 ### Trial log

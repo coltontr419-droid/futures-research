@@ -84,6 +84,27 @@ F11_SLOW: Final[int] = 30
 
 LOOKBACK_SESSIONS: Final[int] = 20
 
+#: F05's break deadline, DERIVED FROM THE MECHANISM rather than chosen from the data.
+#:
+#: The registered condition says to enter "on the first close beyond k*sigma" and never says
+#: BY WHEN. Unbounded within the session it fired on 94% of armings, which made the
+#: compression filter nearly decorative and turned the test into "does price eventually move
+#: after a quiet hour" - trivially true, and not a hypothesis.
+#:
+#: The mechanism is volatility clustering: a quiet period forecasts NEAR-TERM expansion. A
+#: realized-volatility estimate is informative over a horizon on the order of its own
+#: estimation window - that is what the decay of the autocorrelation in |returns| means - so
+#: a vol measured over ONE HOUR speaks to the next hour, not to the next six. A second,
+#: independent argument gives the same number: the trigger measures distance from the
+#: COMPRESSION MIDPOINT, and hours later that midpoint no longer describes the current price
+#: level, so the reference the condition is built on has gone stale.
+#:
+#: Hence one compression window: 60 minutes from the end of the armed hour.
+#:
+#: THIS IS ONE VALUE, NOT A NEW GRID AXIS. Sweeping {30, 60, 90} would convert a
+#: specification repair into a tuning opportunity, which is the thing being repaired.
+F05_BREAK_DEADLINE: Final[int] = 60
+
 
 @dataclass(slots=True)
 class Rate:
@@ -184,13 +205,16 @@ def f05_rates(product: str, df: pl.DataFrame, span: int) -> list[Rate]:
         lo, hi = bounds[j], bounds[j + 1]
         by_day[d_s[lo]] = (m_s[lo:hi], c_s[lo:hi])
 
-    # max |close - mid| after the armed hour, computed ONCE per hour-slot
+    # max |close - mid| inside the DEADLINE window after the armed hour, computed once per
+    # hour-slot. Before the deadline was derived this scanned to session end, which is why
+    # it fired on 94% of armings.
     excursion = np.zeros(sd.size)
     for i in range(sd.size):
         m, c = by_day.get(day[i], (None, None))
         if m is None:
             continue
-        later = c[m >= (hour[i] + 1) * 60]
+        start = (hour[i] + 1) * 60
+        later = c[(m >= start) & (m < start + F05_BREAK_DEADLINE)]
         excursion[i] = np.abs(later - mid[i]).max() if later.size else 0.0
 
     out: list[Rate] = []
@@ -210,7 +234,8 @@ def f05_rates(product: str, df: pl.DataFrame, span: int) -> list[Rate]:
                     "F05", product, f"vol_pct={pct} k={k}", hold, fires,
                     cap_independent(fires, span, hold),
                     fires / max(n_sessions, 1),
-                    f"{n_armed:,} armings, {fires:,} broke k*sigma",
+                    f"{n_armed:,} armings, {fires:,} broke k*sigma within the "
+                    f"{F05_BREAK_DEADLINE}-minute mechanism-derived deadline",
                 ))
     return out
 

@@ -138,6 +138,13 @@
   registered_test_order: 1
   test_order: null
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Leveraged-ETF rebalancing and index options dealer gamma are EQUITY-INDEX mechanisms. Le
+      veraged gold ETFs exist but the complex is orders of magnitude smaller and is not pegged
+       to the equity close, so MGC is ATTENUATED rather than impossible.
   falsification_note: >
     Effect size is ~1 bps per session (2.47% annualized at Sharpe 0.49), which nets ~0.5 bps
     against MNQ's 0.48 bps floor — positive but thin, and it would have been dead in crypto.
@@ -216,6 +223,21 @@
   # no NYSE close - an MGC result would have been the wrong instrument for this claim
   # even had it been informative. MGC's coverage here is 46.14%, the lowest of any
   # window in the study.
+  # ---- REGISTRATION ERROR, RECORDED 2026-09-02: MGC SHOULD NEVER HAVE BEEN RUN ----
+  #
+  # F02's counterparty is the NYSE CLOSING AUCTION participant who needed liquidity at
+  # 16:00, and the compensation is paid to dealers carrying INDEX inventory overnight. Gold
+  # has no NYSE closing auction. The mechanism cannot exist in MGC - not weakly, not in
+  # attenuated form, not at all.
+  #
+  # This was a REGISTRATION ERROR, not a data problem. `symbols: [MNQ, MGC]` was set by
+  # default rather than derived from the mechanism, and nothing in the pipeline asked
+  # whether the mechanism could hold in both. 72 of the 144 trials went to an instrument
+  # where the hypothesis was not defined. They still count toward N - the looks happened -
+  # but they could never have been evidence for or against this claim.
+  #
+  # Stage 0 now requires every entry to name which instruments its mechanism can exist in
+  # (CLAUDE_FUTURES.md 5.10). F02 is the case that prompted it.
   status: stage1_uninformative
   stage1_run: 2026-09-02
   stage1_reason: >
@@ -242,6 +264,12 @@
   registered_test_order: 4
   test_order: null
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      The counterparty is the NYSE CLOSING AUCTION participant. Gold has no NYSE closing aucti
+      on, so the mechanism cannot exist in MGC at all.
   # REGIME SPLIT IS MANDATORY HERE, NOT OPTIONAL. See F13: the same authors published
   # "The Disappearing Overnight Drift" in July 2026 reporting that the UNCONDITIONAL
   # 02:00-03:00 window has averaged near zero since 2021, having previously carried more
@@ -350,6 +378,12 @@
   registered_test_order: 2
   test_order: null
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Institutional execution schedules on the half hour are not instrument-specific; both hol
+      d.
   # BH WITHIN THE HYPOTHESIS ACROSS 13 SLOTS is required by the condition itself, not just
   # by §6. A scan over 13 slots at alpha=0.05 produces 0.65 hits by chance before any
   # parameter is varied, and the full grid is 13 x 3 x 3 = 117 cells per instrument.
@@ -476,6 +510,12 @@
   registered_test_order: 3
   test_order: null
   symbols: [MGC, MNQ]
+  mechanism_instruments:
+    primary: MGC
+    secondary: MNQ
+    rationale: >
+      The LBMA auction fixes the price of GOLD. MNQ holds no LBMA exposure and is a CONFOUND C
+      ONTROL here, not a second test - which is how F04's run reported it.
   # THE CONFOUND CONTROL IS MANDATORY AND HAS NO CLEAN FORM. The 15:00 London auction is
   # 10:00 ET — after US data has landed at 08:30 and while US liquidity peaks — so any
   # effect could be a US-session effect wearing an auction costume. There are no
@@ -508,7 +548,63 @@
     vol_pct in {15, 20, 25}, k in {1.5, 2, 2.5}, H in {1, 2, 3} h.
   horizon_minutes: [60, 120, 180]
   registered: 2026-08-28
+  # ---- BREAK DEADLINE, DERIVED FROM THE MECHANISM 2026-09-02, BEFORE ANY RUN ----
+  #
+  # The registered condition said to enter "on the first close beyond k*sigma" and never
+  # said BY WHEN. Unbounded within the session it fired on 94% of armings, which made the
+  # compression filter nearly decorative and turned the test into "does price eventually
+  # move after a quiet hour" - trivially true, and not a hypothesis.
+  #
+  # THE DERIVATION. The mechanism is volatility clustering: a quiet period forecasts
+  # NEAR-TERM expansion. A realized-volatility estimate is informative over a horizon on the
+  # order of its own estimation window - that is what the decay of the autocorrelation in
+  # |returns| means - so a vol measured over ONE HOUR speaks to the next hour, not the next
+  # six. A second and independent argument lands on the same number: the trigger measures
+  # distance from the COMPRESSION MIDPOINT, and hours later that midpoint no longer
+  # describes the current price level, so the reference the condition rests on has gone
+  # stale. Hence ONE COMPRESSION WINDOW: 60 minutes from the end of the armed hour.
+  #
+  # IT IS ONE VALUE, NOT A NEW GRID AXIS. Sweeping {30, 60, 90} would convert a
+  # specification repair into a tuning opportunity, which is the thing being repaired.
+  #
+  # ---- AND IT DOES NOT FIX THE VACUITY. THERE IS A SECOND, INDEPENDENT DEFECT. ----
+  #
+  # Re-measured with the deadline applied, F05 still fires on 79-91% of armings:
+  #
+  #     k=1.5  ~90%      k=2.0  ~86%      k=2.5  ~80%      (both instruments)
+  #
+  # THE CAUSE IS THAT sigma IS MEASURED ON THE COMPRESSED WINDOW ITSELF. Compression
+  # SELECTS hours with small sigma by construction, so k*sigma is a small distance, and
+  # price almost always travels that far within the next hour. The tighter the compression,
+  # the easier the trigger. The filter selects for exactly the condition that makes the
+  # trigger nearly certain - the specification is self-defeating, and no deadline can
+  # repair that.
+  #
+  # THE OPEN DECISION, WHICH IS NOT MINE TO MAKE. What should k*sigma be measured against?
+  #   (a) the compressed hour's own sigma - the current reading, self-defeating
+  #   (b) the trailing 20-session sigma AT THE SAME CLOCK TIME - the same quantity the p20
+  #       filter already compares against, so a break would mean "price moved a NORMAL-sized
+  #       amount", which is what an expansion claim actually asserts
+  #   (c) a daily ATR-scaled distance
+  # (b) is the reading most consistent with the rest of the condition, but choosing it is a
+  # change to the registered hypothesis and must be a deliberate decision rather than a
+  # repair made mid-audit.
+  #
+  # F05 IS NOT SCHEDULABLE until that decision is recorded. Its routes are open on event
+  # count - and that is exactly the trap: a vacuous condition with plenty of events will
+  # produce a confident-looking result about nothing.
   status: untested
+  specification_defect: >
+    Two defects, one repaired and one open. REPAIRED: the break deadline
+    is 60 minutes from the end of the armed hour, derived from the
+    mechanism - a 1-hour volatility estimate forecasts about the next
+    hour, and the compression midpoint goes stale beyond it. OPEN AND
+    BLOCKING: sigma is measured on the compressed window itself, so
+    compression makes the trigger distance small and F05 still fires on
+    79-91% of armings even with the deadline. The specification is
+    self-defeating and no deadline repairs it. A decision is required on
+    what k*sigma should reference before F05 can be scheduled.
+  schedulable: false
   grade: B+
   tier: A
   param_cap: 3
@@ -516,6 +612,11 @@
   hold_hours: [1, 3]
   test_order: 5
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Volatility clustering is a generic property of speculative price series; both hold.
   # CARRIED OVER FROM THE CRYPTO CATALOG AS S09, where it was recorded
   # stage1_inconclusive rather than retired: 7 nominal hits on SOL against 2.7 expected,
   # NONE surviving Benjamini-Hochberg at FDR 0.05, mechanism uncontradicted, and the drift
@@ -550,7 +651,33 @@
     {close beyond, 2 closes beyond}, H in {1, 2, 3} h, vol_filter in {none, >median}.
   horizon_minutes: [60, 120, 180]
   registered: 2026-08-28
+  # ---- REGISTRATION AUDIT 2026-09-02: TWO DEFECTS, NEITHER FIXED HERE ----
+  #
+  # 1. INSTRUMENT (attenuated, not fatal). The mechanism names 09:30 ET as the moment
+  #    "overnight positioning meets CASH liquidity". That is the EQUITY cash open. Gold's
+  #    own liquidity event is the COMEX open at 08:20 ET. On MGC this condition therefore
+  #    tests a cross-asset spillover from the equity open rather than the registered
+  #    mechanism. It may still be run - unlike F02's MGC, the mechanism is weakened rather
+  #    than absent - but an MGC result cannot carry the registered claim.
+  #
+  # 2. vol_filter IS UNDEFINED, AND IT GATES THE FIRING RATE. The condition says
+  #    "vol_filter in {none, >median}" without saying median OF WHAT, measured over WHAT
+  #    WINDOW. reports/measured_rates.md had to pick a reading to count at all (20-session
+  #    realised vol against its own trailing 250-session median), and that reading is a
+  #    MEASUREMENT CONVENIENCE, not a registered choice. It changes the event count and so
+  #    changes whether F06's routes are open.
+  #
+  # THE DECISION REQUIRED, which is not mine to make: what quantity does the vol filter
+  # threshold, and over what lookback? The same gap exists in F01 and should be settled the
+  # same way for both.
   status: untested
+  specification_defect: >
+    vol_filter is undefined - "median of what, over what window" is unanswered, and the
+    reading used for measurement is a convenience rather than a registered choice, which
+    changes the event count and so changes whether the routes are open. Separately, on MGC
+    the 09:30 ET "cash open" is the EQUITY open, so the condition there tests a cross-asset
+    spillover rather than the registered mechanism - attenuated rather than absent.
+  schedulable: false
   grade: B
   tier: B
   param_cap: 4
@@ -558,6 +685,14 @@
   hold_hours: [1, 3]
   test_order: 6
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      The mechanism names 09:30 ET as the moment overnight positioning meets CASH liquidity. T
+      hat is the EQUITY cash open. Gold's own liquidity event is the COMEX open at 08:20 ET, s
+      o on MGC this tests a cross-asset spillover rather than the registered mechanism. ATTENU
+      ATED - see the audit.
   falsification_note: >
     Opening range breakout is possibly the most widely traded retail futures pattern in
     existence, and any edge has had decades of attention. Treat a POSITIVE result with more
@@ -637,6 +772,12 @@
   registered_test_order: 8
   test_order: null
   symbols: [MGC, MNQ]
+  mechanism_instruments:
+    primary: MGC
+    secondary: MNQ
+    rationale: >
+      A gold session-structure claim; the catalog registers MNQ explicitly as the comparison a
+      rm rather than as a second test.
   is_scan: true
   # REGISTERED AS A SCAN, WHICH IS A WEAKER OBJECT THAN A HYPOTHESIS. The mechanism ("gold's
   # session anchor differs from equities") is a real claim, but WHICH slot carries it is
@@ -662,7 +803,39 @@
     W in {30, 60} min, k in {1, 1.5, 2}, H in {1, 2, 3} h.
   horizon_minutes: [60, 120, 180]
   registered: 2026-08-28
+  # ---- REGISTRATION AUDIT 2026-09-02: THREE DEFECTS, NONE FIXED HERE ----
+  #
+  # 1. "THE LOWER VOLUME-WEIGHTED MOVE" IS UNDEFINED, and it decides which leg is traded -
+  #    that is, it decides the entire direction of the strategy. Return times volume?
+  #    Return divided by volume? Displacement from VWAP? These give different and sometimes
+  #    opposite answers, and nothing in the entry says which.
+  #
+  # 2. THE TRADED INSTRUMENT VARIES PER EVENT, so `symbols: [MNQ, MGC]` does not mean what
+  #    it means elsewhere in this registry. Every other entry runs each instrument as its
+  #    own test; F08 requires BOTH legs to fire and then trades ONE of them, chosen per
+  #    event by the undefined rule above. The measured firing rate counts JOINT triggers,
+  #    not per-instrument trades, so the per-instrument gate rows are not directly
+  #    comparable with any other hypothesis's.
+  #
+  # 3. ITS MANDATORY REGIME SPLIT LIVES IN A NOTE, NOT A FIELD. The falsification note says
+  #    "the correlation regime IS the whole strategy... so a regime split is mandatory
+  #    rather than a robustness check". That is exactly F02's situation, where the split
+  #    requirement sat in F13's exclusion note, the gate never saw it, and the sample was
+  #    halved without the gate knowing. F08 will repeat that unless the split becomes a
+  #    field the gate reads.
+  #
+  # THE DECISIONS REQUIRED, none of them mine: how "volume-weighted move" is computed; how
+  # the traded leg is recorded so its event count is comparable; and where the regime
+  # boundary falls.
   status: untested
+  specification_defect: >
+    "The lower volume-weighted move" is undefined and it decides which leg is traded, so
+    it decides the strategy's direction. The traded instrument varies per event, so
+    `symbols` does not mean what it means elsewhere and the per-instrument gate rows are
+    not comparable with other hypotheses'. And its mandatory regime split lives in a
+    falsification note rather than a field, which is precisely how F02's split escaped the
+    gate.
+  schedulable: false
   grade: B-
   tier: B
   param_cap: 3
@@ -670,6 +843,12 @@
   hold_hours: [1, 3]
   test_order: 9
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Cross-asset by construction - it REQUIRES both legs. Neither is optional and neither is 
+      a control.
   # PAYS TWO SETS OF COSTS. This is a pairs trade in disguise, so its floor is 1.13 bps
   # (MNQ 0.48 + MGC 0.65), not 0.48. §4 requires the cost model to charge both legs, and
   # any reported net figure that uses a single-leg floor is wrong by more than a factor of
@@ -693,6 +872,23 @@
     pre_window in {30, 60} min, hold in {30, 60, 90} min.
   horizon_minutes: [30, 60, 90]
   registered: 2026-08-28
+  # ---- REGISTRATION AUDIT 2026-09-02: ONE DEFECT, AND IT IS THE CLEANEST ENTRY HERE ----
+  #
+  # The condition is well specified: no undefined threshold, both directions named, and a
+  # separate settlement time given per instrument. Nothing needs deciding before it could
+  # run.
+  #
+  # THE DEFECT IS OVERLAP WITH F01, and the entry's own falsification note names it: "two
+  # hypotheses firing in the same window on the same instrument are one observation dressed
+  # as two". On MNQ, F09 enters at 14:45 ET and F01 at 15:00 or 15:30, and both are out by
+  # ~15:55. Their trades overlap for most of their lives. If both were counted as
+  # independent evidence about the same afternoon, the catalog would be double-counting.
+  #
+  # It is MOOT TODAY because F01 is blocked_insufficient_events and F09 is closed on both
+  # routes (2,365-3,406 measured events against MNQ's 19,722). It stops being moot the
+  # moment either is revived, so it is recorded rather than left to be rediscovered.
+  #
+  # No specification_defect field: there is nothing to decide, only something to remember.
   status: untested
   grade: B-
   tier: B
@@ -701,6 +897,12 @@
   hold_hours: [0.5, 1.5]
   test_order: 7
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Both instruments have a daily settlement print that risk systems reference; the registry
+       names each one's time separately.
   # NOT INDEPENDENT OF F01. MNQ's 15:00 ET settlement overlaps F01's entry window, so a hit
   # on one may BE the other. §6 counts them as one family for any cross-hypothesis claim,
   # and they must be tested jointly before either is treated as confirmed. Scheduling F09
@@ -756,6 +958,13 @@
   hold_hours: [0.5, 2]
   test_order: null
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      An indicator computed on each instrument's own price series, so it is mechanism-agnostic
+       across both. It was retired for being permanently unpowered at its own firing rate, not
+       for any instrument mismatch.
   is_control: true
   # CLEARING STAGE 1 IS A HARNESS BUG, NOT A FINDING. If this separates, HALT: do not
   # investigate the result, run the §7.2 synthetic-noise test and find what is broken. A
@@ -806,6 +1015,13 @@
   hold_hours: [0.5, 2]
   test_order: null
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Likewise computed on each instrument's own series and agnostic across both. It was retir
+      ed because a moving-average crossover is time-series momentum - the same family as F01 -
+       and so cannot serve as a control, not for any instrument mismatch.
   is_control: true
 
 - id: F12
@@ -984,6 +1200,11 @@
   param_cap: 0
   session: US
   symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Mechanism-free by construction, so no instrument can fail to support it.
   is_control: true
   test_order: null
   # A machine-readable field, NOT a comment. The scope is part of the claim the control

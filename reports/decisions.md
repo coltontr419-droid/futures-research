@@ -679,6 +679,125 @@ thing by running F02 cost 144 trials and took SR\* from 0.0902 to 0.1402.
 
 ---
 
+## 23. F05's deadline, and the defect the deadline did not fix
+
+**The deadline is derived, not chosen: 60 minutes from the end of the armed hour.** The
+mechanism is volatility clustering, which forecasts NEAR-TERM expansion. A realized-vol
+estimate is informative over a horizon on the order of its own estimation window - that is
+what the decay of the autocorrelation in |returns| means - so a vol measured over one hour
+speaks to the next hour, not the next six. Independently: the trigger measures distance from
+the COMPRESSION MIDPOINT, which goes stale within hours. Both arguments give one compression
+window. It is ONE VALUE, not a new grid axis; sweeping {30, 60, 90} would turn a
+specification repair into a tuning opportunity.
+
+**It does not fix the vacuity, and that is the finding.** Re-measured with the deadline
+applied, F05 still fires on **79-91% of armings**:
+
+| k | break rate |
+|---|---|
+| 1.5 | ~90% |
+| 2.0 | ~86% |
+| 2.5 | ~80% |
+
+**The cause is that sigma is measured on the compressed window itself.** Compression SELECTS
+hours with small sigma, so k*sigma is a small distance, and price almost always travels that
+far within the next hour. The tighter the compression, the easier the trigger. The filter
+selects for exactly the condition that makes the trigger nearly certain.
+
+**The open decision, deliberately not taken here:** what should k*sigma be measured against?
+
+  (a) the compressed hour's own sigma - current, self-defeating
+  (b) the trailing 20-session sigma at the same clock time - the quantity the p20 filter
+      already compares against, so a break would mean "price moved a NORMAL-sized amount",
+      which is what an expansion claim actually asserts
+  (c) an ATR-scaled distance
+
+**(b) is the reading most consistent with the rest of the condition**, but adopting it
+changes the registered hypothesis and must be a deliberate decision rather than a repair made
+mid-audit. F05 is `schedulable: false` until it is settled.
+
+Note what makes this dangerous: **F05's routes are OPEN on event count.** A vacuous condition
+with plenty of events produces a confident-looking result about nothing, and no event-count
+gate can catch it.
+
+---
+
+## 24. Stage 0: instruments must be derived from the mechanism
+
+**F02 ran 72 trials on an instrument where its hypothesis is not defined.** Its counterparty
+is the NYSE closing-auction participant; gold has no NYSE closing auction. `symbols: [MNQ,
+MGC]` was set by habit, and nothing in the pipeline asked whether the mechanism could hold in
+both - because nothing required the question to be answered. Those trials count toward N,
+because the looks happened, but they could never have been evidence either way.
+
+CLAUDE_FUTURES.md 5.10 now requires `mechanism_instruments` on every entry: a primary, a
+secondary that may be null, and a rationale. The retroactive audit:
+
+| | finding |
+|---|---|
+| **F02 / MGC** | **cannot hold** - no NYSE closing auction. Registration error. |
+| **F06 / MGC** | **attenuated** - 09:30 ET is the EQUITY cash open; gold's is COMEX 08:20. On MGC it tests a cross-asset spillover, not the registered mechanism. |
+| **F01 / MGC** | **attenuated** - leveraged gold ETFs exist but the complex is orders of magnitude smaller and is not pegged to the equity close. |
+| F04 / MNQ, F07 / MNQ | **control** - already registered and reported as confound controls rather than second tests. |
+| F08 | **requires both** by construction; neither leg is optional. |
+| F03, F05, F09, F14 | hold in both. |
+
+An `attenuated` instrument may still be run. What it may not do is silently carry a verdict.
+
+---
+
+## 25. Audit of the remaining untested candidates
+
+Asked for the same class of defect the F05 deadline and the F02 instrument error represent.
+**No parameters were chosen; where a decision is needed, the decision is stated.**
+
+**F06 - two defects, now `schedulable: false`.** `vol_filter in {none, >median}` never says
+median OF WHAT over WHAT WINDOW; `measured_rates` had to invent a reading to count at all,
+and that reading changes the event count and therefore whether F06's routes are open. Plus
+the MGC instrument attenuation above. *Decision required: what quantity the vol filter
+thresholds, and over what lookback. The same gap exists in F01 and should be settled once for
+both.*
+
+**F08 - three defects, now `schedulable: false`.** The phrase "the lower volume-weighted
+move" decides which leg is traded, and therefore decides the strategy's direction, and is
+defined nowhere - return times volume, return divided by volume, and VWAP displacement give
+different and sometimes opposite answers. The traded instrument varies per event, so
+`symbols` does not mean what it means elsewhere and F08's per-instrument gate rows are not
+comparable with any other hypothesis's. And its mandatory regime split lives in a
+falsification note rather than a field - **exactly how F02's split escaped the gate.**
+*Decisions required: how the volume-weighted move is computed; how the traded leg is
+recorded; where the regime boundary falls.*
+
+**F09 - the cleanest entry in the catalog, with one thing to remember.** No undefined
+threshold, both directions named, a settlement time given per instrument. Nothing needs
+deciding. Its defect is overlap with F01, which its own falsification note predicted: on MNQ,
+F09 enters at 14:45 and F01 at 15:00 or 15:30, all out by ~15:55, so counting both as
+independent evidence about the same afternoon would be double-counting. **Moot today** - F01
+is blocked and F09 is closed on both routes at 2,365-3,406 measured events - and it stops
+being moot the moment either is revived. Recorded, not fixed; F09 stays schedulable.
+
+---
+
+## 26. The control was re-run, and re-running it is not free
+
+F14 was re-run after the gate changes, as its entry requires. Identical to the first run to
+the fourth decimal - 0 nominal separations, 0 BH survivors, long share 0.497 - which also
+demonstrates the seeding is stable across a day of pipeline edits.
+
+**A tension worth naming: each control re-run spends 6 trials.** The entry says to re-run
+whenever the harness changes, and the harness changes often. Those trials raise SR* for every
+real candidate, on behalf of a hypothesis that can never be promoted. The same argument that
+put firing-rate measurements in a separate log (section 16) applies here: a control cannot
+produce a candidate, so arguably it cannot have contributed a chance for one to appear by
+accident. The counter-argument is that F14 does compute a real return series on real prices,
+unlike a firing-rate count.
+
+**Not resolved here.** N currently includes the control's 12 trials across two runs. If
+re-running on every harness change becomes routine, that grows without bound and the question
+has to be answered.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -723,8 +842,14 @@ thing by running F02 cost 144 trials and took SR\* from 0.0902 to 0.1402.
 - **F01, F02, F04, F06 and F09 have NO real-data control and cannot get one.** They
   fire once a session (~3,500 events vs MNQ's 19,722); F14 covers F03-like counts
   only. Any null from those five must say so rather than borrowing F14's assurance.
-- **F05 should not be scheduled until its condition names a break deadline** — as
-  registered it fires on 94% of armings. See §14.
+- **[PARTLY RESOLVED] F05's break deadline is derived (60 min) but the vacuity is NOT
+  fixed** — it still fires on 79-91% of armings because sigma is measured on the
+  compressed window itself. `schedulable: false` pending a decision. See §23.
+- **F06 and F08 are `schedulable: false` on undefined terms** — F06's `vol_filter`,
+  F08's volume-weighted move, and F08's note-only regime split. See §25.
+- **Only F09 and F14 are schedulable, and F09 is closed on both routes.** In practice
+  the catalog has nothing left to run that could produce evidence.
+- **Unanswered: should control re-runs count toward N?** See §26.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times
   (15:00, 15:30) share a 15:55 exit, so the positions overlap and pooling adds almost
   nothing.

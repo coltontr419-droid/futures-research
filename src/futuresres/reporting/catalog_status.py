@@ -92,8 +92,19 @@ def render() -> str:
     untested = [e for e in registry if e["status"] == "untested"]
     a("## Where the catalog stands")
     a("")
-    a(f"**{len(registry)} hypotheses registered. {len(untested)} still testable. "
+    schedulable = [e for e in untested if e.get("schedulable") is not False]
+    blocked_spec = [e for e in untested if e.get("schedulable") is False]
+    a(f"**{len(registry)} hypotheses registered. {len(schedulable)} schedulable. "
       f"0 promoted.**")
+    a("")
+    if blocked_spec:
+        a(f"**{len(blocked_spec)} more are `untested` but NOT schedulable** — "
+          + ", ".join(e["id"] for e in blocked_spec)
+          + " carry open specification defects (undefined terms, or a trigger that fires on "
+            "almost every arming). A vacuous condition with plenty of events produces a "
+            "confident-looking result about nothing, and no event-count gate catches that. "
+            "See `reports/decisions.md` §23 and §25.")
+        a("")
     a("")
     a("| status | count | meaning |")
     a("|---|---|---|")

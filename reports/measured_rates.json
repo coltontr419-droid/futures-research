@@ -554,594 +554,594 @@
     "product": "MNQ",
     "cell": "vol_pct=15 k=1.5",
     "horizon": 60,
-    "firings": 14846,
-    "independent": 14846,
-    "per_session": 3.073069757814117,
+    "firings": 14158,
+    "independent": 14158,
+    "per_session": 2.9306561788449597,
     "source": "condition",
-    "note": "15,770 armings, 14,846 broke k*sigma"
+    "note": "15,770 armings, 14,158 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=1.5",
     "horizon": 120,
-    "firings": 14846,
-    "independent": 14846,
-    "per_session": 3.073069757814117,
+    "firings": 14158,
+    "independent": 14158,
+    "per_session": 2.9306561788449597,
     "source": "condition",
-    "note": "15,770 armings, 14,846 broke k*sigma"
+    "note": "15,770 armings, 14,158 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=1.5",
     "horizon": 180,
-    "firings": 14846,
-    "independent": 14846,
-    "per_session": 3.073069757814117,
+    "firings": 14158,
+    "independent": 14158,
+    "per_session": 2.9306561788449597,
     "source": "condition",
-    "note": "15,770 armings, 14,846 broke k*sigma"
+    "note": "15,770 armings, 14,158 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=2.0",
     "horizon": 60,
-    "firings": 14739,
-    "independent": 14739,
-    "per_session": 3.050921134340716,
+    "firings": 13582,
+    "independent": 13582,
+    "per_session": 2.8114262057545023,
     "source": "condition",
-    "note": "15,770 armings, 14,739 broke k*sigma"
+    "note": "15,770 armings, 13,582 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=2.0",
     "horizon": 120,
-    "firings": 14739,
-    "independent": 14739,
-    "per_session": 3.050921134340716,
+    "firings": 13582,
+    "independent": 13582,
+    "per_session": 2.8114262057545023,
     "source": "condition",
-    "note": "15,770 armings, 14,739 broke k*sigma"
+    "note": "15,770 armings, 13,582 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=2.0",
     "horizon": 180,
-    "firings": 14739,
-    "independent": 14739,
-    "per_session": 3.050921134340716,
+    "firings": 13582,
+    "independent": 13582,
+    "per_session": 2.8114262057545023,
     "source": "condition",
-    "note": "15,770 armings, 14,739 broke k*sigma"
+    "note": "15,770 armings, 13,582 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=2.5",
     "horizon": 60,
-    "firings": 14559,
-    "independent": 14559,
-    "per_session": 3.0136617677499484,
+    "firings": 12725,
+    "independent": 12725,
+    "per_session": 2.634030221486235,
     "source": "condition",
-    "note": "15,770 armings, 14,559 broke k*sigma"
+    "note": "15,770 armings, 12,725 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=2.5",
     "horizon": 120,
-    "firings": 14559,
-    "independent": 14559,
-    "per_session": 3.0136617677499484,
+    "firings": 12725,
+    "independent": 12725,
+    "per_session": 2.634030221486235,
     "source": "condition",
-    "note": "15,770 armings, 14,559 broke k*sigma"
+    "note": "15,770 armings, 12,725 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=15 k=2.5",
     "horizon": 180,
-    "firings": 14559,
-    "independent": 14559,
-    "per_session": 3.0136617677499484,
+    "firings": 12725,
+    "independent": 12725,
+    "per_session": 2.634030221486235,
     "source": "condition",
-    "note": "15,770 armings, 14,559 broke k*sigma"
+    "note": "15,770 armings, 12,725 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=1.5",
     "horizon": 60,
-    "firings": 18254,
-    "independent": 18254,
-    "per_session": 3.7785137652659904,
+    "firings": 17392,
+    "independent": 17392,
+    "per_session": 3.6000827985924237,
     "source": "condition",
-    "note": "19,376 armings, 18,254 broke k*sigma"
+    "note": "19,376 armings, 17,392 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=1.5",
     "horizon": 120,
-    "firings": 18254,
-    "independent": 18254,
-    "per_session": 3.7785137652659904,
+    "firings": 17392,
+    "independent": 17392,
+    "per_session": 3.6000827985924237,
     "source": "condition",
-    "note": "19,376 armings, 18,254 broke k*sigma"
+    "note": "19,376 armings, 17,392 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=1.5",
     "horizon": 180,
-    "firings": 18254,
-    "independent": 18254,
-    "per_session": 3.7785137652659904,
+    "firings": 17392,
+    "independent": 17392,
+    "per_session": 3.6000827985924237,
     "source": "condition",
-    "note": "19,376 armings, 18,254 broke k*sigma"
+    "note": "19,376 armings, 17,392 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=2.0",
     "horizon": 60,
-    "firings": 18111,
-    "independent": 18111,
-    "per_session": 3.748913268474436,
+    "firings": 16629,
+    "independent": 16629,
+    "per_session": 3.4421444835437796,
     "source": "condition",
-    "note": "19,376 armings, 18,111 broke k*sigma"
+    "note": "19,376 armings, 16,629 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=2.0",
     "horizon": 120,
-    "firings": 18111,
-    "independent": 18111,
-    "per_session": 3.748913268474436,
+    "firings": 16629,
+    "independent": 16629,
+    "per_session": 3.4421444835437796,
     "source": "condition",
-    "note": "19,376 armings, 18,111 broke k*sigma"
+    "note": "19,376 armings, 16,629 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=2.0",
     "horizon": 180,
-    "firings": 18111,
-    "independent": 18111,
-    "per_session": 3.748913268474436,
+    "firings": 16629,
+    "independent": 16629,
+    "per_session": 3.4421444835437796,
     "source": "condition",
-    "note": "19,376 armings, 18,111 broke k*sigma"
+    "note": "19,376 armings, 16,629 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=2.5",
     "horizon": 60,
-    "firings": 17878,
-    "independent": 17878,
-    "per_session": 3.7006830883874975,
+    "firings": 15505,
+    "independent": 15505,
+    "per_session": 3.2094804388325398,
     "source": "condition",
-    "note": "19,376 armings, 17,878 broke k*sigma"
+    "note": "19,376 armings, 15,505 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=2.5",
     "horizon": 120,
-    "firings": 17878,
-    "independent": 17878,
-    "per_session": 3.7006830883874975,
+    "firings": 15505,
+    "independent": 15505,
+    "per_session": 3.2094804388325398,
     "source": "condition",
-    "note": "19,376 armings, 17,878 broke k*sigma"
+    "note": "19,376 armings, 15,505 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=20 k=2.5",
     "horizon": 180,
-    "firings": 17878,
-    "independent": 17878,
-    "per_session": 3.7006830883874975,
+    "firings": 15505,
+    "independent": 15505,
+    "per_session": 3.2094804388325398,
     "source": "condition",
-    "note": "19,376 armings, 17,878 broke k*sigma"
+    "note": "19,376 armings, 15,505 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=1.5",
     "horizon": 60,
-    "firings": 21618,
-    "independent": 21618,
-    "per_session": 4.474849927551231,
+    "firings": 20555,
+    "independent": 20555,
+    "per_session": 4.254812668184641,
     "source": "condition",
-    "note": "22,975 armings, 21,618 broke k*sigma"
+    "note": "22,975 armings, 20,555 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=1.5",
     "horizon": 120,
-    "firings": 21618,
-    "independent": 21618,
-    "per_session": 4.474849927551231,
+    "firings": 20555,
+    "independent": 20555,
+    "per_session": 4.254812668184641,
     "source": "condition",
-    "note": "22,975 armings, 21,618 broke k*sigma"
+    "note": "22,975 armings, 20,555 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=1.5",
     "horizon": 180,
-    "firings": 21618,
-    "independent": 21618,
-    "per_session": 4.474849927551231,
+    "firings": 20555,
+    "independent": 20555,
+    "per_session": 4.254812668184641,
     "source": "condition",
-    "note": "22,975 armings, 21,618 broke k*sigma"
+    "note": "22,975 armings, 20,555 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=2.0",
     "horizon": 60,
-    "firings": 21427,
-    "independent": 21427,
-    "per_session": 4.435313599668806,
+    "firings": 19586,
+    "independent": 19586,
+    "per_session": 4.054233078037673,
     "source": "condition",
-    "note": "22,975 armings, 21,427 broke k*sigma"
+    "note": "22,975 armings, 19,586 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=2.0",
     "horizon": 120,
-    "firings": 21427,
-    "independent": 21427,
-    "per_session": 4.435313599668806,
+    "firings": 19586,
+    "independent": 19586,
+    "per_session": 4.054233078037673,
     "source": "condition",
-    "note": "22,975 armings, 21,427 broke k*sigma"
+    "note": "22,975 armings, 19,586 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=2.0",
     "horizon": 180,
-    "firings": 21427,
-    "independent": 21427,
-    "per_session": 4.435313599668806,
+    "firings": 19586,
+    "independent": 19586,
+    "per_session": 4.054233078037673,
     "source": "condition",
-    "note": "22,975 armings, 21,427 broke k*sigma"
+    "note": "22,975 armings, 19,586 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=2.5",
     "horizon": 60,
-    "firings": 21121,
-    "independent": 21121,
-    "per_session": 4.3719726764645,
+    "firings": 18136,
+    "independent": 18136,
+    "per_session": 3.7540881805009314,
     "source": "condition",
-    "note": "22,975 armings, 21,121 broke k*sigma"
+    "note": "22,975 armings, 18,136 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=2.5",
     "horizon": 120,
-    "firings": 21121,
-    "independent": 21121,
-    "per_session": 4.3719726764645,
+    "firings": 18136,
+    "independent": 18136,
+    "per_session": 3.7540881805009314,
     "source": "condition",
-    "note": "22,975 armings, 21,121 broke k*sigma"
+    "note": "22,975 armings, 18,136 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MNQ",
     "cell": "vol_pct=25 k=2.5",
     "horizon": 180,
-    "firings": 21121,
-    "independent": 21121,
-    "per_session": 4.3719726764645,
+    "firings": 18136,
+    "independent": 18136,
+    "per_session": 3.7540881805009314,
     "source": "condition",
-    "note": "22,975 armings, 21,121 broke k*sigma"
+    "note": "22,975 armings, 18,136 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=1.5",
     "horizon": 60,
-    "firings": 10556,
-    "independent": 10556,
-    "per_session": 2.5368901706320597,
+    "firings": 10049,
+    "independent": 10049,
+    "per_session": 2.415044460466234,
     "source": "condition",
-    "note": "11,034 armings, 10,556 broke k*sigma"
+    "note": "11,034 armings, 10,049 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=1.5",
     "horizon": 120,
-    "firings": 10556,
-    "independent": 10556,
-    "per_session": 2.5368901706320597,
+    "firings": 10049,
+    "independent": 10049,
+    "per_session": 2.415044460466234,
     "source": "condition",
-    "note": "11,034 armings, 10,556 broke k*sigma"
+    "note": "11,034 armings, 10,049 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=1.5",
     "horizon": 180,
-    "firings": 10556,
-    "independent": 10556,
-    "per_session": 2.5368901706320597,
+    "firings": 10049,
+    "independent": 10049,
+    "per_session": 2.415044460466234,
     "source": "condition",
-    "note": "11,034 armings, 10,556 broke k*sigma"
+    "note": "11,034 armings, 10,049 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=2.0",
     "horizon": 60,
-    "firings": 10495,
-    "independent": 10495,
-    "per_session": 2.522230233117039,
+    "firings": 9642,
+    "independent": 9642,
+    "per_session": 2.3172314347512617,
     "source": "condition",
-    "note": "11,034 armings, 10,495 broke k*sigma"
+    "note": "11,034 armings, 9,642 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=2.0",
     "horizon": 120,
-    "firings": 10495,
-    "independent": 10495,
-    "per_session": 2.522230233117039,
+    "firings": 9642,
+    "independent": 9642,
+    "per_session": 2.3172314347512617,
     "source": "condition",
-    "note": "11,034 armings, 10,495 broke k*sigma"
+    "note": "11,034 armings, 9,642 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=2.0",
     "horizon": 180,
-    "firings": 10495,
-    "independent": 10495,
-    "per_session": 2.522230233117039,
+    "firings": 9642,
+    "independent": 9642,
+    "per_session": 2.3172314347512617,
     "source": "condition",
-    "note": "11,034 armings, 10,495 broke k*sigma"
+    "note": "11,034 armings, 9,642 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=2.5",
     "horizon": 60,
-    "firings": 10413,
-    "independent": 10413,
-    "per_session": 2.5025234318673397,
+    "firings": 8997,
+    "independent": 8997,
+    "per_session": 2.162220620043259,
     "source": "condition",
-    "note": "11,034 armings, 10,413 broke k*sigma"
+    "note": "11,034 armings, 8,997 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=2.5",
     "horizon": 120,
-    "firings": 10413,
-    "independent": 10413,
-    "per_session": 2.5025234318673397,
+    "firings": 8997,
+    "independent": 8997,
+    "per_session": 2.162220620043259,
     "source": "condition",
-    "note": "11,034 armings, 10,413 broke k*sigma"
+    "note": "11,034 armings, 8,997 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=15 k=2.5",
     "horizon": 180,
-    "firings": 10413,
-    "independent": 10413,
-    "per_session": 2.5025234318673397,
+    "firings": 8997,
+    "independent": 8997,
+    "per_session": 2.162220620043259,
     "source": "condition",
-    "note": "11,034 armings, 10,413 broke k*sigma"
+    "note": "11,034 armings, 8,997 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=1.5",
     "horizon": 60,
-    "firings": 13114,
-    "independent": 13114,
-    "per_session": 3.1516462388848834,
+    "firings": 12463,
+    "independent": 12463,
+    "per_session": 2.995193463109829,
     "source": "condition",
-    "note": "13,709 armings, 13,114 broke k*sigma"
+    "note": "13,709 armings, 12,463 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=1.5",
     "horizon": 120,
-    "firings": 13114,
-    "independent": 13114,
-    "per_session": 3.1516462388848834,
+    "firings": 12463,
+    "independent": 12463,
+    "per_session": 2.995193463109829,
     "source": "condition",
-    "note": "13,709 armings, 13,114 broke k*sigma"
+    "note": "13,709 armings, 12,463 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=1.5",
     "horizon": 180,
-    "firings": 13114,
-    "independent": 13114,
-    "per_session": 3.1516462388848834,
+    "firings": 12463,
+    "independent": 12463,
+    "per_session": 2.995193463109829,
     "source": "condition",
-    "note": "13,709 armings, 13,114 broke k*sigma"
+    "note": "13,709 armings, 12,463 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=2.0",
     "horizon": 60,
-    "firings": 13028,
-    "independent": 13028,
-    "per_session": 3.1309781302571498,
+    "firings": 11886,
+    "independent": 11886,
+    "per_session": 2.856524873828407,
     "source": "condition",
-    "note": "13,709 armings, 13,028 broke k*sigma"
+    "note": "13,709 armings, 11,886 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=2.0",
     "horizon": 120,
-    "firings": 13028,
-    "independent": 13028,
-    "per_session": 3.1309781302571498,
+    "firings": 11886,
+    "independent": 11886,
+    "per_session": 2.856524873828407,
     "source": "condition",
-    "note": "13,709 armings, 13,028 broke k*sigma"
+    "note": "13,709 armings, 11,886 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=2.0",
     "horizon": 180,
-    "firings": 13028,
-    "independent": 13028,
-    "per_session": 3.1309781302571498,
+    "firings": 11886,
+    "independent": 11886,
+    "per_session": 2.856524873828407,
     "source": "condition",
-    "note": "13,709 armings, 13,028 broke k*sigma"
+    "note": "13,709 armings, 11,886 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=2.5",
     "horizon": 60,
-    "firings": 12900,
-    "independent": 12900,
-    "per_session": 3.1002162941600577,
+    "firings": 11024,
+    "independent": 11024,
+    "per_session": 2.6493631338620522,
     "source": "condition",
-    "note": "13,709 armings, 12,900 broke k*sigma"
+    "note": "13,709 armings, 11,024 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=2.5",
     "horizon": 120,
-    "firings": 12900,
-    "independent": 12900,
-    "per_session": 3.1002162941600577,
+    "firings": 11024,
+    "independent": 11024,
+    "per_session": 2.6493631338620522,
     "source": "condition",
-    "note": "13,709 armings, 12,900 broke k*sigma"
+    "note": "13,709 armings, 11,024 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=20 k=2.5",
     "horizon": 180,
-    "firings": 12900,
-    "independent": 12900,
-    "per_session": 3.1002162941600577,
+    "firings": 11024,
+    "independent": 11024,
+    "per_session": 2.6493631338620522,
     "source": "condition",
-    "note": "13,709 armings, 12,900 broke k*sigma"
+    "note": "13,709 armings, 11,024 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=1.5",
     "horizon": 60,
-    "firings": 15559,
-    "independent": 15559,
-    "per_session": 3.7392453737082434,
+    "firings": 14759,
+    "independent": 14759,
+    "per_session": 3.546983898101418,
     "source": "condition",
-    "note": "16,282 armings, 15,559 broke k*sigma"
+    "note": "16,282 armings, 14,759 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=1.5",
     "horizon": 120,
-    "firings": 15559,
-    "independent": 15559,
-    "per_session": 3.7392453737082434,
+    "firings": 14759,
+    "independent": 14759,
+    "per_session": 3.546983898101418,
     "source": "condition",
-    "note": "16,282 armings, 15,559 broke k*sigma"
+    "note": "16,282 armings, 14,759 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=1.5",
     "horizon": 180,
-    "firings": 15559,
-    "independent": 15559,
-    "per_session": 3.7392453737082434,
+    "firings": 14759,
+    "independent": 14759,
+    "per_session": 3.546983898101418,
     "source": "condition",
-    "note": "16,282 armings, 15,559 broke k*sigma"
+    "note": "16,282 armings, 14,759 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=2.0",
     "horizon": 60,
-    "firings": 15454,
-    "independent": 15454,
-    "per_session": 3.7140110550348475,
+    "firings": 14026,
+    "independent": 14026,
+    "per_session": 3.370824321076664,
     "source": "condition",
-    "note": "16,282 armings, 15,454 broke k*sigma"
+    "note": "16,282 armings, 14,026 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=2.0",
     "horizon": 120,
-    "firings": 15454,
-    "independent": 15454,
-    "per_session": 3.7140110550348475,
+    "firings": 14026,
+    "independent": 14026,
+    "per_session": 3.370824321076664,
     "source": "condition",
-    "note": "16,282 armings, 15,454 broke k*sigma"
+    "note": "16,282 armings, 14,026 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=2.0",
     "horizon": 180,
-    "firings": 15454,
-    "independent": 15454,
-    "per_session": 3.7140110550348475,
+    "firings": 14026,
+    "independent": 14026,
+    "per_session": 3.370824321076664,
     "source": "condition",
-    "note": "16,282 armings, 15,454 broke k*sigma"
+    "note": "16,282 armings, 14,026 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=2.5",
     "horizon": 60,
-    "firings": 15288,
-    "independent": 15288,
-    "per_session": 3.674116798846431,
+    "firings": 12936,
+    "independent": 12936,
+    "per_session": 3.1088680605623646,
     "source": "condition",
-    "note": "16,282 armings, 15,288 broke k*sigma"
+    "note": "16,282 armings, 12,936 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=2.5",
     "horizon": 120,
-    "firings": 15288,
-    "independent": 15288,
-    "per_session": 3.674116798846431,
+    "firings": 12936,
+    "independent": 12936,
+    "per_session": 3.1088680605623646,
     "source": "condition",
-    "note": "16,282 armings, 15,288 broke k*sigma"
+    "note": "16,282 armings, 12,936 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F05",
     "product": "MGC",
     "cell": "vol_pct=25 k=2.5",
     "horizon": 180,
-    "firings": 15288,
-    "independent": 15288,
-    "per_session": 3.674116798846431,
+    "firings": 12936,
+    "independent": 12936,
+    "per_session": 3.1088680605623646,
     "source": "condition",
-    "note": "16,282 armings, 15,288 broke k*sigma"
+    "note": "16,282 armings, 12,936 broke k*sigma within the 60-minute mechanism-derived deadline"
   },
   {
     "hypothesis": "F06",

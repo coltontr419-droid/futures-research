@@ -532,3 +532,50 @@ def test_every_measured_rate_has_a_source() -> None:
     for r in rows:
         assert r["source"] in ("condition", "cell file"), r
         assert r["firings"] >= 0
+
+
+@pytest.mark.integrity
+def test_every_hypothesis_names_the_instruments_its_mechanism_can_hold_in() -> None:
+    """§5.10 Stage 0. Two instruments is not a default.
+
+    F02 ran 72 trials on MGC when its counterparty is the NYSE closing auction, which gold
+    does not have. Nothing in the pipeline asked whether the mechanism could hold in both,
+    because nothing required the question to be answered.
+    """
+    for hid, entry in REG.items():
+        if entry["status"] == "excluded":
+            continue
+        mi = entry.get("mechanism_instruments")
+        assert mi, (
+            f"{hid} does not say which instruments its mechanism can exist in. "
+            f"`symbols` records what WILL be run; this records what CAN be run, and the "
+            f"two differing is exactly the error §5.10 exists to catch."
+        )
+        assert mi.get("primary") in STAGE4_INSTRUMENTS, mi
+        assert "rationale" in mi and len(mi["rationale"]) > 40, (
+            f"{hid}'s instrument choice needs a reason, not just a list"
+        )
+        declared = {str(s).upper() for s in entry.get("symbols") or []}
+        can_hold = {mi["primary"]} | ({mi["secondary"]} if mi.get("secondary") else set())
+        overrun = declared - can_hold
+        if overrun:
+            assert entry["status"] != "untested", (
+                f"{hid} is scheduled to run on {sorted(overrun)} but its mechanism cannot "
+                f"hold there. Running it would spend trials on an undefined claim."
+            )
+
+
+@pytest.mark.integrity
+def test_a_hypothesis_with_an_open_specification_defect_is_not_schedulable() -> None:
+    """A vacuous condition with plenty of events is the worst combination there is.
+
+    F05's routes are open on event count while its trigger fires on 79-91% of armings,
+    because sigma is measured on the very window compression selects for being quiet. A
+    confident-looking result about nothing is what that produces.
+    """
+    for hid, entry in REG.items():
+        if not entry.get("specification_defect"):
+            continue
+        assert entry.get("schedulable") is False, (
+            f"{hid} records a specification defect but is not marked unschedulable"
+        )
