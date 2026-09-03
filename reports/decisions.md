@@ -551,6 +551,66 @@ was for.
 
 ---
 
+## 20. Choices F02's condition did not determine
+
+| the gap | chosen | why |
+|---|---|---|
+| sigma for `k*sigma` | trailing 20-session std of the 15:00-16:00 ET return, strictly prior sessions | same-clock-time, matching the convention already fixed for F05 and F08; a flat rolling window would mix other hours' volatility into the threshold |
+| exit rule | hold is the parameter, window is the entry anchor | the condition says both "exit at the window close" and "hold in {1,2,4}h"; treating the window as the exit would leave the hold axis doing nothing |
+| era boundary | 2021-01-01 | the date the authors' own decay finding names |
+| both arms | run separately, sell_imb primary | the catalog says the symmetric condition is "tested separately and expected to be weaker"; reporting it is how that prediction gets checked rather than assumed |
+
+The grid spans 15:00 ET to 06:00 ET the next day, 900 minutes a row, because the trade does.
+Rows are keyed by the date of the 15:00 observation, so a bar before 06:00 belongs to the
+previous day's row.
+
+---
+
+## 21. A DECLARED firing rate can be wrong, and section 13's fix did not cover that
+
+**The failure.** The gate showed F02 with an open per-cell route on MGC at 120m and 240m and
+an open aggregate on 5 of 6 combinations. Running it produced 106-707 events per cell
+against a declared 4,006-4,125 - wrong by an order of magnitude, and every cell uninformative.
+
+**Two causes, neither propagated into the gate.**
+
+1. **The condition is threshold-gated.** F02 fires only when `|imb| > k*sigma`, measured at
+   6-23% of rows depending on k. The declared rate of "one per session" counted the
+   OPPORTUNITY - one imbalance reading per session per window - not the TRIGGER.
+2. **The mandatory regime split halves the sample again.** Pre-2021 holds ~3,100-3,200 rows,
+   post-2021 ~1,730. Nothing told the gate this hypothesis must be evaluated in two eras,
+   because the split requirement lives in F13's exclusion note rather than in F02's fields.
+
+**Why section 13 missed it.** That repair addressed two things: scan multiplicity, and rates
+that were *never counted*. It added a test that every hypothesis has a declared **or**
+measured rate. It did not, and could not, check whether a **declared** rate was correct - a
+declaration is exactly the thing a test has no independent source for.
+
+**The class, not the instance.** F01, F06 and F09 are all conditionally triggered - on
+`|r1| > k*ATR`, on a confirmed breakout, on a settlement-window move - and all declare 1.0.
+Every one of those is an upper bound on the opportunity, not a measurement of the trigger.
+They are now flagged `THRESHOLD_GATED` in the gate, and their rows must be read as optimistic
+until measured. **F01 is already closed on both routes at its declared rate**, so measuring
+it can only confirm that; F06 and F09 have rows the gate currently reports as open and those
+should not be trusted.
+
+**Decided:** a declared rate is provisional. A hypothesis whose condition contains a
+threshold, a confirmation, or any filter beyond "the clock reached this time" must have its
+rate MEASURED before its gate row is used for scheduling. Counting is cheap - `firing_rates`
+does it without spending a trial - and the alternative is discovering the error by spending
+144 trials, which is what happened here.
+
+**Second-order note on multiplicity.** F02 produced 0 nominal separations against 7.2
+expected at alpha=0.05. Zero is not evidence of an unusually clean null; within each
+(instrument, era, arm) family the 18 cells share entry dates heavily - same k selects the
+same days, and the three holds are nested - so the effective number of independent looks is
+far below 144. The expected-by-chance column is computed as `alpha * n_cells` and is
+therefore an overestimate wherever cells overlap this much. It is reported unchanged because
+correcting it would require an effective-independence estimate this pipeline does not have,
+but it should not be read as "seven separations failed to appear".
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -587,6 +647,12 @@ was for.
   and F03's MGC cells are persisted. See §16. An unlogged run now raises.
 - **[RESOLVED 2026-09-02] F14 registered AND run; the control passed.** See §17-19.
   Re-run it whenever the harness changes.
+- **[F02 RESOLVED 2026-09-02] Run and recorded `stage1_uninformative`** - all 144 cells
+  below the swept range; see §20-21 and `reports/f02_stage1.md`.
+- **F06 and F09 must have their firing rates MEASURED before scheduling.** Both are
+  threshold-gated and declare 1.0, which F02 just showed is an upper bound on the
+  opportunity rather than the trigger. Their gate rows currently read as open and
+  should not be trusted. See §21.
 - **F01, F02, F04, F06 and F09 have NO real-data control and cannot get one.** They
   fire once a session (~3,500 events vs MNQ's 19,722); F14 covers F03-like counts
   only. Any null from those five must say so rather than borrowing F14's assurance.

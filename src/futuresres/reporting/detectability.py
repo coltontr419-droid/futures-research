@@ -77,6 +77,13 @@ COST_BPS: Final[dict[str, float]] = {"MNQ": 0.48, "MGC": 0.65}
 #: The rule: divide the condition's firing rate by the multiplicity of whichever scanned
 #: dimension appears as a grid axis. What is left is what one cell actually sees.
 #:
+#: THRESHOLD-GATED CONDITIONS DECLARE AN UPPER BOUND UNLESS MEASURED. F01, F06 and F09
+#: all fire conditionally - on |r1| > k*ATR, on a confirmed breakout, on a settlement-window
+#: move - so their declared 1.0 is the rate at which the OPPORTUNITY arises, not the rate at
+#: which the condition triggers. F02 declared 1.0 and actually fired at 0.061. Those three
+#: are flagged in THRESHOLD_GATED below and their gate rows must be read as optimistic until
+#: measured. See reports/decisions.md section 21.
+#:
 #: None means UNMEASURED, and is now BLOCKING. It used to fall through to the data ceiling,
 #: which silently granted a hypothesis every observation in the sample — the most generous
 #: possible assumption, applied precisely where least was known. A rate that has not been
@@ -84,8 +91,13 @@ COST_BPS: Final[dict[str, float]] = {"MNQ": 0.48, "MGC": 0.65}
 CELL_FIRES_PER_SESSION: Final[dict[str, float | None]] = {
     # entry_time is a grid axis; a cell fixes it and fires at most once a session.
     "F01": 1.0,
-    # window is a grid axis; one imbalance reading per session per window.
-    "F02": 1.0,
+    # MEASURED 2026-09-02 from the run itself (reports/f02_stage1.md), replacing a
+    # declared 1.0 that was wrong by an order of magnitude. F02 is THRESHOLD-GATED - it
+    # fires only when |imb| > k*sigma, on 6-23% of rows - and it carries a mandatory
+    # pre/post-2021 regime split that halves the sample again. The declared rate counted
+    # the OPPORTUNITY, not the TRIGGER. Worst cell across k, era and instrument: 106
+    # events over ~1,730 post-2021 rows.
+    "F02": 0.061,
     # slot is a grid axis: 13 slots, one firing each per session.
     "F03": 1.0,
     # auction is a grid axis: AM and PM, one firing each per session.
@@ -119,6 +131,11 @@ PREVIOUS_FIRES_PER_SESSION: Final[dict[str, float | None]] = {
     "F01": 1.0, "F02": 1.0, "F03": 13.0, "F04": 2.0, "F05": None,
     "F06": 1.0, "F07": 12.0, "F08": None, "F09": 1.0, "F10": None, "F11": None,
 }
+
+#: Conditions whose firing rate is gated by a threshold or confirmation, so a declared
+#: rate is an UPPER BOUND rather than a measurement. F02 is no longer listed because it has
+#: now been measured; the other three have not been.
+THRESHOLD_GATED: Final[frozenset[str]] = frozenset({"F01", "F06", "F09"})
 
 #: How many positions the condition scans per session, each of which becomes its own cell.
 #: This buys NO per-cell power — it is a trial-count cost, and it multiplies the aggregate
@@ -189,6 +206,10 @@ def load_measured() -> dict[tuple[str, str, int], tuple[int, int]]:
 
 
 MEASURED: Final[dict[tuple[str, str, int], tuple[int, int]]] = load_measured()
+
+#: Hypotheses whose CELL_FIRES_PER_SESSION was replaced by a figure measured from a real
+#: run rather than derived from the condition. Their gate rows close on the rate itself.
+MEASURED_RATE_IDS: Final[frozenset[str]] = frozenset({"F02"})
 
 
 @dataclass(slots=True)
@@ -433,9 +454,17 @@ def render(verdicts: list[Verdict], cells: dict[tuple[str, int], Cell],
         a("| hypothesis | product | horizon | old ceiling | old verdict | new ceiling | now | why |")
         a("|---|---|---|---|---|---|---|---|")
         for v in sorted(newly, key=lambda v: (v.hypothesis, v.product, v.horizon)):
-            why = ("firing rate never measured" if v.status == "FIRING RATE UNMEASURED"
-                   else f"per-cell sample is {v.scan_positions}x smaller than counted"
-                   if v.scan_positions > 1 else "per-cell sample below the swept range")
+            measured_here = (v.hypothesis, v.product, v.horizon) in MEASURED
+            if v.status == "FIRING RATE UNMEASURED":
+                why = "firing rate never measured"
+            elif measured_here or v.hypothesis in MEASURED_RATE_IDS:
+                # A measured rate supersedes a declared one; when it closes a row the cause
+                # is the rate itself, not the scan arithmetic.
+                why = "measured firing rate far below the declared one"
+            elif v.scan_positions > 1:
+                why = f"per-cell sample is {v.scan_positions}x smaller than counted"
+            else:
+                why = "per-cell sample below the swept range"
             a(f"| {v.hypothesis} | {v.product} | {v.horizon}m | "
               + (f"{v.previous_effective:,}" if v.previous_effective else "—")
               + f" | {v.previous_status} | {v.effective:,} | **{v.status}** | {why} |")

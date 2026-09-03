@@ -123,8 +123,11 @@ def render() -> str:
       + " and ".join(e["id"] for e in by_evidence)
       + " were closed by evidence. "
       + ", ".join(e["id"] for e in never_ran)
-      + " never ran at all — arithmetic or premise closed them first — and F07 ran but "
-        "could not inform. That ratio is the honest summary of this catalog so far: the "
+      + " never ran at all — arithmetic or premise closed them first — and "
+      + ", ".join(e["id"] for e in closed
+                  if e["status"] == "stage1_uninformative")
+      + " ran but could not inform. That ratio is the honest summary of this catalog so "
+        "far: the "
         "binding constraint has been event scarcity and control design, not the absence of "
         "signal, and those are different findings that a results table would render "
         "identically.")

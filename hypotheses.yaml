@@ -166,13 +166,81 @@
     Asia 19:00-22:00}, hold in {1, 2, 4} h.
   horizon_minutes: [60, 120, 240]
   registered: 2026-08-28
-  status: untested
+  # STAGE 1 RUN 2026-09-02, RECORDED UNINFORMATIVE - reports/f02_stage1.md.
+  # 144 cells: 3 k x 2 windows x 3 holds x 2 arms x 2 eras x 2 instruments. The largest
+  # single trial spend in this catalog.
+  #
+  # EVERY CELL IS UNINFORMATIVE, AND THE GATE DID NOT PREDICT THAT. Detectability showed
+  # F02 with an open per-cell route on MGC 120m/240m and an open aggregate on 5 of 6.
+  # Both rested on a DECLARED firing rate of one per session, and the declared rate was
+  # wrong by an order of magnitude:
+  #
+  #     gate assumed   4,006-4,125 per cell        aggregate 6,142-8,250
+  #     actually       106-707 per cell            aggregate ~210-1,414
+  #
+  # Two causes, neither propagated into the gate. FIRST, the condition is THRESHOLD-
+  # GATED: it fires only when |imb| > k*sigma, measured at 6-23% of rows depending on k,
+  # not every row. The declared rate counted the OPPORTUNITY, not the TRIGGER. SECOND,
+  # the mandatory regime split halves the sample again - pre-2021 holds ~3,100-3,200
+  # rows and post-2021 ~1,730 - and nothing told the gate this hypothesis must be
+  # evaluated in two eras. See decisions.md section 21.
+  #
+  # RESULTS, DESCRIPTIVE ONLY. 0 nominal separations across all 144 cells against 7.2
+  # expected by chance; 0 BH survivors in every (instrument, era, arm) family and across
+  # the whole hypothesis. Zero against 7.2 is itself informative about the TEST rather
+  # than the market: within a family the 18 cells share entry dates heavily (same k, and
+  # holds are nested), so the effective number of independent looks is far below 144.
+  #
+  # THE ONE DIRECTIONALLY CONSISTENT RESULT, AND IT IS NOT EVIDENCE. MNQ post-2021
+  # sell_imb - the mechanism's primary arm, on the equity index, in the live era -
+  # aggregates +3.27 bps gross and +2.79 net, with a best cell of +12.97 bps at 0.83x
+  # its floor and p=0.0726. That is the only family pointing the predicted way. It rests
+  # on 121-393 events against floors measured at 2,862 and up, so it CANNOT be evidence,
+  # and it is recorded here so that a future re-test knows where to look rather than as
+  # a finding.
+  #
+  # THE DECAY QUESTION IS NOT SETTLED AND CANNOT BE. Both sell_imb arms are LARGER
+  # post-2021 than pre-2021, which is the opposite of the decay the authors report for
+  # the unconditional version. But neither era's cells are informative, so this is a
+  # difference between two quantities individually indistinguishable from zero.
+  #
+  # NO REAL-DATA CONTROL EXISTS AT THIS EVENT REGIME. F14 validated the harness at
+  # ~48,000-52,000 events; F02's cells hold 106-707. No control can be built here: a
+  # once-a-session condition yields ~3,500 events before threshold gating, and F02 fires
+  # on 6-23% of those and then splits the remainder in two. This null carries the
+  # section 7.2 synthetic GARCH assurance and NOTHING from F14.
+  #
+  # NEITHER INSTRUMENT CARRIES A VERDICT. MGC was named by the gate as the open route
+  # and closes once the real rate is used. Worth stating anyway: F02 is an EQUITY-INDEX
+  # hypothesis whose counterparty is the NYSE closing auction, and a gold contract has
+  # no NYSE close - an MGC result would have been the wrong instrument for this claim
+  # even had it been informative. MGC's coverage here is 46.14%, the lowest of any
+  # window in the study.
+  status: stage1_uninformative
+  stage1_run: 2026-09-02
+  stage1_reason: >
+    Every one of 144 cells is below the swept range, and the gate did
+    not predict it: the declared firing rate of one per session counted
+    the opportunity rather than the trigger, ignoring both the k*sigma
+    threshold (fires on 6-23% of rows) and the mandatory regime split
+    (halves the sample again). Cells hold 106-707 events against floors
+    measured at 2,862 and up. 0 nominal separations against 7.2
+    expected, 0 BH survivors anywhere - but zero against 7.2 reflects
+    heavy sharing of entry dates within each family, so effective
+    independent looks are far below 144. MNQ post-2021 sell_imb is the
+    only family pointing the predicted way (+3.27 bps aggregate, best
+    cell 0.83x floor, p=0.0726) and it could not be evidence at this
+    sample. No real-data control exists at this event regime. Not
+    retired: no route could have carried a verdict. 144 trials spent.
   grade: A-
   tier: A
   param_cap: 3
   session: Asia/Europe
   hold_hours: [1, 4]
-  test_order: 4
+  # Ran and produced no obtainable evidence; nothing should reschedule it
+  # as registered. Registration priority preserved, not renumbered.
+  registered_test_order: 4
+  test_order: null
   symbols: [MNQ, MGC]
   # REGIME SPLIT IS MANDATORY HERE, NOT OPTIONAL. See F13: the same authors published
   # "The Disappearing Overnight Drift" in July 2026 reporting that the UNCONDITIONAL
