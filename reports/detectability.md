@@ -29,19 +29,19 @@ An earlier version of this gate stored the **aggregate** rate in the per-cell sl
 
 | hypothesis | product | horizon | old ceiling | old verdict | new ceiling | now | why |
 |---|---|---|---|---|---|---|---|
-| F02 | MGC | 120m | 4,006 | RESOLVABLE | 244 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
-| F02 | MGC | 240m | 4,006 | RESOLVABLE | 244 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
-| F03 | MGC | 30m | 52,078 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 13x smaller than counted |
-| F03 | MNQ | 30m | 53,625 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 13x smaller than counted |
-| F04 | MGC | 30m | 8,012 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 2x smaller than counted |
-| F04 | MGC | 60m | 8,012 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 2x smaller than counted |
-| F04 | MNQ | 120m | 8,250 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 2x smaller than counted |
-| F07 | MGC | 30m | 48,072 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
-| F07 | MGC | 60m | 31,591 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
-| F07 | MGC | 90m | 21,060 | RESOLVABLE | 4,006 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
-| F07 | MNQ | 30m | 49,500 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
-| F07 | MNQ | 60m | 39,444 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
-| F07 | MNQ | 90m | 26,296 | RESOLVABLE | 4,125 | **BELOW SWEPT RANGE** | per-cell sample is 12x smaller than counted |
+| F02 | MGC | 120m | 4,006 | RESOLVABLE | 106 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F02 | MGC | 240m | 4,006 | RESOLVABLE | 106 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F03 | MGC | 30m | 52,078 | RESOLVABLE | 403 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F03 | MNQ | 30m | 53,625 | RESOLVABLE | 234 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F04 | MGC | 30m | 8,012 | RESOLVABLE | 3,467 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F04 | MGC | 60m | 8,012 | RESOLVABLE | 3,467 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F04 | MNQ | 120m | 8,250 | RESOLVABLE | 3,420 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F07 | MGC | 30m | 48,072 | RESOLVABLE | 3,597 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F07 | MGC | 60m | 31,591 | RESOLVABLE | 3,597 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F07 | MGC | 90m | 21,060 | RESOLVABLE | 3,597 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F07 | MNQ | 30m | 49,500 | RESOLVABLE | 3,387 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F07 | MNQ | 60m | 39,444 | RESOLVABLE | 3,387 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F07 | MNQ | 90m | 26,296 | RESOLVABLE | 3,387 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F08 | MNQ | 60m | 39,444 | RESOLVABLE | 530 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F10 | MGC | 30m | 63,182 | RESOLVABLE | 5,141 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F10 | MGC | 60m | 31,591 | RESOLVABLE | 2,928 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
@@ -60,7 +60,7 @@ Two routes exist. **Per-cell** is the ordinary one: each cell tested, Benjamini-
 |---|---|---|---|---|---|
 | F01 | 0/4 | 2 | **no** | **closed** — every cell below the swept range | **closed** — positions overlap |
 | F02 | 0/6 | 2 | yes | **closed** — every cell below the swept range | **closed** — pooled sample still below range |
-| F03 | 0/2 | 13 | yes | **closed** — every cell below the swept range | **open** (2/2) |
+| F03 | 0/2 | 13 | yes | **closed** — every cell below the swept range | **closed** — pooled sample still below range |
 | F04 | 1/6 | 2 | yes | **open** (1/6: MGC 120m) | **open** (4/6) |
 | F05 | 6/6 | 1 | yes | **open** (6/6: MNQ 60m, MNQ 120m, MNQ 180m, MGC 60m, MGC 120m, MGC 180m) | n/a — nothing to pool |
 | F06 | 2/6 | 1 | yes | **open** (2/6: MGC 120m, MGC 180m) | n/a — nothing to pool |
@@ -79,30 +79,30 @@ A scan whose every cell is below the swept range is not thereby untestable. Pool
 
 | hypothesis | product | horizon | per-cell | per-cell status | positions | aggregate | aggregate status |
 |---|---|---|---|---|---|---|---|
-| F01 | MGC | 30m | 4,006 | BELOW SWEPT RANGE | 2 **overlapping** | 4,006 | BELOW SWEPT RANGE |
-| F01 | MGC | 60m | 4,006 | BELOW SWEPT RANGE | 2 **overlapping** | 4,006 | BELOW SWEPT RANGE |
-| F01 | MNQ | 30m | 4,125 | BELOW SWEPT RANGE | 2 **overlapping** | 4,125 | BELOW SWEPT RANGE |
-| F01 | MNQ | 60m | 4,125 | BELOW SWEPT RANGE | 2 **overlapping** | 4,125 | BELOW SWEPT RANGE |
-| F02 | MGC | 60m | 244 | BELOW SWEPT RANGE | 2 disjoint | 488 | BELOW SWEPT RANGE |
-| F02 | MGC | 120m | 244 | BELOW SWEPT RANGE | 2 disjoint | 488 | BELOW SWEPT RANGE |
-| F02 | MGC | 240m | 244 | BELOW SWEPT RANGE | 2 disjoint | 488 | BELOW SWEPT RANGE |
-| F02 | MNQ | 60m | 251 | BELOW SWEPT RANGE | 2 disjoint | 502 | BELOW SWEPT RANGE |
-| F02 | MNQ | 120m | 251 | BELOW SWEPT RANGE | 2 disjoint | 502 | BELOW SWEPT RANGE |
-| F02 | MNQ | 240m | 251 | BELOW SWEPT RANGE | 2 disjoint | 502 | BELOW SWEPT RANGE |
-| F03 | MGC | 30m | 4,006 | BELOW SWEPT RANGE | 13 disjoint | 52,078 | **RESOLVABLE** |
-| F03 | MNQ | 30m | 4,125 | BELOW SWEPT RANGE | 13 disjoint | 53,625 | **RESOLVABLE** |
-| F04 | MGC | 30m | 4,006 | BELOW SWEPT RANGE | 2 disjoint | 8,012 | **RESOLVABLE** |
-| F04 | MGC | 60m | 4,006 | BELOW SWEPT RANGE | 2 disjoint | 8,012 | **RESOLVABLE** |
-| F04 | MGC | 120m | 4,006 | RESOLVABLE | 2 disjoint | 8,012 | **RESOLVABLE** |
-| F04 | MNQ | 30m | 4,125 | BELOW SWEPT RANGE | 2 disjoint | 8,250 | BELOW SWEPT RANGE |
-| F04 | MNQ | 60m | 4,125 | BELOW SWEPT RANGE | 2 disjoint | 8,250 | BELOW SWEPT RANGE |
-| F04 | MNQ | 120m | 4,125 | BELOW SWEPT RANGE | 2 disjoint | 8,250 | **RESOLVABLE** |
-| F07 | MGC | 30m | 4,006 | BELOW SWEPT RANGE | 12 **overlapping** | 4,006 | BELOW SWEPT RANGE |
-| F07 | MGC | 60m | 4,006 | BELOW SWEPT RANGE | 12 **overlapping** | 4,006 | BELOW SWEPT RANGE |
-| F07 | MGC | 90m | 4,006 | BELOW SWEPT RANGE | 12 **overlapping** | 4,006 | BELOW SWEPT RANGE |
-| F07 | MNQ | 30m | 4,125 | BELOW SWEPT RANGE | 12 **overlapping** | 4,125 | BELOW SWEPT RANGE |
-| F07 | MNQ | 60m | 4,125 | BELOW SWEPT RANGE | 12 **overlapping** | 4,125 | BELOW SWEPT RANGE |
-| F07 | MNQ | 90m | 4,125 | BELOW SWEPT RANGE | 12 **overlapping** | 4,125 | BELOW SWEPT RANGE |
+| F01 | MGC | 30m | 115 | BELOW SWEPT RANGE | 2 **overlapping** | 115 | BELOW SWEPT RANGE |
+| F01 | MGC | 60m | 115 | BELOW SWEPT RANGE | 2 **overlapping** | 115 | BELOW SWEPT RANGE |
+| F01 | MNQ | 30m | 66 | BELOW SWEPT RANGE | 2 **overlapping** | 66 | BELOW SWEPT RANGE |
+| F01 | MNQ | 60m | 66 | BELOW SWEPT RANGE | 2 **overlapping** | 66 | BELOW SWEPT RANGE |
+| F02 | MGC | 60m | 106 | BELOW SWEPT RANGE | 2 disjoint | 212 | BELOW SWEPT RANGE |
+| F02 | MGC | 120m | 106 | BELOW SWEPT RANGE | 2 disjoint | 212 | BELOW SWEPT RANGE |
+| F02 | MGC | 240m | 106 | BELOW SWEPT RANGE | 2 disjoint | 212 | BELOW SWEPT RANGE |
+| F02 | MNQ | 60m | 112 | BELOW SWEPT RANGE | 2 disjoint | 224 | BELOW SWEPT RANGE |
+| F02 | MNQ | 120m | 112 | BELOW SWEPT RANGE | 2 disjoint | 224 | BELOW SWEPT RANGE |
+| F02 | MNQ | 240m | 112 | BELOW SWEPT RANGE | 2 disjoint | 224 | BELOW SWEPT RANGE |
+| F03 | MGC | 30m | 403 | BELOW SWEPT RANGE | 13 disjoint | 5,239 | BELOW SWEPT RANGE |
+| F03 | MNQ | 30m | 234 | BELOW SWEPT RANGE | 13 disjoint | 3,042 | BELOW SWEPT RANGE |
+| F04 | MGC | 30m | 3,467 | BELOW SWEPT RANGE | 2 disjoint | 6,934 | **RESOLVABLE** |
+| F04 | MGC | 60m | 3,467 | BELOW SWEPT RANGE | 2 disjoint | 6,934 | **RESOLVABLE** |
+| F04 | MGC | 120m | 3,467 | RESOLVABLE | 2 disjoint | 6,934 | **RESOLVABLE** |
+| F04 | MNQ | 30m | 3,420 | BELOW SWEPT RANGE | 2 disjoint | 6,840 | BELOW SWEPT RANGE |
+| F04 | MNQ | 60m | 3,420 | BELOW SWEPT RANGE | 2 disjoint | 6,840 | BELOW SWEPT RANGE |
+| F04 | MNQ | 120m | 3,420 | BELOW SWEPT RANGE | 2 disjoint | 6,840 | **RESOLVABLE** |
+| F07 | MGC | 30m | 3,597 | BELOW SWEPT RANGE | 12 **overlapping** | 3,597 | BELOW SWEPT RANGE |
+| F07 | MGC | 60m | 3,597 | BELOW SWEPT RANGE | 12 **overlapping** | 3,597 | BELOW SWEPT RANGE |
+| F07 | MGC | 90m | 3,597 | BELOW SWEPT RANGE | 12 **overlapping** | 3,597 | BELOW SWEPT RANGE |
+| F07 | MNQ | 30m | 3,387 | BELOW SWEPT RANGE | 12 **overlapping** | 3,387 | BELOW SWEPT RANGE |
+| F07 | MNQ | 60m | 3,387 | BELOW SWEPT RANGE | 12 **overlapping** | 3,387 | BELOW SWEPT RANGE |
+| F07 | MNQ | 90m | 3,387 | BELOW SWEPT RANGE | 12 **overlapping** | 3,387 | BELOW SWEPT RANGE |
 
 **F03's aggregate is powered; F07's is not, and the difference is overlap.** Both have per-cell samples 12-13x smaller than the gate previously credited them with, so every individual cell of both is uninformative. F03's 13 slots are disjoint trades, so pooling genuinely multiplies its observations. F07's 12 slots are twelve predictors of the SAME last-half-hour window, entered on the same minute of the same session, so pooling stacks correlated readings of one ~4,000 session sample and adds nothing. **F07 has no route to a verdict at any level.**
 
@@ -123,40 +123,40 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 
 | id | hypothesis | instrument | horizon | usable obs | limited by | status |
 |---|---|---|---|---|---|---|
-| F01 | market_intraday_momentum | MGC | 30m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F01 | market_intraday_momentum | MGC | 60m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F01 | market_intraday_momentum | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F01 | market_intraday_momentum | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F02 | order_imbalance_conditional_overnight_reversal | MGC | 60m | 244 | event rate | **BELOW SWEPT RANGE** |
-| F02 | order_imbalance_conditional_overnight_reversal | MGC | 120m | 244 | event rate | **BELOW SWEPT RANGE** |
-| F02 | order_imbalance_conditional_overnight_reversal | MGC | 240m | 244 | event rate | **BELOW SWEPT RANGE** |
-| F02 | order_imbalance_conditional_overnight_reversal | MNQ | 60m | 251 | event rate | **BELOW SWEPT RANGE** |
-| F02 | order_imbalance_conditional_overnight_reversal | MNQ | 120m | 251 | event rate | **BELOW SWEPT RANGE** |
-| F02 | order_imbalance_conditional_overnight_reversal | MNQ | 240m | 251 | event rate | **BELOW SWEPT RANGE** |
-| F03 | half_hour_periodicity | MGC | 30m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F03 | half_hour_periodicity | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F04 | lbma_auction_flow | MGC | 30m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F04 | lbma_auction_flow | MGC | 60m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F04 | lbma_auction_flow | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F04 | lbma_auction_flow | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F04 | lbma_auction_flow | MNQ | 120m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MGC | 60m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MNQ | 120m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MNQ | 180m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F07 | gold_session_specific_momentum | MGC | 30m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F07 | gold_session_specific_momentum | MGC | 60m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F07 | gold_session_specific_momentum | MGC | 90m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F07 | gold_session_specific_momentum | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F07 | gold_session_specific_momentum | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F07 | gold_session_specific_momentum | MNQ | 90m | 4,125 | event rate | **BELOW SWEPT RANGE** |
+| F01 | market_intraday_momentum | MGC | 30m | 115 | event rate | **BELOW SWEPT RANGE** |
+| F01 | market_intraday_momentum | MGC | 60m | 115 | event rate | **BELOW SWEPT RANGE** |
+| F01 | market_intraday_momentum | MNQ | 30m | 66 | event rate | **BELOW SWEPT RANGE** |
+| F01 | market_intraday_momentum | MNQ | 60m | 66 | event rate | **BELOW SWEPT RANGE** |
+| F02 | order_imbalance_conditional_overnight_reversal | MGC | 60m | 106 | event rate | **BELOW SWEPT RANGE** |
+| F02 | order_imbalance_conditional_overnight_reversal | MGC | 120m | 106 | event rate | **BELOW SWEPT RANGE** |
+| F02 | order_imbalance_conditional_overnight_reversal | MGC | 240m | 106 | event rate | **BELOW SWEPT RANGE** |
+| F02 | order_imbalance_conditional_overnight_reversal | MNQ | 60m | 112 | event rate | **BELOW SWEPT RANGE** |
+| F02 | order_imbalance_conditional_overnight_reversal | MNQ | 120m | 112 | event rate | **BELOW SWEPT RANGE** |
+| F02 | order_imbalance_conditional_overnight_reversal | MNQ | 240m | 112 | event rate | **BELOW SWEPT RANGE** |
+| F03 | half_hour_periodicity | MGC | 30m | 403 | event rate | **BELOW SWEPT RANGE** |
+| F03 | half_hour_periodicity | MNQ | 30m | 234 | event rate | **BELOW SWEPT RANGE** |
+| F04 | lbma_auction_flow | MGC | 30m | 3,467 | event rate | **BELOW SWEPT RANGE** |
+| F04 | lbma_auction_flow | MGC | 60m | 3,467 | event rate | **BELOW SWEPT RANGE** |
+| F04 | lbma_auction_flow | MNQ | 30m | 3,420 | event rate | **BELOW SWEPT RANGE** |
+| F04 | lbma_auction_flow | MNQ | 60m | 3,420 | event rate | **BELOW SWEPT RANGE** |
+| F04 | lbma_auction_flow | MNQ | 120m | 3,420 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MGC | 60m | 1,663 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MNQ | 60m | 1,621 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MNQ | 120m | 1,621 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MNQ | 180m | 1,621 | event rate | **BELOW SWEPT RANGE** |
+| F07 | gold_session_specific_momentum | MGC | 30m | 3,597 | event rate | **BELOW SWEPT RANGE** |
+| F07 | gold_session_specific_momentum | MGC | 60m | 3,597 | event rate | **BELOW SWEPT RANGE** |
+| F07 | gold_session_specific_momentum | MGC | 90m | 3,597 | event rate | **BELOW SWEPT RANGE** |
+| F07 | gold_session_specific_momentum | MNQ | 30m | 3,387 | event rate | **BELOW SWEPT RANGE** |
+| F07 | gold_session_specific_momentum | MNQ | 60m | 3,387 | event rate | **BELOW SWEPT RANGE** |
+| F07 | gold_session_specific_momentum | MNQ | 90m | 3,387 | event rate | **BELOW SWEPT RANGE** |
 | F08 | cross_asset_risk_regime | MNQ | 60m | 530 | event rate | **BELOW SWEPT RANGE** |
-| F09 | settlement_anchored_flow | MGC | 30m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F09 | settlement_anchored_flow | MGC | 60m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F09 | settlement_anchored_flow | MGC | 90m | 4,006 | event rate | **BELOW SWEPT RANGE** |
-| F09 | settlement_anchored_flow | MNQ | 30m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F09 | settlement_anchored_flow | MNQ | 60m | 4,125 | event rate | **BELOW SWEPT RANGE** |
-| F09 | settlement_anchored_flow | MNQ | 90m | 4,125 | event rate | **BELOW SWEPT RANGE** |
+| F09 | settlement_anchored_flow | MGC | 30m | 2,365 | event rate | **BELOW SWEPT RANGE** |
+| F09 | settlement_anchored_flow | MGC | 60m | 2,365 | event rate | **BELOW SWEPT RANGE** |
+| F09 | settlement_anchored_flow | MGC | 90m | 2,365 | event rate | **BELOW SWEPT RANGE** |
+| F09 | settlement_anchored_flow | MNQ | 30m | 3,378 | event rate | **BELOW SWEPT RANGE** |
+| F09 | settlement_anchored_flow | MNQ | 60m | 3,378 | event rate | **BELOW SWEPT RANGE** |
+| F09 | settlement_anchored_flow | MNQ | 90m | 3,378 | event rate | **BELOW SWEPT RANGE** |
 | F10 | rsi_mean_reversion_control | MGC | 30m | 5,141 | event rate | **BELOW SWEPT RANGE** |
 | F10 | rsi_mean_reversion_control | MGC | 60m | 2,928 | event rate | **BELOW SWEPT RANGE** |
 | F10 | rsi_mean_reversion_control | MGC | 120m | 1,667 | event rate | **BELOW SWEPT RANGE** |
@@ -164,71 +164,71 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F10 | rsi_mean_reversion_control | MNQ | 60m | 2,966 | event rate | **BELOW SWEPT RANGE** |
 | F10 | rsi_mean_reversion_control | MNQ | 120m | 1,585 | event rate | **BELOW SWEPT RANGE** |
 
-- `F01` MGC 30m — 4,006 usable observations is below the smallest sample that resolved a floor (5,620)
-- `F01` MGC 60m — 4,006 usable observations is below the smallest sample that resolved a floor (5,620)
-- `F01` MNQ 30m — 4,125 usable observations is below the smallest sample that resolved a floor (19,722)
-- `F01` MNQ 60m — 4,125 usable observations is below the smallest sample that resolved a floor (19,722)
-- `F02` MGC 60m — 244 usable observations is below the smallest sample that resolved a floor (5,620)
-- `F02` MGC 120m — 244 usable observations is below the smallest sample that resolved a floor (2,862)
-- `F02` MGC 240m — 244 usable observations is below the smallest sample that resolved a floor (2,862)
-- `F02` MNQ 60m — 251 usable observations is below the smallest sample that resolved a floor (19,722)
-- `F02` MNQ 120m — 251 usable observations is below the smallest sample that resolved a floor (5,884)
-- `F02` MNQ 240m — 251 usable observations is below the smallest sample that resolved a floor (5,884)
-- `F03` MGC 30m — 4,006 usable observations is below the smallest sample that resolved a floor (5,620)
-- `F03` MNQ 30m — 4,125 usable observations is below the smallest sample that resolved a floor (19,722)
+- `F01` MGC 30m — 115 usable observations is below the smallest sample that resolved a floor (5,620)
+- `F01` MGC 60m — 115 usable observations is below the smallest sample that resolved a floor (5,620)
+- `F01` MNQ 30m — 66 usable observations is below the smallest sample that resolved a floor (19,722)
+- `F01` MNQ 60m — 66 usable observations is below the smallest sample that resolved a floor (19,722)
+- `F02` MGC 60m — 106 usable observations is below the smallest sample that resolved a floor (5,620)
+- `F02` MGC 120m — 106 usable observations is below the smallest sample that resolved a floor (2,862)
+- `F02` MGC 240m — 106 usable observations is below the smallest sample that resolved a floor (2,862)
+- `F02` MNQ 60m — 112 usable observations is below the smallest sample that resolved a floor (19,722)
+- `F02` MNQ 120m — 112 usable observations is below the smallest sample that resolved a floor (5,884)
+- `F02` MNQ 240m — 112 usable observations is below the smallest sample that resolved a floor (5,884)
+- `F03` MGC 30m — 403 usable observations is below the smallest sample that resolved a floor (5,620)
+- `F03` MNQ 30m — 234 usable observations is below the smallest sample that resolved a floor (19,722)
 
 ## All combinations
 
 | id | instrument | horizon | data ceiling | event ceiling | usable | floor | floor bps | cost | status |
 |---|---|---|---|---|---|---|---|---|---|
-| F01 | MGC | 30m | 63,182 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F01 | MGC | 60m | 31,591 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F01 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F01 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F02 | MGC | 60m | 31,591 | 244 | **244** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F02 | MGC | 120m | 12,285 | 244 | **244** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F02 | MGC | 240m | 6,142 | 244 | **244** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F02 | MNQ | 60m | 39,444 | 251 | **251** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F02 | MNQ | 120m | 17,652 | 251 | **251** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F02 | MNQ | 240m | 8,826 | 251 | **251** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F03 | MGC | 30m | 63,182 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F03 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F04 | MGC | 30m | 63,182 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F04 | MGC | 60m | 31,591 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F04 | MGC | 120m | 12,285 | 4,006 | **4,006** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
-| F04 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F04 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F04 | MNQ | 120m | 17,652 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F01 | MGC | 30m | 63,182 | 115 | **115** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F01 | MGC | 60m | 31,591 | 115 | **115** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F01 | MNQ | 30m | 78,888 | 66 | **66** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F01 | MNQ | 60m | 39,444 | 66 | **66** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F02 | MGC | 60m | 31,591 | 106 | **106** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F02 | MGC | 120m | 12,285 | 106 | **106** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F02 | MGC | 240m | 6,142 | 106 | **106** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F02 | MNQ | 60m | 39,444 | 112 | **112** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F02 | MNQ | 120m | 17,652 | 112 | **112** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F02 | MNQ | 240m | 8,826 | 112 | **112** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F03 | MGC | 30m | 63,182 | 403 | **403** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F03 | MNQ | 30m | 78,888 | 234 | **234** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F04 | MGC | 30m | 63,182 | 3,467 | **3,467** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F04 | MGC | 60m | 31,591 | 3,467 | **3,467** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F04 | MGC | 120m | 12,285 | 3,467 | **3,467** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F04 | MNQ | 30m | 78,888 | 3,420 | **3,420** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F04 | MNQ | 60m | 39,444 | 3,420 | **3,420** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F04 | MNQ | 120m | 17,652 | 3,420 | **3,420** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F05 | MGC | 60m | 31,591 | 10,413 | **10,413** | 0.3× | **7.86** | 0.65 | RESOLVABLE |
 | F05 | MGC | 120m | 12,285 | 10,413 | **10,413** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
 | F05 | MGC | 180m | 8,190 | 10,413 | **8,190** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
 | F05 | MNQ | 60m | 39,444 | 14,559 | **14,559** | 0.08446× | **2.57** | 0.48 | MIXED |
 | F05 | MNQ | 120m | 17,652 | 14,559 | **14,559** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
 | F05 | MNQ | 180m | 11,768 | 14,559 | **11,768** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
-| F06 | MGC | 60m | 31,591 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F06 | MGC | 120m | 12,285 | 4,006 | **4,006** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
-| F06 | MGC | 180m | 8,190 | 4,006 | **4,006** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
-| F06 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F06 | MNQ | 120m | 17,652 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F06 | MNQ | 180m | 11,768 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F07 | MGC | 30m | 63,182 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F07 | MGC | 60m | 31,591 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F07 | MGC | 90m | 21,060 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F07 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F07 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F07 | MNQ | 90m | 26,296 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F06 | MGC | 60m | 31,591 | 1,663 | **1,663** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F06 | MGC | 120m | 12,285 | 1,663 | **1,663** | 0.3× | **14.34** | 0.65 | MIXED |
+| F06 | MGC | 180m | 8,190 | 1,663 | **1,663** | 0.3× | **14.34** | 0.65 | MIXED |
+| F06 | MNQ | 60m | 39,444 | 1,621 | **1,621** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F06 | MNQ | 120m | 17,652 | 1,621 | **1,621** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F06 | MNQ | 180m | 11,768 | 1,621 | **1,621** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F07 | MGC | 30m | 63,182 | 3,597 | **3,597** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F07 | MGC | 60m | 31,591 | 3,597 | **3,597** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F07 | MGC | 90m | 21,060 | 3,597 | **3,597** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F07 | MNQ | 30m | 78,888 | 3,387 | **3,387** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F07 | MNQ | 60m | 39,444 | 3,387 | **3,387** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F07 | MNQ | 90m | 26,296 | 3,387 | **3,387** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F08 | MGC | 60m | 31,591 | 530 | **530** | 0.1592× | **4.17** | 0.65 | MIXED |
 | F08 | MGC | 120m | 12,285 | 530 | **530** | 0.3× | **14.34** | 0.65 | MIXED |
 | F08 | MGC | 180m | 8,190 | 530 | **530** | 0.3× | **14.34** | 0.65 | MIXED |
 | F08 | MNQ | 60m | 39,444 | 530 | **530** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F08 | MNQ | 120m | 17,652 | 530 | **530** | 0.3× | **15.66** | 0.48 | MIXED |
 | F08 | MNQ | 180m | 11,768 | 530 | **530** | 0.3× | **15.66** | 0.48 | MIXED |
-| F09 | MGC | 30m | 63,182 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F09 | MGC | 60m | 31,591 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F09 | MGC | 90m | 21,060 | 4,006 | **4,006** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F09 | MNQ | 30m | 78,888 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F09 | MNQ | 60m | 39,444 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F09 | MNQ | 90m | 26,296 | 4,125 | **4,125** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F09 | MGC | 30m | 63,182 | 2,365 | **2,365** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F09 | MGC | 60m | 31,591 | 2,365 | **2,365** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F09 | MGC | 90m | 21,060 | 2,365 | **2,365** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F09 | MNQ | 30m | 78,888 | 3,378 | **3,378** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F09 | MNQ | 60m | 39,444 | 3,378 | **3,378** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F09 | MNQ | 90m | 26,296 | 3,378 | **3,378** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F10 | MGC | 30m | 63,182 | 5,141 | **5,141** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F10 | MGC | 60m | 31,591 | 2,928 | **2,928** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F10 | MGC | 120m | 12,285 | 1,667 | **1,667** | — | — | 0.65 | BELOW SWEPT RANGE |
@@ -241,12 +241,12 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F11 | MNQ | 30m | 78,888 | 164,775 | **78,888** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
 | F11 | MNQ | 60m | 39,444 | 83,263 | **39,444** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
 | F11 | MNQ | 120m | 17,652 | 43,759 | **17,652** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
-| F14 | MGC | 30m | 63,182 | 31,647 | **31,647** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
-| F14 | MGC | 60m | 31,591 | 31,647 | **31,591** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
-| F14 | MGC | 120m | 12,285 | 31,647 | **12,285** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
-| F14 | MNQ | 30m | 78,888 | 32,587 | **32,587** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
-| F14 | MNQ | 60m | 39,444 | 32,587 | **32,587** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
-| F14 | MNQ | 120m | 17,652 | 32,587 | **17,652** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
+| F14 | MGC | 30m | 63,182 | 51,753 | **51,753** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
+| F14 | MGC | 60m | 31,591 | 51,753 | **31,591** | 0.1592× | **4.17** | 0.65 | RESOLVABLE |
+| F14 | MGC | 120m | 12,285 | 51,753 | **12,285** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F14 | MNQ | 30m | 78,888 | 47,866 | **47,866** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
+| F14 | MNQ | 60m | 39,444 | 47,866 | **39,444** | 0.08446× | **2.57** | 0.48 | RESOLVABLE |
+| F14 | MNQ | 120m | 17,652 | 47,866 | **17,652** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
 
 ## How the ceilings were computed
 

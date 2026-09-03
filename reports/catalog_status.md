@@ -49,7 +49,7 @@ SR\* is the Sharpe the best of N random trials would be expected to reach by cha
 |---|---|---|---|---|---|---|
 | F01 | market_intraday_momentum | `blocked_insufficient_events` | closed | **closed** (overlap) | arithmetic — never ran | 0 |
 | F02 | order_imbalance_conditional_overnight_reversal | `stage1_uninformative` | closed | closed | sample — ran, could not inform | 144 |
-| F03 | half_hour_periodicity | `retired` | closed | **open** 2/2 | evidence | 234 |
+| F03 | half_hour_periodicity | `retired` | closed | closed | evidence | 234 |
 | F04 | lbma_auction_flow | `retired` | **open** 1/6 | **open** 4/6 | evidence | 36 |
 | F05 | volatility_compression_expansion | `untested` | **open** 6/6 | n/a | — | 0 |
 | F06 | cash_open_drive_continuation | `untested` | **open** 2/6 | n/a | — | 0 |
@@ -66,54 +66,54 @@ SR\* is the Sharpe the best of N random trials would be expected to reach by cha
 
 | id | product | horizon | per-cell | aggregate | needs | status |
 |---|---|---|---|---|---|---|
-| F01 | MGC | 30m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F01 | MGC | 60m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F01 | MNQ | 30m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
-| F01 | MNQ | 60m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
-| F02 | MGC | 60m | 244 | 488 | 5,620 | BELOW SWEPT RANGE |
-| F02 | MGC | 120m | 244 | 488 | 2,862 | BELOW SWEPT RANGE |
-| F02 | MGC | 240m | 244 | 488 | 2,862 | BELOW SWEPT RANGE |
-| F02 | MNQ | 60m | 251 | 502 | 19,722 | BELOW SWEPT RANGE |
-| F02 | MNQ | 120m | 251 | 502 | 5,884 | BELOW SWEPT RANGE |
-| F02 | MNQ | 240m | 251 | 502 | 5,884 | BELOW SWEPT RANGE |
-| F03 | MGC | 30m | 4,006 | 52,078 | 5,620 | BELOW SWEPT RANGE |
-| F03 | MNQ | 30m | 4,125 | 53,625 | 19,722 | BELOW SWEPT RANGE |
-| F04 | MGC | 30m | 4,006 | 8,012 | 5,620 | BELOW SWEPT RANGE |
-| F04 | MGC | 60m | 4,006 | 8,012 | 5,620 | BELOW SWEPT RANGE |
-| F04 | MGC | 120m | 4,006 | 8,012 | 2,862 | RESOLVABLE |
-| F04 | MNQ | 30m | 4,125 | 8,250 | 19,722 | BELOW SWEPT RANGE |
-| F04 | MNQ | 60m | 4,125 | 8,250 | 19,722 | BELOW SWEPT RANGE |
-| F04 | MNQ | 120m | 4,125 | 8,250 | 5,884 | BELOW SWEPT RANGE |
+| F01 | MGC | 30m | 115 | 115 | 5,620 | BELOW SWEPT RANGE |
+| F01 | MGC | 60m | 115 | 115 | 5,620 | BELOW SWEPT RANGE |
+| F01 | MNQ | 30m | 66 | 66 | 19,722 | BELOW SWEPT RANGE |
+| F01 | MNQ | 60m | 66 | 66 | 19,722 | BELOW SWEPT RANGE |
+| F02 | MGC | 60m | 106 | 212 | 5,620 | BELOW SWEPT RANGE |
+| F02 | MGC | 120m | 106 | 212 | 2,862 | BELOW SWEPT RANGE |
+| F02 | MGC | 240m | 106 | 212 | 2,862 | BELOW SWEPT RANGE |
+| F02 | MNQ | 60m | 112 | 224 | 19,722 | BELOW SWEPT RANGE |
+| F02 | MNQ | 120m | 112 | 224 | 5,884 | BELOW SWEPT RANGE |
+| F02 | MNQ | 240m | 112 | 224 | 5,884 | BELOW SWEPT RANGE |
+| F03 | MGC | 30m | 403 | 5,239 | 5,620 | BELOW SWEPT RANGE |
+| F03 | MNQ | 30m | 234 | 3,042 | 19,722 | BELOW SWEPT RANGE |
+| F04 | MGC | 30m | 3,467 | 6,934 | 5,620 | BELOW SWEPT RANGE |
+| F04 | MGC | 60m | 3,467 | 6,934 | 5,620 | BELOW SWEPT RANGE |
+| F04 | MGC | 120m | 3,467 | 6,934 | 2,862 | RESOLVABLE |
+| F04 | MNQ | 30m | 3,420 | 6,840 | 19,722 | BELOW SWEPT RANGE |
+| F04 | MNQ | 60m | 3,420 | 6,840 | 19,722 | BELOW SWEPT RANGE |
+| F04 | MNQ | 120m | 3,420 | 6,840 | 5,884 | BELOW SWEPT RANGE |
 | F05 | MGC | 60m | 10,413 | 10,413 | 5,620 | RESOLVABLE |
 | F05 | MGC | 120m | 10,413 | 10,413 | 2,862 | RESOLVABLE |
 | F05 | MGC | 180m | 8,190 | 8,190 | 2,862 | RESOLVABLE |
 | F05 | MNQ | 60m | 14,559 | 14,559 | 19,722 | MIXED |
 | F05 | MNQ | 120m | 14,559 | 14,559 | 5,884 | RESOLVABLE |
 | F05 | MNQ | 180m | 11,768 | 11,768 | 5,884 | RESOLVABLE |
-| F06 | MGC | 60m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F06 | MGC | 120m | 4,006 | 4,006 | 2,862 | RESOLVABLE |
-| F06 | MGC | 180m | 4,006 | 4,006 | 2,862 | RESOLVABLE |
-| F06 | MNQ | 60m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
-| F06 | MNQ | 120m | 4,125 | 4,125 | 5,884 | BELOW SWEPT RANGE |
-| F06 | MNQ | 180m | 4,125 | 4,125 | 5,884 | BELOW SWEPT RANGE |
-| F07 | MGC | 30m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F07 | MGC | 60m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F07 | MGC | 90m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F07 | MNQ | 30m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
-| F07 | MNQ | 60m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
-| F07 | MNQ | 90m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
+| F06 | MGC | 60m | 1,663 | 1,663 | 5,620 | BELOW SWEPT RANGE |
+| F06 | MGC | 120m | 1,663 | 1,663 | 2,862 | MIXED |
+| F06 | MGC | 180m | 1,663 | 1,663 | 2,862 | MIXED |
+| F06 | MNQ | 60m | 1,621 | 1,621 | 19,722 | BELOW SWEPT RANGE |
+| F06 | MNQ | 120m | 1,621 | 1,621 | 5,884 | BELOW SWEPT RANGE |
+| F06 | MNQ | 180m | 1,621 | 1,621 | 5,884 | BELOW SWEPT RANGE |
+| F07 | MGC | 30m | 3,597 | 3,597 | 5,620 | BELOW SWEPT RANGE |
+| F07 | MGC | 60m | 3,597 | 3,597 | 5,620 | BELOW SWEPT RANGE |
+| F07 | MGC | 90m | 3,597 | 3,597 | 5,620 | BELOW SWEPT RANGE |
+| F07 | MNQ | 30m | 3,387 | 3,387 | 19,722 | BELOW SWEPT RANGE |
+| F07 | MNQ | 60m | 3,387 | 3,387 | 19,722 | BELOW SWEPT RANGE |
+| F07 | MNQ | 90m | 3,387 | 3,387 | 19,722 | BELOW SWEPT RANGE |
 | F08 | MGC | 60m | 530 | 530 | 5,620 | MIXED |
 | F08 | MGC | 120m | 530 | 530 | 2,862 | MIXED |
 | F08 | MGC | 180m | 530 | 530 | 2,862 | MIXED |
 | F08 | MNQ | 60m | 530 | 530 | 19,722 | BELOW SWEPT RANGE |
 | F08 | MNQ | 120m | 530 | 530 | 5,884 | MIXED |
 | F08 | MNQ | 180m | 530 | 530 | 5,884 | MIXED |
-| F09 | MGC | 30m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F09 | MGC | 60m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F09 | MGC | 90m | 4,006 | 4,006 | 5,620 | BELOW SWEPT RANGE |
-| F09 | MNQ | 30m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
-| F09 | MNQ | 60m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
-| F09 | MNQ | 90m | 4,125 | 4,125 | 19,722 | BELOW SWEPT RANGE |
+| F09 | MGC | 30m | 2,365 | 2,365 | 5,620 | BELOW SWEPT RANGE |
+| F09 | MGC | 60m | 2,365 | 2,365 | 5,620 | BELOW SWEPT RANGE |
+| F09 | MGC | 90m | 2,365 | 2,365 | 5,620 | BELOW SWEPT RANGE |
+| F09 | MNQ | 30m | 3,378 | 3,378 | 19,722 | BELOW SWEPT RANGE |
+| F09 | MNQ | 60m | 3,378 | 3,378 | 19,722 | BELOW SWEPT RANGE |
+| F09 | MNQ | 90m | 3,378 | 3,378 | 19,722 | BELOW SWEPT RANGE |
 | F10 | MGC | 30m | 5,141 | 5,141 | 5,620 | BELOW SWEPT RANGE |
 | F10 | MGC | 60m | 2,928 | 2,928 | 5,620 | BELOW SWEPT RANGE |
 | F10 | MGC | 120m | 1,667 | 1,667 | 2,862 | BELOW SWEPT RANGE |
@@ -126,11 +126,11 @@ SR\* is the Sharpe the best of N random trials would be expected to reach by cha
 | F11 | MNQ | 30m | 78,888 | 78,888 | 19,722 | RESOLVABLE |
 | F11 | MNQ | 60m | 39,444 | 39,444 | 19,722 | RESOLVABLE |
 | F11 | MNQ | 120m | 17,652 | 17,652 | 5,884 | RESOLVABLE |
-| F14 | MGC | 30m | 31,647 | 31,647 | 5,620 | RESOLVABLE |
+| F14 | MGC | 30m | 51,753 | 51,753 | 5,620 | RESOLVABLE |
 | F14 | MGC | 60m | 31,591 | 31,591 | 5,620 | RESOLVABLE |
 | F14 | MGC | 120m | 12,285 | 12,285 | 2,862 | RESOLVABLE |
-| F14 | MNQ | 30m | 32,587 | 32,587 | 19,722 | RESOLVABLE |
-| F14 | MNQ | 60m | 32,587 | 32,587 | 19,722 | RESOLVABLE |
+| F14 | MNQ | 30m | 47,866 | 47,866 | 19,722 | RESOLVABLE |
+| F14 | MNQ | 60m | 39,444 | 39,444 | 19,722 | RESOLVABLE |
 | F14 | MNQ | 120m | 17,652 | 17,652 | 5,884 | RESOLVABLE |
 
 ## What remains testable, and by which route

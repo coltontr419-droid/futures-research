@@ -64,6 +64,15 @@ SIGMA_BPS: Final[dict[tuple[str, int], float]] = {
 }
 COST_BPS: Final[dict[str, float]] = {"MNQ": 0.48, "MGC": 0.65}
 
+#: DECLARED ESTIMATES ONLY. **Nothing here gates anything.** These are what each condition
+#: looks like it should fire at, kept because the gap between a declaration and a
+#: measurement is itself worth being able to see - F02 declared 1.0 and measured 0.061.
+#:
+#: The gate reads `MEASURED` above and only that. A hypothesis with a declaration but no
+#: measurement is UNSCHEDULABLE, not optimistically cleared.
+#:
+#: Historical note: this table WAS the gate until 2026-09-02. See decisions.md §21 and §22.
+#:
 #: Firing rate per SESSION **for a single Stage 1 cell**, not for the hypothesis as a whole.
 #:
 #: THE DISTINCTION IS THE WHOLE POINT, AND GETTING IT WRONG ONCE ALREADY CORRUPTED THIS GATE.
@@ -88,7 +97,7 @@ COST_BPS: Final[dict[str, float]] = {"MNQ": 0.48, "MGC": 0.65}
 #: which silently granted a hypothesis every observation in the sample — the most generous
 #: possible assumption, applied precisely where least was known. A rate that has not been
 #: measured cannot clear a gate.
-CELL_FIRES_PER_SESSION: Final[dict[str, float | None]] = {
+DECLARED_ESTIMATE: Final[dict[str, float | None]] = {
     # entry_time is a grid axis; a cell fixes it and fires at most once a session.
     "F01": 1.0,
     # MEASURED 2026-09-02 from the run itself (reports/f02_stage1.md), replacing a
@@ -190,12 +199,17 @@ SCAN_POSITIONS_DISJOINT: Final[dict[str, bool]] = {
 }
 
 
-#: Measured per-cell counts from `reports/firing_rates.md`, for the hypotheses whose rate
-#: the condition does not state. Keyed (hypothesis, product, horizon) -> (min, max)
-#: independent events across that hypothesis's parameter cells. Written by
-#: `python -m futuresres.reporting.firing_rates`; absent means never counted.
+#: THE ONLY SOURCE OF EVENT COUNTS. Written by
+#: `python -m futuresres.reporting.measured_rates`, which applies each condition's own
+#: threshold, applies any mandatory regime split, and reads a cell file directly for any
+#: hypothesis that has already run. Keyed (hypothesis, product, horizon) -> (min, max)
+#: independent events across that hypothesis's parameter cells.
+#:
+#: A hypothesis absent from this file CANNOT BE SCHEDULED. That is the whole design: §21
+#: showed that a declared rate can be wrong by a factor of forty and that no test can catch
+#: it, because a declaration has no independent source to check against.
 def load_measured() -> dict[tuple[str, str, int], tuple[int, int]]:
-    path = REPORTS / "firing_rates.json"
+    path = REPORTS / "measured_rates.json"
     if not path.exists():
         return {}
     out: dict[tuple[str, str, int], list[int]] = {}
@@ -207,9 +221,6 @@ def load_measured() -> dict[tuple[str, str, int], tuple[int, int]]:
 
 MEASURED: Final[dict[tuple[str, str, int], tuple[int, int]]] = load_measured()
 
-#: Hypotheses whose CELL_FIRES_PER_SESSION was replaced by a figure measured from a real
-#: run rather than derived from the condition. Their gate rows close on the rate itself.
-MEASURED_RATE_IDS: Final[frozenset[str]] = frozenset({"F02"})
 
 
 @dataclass(slots=True)
@@ -311,7 +322,7 @@ def _previous_verdict(entry: dict, cell: "Cell", data_ceiling: int,
     Reproduces the old behaviour exactly: the scan-wide firing rate in the per-cell slot,
     and an unmeasured rate falling through to the data ceiling rather than blocking.
     """
-    fires = PREVIOUS_FIRES_PER_SESSION.get(entry["id"])
+    fires = PREVIOUS_FIRES_PER_SESSION.get(entry["id"])  # the pre-§13 table
     event_ceiling = int(sessions * fires) if fires else None
     effective = min([x for x in (data_ceiling, event_ceiling) if x is not None])
     if not cell.ever_resolved:
@@ -325,7 +336,6 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
            session_counts: dict[str, int]) -> list[Verdict]:
     out: list[Verdict] = []
     measured_horizons = sorted({h for _, h in cells})
-    fires = CELL_FIRES_PER_SESSION.get(entry["id"])
     positions = SCAN_POSITIONS.get(entry["id"], 1)
     for product in (str(s).upper() for s in entry.get("symbols") or []):
         if product not in session_counts:
@@ -338,14 +348,14 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
             sessions = session_counts[product]
             # Data ceiling scales with the hypothesis's OWN horizon, not the proxy's.
             data_ceiling = int(cell.available * proxy / horizon)
-            event_ceiling = int(sessions * fires) if fires else None
+            event_ceiling = None
             # Overlapping positions pool into correlated readings of the SAME sessions,
             # so they add no independent observations.
             disjoint = SCAN_POSITIONS_DISJOINT.get(entry["id"], True)
             aggregate_ceiling = (
                 event_ceiling * (positions if disjoint else 1)
             ) if event_ceiling else None
-            effective = min([x for x in (data_ceiling, event_ceiling) if x is not None])
+            effective = data_ceiling
 
             prev_status, prev_eff = _previous_verdict(entry, cell, data_ceiling, sessions)
 
@@ -358,12 +368,15 @@ def assess(entry: dict, cells: dict[tuple[str, int], Cell],
                 aggregate_ceiling = lo * (positions if disjoint else 1)
                 effective = min(lo, data_ceiling)
 
-            if fires is None and measured is None:
+            if measured is None:
                 status = "FIRING RATE UNMEASURED"
-                note = ("the condition's firings per session have never been counted, so "
-                        "no event ceiling exists; this must be measured before scheduling. "
-                        "Run `python -m futuresres.reporting.firing_rates`.")
+                note = ("no MEASURED firing rate exists for this combination, so it cannot "
+                        "be scheduled. A declared rate does not substitute: §21 showed one "
+                        "wrong by a factor of forty, with no test able to catch it. Run "
+                        "`python -m futuresres.reporting.measured_rates`.")
                 floor = None
+                effective = 0
+                aggregate_ceiling = None
             elif measured is not None and cell.ever_resolved and (
                     measured[0] < (cell.smallest_resolving_n or 0)
                     <= min(measured[1], data_ceiling)):
@@ -422,7 +435,7 @@ def render(verdicts: list[Verdict], cells: dict[tuple[str, int], Cell],
     a("| hypothesis | scanned positions | per-cell fires/session | aggregate fires/session |")
     a("|---|---|---|---|")
     for hid in sorted(SCAN_POSITIONS):
-        f = CELL_FIRES_PER_SESSION.get(hid)
+        f = DECLARED_ESTIMATE.get(hid)
         n = SCAN_POSITIONS[hid]
         if f is None:
             continue

@@ -413,7 +413,6 @@ def test_every_hypothesis_has_a_declared_or_measured_firing_rate() -> None:
     declare a per-cell rate its condition determines, or have one measured and cached.
     """
     from futuresres.reporting.detectability import (
-        CELL_FIRES_PER_SESSION,
         MEASURED,
         SCAN_POSITIONS,
         SCAN_POSITIONS_DISJOINT,
@@ -423,11 +422,11 @@ def test_every_hypothesis_has_a_declared_or_measured_firing_rate() -> None:
     for hid, entry in REG.items():
         if entry["status"] == "excluded":
             continue
-        declared = CELL_FIRES_PER_SESSION.get(hid)
-        assert declared is not None or hid in measured_ids, (
-            f"{hid} has neither a declared per-cell firing rate nor a measured one. It "
-            f"must not be schedulable: run `python -m futuresres.reporting.firing_rates` "
-            f"or add its rate with the reasoning that derives it from the condition."
+        assert hid in measured_ids, (
+            f"{hid} has no MEASURED firing rate and therefore cannot be scheduled. A "
+            f"declared rate does not substitute - §21 showed one wrong by a factor of "
+            f"forty, and no test can check a declaration because it has no independent "
+            f"source. Run `python -m futuresres.reporting.measured_rates`."
         )
         assert hid in SCAN_POSITIONS and hid in SCAN_POSITIONS_DISJOINT, (
             f"{hid} is missing a scan-position or disjointness declaration; without both, "
@@ -438,11 +437,14 @@ def test_every_hypothesis_has_a_declared_or_measured_firing_rate() -> None:
 @pytest.mark.integrity
 def test_an_unknown_hypothesis_id_blocks_rather_than_clearing() -> None:
     """The DEFAULT for something nobody has thought about must be 'blocked'."""
-    from futuresres.reporting.detectability import CELL_FIRES_PER_SESSION, MEASURED
+    from futuresres.reporting.detectability import DECLARED_ESTIMATE, MEASURED
 
     unknown = "F99_never_registered"
-    assert CELL_FIRES_PER_SESSION.get(unknown) is None
-    assert not any(k[0] == unknown for k in MEASURED)
+    assert not any(k[0] == unknown for k in MEASURED), (
+        "an unmeasured hypothesis must be absent from MEASURED, which is what blocks it"
+    )
+    # A declaration must not rescue it even if one existed.
+    assert DECLARED_ESTIMATE.get(unknown) is None
 
 
 @pytest.mark.integrity
@@ -492,3 +494,41 @@ def test_a_retired_control_says_which_of_the_two_failures_it_was() -> None:
         "powered, and recording it as merely another underpowered control would lose the "
         "only interesting thing about it"
     )
+
+
+@pytest.mark.integrity
+def test_declared_rates_never_gate() -> None:
+    """The §21 regression guard: `assess` must not consult the declared table.
+
+    Checked on the source, because the failure mode is a future edit reintroducing a
+    fallback that looks helpful - "use the declaration when no measurement exists" - which
+    is exactly the behaviour that let F02 through.
+    """
+    import ast as _ast
+    import inspect
+
+    from futuresres.reporting import detectability as det
+
+    tree = _ast.parse(inspect.getsource(det))
+    fn = next(n for n in tree.body
+              if isinstance(n, _ast.FunctionDef) and n.name == "assess")
+    names = {n.id for n in _ast.walk(fn) if isinstance(n, _ast.Name)}
+    assert "DECLARED_ESTIMATE" not in names, (
+        "assess() reads the declared estimate table. Declarations must never gate: they "
+        "have no independent source and cannot be checked."
+    )
+    assert "MEASURED" in names, "assess() must read the measured rates"
+
+
+@pytest.mark.integrity
+def test_every_measured_rate_has_a_source() -> None:
+    """A measurement must say how it was obtained, so a stale one can be spotted."""
+    import json as _json
+
+    path = ROOT / "reports" / "measured_rates.json"
+    assert path.exists(), "measured_rates.json is missing; nothing can be scheduled"
+    rows = _json.loads(path.read_text(encoding="utf-8"))
+    assert rows
+    for r in rows:
+        assert r["source"] in ("condition", "cell file"), r
+        assert r["firings"] >= 0

@@ -611,6 +611,61 @@ but it should not be read as "seven separations failed to appear".
 
 ---
 
+## 22. Declared firing rates no longer gate anything
+
+**The rule.** The detectability gate reads `reports/measured_rates.json` and nothing else. A
+hypothesis with no MEASURED rate is UNSCHEDULABLE, not optimistically cleared. Declarations
+survive as `DECLARED_ESTIMATE`, are never consulted by `assess()`, and exist only so the gap
+between what a condition looks like it should fire at and what it does can be seen.
+
+**Why, in one line.** §21: F02 declared 1.0, measured 0.061, and no test could have caught
+it — a declaration has no independent source to check against.
+
+**What "measured" now means.** The condition's own threshold applied (`k*sigma`, `k*ATR`,
+breakout confirmation), any mandatory regime split applied with the **worst era** gating,
+counted per Stage 1 cell, and — for a hypothesis that has already run — taken straight from
+its cell file, which is the strongest measurement available because it is what the pipeline
+actually produced.
+
+**Magnitude of the correction, worst cell per hypothesis:**
+
+| | previously gated on | measured | factor |
+|---|---|---|---|
+| **F01** | 4,125 | **66** | **62.5x** |
+| F03 | 4,125 | 234 | 17.6x |
+| F11 | 78,888 | 12,285 | 6.4x |
+| F10 | 5,594 | 1,585 | 3.5x |
+| F14 | 32,587 | 12,285 | 2.7x |
+| F06 | 4,125 | 1,621 | 2.5x |
+| F02 | 251 | 106 | 2.4x |
+| F05 | 14,559 | 8,190 | 1.8x |
+| F09 | 4,125 | 2,365 | 1.7x |
+| F04, F07 | 4,125 | 3,387-3,420 | 1.2x |
+
+**Only two combinations changed status** — F06 MGC at 120m and 180m, RESOLVABLE to MIXED.
+That is a much smaller headline than the factors above, and the reason is worth stating: most
+of the catalog was already blocked, and a hypothesis that is 4.8x short of the bar is not
+made more blocked by discovering it is 62x short. **The status labels understate how badly
+the gate was misinformed.** F01's real per-cell sample is 66 events at its most selective
+setting, against a floor that resolves at 19,722.
+
+**F09 is NOT threshold-gated, and an earlier note in this project said it was.** Its
+condition enters at S-15min on every session with no filter; its rate is bounded only by data
+availability and by a flat pre-move. It measures 2,365-3,406 rather than the declared 4,125,
+and the shortfall is missing bars at the exact pre-window minute, not a threshold. The
+earlier claim is corrected here rather than left standing.
+
+**Two tests hold the line.** `test_declared_rates_never_gate` parses `assess()` and fails if
+it references the declared table — the failure mode being a future edit that reintroduces a
+helpful-looking fallback ("use the declaration when no measurement exists"), which is exactly
+what let F02 through. `test_every_hypothesis_has_a_declared_or_measured_firing_rate` became
+`measured`-only: a declaration no longer satisfies it.
+
+**Cost.** Measuring all twelve takes 16 seconds and spends no trial. Discovering the same
+thing by running F02 cost 144 trials and took SR\* from 0.0902 to 0.1402.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -649,10 +704,9 @@ but it should not be read as "seven separations failed to appear".
   Re-run it whenever the harness changes.
 - **[F02 RESOLVED 2026-09-02] Run and recorded `stage1_uninformative`** - all 144 cells
   below the swept range; see §20-21 and `reports/f02_stage1.md`.
-- **F06 and F09 must have their firing rates MEASURED before scheduling.** Both are
-  threshold-gated and declare 1.0, which F02 just showed is an upper bound on the
-  opportunity rather than the trigger. Their gate rows currently read as open and
-  should not be trusted. See §21.
+- **[RESOLVED 2026-09-02] Every hypothesis now has a MEASURED firing rate and declared
+  rates no longer gate.** See §22. F06 MGC 120m/180m dropped RESOLVABLE to MIXED;
+  F01's real worst-cell sample is 66 events, not the 4,125 the gate had been using.
 - **F01, F02, F04, F06 and F09 have NO real-data control and cannot get one.** They
   fire once a session (~3,500 events vs MNQ's 19,722); F14 covers F03-like counts
   only. Any null from those five must say so rather than borrowing F14's assurance.

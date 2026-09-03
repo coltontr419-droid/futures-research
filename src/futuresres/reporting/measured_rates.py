@@ -1,0 +1,319 @@
+"""The authoritative firing rates. Measured on real data; nothing declared. §5, §7.
+
+    python -m futuresres.reporting.measured_rates
+
+WHY THIS REPLACES THE DECLARED TABLE. `reports/decisions.md` §21: F02 declared one firing
+per session, the gate cleared it on that basis, and the run produced 106-707 events per cell
+against a predicted 4,006-4,125. Wrong by a factor of forty. The declared figure counted the
+OPPORTUNITY - one imbalance reading per session per window - while the condition only
+TRIGGERS when `|imb| > k*sigma`, on 6-23% of rows, and then a mandatory regime split halved
+the remainder again.
+
+§13's repair could not have caught that. It checked that every hypothesis had a declared
+**or** measured rate. It could not check whether a declared rate was *correct*, because a
+declaration is exactly the thing a test has no independent source for. So declarations no
+longer gate anything: they are recorded as estimates, and the gate reads only this file.
+
+WHAT "MEASURED" MEANS HERE, precisely, because the word is doing a lot of work:
+
+  * the condition's THRESHOLD is applied - k*sigma, k*ATR, breakout confirmation - so the
+    count is of triggers, not of opportunities
+  * any MANDATORY REGIME SPLIT is applied, and the WORST era is what gates, because a
+    hypothesis that must be evaluated in two eras has to be powered in both
+  * the count is per Stage 1 CELL, so a scanned dimension that is also a grid axis is
+    divided out
+  * for a hypothesis that has already run, the count comes from its own cell file - the
+    strongest measurement available, since it is what the pipeline actually produced
+
+STILL NOT A STATISTIC. This computes no return series, no p-value, and spends no trial. It
+is a property of the condition and the data.
+
+F09 IS NOT THRESHOLD-GATED, and an earlier note in this project said it was. Its condition
+enters at S-15min on every session with no filter at all, so its rate is bounded only by
+data availability. It is measured anyway - under the new rule everything is - and the
+correction is recorded rather than left standing.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import sys
+from dataclasses import asdict, dataclass
+from datetime import date
+from pathlib import Path
+from typing import Final
+
+import numpy as np
+import polars as pl
+import yaml
+
+from futuresres.reporting.firing_rates import (
+    SMALLEST_RESOLVING,
+    cap_independent,
+    f05_rates,
+    f08_rates,
+    f10_rates,
+    f11_rates,
+    load_1m,
+    rolling_pct_prior,
+    span_minutes,
+)
+from futuresres.session.calendar import ET
+
+ROOT: Final[Path] = Path(__file__).resolve().parents[3]
+REPORTS: Final[Path] = ROOT / "reports"
+REGISTRY: Final[Path] = ROOT / "hypotheses.yaml"
+CACHE: Final[Path] = REPORTS / "measured_rates.json"
+REPORT: Final[Path] = REPORTS / "measured_rates.md"
+
+CONTINUOUS: Final[Path] = ROOT / "data" / "continuous"
+SERIES: Final[dict[str, str]] = {"MNQ": "NQ_MNQ_spliced", "MGC": "MGC"}
+
+RTH_OPEN: Final[int] = 9 * 60 + 30
+RTH_CLOSE: Final[int] = 16 * 60
+LOOKBACK: Final[int] = 20
+VOL_WINDOW: Final[int] = 250
+
+#: Hypotheses the catalog requires to be evaluated in separate eras. Only F02 carries one,
+#: and it comes from F13's exclusion note rather than F02's own fields - which is exactly
+#: why the gate never saw it.
+MANDATORY_SPLIT: Final[dict[str, date]] = {"F02": date(2021, 1, 1)}
+
+#: Settlement times for F09, in ET minutes-of-day.
+SETTLEMENT: Final[dict[str, int]] = {"MNQ": 15 * 60, "MGC": 13 * 60 + 30}
+
+
+@dataclass(slots=True)
+class Rate:
+    hypothesis: str
+    product: str
+    cell: str
+    horizon: int
+    firings: int
+    independent: int
+    per_session: float
+    source: str
+    note: str
+
+
+# ----------------------------------------------------------------- daily frame
+def load_daily(product: str) -> pl.DataFrame:
+    """Per-session RTH OHLC plus the 10:00 ET price, for F01 and F06."""
+    bars = pl.read_parquet(CONTINUOUS / f"{SERIES[product]}.parquet")
+    local = pl.col("ts_event").dt.convert_time_zone(str(ET))
+    f = bars.with_columns(
+        (local.dt.hour().cast(pl.Int32) * 60
+         + local.dt.minute().cast(pl.Int32)).alias("mod"),
+        local.dt.date().alias("day"),
+    ).filter((pl.col("mod") >= RTH_OPEN) & (pl.col("mod") < RTH_CLOSE))
+    return (f.group_by("day").agg(
+        pl.col("high").max().alias("hi"),
+        pl.col("low").min().alias("lo"),
+        pl.col("close").last().alias("close"),
+        pl.col("close").filter(pl.col("mod") == 10 * 60).first().alias("at_1000"),
+        pl.len().alias("bars"),
+    ).sort("day").filter(pl.col("bars") >= 60))
+
+
+def trailing_vol_filter(returns: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """(passes_median, passes_p66) using 20-session realised vol vs its own trailing p50/p66.
+
+    The condition says "vol_filter in {none, >median, >p66}" without saying of what. A
+    20-session realised vol compared against the trailing 250 sessions of the same quantity
+    is the reading used, and it is logged rather than resolved silently.
+    """
+    n = returns.size
+    vol = np.full(n, np.nan)
+    for i in range(LOOKBACK, n):
+        vol[i] = returns[i - LOOKBACK:i].std(ddof=1)
+    med = rolling_pct_prior(np.nan_to_num(vol), VOL_WINDOW, 50)
+    p66 = rolling_pct_prior(np.nan_to_num(vol), VOL_WINDOW, 66)
+    with np.errstate(invalid="ignore"):
+        return vol > med, vol > p66
+
+
+# ----------------------------------------------------------------- F01
+def f01_rates(product: str, horizons: list[int], span: int) -> list[Rate]:
+    """|r1| > k*ATR(20d), r1 measured previous close -> 10:00 ET. Then a vol filter."""
+    d = load_daily(product).drop_nulls("at_1000")
+    close = d.get_column("close").to_numpy()
+    hi, lo = d.get_column("hi").to_numpy(), d.get_column("lo").to_numpy()
+    at10 = d.get_column("at_1000").to_numpy()
+    n = close.size
+    prev = np.concatenate([[np.nan], close[:-1]])
+    tr = np.maximum(hi, prev) - np.minimum(lo, prev)
+    atr = np.full(n, np.nan)
+    for i in range(LOOKBACK, n):
+        atr[i] = np.nanmean(tr[i - LOOKBACK:i])
+    with np.errstate(invalid="ignore"):
+        r1 = np.abs(at10 - prev)
+    rets = np.diff(np.log(close), prepend=np.log(close[0]))
+    pass_med, pass_p66 = trailing_vol_filter(rets)
+
+    out: list[Rate] = []
+    for k in (0.0, 0.5, 1.0):
+        with np.errstate(invalid="ignore"):
+            base = np.isfinite(r1) & np.isfinite(atr) & (r1 > k * atr)
+        for vf, mask in (("none", np.ones(n, bool)),
+                         (">median", pass_med), (">p66", pass_p66)):
+            fires = int((base & mask).sum())
+            for h in horizons:
+                out.append(Rate("F01", product, f"k={k} vol={vf}", h, fires,
+                                cap_independent(fires, span, h), fires / max(n, 1),
+                                "condition",
+                                f"{n:,} sessions; entry_time is a grid axis so a cell "
+                                f"fires at most once a session"))
+    return out
+
+
+# ----------------------------------------------------------------- F06
+def f06_rates(product: str, horizons: list[int], span: int) -> list[Rate]:
+    """Opening range over W minutes, then a close beyond the boundary (1 or 2 closes)."""
+    bars = pl.read_parquet(CONTINUOUS / f"{SERIES[product]}.parquet")
+    local = pl.col("ts_event").dt.convert_time_zone(str(ET))
+    f = bars.with_columns(
+        (local.dt.hour().cast(pl.Int32) * 60
+         + local.dt.minute().cast(pl.Int32) - RTH_OPEN).alias("m"),
+        local.dt.date().alias("day"),
+    ).filter((pl.col("m") >= 0) & (pl.col("m") < RTH_CLOSE - RTH_OPEN))
+
+    days = f.get_column("day").to_numpy()
+    mins = f.get_column("m").to_numpy().astype(np.int64)
+    closes = f.get_column("close").to_numpy().astype(float)
+    sessions = np.unique(days)
+    width = RTH_CLOSE - RTH_OPEN
+    grid = np.full((sessions.size, width), np.nan)
+    grid[np.searchsorted(sessions, days), mins] = closes
+
+    daily_close = np.array([r[np.isfinite(r)][-1] if np.isfinite(r).any() else np.nan
+                            for r in grid])
+    rets = np.diff(np.log(daily_close), prepend=np.log(daily_close[0]))
+    pass_med, _ = trailing_vol_filter(np.nan_to_num(rets))
+
+    out: list[Rate] = []
+    for W in (5, 15, 30):
+        rng_hi = np.nanmax(grid[:, :W], axis=1)
+        rng_lo = np.nanmin(grid[:, :W], axis=1)
+        after = grid[:, W:]
+        with np.errstate(invalid="ignore"):
+            beyond = (after > rng_hi[:, None]) | (after < rng_lo[:, None])
+        beyond = np.where(np.isfinite(after), beyond, False)
+        one = beyond.any(axis=1)
+        two = (beyond[:, :-1] & beyond[:, 1:]).any(axis=1)
+        for confirm, mask in (("1 close", one), ("2 closes", two)):
+            for vf, vmask in (("none", np.ones(sessions.size, bool)),
+                              (">median", pass_med)):
+                fires = int((mask & vmask).sum())
+                for h in horizons:
+                    out.append(Rate("F06", product, f"W={W} {confirm} vol={vf}", h, fires,
+                                    cap_independent(fires, span, h),
+                                    fires / max(sessions.size, 1), "condition",
+                                    f"{sessions.size:,} sessions"))
+    return out
+
+
+# ----------------------------------------------------------------- F09
+def f09_rates(product: str, horizons: list[int], span: int) -> list[Rate]:
+    """Enter at S-15min every session. NO threshold - the rate is bounded by data only."""
+    df = load_1m(product)
+    s = SETTLEMENT[product]
+    mod = df.get_column("mod").to_numpy()
+    day = df.get_column("day").to_numpy()
+    close = df.get_column("close").to_numpy()
+    n_sessions = np.unique(day).size
+
+    out: list[Rate] = []
+    for pre_window in (30, 60):
+        have_entry = set(day[mod == s - 15])
+        have_pre = set(day[mod == s - pre_window])
+        usable = have_entry & have_pre
+        # a flat pre-move carries no direction, so it cannot fire
+        idx_e = {d: c for d, c, m in zip(day, close, mod) if m == s - 15}
+        idx_p = {d: c for d, c, m in zip(day, close, mod) if m == s - pre_window}
+        fires = sum(1 for d in usable if idx_e[d] != idx_p[d])
+        for h in horizons:
+            out.append(Rate("F09", product, f"pre_window={pre_window}", h, fires,
+                            cap_independent(fires, span, h), fires / max(n_sessions, 1),
+                            "condition",
+                            f"{n_sessions:,} sessions; NOT threshold-gated - bounded by "
+                            f"data availability and by a flat pre-move only"))
+    return out
+
+
+# ----------------------------------------------------------------- already run
+CELL_FILES: Final[dict[str, str]] = {
+    "F02": "f02_cells.json", "F03": "f03_cells.json", "F04": "f04_cells.json",
+    "F07": "f07_cells.json", "F14": "f14_cells.json",
+}
+
+
+def rates_from_cells(hid: str, horizons: list[int], spans: dict[str, int]) -> list[Rate]:
+    """The strongest measurement available: what the pipeline actually produced."""
+    path = REPORTS / CELL_FILES[hid]
+    if not path.exists():
+        return []
+    rows = json.loads(path.read_text(encoding="utf-8"))
+    split = MANDATORY_SPLIT.get(hid)
+    out: list[Rate] = []
+    for product in sorted({r["product"] for r in rows}):
+        sub = [r for r in rows if r["product"] == product]
+        by_h: dict[int, list[dict]] = {}
+        for r in sub:
+            by_h.setdefault(int(r.get("hold") or horizons[0]), []).append(r)
+        for h, cells in sorted(by_h.items()):
+            worst = min(c["events"] for c in cells)
+            note = (f"from {path.name}: {len(cells)} cells, worst {worst:,} events")
+            if split:
+                note += (f"; MANDATORY REGIME SPLIT at {split} applied - the worst era is "
+                         f"what gates, because a hypothesis evaluated in two eras must be "
+                         f"powered in both")
+            out.append(Rate(hid, product, f"worst of {len(cells)} cells", h, worst,
+                            min(worst, spans[product] // max(h, 1)),
+                            float("nan"), "cell file", note))
+    return out
+
+
+def measure_all() -> list[Rate]:
+    registry = {e["id"]: e for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))}
+    frames = {p: load_1m(p) for p in ("MNQ", "MGC")}
+    spans = {p: span_minutes(f) for p, f in frames.items()}
+    rates: list[Rate] = []
+
+    for hid, entry in registry.items():
+        if entry["status"] == "excluded":
+            continue
+        horizons = list(entry["horizon_minutes"])
+        products = [str(s).upper() for s in entry.get("symbols") or []]
+        print(f"  {hid} ...", flush=True)
+        if hid in CELL_FILES:
+            rates += rates_from_cells(hid, horizons, spans)
+            continue
+        for product in products:
+            if product not in frames:
+                continue
+            df, span = frames[product], spans[product]
+            if hid == "F01":
+                rates += f01_rates(product, horizons, span)
+            elif hid == "F05":
+                rates += [Rate("F05", r.product, r.cell, r.horizon, r.firings,
+                               r.independent, r.per_session, "condition", r.note)
+                          for r in f05_rates(product, df, span)]
+            elif hid == "F06":
+                rates += f06_rates(product, horizons, span)
+            elif hid == "F09":
+                rates += f09_rates(product, horizons, span)
+            elif hid == "F10":
+                rates += [Rate("F10", r.product, r.cell, r.horizon, r.firings,
+                               r.independent, r.per_session, "condition", r.note)
+                          for r in f10_rates(product, df, span)]
+            elif hid == "F11":
+                rates += [Rate("F11", r.product, r.cell, r.horizon, r.firings,
+                               r.independent, r.per_session, "condition", r.note)
+                          for r in f11_rates(product, df, span)]
+        if hid == "F08":
+            rates += [Rate("F08", r.product, r.cell, r.horizon, r.firings,
+                           r.independent, r.per_session, "condition", r.note)
+                      for r in f08_rates(frames, min(spans.values()))]
+    return rates
