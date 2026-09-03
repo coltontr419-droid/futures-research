@@ -172,3 +172,39 @@ def test_every_run_with_a_cell_file_is_represented_in_the_log() -> None:
             f"{hid}: {n_cells} cells on disk but only {logged.get(hid, 0)} trials logged. "
             f"Results exist that N does not know about."
         )
+
+
+@pytest.mark.integrity
+def test_every_documented_entry_point_actually_runs() -> None:
+    """A `python -m ...` string in the source must name a module with a main().
+
+    Found the hard way: the detectability gate told anyone hitting a FIRING RATE UNMEASURED
+    row to run `python -m futuresres.reporting.measured_rates`, and that module had no
+    main() at all. The command silently did nothing, so the gate's own remediation
+    instruction was a no-op and the file it depends on could only be produced by an ad-hoc
+    script that lived outside the repo.
+    """
+    import importlib
+    import re
+
+    src = ROOT / "src" / "futuresres"
+    referenced: set[str] = set()
+    for path in src.rglob("*.py"):
+        for m in re.finditer(r"python -m (futuresres[\w.]+)",
+                             path.read_text(encoding="utf-8")):
+            referenced.add(m.group(1))
+    assert referenced, "no documented entry points found - the regex is wrong"
+
+    missing = []
+    for name in sorted(referenced):
+        try:
+            mod = importlib.import_module(name)
+        except ImportError:
+            missing.append(f"{name} (cannot import)")
+            continue
+        if not callable(getattr(mod, "main", None)):
+            missing.append(f"{name} (no main())")
+    assert not missing, (
+        "documented commands that do nothing: " + ", ".join(missing)
+        + ". A remediation instruction that is a no-op is worse than none."
+    )

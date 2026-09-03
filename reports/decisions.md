@@ -661,6 +661,19 @@ helpful-looking fallback ("use the declaration when no measurement exists"), whi
 what let F02 through. `test_every_hypothesis_has_a_declared_or_measured_firing_rate` became
 `measured`-only: a declaration no longer satisfies it.
 
+**The gate's own remediation instruction was a no-op.** Three places — the loader
+docstring, the `FIRING RATE UNMEASURED` message, and a test failure message — told anyone
+who hit a blocked row to run `python -m futuresres.reporting.measured_rates`. That module
+had no `main()`. The command printed nothing, did nothing, and exited 0, so the file the
+whole gate now depends on could only be produced by an ad-hoc script that lived outside the
+repo. Fixed: the module has `main()` and `--check`, and `--check` confirms the committed
+cache reproduces exactly from a fresh measurement.
+
+`test_every_documented_entry_point_actually_runs` now scans the source for every
+`python -m futuresres...` string and fails if the named module has no `main()`. **A
+remediation instruction that silently does nothing is worse than none** — it converts a
+blocked row into a puzzle, and it hides that an artifact has no reproducible provenance.
+
 **Cost.** Measuring all twelve takes 16 seconds and spends no trial. Discovering the same
 thing by running F02 cost 144 trials and took SR\* from 0.0902 to 0.1402.
 
