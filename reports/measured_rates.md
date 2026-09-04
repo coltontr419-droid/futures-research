@@ -23,8 +23,8 @@ Declared rates no longer gate anything. §21: F02 declared one firing per sessio
 | F02 | 0.061/session | 106 | cell file |
 | F03 | 1/session | 234 | cell file |
 | F04 | 1/session | 3,420 | cell file |
-| F05 | none | 8,997 | condition |
-| F06 | 1/session | 1,621 | condition |
+| F05 | none | 5,367 | condition |
+| F06 | 1/session | 1,708 | condition |
 | F07 | 1/session | 3,387 | cell file |
 | F08 | none | 530 | condition |
 | F09 | 1/session | 2,365 | condition |
@@ -56,18 +56,18 @@ The declared column is kept only so the gap stays visible. It gates nothing.
 | F04 | MNQ | 30m | 3,420 | 19,722 | BELOW SWEPT RANGE |
 | F04 | MNQ | 60m | 3,420 | 19,722 | BELOW SWEPT RANGE |
 | F04 | MNQ | 120m | 3,420 | 5,884 | BELOW SWEPT RANGE |
-| F05 | MGC | 60m | 8,997 - 14,759 | 5,620 | **RESOLVABLE** |
-| F05 | MGC | 120m | 8,997 - 14,759 | 2,862 | **RESOLVABLE** |
-| F05 | MGC | 180m | 8,997 - 14,759 | 2,862 | **RESOLVABLE** |
-| F05 | MNQ | 60m | 12,725 - 20,555 | 19,722 | MIXED |
-| F05 | MNQ | 120m | 12,725 - 20,555 | 5,884 | **RESOLVABLE** |
-| F05 | MNQ | 180m | 12,725 - 20,555 | 5,884 | **RESOLVABLE** |
-| F06 | MGC | 60m | 1,663 - 3,858 | 5,620 | BELOW SWEPT RANGE |
-| F06 | MGC | 120m | 1,663 - 3,858 | 2,862 | MIXED |
-| F06 | MGC | 180m | 1,663 - 3,858 | 2,862 | MIXED |
-| F06 | MNQ | 60m | 1,621 - 3,558 | 19,722 | BELOW SWEPT RANGE |
-| F06 | MNQ | 120m | 1,621 - 3,558 | 5,884 | BELOW SWEPT RANGE |
-| F06 | MNQ | 180m | 1,621 - 3,558 | 5,884 | BELOW SWEPT RANGE |
+| F05 | MGC | 60m | 5,367 - 12,711 | 5,620 | MIXED |
+| F05 | MGC | 120m | 5,367 - 12,711 | 2,862 | **RESOLVABLE** |
+| F05 | MGC | 180m | 5,367 - 12,711 | 2,862 | **RESOLVABLE** |
+| F05 | MNQ | 60m | 6,965 - 17,051 | 19,722 | BELOW SWEPT RANGE |
+| F05 | MNQ | 120m | 6,965 - 17,051 | 5,884 | **RESOLVABLE** |
+| F05 | MNQ | 180m | 6,965 - 17,051 | 5,884 | **RESOLVABLE** |
+| F06 | MGC | 60m | 1,785 - 3,858 | 5,620 | BELOW SWEPT RANGE |
+| F06 | MGC | 120m | 1,785 - 3,858 | 2,862 | MIXED |
+| F06 | MGC | 180m | 1,785 - 3,858 | 2,862 | MIXED |
+| F06 | MNQ | 60m | 1,708 - 3,558 | 19,722 | BELOW SWEPT RANGE |
+| F06 | MNQ | 120m | 1,708 - 3,558 | 5,884 | BELOW SWEPT RANGE |
+| F06 | MNQ | 180m | 1,708 - 3,558 | 5,884 | BELOW SWEPT RANGE |
 | F07 | MGC | 30m | 3,597 | 5,620 | BELOW SWEPT RANGE |
 | F07 | MGC | 60m | 3,597 | 5,620 | BELOW SWEPT RANGE |
 | F07 | MGC | 90m | 3,597 | 5,620 | BELOW SWEPT RANGE |
@@ -159,131 +159,131 @@ The declared column is kept only so the gap stays visible. It gates nothing.
 | F04 | MNQ | worst of 6 cells | 30m | 3,420 | 3,420 | cell file |
 | F04 | MNQ | worst of 6 cells | 60m | 3,420 | 3,420 | cell file |
 | F04 | MNQ | worst of 6 cells | 120m | 3,420 | 3,420 | cell file |
-| F05 | MGC | vol_pct=15 k=1.5 | 60m | 10,049 | 10,049 | condition |
-| F05 | MGC | vol_pct=15 k=2.0 | 60m | 9,642 | 9,642 | condition |
-| F05 | MGC | vol_pct=15 k=2.5 | 60m | 8,997 | 8,997 | condition |
-| F05 | MGC | vol_pct=20 k=1.5 | 60m | 12,463 | 12,463 | condition |
-| F05 | MGC | vol_pct=20 k=2.0 | 60m | 11,886 | 11,886 | condition |
-| F05 | MGC | vol_pct=20 k=2.5 | 60m | 11,024 | 11,024 | condition |
-| F05 | MGC | vol_pct=25 k=1.5 | 60m | 14,759 | 14,759 | condition |
-| F05 | MGC | vol_pct=25 k=2.0 | 60m | 14,026 | 14,026 | condition |
-| F05 | MGC | vol_pct=25 k=2.5 | 60m | 12,936 | 12,936 | condition |
-| F05 | MGC | vol_pct=15 k=1.5 | 120m | 10,049 | 10,049 | condition |
-| F05 | MGC | vol_pct=15 k=2.0 | 120m | 9,642 | 9,642 | condition |
-| F05 | MGC | vol_pct=15 k=2.5 | 120m | 8,997 | 8,997 | condition |
-| F05 | MGC | vol_pct=20 k=1.5 | 120m | 12,463 | 12,463 | condition |
-| F05 | MGC | vol_pct=20 k=2.0 | 120m | 11,886 | 11,886 | condition |
-| F05 | MGC | vol_pct=20 k=2.5 | 120m | 11,024 | 11,024 | condition |
-| F05 | MGC | vol_pct=25 k=1.5 | 120m | 14,759 | 14,759 | condition |
-| F05 | MGC | vol_pct=25 k=2.0 | 120m | 14,026 | 14,026 | condition |
-| F05 | MGC | vol_pct=25 k=2.5 | 120m | 12,936 | 12,936 | condition |
-| F05 | MGC | vol_pct=15 k=1.5 | 180m | 10,049 | 10,049 | condition |
-| F05 | MGC | vol_pct=15 k=2.0 | 180m | 9,642 | 9,642 | condition |
-| F05 | MGC | vol_pct=15 k=2.5 | 180m | 8,997 | 8,997 | condition |
-| F05 | MGC | vol_pct=20 k=1.5 | 180m | 12,463 | 12,463 | condition |
-| F05 | MGC | vol_pct=20 k=2.0 | 180m | 11,886 | 11,886 | condition |
-| F05 | MGC | vol_pct=20 k=2.5 | 180m | 11,024 | 11,024 | condition |
-| F05 | MGC | vol_pct=25 k=1.5 | 180m | 14,759 | 14,759 | condition |
-| F05 | MGC | vol_pct=25 k=2.0 | 180m | 14,026 | 14,026 | condition |
-| F05 | MGC | vol_pct=25 k=2.5 | 180m | 12,936 | 12,936 | condition |
-| F05 | MNQ | vol_pct=15 k=1.5 | 60m | 14,158 | 14,158 | condition |
-| F05 | MNQ | vol_pct=15 k=2.0 | 60m | 13,582 | 13,582 | condition |
-| F05 | MNQ | vol_pct=15 k=2.5 | 60m | 12,725 | 12,725 | condition |
-| F05 | MNQ | vol_pct=20 k=1.5 | 60m | 17,392 | 17,392 | condition |
-| F05 | MNQ | vol_pct=20 k=2.0 | 60m | 16,629 | 16,629 | condition |
-| F05 | MNQ | vol_pct=20 k=2.5 | 60m | 15,505 | 15,505 | condition |
-| F05 | MNQ | vol_pct=25 k=1.5 | 60m | 20,555 | 20,555 | condition |
-| F05 | MNQ | vol_pct=25 k=2.0 | 60m | 19,586 | 19,586 | condition |
-| F05 | MNQ | vol_pct=25 k=2.5 | 60m | 18,136 | 18,136 | condition |
-| F05 | MNQ | vol_pct=15 k=1.5 | 120m | 14,158 | 14,158 | condition |
-| F05 | MNQ | vol_pct=15 k=2.0 | 120m | 13,582 | 13,582 | condition |
-| F05 | MNQ | vol_pct=15 k=2.5 | 120m | 12,725 | 12,725 | condition |
-| F05 | MNQ | vol_pct=20 k=1.5 | 120m | 17,392 | 17,392 | condition |
-| F05 | MNQ | vol_pct=20 k=2.0 | 120m | 16,629 | 16,629 | condition |
-| F05 | MNQ | vol_pct=20 k=2.5 | 120m | 15,505 | 15,505 | condition |
-| F05 | MNQ | vol_pct=25 k=1.5 | 120m | 20,555 | 20,555 | condition |
-| F05 | MNQ | vol_pct=25 k=2.0 | 120m | 19,586 | 19,586 | condition |
-| F05 | MNQ | vol_pct=25 k=2.5 | 120m | 18,136 | 18,136 | condition |
-| F05 | MNQ | vol_pct=15 k=1.5 | 180m | 14,158 | 14,158 | condition |
-| F05 | MNQ | vol_pct=15 k=2.0 | 180m | 13,582 | 13,582 | condition |
-| F05 | MNQ | vol_pct=15 k=2.5 | 180m | 12,725 | 12,725 | condition |
-| F05 | MNQ | vol_pct=20 k=1.5 | 180m | 17,392 | 17,392 | condition |
-| F05 | MNQ | vol_pct=20 k=2.0 | 180m | 16,629 | 16,629 | condition |
-| F05 | MNQ | vol_pct=20 k=2.5 | 180m | 15,505 | 15,505 | condition |
-| F05 | MNQ | vol_pct=25 k=1.5 | 180m | 20,555 | 20,555 | condition |
-| F05 | MNQ | vol_pct=25 k=2.0 | 180m | 19,586 | 19,586 | condition |
-| F05 | MNQ | vol_pct=25 k=2.5 | 180m | 18,136 | 18,136 | condition |
-| F06 | MGC | W=15 1 close vol=>median | 60m | 1,706 | 1,706 | condition |
+| F05 | MGC | vol_pct=15 k=1.5 | 60m | 8,483 | 8,483 | condition |
+| F05 | MGC | vol_pct=15 k=2.0 | 60m | 6,891 | 6,891 | condition |
+| F05 | MGC | vol_pct=15 k=2.5 | 60m | 5,367 | 5,367 | condition |
+| F05 | MGC | vol_pct=20 k=1.5 | 60m | 10,622 | 10,622 | condition |
+| F05 | MGC | vol_pct=20 k=2.0 | 60m | 8,664 | 8,664 | condition |
+| F05 | MGC | vol_pct=20 k=2.5 | 60m | 6,784 | 6,784 | condition |
+| F05 | MGC | vol_pct=25 k=1.5 | 60m | 12,711 | 12,711 | condition |
+| F05 | MGC | vol_pct=25 k=2.0 | 60m | 10,430 | 10,430 | condition |
+| F05 | MGC | vol_pct=25 k=2.5 | 60m | 8,207 | 8,207 | condition |
+| F05 | MGC | vol_pct=15 k=1.5 | 120m | 8,483 | 8,483 | condition |
+| F05 | MGC | vol_pct=15 k=2.0 | 120m | 6,891 | 6,891 | condition |
+| F05 | MGC | vol_pct=15 k=2.5 | 120m | 5,367 | 5,367 | condition |
+| F05 | MGC | vol_pct=20 k=1.5 | 120m | 10,622 | 10,622 | condition |
+| F05 | MGC | vol_pct=20 k=2.0 | 120m | 8,664 | 8,664 | condition |
+| F05 | MGC | vol_pct=20 k=2.5 | 120m | 6,784 | 6,784 | condition |
+| F05 | MGC | vol_pct=25 k=1.5 | 120m | 12,711 | 12,711 | condition |
+| F05 | MGC | vol_pct=25 k=2.0 | 120m | 10,430 | 10,430 | condition |
+| F05 | MGC | vol_pct=25 k=2.5 | 120m | 8,207 | 8,207 | condition |
+| F05 | MGC | vol_pct=15 k=1.5 | 180m | 8,483 | 8,483 | condition |
+| F05 | MGC | vol_pct=15 k=2.0 | 180m | 6,891 | 6,891 | condition |
+| F05 | MGC | vol_pct=15 k=2.5 | 180m | 5,367 | 5,367 | condition |
+| F05 | MGC | vol_pct=20 k=1.5 | 180m | 10,622 | 10,622 | condition |
+| F05 | MGC | vol_pct=20 k=2.0 | 180m | 8,664 | 8,664 | condition |
+| F05 | MGC | vol_pct=20 k=2.5 | 180m | 6,784 | 6,784 | condition |
+| F05 | MGC | vol_pct=25 k=1.5 | 180m | 12,711 | 12,711 | condition |
+| F05 | MGC | vol_pct=25 k=2.0 | 180m | 10,430 | 10,430 | condition |
+| F05 | MGC | vol_pct=25 k=2.5 | 180m | 8,207 | 8,207 | condition |
+| F05 | MNQ | vol_pct=15 k=1.5 | 60m | 11,371 | 11,371 | condition |
+| F05 | MNQ | vol_pct=15 k=2.0 | 60m | 9,059 | 9,059 | condition |
+| F05 | MNQ | vol_pct=15 k=2.5 | 60m | 6,965 | 6,965 | condition |
+| F05 | MNQ | vol_pct=20 k=1.5 | 60m | 14,221 | 14,221 | condition |
+| F05 | MNQ | vol_pct=20 k=2.0 | 60m | 11,446 | 11,446 | condition |
+| F05 | MNQ | vol_pct=20 k=2.5 | 60m | 8,860 | 8,860 | condition |
+| F05 | MNQ | vol_pct=25 k=1.5 | 60m | 17,051 | 17,051 | condition |
+| F05 | MNQ | vol_pct=25 k=2.0 | 60m | 13,822 | 13,822 | condition |
+| F05 | MNQ | vol_pct=25 k=2.5 | 60m | 10,781 | 10,781 | condition |
+| F05 | MNQ | vol_pct=15 k=1.5 | 120m | 11,371 | 11,371 | condition |
+| F05 | MNQ | vol_pct=15 k=2.0 | 120m | 9,059 | 9,059 | condition |
+| F05 | MNQ | vol_pct=15 k=2.5 | 120m | 6,965 | 6,965 | condition |
+| F05 | MNQ | vol_pct=20 k=1.5 | 120m | 14,221 | 14,221 | condition |
+| F05 | MNQ | vol_pct=20 k=2.0 | 120m | 11,446 | 11,446 | condition |
+| F05 | MNQ | vol_pct=20 k=2.5 | 120m | 8,860 | 8,860 | condition |
+| F05 | MNQ | vol_pct=25 k=1.5 | 120m | 17,051 | 17,051 | condition |
+| F05 | MNQ | vol_pct=25 k=2.0 | 120m | 13,822 | 13,822 | condition |
+| F05 | MNQ | vol_pct=25 k=2.5 | 120m | 10,781 | 10,781 | condition |
+| F05 | MNQ | vol_pct=15 k=1.5 | 180m | 11,371 | 11,371 | condition |
+| F05 | MNQ | vol_pct=15 k=2.0 | 180m | 9,059 | 9,059 | condition |
+| F05 | MNQ | vol_pct=15 k=2.5 | 180m | 6,965 | 6,965 | condition |
+| F05 | MNQ | vol_pct=20 k=1.5 | 180m | 14,221 | 14,221 | condition |
+| F05 | MNQ | vol_pct=20 k=2.0 | 180m | 11,446 | 11,446 | condition |
+| F05 | MNQ | vol_pct=20 k=2.5 | 180m | 8,860 | 8,860 | condition |
+| F05 | MNQ | vol_pct=25 k=1.5 | 180m | 17,051 | 17,051 | condition |
+| F05 | MNQ | vol_pct=25 k=2.0 | 180m | 13,822 | 13,822 | condition |
+| F05 | MNQ | vol_pct=25 k=2.5 | 180m | 10,781 | 10,781 | condition |
+| F06 | MGC | W=15 1 close vol=>median | 60m | 1,842 | 1,842 | condition |
 | F06 | MGC | W=15 1 close vol=none | 60m | 3,858 | 3,858 | condition |
-| F06 | MGC | W=15 2 closes vol=>median | 60m | 1,684 | 1,684 | condition |
+| F06 | MGC | W=15 2 closes vol=>median | 60m | 1,815 | 1,815 | condition |
 | F06 | MGC | W=15 2 closes vol=none | 60m | 3,821 | 3,821 | condition |
-| F06 | MGC | W=30 1 close vol=>median | 60m | 1,716 | 1,716 | condition |
+| F06 | MGC | W=30 1 close vol=>median | 60m | 1,841 | 1,841 | condition |
 | F06 | MGC | W=30 1 close vol=none | 60m | 3,852 | 3,852 | condition |
-| F06 | MGC | W=30 2 closes vol=>median | 60m | 1,675 | 1,675 | condition |
+| F06 | MGC | W=30 2 closes vol=>median | 60m | 1,796 | 1,796 | condition |
 | F06 | MGC | W=30 2 closes vol=none | 60m | 3,777 | 3,777 | condition |
-| F06 | MGC | W=5 1 close vol=>median | 60m | 1,670 | 1,670 | condition |
+| F06 | MGC | W=5 1 close vol=>median | 60m | 1,794 | 1,794 | condition |
 | F06 | MGC | W=5 1 close vol=none | 60m | 3,766 | 3,766 | condition |
-| F06 | MGC | W=5 2 closes vol=>median | 60m | 1,663 | 1,663 | condition |
+| F06 | MGC | W=5 2 closes vol=>median | 60m | 1,785 | 1,785 | condition |
 | F06 | MGC | W=5 2 closes vol=none | 60m | 3,752 | 3,752 | condition |
-| F06 | MGC | W=15 1 close vol=>median | 120m | 1,706 | 1,706 | condition |
+| F06 | MGC | W=15 1 close vol=>median | 120m | 1,842 | 1,842 | condition |
 | F06 | MGC | W=15 1 close vol=none | 120m | 3,858 | 3,858 | condition |
-| F06 | MGC | W=15 2 closes vol=>median | 120m | 1,684 | 1,684 | condition |
+| F06 | MGC | W=15 2 closes vol=>median | 120m | 1,815 | 1,815 | condition |
 | F06 | MGC | W=15 2 closes vol=none | 120m | 3,821 | 3,821 | condition |
-| F06 | MGC | W=30 1 close vol=>median | 120m | 1,716 | 1,716 | condition |
+| F06 | MGC | W=30 1 close vol=>median | 120m | 1,841 | 1,841 | condition |
 | F06 | MGC | W=30 1 close vol=none | 120m | 3,852 | 3,852 | condition |
-| F06 | MGC | W=30 2 closes vol=>median | 120m | 1,675 | 1,675 | condition |
+| F06 | MGC | W=30 2 closes vol=>median | 120m | 1,796 | 1,796 | condition |
 | F06 | MGC | W=30 2 closes vol=none | 120m | 3,777 | 3,777 | condition |
-| F06 | MGC | W=5 1 close vol=>median | 120m | 1,670 | 1,670 | condition |
+| F06 | MGC | W=5 1 close vol=>median | 120m | 1,794 | 1,794 | condition |
 | F06 | MGC | W=5 1 close vol=none | 120m | 3,766 | 3,766 | condition |
-| F06 | MGC | W=5 2 closes vol=>median | 120m | 1,663 | 1,663 | condition |
+| F06 | MGC | W=5 2 closes vol=>median | 120m | 1,785 | 1,785 | condition |
 | F06 | MGC | W=5 2 closes vol=none | 120m | 3,752 | 3,752 | condition |
-| F06 | MGC | W=15 1 close vol=>median | 180m | 1,706 | 1,706 | condition |
+| F06 | MGC | W=15 1 close vol=>median | 180m | 1,842 | 1,842 | condition |
 | F06 | MGC | W=15 1 close vol=none | 180m | 3,858 | 3,858 | condition |
-| F06 | MGC | W=15 2 closes vol=>median | 180m | 1,684 | 1,684 | condition |
+| F06 | MGC | W=15 2 closes vol=>median | 180m | 1,815 | 1,815 | condition |
 | F06 | MGC | W=15 2 closes vol=none | 180m | 3,821 | 3,821 | condition |
-| F06 | MGC | W=30 1 close vol=>median | 180m | 1,716 | 1,716 | condition |
+| F06 | MGC | W=30 1 close vol=>median | 180m | 1,841 | 1,841 | condition |
 | F06 | MGC | W=30 1 close vol=none | 180m | 3,852 | 3,852 | condition |
-| F06 | MGC | W=30 2 closes vol=>median | 180m | 1,675 | 1,675 | condition |
+| F06 | MGC | W=30 2 closes vol=>median | 180m | 1,796 | 1,796 | condition |
 | F06 | MGC | W=30 2 closes vol=none | 180m | 3,777 | 3,777 | condition |
-| F06 | MGC | W=5 1 close vol=>median | 180m | 1,670 | 1,670 | condition |
+| F06 | MGC | W=5 1 close vol=>median | 180m | 1,794 | 1,794 | condition |
 | F06 | MGC | W=5 1 close vol=none | 180m | 3,766 | 3,766 | condition |
-| F06 | MGC | W=5 2 closes vol=>median | 180m | 1,663 | 1,663 | condition |
+| F06 | MGC | W=5 2 closes vol=>median | 180m | 1,785 | 1,785 | condition |
 | F06 | MGC | W=5 2 closes vol=none | 180m | 3,752 | 3,752 | condition |
-| F06 | MNQ | W=15 1 close vol=>median | 60m | 1,631 | 1,631 | condition |
+| F06 | MNQ | W=15 1 close vol=>median | 60m | 1,716 | 1,716 | condition |
 | F06 | MNQ | W=15 1 close vol=none | 60m | 3,557 | 3,557 | condition |
-| F06 | MNQ | W=15 2 closes vol=>median | 60m | 1,629 | 1,629 | condition |
+| F06 | MNQ | W=15 2 closes vol=>median | 60m | 1,715 | 1,715 | condition |
 | F06 | MNQ | W=15 2 closes vol=none | 60m | 3,554 | 3,554 | condition |
-| F06 | MNQ | W=30 1 close vol=>median | 60m | 1,628 | 1,628 | condition |
+| F06 | MNQ | W=30 1 close vol=>median | 60m | 1,711 | 1,711 | condition |
 | F06 | MNQ | W=30 1 close vol=none | 60m | 3,544 | 3,544 | condition |
-| F06 | MNQ | W=30 2 closes vol=>median | 60m | 1,621 | 1,621 | condition |
+| F06 | MNQ | W=30 2 closes vol=>median | 60m | 1,708 | 1,708 | condition |
 | F06 | MNQ | W=30 2 closes vol=none | 60m | 3,528 | 3,528 | condition |
-| F06 | MNQ | W=5 1 close vol=>median | 60m | 1,632 | 1,632 | condition |
+| F06 | MNQ | W=5 1 close vol=>median | 60m | 1,717 | 1,717 | condition |
 | F06 | MNQ | W=5 1 close vol=none | 60m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=5 2 closes vol=>median | 60m | 1,632 | 1,632 | condition |
+| F06 | MNQ | W=5 2 closes vol=>median | 60m | 1,717 | 1,717 | condition |
 | F06 | MNQ | W=5 2 closes vol=none | 60m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=15 1 close vol=>median | 120m | 1,631 | 1,631 | condition |
+| F06 | MNQ | W=15 1 close vol=>median | 120m | 1,716 | 1,716 | condition |
 | F06 | MNQ | W=15 1 close vol=none | 120m | 3,557 | 3,557 | condition |
-| F06 | MNQ | W=15 2 closes vol=>median | 120m | 1,629 | 1,629 | condition |
+| F06 | MNQ | W=15 2 closes vol=>median | 120m | 1,715 | 1,715 | condition |
 | F06 | MNQ | W=15 2 closes vol=none | 120m | 3,554 | 3,554 | condition |
-| F06 | MNQ | W=30 1 close vol=>median | 120m | 1,628 | 1,628 | condition |
+| F06 | MNQ | W=30 1 close vol=>median | 120m | 1,711 | 1,711 | condition |
 | F06 | MNQ | W=30 1 close vol=none | 120m | 3,544 | 3,544 | condition |
-| F06 | MNQ | W=30 2 closes vol=>median | 120m | 1,621 | 1,621 | condition |
+| F06 | MNQ | W=30 2 closes vol=>median | 120m | 1,708 | 1,708 | condition |
 | F06 | MNQ | W=30 2 closes vol=none | 120m | 3,528 | 3,528 | condition |
-| F06 | MNQ | W=5 1 close vol=>median | 120m | 1,632 | 1,632 | condition |
+| F06 | MNQ | W=5 1 close vol=>median | 120m | 1,717 | 1,717 | condition |
 | F06 | MNQ | W=5 1 close vol=none | 120m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=5 2 closes vol=>median | 120m | 1,632 | 1,632 | condition |
+| F06 | MNQ | W=5 2 closes vol=>median | 120m | 1,717 | 1,717 | condition |
 | F06 | MNQ | W=5 2 closes vol=none | 120m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=15 1 close vol=>median | 180m | 1,631 | 1,631 | condition |
+| F06 | MNQ | W=15 1 close vol=>median | 180m | 1,716 | 1,716 | condition |
 | F06 | MNQ | W=15 1 close vol=none | 180m | 3,557 | 3,557 | condition |
-| F06 | MNQ | W=15 2 closes vol=>median | 180m | 1,629 | 1,629 | condition |
+| F06 | MNQ | W=15 2 closes vol=>median | 180m | 1,715 | 1,715 | condition |
 | F06 | MNQ | W=15 2 closes vol=none | 180m | 3,554 | 3,554 | condition |
-| F06 | MNQ | W=30 1 close vol=>median | 180m | 1,628 | 1,628 | condition |
+| F06 | MNQ | W=30 1 close vol=>median | 180m | 1,711 | 1,711 | condition |
 | F06 | MNQ | W=30 1 close vol=none | 180m | 3,544 | 3,544 | condition |
-| F06 | MNQ | W=30 2 closes vol=>median | 180m | 1,621 | 1,621 | condition |
+| F06 | MNQ | W=30 2 closes vol=>median | 180m | 1,708 | 1,708 | condition |
 | F06 | MNQ | W=30 2 closes vol=none | 180m | 3,528 | 3,528 | condition |
-| F06 | MNQ | W=5 1 close vol=>median | 180m | 1,632 | 1,632 | condition |
+| F06 | MNQ | W=5 1 close vol=>median | 180m | 1,717 | 1,717 | condition |
 | F06 | MNQ | W=5 1 close vol=none | 180m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=5 2 closes vol=>median | 180m | 1,632 | 1,632 | condition |
+| F06 | MNQ | W=5 2 closes vol=>median | 180m | 1,717 | 1,717 | condition |
 | F06 | MNQ | W=5 2 closes vol=none | 180m | 3,558 | 3,558 | condition |
 | F07 | MGC | worst of 12 cells | 30m | 3,597 | 3,597 | cell file |
 | F07 | MGC | worst of 12 cells | 60m | 3,597 | 3,597 | cell file |

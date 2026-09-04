@@ -160,17 +160,33 @@ def test_reconstructed_trials_are_marked_as_such() -> None:
 
 @pytest.mark.integrity
 def test_every_run_with_a_cell_file_is_represented_in_the_log() -> None:
-    """The gap that started this: results on disk with no corresponding trials."""
-    log = TrialLog(ROOT / "trials.jsonl")
-    logged = {}
-    for trial in log.read_all():
-        logged[trial.hypothesis_id] = logged.get(trial.hypothesis_id, 0) + 1
+    """The gap that started this: results on disk with no corresponding record.
+
+    Controls are checked against measurements.jsonl rather than trials.jsonl - they are
+    logged, they simply do not spend trials. What must never happen is a cell file with no
+    record in EITHER log, which is results existing that nothing accounts for.
+    """
+    from futuresres.signals.logged_run import log_path_for
+
+    counts: dict[Path, dict[str, int]] = {}
+    for path in (ROOT / "trials.jsonl", ROOT / "measurements.jsonl"):
+        counts[path] = {}
+        for rec in TrialLog(path).read_all():
+            counts[path][rec.hypothesis_id] = counts[path].get(rec.hypothesis_id, 0) + 1
+
     for path in sorted((ROOT / "reports").glob("f*_cells.json")):
         hid = path.stem.split("_")[0].upper()
         n_cells = len(json.loads(path.read_text(encoding="utf-8")))
-        assert logged.get(hid, 0) >= n_cells, (
-            f"{hid}: {n_cells} cells on disk but only {logged.get(hid, 0)} trials logged. "
-            f"Results exist that N does not know about."
+        expected = log_path_for(hid)
+        got = counts[expected].get(hid, 0)
+        assert got >= n_cells, (
+            f"{hid}: {n_cells} cells on disk but only {got} records in "
+            f"{expected.name}. Results exist that nothing accounts for."
+        )
+        other = (ROOT / "measurements.jsonl") if expected.name == "trials.jsonl"             else (ROOT / "trials.jsonl")
+        assert counts[other].get(hid, 0) == 0, (
+            f"{hid} has records in {other.name} as well - a hypothesis belongs to exactly "
+            f"one log, or N becomes ambiguous"
         )
 
 
@@ -207,4 +223,59 @@ def test_every_documented_entry_point_actually_runs() -> None:
     assert not missing, (
         "documented commands that do nothing: " + ", ".join(missing)
         + ". A remediation instruction that is a no-op is worse than none."
+    )
+
+
+@pytest.mark.integrity
+def test_controls_do_not_spend_trials() -> None:
+    """A control's records must not land in N.
+
+    F14 must be re-run whenever the harness changes, and each run is 6 records. Left in
+    trials.jsonl that grows the multiple-testing budget without bound on behalf of a
+    hypothesis that can never be promoted. Routing is derived from the registry rather than
+    passed in, because a runner that forgets is the obvious failure.
+    """
+    import yaml
+
+    from futuresres.signals.logged_run import (
+        MEASUREMENT_LOG,
+        TRIAL_LOG,
+        is_control,
+        log_path_for,
+    )
+
+    registry = yaml.safe_load((ROOT / "hypotheses.yaml").read_text(encoding="utf-8"))
+    controls = {e["id"] for e in registry if e.get("is_control")}
+    assert controls, "no controls registered"
+
+    for hid in controls:
+        assert is_control(hid)
+        assert log_path_for(hid) == MEASUREMENT_LOG, f"{hid} would spend trials"
+    for hid in {e["id"] for e in registry} - controls:
+        assert log_path_for(hid) == TRIAL_LOG, f"{hid} must spend trials"
+
+    # and none are actually present in the live trial log
+    present = {t.hypothesis_id for t in TrialLog(TRIAL_LOG).read_all()}
+    assert not (present & controls), (
+        f"control records found in trials.jsonl: {sorted(present & controls)}"
+    )
+
+
+@pytest.mark.integrity
+def test_the_superseded_trial_log_is_kept_and_verifies() -> None:
+    """Rewriting an append-only log is serious; the prior state must survive."""
+    archive = ROOT / "trials.superseded-2026-09-02.jsonl"
+    assert archive.exists(), (
+        "the pre-migration trial log is missing. An append-only log that gets rewritten "
+        "without an archive is just a mutable file."
+    )
+    old = TrialLog(archive)
+    assert old.verify_chain().ok
+    live = TrialLog(ROOT / "trials.jsonl")
+    meas = TrialLog(ROOT / "measurements.jsonl")
+    moved = {n.split("originally ")[1].split(";")[0]
+             for n in (t.note for t in meas.read_all()) if "originally " in n}
+    assert {t.trial_id for t in old.read_all()} == {
+        t.trial_id for t in live.read_all()} | moved, (
+        "records were lost in the migration"
     )

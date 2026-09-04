@@ -798,6 +798,126 @@ has to be answered.
 
 ---
 
+## 27. F05: the registered condition did not test its own mechanism
+
+**Adopted option (b) as a SPECIFICATION CORRECTION, not a parameter choice.** The trigger
+now references the median of the trailing 20 sessions' sigma at the same clock time, rather
+than the compressed window's own sigma.
+
+**Why it is a correction and not a tuning decision.** Compression forecasts EXPANSION, and
+expansion means volatility RETURNING TOWARD NORMAL. A trigger asserting expansion must
+therefore measure against normal volatility. Measuring against the compressed window's own
+sigma tests something else entirely: whether price moves a *compressed-sized* distance after
+a compressed hour, which is nearly guaranteed and which the mechanism never claimed. The
+registered version was not a weaker test of volatility clustering - it was a test of a
+different proposition.
+
+It also unifies the condition. The p20 arming filter already compares against the trailing
+20 sessions at the same clock time; the trigger now uses the same window and the same
+quantity, so F05 holds ONE notion of "usual volatility at this hour" instead of two
+incompatible ones.
+
+**Effect - the k axis discriminates for the first time:**
+
+| k | before (own sigma) | after (normal sigma) |
+|---|---|---|
+| 1.5 | ~90% | 72-78% |
+| 2.0 | ~86% | 57-64% |
+| 2.5 | ~80% | 44-50% |
+
+Under the old reading k moved the break rate by 10 points across its whole range; it now
+moves it by 30. A parameter that did nothing now does something, which is what it means for
+a condition to have been mis-specified rather than merely loose.
+
+**Routes remain open: 5 of 6 per-cell** - MNQ 120m/180m and MGC 60m/120m/180m. MNQ 60m drops
+to BELOW SWEPT RANGE at 6,965 measured events against 19,722. The 60-minute break deadline
+from section 23 is unchanged. **F05 is schedulable again.**
+
+---
+
+## 28. F06's vol_filter is settled; F01's is not
+
+**F06:** this session's realised volatility, computed from its own RTH minute returns,
+against the MEDIAN REALISED VOLATILITY OVER THE TRAILING 20 SESSIONS, strictly prior. One
+lookback, matching the 20 sessions used throughout the catalog.
+
+**Effect:** measured events fall to 1,708 on MNQ and 1,785 on MGC. **MNQ closes entirely.**
+MGC 120m and 180m remain open as MIXED - 2 of 6.
+
+**Both remaining routes are on MGC**, where F06's mechanism is attenuated: 09:30 ET is the
+EQUITY cash open, so on gold the condition tests a cross-asset spillover rather than the
+registered claim (section 24). F06 is schedulable, but it can now only be tested on the
+instrument where its mechanism is weakest, and that should be known before trials are spent.
+
+**F01's identical gap is NOT settled.** It has `>median` and `>p66` variants and no stated
+quantity or lookback. Only F06's was decided. F01 is `blocked_insufficient_events` and will
+not run, so nothing rests on it - but the reading used to count it is a measurement
+convenience, and if F01 is ever revived that must be decided first. The function is named
+`f01_vol_filter` and says so.
+
+---
+
+## 29. F08 retired on PREMISE - the mechanism does not name a direction
+
+**The mechanism identifies a divergence, not a mispricing.** It says that when MNQ and MGC
+move the same direction sharply during a risk-off signal, "one of them is wrong". That is a
+statement that the pair is inconsistent. It does not say WHICH leg is wrong, and a strategy
+needs that.
+
+**The condition supplied a direction anyway**, fading "the weaker-conviction leg (the lower
+volume-weighted move)". That rule appears nowhere in the mechanism, nothing derives it, and
+it is not well defined - return times volume, return divided by volume, and displacement
+from VWAP give different and sometimes opposite answers. **A rule invented at the condition
+stage to fill a gap the mechanism left is a free parameter wearing a mechanism's clothes.**
+
+**So a result would have been unreadable in both directions.** A pass would not support the
+mechanism, which never predicted that direction. A failure would not refute it, which never
+predicted the opposite either.
+
+**This is a premise failure, alongside F11, and NOT a power failure.** F08 measured 530-6,151
+independent events with 5 of 6 routes open. It had the sample. It would have failed at any
+sample size. The catalog now has three retirements with distinct causes and the distinction
+is load-bearing:
+
+| | cause | had the sample? |
+|---|---|---|
+| F10 | sound premise, **no power** | no |
+| **F11** | **premise** - a momentum rule as a control for a catalog containing a momentum hypothesis | yes |
+| **F08** | **premise** - the mechanism licenses no direction | yes |
+| F03, F04 | evidence | yes |
+
+Never run; no trials spent.
+
+---
+
+## 30. Control runs moved out of N
+
+**The argument is section 16's, applied one level up.** N deflates a Sharpe for the number of
+chances a candidate had to look good by accident. A negative control is mechanism-free BY
+CONSTRUCTION and could never produce a candidate, so it cannot have contributed such a
+chance. F14's entry also requires re-running it whenever the harness changes - which, at 6
+records a run, would grow the multiple-testing budget without bound on behalf of something
+that can never be promoted (the tension flagged in section 26).
+
+**N: 498 -> 486. SR\*: 0.1409** (V rose to 0.002141 as the control's near-zero Sharpes left
+the variance).
+
+**Rewriting an append-only log is serious, so nothing was destroyed.** The pre-migration file
+is kept verbatim as `trials.superseded-2026-09-02.jsonl`, its chain verifies, and a test
+asserts every record in it appears either in the live log or - by its recorded original id -
+in `measurements.jsonl`. A log that can be rewritten without an archive is just a mutable
+file.
+
+**The routing is structural, not remembered.** `log_path_for()` derives the destination from
+the registry's `is_control`, so a future control runner cannot put records in N by forgetting
+to. The obvious failure mode here was a one-off migration followed by the next F14 run
+re-polluting the log.
+
+**What did NOT move.** F14's 12 records are logged, verifiable and reportable - they simply
+do not spend trials. The control still ran, still passed, and its result still stands.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -842,14 +962,15 @@ has to be answered.
 - **F01, F02, F04, F06 and F09 have NO real-data control and cannot get one.** They
   fire once a session (~3,500 events vs MNQ's 19,722); F14 covers F03-like counts
   only. Any null from those five must say so rather than borrowing F14's assurance.
-- **[PARTLY RESOLVED] F05's break deadline is derived (60 min) but the vacuity is NOT
-  fixed** — it still fires on 79-91% of armings because sigma is measured on the
-  compressed window itself. `schedulable: false` pending a decision. See §23.
-- **F06 and F08 are `schedulable: false` on undefined terms** — F06's `vol_filter`,
-  F08's volume-weighted move, and F08's note-only regime split. See §25.
-- **Only F09 and F14 are schedulable, and F09 is closed on both routes.** In practice
-  the catalog has nothing left to run that could produce evidence.
-- **Unanswered: should control re-runs count toward N?** See §26.
+- **[RESOLVED] F05 corrected and schedulable** — the trigger references normal
+  volatility, k discriminates, 5 of 6 routes open. See §27.
+- **[RESOLVED] F06's vol_filter settled and schedulable** — but both remaining routes
+  are MGC, where its mechanism is attenuated. See §28.
+- **[RESOLVED] F08 retired on premise**, alongside F11. See §29.
+- **[RESOLVED] Control runs no longer spend trials.** N 498 → 486. See §30.
+- **F01's vol_filter gap is still open** and must be settled if F01 is ever revived.
+- **F05 and F06 are the only schedulable hypotheses with open routes.** F09 is
+  schedulable but closed on both routes; F14 is the control and has run.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times
   (15:00, 15:30) share a 15:55 exit, so the positions overlap and pooling adds almost
   nothing.

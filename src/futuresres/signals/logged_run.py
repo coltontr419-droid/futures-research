@@ -20,6 +20,11 @@ It does NOT guarantee the count is right, only that it is non-zero. Nothing can 
 inside that every cell was passed in. That is what `tests/test_trial_logging.py` checks
 structurally, by refusing to let a runner module exist without going through here.
 
+CONTROLS DO NOT SPEND TRIALS. `stage1_run` routes a control's records to
+`measurements.jsonl` instead of `trials.jsonl`, derived from the registry's `is_control`
+rather than passed in by the caller - the failure mode being a runner that forgets. See
+`log_path_for`.
+
 PROVENANCE IS PART OF THE RECORD, not a comment. Trials reconstructed from output files
 after the fact are marked `reconstructed`, because they are weaker evidence than natively
 logged ones: their timestamps are the backfill's, their ordering within a run is lost, and
@@ -39,6 +44,34 @@ from futuresres.stats.trials import Trial, TrialLog
 
 ROOT: Final[Path] = Path(__file__).resolve().parents[3]
 TRIAL_LOG: Final[Path] = ROOT / "trials.jsonl"
+MEASUREMENT_LOG: Final[Path] = ROOT / "measurements.jsonl"
+REGISTRY: Final[Path] = ROOT / "hypotheses.yaml"
+
+
+def is_control(hypothesis_id: str) -> bool:
+    """Read from the registry, so the routing cannot drift from what a control IS."""
+    import yaml
+
+    for entry in yaml.safe_load(REGISTRY.read_text(encoding="utf-8")):
+        if entry["id"] == hypothesis_id:
+            return bool(entry.get("is_control"))
+    return False
+
+
+def log_path_for(hypothesis_id: str) -> Path:
+    """Controls go to the measurement log; everything else spends a trial.
+
+    A negative control is mechanism-free BY CONSTRUCTION and could never produce a
+    candidate, so it cannot have contributed a chance for one to appear by accident - the
+    same argument that keeps firing-rate counts out of N (decisions.md section 16). Its
+    entry also says to re-run it whenever the harness changes, so leaving it in N would
+    grow the multiple-testing budget without bound on behalf of something that can never be
+    promoted.
+
+    Routing is DERIVED from `is_control` rather than passed in, because the failure mode is
+    a future runner that simply forgets.
+    """
+    return MEASUREMENT_LOG if is_control(hypothesis_id) else TRIAL_LOG
 
 #: How a record reached the log. Part of every trial's note, never inferred later.
 PROVENANCE: Final[frozenset[str]] = frozenset({
@@ -117,7 +150,7 @@ def stage1_run(hypothesis_id: str, *, provenance: str = "native",
     block propagates untouched — a crashed run has its own story and forcing a second
     failure on top of it would hide the first.
     """
-    log = TrialLog(path or TRIAL_LOG)
+    log = TrialLog(path or log_path_for(hypothesis_id))
     before = len(log)
     recorder = Recorder(hypothesis_id, log, provenance, date_range, note)
     yield recorder

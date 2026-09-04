@@ -21,11 +21,11 @@ Benjamini-Hochberg tests cells, so the sample that decides a cell is the sample 
 
 An earlier version of this gate stored the **aggregate** rate in the per-cell slot, inflating F03's ceiling 13x, F07's 12x and F04's 2x. Cells were marked RESOLVABLE whose real per-cell samples sat far below the swept range. The rows below are the corrected ones; `reports/decisions.md` section 13 records what it changed.
 
-**40 of 66 (hypothesis, instrument, horizon) combinations cannot support a null**, across 9 hypotheses: F01, F02, F03, F04, F06, F07, F08, F09, F10.
+**41 of 66 (hypothesis, instrument, horizon) combinations cannot support a null**, across 10 hypotheses: F01, F02, F03, F04, F05, F06, F07, F08, F09, F10.
 
 ## What the correction blocked
 
-**20 combinations were previously cleared and are now blocked.** 26 remain cleared.
+**21 combinations were previously cleared and are now blocked.** 25 remain cleared.
 
 | hypothesis | product | horizon | old ceiling | old verdict | new ceiling | now | why |
 |---|---|---|---|---|---|---|---|
@@ -36,6 +36,7 @@ An earlier version of this gate stored the **aggregate** rate in the per-cell sl
 | F04 | MGC | 30m | 8,012 | RESOLVABLE | 3,467 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F04 | MGC | 60m | 8,012 | RESOLVABLE | 3,467 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F04 | MNQ | 120m | 8,250 | RESOLVABLE | 3,420 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
+| F05 | MNQ | 60m | 39,444 | RESOLVABLE | 6,965 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F07 | MGC | 30m | 48,072 | RESOLVABLE | 3,597 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F07 | MGC | 60m | 31,591 | RESOLVABLE | 3,597 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
 | F07 | MGC | 90m | 21,060 | RESOLVABLE | 3,597 | **BELOW SWEPT RANGE** | measured firing rate far below the declared one |
@@ -62,7 +63,7 @@ Two routes exist. **Per-cell** is the ordinary one: each cell tested, Benjamini-
 | F02 | 0/6 | 2 | yes | **closed** — every cell below the swept range | **closed** — pooled sample still below range |
 | F03 | 0/2 | 13 | yes | **closed** — every cell below the swept range | **closed** — pooled sample still below range |
 | F04 | 1/6 | 2 | yes | **open** (1/6: MGC 120m) | **open** (4/6) |
-| F05 | 6/6 | 1 | yes | **open** (6/6: MNQ 60m, MNQ 120m, MNQ 180m, MGC 60m, MGC 120m, MGC 180m) | n/a — nothing to pool |
+| F05 | 5/6 | 1 | yes | **open** (5/6: MNQ 120m, MNQ 180m, MGC 60m, MGC 120m, MGC 180m) | n/a — nothing to pool |
 | F06 | 2/6 | 1 | yes | **open** (2/6: MGC 120m, MGC 180m) | n/a — nothing to pool |
 | F07 | 0/6 | 12 | **no** | **closed** — every cell below the swept range | **closed** — positions overlap |
 | F08 | 5/6 | 1 | yes | **open** (5/6: MNQ 120m, MNQ 180m, MGC 60m, MGC 120m, MGC 180m) | n/a — nothing to pool |
@@ -140,10 +141,11 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F04 | lbma_auction_flow | MNQ | 30m | 3,420 | event rate | **BELOW SWEPT RANGE** |
 | F04 | lbma_auction_flow | MNQ | 60m | 3,420 | event rate | **BELOW SWEPT RANGE** |
 | F04 | lbma_auction_flow | MNQ | 120m | 3,420 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MGC | 60m | 1,663 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MNQ | 60m | 1,621 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MNQ | 120m | 1,621 | event rate | **BELOW SWEPT RANGE** |
-| F06 | cash_open_drive_continuation | MNQ | 180m | 1,621 | event rate | **BELOW SWEPT RANGE** |
+| F05 | volatility_compression_expansion | MNQ | 60m | 6,965 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MGC | 60m | 1,785 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MNQ | 60m | 1,708 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MNQ | 120m | 1,708 | event rate | **BELOW SWEPT RANGE** |
+| F06 | cash_open_drive_continuation | MNQ | 180m | 1,708 | event rate | **BELOW SWEPT RANGE** |
 | F07 | gold_session_specific_momentum | MGC | 30m | 3,597 | event rate | **BELOW SWEPT RANGE** |
 | F07 | gold_session_specific_momentum | MGC | 60m | 3,597 | event rate | **BELOW SWEPT RANGE** |
 | F07 | gold_session_specific_momentum | MGC | 90m | 3,597 | event rate | **BELOW SWEPT RANGE** |
@@ -199,18 +201,18 @@ A Stage 1 null from any of these must be recorded as **uninformative**, not as e
 | F04 | MNQ | 30m | 78,888 | 3,420 | **3,420** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F04 | MNQ | 60m | 39,444 | 3,420 | **3,420** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F04 | MNQ | 120m | 17,652 | 3,420 | **3,420** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F05 | MGC | 60m | 31,591 | 8,997 | **8,997** | 0.3× | **7.86** | 0.65 | RESOLVABLE |
-| F05 | MGC | 120m | 12,285 | 8,997 | **8,997** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
-| F05 | MGC | 180m | 8,190 | 8,997 | **8,190** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
-| F05 | MNQ | 60m | 39,444 | 12,725 | **12,725** | 0.08446× | **2.57** | 0.48 | MIXED |
-| F05 | MNQ | 120m | 17,652 | 12,725 | **12,725** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
-| F05 | MNQ | 180m | 11,768 | 12,725 | **11,768** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
-| F06 | MGC | 60m | 31,591 | 1,663 | **1,663** | — | — | 0.65 | BELOW SWEPT RANGE |
-| F06 | MGC | 120m | 12,285 | 1,663 | **1,663** | 0.3× | **14.34** | 0.65 | MIXED |
-| F06 | MGC | 180m | 8,190 | 1,663 | **1,663** | 0.3× | **14.34** | 0.65 | MIXED |
-| F06 | MNQ | 60m | 39,444 | 1,621 | **1,621** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F06 | MNQ | 120m | 17,652 | 1,621 | **1,621** | — | — | 0.48 | BELOW SWEPT RANGE |
-| F06 | MNQ | 180m | 11,768 | 1,621 | **1,621** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F05 | MGC | 60m | 31,591 | 5,367 | **5,367** | 0.1592× | **4.17** | 0.65 | MIXED |
+| F05 | MGC | 120m | 12,285 | 5,367 | **5,367** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F05 | MGC | 180m | 8,190 | 5,367 | **5,367** | 0.3× | **14.34** | 0.65 | RESOLVABLE |
+| F05 | MNQ | 60m | 39,444 | 6,965 | **6,965** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F05 | MNQ | 120m | 17,652 | 6,965 | **6,965** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
+| F05 | MNQ | 180m | 11,768 | 6,965 | **6,965** | 0.3× | **15.66** | 0.48 | RESOLVABLE |
+| F06 | MGC | 60m | 31,591 | 1,785 | **1,785** | — | — | 0.65 | BELOW SWEPT RANGE |
+| F06 | MGC | 120m | 12,285 | 1,785 | **1,785** | 0.3× | **14.34** | 0.65 | MIXED |
+| F06 | MGC | 180m | 8,190 | 1,785 | **1,785** | 0.3× | **14.34** | 0.65 | MIXED |
+| F06 | MNQ | 60m | 39,444 | 1,708 | **1,708** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F06 | MNQ | 120m | 17,652 | 1,708 | **1,708** | — | — | 0.48 | BELOW SWEPT RANGE |
+| F06 | MNQ | 180m | 11,768 | 1,708 | **1,708** | — | — | 0.48 | BELOW SWEPT RANGE |
 | F07 | MGC | 30m | 63,182 | 3,597 | **3,597** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F07 | MGC | 60m | 31,591 | 3,597 | **3,597** | — | — | 0.65 | BELOW SWEPT RANGE |
 | F07 | MGC | 90m | 21,060 | 3,597 | **3,597** | — | — | 0.65 | BELOW SWEPT RANGE |

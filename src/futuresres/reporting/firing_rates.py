@@ -105,6 +105,25 @@ LOOKBACK_SESSIONS: Final[int] = 20
 #: specification repair into a tuning opportunity, which is the thing being repaired.
 F05_BREAK_DEADLINE: Final[int] = 60
 
+#: F05's trigger reference. SPECIFICATION CORRECTION adopted 2026-09-02 (decisions.md §27).
+#:
+#: The registered condition measured k*sigma against the COMPRESSED WINDOW'S OWN sigma. That
+#: does not test the mechanism. Compression SELECTS hours with small sigma, so k*sigma is a
+#: small distance and price almost always travels it - F05 fired on 79-91% of armings even
+#: after the mechanism-derived deadline was applied. The tighter the compression, the easier
+#: the trigger.
+#:
+#: The mechanism says compression forecasts EXPANSION, and expansion means volatility
+#: RETURNING TOWARD NORMAL. So the trigger must reference normal volatility for that clock
+#: hour, not the compressed sample it selected on. Normal is the MEDIAN of the trailing 20
+#: sessions' sigma at the same clock time - the same window and the same quantity the p20
+#: arming filter already compares against, so the condition now uses one consistent notion
+#: of "usual volatility at this hour" for both halves instead of two.
+#:
+#: This is a CORRECTION, not a tuning choice: the registered version did not test its own
+#: mechanism. It is one value, not a new grid axis.
+F05_NORMAL_PCT: Final[float] = 50.0
+
 
 @dataclass(slots=True)
 class Rate:
@@ -217,6 +236,14 @@ def f05_rates(product: str, df: pl.DataFrame, span: int) -> list[Rate]:
         later = c[(m >= start) & (m < start + F05_BREAK_DEADLINE)]
         excursion[i] = np.abs(later - mid[i]).max() if later.size else 0.0
 
+    # NORMAL volatility for this clock hour: the median of the trailing 20 sessions' sigma
+    # at the same hour. This is what the trigger references, not the compressed hour's own
+    # sigma - see F05_NORMAL_PCT.
+    normal = np.full(sd.size, np.nan)
+    for h in np.unique(hour):
+        sel = np.flatnonzero(hour == h)
+        normal[sel] = rolling_pct_prior(sd[sel], LOOKBACK_SESSIONS, F05_NORMAL_PCT)
+
     out: list[Rate] = []
     for pct in F05_VOL_PCT:
         armed = np.zeros(sd.size, dtype=bool)
@@ -228,14 +255,15 @@ def f05_rates(product: str, df: pl.DataFrame, span: int) -> list[Rate]:
         n_armed = int(armed.sum())
         for k in F05_K:
             with np.errstate(invalid="ignore"):
-                fires = int((armed & (sd > 0) & (excursion > k * sd)).sum())
+                fires = int((armed & np.isfinite(normal) & (normal > 0)
+                             & (excursion > k * normal)).sum())
             for hold in (60, 120, 180):
                 out.append(Rate(
                     "F05", product, f"vol_pct={pct} k={k}", hold, fires,
                     cap_independent(fires, span, hold),
                     fires / max(n_sessions, 1),
-                    f"{n_armed:,} armings, {fires:,} broke k*sigma within the "
-                    f"{F05_BREAK_DEADLINE}-minute mechanism-derived deadline",
+                    f"{n_armed:,} armings, {fires:,} broke k*NORMAL-sigma within the "
+                    f"{F05_BREAK_DEADLINE}-minute deadline",
                 ))
     return out
 

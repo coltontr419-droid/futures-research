@@ -117,12 +117,25 @@ def load_daily(product: str) -> pl.DataFrame:
     ).sort("day").filter(pl.col("bars") >= 60))
 
 
-def trailing_vol_filter(returns: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """(passes_median, passes_p66) using 20-session realised vol vs its own trailing p50/p66.
+def f06_vol_filter(daily_vol: np.ndarray) -> np.ndarray:
+    """F06's vol_filter, SETTLED 2026-09-02: realised vol above the trailing-20 MEDIAN.
 
-    The condition says "vol_filter in {none, >median, >p66}" without saying of what. A
-    20-session realised vol compared against the trailing 250 sessions of the same quantity
-    is the reading used, and it is logged rather than resolved silently.
+    The registered condition said "vol_filter in {none, >median}" and named neither the
+    quantity nor the lookback, which left the event count - and therefore whether F06's
+    routes were open - undetermined. It is now: this session's realised volatility against
+    the MEDIAN REALISED VOLATILITY OVER THE TRAILING 20 SESSIONS, strictly prior. One
+    lookback, matching the 20 sessions used everywhere else in this catalog.
+    """
+    return daily_vol > rolling_pct_prior(np.nan_to_num(daily_vol), LOOKBACK, 50)
+
+
+def f01_vol_filter(returns: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """(passes_median, passes_p66) for F01 ONLY. STILL UNDECIDED.
+
+    F01 has the same gap F06 had, and it has NOT been settled - only F06's was. The reading
+    below is a measurement convenience so F01 can be counted at all, not a registered
+    choice. F01 is `blocked_insufficient_events` and will not run, so nothing rests on it;
+    if it is ever revived this must be decided first. See decisions.md §28.
     """
     n = returns.size
     vol = np.full(n, np.nan)
@@ -150,7 +163,7 @@ def f01_rates(product: str, horizons: list[int], span: int) -> list[Rate]:
     with np.errstate(invalid="ignore"):
         r1 = np.abs(at10 - prev)
     rets = np.diff(np.log(close), prepend=np.log(close[0]))
-    pass_med, pass_p66 = trailing_vol_filter(rets)
+    pass_med, pass_p66 = f01_vol_filter(rets)
 
     out: list[Rate] = []
     for k in (0.0, 0.5, 1.0):
@@ -187,10 +200,14 @@ def f06_rates(product: str, horizons: list[int], span: int) -> list[Rate]:
     grid = np.full((sessions.size, width), np.nan)
     grid[np.searchsorted(sessions, days), mins] = closes
 
-    daily_close = np.array([r[np.isfinite(r)][-1] if np.isfinite(r).any() else np.nan
-                            for r in grid])
-    rets = np.diff(np.log(daily_close), prepend=np.log(daily_close[0]))
-    pass_med, _ = trailing_vol_filter(np.nan_to_num(rets))
+    # Realised volatility per session, from that session's own RTH minute returns - which
+    # is what "realised volatility" means. Then compared against the trailing-20 median.
+    daily_vol = np.full(sessions.size, np.nan)
+    for i, row in enumerate(grid):
+        px = row[np.isfinite(row)]
+        if px.size > 2:
+            daily_vol[i] = np.diff(np.log(px)).std(ddof=1)
+    pass_med = f06_vol_filter(daily_vol)
 
     out: list[Rate] = []
     for W in (5, 15, 30):

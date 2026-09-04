@@ -594,17 +594,46 @@
   # count - and that is exactly the trap: a vacuous condition with plenty of events will
   # produce a confident-looking result about nothing.
   status: untested
-  specification_defect: >
-    Two defects, one repaired and one open. REPAIRED: the break deadline
-    is 60 minutes from the end of the armed hour, derived from the
-    mechanism - a 1-hour volatility estimate forecasts about the next
-    hour, and the compression midpoint goes stale beyond it. OPEN AND
-    BLOCKING: sigma is measured on the compressed window itself, so
-    compression makes the trigger distance small and F05 still fires on
-    79-91% of armings even with the deadline. The specification is
-    self-defeating and no deadline repairs it. A decision is required on
-    what k*sigma should reference before F05 can be scheduled.
-  schedulable: false
+  # ---- SPECIFICATION CORRECTION ADOPTED 2026-09-02 (decisions.md section 27) ----
+  #
+  # THE REGISTERED VERSION DID NOT TEST ITS OWN MECHANISM. k*sigma was measured against the
+  # COMPRESSED WINDOW'S OWN sigma. Compression SELECTS hours with small sigma, so the
+  # trigger distance shrank exactly when the filter fired, and F05 broke on 79-91% of
+  # armings even after the mechanism-derived 60-minute deadline was applied. The tighter
+  # the compression, the easier the trigger - the condition was self-defeating.
+  #
+  # THE CORRECTION FOLLOWS FROM THE MECHANISM, NOT FROM THE DATA. Compression forecasts
+  # EXPANSION, and expansion means volatility RETURNING TOWARD NORMAL. A trigger that
+  # asserts expansion must therefore reference NORMAL volatility for that clock hour, not
+  # the compressed sample it selected on. Normal is the MEDIAN of the trailing 20 sessions'
+  # sigma at the same clock time - the same window and the same quantity the p20 arming
+  # filter already compares against, so the condition now uses ONE consistent notion of
+  # "usual volatility at this hour" for both halves instead of two incompatible ones.
+  #
+  # This is a CORRECTION rather than a tuning choice, and the distinction is the whole
+  # point: the registered version was not a weaker test of the mechanism, it was a test of
+  # something else. It is one value, not a new grid axis.
+  #
+  # EFFECT ON THE FIRING RATE - the k axis now does work, which it previously did not:
+  #
+  #                       before (own sigma)      after (normal sigma)
+  #     k = 1.5              ~90%                     72-78%
+  #     k = 2.0              ~86%                     57-64%
+  #     k = 2.5              ~80%                     44-50%
+  #
+  # ROUTES REMAIN OPEN, 5 of 6 per-cell: MNQ 120m/180m and MGC 60m/120m/180m. MNQ 60m drops
+  # to BELOW SWEPT RANGE at 6,965 measured events against 19,722. F05 is schedulable again.
+  #
+  # The 60-minute break deadline recorded above is unchanged and still derived.
+  specification_correction: >
+    The registered condition measured k*sigma against the compressed window's own sigma,
+    which does not test the mechanism: compression selects for small sigma, so the trigger
+    shrank whenever the filter fired and it broke on 79-91% of armings. Expansion means
+    volatility returning toward NORMAL, so the trigger now references the median of the
+    trailing 20 sessions' sigma at the same clock time - the quantity the p20 arming filter
+    already uses. Break rates fall to 44-78% and the k axis discriminates for the first
+    time. Routes remain open at 5 of 6 per-cell.
+  schedulable: true
   grade: B+
   tier: A
   param_cap: 3
@@ -671,13 +700,24 @@
   # threshold, and over what lookback? The same gap exists in F01 and should be settled the
   # same way for both.
   status: untested
-  specification_defect: >
-    vol_filter is undefined - "median of what, over what window" is unanswered, and the
-    reading used for measurement is a convenience rather than a registered choice, which
-    changes the event count and so changes whether the routes are open. Separately, on MGC
-    the 09:30 ET "cash open" is the EQUITY open, so the condition there tests a cross-asset
-    spillover rather than the registered mechanism - attenuated rather than absent.
-  schedulable: false
+  # ---- vol_filter SETTLED 2026-09-02: median realised volatility, trailing 20 sessions ----
+  #
+  # The registered condition said "vol_filter in {none, >median}" and named neither the
+  # quantity nor the lookback, which left the event count - and therefore whether F06's
+  # routes were open - undetermined. It is now: this session's realised volatility,
+  # computed from its own RTH minute returns, against the MEDIAN REALISED VOLATILITY OVER
+  # THE TRAILING 20 SESSIONS, strictly prior. One lookback, matching the 20 sessions used
+  # throughout this catalog.
+  #
+  # EFFECT: measured events fall to 1,708 on MNQ and 1,785 on MGC. MNQ closes entirely.
+  # MGC 120m and 180m remain open as MIXED - 2 of 6 per-cell routes.
+  #
+  # THE INSTRUMENT CAVEAT STANDS and is not a specification defect: 09:30 ET is the EQUITY
+  # cash open, so on MGC this tests a cross-asset spillover rather than the registered
+  # mechanism (mechanism_instruments: attenuated). BOTH REMAINING OPEN ROUTES ARE ON MGC,
+  # which means F06 can now only be tested on the instrument where its mechanism is
+  # weakest. That is worth knowing before spending trials on it.
+  schedulable: true
   grade: B
   tier: B
   param_cap: 4
@@ -827,21 +867,59 @@
   # THE DECISIONS REQUIRED, none of them mine: how "volume-weighted move" is computed; how
   # the traded leg is recorded so its event count is comparable; and where the regime
   # boundary falls.
-  status: untested
-  specification_defect: >
-    "The lower volume-weighted move" is undefined and it decides which leg is traded, so
-    it decides the strategy's direction. The traded instrument varies per event, so
-    `symbols` does not mean what it means elsewhere and the per-instrument gate rows are
-    not comparable with other hypotheses'. And its mandatory regime split lives in a
-    falsification note rather than a field, which is precisely how F02's split escaped the
-    gate.
-  schedulable: false
+  # ---- RETIRED 2026-09-02 ON PREMISE, NOT ON POWER (decisions.md section 29) ----
+  #
+  # THE MECHANISM DOES NOT SAY WHICH LEG IS MISPRICED. It says that when MNQ and MGC move
+  # the same direction sharply during a risk-off signal, "one of them is wrong". That
+  # identifies a DIVERGENCE. It does not identify a DIRECTION, and a strategy needs one.
+  #
+  # The condition supplied a direction anyway - "fade the weaker-conviction leg (the lower
+  # volume-weighted move)" - and that rule is ARBITRARY. It appears nowhere in the
+  # mechanism, nothing derives it, and it is not even well defined: return times volume,
+  # return divided by volume, and displacement from VWAP give different and sometimes
+  # opposite answers. A rule invented at the condition stage to fill a gap the mechanism
+  # left is a free parameter wearing a mechanism's clothes.
+  #
+  # SO A RESULT WOULD HAVE BEEN UNREADABLE IN BOTH DIRECTIONS. A pass would not have
+  # supported the mechanism, because the mechanism never predicted that direction. A
+  # failure would not have refuted it, because the mechanism never predicted the opposite
+  # one either. That is the same defect that retired F11: a premise that cannot make the
+  # result mean anything.
+  #
+  # THIS IS A PREMISE FAILURE, NOT A POWER FAILURE, and the two must not blur. F08 was
+  # measured at 530-6,151 independent events with 5 of 6 routes open - it had the sample.
+  # It fails on what the mechanism licenses, and it would have failed at any sample size.
+  # Compare F10, which was retired for the opposite reason: sound premise, no power.
+  #
+  # TWO FURTHER DEFECTS, recorded because they would matter if it is ever re-registered:
+  # the traded instrument varies per event so `symbols` does not mean what it means
+  # elsewhere in this registry; and the mandatory regime split its own falsification note
+  # requires lives in that note rather than in a field, which is exactly how F02's split
+  # escaped the gate.
+  #
+  # NO TRIALS SPENT: it was never run.
+  status: retired
+  retired: 2026-09-02
+  retired_reason: >
+    PREMISE FAILURE, not a power failure. The mechanism identifies a
+    divergence - when MNQ and MGC move together sharply, one is wrong -
+    but it does not say WHICH leg is mispriced. The condition supplied a
+    direction anyway, fading the lower volume-weighted move, and that
+    rule appears nowhere in the mechanism, is derived from nothing, and
+    is not well defined. A pass would not have supported the mechanism
+    and a failure would not have refuted it. It had the sample -
+    530-6,151 measured events, 5 of 6 routes open - and would have
+    failed at any sample size. Same class as F11; the opposite of F10,
+    which had a sound premise and no power. Never run, no trials spent.
   grade: B-
   tier: B
   param_cap: 3
   session: both
   hold_hours: [1, 3]
-  test_order: 9
+  # Retired before running; nothing should schedule it. Registration priority
+  # preserved rather than renumbered away.
+  registered_test_order: 9
+  test_order: null
   symbols: [MNQ, MGC]
   mechanism_instruments:
     primary: MNQ
