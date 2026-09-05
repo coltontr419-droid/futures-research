@@ -812,7 +812,74 @@
   # THE DECISION REQUIRED, which is not mine to make: what quantity does the vol filter
   # threshold, and over what lookback? The same gap exists in F01 and should be settled the
   # same way for both.
-  status: untested
+  # ---- RETIRED 2026-09-02: NULL ON THE ONLY OPEN ROUTES, AND A WEAK ONE ----
+  # reports/f06_stage1.md. 36 cells on MGC, 36 trials. MNQ was not run.
+  #
+  # GRADED PER decisions.md SECTION 12:
+  #
+  #   deciding instrument   MGC, and the mechanism is ATTENUATED there
+  #   coverage              70.88% of 09:30-15:55 ET minutes traded
+  #   sample                12 informative cells, ~3,950 events each
+  #   margin to the floor   best informative cell -0.02 bps = 0.00x its floor; every
+  #                         informative cell is negative
+  #   failure mode          PRE-REGISTERED, twice over - see below
+  #
+  #   0 nominal separations against 0.60 expected by chance
+  #   0 BH survivors at FDR 0.05; smallest p 0.2461
+  #   informative aggregate -0.62 bps gross, -1.27 net of the 0.65 bps cost floor
+  #
+  # THE FAILURE MODE WAS PRE-REGISTERED TWICE. Its own falsification note says opening-range
+  # breakout "is possibly the most widely traded retail futures pattern in existence, and
+  # any edge has had decades of attention... Treat a POSITIVE result with more suspicion
+  # than a negative one." A negative result is what the entry expected. Separately, the
+  # scope limit recorded before the run predicted that whatever came back would be bounded
+  # by the instrument it came back on.
+  #
+  # THIS IS A WEAKER RETIREMENT THAN F05's, ON EVERY AXIS:
+  #
+  #                        F05                          F06
+  #   informative cells    45                           12
+  #   events per cell      11,000-18,600                ~3,950
+  #   deciding instrument  MNQ at 83.16% coverage       MGC at 70.88%
+  #   mechanism there      holds in both instruments    ATTENUATED - 09:30 ET is the
+  #                                                     EQUITY cash open, not gold's
+  #   resolving threshold  19,722 / 5,620               2,862, the LOWEST in the study
+  #
+  # F05 was tested where its mechanism lives, at adequate power, and the market said no.
+  # F06 was tested on the instrument where its mechanism is weakest, on the narrowest
+  # open margin available anywhere in this catalog, because that was the only route left.
+  # The null is real but it is a smaller claim.
+  #
+  # WHAT WAS NOT TESTED, AND IS NOT A NULL: MNQ, where the mechanism actually lives, is
+  # closed on every route at 1,708 measured events against 19,722. It was deliberately not
+  # run. **The registered mechanism has therefore never been tested on the instrument it
+  # describes, and this retirement does not claim otherwise.**
+  #
+  # NO REAL-DATA CONTROL EXISTS AT THIS EVENT REGIME. F14 validated the harness at
+  # ~48,000-52,000 events; F06's cells hold ~3,950, and measured control candidates at the
+  # once-per-session regime resolved in only 2 of 12 combinations. This null carries the
+  # section 7.2 synthetic GARCH assurance and nothing from F14.
+  #
+  # All 36 cells stay in N.
+  status: retired
+  retired: 2026-09-02
+  retired_reason: >
+    Null on the only open routes, and a WEAK one. 12 informative cells
+    at ~3,950 events each, 0 nominal separations against 0.60 expected,
+    0 BH survivors, every informative cell negative and the best at
+    0.00x its floor. Aggregate -0.62 bps gross, -1.27 net. The deciding
+    instrument is MGC at 70.88% coverage, where the mechanism is
+    ATTENUATED - 09:30 ET is the EQUITY cash open, not gold's - and the
+    open routes cleared on a 2,862 threshold, the lowest in the study.
+    WEAKER THAN F05's RETIREMENT on every axis: a quarter the
+    informative cells, a quarter the events, lower coverage, and a
+    deciding instrument that does not hold the mechanism. The failure
+    mode was pre-registered twice - the entry's own note says to treat
+    a positive result with more suspicion than a negative one, and the
+    scope limit was recorded before the run. MNQ, where the mechanism
+    lives, is closed on every route and was NOT RUN, so the registered
+    mechanism has never been tested on the instrument it describes.
+    No real-data control exists at this event regime.
   # ---- vol_filter SETTLED 2026-09-02: median realised volatility, trailing 20 sessions ----
   #
   # The registered condition said "vol_filter in {none, >median}" and named neither the
@@ -866,13 +933,14 @@
     would require re-registration as its own hypothesis with its own counterparty story and
     trial budget. MNQ - where the mechanism actually lives - is closed on every route at
     1,708 events against 19,722 and is NOT RUN; its absence is a closed route, not a null.
-  schedulable: true
   grade: B
   tier: B
   param_cap: 4
   session: US
   hold_hours: [1, 3]
-  test_order: 6
+  # Retired; nothing should schedule it. Registration priority preserved.
+  registered_test_order: 6
+  test_order: null
   symbols: [MNQ, MGC]
   mechanism_instruments:
     primary: MNQ

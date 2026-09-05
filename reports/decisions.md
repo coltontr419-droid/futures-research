@@ -1029,6 +1029,67 @@ absence of signal. Six closures, and only one of them is about the market.
 
 ---
 
+## 34. F06 retired, F14 re-confirmed, and the catalog closed
+
+**F06.** 36 cells on MGC, 36 trials. 12 informative cells at ~3,950 events, 0 nominal
+separations against 0.60 expected, 0 BH survivors, every informative cell negative, best at
+0.00x its floor, aggregate -0.62 gross and -1.27 net.
+
+Graded per section 12: deciding instrument **MGC at 70.88% coverage where the mechanism is
+ATTENUATED**, sample 12 cells at ~3,950 events, margin to floor 0.00x, failure mode
+**pre-registered twice** - the entry's own note says to treat a positive result with more
+suspicion than a negative one, and the scope limit was recorded before the run.
+
+**Weaker than F05's retirement on every axis**: a quarter the informative cells, a quarter
+the events, lower coverage, a deciding instrument that does not hold the mechanism, and an
+open route that cleared on 2,862 - the lowest resolving threshold in the study.
+
+**MNQ was not run and that is not a null.** It is closed on every route at 1,708 events
+against 19,722. Spending 36 trials there would have raised SR* for nothing. So **the
+registered mechanism has never been tested on the instrument it describes**, and F06's
+retirement does not claim otherwise.
+
+**F14 re-run** under current settings, third time: 0 separations, 0 BH survivors, long share
+0.497, identical to the prior runs. It logged to `measurements.jsonl` automatically via
+`log_path_for()` - the routing added in section 30 worked without anyone remembering it.
+
+**A runner bug caught before it mattered.** F06's first draft compared every hold against
+MGC's 60-minute resolving threshold (5,620) instead of the per-proxy figure, which would have
+marked its only informative cells as blocked and produced a report claiming F06 had no open
+routes at all. The floor cells are per (product, horizon) and the mapping is by nearest
+horizon in log space; a single constant cannot express that.
+
+---
+
+## 35. The catalog is closed
+
+`reports/futures_conclusion.md` is the terminal document, written to stand alone.
+
+**14 registered, 576 trials, SR\* = 0.1334, 0 promoted.** The headline: **exactly one
+hypothesis - F05 - was tested at adequate power.** Every other closure turned on event
+scarcity, registration defects, control design or exclusion, none of which is a statement
+about the market.
+
+**The number worth remembering: F02 and F07 together consumed 216 of 576 trials - 38% - and
+neither could produce evidence.** That is the price of a gate that was wrong, and it is why
+`gate_history.md` exists.
+
+**The structural finding.** At 1 minute the detection floor sits BELOW the cost floor, so
+economics binds. At 60 minutes and beyond the detection floor sits far ABOVE it, so
+detection binds. Every hypothesis in this catalog operates at 30 minutes or longer, which
+means **all of them live on the side of the crossover where the limit is statistical rather
+than economic**. "No edge found" is usually the wrong reading of these results; "could not
+have found one" is usually the right one.
+
+**What closes and what does not.** The catalog as registered is closed. The research is not.
+Reopening it usefully needs conditions that fire several times a session rather than once,
+instruments where the mechanisms actually live, conditions specified tightly enough that no
+decision remains after registration, and a real-data control that reaches the once-per-session
+regime. Until that last one exists, every verdict in that regime rests on synthetic noise
+alone.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -1082,8 +1143,13 @@ absence of signal. Six closures, and only one of them is about the market.
 - **F01's vol_filter gap is still open** and must be settled if F01 is ever revived.
 - **[RESOLVED] F05 retired on an informative null** - the catalog's only retirement
   where the sample was demonstrably adequate. See §33.
-- **F06 is the only schedulable hypothesis with open routes left**, and both are MGC,
-  where its mechanism is attenuated. F09 is schedulable but closed on both routes.
+- **[RESOLVED] F06 retired** - null on its only open routes, weaker than F05's. See
+  §34. **The catalog is closed as registered**; see §35 and
+  `reports/futures_conclusion.md`.
+- **F01's vol_filter and F08's direction rule remain undefined** and would have to be
+  settled before either could be revived.
+- **No real-data control exists for the once-per-session regime.** Every verdict there
+  - F02, F04, F06, F09 - carries synthetic assurance only.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times
   (15:00, 15:30) share a 15:55 exit, so the positions overlap and pooling adds almost
   nothing.
