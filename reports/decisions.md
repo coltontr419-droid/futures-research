@@ -979,6 +979,56 @@ gaps, because until section 30 no such log could exist.
 
 ---
 
+## 33. F05 retired, and where it sits among the six retirements
+
+**Retired on an informative null.** 45 informative cells across 11,000-18,600 events, 1
+nominal separation against 1.35 expected, 0 BH survivors on either instrument, best
+informative cell at **0.05x** its detection floor. Aggregates negative net of cost on both.
+
+MNQ carries the stronger null at 83.16% coverage against MGC's 64.16%, and **both
+instruments point the same way** - so the standing MGC caveat never had to be adjudicated.
+It would have mattered had MGC separated and MNQ not.
+
+**No real-data control exists at this event regime.** F14 validated the harness at
+~48,000-52,000 events; F05's cells hold 6,965-18,591, and no control can be built between
+those regimes on this data. The null carries the section 7.2 synthetic GARCH assurance and
+nothing from F14. That limit is part of the verdict, not a footnote to it.
+
+**The specification correction is what made the null meaningful.** As registered, the trigger
+measured k*sigma against the compressed window's OWN sigma, so compression shrank the trigger
+distance exactly when the filter fired: 79-91% of armings broke, and k moved the rate by ten
+points across its whole range. A null from that condition would have been a statement about a
+trigger that fires almost always - about nothing. Both repairs were derived from the
+mechanism and recorded before the run, which is what distinguishes a correction from a tuning
+choice made after seeing a result.
+
+### The six retirements, graded
+
+Section 12 established that retirements are not uniform and that the grade is recorded. With
+six of them the picture is worth consolidating:
+
+| | cause | deciding instrument | sample | strength |
+|---|---|---|---|---|
+| **F05** | **informative null** | MNQ, 83.16% | **45 informative cells, 11,000-18,600 events** | **strongest - the sample was demonstrably there** |
+| F03 | evidence | MNQ, 98.31% | aggregate 53,625 independent; per-cell UNINFORMATIVE | strong on the aggregate route only |
+| F04 | evidence | MGC, 70.47% | only MGC 120m per-cell informative | weakest of the evidence retirements |
+| F08 | **premise** | n/a | 530-6,151, 5 of 6 routes open | had the sample; the mechanism licensed no direction |
+| F11 | **premise** | n/a | 43,759-173,879 | had the sample; a momentum rule cannot control a momentum catalog |
+| F10 | **power** | n/a | 1,585-5,594 vs 19,722 | sound premise, could never resolve |
+
+Three distinct causes, and the distinction is load-bearing. **F05 is the only one where a
+hypothesis was tested at adequate power and the market said no.** F03's per-cell result was
+uninformative and its verdict rests on its aggregate; F04's narrowed to a single instrument
+and hold. F08 and F11 failed before any data mattered. F10 could not have produced evidence
+at all.
+
+**What that says about the catalog.** Of 14 registered hypotheses, exactly one has been
+tested to a standard where a null means the effect is absent rather than undetectable. The
+binding constraint has been event scarcity, registration defects and control design - not the
+absence of signal. Six closures, and only one of them is about the market.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -1030,8 +1080,8 @@ gaps, because until section 30 no such log could exist.
 - **[RESOLVED] F08 retired on premise**, alongside F11. See §29.
 - **[RESOLVED] Control runs no longer spend trials.** N 498 → 486. See §30.
 - **F01's vol_filter gap is still open** and must be settled if F01 is ever revived.
-- **F05 has RUN and did not separate** - an informative null. Retirement decision open;
-  see §31.
+- **[RESOLVED] F05 retired on an informative null** - the catalog's only retirement
+  where the sample was demonstrably adequate. See §33.
 - **F06 is the only schedulable hypothesis with open routes left**, and both are MGC,
   where its mechanism is attenuated. F09 is schedulable but closed on both routes.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times

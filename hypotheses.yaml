@@ -593,7 +593,77 @@
   # F05 IS NOT SCHEDULABLE until that decision is recorded. Its routes are open on event
   # count - and that is exactly the trap: a vacuous condition with plenty of events will
   # produce a confident-looking result about nothing.
-  status: untested
+  # ---- RETIRED 2026-09-02 ON AN INFORMATIVE NULL ----
+  # reports/f05_stage1.md. 54 cells, 54 trials, run under the CORRECTED condition.
+  #
+  # THIS IS THE FIRST RETIREMENT IN THE CATALOG WHERE THE SAMPLE WAS DEMONSTRABLY THERE.
+  # 45 of 54 cells sit above the swept range, on 11,000-18,600 events each. The null is a
+  # statement about the market rather than about the test.
+  #
+  #   1 nominal separation against 1.35 expected by chance
+  #   0 BH survivors at FDR 0.05, on either instrument
+  #   best informative cell +0.79 bps = 0.05x its detection floor (MNQ p15 k=2.5 H=180,
+  #     5,812 events, p=0.2137)
+  #   aggregates negative net of cost on both: -0.88 bps MGC, -0.44 MNQ
+  #
+  # The single nominal separation is on MGC and does not survive BH. Nothing comes within
+  # a factor of twenty of the floor.
+  #
+  # MNQ CARRIES THE STRONGER NULL, at 83.16% coverage against MGC's 64.16%. BOTH
+  # INSTRUMENTS POINT THE SAME WAY, which is the easy case: the standing MGC caveat -
+  # forward-filling thins measured volatility and biases toward APPARENT significance -
+  # would have mattered had MGC separated and MNQ not. It did not arise. F05's mechanism
+  # is generic to speculative price series and holds in both instruments, so neither is a
+  # control for the other and neither is the wrong instrument for the claim.
+  #
+  # MNQ AT 60 MINUTES IS EXCLUDED FROM THE VERDICT as uninformative: 6,965 measured events
+  # against the 19,722 at which a floor resolves. Its nine cells are reported for
+  # completeness only.
+  #
+  # NO REAL-DATA CONTROL EXISTS AT THIS EVENT REGIME. F14 validated the harness at
+  # ~48,000-52,000 events; F05's cells hold 6,965-18,591, and no control can be built
+  # between those regimes on this data. This null therefore carries the section 7.2
+  # synthetic GARCH assurance - the harness does not promote idealised noise - and NOTHING
+  # from F14. That limit is part of the verdict, not a footnote to it.
+  #
+  # ---- THE SPECIFICATION CORRECTION IS WHAT MADE THE NULL MEANINGFUL ----
+  #
+  # AS REGISTERED, THE CONDITION TESTED NOTHING. k*sigma was measured against the
+  # COMPRESSED WINDOW'S OWN sigma, so compression shrank the trigger distance exactly when
+  # the filter fired. It broke on 79-91% of armings even after the mechanism-derived
+  # 60-minute deadline was applied, and the k axis moved the break rate by ten points
+  # across its entire range. A null from that condition would have been a statement about
+  # a trigger that fires almost always - which is to say, about nothing.
+  #
+  # The correction (decisions.md section 27) referenced the trigger to NORMAL volatility -
+  # the median of the trailing 20 sessions' sigma at the same clock hour, the quantity the
+  # p20 arming filter already used - because expansion means volatility RETURNING TOWARD
+  # NORMAL. Break rates fell to 44-78% and k discriminated for the first time.
+  #
+  # THE CORRECTION DID NOT PRODUCE A POSITIVE RESULT. It produced a null that means
+  # something. Both repairs - the deadline and the sigma reference - were derived from the
+  # mechanism and recorded BEFORE the run, which is what separates a correction from a
+  # tuning choice made after seeing a result.
+  #
+  # All 54 cells stay in N.
+  status: retired
+  retired: 2026-09-02
+  retired_reason: >
+    INFORMATIVE NULL - the first retirement here where the sample was
+    demonstrably adequate. 45 informative cells across 11,000-18,600
+    events, 1 nominal separation against 1.35 expected, no BH survivors
+    on either instrument, and the best informative cell at 0.05x its
+    detection floor. Aggregates negative net of cost on both. MNQ
+    carries the stronger null at 83.16% coverage against MGC's 64.16%,
+    and BOTH INSTRUMENTS POINT THE SAME WAY, so the standing MGC caveat
+    never had to be adjudicated. NO REAL-DATA CONTROL EXISTS AT THIS
+    EVENT REGIME: F14 validated the harness at ~48,000-52,000 events
+    and none can be built between that and F05's 6,965-18,591, so this
+    null carries the section 7.2 synthetic assurance and nothing from
+    F14. THE SPECIFICATION CORRECTION IS WHAT MADE THE NULL MEANINGFUL:
+    as registered the trigger referenced the compressed window's own
+    sigma, so it fired on 79-91% of armings and tested nothing. Both
+    repairs were derived from the mechanism and recorded before the run.
   # ---- SPECIFICATION CORRECTION ADOPTED 2026-09-02 (decisions.md section 27) ----
   #
   # THE REGISTERED VERSION DID NOT TEST ITS OWN MECHANISM. k*sigma was measured against the
@@ -675,13 +745,14 @@
     and F07, where nothing could have been learned. MNQ carries the
     stronger null at 83.16% coverage against MGC's 64.16%. 54 trials.
   # Already run; nothing should re-run it while the verdict is open.
-  schedulable: false
   grade: B+
   tier: A
   param_cap: 3
   session: both
   hold_hours: [1, 3]
-  test_order: 5
+  # Retired; nothing should schedule it. Registration priority preserved.
+  registered_test_order: 5
+  test_order: null
   symbols: [MNQ, MGC]
   mechanism_instruments:
     primary: MNQ

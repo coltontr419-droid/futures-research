@@ -112,7 +112,7 @@ def render() -> str:
              "blocked_insufficient_events", "excluded"]
     meaning = {
         "untested": "not yet run",
-        "retired": "run, and the evidence closed it",
+        "retired": "closed - by evidence, by premise, or by power; see decisions.md 33",
         "stage1_uninformative": "run, but no sample could carry a verdict",
         "blocked_insufficient_events": "never run — arithmetic closed every route first",
         "excluded": "not registered for testing",
@@ -129,19 +129,26 @@ def render() -> str:
     by_evidence = [e for e in closed
                    if e["status"] == "retired" and counts_pre.get(e["id"], 0) > 0]
     never_ran = [e for e in closed if counts_pre.get(e["id"], 0) == 0]
+    def _join(ids: list[str]) -> str:
+        if len(ids) <= 1:
+            return "".join(ids)
+        return ", ".join(ids[:-1]) + " and " + ids[-1]
+
+    uninformative = [e["id"] for e in closed
+                     if e["status"] == "stage1_uninformative"]
     a(f"**{len(closed) - len(by_evidence)} of the {len(closed)} closures were decided "
-      f"without a result.** Only "
-      + " and ".join(e["id"] for e in by_evidence)
-      + " were closed by evidence. "
-      + ", ".join(e["id"] for e in never_ran)
-      + " never ran at all — arithmetic or premise closed them first — and "
-      + ", ".join(e["id"] for e in closed
-                  if e["status"] == "stage1_uninformative")
-      + " ran but could not inform. That ratio is the honest summary of this catalog so "
-        "far: the "
-        "binding constraint has been event scarcity and control design, not the absence of "
-        "signal, and those are different findings that a results table would render "
-        "identically.")
+      f"without a result.** Only {_join([e['id'] for e in by_evidence])} were closed by "
+      f"evidence. {_join([e['id'] for e in never_ran])} never ran at all — arithmetic or "
+      f"premise closed them first — and {_join(uninformative)} ran but could not inform. "
+      "That ratio is the honest summary of this catalog so far: the binding constraint has "
+      "been event scarcity, registration defects and control design, not the absence of "
+      "signal, and those are different findings that a results table would render "
+      "identically.")
+    a("")
+    a("**Exactly one hypothesis has been tested to a standard where a null means the effect "
+      "is ABSENT rather than undetectable: F05.** 45 informative cells on 11,000-18,600 "
+      "events, best cell at 0.05x its detection floor. Every other closure turned on "
+      "sample, premise or arithmetic. See `reports/decisions.md` §33 for the grading.")
     a("")
 
     # ------------------------------------------------------------------ N and SR*
