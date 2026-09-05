@@ -830,6 +830,42 @@
   # mechanism (mechanism_instruments: attenuated). BOTH REMAINING OPEN ROUTES ARE ON MGC,
   # which means F06 can now only be tested on the instrument where its mechanism is
   # weakest. That is worth knowing before spending trials on it.
+  # ---- SCOPE LIMIT, RECORDED 2026-09-02 BEFORE THE RUN ----
+  #
+  # BOTH OPEN ROUTES ARE ON MGC - 120m and 180m - AND MGC IS WHERE THE MECHANISM IS
+  # WEAKEST. The mechanism names 09:30 ET as the moment "overnight positioning meets CASH
+  # liquidity", with the counterparty being whoever holds an overnight position that must
+  # be adjusted once real depth arrives. That is the EQUITY cash open. Gold's own liquidity
+  # event is the COMEX open at 08:20 ET.
+  #
+  # So on MGC this condition tests CROSS-ASSET SPILLOVER from the equity open, not the
+  # registered claim. The two are different propositions with different counterparties.
+  #
+  # A POSITIVE RESULT WOULD NOT SUPPORT THE MECHANISM AS WRITTEN. It would say that gold
+  # moves directionally after the equity cash open, which is interesting and is not what
+  # F06 registered. Promoting it would require RE-REGISTRATION as its own hypothesis with
+  # its own counterparty story, its own pre-committed grid and its own trial budget - the
+  # same treatment the catalog gives any scan-derived lead.
+  #
+  # MNQ - THE INSTRUMENT WHERE THE MECHANISM ACTUALLY LIVES - IS CLOSED ON EVERY ROUTE.
+  # 1,708 measured events against the 19,722 at which a floor resolves. It is NOT RUN:
+  # spending 36 trials on an instrument that cannot carry a verdict would raise SR* for the
+  # rest of the catalog and buy nothing. Its absence from the results is a closed route,
+  # NOT a null.
+  #
+  # MGC AT 60 MINUTES IS ALSO CLOSED (1,785 events against 5,620) and its cells are marked
+  # uninformative.
+  #
+  # THE HONEST SUMMARY BEFORE ANY DATA IS SEEN: F06 can only be tested where its mechanism
+  # is attenuated, on the shorter of its two open horizons, on the instrument carrying the
+  # standing coverage caveat. Whatever comes back, that is the ceiling on what it can mean.
+  scope_limit: >
+    Both open routes are MGC, where the mechanism is attenuated: 09:30 ET is the EQUITY
+    cash open, so on gold the condition tests cross-asset spillover rather than the
+    registered claim. A POSITIVE RESULT WOULD NOT SUPPORT THE MECHANISM AS WRITTEN and
+    would require re-registration as its own hypothesis with its own counterparty story and
+    trial budget. MNQ - where the mechanism actually lives - is closed on every route at
+    1,708 events against 19,722 and is NOT RUN; its absence is a closed route, not a null.
   schedulable: true
   grade: B
   tier: B
