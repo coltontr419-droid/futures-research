@@ -1517,3 +1517,452 @@
     signal. F01, F02, F04, F06 and F09 all live in that regime and none of them has a
     control; the synthetic GARCH nulls in reports/integrity_futures.md are the only check
     that applies there, and they test idealised noise rather than real microstructure.
+
+# ============================================================================
+# L-SERIES - price-level reaction. Registered 2026-09-02 from
+# LEVEL_HYPOTHESES.md. Same registry, same N, same gates.
+#
+# THE METHODOLOGICAL CORE, WHICH APPLIES TO EVERY ENTRY BELOW: price
+# mean-reverts and continues around ARBITRARY levels, so the null for a level
+# test is not "no reaction" - it is "no reaction BEYOND a matched placebo
+# level". Every L-series result reports real-minus-placebo alongside
+# real-minus-zero, and a hypothesis whose real-minus-placebo difference is
+# indistinguishable from zero is refuted even if its raw reaction is strongly
+# significant. See src/futuresres/levels/placebo.py and reports/placebo_match.md.
+#
+# THE TWO-MECHANISM PROBLEM: one mechanism (orders cluster at reference levels)
+# licenses two opposite predictions (absorption vs sweep). Testing both on the
+# same condition is the F08 failure - an invented direction rule. Each entry
+# below either pre-specifies its direction from a DISTINGUISHING CONDITION, or
+# is registered magnitude-only.
+#
+# VERDICT ROUTE: level cells overwhelmingly SHARE ENTRY TIMESTAMPS - the same
+# touch enters under multiple parameter settings - so the aggregate route is
+# ASSUMED CLOSED for every entry until disjointness is verified, per the F07
+# finding. See reports/disjointness.md.
+# ============================================================================
+
+- id: L01
+  name: vwap_reaction
+  mechanism: >
+    The only level in this catalog where a named participant has a stated reason to transact
+    at it. Institutional execution algorithms are benchmarked to VWAP: a desk filling a large
+    order is measured on whether it beat VWAP, which creates genuine non-discretionary flow
+    referencing that specific price. Buy programs become more aggressive below VWAP and
+    passive above it. The counterparty is the execution desk whose benchmark is the level
+    itself. NOTED WEAKNESS, flagged at registration: the mechanism predicts flow TOWARD VWAP,
+    not reversal AT it, so the absorption direction is an additional assumption the mechanism
+    does not license. That is the weakest link in the strongest entry here.
+  condition: >
+    touch = price trades within t ticks of VWAP after being >= d ATR away for >= 15 min.
+    Direction: absorption, fade the approach. Entry on the 1m close following the touch, exit
+    at H minutes or 15:55 ET, whichever first. anchor in {RTH open, CME open, rolling 24h} -
+    the anchor is a hidden parameter and all three are tested and logged, never picked
+    silently. d in {0.5, 1.0, 1.5} ATR, H in {30, 60, 120} min.
+  horizon_minutes: [30, 60, 120]
+  hold_hours: [0.5, 2]
+  registered: 2026-09-02
+  status: untested
+  grade: B+
+  tier: A
+  param_cap: 3
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: 10
+  schedulable: false
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      VWAP benchmarking is universal to institutional execution and is not instrument
+      specific; both hold. MGC's thinner tape makes its VWAP noisier, which is the standing
+      coverage caveat rather than a mechanism failure.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED. The three anchors and three d filters select overlapping subsets of the
+      same touches, so cells share entry timestamps. Must be verified before any aggregate
+      claim, per F07.
+
+- id: L02
+  name: opening_range_boundary
+  mechanism: >
+    Two mechanisms compound. The opening range is a genuine liquidity event - 09:30 ET is the
+    largest participant-composition change of the day, and the first minutes establish where
+    overnight positioning meets cash liquidity, with the counterparty being whoever holds an
+    overnight position that must be adjusted once real depth arrives. It is also the most
+    watched level in retail futures, so stop clustering at its boundaries is plausible on
+    self-fulfilling grounds IN ADDITION to the structural story.
+  condition: >
+    Two variants on mutually exclusive price paths, registered separately with their own
+    trials. SWEEP: if price closes beyond the boundary for k consecutive 1m bars, enter in the
+    break direction. ABSORPTION: if price penetrates the boundary by >= m ticks then closes
+    back inside within k bars, enter counter to the penetration. Both exit at H minutes or
+    15:55 ET. Level = high and low of [09:30, 09:30 + W] ET. W in {15, 30, 60} min, k in
+    {1, 2, 3} bars, m in {2, 4, 8} ticks (absorption only), H in {60, 120, 180} min.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: B
+  tier: A
+  param_cap: 4
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: 12
+  schedulable: false
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      09:30 ET is the EQUITY cash open. On MGC this tests cross-asset spillover rather than
+      the registered mechanism - gold's own liquidity event is the COMEX open at 08:20 ET.
+      ATTENUATED on MGC, exactly as F06 was, and a positive result there would not support the
+      mechanism as written.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED. The sweep and absorption variants are disjoint from each other by
+      construction, but within each variant the W and k settings select overlapping subsets of
+      the same session's first break. Verify before claiming anything.
+
+- id: L03
+  name: prior_day_sweep_and_reclaim
+  mechanism: >
+    The mechanised version of the liquidity sweep. Stop orders cluster immediately beyond
+    obvious reference points because that is where a large number of traders place them; a
+    sweep triggers those stops, the resulting flow is forced and price-insensitive, and once
+    exhausted price returns inside. The counterparty is the trader whose stop was filled at a
+    price nobody chose. REGISTERED ONLY BECAUSE IT CAN BE FULLY MECHANISED: as usually taught,
+    swing points and displacement are defined loosely enough that any chart can be read to
+    fit, which is not falsifiable. Every term here is fixed in advance.
+  condition: >
+    sweep = price exceeds the level by >= m ticks. reclaim = a 1m close back inside the level
+    within k bars of the sweep. Entry at the close of the reclaim bar, direction counter to
+    the sweep. Exit at H minutes or 15:55 ET. level_type in {prior RTH session high/low
+    09:30-16:00, prior full trading day high/low 18:00-17:00}, m in {2, 4, 8} ticks, k in
+    {2, 3, 5} bars, H in {60, 120, 180} min.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: B
+  tier: A
+  param_cap: 4
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: 15
+  schedulable: false
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Stop clustering beyond a prior session extreme is not instrument specific; both hold.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED. Two level types are disjoint only when the prior RTH and prior full-day
+      extremes differ; m and k select nested subsets of the same sweeps. Verify.
+
+- id: L04
+  name: prior_session_extremes
+  mechanism: >
+    The same stop-clustering story as L03 but across more reference points, which is the point
+    of registering it separately: Asia (19:00-03:00 ET), London (03:00-11:30 ET) and US RTH
+    each leave a high and a low, and each session's extremes are watched by the participants of
+    the FOLLOWING session. Six levels are carried forward at any time, giving a materially
+    higher firing rate than L03. The counterparty is the same as L03's: the trader whose
+    protective stop rested just beyond a session extreme and was filled at a price nobody
+    chose, by flow that is forced rather than informed.
+  condition: >
+    Sweep and reclaim exactly as L03, applied per session-extreme type. Session type is a scan
+    dimension and each session type is its own cell. session in {Asia, London, US}, m in
+    {2, 4, 8} ticks, k in {2, 3, 5} bars, H in {60, 120, 180} min. Session boundaries come from
+    the DST-aware session mapper, never from a fixed UTC offset.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: B-
+  tier: B
+  param_cap: 4
+  session: Asia/Europe/US
+  symbols: [MNQ, MGC]
+  test_order: 14
+  schedulable: false
+  mechanism_instruments:
+    primary: MGC
+    secondary: MNQ
+    rationale: >
+      Asia and London session extremes are more plausible on MGC than on MNQ, since gold
+      trades meaningfully in those hours while index futures are thin. Both hold, but the
+      instruments are expected to diverge and a split must NOT be read as confirmation.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED, with one qualification worth testing: the three session types are
+      genuinely disjoint in time except where extremes coincide, so this is the L-series entry
+      most likely to have a real aggregate route. Verify rather than assume in either
+      direction.
+
+- id: L05
+  name: overnight_range_boundaries
+  mechanism: >
+    The overnight range (18:00 previous day to 09:30 ET) is where positioning accumulates
+    without cash liquidity. When RTH opens, that positioning is tested against real depth, so a
+    break of the overnight high or low during RTH is a genuine liquidity event rather than a
+    chart pattern. The counterparty is whoever accumulated overnight at prices that cash
+    liquidity will not support.
+  condition: >
+    During RTH only, the FIRST close beyond an overnight boundary, confirmed by k bars. Enter
+    in the break direction, exit at H minutes or 15:55 ET. Only the first break per boundary
+    per session counts; subsequent re-tests are a different claim and are not registered.
+    Level = high and low of [18:00 ET previous day, 09:30 ET]. k in {1, 2, 3} confirming bars,
+    H in {60, 120, 180} min, vol_filter in {none, ON range > median, ON range < median} where
+    the median is over the trailing 20 sessions, strictly prior.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: C+
+  tier: B
+  param_cap: 3
+  session: US
+  symbols: [MNQ]
+  test_order: 16
+  schedulable: false
+  # STAGE 4 IS UNREACHABLE AND THAT IS DECLARED, NOT WORKED AROUND. Stage 4 requires the
+  # effect to survive on two genuinely uncorrelated instruments, and L05's mechanism is
+  # equity-index specific - overnight positioning meeting the 09:30 CASH open. Adding MGC to
+  # the symbol list to satisfy the gate would be registering an instrument the mechanism does
+  # not hold in, which is the F02 error. L05 can therefore reach Stage 3 at most: a positive
+  # result would be a single-instrument finding and must be reported as one.
+  stage4_reachable: false
+  stage4_reason: >
+    Mechanism is equity-index specific, so only MNQ is registered and the two-instrument
+    requirement cannot be met. A positive result would be single-instrument and reported as
+    such rather than promoted.
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      The mechanism is overnight equity-index positioning meeting the 09:30 CASH open. Gold's
+      overnight session is not thin in the same way and its liquidity event is the COMEX open,
+      so the claim as written does not transfer. MNQ only.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED, and there is a prior reason: L05 HEAVILY OVERLAPS L02. An overnight high
+      broken at 09:35 is often also an opening-range break. The overlap must be measured and
+      reported - if the two fire on the same events they are one hypothesis and must not both
+      consume trials.
+
+- id: L06
+  name: session_open_reference
+  mechanism: >
+    The session open price is the reference against which the session's P&L is marked.
+    Positions opened at the start of a session are at breakeven when price returns to it, which
+    is a real behavioural anchor with a real decision attached: hold or flatten. The mechanism
+    licenses "a decision happens here" - it does NOT license a direction, which is why this is
+    registered magnitude-only. The counterparty is that position holder: someone who must
+    choose to hold or flatten at a price their P&L is marked against, and whose decision is
+    driven by their entry rather than by a view on value. Magnitude-only does not excuse the
+    entry from naming who is transacting and why - it only limits what may be claimed about
+    the direction they transact in.
+  condition: >
+    cross = price crosses the open price after being >= d ATR away for >= 30 min. MAGNITUDE
+    ONLY: Stage 1 tests whether forward VOLATILITY and VOLUME differ after a cross, not whether
+    returns are directional. A directional variant is registered separately with its own trial
+    budget only if magnitude separates. open_type in {RTH 09:30, CME 18:00} converted through
+    the session mapper, d in {0.5, 1.0, 1.5} ATR, H in {60, 120, 180} min.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: C+
+  tier: B
+  param_cap: 3
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: 13
+  schedulable: false
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Both instruments have a session open that positions are marked against; the behavioural
+      anchor is not instrument specific.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED. The d filter selects nested subsets of the same crossings. Note that
+      magnitude-only changes what a verdict means but not the route arithmetic.
+
+- id: L07
+  name: fair_value_gap_fill
+  mechanism: >
+    A three-bar imbalance marks a price zone that traded through quickly with little two-sided
+    activity; the claim is that price returns to fill it because the zone contains unfilled
+    interest. THE ENTRY RECORDS ITS OWN SCEPTICISM: the competing explanation is that price is
+    approximately a random walk with fat tails and revisits nearby levels regardless of what
+    happened there - gaps fill because MOST NEARBY PRICES GET REVISITED, not because the gap
+    means anything. This is the strongest possible argument for the placebo benchmark: a raw
+    fill-rate statistic will look impressive, likely 70-90%, and will be equally impressive for
+    placebo zones. Only the difference is evidence. ON THE COUNTERPARTY, HONESTLY: the claimed
+    counterparty is whoever left unfilled interest in the zone and must still transact there.
+    THE ENTRY DOES NOT BELIEVE THIS PERSON EXISTS - a zone that traded through quickly is
+    evidence of ABSENT interest, not resting interest, and no participant is identified who is
+    obliged to return. It is registered with the counterparty named so the claim can be
+    refuted rather than left vague, which is precisely what makes a clean placebo-controlled
+    null on it worth having.
+  condition: >
+    bullish FVG: high[i-1] < low[i+1], zone = [high[i-1], low[i+1]]. bearish FVG:
+    low[i-1] > high[i+1], zone = [high[i+1], low[i-1]]. Minimum zone width w ticks. Entry at
+    the first 1m close inside an unfilled zone created >= g bars earlier, direction counter to
+    the move that created the gap. Exit at H minutes or 15:55 ET. w in {2, 4, 8} ticks, g in
+    {10, 30, 60} bars, H in {60, 120, 180} min, timeframe in {1m, 5m}.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: C
+  tier: B
+  param_cap: 4
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: 11
+  schedulable: false
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      A three-bar imbalance is a property of any price series and is not instrument specific;
+      both hold.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED. w and g select nested subsets of the same zones and the two timeframes
+      overlap heavily. This is the entry where an unverified aggregate claim would be most
+      tempting and least defensible.
+
+- id: L08
+  name: moving_average_reaction
+  mechanism: >
+    WEAK BY CONSTRUCTION AND THE ENTRY SAYS SO. No institution executes against a 50 EMA. The
+    only available story is self-fulfilling: enough traders watch the same standard settings
+    that orders cluster near them. Note this is the same premise that DISQUALIFIED F11 as a
+    control - "widely watched, therefore orders cluster" is a claim about the market that must
+    be tested rather than assumed. Testing it here is legitimate; it simply makes the prior
+    weak, and the grade reflects that. THE COUNTERPARTY, SUCH AS IT IS: the retail trader whose
+    resting order or stop sits at a round standard setting because a chart platform drew the
+    line there. That is a real person transacting for a non-informational reason, which is what
+    Stage 0 asks for - but unlike L01's execution desk, nothing obliges them to be there, and
+    the entry does not pretend otherwise.
+  condition: >
+    touch after >= d ATR separation for >= 30 min, fade the approach, exit at H minutes or
+    15:55 ET. period in {20, 50, 200} and timeframe in {5m, 15m}, both FIXED A PRIORI with no
+    optimisation of period - if 47 works and 50 does not, that is the tell. H in
+    {60, 120, 180} min.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: D+
+  tier: C
+  param_cap: 3
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: 17
+  schedulable: false
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      A self-fulfilling watching story is not instrument specific; both hold equally weakly.
+  verdict_route:
+    per_cell: pending measured rate
+    aggregate: >
+      ASSUMED CLOSED. period x timeframe is a 6-cell scan whose cells share entry timestamps
+      whenever two averages sit close together, which is most of the time.
+
+- id: L09
+  name: higher_timeframe_levels
+  mechanism: >
+    Prior week and prior month high/low, on the same stop-clustering story as L03 and L04. Two
+    to four levels, touched perhaps weekly. REGISTERED AS A CANDIDATE FOR BLOCKING, NOT AS
+    TESTABLE: over sixteen years the sample is roughly 830 weekly levels and 190 monthly,
+    against the ~19,722 at which a floor resolves at MNQ 60m. This entry exists so the
+    exclusion is DOCUMENTED WITH ITS ARITHMETIC rather than rediscovered by someone spending
+    trials on it. The counterparty would be L03's - the trader whose stop rested beyond a
+    prior-week or prior-month extreme - but the entry does not rest on that, because it is not
+    expected to reach a test where the counterparty matters.
+  condition: >
+    Sweep and reclaim as L03, applied to prior-week and prior-month extremes. NOT SPECIFIED
+    FURTHER because it is not expected to be schedulable; if the measured rate contradicts the
+    expectation, the condition must be completed before anything runs.
+  horizon_minutes: [60, 120, 180]
+  hold_hours: [1, 3]
+  registered: 2026-09-02
+  status: untested
+  grade: D
+  tier: C
+  param_cap: 4
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: 18
+  schedulable: false
+  awaiting_measurement: true
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Same stop-clustering story as L03; not instrument specific. Recorded for completeness -
+      the entry is expected to be blocked on event count before instrument choice matters.
+  verdict_route:
+    per_cell: >
+      EXPECTED CLOSED. ~830 weekly and ~190 monthly levels over sixteen years, against 19,722.
+    aggregate: >
+      EXPECTED CLOSED. Pooling two level types cannot bridge two orders of magnitude.
+
+- id: L10
+  name: placebo_level_control
+  mechanism: >
+    NOT A HYPOTHESIS. The L-series negative control. Hash-derived levels with no relationship
+    to price history, run through the identical L01 pipeline. The premise is that these levels
+    CANNOT relate to future returns by construction - the offset is a deterministic function of
+    the session date and level type and never touches price - not that they SHOULD have been
+    arbitraged away, which is the distinction that retired F11.
+  condition: >
+    Identical to L01 in every respect except that the level is placebo rather than VWAP.
+    Parameters are fixed by L01's grid and none are free. Logs to measurements.jsonl, not
+    trials.jsonl, so it spends no trials.
+  horizon_minutes: [30, 60, 120]
+  hold_hours: [0.5, 2]
+  registered: 2026-09-02
+  status: untested
+  grade: D
+  tier: C
+  param_cap: 0
+  session: US
+  symbols: [MNQ, MGC]
+  test_order: null
+  is_control: true
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Mechanism-free by construction, so no instrument can fail to support it.
+  control_scope: >
+    TWO JOBS, and the second is what distinguishes it from F14. FIRST, a standing harness check
+    at the LEVEL-REACTION event regime, which F14 does not cover: F14 fires at fixed 30-minute
+    clock boundaries, while a level condition fires when price happens to reach a moving
+    reference, which is a different firing pattern and a different conditioning structure.
+    SECOND, and more important, DIRECT VALIDATION THAT THE PLACEBO MACHINERY IS CORRECTLY
+    MATCHED. If placebo levels are touched at a materially different rate, or sit at a
+    materially different distance from price, than real levels, then the offset distribution is
+    wrong and EVERY PLACEBO COMPARISON IN THIS CATALOG IS INVALID. Nothing in the L-series is
+    interpretable until L10 passes both. Its scope is the level-reaction regime at L01-like
+    event counts and it licenses nothing about once-per-session conditions.
+  verdict_route:
+    per_cell: n/a - a control does not carry a verdict
+    aggregate: n/a

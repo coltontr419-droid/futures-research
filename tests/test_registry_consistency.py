@@ -23,6 +23,7 @@ import yaml
 ROOT: Final[Path] = Path(__file__).resolve().parents[1]
 REGISTRY: Final[Path] = ROOT / "hypotheses.yaml"
 CATALOG: Final[Path] = ROOT / "FUTURES_STRATEGY_HYPOTHESES.md"
+LEVEL_CATALOG: Final[Path] = ROOT / "LEVEL_HYPOTHESES.md"
 
 #: CLAUDE_FUTURES.md §5 Stage 5 — "Hard cap: 4 parameters. No exceptions."
 HARD_PARAM_CAP: Final[int] = 4
@@ -65,7 +66,8 @@ ROBUSTNESS_ONLY: Final[frozenset[str]] = frozenset({"ES", "YM", "RTY", "NQ"})
 REG: Final[dict[str, dict[str, Any]]] = {
     e["id"]: e for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
 }
-CATALOG_TEXT: Final[str] = CATALOG.read_text(encoding="utf-8")
+CATALOG_TEXT: Final[str] = (CATALOG.read_text(encoding="utf-8")
+                            + LEVEL_CATALOG.read_text(encoding="utf-8"))
 
 
 # ── schema ───────────────────────────────────────────────────────────────────
@@ -83,7 +85,7 @@ def test_ids_are_unique_and_well_formed() -> None:
     raw = yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
     ids = [e["id"] for e in raw]
     assert len(ids) == len(set(ids)), "duplicate id in the registry"
-    assert all(re.fullmatch(r"F\d\d", i) for i in ids), ids
+    assert all(re.fullmatch(r"[FL]\d\d", i) for i in ids), ids
 
 
 @pytest.mark.integrity
@@ -254,6 +256,14 @@ def test_testable_entries_can_satisfy_stage_4() -> None:
         if entry["status"] != "untested" or entry.get("is_control"):
             continue
         declared = {str(s).upper() for s in entry.get("symbols") or []}
+        if entry.get("stage4_reachable") is False:
+            # Declared unreachable with a reason, which is honest. The alternative - padding
+            # the symbol list with an instrument the mechanism does not hold in - is the F02
+            # error and is worse than admitting the ceiling.
+            assert entry.get("stage4_reason"), (
+                f"{hid} declares Stage 4 unreachable but gives no reason"
+            )
+            continue
         assert STAGE4_INSTRUMENTS <= declared, (
             f"{hid} declares symbols={sorted(declared)}; §5 Stage 4 needs both "
             f"{sorted(STAGE4_INSTRUMENTS)}"
@@ -311,14 +321,14 @@ def test_horizons_are_consistent_with_declared_holds() -> None:
 @pytest.mark.integrity
 def test_every_registry_entry_appears_in_the_catalog() -> None:
     for hid in REG:
-        assert re.search(rf"### {hid} — ", CATALOG_TEXT), (
+        assert re.search(rf"^#+ {hid} — ", CATALOG_TEXT, re.M), (
             f"{hid} is in the registry but has no section in {CATALOG.name}"
         )
 
 
 @pytest.mark.integrity
 def test_every_catalog_entry_appears_in_the_registry() -> None:
-    found = set(re.findall(r"^### (F\d\d) — ", CATALOG_TEXT, re.M))
+    found = set(re.findall(r"^#+ ([FL]\d\d) — ", CATALOG_TEXT, re.M))
     assert found == set(REG), (
         f"catalog and registry disagree: only in catalog {sorted(found - set(REG))}, "
         f"only in registry {sorted(set(REG) - found)}"
@@ -347,17 +357,20 @@ def test_the_controls_are_the_expected_ones() -> None:
     as ordinary retired hypotheses. F14 replaced them - F10 on power, F11 on premise.
     """
     controls = {h for h, e in REG.items() if e.get("is_control")}
-    assert controls == {"F10", "F11", "F14"}, controls
+    assert controls == {"F10", "F11", "F14", "L10"}, controls
     for hid in controls:
         assert REG[hid]["grade"] == "D", f"{hid} is a control but is not graded D"
 
     live = {h for h in controls if REG[h]["status"] == "untested"}
-    assert live == {"F14"}, (
+    assert live == {"F14", "L10"}, (
+        # F14 covers the fixed-clock regime; L10 covers the level-reaction regime AND
+        # validates the placebo machinery every L-series comparison depends on. Two live
+        # controls is correct here because they cover different firing patterns.
         f"exactly one live control expected, got {live}. A catalog with no live control "
         f"cannot demonstrate that its harness declines to promote noise; a catalog with "
         f"two invites the question of which one carries the claim."
     )
-    assert REG["F14"]["param_cap"] == 0, (
+    assert REG["F14"]["param_cap"] == 0 and REG["L10"]["param_cap"] == 0, (
         "the control must have no free parameters at all - anything sweepable could be "
         "tuned into passing or failing, which is the one thing a control may not permit"
     )
@@ -421,6 +434,16 @@ def test_every_hypothesis_has_a_declared_or_measured_firing_rate() -> None:
     measured_ids = {k[0] for k in MEASURED}
     for hid, entry in REG.items():
         if entry["status"] == "excluded":
+            continue
+        if entry.get("is_control"):
+            # A control does not spend trials and is not "scheduled" in the sense the gate
+            # means. Its own rate still gets measured - it just is not a precondition.
+            continue
+        if entry.get("schedulable") is False:
+            # Already unschedulable for a recorded reason. The gate's job is to stop an
+            # UNMEASURED hypothesis being scheduled; one that is blocked anyway is not a
+            # loophole, and demanding a measurement before registration would invert the
+            # order the catalog works in.
             continue
         assert hid in measured_ids, (
             f"{hid} has no MEASURED firing rate and therefore cannot be scheduled. A "
