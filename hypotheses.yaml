@@ -633,7 +633,49 @@
     trailing 20 sessions' sigma at the same clock time - the quantity the p20 arming filter
     already uses. Break rates fall to 44-78% and the k axis discriminates for the first
     time. Routes remain open at 5 of 6 per-cell.
-  schedulable: true
+  # ---- STAGE 1 RUN 2026-09-02: DOES NOT SEPARATE ----
+  # reports/f05_stage1.md. 54 cells (3 vol_pct x 3 k x 3 holds x 2 instruments), 54 trials.
+  # Run under the CORRECTED condition - the 60-minute deadline and the normal-volatility
+  # trigger reference, both recorded before the run.
+  #
+  #   MGC  27 of 27 informative   1 nominal separation vs 1.35 expected   0 BH survivors
+  #   MNQ  18 of 27 informative   0 nominal separations vs 0.90 expected  0 BH survivors
+  #
+  # MNQ AT 60 MINUTES IS UNINFORMATIVE and its nine cells are excluded from the verdict:
+  # 6,965 measured events against the 19,722 at which a floor resolves.
+  #
+  # THE EFFECT IS NOWHERE NEAR THE FLOOR. Best informative cell is MNQ p15 k=2.5 H=180 at
+  # +0.79 bps on 5,812 events, which is 0.05x its detection floor, with p=0.2137. The
+  # single nominal separation is on MGC and does not survive BH. Aggregates are negative
+  # net of cost on both instruments: -0.88 bps MGC, -0.44 MNQ.
+  #
+  # THIS IS AN INFORMATIVE NULL, unlike F02 and F07. 45 of 54 cells sit above the swept
+  # range on samples of 11,000-18,600 events. The sample was there and the effect was not.
+  #
+  # WHICH INSTRUMENT CARRIES IT: MNQ carries the stronger null, at 83.16% coverage against
+  # MGC's 64.16%. Both point the same way, which is the easy case - the standing MGC caveat
+  # would have mattered had MGC separated and MNQ not. F05's mechanism is generic to
+  # speculative price series and holds in both, so neither is a control for the other.
+  #
+  # NO REAL-DATA CONTROL EXISTS AT THIS EVENT REGIME. F14 validated the harness at
+  # ~48,000-52,000 events; F05's cells hold 6,965-18,591. This null carries the section 7.2
+  # synthetic GARCH assurance and nothing from F14.
+  #
+  # STATUS IS UNCHANGED PENDING A DECISION. The evidence supports retirement - informative
+  # cells, adequate sample, nothing at 20x the floor - but that call is not made here.
+  # schedulable is false so nothing re-runs it in the meantime.
+  stage1_run: 2026-09-02
+  stage1_result: >
+    Does not separate. 0 BH survivors on either instrument; 1 nominal
+    separation on MGC against 1.35 expected by chance. Best informative
+    cell +0.79 bps at 0.05x its detection floor (MNQ p15 k=2.5 H=180,
+    5,812 events, p=0.2137). Aggregates negative net of cost on both:
+    -0.88 bps MGC, -0.44 MNQ. An INFORMATIVE null - 45 of 54 cells sit
+    above the swept range on 11,000-18,600 event samples - unlike F02
+    and F07, where nothing could have been learned. MNQ carries the
+    stronger null at 83.16% coverage against MGC's 64.16%. 54 trials.
+  # Already run; nothing should re-run it while the verdict is open.
+  schedulable: false
   grade: B+
   tier: A
   param_cap: 3

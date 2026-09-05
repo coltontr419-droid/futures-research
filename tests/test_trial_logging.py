@@ -168,10 +168,15 @@ def test_every_run_with_a_cell_file_is_represented_in_the_log() -> None:
     """
     from futuresres.signals.logged_run import log_path_for
 
+    # Only RUN records are compared. measurements.jsonl also holds firing-rate counts,
+    # which are a different kind entirely and legitimately coexist with a hypothesis's
+    # trials - F05 has 54 trials and 54 firing-rate rows, and neither implies the other.
     counts: dict[Path, dict[str, int]] = {}
     for path in (ROOT / "trials.jsonl", ROOT / "measurements.jsonl"):
         counts[path] = {}
         for rec in TrialLog(path).read_all():
+            if "kind=measurement" in rec.note:
+                continue
             counts[path][rec.hypothesis_id] = counts[path].get(rec.hypothesis_id, 0) + 1
 
     for path in sorted((ROOT / "reports").glob("f*_cells.json")):
@@ -185,8 +190,8 @@ def test_every_run_with_a_cell_file_is_represented_in_the_log() -> None:
         )
         other = (ROOT / "measurements.jsonl") if expected.name == "trials.jsonl"             else (ROOT / "trials.jsonl")
         assert counts[other].get(hid, 0) == 0, (
-            f"{hid} has records in {other.name} as well - a hypothesis belongs to exactly "
-            f"one log, or N becomes ambiguous"
+            f"{hid} has RUN records in {other.name} as well - a hypothesis's runs belong "
+            f"to exactly one log, or N becomes ambiguous"
         )
 
 
@@ -275,7 +280,9 @@ def test_the_superseded_trial_log_is_kept_and_verifies() -> None:
     meas = TrialLog(ROOT / "measurements.jsonl")
     moved = {n.split("originally ")[1].split(";")[0]
              for n in (t.note for t in meas.read_all()) if "originally " in n}
-    assert {t.trial_id for t in old.read_all()} == {
+    # SUBSET, not equality: the live log has grown since the migration. What must hold is
+    # that nothing in the archive vanished, not that nothing was added afterwards.
+    assert {t.trial_id for t in old.read_all()} <= {
         t.trial_id for t in live.read_all()} | moved, (
-        "records were lost in the migration"
+        "records present before the migration are missing from both logs"
     )

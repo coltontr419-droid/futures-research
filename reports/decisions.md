@@ -918,6 +918,67 @@ do not spend trials. The control still ran, still passed, and its result still s
 
 ---
 
+## 31. F05 ran and did not separate
+
+First hypothesis run under a corrected condition, and the first INFORMATIVE null in the
+catalog. 54 cells, 54 trials.
+
+| | informative | nominal | expected | BH survivors |
+|---|---|---|---|---|
+| MGC | 27 of 27 | 1 | 1.35 | **0** |
+| MNQ | 18 of 27 | 0 | 0.90 | **0** |
+
+MNQ at 60 minutes is UNINFORMATIVE - 6,965 measured events against 19,722 - and its nine
+cells are excluded from the verdict.
+
+**The effect is nowhere near the floor.** Best informative cell is MNQ p15 k=2.5 H=180 at
++0.79 bps on 5,812 events: **0.05x its detection floor**, p=0.2137. The one nominal
+separation is on MGC and does not survive BH. Aggregates are negative net of cost on both,
+-0.88 bps MGC and -0.44 MNQ.
+
+**This is what an informative null looks like, and the catalog has not had one before.** F02
+and F07 came back empty from samples that could never have shown anything. F05 had 11,000 to
+18,600 events across 45 informative cells. The sample was there; the effect was not.
+
+**MNQ carries the stronger null** at 83.16% coverage against MGC's 64.16%. Both point the
+same way, which is the easy case - the standing MGC caveat would have mattered had MGC
+separated and MNQ not. F05's mechanism is generic to speculative price series and holds in
+both, so neither is a control for the other and neither is the wrong instrument.
+
+**No real-data control exists at this event regime.** F14 validated the harness at
+~48,000-52,000 events; F05's cells hold 6,965-18,591. This null carries the section 7.2
+synthetic GARCH assurance and nothing from F14.
+
+**Status left unchanged pending a decision.** The evidence supports retirement - informative
+cells, adequate sample, nothing within 20x of the floor - but that call is not made here.
+`schedulable: false` so nothing re-runs it meanwhile.
+
+**A note on what the correction bought.** Had F05 run as registered, it would have fired on
+79-91% of armings with a trigger that shrank whenever the filter fired, and the resulting
+null would have been a statement about a condition that tested nothing. The correction did
+not produce a positive result - it produced a null that means something.
+
+---
+
+## 32. `next_id` was derived from the record count, and the migration broke it
+
+Found by F05's first run failing with `trial_id 't00487' is already in the log`.
+
+`TrialLog.next_id()` returned `f"t{len(self) + 1:05d}"`, on the reasoning that an
+append-only log only grows so the count is the high-water mark. **Moving the control records
+out (section 30) falsified that**: the log held 486 records whose ids ran to t00492, so the
+count-derived next id collided with an existing one.
+
+The log refused the duplicate rather than accepting it, which is the log working exactly as
+designed - a repeated id makes N ambiguous. The fault was the id scheme. `next_id` now takes
+the maximum suffix already used, which is monotonic regardless of what the log contains.
+
+Worth noting the shape: a helper whose correctness depended on an invariant ("only ever
+grows") that a later, deliberate change removed. Nothing tested the helper against a log with
+gaps, because until section 30 no such log could exist.
+
+---
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
@@ -969,8 +1030,10 @@ do not spend trials. The control still ran, still passed, and its result still s
 - **[RESOLVED] F08 retired on premise**, alongside F11. See §29.
 - **[RESOLVED] Control runs no longer spend trials.** N 498 → 486. See §30.
 - **F01's vol_filter gap is still open** and must be settled if F01 is ever revived.
-- **F05 and F06 are the only schedulable hypotheses with open routes.** F09 is
-  schedulable but closed on both routes; F14 is the control and has run.
+- **F05 has RUN and did not separate** - an informative null. Retirement decision open;
+  see §31.
+- **F06 is the only schedulable hypothesis with open routes left**, and both are MGC,
+  where its mechanism is attenuated. F09 is schedulable but closed on both routes.
 - **F01's aggregate route is closed for the same reason as F07's**: its two entry times
   (15:00, 15:30) share a 15:55 exit, so the positions overlap and pooling adds almost
   nothing.

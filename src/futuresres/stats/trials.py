@@ -169,8 +169,25 @@ class TrialLog:
         return {r["trial_id"] for r in self.raw_records()}
 
     def next_id(self, prefix: str = "t") -> str:
-        """Sequential id. Derived from the record count, so it never reuses a number."""
-        return f"{prefix}{len(self) + 1:05d}"
+        """Sequential id, one past the HIGHEST already used with this prefix.
+
+        It used to be derived from the record COUNT, on the reasoning that an append-only
+        log only ever grows so the count is the high-water mark. That reasoning failed the
+        moment records were moved out: after the control migration the log held 486 records
+        whose ids ran to t00492, and the next count-derived id was t00487 - already taken.
+        The append raised rather than silently duplicating, which is the log working, but
+        the id scheme was the thing at fault.
+
+        Taking the maximum makes the id monotonic regardless of what the log contains.
+        """
+        highest = 0
+        for record in self.raw_records():
+            tid = record["trial_id"]
+            if tid.startswith(prefix):
+                suffix = tid[len(prefix):]
+                if suffix.isdigit():
+                    highest = max(highest, int(suffix))
+        return f"{prefix}{highest + 1:05d}"
 
     # ── writing ────────────────────────────────────────────────────────────
 
