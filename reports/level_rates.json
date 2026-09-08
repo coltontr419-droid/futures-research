@@ -1,0 +1,5909 @@
+{
+  "rates": [
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=RTH d=0.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 89,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=RTH d=1.0",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 2,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=RTH d=1.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 0,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MNQ",
+      "cell": "placebo curve anchor=RTH",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 11,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=CME d=0.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 237,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=CME d=1.0",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 10,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=CME d=1.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 3,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MNQ",
+      "cell": "placebo curve anchor=CME",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 49,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=R24 d=0.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 237,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=R24 d=1.0",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 10,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "cell": "anchor=R24 d=1.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 3,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MNQ",
+      "cell": "placebo curve anchor=R24",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 37,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=15 k=1",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3880,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=15 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4345,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=15 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4693,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5165,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5175,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5178,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5082,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5129,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5150,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4695,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4907,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=15 m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5029,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=30 k=1",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3871,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=30 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4314,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=30 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4576,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4716,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4729,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4732,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4618,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4683,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4707,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4236,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4469,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=30 m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4587,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=60 k=1",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3860,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=60 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4073,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "sweep W=60 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4206,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4075,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4084,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4085,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3975,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4041,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4065,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3560,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3781,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "cell": "absorb W=60 m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3930,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3741,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3754,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3762,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3641,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3704,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3734,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3324,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3483,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_rth m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3594,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3434,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3449,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3456,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3330,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3389,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3416,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3056,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3168,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "cell": "prior_full m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3267,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5420,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5438,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5442,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5318,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5368,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5405,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4903,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5108,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "Asia m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5242,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2857,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2874,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2876,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2765,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2827,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2858,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2443,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2604,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "London m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2733,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 536,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 541,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 545,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 496,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 509,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 524,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 414,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 440,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "cell": "US m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 451,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=1 vol=none",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4141,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=1 vol=ON>med",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2015,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=1 vol=ON<med",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2099,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=2 vol=none",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4461,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=2 vol=ON>med",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2178,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=2 vol=ON<med",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2255,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=3 vol=none",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4669,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=3 vol=ON>med",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2265,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "cell": "k=3 vol=ON<med",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2375,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MNQ",
+      "cell": "RTH d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 110,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MNQ",
+      "cell": "RTH d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 25,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MNQ",
+      "cell": "RTH d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 20,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MNQ",
+      "cell": "CME d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 303,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MNQ",
+      "cell": "CME d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 37,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MNQ",
+      "cell": "CME d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 25,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=2 tf=1m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 535428,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=2 tf=1m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 457955,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=2 tf=1m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 389679,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=2 tf=5m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 103369,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=2 tf=5m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 78154,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=2 tf=5m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 55934,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=4 tf=1m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 312885,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=4 tf=1m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 277339,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=4 tf=1m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 242200,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=4 tf=5m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 76194,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=4 tf=5m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 57789,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=4 tf=5m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 40897,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=8 tf=1m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 159858,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=8 tf=1m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 143137,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=8 tf=1m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 126008,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=8 tf=5m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 49503,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=8 tf=5m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 37148,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "cell": "w=8 tf=5m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 25692,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema20 5m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 194,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema20 5m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 19,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema20 5m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema20 15m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 488,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema20 15m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 98,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema20 15m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 20,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema50 5m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 454,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema50 5m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 91,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema50 5m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 20,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema50 15m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 574,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema50 15m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 93,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema50 15m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 26,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema200 5m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 659,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema200 5m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 107,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema200 5m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 22,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema200 15m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 705,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema200 15m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 114,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "cell": "ema200 15m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 25,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 443,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 445,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 446,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 429,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 433,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 438,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 373,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 401,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_week m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 423,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 63,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 63,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 63,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 60,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 61,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 63,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 48,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 53,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "cell": "prior_month m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 58,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=RTH d=0.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 25,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=RTH d=1.0",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 1,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=RTH d=1.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 0,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MGC",
+      "cell": "placebo curve anchor=RTH",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 7,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=CME d=0.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 211,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=CME d=1.0",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 10,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=CME d=1.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 2,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MGC",
+      "cell": "placebo curve anchor=CME",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 58,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=R24 d=0.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 211,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=R24 d=1.0",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 10,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "cell": "anchor=R24 d=1.5",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 2,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MGC",
+      "cell": "placebo curve anchor=R24",
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "firings": 71,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=15 k=1",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4310,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=15 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4780,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=15 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5154,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5678,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5712,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5724,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5412,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5540,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5619,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4357,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4784,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=15 m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5118,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=30 k=1",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4189,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=30 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4619,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=30 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4877,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5019,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5051,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5068,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4766,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4892,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4977,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3778,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4163,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=30 m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4492,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=60 k=1",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4135,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=60 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4357,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "sweep W=60 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4499,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4112,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4147,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4159,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3877,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4002,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4082,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3001,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3328,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "cell": "absorb W=60 m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3644,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4651,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4664,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4674,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4503,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4572,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4623,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3907,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4130,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_rth m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4349,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3559,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3565,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3572,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3470,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3515,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3535,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3080,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3247,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "cell": "prior_full m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3383,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5102,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5120,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5130,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4974,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5046,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 5084,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4321,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4597,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "Asia m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 4803,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2046,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2064,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2072,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 1907,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 1986,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 2034,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 1423,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 1600,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "London m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 1784,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 378,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 393,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 399,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 292,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 325,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 339,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 168,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 201,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "cell": "US m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 227,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MGC",
+      "cell": "RTH d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 37,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MGC",
+      "cell": "RTH d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 18,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MGC",
+      "cell": "RTH d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 18,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MGC",
+      "cell": "CME d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 269,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MGC",
+      "cell": "CME d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 36,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MGC",
+      "cell": "CME d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 26,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=2 tf=1m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 655490,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=2 tf=1m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 527522,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=2 tf=1m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 429987,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=2 tf=5m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 136777,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=2 tf=5m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 97402,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=2 tf=5m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 65659,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=4 tf=1m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 339210,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=4 tf=1m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 294283,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=4 tf=1m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 250812,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=4 tf=5m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 92594,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=4 tf=5m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 67946,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=4 tf=5m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 46390,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=8 tf=1m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 121686,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=8 tf=1m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 109123,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=8 tf=1m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 95365,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=8 tf=5m g=10",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 45988,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=8 tf=5m g=30",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 34370,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "cell": "w=8 tf=5m g=60",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 23545,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema20 5m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 95,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema20 5m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 8,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema20 5m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 3,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema20 15m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 314,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema20 15m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 29,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema20 15m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 12,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema50 5m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 315,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema50 5m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 27,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema50 5m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 9,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema50 15m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 445,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema50 15m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 45,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema50 15m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 9,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema200 5m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 528,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema200 5m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 61,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema200 5m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 15,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema200 15m d=0.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 698,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema200 15m d=1.0",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 77,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "cell": "ema200 15m d=1.5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 13,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 363,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 363,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 364,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 355,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 358,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 361,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 312,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 334,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_week m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 343,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=2 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 56,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=2 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 56,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=2 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 56,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=4 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 54,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=4 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 54,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=4 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 55,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=8 k=2",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 46,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=8 k=3",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 49,
+      "minutes_key": ""
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "cell": "prior_month m=8 k=5",
+      "horizons": [
+        60,
+        120,
+        180
+      ],
+      "firings": 51,
+      "minutes_key": ""
+    }
+  ],
+  "disjointness": [
+    {
+      "hypothesis": "L01",
+      "product": "MNQ",
+      "n_cells": 9,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MNQ",
+      "n_cells": 3,
+      "max_pairwise_overlap": 0.0,
+      "verdict": "DISJOINT",
+      "note": "cells share at most 0% of firing minutes, so an aggregate route is genuinely available."
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MNQ",
+      "n_cells": 36,
+      "max_pairwise_overlap": 0.9972510044406852,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MNQ",
+      "n_cells": 18,
+      "max_pairwise_overlap": 0.9820237750072485,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 98% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MNQ",
+      "n_cells": 27,
+      "max_pairwise_overlap": 0.9981515711645101,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L05",
+      "product": "MNQ",
+      "n_cells": 9,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MNQ",
+      "n_cells": 6,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MNQ",
+      "n_cells": 18,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MNQ",
+      "n_cells": 18,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MNQ",
+      "n_cells": 18,
+      "max_pairwise_overlap": 0.9685393258426966,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 97% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L01",
+      "product": "MGC",
+      "n_cells": 9,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L10",
+      "product": "MGC",
+      "n_cells": 3,
+      "max_pairwise_overlap": 0.0,
+      "verdict": "DISJOINT",
+      "note": "cells share at most 0% of firing minutes, so an aggregate route is genuinely available."
+    },
+    {
+      "hypothesis": "L02",
+      "product": "MGC",
+      "n_cells": 36,
+      "max_pairwise_overlap": 0.9886204481792717,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 99% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L03",
+      "product": "MGC",
+      "n_cells": 18,
+      "max_pairwise_overlap": 0.9899018232819075,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 99% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L04",
+      "product": "MGC",
+      "n_cells": 27,
+      "max_pairwise_overlap": 0.98359375,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 98% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L06",
+      "product": "MGC",
+      "n_cells": 6,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L07",
+      "product": "MGC",
+      "n_cells": 18,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L08",
+      "product": "MGC",
+      "n_cells": 18,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
+      "hypothesis": "L09",
+      "product": "MGC",
+      "n_cells": 18,
+      "max_pairwise_overlap": 1.0,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    }
+  ],
+  "match": [
+    {
+      "level_type": "vwap_RTH",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.6474171539961013,
+      "placebo_touch_rate": 0.0821150097465887,
+      "real_distance_median": 8.943376606021957,
+      "placebo_distance_median": 82.07739208326711,
+      "real_distance_deciles": [
+        0.08333333333348492,
+        1.2721971663542717,
+        3.423338971539033,
+        5.901667403263128,
+        8.943376606021957,
+        13.647139459112259,
+        21.59940923276508,
+        35.2675945178542,
+        58.73481783047228
+      ],
+      "placebo_distance_deciles": [
+        21.07511520270068,
+        32.453451834050796,
+        43.67960553922601,
+        58.39465678422948,
+        82.07739208326711,
+        125.67181878890186,
+        189.57792657463978,
+        272.72169511613,
+        389.262046256199
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 8.2% vs real 64.7% (ratio 0.13, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 82.08 vs real 8.943 (ratio 9.18, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "vwap_CME",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.4834307992202729,
+      "placebo_touch_rate": 0.09137426900584796,
+      "real_distance_median": 13.790276754157958,
+      "placebo_distance_median": 80.03457846368246,
+      "real_distance_deciles": [
+        1.408190791542802,
+        3.784739716004606,
+        6.358624746643409,
+        9.584359346592647,
+        13.790276754157958,
+        19.76661953707735,
+        30.793746879700752,
+        50.94840470364143,
+        90.593746759183
+      ],
+      "placebo_distance_deciles": [
+        18.752646810369015,
+        31.02501281356308,
+        42.67227009397766,
+        56.64265486502991,
+        80.03457846368246,
+        119.07786724632243,
+        188.21877913283151,
+        264.72015605912895,
+        388.95871713787864
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.1% vs real 48.3% (ratio 0.19, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 80.03 vs real 13.79 (ratio 5.80, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "vwap_R24",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.4834307992202729,
+      "placebo_touch_rate": 0.08893762183235868,
+      "real_distance_median": 13.790276754157958,
+      "placebo_distance_median": 81.09036111315936,
+      "real_distance_deciles": [
+        1.408190791542802,
+        3.784739716004606,
+        6.358624746643409,
+        9.584359346592647,
+        13.790276754157958,
+        19.76661953707735,
+        30.793746879700752,
+        50.94840470364143,
+        90.593746759183
+      ],
+      "placebo_distance_deciles": [
+        20.633437497128035,
+        31.365076196081464,
+        42.53445203037161,
+        58.66814333584362,
+        81.09036111315936,
+        122.82814857758635,
+        186.4222658842114,
+        269.75610921429944,
+        390.5745784664652
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 8.9% vs real 48.3% (ratio 0.18, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 81.09 vs real 13.79 (ratio 5.88, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "or15",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.6546052631578947,
+      "placebo_touch_rate": 0.09990253411306042,
+      "real_distance_median": 10.0,
+      "placebo_distance_median": 82.4160564927538,
+      "real_distance_deciles": [
+        0.25,
+        1.5,
+        3.75,
+        6.5,
+        10.0,
+        15.25,
+        23.0,
+        37.25,
+        66.0
+      ],
+      "placebo_distance_deciles": [
+        20.895706294624983,
+        31.83957367545663,
+        43.160833532992726,
+        58.08574456600782,
+        82.4160564927538,
+        127.30731076676345,
+        190.82177727301752,
+        274.44541838475715,
+        392.17080310758087
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.0% vs real 65.5% (ratio 0.15, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 82.42 vs real 10 (ratio 8.24, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "or30",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.6102582846003899,
+      "placebo_touch_rate": 0.10258284600389864,
+      "real_distance_median": 13.0,
+      "placebo_distance_median": 81.43891539269862,
+      "real_distance_deciles": [
+        0.25,
+        2.0,
+        4.75,
+        8.5,
+        13.0,
+        19.0,
+        29.5,
+        47.75,
+        83.5
+      ],
+      "placebo_distance_deciles": [
+        19.709939072143605,
+        31.036388053144403,
+        42.46667050050241,
+        57.43098281634839,
+        81.43891539269862,
+        123.0394119527482,
+        186.85839889662807,
+        268.3085027611011,
+        389.5040319730626
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.3% vs real 61.0% (ratio 0.17, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 81.44 vs real 13 (ratio 6.26, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "or60",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.5477582846003899,
+      "placebo_touch_rate": 0.0952729044834308,
+      "real_distance_median": 16.25,
+      "placebo_distance_median": 80.73879193703851,
+      "real_distance_deciles": [
+        0.25,
+        2.5,
+        6.25,
+        10.700000000000045,
+        16.25,
+        24.25,
+        37.5,
+        61.0,
+        108.32500000000005
+      ],
+      "placebo_distance_deciles": [
+        19.284673004550132,
+        31.275278433060343,
+        41.99917311555009,
+        56.25613611466543,
+        80.73879193703851,
+        120.88962013242161,
+        185.02874137542221,
+        273.4615561870407,
+        401.8791715427877
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.5% vs real 54.8% (ratio 0.17, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 80.74 vs real 16.25 (ratio 4.97, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "prior_rth",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.4228801169590643,
+      "placebo_touch_rate": 0.19456627680311891,
+      "real_distance_median": 33.25,
+      "placebo_distance_median": 80.4009290849508,
+      "real_distance_deciles": [
+        5.0,
+        10.25,
+        16.25,
+        23.75,
+        33.25,
+        48.25,
+        71.5,
+        116.0,
+        198.0
+      ],
+      "placebo_distance_deciles": [
+        14.925855696845657,
+        28.385999038247338,
+        42.59165684422378,
+        58.53144407515574,
+        80.4009290849508,
+        119.34953856184656,
+        180.47987199260993,
+        278.7656037977621,
+        421.63456684883226
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 19.5% vs real 42.3% (ratio 0.46, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 80.4 vs real 33.25 (ratio 2.42, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "prior_full",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.3787768031189084,
+      "placebo_touch_rate": 0.18774366471734893,
+      "real_distance_median": 40.5,
+      "placebo_distance_median": 84.48137682051447,
+      "real_distance_deciles": [
+        6.25,
+        12.75,
+        20.0,
+        29.0,
+        40.5,
+        57.5,
+        84.75,
+        138.6500000000001,
+        242.57500000000005
+      ],
+      "placebo_distance_deciles": [
+        14.896004694691511,
+        29.046115861143882,
+        43.87599827388785,
+        61.84935762398382,
+        84.48137682051447,
+        123.60978927416433,
+        188.17514131373463,
+        291.08179805283254,
+        462.12874315130284
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 18.8% vs real 37.9% (ratio 0.50, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 84.48 vs real 40.5 (ratio 2.09, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "sess_Asia",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.6291423001949318,
+      "placebo_touch_rate": 0.13145711500974658,
+      "real_distance_median": 12.75,
+      "placebo_distance_median": 84.60658549248046,
+      "real_distance_deciles": [
+        1.5,
+        3.5,
+        5.75,
+        8.75,
+        12.75,
+        19.0,
+        28.25,
+        43.65000000000009,
+        73.75
+      ],
+      "placebo_distance_deciles": [
+        20.69757278688062,
+        32.16254278949818,
+        44.30373066235115,
+        60.57731293144498,
+        84.60658549248046,
+        123.7531448581256,
+        187.8872526226347,
+        271.32360824610663,
+        383.7312449058827
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 13.1% vs real 62.9% (ratio 0.21, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 84.61 vs real 12.75 (ratio 6.64, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "sess_London",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.4194688109161793,
+      "placebo_touch_rate": 0.08528265107212475,
+      "real_distance_median": 24.5,
+      "placebo_distance_median": 80.97057565784417,
+      "real_distance_deciles": [
+        0.25,
+        3.75,
+        9.5,
+        16.0,
+        24.5,
+        37.049999999999955,
+        57.22499999999991,
+        96.5,
+        165.75
+      ],
+      "placebo_distance_deciles": [
+        18.259684055960587,
+        30.12659596864578,
+        41.87604988740536,
+        57.22344992018807,
+        80.97057565784417,
+        121.17481284100795,
+        186.24407230183508,
+        280.35282328136606,
+        421.1352452080825
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 8.5% vs real 41.9% (ratio 0.20, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 80.97 vs real 24.5 (ratio 3.30, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "sess_US",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.18043372319688109,
+      "placebo_touch_rate": 0.013279727095516568,
+      "real_distance_median": 27.5,
+      "placebo_distance_median": 79.64815453198116,
+      "real_distance_deciles": [
+        0.25,
+        4.25,
+        10.75,
+        18.0,
+        27.5,
+        41.049999999999955,
+        64.5,
+        109.5,
+        187.25
+      ],
+      "placebo_distance_deciles": [
+        17.469135967114426,
+        29.04173616034623,
+        41.225305341693044,
+        55.79570157104244,
+        79.64815453198116,
+        119.22316504121626,
+        187.98000721181134,
+        291.9397062267894,
+        440.26837890955994
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 1.3% vs real 18.0% (ratio 0.07, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 79.65 vs real 27.5 (ratio 2.90, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "on_range",
+      "product": "MNQ",
+      "n_real": 8208,
+      "n_placebo": 8208,
+      "real_touch_rate": 0.41264619883040937,
+      "placebo_touch_rate": 0.12402534113060429,
+      "real_distance_median": 22.75,
+      "placebo_distance_median": 81.69650130718946,
+      "real_distance_deciles": [
+        3.25,
+        6.5,
+        10.5,
+        16.0,
+        22.75,
+        33.25,
+        50.0,
+        77.5,
+        131.25
+      ],
+      "placebo_distance_deciles": [
+        17.932765148974205,
+        31.115735511001642,
+        43.214990807303685,
+        58.610871056378905,
+        81.69650130718946,
+        123.53979957376394,
+        187.5397144311888,
+        273.49014068286016,
+        408.77050871247707
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 12.4% vs real 41.3% (ratio 0.30, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 81.7 vs real 22.75 (ratio 3.59, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "open_RTH",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.7595029239766082,
+      "placebo_touch_rate": 0.09819688109161794,
+      "real_distance_median": 0.0,
+      "placebo_distance_median": 85.55040341001722,
+      "real_distance_deciles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "placebo_distance_deciles": [
+        23.03690218237116,
+        33.34840762787208,
+        44.01098241717654,
+        58.62604201199665,
+        85.55040341001722,
+        129.14875081057178,
+        186.91476062059883,
+        268.52690449378207,
+        381.47092115916007
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.8% vs real 76.0% (ratio 0.13, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+      ]
+    },
+    {
+      "level_type": "open_CME",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.9549220272904484,
+      "placebo_touch_rate": 0.145224171539961,
+      "real_distance_median": 0.0,
+      "placebo_distance_median": 87.92005720665838,
+      "real_distance_deciles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "placebo_distance_deciles": [
+        22.81664950442264,
+        33.47046731189685,
+        44.95446378827414,
+        59.807516188882076,
+        87.92005720665838,
+        131.39564382396964,
+        196.80228177081642,
+        279.39130697664694,
+        387.1949522987753
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 14.5% vs real 95.5% (ratio 0.15, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+      ]
+    },
+    {
+      "level_type": "fvg_w2_1m",
+      "product": "MNQ",
+      "n_real": 774167,
+      "n_placebo": 774167,
+      "real_touch_rate": 0.8596207278274585,
+      "placebo_touch_rate": 0.1124834822460787,
+      "real_distance_median": 2.125,
+      "placebo_distance_median": 133.30506734709343,
+      "real_distance_deciles": [
+        0.25,
+        0.5,
+        1.0,
+        1.375,
+        2.125,
+        3.0,
+        4.375,
+        6.75,
+        11.625
+      ],
+      "placebo_distance_deciles": [
+        30.7779972170948,
+        46.81912369003422,
+        67.46054589211671,
+        95.28743381841942,
+        133.30506734709343,
+        182.3006185614904,
+        241.8661229666467,
+        315.1152286607257,
+        426.7762609170235
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 11.2% vs real 86.0% (ratio 0.13, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 133.3 vs real 2.125 (ratio 62.73, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w2_5m",
+      "product": "MNQ",
+      "n_real": 162652,
+      "n_placebo": 162652,
+      "real_touch_rate": 0.7986006935051521,
+      "placebo_touch_rate": 0.11443449819245997,
+      "real_distance_median": 4.375,
+      "placebo_distance_median": 128.42049167099776,
+      "real_distance_deciles": [
+        0.75,
+        1.375,
+        2.125,
+        3.125,
+        4.375,
+        6.25,
+        9.0,
+        13.375,
+        22.625
+      ],
+      "placebo_distance_deciles": [
+        28.99909873625429,
+        44.04004858029375,
+        63.10491365474306,
+        90.17282399575379,
+        128.42049167099776,
+        178.04614860275103,
+        238.10414475881097,
+        311.9472667395483,
+        425.60316640318223
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 11.4% vs real 79.9% (ratio 0.14, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 128.4 vs real 4.375 (ratio 29.35, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w4_1m",
+      "product": "MNQ",
+      "n_real": 458935,
+      "n_placebo": 458935,
+      "real_touch_rate": 0.8096680357784871,
+      "placebo_touch_rate": 0.10230642683604432,
+      "real_distance_median": 3.625,
+      "placebo_distance_median": 196.2505539481317,
+      "real_distance_deciles": [
+        0.625,
+        1.25,
+        1.875,
+        2.625,
+        3.625,
+        5.0,
+        6.875,
+        9.75,
+        15.375
+      ],
+      "placebo_distance_deciles": [
+        46.959337487028826,
+        78.8456721102093,
+        114.0662894661451,
+        152.5573347691503,
+        196.2505539481317,
+        245.05591016678446,
+        300.5885347912539,
+        371.41672471754066,
+        489.8939463844235
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.2% vs real 81.0% (ratio 0.13, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 196.3 vs real 3.625 (ratio 54.14, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w4_5m",
+      "product": "MNQ",
+      "n_real": 123707,
+      "n_placebo": 123707,
+      "real_touch_rate": 0.7660601259427519,
+      "placebo_touch_rate": 0.10799712223237165,
+      "real_distance_median": 6.0,
+      "placebo_distance_median": 165.61177099169072,
+      "real_distance_deciles": [
+        1.25,
+        2.125,
+        3.125,
+        4.5,
+        6.0,
+        8.25,
+        11.375,
+        16.375,
+        26.375
+      ],
+      "placebo_distance_deciles": [
+        35.53864489061034,
+        57.60385073912039,
+        86.69251524894135,
+        122.32479549759591,
+        165.61177099169072,
+        215.78569389676318,
+        272.8217497548732,
+        344.076398374993,
+        460.3944702554189
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.8% vs real 76.6% (ratio 0.14, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 165.6 vs real 6 (ratio 27.60, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w8_1m",
+      "product": "MNQ",
+      "n_real": 246325,
+      "n_placebo": 246325,
+      "real_touch_rate": 0.7515802293717649,
+      "placebo_touch_rate": 0.09309245914949761,
+      "real_distance_median": 6.0,
+      "placebo_distance_median": 247.36285363358547,
+      "real_distance_deciles": [
+        1.25,
+        2.25,
+        3.375,
+        4.5,
+        6.0,
+        7.75,
+        10.0,
+        13.625,
+        20.25
+      ],
+      "placebo_distance_deciles": [
+        79.46822346022563,
+        121.92738537168825,
+        162.3725076284696,
+        203.70697343138747,
+        247.36285363358547,
+        295.17749139449114,
+        351.0153230488896,
+        425.6391632888015,
+        552.3068493494582
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.3% vs real 75.2% (ratio 0.12, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 247.4 vs real 6 (ratio 41.23, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w8_5m",
+      "product": "MNQ",
+      "n_real": 84740,
+      "n_placebo": 84740,
+      "real_touch_rate": 0.7241208402171347,
+      "placebo_touch_rate": 0.10002360160490914,
+      "real_distance_median": 8.75,
+      "placebo_distance_median": 207.2036208034433,
+      "real_distance_deciles": [
+        2.125,
+        3.5,
+        5.0,
+        6.625,
+        8.75,
+        11.375,
+        15.0,
+        20.75,
+        31.75
+      ],
+      "placebo_distance_deciles": [
+        50.02420736389349,
+        85.66142588570655,
+        122.94999470540725,
+        163.35916661207847,
+        207.2036208034433,
+        255.63083665466223,
+        311.6939534680932,
+        382.6924715320528,
+        505.4658685735893
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.0% vs real 72.4% (ratio 0.14, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 207.2 vs real 8.75 (ratio 23.68, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema20_5m",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.6457115009746589,
+      "placebo_touch_rate": 0.07626705653021443,
+      "real_distance_median": 8.540496539304513,
+      "placebo_distance_median": 84.71114942887834,
+      "real_distance_deciles": [
+        8.526981218892616e-08,
+        1.3002969855488118,
+        3.3057302014747165,
+        5.68154636930758,
+        8.540496539304513,
+        13.209934830049313,
+        20.956546638801587,
+        34.67134198680215,
+        58.176606609604285
+      ],
+      "placebo_distance_deciles": [
+        22.0626954525997,
+        32.827290424958484,
+        43.658470902427496,
+        58.96793817169892,
+        84.71114942887834,
+        129.6305108622606,
+        189.4828472487412,
+        265.2008502360776,
+        387.1743837981827
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.6% vs real 64.6% (ratio 0.12, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 84.71 vs real 8.54 (ratio 9.92, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema20_15m",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.5813840155945419,
+      "placebo_touch_rate": 0.09502923976608187,
+      "real_distance_median": 13.340044029148885,
+      "placebo_distance_median": 80.23606076605233,
+      "real_distance_deciles": [
+        0.028071038106372726,
+        1.9303701536906377,
+        5.060033225658478,
+        8.49292723121962,
+        13.340044029148885,
+        19.744502068284053,
+        31.484294401330317,
+        49.96722367652038,
+        89.5593940548155
+      ],
+      "placebo_distance_deciles": [
+        20.179053431764896,
+        30.713326863792645,
+        41.95661980897852,
+        55.98540217599839,
+        80.23606076605233,
+        124.17521430618541,
+        184.10709600215006,
+        278.98251607230344,
+        396.2516649827633
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.5% vs real 58.1% (ratio 0.16, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 80.24 vs real 13.34 (ratio 6.01, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema50_5m",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.5791910331384016,
+      "placebo_touch_rate": 0.09161793372319688,
+      "real_distance_median": 12.984076075284975,
+      "placebo_distance_median": 79.93948078199037,
+      "real_distance_deciles": [
+        0.008006134714605652,
+        1.6851917985568436,
+        4.941245126922331,
+        8.540693761586954,
+        12.984076075284975,
+        19.612572946358615,
+        30.627412863692093,
+        49.26773303310911,
+        88.64037066930545
+      ],
+      "placebo_distance_deciles": [
+        20.062419201173363,
+        31.21664354646546,
+        42.30359157305333,
+        56.93217744315699,
+        79.93948078199037,
+        120.45387282067017,
+        186.04934553150133,
+        273.29094132114517,
+        394.89611777274047
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.2% vs real 57.9% (ratio 0.16, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 79.94 vs real 12.98 (ratio 6.16, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema50_15m",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.4476120857699805,
+      "placebo_touch_rate": 0.09941520467836257,
+      "real_distance_median": 17.39560033114867,
+      "placebo_distance_median": 83.14853580628483,
+      "real_distance_deciles": [
+        0.9828495882099559,
+        2.981931713044469,
+        6.327298007617897,
+        10.968778335795289,
+        17.39560033114867,
+        25.72211711489872,
+        39.87206330680164,
+        63.98783199058417,
+        112.49755968065874
+      ],
+      "placebo_distance_deciles": [
+        17.815284375551027,
+        30.636543188009,
+        42.8189991423389,
+        57.06847900703188,
+        83.14853580628483,
+        122.36693991962817,
+        188.59245890780363,
+        272.2669153331646,
+        400.5217233524847
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.9% vs real 44.8% (ratio 0.22, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 83.15 vs real 17.4 (ratio 4.78, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema200_5m",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.4130116959064328,
+      "placebo_touch_rate": 0.10063352826510721,
+      "real_distance_median": 18.36619455386699,
+      "placebo_distance_median": 79.87603513658223,
+      "real_distance_deciles": [
+        1.624018593077699,
+        3.8306850725327424,
+        7.1108889852959685,
+        11.586025185604013,
+        18.36619455386699,
+        28.161958062541085,
+        42.734167398972474,
+        70.3879711620175,
+        120.54218806691341
+      ],
+      "placebo_distance_deciles": [
+        18.534946851874885,
+        30.202267394250793,
+        41.94352549196762,
+        57.56615635604803,
+        79.87603513658223,
+        120.63517762998661,
+        186.38128705847194,
+        269.47867899613635,
+        400.66295784775
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.1% vs real 41.3% (ratio 0.24, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 79.88 vs real 18.37 (ratio 4.35, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema200_15m",
+      "product": "MNQ",
+      "n_real": 4104,
+      "n_placebo": 4104,
+      "real_touch_rate": 0.2933723196881092,
+      "placebo_touch_rate": 0.1128167641325536,
+      "real_distance_median": 29.56573298036119,
+      "placebo_distance_median": 78.98849470390564,
+      "real_distance_deciles": [
+        4.5272744784414956,
+        9.19530158509806,
+        14.14745714824503,
+        20.715828103945206,
+        29.56573298036119,
+        44.3262204823928,
+        67.29073422656329,
+        105.89811602696903,
+        178.48509727165583
+      ],
+      "placebo_distance_deciles": [
+        14.90682141918037,
+        27.88780472786457,
+        40.26387499533662,
+        56.549463664199635,
+        78.98849470390564,
+        115.57236077179492,
+        184.88595244328405,
+        278.08699945258707,
+        413.8663440680248
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 11.3% vs real 29.3% (ratio 0.38, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 78.99 vs real 29.57 (ratio 2.67, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "prior_week",
+      "product": "MNQ",
+      "n_real": 1684,
+      "n_placebo": 1684,
+      "real_touch_rate": 0.2339667458432304,
+      "placebo_touch_rate": 0.16508313539192399,
+      "real_distance_median": 84.75,
+      "placebo_distance_median": 117.23606968755644,
+      "real_distance_deciles": [
+        11.0,
+        24.5,
+        40.724999999999994,
+        60.80000000000001,
+        84.75,
+        124.19999999999999,
+        191.82499999999993,
+        325.9500000000003,
+        567.35
+      ],
+      "placebo_distance_deciles": [
+        18.15029962101676,
+        35.14864123407133,
+        55.45679229674306,
+        78.79354472790293,
+        117.23606968755644,
+        170.93318719764045,
+        263.9047548046403,
+        398.93577603406527,
+        671.0706228483867
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 16.5% vs real 23.4% (ratio 0.71, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 117.2 vs real 84.75 (ratio 1.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "prior_month",
+      "product": "MNQ",
+      "n_real": 386,
+      "n_placebo": 386,
+      "real_touch_rate": 0.14766839378238342,
+      "placebo_touch_rate": 0.07253886010362694,
+      "real_distance_median": 195.75,
+      "placebo_distance_median": 205.214346534279,
+      "real_distance_deciles": [
+        25.375,
+        50.25,
+        92.25,
+        147.75,
+        195.75,
+        280.25,
+        427.5,
+        757.5,
+        1221.875
+      ],
+      "placebo_distance_deciles": [
+        29.96054929324464,
+        67.55086710535215,
+        101.4677625758286,
+        150.52527470160385,
+        205.214346534279,
+        266.6388725572533,
+        443.0689159955741,
+        715.5432914039047,
+        1113.087666739324
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.3% vs real 14.8% (ratio 0.49, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+      ]
+    },
+    {
+      "level_type": "vwap_RTH",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.7119196988707653,
+      "placebo_touch_rate": 0.05846925972396487,
+      "real_distance_median": 1.5307268722467597,
+      "placebo_distance_median": 18.92959309517778,
+      "real_distance_deciles": [
+        0.21074128618465696,
+        0.47249595155917645,
+        0.7621218672223222,
+        1.112687217477651,
+        1.5307268722467597,
+        2.0154511358408858,
+        2.6633218832083445,
+        3.8189992051362904,
+        5.803651775872821
+      ],
+      "placebo_distance_deciles": [
+        7.766508236927803,
+        10.914321807498528,
+        13.448307259730154,
+        16.067860909448065,
+        18.92959309517778,
+        22.877988523760724,
+        27.24848957086615,
+        33.871408817873736,
+        48.081765499995
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 5.8% vs real 71.2% (ratio 0.08, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 18.93 vs real 1.531 (ratio 12.37, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "vwap_CME",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.4449184441656211,
+      "placebo_touch_rate": 0.07804265997490589,
+      "real_distance_median": 4.262476329601441,
+      "placebo_distance_median": 19.30952199028434,
+      "real_distance_deciles": [
+        0.7215680786232497,
+        1.4294357197897172,
+        2.224920823708044,
+        3.1683867542583366,
+        4.262476329601441,
+        5.631616585514076,
+        7.423593417900336,
+        10.03346024400808,
+        15.44372316210574
+      ],
+      "placebo_distance_deciles": [
+        6.260644359063508,
+        9.68410106292895,
+        12.799116499954971,
+        15.980446897149799,
+        19.30952199028434,
+        23.48363757237603,
+        28.609629526044994,
+        35.8628616468679,
+        49.715815041836684
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.8% vs real 44.5% (ratio 0.18, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.31 vs real 4.262 (ratio 4.53, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "vwap_R24",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.4449184441656211,
+      "placebo_touch_rate": 0.08406524466750313,
+      "real_distance_median": 4.262476329601441,
+      "placebo_distance_median": 19.18857998806675,
+      "real_distance_deciles": [
+        0.7215680786232497,
+        1.4294357197897172,
+        2.224920823708044,
+        3.1683867542583366,
+        4.262476329601441,
+        5.631616585514076,
+        7.423593417900336,
+        10.03346024400808,
+        15.44372316210574
+      ],
+      "placebo_distance_deciles": [
+        5.894546720579638,
+        9.796397992434095,
+        12.932602181460515,
+        16.035628364262084,
+        19.18857998806675,
+        23.300358884801064,
+        28.815967212881826,
+        35.526944188710424,
+        51.03884393130819
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 8.4% vs real 44.5% (ratio 0.19, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.19 vs real 4.262 (ratio 4.50, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "or15",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.7001254705144291,
+      "placebo_touch_rate": 0.07377666248431619,
+      "real_distance_median": 1.599999999999909,
+      "placebo_distance_median": 19.110668697140454,
+      "real_distance_deciles": [
+        0.1999999999998181,
+        0.5,
+        0.7999999999999545,
+        1.1000000000001364,
+        1.599999999999909,
+        2.1000000000001364,
+        2.8999999999998636,
+        4.0,
+        6.2999999999999545
+      ],
+      "placebo_distance_deciles": [
+        7.7721882880782465,
+        10.75326279163205,
+        13.508283842690707,
+        16.191638744868577,
+        19.110668697140454,
+        22.899892443511042,
+        27.74634641105276,
+        34.29770252089516,
+        48.26272215099422
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.4% vs real 70.0% (ratio 0.11, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.11 vs real 1.6 (ratio 11.94, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "or30",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.6148055207026348,
+      "placebo_touch_rate": 0.07189460476787955,
+      "real_distance_median": 2.2999999999999545,
+      "placebo_distance_median": 18.840482856242716,
+      "real_distance_deciles": [
+        0.2999999999999545,
+        0.7000000000000455,
+        1.2000000000000455,
+        1.699999999999818,
+        2.2999999999999545,
+        3.0,
+        4.0,
+        5.5,
+        8.410000000000117
+      ],
+      "placebo_distance_deciles": [
+        7.289838857662812,
+        10.47558672094956,
+        13.272177849634613,
+        15.937269413971721,
+        18.840482856242716,
+        22.72186518795447,
+        27.58768538826348,
+        34.453203543315254,
+        49.09537012230363
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.2% vs real 61.5% (ratio 0.12, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 18.84 vs real 2.3 (ratio 8.19, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "or60",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.5027603513174403,
+      "placebo_touch_rate": 0.06963613550815559,
+      "real_distance_median": 3.1000000000001364,
+      "placebo_distance_median": 19.059610424467564,
+      "real_distance_deciles": [
+        0.5,
+        1.1000000000001364,
+        1.7000000000000455,
+        2.2999999999999545,
+        3.1000000000001364,
+        4.099999999999909,
+        5.400000000000091,
+        7.400000000000091,
+        11.299999999999955
+      ],
+      "placebo_distance_deciles": [
+        6.907467588245004,
+        10.018414840659899,
+        12.876839807373834,
+        15.900085560299072,
+        19.059610424467564,
+        22.918452027106287,
+        27.82876696964244,
+        34.74111569206926,
+        49.319822377795084
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.0% vs real 50.3% (ratio 0.14, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.06 vs real 3.1 (ratio 6.15, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "prior_rth",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.5259723964868256,
+      "placebo_touch_rate": 0.21191969887076537,
+      "real_distance_median": 5.7999999999999545,
+      "placebo_distance_median": 19.282708919049355,
+      "real_distance_deciles": [
+        1.2000000000000455,
+        2.2000000000000455,
+        3.2000000000000455,
+        4.400000000000091,
+        5.7999999999999545,
+        7.400000000000091,
+        9.5,
+        13.299999999999955,
+        20.899999999999864
+      ],
+      "placebo_distance_deciles": [
+        5.105005680656246,
+        9.157744527563137,
+        12.535432610326232,
+        15.716895393697133,
+        19.282708919049355,
+        23.537321365203336,
+        28.9910743124632,
+        37.30478694688534,
+        53.19309888853498
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 21.2% vs real 52.6% (ratio 0.40, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.28 vs real 5.8 (ratio 3.32, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "prior_full",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.385069008782936,
+      "placebo_touch_rate": 0.22233375156838142,
+      "real_distance_median": 8.899999999999977,
+      "placebo_distance_median": 19.823265799284172,
+      "real_distance_deciles": [
+        2.099999999999909,
+        3.599999999999909,
+        5.100000000000136,
+        6.900000000000091,
+        8.899999999999977,
+        11.600000000000136,
+        15.299999999999955,
+        20.700000000000045,
+        32.600000000000136
+      ],
+      "placebo_distance_deciles": [
+        4.375336022305738,
+        8.369214690625132,
+        12.061914960024499,
+        15.731847143051937,
+        19.823265799284172,
+        24.856346774367548,
+        31.1954690876247,
+        40.96420900249714,
+        58.68823166906776
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 22.2% vs real 38.5% (ratio 0.58, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.82 vs real 8.9 (ratio 2.23, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "sess_Asia",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.6037641154328732,
+      "placebo_touch_rate": 0.1614805520702635,
+      "real_distance_median": 3.800000000000182,
+      "placebo_distance_median": 19.09858638096489,
+      "real_distance_deciles": [
+        0.599999999999909,
+        1.2999999999999545,
+        2.0,
+        2.8999999999998636,
+        3.800000000000182,
+        5.0,
+        6.400000000000091,
+        8.799999999999955,
+        14.099999999999909
+      ],
+      "placebo_distance_deciles": [
+        6.453182671743685,
+        10.020236419149752,
+        13.019453452885339,
+        15.966397751846626,
+        19.09858638096489,
+        22.75803443885743,
+        27.51057773482459,
+        34.926201511071774,
+        49.240055205348774
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 16.1% vs real 60.4% (ratio 0.27, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.1 vs real 3.8 (ratio 5.03, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "sess_London",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.24027603513174403,
+      "placebo_touch_rate": 0.07515683814303639,
+      "real_distance_median": 6.599999999999909,
+      "placebo_distance_median": 19.807450620328268,
+      "real_distance_deciles": [
+        1.400000000000091,
+        2.599999999999909,
+        3.7000000000000455,
+        5.0,
+        6.599999999999909,
+        8.400000000000091,
+        11.199999999999818,
+        15.200000000000045,
+        23.0
+      ],
+      "placebo_distance_deciles": [
+        5.191364186190279,
+        9.264459746722789,
+        12.80414395474811,
+        16.12487759254323,
+        19.807450620328268,
+        24.165787876669448,
+        29.383443680128426,
+        37.49546560607311,
+        53.332094041580085
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.5% vs real 24.0% (ratio 0.31, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.81 vs real 6.6 (ratio 3.00, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "sess_US",
+      "product": "MGC",
+      "n_real": 7970,
+      "n_placebo": 7970,
+      "real_touch_rate": 0.07026348808030113,
+      "placebo_touch_rate": 0.015558343789209535,
+      "real_distance_median": 5.400000000000091,
+      "placebo_distance_median": 19.367132201107438,
+      "real_distance_deciles": [
+        1.1000000000001364,
+        2.099999999999909,
+        3.099999999999909,
+        4.100000000000364,
+        5.400000000000091,
+        7.0,
+        9.199999999999818,
+        12.400000000000091,
+        19.59999999999991
+      ],
+      "placebo_distance_deciles": [
+        5.5249285302220645,
+        9.50621202333473,
+        12.761553300486867,
+        16.00790517568771,
+        19.367132201107438,
+        23.52355368328299,
+        29.175808370849946,
+        36.799243084182095,
+        53.61292250079038
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 1.6% vs real 7.0% (ratio 0.22, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.37 vs real 5.4 (ratio 3.59, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "open_RTH",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.863237139272271,
+      "placebo_touch_rate": 0.07578419071518193,
+      "real_distance_median": 0.0,
+      "placebo_distance_median": 18.84028218854337,
+      "real_distance_deciles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "placebo_distance_deciles": [
+        8.154711161530715,
+        10.924095240279167,
+        13.603767876046641,
+        16.028164008740443,
+        18.84028218854337,
+        22.222725887228897,
+        27.098607459963205,
+        33.565546672744496,
+        47.58178608909656
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 7.6% vs real 86.3% (ratio 0.09, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+      ]
+    },
+    {
+      "level_type": "open_CME",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.9653701380175659,
+      "placebo_touch_rate": 0.1578419071518193,
+      "real_distance_median": 0.0,
+      "placebo_distance_median": 19.345565402381908,
+      "real_distance_deciles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "placebo_distance_deciles": [
+        8.280425702026243,
+        10.931629258595924,
+        13.479753697138994,
+        16.254555527063488,
+        19.345565402381908,
+        23.158074633376874,
+        28.05858105771658,
+        34.49615290078619,
+        47.62438998785674
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 15.8% vs real 96.5% (ratio 0.16, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+      ]
+    },
+    {
+      "level_type": "fvg_w2_1m",
+      "product": "MGC",
+      "n_real": 1164509,
+      "n_placebo": 1164509,
+      "real_touch_rate": 0.8920540760097174,
+      "placebo_touch_rate": 0.09940412654603786,
+      "real_distance_median": 0.3500000000001364,
+      "placebo_distance_median": 18.905481561373335,
+      "real_distance_deciles": [
+        0.09999999999990905,
+        0.15000000000009095,
+        0.20000000000004547,
+        0.29999999999972715,
+        0.3500000000001364,
+        0.4999999999997726,
+        0.6499999999998636,
+        0.8999999999998636,
+        1.4500000000000455
+      ],
+      "placebo_distance_deciles": [
+        8.073470648546936,
+        10.880454225548283,
+        13.500849295010084,
+        16.090213011207744,
+        18.905481561373335,
+        22.47529831377419,
+        27.014524032908138,
+        33.281066860542566,
+        45.634957363623855
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.9% vs real 89.2% (ratio 0.11, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 18.91 vs real 0.35 (ratio 54.02, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w2_5m",
+      "product": "MGC",
+      "n_real": 236873,
+      "n_placebo": 236873,
+      "real_touch_rate": 0.8294655786011914,
+      "placebo_touch_rate": 0.10349849919577157,
+      "real_distance_median": 0.650000000000091,
+      "placebo_distance_median": 18.95506229841044,
+      "real_distance_deciles": [
+        0.15000000000009095,
+        0.25,
+        0.3500000000001364,
+        0.5,
+        0.650000000000091,
+        0.8999999999998636,
+        1.199999999999818,
+        1.650000000000091,
+        2.7000000000000455
+      ],
+      "placebo_distance_deciles": [
+        8.026415267388256,
+        10.890597262619485,
+        13.553522872709255,
+        16.140579239569345,
+        18.95506229841044,
+        22.451593024837575,
+        26.797487231575403,
+        32.93905074906297,
+        45.08845767504331
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.3% vs real 82.9% (ratio 0.12, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 18.96 vs real 0.65 (ratio 29.16, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w4_1m",
+      "product": "MGC",
+      "n_real": 609520,
+      "n_placebo": 609520,
+      "real_touch_rate": 0.8400413440084,
+      "placebo_touch_rate": 0.09637911799448746,
+      "real_distance_median": 0.5499999999999545,
+      "placebo_distance_median": 21.402232572428034,
+      "real_distance_deciles": [
+        0.20000000000004547,
+        0.25,
+        0.34999999999990905,
+        0.40000000000009095,
+        0.5499999999999545,
+        0.6999999999998181,
+        0.900000000000091,
+        1.25,
+        1.9500000000000455
+      ],
+      "placebo_distance_deciles": [
+        8.93395167722581,
+        12.115914613333462,
+        15.080841557760364,
+        18.054965664397834,
+        21.402232572428034,
+        25.4093846294189,
+        30.552790597556054,
+        38.19417140839296,
+        56.72821154913762
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.6% vs real 84.0% (ratio 0.11, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 21.4 vs real 0.55 (ratio 38.91, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w4_5m",
+      "product": "MGC",
+      "n_real": 160236,
+      "n_placebo": 160236,
+      "real_touch_rate": 0.7913203025537332,
+      "placebo_touch_rate": 0.10075763249207419,
+      "real_distance_median": 0.8500000000001364,
+      "placebo_distance_median": 20.61260033677138,
+      "real_distance_deciles": [
+        0.25,
+        0.3500000000003638,
+        0.5,
+        0.650000000000091,
+        0.8500000000001364,
+        1.1000000000001364,
+        1.4500000000007276,
+        2.0499999999999545,
+        3.2999999999999545
+      ],
+      "placebo_distance_deciles": [
+        8.63290669115463,
+        11.72043886350616,
+        14.626972492111918,
+        17.45892573835249,
+        20.61260033677138,
+        24.42020683386113,
+        29.133249448375523,
+        36.039658476813884,
+        51.49688798506145
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.1% vs real 79.1% (ratio 0.13, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 20.61 vs real 0.85 (ratio 24.25, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w8_1m",
+      "product": "MGC",
+      "n_real": 224498,
+      "n_placebo": 224498,
+      "real_touch_rate": 0.7921228696914895,
+      "placebo_touch_rate": 0.09753761726162372,
+      "real_distance_median": 0.8500000000003638,
+      "placebo_distance_median": 25.34667805065658,
+      "real_distance_deciles": [
+        0.40000000000009095,
+        0.5,
+        0.599999999999909,
+        0.7000000000000455,
+        0.8500000000003638,
+        1.099999999999909,
+        1.400000000000091,
+        1.949999999999818,
+        3.0
+      ],
+      "placebo_distance_deciles": [
+        10.250489190670896,
+        13.986512145952839,
+        17.583610613162953,
+        21.279462502589602,
+        25.34667805065658,
+        30.309825029499006,
+        37.19287446841558,
+        49.26206965200886,
+        81.97470219442057
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.8% vs real 79.2% (ratio 0.12, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 25.35 vs real 0.85 (ratio 29.82, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "fvg_w8_5m",
+      "product": "MGC",
+      "n_real": 79588,
+      "n_placebo": 79588,
+      "real_touch_rate": 0.7538573654319747,
+      "placebo_touch_rate": 0.10186208976227572,
+      "real_distance_median": 1.2999999999999545,
+      "placebo_distance_median": 23.48722705691921,
+      "real_distance_deciles": [
+        0.5,
+        0.6499999999998636,
+        0.7999999999999545,
+        1.0499999999997272,
+        1.2999999999999545,
+        1.650000000000091,
+        2.150000000000091,
+        2.9500000000000455,
+        4.600000000000364
+      ],
+      "placebo_distance_deciles": [
+        9.511417972172058,
+        13.066098564712457,
+        16.369690654367695,
+        19.76515059228814,
+        23.48722705691921,
+        27.864180862054535,
+        33.86239551236523,
+        43.29432698020797,
+        69.10835747709825
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.2% vs real 75.4% (ratio 0.14, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 23.49 vs real 1.3 (ratio 18.07, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema20_5m",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.6755332496863237,
+      "placebo_touch_rate": 0.057465495608531994,
+      "real_distance_median": 1.7326201656883313,
+      "placebo_distance_median": 19.32547591246498,
+      "real_distance_deciles": [
+        0.25604642849193626,
+        0.5449941080491044,
+        0.8579628075090114,
+        1.2689772106798045,
+        1.7326201656883313,
+        2.2899825738307302,
+        3.0907207165264023,
+        4.251225464957362,
+        6.5608826527366535
+      ],
+      "placebo_distance_deciles": [
+        7.612098576982589,
+        10.546618364373535,
+        13.299572789194098,
+        16.168744056924698,
+        19.32547591246498,
+        23.025442611939706,
+        28.018035922644227,
+        35.35774674959595,
+        47.923975639544715
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 5.7% vs real 67.6% (ratio 0.09, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.33 vs real 1.733 (ratio 11.15, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema20_15m",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.5465495608531995,
+      "placebo_touch_rate": 0.06700125470514429,
+      "real_distance_median": 2.872120241212315,
+      "placebo_distance_median": 19.219265031174473,
+      "real_distance_deciles": [
+        0.4403974991719224,
+        0.9503292822044842,
+        1.5251913302726279,
+        2.1333602129711844,
+        2.872120241212315,
+        3.9714439277107885,
+        5.42290318234418,
+        7.214221353553559,
+        10.985042951440208
+      ],
+      "placebo_distance_deciles": [
+        7.006170441011318,
+        10.241018925750813,
+        13.327330846424228,
+        16.115740188856854,
+        19.219265031174473,
+        23.018948484509746,
+        27.94381120822131,
+        34.99963172462995,
+        48.965478068512304
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 6.7% vs real 54.7% (ratio 0.12, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.22 vs real 2.872 (ratio 6.69, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema50_5m",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.5560853199498118,
+      "placebo_touch_rate": 0.0685069008782936,
+      "real_distance_median": 2.7566690042592654,
+      "placebo_distance_median": 18.865128470487207,
+      "real_distance_deciles": [
+        0.42064775860203557,
+        0.906283563140687,
+        1.4626613948473277,
+        2.012344930728159,
+        2.7566690042592654,
+        3.826472338209533,
+        5.162648531155173,
+        6.886340373828671,
+        10.480218581434793
+      ],
+      "placebo_distance_deciles": [
+        6.8338390544496646,
+        10.11786168990666,
+        13.044549102191695,
+        15.85368969167539,
+        18.865128470487207,
+        22.874750350750492,
+        27.820759230814698,
+        34.543927654812386,
+        48.649848199300315
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 6.9% vs real 55.6% (ratio 0.12, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 18.87 vs real 2.757 (ratio 6.84, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema50_15m",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.44993726474278545,
+      "placebo_touch_rate": 0.08306148055207026,
+      "real_distance_median": 4.044467437154253,
+      "placebo_distance_median": 19.25605685982714,
+      "real_distance_deciles": [
+        0.6615924973292749,
+        1.3399737504177212,
+        2.113168576436601,
+        2.977915715642803,
+        4.044467437154253,
+        5.441613810729951,
+        7.59452316204688,
+        10.317296862904373,
+        15.919493517925728
+      ],
+      "placebo_distance_deciles": [
+        6.315060871956985,
+        9.757985514474651,
+        12.84514118975253,
+        15.94400144366696,
+        19.25605685982714,
+        23.41964814739654,
+        28.729022255493547,
+        36.50005924745729,
+        50.78368275489351
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 8.3% vs real 45.0% (ratio 0.18, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.26 vs real 4.044 (ratio 4.76, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema200_5m",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.4273525721455458,
+      "placebo_touch_rate": 0.08005018820577164,
+      "real_distance_median": 4.5399393156585575,
+      "placebo_distance_median": 19.475965870579557,
+      "real_distance_deciles": [
+        0.7335879494068649,
+        1.4976243502517264,
+        2.3474941800236593,
+        3.2503140756061386,
+        4.5399393156585575,
+        6.036206935557494,
+        8.30178538371574,
+        11.50276650386768,
+        17.88137497144635
+      ],
+      "placebo_distance_deciles": [
+        6.16940116333044,
+        9.708197446839677,
+        12.791384324080537,
+        16.060719140370477,
+        19.475965870579557,
+        23.82446369992149,
+        28.825416215915215,
+        35.969033420880315,
+        51.59800892082057
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 8.0% vs real 42.7% (ratio 0.19, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.48 vs real 4.54 (ratio 4.29, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "ema200_15m",
+      "product": "MGC",
+      "n_real": 3985,
+      "n_placebo": 3985,
+      "real_touch_rate": 0.30664993726474277,
+      "placebo_touch_rate": 0.10338770388958594,
+      "real_distance_median": 7.053681818766563,
+      "placebo_distance_median": 19.619179627502035,
+      "real_distance_deciles": [
+        1.2536361566566487,
+        2.450644300876684,
+        3.8648759492494267,
+        5.306762767168675,
+        7.053681818766563,
+        9.291519299752055,
+        12.453337765664719,
+        16.884844996274076,
+        25.860720694041266
+      ],
+      "placebo_distance_deciles": [
+        4.8589247564825655,
+        8.549648454433873,
+        12.116586667411957,
+        15.824943814029897,
+        19.619179627502035,
+        23.817428146721795,
+        29.378515071717445,
+        37.42826859782097,
+        54.62121472245902
+      ],
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 10.3% vs real 30.7% (ratio 0.34, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DISTANCE MISMATCH: placebo median distance 19.62 vs real 7.054 (ratio 2.78, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+      ]
+    },
+    {
+      "level_type": "prior_week",
+      "product": "MGC",
+      "n_real": 1652,
+      "n_placebo": 1652,
+      "real_touch_rate": 0.18401937046004843,
+      "placebo_touch_rate": 0.1725181598062954,
+      "real_distance_median": 21.700000000000045,
+      "placebo_distance_median": 25.714702652870983,
+      "real_distance_deciles": [
+        4.009999999999994,
+        7.720000000000032,
+        11.630000000000036,
+        16.399999999999956,
+        21.700000000000045,
+        27.4,
+        34.799999999999955,
+        47.180000000000085,
+        71.70000000000002
+      ],
+      "placebo_distance_deciles": [
+        4.744612613124264,
+        9.024087999454697,
+        13.900721689801342,
+        19.582925411748967,
+        25.714702652870983,
+        32.87834971394868,
+        43.17625847373167,
+        58.64944411941498,
+        92.42247269226011
+      ],
+      "failures": []
+    },
+    {
+      "level_type": "prior_month",
+      "product": "MGC",
+      "n_real": 380,
+      "n_placebo": 380,
+      "real_touch_rate": 0.12631578947368421,
+      "placebo_touch_rate": 0.10526315789473684,
+      "real_distance_median": 47.450000000000045,
+      "placebo_distance_median": 50.596795209161996,
+      "real_distance_deciles": [
+        7.360000000000081,
+        17.95999999999999,
+        26.439999999999987,
+        36.15999999999999,
+        47.450000000000045,
+        57.62000000000017,
+        79.48999999999992,
+        106.34000000000003,
+        150.50000000000023
+      ],
+      "placebo_distance_deciles": [
+        8.76128411089603,
+        17.799203734783895,
+        26.66772665932663,
+        37.53489999160178,
+        50.596795209161996,
+        61.01288896847373,
+        75.73498468977868,
+        101.61496415935306,
+        152.7070498028971
+      ],
+      "failures": []
+    }
+  ]
+}
