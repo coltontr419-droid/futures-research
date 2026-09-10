@@ -281,6 +281,21 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         t, _ = D.touches(g, lv, 2, product)
         check_placebo(f"prior_{kind}", lv, t, 2)
 
+    # ---------------------------------------------------------------- L11
+    print(f"    {product} L11 bollinger bands ...", flush=True)
+    # PERIOD AND k ARE NOT SWEPT. 20 and 2.0 are fixed a priori because L11's only mechanism
+    # is that those specific numbers are the ones platforms draw by default. Sweeping them
+    # would test a different claim; see hypotheses.yaml L11 and decisions.md 39.
+    for side, lv in zip(("upper", "lower"), D.bollinger_levels(g, 20, 2.0, 60)):
+        if lv.price.size == 0:
+            continue
+        for kb in (1, 2, 3):
+            f, mins = D.confirmed_break(g, lv, kb, product)
+            add("L11", f"bb20k2 60m {side} kbars={kb}", [60, 120, 180],
+                _fired_keys(lv.row, mins, f))
+        t, _ = D.touches(g, lv, 2, product)
+        check_placebo(lv.kind, lv, t, 2)
+
     # ---------------------------------------------------------------- disjointness
     disj: list[Disjointness] = []
     for hyp, cells in fires.items():

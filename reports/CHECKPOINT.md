@@ -149,13 +149,29 @@ Fixed in the entries, not by loosening the tests:
   ever measured, and it was measured on the one machine where the untracked package existed.
   **The 70-test gap is the finding, not either number** — see `decisions.md` §36. Now closed:
   `.gitignore` had `data/` unanchored, which excluded `src/futuresres/data/` from every commit
-  ever made. A clean clone reads the full suite from commit 160ed05 onward, verified.
+  ever made.
+- **Measured on a clean checkout of `9fd2ae5` (2026-09-10): 372 collected, 360 passed, 12
+  skipped by design — but ONLY after `pip install zstandard`.** From the declared dependencies
+  alone it was 2 collection errors, because `data/parse.py` imports `zstandard` and
+  `pyproject.toml` never listed it. **An untracked module has untracked requirements**, and
+  restoring one does not restore the other. Declared now; `decisions.md` §39. The earlier
+  claim here that "a clean clone reads the full suite from 160ed05 onward" was true of the
+  code and false of the environment. **After L11's registration the suite is 378 collected /
+  366 passed / 12 skipped** — the 6 added tests are `bollinger_levels` band arithmetic on
+  synthetic input, which needs no market data.
 - **N = 684, SR\* = 0.1357.** L07 Stage 1 spent 108 trials on 2026-09-09 (was 576 / 0.1335). The repo now has a private remote at
   `github.com/coltontr419-droid/futures-research` and all commits are pushed; it had none
   until 2026-09-09, while every other programme depended on its detection floors.
-- `trials.jsonl` N = 576, chain verified. `measurements.jsonl` 120 records including F14's
-  three control runs and the firing-rate measurements.
-- No L-series trial spent. No Stage 1 run since F06.
+- `trials.jsonl` **N = 684, chain verified** (`ChainResult(ok=True, n_records=684)`,
+  re-verified 2026-09-10). `measurements.jsonl` holds F14's three control runs, the
+  firing-rate measurements, and L07's market-state comparison as m00115.
+  **The "N = 576" this line used to carry contradicted the line directly above it.**
+- **L07 spent 108 trials and ran Stage 1 on 2026-09-09** — retired, registered mechanism
+  refuted; `decisions.md` §38. The previous "no L-series trial spent, no Stage 1 since F06"
+  was stale on both counts.
+- **L11 registered 2026-09-10** — Bollinger band breakout, Stage 0 only, `schedulable: false`,
+  firing rate and placebo match **not measured** because `data/continuous/` is absent on the
+  laptop. No trial spent. `decisions.md` §39.
 
 ## To resume
 

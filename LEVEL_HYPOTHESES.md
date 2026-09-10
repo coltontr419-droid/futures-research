@@ -514,6 +514,49 @@ Logs to `measurements.jsonl`, not `trials.jsonl`.
 
 ---
 
+## L11 — Bollinger Band Breakout
+
+**Params: 2** | **Both** | **Fires: NOT MEASURED**
+
+Confirmed break of a Bollinger boundary on 1h bars, mean ± k·σ, trading in the direction of
+the break. **Period 20 and k 2.0 are fixed a priori and are not swept.**
+
+**Premise: weak, and it is the same weak premise as L08.** No institution executes against a
+20-period 2-sigma band. The only story available is self-fulfilling — enough traders watch the
+same platform defaults that resting orders and stops cluster near the boundary, so a break
+through it meets thinner liquidity and continues. That is *the premise that disqualified F11
+as a control*: "widely watched, therefore orders cluster" is a claim about the market, not a
+structural fact about how it operates. Testing it is legitimate. Assuming it is not.
+
+**The counterparty, such as it is:** the retail trader whose stop sits just beyond a band
+because a charting platform drew the line there on its default settings. A real person
+transacting for a non-informational reason, which is what §7 asks for — but nothing obliges
+them to be there, and this entry does not pretend otherwise.
+
+**Why the settings are frozen.** The mechanism *is* that these particular numbers are the
+watched ones. A period chosen because it scored better carries no self-fulfilling story at
+all — it is an ordinary volatility-breakout rule with a fitted lookback, which is a different
+hypothesis with no mechanism section. L08 names the same tell: *if 47 works and 50 does not,
+that is the tell.* The level type records the settings in its own name (`bb20k2_60m_upper`),
+so a swept variant appearing in a later report is visible as one.
+
+**Upper and lower are separate level types.** Price is not symmetrically placed between the
+bands, so their distance distributions differ. One shared type would let a placebo drawn for
+the upper stand in for the lower and quietly break the matching.
+
+**Provenance, and it carries no weight.** The idea came from a third-party claim with no
+accessible trial count, no cost assumption and no control — so there is no way to know how
+many settings were tried before that one was published, whether the reported edge survives a
+spread, or what it was compared against. An unaudited claim is a reason to ask the question
+and is not evidence for the answer.
+
+**Open before this can be scheduled:** the firing rate and the placebo match, neither
+measured. The placebo question is genuine rather than a formality — bands widen with
+volatility, so a boundary's distance from price is not stationary the way a prior-week
+extreme's is, which is exactly what the ±25% distance and touch criteria exist to catch.
+
+---
+
 # Testing order
 
 Measure all firing rates first — one batch, before anything is scheduled.
@@ -530,6 +573,7 @@ Measure all firing rates first — one batch, before anything is scheduled.
 | 7 | L05 | test L02 overlap first — may be the same hypothesis |
 | 8 | L08 | weak mechanism, registered for completeness |
 | — | L09 | measure rate, expect to block |
+| — | L11 | measure rate AND placebo match first; weak mechanism, no prior weight |
 
 ---
 

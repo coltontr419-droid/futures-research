@@ -1666,6 +1666,143 @@ with its own mechanism section, and it is not this one.
    candidate, so it logged to `measurements.jsonl` as m00115 on the same reasoning that keeps
    firing rates out of N.
 
+## 39. The gitignore fix exposed a second missing dependency; L11 registered unmeasured
+
+Two unrelated things, both consequences of the same repair.
+
+### The 372/360/12 claim is confirmed, and it needs one package nobody declared
+
+Verified on a clean checkout of `9fd2ae5`: **360 passed, 12 skipped, 372 collected.** The 12
+skips are `test_roll.py`'s "batch not parsed into data/parquet", which is by design.
+
+**But it does not reproduce from `pip install -e ".[dev]"` alone.** The first run gave 2
+collection errors:
+
+```
+src/futuresres/data/parse.py:69: in <module>
+    import zstandard
+E   ModuleNotFoundError: No module named 'zstandard'
+```
+
+`zstandard` was not in `pyproject.toml`. Installing it turns 2 errors and 360 tests into
+exactly the claimed 372/360/12, which is what pins the diagnosis: the undeclared dependency
+was the whole gap.
+
+**This is the gitignore bug's shadow, not a separate oversight.** For as long as the
+unanchored `data/` rule excluded `src/futuresres/data/` from every commit (36), no clean
+clone could import the package - so no clean clone could ever discover what it needed, and
+the requirement lived only in the working environment of the one machine that had the files.
+The dependency was untestable for the same reason the code was invisible. Anchoring the rule
+made the package importable, and the first thing importing it revealed was that it could not
+be imported.
+
+**Fixed by declaring `zstandard>=0.22`**, with a comment saying why it was missing. The lesson
+is not "check dependencies" - it is that **an untracked module has untracked requirements**,
+and restoring one does not restore the other. Anything else that package needs at runtime and
+that happens to be installed on the PC is still unverified here; the tests exercise the import
+path, which is the part that can be checked from a clean clone.
+
+### L11 registered - Bollinger band breakout, Stage 0 only
+
+Registered 2026-09-10. **`schedulable: false`, no firing rate, no placebo match, no Stage 1,
+no trial. N stays at 684 and SR\* at 0.1357.**
+
+**The mechanism is weak and the entry says so in the same terms L08 does.** No institution
+executes against a 20-period 2-sigma band. The only story is self-fulfilling order clustering
+at default platform settings - which is *the same premise that disqualified F11 as a control*,
+because it is a claim about the market rather than a structural fact about it. Testing it is
+legitimate; the grade reflects the prior, D+.
+
+**Period 20 and k 2.0 are frozen a priori and the freeze is load-bearing.** The mechanism is
+that *these particular numbers* are the watched ones. A period chosen because it scored better
+would carry no self-fulfilling story at all - it would be an ordinary volatility-breakout rule
+with a fitted lookback, which is a different hypothesis with no mechanism section. L08's
+condition already names the tell in these words: *"if 47 works and 50 does not, that is the
+tell."* The level type's own name records the settings (`bb20k2_60m_upper`), so a swept
+variant appearing in a later report is visible as one.
+
+**Upper and lower are separate level types.** Price is not symmetrically placed between the
+bands, so their distance distributions differ; one shared type would let a placebo drawn for
+the upper stand in for the lower and quietly break the matching.
+
+**Provenance recorded, and it carries no weight.** The idea came from a third-party claim with
+**no accessible trial count, no cost assumption and no control**. There is no way to know how
+many settings were tried before that one was published, whether the reported edge survives a
+spread, or what it was compared against. An unaudited claim is a reason to ask the question
+and is not evidence for the answer. It is written into the entry because where an idea came
+from belongs in the record even when the answer is "nowhere usable" - a later reader should
+not assume this arrived with support it never had.
+
+**The two required measurements were NOT taken, and that is a machine limitation.**
+`data/continuous/` does not exist on this laptop, so the firing rate and the placebo match
+cannot be counted here. What was done instead:
+
+- `bollinger_levels` is written and **unit-tested on synthetic input** - band arithmetic
+  against an independently computed mean and population sigma, zero-width bands on a
+  motionless market, upper never below lower, warm-up NaN rather than back-filled, and the
+  two level types distinct. None of that needs the real series.
+- The L11 block in `reporting/level_rates.py` is written and committed, so the measurement is
+  one run away on a machine holding the data.
+- `firing_rate.measured: false` and `placebo_match.measured: false` are recorded **as false
+  rather than left absent**, which is the distinction 36 was about: an entry with no
+  `firing_rate` block reads as unmeasured-and-unnoticed, one with an explicit false reads as
+  unmeasured-and-known.
+
+**No rate was declared.** Declaring an expected one would be precisely the substitution the
+F05 history warns about, where an unmeasured rate fell through to the most generous
+assumption available exactly where least was known.
+
+**The placebo match is genuinely open, not a formality.** Bands widen with volatility, so a
+boundary's distance from price is not stationary the way a prior-week extreme's is. That is
+the kind of thing the +/-25% distance and touch criteria exist to catch, and an unmatched
+level type must not run Stage 1 (37).
+
+### Decisions taken rather than resolved silently
+
+1. **`zstandard` declared rather than the import made optional.** `parse.py` cannot read a
+   `.zst` extract without it; a lazy import would turn a missing dependency into a runtime
+   failure deep in a batch parse instead of an import-time one.
+2. **L11 gets `registered_test_order: 20` and `test_order: null`**, the same handling every
+   unscheduled entry uses, so the ordering has no unexplained gap.
+3. **The aggregate route is assumed closed across `kbars`, and NOT assumed either way for
+   upper against lower.** kbars nests - a break confirmed at 3 bars was confirmed at 1 - so
+   those cells share entries almost entirely. Whether the two sides are disjoint is a
+   measurement and is left as one.
+4. **The mirror of L07 is still not registered**, and nothing here changes that. 38 gives the
+   reasons; none of them was trial budget.
+
+### The registry's own tests caught four defects in the registration
+
+Written up because 36 decision 4 made the same point and it held again: the entry was wrong
+in four ways and `test_registry_consistency.py` found all of them before the commit.
+
+1. **`test_order: null` on an `untested` entry.** The rule is that untested non-control
+   entries carry a live order - an entry outside the ordering is invisible to it. L11 is
+   `untested` rather than `blocked_insufficient_events`, because it is short a *measurement*,
+   not short *events*; nothing about the market is being claimed. So it needs a live order.
+2. **`registered_test_order: 20` left an unexplained gap at 19.** Orders 1-18 were taken.
+   Corrected to 19. The gap rule exists so that a missing number always means a resolved
+   hypothesis rather than a typo, and it worked exactly that way here.
+3. **No catalog section.** `LEVEL_HYPOTHESES.md` had no `## L11` heading, so registry and
+   catalog disagreed in both directions - two separate tests, one for each direction, which
+   is why the disagreement could not be half-fixed.
+4. Fixed **in the entry and the catalog, never by loosening a test** - the same handling 36
+   used for the five registry defects its tests caught then.
+
+**None of these would have been visible by reading the entry.** They are relational
+properties - between an entry and the ordering, and between two documents - and that is the
+category a human review reliably misses.
+
+### Open, and recorded rather than closed
+
+- **L07 direction-mix asymmetry.** Whether real and placebo entries fire on bullish versus
+  bearish zones in the same proportion is still unmeasured. If they do not, drift contributes
+  to the sign of 38's result. Carried from 38 unchanged.
+- **The `d ATR` reference period for L01/L06/L08** remains frozen. It is a specification
+  change, not a bug fix, and picking the period that makes L01 schedulable would be picking a
+  parameter to get a result.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

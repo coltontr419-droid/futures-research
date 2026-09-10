@@ -333,6 +333,53 @@ def ema_levels(g: Grid, period: int, tf: int) -> LevelSet:
                   g.close[:, min(RTH_OPEN + 60, ROW_MINUTES - 1)])
 
 
+def bollinger_levels(g: Grid, period: int = 20, k: float = 2.0,
+                     tf: int = 60) -> tuple[LevelSet, LevelSet]:
+    """L11's band boundaries on `tf`-minute bars, sampled once per row at 10:30 ET.
+
+    PERIOD AND k ARE FIXED A PRIORI at the standard 20 and 2.0 and are NOT swept. That is
+    the whole point of the registration: the mechanism on offer is that these PARTICULAR
+    settings are the ones chart platforms draw by default, so orders cluster near them. A
+    period chosen because it scored better would be a different claim carrying no
+    self-fulfilling story at all - and it is the same tell L08's condition names, where "if
+    47 works and 50 does not" is evidence against the premise rather than for the parameter.
+
+    Sampled once per row rather than followed as a curve, exactly as `ema_levels` does, so
+    the band boundary is a LEVEL and the existing placebo construction applies to it
+    unchanged. `ema_curve`/`curve_touches` exist for the curve reading and L11 does not use
+    them.
+
+    Returns (upper, lower) as SEPARATE LevelSets. A break above the upper band and one below
+    the lower band are different events; giving them one level type would let a placebo drawn
+    for the upper stand in for the lower, and the distance distributions are not the same.
+
+    Population sigma (ddof=0) over a window that INCLUDES the current bar - both are the
+    standard definition and both are what the platform draws, which is the only thing that
+    makes the order-clustering story coherent. Warm-up rows are NaN rather than
+    back-filled: a band computed from fewer than `period` bars is not the band anyone is
+    watching.
+    """
+    step = int(tf)
+    sampled = g.close[:, ::step]
+    flat = sampled.ravel().astype(float)
+    mean = np.full(flat.size, np.nan)
+    sd = np.full(flat.size, np.nan)
+    if flat.size >= period:
+        win = np.lib.stride_tricks.sliding_window_view(flat, period)
+        mean[period - 1:] = win.mean(axis=1)
+        sd[period - 1:] = win.std(axis=1)
+    upper = (mean + k * sd).reshape(sampled.shape)
+    lower = (mean - k * sd).reshape(sampled.shape)
+
+    col = min((RTH_OPEN + 60) // step, sampled.shape[1] - 1)
+    rows = np.arange(g.n)
+    valid = np.full(g.n, RTH_OPEN + 60 + 1)
+    ref = g.close[:, min(RTH_OPEN + 60, ROW_MINUTES - 1)]
+    tag = f"bb{period}k{k:g}_{tf}m"
+    return (_stack(f"{tag}_upper", upper[:, col], rows, valid, ref),
+            _stack(f"{tag}_lower", lower[:, col], rows, valid, ref))
+
+
 def fvg_zones_directed(g: Grid, w_ticks: int, tf: int,
                        product: str) -> tuple[LevelSet, np.ndarray, np.ndarray]:
     """Three-bar imbalances with the two properties `fvg_zones` throws away.

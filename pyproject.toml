@@ -16,6 +16,13 @@ dependencies = [
     "pyarrow>=15.0",
     "matplotlib>=3.8",
     "pyyaml>=6.0",
+    # THE DATA LAYER IMPORTS THIS AND NOTHING DECLARED IT. `data/parse.py` reads
+    # DBN .zst extracts through `zstandard`, but the dependency was invisible for as long as
+    # `src/futuresres/data/` was excluded from the repo by the unanchored `data/` gitignore
+    # rule (decisions.md 36) - nothing could import the package from a clean clone, so
+    # nothing could discover what it needed. Fixing the gitignore exposed it: a fresh
+    # checkout collected 2 errors and could not run 12 tests. decisions.md 39.
+    "zstandard>=0.22",
     # session mapping is load-bearing here in a way it was not for 24/7 crypto: every
     # session-anchored hypothesis depends on it, and tzdata is what makes zoneinfo work
     # on Windows, where the OS ships no IANA database.
