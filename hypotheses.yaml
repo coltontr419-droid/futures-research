@@ -2098,13 +2098,13 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
   grade: C
   tier: B
   param_cap: 4
   session: US
   symbols: [MNQ, MGC]
-  test_order: 11
+  registered_test_order: 11
+  test_order: null
   schedulable: false
   mechanism_instruments:
     primary: MNQ
@@ -2163,6 +2163,102 @@
     measured_on: '2026-09-09'
     note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
       and is deliberately left as written.
+
+  # ---- STAGE 1 RUN AND CLOSED 2026-09-10. reports/l07_stage1.md, decisions.md 38. ----
+  # 108 trials, t-series, logged BEFORE the run. N 576 -> 684, SR* 0.1335 -> 0.1357.
+  #
+  # 108 OF 108 CELLS SEPARATE, both instruments, all three horizons, against 2.7 expected
+  # by chance per product. THAT IS NOT A FINDING and was predicted in advance: at 24,788 to
+  # 863,490 paired events a separation is assured for any effect that is not exactly zero,
+  # so the p-value measures sample size rather than substance.
+  #
+  # THE ECONOMICS IS THE RESULT, AND IT IS NEGATIVE EVERYWHERE.
+  #   MGC  -5.008 to -1.176 bps   1.8x to  7.7x the 0.65 bps cost floor
+  #   MNQ  -4.962 to -1.191 bps   2.5x to 10.3x the 0.48 bps cost floor
+  #
+  # THE DECOMPOSITION IS SHARPER THAN THE DIFFERENCE. It is not that the real zone is less
+  # good: THE REAL ZONE LOSES AND THE PLACEBO WINS. The same directional rule at a matched
+  # arbitrary region is positive (+0.9 to +1.9 bps); at a real fair-value gap it is negative
+  # (-1.0 to -1.7). Conditioning on the region being a real gap REVERSES THE SIGN.
+  #
+  # THE REGISTERED MECHANISM IS REFUTED IN THE DIRECTION IT WAS STATED. This entry said in
+  # writing that it did not believe its own counterparty existed - "a zone that traded
+  # through quickly is evidence of ABSENT interest, not resting interest". That scepticism
+  # is now measured rather than asserted.
+  #
+  # WHAT IS NOT ESTABLISHED, and it is not small. Real entries fire a median of 16 minutes
+  # earlier than their placebos on MGC and 47 on MNQ, ranging to 81 - so the two are not
+  # sampling the same part of the session, and this design cannot separate a difference in
+  # REACTION from a difference in WHEN. The volatility confound that was expected did NOT
+  # appear (real entries follow 4-11% LESS prior volatility, not more) but the structural
+  # limitation decisions.md 37 recorded still applies. reports/l07_market_state.md.
+  #
+  # Direction-mix asymmetry between real and placebo entries was NOT measured and is an open
+  # competing explanation, recorded rather than dismissed.
+  #
+  # THE MIRROR HYPOTHESIS IS NOT REGISTERED. The sign came from looking at this data, so
+  # registering the opposite direction is selecting a hypothesis by its result, and trial
+  # budget does not repair that. It also has no mechanism: the registered story is unfilled
+  # orders finally getting filled, which predicts reaction AT the zone, not continuation
+  # THROUGH it. If it is worth testing it must be frozen and run on data that did not
+  # generate it.
+  status: retired
+  retired: 2026-09-10
+  ran_on: 2026-09-10
+  report: reports/l07_stage1.md
+  cells_data: reports/l07_cells.json
+  market_state: reports/l07_market_state.md
+  trials_spent: 108
+  cells_consumed: 108
+  stage1_result: >
+    108 of 108 cells separate on both instruments against 2.7 expected by chance per
+    product - predicted in advance and not a finding at 24,788-863,490 paired events. The
+    difference is NEGATIVE IN EVERY CELL at 1.8x-10.3x the round-trip cost floor, and the
+    decomposition is sharper than the difference: the real zone LOSES (-1.0 to -1.7 bps)
+    while the matched placebo WINS (+0.9 to +1.9). Conditioning on the region being a real
+    fair-value gap reverses the sign of the trade.
+  results:
+    MGC:
+      tests: 54
+      nominal_separations: 54
+      expected_by_chance: 2.7
+      bh_survivors_fdr_0.05: 54
+      diff_bps_min: -5.0076
+      diff_bps_max: -1.1757
+      every_cell_negative: true
+      mean_real_bps: -1.4227
+      mean_placebo_bps: 1.2672
+      cost_floor_bps: 0.65
+      abs_diff_over_cost_min: 1.81
+      abs_diff_over_cost_max: 7.7
+    MNQ:
+      tests: 54
+      nominal_separations: 54
+      expected_by_chance: 2.7
+      bh_survivors_fdr_0.05: 54
+      diff_bps_min: -4.9616
+      diff_bps_max: -1.1909
+      every_cell_negative: true
+      mean_real_bps: -1.2281
+      mean_placebo_bps: 1.5877
+      cost_floor_bps: 0.48
+      abs_diff_over_cost_min: 2.48
+      abs_diff_over_cost_max: 10.34
+
+  retired_reason: >
+    Ran with a matched placebo control. 108 of 108 cells separate, which was predicted and
+    carries no information at this event count. The difference is negative in every cell on
+    both instruments at 1.8x to 10.3x the round-trip cost floor: entering at a real
+    fair-value gap under the registered direction is systematically WORSE than entering at
+    an equally-reachable arbitrary region, and the real leg loses while the placebo leg
+    wins. The registered mechanism is refuted in the direction it was stated. A residual
+    timing confound of up to 81 minutes between real and placebo entries means the
+    difference cannot be attributed to reaction at the zone specifically.
+  reopens_if: >
+    A registration with a mechanism that predicts continuation through the zone rather than
+    reaction at it, frozen before seeing data, and evaluated on history that did not
+    generate this result. The inverse of this trade is NOT that registration.
+  schedulable: false
 
 - id: L08
   name: moving_average_reaction

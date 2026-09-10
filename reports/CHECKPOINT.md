@@ -144,12 +144,12 @@ Fixed in the entries, not by loosening the tests:
 
 ## State
 
-- **370 tests with the data layer present; 300 from a clean clone** (plus 3 collection
+- **372 tests with the data layer present; 300 from a clean clone at the pre-fix commit** (plus 3 collection
   errors). Both figures are stated because for most of this project's life only the first was
   ever measured, and it was measured on the one machine where the untracked package existed.
   **The 70-test gap is the finding, not either number** — see `decisions.md` §36. Now closed:
   `.gitignore` had `data/` unanchored, which excluded `src/futuresres/data/` from every commit
-  ever made. A clean clone will read 370 from the next commit onward.
+  ever made. A clean clone reads the full suite from commit 160ed05 onward, verified.
 - **N = 684, SR\* = 0.1357.** L07 Stage 1 spent 108 trials on 2026-09-09 (was 576 / 0.1335). The repo now has a private remote at
   `github.com/coltontr419-droid/futures-research` and all commits are pushed; it had none
   until 2026-09-09, while every other programme depended on its detection floors.
@@ -173,6 +173,25 @@ Fixed in the entries, not by loosening the tests:
    exactly at the reference price, so there is no distance to match.
 4. Then: projected N and SR\*, and the disproportionate-cost flags. Both are moot while the
    placebo is invalid, since no L-series result can be reported as real-minus-placebo.
+
+**L07 HAS RUN AND IS RETIRED** (2026-09-10, `decisions.md` §38). 108 trials spent. Every one
+of 108 cells separates on both instruments against 2.7 expected by chance per product, which
+was predicted and is not a finding at these event counts. **The difference is negative in
+every cell at 1.8×–10.3× the round-trip cost floor**, and the decomposition is sharper than
+the difference: the real zone loses while the matched placebo wins, so conditioning on the
+region being a real fair-value gap *reverses the sign* of the trade. The registered mechanism
+is refuted in the direction it was stated.
+
+**The confound that was expected did not appear, and a different one did.** Real entries
+follow 4–11% *less* prior volatility than their placebos, not more. But they fire a median of
+16 minutes earlier on MGC and 47 on MNQ, up to 81 — so real and placebo are not sampling the
+same part of the session, and this design cannot separate reaction from timing.
+`reports/l07_market_state.md`.
+
+**The mirror hypothesis is NOT registered and must not be** on this evidence. The sign came
+from looking at this data, it has no mechanism — the registered story predicts reaction at the
+zone, not continuation through it — and the timing confound applies to it equally. If it is
+worth testing it has to be frozen and evaluated on history that did not generate it.
 
 **Item 3 is settled, so that bar is lifted for the level types that now match** — but read
 §37 before running anything. A Stage 1 result on a level type that still fails matching would

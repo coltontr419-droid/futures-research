@@ -1505,6 +1505,167 @@ tuning; the comparison its registration asks for does not exist.
    placebo equal to the real level, which is what a naive implementation would emit.
 5. **No Stage 1 was run and no trial was spent.** N stays at **576**, SR\* at **0.1334**.
 
+---
+
+## 38. L07 ran. Every cell separates, and that was never the question
+
+108 cells, both instruments, real fair-value-gap zones against matched placebo regions.
+Trials were logged before the run; N went 576 -> 684 and SR\* 0.1335 -> 0.1357.
+
+**The market-state comparison leads this entry rather than the effect size**, because it
+decides what the effect size is allowed to mean.
+
+### First: what the market was doing when each entry fired
+
+`decisions.md` 37 recorded that the redefined null is a **weaker** control - it equalises
+where a region sits and how often price reaches it, and **not how price arrived**. A
+fair-value gap forms by definition right after a fast directional move, so the obvious
+competing explanation was that real entries sit downstream of volatility spikes while their
+placebos do not. That would widen the difference with gap width without any difference in
+reaction at the zone, and L07's result does widen with gap width.
+
+**Measured, and the volatility story runs the other way:**
+
+| product | prior 30m vol, real/placebo | prior 60m vol | distance from open | entry time, real minus placebo |
+|---|---|---|---|---|
+| MGC | 0.96x | 0.97x | 0.98x | **-16 min** (-43 to -9) |
+| MNQ | 0.92x | 0.93x | 0.96x | **-47 min** (-81 to -11) |
+
+Real entries follow **less** prior volatility than their placebos, by 4-11%, not more. The
+mechanism is intelligible once seen: a placebo sits at a hash-drawn distance on either side,
+so price must travel to reach it, while a real zone sits adjacent to the bars that created
+it. Distance from session open matches within 4%. **The confound this measurement was built
+to catch is not there.**
+
+**But a different one is, and it is material.** Real entries fire a median of 16 minutes
+earlier than their placebos on MGC and 47 minutes earlier on MNQ, ranging to 81. Real and
+placebo entries are not sampling the same part of the session, and both volatility and drift
+vary across it. **This design cannot separate that**, exactly as 37 said it could not separate
+arrival effects generally. The specific story changed; the structural limitation did not.
+
+Worth recording for anyone reading the numbers below: median entry times sit between 05:35
+and 09:50 ET. **These are mostly overnight trades, not RTH ones.**
+
+### Second: the statistic, which carries almost no information
+
+| | MGC | MNQ |
+|---|---|---|
+| tests | 54 | 54 |
+| nominal separations | **54** | **54** |
+| expected by chance at alpha=0.05 | 2.7 | 2.7 |
+| BH survivors at FDR 0.05 | **54** | **54** |
+
+**108 of 108. Every cell, both instruments, all three horizons.** This was predicted in
+advance and is not a finding. At 24,788 to 863,490 paired events a separation is assured for
+any effect that is not exactly zero, so the p-value here measures sample size, not substance.
+The pre-registered expectation was that L07's raw fill statistic would look impressive and be
+equally impressive for placebos; what the design actually delivers is that **the difference**
+is impressive too, and the question is only how large it is and what it can be attributed to.
+
+### Third: the economics, which is the deciding number
+
+| | MGC | MNQ |
+|---|---|---|
+| difference range | -5.008 to -1.176 bps | -4.962 to -1.191 bps |
+| every cell negative | yes | yes |
+| cost floor, round trip | 0.65 bps | 0.48 bps |
+| absolute difference as a multiple of cost | **1.8x - 7.7x** | **2.5x - 10.3x** |
+
+**The difference is large relative to cost and it is negative everywhere.** Under the
+registered direction - counter to the move that created the gap - entering at a real
+fair-value gap is worse than entering at a matched arbitrary region, by several times the
+round-trip cost, on both instruments, at every horizon and every parameter setting tested.
+
+### The decomposition is sharper than the difference
+
+| product | horizon | real, mean bps | placebo, mean bps | difference |
+|---|---|---|---|---|
+| MGC | 60 | -1.069 | +0.915 | -1.984 |
+| MGC | 120 | -1.493 | +1.322 | -2.814 |
+| MGC | 180 | -1.706 | +1.565 | -3.271 |
+| MNQ | 60 | -1.008 | +1.149 | -2.157 |
+| MNQ | 120 | -1.249 | +1.669 | -2.918 |
+| MNQ | 180 | -1.427 | +1.945 | -3.373 |
+
+**It is not that the real zone is less good. The real zone loses and the placebo wins.** The
+same directional rule, applied at an arbitrary region at a matched distance, is positive;
+applied at a fair-value gap, it is negative. Conditioning on the region being a real gap
+**reverses the sign** of the trade.
+
+And the effect scales with the thing the mechanism says should matter most:
+
+| product | gap width | mean difference at H=180 |
+|---|---|---|
+| MGC | w=2 | -2.51 bps |
+| MGC | w=4 | -3.06 bps |
+| MGC | w=8 | -4.25 bps |
+| MNQ | w=2 | -2.68 bps |
+| MNQ | w=4 | -3.31 bps |
+| MNQ | w=8 | -4.12 bps |
+
+### What this establishes, and what it does not
+
+**Established, subject to the timing confound above:** the registered L07 trade is not
+merely unprofitable, it is systematically worse than an equally-reachable arbitrary region.
+The hypothesis as registered - that price returns to fill the zone because unfilled interest
+sits there, so riding the fill is profitable - is refuted in the direction it was stated.
+L07's own registry entry said in writing that it did not believe its counterparty existed.
+That scepticism is now measured rather than asserted.
+
+**Not established, and these are not small:**
+
+1. **That the difference is a reaction at the zone.** Real and placebo entries differ
+   systematically in time of day by up to 81 minutes. The design cannot separate a difference
+   in reaction from a difference in when the trade happens.
+2. **That the mirror trade works.** See below. This is the important one.
+3. **Anything about direction-mix asymmetry.** Whether real and placebo entries fire on
+   bullish versus bearish zones in the same proportion was not measured. If they do not, the
+   underlying drift could contribute to the sign. Recorded as an open competing explanation
+   rather than dismissed.
+
+### The mirror hypothesis is NOT registered, and will not be on this evidence
+
+The obvious reading is that the opposite direction would be positive by the same margin. **It
+is not being registered, for three reasons, and none of them is trial budget.**
+
+**The sign came from looking at this data.** Registering the opposite direction now is
+selecting a hypothesis by its result. Spending trials on it does not repair that - the
+multiple-testing budget prices the searches you declare, not the ones the data suggested after
+the fact.
+
+**It has no mechanism.** The registered story is unfilled orders finally getting filled, which
+predicts *reaction at the zone* - price arriving and being absorbed - not *continuation
+through it*. Inverting the trade keeps the arithmetic and discards the reason, which is the
+thing this catalog requires an entry to state before it may be tested at all.
+
+**And the confounds above apply to the mirror exactly as they apply to the original.** A
+timing difference that could manufacture a negative difference could manufacture a positive
+one just as easily.
+
+**If it is worth testing, it must be frozen and evaluated on data that did not generate it:**
+pre-2019 NQ history if L07 did not consume it, or forward. That is a different registration
+with its own mechanism section, and it is not this one.
+
+### Decisions taken rather than resolved silently
+
+1. **`l07_cells.json` was committed before any analysis was written.** The 72 cells at H=60
+   and H=120 had no committed record anywhere, and the H=180 cells survived only as printed
+   console output from a run that crashed after logging its trials.
+2. **All 36 H=180 cells were verified to reproduce the earlier run exactly**, events and
+   difference to four decimal places, before the reused trials were accepted as describing
+   it. Had they not reproduced, this would have counted as a fresh look and spent another 108.
+3. **Nothing was excluded.** All six fair-value-gap level types match their placebo on both
+   instruments, 12 of 12, checked against `placebo_match.md` before use rather than assumed.
+   The exclusion path exists, is tested, and simply did not fire.
+4. **The detection floors in `calibration.md` are not the applicable bar here** and are not
+   used as one. Those figures were measured at a particular sample size - 8,190 independent
+   observations at the smallest - and L07 carries between 24,788 and 863,490 paired events, so
+   the floor that applies is far lower than the tabulated one. The cost floor is the bar this
+   entry uses, and it is the bar the result is reported against.
+5. **The market-state comparison spent no trial.** It searches nothing and cannot produce a
+   candidate, so it logged to `measurements.jsonl` as m00115 on the same reasoning that keeps
+   firing rates out of N.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
