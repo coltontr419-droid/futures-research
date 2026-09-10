@@ -144,7 +144,8 @@ Fixed in the entries, not by loosening the tests:
 
 ## State
 
-- 358 tests pass, working tree clean. The repo now has a private remote at
+- 380 tests pass, working tree clean.
+- **N = 684, SR\* = 0.1357.** L07 Stage 1 spent 108 trials on 2026-09-09 (was 576 / 0.1335). The repo now has a private remote at
   `github.com/coltontr419-droid/futures-research` and all commits are pushed; it had none
   until 2026-09-09, while every other programme depended on its detection floors.
 - `trials.jsonl` N = 576, chain verified. `measurements.jsonl` 120 records including F14's

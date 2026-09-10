@@ -11,11 +11,10 @@ commit hash. If the push fails or the remote has diverged, say so plainly — ne
 
 ### Notes specific to this repo
 
-**There is currently no `origin`.** As of 2026-09-08 no GitHub repository exists for this
-project — an authenticated listing of the account returned only `r-series-research`,
-`polymarket-diagnostic` and `polymarket-tracker`. Until a remote is created the commit half
-of this policy applies and the push half cannot; say so rather than reporting a push that
-did not happen.
+**`origin` is `https://github.com/coltontr419-droid/futures-research` (private), created
+2026-09-09.** Both halves of the push policy apply here now. The note this replaces said no
+remote existed; it was true when written and stood while 28 commits — including every
+detection floor the R-series depends on — lived on one machine with no copy.
 
 **What must never be staged here.** `.gitignore` already covers all of it, but the policy
 above is the second line of defence, not the first:

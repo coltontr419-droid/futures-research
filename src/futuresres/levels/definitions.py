@@ -333,25 +333,47 @@ def ema_levels(g: Grid, period: int, tf: int) -> LevelSet:
                   g.close[:, min(RTH_OPEN + 60, ROW_MINUTES - 1)])
 
 
-def fvg_zones(g: Grid, w_ticks: int, tf: int, product: str) -> LevelSet:
-    """Three-bar imbalance midpoints, on `tf`-minute bars, at least w ticks wide."""
+def fvg_zones_directed(g: Grid, w_ticks: int, tf: int,
+                       product: str) -> tuple[LevelSet, np.ndarray, np.ndarray]:
+    """Three-bar imbalances with the two properties `fvg_zones` throws away.
+
+    Returns (levels, half_width, direction) where `direction` is the sign of the move that
+    CREATED the gap: +1 for a bullish imbalance, -1 for a bearish one. L07's registered
+    entry is "counter to the move that created the gap", so the traded direction is
+    -direction, and its zone has a width that a midpoint alone cannot express.
+
+    `fvg_zones` delegates here so the two cannot drift apart - the measurement pipeline's
+    committed output depends on the midpoints being identical.
+    """
     step = tf
     hi = np.maximum.reduceat(g.high, np.arange(0, ROW_MINUTES, step), axis=1)
     lo = np.minimum.reduceat(g.low, np.arange(0, ROW_MINUTES, step), axis=1)
     tick = TICK[product] * w_ticks
     bull = lo[:, 2:] - hi[:, :-2]
     bear = lo[:, :-2] - hi[:, 2:]
-    price, row, valid, ref = [], [], [], []
+    price, row, valid, ref, half, direction = [], [], [], [], [], []
     for r in range(g.n):
         for j in np.flatnonzero(bull[r] >= tick):
-            price.append((hi[r, j] + lo[r, j + 2]) / 2)
+            top, bot = lo[r, j + 2], hi[r, j]
+            price.append((bot + top) / 2)
+            half.append((top - bot) / 2)
+            direction.append(1.0)
             row.append(r); valid.append(min((j + 3) * step, ROW_MINUTES - 1))
             ref.append(g.close[r, min((j + 3) * step, ROW_MINUTES - 1)])
         for j in np.flatnonzero(bear[r] >= tick):
-            price.append((hi[r, j + 2] + lo[r, j]) / 2)
+            top, bot = lo[r, j], hi[r, j + 2]
+            price.append((bot + top) / 2)
+            half.append((top - bot) / 2)
+            direction.append(-1.0)
             row.append(r); valid.append(min((j + 3) * step, ROW_MINUTES - 1))
             ref.append(g.close[r, min((j + 3) * step, ROW_MINUTES - 1)])
-    return _stack(f"fvg_w{w_ticks}_{tf}m", price, row, valid, ref)
+    return (_stack(f"fvg_w{w_ticks}_{tf}m", price, row, valid, ref),
+            np.asarray(half, float), np.asarray(direction, float))
+
+
+def fvg_zones(g: Grid, w_ticks: int, tf: int, product: str) -> LevelSet:
+    """Three-bar imbalance midpoints, on `tf`-minute bars, at least w ticks wide."""
+    return fvg_zones_directed(g, w_ticks, tf, product)[0]
 
 
 # --------------------------------------------------------------------- triggers
