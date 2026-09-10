@@ -60,7 +60,14 @@ class Grid:
         return self.days.size
 
     def atr(self) -> np.ndarray:
-        """ATR(20) per row from daily true range, strictly prior sessions."""
+        """ATR(20) per row from DAILY true range, strictly prior sessions.
+
+        This is the scale the `>= d ATR away` preconditions of L01, L06 and L08 use, and it
+        stays daily because WHICH ATR those conditions mean is an OPEN SPECIFICATION
+        QUESTION - see reports/CHECKPOINT.md and decisions.md 36. Changing it would change
+        those hypotheses' firing rates, which is choosing a parameter to get a result.
+        `intraday_atr` exists for the placebo scale, where the criterion is external.
+        """
         hi = self.high.max(axis=1)
         lo = self.low.min(axis=1)
         cl = self.close[:, -1]
@@ -69,6 +76,28 @@ class Grid:
         out = np.full(self.n, np.nan)
         for i in range(LOOKBACK, self.n):
             out[i] = np.nanmean(tr[i - LOOKBACK:i])
+        return out
+
+    def intraday_atr(self, horizon: int) -> np.ndarray:
+        """Typical `horizon`-minute high-low range per row, over the prior LOOKBACK sessions.
+
+        Strictly prior, exactly like `atr()`. The row is split into consecutive
+        non-overlapping blocks of `horizon` minutes, each block's range is taken, and the
+        session's mean block range is averaged across the previous twenty sessions.
+
+        At `horizon = ROW_MINUTES` this degenerates to the session's own high-low range,
+        which is daily true range minus the gap term - so the two scales agree at the top
+        end and diverge, correctly, as the horizon shortens.
+        """
+        t = int(min(max(horizon, 1), ROW_MINUTES))
+        n_blocks = max(ROW_MINUTES // t, 1)
+        use = n_blocks * t
+        hi = self.high[:, :use].reshape(self.n, n_blocks, t).max(axis=2)
+        lo = self.low[:, :use].reshape(self.n, n_blocks, t).min(axis=2)
+        per_row = np.nanmean(hi - lo, axis=1)
+        out = np.full(self.n, np.nan)
+        for i in range(LOOKBACK, self.n):
+            out[i] = np.nanmean(per_row[i - LOOKBACK:i])
         return out
 
 
@@ -134,6 +163,48 @@ class LevelSet:
 def _stack(kind, price, row, valid, ref) -> LevelSet:
     return LevelSet(kind, np.asarray(price, float), np.asarray(row, int),
                     np.asarray(valid, int), np.asarray(ref, float))
+
+
+#: Horizons at which intraday range is measured before interpolating. Roughly factor-two
+#: spacing from one minute to the whole trading day; the interpolation below is what makes
+#: the spacing non-critical.
+ATR_HORIZONS: Final[tuple[int, ...]] = (1, 2, 5, 15, 30, 60, 120, 240, 480, ROW_MINUTES)
+
+
+def window_scale(g: Grid, levels: LevelSet) -> np.ndarray:
+    """The offset scale for a placebo: intraday range over each level's OWN live window.
+
+    THIS IS THE FIX FOR THE PLACEBO MISMATCH THAT FAILED 53 OF 55 LEVEL TYPES. The scale
+    used to be daily ATR(20) for every level type at once, which put placebos 3x to 63x
+    further from price than the real levels they stood in for. Real levels are touched
+    30-96% of the time and those placebos 6-17%, so every real-minus-placebo difference
+    would have been a difference in EXPOSURE rather than in reaction.
+
+    THE TIMESCALE A LEVEL OPERATES ON IS ITS VALIDITY WINDOW, not its construction period.
+    `touches` tests every level against the remainder of ITS OWN ROW, from `valid_from` to
+    the close - a prior-month level and a one-minute fair-value gap are both live for the
+    rest of a single trading day and no longer. So the question a placebo has to match is
+    "how far does price travel in the time this level is reachable", and that is the range
+    over ROW_MINUTES - valid_from minutes.
+
+    That also explains why prior_week and prior_month were the only two types that passed
+    under the old daily scale: they are the two whose real distance from price is already
+    of daily-ATR order, so the wrong scale happened to be the right size for them alone.
+
+    Interpolation is linear in log(range) against log(horizon), which is exact for a random
+    walk (range ~ sqrt(T)) and stays close under the real U-shaped intraday profile.
+    """
+    live = np.clip(ROW_MINUTES - levels.valid_from, 1, ROW_MINUTES)
+    table = np.vstack([g.intraday_atr(h) for h in ATR_HORIZONS])   # (h, rows)
+    xs = np.log(np.asarray(ATR_HORIZONS, dtype=float))
+    out = np.full(levels.price.size, np.nan)
+    for i, (r, w) in enumerate(zip(levels.row, live)):
+        col = table[:, r]
+        good = np.isfinite(col) & (col > 0)
+        if good.sum() < 2:
+            continue
+        out[i] = float(np.exp(np.interp(np.log(w), xs[good], np.log(col[good]))))
+    return out
 
 
 def vwap_levels(g: Grid, anchor: str) -> LevelSet:

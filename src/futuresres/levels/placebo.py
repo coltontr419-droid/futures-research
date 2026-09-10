@@ -24,10 +24,20 @@ that forced a floor sweep to be discarded and re-run earlier in this project. Of
 from SHA-256 of (session date, level type), which is reproducible across processes, machines
 and months.
 
-THE OFFSET RANGE IS +/-[0.3, 1.5] x ATR(20), and the sign is part of the hash. The lower bound
+THE OFFSET RANGE IS +/-[0.3, 1.5] x A SCALE, and the sign is part of the hash. The lower bound
 keeps the placebo far enough from the real level that they are not the same level; the upper
 bound keeps it close enough that price reaches it about as often. Both bounds are load-bearing
 and `verify()` is what says whether they were chosen well.
+
+THE SCALE USED TO BE DAILY ATR(20) FOR EVERY LEVEL TYPE, AND THAT FAILED 53 OF 55 TYPES.
+Placebos landed 3x to 63x further from price than the real levels they stood in for: real
+levels were touched 30-96% of the time and those placebos 6-17%. `verify()` caught it, which
+is what it is for - but nothing consumed the verdict, because no Stage 1 ever ran. The scale
+is now `definitions.window_scale`, the intraday range over each level's own validity window.
+
+THE BOUNDS THEMSELVES WERE NOT TOUCHED. 0.3 and 1.5 are as registered. Only the unit they
+multiply changed, and it changed to the unit the matching criterion was always implicitly
+asking for. Sweeping the bounds until matching passed would be fitting the null to the test.
 """
 
 from __future__ import annotations
@@ -39,7 +49,8 @@ from typing import Final, Sequence
 
 import numpy as np
 
-#: Offset magnitude in ATR(20) units. Fixed a priori; never tuned to make a result appear.
+#: Offset magnitude in units of the scale passed to `make_placebo`. Fixed a priori and
+#: UNCHANGED by the 2026-09-09 scale correction; never tuned to make a result appear.
 OFFSET_LO: Final[float] = 0.3
 OFFSET_HI: Final[float] = 1.5
 
@@ -72,20 +83,25 @@ def offset_unit(day: date, level_type: str, index: int = 0) -> float:
 
 
 def make_placebo(levels: np.ndarray, days: np.ndarray, level_type: str,
-                 atr: np.ndarray) -> np.ndarray:
-    """Placebo for each real level: real + hash-derived offset x that session's ATR(20).
+                 scale: np.ndarray) -> np.ndarray:
+    """Placebo for each real level: real + hash-derived offset x that level's own scale.
 
-    `levels`, `days` and `atr` are parallel arrays, one entry per real level. The result has
-    the same length by construction, which is the count-matching requirement.
+    `scale` is PER LEVEL, not per session, and should come from
+    `definitions.window_scale` - the intraday range over the window in which that level can
+    actually be touched. It was daily ATR(20) until 2026-09-09; see the module docstring and
+    decisions.md 36 for why that failed 53 of 55 level types.
+
+    `levels`, `days` and `scale` are parallel arrays, one entry per real level. The result
+    has the same length by construction, which is the count-matching requirement.
     """
-    if not (levels.size == days.size == atr.size):
-        raise ValueError("levels, days and atr must be parallel")
+    if not (levels.size == days.size == scale.size):
+        raise ValueError("levels, days and scale must be parallel")
     out = np.empty_like(levels, dtype=float)
     seen: dict[object, int] = {}
     for i, (lvl, day) in enumerate(zip(levels, days)):
         idx = seen.get(day, 0)
         seen[day] = idx + 1
-        out[i] = lvl + offset_unit(day, level_type, idx) * atr[i]
+        out[i] = lvl + offset_unit(day, level_type, idx) * scale[i]
     return out
 
 
@@ -197,9 +213,15 @@ def render_reports(reports: Sequence[MatchReport]) -> str:
       "This document is the evidence that the placebo comparison is valid at all.")
     a("")
     a(f"Offsets are SHA-256 of (session date, level type, index within session), mapped to "
-      f"+/-[{OFFSET_LO}, {OFFSET_HI}] x ATR(20). Deterministic across processes - never "
-      f"Python's salted `hash()`, which is the bug that forced a floor sweep to be discarded "
-      f"and re-run earlier in this project.")
+      f"+/-[{OFFSET_LO}, {OFFSET_HI}] x the INTRADAY RANGE OVER EACH LEVEL'S OWN VALIDITY "
+      f"WINDOW. Deterministic across processes - never Python's salted `hash()`, which is "
+      f"the bug that forced a floor sweep to be discarded and re-run earlier in this "
+      f"project.")
+    a("")
+    a("**The scale was daily ATR(20) until 2026-09-09 and that failed 53 of 55 level types** "
+      "- placebos sat 3x to 63x further from price than the real levels they stood in for, "
+      "so every comparison would have measured exposure rather than reaction. The offset "
+      "BOUNDS are unchanged; only the unit they multiply. See `decisions.md` 36.")
     a("")
 
     bad = [r for r in reports if not r.ok]

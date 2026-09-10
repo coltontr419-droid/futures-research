@@ -49,7 +49,8 @@ level?**
 For each real level, generate a matched placebo:
 
 ```
-placebo_offset = deterministic hash(session_date, level_type) mapped to ±[0.3, 1.5] × ATR(20)
+placebo_offset = deterministic hash(session_date, level_type, index)
+                 mapped to ±[0.3, 1.5] × SCALE
 placebo_level  = real_level + placebo_offset
 ```
 
@@ -59,6 +60,29 @@ Requirements:
 - Same touch-frequency distribution (verify — if placebos are touched far less often, the
   offset range is wrong and the comparison is invalid)
 - Deterministic hash seeding, never `hash()`, per the reproducibility requirement
+
+**SCALE WAS `ATR(20)` — DAILY — UNTIL 2026-09-09, AND THAT FAILED 53 OF 55 LEVEL TYPES.**
+A single daily scale was applied to a one-minute fair-value gap and a prior-month extreme
+alike. Placebos landed 3× to 63× further from price than the levels they stood in for, and
+were touched 6–17% of the time against the real levels' 30–96%. Every real-minus-placebo
+comparison on those types would have measured **exposure, not reaction** — the exact failure
+the two "verify, don't assume" requirements above exist to catch. **They did catch it.**
+`reports/placebo_match.md` has said `FAIL — 53 of 55` since the first complete run; nothing
+was blocked by it because no Stage 1 ever ran.
+
+The scale is now `definitions.window_scale`: the intraday range over **each level's own
+validity window**, since `touches` gives every level the remainder of its own row and no
+longer. The offset bounds `[0.3, 1.5]` are unchanged — only the unit they multiply.
+
+**Matching still fails after the correction, and the residual is geometric rather than a
+matter of scale.** A placebo built as `level + offset × scale` sits at roughly `2d` or `0`
+when the level is already displaced by `d`, giving a median near `1.4d` for any scale
+whatsoever. Making the distance distribution match requires changing what the control *is*,
+which is a specification decision and is recorded as open in `decisions.md` §36 and
+`reports/CHECKPOINT.md` item 3.
+
+**No L-series Stage 1 may run until that is settled.** A result computed against an unmatched
+placebo would measure exposure and would look like a finding.
 
 **The reported effect is (real level) − (placebo level), not (real level) − 0.** A hypothesis
 whose real-minus-placebo difference is indistinguishable from zero is refuted even if its raw

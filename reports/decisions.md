@@ -1090,6 +1090,226 @@ alone.
 
 ---
 
+---
+
+## 36. The L-series reconciled — a remote, a stale checkpoint, and a placebo that is still wrong
+
+Four things were wrong with how the L-series was recorded, and one is still wrong with the
+L-series itself. None of them was a bug in a calculation. **All of them were a gap between
+what had been measured and what the record said had been measured.**
+
+### The repo had no remote, and it is the one every other programme depends on
+
+`futures-research` had **28 local commits and no remote**, on a single Windows machine, while
+`r-series-research` quoted its detection floors — the 19,722 figure that closes hypotheses in
+another repository — as settled fact. A disk failure would have taken the calibrations and
+left the conclusions that rest on them.
+
+Now at `github.com/coltontr419-droid/futures-research`, **private**, all 28 commits pushed.
+`.gitignore` was verified doing its job first: `.env` is untracked (only `.env.example` is in),
+and `data/` and every `*.parquet` are excluded. The pack is 2.7 MB.
+
+### The registry said the work had not been done, four days after it was done
+
+The batch completed **2026-09-05** and was committed as `fb07e80`. All ten L entries still
+read `status: untested` with **no `firing_rate` block at all**, while
+`reports/level_rates.json` held a measured count for every one of 315 cells.
+
+**Neither half was wrong. They just never met.** The reports were generated and committed; the
+registry was not updated to consume them. A later reader checking `hypotheses.yaml` — which is
+the file the pipeline treats as authoritative — would correctly conclude the L-series was
+unmeasured and re-run twenty minutes of work, which is exactly what the checkpoint told them
+to do.
+
+Reconciled now. Each entry carries a `firing_rate` block with the measured per-product
+numbers and a `verdict_route_measured` block with the route the measurement actually
+supports. **The registered `verdict_route` is deliberately left as written** — it records what
+was *assumed* before measuring, and "ASSUMED CLOSED" sitting next to "measured closed at 100%
+overlap" is worth more than either alone.
+
+**The reconciliation was text surgery, not a YAML round-trip.** `hypotheses.yaml` carries 857
+comment lines and the comments are the record; `yaml.safe_dump` would have silently deleted
+every one of them.
+
+### The checkpoint outlived its own instruction
+
+`reports/CHECKPOINT.md` led with "the one thing that must be re-run" and named the batch that
+had already completed three days later. It stood that way for four days.
+
+**A checkpoint that survives the work it describes is its own failure mode**, and it is worse
+than a stale report because a checkpoint is written to be obeyed. It is updated rather than
+deleted, with the fact that it went stale left in it.
+
+### The placebo scale was daily ATR for every level type, and `verify()` had already said so
+
+Placebo offsets were `±[0.3, 1.5] × ATR(20)` where ATR(20) is **daily** true range, at
+`definitions.py:62`, for a one-minute fair-value gap and a prior-month extreme alike.
+
+Measured consequence, read back out of git rather than recalled: **53 of 55 level
+types unmatched.** Placebo distances ran **1.05× to 62.7×** the real ones and touch
+ratios **0.07× to 0.94×**, against a ±25% tolerance. Every real-minus-placebo comparison on those types would have measured **exposure, not
+reaction** — which is the exact failure the placebo exists to prevent.
+
+**The guard was not missing. It fired and nobody read it.** `verify()` computed the mismatch,
+`render_reports` wrote "FAIL — 53 of 55" at the top of `placebo_match.md`, and it was
+committed in that state. Nothing consumed the verdict because **no Stage 1 ever ran**, so
+nothing was ever blocked by it. A control that fails loudly into an empty room is
+indistinguishable from one that passes.
+
+### Why it did not propagate — and the premise that it had been settled is wrong
+
+It is tempting to say this correction was already settled for L01, L06 and L08 and merely
+failed to reach the placebo. **That is not what happened, and the record should not say it
+did.**
+
+`CHECKPOINT.md` states the opposite in as many words: *"`d ATR` does not say which ATR, and
+that decides whether L01, L06 and L08 are testable at all"*, filed as an **F05-class
+specification gap** and explicitly **recorded rather than resolved**, because *"choosing the
+period that makes L01 look schedulable would be choosing a parameter to get a result."* It is
+still open. It is item 2 on the resume list.
+
+So the honest answer to why it did not propagate is: **there was nothing to propagate.** But
+the near-miss is the instructive part, and it has a shape this project has seen before:
+
+- The ambiguity was filed under **"which hypotheses are testable"**, because that is where it
+  bit first — it changes L01's firing rate.
+- The placebo uses **the same ATR for an entirely different purpose**, and lives under **"is
+  the control valid"**.
+- Those are different sections of the same document, and **the shared dependency was invisible
+  from either one.** Nobody asked whether the scale ambiguity that decides an event count also
+  decides whether the control is matched.
+
+**The two questions are not equally open, and that asymmetry is what licenses fixing one and
+not the other.** For L01, the ATR choice sets the firing rate, so picking it to taste is
+picking a parameter to get a result, and it stays frozen. For the placebo, there is an
+**external, pre-registered criterion** — the matching test, with its ±25% tolerances fixed
+before any of this — and satisfying a criterion that was registered in advance is not the same
+act as choosing a number until an effect appears. `Grid.atr()` now carries a comment saying
+precisely this, so the next reader does not "fix" L01 by analogy.
+
+### The correction, and it is not enough
+
+**The scale is now the intraday range over each level's own validity window**
+(`definitions.window_scale`). The reasoning: `touches` tests every level against the remainder
+of *its own row*, so a prior-month level and a one-minute gap are both live for the rest of a
+single trading day and no longer. The question a placebo must match is *how far price travels
+while this level is reachable*, and that is the range over `ROW_MINUTES - valid_from` minutes,
+interpolated log-log across ten measured horizons from one minute to the full day.
+
+At the full-day horizon it reproduces the mean session high-low range exactly, which sits
+within about 1% of daily true range - the two differ only by the overnight gap term. That is
+why the level types that already matched under the daily scale are essentially undisturbed by
+the correction: for a level live all day, the new scale and the old one are nearly the same
+number. The correction bites precisely where it should, on levels whose window is short.
+
+**The offset bounds were not touched.** 0.3 and 1.5 are as registered. Only the unit they
+multiply changed. Sweeping the bounds until matching passed would be fitting the null to the
+test.
+
+**Re-measured result: 3 of 55 level types match. It still fails.**
+
+| level types that match | product |
+|---|---|
+| `prior_month` | MGC |
+| `prior_week` | MGC |
+| `sess_US` | MGC |
+
+Distance ratios now span **1.05× to 32.77×** and touch ratios **0.16× to
+1.25×** against a ±25% tolerance. Better, and not close enough.
+
+### The residual is geometric, not a matter of scale — and fixing it is a decision not taken
+
+Measured across three candidate scale rules, on both products, the failure does not move the
+way a scale error should:
+
+| scale rule | matched, MGC | matched, MNQ |
+|---|---|---|
+| daily ATR(20) — the old one | 2/28 | 0/28 |
+| intraday range over the validity window — the new one | 3/28 | 0/28 |
+| the real levels' own median creation distance | 2/28 | 2/28 |
+
+The third rule sets the offset so its *magnitude* equals the real distance, and it still fails
+— at a distance ratio of **1.32–1.54 on every single level type and both products**. That
+stability is the diagnosis. The placebo is built as `level + offset × scale`, but the level is
+**already displaced** from the reference price by the real distance `d`. Adding a signed offset
+of magnitude ≈ `d` gives a placebo at either ≈ `2d` or ≈ `0`, whose median is ≈ `1.4d`. **No
+choice of scale removes a bias that comes from the construction rather than the size.**
+
+The fix is to make the placebo's distance distribution match **by construction**: solve for the
+multiplier that equalises the medians, using geometry alone — level, reference price and the
+hash offsets — with **no touch data entering the calibration**, so the touch-rate half of the
+criterion stays an independent test of whether the control is comparably reachable.
+
+**That change was not made.** It alters what the control *is*, from "the real level, displaced"
+to "an arbitrary level at a matched distance". That is a methodological decision about the
+null, not a bug fix, and it belongs to whoever owns the specification. `CHECKPOINT.md` item 3
+carries it.
+
+### Decisions taken rather than resolved silently
+
+1. **The daily-ATR scale for L01, L06 and L08's `d ATR` precondition is UNCHANGED**, and
+   `Grid.atr()` now says why in a comment. Changing it would change those hypotheses' firing
+   rates. The placebo scale was changed because its criterion is external and pre-registered.
+2. **The registry keeps its registered `verdict_route` alongside the measured one.** Nine of
+   ten aggregate routes were assumed closed and measured closed at 97–100% overlap; the
+   assumption was right, and a record that shows it was *checked* is worth more than one that
+   quietly agrees.
+3. **Statuses use only the existing vocabulary.** 5 entries move to
+   `blocked_insufficient_events` (L01, L05, L06, L08, L09); 5 stay `untested` (L02, L03, L04, L07, L10). Four of those stay
+   untested because their best cell clears the 180-minute floor on at least one instrument
+   and they are genuinely untested rather than blocked; only **L07** clears it on *both*.
+   Inventing a status like "measured but unrunnable" would have been easier and would have
+   made the registry unqueryable.
+4. **`L10` stays `untested` although its event count is far below the floor, because it is a
+   CONTROL and a control is never `blocked_insufficient_events`.** The first pass of this
+   reconciliation applied the event-count rule uniformly and blocked it — which would have
+   left the entire L-series with **no live control at all**, since L10 is what validates the
+   placebo machinery every L-series comparison depends on.
+   `tests/test_registry_consistency.py` caught it by asserting the live control set is
+   exactly `{F14, L10}`. **The registry's own tests found a modelling error in the code
+   written to update the registry**, which is the argument for having them.
+5. **A blocked entry surrenders its `test_order` but keeps `registered_test_order`.** Nulling
+   the live order without claiming the slot would erase that L01 was scheduled *tenth* and
+   would leave an unexplained gap in the ordering. That is the same handling the retired
+   F-series entries already use, and a test enforces it.
+6. **No Stage 1 was run and no trial was spent.** N stays at **576** and SR\* at **0.1334**.
+7. **`L10`'s firing rate changes with the placebo scale** and no other hypothesis's does — L10
+   *is* the placebo control, so its condition depends on the offset. The new numbers are in
+   `level_rates.md`; the other nine are unchanged by the correction, as they must be.
+
+### The state this leaves the L-series in
+
+The three measurements cross, and the crossing is the finding. **The correction moved it
+without breaking it**, which is worth stating precisely, because the naive reading of "3 of 55
+now match" is that a route opened. It did not.
+
+The three matched level types are `prior_week`/MGC, `prior_month`/MGC — both **L09** — and
+`sess_US`/MGC, which is **L04**. Set against their own event counts:
+
+| matched level type | hypothesis | cells' firings | 180m floor | short by |
+|---|---|---|---|---|
+| `prior_week`, `prior_month` (MGC) | L09 | 46–364 | 2,862 | 8–62× |
+| `sess_US` (MGC) | L04, US cells only | 168–399 | 2,862 | 7–17× |
+
+**L04 is the sharp case, because the crossing now happens inside one hypothesis.** Its best
+cell fires 5,130 times, comfortably clear of the floor — but that is an **Asia**-session cell,
+and `sess_Asia`'s placebo fails at a distance ratio of 3.69 and a touch ratio of 0.40. The
+cells whose control *is* valid are the **US**-session ones, and they fire 168 to 399 times.
+Within a single registered hypothesis, on a single instrument: **the cells with the events have
+no control, and the cells with the control have no events.**
+
+The rest is unchanged:
+
+- **L07** remains the only hypothesis clearing the floor on **both** instruments, and all six
+  of its FVG level types still fail matching — at distance ratios of 10.6× to 32.8×, the worst
+  in the study.
+- **L10** remains the only open aggregate route, and it is the placebo control, which spends no
+  trials.
+
+**No L-series hypothesis has a resolvable sample and a valid placebo in the same cells.** That
+is not a result about markets and must not be written up as one. It is a statement about what
+this catalog can currently ask.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

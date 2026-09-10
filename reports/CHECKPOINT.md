@@ -1,6 +1,11 @@
-# Checkpoint — 2026-09-02, mid L-series measurement
+# Checkpoint — 2026-09-02, updated 2026-09-09
 
-Written at a hard stop. Everything below is committed; nothing is in flight on disk.
+Written at a hard stop on 2026-09-02 and **updated 2026-09-09, when it was found to be
+issuing an instruction that had already been carried out.** The batch it says must be re-run
+completed on 2026-09-05 and was committed as `fb07e80`. Anyone who followed this file between
+those dates would have re-run twenty minutes of work for nothing.
+
+Everything below is committed; nothing is in flight on disk.
 
 ---
 
@@ -9,24 +14,50 @@ Written at a hard stop. Everything below is committed; nothing is in flight on d
 **The F-series is closed.** 14 registered, 576 trials, SR\* = 0.1334, 0 promoted. See
 `reports/futures_conclusion.md` — it stands alone and is the document to read first.
 
-**The L-series is registered but not measured.** Ten price-level hypotheses (L01–L10) are in
-`hypotheses.yaml` under the Stage 0 schema. All are `schedulable: false` pending measured
-firing rates. No Stage 1 has been run on any of them and no L-series trial has been spent.
+**The L-series is registered and now MEASURED.** Ten price-level hypotheses (L01–L10) are in
+`hypotheses.yaml` under the Stage 0 schema. All remain `schedulable: false`. **No Stage 1 has
+been run on any of them and no L-series trial has been spent** — N is still 576 and SR\* still
+0.1334.
+
+The measurement says the L-series does not have a route to a verdict as it stands:
+
+- **Event count.** Only **L07** clears the 180-minute floor on both instruments. L02 and L03
+  clear on MGC at 120m+; L04 is mixed; everything else is below the swept range.
+- **Disjointness.** Nine of ten aggregate routes are **closed**, at 97–100% pairwise overlap.
+  The only open one is **L10**, which is the placebo control and spends no trials.
+- **Placebo matching: FAIL.** 53 of 55 level types under the original daily-ATR scale, **52 of
+  55 after the 2026-09-09 scale correction.** The three that pass are `prior_week`/MGC and
+  `prior_month`/MGC (both **L09**, 8–62× below floor) and `sess_US`/MGC (**L04**, US-session
+  cells only, 7–17× below floor).
+
+**Those three results cross, and the crossing is the finding.** L07 clears the floor on both
+instruments and all six of its FVG level types fail matching, at the worst distance ratios in
+the study. **L04 shows the crossing inside a single hypothesis on a single instrument**: its
+best cell fires 5,130 times but is an *Asia*-session cell whose placebo fails, while the
+*US*-session cells whose placebo passes fire 168 to 399 against a floor of 2,862.
+**No L-series hypothesis has a resolvable sample and a valid placebo in the same cells.**
 
 ---
 
-## The one thing that must be re-run
+## ~~The one thing that must be re-run~~ — DONE 2026-09-05, re-run again 2026-09-09
 
 ```
-python -m futuresres.reporting.level_rates          # ~20 min, both instruments
+python -m futuresres.reporting.level_rates          # ~65 min, both instruments
 ```
+
+**The runtime figure in this file used to say ~20 min and that was wrong by a factor of three.**
+Measured 2026-09-09: 64 minutes wall clock, CPU-bound throughout, on both instruments. The
+opening-range stage alone is roughly half of it, and the disjointness pass at the end holds
+every cell's firing minutes in memory and peaks near 1 GB.
 
 It writes `reports/level_rates.md`, `reports/placebo_match.md` and
 `reports/disjointness.md`, **all at the end**, so an interrupted run leaves nothing behind.
-It was interrupted twice: once by a crash (now fixed) and once by this stop. It had completed
-MNQ entirely and MGC through L03.
 
-Nothing depends on that run except the reporting — the code is committed and tested.
+**It completed on 2026-09-05** (commit `fb07e80`) and was re-run on 2026-09-09 after the
+placebo scale correction described below. **This section stood for four days telling readers
+to run work that was already finished** — recorded rather than quietly deleted, because a
+checkpoint that outlives its own instructions is its own failure mode and this project keeps
+a list of those.
 
 ---
 
@@ -113,15 +144,28 @@ Fixed in the entries, not by loosening the tests:
 
 ## State
 
-- 346 tests pass, working tree clean.
+- 352 tests pass, working tree clean. The repo now has a private remote at
+  `github.com/coltontr419-droid/futures-research` and all commits are pushed; it had none
+  until 2026-09-09, while every other programme depended on its detection floors.
 - `trials.jsonl` N = 576, chain verified. `measurements.jsonl` 120 records including F14's
   three control runs and the firing-rate measurements.
 - No L-series trial spent. No Stage 1 run since F06.
 
 ## To resume
 
-1. `python -m futuresres.reporting.level_rates`
-2. Read the three reports it writes.
-3. Decide the `d ATR` reference period for L01/L06/L08 — that decision is outstanding and is
-   not mine to make.
-4. Then: projected N and SR\*, and the disproportionate-cost flags.
+1. ~~`python -m futuresres.reporting.level_rates`~~ — done; read the three reports it wrote.
+2. **Decide the `d ATR` reference period for L01/L06/L08.** Still outstanding and still not
+   mine to make. See the section above: choosing the period that makes L01 look schedulable
+   would be choosing a parameter to get a result.
+3. **Decide whether the placebo control should be redesigned.** The scale was corrected on
+   2026-09-09 from daily ATR to the intraday range over each level's own validity window, and
+   **matching still fails** — the remaining error is geometric, not a matter of scale, and
+   fixing it changes what the control IS rather than how it is sized. `decisions.md` §36 sets
+   out the diagnosis and the proposed change. **This is a methodological decision, not a bug
+   fix, which is why it was not made unilaterally.**
+4. Then: projected N and SR\*, and the disproportionate-cost flags. Both are moot while the
+   placebo is invalid, since no L-series result can be reported as real-minus-placebo.
+
+**Do not run Stage 1 on any L hypothesis until item 3 is settled.** A Stage 1 result computed
+against an unmatched placebo would measure exposure rather than reaction, and would look like
+a finding.

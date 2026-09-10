@@ -104,11 +104,14 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         the failures are collected and reported, so one bad level type does not hide the
         rest. `match_report` is what fails loudly."""
         days = g.days[levels.row]
-        lvl_atr = atr[levels.row]
-        ok = np.isfinite(levels.price) & np.isfinite(lvl_atr)
+        # NOT daily ATR. The scale is the intraday range over each level's own validity
+        # window - see D.window_scale. Daily ATR put placebos 3x-63x too far from price and
+        # failed 53 of 55 level types; decisions.md 36.
+        lvl_scale = D.window_scale(g, levels)
+        ok = np.isfinite(levels.price) & np.isfinite(lvl_scale) & (lvl_scale > 0)
         if ok.sum() < 50:
             return
-        pl_price = make_placebo(levels.price[ok], days[ok], kind, lvl_atr[ok])
+        pl_price = make_placebo(levels.price[ok], days[ok], kind, lvl_scale[ok])
         pl_set = D.LevelSet(kind + "_placebo", pl_price, levels.row[ok],
                             levels.valid_from[ok], levels.ref_price[ok])
         pl_touch, _ = D.touches(g, pl_set, tol, product)
@@ -133,8 +136,17 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         lv = D.vwap_levels(g, anchor)
         tl, _ = D.touches(g, lv, 2, product)
         check_placebo(f"vwap_{anchor}", lv, tl, 2)
+        # The placebo curve is live from its anchor to the close, so its scale is the
+        # intraday range over that window - the same rule check_placebo applies. The
+        # `require_away` argument below still uses DAILY atr, deliberately: which ATR L01's
+        # "d ATR away" precondition means is an open specification question and changing it
+        # would change L01's firing rate. decisions.md 36.
         shift = np.array([placebo_offset_for(g.days[r], f"vwap_{anchor}") for r in rows_ix])
-        pcurve = curve + (shift * atr)[:, None]
+        curve_scale = D.window_scale(
+            g, D.LevelSet(f"vwap_{anchor}_curve", curve[:, 0].copy(), rows_ix,
+                          np.full(rows_ix.size, lv.valid_from[0] if lv.valid_from.size
+                                  else 0, int), curve[:, 0].copy()))
+        pcurve = curve + (shift * np.nan_to_num(curve_scale, nan=0.0))[:, None]
         tp_, minp = D.curve_touches(g, pcurve, 2, product, 1.0, atr, 15)
         add("L10", f"placebo curve anchor={anchor}", [30, 60, 120],
             _fired_keys(rows_ix, minp, tp_))

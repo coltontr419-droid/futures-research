@@ -1562,13 +1562,14 @@
   horizon_minutes: [30, 60, 120]
   hold_hours: [0.5, 2]
   registered: 2026-09-02
-  status: untested
+  status: blocked_insufficient_events
   grade: B+
   tier: A
   param_cap: 3
   session: US
   symbols: [MNQ, MGC]
-  test_order: 10
+  registered_test_order: 10
+  test_order: null
   schedulable: false
   mechanism_instruments:
     primary: MNQ
@@ -1583,6 +1584,55 @@
       ASSUMED CLOSED. The three anchors and three d filters select overlapping subsets of the
       same touches, so cells share entry timestamps. Must be verified before any aggregate
       claim, per F07.
+
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/6
+    per_product:
+      MGC:
+        cells: 9
+        worst_cell: 0
+        best_cell: 211
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 0.074
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 9
+        worst_cell: 0
+        best_cell: 237
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.04
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: blocked_insufficient_events on MGC/MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+  blocked_reason: 'Measured, never run. MGC best cell 211 events against a 2,862 floor at 180m (0.07x),
+    MNQ best cell 237 events against a 5,884 floor at 180m (0.04x). Blocked on event count before any
+    Stage 1: the arithmetic is the justification, and nothing here is a statement about the market.
+    reports/level_rates.md, decisions.md 36.'
 
 - id: L02
   name: opening_range_boundary
@@ -1626,6 +1676,51 @@
       construction, but within each variant the W and k settings select overlapping subsets of
       the same session's first break. Verify before claiming anything.
 
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/6
+    per_product:
+      MGC:
+        cells: 36
+        worst_cell: 3001
+        best_cell: 5724
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 2.0
+        events_sufficient_at_180m: true
+        max_pairwise_overlap: 0.9886204481792717
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 36
+        worst_cell: 3560
+        best_cell: 5178
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.88
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 0.9972510044406852
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: resolvable at 180m on MGC; below the swept range on MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+
 - id: L03
   name: prior_day_sweep_and_reclaim
   mechanism: >
@@ -1663,6 +1758,51 @@
     aggregate: >
       ASSUMED CLOSED. Two level types are disjoint only when the prior RTH and prior full-day
       extremes differ; m and k select nested subsets of the same sweeps. Verify.
+
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/4
+    per_product:
+      MGC:
+        cells: 18
+        worst_cell: 3080
+        best_cell: 4674
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 1.633
+        events_sufficient_at_180m: true
+        max_pairwise_overlap: 0.9899018232819075
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 18
+        worst_cell: 3056
+        best_cell: 3762
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.639
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 0.9820237750072485
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: resolvable at 180m on MGC; below the swept range on MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
 
 - id: L04
   name: prior_session_extremes
@@ -1705,6 +1845,51 @@
       most likely to have a real aggregate route. Verify rather than assume in either
       direction.
 
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 1/6
+    per_product:
+      MGC:
+        cells: 27
+        worst_cell: 168
+        best_cell: 5130
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 1.792
+        events_sufficient_at_180m: true
+        max_pairwise_overlap: 0.98359375
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 27
+        worst_cell: 414
+        best_cell: 5442
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.925
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 0.9981515711645101
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: resolvable at 180m on MGC; below the swept range on MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+
 - id: L05
   name: overnight_range_boundaries
   mechanism: >
@@ -1723,13 +1908,14 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
+  status: blocked_insufficient_events
   grade: C+
   tier: B
   param_cap: 3
   session: US
   symbols: [MNQ]
-  test_order: 16
+  registered_test_order: 16
+  test_order: null
   schedulable: false
   # STAGE 4 IS UNREACHABLE AND THAT IS DECLARED, NOT WORKED AROUND. Stage 4 requires the
   # effect to survive on two genuinely uncorrelated instruments, and L05's mechanism is
@@ -1757,6 +1943,44 @@
       reported - if the two fire on the same events they are one hypothesis and must not both
       consume trials.
 
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/1
+    per_product:
+      MNQ:
+        cells: 9
+        worst_cell: 2015
+        best_cell: 4669
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.794
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: blocked_insufficient_events on MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+  blocked_reason: 'Measured, never run. MNQ best cell 4,669 events against a 5,884 floor at 180m (0.79x).
+    Blocked on event count before any Stage 1: the arithmetic is the justification, and nothing here
+    is a statement about the market. reports/level_rates.md, decisions.md 36.'
+
 - id: L06
   name: session_open_reference
   mechanism: >
@@ -1778,13 +2002,14 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
+  status: blocked_insufficient_events
   grade: C+
   tier: B
   param_cap: 3
   session: US
   symbols: [MNQ, MGC]
-  test_order: 13
+  registered_test_order: 13
+  test_order: null
   schedulable: false
   mechanism_instruments:
     primary: MNQ
@@ -1797,6 +2022,55 @@
     aggregate: >
       ASSUMED CLOSED. The d filter selects nested subsets of the same crossings. Note that
       magnitude-only changes what a verdict means but not the route arithmetic.
+
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/4
+    per_product:
+      MGC:
+        cells: 6
+        worst_cell: 18
+        best_cell: 269
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 0.094
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 6
+        worst_cell: 20
+        best_cell: 303
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.051
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: blocked_insufficient_events on MGC/MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+  blocked_reason: 'Measured, never run. MGC best cell 269 events against a 2,862 floor at 180m (0.09x),
+    MNQ best cell 303 events against a 5,884 floor at 180m (0.05x). Blocked on event count before any
+    Stage 1: the arithmetic is the justification, and nothing here is a statement about the market.
+    reports/level_rates.md, decisions.md 36.'
 
 - id: L07
   name: fair_value_gap_fill
@@ -1845,6 +2119,51 @@
       overlap heavily. This is the entry where an unverified aggregate claim would be most
       tempting and least defensible.
 
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/12
+    per_product:
+      MGC:
+        cells: 18
+        worst_cell: 23545
+        best_cell: 655490
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 229.032
+        events_sufficient_at_180m: true
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 18
+        worst_cell: 25692
+        best_cell: 535428
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 90.997
+        events_sufficient_at_180m: true
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: resolvable at 180m on MGC/MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+
 - id: L08
   name: moving_average_reaction
   mechanism: >
@@ -1866,13 +2185,14 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
+  status: blocked_insufficient_events
   grade: D+
   tier: C
   param_cap: 3
   session: US
   symbols: [MNQ, MGC]
-  test_order: 17
+  registered_test_order: 17
+  test_order: null
   schedulable: false
   mechanism_instruments:
     primary: MNQ
@@ -1884,6 +2204,55 @@
     aggregate: >
       ASSUMED CLOSED. period x timeframe is a 6-cell scan whose cells share entry timestamps
       whenever two averages sit close together, which is most of the time.
+
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/12
+    per_product:
+      MGC:
+        cells: 18
+        worst_cell: 3
+        best_cell: 698
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 0.244
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 18
+        worst_cell: 4
+        best_cell: 705
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.12
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: blocked_insufficient_events on MGC/MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+  blocked_reason: 'Measured, never run. MGC best cell 698 events against a 2,862 floor at 180m (0.24x),
+    MNQ best cell 705 events against a 5,884 floor at 180m (0.12x). Blocked on event count before any
+    Stage 1: the arithmetic is the justification, and nothing here is a statement about the market.
+    reports/level_rates.md, decisions.md 36.'
 
 - id: L09
   name: higher_timeframe_levels
@@ -1903,13 +2272,14 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
+  status: blocked_insufficient_events
   grade: D
   tier: C
   param_cap: 4
   session: US
   symbols: [MNQ, MGC]
-  test_order: 18
+  registered_test_order: 18
+  test_order: null
   schedulable: false
   awaiting_measurement: true
   mechanism_instruments:
@@ -1923,6 +2293,55 @@
       EXPECTED CLOSED. ~830 weekly and ~190 monthly levels over sixteen years, against 19,722.
     aggregate: >
       EXPECTED CLOSED. Pooling two level types cannot bridge two orders of magnitude.
+
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 2/4
+    per_product:
+      MGC:
+        cells: 18
+        worst_cell: 46
+        best_cell: 364
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 0.127
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 1.0
+        aggregate_route: closed_overlapping
+      MNQ:
+        cells: 18
+        worst_cell: 48
+        best_cell: 446
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.076
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 0.9685393258426966
+        aggregate_route: closed_overlapping
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: blocked_insufficient_events on MGC/MNQ
+    aggregate: closed_overlapping on every product, as assumed at registration
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+  blocked_reason: 'Measured, never run. MGC best cell 364 events against a 2,862 floor at 180m (0.13x),
+    MNQ best cell 446 events against a 5,884 floor at 180m (0.08x). Blocked on event count before any
+    Stage 1: the arithmetic is the justification, and nothing here is a statement about the market.
+    reports/level_rates.md, decisions.md 36.'
 
 - id: L10
   name: placebo_level_control
@@ -1966,3 +2385,49 @@
   verdict_route:
     per_cell: n/a - a control does not carry a verdict
     aggregate: n/a
+
+  # ---- RECONCILED 2026-09-09 WITH THE MEASUREMENT THAT ALREADY EXISTED. ----
+  # The batch completed 2026-09-05 and was committed, but this entry still read
+  # `untested` with no firing rate for four days, so the registry and the reports
+  # disagreed about whether the work had been done. decisions.md 36.
+  # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-05'
+    remeasured_on: '2026-09-09'
+    report: reports/level_rates.md
+    data: reports/level_rates.json
+    placebo_report: reports/placebo_match.md
+    placebo_level_types_matched: 0/6
+    per_product:
+      MGC:
+        cells: 3
+        worst_cell: 0
+        best_cell: 41
+        required_60m: 5620
+        required_180m: 2862
+        best_over_180m_floor: 0.014
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 0.0
+        aggregate_route: open_disjoint
+      MNQ:
+        cells: 3
+        worst_cell: 4
+        best_cell: 26
+        required_60m: 19722
+        required_180m: 5884
+        best_over_180m_floor: 0.004
+        events_sufficient_at_180m: false
+        max_pairwise_overlap: 0.0
+        aggregate_route: open_disjoint
+    note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
+      the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
+      trial was spent.
+  verdict_route_measured:
+    per_cell: blocked_insufficient_events on MGC/MNQ
+    aggregate: open_disjoint on MGC/MNQ
+    measured_on: '2026-09-09'
+    note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
+      and is deliberately left as written.
+  schedulable: false
