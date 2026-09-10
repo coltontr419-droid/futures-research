@@ -84,7 +84,16 @@ def offset_unit(day: date, level_type: str, index: int = 0) -> float:
 
 def make_placebo(levels: np.ndarray, days: np.ndarray, level_type: str,
                  scale: np.ndarray) -> np.ndarray:
-    """Placebo for each real level: real + hash-derived offset x that level's own scale.
+    """SUPERSEDED 2026-09-09. Placebo as the real level displaced by a hash-derived offset.
+
+    Kept because the reasoning is worth finding, not because it is used. Its geometry is
+    the defect: the real level is ALREADY displaced from the reference price by d, so
+    adding a signed offset of magnitude ~d lands the placebo at ~2d or ~0, whose median is
+    ~1.4d. That held at 1.32-1.54 across every level type, both products and three
+    different scale rules, which is what showed the error was in the construction rather
+    than in the size. `make_region_placebo` is the replacement. decisions.md 36 and 37.
+
+    Placebo for each real level: real + hash-derived offset x that level's own scale.
 
     `scale` is PER LEVEL, not per session, and should come from
     `definitions.window_scale` - the intraday range over the window in which that level can
@@ -102,6 +111,67 @@ def make_placebo(levels: np.ndarray, days: np.ndarray, level_type: str,
         idx = seen.get(day, 0)
         seen[day] = idx + 1
         out[i] = lvl + offset_unit(day, level_type, idx) * scale[i]
+    return out
+
+
+def region_index(day: date, level_type: str, index: int, n_pool: int) -> tuple[int, float]:
+    """Deterministic (pool index, sign) for a matched arbitrary region.
+
+    Same hashing discipline as `offset_unit` - SHA-256 of (day, level_type, index), never
+    Python's salted `hash()`.
+    """
+    digest = hashlib.sha256(f"{day}|{level_type}|{index}|region".encode("ascii")).digest()
+    pick = int.from_bytes(digest[:8], "big") % max(n_pool, 1)
+    sign = 1.0 if digest[8] & 1 else -1.0
+    return pick, sign
+
+
+def make_region_placebo(levels: np.ndarray, refs: np.ndarray, days: np.ndarray,
+                        level_type: str, scale: np.ndarray) -> np.ndarray:
+    """THE NULL, as redefined 2026-09-09: an arbitrary region at a matched distance.
+
+    A placebo is no longer "the real level, displaced". It is an ARBITRARY REGION drawn to
+    have the same distance-from-price distribution as the real levels of its type. The
+    hypotheses ask whether their levels react differently from ordinary regions price
+    reaches equally often; DISPLACEMENT WAS ONLY EVER A METHOD for generating such regions,
+    and it was a method with a defect - see `make_placebo` below.
+
+    Construction: normalise each real distance by that level's own scale, then give each
+    placebo a hash-chosen distance drawn from that pool of normalised distances, on a
+    hash-chosen side, rescaled by its own level's scale. The distance distribution is
+    therefore matched BY CONSTRUCTION rather than by tuning, and it is matched in
+    volatility-normalised units so a quiet session does not inherit a busy session's spread.
+
+    TOUCH RATE IS NOT FITTED, DELIBERATELY. Only distance is designed; touch frequency is
+    left free and measured, so it remains an independent check that the region is comparably
+    reachable. There is also a real tension: if a level type genuinely attracts price, then
+    forcing equal touch rates would require moving the placebo closer, which would break
+    distance matching and erase part of the very effect under test. The +/-25% tolerance is
+    what absorbs that, and a residual touch gap is reported rather than engineered away.
+
+    Returns NaN for every level when the real distance distribution is degenerate at zero -
+    a level that sits exactly AT the reference price has no distance to match and admits no
+    comparable arbitrary region. `verify` reports that as its own failure rather than
+    pretending to a match.
+    """
+    if not (levels.size == refs.size == days.size == scale.size):
+        raise ValueError("levels, refs, days and scale must be parallel")
+    d = np.abs(levels - refs)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        u = d / scale
+    pool = u[np.isfinite(u)]
+    if pool.size == 0 or float(np.nanmedian(pool)) <= 0.0:
+        return np.full(levels.size, np.nan)
+    out = np.empty(levels.size, dtype=float)
+    seen: dict[object, int] = {}
+    for i, (ref, s, day) in enumerate(zip(refs, scale, days)):
+        idx = seen.get(day, 0)
+        seen[day] = idx + 1
+        if not (np.isfinite(ref) and np.isfinite(s)):
+            out[i] = np.nan
+            continue
+        pick, sign = region_index(day, level_type, idx, pool.size)
+        out[i] = ref + sign * float(pool[pick]) * float(s)
     return out
 
 
@@ -175,8 +245,21 @@ def verify(level_type: str, product: str, real: np.ndarray, placebo: np.ndarray,
                 f"difference in EXPOSURE rather than in reaction."
             )
 
+    if placebo.size and not np.isfinite(placebo).any():
+        failures.append(
+            "DEGENERATE: every real level of this type sits exactly AT the reference price, "
+            "so there is no distance distribution to match and no arbitrary region is "
+            "comparable to it. This is a property of the level definition, not a tuning "
+            "failure, and no scale or construction fixes it."
+        )
+
     rd = float(np.nanmedian(real_distance)) if real_distance.size else 0.0
-    pd_ = float(np.nanmedian(placebo_distance)) if placebo_distance.size else 0.0
+    # A degenerate type yields an all-NaN placebo distance by design - the failure is
+    # already recorded above, so the warning numpy would emit here is noise.
+    if placebo_distance.size and np.isfinite(placebo_distance).any():
+        pd_ = float(np.nanmedian(placebo_distance))
+    else:
+        pd_ = 0.0
     if rd > 0:
         dratio = pd_ / rd
         if abs(dratio - 1.0) > DISTANCE_RATIO_TOLERANCE:

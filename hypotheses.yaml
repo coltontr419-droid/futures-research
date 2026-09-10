@@ -1598,7 +1598,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 0/6
+    placebo_level_types_matched: 6/6
     per_product:
       MGC:
         cells: 9
@@ -1689,7 +1689,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 0/6
+    placebo_level_types_matched: 6/6
     per_product:
       MGC:
         cells: 36
@@ -1772,7 +1772,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 0/4
+    placebo_level_types_matched: 4/4
     per_product:
       MGC:
         cells: 18
@@ -1858,7 +1858,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 1/6
+    placebo_level_types_matched: 5/6
     per_product:
       MGC:
         cells: 27
@@ -1956,7 +1956,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 0/1
+    placebo_level_types_matched: 1/1
     per_product:
       MNQ:
         cells: 9
@@ -2132,7 +2132,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 0/12
+    placebo_level_types_matched: 12/12
     per_product:
       MGC:
         cells: 18
@@ -2218,7 +2218,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 0/12
+    placebo_level_types_matched: 11/12
     per_product:
       MGC:
         cells: 18
@@ -2307,7 +2307,7 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 2/4
+    placebo_level_types_matched: 3/4
     per_product:
       MGC:
         cells: 18
@@ -2399,27 +2399,27 @@
     report: reports/level_rates.md
     data: reports/level_rates.json
     placebo_report: reports/placebo_match.md
-    placebo_level_types_matched: 0/6
+    placebo_level_types_matched: 6/6
     per_product:
       MGC:
         cells: 3
-        worst_cell: 0
-        best_cell: 41
+        worst_cell: 1
+        best_cell: 91
         required_60m: 5620
         required_180m: 2862
-        best_over_180m_floor: 0.014
+        best_over_180m_floor: 0.032
         events_sufficient_at_180m: false
-        max_pairwise_overlap: 0.0
+        max_pairwise_overlap: 0.011764705882352941
         aggregate_route: open_disjoint
       MNQ:
         cells: 3
-        worst_cell: 4
-        best_cell: 26
+        worst_cell: 2
+        best_cell: 40
         required_60m: 19722
         required_180m: 5884
-        best_over_180m_floor: 0.004
+        best_over_180m_floor: 0.007
         events_sufficient_at_180m: false
-        max_pairwise_overlap: 0.0
+        max_pairwise_overlap: 0.05263157894736842
         aggregate_route: open_disjoint
     note: MEASURED, NEVER DECLARED - counted per Stage 1 cell with every threshold applied. Floors are
       the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no

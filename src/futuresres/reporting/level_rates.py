@@ -32,6 +32,7 @@ from futuresres.levels import definitions as D
 from futuresres.levels.placebo import (
     MatchReport,
     make_placebo,
+    make_region_placebo,
     offset_unit,
     render_reports,
     verify,
@@ -111,7 +112,10 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         ok = np.isfinite(levels.price) & np.isfinite(lvl_scale) & (lvl_scale > 0)
         if ok.sum() < 50:
             return
-        pl_price = make_placebo(levels.price[ok], days[ok], kind, lvl_scale[ok])
+        # THE NULL IS AN ARBITRARY REGION AT A MATCHED DISTANCE, not the real level
+        # displaced. Redefined 2026-09-09; decisions.md 37.
+        pl_price = make_region_placebo(levels.price[ok], levels.ref_price[ok], days[ok],
+                                       kind, lvl_scale[ok])
         pl_set = D.LevelSet(kind + "_placebo", pl_price, levels.row[ok],
                             levels.valid_from[ok], levels.ref_price[ok])
         pl_touch, _ = D.touches(g, pl_set, tol, product)
@@ -141,12 +145,22 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         # `require_away` argument below still uses DAILY atr, deliberately: which ATR L01's
         # "d ATR away" precondition means is an open specification question and changing it
         # would change L01's firing rate. decisions.md 36.
-        shift = np.array([placebo_offset_for(g.days[r], f"vwap_{anchor}") for r in rows_ix])
+        # L10 is the placebo control, so its curve is built to the SAME definition: an
+        # arbitrary region at a matched distance, not the VWAP curve displaced. The offset
+        # per row is the matched region's own distance from the real curve at its anchor.
         curve_scale = D.window_scale(
             g, D.LevelSet(f"vwap_{anchor}_curve", curve[:, 0].copy(), rows_ix,
                           np.full(rows_ix.size, lv.valid_from[0] if lv.valid_from.size
                                   else 0, int), curve[:, 0].copy()))
-        pcurve = curve + (shift * np.nan_to_num(curve_scale, nan=0.0))[:, None]
+        region = make_region_placebo(lv.price, lv.ref_price, g.days[lv.row],
+                                     f"vwap_{anchor}", D.window_scale(g, lv))
+        shift = np.zeros(rows_ix.size)
+        row_of = {int(r): j for j, r in enumerate(lv.row)}
+        for j, r in enumerate(rows_ix):
+            k = row_of.get(int(r))
+            if k is not None and np.isfinite(region[k]) and np.isfinite(lv.price[k]):
+                shift[j] = region[k] - lv.price[k]
+        pcurve = curve + shift[:, None]
         tp_, minp = D.curve_touches(g, pcurve, 2, product, 1.0, atr, 15)
         add("L10", f"placebo curve anchor={anchor}", [30, 60, 120],
             _fired_keys(rows_ix, minp, tp_))

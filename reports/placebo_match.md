@@ -8,7 +8,7 @@ Offsets are SHA-256 of (session date, level type, index within session), mapped 
 
 **The scale was daily ATR(20) until 2026-09-09 and that failed 53 of 55 level types** - placebos sat 3x to 63x further from price than the real levels they stood in for, so every comparison would have measured exposure rather than reaction. The offset BOUNDS are unchanged; only the unit they multiply. See `decisions.md` 36.
 
-## FAIL - 52 of 55 level types are not matched
+## FAIL - 7 of 55 level types are not matched
 
 **No real-minus-placebo comparison on these level types is valid.** Any result would be a difference in exposure rather than in reaction.
 
@@ -16,61 +16,61 @@ Offsets are SHA-256 of (session date, level type, index within session), mapped 
 
 | level type | product | n | real touch | placebo touch | ratio | real dist | placebo dist | ratio | |
 |---|---|---|---|---|---|---|---|---|---|
-| ema200_15m | MGC | 3,985 | 30.7% | 20.3% | 0.66 | 7.054 | 10.83 | 1.54 | **FAIL** |
-| ema200_15m | MNQ | 4,104 | 29.3% | 25.0% | 0.85 | 29.57 | 39.32 | 1.33 | **FAIL** |
-| ema200_5m | MGC | 3,985 | 42.7% | 20.2% | 0.47 | 4.54 | 9.942 | 2.19 | **FAIL** |
-| ema200_5m | MNQ | 4,104 | 41.3% | 24.7% | 0.60 | 18.37 | 34.88 | 1.90 | **FAIL** |
-| ema20_15m | MGC | 3,985 | 54.7% | 20.0% | 0.37 | 2.872 | 9.412 | 3.28 | **FAIL** |
-| ema20_15m | MNQ | 4,104 | 58.1% | 25.6% | 0.44 | 13.34 | 33.33 | 2.50 | **FAIL** |
-| ema20_5m | MGC | 3,985 | 67.6% | 20.0% | 0.30 | 1.733 | 9.225 | 5.32 | **FAIL** |
-| ema20_5m | MNQ | 4,104 | 64.6% | 27.0% | 0.42 | 8.54 | 32.94 | 3.86 | **FAIL** |
-| ema50_15m | MGC | 3,985 | 45.0% | 21.6% | 0.48 | 4.044 | 9.636 | 2.38 | **FAIL** |
-| ema50_15m | MNQ | 4,104 | 44.8% | 26.8% | 0.60 | 17.4 | 34.93 | 2.01 | **FAIL** |
-| ema50_5m | MGC | 3,985 | 55.6% | 21.2% | 0.38 | 2.757 | 9.245 | 3.35 | **FAIL** |
-| ema50_5m | MNQ | 4,104 | 57.9% | 26.5% | 0.46 | 12.98 | 32.82 | 2.53 | **FAIL** |
-| fvg_w2_1m | MGC | 1,164,509 | 89.2% | 19.5% | 0.22 | 0.35 | 10.94 | 31.25 | **FAIL** |
-| fvg_w2_1m | MNQ | 774,167 | 86.0% | 23.6% | 0.27 | 2.125 | 69.64 | 32.77 | **FAIL** |
-| fvg_w2_5m | MGC | 236,873 | 82.9% | 19.5% | 0.24 | 0.65 | 11.21 | 17.25 | **FAIL** |
-| fvg_w2_5m | MNQ | 162,652 | 79.9% | 24.6% | 0.31 | 4.375 | 65.44 | 14.96 | **FAIL** |
-| fvg_w4_1m | MGC | 609,520 | 84.0% | 19.6% | 0.23 | 0.55 | 12.07 | 21.95 | **FAIL** |
-| fvg_w4_1m | MNQ | 458,935 | 81.0% | 22.9% | 0.28 | 3.625 | 96.63 | 26.66 | **FAIL** |
-| fvg_w4_5m | MGC | 160,236 | 79.1% | 19.6% | 0.25 | 0.85 | 12.06 | 14.18 | **FAIL** |
-| fvg_w4_5m | MNQ | 123,707 | 76.6% | 24.2% | 0.32 | 6 | 81.31 | 13.55 | **FAIL** |
-| fvg_w8_1m | MGC | 224,498 | 79.2% | 19.8% | 0.25 | 0.85 | 14.31 | 16.83 | **FAIL** |
-| fvg_w8_1m | MNQ | 246,325 | 75.2% | 22.3% | 0.30 | 6 | 116.2 | 19.36 | **FAIL** |
-| fvg_w8_5m | MGC | 79,588 | 75.4% | 19.9% | 0.26 | 1.3 | 13.75 | 10.58 | **FAIL** |
-| fvg_w8_5m | MNQ | 84,740 | 72.4% | 23.4% | 0.32 | 8.75 | 100.1 | 11.44 | **FAIL** |
-| on_range | MNQ | 8,208 | 41.3% | 28.7% | 0.70 | 22.75 | 38.73 | 1.70 | **FAIL** |
-| open_CME | MGC | 3,985 | 96.5% | 15.9% | 0.16 | 0 | 19.03 | nan | **FAIL** |
-| open_CME | MNQ | 4,104 | 95.5% | 14.9% | 0.16 | 0 | 86.46 | nan | **FAIL** |
-| open_RTH | MGC | 3,985 | 86.3% | 21.9% | 0.25 | 0 | 9.66 | nan | **FAIL** |
-| open_RTH | MNQ | 4,104 | 76.0% | 29.2% | 0.38 | 0 | 37.32 | nan | **FAIL** |
-| or15 | MGC | 7,970 | 70.0% | 22.8% | 0.33 | 1.6 | 9.636 | 6.02 | **FAIL** |
-| or15 | MNQ | 8,208 | 65.5% | 28.3% | 0.43 | 10 | 33.44 | 3.34 | **FAIL** |
-| or30 | MGC | 7,970 | 61.5% | 22.4% | 0.36 | 2.3 | 9.401 | 4.09 | **FAIL** |
-| or30 | MNQ | 8,208 | 61.0% | 27.9% | 0.46 | 13 | 33.16 | 2.55 | **FAIL** |
-| or60 | MGC | 7,970 | 50.3% | 22.7% | 0.45 | 3.1 | 9.168 | 2.96 | **FAIL** |
-| or60 | MNQ | 8,208 | 54.8% | 26.4% | 0.48 | 16.25 | 33.31 | 2.05 | **FAIL** |
-| prior_full | MGC | 7,970 | 38.5% | 22.4% | 0.58 | 8.9 | 19.6 | 2.20 | **FAIL** |
-| prior_full | MNQ | 8,208 | 37.9% | 19.1% | 0.51 | 40.5 | 83.1 | 2.05 | **FAIL** |
-| prior_month | MGC | 380 | 12.6% | 10.8% | 0.85 | 47.45 | 50.55 | 1.07 | ok |
-| prior_month | MNQ | 386 | 14.8% | 7.0% | 0.47 | 195.8 | 205.9 | 1.05 | **FAIL** |
-| prior_rth | MGC | 7,970 | 52.6% | 21.6% | 0.41 | 5.8 | 19.08 | 3.29 | **FAIL** |
-| prior_rth | MNQ | 8,208 | 42.3% | 19.7% | 0.47 | 33.25 | 79.19 | 2.38 | **FAIL** |
-| prior_week | MGC | 1,652 | 18.4% | 17.7% | 0.96 | 21.7 | 25.58 | 1.18 | ok |
-| prior_week | MNQ | 1,684 | 23.4% | 16.3% | 0.70 | 84.75 | 117 | 1.38 | **FAIL** |
-| sess_Asia | MGC | 7,970 | 60.4% | 24.1% | 0.40 | 3.8 | 14.03 | 3.69 | **FAIL** |
-| sess_Asia | MNQ | 8,208 | 62.9% | 22.8% | 0.36 | 12.75 | 55.82 | 4.38 | **FAIL** |
-| sess_London | MGC | 7,970 | 24.0% | 19.0% | 0.79 | 6.6 | 10.07 | 1.53 | **FAIL** |
-| sess_London | MNQ | 8,208 | 41.9% | 21.1% | 0.50 | 24.5 | 36.87 | 1.51 | **FAIL** |
-| sess_US | MGC | 7,970 | 7.0% | 8.8% | 1.25 | 5.4 | 6.02 | 1.11 | ok |
-| sess_US | MNQ | 8,208 | 18.0% | 4.9% | 0.27 | 27.5 | 30.25 | 1.10 | **FAIL** |
-| vwap_CME | MGC | 3,985 | 44.5% | 20.7% | 0.47 | 4.262 | 9.539 | 2.24 | **FAIL** |
-| vwap_CME | MNQ | 4,104 | 48.3% | 27.9% | 0.58 | 13.79 | 32.23 | 2.34 | **FAIL** |
-| vwap_R24 | MGC | 3,985 | 44.5% | 23.0% | 0.52 | 4.262 | 9.549 | 2.24 | **FAIL** |
-| vwap_R24 | MNQ | 4,104 | 48.3% | 26.1% | 0.54 | 13.79 | 32.06 | 2.32 | **FAIL** |
-| vwap_RTH | MGC | 3,985 | 71.2% | 19.4% | 0.27 | 1.531 | 9.169 | 5.99 | **FAIL** |
-| vwap_RTH | MNQ | 4,104 | 64.7% | 26.6% | 0.41 | 8.943 | 31.81 | 3.56 | **FAIL** |
+| ema200_15m | MGC | 3,985 | 30.7% | 31.7% | 1.03 | 7.054 | 6.81 | 0.97 | ok |
+| ema200_15m | MNQ | 4,104 | 29.3% | 30.6% | 1.04 | 29.57 | 29.49 | 1.00 | ok |
+| ema200_5m | MGC | 3,985 | 42.7% | 42.4% | 0.99 | 4.54 | 4.319 | 0.95 | ok |
+| ema200_5m | MNQ | 4,104 | 41.3% | 41.1% | 0.99 | 18.37 | 16.75 | 0.91 | ok |
+| ema20_15m | MGC | 3,985 | 54.7% | 51.9% | 0.95 | 2.872 | 2.939 | 1.02 | ok |
+| ema20_15m | MNQ | 4,104 | 58.1% | 49.9% | 0.86 | 13.34 | 9.895 | 0.74 | **FAIL** |
+| ema20_5m | MGC | 3,985 | 67.6% | 65.2% | 0.97 | 1.733 | 1.62 | 0.94 | ok |
+| ema20_5m | MNQ | 4,104 | 64.6% | 56.4% | 0.87 | 8.54 | 7.152 | 0.84 | ok |
+| ema50_15m | MGC | 3,985 | 45.0% | 43.0% | 0.96 | 4.044 | 3.914 | 0.97 | ok |
+| ema50_15m | MNQ | 4,104 | 44.8% | 44.0% | 0.98 | 17.4 | 14.83 | 0.85 | ok |
+| ema50_5m | MGC | 3,985 | 55.6% | 52.7% | 0.95 | 2.757 | 2.764 | 1.00 | ok |
+| ema50_5m | MNQ | 4,104 | 57.9% | 49.9% | 0.86 | 12.98 | 9.962 | 0.77 | ok |
+| fvg_w2_1m | MGC | 1,164,509 | 89.2% | 89.1% | 1.00 | 0.35 | 0.3705 | 1.06 | ok |
+| fvg_w2_1m | MNQ | 774,167 | 86.0% | 83.6% | 0.97 | 2.125 | 2.03 | 0.96 | ok |
+| fvg_w2_5m | MGC | 236,873 | 82.9% | 82.1% | 0.99 | 0.65 | 0.6786 | 1.04 | ok |
+| fvg_w2_5m | MNQ | 162,652 | 79.9% | 75.9% | 0.95 | 4.375 | 4.361 | 1.00 | ok |
+| fvg_w4_1m | MGC | 609,520 | 84.0% | 84.8% | 1.01 | 0.55 | 0.5557 | 1.01 | ok |
+| fvg_w4_1m | MNQ | 458,935 | 81.0% | 78.0% | 0.96 | 3.625 | 3.605 | 0.99 | ok |
+| fvg_w4_5m | MGC | 160,236 | 79.1% | 78.8% | 1.00 | 0.85 | 0.8911 | 1.05 | ok |
+| fvg_w4_5m | MNQ | 123,707 | 76.6% | 72.5% | 0.95 | 6 | 6.11 | 1.02 | ok |
+| fvg_w8_1m | MGC | 224,498 | 79.2% | 78.4% | 0.99 | 0.85 | 0.9315 | 1.10 | ok |
+| fvg_w8_1m | MNQ | 246,325 | 75.2% | 71.4% | 0.95 | 6 | 5.818 | 0.97 | ok |
+| fvg_w8_5m | MGC | 79,588 | 75.4% | 73.7% | 0.98 | 1.3 | 1.346 | 1.04 | ok |
+| fvg_w8_5m | MNQ | 84,740 | 72.4% | 67.9% | 0.94 | 8.75 | 9.011 | 1.03 | ok |
+| on_range | MNQ | 8,208 | 41.3% | 38.6% | 0.94 | 22.75 | 22.28 | 0.98 | ok |
+| open_CME | MGC | 3,985 | 96.5% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
+| open_CME | MNQ | 4,104 | 95.5% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
+| open_RTH | MGC | 3,985 | 86.3% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
+| open_RTH | MNQ | 4,104 | 76.0% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
+| or15 | MGC | 7,970 | 70.0% | 69.0% | 0.99 | 1.6 | 1.537 | 0.96 | ok |
+| or15 | MNQ | 8,208 | 65.5% | 56.6% | 0.86 | 10 | 8.217 | 0.82 | ok |
+| or30 | MGC | 7,970 | 61.5% | 60.0% | 0.98 | 2.3 | 2.247 | 0.98 | ok |
+| or30 | MNQ | 8,208 | 61.0% | 52.9% | 0.87 | 13 | 9.997 | 0.77 | ok |
+| or60 | MGC | 7,970 | 50.3% | 50.7% | 1.01 | 3.1 | 3.018 | 0.97 | ok |
+| or60 | MNQ | 8,208 | 54.8% | 48.0% | 0.88 | 16.25 | 12.88 | 0.79 | ok |
+| prior_full | MGC | 7,970 | 38.5% | 42.4% | 1.10 | 8.9 | 9.031 | 1.01 | ok |
+| prior_full | MNQ | 8,208 | 37.9% | 36.8% | 0.97 | 40.5 | 40.01 | 0.99 | ok |
+| prior_month | MGC | 380 | 12.6% | 10.0% | 0.79 | 47.45 | 46.15 | 0.97 | ok |
+| prior_month | MNQ | 386 | 14.8% | 10.9% | 0.74 | 195.8 | 196 | 1.00 | **FAIL** |
+| prior_rth | MGC | 7,970 | 52.6% | 55.1% | 1.05 | 5.8 | 5.567 | 0.96 | ok |
+| prior_rth | MNQ | 8,208 | 42.3% | 42.7% | 1.01 | 33.25 | 32.99 | 0.99 | ok |
+| prior_week | MGC | 1,652 | 18.4% | 20.3% | 1.11 | 21.7 | 20.82 | 0.96 | ok |
+| prior_week | MNQ | 1,684 | 23.4% | 22.6% | 0.96 | 84.75 | 88.12 | 1.04 | ok |
+| sess_Asia | MGC | 7,970 | 60.4% | 61.9% | 1.03 | 3.8 | 3.572 | 0.94 | ok |
+| sess_Asia | MNQ | 8,208 | 62.9% | 58.9% | 0.94 | 12.75 | 11.7 | 0.92 | ok |
+| sess_London | MGC | 7,970 | 24.0% | 27.8% | 1.16 | 6.6 | 6.441 | 0.98 | ok |
+| sess_London | MNQ | 8,208 | 41.9% | 38.1% | 0.91 | 24.5 | 19.99 | 0.82 | ok |
+| sess_US | MGC | 7,970 | 7.0% | 9.4% | 1.33 | 5.4 | 5.277 | 0.98 | **FAIL** |
+| sess_US | MNQ | 8,208 | 18.0% | 16.9% | 0.94 | 27.5 | 20.99 | 0.76 | ok |
+| vwap_CME | MGC | 3,985 | 44.5% | 41.8% | 0.94 | 4.262 | 4.181 | 0.98 | ok |
+| vwap_CME | MNQ | 4,104 | 48.3% | 46.9% | 0.97 | 13.79 | 13.46 | 0.98 | ok |
+| vwap_R24 | MGC | 3,985 | 44.5% | 43.3% | 0.97 | 4.262 | 4.115 | 0.97 | ok |
+| vwap_R24 | MNQ | 4,104 | 48.3% | 46.1% | 0.95 | 13.79 | 13.29 | 0.96 | ok |
+| vwap_RTH | MGC | 3,985 | 71.2% | 68.0% | 0.95 | 1.531 | 1.42 | 0.93 | ok |
+| vwap_RTH | MNQ | 4,104 | 64.7% | 57.6% | 0.89 | 8.943 | 6.767 | 0.76 | ok |
 
 Tolerances: touch ratio +/-25%, distance ratio +/-25%. Both are hard - a level type outside them raises `PlaceboMismatch` rather than returning a caveat.
 
@@ -83,634 +83,414 @@ A median can match while the distributions differ. Deciles of |level - price at 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.254 | 2.451 | 3.865 | 5.307 | 7.054 | 9.292 | 12.45 | 16.88 | 25.86 |
-| placebo | 1.99 | 4.057 | 6.222 | 8.312 | 10.83 | 13.76 | 17.65 | 23.51 | 35.77 |
+| placebo | 1.003 | 2.173 | 3.536 | 5.095 | 6.81 | 9.06 | 12.03 | 17.27 | 26.49 |
 
 **ema200_15m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 4.527 | 9.195 | 14.15 | 20.72 | 29.57 | 44.33 | 67.29 | 105.9 | 178.5 |
-| placebo | 5.903 | 12.39 | 19.22 | 27.58 | 39.32 | 59.84 | 91.06 | 145.7 | 228.4 |
+| placebo | 4.237 | 8.605 | 14.14 | 20.9 | 29.49 | 42.32 | 65.39 | 101.4 | 181.6 |
 
 **ema200_5m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.7336 | 1.498 | 2.347 | 3.25 | 4.54 | 6.036 | 8.302 | 11.5 | 17.88 |
-| placebo | 2.124 | 4.153 | 6.022 | 7.781 | 9.942 | 12.36 | 15.51 | 20.15 | 30.22 |
+| placebo | 0.6948 | 1.458 | 2.239 | 3.161 | 4.319 | 5.874 | 7.755 | 10.9 | 18.53 |
 
 **ema200_5m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.624 | 3.831 | 7.111 | 11.59 | 18.37 | 28.16 | 42.73 | 70.39 | 120.5 |
-| placebo | 6.537 | 11.68 | 17.28 | 24.25 | 34.88 | 50.07 | 79.1 | 120.2 | 201.9 |
+| placebo | 2.029 | 4.35 | 7.048 | 11.11 | 16.75 | 25.02 | 38.75 | 62.66 | 116.6 |
 
 **ema20_15m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.4404 | 0.9503 | 1.525 | 2.133 | 2.872 | 3.971 | 5.423 | 7.214 | 10.99 |
-| placebo | 2.468 | 4.375 | 6.007 | 7.605 | 9.412 | 11.51 | 14.22 | 18.12 | 26 |
+| placebo | 0.451 | 1.019 | 1.574 | 2.201 | 2.939 | 3.968 | 5.284 | 7.305 | 11.55 |
 
 **ema20_15m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.02807 | 1.93 | 5.06 | 8.493 | 13.34 | 19.74 | 31.48 | 49.97 | 89.56 |
-| placebo | 6.578 | 11.3 | 16.21 | 23.08 | 33.33 | 49.78 | 76.71 | 115.4 | 185.8 |
+| placebo | 0.09059 | 1.365 | 3.652 | 6.44 | 9.895 | 15.68 | 25.59 | 45.63 | 81.6 |
 
 **ema20_5m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.256 | 0.545 | 0.858 | 1.269 | 1.733 | 2.29 | 3.091 | 4.251 | 6.561 |
-| placebo | 2.916 | 4.547 | 6.079 | 7.658 | 9.225 | 11.17 | 13.92 | 17.73 | 24.39 |
+| placebo | 0.246 | 0.5383 | 0.8679 | 1.204 | 1.62 | 2.148 | 2.995 | 4.365 | 7.049 |
 
 **ema20_5m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 8.527e-08 | 1.3 | 3.306 | 5.682 | 8.54 | 13.21 | 20.96 | 34.67 | 58.18 |
-| placebo | 7.439 | 12.15 | 16.82 | 23.24 | 32.94 | 51.88 | 77.35 | 111.4 | 168.5 |
+| placebo | 3.423e-07 | 1.037 | 2.606 | 4.539 | 7.152 | 10.98 | 17.45 | 28.59 | 53.29 |
 
 **ema50_15m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.6616 | 1.34 | 2.113 | 2.978 | 4.044 | 5.442 | 7.595 | 10.32 | 15.92 |
-| placebo | 2.269 | 4.132 | 5.825 | 7.638 | 9.636 | 12.04 | 15.32 | 19.82 | 28.9 |
+| placebo | 0.6061 | 1.257 | 1.998 | 2.873 | 3.914 | 5.285 | 7.211 | 10.59 | 16.96 |
 
 **ema50_15m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.9828 | 2.982 | 6.327 | 10.97 | 17.4 | 25.72 | 39.87 | 63.99 | 112.5 |
-| placebo | 6.15 | 11.75 | 17.28 | 24.16 | 34.93 | 51.34 | 79.89 | 125.1 | 197.1 |
+| placebo | 1.44 | 3.393 | 6.186 | 9.899 | 14.83 | 21.63 | 34.47 | 61.47 | 109 |
 
 **ema50_5m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.4206 | 0.9063 | 1.463 | 2.012 | 2.757 | 3.826 | 5.163 | 6.886 | 10.48 |
-| placebo | 2.429 | 4.098 | 5.76 | 7.56 | 9.245 | 11.28 | 14.17 | 17.89 | 25.96 |
+| placebo | 0.423 | 0.9162 | 1.44 | 2.066 | 2.764 | 3.736 | 4.935 | 6.858 | 11.11 |
 
 **ema50_5m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.008006 | 1.685 | 4.941 | 8.541 | 12.98 | 19.61 | 30.63 | 49.27 | 88.64 |
-| placebo | 6.76 | 11.78 | 16.51 | 23.11 | 32.82 | 48.15 | 73.8 | 113.1 | 182 |
+| placebo | 0.03239 | 1.507 | 3.704 | 6.412 | 9.962 | 15.42 | 24.49 | 43 | 82.47 |
 
 **fvg_w2_1m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.1 | 0.15 | 0.2 | 0.3 | 0.35 | 0.5 | 0.65 | 0.9 | 1.45 |
-| placebo | 3.626 | 5.409 | 7.121 | 8.917 | 10.94 | 13.38 | 16.6 | 21.51 | 30.91 |
+| placebo | 0.06203 | 0.1205 | 0.1861 | 0.266 | 0.3705 | 0.5154 | 0.7309 | 1.099 | 1.96 |
 
 **fvg_w2_1m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.25 | 0.5 | 1 | 1.375 | 2.125 | 3 | 4.375 | 6.75 | 11.62 |
-| placebo | 14.75 | 24.37 | 35.68 | 50.31 | 69.64 | 95.4 | 130 | 180.2 | 267 |
+| placebo | 0.1861 | 0.447 | 0.8044 | 1.304 | 2.03 | 3.117 | 4.925 | 8.348 | 17 |
 
 **fvg_w2_5m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.15 | 0.25 | 0.35 | 0.5 | 0.65 | 0.9 | 1.2 | 1.65 | 2.7 |
-| placebo | 3.47 | 5.388 | 7.217 | 9.113 | 11.21 | 13.7 | 16.94 | 21.76 | 31.02 |
+| placebo | 0.112 | 0.2132 | 0.3333 | 0.4832 | 0.6786 | 0.9455 | 1.348 | 2.045 | 3.653 |
 
 **fvg_w2_5m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.75 | 1.375 | 2.125 | 3.125 | 4.375 | 6.25 | 9 | 13.38 | 22.62 |
-| placebo | 12.7 | 21.44 | 31.7 | 45.82 | 65.44 | 91.25 | 126.4 | 177.3 | 263.8 |
+| placebo | 0.4643 | 1.012 | 1.781 | 2.834 | 4.361 | 6.629 | 10.31 | 17.27 | 34.91 |
 
 **fvg_w4_1m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.2 | 0.25 | 0.35 | 0.4 | 0.55 | 0.7 | 0.9 | 1.25 | 1.95 |
-| placebo | 3.993 | 5.957 | 7.824 | 9.814 | 12.07 | 14.86 | 18.59 | 24.38 | 36.95 |
+| placebo | 0.1056 | 0.1951 | 0.2919 | 0.4074 | 0.5557 | 0.7582 | 1.065 | 1.592 | 2.839 |
 
 **fvg_w4_1m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.625 | 1.25 | 1.875 | 2.625 | 3.625 | 5 | 6.875 | 9.75 | 15.38 |
-| placebo | 19.59 | 35.16 | 52.93 | 73.09 | 96.63 | 125.1 | 161.9 | 214.7 | 305.5 |
+| placebo | 0.36 | 0.8432 | 1.491 | 2.375 | 3.605 | 5.435 | 8.35 | 13.58 | 26.29 |
 
 **fvg_w4_5m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.25 | 0.35 | 0.5 | 0.65 | 0.85 | 1.1 | 1.45 | 2.05 | 3.3 |
-| placebo | 3.715 | 5.802 | 7.724 | 9.758 | 12.06 | 14.8 | 18.39 | 23.77 | 34.8 |
+| placebo | 0.1687 | 0.3044 | 0.4576 | 0.6442 | 0.8911 | 1.227 | 1.728 | 2.583 | 4.616 |
 
 **fvg_w4_5m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.25 | 2.125 | 3.125 | 4.5 | 6 | 8.25 | 11.38 | 16.38 | 26.38 |
-| placebo | 14.09 | 25.55 | 40.09 | 58.54 | 81.31 | 109.3 | 146.4 | 197.8 | 287.1 |
+| placebo | 0.6713 | 1.48 | 2.58 | 4.034 | 6.11 | 9.152 | 14.11 | 23.27 | 45.25 |
 
 **fvg_w8_1m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.4 | 0.5 | 0.6 | 0.7 | 0.85 | 1.1 | 1.4 | 1.95 | 3 |
-| placebo | 4.602 | 6.937 | 9.157 | 11.52 | 14.31 | 17.77 | 22.7 | 31.01 | 52.4 |
+| placebo | 0.1828 | 0.3358 | 0.4956 | 0.6846 | 0.9315 | 1.275 | 1.789 | 2.716 | 4.928 |
 
 **fvg_w8_1m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.25 | 2.25 | 3.375 | 4.5 | 6 | 7.75 | 10 | 13.62 | 20.25 |
-| placebo | 28.47 | 49.42 | 69.96 | 91.7 | 116.2 | 145.8 | 184.5 | 240.7 | 339 |
+| placebo | 0.683 | 1.51 | 2.554 | 3.939 | 5.818 | 8.54 | 12.76 | 20.01 | 36.39 |
 
 **fvg_w8_5m / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.5 | 0.65 | 0.8 | 1.05 | 1.3 | 1.65 | 2.15 | 2.95 | 4.6 |
-| placebo | 4.155 | 6.509 | 8.741 | 11.06 | 13.75 | 16.99 | 21.29 | 28.24 | 44.85 |
+| placebo | 0.28 | 0.4867 | 0.7109 | 0.988 | 1.346 | 1.859 | 2.599 | 3.915 | 7.043 |
 
 **fvg_w8_5m / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 2.125 | 3.5 | 5 | 6.625 | 8.75 | 11.38 | 15 | 20.75 | 31.75 |
-| placebo | 17.91 | 34.19 | 53.65 | 75.54 | 100.1 | 129 | 166.8 | 220.6 | 313.2 |
+| placebo | 1.081 | 2.326 | 3.897 | 5.994 | 9.011 | 13.18 | 19.95 | 31.72 | 58.43 |
 
 **on_range / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 3.25 | 6.5 | 10.5 | 16 | 22.75 | 33.25 | 50 | 77.5 | 131.2 |
-| placebo | 6.776 | 12.86 | 19.56 | 27.53 | 38.73 | 56.05 | 84.69 | 132 | 214.5 |
+| placebo | 3.203 | 6.396 | 10.07 | 15.15 | 22.28 | 32.4 | 49.31 | 78.17 | 137.1 |
 
 **open_CME / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| placebo | 7.972 | 10.69 | 13.25 | 16.03 | 19.03 | 22.86 | 27.77 | 34.1 | 47.02 |
+| placebo | nan | nan | nan | nan | nan | nan | nan | nan | nan |
 
 **open_CME / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| placebo | 22.15 | 32.46 | 43.46 | 58.83 | 86.46 | 130 | 194.4 | 276 | 383.6 |
+| placebo | nan | nan | nan | nan | nan | nan | nan | nan | nan |
 
 **open_RTH / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| placebo | 4.005 | 5.444 | 6.812 | 8.124 | 9.66 | 11.47 | 13.94 | 17.63 | 25.24 |
+| placebo | nan | nan | nan | nan | nan | nan | nan | nan | nan |
 
 **open_RTH / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| placebo | 9.965 | 14.67 | 19.04 | 25.55 | 37.32 | 55.91 | 80.41 | 114.3 | 166.1 |
+| placebo | nan | nan | nan | nan | nan | nan | nan | nan | nan |
 
 **or15 / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.2 | 0.5 | 0.8 | 1.1 | 1.6 | 2.1 | 2.9 | 4 | 6.3 |
-| placebo | 3.309 | 4.982 | 6.491 | 8.035 | 9.636 | 11.7 | 14.24 | 17.9 | 25.29 |
+| placebo | 0.1489 | 0.4488 | 0.7617 | 1.112 | 1.537 | 2.047 | 2.724 | 3.779 | 6.044 |
 
 **or15 / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.25 | 1.5 | 3.75 | 6.5 | 10 | 15.25 | 23 | 37.25 | 66 |
-| placebo | 7.545 | 12.44 | 17.34 | 23.74 | 33.44 | 50.27 | 79.66 | 117.5 | 179.3 |
+| placebo | 0 | 1.293 | 3.01 | 5.211 | 8.217 | 12.81 | 20.13 | 33.85 | 62.76 |
 
 **or30 / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.3 | 0.7 | 1.2 | 1.7 | 2.3 | 3 | 4 | 5.5 | 8.41 |
-| placebo | 2.815 | 4.555 | 6.187 | 7.695 | 9.401 | 11.45 | 14.23 | 18.29 | 26.2 |
+| placebo | 0.2715 | 0.7134 | 1.172 | 1.676 | 2.247 | 2.927 | 3.901 | 5.379 | 8.393 |
 
 **or30 / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.25 | 2 | 4.75 | 8.5 | 13 | 19 | 29.5 | 47.75 | 83.5 |
-| placebo | 6.626 | 11.72 | 16.77 | 23.31 | 33.16 | 50.29 | 76.53 | 117.7 | 183.7 |
+| placebo | 0.1044 | 1.568 | 3.584 | 6.292 | 9.997 | 15.76 | 25.2 | 43.68 | 80.83 |
 
 **or60 / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.5 | 1.1 | 1.7 | 2.3 | 3.1 | 4.1 | 5.4 | 7.4 | 11.3 |
-| placebo | 2.113 | 3.918 | 5.596 | 7.43 | 9.168 | 11.39 | 14.24 | 18.05 | 27.15 |
+| placebo | 0.4607 | 1.057 | 1.637 | 2.263 | 3.018 | 3.97 | 5.392 | 7.555 | 12.03 |
 
 **or60 / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.25 | 2.5 | 6.25 | 10.7 | 16.25 | 24.25 | 37.5 | 61 | 108.3 |
-| placebo | 6.498 | 11.53 | 16.54 | 23.49 | 33.31 | 49.64 | 77.03 | 120.9 | 195.2 |
+| placebo | 0 | 2.14 | 5.001 | 8.397 | 12.88 | 19.85 | 31.68 | 54.95 | 102.4 |
 
 **prior_full / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 2.1 | 3.6 | 5.1 | 6.9 | 8.9 | 11.6 | 15.3 | 20.7 | 32.6 |
-| placebo | 4.223 | 8.198 | 11.82 | 15.52 | 19.6 | 24.58 | 30.96 | 40.6 | 58.29 |
+| placebo | 2.062 | 3.545 | 5.177 | 6.97 | 9.031 | 11.64 | 15.19 | 21.3 | 33.74 |
 
 **prior_full / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 6.25 | 12.75 | 20 | 29 | 40.5 | 57.5 | 84.75 | 138.7 | 242.6 |
-| placebo | 14.32 | 28.54 | 42.97 | 60.81 | 83.1 | 121.7 | 185.7 | 289.1 | 458.1 |
+| placebo | 5.322 | 11.35 | 18.66 | 27.87 | 40.01 | 59.71 | 91.33 | 147.1 | 265.7 |
 
 **prior_month / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 7.36 | 17.96 | 26.44 | 36.16 | 47.45 | 57.62 | 79.49 | 106.3 | 150.5 |
-| placebo | 8.746 | 17.72 | 27.13 | 37.53 | 50.55 | 60.69 | 75.71 | 101.6 | 151.6 |
+| placebo | 9.656 | 20.43 | 27.8 | 35.11 | 46.15 | 56.79 | 76.04 | 103.9 | 166.6 |
 
 **prior_month / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 25.38 | 50.25 | 92.25 | 147.8 | 195.8 | 280.2 | 427.5 | 757.5 | 1222 |
-| placebo | 30.25 | 64.57 | 101.5 | 150.4 | 205.9 | 267 | 442.9 | 711.4 | 1113 |
+| placebo | 23.39 | 56.18 | 96.62 | 142.8 | 196 | 273.2 | 369.1 | 661.7 | 1241 |
 
 **prior_rth / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.2 | 2.2 | 3.2 | 4.4 | 5.8 | 7.4 | 9.5 | 13.3 | 20.9 |
-| placebo | 4.928 | 8.937 | 12.27 | 15.45 | 19.08 | 23.3 | 28.71 | 36.94 | 52.88 |
+| placebo | 1.187 | 2.174 | 3.128 | 4.283 | 5.567 | 7.307 | 9.705 | 13.56 | 21.67 |
 
 **prior_rth / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 5 | 10.25 | 16.25 | 23.75 | 33.25 | 48.25 | 71.5 | 116 | 198 |
-| placebo | 14.55 | 27.83 | 41.31 | 57.41 | 79.19 | 117 | 178 | 276 | 417.5 |
+| placebo | 4.545 | 9.287 | 15.13 | 22.64 | 32.99 | 48.36 | 76.23 | 121.6 | 213.7 |
 
 **prior_week / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 4.01 | 7.72 | 11.63 | 16.4 | 21.7 | 27.4 | 34.8 | 47.18 | 71.7 |
-| placebo | 4.834 | 8.956 | 13.79 | 19.27 | 25.58 | 32.81 | 43.17 | 58.64 | 92.2 |
+| placebo | 4.387 | 8.432 | 12.52 | 16.42 | 20.82 | 27.13 | 36.6 | 49.66 | 74.31 |
 
 **prior_week / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 11 | 24.5 | 40.72 | 60.8 | 84.75 | 124.2 | 191.8 | 326 | 567.4 |
-| placebo | 17.91 | 34.82 | 55.42 | 78.45 | 117 | 170 | 262 | 397 | 669 |
+| placebo | 10.26 | 25.96 | 41.27 | 62.08 | 88.12 | 130.2 | 199.8 | 331.4 | 575.1 |
 
 **sess_Asia / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.6 | 1.3 | 2 | 2.9 | 3.8 | 5 | 6.4 | 8.8 | 14.1 |
-| placebo | 3.996 | 6.731 | 9.232 | 11.65 | 14.03 | 16.83 | 20.76 | 26.29 | 38.03 |
+| placebo | 0.5848 | 1.284 | 1.966 | 2.693 | 3.572 | 4.627 | 6.246 | 8.657 | 13.96 |
 
 **sess_Asia / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.5 | 3.5 | 5.75 | 8.75 | 12.75 | 19 | 28.25 | 43.65 | 73.75 |
-| placebo | 13.01 | 21.13 | 29.6 | 40.44 | 55.82 | 82.51 | 124.8 | 180.7 | 267.9 |
+| placebo | 1.637 | 3.353 | 5.44 | 7.991 | 11.7 | 17.87 | 27.66 | 44.84 | 78.43 |
 
 **sess_London / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.4 | 2.6 | 3.7 | 5 | 6.6 | 8.4 | 11.2 | 15.2 | 23 |
-| placebo | 1.839 | 3.692 | 5.603 | 7.744 | 10.07 | 12.85 | 16.41 | 21.68 | 31.96 |
+| placebo | 1.296 | 2.413 | 3.549 | 4.839 | 6.441 | 8.466 | 11.25 | 15.5 | 24.43 |
 
 **sess_London / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.25 | 3.75 | 9.5 | 16 | 24.5 | 37.05 | 57.22 | 96.5 | 165.8 |
-| placebo | 6.365 | 11.31 | 16.6 | 24.61 | 36.87 | 55.97 | 86.66 | 136.1 | 221.3 |
+| placebo | 0.2002 | 3.254 | 7.447 | 12.83 | 19.99 | 30.9 | 49.12 | 84.25 | 155.5 |
 
 **sess_US / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.1 | 2.1 | 3.1 | 4.1 | 5.4 | 7 | 9.2 | 12.4 | 19.6 |
-| placebo | 0.9633 | 2.025 | 3.27 | 4.517 | 6.02 | 7.786 | 10.08 | 13.65 | 21.37 |
+| placebo | 0.9596 | 1.924 | 2.897 | 4.007 | 5.277 | 6.977 | 9.29 | 13.39 | 22.17 |
 
 **sess_US / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.25 | 4.25 | 10.75 | 18 | 27.5 | 41.05 | 64.5 | 109.5 | 187.2 |
-| placebo | 2.871 | 6.033 | 11.76 | 19.39 | 30.25 | 45.83 | 73.36 | 118.2 | 199.2 |
+| placebo | 0.113 | 3.084 | 7.307 | 12.86 | 20.99 | 34.96 | 59.24 | 99.89 | 184.3 |
 
 **vwap_CME / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.7216 | 1.429 | 2.225 | 3.168 | 4.262 | 5.632 | 7.424 | 10.03 | 15.44 |
-| placebo | 2.244 | 4.067 | 5.717 | 7.67 | 9.539 | 12.04 | 15.19 | 19.32 | 27.87 |
+| placebo | 0.6662 | 1.352 | 2.221 | 3.154 | 4.181 | 5.534 | 7.405 | 10.41 | 16.78 |
 
 **vwap_CME / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.408 | 3.785 | 6.359 | 9.584 | 13.79 | 19.77 | 30.79 | 50.95 | 90.59 |
-| placebo | 5.672 | 10.98 | 16.54 | 23.07 | 32.23 | 46.69 | 70.82 | 114.2 | 177.6 |
+| placebo | 1.563 | 3.547 | 6.023 | 9.208 | 13.46 | 20.17 | 30.75 | 50.58 | 86.58 |
 
 **vwap_R24 / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.7216 | 1.429 | 2.225 | 3.168 | 4.262 | 5.632 | 7.424 | 10.03 | 15.44 |
-| placebo | 2.13 | 4.139 | 5.881 | 7.649 | 9.549 | 11.85 | 14.74 | 19.27 | 28.3 |
+| placebo | 0.6468 | 1.358 | 2.15 | 3.127 | 4.115 | 5.595 | 7.345 | 10.36 | 16.85 |
 
 **vwap_R24 / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 1.408 | 3.785 | 6.359 | 9.584 | 13.79 | 19.77 | 30.79 | 50.95 | 90.59 |
-| placebo | 6.224 | 11.25 | 16.85 | 22.96 | 32.06 | 46.13 | 75.59 | 114.3 | 175.7 |
+| placebo | 1.531 | 3.474 | 6.051 | 9.227 | 13.29 | 20.87 | 32.3 | 50.85 | 87.26 |
 
 **vwap_RTH / MGC**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.2107 | 0.4725 | 0.7621 | 1.113 | 1.531 | 2.015 | 2.663 | 3.819 | 5.804 |
-| placebo | 3.057 | 4.771 | 6.183 | 7.592 | 9.169 | 11.01 | 13.47 | 16.74 | 24.46 |
+| placebo | 0.1982 | 0.4648 | 0.716 | 1.023 | 1.42 | 1.896 | 2.521 | 3.475 | 5.674 |
 
 **vwap_RTH / MNQ**
 
 | | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
 |---|---|---|---|---|---|---|---|---|---|
 | real | 0.08333 | 1.272 | 3.423 | 5.902 | 8.943 | 13.65 | 21.6 | 35.27 | 58.73 |
-| placebo | 7.363 | 12.1 | 16.72 | 23.28 | 31.81 | 49.57 | 75.5 | 114 | 168.8 |
-
-### FAILURES - vwap_RTH / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 26.6% vs real 64.7% (ratio 0.41, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 31.81 vs real 8.943 (ratio 3.56, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - vwap_CME / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 27.9% vs real 48.3% (ratio 0.58, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 32.23 vs real 13.79 (ratio 2.34, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - vwap_R24 / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 26.1% vs real 48.3% (ratio 0.54, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 32.06 vs real 13.79 (ratio 2.32, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - or15 / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 28.3% vs real 65.5% (ratio 0.43, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 33.44 vs real 10 (ratio 3.34, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - or30 / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 27.9% vs real 61.0% (ratio 0.46, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 33.16 vs real 13 (ratio 2.55, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - or60 / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 26.4% vs real 54.8% (ratio 0.48, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 33.31 vs real 16.25 (ratio 2.05, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - prior_rth / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 19.7% vs real 42.3% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 79.19 vs real 33.25 (ratio 2.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - prior_full / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 19.1% vs real 37.9% (ratio 0.51, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 83.1 vs real 40.5 (ratio 2.05, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - sess_Asia / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 22.8% vs real 62.9% (ratio 0.36, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 55.82 vs real 12.75 (ratio 4.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - sess_London / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 21.1% vs real 41.9% (ratio 0.50, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 36.87 vs real 24.5 (ratio 1.51, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - sess_US / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 4.9% vs real 18.0% (ratio 0.27, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-
-### FAILURES - on_range / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 28.7% vs real 41.3% (ratio 0.70, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 38.73 vs real 22.75 (ratio 1.70, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
+| placebo | 0.1188 | 0.9833 | 2.461 | 4.302 | 6.767 | 10.46 | 17.03 | 29.01 | 50.18 |
 
 ### FAILURES - open_RTH / MNQ
 
-- TOUCH-RATE MISMATCH: placebo touched 29.2% vs real 76.0% (ratio 0.38, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
+- TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 76.0% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
+- DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it.
 
 ### FAILURES - open_CME / MNQ
 
-- TOUCH-RATE MISMATCH: placebo touched 14.9% vs real 95.5% (ratio 0.16, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-
-### FAILURES - fvg_w2_1m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 23.6% vs real 86.0% (ratio 0.27, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 69.64 vs real 2.125 (ratio 32.77, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w2_5m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 24.6% vs real 79.9% (ratio 0.31, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 65.44 vs real 4.375 (ratio 14.96, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w4_1m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 22.9% vs real 81.0% (ratio 0.28, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 96.63 vs real 3.625 (ratio 26.66, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w4_5m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 24.2% vs real 76.6% (ratio 0.32, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 81.31 vs real 6 (ratio 13.55, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w8_1m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 22.3% vs real 75.2% (ratio 0.30, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 116.2 vs real 6 (ratio 19.36, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w8_5m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 23.4% vs real 72.4% (ratio 0.32, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 100.1 vs real 8.75 (ratio 11.44, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema20_5m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 27.0% vs real 64.6% (ratio 0.42, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 32.94 vs real 8.54 (ratio 3.86, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
+- TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 95.5% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
+- DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it.
 
 ### FAILURES - ema20_15m / MNQ
 
-- TOUCH-RATE MISMATCH: placebo touched 25.6% vs real 58.1% (ratio 0.44, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 33.33 vs real 13.34 (ratio 2.50, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema50_5m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 26.5% vs real 57.9% (ratio 0.46, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 32.82 vs real 12.98 (ratio 2.53, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema50_15m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 26.8% vs real 44.8% (ratio 0.60, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 34.93 vs real 17.4 (ratio 2.01, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema200_5m / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 24.7% vs real 41.3% (ratio 0.60, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 34.88 vs real 18.37 (ratio 1.90, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema200_15m / MNQ
-
-- DISTANCE MISMATCH: placebo median distance 39.32 vs real 29.57 (ratio 1.33, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - prior_week / MNQ
-
-- TOUCH-RATE MISMATCH: placebo touched 16.3% vs real 23.4% (ratio 0.70, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 117 vs real 84.75 (ratio 1.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
+- DISTANCE MISMATCH: placebo median distance 9.895 vs real 13.34 (ratio 0.74, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
 
 ### FAILURES - prior_month / MNQ
 
-- TOUCH-RATE MISMATCH: placebo touched 7.0% vs real 14.8% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
+- TOUCH-RATE MISMATCH: placebo touched 10.9% vs real 14.8% (ratio 0.74, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
 
-### FAILURES - vwap_RTH / MGC
+### FAILURES - sess_US / MGC
 
-- TOUCH-RATE MISMATCH: placebo touched 19.4% vs real 71.2% (ratio 0.27, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.169 vs real 1.531 (ratio 5.99, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - vwap_CME / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 20.7% vs real 44.5% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.539 vs real 4.262 (ratio 2.24, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - vwap_R24 / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 23.0% vs real 44.5% (ratio 0.52, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.549 vs real 4.262 (ratio 2.24, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - or15 / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 22.8% vs real 70.0% (ratio 0.33, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.636 vs real 1.6 (ratio 6.02, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - or30 / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 22.4% vs real 61.5% (ratio 0.36, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.401 vs real 2.3 (ratio 4.09, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - or60 / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 22.7% vs real 50.3% (ratio 0.45, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.168 vs real 3.1 (ratio 2.96, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - prior_rth / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 21.6% vs real 52.6% (ratio 0.41, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 19.08 vs real 5.8 (ratio 3.29, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - prior_full / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 22.4% vs real 38.5% (ratio 0.58, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 19.6 vs real 8.9 (ratio 2.20, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - sess_Asia / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 24.1% vs real 60.4% (ratio 0.40, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 14.03 vs real 3.8 (ratio 3.69, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - sess_London / MGC
-
-- DISTANCE MISMATCH: placebo median distance 10.07 vs real 6.6 (ratio 1.53, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
+- TOUCH-RATE MISMATCH: placebo touched 9.4% vs real 7.0% (ratio 1.33, tolerance +/-25%). The offset range is wrong: placebos sit where price goes more often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
 
 ### FAILURES - open_RTH / MGC
 
-- TOUCH-RATE MISMATCH: placebo touched 21.9% vs real 86.3% (ratio 0.25, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
+- TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 86.3% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
+- DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it.
 
 ### FAILURES - open_CME / MGC
 
-- TOUCH-RATE MISMATCH: placebo touched 15.9% vs real 96.5% (ratio 0.16, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-
-### FAILURES - fvg_w2_1m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 19.5% vs real 89.2% (ratio 0.22, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 10.94 vs real 0.35 (ratio 31.25, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w2_5m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 19.5% vs real 82.9% (ratio 0.24, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 11.21 vs real 0.65 (ratio 17.25, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w4_1m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 19.6% vs real 84.0% (ratio 0.23, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 12.07 vs real 0.55 (ratio 21.95, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w4_5m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 19.6% vs real 79.1% (ratio 0.25, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 12.06 vs real 0.85 (ratio 14.18, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w8_1m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 19.8% vs real 79.2% (ratio 0.25, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 14.31 vs real 0.85 (ratio 16.83, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - fvg_w8_5m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 19.9% vs real 75.4% (ratio 0.26, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 13.75 vs real 1.3 (ratio 10.58, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema20_5m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 20.0% vs real 67.6% (ratio 0.30, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.225 vs real 1.733 (ratio 5.32, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema20_15m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 20.0% vs real 54.7% (ratio 0.37, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.412 vs real 2.872 (ratio 3.28, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema50_5m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 21.2% vs real 55.6% (ratio 0.38, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.245 vs real 2.757 (ratio 3.35, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema50_15m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 21.6% vs real 45.0% (ratio 0.48, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.636 vs real 4.044 (ratio 2.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema200_5m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 20.2% vs real 42.7% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 9.942 vs real 4.54 (ratio 2.19, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
-
-### FAILURES - ema200_15m / MGC
-
-- TOUCH-RATE MISMATCH: placebo touched 20.3% vs real 30.7% (ratio 0.66, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
-- DISTANCE MISMATCH: placebo median distance 10.83 vs real 7.054 (ratio 1.54, tolerance +/-25%). Placebos are not sitting at a comparable distance from price.
+- TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 96.5% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.
+- DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it.

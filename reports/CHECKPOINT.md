@@ -144,7 +144,7 @@ Fixed in the entries, not by loosening the tests:
 
 ## State
 
-- 352 tests pass, working tree clean. The repo now has a private remote at
+- 358 tests pass, working tree clean. The repo now has a private remote at
   `github.com/coltontr419-droid/futures-research` and all commits are pushed; it had none
   until 2026-09-09, while every other programme depended on its detection floors.
 - `trials.jsonl` N = 576, chain verified. `measurements.jsonl` 120 records including F14's
@@ -157,15 +157,18 @@ Fixed in the entries, not by loosening the tests:
 2. **Decide the `d ATR` reference period for L01/L06/L08.** Still outstanding and still not
    mine to make. See the section above: choosing the period that makes L01 look schedulable
    would be choosing a parameter to get a result.
-3. **Decide whether the placebo control should be redesigned.** The scale was corrected on
-   2026-09-09 from daily ATR to the intraday range over each level's own validity window, and
-   **matching still fails** — the remaining error is geometric, not a matter of scale, and
-   fixing it changes what the control IS rather than how it is sized. `decisions.md` §36 sets
-   out the diagnosis and the proposed change. **This is a methodological decision, not a bug
-   fix, which is why it was not made unilaterally.**
+3. ~~**Decide whether the placebo control should be redesigned.**~~ **SETTLED 2026-09-09.**
+   The null is now **an arbitrary region matched on distance-from-price and checked on touch
+   frequency**, not a real level displaced. Displacement was only ever a *method* for
+   generating comparable regions, and its geometry forced a 1.4× distance mismatch at any
+   scale. `decisions.md` §37 and `LEVEL_HYPOTHESES.md` carry the reasoning and the **cost**:
+   the new control is **weaker**, because it no longer holds constant how price arrived.
+   **L06 has no valid control under it and cannot get one** — `open_RTH` and `open_CME` sit
+   exactly at the reference price, so there is no distance to match.
 4. Then: projected N and SR\*, and the disproportionate-cost flags. Both are moot while the
    placebo is invalid, since no L-series result can be reported as real-minus-placebo.
 
-**Do not run Stage 1 on any L hypothesis until item 3 is settled.** A Stage 1 result computed
-against an unmatched placebo would measure exposure rather than reaction, and would look like
-a finding.
+**Item 3 is settled, so that bar is lifted for the level types that now match** — but read
+§37 before running anything. A Stage 1 result on a level type that still fails matching would
+measure exposure rather than reaction and would look like a finding. **L06 can never clear
+that bar.**

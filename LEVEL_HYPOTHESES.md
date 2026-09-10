@@ -48,41 +48,69 @@ level?**
 
 For each real level, generate a matched placebo:
 
+**THE NULL WAS REDEFINED 2026-09-09.** It is stated first, then the reasoning, then what it
+costs.
+
 ```
-placebo_offset = deterministic hash(session_date, level_type, index)
-                 mapped to ±[0.3, 1.5] × SCALE
-placebo_level  = real_level + placebo_offset
+scale_i    = intraday range over level i's own validity window
+u          = { |real_level - reference| / scale }   over all levels of this type
+placebo_i  = reference_i  ±  hash(date, level_type, index) drawn from u  ×  scale_i
 ```
 
-Requirements:
+**A placebo is an ARBITRARY REGION matched to the real levels on distance-from-price and
+checked on touch frequency. It is no longer the real level displaced.**
+
+Requirements, unchanged:
 - Same count per session as the real levels
-- Same distance-from-current-price distribution (verify, don't assume)
-- Same touch-frequency distribution (verify — if placebos are touched far less often, the
-  offset range is wrong and the comparison is invalid)
+- Same distance-from-current-price distribution — now matched **by construction**
+- Same touch-frequency distribution — **left free and measured**, so it stays an independent
+  check rather than a second thing fitted
 - Deterministic hash seeding, never `hash()`, per the reproducibility requirement
 
-**SCALE WAS `ATR(20)` — DAILY — UNTIL 2026-09-09, AND THAT FAILED 53 OF 55 LEVEL TYPES.**
-A single daily scale was applied to a one-minute fair-value gap and a prior-month extreme
-alike. Placebos landed 3× to 63× further from price than the levels they stood in for, and
-were touched 6–17% of the time against the real levels' 30–96%. Every real-minus-placebo
-comparison on those types would have measured **exposure, not reaction** — the exact failure
-the two "verify, don't assume" requirements above exist to catch. **They did catch it.**
-`reports/placebo_match.md` has said `FAIL — 53 of 55` since the first complete run; nothing
-was blocked by it because no Stage 1 ever ran.
+### Why the null changed
 
-The scale is now `definitions.window_scale`: the intraday range over **each level's own
-validity window**, since `touches` gives every level the remainder of its own row and no
-longer. The offset bounds `[0.3, 1.5]` are unchanged — only the unit they multiply.
+**The hypotheses never asked about displacement.** L07 asks whether fair-value-gap zones react
+differently from *ordinary regions price reaches equally often*. Displacement was a **method
+for generating such regions** — a reasonable one — and it was never the null itself. Reading it
+as the null is what made a defect in the method look like a property of the comparison.
 
-**Matching still fails after the correction, and the residual is geometric rather than a
-matter of scale.** A placebo built as `level + offset × scale` sits at roughly `2d` or `0`
-when the level is already displaced by `d`, giving a median near `1.4d` for any scale
-whatsoever. Making the distance distribution match requires changing what the control *is*,
-which is a specification decision and is recorded as open in `decisions.md` §36 and
-`reports/CHECKPOINT.md` item 3.
+**The method had a defect that no parameter could remove.** A real level already sits at
+distance `d` from the reference price, so adding a signed offset of magnitude `~d` lands the
+placebo at `~2d` or `~0`, with a median near `1.4d`. Measured, that ratio held at **1.32–1.54
+across every level type, both products and three different scale rules**. The failure was
+geometric, so no scale fixed it and no scale ever could.
 
-**No L-series Stage 1 may run until that is settled.** A result computed against an unmatched
-placebo would measure exposure and would look like a finding.
+The first scale correction, from daily ATR to the intraday validity window, was still worth
+making and is retained — it is the right unit. It moved matching from 2 of 55 to 3 of 55 and
+went no further, which is what identified the remaining error as structural.
+
+### What this costs — stated plainly, because it is a real loss
+
+**A matched-distance arbitrary region is a WEAKER control than a displaced real level.**
+
+A displaced level inherits the *history* of the level it came from: the same session, the same
+approach, the same sequence of prices that brought the market to that neighbourhood. Comparing
+against it holds constant **how price arrived**. An arbitrary region at a matched distance does
+not hold that constant. It equalises where the region sits and how often price reaches it, and
+nothing else.
+
+**So a surviving real-minus-placebo difference now has one more competing explanation than it
+used to**: that price *arrives* at real levels differently, rather than *reacting* at them
+differently. The new control cannot separate those. A result under it should be read as "reacts
+differently from an equally-reachable arbitrary region", which is a weaker claim than "reacts
+differently given the same approach".
+
+**This was accepted deliberately.** The stronger control was unattainable — its geometry
+guarantees a 1.4× distance mismatch, so it was never actually delivering the comparison it
+appeared to. **A weaker control that is matched beats a stronger one that is not**, because an
+unmatched control measures exposure and reports it as reaction. `decisions.md` §37.
+
+### The degenerate case
+
+`open_RTH` and `open_CME` sit **exactly at** the reference price: their distance distribution is
+identically zero. There is no distance to match and no arbitrary region is comparable to them.
+`verify` reports this as its own failure kind rather than as a tuning problem, because no
+construction fixes it. **L06 has no valid control and cannot get one under this definition.**
 
 **The reported effect is (real level) − (placebo level), not (real level) − 0.** A hypothesis
 whose real-minus-placebo difference is indistinguishable from zero is refuted even if its raw

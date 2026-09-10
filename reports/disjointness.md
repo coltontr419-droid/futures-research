@@ -25,8 +25,8 @@ The measurement is the maximum pairwise overlap of firing minutes across a hypot
 | L08 | MNQ | 18 | 100% | **CLOSED** (OVERLAPPING) |
 | L09 | MGC | 18 | 100% | **CLOSED** (OVERLAPPING) |
 | L09 | MNQ | 18 | 97% | **CLOSED** (OVERLAPPING) |
-| L10 | MGC | 3 | 0% | **OPEN** (DISJOINT) |
-| L10 | MNQ | 3 | 0% | **OPEN** (DISJOINT) |
+| L10 | MGC | 3 | 1% | **OPEN** (DISJOINT) |
+| L10 | MNQ | 3 | 5% | **OPEN** (DISJOINT) |
 
 - **L01 / MGC** - cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED.
 - **L01 / MNQ** - cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED.
@@ -45,5 +45,5 @@ The measurement is the maximum pairwise overlap of firing minutes across a hypot
 - **L08 / MNQ** - cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED.
 - **L09 / MGC** - cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED.
 - **L09 / MNQ** - cells share up to 97% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED.
-- **L10 / MGC** - cells share at most 0% of firing minutes, so an aggregate route is genuinely available.
-- **L10 / MNQ** - cells share at most 0% of firing minutes, so an aggregate route is genuinely available.
+- **L10 / MGC** - cells share at most 1% of firing minutes, so an aggregate route is genuinely available.
+- **L10 / MNQ** - cells share at most 5% of firing minutes, so an aggregate route is genuinely available.

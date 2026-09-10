@@ -45,7 +45,7 @@
         60,
         120
       ],
-      "firings": 4,
+      "firings": 2,
       "minutes_key": ""
     },
     {
@@ -93,7 +93,7 @@
         60,
         120
       ],
-      "firings": 23,
+      "firings": 38,
       "minutes_key": ""
     },
     {
@@ -141,7 +141,7 @@
         60,
         120
       ],
-      "firings": 26,
+      "firings": 40,
       "minutes_key": ""
     },
     {
@@ -1989,7 +1989,7 @@
         60,
         120
       ],
-      "firings": 0,
+      "firings": 1,
       "minutes_key": ""
     },
     {
@@ -2037,7 +2037,7 @@
         60,
         120
       ],
-      "firings": 21,
+      "firings": 91,
       "minutes_key": ""
     },
     {
@@ -2085,7 +2085,7 @@
         60,
         120
       ],
-      "firings": 41,
+      "firings": 85,
       "minutes_key": ""
     },
     {
@@ -3794,9 +3794,9 @@
       "hypothesis": "L10",
       "product": "MNQ",
       "n_cells": 3,
-      "max_pairwise_overlap": 0.0,
+      "max_pairwise_overlap": 0.05263157894736842,
       "verdict": "DISJOINT",
-      "note": "cells share at most 0% of firing minutes, so an aggregate route is genuinely available."
+      "note": "cells share at most 5% of firing minutes, so an aggregate route is genuinely available."
     },
     {
       "hypothesis": "L02",
@@ -3874,9 +3874,9 @@
       "hypothesis": "L10",
       "product": "MGC",
       "n_cells": 3,
-      "max_pairwise_overlap": 0.0,
+      "max_pairwise_overlap": 0.011764705882352941,
       "verdict": "DISJOINT",
-      "note": "cells share at most 0% of firing minutes, so an aggregate route is genuinely available."
+      "note": "cells share at most 1% of firing minutes, so an aggregate route is genuinely available."
     },
     {
       "hypothesis": "L02",
@@ -3942,9 +3942,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.6474171539961013,
-      "placebo_touch_rate": 0.2655945419103314,
+      "placebo_touch_rate": 0.5757797270955166,
       "real_distance_median": 8.943376606021957,
-      "placebo_distance_median": 31.81018590498752,
+      "placebo_distance_median": 6.7665325094881155,
       "real_distance_deciles": [
         0.08333333333348492,
         1.2721971663542717,
@@ -3957,20 +3957,17 @@
         58.73481783047228
       ],
       "placebo_distance_deciles": [
-        7.362675206765834,
-        12.10340803578274,
-        16.723916285183574,
-        23.28308302910009,
-        31.81018590498752,
-        49.568656079252825,
-        75.50224464276033,
-        113.95173342120034,
-        168.76573691681088
+        0.11881119758581918,
+        0.9833255330675457,
+        2.4610099459764108,
+        4.301523058347539,
+        6.7665325094881155,
+        10.459648254698545,
+        17.034587224436745,
+        29.007909645123075,
+        50.18467373281057
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 26.6% vs real 64.7% (ratio 0.41, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 31.81 vs real 8.943 (ratio 3.56, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "vwap_CME",
@@ -3978,9 +3975,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.4834307992202729,
-      "placebo_touch_rate": 0.27850877192982454,
+      "placebo_touch_rate": 0.46905458089668617,
       "real_distance_median": 13.790276754157958,
-      "placebo_distance_median": 32.23238752449788,
+      "placebo_distance_median": 13.463622163671062,
       "real_distance_deciles": [
         1.408190791542802,
         3.784739716004606,
@@ -3993,20 +3990,17 @@
         90.593746759183
       ],
       "placebo_distance_deciles": [
-        5.67205122695359,
-        10.984146389704529,
-        16.544368715367405,
-        23.07232859389478,
-        32.23238752449788,
-        46.69300622700865,
-        70.81570131473944,
-        114.20036027119278,
-        177.6137394414109
+        1.5625969614416135,
+        3.5465937132772525,
+        6.023355111639102,
+        9.20818708786851,
+        13.463622163671062,
+        20.174023474910065,
+        30.747819086969677,
+        50.57953266469886,
+        86.57776643673098
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 27.9% vs real 48.3% (ratio 0.58, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 32.23 vs real 13.79 (ratio 2.34, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "vwap_R24",
@@ -4014,9 +4008,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.4834307992202729,
-      "placebo_touch_rate": 0.26096491228070173,
+      "placebo_touch_rate": 0.46101364522417154,
       "real_distance_median": 13.790276754157958,
-      "placebo_distance_median": 32.05804828832902,
+      "placebo_distance_median": 13.28968097639654,
       "real_distance_deciles": [
         1.408190791542802,
         3.784739716004606,
@@ -4029,20 +4023,17 @@
         90.593746759183
       ],
       "placebo_distance_deciles": [
-        6.224092782792923,
-        11.246682149089974,
-        16.850853241078216,
-        22.956489188735034,
-        32.05804828832902,
-        46.13029159392208,
-        75.59094430980703,
-        114.306730811311,
-        175.68773219727746
+        1.530695524985822,
+        3.4735300945212657,
+        6.050790513369337,
+        9.226643091695497,
+        13.28968097639654,
+        20.871473547084125,
+        32.296869080829765,
+        50.85255723694427,
+        87.25933870076462
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 26.1% vs real 48.3% (ratio 0.54, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 32.06 vs real 13.79 (ratio 2.32, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "or15",
@@ -4050,9 +4041,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.6546052631578947,
-      "placebo_touch_rate": 0.2826510721247563,
+      "placebo_touch_rate": 0.5660331384015594,
       "real_distance_median": 10.0,
-      "placebo_distance_median": 33.438080113842034,
+      "placebo_distance_median": 8.216950976769567,
       "real_distance_deciles": [
         0.25,
         1.5,
@@ -4065,20 +4056,17 @@
         66.0
       ],
       "placebo_distance_deciles": [
-        7.5452229926645265,
-        12.441568269675372,
-        17.344826433203888,
-        23.741327197557712,
-        33.438080113842034,
-        50.274928997182165,
-        79.65594923139405,
-        117.45408464527101,
-        179.25731255740013
+        0.0,
+        1.2927296062261122,
+        3.0102293193384866,
+        5.211412046100304,
+        8.216950976769567,
+        12.806164030577559,
+        20.13385794263122,
+        33.85012270542321,
+        62.76112893662831
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 28.3% vs real 65.5% (ratio 0.43, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 33.44 vs real 10 (ratio 3.34, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "or30",
@@ -4086,9 +4074,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.6102582846003899,
-      "placebo_touch_rate": 0.2793615984405458,
+      "placebo_touch_rate": 0.5285087719298246,
       "real_distance_median": 13.0,
-      "placebo_distance_median": 33.158374457094624,
+      "placebo_distance_median": 9.996636721565665,
       "real_distance_deciles": [
         0.25,
         2.0,
@@ -4101,20 +4089,17 @@
         83.5
       ],
       "placebo_distance_deciles": [
-        6.625700795318517,
-        11.723551852437595,
-        16.774000359899762,
-        23.31134328082326,
-        33.158374457094624,
-        50.28664847459622,
-        76.52795233343667,
-        117.72360980350115,
-        183.65463791218667
+        0.10437364413751316,
+        1.56828447433627,
+        3.583895828777713,
+        6.291817835733492,
+        9.996636721565665,
+        15.76296185010542,
+        25.202158715852054,
+        43.678214117994514,
+        80.834679452566
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 27.9% vs real 61.0% (ratio 0.46, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 33.16 vs real 13 (ratio 2.55, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "or60",
@@ -4122,9 +4107,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.5477582846003899,
-      "placebo_touch_rate": 0.2637670565302144,
+      "placebo_touch_rate": 0.48014132553606237,
       "real_distance_median": 16.25,
-      "placebo_distance_median": 33.306443233585014,
+      "placebo_distance_median": 12.87546219050273,
       "real_distance_deciles": [
         0.25,
         2.5,
@@ -4137,20 +4122,17 @@
         108.32500000000005
       ],
       "placebo_distance_deciles": [
-        6.498036390689594,
-        11.532981587759423,
-        16.541287508683354,
-        23.48666235497167,
-        33.306443233585014,
-        49.63666887826256,
-        77.0323466419737,
-        120.85262682738693,
-        195.2294902146723
+        0.0,
+        2.1396751555721494,
+        5.001373002371656,
+        8.397442981679799,
+        12.87546219050273,
+        19.847506192014954,
+        31.681961344578568,
+        54.952062765222955,
+        102.40462633620191
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 26.4% vs real 54.8% (ratio 0.48, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 33.31 vs real 16.25 (ratio 2.05, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "prior_rth",
@@ -4158,9 +4140,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.4228801169590643,
-      "placebo_touch_rate": 0.19724658869395711,
+      "placebo_touch_rate": 0.42714424951267055,
       "real_distance_median": 33.25,
-      "placebo_distance_median": 79.19021869063431,
+      "placebo_distance_median": 32.991146498190574,
       "real_distance_deciles": [
         5.0,
         10.25,
@@ -4173,20 +4155,17 @@
         198.0
       ],
       "placebo_distance_deciles": [
-        14.547787481065077,
-        27.834410698468854,
-        41.311954354822134,
-        57.414056227255514,
-        79.19021869063431,
-        117.01549102352,
-        178.04950994417868,
-        276.00855499644035,
-        417.4635852440898
+        4.544647686666576,
+        9.287199690790294,
+        15.131489534068033,
+        22.640895182330404,
+        32.991146498190574,
+        48.36395516387783,
+        76.22933742467157,
+        121.61428965117085,
+        213.73604036669823
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.7% vs real 42.3% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 79.19 vs real 33.25 (ratio 2.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "prior_full",
@@ -4194,9 +4173,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.3787768031189084,
-      "placebo_touch_rate": 0.19139863547758285,
+      "placebo_touch_rate": 0.36829922027290446,
       "real_distance_median": 40.5,
-      "placebo_distance_median": 83.10098966168607,
+      "placebo_distance_median": 40.01105986687162,
       "real_distance_deciles": [
         6.25,
         12.75,
@@ -4209,20 +4188,17 @@
         242.57500000000005
       ],
       "placebo_distance_deciles": [
-        14.31543783724651,
-        28.543918506289266,
-        42.96590949959845,
-        60.808637328765144,
-        83.10098966168607,
-        121.70980771437442,
-        185.6591919407912,
-        289.11212073328426,
-        458.1197051873252
+        5.322131296570115,
+        11.35058890442051,
+        18.664093137790996,
+        27.8702612262161,
+        40.01105986687162,
+        59.71363674451531,
+        91.32903692380876,
+        147.13140755205026,
+        265.70162072553205
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.1% vs real 37.9% (ratio 0.51, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 83.1 vs real 40.5 (ratio 2.05, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "sess_Asia",
@@ -4230,9 +4206,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.6291423001949318,
-      "placebo_touch_rate": 0.2283138401559454,
+      "placebo_touch_rate": 0.5894249512670565,
       "real_distance_median": 12.75,
-      "placebo_distance_median": 55.82028284340413,
+      "placebo_distance_median": 11.697779876400546,
       "real_distance_deciles": [
         1.5,
         3.5,
@@ -4245,20 +4221,17 @@
         73.75
       ],
       "placebo_distance_deciles": [
-        13.00527052678899,
-        21.130450235579247,
-        29.596168666204495,
-        40.44242834539837,
-        55.82028284340413,
-        82.51325964914903,
-        124.76052905717714,
-        180.65845028834448,
-        267.8763458647398
+        1.6374170664249965,
+        3.3531617915952667,
+        5.439922838933671,
+        7.991350758882618,
+        11.697779876400546,
+        17.869379100208608,
+        27.658932808434745,
+        44.83937700169809,
+        78.42908941054485
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 22.8% vs real 62.9% (ratio 0.36, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 55.82 vs real 12.75 (ratio 4.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "sess_London",
@@ -4266,9 +4239,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.4194688109161793,
-      "placebo_touch_rate": 0.21064814814814814,
+      "placebo_touch_rate": 0.38133528265107214,
       "real_distance_median": 24.5,
-      "placebo_distance_median": 36.87449198430022,
+      "placebo_distance_median": 19.993810202675377,
       "real_distance_deciles": [
         0.25,
         3.75,
@@ -4281,20 +4254,17 @@
         165.75
       ],
       "placebo_distance_deciles": [
-        6.364890402813989,
-        11.306128442008049,
-        16.597522091209246,
-        24.611461547078036,
-        36.87449198430022,
-        55.969856727900336,
-        86.66339206037645,
-        136.05141851228439,
-        221.3166361881318
+        0.2002051197044239,
+        3.253933836325814,
+        7.4473025636019425,
+        12.832088453231155,
+        19.993810202675377,
+        30.896884518373188,
+        49.11905810426891,
+        84.24858508188449,
+        155.48362258968316
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 21.1% vs real 41.9% (ratio 0.50, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 36.87 vs real 24.5 (ratio 1.51, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "sess_US",
@@ -4302,9 +4272,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.18043372319688109,
-      "placebo_touch_rate": 0.04909844054580897,
+      "placebo_touch_rate": 0.16922514619883042,
       "real_distance_median": 27.5,
-      "placebo_distance_median": 30.24652494861175,
+      "placebo_distance_median": 20.988747842935254,
       "real_distance_deciles": [
         0.25,
         4.25,
@@ -4317,19 +4287,17 @@
         187.25
       ],
       "placebo_distance_deciles": [
-        2.870931776041721,
-        6.032778100567521,
-        11.762520433379814,
-        19.392185837647776,
-        30.24652494861175,
-        45.82988611930367,
-        73.35544918183814,
-        118.15746773596985,
-        199.16561459391247
+        0.1130114689400216,
+        3.0835886859975297,
+        7.306581733632629,
+        12.85774477324012,
+        20.988747842935254,
+        34.9616358845702,
+        59.236508317597135,
+        99.88512314228794,
+        184.30843168789895
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 4.9% vs real 18.0% (ratio 0.27, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
-      ]
+      "failures": []
     },
     {
       "level_type": "on_range",
@@ -4337,9 +4305,9 @@
       "n_real": 8208,
       "n_placebo": 8208,
       "real_touch_rate": 0.41264619883040937,
-      "placebo_touch_rate": 0.2871588693957115,
+      "placebo_touch_rate": 0.38620857699805067,
       "real_distance_median": 22.75,
-      "placebo_distance_median": 38.72818785210529,
+      "placebo_distance_median": 22.2832287264182,
       "real_distance_deciles": [
         3.25,
         6.5,
@@ -4352,20 +4320,17 @@
         131.25
       ],
       "placebo_distance_deciles": [
-        6.775738225301985,
-        12.857039499814256,
-        19.556274403893713,
-        27.53063601625145,
-        38.72818785210529,
-        56.05303500217692,
-        84.6883743564004,
-        132.0324512754527,
-        214.4979134691128
+        3.203088830618481,
+        6.396475912475944,
+        10.074639911252733,
+        15.15451663593267,
+        22.2832287264182,
+        32.40479446192294,
+        49.30656467442331,
+        78.17141677954588,
+        137.1440177111496
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 28.7% vs real 41.3% (ratio 0.70, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 38.73 vs real 22.75 (ratio 1.70, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "open_RTH",
@@ -4373,9 +4338,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.7595029239766082,
-      "placebo_touch_rate": 0.2919103313840156,
+      "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": 37.32386943079746,
+      "placebo_distance_median": NaN,
       "real_distance_deciles": [
         0.0,
         0.0,
@@ -4388,18 +4353,19 @@
         0.0
       ],
       "placebo_distance_deciles": [
-        9.96478029956188,
-        14.672914453895192,
-        19.040495487249974,
-        25.55318584250035,
-        37.32386943079746,
-        55.90983120081141,
-        80.4089765648222,
-        114.25154332040876,
-        166.0912139850607
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
       ],
       "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 29.2% vs real 76.0% (ratio 0.38, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+        "TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 76.0% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it."
       ]
     },
     {
@@ -4408,9 +4374,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.9549220272904484,
-      "placebo_touch_rate": 0.148635477582846,
+      "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": 86.45996698523913,
+      "placebo_distance_median": NaN,
       "real_distance_deciles": [
         0.0,
         0.0,
@@ -4423,18 +4389,19 @@
         0.0
       ],
       "placebo_distance_deciles": [
-        22.14611850071442,
-        32.458325873957435,
-        43.460349343868074,
-        58.83348060461094,
-        86.45996698523913,
-        129.98468387994618,
-        194.39426214896392,
-        275.97938257176867,
-        383.5950918413193
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
       ],
       "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 14.9% vs real 95.5% (ratio 0.16, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+        "TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 95.5% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it."
       ]
     },
     {
@@ -4443,9 +4410,9 @@
       "n_real": 774167,
       "n_placebo": 774167,
       "real_touch_rate": 0.8596207278274585,
-      "placebo_touch_rate": 0.235688165473341,
+      "placebo_touch_rate": 0.8356336552707619,
       "real_distance_median": 2.125,
-      "placebo_distance_median": 69.64047578086684,
+      "placebo_distance_median": 2.0299880374577697,
       "real_distance_deciles": [
         0.25,
         0.5,
@@ -4458,20 +4425,17 @@
         11.625
       ],
       "placebo_distance_deciles": [
-        14.75354193348121,
-        24.372500766420128,
-        35.67759576862481,
-        50.307223711484596,
-        69.64047578086684,
-        95.40498612790577,
-        129.9883008710076,
-        180.15732988047276,
-        266.9507483710274
+        0.18609681135694706,
+        0.4469778494911226,
+        0.8043583880738879,
+        1.3040472164306267,
+        2.0299880374577697,
+        3.116789641800278,
+        4.92484024981204,
+        8.348181612083138,
+        17.00492975252056
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 23.6% vs real 86.0% (ratio 0.27, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 69.64 vs real 2.125 (ratio 32.77, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w2_5m",
@@ -4479,9 +4443,9 @@
       "n_real": 162652,
       "n_placebo": 162652,
       "real_touch_rate": 0.7986006935051521,
-      "placebo_touch_rate": 0.2464525490003197,
+      "placebo_touch_rate": 0.7594065858397069,
       "real_distance_median": 4.375,
-      "placebo_distance_median": 65.44002956832719,
+      "placebo_distance_median": 4.361228050253885,
       "real_distance_deciles": [
         0.75,
         1.375,
@@ -4494,20 +4458,17 @@
         22.625
       ],
       "placebo_distance_deciles": [
-        12.698714926247249,
-        21.443565988163392,
-        31.696012071099812,
-        45.82382207292467,
-        65.44002956832719,
-        91.2463119551771,
-        126.41571643253381,
-        177.29024512002508,
-        263.794578460101
+        0.46427328797426526,
+        1.0121781705647663,
+        1.7810318682582873,
+        2.8339466244126026,
+        4.361228050253885,
+        6.628503365982394,
+        10.307731862848595,
+        17.27338802868617,
+        34.9065779288912
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 24.6% vs real 79.9% (ratio 0.31, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 65.44 vs real 4.375 (ratio 14.96, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w4_1m",
@@ -4515,9 +4476,9 @@
       "n_real": 458935,
       "n_placebo": 458935,
       "real_touch_rate": 0.8096680357784871,
-      "placebo_touch_rate": 0.22900192837765695,
+      "placebo_touch_rate": 0.7799797356924183,
       "real_distance_median": 3.625,
-      "placebo_distance_median": 96.6335657451782,
+      "placebo_distance_median": 3.6049006604243914,
       "real_distance_deciles": [
         0.625,
         1.25,
@@ -4530,20 +4491,17 @@
         15.375
       ],
       "placebo_distance_deciles": [
-        19.59477759828915,
-        35.16467028367515,
-        52.93489176927433,
-        73.09475338999546,
-        96.6335657451782,
-        125.09343750945844,
-        161.9365560686114,
-        214.6932373500291,
-        305.5035993349493
+        0.360043689721897,
+        0.8432288469761261,
+        1.490670059538206,
+        2.3750874848989043,
+        3.6049006604243914,
+        5.434796935762277,
+        8.349549309904614,
+        13.584577340541,
+        26.288049388935914
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 22.9% vs real 81.0% (ratio 0.28, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 96.63 vs real 3.625 (ratio 26.66, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w4_5m",
@@ -4551,9 +4509,9 @@
       "n_real": 123707,
       "n_placebo": 123707,
       "real_touch_rate": 0.7660601259427519,
-      "placebo_touch_rate": 0.24203965822467605,
+      "placebo_touch_rate": 0.7251731914928016,
       "real_distance_median": 6.0,
-      "placebo_distance_median": 81.30638335643926,
+      "placebo_distance_median": 6.109834209233668,
       "real_distance_deciles": [
         1.25,
         2.125,
@@ -4566,20 +4524,17 @@
         26.375
       ],
       "placebo_distance_deciles": [
-        14.089603726355655,
-        25.547996352815243,
-        40.093089644383134,
-        58.53824489445252,
-        81.30638335643926,
-        109.28198534619112,
-        146.4469435982686,
-        197.83918648784604,
-        287.1030934897812
+        0.6712644436764095,
+        1.4802574013399863,
+        2.5801668085428897,
+        4.03392346454457,
+        6.109834209233668,
+        9.152144733465683,
+        14.1067434357592,
+        23.27404079595217,
+        45.24570474942957
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 24.2% vs real 76.6% (ratio 0.32, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 81.31 vs real 6 (ratio 13.55, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w8_1m",
@@ -4587,9 +4542,9 @@
       "n_real": 246325,
       "n_placebo": 246325,
       "real_touch_rate": 0.7515802293717649,
-      "placebo_touch_rate": 0.22270171521364052,
+      "placebo_touch_rate": 0.7142190195879428,
       "real_distance_median": 6.0,
-      "placebo_distance_median": 116.17039239041333,
+      "placebo_distance_median": 5.817566433430329,
       "real_distance_deciles": [
         1.25,
         2.25,
@@ -4602,20 +4557,17 @@
         20.25
       ],
       "placebo_distance_deciles": [
-        28.468356689669058,
-        49.421094017821815,
-        69.95896248459611,
-        91.70452297362354,
-        116.17039239041333,
-        145.78949508996192,
-        184.53491360294936,
-        240.67498670675926,
-        339.0143430445256
+        0.6830146656168836,
+        1.509556325964877,
+        2.5538735331218048,
+        3.938501304109013,
+        5.817566433430329,
+        8.539680356685858,
+        12.756289273758373,
+        20.008144614078265,
+        36.38618268900647
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 22.3% vs real 75.2% (ratio 0.30, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 116.2 vs real 6 (ratio 19.36, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w8_5m",
@@ -4623,9 +4575,9 @@
       "n_real": 84740,
       "n_placebo": 84740,
       "real_touch_rate": 0.7241208402171347,
-      "placebo_touch_rate": 0.23424592872315317,
+      "placebo_touch_rate": 0.6787821571866887,
       "real_distance_median": 8.75,
-      "placebo_distance_median": 100.12336949417295,
+      "placebo_distance_median": 9.011321016845613,
       "real_distance_deciles": [
         2.125,
         3.5,
@@ -4638,20 +4590,17 @@
         31.75
       ],
       "placebo_distance_deciles": [
-        17.9130975208147,
-        34.19080258615977,
-        53.64658809512557,
-        75.53722152899863,
-        100.12336949417295,
-        129.00407321283782,
-        166.75683770733974,
-        220.6271354360757,
-        313.2336237113625
+        1.0810215755765966,
+        2.326143847676758,
+        3.896680233206007,
+        5.994215148136934,
+        9.011321016845613,
+        13.182799445050478,
+        19.949006533942697,
+        31.715372434860907,
+        58.427546299765936
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 23.4% vs real 72.4% (ratio 0.32, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 100.1 vs real 8.75 (ratio 11.44, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema20_5m",
@@ -4659,9 +4608,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.6457115009746589,
-      "placebo_touch_rate": 0.2699805068226121,
+      "placebo_touch_rate": 0.5635964912280702,
       "real_distance_median": 8.540496539304513,
-      "placebo_distance_median": 32.941589470018016,
+      "placebo_distance_median": 7.151930081993669,
       "real_distance_deciles": [
         8.526981218892616e-08,
         1.3002969855488118,
@@ -4674,20 +4623,17 @@
         58.176606609604285
       ],
       "placebo_distance_deciles": [
-        7.438816212758479,
-        12.151584550817187,
-        16.822929085063606,
-        23.242078180576847,
-        32.941589470018016,
-        51.88398392308316,
-        77.35079979224365,
-        111.40125899053855,
-        168.53968995999287
+        3.4233048609166875e-07,
+        1.0374079747622544,
+        2.6063712243014376,
+        4.539304763907239,
+        7.151930081993669,
+        10.978880606143315,
+        17.447874604297795,
+        28.58742173509163,
+        53.29199528215987
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 27.0% vs real 64.6% (ratio 0.42, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 32.94 vs real 8.54 (ratio 3.86, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema20_15m",
@@ -4695,9 +4641,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.5813840155945419,
-      "placebo_touch_rate": 0.25560428849902533,
+      "placebo_touch_rate": 0.4992690058479532,
       "real_distance_median": 13.340044029148885,
-      "placebo_distance_median": 33.3258131768157,
+      "placebo_distance_median": 9.894658180328406,
       "real_distance_deciles": [
         0.028071038106372726,
         1.9303701536906377,
@@ -4710,19 +4656,18 @@
         89.5593940548155
       ],
       "placebo_distance_deciles": [
-        6.578041498987432,
-        11.29720145567735,
-        16.214287242110228,
-        23.08199074368913,
-        33.3258131768157,
-        49.776044451905165,
-        76.70513298581126,
-        115.40396953693562,
-        185.78921739013185
+        0.09058990138400988,
+        1.3654856780292903,
+        3.6524357556736957,
+        6.439522591517835,
+        9.894658180328406,
+        15.679997753361008,
+        25.588948114604584,
+        45.62882496311724,
+        81.60323534477648
       ],
       "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 25.6% vs real 58.1% (ratio 0.44, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 33.33 vs real 13.34 (ratio 2.50, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
+        "DISTANCE MISMATCH: placebo median distance 9.895 vs real 13.34 (ratio 0.74, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
       ]
     },
     {
@@ -4731,9 +4676,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.5791910331384016,
-      "placebo_touch_rate": 0.26535087719298245,
+      "placebo_touch_rate": 0.4992690058479532,
       "real_distance_median": 12.984076075284975,
-      "placebo_distance_median": 32.8179107173205,
+      "placebo_distance_median": 9.961749685138784,
       "real_distance_deciles": [
         0.008006134714605652,
         1.6851917985568436,
@@ -4746,20 +4691,17 @@
         88.64037066930545
       ],
       "placebo_distance_deciles": [
-        6.760091589982131,
-        11.782282559906617,
-        16.513655642067715,
-        23.112067347240735,
-        32.8179107173205,
-        48.14776422656786,
-        73.79854347537238,
-        113.06588330753222,
-        182.0107547119934
+        0.03238514914646658,
+        1.5070595505731035,
+        3.7041530021725064,
+        6.4119173396113185,
+        9.961749685138784,
+        15.415718985484999,
+        24.494589383994747,
+        42.99756455743555,
+        82.47191655524962
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 26.5% vs real 57.9% (ratio 0.46, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 32.82 vs real 12.98 (ratio 2.53, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema50_15m",
@@ -4767,9 +4709,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.4476120857699805,
-      "placebo_touch_rate": 0.26778752436647174,
+      "placebo_touch_rate": 0.4398148148148148,
       "real_distance_median": 17.39560033114867,
-      "placebo_distance_median": 34.92611836833612,
+      "placebo_distance_median": 14.827189445942395,
       "real_distance_deciles": [
         0.9828495882099559,
         2.981931713044469,
@@ -4782,20 +4724,17 @@
         112.49755968065874
       ],
       "placebo_distance_deciles": [
-        6.15018678415222,
-        11.749483962726481,
-        17.281577081169406,
-        24.158567702296843,
-        34.92611836833612,
-        51.34266495315968,
-        79.88703861261054,
-        125.11132028481899,
-        197.0807459856161
+        1.4400582988229418,
+        3.3927867024836815,
+        6.186141395547383,
+        9.898536076096116,
+        14.827189445942395,
+        21.62953265971082,
+        34.472971027658055,
+        61.47200481619657,
+        108.95887197419839
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 26.8% vs real 44.8% (ratio 0.60, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 34.93 vs real 17.4 (ratio 2.01, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema200_5m",
@@ -4803,9 +4742,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.4130116959064328,
-      "placebo_touch_rate": 0.24707602339181287,
+      "placebo_touch_rate": 0.4108187134502924,
       "real_distance_median": 18.36619455386699,
-      "placebo_distance_median": 34.87577054938015,
+      "placebo_distance_median": 16.747143048271028,
       "real_distance_deciles": [
         1.624018593077699,
         3.8306850725327424,
@@ -4818,20 +4757,17 @@
         120.54218806691341
       ],
       "placebo_distance_deciles": [
-        6.536883397315455,
-        11.675978674827276,
-        17.281378487940216,
-        24.250185206579772,
-        34.87577054938015,
-        50.07491386665932,
-        79.10054946928575,
-        120.17442169510615,
-        201.88166406651146
+        2.028745251652117,
+        4.3495605729440285,
+        7.047733077371139,
+        11.1137420101295,
+        16.747143048271028,
+        25.022269981192757,
+        38.7496815761579,
+        62.663181227791576,
+        116.61007364982946
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 24.7% vs real 41.3% (ratio 0.60, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 34.88 vs real 18.37 (ratio 1.90, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema200_15m",
@@ -4839,9 +4775,9 @@
       "n_real": 4104,
       "n_placebo": 4104,
       "real_touch_rate": 0.2933723196881092,
-      "placebo_touch_rate": 0.24975633528265107,
+      "placebo_touch_rate": 0.30579922027290446,
       "real_distance_median": 29.56573298036119,
-      "placebo_distance_median": 39.31729226366474,
+      "placebo_distance_median": 29.492699912533,
       "real_distance_deciles": [
         4.5272744784414956,
         9.19530158509806,
@@ -4854,19 +4790,17 @@
         178.48509727165583
       ],
       "placebo_distance_deciles": [
-        5.903301658767305,
-        12.392792188367276,
-        19.220021708847845,
-        27.58046680070984,
-        39.31729226366474,
-        59.84309135428725,
-        91.05514309525732,
-        145.68895527879545,
-        228.4418292827874
+        4.237195856300605,
+        8.60545739625768,
+        14.144912899814605,
+        20.902753835594197,
+        29.492699912533,
+        42.31812098624994,
+        65.3879218057913,
+        101.44315334623316,
+        181.60881746614726
       ],
-      "failures": [
-        "DISTANCE MISMATCH: placebo median distance 39.32 vs real 29.57 (ratio 1.33, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "prior_week",
@@ -4874,9 +4808,9 @@
       "n_real": 1684,
       "n_placebo": 1684,
       "real_touch_rate": 0.2339667458432304,
-      "placebo_touch_rate": 0.16330166270783847,
+      "placebo_touch_rate": 0.22565320665083136,
       "real_distance_median": 84.75,
-      "placebo_distance_median": 116.97013048449298,
+      "placebo_distance_median": 88.12102389038682,
       "real_distance_deciles": [
         11.0,
         24.5,
@@ -4889,20 +4823,17 @@
         567.35
       ],
       "placebo_distance_deciles": [
-        17.910317740225718,
-        34.81590264955576,
-        55.4244531890451,
-        78.45067557436414,
-        116.97013048449298,
-        169.9551042271537,
-        261.97908257684145,
-        397.02508728227633,
-        668.9540248853444
+        10.263798332201942,
+        25.96199682199722,
+        41.27186397925607,
+        62.08190184380856,
+        88.12102389038682,
+        130.1515845461341,
+        199.75712952640623,
+        331.4083114884489,
+        575.1411448339292
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 16.3% vs real 23.4% (ratio 0.70, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 117 vs real 84.75 (ratio 1.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "prior_month",
@@ -4910,9 +4841,9 @@
       "n_real": 386,
       "n_placebo": 386,
       "real_touch_rate": 0.14766839378238342,
-      "placebo_touch_rate": 0.06994818652849741,
+      "placebo_touch_rate": 0.10880829015544041,
       "real_distance_median": 195.75,
-      "placebo_distance_median": 205.90369805383466,
+      "placebo_distance_median": 196.00651517066353,
       "real_distance_deciles": [
         25.375,
         50.25,
@@ -4925,18 +4856,18 @@
         1221.875
       ],
       "placebo_distance_deciles": [
-        30.252824073321335,
-        64.56875006768132,
-        101.4830295912825,
-        150.42945104886894,
-        205.90369805383466,
-        266.99829798528026,
-        442.94889303113973,
-        711.3907096003531,
-        1113.3999799698204
+        23.39227447387657,
+        56.17790756091472,
+        96.62029601928452,
+        142.76735846177326,
+        196.00651517066353,
+        273.17848769050397,
+        369.1218066727138,
+        661.6566228070187,
+        1240.9685949261766
       ],
       "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 7.0% vs real 14.8% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+        "TOUCH-RATE MISMATCH: placebo touched 10.9% vs real 14.8% (ratio 0.74, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
       ]
     },
     {
@@ -4945,9 +4876,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.7119196988707653,
-      "placebo_touch_rate": 0.19372647427854453,
+      "placebo_touch_rate": 0.6795483061480552,
       "real_distance_median": 1.5307268722467597,
-      "placebo_distance_median": 9.169298059606717,
+      "placebo_distance_median": 1.4198210860486142,
       "real_distance_deciles": [
         0.21074128618465696,
         0.47249595155917645,
@@ -4960,20 +4891,17 @@
         5.803651775872821
       ],
       "placebo_distance_deciles": [
-        3.056643307819059,
-        4.770562478936017,
-        6.183370211852571,
-        7.592131027365487,
-        9.169298059606717,
-        11.013905916146134,
-        13.473032775144882,
-        16.735417136524635,
-        24.460167683691907
+        0.19821526715859364,
+        0.46479809169632064,
+        0.7160345035008504,
+        1.022663216269075,
+        1.4198210860486142,
+        1.8957470321311123,
+        2.5209356214113976,
+        3.4751010182084436,
+        5.674041197786255
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.4% vs real 71.2% (ratio 0.27, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.169 vs real 1.531 (ratio 5.99, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "vwap_CME",
@@ -4981,9 +4909,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.4449184441656211,
-      "placebo_touch_rate": 0.20727728983688834,
+      "placebo_touch_rate": 0.41806775407779173,
       "real_distance_median": 4.262476329601441,
-      "placebo_distance_median": 9.538836844495108,
+      "placebo_distance_median": 4.181497649847188,
       "real_distance_deciles": [
         0.7215680786232497,
         1.4294357197897172,
@@ -4996,20 +4924,17 @@
         15.44372316210574
       ],
       "placebo_distance_deciles": [
-        2.2443393939914587,
-        4.067136301735809,
-        5.716793537985587,
-        7.669768571436407,
-        9.538836844495108,
-        12.035995940771864,
-        15.186991431114938,
-        19.316938622371616,
-        27.8718056460033
+        0.6662407891968997,
+        1.352102151977442,
+        2.2212252061396156,
+        3.1537200116569695,
+        4.181497649847188,
+        5.534483462267099,
+        7.40480126759403,
+        10.405235390113422,
+        16.78462694648133
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 20.7% vs real 44.5% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.539 vs real 4.262 (ratio 2.24, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "vwap_R24",
@@ -5017,9 +4942,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.4449184441656211,
-      "placebo_touch_rate": 0.22961104140526975,
+      "placebo_touch_rate": 0.4326223337515684,
       "real_distance_median": 4.262476329601441,
-      "placebo_distance_median": 9.548666966307565,
+      "placebo_distance_median": 4.114856482227424,
       "real_distance_deciles": [
         0.7215680786232497,
         1.4294357197897172,
@@ -5032,20 +4957,17 @@
         15.44372316210574
       ],
       "placebo_distance_deciles": [
-        2.1303373162342725,
-        4.138569898021388,
-        5.8807933916036745,
-        7.648719381783167,
-        9.548666966307565,
-        11.845140607699115,
-        14.741894713098008,
-        19.273702131299572,
-        28.304646649808316
+        0.6468178347266077,
+        1.358163144649143,
+        2.149656486031336,
+        3.127061202526193,
+        4.114856482227424,
+        5.594897770338321,
+        7.345415837213886,
+        10.357002040613498,
+        16.846304701249295
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 23.0% vs real 44.5% (ratio 0.52, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.549 vs real 4.262 (ratio 2.24, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "or15",
@@ -5053,9 +4975,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.7001254705144291,
-      "placebo_touch_rate": 0.22835633626097868,
+      "placebo_touch_rate": 0.6903387703889586,
       "real_distance_median": 1.599999999999909,
-      "placebo_distance_median": 9.63597134732322,
+      "placebo_distance_median": 1.53655604515518,
       "real_distance_deciles": [
         0.1999999999998181,
         0.5,
@@ -5068,20 +4990,17 @@
         6.2999999999999545
       ],
       "placebo_distance_deciles": [
-        3.308944838609932,
-        4.982197445493375,
-        6.491319587626206,
-        8.035452601020598,
-        9.63597134732322,
-        11.702302715421135,
-        14.238731698357013,
-        17.902475008274862,
-        25.290940025825222
+        0.1489100205191108,
+        0.4488200187543044,
+        0.7617024430613129,
+        1.1121236852122822,
+        1.53655604515518,
+        2.0468374082093304,
+        2.724169663276302,
+        3.779208568636342,
+        6.043896053507933
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 22.8% vs real 70.0% (ratio 0.33, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.636 vs real 1.6 (ratio 6.02, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "or30",
@@ -5089,9 +5008,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.6148055207026348,
-      "placebo_touch_rate": 0.22371392722710162,
+      "placebo_touch_rate": 0.6,
       "real_distance_median": 2.2999999999999545,
-      "placebo_distance_median": 9.401372270312436,
+      "placebo_distance_median": 2.246868611769628,
       "real_distance_deciles": [
         0.2999999999999545,
         0.7000000000000455,
@@ -5104,20 +5023,17 @@
         8.410000000000117
       ],
       "placebo_distance_deciles": [
-        2.8150438527037522,
-        4.554887038838252,
-        6.186755333982682,
-        7.694692955672463,
-        9.401372270312436,
-        11.451054159130898,
-        14.234765039464827,
-        18.29028575155853,
-        26.20209250963605
+        0.27146622870213843,
+        0.7134180965228553,
+        1.1720996207866619,
+        1.6756151988612602,
+        2.246868611769628,
+        2.9268231911690683,
+        3.9012271990459553,
+        5.378973464800039,
+        8.392723263612499
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 22.4% vs real 61.5% (ratio 0.36, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.401 vs real 2.3 (ratio 4.09, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "or60",
@@ -5125,9 +5041,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.5027603513174403,
-      "placebo_touch_rate": 0.22672521957340025,
+      "placebo_touch_rate": 0.5071518193224592,
       "real_distance_median": 3.1000000000001364,
-      "placebo_distance_median": 9.168278720278408,
+      "placebo_distance_median": 3.017915053478305,
       "real_distance_deciles": [
         0.5,
         1.1000000000001364,
@@ -5140,20 +5056,17 @@
         11.299999999999955
       ],
       "placebo_distance_deciles": [
-        2.1128534854812644,
-        3.9178725705543913,
-        5.595746017964938,
-        7.430168649024018,
-        9.168278720278408,
-        11.387842629597706,
-        14.236619522339558,
-        18.04581322986156,
-        27.14657531965726
+        0.46068465166333683,
+        1.0570748192756583,
+        1.6368350023750509,
+        2.2628938548881257,
+        3.017915053478305,
+        3.969566206039461,
+        5.392255362407986,
+        7.5545703804900795,
+        12.033634161788404
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 22.7% vs real 50.3% (ratio 0.45, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.168 vs real 3.1 (ratio 2.96, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "prior_rth",
@@ -5161,9 +5074,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.5259723964868256,
-      "placebo_touch_rate": 0.2163111668757842,
+      "placebo_touch_rate": 0.5514429109159348,
       "real_distance_median": 5.7999999999999545,
-      "placebo_distance_median": 19.08147976403052,
+      "placebo_distance_median": 5.566515220071892,
       "real_distance_deciles": [
         1.2000000000000455,
         2.2000000000000455,
@@ -5176,20 +5089,17 @@
         20.899999999999864
       ],
       "placebo_distance_deciles": [
-        4.927531837859943,
-        8.937176326857708,
-        12.26789647772921,
-        15.454800294676625,
-        19.08147976403052,
-        23.29592354220817,
-        28.7084886585191,
-        36.938110033092386,
-        52.88452730045457
+        1.1872598058071617,
+        2.1740931236341567,
+        3.1282246065853996,
+        4.282882034749991,
+        5.566515220071892,
+        7.307484259494776,
+        9.70465259908492,
+        13.558398638398653,
+        21.66514890313354
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 21.6% vs real 52.6% (ratio 0.41, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 19.08 vs real 5.8 (ratio 3.29, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "prior_full",
@@ -5197,9 +5107,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.385069008782936,
-      "placebo_touch_rate": 0.2244667503136763,
+      "placebo_touch_rate": 0.42396486825595986,
       "real_distance_median": 8.899999999999977,
-      "placebo_distance_median": 19.597892535251162,
+      "placebo_distance_median": 9.030634724246397,
       "real_distance_deciles": [
         2.099999999999909,
         3.599999999999909,
@@ -5212,20 +5122,17 @@
         32.600000000000136
       ],
       "placebo_distance_deciles": [
-        4.223166438268027,
-        8.197657772836283,
-        11.824403929426762,
-        15.523680775548977,
-        19.597892535251162,
-        24.57811981793656,
-        30.96156347428991,
-        40.602575385304455,
-        58.29324012669685
+        2.0624784839167205,
+        3.5449609575191974,
+        5.176950078787376,
+        6.9700581803090715,
+        9.030634724246397,
+        11.635271965960964,
+        15.193985819805153,
+        21.30380074965943,
+        33.742717801921316
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 22.4% vs real 38.5% (ratio 0.58, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 19.6 vs real 8.9 (ratio 2.20, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "sess_Asia",
@@ -5233,9 +5140,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.6037641154328732,
-      "placebo_touch_rate": 0.24140526976160603,
+      "placebo_touch_rate": 0.6193224592220828,
       "real_distance_median": 3.800000000000182,
-      "placebo_distance_median": 14.029632642393949,
+      "placebo_distance_median": 3.5721465659271416,
       "real_distance_deciles": [
         0.599999999999909,
         1.2999999999999545,
@@ -5248,20 +5155,17 @@
         14.099999999999909
       ],
       "placebo_distance_deciles": [
-        3.9959316942080023,
-        6.730805333684521,
-        9.232002703541934,
-        11.65088711587905,
-        14.029632642393949,
-        16.82967389496571,
-        20.755040953950605,
-        26.292864332899264,
-        38.02714732902751
+        0.5848153172856201,
+        1.2835820012734076,
+        1.9663076912503124,
+        2.6927480351100717,
+        3.5721465659271416,
+        4.627459863176637,
+        6.245645249459673,
+        8.65664907120836,
+        13.963287455775145
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 24.1% vs real 60.4% (ratio 0.40, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 14.03 vs real 3.8 (ratio 3.69, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "sess_London",
@@ -5269,9 +5173,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.24027603513174403,
-      "placebo_touch_rate": 0.19008782936010038,
+      "placebo_touch_rate": 0.27841907151819323,
       "real_distance_median": 6.599999999999909,
-      "placebo_distance_median": 10.072321088258377,
+      "placebo_distance_median": 6.4414691817157745,
       "real_distance_deciles": [
         1.400000000000091,
         2.599999999999909,
@@ -5284,19 +5188,17 @@
         23.0
       ],
       "placebo_distance_deciles": [
-        1.8393739119359227,
-        3.691608580757202,
-        5.60312730797541,
-        7.744342833918977,
-        10.072321088258377,
-        12.846924687440968,
-        16.40574193405002,
-        21.67802921945036,
-        31.958279540413283
+        1.2963358242677716,
+        2.4131855176020514,
+        3.549223876519909,
+        4.838832635322979,
+        6.4414691817157745,
+        8.466078215532933,
+        11.246931909490193,
+        15.496504817351116,
+        24.427381494466843
       ],
-      "failures": [
-        "DISTANCE MISMATCH: placebo median distance 10.07 vs real 6.6 (ratio 1.53, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "sess_US",
@@ -5304,9 +5206,9 @@
       "n_real": 7970,
       "n_placebo": 7970,
       "real_touch_rate": 0.07026348808030113,
-      "placebo_touch_rate": 0.08782936010037641,
+      "placebo_touch_rate": 0.09360100376411544,
       "real_distance_median": 5.400000000000091,
-      "placebo_distance_median": 6.019572084221409,
+      "placebo_distance_median": 5.276842997100289,
       "real_distance_deciles": [
         1.1000000000001364,
         2.099999999999909,
@@ -5319,17 +5221,19 @@
         19.59999999999991
       ],
       "placebo_distance_deciles": [
-        0.9632617041470897,
-        2.0246361582549985,
-        3.269768573575902,
-        4.516531671941085,
-        6.019572084221409,
-        7.785566187257563,
-        10.080503594359287,
-        13.64581726985967,
-        21.373318655664715
+        0.9596047114207751,
+        1.923811673614455,
+        2.897265663294069,
+        4.007474535448546,
+        5.276842997100289,
+        6.976623658928747,
+        9.289576585610817,
+        13.393001739306788,
+        22.16712816417587
       ],
-      "failures": []
+      "failures": [
+        "TOUCH-RATE MISMATCH: placebo touched 9.4% vs real 7.0% (ratio 1.33, tolerance +/-25%). The offset range is wrong: placebos sit where price goes more often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+      ]
     },
     {
       "level_type": "open_RTH",
@@ -5337,9 +5241,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.863237139272271,
-      "placebo_touch_rate": 0.21856963613550814,
+      "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": 9.660327171127392,
+      "placebo_distance_median": NaN,
       "real_distance_deciles": [
         0.0,
         0.0,
@@ -5352,18 +5256,19 @@
         0.0
       ],
       "placebo_distance_deciles": [
-        4.004936679546745,
-        5.4440807158608555,
-        6.8122949575204075,
-        8.124315209520319,
-        9.660327171127392,
-        11.469413232688476,
-        13.939517552216238,
-        17.628016610501756,
-        25.23837814226648
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
       ],
       "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 21.9% vs real 86.3% (ratio 0.25, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+        "TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 86.3% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it."
       ]
     },
     {
@@ -5372,9 +5277,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.9653701380175659,
-      "placebo_touch_rate": 0.1590966122961104,
+      "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": 19.02958766307097,
+      "placebo_distance_median": NaN,
       "real_distance_deciles": [
         0.0,
         0.0,
@@ -5387,18 +5292,19 @@
         0.0
       ],
       "placebo_distance_deciles": [
-        7.971547071470923,
-        10.688539038480213,
-        13.247139486047264,
-        16.029817831786115,
-        19.02958766307097,
-        22.86217293673344,
-        27.77198539523583,
-        34.10178499630538,
-        47.02124279730665
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
       ],
       "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 15.9% vs real 96.5% (ratio 0.16, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction."
+        "TOUCH-RATE MISMATCH: placebo touched 0.0% vs real 96.5% (ratio 0.00, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
+        "DEGENERATE: every real level of this type sits exactly AT the reference price, so there is no distance distribution to match and no arbitrary region is comparable to it. This is a property of the level definition, not a tuning failure, and no scale or construction fixes it."
       ]
     },
     {
@@ -5407,9 +5313,9 @@
       "n_real": 1164509,
       "n_placebo": 1164509,
       "real_touch_rate": 0.8920540760097174,
-      "placebo_touch_rate": 0.1946631584642111,
+      "placebo_touch_rate": 0.8912142370733073,
       "real_distance_median": 0.3500000000001364,
-      "placebo_distance_median": 10.938678608296641,
+      "placebo_distance_median": 0.3704756435172385,
       "real_distance_deciles": [
         0.09999999999990905,
         0.15000000000009095,
@@ -5422,20 +5328,17 @@
         1.4500000000000455
       ],
       "placebo_distance_deciles": [
-        3.626155127512175,
-        5.409159868749157,
-        7.120852006452378,
-        8.916900127031749,
-        10.938678608296641,
-        13.381885479888842,
-        16.600378105748632,
-        21.506559186952245,
-        30.90708045418385
+        0.06203353570595027,
+        0.12050855083243732,
+        0.1861045424682288,
+        0.265958535879463,
+        0.3704756435172385,
+        0.5154048717936346,
+        0.7309351775709728,
+        1.0992074379743826,
+        1.9601333118278037
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.5% vs real 89.2% (ratio 0.22, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 10.94 vs real 0.35 (ratio 31.25, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w2_5m",
@@ -5443,9 +5346,9 @@
       "n_real": 236873,
       "n_placebo": 236873,
       "real_touch_rate": 0.8294655786011914,
-      "placebo_touch_rate": 0.19535362831559527,
+      "placebo_touch_rate": 0.8208491470112677,
       "real_distance_median": 0.650000000000091,
-      "placebo_distance_median": 11.214871775187476,
+      "placebo_distance_median": 0.6785830931073633,
       "real_distance_deciles": [
         0.15000000000009095,
         0.25,
@@ -5458,20 +5361,17 @@
         2.7000000000000455
       ],
       "placebo_distance_deciles": [
-        3.47029638904487,
-        5.388426462104826,
-        7.216848873768048,
-        9.113316120397394,
-        11.214871775187476,
-        13.695053460130474,
-        16.93751648957459,
-        21.75919337050341,
-        31.024994232650396
+        0.11204715660292096,
+        0.21319775497190677,
+        0.33331638139611636,
+        0.48321030920360497,
+        0.6785830931073633,
+        0.945476576596229,
+        1.347730987109071,
+        2.0451302261201367,
+        3.6525541062359506
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.5% vs real 82.9% (ratio 0.24, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 11.21 vs real 0.65 (ratio 17.25, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w4_1m",
@@ -5479,9 +5379,9 @@
       "n_real": 609520,
       "n_placebo": 609520,
       "real_touch_rate": 0.8400413440084,
-      "placebo_touch_rate": 0.19569825436408977,
+      "placebo_touch_rate": 0.847734282714267,
       "real_distance_median": 0.5499999999999545,
-      "placebo_distance_median": 12.06996096089722,
+      "placebo_distance_median": 0.5556803400301078,
       "real_distance_deciles": [
         0.20000000000004547,
         0.25,
@@ -5494,20 +5394,17 @@
         1.9500000000000455
       ],
       "placebo_distance_deciles": [
-        3.9931118396174954,
-        5.956640462642144,
-        7.824256046262826,
-        9.814342670108726,
-        12.06996096089722,
-        14.855969446307926,
-        18.585988113169766,
-        24.380890306851143,
-        36.949208665325976
+        0.10561574919352097,
+        0.19505874416768165,
+        0.29185611584514387,
+        0.4073748702618559,
+        0.5556803400301078,
+        0.7581609983775706,
+        1.0651412594378824,
+        1.5923217410120742,
+        2.839417684511681
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.6% vs real 84.0% (ratio 0.23, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 12.07 vs real 0.55 (ratio 21.95, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w4_5m",
@@ -5515,9 +5412,9 @@
       "n_real": 160236,
       "n_placebo": 160236,
       "real_touch_rate": 0.7913203025537332,
-      "placebo_touch_rate": 0.19573004817893608,
+      "placebo_touch_rate": 0.7882810354726778,
       "real_distance_median": 0.8500000000001364,
-      "placebo_distance_median": 12.056173429065439,
+      "placebo_distance_median": 0.8911179759686547,
       "real_distance_deciles": [
         0.25,
         0.3500000000003638,
@@ -5530,20 +5427,17 @@
         3.2999999999999545
       ],
       "placebo_distance_deciles": [
-        3.7147526091634973,
-        5.801788573382964,
-        7.723618500721159,
-        9.757733330294286,
-        12.056173429065439,
-        14.801856098108829,
-        18.387277670346066,
-        23.77214692835105,
-        34.80126999924687
+        0.168710175762385,
+        0.3044422527880215,
+        0.4576460344867428,
+        0.6441586938672117,
+        0.8911179759686547,
+        1.2272456700256953,
+        1.7284194626023464,
+        2.5826830496746425,
+        4.616323257655949
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.6% vs real 79.1% (ratio 0.25, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 12.06 vs real 0.85 (ratio 14.18, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w8_1m",
@@ -5551,9 +5445,9 @@
       "n_real": 224498,
       "n_placebo": 224498,
       "real_touch_rate": 0.7921228696914895,
-      "placebo_touch_rate": 0.19781913424618483,
+      "placebo_touch_rate": 0.7837575390426641,
       "real_distance_median": 0.8500000000003638,
-      "placebo_distance_median": 14.309313460694057,
+      "placebo_distance_median": 0.9314926804876222,
       "real_distance_deciles": [
         0.40000000000009095,
         0.5,
@@ -5566,20 +5460,17 @@
         3.0
       ],
       "placebo_distance_deciles": [
-        4.601505608918251,
-        6.936526310875206,
-        9.157108344679136,
-        11.522069097406302,
-        14.309313460694057,
-        17.765201662657272,
-        22.70147518625026,
-        31.008043163513005,
-        52.4030413960076
+        0.18284896282684712,
+        0.3357939217127296,
+        0.4955620937714001,
+        0.6846279930324727,
+        0.9314926804876222,
+        1.2749225722787738,
+        1.7892592740037343,
+        2.7163092131132553,
+        4.927770286103374
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.8% vs real 79.2% (ratio 0.25, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 14.31 vs real 0.85 (ratio 16.83, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "fvg_w8_5m",
@@ -5587,9 +5478,9 @@
       "n_real": 79588,
       "n_placebo": 79588,
       "real_touch_rate": 0.7538573654319747,
-      "placebo_touch_rate": 0.19923857868020303,
+      "placebo_touch_rate": 0.736681409257677,
       "real_distance_median": 1.2999999999999545,
-      "placebo_distance_median": 13.753592014256355,
+      "placebo_distance_median": 1.346316669951193,
       "real_distance_deciles": [
         0.5,
         0.6499999999998636,
@@ -5602,20 +5493,17 @@
         4.600000000000364
       ],
       "placebo_distance_deciles": [
-        4.155226386224285,
-        6.509019162944561,
-        8.741268250845655,
-        11.064296564854477,
-        13.753592014256355,
-        16.987931596608355,
-        21.294838507332265,
-        28.236494110278453,
-        44.84514216317353
+        0.28004525397038843,
+        0.486687030998246,
+        0.7108842612094349,
+        0.9879845463570291,
+        1.346316669951193,
+        1.8588799526266482,
+        2.598811749042829,
+        3.915359538400299,
+        7.043269979024493
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 19.9% vs real 75.4% (ratio 0.26, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 13.75 vs real 1.3 (ratio 10.58, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema20_5m",
@@ -5623,9 +5511,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.6755332496863237,
-      "placebo_touch_rate": 0.2002509410288582,
+      "placebo_touch_rate": 0.6524466750313677,
       "real_distance_median": 1.7326201656883313,
-      "placebo_distance_median": 9.225026358930563,
+      "placebo_distance_median": 1.6203216503367912,
       "real_distance_deciles": [
         0.25604642849193626,
         0.5449941080491044,
@@ -5638,20 +5526,17 @@
         6.5608826527366535
       ],
       "placebo_distance_deciles": [
-        2.9160465542900056,
-        4.5466116103429615,
-        6.078824598025358,
-        7.657778194055482,
-        9.225026358930563,
-        11.169448230523177,
-        13.922183417233555,
-        17.73053344187611,
-        24.385435598327874
+        0.2459642729668758,
+        0.5382728399474218,
+        0.8679038686280365,
+        1.2044267664182826,
+        1.6203216503367912,
+        2.147591510790426,
+        2.994928585917341,
+        4.364761274601007,
+        7.049168954874676
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 20.0% vs real 67.6% (ratio 0.30, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.225 vs real 1.733 (ratio 5.32, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema20_15m",
@@ -5659,9 +5544,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.5465495608531995,
-      "placebo_touch_rate": 0.2002509410288582,
+      "placebo_touch_rate": 0.5186951066499372,
       "real_distance_median": 2.872120241212315,
-      "placebo_distance_median": 9.412385102177268,
+      "placebo_distance_median": 2.939451309294782,
       "real_distance_deciles": [
         0.4403974991719224,
         0.9503292822044842,
@@ -5674,20 +5559,17 @@
         10.985042951440208
       ],
       "placebo_distance_deciles": [
-        2.468223847695845,
-        4.37507354272575,
-        6.006929111106729,
-        7.605344052974716,
-        9.412385102177268,
-        11.508435152956327,
-        14.223317699035894,
-        18.124416261783114,
-        26.004278081960816
+        0.45095401946396124,
+        1.018852270664547,
+        1.5741054656634335,
+        2.200765578715255,
+        2.939451309294782,
+        3.9678422046987634,
+        5.28373119577809,
+        7.30541690640826,
+        11.554677387918446
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 20.0% vs real 54.7% (ratio 0.37, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.412 vs real 2.872 (ratio 3.28, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema50_5m",
@@ -5695,9 +5577,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.5560853199498118,
-      "placebo_touch_rate": 0.2122961104140527,
+      "placebo_touch_rate": 0.5267252195734002,
       "real_distance_median": 2.7566690042592654,
-      "placebo_distance_median": 9.245030827427627,
+      "placebo_distance_median": 2.764355818830836,
       "real_distance_deciles": [
         0.42064775860203557,
         0.906283563140687,
@@ -5710,20 +5592,17 @@
         10.480218581434793
       ],
       "placebo_distance_deciles": [
-        2.428791284788622,
-        4.097677568078734,
-        5.760475766484979,
-        7.559807193011648,
-        9.245030827427627,
-        11.284931230202528,
-        14.165396882007093,
-        17.892898566972054,
-        25.961797673152432
+        0.4229852864811619,
+        0.9162423310041051,
+        1.4397317061322612,
+        2.0655764876692055,
+        2.764355818830836,
+        3.736449563079896,
+        4.935242941014575,
+        6.858099809563192,
+        11.110699941677057
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 21.2% vs real 55.6% (ratio 0.38, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.245 vs real 2.757 (ratio 3.35, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema50_15m",
@@ -5731,9 +5610,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.44993726474278545,
-      "placebo_touch_rate": 0.21555834378920954,
+      "placebo_touch_rate": 0.4301129234629862,
       "real_distance_median": 4.044467437154253,
-      "placebo_distance_median": 9.635878274857532,
+      "placebo_distance_median": 3.913980683505315,
       "real_distance_deciles": [
         0.6615924973292749,
         1.3399737504177212,
@@ -5746,20 +5625,17 @@
         15.919493517925728
       ],
       "placebo_distance_deciles": [
-        2.269429087884055,
-        4.131930454471103,
-        5.825103572641729,
-        7.637584011689706,
-        9.635878274857532,
-        12.040016977352435,
-        15.315757488619557,
-        19.82213782008612,
-        28.89729682366392
+        0.6060736626288872,
+        1.256894318033028,
+        1.99847564585898,
+        2.872504603939524,
+        3.913980683505315,
+        5.2853138463645335,
+        7.210859414391689,
+        10.586691619050281,
+        16.96040321184355
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 21.6% vs real 45.0% (ratio 0.48, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.636 vs real 4.044 (ratio 2.38, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema200_5m",
@@ -5767,9 +5643,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.4273525721455458,
-      "placebo_touch_rate": 0.20175658720200754,
+      "placebo_touch_rate": 0.42358845671267253,
       "real_distance_median": 4.5399393156585575,
-      "placebo_distance_median": 9.941600077279872,
+      "placebo_distance_median": 4.318611086763212,
       "real_distance_deciles": [
         0.7335879494068649,
         1.4976243502517264,
@@ -5782,20 +5658,17 @@
         17.88137497144635
       ],
       "placebo_distance_deciles": [
-        2.12366273788748,
-        4.153153951114019,
-        6.022389903766726,
-        7.7811019291393695,
-        9.941600077279872,
-        12.355741406641936,
-        15.514095778173441,
-        20.145506431421577,
-        30.22358692320876
+        0.694815727342575,
+        1.457710828225845,
+        2.2390385896401312,
+        3.161185137861776,
+        4.318611086763212,
+        5.873859243605148,
+        7.754869459221117,
+        10.903553049130831,
+        18.530970976335254
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 20.2% vs real 42.7% (ratio 0.47, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 9.942 vs real 4.54 (ratio 2.19, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "ema200_15m",
@@ -5803,9 +5676,9 @@
       "n_real": 3985,
       "n_placebo": 3985,
       "real_touch_rate": 0.30664993726474277,
-      "placebo_touch_rate": 0.2030112923462986,
+      "placebo_touch_rate": 0.317189460476788,
       "real_distance_median": 7.053681818766563,
-      "placebo_distance_median": 10.827991024196535,
+      "placebo_distance_median": 6.810059368898692,
       "real_distance_deciles": [
         1.2536361566566487,
         2.450644300876684,
@@ -5818,20 +5691,17 @@
         25.860720694041266
       ],
       "placebo_distance_deciles": [
-        1.9895208283527155,
-        4.05695656623484,
-        6.221555629832119,
-        8.311561456419353,
-        10.827991024196535,
-        13.757801012090885,
-        17.645469546767888,
-        23.514610354605765,
-        35.767783235289244
+        1.0029758760459118,
+        2.1731499706198525,
+        3.536471734648785,
+        5.095166813503284,
+        6.810059368898692,
+        9.059901471263538,
+        12.029131827377523,
+        17.26522761067641,
+        26.487724023399224
       ],
-      "failures": [
-        "TOUCH-RATE MISMATCH: placebo touched 20.3% vs real 30.7% (ratio 0.66, tolerance +/-25%). The offset range is wrong: placebos sit where price goes less often than the real levels, so any real-minus-placebo difference would be a difference in EXPOSURE rather than in reaction.",
-        "DISTANCE MISMATCH: placebo median distance 10.83 vs real 7.054 (ratio 1.54, tolerance +/-25%). Placebos are not sitting at a comparable distance from price."
-      ]
+      "failures": []
     },
     {
       "level_type": "prior_week",
@@ -5839,9 +5709,9 @@
       "n_real": 1652,
       "n_placebo": 1652,
       "real_touch_rate": 0.18401937046004843,
-      "placebo_touch_rate": 0.17675544794188863,
+      "placebo_touch_rate": 0.2033898305084746,
       "real_distance_median": 21.700000000000045,
-      "placebo_distance_median": 25.575945515333274,
+      "placebo_distance_median": 20.82073157745242,
       "real_distance_deciles": [
         4.009999999999994,
         7.720000000000032,
@@ -5854,15 +5724,15 @@
         71.70000000000002
       ],
       "placebo_distance_deciles": [
-        4.8343348340721155,
-        8.955758804406742,
-        13.790029237138354,
-        19.27494291489866,
-        25.575945515333274,
-        32.80932936917729,
-        43.170200057307376,
-        58.639420379293284,
-        92.20244321679907
+        4.3865420319616995,
+        8.432354844103475,
+        12.516501197861087,
+        16.42110130887227,
+        20.82073157745242,
+        27.12970362202618,
+        36.603074683041946,
+        49.656898284599336,
+        74.30942380633456
       ],
       "failures": []
     },
@@ -5872,9 +5742,9 @@
       "n_real": 380,
       "n_placebo": 380,
       "real_touch_rate": 0.12631578947368421,
-      "placebo_touch_rate": 0.10789473684210527,
+      "placebo_touch_rate": 0.1,
       "real_distance_median": 47.450000000000045,
-      "placebo_distance_median": 50.55375789466268,
+      "placebo_distance_median": 46.14666339004748,
       "real_distance_deciles": [
         7.360000000000081,
         17.95999999999999,
@@ -5887,15 +5757,15 @@
         150.50000000000023
       ],
       "placebo_distance_deciles": [
-        8.746370298445708,
-        17.720107386800102,
-        27.133029559875492,
-        37.53489999160178,
-        50.55375789466268,
-        60.690699247298426,
-        75.71316372792485,
-        101.63183034990442,
-        151.56422409673212
+        9.655963016207714,
+        20.431768379004325,
+        27.795592842351244,
+        35.111640009209715,
+        46.14666339004748,
+        56.78839522952367,
+        76.03535969574764,
+        103.87504325250664,
+        166.61802075092572
       ],
       "failures": []
     }

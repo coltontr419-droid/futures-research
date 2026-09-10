@@ -1310,6 +1310,147 @@ The rest is unchanged:
 is not a result about markets and must not be written up as one. It is a statement about what
 this catalog can currently ask.
 
+---
+
+## 37. The null redefined: an arbitrary region, not a displaced level
+
+**This is a change to what the L-series compares against, not a repair of how it is sized.**
+It was taken as a specification decision after §36 measured that the previous null could not
+be matched at any scale.
+
+### What changed
+
+| | old | new |
+|---|---|---|
+| a placebo is | the real level, displaced by a hashed offset | an **arbitrary region** at a matched distance |
+| distance match | attempted by choosing a scale | **by construction** |
+| touch match | attempted | **left free and measured** |
+
+```
+scale_i    = intraday range over level i's own validity window
+u          = { |real_level - reference| / scale }   over all levels of this type
+placebo_i  = reference_i  ±  hash(date, level_type, index) drawn from u  ×  scale_i
+```
+
+### Why — the hypotheses never asked about displacement
+
+**L07 asks whether fair-value-gap zones react differently from ordinary regions price reaches
+equally often.** That is the claim. Displacing a real level was a *method* for producing such
+a region, and a reasonable one. **It was never the null.** Treating the method as the
+definition is what let a defect in the method masquerade as a property of the comparison.
+
+**And the method had a defect no parameter removes.** A real level already sits at distance
+`d` from the reference price, so adding a signed offset of magnitude `~d` puts the placebo at
+`~2d` or `~0`, median `~1.4d`. Measured, that ratio sat at **1.32-1.54 across every level
+type, both products, and three different scale rules**. Geometric, not dimensional.
+
+The §36 scale correction — daily ATR to the intraday validity window — is **retained**. It is
+the right unit and it is what the new construction normalises by. It moved matching from 2 of
+55 to 3 of 55 and stopped, which is precisely what identified the residual as structural.
+
+### What it costs, stated plainly
+
+**A matched-distance arbitrary region is a WEAKER control than a displaced real level.**
+
+A displaced level inherits the history of the level it came from: same session, same approach,
+the same sequence of prices that brought the market to that neighbourhood. Comparing against
+it holds constant **how price arrived**. An arbitrary region does not. It equalises where the
+region sits and how often price reaches it, and nothing else.
+
+**So a surviving real-minus-placebo difference now carries one more competing explanation:**
+that price *arrives* at real levels differently, rather than *reacting* at them differently.
+The new control cannot separate those. A result under it means "reacts differently from an
+equally-reachable arbitrary region", which is a weaker claim than "reacts differently given
+the same approach", and it should be written up in those words.
+
+**The trade was accepted knowingly.** The stronger control was not available: its geometry
+guaranteed a 1.4x distance mismatch, so it was never delivering the comparison it appeared to.
+**A weaker control that is matched beats a stronger one that is not**, because an unmatched
+control measures exposure and reports it as reaction. What was lost is real; what was gained
+is that the comparison exists at all.
+
+### Re-measured: does it pass?
+
+**48 of 55 level types match, against 3 of 55 under the displaced null.**
+
+| | displaced null | arbitrary region |
+|---|---|---|
+| matched | 3/55 | **48/55** |
+| distance ratio | 1.05x - 32.8x | **0.74x - 1.10x** |
+| touch ratio | 0.16x - 1.25x | **0.74x - 1.33x** |
+
+Tolerance is +/-25% on both. **Touch was not fitted** - only distance is designed - so the
+touch column is an independent check that the regions are comparably reachable, and it is the
+stronger of the two results.
+
+### Which hypotheses now have BOTH a matched control and the events to use it
+
+**The test applied here is the strict one**, because the loose version of this table is how
+§36 got a claim wrong. It is not enough that a hypothesis has *some* matched level type and
+*some* cell above the floor. **The matched level type has to be the one the qualifying cell
+actually uses.** Under the displaced null, L04's best cell was an Asia-session cell while its
+only matched type was the US-session one — a hypothesis that looked ready and was not.
+
+Best cell **whose own level type is matched**, per hypothesis and product:
+
+| hypothesis | product | level type carrying it | firings | 180m floor | |
+|---|---|---|---|---|---|
+| **L02** | MGC | `or15` | 5,724 | 2,862 | **2.0× clear** |
+| **L03** | MGC | `prior_rth` | 4,674 | 2,862 | **1.6× clear** |
+| **L04** | MGC | `sess_Asia` | 5,130 | 2,862 | **1.8× clear** |
+| **L07** | MGC | `fvg_w2_1m` | 655,490 | 2,862 | **229× clear** |
+| **L07** | MNQ | `fvg_w2_1m` | 535,428 | 5,884 | **91× clear** |
+
+**Five routes are open that had none before.** L04's Asia cells now carry a matched control in
+their own right, so the trap that caught §36 does not apply — it was checked rather than
+assumed.
+
+Matched control, still short on events:
+
+| hypothesis | product | level types matched | best cell | 180m floor | |
+|---|---|---|---|---|---|
+| L01 | MGC | 3/3 | 211 | 2,862 | 14x short |
+| L01 | MNQ | 3/3 | 237 | 5,884 | 25x short |
+| L02 | MNQ | 3/3 | 5,178 | 5,884 | 1x short |
+| L03 | MNQ | 2/2 | 3,762 | 5,884 | 2x short |
+| L04 | MNQ | 3/3 | 5,442 | 5,884 | 1x short |
+| L05 | MNQ | 1/1 | 4,669 | 5,884 | 1x short |
+| L08 | MGC | 6/6 | 698 | 2,862 | 4x short |
+| L08 | MNQ | 5/6 | 705 | 5,884 | 8x short |
+| L09 | MGC | 2/2 | 364 | 2,862 | 8x short |
+| L09 | MNQ | 1/2 | 446 | 5,884 | 13x short |
+| L10 | MGC | 3/3 | 91 | 2,862 | 31x short |
+| L10 | MNQ | 3/3 | 40 | 5,884 | 147x short |
+
+### L06 has no valid control and cannot get one
+
+`open_CME`, `open_RTH` sit **exactly at** the reference price, so their distance distribution is identically
+zero. There is no distance to match and no arbitrary region is comparable. `verify` reports
+this as its own failure kind rather than as a mismatch, because **no scale and no construction
+fixes it** - it is a property of the level definition. L06 is not blocked on measurement or on
+tuning; the comparison its registration asks for does not exist.
+
+### Still unmatched, and these must not run Stage 1
+
+- `ema20_15m` / MNQ
+- `prior_month` / MNQ
+- `sess_US` / MGC
+
+### Decisions taken rather than resolved silently
+
+1. **Touch rate is deliberately NOT fitted.** Fitting it would erase part of the effect under
+   test: a level type that genuinely attracts price would have its placebo pulled closer to
+   equalise touch, breaking the distance match in the process. The construction takes no touch
+   data as input and a test pins that by signature.
+2. **Distances are pooled in volatility-normalised units**, then rescaled by the receiving
+   level's own scale, so a quiet session does not inherit a busy session's spread.
+3. **The old `make_placebo` is kept, not deleted.** A test pins that it still produces the
+   ~1.4x bias, so the construction cannot be reintroduced by accident and the reasoning stays
+   findable.
+4. **The degenerate case fails loudly with its own message** rather than silently producing a
+   placebo equal to the real level, which is what a naive implementation would emit.
+5. **No Stage 1 was run and no trial was spent.** N stays at **576**, SR\* at **0.1334**.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
