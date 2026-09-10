@@ -6,7 +6,12 @@
 
 # Data. GLBX.MDP3 extracts are large and reproducible from the vendor; the trial log is
 # NOT data and IS committed (see CLAUDE_FUTURES.md §6).
-data/
+#
+# THE LEADING SLASH IS LOAD-BEARING. `data/` without it matches ANY directory named data at
+# any depth, which silently excluded `src/futuresres/data/` - the entire data layer, the
+# package that builds every series the calibrations rest on - from every commit this repo
+# ever made. `/data/` anchors the rule to the repository root. decisions.md 36.
+/data/
 *.dbn
 *.dbn.zst
 *.parquet

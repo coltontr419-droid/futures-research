@@ -144,7 +144,12 @@ Fixed in the entries, not by loosening the tests:
 
 ## State
 
-- 380 tests pass, working tree clean.
+- **370 tests with the data layer present; 300 from a clean clone** (plus 3 collection
+  errors). Both figures are stated because for most of this project's life only the first was
+  ever measured, and it was measured on the one machine where the untracked package existed.
+  **The 70-test gap is the finding, not either number** — see `decisions.md` §36. Now closed:
+  `.gitignore` had `data/` unanchored, which excluded `src/futuresres/data/` from every commit
+  ever made. A clean clone will read 370 from the next commit onward.
 - **N = 684, SR\* = 0.1357.** L07 Stage 1 spent 108 trials on 2026-09-09 (was 576 / 0.1335). The repo now has a private remote at
   `github.com/coltontr419-droid/futures-research` and all commits are pushed; it had none
   until 2026-09-09, while every other programme depended on its detection floors.

@@ -1156,6 +1156,60 @@ committed in that state. Nothing consumed the verdict because **no Stage 1 ever 
 nothing was ever blocked by it. A control that fails loudly into an empty room is
 indistinguishable from one that passes.
 
+### The push was insurance, and the insurance had a hole in it
+
+**`.gitignore` line 9 read `data/`, unanchored, so it matched any directory named `data` at
+any depth — including `src/futuresres/data/`, the entire data layer.** Five modules and 1,975
+lines: `batch_ftp`, `parse`, `splice`, `roll`, `validate`. **Zero of them had ever been
+committed, in any commit this repository ever made.**
+
+That is the layer that builds every series the calibrations rest on. The detection floors the
+R-series quotes as settled fact — 19,722 and the rest — are computed from output this package
+produces, and the package existed on exactly one disk.
+
+**So the remote created above was insurance with a hole in the one layer that mattered most.**
+Pushing 28 commits looked like the fix and was not; a clean clone got the analysis and none of
+the machinery that generates its inputs. The correction is a leading slash: `/data/` anchors
+the rule to the repository root.
+
+**This exact bug was already found and fixed in `r-series-research`**, whose `.gitignore`
+carries `/data/` with a comment explaining that the unanchored form "silently ignored
+`src/rseries/data/` — the entire data-layer source package". **The fix never propagated back
+to the repository it was learned from.** A lesson recorded in the derivative project and not
+in the original is a lesson half-learned.
+
+**Measured consequence, not estimated.** A clean clone was made and its suite run with the
+editable install neutralised, because an editable install points back at the working tree and
+would have hidden the whole thing — the first attempt at this measurement did exactly that and
+had to be discarded.
+
+| | tests collected |
+|---|---|
+| working tree, data layer present | **370** |
+| clean clone | **300**, plus 3 collection errors |
+
+**The 70-test gap is the finding, not the number.** It splits two ways:
+
+- **65 tests** in `test_batch_ftp.py`, `test_parse_and_splice.py` and `test_roll.py` — committed
+  files importing a package that was never committed. In a clean checkout they do not fail,
+  they fail to *collect*, which is a different and quieter thing.
+- **5 tests** in `test_signal_module_boundary.py`, which is parametrized over the modules it
+  finds by globbing. **The guard that enforces module discipline was silently checking five
+  fewer modules for everyone but this machine**, and an under-parametrized guard stays green
+  while covering less. That file contains a test named
+  `an empty parametrize is a silent skip, and a silent skip stays green forever` — the same
+  failure mode it warns about, one directory over.
+
+**One module is simply gone.** `src/futuresres/data/__pycache__/dbn_load.cpython-311.pyc` and
+`tests/__pycache__/test_dbn_load.*.pyc` are on disk with no corresponding source, no live
+references, and **no git history to recover them from**, because the directory was never
+tracked. Whatever `dbn_load` was, it was deleted and the deletion left no record. That is the
+cost of the gap stated as concretely as it can be stated.
+
+**No credentials were exposed by committing it.** FTP credentials are read from
+`DATABENTO_FTP_USER` and `DATABENTO_FTP_PASSWORD` at run time; the diff carries no literal.
+`/data/` still excludes the 548 MB of extracts, and `.env` is still ignored.
+
 ### Why it did not propagate — and the premise that it had been settled is wrong
 
 It is tempting to say this correction was already settled for L01, L06 and L08 and merely
