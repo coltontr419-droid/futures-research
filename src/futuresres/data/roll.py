@@ -159,6 +159,69 @@ def continuous_series(bars: pl.DataFrame, cal: RollCalendar) -> pl.DataFrame:
     )
 
 
+# ── streaming path ───────────────────────────────────────────────────────────
+# WHY THIS EXISTS. The eager path below reads every contract of a product, concatenates
+# them, then joins, filters and SORTS - so up to four copies of a multi-million-row frame
+# are live at once. On a 2.7 GB machine that is an OOM kill, measured: MNQ, the SMALLEST
+# product at 3.86M bars, was killed by the kernel at 826 MB RSS (exit 137).
+#
+# The eager functions are KEPT AND STILL TESTED. They are the readable statement of what
+# the roll IS, and the streaming versions below must agree with them bar for bar - a test
+# pins that on a small fixture. This is a change to HOW the series is computed and to
+# nothing about WHAT it is.
+
+
+def scan_product(parquet: Path, product: str) -> pl.LazyFrame:
+    """Every contract of one product, unmaterialised."""
+    root = parquet / f"symbol={product}"
+    if not any(root.glob("contract=*/bars.parquet")):
+        raise FileNotFoundError(f"no parquet for {product} under {parquet}")
+    return pl.scan_parquet(root / "contract=*/bars.parquet")
+
+
+def daily_volume_streaming(parquet: Path, product: str) -> pl.DataFrame:
+    """(session, contract, volume, bars) per trading day, without loading the bars.
+
+    The result is one row per (session, contract) - a few thousand rows - so it is safe to
+    materialise. It is the whole input `build_calendar` needs.
+    """
+    return (
+        add_session(scan_product(parquet, product))
+        .group_by(["session", "contract"])
+        .agg(pl.col("volume").sum().alias("volume"), pl.len().alias("bars"))
+        .sort(["session", "volume"], descending=[False, True])
+        .collect(engine="streaming")
+    )
+
+
+def sink_continuous(parquet: Path, product: str, cal: RollCalendar,
+                    target: Path) -> None:
+    """Write the front-month series straight to disk, never holding it in memory.
+
+    Identical semantics to `continuous_series`: inner join on session, keep only the front
+    contract, drop the crossover sessions entirely, sort by timestamp.
+    """
+    front = pl.LazyFrame({
+        "session": list(cal.front_by_session),
+        "front": list(cal.front_by_session.values()),
+    }).with_columns(pl.col("session").cast(pl.Date))
+    dropped = list(cal.dropped_sessions)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    (
+        add_session(scan_product(parquet, product))
+        .join(front, on="session", how="inner")
+        .filter(pl.col("contract") == pl.col("front"))
+        .filter(~pl.col("session").is_in(dropped))
+        .drop("front")
+        .sort("ts_event")
+        # engine="streaming" IS NOT THE DEFAULT. `sink_parquet` defaults to engine="auto",
+        # which chose the in-memory path and was OOM-killed on NQ (5.97M bars) even though
+        # the plan is fully streamable. Naming the engine is the difference between a sink
+        # that spills and one that materialises.
+        .sink_parquet(target, engine="streaming")
+    )
+
+
 def load_product(parquet: Path, product: str) -> pl.DataFrame:
     files = sorted((parquet / f"symbol={product}").glob("contract=*/bars.parquet"))
     if not files:
@@ -221,18 +284,18 @@ def main(argv: list[str] | None = None) -> int:
 
     calendars: dict[str, RollCalendar] = {}
     for product in args.products:
-        bars = load_product(args.parquet, product)
-        vol = daily_volume(bars)
+        # STREAMING, NOT EAGER - see the note above `scan_product`. The eager path holds
+        # four copies of the frame and is an OOM kill on a small machine.
+        vol = daily_volume_streaming(args.parquet, product)
         cal = build_calendar(product, vol)
         calendars[product] = cal
         print(f"{product}: {len(cal.rolls)} rolls over {cal.sessions:,} sessions, "
-              f"{len(cal.contested)} contested")
+              f"{len(cal.contested)} contested", flush=True)
         if args.write_continuous:
-            series = continuous_series(bars, cal)
             target = args.parquet.parent / "continuous" / f"{product}.parquet"
-            target.parent.mkdir(parents=True, exist_ok=True)
-            series.write_parquet(target)
-            print(f"  wrote {target} ({series.height:,} bars)")
+            sink_continuous(args.parquet, product, cal, target)
+            n = pl.scan_parquet(target).select(pl.len()).collect().item()
+            print(f"  wrote {target} ({n:,} bars)", flush=True)
 
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(render_report(calendars), encoding="utf-8")
