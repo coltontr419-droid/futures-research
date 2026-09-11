@@ -2064,6 +2064,78 @@ publishing none. Its entry records the defect.
    SR\* stays 0.1357.
 
 
+## 42. Written BEFORE the run: what L02 on MGC can and cannot establish
+
+Recorded before a single trial was logged, because the point of writing it now is that the
+outcome is unknown. An interpretive constraint agreed after seeing the number is not a
+constraint.
+
+### L02 runs MGC-only by necessity, where its mechanism is weakest
+
+**The registered mechanism is the equity cash open.** 09:30 ET is the largest
+participant-composition change of the US equity day, and L02's story is that overnight
+positioning meets cash liquidity there. **Gold's equivalent event is the COMEX open at
+08:20 ET**, which is a different time and a different set of participants.
+
+The registry has said so since registration: on MGC this tests **cross-asset spillover**
+rather than the registered mechanism, it is **attenuated exactly as F06 was**, and a positive
+result there would not support the mechanism as written.
+
+**MNQ, where the mechanism actually lives, is unavailable for an unrelated reason.** Its best
+cell fires 5,178 times against a 5,884 detection floor at 180m - 0.88x, short by about 12%.
+Not a statement about the market; a statement about sample size.
+
+So the only resolvable route is the one where the mechanism is weakest. **That is a
+constraint on what the run can establish, not a reason not to run it.**
+
+### The consequence, stated while the outcome is unknown
+
+**A POSITIVE RESULT ON MGC DOES NOT SUPPORT THE REGISTERED CLAIM.** The registered claim is
+about the equity cash open. A positive on gold would be evidence of something else - most
+plausibly cross-asset spillover, possibly the placebo construction, possibly noise surviving
+63 tests.
+
+**And it MUST NOT be reinterpreted as a spillover finding after the fact.** If the number
+comes back positive, "this shows cross-asset spillover" is a hypothesis selected by its
+result. Spillover was not the registered mechanism, carries no pre-stated prediction about
+direction or magnitude, and would be reached by looking at the answer first.
+
+This is the same refusal 38 applied to L07's mirror trade, and for the same reason: *the
+multiple-testing budget prices the searches you declare, not the ones the data suggested after
+the fact.* If cross-asset spillover from the equity open into gold is worth testing, it is a
+new registration with its own mechanism section, its own trials, and ideally data that did not
+generate it.
+
+**A NULL on MGC is correspondingly weak evidence** against the registered mechanism, for the
+mirror-image reason: the mechanism was never properly exposed. It closes the resolvable route
+and does not refute the claim.
+
+### What a clean outcome would look like
+
+- **Null on MGC** - the expected outcome. L02 closes with its registered route unexposed, and
+  the entry records that MNQ was short on events rather than that the mechanism failed.
+- **Positive on MGC** - triggers a bug hunt before any write-up, exactly as 38 required and
+  R01 before it. At 3,300-5,800 events per cell against a 2,862 floor, separation is likely
+  for any effect that is not zero, so the deciding number is the size against the 0.65 bps
+  MGC cost floor, not the p-value.
+
+### The same limit does NOT apply to L03 and L04
+
+Their mechanisms are about prior-day and session extremes as reference prices, which is not
+an equity-specific story. MGC is a legitimate instrument for both. They are MGC-only for the
+event-count reason alone: MNQ's best cells sit at 0.64x and 0.93x of the 180m floor.
+
+### Decisions taken rather than resolved silently
+
+1. **The run proceeds despite the attenuation.** The alternative is leaving the L-series'
+   last testable route unrun on the grounds that it might be uninformative, which is a
+   decision to not measure. The limit is recorded instead.
+2. **63 trials, N 684 -> 747, SR\* 0.1356 -> 0.1365.** Cheap against what it closes.
+3. **H=180 is the sole pre-registered horizon.** At H=60 the MGC floor is 5,620 and every
+   cell of all three is below it, so those cells cannot reach a verdict. 60 and 120 are
+   withdrawn, not parked.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
