@@ -82,9 +82,31 @@ class Disjointness:
     note: str
 
 
+#: Stride used to pack (row, minute) into one integer. ROW_MINUTES is 1,375, so 2,048
+#: leaves the minute field room to spare and keeps the arithmetic a shift.
+_MINUTE_STRIDE: Final[int] = 2048
+
+
 def _fired_keys(rows: np.ndarray, minutes: np.ndarray,
-                mask: np.ndarray) -> set[tuple[int, int]]:
-    return {(int(r), int(m)) for r, m, ok in zip(rows, minutes, mask) if ok and m >= 0}
+                mask: np.ndarray) -> np.ndarray:
+    """Firing minutes as a SORTED UNIQUE int64 ARRAY, not a set of tuples.
+
+    THIS IS A MEMORY FIX AND IT IS LOAD-BEARING. Every cell's firing minutes are retained
+    for the whole run so the disjointness pass can compare cells pairwise at the end. As a
+    Python `set[tuple[int, int]]` that costs roughly 150 bytes per firing - about 130 MB for
+    ONE L07 cell at 863,490 firings, and L07 has 18 cells per product. The run was OOM-killed
+    at the L07 stage twice, at 1,030 MB and 1,086 MB.
+
+    Packed into int64 the same cell is 6.9 MB, a ~20x reduction, and `np.intersect1d` gives
+    the pairwise overlap the set intersection used to. Identical semantics: `np.unique`
+    dedupes exactly as the set did, and both forms drop `m < 0`.
+    """
+    ok = np.asarray(mask, dtype=bool) & (np.asarray(minutes) >= 0)
+    if not ok.any():
+        return np.empty(0, dtype=np.int64)
+    r = np.asarray(rows, dtype=np.int64)[ok]
+    m = np.asarray(minutes, dtype=np.int64)[ok]
+    return np.unique(r * _MINUTE_STRIDE + m)
 
 
 def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjointness],
@@ -93,10 +115,10 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
     atr = g.atr()
     rates: list[CellRate] = []
     matches: list[MatchReport] = []
-    fires: dict[str, list[tuple[str, set]]] = {}
+    fires: dict[str, list[tuple[str, np.ndarray]]] = {}
 
-    def add(hyp: str, cell: str, horizons: list[int], keys: set) -> None:
-        rates.append(CellRate(hyp, product, cell, horizons, len(keys)))
+    def add(hyp: str, cell: str, horizons: list[int], keys: np.ndarray) -> None:
+        rates.append(CellRate(hyp, product, cell, horizons, int(keys.size)))
         fires.setdefault(hyp, []).append((cell, keys))
 
     def check_placebo(kind: str, levels: D.LevelSet, touched: np.ndarray,
@@ -281,20 +303,12 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         t, _ = D.touches(g, lv, 2, product)
         check_placebo(f"prior_{kind}", lv, t, 2)
 
-    # ---------------------------------------------------------------- L11
-    print(f"    {product} L11 bollinger bands ...", flush=True)
-    # PERIOD AND k ARE NOT SWEPT. 20 and 2.0 are fixed a priori because L11's only mechanism
-    # is that those specific numbers are the ones platforms draw by default. Sweeping them
-    # would test a different claim; see hypotheses.yaml L11 and decisions.md 39.
-    for side, lv in zip(("upper", "lower"), D.bollinger_levels(g, 20, 2.0, 60)):
-        if lv.price.size == 0:
-            continue
-        for kb in (1, 2, 3):
-            f, mins = D.confirmed_break(g, lv, kb, product)
-            add("L11", f"bb20k2 60m {side} kbars={kb}", [60, 120, 180],
-                _fired_keys(lv.row, mins, f))
-        t, _ = D.touches(g, lv, 2, product)
-        check_placebo(lv.kind, lv, t, 2)
+    # L11 WAS MEASURED HERE AND IS WITHDRAWN. Its condition fired unconditionally at the
+    # first valid minute of every session rather than on a breakout, so the block is removed
+    # rather than left to regenerate degenerate rows into these reports every run.
+    # `D.bollinger_levels` is KEPT and still unit-tested - the band arithmetic is correct and
+    # a corrected condition would use it - but no registered hypothesis consumes it.
+    # decisions.md 40, hypotheses.yaml L11.
 
     # ---------------------------------------------------------------- disjointness
     disj: list[Disjointness] = []
@@ -303,9 +317,12 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         for i in range(len(cells)):
             for j in range(i + 1, len(cells)):
                 a, b = cells[i][1], cells[j][1]
-                if not a or not b:
+                if a.size == 0 or b.size == 0:
                     continue
-                worst = max(worst, len(a & b) / min(len(a), len(b)))
+                # Both are sorted and unique, so this is the same count the set
+                # intersection produced.
+                shared = np.intersect1d(a, b, assume_unique=True).size
+                worst = max(worst, shared / min(a.size, b.size))
         if worst >= 0.5:
             verdict, note = "OVERLAPPING", (
                 f"cells share up to {worst:.0%} of their firing minutes - the same touch "

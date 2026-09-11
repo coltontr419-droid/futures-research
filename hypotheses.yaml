@@ -2530,57 +2530,92 @@
 
 - id: L11
   name: bollinger_band_breakout
-  # REGISTERED 2026-09-10. NOT SCHEDULED, NOT MEASURED, NO STAGE 1, NO TRIAL SPENT.
-  # N stays at 684 and SR* at 0.1357. decisions.md 39.
+  # ========================= WITHDRAWN 2026-09-11 =========================
+  # REGISTERED 2026-09-10, WITHDRAWN THE NEXT DAY AS DEFECTIVE. Never run at Stage 1, no
+  # trial ever spent, N unaffected at 684 and SR* at 0.1357. decisions.md 40.
+  #
+  # WHAT WAS REGISTERED WAS NEVER A BREAKOUT TEST. Measured directly on MGC, all 4,004
+  # levels, both boundaries:
+  #
+  #     kbars=1: fired 4004, entry minute min=991 max=991   <- ZERO VARIANCE
+  #     kbars=2: fired 4004, minute 992..995
+  #     kbars=3: fired 4004, minute 993..1001
+  #
+  # 991 is exactly valid_from (RTH_OPEN + 60 + 1). The condition fires on the FIRST BAR IT
+  # EXAMINES, for every level, every session. `confirmed_break` triggers on a run beyond the
+  # level in EITHER direction, and price at 10:31 is never sitting exactly on a Bollinger
+  # band - it is above or below - so one of the two runs is satisfied immediately and stays
+  # satisfied. The registered condition reduces to "sample price at 10:31 and trade whichever
+  # side of the band it is already on", once per session.
+  #
+  # THREE CONSEQUENCES, each measured rather than inferred:
+  #   1. kbars is an OFFSET, not a selection. It shifts entry by exactly k-1 bars; every
+  #      level fires under every setting (identical minutes across kbars: 0 of 4,004).
+  #   2. `upper` and `lower` fire at IDENTICAL (row, minute). That is the 100% disjointness
+  #      figure - not kbars cells colliding, but the two sides being the same event with
+  #      opposite direction labels.
+  #   3. The 6-cell grid is one event per session wearing six labels.
+  #
+  # THE MEASUREMENTS BELOW DESCRIBE THE DEGENERATE CONDITION, NOT THIS HYPOTHESIS.
+  # They are kept because deleting them would hide what was actually run, and labelled
+  # because carrying them forward to any replacement would be the error.
+  degenerate_measurements:
+    warning: >
+      MEASURED ON THE DEFECTIVE CONDITION. NOT properties of Bollinger band breakouts and
+      MUST NOT be carried into any replacement registration. A real breakout condition
+      selects a different and far smaller population of events, so both the firing rate and
+      the placebo match would have to be measured again from scratch.
+    firing_rate:
+      MGC: {cells: 6, per_cell: 4004, floor_180m: 2862}
+      MNQ: {cells: 6, per_cell: 4123, floor_180m: 5884}
+      note: >
+        Identical across all six cells because the condition fires unconditionally once per
+        session. This is a count of SESSIONS, not of breakouts.
+    placebo_match:
+      bb20k2_60m_upper: {MGC: {distance_ratio: 1.02, touch_ratio: 1.05}, MNQ: {distance_ratio: 1.06, touch_ratio: 0.94}}
+      bb20k2_60m_lower: {MGC: {distance_ratio: 1.03, touch_ratio: 0.99}, MNQ: {distance_ratio: 0.90, touch_ratio: 1.04}}
+      note: >
+        All four inside the +/-25% tolerance - but this DOES NOT establish that a Bollinger
+        placebo matches. The entry population here is every session at a fixed minute, so
+        distance-from-price was effectively fixed by construction. The open question of
+        whether a band placebo matches when the entry population is selected by an actual
+        breakout is UNTESTED. See decisions.md 40.
   mechanism: >
-    WEAK, AND THE SAME WEAKNESS AS L08 RATHER THAN A NEW ONE. No institution executes against
-    a 20-period 2-sigma band. The only story available is self-fulfilling: enough traders
-    watch the same default settings that resting orders and stops cluster near the boundary,
-    so a break through it meets thinner liquidity and continues. This is the identical premise
-    to L08's - "widely watched, therefore orders cluster" - and it is the premise that
-    DISQUALIFIED F11 as a control, because it is a claim about the market rather than a
-    structural fact about how it operates. Testing it is legitimate; assuming it is not.
-    THE COUNTERPARTY, SUCH AS IT IS: the retail trader whose stop sits just beyond a band
-    because a charting platform drew the line there on its default settings. That is a real
-    person transacting for a non-informational reason, which is what Stage 0 requires - but
-    like L08 and unlike L01's execution desk, nothing obliges them to be there, and this entry
-    does not pretend otherwise. If L11 nulls, that is a weak prior failing to pay, not a
-    surprise.
+    WITHDRAWN. The mechanism as written - self-fulfilling order clustering at widely watched
+    default settings, the same weak premise as L08 - was never reached by the condition, which
+    did not test a breakout. The premise is not disproved; it was not examined.
   condition: >
-    Confirmed break of the band boundary on 1h bars, mean +/- k*sigma with PERIOD = 20 and
-    k = 2.0 FIXED A PRIORI AND NOT SWEPT. Entry on the first run of kbars consecutive closes
-    beyond the boundary, kbars in {1, 2, 3}; trade in the direction of the break; exit at H
-    minutes or 15:55 ET. H in {60, 120, 180} min. Upper and lower boundaries are SEPARATE
-    level types and separate cells.
-  # WHY PERIOD AND k ARE FROZEN. The mechanism is that these particular numbers are the
-  # watched ones. A period selected because it performed better would carry no
-  # self-fulfilling story at all - it would be an ordinary volatility-breakout rule with a
-  # fitted lookback. L08's condition names the same tell in the same words: "if 47 works and
-  # 50 does not, that is the tell." Sweeping them here would not be a bigger test of L11, it
-  # would be a different hypothesis with no mechanism section.
+    WITHDRAWN AS DEFECTIVE. Registered as "confirmed break of the band boundary on 1h bars,
+    mean +/- k*sigma, period 20 and k 2.0 fixed a priori, entry on the first run of kbars
+    consecutive closes beyond the boundary". Measured to fire unconditionally at the first
+    valid minute of every session in whichever direction price already sat. Not narrowed, not
+    repaired - withdrawn. A corrected condition is DIFFERENT rather than tighter and is
+    written up in decisions.md 40 WITHOUT being registered.
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-10
-  status: untested
+  withdrawn: 2026-09-11
+  status: excluded
+  excluded_reason: >
+    WITHDRAWN AS DEFECTIVE, not closed on evidence. The registered condition was never a
+    breakout test: it fired on the first bar it examined for every level in every session,
+    because `confirmed_break` triggers on a run beyond the level in either direction and
+    price at the sampling minute is never exactly on a band. kbars shifted entry by k-1 bars
+    rather than selecting events, and the upper and lower boundaries fired at identical
+    (row, minute). NEVER RUN AT STAGE 1 AND NO TRIAL WAS SPENT, so N stays 684 and SR* stays
+    0.1357 and nothing already closed is disturbed. The trial cost falling is a CONSEQUENCE
+    of finding the defect and was not a reason for the change. decisions.md 40.
   grade: D+
   tier: C
-  param_cap: 2
+  # ZERO. A withdrawn entry declares no parameters because it will never be tested, and
+  # `test_excluded_and_dead_entries_declare_no_parameters` enforces exactly that. It was 2
+  # (kbars, horizon) while the entry was live.
+  param_cap: 0
   session: US
   symbols: [MNQ, MGC]
-  # 19, NOT 20. The registry's own consistency test caught a gap: orders 1-18 were taken, so
-  # 20 left 19 unexplained. `test_order` is live because L11 is `untested` rather than
-  # blocked - an untested non-control entry that is not in the ordering is invisible to it.
   registered_test_order: 19
-  test_order: 19
+  test_order: null
   schedulable: false
-  # PROVENANCE, AND IT CARRIES NO WEIGHT. The idea came from a third-party claim about
-  # Bollinger breakouts. NO TRIAL COUNT, NO COST ASSUMPTION AND NO CONTROL were accessible
-  # for it, so there is no way to know how many settings were tried before that one was
-  # published, whether the reported edge survives a spread, or what it was compared against.
-  # An unaudited claim is not evidence and does not raise the prior: L11 is registered on its
-  # own terms and graded on its own mechanism, which is weak. Recorded because where an idea
-  # came from is part of the record even when the answer is "nowhere usable" - and because a
-  # later reader finding this entry should not assume it arrived with support it never had.
   provenance:
     source: third-party claim
     trial_count_available: false
@@ -2588,44 +2623,6 @@
     control_available: false
     prior_weight: none
     note: >
-      Registered on its own terms. The external claim is the reason the question was asked
-      and is not evidence for the answer.
-  mechanism_instruments:
-    primary: MNQ
-    secondary: MGC
-    rationale: >
-      A self-fulfilling watching story is not instrument specific; both hold equally weakly.
-      Same reasoning as L08.
-  verdict_route:
-    per_cell: pending measured rate
-    aggregate: >
-      ASSUMED CLOSED for the three kbars cells of a given side. kbars in {1,2,3} nests: any
-      break confirmed at 3 bars was already confirmed at 1, so the cells share entries almost
-      entirely and pooling them would count one observation three times. Upper against lower
-      is a different matter and may well be disjoint - that is a MEASUREMENT, and it is not
-      being assumed in either direction here.
-  # NOT MEASURED. Both numbers require the market data, which is not on the machine this
-  # entry was written on - `data/continuous/` is absent, see decisions.md 39. The code to
-  # measure them is written and committed (`reporting/level_rates.py`, the L11 block) and the
-  # level construction is unit-tested on synthetic input, but a firing rate that has not been
-  # counted is not a firing rate. This entry stays `schedulable: false` until both exist.
-  firing_rate:
-    measured: false
-    declared: null
-    note: >
-      NOT MEASURED AND NOT DECLARED. Running `python -m futuresres.reporting.level_rates` on
-      a machine holding data/continuous/ produces it. Declaring an expected rate here would
-      be exactly the substitution the F05/L08 history warns about - an unmeasured rate that
-      falls through to a generous assumption where least is known.
-  placebo_match:
-    measured: false
-    note: >
-      NOT MEASURED. The band boundary is a level, so the arbitrary-region construction of
-      decisions.md 37 applies to it unchanged and `check_placebo` is wired for both level
-      types. Whether it MATCHES is an open question: bands widen with volatility, so the
-      distance from price is not stationary the way a prior-week extreme's is, and that is
-      precisely the kind of thing the +/-25% distance and touch criteria exist to catch.
-      An unmatched level type must not run Stage 1 - decisions.md 37.
-  blocked_reason: >
-    Not blocked on a finding. Blocked on two measurements that have not been taken: the
-    firing rate and the placebo match. Neither is a statement about the market.
+      Unchanged by the withdrawal. The external claim carried no prior weight when this was
+      registered and carries none now; the defect was in this project's wiring, not in the
+      claim.

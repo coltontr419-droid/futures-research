@@ -337,13 +337,23 @@ def test_every_catalog_entry_appears_in_the_registry() -> None:
 
 @pytest.mark.integrity
 def test_the_two_excluded_entries_are_the_expected_ones() -> None:
-    """F12 and F13 are excluded by name in the catalog; assert the registry agrees.
+    """F12, F13 and L11 are excluded; assert the registry agrees and nothing else crept in.
 
     Pinned explicitly because "excluded" is the one status that costs zero trials, which
     makes it the cheapest place to hide a hypothesis someone did not want to test.
+
+    F12, F13 - excluded at registration on event count and premise; named in the catalog.
+    L11    - WITHDRAWN 2026-09-11 after measurement showed the registered condition was
+             never a breakout test: it fired on the first bar it examined for every level in
+             every session, `kbars` shifted entry by k-1 bars rather than selecting events,
+             and the two band boundaries fired at identical (row, minute). Never run at
+             Stage 1, no trial spent, N unaffected. decisions.md 40.
+
+    Each addition to this set must carry that kind of reason. Adding a name to make the test
+    pass, without one, is the thing this assertion exists to catch.
     """
     excluded = {h for h, e in REG.items() if e["status"] == "excluded"}
-    assert excluded == {"F12", "F13"}, excluded
+    assert excluded == {"F12", "F13", "L11"}, excluded
     assert "BELOW FIRING-RATE GATE" in CATALOG_TEXT
     assert "DECAYED" in CATALOG_TEXT
 

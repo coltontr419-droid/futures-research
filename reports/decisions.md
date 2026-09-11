@@ -1803,6 +1803,160 @@ category a human review reliably misses.
   parameter to get a result.
 
 
+## 40. L11 withdrawn: what was registered was never a breakout test
+
+Registered 2026-09-10, withdrawn 2026-09-11. **Never run at Stage 1, no trial ever spent.
+N stays 684 and SR\* stays 0.1357.** Nothing already closed is disturbed.
+
+### The defect, measured rather than inferred
+
+The suspicion came from a summary statistic - every one of L11's six cells reported an
+identical firing count, and disjointness reported 100% overlap. That is weak evidence and
+two different things could produce it, so it was checked against the code path and the
+arrays rather than read off the counts.
+
+`kbars` IS wired into the firing condition - `level_rates.py` called
+`D.confirmed_break(g, lv, kb, product)`, and `confirmed_break` uses `k_bars` to decide which
+bar triggers. So this was never the benign case where a rate counts level-touches and the
+parameter discriminates later.
+
+Measured on MGC, all 4,004 levels, both boundaries:
+
+```
+kbars=1: fired 4004, entry minute min=991  max=991     <- ZERO VARIANCE
+kbars=2: fired 4004, minute 992..995
+kbars=3: fired 4004, minute 993..1001
+  kb1 vs kb2: identical minutes 0 of 4004
+```
+
+**991 is exactly `valid_from`** (`RTH_OPEN + 60 + 1`). The condition fires on the FIRST BAR
+IT EXAMINES, for every level, every session.
+
+**The cause.** `confirmed_break` triggers on a run beyond the level in EITHER direction
+(`run_u >= k_bars or run_d >= k_bars`). Price at 10:31 is never sitting exactly on a
+Bollinger band - it is above it or below it - so one of the two runs is satisfied at j=0 and
+stays satisfied. The registered condition reduces to **"sample price at 10:31 and trade
+whichever side of the band it is already on"**, once per session.
+
+Three consequences follow, and the third is the one that matters:
+
+1. **`kbars` is an offset, not a selection.** It moves entry by exactly `k-1` bars. Every
+   level fires under every setting; no cell selects a different population.
+2. **`upper` and `lower` fire at identical `(row, minute)`.** That is the 100% disjointness
+   figure - not `kbars` cells colliding with each other, whose minutes never coincide, but
+   the two sides being the same event with opposite direction labels. The summary statistic
+   was right and my first reading of it was wrong.
+3. **The six-cell grid is one event per session wearing six labels.**
+
+### Withdrawn, not restated
+
+Removing `kbars`, adding a price-inside-band precondition and separating the two directions
+produces a **different condition, not a narrowed one**. The honest record is a withdrawal
+and a fresh registration if one is ever wanted - not an entry quietly repaired until it
+works. The entry carries `status: excluded`, the vocabulary F12 and F13 already use.
+
+**The trial cost falling is a CONSEQUENCE of finding the defect and was not a reason for the
+change.** Recording that explicitly because the reverse - trimming a grid and discovering a
+justification afterwards - is the failure this catalogue exists to prevent.
+
+### The measurements do NOT carry over, and they are labelled so
+
+The degenerate run produced a firing rate (4,004/cell MGC, 4,123 MNQ) and a placebo match
+(all four level types inside tolerance, distance ratios 0.90-1.06). **Both are properties of
+the defective condition and neither is a property of L11.** A real breakout condition selects
+a different and far smaller population, so both would have to be measured again from nothing.
+They are kept in the registry under `degenerate_measurements` with that warning attached,
+because deleting them would hide what was actually run.
+
+The generated report rows were REVERTED rather than committed, so `level_rates.md`,
+`placebo_match.md`, `disjointness.md` and `level_rates.json` carry no L11 rows. The L11
+measurement block is removed from `level_rates.py` so it cannot regenerate them.
+`D.bollinger_levels` is kept and still unit-tested - the band arithmetic is correct and a
+corrected condition would use it - but no registered hypothesis consumes it.
+
+### The placebo prediction is OUTSTANDING, not wrong
+
+Before measuring, this project predicted a band placebo would probably FAIL to match, because
+bands widen with volatility so distance-from-price is not stationary the way a prior-week
+extreme's is. All four matched, and it is tempting to record the prediction as refuted.
+
+**It was not tested.** The entry population was every session at a fixed minute, so
+distance-from-price was effectively fixed by construction - the very non-stationarity the
+prediction is about never entered the measurement. Whether a band placebo matches when the
+entry population is selected by an ACTUAL breakout is unknown and untested.
+
+Recorded as outstanding. A prediction marked wrong on evidence that could not bear on it is
+worse than one left open.
+
+### What a corrected condition would need - WRITTEN UP, NOT REGISTERED
+
+Not a registration. A statement of what would have to be specified, so the decision to
+register or drop is made on a clear description rather than re-derived later.
+
+1. **An inside-band precondition.** The break must be from inside to outside. Requires price
+   to have been within the band for some qualifying period before the trigger, so "beyond the
+   band" marks a transition rather than a standing state. Without it there is no event.
+2. **Directional separation.** `confirmed_break` fires on either direction against a single
+   level, which is what collapsed `upper` and `lower` onto the same instant. The upper band
+   needs an UPWARD break only and the lower band a DOWNWARD break only - a different call,
+   not a different parameter.
+3. **Counting a level once rather than twice.** With both boundaries live each session, a
+   session can produce an upper event and a lower event. Whether those are one hypothesis or
+   two, and whether a session that breaks both is counted once or twice, must be settled
+   BEFORE measuring - it changes the event count and therefore the detection floor.
+4. **A firing rate and placebo match measured fresh**, inheriting nothing from above.
+5. **A mechanism section that survives the correction.** The self-fulfilling story was never
+   reached. It is not disproved; it was not examined.
+
+Whether that is worth a registration is not decided here.
+
+### L10 is the only open route in the L-series
+
+Worth recording in the closeout rather than left in a report. Maximum pairwise overlap of
+firing minutes, per hypothesis:
+
+| | overlap | aggregate route |
+|---|---|---|
+| **L10** (the placebo control) | **1% MGC / 5% MNQ** | **OPEN (disjoint)** |
+| L01-L09, L11 | 97% - 100% | CLOSED (overlapping) |
+
+**Every substantive hypothesis in the catalogue has a closed aggregate route.** The only
+disjoint one is the control, which spends no trials and reaches no verdict. Pooling a
+hypothesis's cells to buy sample size is unavailable everywhere it would have helped - the
+cells re-enter on the same touches. That is a property of level-based hypotheses as a class,
+not of any one entry, and it is part of why the L-series resolves on per-cell event counts.
+
+### The rebuild verified itself on the way through
+
+The `level_rates` run that produced all this was the first on the rebuilt data. **Every
+L01-L10 firing rate came back unchanged** - the diff against the committed reports contained
+no `L0*` lines at all. With `batch_contents.md` and `splice.md` already reproducing
+byte-identically, that is a third independent confirmation that the rebuilt series are the
+same objects the original research read.
+
+One cosmetic difference: a placebo distance of `nan` became `0` for `open_CME` and
+`open_RTH`, the degenerate L06 level types whose real distance is identically zero. The
+verdict (**FAIL**) and the reasoning are unchanged; it is a median-of-empty formatting
+difference between this machine and the PC, and it is recorded rather than passed over.
+
+### Decisions taken rather than resolved silently
+
+1. **`status: excluded`**, not a new status. F12 and F13 already use it for entries removed
+   on grounds other than a result, and inventing `withdrawn` would make the registry
+   unqueryable for no gain (36 decision 3).
+2. **`registered_test_order: 19` is kept, `test_order` nulled.** Same handling every resolved
+   entry uses; nulling both would leave an unexplained gap in the ordering.
+3. **`kbars` was checked for blast radius and is L11-specific in effect.**
+   `confirmed_break` has three call sites - L02 (opening range), L05 (overnight range) and
+   L11. For L02 and L05 the level is one price starts AT or near, so "first run of k closes
+   beyond" is a real test; their rates vary across cells (L02/MGC spans 3,001-5,724) and
+   their overlaps are 98-99% rather than a degenerate 100%. The failure is specific to
+   applying it to a band price already sits strictly inside.
+4. **No spent trial is affected.** The log holds 684 trials across F02-F07 and L07 only, and
+   no logged `params` key is `kbars`. L02, L03, L04, L05 and L11 have never run Stage 1, so
+   the "logged trials exceed distinct cells" risk does not arise anywhere.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
