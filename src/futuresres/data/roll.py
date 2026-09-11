@@ -198,28 +198,44 @@ def sink_continuous(parquet: Path, product: str, cal: RollCalendar,
                     target: Path) -> None:
     """Write the front-month series straight to disk, never holding it in memory.
 
-    Identical semantics to `continuous_series`: inner join on session, keep only the front
-    contract, drop the crossover sessions entirely, sort by timestamp.
+    Identical semantics to `continuous_series`: keep only the front contract's bars for each
+    session, drop the crossover sessions entirely, output ordered by timestamp.
+
+    NO GLOBAL SORT, AND THAT IS THE POINT. A `.sort("ts_event")` over the whole product was
+    the last thing holding NQ (5.97M bars) in memory, and it was OOM-killed twice at ~880 MB
+    even with `engine="streaming"`. The sort is AVOIDABLE rather than merely expensive:
+
+      * the front month advances MONOTONICALLY (`build_calendar` never goes back), so each
+        contract is front for one CONTIGUOUS run of sessions;
+      * exactly one contract is front per session, so the runs do not overlap;
+      * sessions are CME trading days, so every bar of session N precedes every bar of N+1.
+
+    Therefore concatenating the contracts in EXPIRY ORDER, each sorted within itself, is the
+    same ordering a global sort produces - and each per-contract sort is a few tens of
+    thousands of rows instead of millions. `test_streaming_roll_matches_eager` pins the two
+    against each other rather than leaving that argument untested.
     """
-    front = pl.LazyFrame({
-        "session": list(cal.front_by_session),
-        "front": list(cal.front_by_session.values()),
-    }).with_columns(pl.col("session").cast(pl.Date))
-    dropped = list(cal.dropped_sessions)
+    dropped = cal.dropped_sessions
+    by_contract: dict[str, list] = {}
+    for session, contract in cal.front_by_session.items():
+        if session not in dropped:
+            by_contract.setdefault(contract, []).append(session)
+
+    parts: list[pl.LazyFrame] = []
+    for contract in sorted(by_contract, key=expiry_key):
+        f = parquet / f"symbol={product}" / f"contract={contract}" / "bars.parquet"
+        if not f.exists():
+            continue
+        parts.append(
+            add_session(pl.scan_parquet(f))
+            .filter(pl.col("session").is_in(by_contract[contract]))
+            .sort("ts_event")
+        )
+    if not parts:
+        raise FileNotFoundError(f"no front-month contracts found for {product}")
+
     target.parent.mkdir(parents=True, exist_ok=True)
-    (
-        add_session(scan_product(parquet, product))
-        .join(front, on="session", how="inner")
-        .filter(pl.col("contract") == pl.col("front"))
-        .filter(~pl.col("session").is_in(dropped))
-        .drop("front")
-        .sort("ts_event")
-        # engine="streaming" IS NOT THE DEFAULT. `sink_parquet` defaults to engine="auto",
-        # which chose the in-memory path and was OOM-killed on NQ (5.97M bars) even though
-        # the plan is fully streamable. Naming the engine is the difference between a sink
-        # that spills and one that materialises.
-        .sink_parquet(target, engine="streaming")
-    )
+    pl.concat(parts, how="vertical").sink_parquet(target, engine="streaming")
 
 
 def load_product(parquet: Path, product: str) -> pl.DataFrame:

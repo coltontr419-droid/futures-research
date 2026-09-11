@@ -113,7 +113,29 @@ def splice(nq: pl.DataFrame, mnq: pl.DataFrame,
     return pl.concat([left, right], how="vertical_relaxed").sort("ts_event")
 
 
-def render(check: ConventionCheck, spliced: pl.DataFrame,
+def sink_spliced(nq_path: Path, mnq_path: Path, target: Path,
+                 at: date = SPLICE_DATE) -> None:
+    """Write the spliced series straight to disk. `splice()` above is the eager statement.
+
+    WHY NOT `splice()`. It reads BOTH continuous series - 4.73M NQ bars plus 2.54M MNQ -
+    concatenates them and sorts the result, so four copies of a seven-million-row frame are
+    live at once. Measured on a 2.7 GB machine: OOM-killed at 858 MB RSS.
+
+    NO GLOBAL SORT, for the same reason `sink_continuous` needs none: the NQ side is
+    entirely at or before the splice date and the MNQ side entirely after it, and each input
+    was already written in timestamp order by `roll`. Concatenating them in that order IS
+    timestamp order. A test pins it rather than trusting the argument.
+    """
+    left = (pl.scan_parquet(nq_path).filter(pl.col("session") <= at)
+            .with_columns(pl.lit("NQ").alias("source")))
+    right = (pl.scan_parquet(mnq_path).filter(pl.col("session") > at)
+             .with_columns(pl.lit("MNQ").alias("source")))
+    target.parent.mkdir(parents=True, exist_ok=True)
+    pl.concat([left, right], how="vertical_relaxed").sink_parquet(
+        target, engine="streaming")
+
+
+def render(check: ConventionCheck, per: pl.DataFrame, total: int,
            start: date, end: date) -> str:
     w: list[str] = []
     a = w.append
@@ -157,17 +179,12 @@ def render(check: ConventionCheck, spliced: pl.DataFrame,
     a("")
     a("## The spliced series")
     a("")
-    per = (spliced.group_by("source")
-           .agg(pl.len().alias("bars"),
-                pl.col("session").min().alias("from"),
-                pl.col("session").max().alias("to"))
-           .sort("from"))
     a("| source | bars | from | to |")
     a("|---|---|---|---|")
     for r in per.iter_rows(named=True):
         a(f"| {r['source']} | {r['bars']:,} | {r['from']} | {r['to']} |")
     a("")
-    a(f"**{spliced.height:,} bars total.** The series is UNADJUSTED across the join, as it "
+    a(f"**{total:,} bars total.** The series is UNADJUSTED across the join, as it "
       f"is across every roll: no back-adjustment, no scaling factor.")
     a("")
     return "\n".join(w)
@@ -179,10 +196,14 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--end", type=date.fromisoformat, default=date(2019, 5, 31))
     args = ap.parse_args(argv)
 
-    nq = pl.read_parquet(CONTINUOUS / "NQ.parquet")
-    mnq = pl.read_parquet(CONTINUOUS / "MNQ.parquet")
-
-    check = verify_convention(nq, mnq, args.start, args.end)
+    # Only the overlap window is needed to check the convention - a few tens of thousands
+    # of rows - so it is the only part read into memory.
+    nq_path, mnq_path = CONTINUOUS / "NQ.parquet", CONTINUOUS / "MNQ.parquet"
+    win = lambda f: (pl.scan_parquet(f)
+                     .filter((pl.col("session") >= args.start)
+                             & (pl.col("session") <= args.end))
+                     .collect(engine="streaming"))
+    check = verify_convention(win(nq_path), win(mnq_path), args.start, args.end)
     print(f"overlap {args.start}..{args.end}: {check.matched:,} matched minutes")
     print(f"  median ratio MNQ/NQ = {check.ratio_median:.9f} "
           f"(range {check.ratio_min:.6f}..{check.ratio_max:.6f})")
@@ -193,17 +214,24 @@ def main(argv: list[str] | None = None) -> int:
         print("\nFAILED: NQ and MNQ do not share a price convention. Not splicing.",
               file=sys.stderr)
         REPORT.parent.mkdir(parents=True, exist_ok=True)
-        REPORT.write_text(render(check, pl.DataFrame(), args.start, args.end),
-                          encoding="utf-8")
+        REPORT.write_text(render(check, pl.DataFrame(
+            {"source": [], "bars": [], "from": [], "to": []}), 0,
+            args.start, args.end), encoding="utf-8")
         return 1
 
-    spliced = splice(nq, mnq)
     target = CONTINUOUS / "NQ_MNQ_spliced.parquet"
-    spliced.write_parquet(target)
-    print(f"  spliced {spliced.height:,} bars -> {target}")
+    sink_spliced(nq_path, mnq_path, target)
+    lf = pl.scan_parquet(target)
+    total = int(lf.select(pl.len()).collect().item())
+    per = (lf.group_by("source")
+           .agg(pl.len().alias("bars"),
+                pl.col("session").min().alias("from"),
+                pl.col("session").max().alias("to"))
+           .sort("from").collect(engine="streaming"))
+    print(f"  spliced {total:,} bars -> {target}")
 
     REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text(render(check, spliced, args.start, args.end), encoding="utf-8")
+    REPORT.write_text(render(check, per, total, args.start, args.end), encoding="utf-8")
     print(f"wrote {REPORT}")
     return 0
 

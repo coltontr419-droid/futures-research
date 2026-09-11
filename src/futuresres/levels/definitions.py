@@ -102,7 +102,28 @@ class Grid:
 
 
 def load(product: str, root) -> Grid:
-    bars = pl.read_parquet(root / "data" / "continuous" / f"{SERIES[product]}.parquet")
+    """Build the (sessions x 1375) grid for one product.
+
+    MEMORY IS THE CONSTRAINT HERE, NOT SPEED. An earlier version read every column and kept
+    the whole DataFrame alive while allocating four full grids plus their transients. On the
+    spliced NQ+MNQ series - 4.73M bars over 4,125 sessions - that peaked near 875 MB and was
+    OOM-killed on a 2.7 GB machine, four times. Two changes fix it and neither touches what
+    the grid CONTAINS:
+
+      * READ ONLY THE FIVE COLUMNS USED. `symbol`, `contract`, `source` and `open` are never
+        read by any level definition, and three of them are strings on 4.7M rows.
+      * DROP THE FRAME BEFORE BUILDING THE GRIDS, and release each column as it is consumed,
+        so the DataFrame peak and the grid peak do not overlap.
+
+    Prices stay float64. float32 would halve the grids again and carries ~7 significant
+    digits, which is not enough for an index at 20,000.00 where levels are compared to the
+    tick.
+    """
+    bars = (
+        pl.scan_parquet(root / "data" / "continuous" / f"{SERIES[product]}.parquet")
+        .select("ts_event", "high", "low", "close", "volume")
+        .collect(engine="streaming")
+    )
     local = pl.col("ts_event").dt.convert_time_zone(str(ET))
     f = bars.with_columns(
         (local.dt.hour().cast(pl.Int32) * 60
@@ -115,24 +136,37 @@ def load(product: str, root) -> Grid:
           .then(pl.col("d") + pl.duration(days=1))
           .otherwise(pl.col("d")).alias("row"),
     )
+    del bars
+
     rows = f.get_column("row").to_numpy()
     mins = f.get_column("m").to_numpy().astype(np.int64)
     days = np.unique(rows)
     pos = np.searchsorted(days, rows) * ROW_MINUTES + mins
+    del rows, mins
+
+    # Materialise the four value columns, then release the frame. This is the whole point:
+    # ~500 MB of DataFrame is gone before the first 45 MB grid is allocated.
+    values = {c: f.get_column(c).to_numpy().astype(float)
+              for c in ("close", "high", "low", "volume")}
+    del f
 
     traded_cells = {"n": 0}
 
     def grid_of(col: str, fill: float) -> np.ndarray:
         flat = np.full(days.size * ROW_MINUTES, np.nan)
-        flat[pos] = f.get_column(col).to_numpy().astype(float)
+        flat[pos] = values.pop(col)          # pop, so the column is freed as it is consumed
         # Count BEFORE filling. Counting after would read 100% for every product, which is
         # exactly what an earlier draft of this loader did.
         traded_cells["n"] = max(traded_cells["n"], int(np.isfinite(flat).sum()))
         g = flat.reshape(days.size, ROW_MINUTES)
         ok = np.isfinite(g)
-        idx = np.where(ok, np.arange(ROW_MINUTES)[None, :], 0)
+        # int32 indices: ROW_MINUTES is 1,375, so the range is nowhere near int32's limit
+        # and this halves the largest transient in the function.
+        idx = np.where(ok, np.arange(ROW_MINUTES, dtype=np.int32)[None, :],
+                       np.int32(0))
         np.maximum.accumulate(idx, axis=1, out=idx)
         out = np.take_along_axis(g, idx, axis=1)
+        del idx
         first = np.argmax(ok, axis=1)
         for i in np.flatnonzero(ok.any(axis=1) & ~np.isfinite(out[:, 0])):
             out[i, : first[i]] = g[i, first[i]]
