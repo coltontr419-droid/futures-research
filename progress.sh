@@ -6,19 +6,20 @@ cd "$(dirname "$0")" || exit 1
 show() {
   echo "=============== $(date '+%H:%M:%S') ==============="
 
-  # Match the PYTHON process only. A plain `pgrep -f futuresres` also matches this
-  # script, because the pattern appears in its own source -- self-match has bitten this
-  # pipeline repeatedly.
+  # Any python job launched from this repo's venv -- pipeline modules AND ad-hoc probes.
+  # Never this script: a plain `pgrep -f futuresres` matches the pattern in its own source,
+  # which has produced false "RUNNING" reports more than once.
   running=0
   while read -r pid cmd; do
     [ -z "$pid" ] && continue
-    job=$(printf '%s' "$cmd" | sed -E 's/.*futuresres[.a-z_]*\.([a-z_]+).*/\1/')
+    job=$(printf '%s' "$cmd" \
+          | sed -E 's/.*-m ([a-z_.]+).*/\1/; s/.*\/([a-z_]+\.py).*/\1/; s/.* -c .*/inline/')
     rss=$(awk '/VmRSS/{printf "%d", $2/1024}' /proc/"$pid"/status 2>/dev/null)
     et=$(ps -o etime= -p "$pid" 2>/dev/null | tr -d ' ')
-    printf "RUNNING  %-12s pid %-7s %sMB   elapsed %s\n" "$job" "$pid" "${rss:-?}" "${et:-?}"
+    printf "RUNNING  %-34s pid %-7s %sMB  elapsed %s\n" "$job" "$pid" "${rss:-?}" "${et:-?}"
     running=1
-  done < <(pgrep -af "bin/python -m futuresres" | grep -v progress.sh)
-  [ "$running" = 0 ] && echo "  no pipeline job running"
+  done < <(pgrep -af "\.venv/bin/python" | grep -v progress.sh)
+  [ "$running" = 0 ] && echo "  nothing running"
 
   echo "-- memory --"
   free -m | awk '/Mem:/{printf "  %s MB available of %s MB\n", $7, $2}'

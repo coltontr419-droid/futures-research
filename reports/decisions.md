@@ -1957,6 +1957,113 @@ difference between this machine and the PC, and it is recorded rather than passe
    the "logged trials exceed distinct cells" risk does not arise anywhere.
 
 
+## 41. The defect was in `confirmed_break`, not in the entries calling it
+
+L11 (40) was not a one-off. A firing-minute variance check against L02, L03, L04 and L05 as
+registered found the same failure in two more places, and located it in the shared function
+rather than in any entry.
+
+### Retraction: the "L11-specific" conclusion in 40 was wrong
+
+40 concluded the defect was confined to L11, on two pieces of evidence: L02's firing rates
+spread across cells (MGC 3,001-5,724) where a degenerate condition would be flat, and L02/L05
+showed 98-99% aggregate overlap rather than a degenerate 100%.
+
+**Both were artefacts of aggregation.**
+
+The rate spread came from L02's **absorption** cells, which are sound, while its **sweep**
+cells were degenerate - the hypothesis-level range mixed the two arms and the flat half
+disappeared into it. The 98-99% overlap is a per-hypothesis MAXIMUM over all pairs, and the
+sound absorption cells dominate the statistic that gets printed.
+
+**The error was reasoning about a condition from summary statistics of its output.** The only
+thing that shows this defect is the entry-MINUTE distribution, and no report carried one.
+Recorded because the same reasoning would fail the same way again.
+
+### What was measured
+
+For every cell: entry-minute min/max/sd, the share of identical minutes between adjacent
+parameter settings, and whether the high and low of the same session fire at the same
+(row, minute).
+
+**DEGENERATE - every condition built on `confirmed_break`:**
+
+| cell | fired | minute sd | adjacent-k identical | hi/lo same (row, min) |
+|---|---|---|---|---|
+| L02 sweep W=15, MGC | 7,954 (all) | 16.1 | **0.0%** | **3,644/3,975 (92%)** |
+| L02 sweep W=15, MNQ | 7,453 (all) | **0.10** | **0.0%** | **3,573/3,615 (99%)** |
+| L02 sweep W=60, MNQ | 7,453 (all) | **0.07** | **0.0%** | 3,593/3,615 (99%) |
+| L05 on_range, MNQ | 8,234 (all) | **0.05** | **0.0%** | **4,093/4,110 (99.6%)** |
+
+Every level fires. The entry minute equals `valid_from` (945 = 930+15, 990 = 930+60,
+930 = RTH_OPEN). `k` shifts entry by exactly `k-1` bars, so adjacent settings share **no**
+minutes at all. The high and low of the same session fire at the same minute and collapse to
+one key. MNQ's sd of **0.05 minutes** is the cleanest statement of it: no variance whatsoever.
+
+**SOUND - every condition built on `sweep_reclaim`:**
+
+| cell | fired (m=2/4/8) | minute sd | hi/lo collision |
+|---|---|---|---|
+| L02 absorb W=15 | 5,769 / 5,596 / 4,841 | 71-76 | 2.8% |
+| L03 prior_rth | 4,679 / 4,589 / 4,143 | 368-370 | 1.4% |
+| L04 Asia | 5,142 / 5,071 / 4,621 | 187-189 | 1.6% |
+| L04 London | 2,066 / 1,988 / 1,602 | 82 | 3% |
+| L04 US | 393 / 325 / 201 | 16.8 | 0/1 |
+
+Counts fall with `m`, minute sd is 16-370 rather than ~0, collisions are 1-3%. **L03 and L04
+are sound as registered.**
+
+### The cause, and why it is the function's fault
+
+`confirmed_break` tested a run of k closes beyond the level in **either** direction. Applied
+to a level price already sits strictly inside - an opening range, an overnight range, a
+Bollinger band - one side is satisfied at the first bar and stays satisfied. The function
+cannot express the intended question for such a level, and it said nothing about that.
+
+**It silently broke three registered hypotheses**: L02's sweep arm, L05, and L11. Each looked
+healthy in the firing-rate table, because a condition that fires on everything produces a
+large, stable, plausible count.
+
+**Fixed in the function.** `direction` is now a required keyword ("up" or "down"), so the
+either-direction shape is no longer expressible. A precondition counts the levels already
+beyond the level when the scan starts and raises `DegenerateCondition` above 25% - the
+measured failures ran at 100%. `tests/test_confirmed_break_guard.py` pins the refusal, and
+also pins the property whose absence was the defect: a path beyond for exactly two bars must
+confirm at k=2 and **not** at k=3, so k selects rather than offsets.
+
+### L02: absorption runs, sweep is withdrawn
+
+The two arms are registered as mutually exclusive price paths, so the absorption variant
+stands alone coherently. Its 81 cells (27 at H=180) are sound and will run. The 27 sweep
+cells are withdrawn.
+
+**If the sweep correction is ever wanted it is a NEW REGISTRATION competing on its own merits
+alongside L11's, not an inherited slot.** Correcting it means a directional break with an
+inside-range precondition - a different condition, not a narrowed one - and it must earn a
+place against everything else unregistered rather than inherit L02's grade, tier or test
+order.
+
+### L05 is noted, not withdrawn
+
+L05 was already `blocked_insufficient_events` and cannot run, so nothing downstream changes.
+Its measurement block is removed from `level_rates.py`: the 8,234 figure was a count of
+SESSIONS rather than of breaks, and continuing to publish a meaningless rate is worse than
+publishing none. Its entry records the defect.
+
+### Decisions taken rather than resolved silently
+
+1. **The guard raises rather than warns.** A warning in a batch that prints hundreds of lines
+   is a warning nobody reads - which is precisely how 36's placebo FAIL sat in a committed
+   report for four days.
+2. **25% is the threshold, not 0%.** A level price is genuinely approaching will occasionally
+   be crossed before the scan starts; refusing all of them would ban legitimate use. The
+   measured failures were at 100%, so the exact threshold is not load-bearing.
+3. **The degenerate cells are deleted, not recorded as zero.** A cell that never asked a
+   coherent question has no firing rate, and a zero would read as "measured, found nothing".
+4. **No trial is affected.** L02, L03, L04 and L05 have never run Stage 1. N stays 684,
+   SR\* stays 0.1357.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

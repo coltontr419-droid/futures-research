@@ -530,11 +530,86 @@ def sweep_reclaim(g: Grid, levels: LevelSet, m_ticks: int, k_bars: int,
     return fired, minute
 
 
-def confirmed_break(g: Grid, levels: LevelSet, k_bars: int, product: str,
-                    rth_only: bool = False) -> tuple[np.ndarray, np.ndarray]:
-    """First run of k consecutive closes beyond a level."""
+class DegenerateCondition(ValueError):
+    """A firing condition that cannot select events, raised instead of returning them.
+
+    `confirmed_break` silently broke THREE registered hypotheses this way - L02's sweep arm,
+    L05, and L11 - by firing on every level at the first bar it examined. Each looked healthy
+    in the firing-rate table, because a condition that fires on everything produces a large,
+    stable, plausible count. The defect is only visible in the entry-MINUTE distribution, and
+    nothing was looking there. decisions.md 41.
+    """
+
+
+#: Share of levels that may already be beyond the level when the scan starts. Above this the
+#: "first run of k closes beyond" test is answering a question nobody asked: price was
+#: already there, so the run is satisfied immediately and `k` becomes an offset rather than a
+#: selection. A quarter is generous - the measured failures ran at 100%.
+ALREADY_BEYOND_MAX: Final[float] = 0.25
+
+
+def sweep_reclaim_directed(g: Grid, levels: LevelSet, m_ticks: int, k_bars: int,
+                           product: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """`sweep_reclaim`, plus the SIDE that was penetrated.
+
+    Same scan and same firing decision - a test pins the two identical - but it also returns
+    `direction`: +1 where price swept ABOVE the level, -1 where it swept below, 0 where the
+    level never fired. The registered trade is COUNTER to the penetration, so a runner needs
+    this and `sweep_reclaim` alone cannot supply it. Mirrors `fvg_zones_directed`, which
+    exists for the same reason.
+    """
+    m = TICK[product] * m_ticks
     fired = np.zeros(levels.price.size, bool)
     minute = np.full(levels.price.size, -1, int)
+    direction = np.zeros(levels.price.size, int)
+    for i, (px, r, v) in enumerate(zip(levels.price, levels.row, levels.valid_from)):
+        if not np.isfinite(px) or v >= ROW_MINUTES - k_bars - 1:
+            continue
+        path = g.close[r, v:]
+        beyond_up = path > px + m
+        beyond_dn = path < px - m
+        for j in np.flatnonzero(beyond_up | beyond_dn):
+            if j + k_bars >= path.size:
+                break
+            window = path[j + 1: j + 1 + k_bars]
+            back = (window <= px) if beyond_up[j] else (window >= px)
+            if back.any():
+                fired[i] = True
+                minute[i] = v + j + 1 + int(np.argmax(back))
+                direction[i] = 1 if beyond_up[j] else -1
+                break
+    return fired, minute, direction
+
+
+def confirmed_break(g: Grid, levels: LevelSet, k_bars: int, product: str,
+                    rth_only: bool = False, *, direction: str) -> tuple[np.ndarray,
+                                                                       np.ndarray]:
+    """First run of k consecutive closes beyond a level, in ONE named direction.
+
+    `direction` is REQUIRED and must be "up" or "down". It used to fire on a run beyond the
+    level in EITHER direction, which is what made it degenerate: applied to a level price
+    already sits strictly inside - an opening range, an overnight range, a Bollinger band -
+    one of the two sides is satisfied at the first bar and stays satisfied forever. Every
+    level then fires at `valid_from + (k - 1)`, `k` shifts the entry rather than choosing
+    events, and the high and low of the same session fire at the SAME minute and collapse to
+    one (row, minute) key.
+
+    Measured before the fix, MNQ overnight range: entry-minute standard deviation **0.05
+    minutes**, 8,234 of 8,234 levels firing, 99.6% of high/low pairs colliding.
+
+    THE PRECONDITION. Price must not already be beyond the level in the tested direction when
+    the scan starts. Levels where it is are still scanned - a genuine break can follow - but
+    if more than `ALREADY_BEYOND_MAX` of them start beyond, this RAISES. A caller in that
+    position is asking about a level price is not approaching, and the honest answer is a
+    refusal rather than a number.
+    """
+    if direction not in ("up", "down"):
+        raise ValueError(f"direction must be 'up' or 'down', got {direction!r}")
+
+    fired = np.zeros(levels.price.size, bool)
+    minute = np.full(levels.price.size, -1, int)
+    starts, already = 0, 0
+
     for i, (px, r, v) in enumerate(zip(levels.price, levels.row, levels.valid_from)):
         if not np.isfinite(px):
             continue
@@ -542,16 +617,31 @@ def confirmed_break(g: Grid, levels: LevelSet, k_bars: int, product: str,
         if lo >= ROW_MINUTES - k_bars - 1:
             continue
         path = g.close[r, lo:RTH_EXIT] if rth_only else g.close[r, lo:]
-        up = path > px
-        dn = path < px
-        run_u = run_d = 0
+        if path.size == 0:
+            continue
+        beyond = path > px if direction == "up" else path < px
+        starts += 1
+        if beyond[0]:
+            already += 1
+        run = 0
         for j in range(path.size):
-            run_u = run_u + 1 if up[j] else 0
-            run_d = run_d + 1 if dn[j] else 0
-            if run_u >= k_bars or run_d >= k_bars:
+            run = run + 1 if beyond[j] else 0
+            if run >= k_bars:
                 fired[i] = True
                 minute[i] = lo + j
                 break
+
+    if starts and already / starts > ALREADY_BEYOND_MAX:
+        raise DegenerateCondition(
+            f"{levels.kind}: price is already beyond the level {already}/{starts} "
+            f"({already / starts:.1%}) of the time when the scan starts, above the "
+            f"{ALREADY_BEYOND_MAX:.0%} limit. A 'first run of {k_bars} closes beyond' test "
+            f"on a level price already sits past does not select events - every level fires "
+            f"at valid_from + (k-1) and k becomes an offset. This is the defect that broke "
+            f"L02-sweep, L05 and L11; see decisions.md 41. If a break from a standing "
+            f"position is genuinely the claim, it needs its own condition and its own "
+            f"registration."
+        )
     return fired, minute
 
 

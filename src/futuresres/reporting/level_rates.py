@@ -189,11 +189,13 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
 
     # ---------------------------------------------------------------- L02
     print(f"    {product} L02 opening range ...", flush=True)
+    # THE SWEEP ARM IS WITHDRAWN AND ITS CELLS ARE GONE. `confirmed_break` fired on every
+    # opening-range level at valid_from + (k-1): measured entry-minute sd 0.07-0.10 on MNQ,
+    # 0% identical minutes between adjacent k, and 92-99% of high/low pairs firing at the
+    # SAME (row, minute). k was an offset, not a selection. The ABSORPTION arm below uses
+    # `sweep_reclaim`, is a genuine two-stage test, and discriminates properly. decisions.md 41.
     for W in (15, 30, 60):
         lv = D.opening_range(g, W)
-        for k in (1, 2, 3):
-            f, mins = D.confirmed_break(g, lv, k, product, rth_only=True)
-            add("L02", f"sweep W={W} k={k}", [60, 120, 180], _fired_keys(lv.row, mins, f))
         for m in (2, 4, 8):
             for k in (2, 3, 5):
                 f, mins = D.sweep_reclaim(g, lv, m, k, product)
@@ -226,27 +228,12 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
         t, _ = D.touches(g, lv, 2, product)
         check_placebo(f"sess_{sess}", lv, t, 2)
 
-    # ---------------------------------------------------------------- L05 (MNQ only)
-    if product == "MNQ":
-        print(f"    {product} L05 overnight range ...", flush=True)
-        lv = D.overnight_range(g)
-        rng = g.high[:, :D.RTH_OPEN].max(axis=1) - g.low[:, :D.RTH_OPEN].min(axis=1)
-        med = np.full(g.n, np.nan)
-        for i in range(D.LOOKBACK, g.n):
-            med[i] = np.median(rng[i - D.LOOKBACK:i])
-        for k in (1, 2, 3):
-            f, mins = D.confirmed_break(g, lv, k, product, rth_only=True)
-            rowrng = np.concatenate([rng, rng])
-            rowmed = np.concatenate([med, med])
-            for vf, sel in (("none", np.ones(f.size, bool)),
-                            ("ON>med", rowrng > rowmed),
-                            ("ON<med", rowrng < rowmed)):
-                with np.errstate(invalid="ignore"):
-                    m2 = f & np.nan_to_num(sel.astype(float)).astype(bool)
-                add("L05", f"k={k} vol={vf}", [60, 120, 180],
-                    _fired_keys(lv.row, mins, m2))
-        t, _ = D.touches(g, lv, 2, product)
-        check_placebo("on_range", lv, t, 2)
+    # L05 IS NOT MEASURED HERE ANY MORE. Its condition is `confirmed_break` on the
+    # overnight range, which price sits inside at 09:30 by construction: measured entry-minute
+    # sd 0.05, all 8,234 levels firing, 99.6% of high/low pairs colliding on (row, minute).
+    # The 8,234 figure was a count of SESSIONS, not of breaks. L05 was already
+    # blocked_insufficient_events so nothing downstream changes, but continuing to publish a
+    # meaningless rate would be worse than publishing none. decisions.md 41.
 
     # ---------------------------------------------------------------- L06
     print(f"    {product} L06 session open ...", flush=True)

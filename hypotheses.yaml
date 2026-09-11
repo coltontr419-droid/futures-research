@@ -1643,13 +1643,35 @@
     overnight position that must be adjusted once real depth arrives. It is also the most
     watched level in retail futures, so stop clustering at its boundaries is plausible on
     self-fulfilling grounds IN ADDITION to the structural story.
+  # ---- THE SWEEP ARM IS WITHDRAWN 2026-09-11. ABSORPTION IS UNAFFECTED. ----
+  # The two arms are registered as MUTUALLY EXCLUSIVE price paths, so absorption stands alone
+  # coherently. Measured: the sweep arm fired on EVERY opening-range level at
+  # valid_from + (k-1) - entry-minute sd 0.07-0.10 on MNQ, 0% identical minutes between
+  # adjacent k, and 92-99% of high/low pairs firing at the SAME (row, minute). k was an
+  # offset, not a selection. Cause was `confirmed_break` testing a break in EITHER direction
+  # against a level price already sits inside; fixed in the function. decisions.md 41.
+  #
+  # IF THE SWEEP CORRECTION IS EVER WANTED IT IS A NEW REGISTRATION competing on its own
+  # merits alongside L11's - NOT an inherited slot. It must earn a place against everything
+  # else unregistered rather than inherit this entry's grade, tier or test order.
   condition: >
-    Two variants on mutually exclusive price paths, registered separately with their own
-    trials. SWEEP: if price closes beyond the boundary for k consecutive 1m bars, enter in the
-    break direction. ABSORPTION: if price penetrates the boundary by >= m ticks then closes
-    back inside within k bars, enter counter to the penetration. Both exit at H minutes or
-    15:55 ET. Level = high and low of [09:30, 09:30 + W] ET. W in {15, 30, 60} min, k in
-    {1, 2, 3} bars, m in {2, 4, 8} ticks (absorption only), H in {60, 120, 180} min.
+    ABSORPTION ONLY as of 2026-09-11. If price penetrates the boundary by >= m ticks then
+    closes back inside within k bars, enter counter to the penetration; exit at H minutes or
+    15:55 ET. Level = high and low of [09:30, 09:30 + W] ET. W in {15, 30, 60} min, m in
+    {2, 4, 8} ticks, k in {2, 3, 5} bars, H in {60, 120, 180} min.
+    WITHDRAWN SWEEP ARM, kept for the record: "if price closes beyond the boundary for k
+    consecutive 1m bars, enter in the break direction", k in {1, 2, 3}. Never run, no trial
+    spent. decisions.md 41.
+  withdrawn_arm:
+    name: sweep
+    withdrawn: 2026-09-11
+    cells_withdrawn: 27
+    trials_spent: 0
+    reason: >
+      Degenerate: fired on every level at valid_from + (k-1), k an offset rather than a
+      selection, high and low colliding on the same (row, minute) in 92-99% of sessions.
+      A corrected directional break with an inside-range precondition is a DIFFERENT
+      condition and needs its own registration.
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
@@ -1898,6 +1920,24 @@
     break of the overnight high or low during RTH is a genuine liquidity event rather than a
     chart pattern. The counterparty is whoever accumulated overnight at prices that cash
     liquidity will not support.
+  # ---- CONDITION MEASURED DEGENERATE 2026-09-11. NOT withdrawn; already blocked. ----
+  # `confirmed_break` on the overnight range, which price sits inside at 09:30 BY
+  # CONSTRUCTION. Measured on MNQ: entry-minute sd 0.05, ALL 8,234 levels firing, 99.6% of
+  # high/low pairs colliding on (row, minute). The 8,234 in firing_rate below is a count of
+  # SESSIONS, not of breaks, and must not be read as an event count.
+  # L05 was already blocked_insufficient_events so nothing downstream changes. Its
+  # measurement block is removed from level_rates.py rather than left publishing a
+  # meaningless rate. Reviving L05 requires a corrected condition and a fresh measurement -
+  # the shared function now REFUSES this shape. decisions.md 41.
+  condition_defect:
+    found: 2026-09-11
+    entry_minute_sd: 0.05
+    levels_firing: "8234 of 8234"
+    hi_lo_collision: "4093/4110 (99.6%)"
+    trials_spent: 0
+    note: >
+      The firing rate recorded below describes the degenerate condition. It is NOT an event
+      count for L05 and must not be inherited by any corrected version.
   condition: >
     During RTH only, the FIRST close beyond an overnight boundary, confirmed by k bars. Enter
     in the break direction, exit at H minutes or 15:55 ET. Only the first break per boundary
