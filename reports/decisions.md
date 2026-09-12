@@ -2258,6 +2258,105 @@ generate this result. Same bar 38 set for L07's mirror and 40 for L11's replacem
 inherited slot, grade or test order.
 
 
+## 44. One stage numbering, and the stage that did not exist (S1-S8)
+
+**`reports/STAGES.md` is now the canonical reference.** Every document, run report and entry
+here names the stage number it concerns.
+
+    S1 Mechanism   S2 Pre-registration   S3 Firing rate   S4 Detection floor
+    S5 Condition validity   S6 Placebo   S7 Multiplicity   S8 Out-of-sample and economics
+
+### Old language is mapped, not rewritten
+
+**Stage 0 ~ S1-S2. Stage 1 ~ S6-S8.** Historical entries in this file are left exactly as
+written. They were true when written, and rewriting them would destroy the record of what was
+known when - which is the whole point of keeping a decisions log rather than a summary. The
+mapping lives in `STAGES.md`.
+
+**The retired language named two of the eight things this programme does.** S3 and S4 were
+real work with no stage name. And S5 had no name at all.
+
+### The ordering finding: L11's S6 was measured before S5 was checked
+
+40 recorded that L11's placebo matched on all four level types - distance ratios 0.90-1.06,
+touch ratios inside tolerance - and treated that as a surprise worth noting, since the
+prediction had been that band width would break matching.
+
+**Those numbers were meaningless, and not because the placebo was wrong.** The TREATMENT had
+not cleared S5. L11's condition fired unconditionally at a fixed minute on every session, so
+the entry population was "every session at 10:31" and distance-from-price was fixed by
+construction. **A placebo matched against a degenerate treatment tells you nothing about
+either.** Matching a control to a condition that cannot select events is a well-formed
+computation on an ill-formed input.
+
+41 already recorded that the placebo prediction is therefore OUTSTANDING rather than refuted.
+This entry records the more general fact: **the stages were run out of order, and nothing in
+the process could notice, because one of them had no name.**
+
+### S5 is now a permanent gate
+
+**The firing-minute variance check was built reactively - after L11 had already failed.** It
+then immediately found the same defect in two more registered hypotheses: L02's sweep arm,
+Tier A and graded B, and L05. **A check that exists only because something already went wrong
+is a post-mortem, not a gate.**
+
+Promoted. **No condition proceeds to S6 until it passes S5.** Three parts, all measured:
+firing-minute variance, parameter discrimination (adjacent settings must change WHICH events
+fire, not merely when), and directional collapse (a level set's high and low must not fire at
+the same `(row, minute)`).
+
+The cost of running it is minutes. The cost of not running it was three hypotheses, one
+carried for a day with a clean-looking placebo report attached to a condition that could not
+select events.
+
+**Corollary, and it binds: S6 results computed before S5 passed are DISCARDED, not
+reinterpreted.** L11's ratios stay in its entry under `degenerate_measurements` with that
+warning attached.
+
+### Where every hypothesis stopped, in the new numbering
+
+| | stopped at | |
+|---|---|---|
+| L01, L05, L08, L09 | **S4** | below the detection floor |
+| L06 | **S6** | no valid control can exist - levels sit at the reference price |
+| L11, L02-sweep | **S5** | withdrawn; conditions fired unconditionally |
+| L02-absorption, L03 | **S7** | retired on nulls |
+| L04 | **S7** | inconclusive - cleared S5, S6 and the S8 era split, failed only multiplicity |
+| L07 | **S8** | retired on economics, with all 108 cells separating |
+| L12 | **S5** | registered, S3/S6 measured, awaiting the gate |
+
+**L04 is the sharpest illustration of why the numbering helps.** "L04 failed Stage 1" is
+unreadable. "L04 cleared S5, S6 and the S8 era split and failed S7" says exactly what happened
+and exactly what a revival would have to beat.
+
+### A second ordering gap found while wiring L12
+
+**The scheduling gate could not pass ANY L-series hypothesis.** It reads
+`reports/measured_rates.json`, which contains only F-series entries; the L-series S3 rates live
+in `reports/level_rates.json`, produced by a different generator, and nothing connected them.
+This was invisible for as long as every L entry was `schedulable: false` - the gate skips those
+- and surfaced the moment L12 became the first one scheduled.
+
+**Same shape as 36: two halves of the record that never met.** L02, L03 and L04 ran earlier in
+this session without the gate ever being consulted.
+
+Fixed by routing, not by declaring: `level_rates` now computes non-overlapping event counts per
+horizon (the S4 number, which it never stored), and `measured_rates` reads them. Where it meets
+an older file with no independence column it **skips rather than substituting the firing
+count** - passing overlapping entries off as independent is the exact overstatement S3 exists
+to prevent, and 21's factor-of-forty error is why that matters.
+
+### Decisions taken rather than resolved silently
+
+1. **`stopped_at` is a new FIELD, not a new status.** The status vocabulary is a closed set
+   whose members drive filters; adding stage names to it would make the registry unqueryable.
+   The field carries the stage and a required `stopped_at_reason`.
+2. **Two tests enforce it**: every L entry names a valid stage with a reason, and `STAGES.md`
+   defines all eight and retains the old-language mapping. A dangling canonical reference is
+   worse than none.
+3. **Historical entries stay as written.** See above.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1544,6 +1544,10 @@
 
 - id: L01
   name: vwap_reaction
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S4
+  stopped_at_reason: >
+    below the detection floor: best cell 211 MGC / 237 MNQ against 2,862 / 5,884.
   mechanism: >
     The only level in this catalog where a named participant has a stated reason to transact
     at it. Institutional execution algorithms are benchmarked to VWAP: a desk filling a large
@@ -1636,6 +1640,10 @@
 
 - id: L02
   name: opening_range_boundary
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S7
+  stopped_at_reason: >
+    ABSORPTION retired on a null: 0 of 27 separate against 1.35 expected. The SWEEP arm was withdrawn at S5 before the run.
   mechanism: >
     Two mechanisms compound. The opening range is a genuine liquidity event - 09:30 ET is the
     largest participant-composition change of the day, and the first minutes establish where
@@ -1763,6 +1771,10 @@
 
 - id: L03
   name: prior_day_sweep_and_reclaim
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S7
+  stopped_at_reason: >
+    retired on a null: 0 of 18 separate against 0.90 expected, mechanism properly exposed.
   mechanism: >
     The mechanised version of the liquidity sweep. Stop orders cluster immediately beyond
     obvious reference points because that is where a large number of traders place them; a
@@ -1862,6 +1874,10 @@
 
 - id: L04
   name: prior_session_extremes
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S7
+  stopped_at_reason: >
+    inconclusive: 5 of 18 nominal separations, ZERO surviving BH. Cleared S5, S6 and the S8 era split; failed only multiplicity.
   mechanism: >
     The same stop-clustering story as L03 but across more reference points, which is the point
     of registering it separately: Asia (19:00-03:00 ET), London (03:00-11:30 ET) and US RTH
@@ -1973,6 +1989,10 @@
 
 - id: L05
   name: overnight_range_boundaries
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S4
+  stopped_at_reason: >
+    below the detection floor, and its condition is separately degenerate at S5 (decisions.md 41).
   mechanism: >
     The overnight range (18:00 previous day to 09:30 ET) is where positioning accumulates
     without cash liquidity. When RTH opens, that positioning is tested against real depth, so a
@@ -2082,6 +2102,10 @@
 
 - id: L06
   name: session_open_reference
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S6
+  stopped_at_reason: >
+    NO VALID CONTROL EXISTS. open_CME and open_RTH sit exactly at the reference price, so the distance distribution is identically zero and no arbitrary region is comparable. Not a measurement gap and not tunable.
   mechanism: >
     The session open price is the reference against which the session's P&L is marked.
     Positions opened at the start of a session are at breakeven when price returns to it, which
@@ -2173,6 +2197,10 @@
 
 - id: L07
   name: fair_value_gap_fill
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S8
+  stopped_at_reason: >
+    retired on ECONOMICS, not on significance. All 108 cells separated and every one was negative at 1.8x-10.3x the cost floor.
   mechanism: >
     A three-bar imbalance marks a price zone that traded through quickly with little two-sided
     activity; the claim is that price returns to fill it because the zone contains unfilled
@@ -2361,6 +2389,10 @@
 
 - id: L08
   name: moving_average_reaction
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S4
+  stopped_at_reason: >
+    below the detection floor: best cell 698 MGC / 705 MNQ, 0.24x and 0.12x.
   mechanism: >
     WEAK BY CONSTRUCTION AND THE ENTRY SAYS SO. No institution executes against a 50 EMA. The
     only available story is self-fulfilling: enough traders watch the same standard settings
@@ -2451,6 +2483,10 @@
 
 - id: L09
   name: higher_timeframe_levels
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S4
+  stopped_at_reason: >
+    below the detection floor: best cell 364 MGC / 446 MNQ, 8-13x short.
   mechanism: >
     Prior week and prior month high/low, on the same stop-clustering story as L03 and L04. Two
     to four levels, touched perhaps weekly. REGISTERED AS A CANDIDATE FOR BLOCKING, NOT AS
@@ -2540,6 +2576,9 @@
 
 - id: L10
   name: placebo_level_control
+  stopped_at: n/a
+  stopped_at_reason: >
+    the placebo control itself - it validates S6 machinery and spends no trials, so it does not stop at a stage.
   mechanism: >
     NOT A HYPOTHESIS. The L-series negative control. Hash-derived levels with no relationship
     to price history, run through the identical L01 pipeline. The premise is that these levels
@@ -2629,6 +2668,10 @@
 
 - id: L11
   name: bollinger_band_breakout
+  # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+  stopped_at: S5
+  stopped_at_reason: >
+    WITHDRAWN. The condition fired unconditionally at valid_from + (k-1) on every session. Its S6 placebo was measured BEFORE S5 was checked and is therefore meaningless - see degenerate_measurements.
   # ========================= WITHDRAWN 2026-09-11 =========================
   # REGISTERED 2026-09-10, WITHDRAWN THE NEXT DAY AS DEFECTIVE. Never run at Stage 1, no
   # trial ever spent, N unaffected at 684 and SR* at 0.1357. decisions.md 40.
@@ -2725,3 +2768,136 @@
       Unchanged by the withdrawal. The external claim carried no prior weight when this was
       registered and carries none now; the defect was in this project's wiring, not in the
       claim.
+
+- id: L12
+  name: asia_session_extreme_reclaim_out_of_sample
+  stopped_at: S5
+  stopped_at_reason: >
+    registered at S1-S2; S3 firing rate and S6 placebo match measured; AWAITING THE S5 GATE before any run.
+  # ================== REGISTERED 2026-09-11, BEFORE THE RUN ==================
+  # THIS HYPOTHESIS WAS SUGGESTED BY LOOKING AT DATA. That is stated first because it is the
+  # single most important fact about it. L04 tested three session types on MGC; sess_Asia
+  # produced 5 of 18 nominal separations and sess_London produced none. Asia was SELECTED BY
+  # ITS RESULT (decisions.md 43).
+  #
+  # Selection by result is not repaired by registering the survivor and re-testing it on the
+  # SAME data - decisions.md 38 refused exactly that for L07's mirror, and 43 refused it here.
+  # It IS repaired by testing the selected claim on data that did not generate it. MNQ is that
+  # data: the Asia result came entirely from MGC, and MNQ is a different instrument with its
+  # own order flow.
+  mechanism: >
+    UNCHANGED FROM L04 AND NOT STRENGTHENED BY THE MGC RESULT. Session extremes are reference
+    prices participants transact against: a sweep beyond the Asia session's high or low that
+    fails and closes back inside marks liquidity that was taken and rejected, so the move
+    counter to the penetration is trading against a failed initiative. The counterparty is
+    whoever was stopped or filled beyond the extreme. This is the SAME story L04 registered;
+    nothing about the MGC numbers makes it more plausible, and the grade is unchanged.
+  condition: >
+    Sweep and reclaim at Asia-session extremes on MNQ, exactly as L04: price exceeds the level
+    by >= m ticks then closes back inside within k bars, entry at the reclaim close, traded
+    COUNTER to the penetration, exit at H minutes or 15:55 ET. m in {2, 4, 8} ticks, k in
+    {2, 3, 5} bars, H = 180 only. Level = high and low of the Asia session. NINE CELLS.
+  # ---- THE PREDICTION, STATED BEFORE THE RUN SO IT CANNOT BE ADJUSTED AFTER IT ----
+  # On MGC the five separating cells gave +2.13 to +3.54 bps, and the nine sess_Asia cells
+  # spanned +1.33 to +3.54. If the mechanism is real and instrument-independent, MNQ should
+  # show the SAME SIGN and a broadly similar magnitude.
+  prediction:
+    registered: 2026-09-11
+    direction: positive
+    magnitude_bps: "+1.3 to +3.5, matching the MGC sess_Asia range"
+    confirms_if: >
+      A positive mean difference across the nine cells AND at least one cell surviving BH at
+      FDR 0.05 within this hypothesis. Both, not either.
+    refutes_if: >
+      A mean difference at or below zero, or positive but with no BH survivor. A positive
+      point estimate that fails correction is NOT a confirmation - it is what L04 already
+      produced, and repeating it on a second instrument without clearing the bar leaves the
+      claim exactly where it was.
+    note: >
+      The refutation criterion is deliberately symmetric with the confirmation one. Writing
+      only the confirming condition is how a test becomes unfalsifiable.
+  # ---- POWER, AND THE HONEST VERSION OF IT ----
+  # MNQ sess_Asia fires 4,903-5,442 times against a TABULATED 180m floor of 5,884, which is
+  # why L04/MNQ was never scheduled. That floor is the sample needed to resolve the SMALLEST
+  # effect the pipeline can detect (15.66 bps at 180m on MNQ). It is not the applicable bar
+  # for a specific predicted effect - decisions.md 38 decision 4 makes that argument for L07,
+  # where 24,788 events resolved far less than the tabulated floor implied.
+  # MGC separated on 2,715 PAIRED events; MNQ's ~5,400 firings should pair to more. So this
+  # is powered for the +3.5 bps effect under test while remaining short for the tabulated
+  # minimum. A NULL HERE IS THEREFORE WEAKER EVIDENCE than a null at full power would be,
+  # and that is recorded now rather than discovered later.
+  power:
+    firings_per_cell: "4,903 - 5,442"
+    tabulated_floor_180m: 5884
+    applicable: >
+      Powered for the predicted +1.3 to +3.5 bps effect; short of the tabulated floor for the
+      pipeline's minimum resolvable effect. A null is correspondingly weaker evidence.
+  placebo_match:
+    measured: true
+    level_type: sess_Asia
+    product: MNQ
+    distance_ratio: 0.92
+    touch_ratio: 0.94
+    verdict: ok
+    note: Matched, measured before registration. reports/placebo_match.md.
+  horizon_minutes: [180]
+  hold_hours: [3]
+  registered: 2026-09-11
+  status: untested
+  grade: C
+  tier: B
+  param_cap: 2
+  session: Asia
+  symbols: [MNQ]
+  registered_test_order: 20
+  test_order: 20
+  schedulable: true
+  # ---- MNQ ONLY, AND THAT IS THE ENTIRE POINT ----
+  # The two-instrument Stage 4 requirement cannot be met and must not be. MGC is the
+  # IN-SAMPLE instrument - it generated the claim - so adding it back would destroy the only
+  # property that makes this registration worth anything. An out-of-sample test that includes
+  # the data it is validating against is not one.
+  stage4_reachable: false
+  stage4_reason: >
+    MNQ-only by construction. MGC generated this hypothesis, so it cannot also serve as the
+    second instrument for a Stage 4 confirmation - including it would re-admit the selection
+    this registration exists to escape. If MNQ confirms, the pair becomes eligible again on
+    a later sample that is out-of-sample for BOTH.
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      Session extremes as reference prices is not an instrument-specific story - which is
+      exactly why MNQ is a fair test of a claim found on MGC. MGC is excluded not because the
+      mechanism fails there but because it is the sample that produced the claim.
+  # MEASURED, not declared - reports/level_rates.json, the L04/MNQ Asia cells.
+  firing_rate:
+    measured: true
+    declared: null
+    measured_on: '2026-09-09'
+    report: reports/level_rates.md
+    per_product:
+      MNQ:
+        cells: 9
+        worst_cell: 4903
+        best_cell: 5442
+        required_180m: 5884
+        best_over_180m_floor: 0.925
+        events_sufficient_at_180m: false
+    note: >
+      SHORT OF THE TABULATED FLOOR and scheduled anyway, with the reason recorded in `power`
+      above: the floor is the sample needed for the pipeline's MINIMUM resolvable effect, not
+      for the specific +1.3 to +3.5 bps under test. MGC separated on 2,715 paired events.
+  provenance:
+    source: L04 Stage 1 on MGC, decisions.md 43
+    selected_by_result: true
+    prior_weight: none
+    note: >
+      SELECTED BY RESULT and says so. The registration exists to test that selection on
+      independent data, which is the only thing that can repair it. It inherits no grade, no
+      tier and no credibility from L04 - it inherits a claim and a prediction.
+  verdict_route:
+    per_cell: nine cells, BH within the hypothesis at FDR 0.05
+    aggregate: >
+      ASSUMED CLOSED. m and k select overlapping subsets of the same reclaim, exactly as in
+      L04 where the measured overlap was 98%.

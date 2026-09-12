@@ -9,6 +9,31 @@ Everything below is committed; nothing is in flight on disk.
 
 ---
 
+## READ FIRST — `reports/STAGES.md`
+
+**The programme uses one stage numbering, S1-S8, adopted 2026-09-12.** Every document, run
+report and `decisions.md` entry names the stage it concerns.
+
+    S1  Mechanism          who is losing money to you, and why they keep doing it
+    S2  Pre-registration   every parameter fixed before testing
+    S3  Firing rate        measured on real data, never declared
+    S4  Detection floor    smallest detectable edge vs effective n
+    S5  Condition validity negative control, fault injection, firing-minute variance
+    S6  Placebo            real vs distance-matched arbitrary level
+    S7  Multiplicity       trial log, N, SR*, BH correction
+    S8  Out-of-sample      era split, other instruments, cost floor
+
+Old language maps as: **Stage 0 ~ S1-S2, Stage 1 ~ S6-S8.** Historical `decisions.md` entries
+are NOT rewritten - the mapping lives in `STAGES.md` instead, because rewriting them would
+destroy the record of what was known when.
+
+**S5 IS A GATE AND IT IS NEW.** It had no name before 2026-09-12, and that is exactly how
+L11's placebo came to be measured against a condition that fired unconditionally: the S6
+numbers looked clean and meant nothing. No condition proceeds to S6 until it passes S5.
+
+
+---
+
 ## Where things stand
 
 **The F-series is closed.** 14 registered, 576 trials, SR\* = 0.1334, 0 promoted. See

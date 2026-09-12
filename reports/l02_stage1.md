@@ -1,5 +1,9 @@
 # L02 Stage 1 - opening-range absorption, against matched placebo regions
 
+> **Stage: S7** (multiplicity). Cleared S1-S6; see `reports/STAGES.md` for the
+> numbering. This report was written under the retired "Stage 1" label, which maps to
+> S6-S8.
+
 **Verdict: null. 0 of 27 cells separate against 1.35 expected by chance.** 27 trials spent;
 N 684 -> 711 at this point in the sequence.
 

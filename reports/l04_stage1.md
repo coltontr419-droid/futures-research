@@ -1,5 +1,9 @@
 # L04 Stage 1 - session extremes, sweep and reclaim, against matched placebo regions
 
+> **Stage: S7** (multiplicity). Cleared S1-S6; see `reports/STAGES.md` for the
+> numbering. This report was written under the retired "Stage 1" label, which maps to
+> S6-S8.
+
 **Verdict: `stage1_inconclusive`. Five of eighteen cells separate against 0.90 expected -
 and NONE survives the multiple-comparison correction.** 18 trials spent, 9 cells excluded.
 

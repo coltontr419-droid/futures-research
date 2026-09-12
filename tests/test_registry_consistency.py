@@ -612,3 +612,49 @@ def test_a_hypothesis_with_an_open_specification_defect_is_not_schedulable() -> 
         assert entry.get("schedulable") is False, (
             f"{hid} records a specification defect but is not marked unschedulable"
         )
+
+
+#: Stage numbering per reports/STAGES.md, adopted 2026-09-12.
+VALID_STAGES: Final[frozenset[str]] = frozenset(
+    {"S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "n/a"}
+)
+
+
+@pytest.mark.integrity
+def test_every_l_series_entry_names_the_stage_it_stopped_at() -> None:
+    """One numbering across the programme, and an entry must say where it stopped.
+
+    Before 2026-09-12 the project had names for two of the eight things it does - "Stage 0"
+    and "Stage 1" - and no name at all for condition validity. That gap is not cosmetic: it
+    is how L11's placebo came to be measured against a condition that fired unconditionally,
+    with the S6 numbers looking clean and meaning nothing. Naming the stages is what makes
+    "measured S6 before S5" a sentence someone can notice.
+    """
+    for hid, entry in REG.items():
+        if not hid.startswith("L"):
+            continue
+        stage = entry.get("stopped_at")
+        assert stage is not None, (
+            f"{hid} does not say which stage it stopped at. See reports/STAGES.md."
+        )
+        assert stage in VALID_STAGES, (
+            f"{hid} gives stopped_at={stage!r}, which is not one of {sorted(VALID_STAGES)}"
+        )
+        assert entry.get("stopped_at_reason"), (
+            f"{hid} names stage {stage} but gives no stopped_at_reason. The stage alone "
+            f"says where it halted, not why, and 'why' is the part a later reader needs."
+        )
+
+
+@pytest.mark.integrity
+def test_the_stage_reference_exists_and_defines_all_eight() -> None:
+    """STAGES.md is the canonical reference; a dangling pointer is worse than none."""
+    path = ROOT / "reports" / "STAGES.md"
+    assert path.exists(), "reports/STAGES.md is missing"
+    text = path.read_text(encoding="utf-8")
+    for s in ("S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"):
+        assert f"**{s}**" in text, f"STAGES.md does not define {s}"
+    # The mapping must survive, or historical decisions.md entries become unreadable.
+    assert "Stage 0" in text and "Stage 1" in text, (
+        "STAGES.md must map the retired Stage 0 / Stage 1 language"
+    )

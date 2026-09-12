@@ -292,6 +292,44 @@ def rates_from_cells(hid: str, horizons: list[int], spans: dict[str, int]) -> li
     return out
 
 
+LEVEL_RATES: Final[Path] = REPORTS / "level_rates.json"
+
+
+def rates_from_level_rates(hid: str) -> list[Rate]:
+    """L-series rates, routed from `level_rates.json` into the gate's file.
+
+    THE L-SERIES HAD NO ENTRY IN `measured_rates.json` AT ALL until this existed, so the
+    scheduling gate could not pass ANY L hypothesis. That was invisible for as long as every
+    L entry was `schedulable: false` - the gate skips those - and it surfaced the moment one
+    was scheduled. Two halves of the record that never met, the same shape as decisions.md 36.
+
+    This ROUTES a measurement, it does not create one. The numbers come from
+    `reporting.level_rates`, measured on real data over both products, and `independent` is
+    the non-overlapping count that module computes per horizon. Nothing here is declared.
+    """
+    if not LEVEL_RATES.exists():
+        return []
+    payload = json.loads(LEVEL_RATES.read_text(encoding="utf-8"))
+    out: list[Rate] = []
+    for r in payload.get("rates", []):
+        if r["hypothesis"] != hid:
+            continue
+        ind = r.get("independent") or {}
+        for h in r["horizons"]:
+            n_ind = ind.get(str(h), ind.get(h))
+            if n_ind is None:
+                # An older level_rates.json predates the independence column. Skip rather
+                # than substitute the firing count - overlapping entries are one observation
+                # counted many times, and passing them off as independent is exactly the
+                # overstatement the gate exists to prevent. Re-run reporting.level_rates.
+                continue
+            out.append(Rate(hid, r["product"], r["cell"], int(h), int(r["firings"]),
+                            int(n_ind), float("nan"), "level_rates",
+                            "routed from reports/level_rates.json; non-overlapping at this "
+                            "horizon"))
+    return out
+
+
 def measure_all() -> list[Rate]:
     registry = {e["id"]: e for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))}
     frames = {p: load_1m(p) for p in ("MNQ", "MGC")}
@@ -306,6 +344,9 @@ def measure_all() -> list[Rate]:
         print(f"  {hid} ...", flush=True)
         if hid in CELL_FILES:
             rates += rates_from_cells(hid, horizons, spans)
+            continue
+        if hid.startswith("L"):
+            rates += rates_from_level_rates(hid)
             continue
         for product in products:
             if product not in frames:

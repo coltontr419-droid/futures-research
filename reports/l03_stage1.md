@@ -1,5 +1,9 @@
 # L03 Stage 1 - prior-day sweep and reclaim, against matched placebo regions
 
+> **Stage: S7** (multiplicity). Cleared S1-S6; see `reports/STAGES.md` for the
+> numbering. This report was written under the retired "Stage 1" label, which maps to
+> S6-S8.
+
 **Verdict: null. 0 of 18 cells separate against 0.90 expected by chance.** 18 trials spent.
 
 Every figure is **(real level) minus (matched placebo region)**, MGC only, **H=180

@@ -70,6 +70,12 @@ class CellRate:
     horizons: list[int]
     firings: int
     minutes_key: str = ""      # not serialised in full; see disjointness
+    #: NON-OVERLAPPING events per horizon, keyed by horizon in minutes. This is the number
+    #: the scheduling gate reads, and it is NOT the firing count: a position held H minutes
+    #: cannot restart until it closes, so overlapping entries are ONE observation counted
+    #: many times. The L-series had no entry in `measured_rates.json` at all until this was
+    #: added, so no L hypothesis could ever clear the gate. decisions.md 44.
+    independent: dict = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -85,6 +91,32 @@ class Disjointness:
 #: Stride used to pack (row, minute) into one integer. ROW_MINUTES is 1,375, so 2,048
 #: leaves the minute field room to spare and keeps the arithmetic a shift.
 _MINUTE_STRIDE: Final[int] = 2048
+
+
+def _independent_counts(keys: np.ndarray, horizons: list[int]) -> dict[int, int]:
+    """Non-overlapping events per horizon, from the packed (row, minute) keys.
+
+    Greedy per row: take an entry, then skip every later entry in the same row until H
+    minutes have passed. A hold cannot cross rows - a row is 1,375 minutes and the longest
+    horizon here is 180 - so rows are independent of one another by construction.
+    """
+    out: dict[int, int] = {}
+    if keys.size == 0:
+        return {int(h): 0 for h in horizons}
+    rows, mins = keys // _MINUTE_STRIDE, keys % _MINUTE_STRIDE
+    order = np.lexsort((mins, rows))
+    rows, mins = rows[order], mins[order]
+    boundaries = np.flatnonzero(np.diff(rows)) + 1
+    for h in horizons:
+        n = 0
+        for seg_r, seg_m in zip(np.split(rows, boundaries), np.split(mins, boundaries)):
+            free = -1
+            for m in seg_m:
+                if m >= free:
+                    n += 1
+                    free = m + h
+        out[int(h)] = n
+    return out
 
 
 def _fired_keys(rows: np.ndarray, minutes: np.ndarray,
@@ -118,7 +150,8 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
     fires: dict[str, list[tuple[str, np.ndarray]]] = {}
 
     def add(hyp: str, cell: str, horizons: list[int], keys: np.ndarray) -> None:
-        rates.append(CellRate(hyp, product, cell, horizons, int(keys.size)))
+        rates.append(CellRate(hyp, product, cell, horizons, int(keys.size),
+                              independent=_independent_counts(keys, horizons)))
         fires.setdefault(hyp, []).append((cell, keys))
 
     def check_placebo(kind: str, levels: D.LevelSet, touched: np.ndarray,
@@ -296,6 +329,20 @@ def measure(product: str) -> tuple[list[CellRate], list[MatchReport], list[Disjo
     # `D.bollinger_levels` is KEPT and still unit-tested - the band arithmetic is correct and
     # a corrected condition would use it - but no registered hypothesis consumes it.
     # decisions.md 40, hypotheses.yaml L11.
+
+    # ---------------------------------------------------------------- L12 (MNQ only)
+    # L12 is L04's sess_Asia condition on MNQ, registered as an OUT-OF-SAMPLE test of a
+    # result found on MGC (decisions.md 44). It is measured under its OWN id because it is
+    # its own hypothesis with its own trials and its own BH correction - reading L04's rows
+    # would blur two registrations into one and make the trial accounting unreadable.
+    # MNQ only: MGC generated the claim and cannot also validate it.
+    if product == "MNQ":
+        print(f"    {product} L12 asia extremes, out of sample ...", flush=True)
+        lv = D.session_extremes(g, "Asia")
+        for mt in (2, 4, 8):
+            for kb in (2, 3, 5):
+                f, mins = D.sweep_reclaim(g, lv, mt, kb, product)
+                add("L12", f"Asia m={mt} k={kb}", [180], _fired_keys(lv.row, mins, f))
 
     # ---------------------------------------------------------------- disjointness
     disj: list[Disjointness] = []

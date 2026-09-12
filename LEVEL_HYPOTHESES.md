@@ -557,6 +557,42 @@ extreme's is, which is exactly what the ±25% distance and touch criteria exist 
 
 ---
 
+## L12 — Asia Session Extreme Reclaim, Out of Sample
+
+**Params: 2** | **MNQ only** | **Fires: 4,903–5,442 per cell (measured)**
+
+Sweep and reclaim at Asia-session extremes on MNQ — the identical condition L04 ran on MGC.
+Nine cells, m ∈ {2,4,8}, k ∈ {2,3,5}, H=180.
+
+**This hypothesis was suggested by looking at data, and the registration says so first.**
+L04 tested three session types on MGC; `sess_Asia` gave 5 of 18 nominal separations and
+`sess_London` gave none. Asia was **selected by its result**.
+
+Selection by result is not repaired by registering the survivor and re-testing it on the same
+data — §38 refused that for L07's mirror and §43 refused it here. It **is** repaired by
+testing the selected claim on data that did not generate it. MNQ is that data.
+
+**The prediction is registered before the run**: a positive difference of +1.3 to +3.5 bps,
+matching the MGC range. It confirms only on a positive mean **and** at least one BH survivor
+at FDR 0.05 — both, not either. A positive point estimate that fails correction is *not* a
+confirmation; that is what L04 already produced, and reproducing it without clearing the bar
+leaves the claim where it was.
+
+**MNQ only, and that is the point.** The two-instrument Stage 4 requirement cannot be met:
+MGC generated the claim, so it cannot also validate it. An out-of-sample test that includes
+the data it is validating against is not one.
+
+**Power is short of the tabulated floor and the entry says so.** 4,903–5,442 firings against
+a tabulated 5,884 at 180m — but that floor sizes the pipeline's *minimum* resolvable effect
+(15.66 bps), not the +3.5 bps under test. MGC separated on 2,715 paired events. So this is
+powered for the effect in question and a null is correspondingly weaker evidence than a null
+at full power.
+
+**The mechanism is unchanged and not strengthened by the MGC result.** Nothing about those
+numbers makes session extremes more plausible as reference prices; the grade stays at C.
+
+---
+
 # Testing order
 
 Measure all firing rates first — one batch, before anything is scheduled.
@@ -574,6 +610,7 @@ Measure all firing rates first — one batch, before anything is scheduled.
 | 8 | L08 | weak mechanism, registered for completeness |
 | — | L09 | measure rate, expect to block |
 | — | L11 | measure rate AND placebo match first; weak mechanism, no prior weight |
+| — | L12 | out-of-sample test of L04's Asia result on MNQ; prediction pre-registered |
 
 ---
 
