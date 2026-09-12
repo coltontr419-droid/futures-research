@@ -2009,9 +2009,21 @@
 - id: L05
   name: overnight_range_boundaries
   # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
-  stopped_at: S4
+  # ---- CORRECTED 2026-09-12: S5, not S4, and the S4 arithmetic is WITHDRAWN ----
+  # L05 stops at S5, not S4. Its condition is degenerate (`confirmed_break` on the overnight
+  # range, which price sits inside at 09:30 by construction: entry-minute sd 0.05, ALL 8,234
+  # levels firing, 99.6% high/low collision - decisions.md 41), so it cannot reach S6
+  # regardless of sample size.
+  # ITS S4 BLOCK NO LONGER RESTS ON A LIVE MEASUREMENT. The degenerate measurement block was
+  # removed from level_rates.py in 41, so L05 has NO record in measured_rates.json and no
+  # live S3 input. The event count that once justified an S4 block described a condition that
+  # fired on every session - a count of SESSIONS, not of breaks - and is withdrawn with it.
+  # Reviving L05 needs a corrected condition, a fresh S3 measurement, and then S4 again.
+  stopped_at: S5
   stopped_at_reason: >
-    below the detection floor, and its condition is separately degenerate at S5 (decisions.md 41).
+    DEGENERATE CONDITION (S5): fires on every session at a fixed minute, so it cannot reach
+    S6 at any n. Its former S4 block is withdrawn along with the degenerate measurement that
+    produced it - there is no live S3 rate for L05. decisions.md 41, 45.
   mechanism: >
     The overnight range (18:00 previous day to 09:30 ET) is where positioning accumulates
     without cash liquidity. When RTH opens, that positioning is tested against real depth, so a

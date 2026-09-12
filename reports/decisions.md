@@ -2475,6 +2475,90 @@ subset can be refreshed without re-running it; the merge prints what it carried 
 (`873 refreshed, 248 carried forward`) and `--check` still compares a full fresh measurement,
 so the cache cannot drift unnoticed. **Recorded as open, not resolved.**
 
+### Where the S4 `e` actually came from: a universal ladder, never a prediction
+
+Since 25 of 26 entries never stated a magnitude, every S4 computation used an `e` from
+somewhere else. It is `reports/floor_cache.json`: **one fixed ladder of ten injected effect
+sizes in units of one bar's volatility at the horizon**, identical for every hypothesis.
+
+    0.001  0.00188  0.00355  0.00669  0.01262  0.02378  0.04481  0.08446  0.15918  0.3
+
+The gate never asks "can you detect YOUR effect". It asks **"is your n at least the n at which
+the sweep detected ITS smallest detectable effect"** - `effective_n < smallest_resolving_n`
+becomes `BELOW SWEPT RANGE`. The operative `e` per cell:
+
+| product | horizon | operative floor | bps | source |
+|---|---|---|---|---|
+| MNQ | 180m | 0.3x | 15.66 | **ladder top rung** |
+| MGC | 180m | 0.3x | 14.34 | **ladder top rung** |
+| MGC | 60m | 0.3x | 4.17 | **ladder top rung** |
+| MNQ | 60m | 0.08446x | 2.57 | ladder |
+| both | 1m | 0.04481x | - | ladder |
+
+Not a cost floor, not a prior series, not a prediction. A tabulated default.
+
+### The ladder's top rung is a CENSORED BOUND, not a measurement
+
+At 60m and 180m the operative floor is the **top rung the sweep ever tested**, so the floor is
+only bracketed in **(0.1592, 0.3]** - nothing larger was tried. At MNQ/180m the bracket turns
+on a **0.72 versus 0.80 promote rate at 25 reps, whose CI is 0.52-0.86**.
+
+**Anything reading `floor_cache.json` inherits a bound presented as a floor.** That warning is
+now written into the JSON itself - five of six cells carry
+`_WARNING_censored_bound` - because a later reader opens the data file, not the reasoning. The
+loader ignores unknown keys, so it is inert to the pipeline.
+
+### The four S4 blocks re-examined: a realistic `e` makes them STRONGER
+
+Against the tabulated gate, L01, L08 and L09 sit at **0.01x to 0.24x** of the required n. But
+the tabulated `e` is the wrong bar for a paired test - the same error found in L12, where 15.66
+tabulated against 2.82 empirical. Recomputing with L12's **measured** bootstrap SE scaled as
+1/sqrt(n), and BH rank-1 within each grid:
+
+| | product/H | n | SE | BH bar | |
+|---|---|---|---|---|---|
+| L01 | MGC 60m | 211 | 4.45 | **12.35 bps** | block holds |
+| L01 | MNQ 60m | 237 | 4.20 | **11.65 bps** | block holds |
+| L08 | both 60/180m | 698-705 | 2.44 | **7.29-7.32 bps** | block holds |
+| L09 | both 60/180m | 364-446 | 3.06-3.39 | **9.16-10.14 bps** | block holds |
+
+**The largest difference this programme has ever measured is 5.0 bps (L07).** L04 gave 3.5,
+R01 0.45, L12 0.31. Every blocked hypothesis needs **7.3-12.4 bps** to produce a survivor -
+above anything observed anywhere in four series.
+
+**THE DIRECTION OF THE CORRECTION IS UNAMBIGUOUS: a realistic `e` makes all four blocks
+STRONGER, not weaker.** 14-16 bps at 180m is roughly 5x the empirical resolution of a paired
+test, so the generic ladder demanded LESS n than a realistic effect requires. **The gate was
+generous and the blocks were understated.** No status changes, but the closeout should say the
+blocks are firmer than the original arithmetic claimed rather than softer.
+
+### The missing-magnitude gap is programme-wide, and that is the more important half
+
+The L12 defect is not an isolated slip. **1 of 26 registrations across the F-, R- and L-series
+ever stated a predicted magnitude.** F-series: none. R-series: R03's
+`distinguishing_prediction` is mechanistic with no magnitude; R01's bps figures are cost
+floors. L-series: L12 alone.
+
+**So no null in this programme was ever checkable against its own predicted effect.** Every
+S4 verdict was rendered against a tabulated default, and every null was reported without a
+statement of what size of effect it would have been able to see. L12 is simply the first time
+a magnitude was written down and therefore the first time anything could be checked at all.
+
+That is a larger finding than the unsatisfiable criterion it surfaced, and it is the half that
+should carry into any future programme: **a registration that states a direction and a
+mechanism but not a magnitude cannot produce an interpretable null.**
+
+### L05 corrected: S5, and its S4 arithmetic is withdrawn
+
+L05 was recorded as blocked at S4. **It stops at S5**: its condition is degenerate
+(`confirmed_break` on the overnight range, entry-minute sd 0.05, all 8,234 levels firing,
+99.6% high/low collision), so it cannot reach S6 at any n.
+
+**And its S4 block no longer rests on a live measurement.** 41 removed the degenerate
+measurement block from `level_rates.py`, so L05 has no record in `measured_rates.json`. The
+event count that once justified the S4 block described a condition firing on every session - a
+count of SESSIONS, not of breaks - and is withdrawn with it.
+
 ### Two ordering gaps
 
 **The scheduling gate could not pass ANY L-series hypothesis.** It reads

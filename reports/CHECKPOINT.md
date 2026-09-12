@@ -167,6 +167,54 @@ Fixed in the entries, not by loosening the tests:
 
 ---
 
+## Machine limitations — DOCUMENTED, not folklore
+
+Read this before planning a run. This laptop has **2.7 GB RAM, ~1.1 GB typically available**,
+and the programme has been OOM-killed on it **seven times**. Six were fixed (decisions.md 41,
+45); one is open.
+
+### `f01_rates` is OOM-killed and is NOT fixed
+
+    python -m futuresres.reporting.measured_rates        # DIES at ~1,064 MB, during F01
+
+**A full `measured_rates` run cannot complete on this laptop.** It is killed inside
+`f01_rates`, the first hypothesis measured. The frames are not the cause - both products
+together are ~200 MB of data and ~460 MB peak - the F01 computation itself is.
+
+**Use the targeted refresh instead:**
+
+    python -m futuresres.reporting.measured_rates --only L      # works, ~1 min
+    python -m futuresres.reporting.measured_rates --only L12,L04
+
+A partial refresh **merges** into the cached file and prints what it carried forward
+(`873 refreshed, 248 carried forward`). Records it does not touch keep whatever measurement
+they last had. `--check` still compares a FULL fresh measurement, so it cannot run here
+either - which means **cache drift cannot be verified on this machine.**
+
+**A full run requires the Windows PC or a machine with more memory.** That is the fix, not a
+code change: F01's measurement is legitimate work that needs headroom.
+
+### The test suite no longer fits in one process either
+
+383 tests pass across 16 files **run individually**. Run together they accumulate past ~900 MB
+and the run is killed. No single test is heavy; the total is.
+
+    for f in tests/test_*.py; do .venv/bin/python -m pytest -q "$f"; done
+
+### Everything else runs here, after the fixes
+
+`level_rates` (~2 h, peaks ~440 MB), `roll`, `splice`, the grid loader (626 MB), and every
+Stage 1 runner. Six memory fixes got them there; see decisions.md 41 and 45 for what each one
+was, because the same patterns will recur: eager frames, global sorts that are avoidable
+rather than expensive, Python containers where a packed array belongs, and reading columns
+nothing uses.
+
+### Tools
+
+    ./progress.sh        what is running: pid, RSS, elapsed, memory, logs, parquets, OOM count
+    ./progress.sh -w     the same, refreshing every 30s
+    ./done.sh            BLOCKS until the running job exits, then prints a pasteable report
+
 ## State
 
 - **372 tests with the data layer present; 300 from a clean clone at the pre-fix commit** (plus 3 collection
