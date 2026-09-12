@@ -2962,3 +2962,202 @@
     bh_rank1_threshold_bps: 2.82
     bootstrap_se_bps: 1.016
     power_vs_l04_estimate: 0.762
+
+- id: N04
+  name: failed_breakout_trap_swing_levels
+  stopped_at: S2
+  stopped_at_reason: >
+    Registered 2026-09-12. S3 firing rate measured, S5 gate PASSED, S6 placebo not yet built.
+    No trial spent.
+  mechanism: >
+    Breakout entrants place stops back inside the level they broke. A break that fails traps
+    them, and their forced exit is price-insensitive supply in the reversal direction. THE COUNTERPARTY is the breakout buyer; they keep doing it because breakout entry is the most widely
+    taught retail pattern and the losses are attributed to "fakeouts" rather than to the entry
+    rule itself. This is a flow story, not a self-fulfilling-watching story - which is what
+    separates it from L08 and L11, whose premise this catalogue has twice found too weak.
+  condition: >
+    5-minute fractal pivot levels, lookback L = 20 bars each side. Entry on a CONFIRMED BREAK:
+    the first run of k = 3 consecutive 5m closes beyond the pivot, traded COUNTER to the break
+    (fading it). Exit at H = 180 minutes or 15:55 ET. Break depth d in {16, 24} ticks. MNQ.
+    Upper and lower breaks are separate directions and separate cells.
+  # ---- PARAMETERS ARE A SPECIFICATION CHOICE INFORMED BY A TRANSFERRED CURVE ----
+  # L = 20 and d = 16-24 were sited from L07's selectivity sweep, extended past its own grid
+  # edge (decisions.md 45). TRANSFER LIMITATION, STATED HERE AND NOT IN A FOOTNOTE: both
+  # optima and both exponents are measured on L07, WHOSE MECHANISM SECTION 38 REFUTED. Drift
+  # was excluded at 1.2% so the effect is real and reproducible even though its interpretation
+  # is wrong, and the selectivity curve is plausibly generic to thresholded conditions - but
+  # it is a TRANSFER, not a fit. If N04's own selectivity behaviour diverges from L07's once
+  # measured, this parameter choice is wrong and must be revisited.
+  parameter_provenance:
+    sited_from: L07 selectivity sweep, reports/sweep_tight_l07.json
+    principle: >
+      Maximise eff/cost subject to eff/bar comfortably above 1. Level quality (L) is the cheap
+      knob and bar timeframe the expensive one: on L07, tightening w 8->32 at 5m moved eff/cost
+      10.34 -> 17.38 while eff/bar only fell 7.43 -> 5.34, whereas tightening tf collapsed
+      provability for almost no economic gain.
+    two_optima_是_a_preference: >
+      eff/cost peaks at 0.65 firings/session and eff/bar at 8.70; these are an order of
+      magnitude apart. The 3-6.5/session band trades ~1.5x eff/cost for ~2x provability margin.
+      A later reader will see a number matching NEITHER peak - this is why.
+    standing: >
+      Data-informed, not an out-of-sample prior. Same standing as R01's pre-registered H=30.
+  # ---- AN UPLIFT WAS CONSIDERED AND DECLINED ----
+  # Tightening from the draft's ~10 firings/session to ~6.65 implies, under L07's measured
+  # decay exponent 0.412, an effect-size uplift of x1.54 - which would raise this prediction
+  # to 3.1-7.7 bps. DECLINED. The parameters may be informed by a transferred curve because
+  # they are a specification choice; the PREDICTED MAGNITUDE is different in kind, because S2
+  # judges the hypothesis against it. Uplifting it would mean the bar this hypothesis is
+  # scored against was partly set by a transfer from a refuted mechanism - and that exponent
+  # is the first thing that fails if the transfer does not hold. The prediction is kept
+  # INDEPENDENT of the parameter choice. If N04's measured selectivity behaviour later matches
+  # L07's, that is evidence the transfer held - obtained after the fact, not a prior.
+  declined_uplift:
+    factor: 1.54
+    would_have_given_bps: [3.1, 7.7]
+    declined_because: keeps the prediction independent of a parameter choice informed by a refuted mechanism
+  prediction:
+    registered: 2026-09-12
+    direction: positive
+    magnitude_bps: "+2.0 to +5.0 (unadjusted prior, deliberately not uplifted)"
+    confirms_if: positive mean AND at least one BH survivor at FDR 0.05
+    refutes_if: mean at or below zero, OR positive with no BH survivor
+  # ---- S2 CHECK: PASSES ACROSS THE WHOLE RANGE ----
+  s2_check:
+    events_per_direction: 27410
+    deff: 1.72
+    deff_source: MEASURED on 5m swing pivots, decisions.md 45
+    effective_units: 15936
+    bh_rank1_threshold_bps: 1.42
+    predicted_low_bps: 2.0
+    verdict: >
+      PROVABLE ACROSS THE RANGE. The bottom of the predicted range (2.0) exceeds the BH bar
+      (1.42), so a survivor is reachable at any magnitude in the prediction - unlike L12,
+      whose significance limb was reachable only in the top fifth of its range.
+    eff_over_bar_mid: 2.46
+    eff_over_cost_mid: 7.3
+  s5_gate:
+    passed: true
+    measured: 2026-09-12
+    firing_rate_per_session: {up: 6.65, down: 6.39}
+    entry_minute_sd: {up: 327.3, down: 325.9}
+    note: >
+      PASSED BEFORE ANY S6 PLACEBO IS BUILT - the L11 ordering error. Degenerate signature is
+      sd ~0 with 92-99% directional collapse; this is sd 327 with up and down firing DIFFERENT
+      counts, so direction discriminates.
+  s41_guard:
+    verified: true
+    discriminates: true
+    note: >
+      VERIFIED THAT THE GUARD FIRES CORRECTLY, not merely that N04 passes it. On the opening
+      range - the L02-sweep shape, price sitting INSIDE - it RAISES DegenerateCondition at
+      44.2% already-beyond against a 25% limit. On swing pivots, where price sits AT the
+      level, it passes. The guard discriminates; it is not vacuous.
+  horizon_minutes: [180]
+  hold_hours: [3]
+  registered: 2026-09-12
+  status: untested
+  grade: B
+  tier: B
+  param_cap: 2
+  session: US
+  symbols: [MNQ]
+  stage4_reachable: false
+  stage4_reason: >
+    MNQ only at registration. MGC pooling is NOT assumed - the L-series aggregate-route
+    assumption is explicitly not inherited, and cross-product overlap must be measured before
+    any pooling.
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: Trapped-breakout flow is not instrument specific; MNQ is chosen for cost (0.48 bps).
+  registered_test_order: 21
+  test_order: 21
+  schedulable: false
+  verdict_route:
+    per_cell: nine cells, BH within the hypothesis at FDR 0.05
+    aggregate: >
+      ASSUMED CLOSED across d; MEASURED DISJOINT from N05 at 2.1% shared (row, minute), so the
+      two hypotheses are not duplicates despite sharing a level set.
+
+- id: N05
+  name: swing_level_sweep_reclaim
+  stopped_at: S2
+  stopped_at_reason: >
+    Registered 2026-09-12. S3 measured, S5 PASSED, S6 not yet built. No trial spent.
+    THE MARGINAL REGISTRATION OF THE TWO - see s2_check.
+  mechanism: >
+    Stop-clustering at swing extremes: a sweep beyond a pivot that fails and closes back inside
+    marks liquidity taken and rejected, so the move counter to the penetration trades against a
+    failed initiative. THE COUNTERPARTY is whoever was stopped or filled beyond the extreme. This is
+    L03/L04's mechanism, which discriminated properly at S5 - the failure there was EVENT
+    COUNT, not logic, and this registration exists to fix exactly that.
+  condition: >
+    5-minute fractal pivot levels, lookback L = 20. `sweep_reclaim`: price exceeds the pivot by
+    m ticks then closes back inside within k = 3 bars; entry at the reclaim close, traded
+    COUNTER to the penetration. Exit at H = 180 min or 15:55 ET. m in {16, 24}. MNQ.
+  parameter_provenance:
+    sited_from: L07 selectivity sweep (same transfer limitation as N04 - see that entry)
+    note: >
+      L IS THE DOMINANT KNOB, NOT m. At L=5 there are 286,257 pivots (69/session) and no value
+      of m reaches the target band - a 6x increase in m cut firing only 1.78x. At L=20 it is
+      38.1 levels/session. Measured, not assumed.
+  declined_uplift:
+    factor: 1.54
+    would_have_given_bps: [2.3, 6.2]
+    declined_because: same reasoning as N04 - the prediction stays independent of the parameter choice
+  prediction:
+    registered: 2026-09-12
+    direction: positive
+    magnitude_bps: "+1.5 to +4.0 (unadjusted prior, deliberately not uplifted)"
+    confirms_if: positive mean AND at least one BH survivor at FDR 0.05
+    refutes_if: mean at or below zero, OR positive with no BH survivor
+  # ---- S2 CHECK: STRADDLES. THIS IS THE MARGINAL REGISTRATION AND SAYS SO. ----
+  s2_check:
+    events: {m16: 16535, m24: 13194}
+    deff: 1.72
+    effective_units: {m16: 9613, m24: 7671}
+    bh_rank1_threshold_bps: {m16: 1.83, m24: 2.05}
+    predicted_range_bps: [1.5, 4.0]
+    verdict: >
+      STRADDLES. The BOTTOM of the predicted range (1.5) sits BELOW the BH bar (1.83-2.05), so
+      if the true effect is at the low end no survivor is reachable - the L12 defect in milder
+      form. It is registered anyway under the S2 surface-don't-reject rule: the upper two
+      thirds of the range ARE reachable, and eff/cost is 5.7x at the midpoint. N05 IS THE
+      MARGINAL REGISTRATION OF THE TWO AND A NULL FROM IT IS CORRESPONDINGLY WEAKER EVIDENCE
+      than a null from N04.
+    eff_over_bar_mid: 1.50
+    eff_over_cost_mid: 5.7
+  s5_gate:
+    passed: true
+    measured: 2026-09-12
+    firing_rate_per_session: {m16: 4.01, m24: 3.20}
+    entry_minute_sd: {m16: 260.9, m24: 250.5}
+    up_share: {m16: 0.53, m24: 0.52}
+    adjacent_m_identical_minutes: 0.794
+    note: >
+      PASSED BEFORE THE S6 PLACEBO. Counts fall with m (16,535 -> 13,194) and sd is ~255, so m
+      SELECTS rather than offsets. 79.4% of shared events keep the same minute, which is
+      expected for a nested threshold and is not the L11 signature - there the counts were
+      IDENTICAL and the minutes shared 0%.
+  horizon_minutes: [180]
+  hold_hours: [3]
+  registered: 2026-09-12
+  status: untested
+  grade: B-
+  tier: B
+  param_cap: 2
+  session: US
+  symbols: [MNQ]
+  stage4_reachable: false
+  stage4_reason: MNQ only at registration; MGC pooling not assumed and not yet measured.
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: Stop-clustering at swing extremes is not instrument specific.
+  registered_test_order: 22
+  test_order: 22
+  schedulable: false
+  verdict_route:
+    per_cell: nine cells, BH within the hypothesis at FDR 0.05
+    aggregate: >
+      ASSUMED CLOSED across m. MEASURED DISJOINT from N04 at 2.1% shared (row, minute).

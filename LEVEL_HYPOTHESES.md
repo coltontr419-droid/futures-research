@@ -641,3 +641,48 @@ should demolish.
 different rate or a different distance distribution than real ones, every comparison in this
 catalog is invalid and the results will look decisive while meaning nothing. L10 runs first for
 that reason, and its verification is not optional.
+
+---
+
+# N-series — selectivity-first level hypotheses
+
+Registered 2026-09-12 after the L-series closeout. **The design lever is selectivity, not
+firing rate** (`decisions.md` §45): measured on L07, loosening 5.05× gives effect ×0.513
+against bar ×0.364, so loosening wins statistically and loses economically, because the cost
+floor is fixed and does not shrink with n.
+
+Both entries below are sited at ~3–6.5 firings/session on 5-minute fractal pivots with
+lookback **L = 20**. `L` is the dominant knob, not the penetration depth: at L=5 there are
+286,257 pivots (69/session) and no value of `m` reaches the target band.
+
+## N04 — Failed-Breakout Trap
+
+**Params: 2** | **MNQ** | **Fires: 6.4–6.7/session (measured)**
+
+Breakout entrants place stops back inside the level they broke; a failed break traps them and
+their forced exit is price-insensitive supply. **The counterparty is the breakout buyer**,
+who keeps doing it because breakout entry is the most widely taught retail pattern and the
+losses get attributed to "fakeouts" rather than to the entry rule.
+
+Entry on a **confirmed break** — first run of k=3 consecutive 5m closes beyond the pivot —
+traded counter to it. **S5 passed** (entry-minute sd 327, up and down firing different
+counts). **The §41 guard was verified to discriminate**, not merely to pass: on the opening
+range it *raises* at 44.2% already-beyond against a 25% limit; on swing pivots it passes.
+
+**S2: provable across the whole predicted range.** 2.0–5.0 bps against a BH bar of 1.42.
+
+## N05 — Swing-Level Sweep and Reclaim
+
+**Params: 2** | **MNQ** | **Fires: 3.2–4.0/session (measured)**
+
+L03/L04's mechanism, whose failure was event count rather than logic. **The counterparty is
+whoever was stopped or filled beyond the extreme.** `sweep_reclaim` at 5m pivots, m ∈ {16,24}
+ticks, k=3.
+
+**S2: STRADDLES, and this is the marginal registration.** 1.5–4.0 bps against a bar of
+1.83–2.05 — the bottom of the range is unreachable. Registered under the surface-don't-reject
+rule because the upper two thirds are reachable at eff/cost 5.7×. **A null from N05 is weaker
+evidence than a null from N04.**
+
+**N04 and N05 are not duplicates**: measured overlap 2.1% of shared (row, minute), because
+N04 enters at the break bar and N05 at the reclaim bar.

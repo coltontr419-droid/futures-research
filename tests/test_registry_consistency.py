@@ -85,7 +85,10 @@ def test_ids_are_unique_and_well_formed() -> None:
     raw = yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
     ids = [e["id"] for e in raw]
     assert len(ids) == len(set(ids)), "duplicate id in the registry"
-    assert all(re.fullmatch(r"[FL]\d\d", i) for i in ids), ids
+    # F-, L- and N-series. The pattern is widened deliberately when a series is opened,
+    # not loosened to whatever happens to be present: an id that matches nothing is a typo,
+    # and an id matching a series nobody declared is worse.
+    assert all(re.fullmatch(r"[FLN]\d\d", i) for i in ids), ids
 
 
 @pytest.mark.integrity
@@ -328,7 +331,7 @@ def test_every_registry_entry_appears_in_the_catalog() -> None:
 
 @pytest.mark.integrity
 def test_every_catalog_entry_appears_in_the_registry() -> None:
-    found = set(re.findall(r"^#+ ([FL]\d\d) — ", CATALOG_TEXT, re.M))
+    found = set(re.findall(r"^#+ ([FLN]\d\d) — ", CATALOG_TEXT, re.M))
     assert found == set(REG), (
         f"catalog and registry disagree: only in catalog {sorted(found - set(REG))}, "
         f"only in registry {sorted(set(REG) - found)}"

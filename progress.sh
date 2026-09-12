@@ -18,7 +18,7 @@ show() {
     et=$(ps -o etime= -p "$pid" 2>/dev/null | tr -d ' ')
     printf "RUNNING  %-34s pid %-7s %sMB  elapsed %s\n" "$job" "$pid" "${rss:-?}" "${et:-?}"
     running=1
-  done < <(pgrep -af "\.venv/bin/python" | grep -v progress.sh)
+  done < <(pgrep -af "bin/python (-m |/)" | grep -v progress.sh)
   [ "$running" = 0 ] && echo "  nothing running"
 
   echo "-- memory --"

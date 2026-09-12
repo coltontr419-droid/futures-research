@@ -5,12 +5,12 @@
 cd "$(dirname "$0")" || exit 1
 LOGDIR=${FR_LOGDIR:-/tmp/claude-1000/-home-coltontr419/0c04026c-8e77-48b0-902e-1d4c022a3af5/scratchpad}
 
-jobs_running() { pgrep -af "\.venv/bin/python" | grep -vE "done\.sh|progress\.sh" | grep -q . ; }
+jobs_running() { pgrep -af "bin/python (-m |/)" | grep -vE "done\.sh|progress\.sh|while true|pgrep" | grep -q . ; }
 
 if [ "$1" != "-n" ]; then
   if jobs_running; then
     echo "waiting for:"
-    pgrep -af "\.venv/bin/python" | grep -vE "done\.sh|progress\.sh" \
+    pgrep -af "bin/python (-m |/)" | grep -vE "done\.sh|progress\.sh|while true|pgrep" \
       | sed -E 's/.*-m ([a-z_.]+).*/  \1/; s/.*\/([a-z0-9_]+\.py).*/  \1/'
     while jobs_running; do sleep 20; done
   fi

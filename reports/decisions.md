@@ -2559,6 +2559,113 @@ measurement block from `level_rates.py`, so L05 has no record in `measured_rates
 event count that once justified the S4 block described a condition firing on every session - a
 count of SESSIONS, not of breaks - and is withdrawn with it.
 
+### Selectivity, not firing rate, is this programme's design lever
+
+**A standalone finding, not N-series background.** Measured on L07 by sweeping gap width as a
+selectivity knob across 6-216 firings/session:
+
+| | loosening 5.05x |
+|---|---|
+| effect | **x0.513** (decay exponent 0.412) |
+| BH bar | **x0.364** (fall exponent 0.624) |
+| eff/bar | improves 1.41x - **statistically loosening WINS** |
+| eff/cost | **degrades 0.51x - economically it LOSES, by more** |
+
+The asymmetry is structural: **the cost floor is fixed and does not shrink with n.** Every
+extra event makes an effect easier to PROVE and less worth HAVING.
+
+**And across four series nothing has ever failed for want of precision.** L07 separated in
+108 of 108 cells and died on cost. L12 gave p=0.58 and was retired at 0.64x cost. R01
+separated and sat 2.1x below its floor. The binding constraint has always been economics.
+
+**Therefore selectivity, not firing rate, is the design lever for anything this programme
+registers.** That is transferable beyond the N-series and belongs alongside the
+`confirmed_break` defect and the missing-magnitude gap.
+
+**Corollary: `w`/`L` is the cheap knob, `tf` the expensive one.** Tightening w 8->32 at 5m
+moves eff/cost 10.34 -> 17.38 while eff/bar only falls 7.43 -> 5.34. Tightening tf 5m -> 30m
+collapses eff/bar 7.43 -> 4.61 for almost no economic gain. Tighten level QUALITY first.
+
+### The eff/cost optimum lies outside every range this programme has swept
+
+Extending L07's sweep past its own grid edge found eff/cost still climbing at w=32 and
+peaking only at **w=24/tf=30m - 18.41x, at 0.65 firings/session**. Every sweep in four series
+has explored TOWARD looseness from a starting point that was never itself justified.
+
+**Future series should start tight and sweep toward looseness.**
+
+### The premise that selected the N-series draft was wrong, and how it was corrected
+
+The draft's organising principle was that once-per-session conditions were the L-series'
+structural defect and high firing rates would fix it. **The measurement says the opposite:**
+the eff/cost optimum sits at **0.65 firings/session**, essentially where the L-series already
+operated (L12 at 1.46, L04 at 1.5). They were near the ECONOMIC optimum and the binding
+constraint was effect size.
+
+The correction took three measured steps, each needing the previous one to be interpretable:
+
+1. **The unit of observation.** `paired_stats` resamples SESSIONS, not events. Measured design
+   effects: L12-like 1.14, round-number 2.19, **volume-climax 65.6**. An extra within-session
+   event buys 0.87, 0.46 and **0.02** respectively. A blended number would misprice two
+   families in opposite directions.
+2. **The decay exponents** - effect 0.412 against bar 0.624, above.
+3. **The boundary** - the optimum lies outside every swept range.
+
+**A worked error, recorded as such.** N06 was ranked third in the draft and is in fact the
+worst candidate in the set: 18.8 firings/session landing at a **17 bps** BH bar - above
+anything this programme has observed - on only **386 qualifying sessions**, because z>3 volume
+days ARE the crisis days and every event inside one is a single observation. Same shape as the
+errors 41 and 45 already record: **a number that looked like an advantage was an artifact of
+not checking what the unit of observation actually was.**
+
+### N04 and N05 registered; N01, N03, N06, N10 declined
+
+**Registered** (S2 closed, S3 measured, S5 passed, S6 not yet built, no trial spent):
+
+- **N04 failed-breakout trap** - provable across its whole predicted range: 2.0-5.0 bps
+  against a BH bar of 1.42, eff/cost 7.3x. The §41 guard was verified to DISCRIMINATE, raising
+  on the opening range at 44.2% already-beyond and passing on swing pivots.
+- **N05 swing sweep-reclaim** - **the marginal registration, and its entry says so.** 1.5-4.0
+  against a bar of 1.83-2.05, so the bottom of the range is unreachable. Registered under the
+  S2 surface-don't-reject rule because the upper two thirds are reachable at eff/cost 5.7x.
+
+**They are not duplicates: measured overlap 2.1%**, because N04 enters at the break bar and
+N05 at the reclaim bar. That was measured rather than assumed, because two hypotheses on one
+level set is exactly how the L-series lost its aggregate route.
+
+**An uplift was considered and DECLINED.** Tightening implies, under L07's 0.412 exponent, an
+effect uplift of x1.54 - which would have raised N04 to 3.1-7.7 and N05 to 2.3-6.2. The
+PARAMETERS may be informed by a transferred curve because they are a specification choice; the
+PREDICTED MAGNITUDE is different in kind, because S2 judges the hypothesis against it.
+Uplifting it would set the bar partly by transfer from a refuted mechanism, and that exponent
+is the first thing to fail if the transfer does not hold. Recorded in both entries with the
+figure, so a later reader sees it was considered rather than missed.
+
+**Declined:**
+
+- **N06 volume-climax** - 111 effective units, a 17 bps bar on 386 sessions. Unprovable at any
+  plausible magnitude.
+- **N10 post-release fade** - best eff/cost in the draft (6.2-16.7x) and still wrong: eff/bar
+  0.9, and with ~800 events the ECONOMIC estimate carries a +/-6 bps interval, so the
+  economics-only waiver rescues nothing either.
+- **N01 approach reversal** - near-duplicate of N02 on the same level population, lower
+  eff/cost, straddles. Its mutual-control argument is good but costs a registration to buy
+  what N02's own placebo already provides.
+- **N03 roundness gradient** - k=45 from five roundness classes drives the bar to 1.98 against
+  a 1.5-3.0 prediction. The family's best falsification test cannot afford its own
+  multiplicity.
+- **N08 deferred** (provable but k=36, and time-of-day is the easiest place in the set to
+  overfit). **N07 outstanding** pending a persistence check on MNQ/NQ volume share - R02 closed
+  because the BASIS had no memory, and volume share must be shown to differ. **N09 is not a
+  registration** - non-directional by its own text.
+
+**Transfer limitation, stated in both entries rather than footnoted:** every optimum and both
+exponents are measured on L07, whose mechanism 38 REFUTED. Drift was excluded at 1.2% so the
+effect is real and reproducible even though its interpretation is wrong, and the curve is
+plausibly generic to thresholded conditions - but it is a transfer, not a fit. If N04/N05's
+own selectivity behaviour diverges once measured, the parameters are wrong and must be
+revisited.
+
 ### Two ordering gaps
 
 **The scheduling gate could not pass ANY L-series hypothesis.** It reads
