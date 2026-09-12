@@ -1675,13 +1675,31 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
+  status: retired
+  retired_reason: >
+    NULL on its only resolvable route. 0 of 27 cells separate against 1.35 expected by
+    chance; range -0.62 to +1.84 bps against a 0.65 bps cost floor. 27 trials spent.
+    ABSORPTION ONLY - the sweep arm was withdrawn as degenerate before this ran
+    (decisions.md 41).
+    THIS NULL IS WEAK EVIDENCE AGAINST THE REGISTERED MECHANISM, stated in advance in
+    decisions.md 42 rather than after the fact. 09:30 ET is the EQUITY cash open; gold's is
+    the 08:20 COMEX open, so MGC tests cross-asset spillover and is attenuated exactly as F06
+    was. MNQ, where the mechanism lives, was unavailable on event count (5,178 against a
+    5,884 floor). The route is closed; the mechanism was never properly exposed.
+  report: reports/l02_stage1.md
+  cells: reports/l02_cells.json
+  trials_spent: 27
+  stage1_ran: '2026-09-11'
   grade: B
   tier: A
   param_cap: 4
   session: US
   symbols: [MNQ, MGC]
-  test_order: 12
+  # Resolved 2026-09-11. It keeps the order it was REGISTERED at and
+  # surrenders the live one - nulling both would erase that it was ever
+  # prioritised and leave an unexplained gap in the ordering.
+  registered_test_order: 12
+  test_order: null
   schedulable: false
   mechanism_instruments:
     primary: MNQ
@@ -1762,13 +1780,29 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
+  status: retired
+  retired_reason: >
+    NULL, and the stronger of the two. 0 of 18 cells separate against 0.90 expected;
+    range -2.01 to +2.40 bps against a 0.65 bps cost floor. 18 trials spent. Both level types
+    matched their placebo, so nothing was excluded.
+    UNLIKE L02 THE MECHANISM WAS PROPERLY EXPOSED. Prior-day extremes as reference prices is
+    not an equity-specific story, so MGC is a legitimate test of the registered claim. MGC-only
+    is an event-count constraint alone (MNQ best cell 3,762 against a 5,884 floor, 0.64x).
+    The claim was tested where it should hold and produced nothing.
+  report: reports/l03_stage1.md
+  cells: reports/l03_cells.json
+  trials_spent: 18
+  stage1_ran: '2026-09-11'
   grade: B
   tier: A
   param_cap: 4
   session: US
   symbols: [MNQ, MGC]
-  test_order: 15
+  # Resolved 2026-09-11. It keeps the order it was REGISTERED at and
+  # surrenders the live one - nulling both would erase that it was ever
+  # prioritised and leave an unexplained gap in the ordering.
+  registered_test_order: 14
+  test_order: null
   schedulable: false
   mechanism_instruments:
     primary: MNQ
@@ -1844,13 +1878,38 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: untested
+  status: stage1_inconclusive
+  stage1_reason: >
+    RAN WITH ADEQUATE POWER AND DID NOT RESOLVE. 5 of 18 cells separate against 0.90
+    expected - ALL sess_Asia - and ZERO survive BH within the hypothesis. Best cell
+    sess_Asia m=8 k=2 at +3.54 bps, 5.5x the 0.65 cost floor, p=0.0045 against a rank-1 BH
+    bar of 0.00278. 18 trials spent, 9 cells excluded (sess_US placebo unmatched, touch
+    ratio 1.33).
+    THE COUNT OVERSTATES IT. L04/MGC sits at 98% pairwise overlap and all five separations
+    are adjacent m/k on one level type, so this is closer to ONE result seen five times than
+    to five findings.
+    FOUR ARTIFACTS RULED OUT (decisions.md 43): placebo mispricing, hold truncation,
+    direction mix, and drift x net-exposure gap - the last explains 1.2% of the difference.
+    The era split is positive in both halves, 10 of 10, so it neither decays nor flips -
+    though the REAL leg's sign changes between eras while the difference stays stable.
+    NOT PROMOTED AND NOT TRADEABLE. Nothing survives correction. Inconclusive rather than
+    retired because the nominal pattern survived every artifact check; the mechanism is
+    UNCONTRADICTED, not supported. Pursuing it needs a NEW REGISTRATION with sess_Asia named
+    in advance, on data that did not generate this result.
+  report: reports/l04_stage1.md
+  cells: reports/l04_cells.json
+  trials_spent: 18
+  stage1_ran: '2026-09-11'
   grade: B-
   tier: B
   param_cap: 4
   session: Asia/Europe/US
   symbols: [MNQ, MGC]
-  test_order: 14
+  # Resolved 2026-09-11. It keeps the order it was REGISTERED at and
+  # surrenders the live one - nulling both would erase that it was ever
+  # prioritised and leave an unexplained gap in the ordering.
+  registered_test_order: 15
+  test_order: null
   schedulable: false
   mechanism_instruments:
     primary: MGC

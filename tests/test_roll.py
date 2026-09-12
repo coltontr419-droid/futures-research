@@ -16,6 +16,8 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import polars as pl
+import tempfile
+
 import pytest
 
 from futuresres.data.parse import MONTH_NUMBER
@@ -24,6 +26,8 @@ from futuresres.data.roll import (
     build_calendar,
     continuous_series,
     daily_volume,
+    daily_volume_streaming,
+    sink_continuous,
     expiry_key,
     load_product,
 )
@@ -149,8 +153,13 @@ def _third_friday(year: int, month: int) -> date:
 @pytest.mark.parametrize("product", ["NQ", "MNQ"])
 def test_equity_index_rolls_land_before_the_third_friday(product: str) -> None:
     """Independent fact: NQ/MNQ expire on the third Friday, and volume crosses before it."""
-    bars = load_product(PARQUET, product)
-    cal = build_calendar(product, daily_volume(bars))
+    # STREAMING, NOT EAGER. These tests are about the ROLL CALENDAR on real data -
+    # third-Friday expiry, gold's delivery month, forward-only progression - and not
+    # about which loader built the volume table. `load_product` reads every contract of
+    # a product at once and is OOM-killed here on a 2.7 GB box (decisions.md 41); the
+    # streaming path produces the identical table, pinned by
+    # test_streaming_roll.py::test_the_calendar_is_the_same_from_either_volume_path.
+    cal = build_calendar(product, daily_volume_streaming(PARQUET, product))
     assert cal.rolls, "no rolls found"
     for roll in cal.rolls:
         year, month = expiry_key(roll.from_contract)
@@ -166,8 +175,13 @@ def test_equity_index_rolls_land_before_the_third_friday(product: str) -> None:
 @pytestmark_data
 def test_gold_rolls_before_its_delivery_month_begins() -> None:
     """MGC delivers in the contract month, so the front must move on before it starts."""
-    bars = load_product(PARQUET, "MGC")
-    cal = build_calendar("MGC", daily_volume(bars))
+    # STREAMING, NOT EAGER. These tests are about the ROLL CALENDAR on real data -
+    # third-Friday expiry, gold's delivery month, forward-only progression - and not
+    # about which loader built the volume table. `load_product` reads every contract of
+    # a product at once and is OOM-killed here on a 2.7 GB box (decisions.md 41); the
+    # streaming path produces the identical table, pinned by
+    # test_streaming_roll.py::test_the_calendar_is_the_same_from_either_volume_path.
+    cal = build_calendar("MGC", daily_volume_streaming(PARQUET, "MGC"))
     assert cal.rolls
     for roll in cal.rolls:
         year, month = expiry_key(roll.from_contract)
@@ -180,8 +194,13 @@ def test_gold_rolls_before_its_delivery_month_begins() -> None:
 @pytestmark_data
 @pytest.mark.parametrize("product", ["NQ", "MNQ", "MGC"])
 def test_rolls_are_strictly_forward_in_expiry(product: str) -> None:
-    bars = load_product(PARQUET, product)
-    cal = build_calendar(product, daily_volume(bars))
+    # STREAMING, NOT EAGER. These tests are about the ROLL CALENDAR on real data -
+    # third-Friday expiry, gold's delivery month, forward-only progression - and not
+    # about which loader built the volume table. `load_product` reads every contract of
+    # a product at once and is OOM-killed here on a 2.7 GB box (decisions.md 41); the
+    # streaming path produces the identical table, pinned by
+    # test_streaming_roll.py::test_the_calendar_is_the_same_from_either_volume_path.
+    cal = build_calendar(product, daily_volume_streaming(PARQUET, product))
     keys = [expiry_key(r.to_contract) for r in cal.rolls]
     assert keys == sorted(keys), f"{product} rolled to an earlier expiry"
     for roll in cal.rolls:
@@ -192,9 +211,19 @@ def test_rolls_are_strictly_forward_in_expiry(product: str) -> None:
 @pytestmark_data
 @pytest.mark.parametrize("product", ["NQ", "MNQ", "MGC"])
 def test_the_continuous_series_contains_no_crossover_session(product: str) -> None:
-    bars = load_product(PARQUET, product)
-    cal = build_calendar(product, daily_volume(bars))
-    series = continuous_series(bars, cal)
+    # STREAMING, NOT EAGER. These tests are about the ROLL CALENDAR on real data -
+    # third-Friday expiry, gold's delivery month, forward-only progression - and not
+    # about which loader built the volume table. `load_product` reads every contract of
+    # a product at once and is OOM-killed here on a 2.7 GB box (decisions.md 41); the
+    # streaming path produces the identical table, pinned by
+    # test_streaming_roll.py::test_the_calendar_is_the_same_from_either_volume_path.
+    cal = build_calendar(product, daily_volume_streaming(PARQUET, product))
+    # Written through the streaming sink and read back, for the same reason the calendar
+    # above is built that way: `continuous_series` materialises the whole product.
+    with tempfile.TemporaryDirectory() as td:
+        target = Path(td) / f"{product}.parquet"
+        sink_continuous(PARQUET, product, cal, target)
+        series = pl.read_parquet(target)
     present = set(series.get_column("session").to_list())
     assert not (present & cal.dropped_sessions), "a dropped session is in the series"
 
@@ -206,9 +235,19 @@ def test_each_session_of_the_continuous_series_has_exactly_one_contract(
     product: str,
 ) -> None:
     """The defining property of a front-month series: never two contracts on one day."""
-    bars = load_product(PARQUET, product)
-    cal = build_calendar(product, daily_volume(bars))
-    series = continuous_series(bars, cal)
+    # STREAMING, NOT EAGER. These tests are about the ROLL CALENDAR on real data -
+    # third-Friday expiry, gold's delivery month, forward-only progression - and not
+    # about which loader built the volume table. `load_product` reads every contract of
+    # a product at once and is OOM-killed here on a 2.7 GB box (decisions.md 41); the
+    # streaming path produces the identical table, pinned by
+    # test_streaming_roll.py::test_the_calendar_is_the_same_from_either_volume_path.
+    cal = build_calendar(product, daily_volume_streaming(PARQUET, product))
+    # Written through the streaming sink and read back, for the same reason the calendar
+    # above is built that way: `continuous_series` materialises the whole product.
+    with tempfile.TemporaryDirectory() as td:
+        target = Path(td) / f"{product}.parquet"
+        sink_continuous(PARQUET, product, cal, target)
+        series = pl.read_parquet(target)
     per = (series.group_by("session")
            .agg(pl.col("contract").n_unique().alias("n"))
            .filter(pl.col("n") > 1))

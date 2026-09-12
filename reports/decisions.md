@@ -2130,10 +2130,132 @@ event-count reason alone: MNQ's best cells sit at 0.64x and 0.93x of the 180m fl
 1. **The run proceeds despite the attenuation.** The alternative is leaving the L-series'
    last testable route unrun on the grounds that it might be uninformative, which is a
    decision to not measure. The limit is recorded instead.
-2. **63 trials, N 684 -> 747, SR\* 0.1356 -> 0.1365.** Cheap against what it closes.
+2. **63 trials, N 684 -> 747, SR\* 0.1356 -> 0.1367.** Cheap against what it closes.
 3. **H=180 is the sole pre-registered horizon.** At H=60 the MGC floor is 5,620 and every
    cell of all three is below it, so those cells cannot reach a verdict. 60 and 120 are
    withdrawn, not parked.
+
+
+## 43. L02, L03 and L04 ran. Two nulls and one that did not resolve
+
+63 trials spent and logged before the runs. **N 684 -> 747, SR\* 0.1356 -> 0.1367**, chain
+verified. Reports in `reports/l02_stage1.md`, `l03_stage1.md`, `l04_stage1.md`.
+
+| | live cells | excluded | separated | expected | BH survivors | status |
+|---|---|---|---|---|---|---|
+| L02 absorption | 27 | 0 | **0** | 1.35 | 0 | retired |
+| L03 | 18 | 0 | **0** | 0.90 | 0 | retired |
+| L04 | 18 | 9 | **5** | 0.90 | **0** | **stage1_inconclusive** |
+
+### L02 and L03 are nulls, and they are not equally informative
+
+**L03 is the stronger.** Prior-day extremes as reference prices is not an equity-specific
+story, so MGC is a legitimate test of the registered claim; MGC-only was an event-count
+constraint alone. The claim was tested where it should hold and produced nothing.
+
+**L02's null is weak, exactly as 42 said in advance.** Its mechanism is the 09:30 ET equity
+cash open against gold's 08:20 COMEX open, so MGC tested cross-asset spillover rather than the
+registered claim, and MNQ was short on events. The route is closed; the mechanism was never
+exposed. **That asymmetry was written down before the run so it could not be adjusted after
+it.** It was recorded when a positive would have been the inconvenient case, and it reads the
+same way now that the result is null.
+
+### L04 did not resolve, and the distinction is deliberate
+
+Five of eighteen separate against 0.90 expected, all `sess_Asia`, and **none survives BH**.
+Best cell +3.54 bps at 5.5x the cost floor, p=0.0045 against a rank-1 bar of 0.00278 - short
+by a factor of about 1.6.
+
+**The count overstates the evidence.** L04/MGC is at 98% pairwise overlap and every separation
+is adjacent m/k on one level type, so it is closer to ONE result seen five times than to five
+findings. This cuts both ways and both are recorded: correlated tests make BH conservative,
+and they also mean "5 against 0.90" is not what the count suggests.
+
+**Four artifacts were ruled out** before anything was written, per 42:
+
+| check | result |
+|---|---|
+| placebo mispriced in the thin Asia window | refuted - distance ratio 0.94, fire rates 54.3% vs 54.6% |
+| hold truncation at `RTH_EXIT` | refuted - 0.3% lost, 5.0% clipped |
+| direction mix | refuted - 0.519 vs 0.529 |
+| drift x net-exposure gap | refuted - **1.2%** of the difference |
+
+Drift was the live hypothesis and it failed. The real leg earns +2.99 long and -1.74 short,
+which is what drift looks like on an instrument that ran from ~1,200 to ~3,000 - but measured
+directly, drift at those entries is +2.34 bps, net exposure is -0.0387 real against -0.0571
+placebo, and the product explains **+0.043 of +3.543 bps**.
+
+**`sess_London` is the built-in control and behaves correctly.** It is 50.8% truncated against
+Asia's 5.0% and it is NEGATIVE throughout, so truncation cannot be manufacturing Asia's
+positive.
+
+**The era split is positive in both halves, 10 of 10** - it neither decays like R01 nor flips.
+But the composition changes: in 2010-2018 the real leg is negative and the difference comes
+from the placebo being more negative; in 2019-2026 the real leg turns positive. Stable
+difference, unstable ingredients. Recorded rather than smoothed.
+
+**So: not promoted, not tradeable, and not retired either.** `stage1_inconclusive` is the
+catalogue's own term for exactly this - ran with adequate power, nominal hits above chance,
+none surviving BH, mechanism uncontradicted. Calling it retired would claim more than the
+evidence supports in one direction; calling it a finding would do so in the other.
+
+### A probe bug found in my own bug hunt
+
+The first drift pass reported an "excess" column of exactly 0.000 for every row. That was an
+arithmetic identity - the signed return minus the signed drift cancels by construction - not a
+result. It was caught before anything was written up and the column was discarded.
+**Recorded because a bug hunt that reports a tautology as a clean bill of health is worse than
+no hunt at all.**
+
+### Decisions taken rather than resolved silently
+
+1. **L04 is `stage1_inconclusive`, not `retired`.** The distinction is load-bearing (13): a
+   result that did not resolve is not the same as a claim that failed.
+2. **The five Asia cells were NOT re-tested as a grid of five.** Keeping them and dropping the
+   rest, then re-running BH on the smaller denominator, is choosing the denominator after
+   seeing the numerators. The trial log exists to make that impossible.
+3. **All three keep `registered_test_order` and surrender `test_order`** - the same handling
+   every resolved entry uses, so the ordering carries no unexplained gap.
+4. **`sess_US`'s 9 cells are recorded as EXCLUDED with their measured reason**, not dropped.
+   A type that vanishes from a report is indistinguishable from one nobody thought of.
+
+### The rebuild switched on tests that had never run, and they did not fit
+
+`test_roll.py` was OOM-killed on its own (exit 137) after this work. The cause is the data
+rebuild SUCCEEDING: six of its tests carry
+`skipif(not (PARQUET / "symbol=NQ").exists())`, so for the life of this project they silently
+skipped. With `data/parquet` present they execute for the first time - and they call the EAGER
+`load_product` on real NQ/MNQ/MGC, which is exactly the path 41 replaced because it cannot fit
+in 2.7 GB.
+
+**So the "366 passed" this repo has been quoting was partly a count of tests that were not
+running.** A skip is not a pass, and a suite whose green depends on absent data is reporting
+the data's absence rather than the code's health.
+
+**Fixed by pointing them at the streaming path, which does not change what they test.** Their
+subject is the roll CALENDAR on real data - NQ/MNQ rolling before the third Friday, MGC before
+its delivery month, expiry forward-only - and the continuous series holding one contract per
+session with crossover sessions absent. None of that is about which loader built the volume
+table. `daily_volume_streaming` replaces `load_product` + `daily_volume` in five tests, and
+`sink_continuous` into a temp file replaces `continuous_series` in two. Both substitutions are
+already pinned equivalent by `test_streaming_roll.py`. **18 passed**, 191s.
+
+**The eager functions are verified by EQUIVALENCE, not by execution at full scale on this
+machine.** They remain in the codebase and remain tested on a synthetic fixture; they are not
+exercised against 4.7M-bar products here. Stated rather than left implied by a green suite.
+
+### The suite no longer runs in one process on this box
+
+Individually every file passes - 383 tests across 16 files. Run together they accumulate past
+~900 MB and the run is killed. No single test is heavy; the total is. **Run per-file on this
+hardware**, or on a machine with more headroom. This is the fifth instance of the same
+pattern in this programme and the machine has been the constraint every time, not the code.
+
+### Reviving L04 requires a new registration
+
+`sess_Asia` named in advance rather than selected as the best of eighteen, on data that did not
+generate this result. Same bar 38 set for L07's mirror and 40 for L11's replacement. No
+inherited slot, grade or test order.
 
 
 ## 10. Still outstanding, and blocking
