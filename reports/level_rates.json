@@ -10,7 +10,12 @@
         120
       ],
       "firings": 89,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 89,
+        "60": 89,
+        "120": 89
+      }
     },
     {
       "hypothesis": "L01",
@@ -22,7 +27,12 @@
         120
       ],
       "firings": 2,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 2,
+        "60": 2,
+        "120": 2
+      }
     },
     {
       "hypothesis": "L01",
@@ -34,7 +44,12 @@
         120
       ],
       "firings": 0,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 0,
+        "60": 0,
+        "120": 0
+      }
     },
     {
       "hypothesis": "L10",
@@ -46,7 +61,12 @@
         120
       ],
       "firings": 2,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 2,
+        "60": 2,
+        "120": 2
+      }
     },
     {
       "hypothesis": "L01",
@@ -58,7 +78,12 @@
         120
       ],
       "firings": 237,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 237,
+        "60": 237,
+        "120": 237
+      }
     },
     {
       "hypothesis": "L01",
@@ -70,7 +95,12 @@
         120
       ],
       "firings": 10,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 10,
+        "60": 10,
+        "120": 10
+      }
     },
     {
       "hypothesis": "L01",
@@ -82,7 +112,12 @@
         120
       ],
       "firings": 3,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 3,
+        "60": 3,
+        "120": 3
+      }
     },
     {
       "hypothesis": "L10",
@@ -94,7 +129,12 @@
         120
       ],
       "firings": 38,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 38,
+        "60": 38,
+        "120": 38
+      }
     },
     {
       "hypothesis": "L01",
@@ -106,7 +146,12 @@
         120
       ],
       "firings": 237,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 237,
+        "60": 237,
+        "120": 237
+      }
     },
     {
       "hypothesis": "L01",
@@ -118,7 +163,12 @@
         120
       ],
       "firings": 10,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 10,
+        "60": 10,
+        "120": 10
+      }
     },
     {
       "hypothesis": "L01",
@@ -130,7 +180,12 @@
         120
       ],
       "firings": 3,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 3,
+        "60": 3,
+        "120": 3
+      }
     },
     {
       "hypothesis": "L10",
@@ -142,43 +197,12 @@
         120
       ],
       "firings": 40,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=15 k=1",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 3880,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=15 k=2",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4345,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=15 k=3",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4693,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 40,
+        "60": 40,
+        "120": 40
+      }
     },
     {
       "hypothesis": "L02",
@@ -190,7 +214,12 @@
         180
       ],
       "firings": 5165,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4427,
+        "120": 4052,
+        "180": 3882
+      }
     },
     {
       "hypothesis": "L02",
@@ -202,7 +231,12 @@
         180
       ],
       "firings": 5175,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4435,
+        "120": 4057,
+        "180": 3888
+      }
     },
     {
       "hypothesis": "L02",
@@ -214,7 +248,12 @@
         180
       ],
       "firings": 5178,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4435,
+        "120": 4057,
+        "180": 3888
+      }
     },
     {
       "hypothesis": "L02",
@@ -226,7 +265,12 @@
         180
       ],
       "firings": 5082,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4372,
+        "120": 4011,
+        "180": 3848
+      }
     },
     {
       "hypothesis": "L02",
@@ -238,7 +282,12 @@
         180
       ],
       "firings": 5129,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4405,
+        "120": 4032,
+        "180": 3863
+      }
     },
     {
       "hypothesis": "L02",
@@ -250,7 +299,12 @@
         180
       ],
       "firings": 5150,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4420,
+        "120": 4040,
+        "180": 3873
+      }
     },
     {
       "hypothesis": "L02",
@@ -262,7 +316,12 @@
         180
       ],
       "firings": 4695,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4084,
+        "120": 3770,
+        "180": 3631
+      }
     },
     {
       "hypothesis": "L02",
@@ -274,7 +333,12 @@
         180
       ],
       "firings": 4907,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4237,
+        "120": 3905,
+        "180": 3748
+      }
     },
     {
       "hypothesis": "L02",
@@ -286,43 +350,12 @@
         180
       ],
       "firings": 5029,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=30 k=1",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 3871,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=30 k=2",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4314,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=30 k=3",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4576,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4333,
+        "120": 3982,
+        "180": 3817
+      }
     },
     {
       "hypothesis": "L02",
@@ -334,7 +367,12 @@
         180
       ],
       "firings": 4716,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4368,
+        "120": 4062,
+        "180": 3889
+      }
     },
     {
       "hypothesis": "L02",
@@ -346,7 +384,12 @@
         180
       ],
       "firings": 4729,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4378,
+        "120": 4071,
+        "180": 3896
+      }
     },
     {
       "hypothesis": "L02",
@@ -358,7 +401,12 @@
         180
       ],
       "firings": 4732,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4381,
+        "120": 4075,
+        "180": 3900
+      }
     },
     {
       "hypothesis": "L02",
@@ -370,7 +418,12 @@
         180
       ],
       "firings": 4618,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4289,
+        "120": 3998,
+        "180": 3831
+      }
     },
     {
       "hypothesis": "L02",
@@ -382,7 +435,12 @@
         180
       ],
       "firings": 4683,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4342,
+        "120": 4038,
+        "180": 3863
+      }
     },
     {
       "hypothesis": "L02",
@@ -394,7 +452,12 @@
         180
       ],
       "firings": 4707,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4361,
+        "120": 4054,
+        "180": 3879
+      }
     },
     {
       "hypothesis": "L02",
@@ -406,7 +469,12 @@
         180
       ],
       "firings": 4236,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3945,
+        "120": 3697,
+        "180": 3563
+      }
     },
     {
       "hypothesis": "L02",
@@ -418,7 +486,12 @@
         180
       ],
       "firings": 4469,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4147,
+        "120": 3878,
+        "180": 3722
+      }
     },
     {
       "hypothesis": "L02",
@@ -430,43 +503,12 @@
         180
       ],
       "firings": 4587,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=60 k=1",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 3860,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=60 k=2",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4073,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MNQ",
-      "cell": "sweep W=60 k=3",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4206,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4250,
+        "120": 3972,
+        "180": 3807
+      }
     },
     {
       "hypothesis": "L02",
@@ -478,7 +520,12 @@
         180
       ],
       "firings": 4075,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3980,
+        "120": 3824,
+        "180": 3682
+      }
     },
     {
       "hypothesis": "L02",
@@ -490,7 +537,12 @@
         180
       ],
       "firings": 4084,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3989,
+        "120": 3833,
+        "180": 3690
+      }
     },
     {
       "hypothesis": "L02",
@@ -502,7 +554,12 @@
         180
       ],
       "firings": 4085,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3990,
+        "120": 3834,
+        "180": 3691
+      }
     },
     {
       "hypothesis": "L02",
@@ -514,7 +571,12 @@
         180
       ],
       "firings": 3975,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3883,
+        "120": 3735,
+        "180": 3598
+      }
     },
     {
       "hypothesis": "L02",
@@ -526,7 +588,12 @@
         180
       ],
       "firings": 4041,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3949,
+        "120": 3796,
+        "180": 3654
+      }
     },
     {
       "hypothesis": "L02",
@@ -538,7 +605,12 @@
         180
       ],
       "firings": 4065,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3970,
+        "120": 3815,
+        "180": 3674
+      }
     },
     {
       "hypothesis": "L02",
@@ -550,7 +622,12 @@
         180
       ],
       "firings": 3560,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3479,
+        "120": 3363,
+        "180": 3248
+      }
     },
     {
       "hypothesis": "L02",
@@ -562,7 +639,12 @@
         180
       ],
       "firings": 3781,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3692,
+        "120": 3558,
+        "180": 3433
+      }
     },
     {
       "hypothesis": "L02",
@@ -574,7 +656,12 @@
         180
       ],
       "firings": 3930,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3837,
+        "120": 3695,
+        "180": 3562
+      }
     },
     {
       "hypothesis": "L03",
@@ -586,7 +673,12 @@
         180
       ],
       "firings": 3741,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3684,
+        "120": 3645,
+        "180": 3608
+      }
     },
     {
       "hypothesis": "L03",
@@ -598,7 +690,12 @@
         180
       ],
       "firings": 3754,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3700,
+        "120": 3664,
+        "180": 3626
+      }
     },
     {
       "hypothesis": "L03",
@@ -610,7 +707,12 @@
         180
       ],
       "firings": 3762,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3706,
+        "120": 3671,
+        "180": 3634
+      }
     },
     {
       "hypothesis": "L03",
@@ -622,7 +724,12 @@
         180
       ],
       "firings": 3641,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3591,
+        "120": 3552,
+        "180": 3517
+      }
     },
     {
       "hypothesis": "L03",
@@ -634,7 +741,12 @@
         180
       ],
       "firings": 3704,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3652,
+        "120": 3617,
+        "180": 3579
+      }
     },
     {
       "hypothesis": "L03",
@@ -646,7 +758,12 @@
         180
       ],
       "firings": 3734,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3680,
+        "120": 3641,
+        "180": 3600
+      }
     },
     {
       "hypothesis": "L03",
@@ -658,7 +775,12 @@
         180
       ],
       "firings": 3324,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3282,
+        "120": 3248,
+        "180": 3213
+      }
     },
     {
       "hypothesis": "L03",
@@ -670,7 +792,12 @@
         180
       ],
       "firings": 3483,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3435,
+        "120": 3397,
+        "180": 3362
+      }
     },
     {
       "hypothesis": "L03",
@@ -682,7 +809,12 @@
         180
       ],
       "firings": 3594,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3548,
+        "120": 3511,
+        "180": 3472
+      }
     },
     {
       "hypothesis": "L03",
@@ -694,7 +826,12 @@
         180
       ],
       "firings": 3434,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3415,
+        "120": 3389,
+        "180": 3364
+      }
     },
     {
       "hypothesis": "L03",
@@ -706,7 +843,12 @@
         180
       ],
       "firings": 3449,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3431,
+        "120": 3403,
+        "180": 3378
+      }
     },
     {
       "hypothesis": "L03",
@@ -718,7 +860,12 @@
         180
       ],
       "firings": 3456,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3438,
+        "120": 3410,
+        "180": 3386
+      }
     },
     {
       "hypothesis": "L03",
@@ -730,7 +877,12 @@
         180
       ],
       "firings": 3330,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3309,
+        "120": 3282,
+        "180": 3258
+      }
     },
     {
       "hypothesis": "L03",
@@ -742,7 +894,12 @@
         180
       ],
       "firings": 3389,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3369,
+        "120": 3341,
+        "180": 3315
+      }
     },
     {
       "hypothesis": "L03",
@@ -754,7 +911,12 @@
         180
       ],
       "firings": 3416,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3398,
+        "120": 3371,
+        "180": 3345
+      }
     },
     {
       "hypothesis": "L03",
@@ -766,7 +928,12 @@
         180
       ],
       "firings": 3056,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3032,
+        "120": 3005,
+        "180": 2982
+      }
     },
     {
       "hypothesis": "L03",
@@ -778,7 +945,12 @@
         180
       ],
       "firings": 3168,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3145,
+        "120": 3117,
+        "180": 3093
+      }
     },
     {
       "hypothesis": "L03",
@@ -790,7 +962,12 @@
         180
       ],
       "firings": 3267,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3248,
+        "120": 3220,
+        "180": 3193
+      }
     },
     {
       "hypothesis": "L04",
@@ -802,7 +979,12 @@
         180
       ],
       "firings": 5420,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5296,
+        "120": 5100,
+        "180": 4933
+      }
     },
     {
       "hypothesis": "L04",
@@ -814,7 +996,12 @@
         180
       ],
       "firings": 5438,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5321,
+        "120": 5122,
+        "180": 4960
+      }
     },
     {
       "hypothesis": "L04",
@@ -826,7 +1013,12 @@
         180
       ],
       "firings": 5442,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5328,
+        "120": 5130,
+        "180": 4967
+      }
     },
     {
       "hypothesis": "L04",
@@ -838,7 +1030,12 @@
         180
       ],
       "firings": 5318,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5161,
+        "120": 4962,
+        "180": 4794
+      }
     },
     {
       "hypothesis": "L04",
@@ -850,7 +1047,12 @@
         180
       ],
       "firings": 5368,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5225,
+        "120": 5032,
+        "180": 4868
+      }
     },
     {
       "hypothesis": "L04",
@@ -862,7 +1064,12 @@
         180
       ],
       "firings": 5405,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5276,
+        "120": 5084,
+        "180": 4916
+      }
     },
     {
       "hypothesis": "L04",
@@ -874,7 +1081,12 @@
         180
       ],
       "firings": 4903,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4690,
+        "120": 4492,
+        "180": 4351
+      }
     },
     {
       "hypothesis": "L04",
@@ -886,7 +1098,12 @@
         180
       ],
       "firings": 5108,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4891,
+        "120": 4690,
+        "180": 4545
+      }
     },
     {
       "hypothesis": "L04",
@@ -898,7 +1115,12 @@
         180
       ],
       "firings": 5242,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5044,
+        "120": 4857,
+        "180": 4703
+      }
     },
     {
       "hypothesis": "L04",
@@ -910,7 +1132,12 @@
         180
       ],
       "firings": 2857,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2842,
+        "120": 2806,
+        "180": 2750
+      }
     },
     {
       "hypothesis": "L04",
@@ -922,7 +1149,12 @@
         180
       ],
       "firings": 2874,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2858,
+        "120": 2822,
+        "180": 2766
+      }
     },
     {
       "hypothesis": "L04",
@@ -934,7 +1166,12 @@
         180
       ],
       "firings": 2876,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2860,
+        "120": 2823,
+        "180": 2767
+      }
     },
     {
       "hypothesis": "L04",
@@ -946,7 +1183,12 @@
         180
       ],
       "firings": 2765,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2749,
+        "120": 2716,
+        "180": 2663
+      }
     },
     {
       "hypothesis": "L04",
@@ -958,7 +1200,12 @@
         180
       ],
       "firings": 2827,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2812,
+        "120": 2777,
+        "180": 2723
+      }
     },
     {
       "hypothesis": "L04",
@@ -970,7 +1217,12 @@
         180
       ],
       "firings": 2858,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2843,
+        "120": 2806,
+        "180": 2750
+      }
     },
     {
       "hypothesis": "L04",
@@ -982,7 +1234,12 @@
         180
       ],
       "firings": 2443,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2428,
+        "120": 2395,
+        "180": 2348
+      }
     },
     {
       "hypothesis": "L04",
@@ -994,7 +1251,12 @@
         180
       ],
       "firings": 2604,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2586,
+        "120": 2554,
+        "180": 2503
+      }
     },
     {
       "hypothesis": "L04",
@@ -1006,7 +1268,12 @@
         180
       ],
       "firings": 2733,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2716,
+        "120": 2682,
+        "180": 2631
+      }
     },
     {
       "hypothesis": "L04",
@@ -1018,7 +1285,12 @@
         180
       ],
       "firings": 536,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 533,
+        "120": 533,
+        "180": 533
+      }
     },
     {
       "hypothesis": "L04",
@@ -1030,7 +1302,12 @@
         180
       ],
       "firings": 541,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 538,
+        "120": 538,
+        "180": 538
+      }
     },
     {
       "hypothesis": "L04",
@@ -1042,7 +1319,12 @@
         180
       ],
       "firings": 545,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 542,
+        "120": 542,
+        "180": 542
+      }
     },
     {
       "hypothesis": "L04",
@@ -1054,7 +1336,12 @@
         180
       ],
       "firings": 496,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 493,
+        "120": 493,
+        "180": 493
+      }
     },
     {
       "hypothesis": "L04",
@@ -1066,7 +1353,12 @@
         180
       ],
       "firings": 509,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 506,
+        "120": 506,
+        "180": 506
+      }
     },
     {
       "hypothesis": "L04",
@@ -1078,7 +1370,12 @@
         180
       ],
       "firings": 524,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 521,
+        "120": 521,
+        "180": 521
+      }
     },
     {
       "hypothesis": "L04",
@@ -1090,7 +1387,12 @@
         180
       ],
       "firings": 414,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 411,
+        "120": 411,
+        "180": 411
+      }
     },
     {
       "hypothesis": "L04",
@@ -1102,7 +1404,12 @@
         180
       ],
       "firings": 440,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 437,
+        "120": 437,
+        "180": 437
+      }
     },
     {
       "hypothesis": "L04",
@@ -1114,115 +1421,12 @@
         180
       ],
       "firings": 451,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=1 vol=none",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4141,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=1 vol=ON>med",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 2015,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=1 vol=ON<med",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 2099,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=2 vol=none",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4461,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=2 vol=ON>med",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 2178,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=2 vol=ON<med",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 2255,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=3 vol=none",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4669,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=3 vol=ON>med",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 2265,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "cell": "k=3 vol=ON<med",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 2375,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 448,
+        "120": 448,
+        "180": 448
+      }
     },
     {
       "hypothesis": "L06",
@@ -1234,7 +1438,12 @@
         180
       ],
       "firings": 110,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 110,
+        "120": 110,
+        "180": 110
+      }
     },
     {
       "hypothesis": "L06",
@@ -1246,7 +1455,12 @@
         180
       ],
       "firings": 25,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 25,
+        "120": 25,
+        "180": 25
+      }
     },
     {
       "hypothesis": "L06",
@@ -1258,7 +1472,12 @@
         180
       ],
       "firings": 20,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 20,
+        "120": 20,
+        "180": 20
+      }
     },
     {
       "hypothesis": "L06",
@@ -1270,7 +1489,12 @@
         180
       ],
       "firings": 303,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 303,
+        "120": 303,
+        "180": 303
+      }
     },
     {
       "hypothesis": "L06",
@@ -1282,7 +1506,12 @@
         180
       ],
       "firings": 37,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 37,
+        "120": 37,
+        "180": 37
+      }
     },
     {
       "hypothesis": "L06",
@@ -1294,7 +1523,12 @@
         180
       ],
       "firings": 25,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 25,
+        "120": 25,
+        "180": 25
+      }
     },
     {
       "hypothesis": "L07",
@@ -1306,7 +1540,12 @@
         180
       ],
       "firings": 535428,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 70205,
+        "120": 38747,
+        "180": 27239
+      }
     },
     {
       "hypothesis": "L07",
@@ -1318,7 +1557,12 @@
         180
       ],
       "firings": 457955,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 64193,
+        "120": 36534,
+        "180": 25660
+      }
     },
     {
       "hypothesis": "L07",
@@ -1330,7 +1574,12 @@
         180
       ],
       "firings": 389679,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 55974,
+        "120": 33260,
+        "180": 24164
+      }
     },
     {
       "hypothesis": "L07",
@@ -1342,7 +1591,12 @@
         180
       ],
       "firings": 103369,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 40455,
+        "120": 26745,
+        "180": 20425
+      }
     },
     {
       "hypothesis": "L07",
@@ -1354,7 +1608,12 @@
         180
       ],
       "firings": 78154,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 27945,
+        "120": 19313,
+        "180": 15400
+      }
     },
     {
       "hypothesis": "L07",
@@ -1366,7 +1625,12 @@
         180
       ],
       "firings": 55934,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 18807,
+        "120": 13317,
+        "180": 10744
+      }
     },
     {
       "hypothesis": "L07",
@@ -1378,7 +1642,12 @@
         180
       ],
       "firings": 312885,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 58442,
+        "120": 34054,
+        "180": 24340
+      }
     },
     {
       "hypothesis": "L07",
@@ -1390,7 +1659,12 @@
         180
       ],
       "firings": 277339,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 53724,
+        "120": 32116,
+        "180": 23240
+      }
     },
     {
       "hypothesis": "L07",
@@ -1402,7 +1676,12 @@
         180
       ],
       "firings": 242200,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 47163,
+        "120": 29191,
+        "180": 21699
+      }
     },
     {
       "hypothesis": "L07",
@@ -1414,7 +1693,12 @@
         180
       ],
       "firings": 76194,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 34111,
+        "120": 23449,
+        "180": 18179
+      }
     },
     {
       "hypothesis": "L07",
@@ -1426,7 +1710,12 @@
         180
       ],
       "firings": 57789,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 23955,
+        "120": 17131,
+        "180": 13904
+      }
     },
     {
       "hypothesis": "L07",
@@ -1438,7 +1727,12 @@
         180
       ],
       "firings": 40897,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 16009,
+        "120": 11755,
+        "180": 9621
+      }
     },
     {
       "hypothesis": "L07",
@@ -1450,7 +1744,12 @@
         180
       ],
       "firings": 159858,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 39871,
+        "120": 24587,
+        "180": 18182
+      }
     },
     {
       "hypothesis": "L07",
@@ -1462,7 +1761,12 @@
         180
       ],
       "firings": 143137,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 36651,
+        "120": 23155,
+        "180": 17389
+      }
     },
     {
       "hypothesis": "L07",
@@ -1474,7 +1778,12 @@
         180
       ],
       "firings": 126008,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 32316,
+        "120": 21069,
+        "180": 16093
+      }
     },
     {
       "hypothesis": "L07",
@@ -1486,7 +1795,12 @@
         180
       ],
       "firings": 49503,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 25199,
+        "120": 18022,
+        "180": 14385
+      }
     },
     {
       "hypothesis": "L07",
@@ -1498,7 +1812,12 @@
         180
       ],
       "firings": 37148,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 17811,
+        "120": 13245,
+        "180": 10950
+      }
     },
     {
       "hypothesis": "L07",
@@ -1510,7 +1829,12 @@
         180
       ],
       "firings": 25692,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 11797,
+        "120": 8951,
+        "180": 7499
+      }
     },
     {
       "hypothesis": "L08",
@@ -1522,7 +1846,12 @@
         180
       ],
       "firings": 194,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 194,
+        "120": 194,
+        "180": 194
+      }
     },
     {
       "hypothesis": "L08",
@@ -1534,7 +1863,12 @@
         180
       ],
       "firings": 19,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 19,
+        "120": 19,
+        "180": 19
+      }
     },
     {
       "hypothesis": "L08",
@@ -1546,7 +1880,12 @@
         180
       ],
       "firings": 4,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4,
+        "120": 4,
+        "180": 4
+      }
     },
     {
       "hypothesis": "L08",
@@ -1558,7 +1897,12 @@
         180
       ],
       "firings": 488,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 488,
+        "120": 488,
+        "180": 488
+      }
     },
     {
       "hypothesis": "L08",
@@ -1570,7 +1914,12 @@
         180
       ],
       "firings": 98,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 98,
+        "120": 98,
+        "180": 98
+      }
     },
     {
       "hypothesis": "L08",
@@ -1582,7 +1931,12 @@
         180
       ],
       "firings": 20,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 20,
+        "120": 20,
+        "180": 20
+      }
     },
     {
       "hypothesis": "L08",
@@ -1594,7 +1948,12 @@
         180
       ],
       "firings": 454,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 454,
+        "120": 454,
+        "180": 454
+      }
     },
     {
       "hypothesis": "L08",
@@ -1606,7 +1965,12 @@
         180
       ],
       "firings": 91,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 91,
+        "120": 91,
+        "180": 91
+      }
     },
     {
       "hypothesis": "L08",
@@ -1618,7 +1982,12 @@
         180
       ],
       "firings": 20,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 20,
+        "120": 20,
+        "180": 20
+      }
     },
     {
       "hypothesis": "L08",
@@ -1630,7 +1999,12 @@
         180
       ],
       "firings": 574,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 574,
+        "120": 574,
+        "180": 574
+      }
     },
     {
       "hypothesis": "L08",
@@ -1642,7 +2016,12 @@
         180
       ],
       "firings": 93,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 93,
+        "120": 93,
+        "180": 93
+      }
     },
     {
       "hypothesis": "L08",
@@ -1654,7 +2033,12 @@
         180
       ],
       "firings": 26,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 26,
+        "120": 26,
+        "180": 26
+      }
     },
     {
       "hypothesis": "L08",
@@ -1666,7 +2050,12 @@
         180
       ],
       "firings": 659,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 659,
+        "120": 659,
+        "180": 659
+      }
     },
     {
       "hypothesis": "L08",
@@ -1678,7 +2067,12 @@
         180
       ],
       "firings": 107,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 107,
+        "120": 107,
+        "180": 107
+      }
     },
     {
       "hypothesis": "L08",
@@ -1690,7 +2084,12 @@
         180
       ],
       "firings": 22,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 22,
+        "120": 22,
+        "180": 22
+      }
     },
     {
       "hypothesis": "L08",
@@ -1702,7 +2101,12 @@
         180
       ],
       "firings": 705,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 705,
+        "120": 705,
+        "180": 705
+      }
     },
     {
       "hypothesis": "L08",
@@ -1714,7 +2118,12 @@
         180
       ],
       "firings": 114,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 114,
+        "120": 114,
+        "180": 114
+      }
     },
     {
       "hypothesis": "L08",
@@ -1726,7 +2135,12 @@
         180
       ],
       "firings": 25,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 25,
+        "120": 25,
+        "180": 25
+      }
     },
     {
       "hypothesis": "L09",
@@ -1738,7 +2152,12 @@
         180
       ],
       "firings": 443,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 443,
+        "120": 443,
+        "180": 443
+      }
     },
     {
       "hypothesis": "L09",
@@ -1750,7 +2169,12 @@
         180
       ],
       "firings": 445,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 445,
+        "120": 445,
+        "180": 445
+      }
     },
     {
       "hypothesis": "L09",
@@ -1762,7 +2186,12 @@
         180
       ],
       "firings": 446,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 446,
+        "120": 446,
+        "180": 446
+      }
     },
     {
       "hypothesis": "L09",
@@ -1774,7 +2203,12 @@
         180
       ],
       "firings": 429,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 429,
+        "120": 429,
+        "180": 429
+      }
     },
     {
       "hypothesis": "L09",
@@ -1786,7 +2220,12 @@
         180
       ],
       "firings": 433,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 433,
+        "120": 433,
+        "180": 433
+      }
     },
     {
       "hypothesis": "L09",
@@ -1798,7 +2237,12 @@
         180
       ],
       "firings": 438,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 438,
+        "120": 438,
+        "180": 438
+      }
     },
     {
       "hypothesis": "L09",
@@ -1810,7 +2254,12 @@
         180
       ],
       "firings": 373,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 373,
+        "120": 373,
+        "180": 373
+      }
     },
     {
       "hypothesis": "L09",
@@ -1822,7 +2271,12 @@
         180
       ],
       "firings": 401,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 401,
+        "120": 401,
+        "180": 401
+      }
     },
     {
       "hypothesis": "L09",
@@ -1834,7 +2288,12 @@
         180
       ],
       "firings": 423,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 423,
+        "120": 423,
+        "180": 423
+      }
     },
     {
       "hypothesis": "L09",
@@ -1846,7 +2305,12 @@
         180
       ],
       "firings": 63,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 63,
+        "120": 63,
+        "180": 63
+      }
     },
     {
       "hypothesis": "L09",
@@ -1858,7 +2322,12 @@
         180
       ],
       "firings": 63,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 63,
+        "120": 63,
+        "180": 63
+      }
     },
     {
       "hypothesis": "L09",
@@ -1870,7 +2339,12 @@
         180
       ],
       "firings": 63,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 63,
+        "120": 63,
+        "180": 63
+      }
     },
     {
       "hypothesis": "L09",
@@ -1882,7 +2356,12 @@
         180
       ],
       "firings": 60,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 60,
+        "120": 60,
+        "180": 60
+      }
     },
     {
       "hypothesis": "L09",
@@ -1894,7 +2373,12 @@
         180
       ],
       "firings": 61,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 61,
+        "120": 61,
+        "180": 61
+      }
     },
     {
       "hypothesis": "L09",
@@ -1906,7 +2390,12 @@
         180
       ],
       "firings": 63,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 63,
+        "120": 63,
+        "180": 63
+      }
     },
     {
       "hypothesis": "L09",
@@ -1918,7 +2407,12 @@
         180
       ],
       "firings": 48,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 48,
+        "120": 48,
+        "180": 48
+      }
     },
     {
       "hypothesis": "L09",
@@ -1930,7 +2424,12 @@
         180
       ],
       "firings": 53,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 53,
+        "120": 53,
+        "180": 53
+      }
     },
     {
       "hypothesis": "L09",
@@ -1942,7 +2441,129 @@
         180
       ],
       "firings": 58,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 58,
+        "120": 58,
+        "180": 58
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=2 k=2",
+      "horizons": [
+        180
+      ],
+      "firings": 5420,
+      "minutes_key": "",
+      "independent": {
+        "180": 4933
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=2 k=3",
+      "horizons": [
+        180
+      ],
+      "firings": 5438,
+      "minutes_key": "",
+      "independent": {
+        "180": 4960
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=2 k=5",
+      "horizons": [
+        180
+      ],
+      "firings": 5442,
+      "minutes_key": "",
+      "independent": {
+        "180": 4967
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=4 k=2",
+      "horizons": [
+        180
+      ],
+      "firings": 5318,
+      "minutes_key": "",
+      "independent": {
+        "180": 4794
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=4 k=3",
+      "horizons": [
+        180
+      ],
+      "firings": 5368,
+      "minutes_key": "",
+      "independent": {
+        "180": 4868
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=4 k=5",
+      "horizons": [
+        180
+      ],
+      "firings": 5405,
+      "minutes_key": "",
+      "independent": {
+        "180": 4916
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=8 k=2",
+      "horizons": [
+        180
+      ],
+      "firings": 4903,
+      "minutes_key": "",
+      "independent": {
+        "180": 4351
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=8 k=3",
+      "horizons": [
+        180
+      ],
+      "firings": 5108,
+      "minutes_key": "",
+      "independent": {
+        "180": 4545
+      }
+    },
+    {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "cell": "Asia m=8 k=5",
+      "horizons": [
+        180
+      ],
+      "firings": 5242,
+      "minutes_key": "",
+      "independent": {
+        "180": 4703
+      }
     },
     {
       "hypothesis": "L01",
@@ -1954,7 +2575,12 @@
         120
       ],
       "firings": 25,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 25,
+        "60": 25,
+        "120": 25
+      }
     },
     {
       "hypothesis": "L01",
@@ -1966,7 +2592,12 @@
         120
       ],
       "firings": 1,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 1,
+        "60": 1,
+        "120": 1
+      }
     },
     {
       "hypothesis": "L01",
@@ -1978,7 +2609,12 @@
         120
       ],
       "firings": 0,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 0,
+        "60": 0,
+        "120": 0
+      }
     },
     {
       "hypothesis": "L10",
@@ -1990,7 +2626,12 @@
         120
       ],
       "firings": 1,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 1,
+        "60": 1,
+        "120": 1
+      }
     },
     {
       "hypothesis": "L01",
@@ -2002,7 +2643,12 @@
         120
       ],
       "firings": 211,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 211,
+        "60": 211,
+        "120": 211
+      }
     },
     {
       "hypothesis": "L01",
@@ -2014,7 +2660,12 @@
         120
       ],
       "firings": 10,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 10,
+        "60": 10,
+        "120": 10
+      }
     },
     {
       "hypothesis": "L01",
@@ -2026,7 +2677,12 @@
         120
       ],
       "firings": 2,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 2,
+        "60": 2,
+        "120": 2
+      }
     },
     {
       "hypothesis": "L10",
@@ -2038,7 +2694,12 @@
         120
       ],
       "firings": 91,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 91,
+        "60": 91,
+        "120": 91
+      }
     },
     {
       "hypothesis": "L01",
@@ -2050,7 +2711,12 @@
         120
       ],
       "firings": 211,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 211,
+        "60": 211,
+        "120": 211
+      }
     },
     {
       "hypothesis": "L01",
@@ -2062,7 +2728,12 @@
         120
       ],
       "firings": 10,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 10,
+        "60": 10,
+        "120": 10
+      }
     },
     {
       "hypothesis": "L01",
@@ -2074,7 +2745,12 @@
         120
       ],
       "firings": 2,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 2,
+        "60": 2,
+        "120": 2
+      }
     },
     {
       "hypothesis": "L10",
@@ -2086,43 +2762,12 @@
         120
       ],
       "firings": 85,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=15 k=1",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4310,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=15 k=2",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4780,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=15 k=3",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 5154,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "30": 85,
+        "60": 85,
+        "120": 85
+      }
     },
     {
       "hypothesis": "L02",
@@ -2134,7 +2779,12 @@
         180
       ],
       "firings": 5678,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4565,
+        "120": 4207,
+        "180": 4035
+      }
     },
     {
       "hypothesis": "L02",
@@ -2146,7 +2796,12 @@
         180
       ],
       "firings": 5712,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4581,
+        "120": 4226,
+        "180": 4050
+      }
     },
     {
       "hypothesis": "L02",
@@ -2158,7 +2813,12 @@
         180
       ],
       "firings": 5724,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4589,
+        "120": 4232,
+        "180": 4056
+      }
     },
     {
       "hypothesis": "L02",
@@ -2170,7 +2830,12 @@
         180
       ],
       "firings": 5412,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4417,
+        "120": 4076,
+        "180": 3921
+      }
     },
     {
       "hypothesis": "L02",
@@ -2182,7 +2847,12 @@
         180
       ],
       "firings": 5540,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4488,
+        "120": 4140,
+        "180": 3975
+      }
     },
     {
       "hypothesis": "L02",
@@ -2194,7 +2864,12 @@
         180
       ],
       "firings": 5619,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4524,
+        "120": 4177,
+        "180": 3997
+      }
     },
     {
       "hypothesis": "L02",
@@ -2206,7 +2881,12 @@
         180
       ],
       "firings": 4357,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3681,
+        "120": 3444,
+        "180": 3332
+      }
     },
     {
       "hypothesis": "L02",
@@ -2218,7 +2898,12 @@
         180
       ],
       "firings": 4784,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3974,
+        "120": 3696,
+        "180": 3564
+      }
     },
     {
       "hypothesis": "L02",
@@ -2230,43 +2915,12 @@
         180
       ],
       "firings": 5118,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=30 k=1",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4189,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=30 k=2",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4619,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=30 k=3",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4877,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4188,
+        "120": 3888,
+        "180": 3746
+      }
     },
     {
       "hypothesis": "L02",
@@ -2278,7 +2932,12 @@
         180
       ],
       "firings": 5019,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4454,
+        "120": 4144,
+        "180": 3960
+      }
     },
     {
       "hypothesis": "L02",
@@ -2290,7 +2949,12 @@
         180
       ],
       "firings": 5051,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4479,
+        "120": 4156,
+        "180": 3970
+      }
     },
     {
       "hypothesis": "L02",
@@ -2302,7 +2966,12 @@
         180
       ],
       "firings": 5068,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4490,
+        "120": 4167,
+        "180": 3979
+      }
     },
     {
       "hypothesis": "L02",
@@ -2314,7 +2983,12 @@
         180
       ],
       "firings": 4766,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4269,
+        "120": 3978,
+        "180": 3821
+      }
     },
     {
       "hypothesis": "L02",
@@ -2326,7 +3000,12 @@
         180
       ],
       "firings": 4892,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4361,
+        "120": 4054,
+        "180": 3884
+      }
     },
     {
       "hypothesis": "L02",
@@ -2338,7 +3017,12 @@
         180
       ],
       "firings": 4977,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4418,
+        "120": 4099,
+        "180": 3920
+      }
     },
     {
       "hypothesis": "L02",
@@ -2350,7 +3034,12 @@
         180
       ],
       "firings": 3778,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3445,
+        "120": 3236,
+        "180": 3131
+      }
     },
     {
       "hypothesis": "L02",
@@ -2362,7 +3051,12 @@
         180
       ],
       "firings": 4163,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3764,
+        "120": 3527,
+        "180": 3402
+      }
     },
     {
       "hypothesis": "L02",
@@ -2374,43 +3068,12 @@
         180
       ],
       "firings": 4492,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=60 k=1",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4135,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=60 k=2",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4357,
-      "minutes_key": ""
-    },
-    {
-      "hypothesis": "L02",
-      "product": "MGC",
-      "cell": "sweep W=60 k=3",
-      "horizons": [
-        60,
-        120,
-        180
-      ],
-      "firings": 4499,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4022,
+        "120": 3757,
+        "180": 3612
+      }
     },
     {
       "hypothesis": "L02",
@@ -2422,7 +3085,12 @@
         180
       ],
       "firings": 4112,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3976,
+        "120": 3822,
+        "180": 3682
+      }
     },
     {
       "hypothesis": "L02",
@@ -2434,7 +3102,12 @@
         180
       ],
       "firings": 4147,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4006,
+        "120": 3849,
+        "180": 3709
+      }
     },
     {
       "hypothesis": "L02",
@@ -2446,7 +3119,12 @@
         180
       ],
       "firings": 4159,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4017,
+        "120": 3858,
+        "180": 3716
+      }
     },
     {
       "hypothesis": "L02",
@@ -2458,7 +3136,12 @@
         180
       ],
       "firings": 3877,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3752,
+        "120": 3615,
+        "180": 3495
+      }
     },
     {
       "hypothesis": "L02",
@@ -2470,7 +3153,12 @@
         180
       ],
       "firings": 4002,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3872,
+        "120": 3726,
+        "180": 3594
+      }
     },
     {
       "hypothesis": "L02",
@@ -2482,7 +3170,12 @@
         180
       ],
       "firings": 4082,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3940,
+        "120": 3788,
+        "180": 3649
+      }
     },
     {
       "hypothesis": "L02",
@@ -2494,7 +3187,12 @@
         180
       ],
       "firings": 3001,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2898,
+        "120": 2814,
+        "180": 2733
+      }
     },
     {
       "hypothesis": "L02",
@@ -2506,7 +3204,12 @@
         180
       ],
       "firings": 3328,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3220,
+        "120": 3115,
+        "180": 3022
+      }
     },
     {
       "hypothesis": "L02",
@@ -2518,7 +3221,12 @@
         180
       ],
       "firings": 3644,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3525,
+        "120": 3405,
+        "180": 3296
+      }
     },
     {
       "hypothesis": "L03",
@@ -2530,7 +3238,12 @@
         180
       ],
       "firings": 4651,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4620,
+        "120": 4550,
+        "180": 4507
+      }
     },
     {
       "hypothesis": "L03",
@@ -2542,7 +3255,12 @@
         180
       ],
       "firings": 4664,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4632,
+        "120": 4563,
+        "180": 4519
+      }
     },
     {
       "hypothesis": "L03",
@@ -2554,7 +3272,12 @@
         180
       ],
       "firings": 4674,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4642,
+        "120": 4572,
+        "180": 4528
+      }
     },
     {
       "hypothesis": "L03",
@@ -2566,7 +3289,12 @@
         180
       ],
       "firings": 4503,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4465,
+        "120": 4394,
+        "180": 4353
+      }
     },
     {
       "hypothesis": "L03",
@@ -2578,7 +3306,12 @@
         180
       ],
       "firings": 4572,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4535,
+        "120": 4462,
+        "180": 4423
+      }
     },
     {
       "hypothesis": "L03",
@@ -2590,7 +3323,12 @@
         180
       ],
       "firings": 4623,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4590,
+        "120": 4522,
+        "180": 4480
+      }
     },
     {
       "hypothesis": "L03",
@@ -2602,7 +3340,12 @@
         180
       ],
       "firings": 3907,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3844,
+        "120": 3782,
+        "180": 3737
+      }
     },
     {
       "hypothesis": "L03",
@@ -2614,7 +3357,12 @@
         180
       ],
       "firings": 4130,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4077,
+        "120": 4006,
+        "180": 3963
+      }
     },
     {
       "hypothesis": "L03",
@@ -2626,7 +3374,12 @@
         180
       ],
       "firings": 4349,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4299,
+        "120": 4230,
+        "180": 4188
+      }
     },
     {
       "hypothesis": "L03",
@@ -2638,7 +3391,12 @@
         180
       ],
       "firings": 3559,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3546,
+        "120": 3525,
+        "180": 3512
+      }
     },
     {
       "hypothesis": "L03",
@@ -2650,7 +3408,12 @@
         180
       ],
       "firings": 3565,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3552,
+        "120": 3531,
+        "180": 3518
+      }
     },
     {
       "hypothesis": "L03",
@@ -2662,7 +3425,12 @@
         180
       ],
       "firings": 3572,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3559,
+        "120": 3538,
+        "180": 3525
+      }
     },
     {
       "hypothesis": "L03",
@@ -2674,7 +3442,12 @@
         180
       ],
       "firings": 3470,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3456,
+        "120": 3433,
+        "180": 3422
+      }
     },
     {
       "hypothesis": "L03",
@@ -2686,7 +3459,12 @@
         180
       ],
       "firings": 3515,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3501,
+        "120": 3479,
+        "180": 3467
+      }
     },
     {
       "hypothesis": "L03",
@@ -2698,7 +3476,12 @@
         180
       ],
       "firings": 3535,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3521,
+        "120": 3499,
+        "180": 3486
+      }
     },
     {
       "hypothesis": "L03",
@@ -2710,7 +3493,12 @@
         180
       ],
       "firings": 3080,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3061,
+        "120": 3040,
+        "180": 3026
+      }
     },
     {
       "hypothesis": "L03",
@@ -2722,7 +3510,12 @@
         180
       ],
       "firings": 3247,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3229,
+        "120": 3206,
+        "180": 3195
+      }
     },
     {
       "hypothesis": "L03",
@@ -2734,7 +3527,12 @@
         180
       ],
       "firings": 3383,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3367,
+        "120": 3346,
+        "180": 3333
+      }
     },
     {
       "hypothesis": "L04",
@@ -2746,7 +3544,12 @@
         180
       ],
       "firings": 5102,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5036,
+        "120": 4901,
+        "180": 4749
+      }
     },
     {
       "hypothesis": "L04",
@@ -2758,7 +3561,12 @@
         180
       ],
       "firings": 5120,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5053,
+        "120": 4918,
+        "180": 4763
+      }
     },
     {
       "hypothesis": "L04",
@@ -2770,7 +3578,12 @@
         180
       ],
       "firings": 5130,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5064,
+        "120": 4928,
+        "180": 4774
+      }
     },
     {
       "hypothesis": "L04",
@@ -2782,7 +3595,12 @@
         180
       ],
       "firings": 4974,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4890,
+        "120": 4750,
+        "180": 4606
+      }
     },
     {
       "hypothesis": "L04",
@@ -2794,7 +3612,12 @@
         180
       ],
       "firings": 5046,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4968,
+        "120": 4828,
+        "180": 4680
+      }
     },
     {
       "hypothesis": "L04",
@@ -2806,7 +3629,12 @@
         180
       ],
       "firings": 5084,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 5012,
+        "120": 4873,
+        "180": 4721
+      }
     },
     {
       "hypothesis": "L04",
@@ -2818,7 +3646,12 @@
         180
       ],
       "firings": 4321,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4190,
+        "120": 4053,
+        "180": 3942
+      }
     },
     {
       "hypothesis": "L04",
@@ -2830,7 +3663,12 @@
         180
       ],
       "firings": 4597,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4478,
+        "120": 4345,
+        "180": 4218
+      }
     },
     {
       "hypothesis": "L04",
@@ -2842,7 +3680,12 @@
         180
       ],
       "firings": 4803,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 4692,
+        "120": 4548,
+        "180": 4420
+      }
     },
     {
       "hypothesis": "L04",
@@ -2854,7 +3697,12 @@
         180
       ],
       "firings": 2046,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2033,
+        "120": 2013,
+        "180": 2001
+      }
     },
     {
       "hypothesis": "L04",
@@ -2866,7 +3714,12 @@
         180
       ],
       "firings": 2064,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2051,
+        "120": 2030,
+        "180": 2019
+      }
     },
     {
       "hypothesis": "L04",
@@ -2878,7 +3731,12 @@
         180
       ],
       "firings": 2072,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2059,
+        "120": 2038,
+        "180": 2027
+      }
     },
     {
       "hypothesis": "L04",
@@ -2890,7 +3748,12 @@
         180
       ],
       "firings": 1907,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 1893,
+        "120": 1877,
+        "180": 1865
+      }
     },
     {
       "hypothesis": "L04",
@@ -2902,7 +3765,12 @@
         180
       ],
       "firings": 1986,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 1972,
+        "120": 1954,
+        "180": 1942
+      }
     },
     {
       "hypothesis": "L04",
@@ -2914,7 +3782,12 @@
         180
       ],
       "firings": 2034,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 2021,
+        "120": 2000,
+        "180": 1989
+      }
     },
     {
       "hypothesis": "L04",
@@ -2926,7 +3799,12 @@
         180
       ],
       "firings": 1423,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 1406,
+        "120": 1390,
+        "180": 1385
+      }
     },
     {
       "hypothesis": "L04",
@@ -2938,7 +3816,12 @@
         180
       ],
       "firings": 1600,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 1585,
+        "120": 1569,
+        "180": 1561
+      }
     },
     {
       "hypothesis": "L04",
@@ -2950,7 +3833,12 @@
         180
       ],
       "firings": 1784,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 1772,
+        "120": 1752,
+        "180": 1744
+      }
     },
     {
       "hypothesis": "L04",
@@ -2962,7 +3850,12 @@
         180
       ],
       "firings": 378,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 377,
+        "120": 377,
+        "180": 377
+      }
     },
     {
       "hypothesis": "L04",
@@ -2974,7 +3867,12 @@
         180
       ],
       "firings": 393,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 392,
+        "120": 392,
+        "180": 392
+      }
     },
     {
       "hypothesis": "L04",
@@ -2986,7 +3884,12 @@
         180
       ],
       "firings": 399,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 398,
+        "120": 398,
+        "180": 398
+      }
     },
     {
       "hypothesis": "L04",
@@ -2998,7 +3901,12 @@
         180
       ],
       "firings": 292,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 291,
+        "120": 291,
+        "180": 291
+      }
     },
     {
       "hypothesis": "L04",
@@ -3010,7 +3918,12 @@
         180
       ],
       "firings": 325,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 324,
+        "120": 324,
+        "180": 324
+      }
     },
     {
       "hypothesis": "L04",
@@ -3022,7 +3935,12 @@
         180
       ],
       "firings": 339,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 338,
+        "120": 338,
+        "180": 338
+      }
     },
     {
       "hypothesis": "L04",
@@ -3034,7 +3952,12 @@
         180
       ],
       "firings": 168,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 167,
+        "120": 167,
+        "180": 167
+      }
     },
     {
       "hypothesis": "L04",
@@ -3046,7 +3969,12 @@
         180
       ],
       "firings": 201,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 200,
+        "120": 200,
+        "180": 200
+      }
     },
     {
       "hypothesis": "L04",
@@ -3058,7 +3986,12 @@
         180
       ],
       "firings": 227,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 226,
+        "120": 226,
+        "180": 226
+      }
     },
     {
       "hypothesis": "L06",
@@ -3070,7 +4003,12 @@
         180
       ],
       "firings": 37,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 37,
+        "120": 37,
+        "180": 37
+      }
     },
     {
       "hypothesis": "L06",
@@ -3082,7 +4020,12 @@
         180
       ],
       "firings": 18,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 18,
+        "120": 18,
+        "180": 18
+      }
     },
     {
       "hypothesis": "L06",
@@ -3094,7 +4037,12 @@
         180
       ],
       "firings": 18,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 18,
+        "120": 18,
+        "180": 18
+      }
     },
     {
       "hypothesis": "L06",
@@ -3106,7 +4054,12 @@
         180
       ],
       "firings": 269,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 269,
+        "120": 269,
+        "180": 269
+      }
     },
     {
       "hypothesis": "L06",
@@ -3118,7 +4071,12 @@
         180
       ],
       "firings": 36,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 36,
+        "120": 36,
+        "180": 36
+      }
     },
     {
       "hypothesis": "L06",
@@ -3130,7 +4088,12 @@
         180
       ],
       "firings": 26,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 26,
+        "120": 26,
+        "180": 26
+      }
     },
     {
       "hypothesis": "L07",
@@ -3142,7 +4105,12 @@
         180
       ],
       "firings": 655490,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 74891,
+        "120": 40920,
+        "180": 29259
+      }
     },
     {
       "hypothesis": "L07",
@@ -3154,7 +4122,12 @@
         180
       ],
       "firings": 527522,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 69037,
+        "120": 39059,
+        "180": 27447
+      }
     },
     {
       "hypothesis": "L07",
@@ -3166,7 +4139,12 @@
         180
       ],
       "firings": 429987,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 60828,
+        "120": 35763,
+        "180": 25763
+      }
     },
     {
       "hypothesis": "L07",
@@ -3178,7 +4156,12 @@
         180
       ],
       "firings": 136777,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 47473,
+        "120": 30487,
+        "180": 22929
+      }
     },
     {
       "hypothesis": "L07",
@@ -3190,7 +4173,12 @@
         180
       ],
       "firings": 97402,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 32505,
+        "120": 22051,
+        "180": 17412
+      }
     },
     {
       "hypothesis": "L07",
@@ -3202,7 +4190,12 @@
         180
       ],
       "firings": 65659,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 21000,
+        "120": 14691,
+        "180": 11732
+      }
     },
     {
       "hypothesis": "L07",
@@ -3214,7 +4207,12 @@
         180
       ],
       "firings": 339210,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 64091,
+        "120": 37227,
+        "180": 26552
+      }
     },
     {
       "hypothesis": "L07",
@@ -3226,7 +4224,12 @@
         180
       ],
       "firings": 294283,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 59787,
+        "120": 35480,
+        "180": 25563
+      }
     },
     {
       "hypothesis": "L07",
@@ -3238,7 +4241,12 @@
         180
       ],
       "firings": 250812,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 53276,
+        "120": 32609,
+        "180": 24046
+      }
     },
     {
       "hypothesis": "L07",
@@ -3250,7 +4258,12 @@
         180
       ],
       "firings": 92594,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 39733,
+        "120": 26748,
+        "180": 20614
+      }
     },
     {
       "hypothesis": "L07",
@@ -3262,7 +4275,12 @@
         180
       ],
       "firings": 67946,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 27734,
+        "120": 19594,
+        "180": 15779
+      }
     },
     {
       "hypothesis": "L07",
@@ -3274,7 +4292,12 @@
         180
       ],
       "firings": 46390,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 18153,
+        "120": 13171,
+        "180": 10739
+      }
     },
     {
       "hypothesis": "L07",
@@ -3286,7 +4309,12 @@
         180
       ],
       "firings": 121686,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 36180,
+        "120": 23630,
+        "180": 18010
+      }
     },
     {
       "hypothesis": "L07",
@@ -3298,7 +4326,12 @@
         180
       ],
       "firings": 109123,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 34091,
+        "120": 22617,
+        "180": 17393
+      }
     },
     {
       "hypothesis": "L07",
@@ -3310,7 +4343,12 @@
         180
       ],
       "firings": 95365,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 30916,
+        "120": 20948,
+        "180": 16346
+      }
     },
     {
       "hypothesis": "L07",
@@ -3322,7 +4360,12 @@
         180
       ],
       "firings": 45988,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 24911,
+        "120": 18252,
+        "180": 14762
+      }
     },
     {
       "hypothesis": "L07",
@@ -3334,7 +4377,12 @@
         180
       ],
       "firings": 34370,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 18067,
+        "120": 13810,
+        "180": 11566
+      }
     },
     {
       "hypothesis": "L07",
@@ -3346,7 +4394,12 @@
         180
       ],
       "firings": 23545,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 12000,
+        "120": 9326,
+        "180": 7936
+      }
     },
     {
       "hypothesis": "L08",
@@ -3358,7 +4411,12 @@
         180
       ],
       "firings": 95,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 95,
+        "120": 95,
+        "180": 95
+      }
     },
     {
       "hypothesis": "L08",
@@ -3370,7 +4428,12 @@
         180
       ],
       "firings": 8,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 8,
+        "120": 8,
+        "180": 8
+      }
     },
     {
       "hypothesis": "L08",
@@ -3382,7 +4445,12 @@
         180
       ],
       "firings": 3,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 3,
+        "120": 3,
+        "180": 3
+      }
     },
     {
       "hypothesis": "L08",
@@ -3394,7 +4462,12 @@
         180
       ],
       "firings": 314,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 314,
+        "120": 314,
+        "180": 314
+      }
     },
     {
       "hypothesis": "L08",
@@ -3406,7 +4479,12 @@
         180
       ],
       "firings": 29,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 29,
+        "120": 29,
+        "180": 29
+      }
     },
     {
       "hypothesis": "L08",
@@ -3418,7 +4496,12 @@
         180
       ],
       "firings": 12,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 12,
+        "120": 12,
+        "180": 12
+      }
     },
     {
       "hypothesis": "L08",
@@ -3430,7 +4513,12 @@
         180
       ],
       "firings": 315,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 315,
+        "120": 315,
+        "180": 315
+      }
     },
     {
       "hypothesis": "L08",
@@ -3442,7 +4530,12 @@
         180
       ],
       "firings": 27,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 27,
+        "120": 27,
+        "180": 27
+      }
     },
     {
       "hypothesis": "L08",
@@ -3454,7 +4547,12 @@
         180
       ],
       "firings": 9,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 9,
+        "120": 9,
+        "180": 9
+      }
     },
     {
       "hypothesis": "L08",
@@ -3466,7 +4564,12 @@
         180
       ],
       "firings": 445,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 445,
+        "120": 445,
+        "180": 445
+      }
     },
     {
       "hypothesis": "L08",
@@ -3478,7 +4581,12 @@
         180
       ],
       "firings": 45,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 45,
+        "120": 45,
+        "180": 45
+      }
     },
     {
       "hypothesis": "L08",
@@ -3490,7 +4598,12 @@
         180
       ],
       "firings": 9,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 9,
+        "120": 9,
+        "180": 9
+      }
     },
     {
       "hypothesis": "L08",
@@ -3502,7 +4615,12 @@
         180
       ],
       "firings": 528,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 528,
+        "120": 528,
+        "180": 528
+      }
     },
     {
       "hypothesis": "L08",
@@ -3514,7 +4632,12 @@
         180
       ],
       "firings": 61,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 61,
+        "120": 61,
+        "180": 61
+      }
     },
     {
       "hypothesis": "L08",
@@ -3526,7 +4649,12 @@
         180
       ],
       "firings": 15,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 15,
+        "120": 15,
+        "180": 15
+      }
     },
     {
       "hypothesis": "L08",
@@ -3538,7 +4666,12 @@
         180
       ],
       "firings": 698,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 698,
+        "120": 698,
+        "180": 698
+      }
     },
     {
       "hypothesis": "L08",
@@ -3550,7 +4683,12 @@
         180
       ],
       "firings": 77,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 77,
+        "120": 77,
+        "180": 77
+      }
     },
     {
       "hypothesis": "L08",
@@ -3562,7 +4700,12 @@
         180
       ],
       "firings": 13,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 13,
+        "120": 13,
+        "180": 13
+      }
     },
     {
       "hypothesis": "L09",
@@ -3574,7 +4717,12 @@
         180
       ],
       "firings": 363,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 363,
+        "120": 363,
+        "180": 363
+      }
     },
     {
       "hypothesis": "L09",
@@ -3586,7 +4734,12 @@
         180
       ],
       "firings": 363,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 363,
+        "120": 363,
+        "180": 363
+      }
     },
     {
       "hypothesis": "L09",
@@ -3598,7 +4751,12 @@
         180
       ],
       "firings": 364,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 364,
+        "120": 364,
+        "180": 364
+      }
     },
     {
       "hypothesis": "L09",
@@ -3610,7 +4768,12 @@
         180
       ],
       "firings": 355,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 355,
+        "120": 355,
+        "180": 355
+      }
     },
     {
       "hypothesis": "L09",
@@ -3622,7 +4785,12 @@
         180
       ],
       "firings": 358,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 358,
+        "120": 358,
+        "180": 358
+      }
     },
     {
       "hypothesis": "L09",
@@ -3634,7 +4802,12 @@
         180
       ],
       "firings": 361,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 361,
+        "120": 361,
+        "180": 361
+      }
     },
     {
       "hypothesis": "L09",
@@ -3646,7 +4819,12 @@
         180
       ],
       "firings": 312,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 312,
+        "120": 312,
+        "180": 312
+      }
     },
     {
       "hypothesis": "L09",
@@ -3658,7 +4836,12 @@
         180
       ],
       "firings": 334,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 334,
+        "120": 334,
+        "180": 334
+      }
     },
     {
       "hypothesis": "L09",
@@ -3670,7 +4853,12 @@
         180
       ],
       "firings": 343,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 343,
+        "120": 343,
+        "180": 343
+      }
     },
     {
       "hypothesis": "L09",
@@ -3682,7 +4870,12 @@
         180
       ],
       "firings": 56,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 56,
+        "120": 56,
+        "180": 56
+      }
     },
     {
       "hypothesis": "L09",
@@ -3694,7 +4887,12 @@
         180
       ],
       "firings": 56,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 56,
+        "120": 56,
+        "180": 56
+      }
     },
     {
       "hypothesis": "L09",
@@ -3706,7 +4904,12 @@
         180
       ],
       "firings": 56,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 56,
+        "120": 56,
+        "180": 56
+      }
     },
     {
       "hypothesis": "L09",
@@ -3718,7 +4921,12 @@
         180
       ],
       "firings": 54,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 54,
+        "120": 54,
+        "180": 54
+      }
     },
     {
       "hypothesis": "L09",
@@ -3730,7 +4938,12 @@
         180
       ],
       "firings": 54,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 54,
+        "120": 54,
+        "180": 54
+      }
     },
     {
       "hypothesis": "L09",
@@ -3742,7 +4955,12 @@
         180
       ],
       "firings": 55,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 55,
+        "120": 55,
+        "180": 55
+      }
     },
     {
       "hypothesis": "L09",
@@ -3754,7 +4972,12 @@
         180
       ],
       "firings": 46,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 46,
+        "120": 46,
+        "180": 46
+      }
     },
     {
       "hypothesis": "L09",
@@ -3766,7 +4989,12 @@
         180
       ],
       "firings": 49,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 49,
+        "120": 49,
+        "180": 49
+      }
     },
     {
       "hypothesis": "L09",
@@ -3778,7 +5006,12 @@
         180
       ],
       "firings": 51,
-      "minutes_key": ""
+      "minutes_key": "",
+      "independent": {
+        "60": 51,
+        "120": 51,
+        "180": 51
+      }
     }
   ],
   "disjointness": [
@@ -3801,7 +5034,7 @@
     {
       "hypothesis": "L02",
       "product": "MNQ",
-      "n_cells": 36,
+      "n_cells": 27,
       "max_pairwise_overlap": 0.9972510044406852,
       "verdict": "OVERLAPPING",
       "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
@@ -3819,14 +5052,6 @@
       "product": "MNQ",
       "n_cells": 27,
       "max_pairwise_overlap": 0.9981515711645101,
-      "verdict": "OVERLAPPING",
-      "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
-    },
-    {
-      "hypothesis": "L05",
-      "product": "MNQ",
-      "n_cells": 9,
-      "max_pairwise_overlap": 1.0,
       "verdict": "OVERLAPPING",
       "note": "cells share up to 100% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
     },
@@ -3863,6 +5088,14 @@
       "note": "cells share up to 97% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
     },
     {
+      "hypothesis": "L12",
+      "product": "MNQ",
+      "n_cells": 9,
+      "max_pairwise_overlap": 0.9828981243104082,
+      "verdict": "OVERLAPPING",
+      "note": "cells share up to 98% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
+    },
+    {
       "hypothesis": "L01",
       "product": "MGC",
       "n_cells": 9,
@@ -3881,7 +5114,7 @@
     {
       "hypothesis": "L02",
       "product": "MGC",
-      "n_cells": 36,
+      "n_cells": 27,
       "max_pairwise_overlap": 0.9886204481792717,
       "verdict": "OVERLAPPING",
       "note": "cells share up to 99% of their firing minutes - the same touch enters under multiple parameter settings, so pooling them would count one observation many times. AGGREGATE ROUTE CLOSED."
@@ -4300,39 +5533,6 @@
       "failures": []
     },
     {
-      "level_type": "on_range",
-      "product": "MNQ",
-      "n_real": 8208,
-      "n_placebo": 8208,
-      "real_touch_rate": 0.41264619883040937,
-      "placebo_touch_rate": 0.38620857699805067,
-      "real_distance_median": 22.75,
-      "placebo_distance_median": 22.2832287264182,
-      "real_distance_deciles": [
-        3.25,
-        6.5,
-        10.5,
-        16.0,
-        22.75,
-        33.25,
-        50.0,
-        77.5,
-        131.25
-      ],
-      "placebo_distance_deciles": [
-        3.203088830618481,
-        6.396475912475944,
-        10.074639911252733,
-        15.15451663593267,
-        22.2832287264182,
-        32.40479446192294,
-        49.30656467442331,
-        78.17141677954588,
-        137.1440177111496
-      ],
-      "failures": []
-    },
-    {
       "level_type": "open_RTH",
       "product": "MNQ",
       "n_real": 4104,
@@ -4340,7 +5540,7 @@
       "real_touch_rate": 0.7595029239766082,
       "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": NaN,
+      "placebo_distance_median": 0.0,
       "real_distance_deciles": [
         0.0,
         0.0,
@@ -4376,7 +5576,7 @@
       "real_touch_rate": 0.9549220272904484,
       "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": NaN,
+      "placebo_distance_median": 0.0,
       "real_distance_deciles": [
         0.0,
         0.0,
@@ -5243,7 +6443,7 @@
       "real_touch_rate": 0.863237139272271,
       "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": NaN,
+      "placebo_distance_median": 0.0,
       "real_distance_deciles": [
         0.0,
         0.0,
@@ -5279,7 +6479,7 @@
       "real_touch_rate": 0.9653701380175659,
       "placebo_touch_rate": 0.0,
       "real_distance_median": 0.0,
-      "placebo_distance_median": NaN,
+      "placebo_distance_median": 0.0,
       "real_distance_deciles": [
         0.0,
         0.0,

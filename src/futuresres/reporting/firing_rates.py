@@ -138,15 +138,27 @@ class Rate:
 
 
 def load_1m(product: str) -> pl.DataFrame:
-    bars = pl.read_parquet(CONTINUOUS / f"{SERIES[product]}.parquet")
+    """The 1-minute frame: ts_event, day, minute-of-day, close. Nothing else.
+
+    SCAN, NOT READ. `read_parquet` pulled all eleven columns - including three string
+    columns no caller touches - and only then selected four. On the spliced NQ+MNQ series
+    that is 4.73M rows of waste, and `measure_all` held two products' worth at once: OOM at
+    1,036 MB on a 2.7 GB machine. Scanning with the projection pushed down reads two columns
+    off disk. decisions.md 45.
+    """
     local = pl.col("ts_event").dt.convert_time_zone(str(ET))
-    return bars.select(
-        pl.col("ts_event"),
-        local.dt.date().alias("day"),
-        (local.dt.hour().cast(pl.Int32) * 60
-         + local.dt.minute().cast(pl.Int32)).alias("mod"),
-        pl.col("close").cast(pl.Float64),
-    ).sort("ts_event")
+    return (
+        pl.scan_parquet(CONTINUOUS / f"{SERIES[product]}.parquet")
+        .select(
+            pl.col("ts_event"),
+            local.dt.date().alias("day"),
+            (local.dt.hour().cast(pl.Int32) * 60
+             + local.dt.minute().cast(pl.Int32)).alias("mod"),
+            pl.col("close").cast(pl.Float64),
+        )
+        .sort("ts_event")
+        .collect(engine="streaming")
+    )
 
 
 def resample(df: pl.DataFrame, minutes: int) -> pl.DataFrame:

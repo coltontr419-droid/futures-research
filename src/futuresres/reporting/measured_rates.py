@@ -330,14 +330,48 @@ def rates_from_level_rates(hid: str) -> list[Rate]:
     return out
 
 
-def measure_all() -> list[Rate]:
+def measure_all(only: set[str] | None = None) -> list[Rate]:
+    """Measure every hypothesis, or just `only`.
+
+    `only` EXISTS FOR A NARROW REASON and the limitation is stated so nobody relies on it
+    more broadly: measuring the L-series needs no 1-minute frame at all (its rates are routed
+    from `level_rates.json`), while `f01_rates` on real data is OOM-killed at ~1,064 MB on a
+    2.7 GB machine. Refreshing the L-series without re-running F01 is the difference between
+    a working gate and no gate.
+    A partial refresh MERGES into the cached file, so records it does not touch are carried
+    forward from whenever they were last measured. `--check` still compares a FULL fresh
+    measurement, so the cache cannot drift unnoticed. decisions.md 45.
+    """
     registry = {e["id"]: e for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))}
-    frames = {p: load_1m(p) for p in ("MNQ", "MGC")}
-    spans = {p: span_minutes(f) for p, f in frames.items()}
+    # LAZY, NOT EAGER. Frames used to be built for both products up front and held for the
+    # whole run; with the old `load_1m` reading all eleven parquet columns that was ~1 GB and
+    # was OOM-killed at 1,036 MB. `load_1m` now scans with the projection pushed down - four
+    # columns instead of eleven - so both products together are ~200 MB, and loading on
+    # demand means a run that touches only one product pays for only one.
+    # F08 is cross-asset and genuinely needs both at once, so a single-slot cache is wrong
+    # here; the fix is the projection, not the eviction. decisions.md 45.
+    class _LazyFrames(dict):
+        def __missing__(self, product: str):
+            self[product] = load_1m(product)
+            return self[product]
+
+    frames = _LazyFrames()
+
+    class _LazySpans(dict):
+        def __missing__(self, product: str):
+            self[product] = span_minutes(frames[product])
+            return self[product]
+
+    # Lazy too: an L-series-only refresh needs no frame and therefore no span, and building
+    # them eagerly costs ~460 MB peak for nothing.
+    spans = _LazySpans()
+
     rates: list[Rate] = []
 
     for hid, entry in registry.items():
         if entry["status"] == "excluded":
+            continue
+        if only is not None and hid not in only:
             continue
         horizons = list(entry["horizon_minutes"])
         products = [str(s).upper() for s in entry.get("symbols") or []]
@@ -349,7 +383,7 @@ def measure_all() -> list[Rate]:
             rates += rates_from_level_rates(hid)
             continue
         for product in products:
-            if product not in frames:
+            if product not in spans:
                 continue
             df, span = frames[product], spans[product]
             if hid == "F01":
@@ -469,14 +503,35 @@ def render(rates: list[Rate]) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="futuresres.reporting.measured_rates")
+    ap.add_argument("--only", type=str, default=None,
+                    help="comma-separated hypothesis ids, or a prefix like 'L'. Measures "
+                         "just those and MERGES into the cached file.")
     ap.add_argument("--check", action="store_true",
                     help="measure and compare against the cached file without writing; "
                          "exits 1 if they disagree")
     args = ap.parse_args(argv)
 
     print("measuring firing rates on real data (no trial is spent)")
-    rates = measure_all()
+    only: set[str] | None = None
+    if args.only:
+        registry_ids = {e["id"] for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))}
+        want = [x.strip() for x in args.only.split(",") if x.strip()]
+        only = {h for h in registry_ids
+                if h in want or any(h.startswith(w) and w not in registry_ids for w in want)}
+        if not only:
+            print(f"--only {args.only!r} matched no registered hypothesis")
+            return 1
+        print(f"  partial refresh: {sorted(only)}")
+    rates = measure_all(only)
     payload = [asdict(r) for r in rates]
+
+    if only is not None and CACHE.exists() and not args.check:
+        # MERGE, and say so. Records outside `only` are carried forward from whenever they
+        # were last measured, not re-measured now.
+        kept = [r for r in json.loads(CACHE.read_text(encoding="utf-8"))
+                if r["hypothesis"] not in only]
+        print(f"  merging: {len(payload)} refreshed, {len(kept)} carried forward")
+        payload = kept + payload
 
     if args.check:
         if not CACHE.exists():

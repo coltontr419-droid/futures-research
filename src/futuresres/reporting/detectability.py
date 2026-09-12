@@ -150,6 +150,9 @@ THRESHOLD_GATED: Final[frozenset[str]] = frozenset({"F01", "F06", "F09"})
 #: This buys NO per-cell power — it is a trial-count cost, and it multiplies the aggregate
 #: only when the positions are disjoint.
 SCAN_POSITIONS: Final[dict[str, int]] = {
+    # L12 sweeps m and k at ONE level type and one session, so there is a single scan
+    # POSITION - the Asia session's extremes - and nine parameter cells on it.
+    "L12": 1,
     "F01": 2,    # entry_time in {15:00, 15:30}
     "F02": 2,    # window in {Europe, Asia}
     "F03": 13,   # the 13 RTH half-hour slots
@@ -184,6 +187,11 @@ SCAN_POSITIONS: Final[dict[str, int]] = {
 #: at 15:55, so the two positions overlap for all but thirty minutes and pooling them adds
 #: almost nothing.
 SCAN_POSITIONS_DISJOINT: Final[dict[str, bool]] = {
+    # False: m and k select overlapping subsets of the same reclaim. L04, the same condition
+    # on MGC, measured 98% pairwise overlap - so pooling L12's cells would count one
+    # observation nine times. The aggregate route is CLOSED and its own registry entry says
+    # so; this is the measured version of that assumption.
+    "L12": False,
     "F01": False,   # 15:00 and 15:30 entries share a 15:55 exit
     "F02": True,    # Europe 01:30-04:00 and Asia 19:00-22:00 do not overlap
     "F03": True,    # 13 consecutive non-overlapping half-hour trades

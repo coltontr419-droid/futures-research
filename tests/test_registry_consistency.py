@@ -563,7 +563,12 @@ def test_every_measured_rate_has_a_source() -> None:
     rows = _json.loads(path.read_text(encoding="utf-8"))
     assert rows
     for r in rows:
-        assert r["source"] in ("condition", "cell file"), r
+        # THREE sources, not two. "level_rates" routes the L-series S3 measurement out of
+        # reports/level_rates.json, which is where the level hypotheses' rates are produced.
+        # It is a measurement like the others, not a declaration - the gate exists to
+        # exclude declarations, and adding a genuinely measured source to the allowlist is
+        # not loosening it. decisions.md 45.
+        assert r["source"] in ("condition", "cell file", "level_rates"), r
         assert r["firings"] >= 0
 
 

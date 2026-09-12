@@ -2357,6 +2357,150 @@ to prevent, and 21's factor-of-forty error is why that matters.
 3. **Historical entries stay as written.** See above.
 
 
+## 45. L12 out of sample (S7/S8), an unsatisfiable pre-registration, and six memory fixes
+
+L12 ran. **9 trials, N 747 -> 756, SR\* 0.1368**, chain verified.
+Report: `reports/l12_stage1.md`. **Retired at S7 on S8 economics, not on significance.**
+
+| | |
+|---|---|
+| cells separating | 0 of 9 |
+| mean difference | **+0.306 bps**, positive in 8 of 9 |
+| registered range | +1.3 to +3.5 bps -> **4-11x short** |
+| MNQ cost floor | 0.48 bps -> **0.64x, not tradeable** |
+| smallest p | 0.5810 |
+
+### The pre-registration contained an unsatisfiable criterion, and nobody noticed
+
+L12's prediction required a positive mean **and** at least one BH survivor. **The second limb
+was unreachable across most of the range it was written for**, and this was checked only after
+the run - prompted by a challenge to the draft write-up, not by any gate.
+
+**The tabulated S4 floor is not the applicable bar** (38 decision 4): MNQ/180m's 15.66 bps is
+the smallest injected effect promoted at >=80% for a slow regime flipping every ~500 bars,
+which is a far harder problem than a paired mean difference. **The applicable bar is the
+test's own bootstrap SE of 1.016 bps**, giving a BH rank-1 threshold of **2.82 bps**:
+
+| true effect | P(BH survivor) |
+|---|---|
+| 1.3 bps - bottom of the registered range | **6.8%** |
+| 2.82 bps - the bar | 50.1% |
+| 3.5 bps - top of the registered range | 74.9% |
+
+So a survivor was reachable only in the **top fifth** of the registered range. **A prediction
+whose lower four-fifths cannot produce the required outcome can essentially only fail.**
+
+**Citing p=0.5810 as refutation would have been the S4 error this programme exists to
+prevent** - a null from a test that could not have detected the effect. The refutation rests
+on magnitude and economics, which need no power argument at all.
+
+### Proposed standing S2 check: SURFACE, do not auto-reject
+
+At registration, compute the effect size a BH survivor would require at the expected n and
+compare it to the registered range. Report above / straddling / below.
+
+**It must not auto-reject.** A prediction below the reachable threshold is not always
+disqualifying, and rejecting by default would quietly filter out exactly the small-effect
+hypotheses that are still worth testing on cost grounds. Three legitimate responses:
+
+1. **Register it as an economics-only test with the significance limb explicitly waived.**
+   L12 should have been this. The economics limb refuted it cleanly and needed no p-value.
+2. **Increase n** - a longer sample, a second instrument, a shorter horizon.
+3. **Proceed knowingly**, with the low power recorded in the entry so a null cannot later be
+   read as evidence of absence.
+
+The check costs five lines. Not having it cost a registration whose headline criterion could
+not be met.
+
+### The retroactive audit: the defect is isolated, for a worse reason than it sounds
+
+Every registered hypothesis across the F-, R- and L-series was audited for a predicted
+magnitude that could be checked against a reachable threshold.
+
+**Result: L12 is the ONLY hypothesis in 26 that ever registered one.**
+
+- **F-series (14):** no prediction field, no predicted magnitude anywhere in the registry.
+- **R-series (5):** R03 carries a `distinguishing_prediction`, but it is MECHANISTIC and
+  directional - *"days with a large index return but a small NET rebalance requirement should
+  show NO effect"* - with no magnitude. R01's only bps figures are COST floors, not predicted
+  effects.
+- **L-series (12):** L12 alone.
+
+**So the S2 check has nothing to audit retroactively, because the field it would check did not
+exist.** That is a larger gap than the one it was meant to find: 25 of 26 registrations state
+a direction and a mechanism but never say *how big* the effect should be - which means their
+nulls were never checkable against a detection threshold either.
+
+The honest reading of L12's defect is therefore not "a slip in one entry". **It is the first
+time the programme wrote down a magnitude at all, and the first opportunity to notice that
+nothing checks one.** The proposed S2 check should require a magnitude or an explicit waiver,
+not merely validate one when volunteered.
+
+### L04's entry corrected, status unchanged
+
+**L04's observed +3.54 bps sat below its own BH rank-1 bar of 3.72 bps** (SE 1.244, 18
+tests). No survivor was reachable at the effect size actually observed, so "failed the
+correction" understates it - L04 was also operating at the edge of its resolution. Recorded in
+its entry under `resolution_note`.
+
+**Status unchanged: `stage1_inconclusive`, `stopped_at: S7`.** Mechanism uncontradicted is
+still the right reading; this makes the inconclusiveness better understood, not different.
+
+**An over-claim in the L12 draft is withdrawn.** "An independent instrument shows BH was right
+rather than conservative" is too strong when L12 could not have produced a survivor across
+most of its own range. What L12 settles: 76.2% power against +3.54 bps, delivered +0.306, so
+**that magnitude does not replicate**. What it does not settle: a smaller real effect, where
+power was 7-21%.
+
+### Six memory fixes to open the L-series gate (S3/S4 plumbing)
+
+Getting L12 through the gate took six fixes, all the same disease - eager frames on a 2.7 GB
+machine - and two ordering gaps.
+
+1. **`roll`: the global sort.** Avoidable rather than expensive; the front month advances
+   monotonically so contracts are contiguous non-overlapping session runs (41).
+2. **`splice`: same treatment**, NQ entirely before MNQ.
+3. **`levels.load`:** read four columns instead of eleven, released the frame before
+   allocating grids. 875 -> 626 MB.
+4. **`level_rates`: packed firing keys into int64.** A Python `set` of `(row, minute)` tuples
+   cost ~130 MB for ONE L07 cell; 6.9 MB packed, a ~20x reduction.
+5. **`load_1m`: scan with projection pushdown.** It read all eleven parquet columns - three of
+   them strings - then selected four, on 4.73M rows.
+6. **`measure_all`: lazy frames.** A first attempt used a single-slot cache that evicted on
+   switch and **broke `f08_rates`**, which is cross-asset and legitimately needs both products
+   at once. The fix was the projection, not the eviction.
+
+**`f01_rates` remains OOM-killed at ~1,064 MB and is NOT fixed.** `--only` was added so a
+subset can be refreshed without re-running it; the merge prints what it carried forward
+(`873 refreshed, 248 carried forward`) and `--check` still compares a full fresh measurement,
+so the cache cannot drift unnoticed. **Recorded as open, not resolved.**
+
+### Two ordering gaps
+
+**The scheduling gate could not pass ANY L-series hypothesis.** It reads
+`measured_rates.json`, which held only F-series entries, while the L-series S3 rates live in
+`level_rates.json` from a different generator. Invisible while every L entry was
+`schedulable: false` - the gate skips those - and it surfaced the moment L12 became the first
+one scheduled. **Same shape as 36.** Fixed by routing, not declaring: `level_rates` now
+computes non-overlapping counts per horizon - the S4 number it never stored - and
+`measured_rates` reads them, **skipping rather than substituting `firings`** where the column
+is absent.
+
+**`level_rates` had never stored an independence count at all**, so the S4 number the gate
+needs did not exist in the file the L-series writes. That is why the bridge could not be a
+one-liner.
+
+### Decisions taken rather than resolved silently
+
+1. **`source: "level_rates"` added to the allowed set**, named. It routes a genuine
+   measurement; the gate exists to exclude declarations, so this is not loosening it.
+2. **`SCAN_POSITIONS["L12"] = 1`, `DISJOINT = False`**, justified by L04's measured 98%
+   overlap rather than assumed.
+3. **L12 retired on economics with the significance limb explicitly set aside.** Retiring it
+   on p=0.58 would have been the cheaper sentence and the wrong one.
+4. **The S2 check surfaces rather than rejects**, for the reason above.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

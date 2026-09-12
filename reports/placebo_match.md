@@ -8,7 +8,7 @@ Offsets are SHA-256 of (session date, level type, index within session), mapped 
 
 **The scale was daily ATR(20) until 2026-09-09 and that failed 53 of 55 level types** - placebos sat 3x to 63x further from price than the real levels they stood in for, so every comparison would have measured exposure rather than reaction. The offset BOUNDS are unchanged; only the unit they multiply. See `decisions.md` 36.
 
-## FAIL - 7 of 55 level types are not matched
+## FAIL - 7 of 54 level types are not matched
 
 **No real-minus-placebo comparison on these level types is valid.** Any result would be a difference in exposure rather than in reaction.
 
@@ -40,11 +40,10 @@ Offsets are SHA-256 of (session date, level type, index within session), mapped 
 | fvg_w8_1m | MNQ | 246,325 | 75.2% | 71.4% | 0.95 | 6 | 5.818 | 0.97 | ok |
 | fvg_w8_5m | MGC | 79,588 | 75.4% | 73.7% | 0.98 | 1.3 | 1.346 | 1.04 | ok |
 | fvg_w8_5m | MNQ | 84,740 | 72.4% | 67.9% | 0.94 | 8.75 | 9.011 | 1.03 | ok |
-| on_range | MNQ | 8,208 | 41.3% | 38.6% | 0.94 | 22.75 | 22.28 | 0.98 | ok |
-| open_CME | MGC | 3,985 | 96.5% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
-| open_CME | MNQ | 4,104 | 95.5% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
-| open_RTH | MGC | 3,985 | 86.3% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
-| open_RTH | MNQ | 4,104 | 76.0% | 0.0% | 0.00 | 0 | nan | nan | **FAIL** |
+| open_CME | MGC | 3,985 | 96.5% | 0.0% | 0.00 | 0 | 0 | nan | **FAIL** |
+| open_CME | MNQ | 4,104 | 95.5% | 0.0% | 0.00 | 0 | 0 | nan | **FAIL** |
+| open_RTH | MGC | 3,985 | 86.3% | 0.0% | 0.00 | 0 | 0 | nan | **FAIL** |
+| open_RTH | MNQ | 4,104 | 76.0% | 0.0% | 0.00 | 0 | 0 | nan | **FAIL** |
 | or15 | MGC | 7,970 | 70.0% | 69.0% | 0.99 | 1.6 | 1.537 | 0.96 | ok |
 | or15 | MNQ | 8,208 | 65.5% | 56.6% | 0.86 | 10 | 8.217 | 0.82 | ok |
 | or30 | MGC | 7,970 | 61.5% | 60.0% | 0.98 | 2.3 | 2.247 | 0.98 | ok |
@@ -245,13 +244,6 @@ A median can match while the distributions differ. Deciles of |level - price at 
 |---|---|---|---|---|---|---|---|---|---|
 | real | 2.125 | 3.5 | 5 | 6.625 | 8.75 | 11.38 | 15 | 20.75 | 31.75 |
 | placebo | 1.081 | 2.326 | 3.897 | 5.994 | 9.011 | 13.18 | 19.95 | 31.72 | 58.43 |
-
-**on_range / MNQ**
-
-| | d1 | d2 | d3 | d4 | d5 | d6 | d7 | d8 | d9 |
-|---|---|---|---|---|---|---|---|---|---|
-| real | 3.25 | 6.5 | 10.5 | 16 | 22.75 | 33.25 | 50 | 77.5 | 131.2 |
-| placebo | 3.203 | 6.396 | 10.07 | 15.15 | 22.28 | 32.4 | 49.31 | 78.17 | 137.1 |
 
 **open_CME / MGC**
 

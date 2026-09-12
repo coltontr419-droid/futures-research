@@ -1876,6 +1876,25 @@
   name: prior_session_extremes
   # Stage numbering per reports/STAGES.md, adopted 2026-09-12.
   stopped_at: S7
+  # ---- CORRECTION 2026-09-12: the S7 failure is resolution as much as multiplicity ----
+  # L04's observed +3.54 bps sat BELOW ITS OWN BH rank-1 bar of 3.72 bps (bootstrap SE 1.244,
+  # 18 tests). No survivor was reachable at the effect size actually observed, so "failed the
+  # correction" understates it: the test was operating at the edge of its resolution.
+  # STATUS IS UNCHANGED AND stopped_at S7 STANDS. stage1_inconclusive with the mechanism
+  # uncontradicted remains the right reading - this makes the inconclusiveness better
+  # understood, not different.
+  # The out-of-sample test (L12, MNQ) had 76.2% power against this +3.54 estimate and
+  # delivered +0.306 bps, so THAT MAGNITUDE does not replicate. It cannot speak to a smaller
+  # real effect: power was 7-21% across the lower half of L12's registered range.
+  # decisions.md 45, reports/l12_stage1.md.
+  resolution_note:
+    observed_bps: 3.54
+    bootstrap_se_bps: 1.244
+    bh_rank1_bar_bps: 3.72
+    survivor_reachable_at_observed_effect: false
+    out_of_sample: >
+      L12 on MNQ: 76.2% power against +3.54 bps, delivered +0.306 bps. That magnitude does
+      not replicate; a smaller effect is untested.
   stopped_at_reason: >
     inconclusive: 5 of 18 nominal separations, ZERO surviving BH. Cleared S5, S6 and the S8 era split; failed only multiplicity.
   mechanism: >
@@ -2771,9 +2790,10 @@
 
 - id: L12
   name: asia_session_extreme_reclaim_out_of_sample
-  stopped_at: S5
+  stopped_at: S7
   stopped_at_reason: >
-    registered at S1-S2; S3 firing rate and S6 placebo match measured; AWAITING THE S5 GATE before any run.
+    cleared S1-S6 including the S5 gate (entry-minute sd 202-206, hi/lo collision 0.0-0.1%),
+    ran at S7 and is retired on S8 economics. reports/l12_stage1.md.
   # ================== REGISTERED 2026-09-11, BEFORE THE RUN ==================
   # THIS HYPOTHESIS WAS SUGGESTED BY LOOKING AT DATA. That is stated first because it is the
   # single most important fact about it. L04 tested three session types on MGC; sess_Asia
@@ -2843,15 +2863,28 @@
   horizon_minutes: [180]
   hold_hours: [3]
   registered: 2026-09-11
-  status: untested
+  status: retired
+  retired_reason: >
+    RETIRED ON ECONOMICS, NOT ON SIGNIFICANCE. 0 of 9 cells separate and the mean difference
+    is +0.306 bps against a 0.48 bps round-trip cost floor - 0.64x, not tradeable - and 4-11x
+    short of its own registered +1.3 to +3.5 bps. Positive in 8 of 9 cells, so the SIGN
+    survived; nothing else did.
+    THE REFUTATION DELIBERATELY DOES NOT REST ON THE P-VALUES. The applicable BH rank-1
+    threshold at this n is 2.82 bps (bootstrap SE 1.016), so a survivor was reachable only in
+    the TOP FIFTH of the registered range - 6.8% power at the bottom of it. Citing p=0.5810
+    as refutation would be the S4 error this programme exists to prevent. The pre-registration
+    contained an unsatisfiable significance limb and that was not noticed until after the run;
+    decisions.md 45 records it and proposes a standing S2 check.
+    WHAT IT SETTLES: 76.2% power against L04's +3.54 bps, delivered +0.306 - that magnitude
+    does not replicate out of sample. WHAT IT DOES NOT: whether a smaller real effect exists.
   grade: C
   tier: B
   param_cap: 2
   session: Asia
   symbols: [MNQ]
   registered_test_order: 20
-  test_order: 20
-  schedulable: true
+  test_order: null
+  schedulable: false
   # ---- MNQ ONLY, AND THAT IS THE ENTIRE POINT ----
   # The two-instrument Stage 4 requirement cannot be met and must not be. MGC is the
   # IN-SAMPLE instrument - it generated the claim - so adding it back would destroy the only
@@ -2901,3 +2934,19 @@
     aggregate: >
       ASSUMED CLOSED. m and k select overlapping subsets of the same reclaim, exactly as in
       L04 where the measured overlap was 98%.
+  report: reports/l12_stage1.md
+  cells: reports/l12_cells.json
+  trials_spent: 9
+  stage1_ran: '2026-09-12'
+  result:
+    cells: 9
+    separated: 0
+    bh_survivors: 0
+    mean_diff_bps: 0.306
+    positive_cells: 8
+    smallest_p: 0.5810
+    cost_floor_bps: 0.48
+    mean_over_cost: 0.64
+    bh_rank1_threshold_bps: 2.82
+    bootstrap_se_bps: 1.016
+    power_vs_l04_estimate: 0.762

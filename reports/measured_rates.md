@@ -19,18 +19,16 @@ Declared rates no longer gate anything. §21: F02 declared one firing per sessio
 
 | hypothesis | declared estimate | worst measured cell | source |
 |---|---|---|---|
-| F01 | 1/session | 66 | condition |
-| F02 | 0.061/session | 106 | cell file |
-| F03 | 1/session | 234 | cell file |
-| F04 | 1/session | 3,420 | cell file |
-| F05 | none | 5,367 | condition |
-| F06 | 1/session | 1,708 | condition |
-| F07 | 1/session | 3,387 | cell file |
-| F08 | none | 530 | condition |
-| F09 | 1/session | 2,365 | condition |
-| F10 | none | 1,585 | condition |
-| F11 | none | 43,759 | condition |
-| F14 | 7.9/session | 47,866 | cell file |
+| L01 | none | 0 | level_rates |
+| L02 | none | 2,733 | level_rates |
+| L03 | none | 2,982 | level_rates |
+| L04 | none | 167 | level_rates |
+| L06 | none | 18 | level_rates |
+| L07 | none | 7,499 | level_rates |
+| L08 | none | 3 | level_rates |
+| L09 | none | 46 | level_rates |
+| L10 | none | 1 | level_rates |
+| L12 | none | 4,351 | level_rates |
 
 The declared column is kept only so the gap stays visible. It gates nothing.
 
@@ -38,322 +36,936 @@ The declared column is kept only so the gap stays visible. It gates nothing.
 
 | hypothesis | product | horizon | measured (min-max) | swept range needs | status |
 |---|---|---|---|---|---|
-| F01 | MGC | 30m | 115 - 3,449 | 5,620 | BELOW SWEPT RANGE |
-| F01 | MGC | 60m | 115 - 3,449 | 5,620 | BELOW SWEPT RANGE |
-| F01 | MNQ | 30m | 66 - 3,523 | 19,722 | BELOW SWEPT RANGE |
-| F01 | MNQ | 60m | 66 - 3,523 | 19,722 | BELOW SWEPT RANGE |
-| F02 | MGC | 60m | 106 | 5,620 | BELOW SWEPT RANGE |
-| F02 | MGC | 120m | 106 | 2,862 | BELOW SWEPT RANGE |
-| F02 | MGC | 240m | 106 | 2,862 | BELOW SWEPT RANGE |
-| F02 | MNQ | 60m | 112 | 19,722 | BELOW SWEPT RANGE |
-| F02 | MNQ | 120m | 112 | 5,884 | BELOW SWEPT RANGE |
-| F02 | MNQ | 240m | 112 | 5,884 | BELOW SWEPT RANGE |
-| F03 | MGC | 30m | 403 | 5,620 | BELOW SWEPT RANGE |
-| F03 | MNQ | 30m | 234 | 19,722 | BELOW SWEPT RANGE |
-| F04 | MGC | 30m | 3,467 | 5,620 | BELOW SWEPT RANGE |
-| F04 | MGC | 60m | 3,467 | 5,620 | BELOW SWEPT RANGE |
-| F04 | MGC | 120m | 3,467 | 2,862 | **RESOLVABLE** |
-| F04 | MNQ | 30m | 3,420 | 19,722 | BELOW SWEPT RANGE |
-| F04 | MNQ | 60m | 3,420 | 19,722 | BELOW SWEPT RANGE |
-| F04 | MNQ | 120m | 3,420 | 5,884 | BELOW SWEPT RANGE |
-| F05 | MGC | 60m | 5,367 - 12,711 | 5,620 | MIXED |
-| F05 | MGC | 120m | 5,367 - 12,711 | 2,862 | **RESOLVABLE** |
-| F05 | MGC | 180m | 5,367 - 12,711 | 2,862 | **RESOLVABLE** |
-| F05 | MNQ | 60m | 6,965 - 17,051 | 19,722 | BELOW SWEPT RANGE |
-| F05 | MNQ | 120m | 6,965 - 17,051 | 5,884 | **RESOLVABLE** |
-| F05 | MNQ | 180m | 6,965 - 17,051 | 5,884 | **RESOLVABLE** |
-| F06 | MGC | 60m | 1,785 - 3,858 | 5,620 | BELOW SWEPT RANGE |
-| F06 | MGC | 120m | 1,785 - 3,858 | 2,862 | MIXED |
-| F06 | MGC | 180m | 1,785 - 3,858 | 2,862 | MIXED |
-| F06 | MNQ | 60m | 1,708 - 3,558 | 19,722 | BELOW SWEPT RANGE |
-| F06 | MNQ | 120m | 1,708 - 3,558 | 5,884 | BELOW SWEPT RANGE |
-| F06 | MNQ | 180m | 1,708 - 3,558 | 5,884 | BELOW SWEPT RANGE |
-| F07 | MGC | 30m | 3,597 | 5,620 | BELOW SWEPT RANGE |
-| F07 | MGC | 60m | 3,597 | 5,620 | BELOW SWEPT RANGE |
-| F07 | MGC | 90m | 3,597 | 5,620 | BELOW SWEPT RANGE |
-| F07 | MNQ | 30m | 3,387 | 19,722 | BELOW SWEPT RANGE |
-| F07 | MNQ | 60m | 3,387 | 19,722 | BELOW SWEPT RANGE |
-| F07 | MNQ | 90m | 3,387 | 19,722 | BELOW SWEPT RANGE |
-| F08 | MGC | 60m | 530 - 6,151 | 5,620 | MIXED |
-| F08 | MGC | 120m | 530 - 6,151 | 2,862 | MIXED |
-| F08 | MGC | 180m | 530 - 6,151 | 2,862 | MIXED |
-| F08 | MNQ | 60m | 530 - 6,151 | 19,722 | BELOW SWEPT RANGE |
-| F08 | MNQ | 120m | 530 - 6,151 | 5,884 | MIXED |
-| F08 | MNQ | 180m | 530 - 6,151 | 5,884 | MIXED |
-| F09 | MGC | 30m | 2,365 - 2,378 | 5,620 | BELOW SWEPT RANGE |
-| F09 | MGC | 60m | 2,365 - 2,378 | 5,620 | BELOW SWEPT RANGE |
-| F09 | MGC | 90m | 2,365 - 2,378 | 5,620 | BELOW SWEPT RANGE |
-| F09 | MNQ | 30m | 3,378 - 3,406 | 19,722 | BELOW SWEPT RANGE |
-| F09 | MNQ | 60m | 3,378 - 3,406 | 19,722 | BELOW SWEPT RANGE |
-| F09 | MNQ | 90m | 3,378 - 3,406 | 19,722 | BELOW SWEPT RANGE |
-| F10 | MGC | 30m | 5,141 | 5,620 | BELOW SWEPT RANGE |
-| F10 | MGC | 60m | 2,928 | 5,620 | BELOW SWEPT RANGE |
-| F10 | MGC | 120m | 1,667 | 2,862 | BELOW SWEPT RANGE |
-| F10 | MNQ | 30m | 5,594 | 19,722 | BELOW SWEPT RANGE |
-| F10 | MNQ | 60m | 2,966 | 19,722 | BELOW SWEPT RANGE |
-| F10 | MNQ | 120m | 1,585 | 5,884 | BELOW SWEPT RANGE |
-| F11 | MGC | 30m | 173,879 | 5,620 | **RESOLVABLE** |
-| F11 | MGC | 60m | 89,181 | 5,620 | **RESOLVABLE** |
-| F11 | MGC | 120m | 46,695 | 2,862 | **RESOLVABLE** |
-| F11 | MNQ | 30m | 164,775 | 19,722 | **RESOLVABLE** |
-| F11 | MNQ | 60m | 83,263 | 19,722 | **RESOLVABLE** |
-| F11 | MNQ | 120m | 43,759 | 5,884 | **RESOLVABLE** |
-| F14 | MGC | 30m | 51,753 | 5,620 | **RESOLVABLE** |
-| F14 | MGC | 60m | 51,753 | 5,620 | **RESOLVABLE** |
-| F14 | MGC | 120m | 51,753 | 2,862 | **RESOLVABLE** |
-| F14 | MNQ | 30m | 47,866 | 19,722 | **RESOLVABLE** |
-| F14 | MNQ | 60m | 47,866 | 19,722 | **RESOLVABLE** |
-| F14 | MNQ | 120m | 47,866 | 5,884 | **RESOLVABLE** |
+| L01 | MGC | 30m | 0 - 211 | 5,620 | BELOW SWEPT RANGE |
+| L01 | MGC | 60m | 0 - 211 | 5,620 | BELOW SWEPT RANGE |
+| L01 | MGC | 120m | 0 - 211 | 2,862 | BELOW SWEPT RANGE |
+| L01 | MNQ | 30m | 0 - 237 | 19,722 | BELOW SWEPT RANGE |
+| L01 | MNQ | 60m | 0 - 237 | 19,722 | BELOW SWEPT RANGE |
+| L01 | MNQ | 120m | 0 - 237 | 5,884 | BELOW SWEPT RANGE |
+| L02 | MGC | 60m | 2,898 - 4,589 | 5,620 | BELOW SWEPT RANGE |
+| L02 | MGC | 120m | 2,814 - 4,232 | 2,862 | MIXED |
+| L02 | MGC | 180m | 2,733 - 4,056 | 2,862 | MIXED |
+| L02 | MNQ | 60m | 3,479 - 4,435 | 19,722 | BELOW SWEPT RANGE |
+| L02 | MNQ | 120m | 3,363 - 4,075 | 5,884 | BELOW SWEPT RANGE |
+| L02 | MNQ | 180m | 3,248 - 3,900 | 5,884 | BELOW SWEPT RANGE |
+| L03 | MGC | 60m | 3,061 - 4,642 | 5,620 | BELOW SWEPT RANGE |
+| L03 | MGC | 120m | 3,040 - 4,572 | 2,862 | **RESOLVABLE** |
+| L03 | MGC | 180m | 3,026 - 4,528 | 2,862 | **RESOLVABLE** |
+| L03 | MNQ | 60m | 3,032 - 3,706 | 19,722 | BELOW SWEPT RANGE |
+| L03 | MNQ | 120m | 3,005 - 3,671 | 5,884 | BELOW SWEPT RANGE |
+| L03 | MNQ | 180m | 2,982 - 3,634 | 5,884 | BELOW SWEPT RANGE |
+| L04 | MGC | 60m | 167 - 5,064 | 5,620 | BELOW SWEPT RANGE |
+| L04 | MGC | 120m | 167 - 4,928 | 2,862 | MIXED |
+| L04 | MGC | 180m | 167 - 4,774 | 2,862 | MIXED |
+| L04 | MNQ | 60m | 411 - 5,328 | 19,722 | BELOW SWEPT RANGE |
+| L04 | MNQ | 120m | 411 - 5,130 | 5,884 | BELOW SWEPT RANGE |
+| L04 | MNQ | 180m | 411 - 4,967 | 5,884 | BELOW SWEPT RANGE |
+| L06 | MGC | 60m | 18 - 269 | 5,620 | BELOW SWEPT RANGE |
+| L06 | MGC | 120m | 18 - 269 | 2,862 | BELOW SWEPT RANGE |
+| L06 | MGC | 180m | 18 - 269 | 2,862 | BELOW SWEPT RANGE |
+| L06 | MNQ | 60m | 20 - 303 | 19,722 | BELOW SWEPT RANGE |
+| L06 | MNQ | 120m | 20 - 303 | 5,884 | BELOW SWEPT RANGE |
+| L06 | MNQ | 180m | 20 - 303 | 5,884 | BELOW SWEPT RANGE |
+| L07 | MGC | 60m | 12,000 - 74,891 | 5,620 | **RESOLVABLE** |
+| L07 | MGC | 120m | 9,326 - 40,920 | 2,862 | **RESOLVABLE** |
+| L07 | MGC | 180m | 7,936 - 29,259 | 2,862 | **RESOLVABLE** |
+| L07 | MNQ | 60m | 11,797 - 70,205 | 19,722 | MIXED |
+| L07 | MNQ | 120m | 8,951 - 38,747 | 5,884 | **RESOLVABLE** |
+| L07 | MNQ | 180m | 7,499 - 27,239 | 5,884 | **RESOLVABLE** |
+| L08 | MGC | 60m | 3 - 698 | 5,620 | BELOW SWEPT RANGE |
+| L08 | MGC | 120m | 3 - 698 | 2,862 | BELOW SWEPT RANGE |
+| L08 | MGC | 180m | 3 - 698 | 2,862 | BELOW SWEPT RANGE |
+| L08 | MNQ | 60m | 4 - 705 | 19,722 | BELOW SWEPT RANGE |
+| L08 | MNQ | 120m | 4 - 705 | 5,884 | BELOW SWEPT RANGE |
+| L08 | MNQ | 180m | 4 - 705 | 5,884 | BELOW SWEPT RANGE |
+| L09 | MGC | 60m | 46 - 364 | 5,620 | BELOW SWEPT RANGE |
+| L09 | MGC | 120m | 46 - 364 | 2,862 | BELOW SWEPT RANGE |
+| L09 | MGC | 180m | 46 - 364 | 2,862 | BELOW SWEPT RANGE |
+| L09 | MNQ | 60m | 48 - 446 | 19,722 | BELOW SWEPT RANGE |
+| L09 | MNQ | 120m | 48 - 446 | 5,884 | BELOW SWEPT RANGE |
+| L09 | MNQ | 180m | 48 - 446 | 5,884 | BELOW SWEPT RANGE |
+| L10 | MGC | 30m | 1 - 91 | 5,620 | BELOW SWEPT RANGE |
+| L10 | MGC | 60m | 1 - 91 | 5,620 | BELOW SWEPT RANGE |
+| L10 | MGC | 120m | 1 - 91 | 2,862 | BELOW SWEPT RANGE |
+| L10 | MNQ | 30m | 2 - 40 | 19,722 | BELOW SWEPT RANGE |
+| L10 | MNQ | 60m | 2 - 40 | 19,722 | BELOW SWEPT RANGE |
+| L10 | MNQ | 120m | 2 - 40 | 5,884 | BELOW SWEPT RANGE |
+| L12 | MNQ | 180m | 4,351 - 4,967 | 5,884 | BELOW SWEPT RANGE |
 
 ## Every cell
 
 | hypothesis | product | cell | horizon | firings | independent | source |
 |---|---|---|---|---|---|---|
-| F01 | MGC | k=0.0 vol=>median | 30m | 1,473 | 1,473 | condition |
-| F01 | MGC | k=0.0 vol=>p66 | 30m | 1,063 | 1,063 | condition |
-| F01 | MGC | k=0.0 vol=none | 30m | 3,449 | 3,449 | condition |
-| F01 | MGC | k=0.5 vol=>median | 30m | 562 | 562 | condition |
-| F01 | MGC | k=0.5 vol=>p66 | 30m | 406 | 406 | condition |
-| F01 | MGC | k=0.5 vol=none | 30m | 1,385 | 1,385 | condition |
-| F01 | MGC | k=1.0 vol=>median | 30m | 162 | 162 | condition |
-| F01 | MGC | k=1.0 vol=>p66 | 30m | 115 | 115 | condition |
-| F01 | MGC | k=1.0 vol=none | 30m | 455 | 455 | condition |
-| F01 | MGC | k=0.0 vol=>median | 60m | 1,473 | 1,473 | condition |
-| F01 | MGC | k=0.0 vol=>p66 | 60m | 1,063 | 1,063 | condition |
-| F01 | MGC | k=0.0 vol=none | 60m | 3,449 | 3,449 | condition |
-| F01 | MGC | k=0.5 vol=>median | 60m | 562 | 562 | condition |
-| F01 | MGC | k=0.5 vol=>p66 | 60m | 406 | 406 | condition |
-| F01 | MGC | k=0.5 vol=none | 60m | 1,385 | 1,385 | condition |
-| F01 | MGC | k=1.0 vol=>median | 60m | 162 | 162 | condition |
-| F01 | MGC | k=1.0 vol=>p66 | 60m | 115 | 115 | condition |
-| F01 | MGC | k=1.0 vol=none | 60m | 455 | 455 | condition |
-| F01 | MNQ | k=0.0 vol=>median | 30m | 1,630 | 1,630 | condition |
-| F01 | MNQ | k=0.0 vol=>p66 | 30m | 1,135 | 1,135 | condition |
-| F01 | MNQ | k=0.0 vol=none | 30m | 3,523 | 3,523 | condition |
-| F01 | MNQ | k=0.5 vol=>median | 30m | 481 | 481 | condition |
-| F01 | MNQ | k=0.5 vol=>p66 | 30m | 334 | 334 | condition |
-| F01 | MNQ | k=0.5 vol=none | 30m | 1,106 | 1,106 | condition |
-| F01 | MNQ | k=1.0 vol=>median | 30m | 108 | 108 | condition |
-| F01 | MNQ | k=1.0 vol=>p66 | 30m | 66 | 66 | condition |
-| F01 | MNQ | k=1.0 vol=none | 30m | 271 | 271 | condition |
-| F01 | MNQ | k=0.0 vol=>median | 60m | 1,630 | 1,630 | condition |
-| F01 | MNQ | k=0.0 vol=>p66 | 60m | 1,135 | 1,135 | condition |
-| F01 | MNQ | k=0.0 vol=none | 60m | 3,523 | 3,523 | condition |
-| F01 | MNQ | k=0.5 vol=>median | 60m | 481 | 481 | condition |
-| F01 | MNQ | k=0.5 vol=>p66 | 60m | 334 | 334 | condition |
-| F01 | MNQ | k=0.5 vol=none | 60m | 1,106 | 1,106 | condition |
-| F01 | MNQ | k=1.0 vol=>median | 60m | 108 | 108 | condition |
-| F01 | MNQ | k=1.0 vol=>p66 | 60m | 66 | 66 | condition |
-| F01 | MNQ | k=1.0 vol=none | 60m | 271 | 271 | condition |
-| F02 | MGC | worst of 24 cells | 60m | 106 | 106 | cell file |
-| F02 | MGC | worst of 24 cells | 120m | 106 | 106 | cell file |
-| F02 | MGC | worst of 24 cells | 240m | 106 | 106 | cell file |
-| F02 | MNQ | worst of 24 cells | 60m | 112 | 112 | cell file |
-| F02 | MNQ | worst of 24 cells | 120m | 112 | 112 | cell file |
-| F02 | MNQ | worst of 24 cells | 240m | 112 | 112 | cell file |
-| F03 | MGC | worst of 117 cells | 30m | 403 | 403 | cell file |
-| F03 | MNQ | worst of 117 cells | 30m | 234 | 234 | cell file |
-| F04 | MGC | worst of 6 cells | 30m | 3,467 | 3,467 | cell file |
-| F04 | MGC | worst of 6 cells | 60m | 3,467 | 3,467 | cell file |
-| F04 | MGC | worst of 6 cells | 120m | 3,467 | 3,467 | cell file |
-| F04 | MNQ | worst of 6 cells | 30m | 3,420 | 3,420 | cell file |
-| F04 | MNQ | worst of 6 cells | 60m | 3,420 | 3,420 | cell file |
-| F04 | MNQ | worst of 6 cells | 120m | 3,420 | 3,420 | cell file |
-| F05 | MGC | vol_pct=15 k=1.5 | 60m | 8,483 | 8,483 | condition |
-| F05 | MGC | vol_pct=15 k=2.0 | 60m | 6,891 | 6,891 | condition |
-| F05 | MGC | vol_pct=15 k=2.5 | 60m | 5,367 | 5,367 | condition |
-| F05 | MGC | vol_pct=20 k=1.5 | 60m | 10,622 | 10,622 | condition |
-| F05 | MGC | vol_pct=20 k=2.0 | 60m | 8,664 | 8,664 | condition |
-| F05 | MGC | vol_pct=20 k=2.5 | 60m | 6,784 | 6,784 | condition |
-| F05 | MGC | vol_pct=25 k=1.5 | 60m | 12,711 | 12,711 | condition |
-| F05 | MGC | vol_pct=25 k=2.0 | 60m | 10,430 | 10,430 | condition |
-| F05 | MGC | vol_pct=25 k=2.5 | 60m | 8,207 | 8,207 | condition |
-| F05 | MGC | vol_pct=15 k=1.5 | 120m | 8,483 | 8,483 | condition |
-| F05 | MGC | vol_pct=15 k=2.0 | 120m | 6,891 | 6,891 | condition |
-| F05 | MGC | vol_pct=15 k=2.5 | 120m | 5,367 | 5,367 | condition |
-| F05 | MGC | vol_pct=20 k=1.5 | 120m | 10,622 | 10,622 | condition |
-| F05 | MGC | vol_pct=20 k=2.0 | 120m | 8,664 | 8,664 | condition |
-| F05 | MGC | vol_pct=20 k=2.5 | 120m | 6,784 | 6,784 | condition |
-| F05 | MGC | vol_pct=25 k=1.5 | 120m | 12,711 | 12,711 | condition |
-| F05 | MGC | vol_pct=25 k=2.0 | 120m | 10,430 | 10,430 | condition |
-| F05 | MGC | vol_pct=25 k=2.5 | 120m | 8,207 | 8,207 | condition |
-| F05 | MGC | vol_pct=15 k=1.5 | 180m | 8,483 | 8,483 | condition |
-| F05 | MGC | vol_pct=15 k=2.0 | 180m | 6,891 | 6,891 | condition |
-| F05 | MGC | vol_pct=15 k=2.5 | 180m | 5,367 | 5,367 | condition |
-| F05 | MGC | vol_pct=20 k=1.5 | 180m | 10,622 | 10,622 | condition |
-| F05 | MGC | vol_pct=20 k=2.0 | 180m | 8,664 | 8,664 | condition |
-| F05 | MGC | vol_pct=20 k=2.5 | 180m | 6,784 | 6,784 | condition |
-| F05 | MGC | vol_pct=25 k=1.5 | 180m | 12,711 | 12,711 | condition |
-| F05 | MGC | vol_pct=25 k=2.0 | 180m | 10,430 | 10,430 | condition |
-| F05 | MGC | vol_pct=25 k=2.5 | 180m | 8,207 | 8,207 | condition |
-| F05 | MNQ | vol_pct=15 k=1.5 | 60m | 11,371 | 11,371 | condition |
-| F05 | MNQ | vol_pct=15 k=2.0 | 60m | 9,059 | 9,059 | condition |
-| F05 | MNQ | vol_pct=15 k=2.5 | 60m | 6,965 | 6,965 | condition |
-| F05 | MNQ | vol_pct=20 k=1.5 | 60m | 14,221 | 14,221 | condition |
-| F05 | MNQ | vol_pct=20 k=2.0 | 60m | 11,446 | 11,446 | condition |
-| F05 | MNQ | vol_pct=20 k=2.5 | 60m | 8,860 | 8,860 | condition |
-| F05 | MNQ | vol_pct=25 k=1.5 | 60m | 17,051 | 17,051 | condition |
-| F05 | MNQ | vol_pct=25 k=2.0 | 60m | 13,822 | 13,822 | condition |
-| F05 | MNQ | vol_pct=25 k=2.5 | 60m | 10,781 | 10,781 | condition |
-| F05 | MNQ | vol_pct=15 k=1.5 | 120m | 11,371 | 11,371 | condition |
-| F05 | MNQ | vol_pct=15 k=2.0 | 120m | 9,059 | 9,059 | condition |
-| F05 | MNQ | vol_pct=15 k=2.5 | 120m | 6,965 | 6,965 | condition |
-| F05 | MNQ | vol_pct=20 k=1.5 | 120m | 14,221 | 14,221 | condition |
-| F05 | MNQ | vol_pct=20 k=2.0 | 120m | 11,446 | 11,446 | condition |
-| F05 | MNQ | vol_pct=20 k=2.5 | 120m | 8,860 | 8,860 | condition |
-| F05 | MNQ | vol_pct=25 k=1.5 | 120m | 17,051 | 17,051 | condition |
-| F05 | MNQ | vol_pct=25 k=2.0 | 120m | 13,822 | 13,822 | condition |
-| F05 | MNQ | vol_pct=25 k=2.5 | 120m | 10,781 | 10,781 | condition |
-| F05 | MNQ | vol_pct=15 k=1.5 | 180m | 11,371 | 11,371 | condition |
-| F05 | MNQ | vol_pct=15 k=2.0 | 180m | 9,059 | 9,059 | condition |
-| F05 | MNQ | vol_pct=15 k=2.5 | 180m | 6,965 | 6,965 | condition |
-| F05 | MNQ | vol_pct=20 k=1.5 | 180m | 14,221 | 14,221 | condition |
-| F05 | MNQ | vol_pct=20 k=2.0 | 180m | 11,446 | 11,446 | condition |
-| F05 | MNQ | vol_pct=20 k=2.5 | 180m | 8,860 | 8,860 | condition |
-| F05 | MNQ | vol_pct=25 k=1.5 | 180m | 17,051 | 17,051 | condition |
-| F05 | MNQ | vol_pct=25 k=2.0 | 180m | 13,822 | 13,822 | condition |
-| F05 | MNQ | vol_pct=25 k=2.5 | 180m | 10,781 | 10,781 | condition |
-| F06 | MGC | W=15 1 close vol=>median | 60m | 1,842 | 1,842 | condition |
-| F06 | MGC | W=15 1 close vol=none | 60m | 3,858 | 3,858 | condition |
-| F06 | MGC | W=15 2 closes vol=>median | 60m | 1,815 | 1,815 | condition |
-| F06 | MGC | W=15 2 closes vol=none | 60m | 3,821 | 3,821 | condition |
-| F06 | MGC | W=30 1 close vol=>median | 60m | 1,841 | 1,841 | condition |
-| F06 | MGC | W=30 1 close vol=none | 60m | 3,852 | 3,852 | condition |
-| F06 | MGC | W=30 2 closes vol=>median | 60m | 1,796 | 1,796 | condition |
-| F06 | MGC | W=30 2 closes vol=none | 60m | 3,777 | 3,777 | condition |
-| F06 | MGC | W=5 1 close vol=>median | 60m | 1,794 | 1,794 | condition |
-| F06 | MGC | W=5 1 close vol=none | 60m | 3,766 | 3,766 | condition |
-| F06 | MGC | W=5 2 closes vol=>median | 60m | 1,785 | 1,785 | condition |
-| F06 | MGC | W=5 2 closes vol=none | 60m | 3,752 | 3,752 | condition |
-| F06 | MGC | W=15 1 close vol=>median | 120m | 1,842 | 1,842 | condition |
-| F06 | MGC | W=15 1 close vol=none | 120m | 3,858 | 3,858 | condition |
-| F06 | MGC | W=15 2 closes vol=>median | 120m | 1,815 | 1,815 | condition |
-| F06 | MGC | W=15 2 closes vol=none | 120m | 3,821 | 3,821 | condition |
-| F06 | MGC | W=30 1 close vol=>median | 120m | 1,841 | 1,841 | condition |
-| F06 | MGC | W=30 1 close vol=none | 120m | 3,852 | 3,852 | condition |
-| F06 | MGC | W=30 2 closes vol=>median | 120m | 1,796 | 1,796 | condition |
-| F06 | MGC | W=30 2 closes vol=none | 120m | 3,777 | 3,777 | condition |
-| F06 | MGC | W=5 1 close vol=>median | 120m | 1,794 | 1,794 | condition |
-| F06 | MGC | W=5 1 close vol=none | 120m | 3,766 | 3,766 | condition |
-| F06 | MGC | W=5 2 closes vol=>median | 120m | 1,785 | 1,785 | condition |
-| F06 | MGC | W=5 2 closes vol=none | 120m | 3,752 | 3,752 | condition |
-| F06 | MGC | W=15 1 close vol=>median | 180m | 1,842 | 1,842 | condition |
-| F06 | MGC | W=15 1 close vol=none | 180m | 3,858 | 3,858 | condition |
-| F06 | MGC | W=15 2 closes vol=>median | 180m | 1,815 | 1,815 | condition |
-| F06 | MGC | W=15 2 closes vol=none | 180m | 3,821 | 3,821 | condition |
-| F06 | MGC | W=30 1 close vol=>median | 180m | 1,841 | 1,841 | condition |
-| F06 | MGC | W=30 1 close vol=none | 180m | 3,852 | 3,852 | condition |
-| F06 | MGC | W=30 2 closes vol=>median | 180m | 1,796 | 1,796 | condition |
-| F06 | MGC | W=30 2 closes vol=none | 180m | 3,777 | 3,777 | condition |
-| F06 | MGC | W=5 1 close vol=>median | 180m | 1,794 | 1,794 | condition |
-| F06 | MGC | W=5 1 close vol=none | 180m | 3,766 | 3,766 | condition |
-| F06 | MGC | W=5 2 closes vol=>median | 180m | 1,785 | 1,785 | condition |
-| F06 | MGC | W=5 2 closes vol=none | 180m | 3,752 | 3,752 | condition |
-| F06 | MNQ | W=15 1 close vol=>median | 60m | 1,716 | 1,716 | condition |
-| F06 | MNQ | W=15 1 close vol=none | 60m | 3,557 | 3,557 | condition |
-| F06 | MNQ | W=15 2 closes vol=>median | 60m | 1,715 | 1,715 | condition |
-| F06 | MNQ | W=15 2 closes vol=none | 60m | 3,554 | 3,554 | condition |
-| F06 | MNQ | W=30 1 close vol=>median | 60m | 1,711 | 1,711 | condition |
-| F06 | MNQ | W=30 1 close vol=none | 60m | 3,544 | 3,544 | condition |
-| F06 | MNQ | W=30 2 closes vol=>median | 60m | 1,708 | 1,708 | condition |
-| F06 | MNQ | W=30 2 closes vol=none | 60m | 3,528 | 3,528 | condition |
-| F06 | MNQ | W=5 1 close vol=>median | 60m | 1,717 | 1,717 | condition |
-| F06 | MNQ | W=5 1 close vol=none | 60m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=5 2 closes vol=>median | 60m | 1,717 | 1,717 | condition |
-| F06 | MNQ | W=5 2 closes vol=none | 60m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=15 1 close vol=>median | 120m | 1,716 | 1,716 | condition |
-| F06 | MNQ | W=15 1 close vol=none | 120m | 3,557 | 3,557 | condition |
-| F06 | MNQ | W=15 2 closes vol=>median | 120m | 1,715 | 1,715 | condition |
-| F06 | MNQ | W=15 2 closes vol=none | 120m | 3,554 | 3,554 | condition |
-| F06 | MNQ | W=30 1 close vol=>median | 120m | 1,711 | 1,711 | condition |
-| F06 | MNQ | W=30 1 close vol=none | 120m | 3,544 | 3,544 | condition |
-| F06 | MNQ | W=30 2 closes vol=>median | 120m | 1,708 | 1,708 | condition |
-| F06 | MNQ | W=30 2 closes vol=none | 120m | 3,528 | 3,528 | condition |
-| F06 | MNQ | W=5 1 close vol=>median | 120m | 1,717 | 1,717 | condition |
-| F06 | MNQ | W=5 1 close vol=none | 120m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=5 2 closes vol=>median | 120m | 1,717 | 1,717 | condition |
-| F06 | MNQ | W=5 2 closes vol=none | 120m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=15 1 close vol=>median | 180m | 1,716 | 1,716 | condition |
-| F06 | MNQ | W=15 1 close vol=none | 180m | 3,557 | 3,557 | condition |
-| F06 | MNQ | W=15 2 closes vol=>median | 180m | 1,715 | 1,715 | condition |
-| F06 | MNQ | W=15 2 closes vol=none | 180m | 3,554 | 3,554 | condition |
-| F06 | MNQ | W=30 1 close vol=>median | 180m | 1,711 | 1,711 | condition |
-| F06 | MNQ | W=30 1 close vol=none | 180m | 3,544 | 3,544 | condition |
-| F06 | MNQ | W=30 2 closes vol=>median | 180m | 1,708 | 1,708 | condition |
-| F06 | MNQ | W=30 2 closes vol=none | 180m | 3,528 | 3,528 | condition |
-| F06 | MNQ | W=5 1 close vol=>median | 180m | 1,717 | 1,717 | condition |
-| F06 | MNQ | W=5 1 close vol=none | 180m | 3,558 | 3,558 | condition |
-| F06 | MNQ | W=5 2 closes vol=>median | 180m | 1,717 | 1,717 | condition |
-| F06 | MNQ | W=5 2 closes vol=none | 180m | 3,558 | 3,558 | condition |
-| F07 | MGC | worst of 12 cells | 30m | 3,597 | 3,597 | cell file |
-| F07 | MGC | worst of 12 cells | 60m | 3,597 | 3,597 | cell file |
-| F07 | MGC | worst of 12 cells | 90m | 3,597 | 3,597 | cell file |
-| F07 | MNQ | worst of 12 cells | 30m | 3,387 | 3,387 | cell file |
-| F07 | MNQ | worst of 12 cells | 60m | 3,387 | 3,387 | cell file |
-| F07 | MNQ | worst of 12 cells | 90m | 3,387 | 3,387 | cell file |
-| F08 | MGC | W=30 k=1.0 | 60m | 6,151 | 6,151 | condition |
-| F08 | MGC | W=30 k=1.5 | 60m | 2,095 | 2,095 | condition |
-| F08 | MGC | W=30 k=2.0 | 60m | 857 | 857 | condition |
-| F08 | MGC | W=60 k=1.0 | 60m | 3,141 | 3,141 | condition |
-| F08 | MGC | W=60 k=1.5 | 60m | 1,168 | 1,168 | condition |
-| F08 | MGC | W=60 k=2.0 | 60m | 530 | 530 | condition |
-| F08 | MGC | W=30 k=1.0 | 120m | 6,151 | 6,151 | condition |
-| F08 | MGC | W=30 k=1.5 | 120m | 2,095 | 2,095 | condition |
-| F08 | MGC | W=30 k=2.0 | 120m | 857 | 857 | condition |
-| F08 | MGC | W=60 k=1.0 | 120m | 3,141 | 3,141 | condition |
-| F08 | MGC | W=60 k=1.5 | 120m | 1,168 | 1,168 | condition |
-| F08 | MGC | W=60 k=2.0 | 120m | 530 | 530 | condition |
-| F08 | MGC | W=30 k=1.0 | 180m | 6,151 | 6,151 | condition |
-| F08 | MGC | W=30 k=1.5 | 180m | 2,095 | 2,095 | condition |
-| F08 | MGC | W=30 k=2.0 | 180m | 857 | 857 | condition |
-| F08 | MGC | W=60 k=1.0 | 180m | 3,141 | 3,141 | condition |
-| F08 | MGC | W=60 k=1.5 | 180m | 1,168 | 1,168 | condition |
-| F08 | MGC | W=60 k=2.0 | 180m | 530 | 530 | condition |
-| F08 | MNQ | W=30 k=1.0 | 60m | 6,151 | 6,151 | condition |
-| F08 | MNQ | W=30 k=1.5 | 60m | 2,095 | 2,095 | condition |
-| F08 | MNQ | W=30 k=2.0 | 60m | 857 | 857 | condition |
-| F08 | MNQ | W=60 k=1.0 | 60m | 3,141 | 3,141 | condition |
-| F08 | MNQ | W=60 k=1.5 | 60m | 1,168 | 1,168 | condition |
-| F08 | MNQ | W=60 k=2.0 | 60m | 530 | 530 | condition |
-| F08 | MNQ | W=30 k=1.0 | 120m | 6,151 | 6,151 | condition |
-| F08 | MNQ | W=30 k=1.5 | 120m | 2,095 | 2,095 | condition |
-| F08 | MNQ | W=30 k=2.0 | 120m | 857 | 857 | condition |
-| F08 | MNQ | W=60 k=1.0 | 120m | 3,141 | 3,141 | condition |
-| F08 | MNQ | W=60 k=1.5 | 120m | 1,168 | 1,168 | condition |
-| F08 | MNQ | W=60 k=2.0 | 120m | 530 | 530 | condition |
-| F08 | MNQ | W=30 k=1.0 | 180m | 6,151 | 6,151 | condition |
-| F08 | MNQ | W=30 k=1.5 | 180m | 2,095 | 2,095 | condition |
-| F08 | MNQ | W=30 k=2.0 | 180m | 857 | 857 | condition |
-| F08 | MNQ | W=60 k=1.0 | 180m | 3,141 | 3,141 | condition |
-| F08 | MNQ | W=60 k=1.5 | 180m | 1,168 | 1,168 | condition |
-| F08 | MNQ | W=60 k=2.0 | 180m | 530 | 530 | condition |
-| F09 | MGC | pre_window=30 | 30m | 2,365 | 2,365 | condition |
-| F09 | MGC | pre_window=60 | 30m | 2,378 | 2,378 | condition |
-| F09 | MGC | pre_window=30 | 60m | 2,365 | 2,365 | condition |
-| F09 | MGC | pre_window=60 | 60m | 2,378 | 2,378 | condition |
-| F09 | MGC | pre_window=30 | 90m | 2,365 | 2,365 | condition |
-| F09 | MGC | pre_window=60 | 90m | 2,378 | 2,378 | condition |
-| F09 | MNQ | pre_window=30 | 30m | 3,378 | 3,378 | condition |
-| F09 | MNQ | pre_window=60 | 30m | 3,406 | 3,406 | condition |
-| F09 | MNQ | pre_window=30 | 60m | 3,378 | 3,378 | condition |
-| F09 | MNQ | pre_window=60 | 60m | 3,406 | 3,406 | condition |
-| F09 | MNQ | pre_window=30 | 90m | 3,378 | 3,378 | condition |
-| F09 | MNQ | pre_window=60 | 90m | 3,406 | 3,406 | condition |
-| F10 | MGC | RSI(14) 30/70 crossings | 30m | 5,141 | 5,141 | condition |
-| F10 | MGC | RSI(14) 30/70 crossings | 60m | 2,928 | 2,928 | condition |
-| F10 | MGC | RSI(14) 30/70 crossings | 120m | 1,667 | 1,667 | condition |
-| F10 | MNQ | RSI(14) 30/70 crossings | 30m | 5,594 | 5,594 | condition |
-| F10 | MNQ | RSI(14) 30/70 crossings | 60m | 2,966 | 2,966 | condition |
-| F10 | MNQ | RSI(14) 30/70 crossings | 120m | 1,585 | 1,585 | condition |
-| F11 | MGC | MA(10)/MA(30) state | 30m | 173,879 | 173,879 | condition |
-| F11 | MGC | MA(10)/MA(30) state | 60m | 89,181 | 89,181 | condition |
-| F11 | MGC | MA(10)/MA(30) state | 120m | 46,695 | 46,695 | condition |
-| F11 | MNQ | MA(10)/MA(30) state | 30m | 164,775 | 164,775 | condition |
-| F11 | MNQ | MA(10)/MA(30) state | 60m | 83,263 | 83,263 | condition |
-| F11 | MNQ | MA(10)/MA(30) state | 120m | 43,759 | 43,759 | condition |
-| F14 | MGC | worst of 1 cells | 30m | 51,753 | 51,753 | cell file |
-| F14 | MGC | worst of 1 cells | 60m | 51,753 | 51,753 | cell file |
-| F14 | MGC | worst of 1 cells | 120m | 51,753 | 51,753 | cell file |
-| F14 | MNQ | worst of 1 cells | 30m | 47,866 | 47,866 | cell file |
-| F14 | MNQ | worst of 1 cells | 60m | 47,866 | 47,866 | cell file |
-| F14 | MNQ | worst of 1 cells | 120m | 47,866 | 47,866 | cell file |
+| L01 | MGC | anchor=CME d=0.5 | 30m | 211 | 211 | level_rates |
+| L01 | MGC | anchor=CME d=1.0 | 30m | 10 | 10 | level_rates |
+| L01 | MGC | anchor=CME d=1.5 | 30m | 2 | 2 | level_rates |
+| L01 | MGC | anchor=R24 d=0.5 | 30m | 211 | 211 | level_rates |
+| L01 | MGC | anchor=R24 d=1.0 | 30m | 10 | 10 | level_rates |
+| L01 | MGC | anchor=R24 d=1.5 | 30m | 2 | 2 | level_rates |
+| L01 | MGC | anchor=RTH d=0.5 | 30m | 25 | 25 | level_rates |
+| L01 | MGC | anchor=RTH d=1.0 | 30m | 1 | 1 | level_rates |
+| L01 | MGC | anchor=RTH d=1.5 | 30m | 0 | 0 | level_rates |
+| L01 | MGC | anchor=CME d=0.5 | 60m | 211 | 211 | level_rates |
+| L01 | MGC | anchor=CME d=1.0 | 60m | 10 | 10 | level_rates |
+| L01 | MGC | anchor=CME d=1.5 | 60m | 2 | 2 | level_rates |
+| L01 | MGC | anchor=R24 d=0.5 | 60m | 211 | 211 | level_rates |
+| L01 | MGC | anchor=R24 d=1.0 | 60m | 10 | 10 | level_rates |
+| L01 | MGC | anchor=R24 d=1.5 | 60m | 2 | 2 | level_rates |
+| L01 | MGC | anchor=RTH d=0.5 | 60m | 25 | 25 | level_rates |
+| L01 | MGC | anchor=RTH d=1.0 | 60m | 1 | 1 | level_rates |
+| L01 | MGC | anchor=RTH d=1.5 | 60m | 0 | 0 | level_rates |
+| L01 | MGC | anchor=CME d=0.5 | 120m | 211 | 211 | level_rates |
+| L01 | MGC | anchor=CME d=1.0 | 120m | 10 | 10 | level_rates |
+| L01 | MGC | anchor=CME d=1.5 | 120m | 2 | 2 | level_rates |
+| L01 | MGC | anchor=R24 d=0.5 | 120m | 211 | 211 | level_rates |
+| L01 | MGC | anchor=R24 d=1.0 | 120m | 10 | 10 | level_rates |
+| L01 | MGC | anchor=R24 d=1.5 | 120m | 2 | 2 | level_rates |
+| L01 | MGC | anchor=RTH d=0.5 | 120m | 25 | 25 | level_rates |
+| L01 | MGC | anchor=RTH d=1.0 | 120m | 1 | 1 | level_rates |
+| L01 | MGC | anchor=RTH d=1.5 | 120m | 0 | 0 | level_rates |
+| L01 | MNQ | anchor=CME d=0.5 | 30m | 237 | 237 | level_rates |
+| L01 | MNQ | anchor=CME d=1.0 | 30m | 10 | 10 | level_rates |
+| L01 | MNQ | anchor=CME d=1.5 | 30m | 3 | 3 | level_rates |
+| L01 | MNQ | anchor=R24 d=0.5 | 30m | 237 | 237 | level_rates |
+| L01 | MNQ | anchor=R24 d=1.0 | 30m | 10 | 10 | level_rates |
+| L01 | MNQ | anchor=R24 d=1.5 | 30m | 3 | 3 | level_rates |
+| L01 | MNQ | anchor=RTH d=0.5 | 30m | 89 | 89 | level_rates |
+| L01 | MNQ | anchor=RTH d=1.0 | 30m | 2 | 2 | level_rates |
+| L01 | MNQ | anchor=RTH d=1.5 | 30m | 0 | 0 | level_rates |
+| L01 | MNQ | anchor=CME d=0.5 | 60m | 237 | 237 | level_rates |
+| L01 | MNQ | anchor=CME d=1.0 | 60m | 10 | 10 | level_rates |
+| L01 | MNQ | anchor=CME d=1.5 | 60m | 3 | 3 | level_rates |
+| L01 | MNQ | anchor=R24 d=0.5 | 60m | 237 | 237 | level_rates |
+| L01 | MNQ | anchor=R24 d=1.0 | 60m | 10 | 10 | level_rates |
+| L01 | MNQ | anchor=R24 d=1.5 | 60m | 3 | 3 | level_rates |
+| L01 | MNQ | anchor=RTH d=0.5 | 60m | 89 | 89 | level_rates |
+| L01 | MNQ | anchor=RTH d=1.0 | 60m | 2 | 2 | level_rates |
+| L01 | MNQ | anchor=RTH d=1.5 | 60m | 0 | 0 | level_rates |
+| L01 | MNQ | anchor=CME d=0.5 | 120m | 237 | 237 | level_rates |
+| L01 | MNQ | anchor=CME d=1.0 | 120m | 10 | 10 | level_rates |
+| L01 | MNQ | anchor=CME d=1.5 | 120m | 3 | 3 | level_rates |
+| L01 | MNQ | anchor=R24 d=0.5 | 120m | 237 | 237 | level_rates |
+| L01 | MNQ | anchor=R24 d=1.0 | 120m | 10 | 10 | level_rates |
+| L01 | MNQ | anchor=R24 d=1.5 | 120m | 3 | 3 | level_rates |
+| L01 | MNQ | anchor=RTH d=0.5 | 120m | 89 | 89 | level_rates |
+| L01 | MNQ | anchor=RTH d=1.0 | 120m | 2 | 2 | level_rates |
+| L01 | MNQ | anchor=RTH d=1.5 | 120m | 0 | 0 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=2 | 60m | 5,678 | 4,565 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=3 | 60m | 5,712 | 4,581 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=5 | 60m | 5,724 | 4,589 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=2 | 60m | 5,412 | 4,417 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=3 | 60m | 5,540 | 4,488 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=5 | 60m | 5,619 | 4,524 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=2 | 60m | 4,357 | 3,681 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=3 | 60m | 4,784 | 3,974 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=5 | 60m | 5,118 | 4,188 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=2 | 60m | 5,019 | 4,454 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=3 | 60m | 5,051 | 4,479 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=5 | 60m | 5,068 | 4,490 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=2 | 60m | 4,766 | 4,269 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=3 | 60m | 4,892 | 4,361 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=5 | 60m | 4,977 | 4,418 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=2 | 60m | 3,778 | 3,445 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=3 | 60m | 4,163 | 3,764 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=5 | 60m | 4,492 | 4,022 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=2 | 60m | 4,112 | 3,976 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=3 | 60m | 4,147 | 4,006 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=5 | 60m | 4,159 | 4,017 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=2 | 60m | 3,877 | 3,752 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=3 | 60m | 4,002 | 3,872 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=5 | 60m | 4,082 | 3,940 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=2 | 60m | 3,001 | 2,898 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=3 | 60m | 3,328 | 3,220 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=5 | 60m | 3,644 | 3,525 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=2 | 120m | 5,678 | 4,207 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=3 | 120m | 5,712 | 4,226 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=5 | 120m | 5,724 | 4,232 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=2 | 120m | 5,412 | 4,076 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=3 | 120m | 5,540 | 4,140 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=5 | 120m | 5,619 | 4,177 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=2 | 120m | 4,357 | 3,444 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=3 | 120m | 4,784 | 3,696 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=5 | 120m | 5,118 | 3,888 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=2 | 120m | 5,019 | 4,144 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=3 | 120m | 5,051 | 4,156 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=5 | 120m | 5,068 | 4,167 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=2 | 120m | 4,766 | 3,978 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=3 | 120m | 4,892 | 4,054 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=5 | 120m | 4,977 | 4,099 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=2 | 120m | 3,778 | 3,236 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=3 | 120m | 4,163 | 3,527 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=5 | 120m | 4,492 | 3,757 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=2 | 120m | 4,112 | 3,822 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=3 | 120m | 4,147 | 3,849 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=5 | 120m | 4,159 | 3,858 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=2 | 120m | 3,877 | 3,615 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=3 | 120m | 4,002 | 3,726 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=5 | 120m | 4,082 | 3,788 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=2 | 120m | 3,001 | 2,814 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=3 | 120m | 3,328 | 3,115 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=5 | 120m | 3,644 | 3,405 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=2 | 180m | 5,678 | 4,035 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=3 | 180m | 5,712 | 4,050 | level_rates |
+| L02 | MGC | absorb W=15 m=2 k=5 | 180m | 5,724 | 4,056 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=2 | 180m | 5,412 | 3,921 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=3 | 180m | 5,540 | 3,975 | level_rates |
+| L02 | MGC | absorb W=15 m=4 k=5 | 180m | 5,619 | 3,997 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=2 | 180m | 4,357 | 3,332 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=3 | 180m | 4,784 | 3,564 | level_rates |
+| L02 | MGC | absorb W=15 m=8 k=5 | 180m | 5,118 | 3,746 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=2 | 180m | 5,019 | 3,960 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=3 | 180m | 5,051 | 3,970 | level_rates |
+| L02 | MGC | absorb W=30 m=2 k=5 | 180m | 5,068 | 3,979 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=2 | 180m | 4,766 | 3,821 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=3 | 180m | 4,892 | 3,884 | level_rates |
+| L02 | MGC | absorb W=30 m=4 k=5 | 180m | 4,977 | 3,920 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=2 | 180m | 3,778 | 3,131 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=3 | 180m | 4,163 | 3,402 | level_rates |
+| L02 | MGC | absorb W=30 m=8 k=5 | 180m | 4,492 | 3,612 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=2 | 180m | 4,112 | 3,682 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=3 | 180m | 4,147 | 3,709 | level_rates |
+| L02 | MGC | absorb W=60 m=2 k=5 | 180m | 4,159 | 3,716 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=2 | 180m | 3,877 | 3,495 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=3 | 180m | 4,002 | 3,594 | level_rates |
+| L02 | MGC | absorb W=60 m=4 k=5 | 180m | 4,082 | 3,649 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=2 | 180m | 3,001 | 2,733 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=3 | 180m | 3,328 | 3,022 | level_rates |
+| L02 | MGC | absorb W=60 m=8 k=5 | 180m | 3,644 | 3,296 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=2 | 60m | 5,165 | 4,427 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=3 | 60m | 5,175 | 4,435 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=5 | 60m | 5,178 | 4,435 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=2 | 60m | 5,082 | 4,372 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=3 | 60m | 5,129 | 4,405 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=5 | 60m | 5,150 | 4,420 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=2 | 60m | 4,695 | 4,084 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=3 | 60m | 4,907 | 4,237 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=5 | 60m | 5,029 | 4,333 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=2 | 60m | 4,716 | 4,368 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=3 | 60m | 4,729 | 4,378 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=5 | 60m | 4,732 | 4,381 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=2 | 60m | 4,618 | 4,289 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=3 | 60m | 4,683 | 4,342 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=5 | 60m | 4,707 | 4,361 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=2 | 60m | 4,236 | 3,945 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=3 | 60m | 4,469 | 4,147 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=5 | 60m | 4,587 | 4,250 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=2 | 60m | 4,075 | 3,980 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=3 | 60m | 4,084 | 3,989 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=5 | 60m | 4,085 | 3,990 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=2 | 60m | 3,975 | 3,883 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=3 | 60m | 4,041 | 3,949 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=5 | 60m | 4,065 | 3,970 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=2 | 60m | 3,560 | 3,479 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=3 | 60m | 3,781 | 3,692 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=5 | 60m | 3,930 | 3,837 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=2 | 120m | 5,165 | 4,052 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=3 | 120m | 5,175 | 4,057 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=5 | 120m | 5,178 | 4,057 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=2 | 120m | 5,082 | 4,011 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=3 | 120m | 5,129 | 4,032 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=5 | 120m | 5,150 | 4,040 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=2 | 120m | 4,695 | 3,770 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=3 | 120m | 4,907 | 3,905 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=5 | 120m | 5,029 | 3,982 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=2 | 120m | 4,716 | 4,062 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=3 | 120m | 4,729 | 4,071 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=5 | 120m | 4,732 | 4,075 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=2 | 120m | 4,618 | 3,998 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=3 | 120m | 4,683 | 4,038 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=5 | 120m | 4,707 | 4,054 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=2 | 120m | 4,236 | 3,697 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=3 | 120m | 4,469 | 3,878 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=5 | 120m | 4,587 | 3,972 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=2 | 120m | 4,075 | 3,824 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=3 | 120m | 4,084 | 3,833 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=5 | 120m | 4,085 | 3,834 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=2 | 120m | 3,975 | 3,735 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=3 | 120m | 4,041 | 3,796 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=5 | 120m | 4,065 | 3,815 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=2 | 120m | 3,560 | 3,363 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=3 | 120m | 3,781 | 3,558 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=5 | 120m | 3,930 | 3,695 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=2 | 180m | 5,165 | 3,882 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=3 | 180m | 5,175 | 3,888 | level_rates |
+| L02 | MNQ | absorb W=15 m=2 k=5 | 180m | 5,178 | 3,888 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=2 | 180m | 5,082 | 3,848 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=3 | 180m | 5,129 | 3,863 | level_rates |
+| L02 | MNQ | absorb W=15 m=4 k=5 | 180m | 5,150 | 3,873 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=2 | 180m | 4,695 | 3,631 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=3 | 180m | 4,907 | 3,748 | level_rates |
+| L02 | MNQ | absorb W=15 m=8 k=5 | 180m | 5,029 | 3,817 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=2 | 180m | 4,716 | 3,889 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=3 | 180m | 4,729 | 3,896 | level_rates |
+| L02 | MNQ | absorb W=30 m=2 k=5 | 180m | 4,732 | 3,900 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=2 | 180m | 4,618 | 3,831 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=3 | 180m | 4,683 | 3,863 | level_rates |
+| L02 | MNQ | absorb W=30 m=4 k=5 | 180m | 4,707 | 3,879 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=2 | 180m | 4,236 | 3,563 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=3 | 180m | 4,469 | 3,722 | level_rates |
+| L02 | MNQ | absorb W=30 m=8 k=5 | 180m | 4,587 | 3,807 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=2 | 180m | 4,075 | 3,682 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=3 | 180m | 4,084 | 3,690 | level_rates |
+| L02 | MNQ | absorb W=60 m=2 k=5 | 180m | 4,085 | 3,691 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=2 | 180m | 3,975 | 3,598 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=3 | 180m | 4,041 | 3,654 | level_rates |
+| L02 | MNQ | absorb W=60 m=4 k=5 | 180m | 4,065 | 3,674 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=2 | 180m | 3,560 | 3,248 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=3 | 180m | 3,781 | 3,433 | level_rates |
+| L02 | MNQ | absorb W=60 m=8 k=5 | 180m | 3,930 | 3,562 | level_rates |
+| L03 | MGC | prior_full m=2 k=2 | 60m | 3,559 | 3,546 | level_rates |
+| L03 | MGC | prior_full m=2 k=3 | 60m | 3,565 | 3,552 | level_rates |
+| L03 | MGC | prior_full m=2 k=5 | 60m | 3,572 | 3,559 | level_rates |
+| L03 | MGC | prior_full m=4 k=2 | 60m | 3,470 | 3,456 | level_rates |
+| L03 | MGC | prior_full m=4 k=3 | 60m | 3,515 | 3,501 | level_rates |
+| L03 | MGC | prior_full m=4 k=5 | 60m | 3,535 | 3,521 | level_rates |
+| L03 | MGC | prior_full m=8 k=2 | 60m | 3,080 | 3,061 | level_rates |
+| L03 | MGC | prior_full m=8 k=3 | 60m | 3,247 | 3,229 | level_rates |
+| L03 | MGC | prior_full m=8 k=5 | 60m | 3,383 | 3,367 | level_rates |
+| L03 | MGC | prior_rth m=2 k=2 | 60m | 4,651 | 4,620 | level_rates |
+| L03 | MGC | prior_rth m=2 k=3 | 60m | 4,664 | 4,632 | level_rates |
+| L03 | MGC | prior_rth m=2 k=5 | 60m | 4,674 | 4,642 | level_rates |
+| L03 | MGC | prior_rth m=4 k=2 | 60m | 4,503 | 4,465 | level_rates |
+| L03 | MGC | prior_rth m=4 k=3 | 60m | 4,572 | 4,535 | level_rates |
+| L03 | MGC | prior_rth m=4 k=5 | 60m | 4,623 | 4,590 | level_rates |
+| L03 | MGC | prior_rth m=8 k=2 | 60m | 3,907 | 3,844 | level_rates |
+| L03 | MGC | prior_rth m=8 k=3 | 60m | 4,130 | 4,077 | level_rates |
+| L03 | MGC | prior_rth m=8 k=5 | 60m | 4,349 | 4,299 | level_rates |
+| L03 | MGC | prior_full m=2 k=2 | 120m | 3,559 | 3,525 | level_rates |
+| L03 | MGC | prior_full m=2 k=3 | 120m | 3,565 | 3,531 | level_rates |
+| L03 | MGC | prior_full m=2 k=5 | 120m | 3,572 | 3,538 | level_rates |
+| L03 | MGC | prior_full m=4 k=2 | 120m | 3,470 | 3,433 | level_rates |
+| L03 | MGC | prior_full m=4 k=3 | 120m | 3,515 | 3,479 | level_rates |
+| L03 | MGC | prior_full m=4 k=5 | 120m | 3,535 | 3,499 | level_rates |
+| L03 | MGC | prior_full m=8 k=2 | 120m | 3,080 | 3,040 | level_rates |
+| L03 | MGC | prior_full m=8 k=3 | 120m | 3,247 | 3,206 | level_rates |
+| L03 | MGC | prior_full m=8 k=5 | 120m | 3,383 | 3,346 | level_rates |
+| L03 | MGC | prior_rth m=2 k=2 | 120m | 4,651 | 4,550 | level_rates |
+| L03 | MGC | prior_rth m=2 k=3 | 120m | 4,664 | 4,563 | level_rates |
+| L03 | MGC | prior_rth m=2 k=5 | 120m | 4,674 | 4,572 | level_rates |
+| L03 | MGC | prior_rth m=4 k=2 | 120m | 4,503 | 4,394 | level_rates |
+| L03 | MGC | prior_rth m=4 k=3 | 120m | 4,572 | 4,462 | level_rates |
+| L03 | MGC | prior_rth m=4 k=5 | 120m | 4,623 | 4,522 | level_rates |
+| L03 | MGC | prior_rth m=8 k=2 | 120m | 3,907 | 3,782 | level_rates |
+| L03 | MGC | prior_rth m=8 k=3 | 120m | 4,130 | 4,006 | level_rates |
+| L03 | MGC | prior_rth m=8 k=5 | 120m | 4,349 | 4,230 | level_rates |
+| L03 | MGC | prior_full m=2 k=2 | 180m | 3,559 | 3,512 | level_rates |
+| L03 | MGC | prior_full m=2 k=3 | 180m | 3,565 | 3,518 | level_rates |
+| L03 | MGC | prior_full m=2 k=5 | 180m | 3,572 | 3,525 | level_rates |
+| L03 | MGC | prior_full m=4 k=2 | 180m | 3,470 | 3,422 | level_rates |
+| L03 | MGC | prior_full m=4 k=3 | 180m | 3,515 | 3,467 | level_rates |
+| L03 | MGC | prior_full m=4 k=5 | 180m | 3,535 | 3,486 | level_rates |
+| L03 | MGC | prior_full m=8 k=2 | 180m | 3,080 | 3,026 | level_rates |
+| L03 | MGC | prior_full m=8 k=3 | 180m | 3,247 | 3,195 | level_rates |
+| L03 | MGC | prior_full m=8 k=5 | 180m | 3,383 | 3,333 | level_rates |
+| L03 | MGC | prior_rth m=2 k=2 | 180m | 4,651 | 4,507 | level_rates |
+| L03 | MGC | prior_rth m=2 k=3 | 180m | 4,664 | 4,519 | level_rates |
+| L03 | MGC | prior_rth m=2 k=5 | 180m | 4,674 | 4,528 | level_rates |
+| L03 | MGC | prior_rth m=4 k=2 | 180m | 4,503 | 4,353 | level_rates |
+| L03 | MGC | prior_rth m=4 k=3 | 180m | 4,572 | 4,423 | level_rates |
+| L03 | MGC | prior_rth m=4 k=5 | 180m | 4,623 | 4,480 | level_rates |
+| L03 | MGC | prior_rth m=8 k=2 | 180m | 3,907 | 3,737 | level_rates |
+| L03 | MGC | prior_rth m=8 k=3 | 180m | 4,130 | 3,963 | level_rates |
+| L03 | MGC | prior_rth m=8 k=5 | 180m | 4,349 | 4,188 | level_rates |
+| L03 | MNQ | prior_full m=2 k=2 | 60m | 3,434 | 3,415 | level_rates |
+| L03 | MNQ | prior_full m=2 k=3 | 60m | 3,449 | 3,431 | level_rates |
+| L03 | MNQ | prior_full m=2 k=5 | 60m | 3,456 | 3,438 | level_rates |
+| L03 | MNQ | prior_full m=4 k=2 | 60m | 3,330 | 3,309 | level_rates |
+| L03 | MNQ | prior_full m=4 k=3 | 60m | 3,389 | 3,369 | level_rates |
+| L03 | MNQ | prior_full m=4 k=5 | 60m | 3,416 | 3,398 | level_rates |
+| L03 | MNQ | prior_full m=8 k=2 | 60m | 3,056 | 3,032 | level_rates |
+| L03 | MNQ | prior_full m=8 k=3 | 60m | 3,168 | 3,145 | level_rates |
+| L03 | MNQ | prior_full m=8 k=5 | 60m | 3,267 | 3,248 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=2 | 60m | 3,741 | 3,684 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=3 | 60m | 3,754 | 3,700 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=5 | 60m | 3,762 | 3,706 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=2 | 60m | 3,641 | 3,591 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=3 | 60m | 3,704 | 3,652 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=5 | 60m | 3,734 | 3,680 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=2 | 60m | 3,324 | 3,282 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=3 | 60m | 3,483 | 3,435 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=5 | 60m | 3,594 | 3,548 | level_rates |
+| L03 | MNQ | prior_full m=2 k=2 | 120m | 3,434 | 3,389 | level_rates |
+| L03 | MNQ | prior_full m=2 k=3 | 120m | 3,449 | 3,403 | level_rates |
+| L03 | MNQ | prior_full m=2 k=5 | 120m | 3,456 | 3,410 | level_rates |
+| L03 | MNQ | prior_full m=4 k=2 | 120m | 3,330 | 3,282 | level_rates |
+| L03 | MNQ | prior_full m=4 k=3 | 120m | 3,389 | 3,341 | level_rates |
+| L03 | MNQ | prior_full m=4 k=5 | 120m | 3,416 | 3,371 | level_rates |
+| L03 | MNQ | prior_full m=8 k=2 | 120m | 3,056 | 3,005 | level_rates |
+| L03 | MNQ | prior_full m=8 k=3 | 120m | 3,168 | 3,117 | level_rates |
+| L03 | MNQ | prior_full m=8 k=5 | 120m | 3,267 | 3,220 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=2 | 120m | 3,741 | 3,645 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=3 | 120m | 3,754 | 3,664 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=5 | 120m | 3,762 | 3,671 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=2 | 120m | 3,641 | 3,552 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=3 | 120m | 3,704 | 3,617 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=5 | 120m | 3,734 | 3,641 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=2 | 120m | 3,324 | 3,248 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=3 | 120m | 3,483 | 3,397 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=5 | 120m | 3,594 | 3,511 | level_rates |
+| L03 | MNQ | prior_full m=2 k=2 | 180m | 3,434 | 3,364 | level_rates |
+| L03 | MNQ | prior_full m=2 k=3 | 180m | 3,449 | 3,378 | level_rates |
+| L03 | MNQ | prior_full m=2 k=5 | 180m | 3,456 | 3,386 | level_rates |
+| L03 | MNQ | prior_full m=4 k=2 | 180m | 3,330 | 3,258 | level_rates |
+| L03 | MNQ | prior_full m=4 k=3 | 180m | 3,389 | 3,315 | level_rates |
+| L03 | MNQ | prior_full m=4 k=5 | 180m | 3,416 | 3,345 | level_rates |
+| L03 | MNQ | prior_full m=8 k=2 | 180m | 3,056 | 2,982 | level_rates |
+| L03 | MNQ | prior_full m=8 k=3 | 180m | 3,168 | 3,093 | level_rates |
+| L03 | MNQ | prior_full m=8 k=5 | 180m | 3,267 | 3,193 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=2 | 180m | 3,741 | 3,608 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=3 | 180m | 3,754 | 3,626 | level_rates |
+| L03 | MNQ | prior_rth m=2 k=5 | 180m | 3,762 | 3,634 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=2 | 180m | 3,641 | 3,517 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=3 | 180m | 3,704 | 3,579 | level_rates |
+| L03 | MNQ | prior_rth m=4 k=5 | 180m | 3,734 | 3,600 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=2 | 180m | 3,324 | 3,213 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=3 | 180m | 3,483 | 3,362 | level_rates |
+| L03 | MNQ | prior_rth m=8 k=5 | 180m | 3,594 | 3,472 | level_rates |
+| L04 | MGC | Asia m=2 k=2 | 60m | 5,102 | 5,036 | level_rates |
+| L04 | MGC | Asia m=2 k=3 | 60m | 5,120 | 5,053 | level_rates |
+| L04 | MGC | Asia m=2 k=5 | 60m | 5,130 | 5,064 | level_rates |
+| L04 | MGC | Asia m=4 k=2 | 60m | 4,974 | 4,890 | level_rates |
+| L04 | MGC | Asia m=4 k=3 | 60m | 5,046 | 4,968 | level_rates |
+| L04 | MGC | Asia m=4 k=5 | 60m | 5,084 | 5,012 | level_rates |
+| L04 | MGC | Asia m=8 k=2 | 60m | 4,321 | 4,190 | level_rates |
+| L04 | MGC | Asia m=8 k=3 | 60m | 4,597 | 4,478 | level_rates |
+| L04 | MGC | Asia m=8 k=5 | 60m | 4,803 | 4,692 | level_rates |
+| L04 | MGC | London m=2 k=2 | 60m | 2,046 | 2,033 | level_rates |
+| L04 | MGC | London m=2 k=3 | 60m | 2,064 | 2,051 | level_rates |
+| L04 | MGC | London m=2 k=5 | 60m | 2,072 | 2,059 | level_rates |
+| L04 | MGC | London m=4 k=2 | 60m | 1,907 | 1,893 | level_rates |
+| L04 | MGC | London m=4 k=3 | 60m | 1,986 | 1,972 | level_rates |
+| L04 | MGC | London m=4 k=5 | 60m | 2,034 | 2,021 | level_rates |
+| L04 | MGC | London m=8 k=2 | 60m | 1,423 | 1,406 | level_rates |
+| L04 | MGC | London m=8 k=3 | 60m | 1,600 | 1,585 | level_rates |
+| L04 | MGC | London m=8 k=5 | 60m | 1,784 | 1,772 | level_rates |
+| L04 | MGC | US m=2 k=2 | 60m | 378 | 377 | level_rates |
+| L04 | MGC | US m=2 k=3 | 60m | 393 | 392 | level_rates |
+| L04 | MGC | US m=2 k=5 | 60m | 399 | 398 | level_rates |
+| L04 | MGC | US m=4 k=2 | 60m | 292 | 291 | level_rates |
+| L04 | MGC | US m=4 k=3 | 60m | 325 | 324 | level_rates |
+| L04 | MGC | US m=4 k=5 | 60m | 339 | 338 | level_rates |
+| L04 | MGC | US m=8 k=2 | 60m | 168 | 167 | level_rates |
+| L04 | MGC | US m=8 k=3 | 60m | 201 | 200 | level_rates |
+| L04 | MGC | US m=8 k=5 | 60m | 227 | 226 | level_rates |
+| L04 | MGC | Asia m=2 k=2 | 120m | 5,102 | 4,901 | level_rates |
+| L04 | MGC | Asia m=2 k=3 | 120m | 5,120 | 4,918 | level_rates |
+| L04 | MGC | Asia m=2 k=5 | 120m | 5,130 | 4,928 | level_rates |
+| L04 | MGC | Asia m=4 k=2 | 120m | 4,974 | 4,750 | level_rates |
+| L04 | MGC | Asia m=4 k=3 | 120m | 5,046 | 4,828 | level_rates |
+| L04 | MGC | Asia m=4 k=5 | 120m | 5,084 | 4,873 | level_rates |
+| L04 | MGC | Asia m=8 k=2 | 120m | 4,321 | 4,053 | level_rates |
+| L04 | MGC | Asia m=8 k=3 | 120m | 4,597 | 4,345 | level_rates |
+| L04 | MGC | Asia m=8 k=5 | 120m | 4,803 | 4,548 | level_rates |
+| L04 | MGC | London m=2 k=2 | 120m | 2,046 | 2,013 | level_rates |
+| L04 | MGC | London m=2 k=3 | 120m | 2,064 | 2,030 | level_rates |
+| L04 | MGC | London m=2 k=5 | 120m | 2,072 | 2,038 | level_rates |
+| L04 | MGC | London m=4 k=2 | 120m | 1,907 | 1,877 | level_rates |
+| L04 | MGC | London m=4 k=3 | 120m | 1,986 | 1,954 | level_rates |
+| L04 | MGC | London m=4 k=5 | 120m | 2,034 | 2,000 | level_rates |
+| L04 | MGC | London m=8 k=2 | 120m | 1,423 | 1,390 | level_rates |
+| L04 | MGC | London m=8 k=3 | 120m | 1,600 | 1,569 | level_rates |
+| L04 | MGC | London m=8 k=5 | 120m | 1,784 | 1,752 | level_rates |
+| L04 | MGC | US m=2 k=2 | 120m | 378 | 377 | level_rates |
+| L04 | MGC | US m=2 k=3 | 120m | 393 | 392 | level_rates |
+| L04 | MGC | US m=2 k=5 | 120m | 399 | 398 | level_rates |
+| L04 | MGC | US m=4 k=2 | 120m | 292 | 291 | level_rates |
+| L04 | MGC | US m=4 k=3 | 120m | 325 | 324 | level_rates |
+| L04 | MGC | US m=4 k=5 | 120m | 339 | 338 | level_rates |
+| L04 | MGC | US m=8 k=2 | 120m | 168 | 167 | level_rates |
+| L04 | MGC | US m=8 k=3 | 120m | 201 | 200 | level_rates |
+| L04 | MGC | US m=8 k=5 | 120m | 227 | 226 | level_rates |
+| L04 | MGC | Asia m=2 k=2 | 180m | 5,102 | 4,749 | level_rates |
+| L04 | MGC | Asia m=2 k=3 | 180m | 5,120 | 4,763 | level_rates |
+| L04 | MGC | Asia m=2 k=5 | 180m | 5,130 | 4,774 | level_rates |
+| L04 | MGC | Asia m=4 k=2 | 180m | 4,974 | 4,606 | level_rates |
+| L04 | MGC | Asia m=4 k=3 | 180m | 5,046 | 4,680 | level_rates |
+| L04 | MGC | Asia m=4 k=5 | 180m | 5,084 | 4,721 | level_rates |
+| L04 | MGC | Asia m=8 k=2 | 180m | 4,321 | 3,942 | level_rates |
+| L04 | MGC | Asia m=8 k=3 | 180m | 4,597 | 4,218 | level_rates |
+| L04 | MGC | Asia m=8 k=5 | 180m | 4,803 | 4,420 | level_rates |
+| L04 | MGC | London m=2 k=2 | 180m | 2,046 | 2,001 | level_rates |
+| L04 | MGC | London m=2 k=3 | 180m | 2,064 | 2,019 | level_rates |
+| L04 | MGC | London m=2 k=5 | 180m | 2,072 | 2,027 | level_rates |
+| L04 | MGC | London m=4 k=2 | 180m | 1,907 | 1,865 | level_rates |
+| L04 | MGC | London m=4 k=3 | 180m | 1,986 | 1,942 | level_rates |
+| L04 | MGC | London m=4 k=5 | 180m | 2,034 | 1,989 | level_rates |
+| L04 | MGC | London m=8 k=2 | 180m | 1,423 | 1,385 | level_rates |
+| L04 | MGC | London m=8 k=3 | 180m | 1,600 | 1,561 | level_rates |
+| L04 | MGC | London m=8 k=5 | 180m | 1,784 | 1,744 | level_rates |
+| L04 | MGC | US m=2 k=2 | 180m | 378 | 377 | level_rates |
+| L04 | MGC | US m=2 k=3 | 180m | 393 | 392 | level_rates |
+| L04 | MGC | US m=2 k=5 | 180m | 399 | 398 | level_rates |
+| L04 | MGC | US m=4 k=2 | 180m | 292 | 291 | level_rates |
+| L04 | MGC | US m=4 k=3 | 180m | 325 | 324 | level_rates |
+| L04 | MGC | US m=4 k=5 | 180m | 339 | 338 | level_rates |
+| L04 | MGC | US m=8 k=2 | 180m | 168 | 167 | level_rates |
+| L04 | MGC | US m=8 k=3 | 180m | 201 | 200 | level_rates |
+| L04 | MGC | US m=8 k=5 | 180m | 227 | 226 | level_rates |
+| L04 | MNQ | Asia m=2 k=2 | 60m | 5,420 | 5,296 | level_rates |
+| L04 | MNQ | Asia m=2 k=3 | 60m | 5,438 | 5,321 | level_rates |
+| L04 | MNQ | Asia m=2 k=5 | 60m | 5,442 | 5,328 | level_rates |
+| L04 | MNQ | Asia m=4 k=2 | 60m | 5,318 | 5,161 | level_rates |
+| L04 | MNQ | Asia m=4 k=3 | 60m | 5,368 | 5,225 | level_rates |
+| L04 | MNQ | Asia m=4 k=5 | 60m | 5,405 | 5,276 | level_rates |
+| L04 | MNQ | Asia m=8 k=2 | 60m | 4,903 | 4,690 | level_rates |
+| L04 | MNQ | Asia m=8 k=3 | 60m | 5,108 | 4,891 | level_rates |
+| L04 | MNQ | Asia m=8 k=5 | 60m | 5,242 | 5,044 | level_rates |
+| L04 | MNQ | London m=2 k=2 | 60m | 2,857 | 2,842 | level_rates |
+| L04 | MNQ | London m=2 k=3 | 60m | 2,874 | 2,858 | level_rates |
+| L04 | MNQ | London m=2 k=5 | 60m | 2,876 | 2,860 | level_rates |
+| L04 | MNQ | London m=4 k=2 | 60m | 2,765 | 2,749 | level_rates |
+| L04 | MNQ | London m=4 k=3 | 60m | 2,827 | 2,812 | level_rates |
+| L04 | MNQ | London m=4 k=5 | 60m | 2,858 | 2,843 | level_rates |
+| L04 | MNQ | London m=8 k=2 | 60m | 2,443 | 2,428 | level_rates |
+| L04 | MNQ | London m=8 k=3 | 60m | 2,604 | 2,586 | level_rates |
+| L04 | MNQ | London m=8 k=5 | 60m | 2,733 | 2,716 | level_rates |
+| L04 | MNQ | US m=2 k=2 | 60m | 536 | 533 | level_rates |
+| L04 | MNQ | US m=2 k=3 | 60m | 541 | 538 | level_rates |
+| L04 | MNQ | US m=2 k=5 | 60m | 545 | 542 | level_rates |
+| L04 | MNQ | US m=4 k=2 | 60m | 496 | 493 | level_rates |
+| L04 | MNQ | US m=4 k=3 | 60m | 509 | 506 | level_rates |
+| L04 | MNQ | US m=4 k=5 | 60m | 524 | 521 | level_rates |
+| L04 | MNQ | US m=8 k=2 | 60m | 414 | 411 | level_rates |
+| L04 | MNQ | US m=8 k=3 | 60m | 440 | 437 | level_rates |
+| L04 | MNQ | US m=8 k=5 | 60m | 451 | 448 | level_rates |
+| L04 | MNQ | Asia m=2 k=2 | 120m | 5,420 | 5,100 | level_rates |
+| L04 | MNQ | Asia m=2 k=3 | 120m | 5,438 | 5,122 | level_rates |
+| L04 | MNQ | Asia m=2 k=5 | 120m | 5,442 | 5,130 | level_rates |
+| L04 | MNQ | Asia m=4 k=2 | 120m | 5,318 | 4,962 | level_rates |
+| L04 | MNQ | Asia m=4 k=3 | 120m | 5,368 | 5,032 | level_rates |
+| L04 | MNQ | Asia m=4 k=5 | 120m | 5,405 | 5,084 | level_rates |
+| L04 | MNQ | Asia m=8 k=2 | 120m | 4,903 | 4,492 | level_rates |
+| L04 | MNQ | Asia m=8 k=3 | 120m | 5,108 | 4,690 | level_rates |
+| L04 | MNQ | Asia m=8 k=5 | 120m | 5,242 | 4,857 | level_rates |
+| L04 | MNQ | London m=2 k=2 | 120m | 2,857 | 2,806 | level_rates |
+| L04 | MNQ | London m=2 k=3 | 120m | 2,874 | 2,822 | level_rates |
+| L04 | MNQ | London m=2 k=5 | 120m | 2,876 | 2,823 | level_rates |
+| L04 | MNQ | London m=4 k=2 | 120m | 2,765 | 2,716 | level_rates |
+| L04 | MNQ | London m=4 k=3 | 120m | 2,827 | 2,777 | level_rates |
+| L04 | MNQ | London m=4 k=5 | 120m | 2,858 | 2,806 | level_rates |
+| L04 | MNQ | London m=8 k=2 | 120m | 2,443 | 2,395 | level_rates |
+| L04 | MNQ | London m=8 k=3 | 120m | 2,604 | 2,554 | level_rates |
+| L04 | MNQ | London m=8 k=5 | 120m | 2,733 | 2,682 | level_rates |
+| L04 | MNQ | US m=2 k=2 | 120m | 536 | 533 | level_rates |
+| L04 | MNQ | US m=2 k=3 | 120m | 541 | 538 | level_rates |
+| L04 | MNQ | US m=2 k=5 | 120m | 545 | 542 | level_rates |
+| L04 | MNQ | US m=4 k=2 | 120m | 496 | 493 | level_rates |
+| L04 | MNQ | US m=4 k=3 | 120m | 509 | 506 | level_rates |
+| L04 | MNQ | US m=4 k=5 | 120m | 524 | 521 | level_rates |
+| L04 | MNQ | US m=8 k=2 | 120m | 414 | 411 | level_rates |
+| L04 | MNQ | US m=8 k=3 | 120m | 440 | 437 | level_rates |
+| L04 | MNQ | US m=8 k=5 | 120m | 451 | 448 | level_rates |
+| L04 | MNQ | Asia m=2 k=2 | 180m | 5,420 | 4,933 | level_rates |
+| L04 | MNQ | Asia m=2 k=3 | 180m | 5,438 | 4,960 | level_rates |
+| L04 | MNQ | Asia m=2 k=5 | 180m | 5,442 | 4,967 | level_rates |
+| L04 | MNQ | Asia m=4 k=2 | 180m | 5,318 | 4,794 | level_rates |
+| L04 | MNQ | Asia m=4 k=3 | 180m | 5,368 | 4,868 | level_rates |
+| L04 | MNQ | Asia m=4 k=5 | 180m | 5,405 | 4,916 | level_rates |
+| L04 | MNQ | Asia m=8 k=2 | 180m | 4,903 | 4,351 | level_rates |
+| L04 | MNQ | Asia m=8 k=3 | 180m | 5,108 | 4,545 | level_rates |
+| L04 | MNQ | Asia m=8 k=5 | 180m | 5,242 | 4,703 | level_rates |
+| L04 | MNQ | London m=2 k=2 | 180m | 2,857 | 2,750 | level_rates |
+| L04 | MNQ | London m=2 k=3 | 180m | 2,874 | 2,766 | level_rates |
+| L04 | MNQ | London m=2 k=5 | 180m | 2,876 | 2,767 | level_rates |
+| L04 | MNQ | London m=4 k=2 | 180m | 2,765 | 2,663 | level_rates |
+| L04 | MNQ | London m=4 k=3 | 180m | 2,827 | 2,723 | level_rates |
+| L04 | MNQ | London m=4 k=5 | 180m | 2,858 | 2,750 | level_rates |
+| L04 | MNQ | London m=8 k=2 | 180m | 2,443 | 2,348 | level_rates |
+| L04 | MNQ | London m=8 k=3 | 180m | 2,604 | 2,503 | level_rates |
+| L04 | MNQ | London m=8 k=5 | 180m | 2,733 | 2,631 | level_rates |
+| L04 | MNQ | US m=2 k=2 | 180m | 536 | 533 | level_rates |
+| L04 | MNQ | US m=2 k=3 | 180m | 541 | 538 | level_rates |
+| L04 | MNQ | US m=2 k=5 | 180m | 545 | 542 | level_rates |
+| L04 | MNQ | US m=4 k=2 | 180m | 496 | 493 | level_rates |
+| L04 | MNQ | US m=4 k=3 | 180m | 509 | 506 | level_rates |
+| L04 | MNQ | US m=4 k=5 | 180m | 524 | 521 | level_rates |
+| L04 | MNQ | US m=8 k=2 | 180m | 414 | 411 | level_rates |
+| L04 | MNQ | US m=8 k=3 | 180m | 440 | 437 | level_rates |
+| L04 | MNQ | US m=8 k=5 | 180m | 451 | 448 | level_rates |
+| L06 | MGC | CME d=0.5 | 60m | 269 | 269 | level_rates |
+| L06 | MGC | CME d=1.0 | 60m | 36 | 36 | level_rates |
+| L06 | MGC | CME d=1.5 | 60m | 26 | 26 | level_rates |
+| L06 | MGC | RTH d=0.5 | 60m | 37 | 37 | level_rates |
+| L06 | MGC | RTH d=1.0 | 60m | 18 | 18 | level_rates |
+| L06 | MGC | RTH d=1.5 | 60m | 18 | 18 | level_rates |
+| L06 | MGC | CME d=0.5 | 120m | 269 | 269 | level_rates |
+| L06 | MGC | CME d=1.0 | 120m | 36 | 36 | level_rates |
+| L06 | MGC | CME d=1.5 | 120m | 26 | 26 | level_rates |
+| L06 | MGC | RTH d=0.5 | 120m | 37 | 37 | level_rates |
+| L06 | MGC | RTH d=1.0 | 120m | 18 | 18 | level_rates |
+| L06 | MGC | RTH d=1.5 | 120m | 18 | 18 | level_rates |
+| L06 | MGC | CME d=0.5 | 180m | 269 | 269 | level_rates |
+| L06 | MGC | CME d=1.0 | 180m | 36 | 36 | level_rates |
+| L06 | MGC | CME d=1.5 | 180m | 26 | 26 | level_rates |
+| L06 | MGC | RTH d=0.5 | 180m | 37 | 37 | level_rates |
+| L06 | MGC | RTH d=1.0 | 180m | 18 | 18 | level_rates |
+| L06 | MGC | RTH d=1.5 | 180m | 18 | 18 | level_rates |
+| L06 | MNQ | CME d=0.5 | 60m | 303 | 303 | level_rates |
+| L06 | MNQ | CME d=1.0 | 60m | 37 | 37 | level_rates |
+| L06 | MNQ | CME d=1.5 | 60m | 25 | 25 | level_rates |
+| L06 | MNQ | RTH d=0.5 | 60m | 110 | 110 | level_rates |
+| L06 | MNQ | RTH d=1.0 | 60m | 25 | 25 | level_rates |
+| L06 | MNQ | RTH d=1.5 | 60m | 20 | 20 | level_rates |
+| L06 | MNQ | CME d=0.5 | 120m | 303 | 303 | level_rates |
+| L06 | MNQ | CME d=1.0 | 120m | 37 | 37 | level_rates |
+| L06 | MNQ | CME d=1.5 | 120m | 25 | 25 | level_rates |
+| L06 | MNQ | RTH d=0.5 | 120m | 110 | 110 | level_rates |
+| L06 | MNQ | RTH d=1.0 | 120m | 25 | 25 | level_rates |
+| L06 | MNQ | RTH d=1.5 | 120m | 20 | 20 | level_rates |
+| L06 | MNQ | CME d=0.5 | 180m | 303 | 303 | level_rates |
+| L06 | MNQ | CME d=1.0 | 180m | 37 | 37 | level_rates |
+| L06 | MNQ | CME d=1.5 | 180m | 25 | 25 | level_rates |
+| L06 | MNQ | RTH d=0.5 | 180m | 110 | 110 | level_rates |
+| L06 | MNQ | RTH d=1.0 | 180m | 25 | 25 | level_rates |
+| L06 | MNQ | RTH d=1.5 | 180m | 20 | 20 | level_rates |
+| L07 | MGC | w=2 tf=1m g=10 | 60m | 655,490 | 74,891 | level_rates |
+| L07 | MGC | w=2 tf=1m g=30 | 60m | 527,522 | 69,037 | level_rates |
+| L07 | MGC | w=2 tf=1m g=60 | 60m | 429,987 | 60,828 | level_rates |
+| L07 | MGC | w=2 tf=5m g=10 | 60m | 136,777 | 47,473 | level_rates |
+| L07 | MGC | w=2 tf=5m g=30 | 60m | 97,402 | 32,505 | level_rates |
+| L07 | MGC | w=2 tf=5m g=60 | 60m | 65,659 | 21,000 | level_rates |
+| L07 | MGC | w=4 tf=1m g=10 | 60m | 339,210 | 64,091 | level_rates |
+| L07 | MGC | w=4 tf=1m g=30 | 60m | 294,283 | 59,787 | level_rates |
+| L07 | MGC | w=4 tf=1m g=60 | 60m | 250,812 | 53,276 | level_rates |
+| L07 | MGC | w=4 tf=5m g=10 | 60m | 92,594 | 39,733 | level_rates |
+| L07 | MGC | w=4 tf=5m g=30 | 60m | 67,946 | 27,734 | level_rates |
+| L07 | MGC | w=4 tf=5m g=60 | 60m | 46,390 | 18,153 | level_rates |
+| L07 | MGC | w=8 tf=1m g=10 | 60m | 121,686 | 36,180 | level_rates |
+| L07 | MGC | w=8 tf=1m g=30 | 60m | 109,123 | 34,091 | level_rates |
+| L07 | MGC | w=8 tf=1m g=60 | 60m | 95,365 | 30,916 | level_rates |
+| L07 | MGC | w=8 tf=5m g=10 | 60m | 45,988 | 24,911 | level_rates |
+| L07 | MGC | w=8 tf=5m g=30 | 60m | 34,370 | 18,067 | level_rates |
+| L07 | MGC | w=8 tf=5m g=60 | 60m | 23,545 | 12,000 | level_rates |
+| L07 | MGC | w=2 tf=1m g=10 | 120m | 655,490 | 40,920 | level_rates |
+| L07 | MGC | w=2 tf=1m g=30 | 120m | 527,522 | 39,059 | level_rates |
+| L07 | MGC | w=2 tf=1m g=60 | 120m | 429,987 | 35,763 | level_rates |
+| L07 | MGC | w=2 tf=5m g=10 | 120m | 136,777 | 30,487 | level_rates |
+| L07 | MGC | w=2 tf=5m g=30 | 120m | 97,402 | 22,051 | level_rates |
+| L07 | MGC | w=2 tf=5m g=60 | 120m | 65,659 | 14,691 | level_rates |
+| L07 | MGC | w=4 tf=1m g=10 | 120m | 339,210 | 37,227 | level_rates |
+| L07 | MGC | w=4 tf=1m g=30 | 120m | 294,283 | 35,480 | level_rates |
+| L07 | MGC | w=4 tf=1m g=60 | 120m | 250,812 | 32,609 | level_rates |
+| L07 | MGC | w=4 tf=5m g=10 | 120m | 92,594 | 26,748 | level_rates |
+| L07 | MGC | w=4 tf=5m g=30 | 120m | 67,946 | 19,594 | level_rates |
+| L07 | MGC | w=4 tf=5m g=60 | 120m | 46,390 | 13,171 | level_rates |
+| L07 | MGC | w=8 tf=1m g=10 | 120m | 121,686 | 23,630 | level_rates |
+| L07 | MGC | w=8 tf=1m g=30 | 120m | 109,123 | 22,617 | level_rates |
+| L07 | MGC | w=8 tf=1m g=60 | 120m | 95,365 | 20,948 | level_rates |
+| L07 | MGC | w=8 tf=5m g=10 | 120m | 45,988 | 18,252 | level_rates |
+| L07 | MGC | w=8 tf=5m g=30 | 120m | 34,370 | 13,810 | level_rates |
+| L07 | MGC | w=8 tf=5m g=60 | 120m | 23,545 | 9,326 | level_rates |
+| L07 | MGC | w=2 tf=1m g=10 | 180m | 655,490 | 29,259 | level_rates |
+| L07 | MGC | w=2 tf=1m g=30 | 180m | 527,522 | 27,447 | level_rates |
+| L07 | MGC | w=2 tf=1m g=60 | 180m | 429,987 | 25,763 | level_rates |
+| L07 | MGC | w=2 tf=5m g=10 | 180m | 136,777 | 22,929 | level_rates |
+| L07 | MGC | w=2 tf=5m g=30 | 180m | 97,402 | 17,412 | level_rates |
+| L07 | MGC | w=2 tf=5m g=60 | 180m | 65,659 | 11,732 | level_rates |
+| L07 | MGC | w=4 tf=1m g=10 | 180m | 339,210 | 26,552 | level_rates |
+| L07 | MGC | w=4 tf=1m g=30 | 180m | 294,283 | 25,563 | level_rates |
+| L07 | MGC | w=4 tf=1m g=60 | 180m | 250,812 | 24,046 | level_rates |
+| L07 | MGC | w=4 tf=5m g=10 | 180m | 92,594 | 20,614 | level_rates |
+| L07 | MGC | w=4 tf=5m g=30 | 180m | 67,946 | 15,779 | level_rates |
+| L07 | MGC | w=4 tf=5m g=60 | 180m | 46,390 | 10,739 | level_rates |
+| L07 | MGC | w=8 tf=1m g=10 | 180m | 121,686 | 18,010 | level_rates |
+| L07 | MGC | w=8 tf=1m g=30 | 180m | 109,123 | 17,393 | level_rates |
+| L07 | MGC | w=8 tf=1m g=60 | 180m | 95,365 | 16,346 | level_rates |
+| L07 | MGC | w=8 tf=5m g=10 | 180m | 45,988 | 14,762 | level_rates |
+| L07 | MGC | w=8 tf=5m g=30 | 180m | 34,370 | 11,566 | level_rates |
+| L07 | MGC | w=8 tf=5m g=60 | 180m | 23,545 | 7,936 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=10 | 60m | 535,428 | 70,205 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=30 | 60m | 457,955 | 64,193 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=60 | 60m | 389,679 | 55,974 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=10 | 60m | 103,369 | 40,455 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=30 | 60m | 78,154 | 27,945 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=60 | 60m | 55,934 | 18,807 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=10 | 60m | 312,885 | 58,442 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=30 | 60m | 277,339 | 53,724 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=60 | 60m | 242,200 | 47,163 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=10 | 60m | 76,194 | 34,111 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=30 | 60m | 57,789 | 23,955 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=60 | 60m | 40,897 | 16,009 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=10 | 60m | 159,858 | 39,871 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=30 | 60m | 143,137 | 36,651 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=60 | 60m | 126,008 | 32,316 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=10 | 60m | 49,503 | 25,199 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=30 | 60m | 37,148 | 17,811 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=60 | 60m | 25,692 | 11,797 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=10 | 120m | 535,428 | 38,747 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=30 | 120m | 457,955 | 36,534 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=60 | 120m | 389,679 | 33,260 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=10 | 120m | 103,369 | 26,745 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=30 | 120m | 78,154 | 19,313 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=60 | 120m | 55,934 | 13,317 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=10 | 120m | 312,885 | 34,054 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=30 | 120m | 277,339 | 32,116 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=60 | 120m | 242,200 | 29,191 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=10 | 120m | 76,194 | 23,449 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=30 | 120m | 57,789 | 17,131 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=60 | 120m | 40,897 | 11,755 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=10 | 120m | 159,858 | 24,587 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=30 | 120m | 143,137 | 23,155 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=60 | 120m | 126,008 | 21,069 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=10 | 120m | 49,503 | 18,022 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=30 | 120m | 37,148 | 13,245 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=60 | 120m | 25,692 | 8,951 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=10 | 180m | 535,428 | 27,239 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=30 | 180m | 457,955 | 25,660 | level_rates |
+| L07 | MNQ | w=2 tf=1m g=60 | 180m | 389,679 | 24,164 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=10 | 180m | 103,369 | 20,425 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=30 | 180m | 78,154 | 15,400 | level_rates |
+| L07 | MNQ | w=2 tf=5m g=60 | 180m | 55,934 | 10,744 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=10 | 180m | 312,885 | 24,340 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=30 | 180m | 277,339 | 23,240 | level_rates |
+| L07 | MNQ | w=4 tf=1m g=60 | 180m | 242,200 | 21,699 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=10 | 180m | 76,194 | 18,179 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=30 | 180m | 57,789 | 13,904 | level_rates |
+| L07 | MNQ | w=4 tf=5m g=60 | 180m | 40,897 | 9,621 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=10 | 180m | 159,858 | 18,182 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=30 | 180m | 143,137 | 17,389 | level_rates |
+| L07 | MNQ | w=8 tf=1m g=60 | 180m | 126,008 | 16,093 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=10 | 180m | 49,503 | 14,385 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=30 | 180m | 37,148 | 10,950 | level_rates |
+| L07 | MNQ | w=8 tf=5m g=60 | 180m | 25,692 | 7,499 | level_rates |
+| L08 | MGC | ema20 15m d=0.5 | 60m | 314 | 314 | level_rates |
+| L08 | MGC | ema20 15m d=1.0 | 60m | 29 | 29 | level_rates |
+| L08 | MGC | ema20 15m d=1.5 | 60m | 12 | 12 | level_rates |
+| L08 | MGC | ema20 5m d=0.5 | 60m | 95 | 95 | level_rates |
+| L08 | MGC | ema20 5m d=1.0 | 60m | 8 | 8 | level_rates |
+| L08 | MGC | ema20 5m d=1.5 | 60m | 3 | 3 | level_rates |
+| L08 | MGC | ema200 15m d=0.5 | 60m | 698 | 698 | level_rates |
+| L08 | MGC | ema200 15m d=1.0 | 60m | 77 | 77 | level_rates |
+| L08 | MGC | ema200 15m d=1.5 | 60m | 13 | 13 | level_rates |
+| L08 | MGC | ema200 5m d=0.5 | 60m | 528 | 528 | level_rates |
+| L08 | MGC | ema200 5m d=1.0 | 60m | 61 | 61 | level_rates |
+| L08 | MGC | ema200 5m d=1.5 | 60m | 15 | 15 | level_rates |
+| L08 | MGC | ema50 15m d=0.5 | 60m | 445 | 445 | level_rates |
+| L08 | MGC | ema50 15m d=1.0 | 60m | 45 | 45 | level_rates |
+| L08 | MGC | ema50 15m d=1.5 | 60m | 9 | 9 | level_rates |
+| L08 | MGC | ema50 5m d=0.5 | 60m | 315 | 315 | level_rates |
+| L08 | MGC | ema50 5m d=1.0 | 60m | 27 | 27 | level_rates |
+| L08 | MGC | ema50 5m d=1.5 | 60m | 9 | 9 | level_rates |
+| L08 | MGC | ema20 15m d=0.5 | 120m | 314 | 314 | level_rates |
+| L08 | MGC | ema20 15m d=1.0 | 120m | 29 | 29 | level_rates |
+| L08 | MGC | ema20 15m d=1.5 | 120m | 12 | 12 | level_rates |
+| L08 | MGC | ema20 5m d=0.5 | 120m | 95 | 95 | level_rates |
+| L08 | MGC | ema20 5m d=1.0 | 120m | 8 | 8 | level_rates |
+| L08 | MGC | ema20 5m d=1.5 | 120m | 3 | 3 | level_rates |
+| L08 | MGC | ema200 15m d=0.5 | 120m | 698 | 698 | level_rates |
+| L08 | MGC | ema200 15m d=1.0 | 120m | 77 | 77 | level_rates |
+| L08 | MGC | ema200 15m d=1.5 | 120m | 13 | 13 | level_rates |
+| L08 | MGC | ema200 5m d=0.5 | 120m | 528 | 528 | level_rates |
+| L08 | MGC | ema200 5m d=1.0 | 120m | 61 | 61 | level_rates |
+| L08 | MGC | ema200 5m d=1.5 | 120m | 15 | 15 | level_rates |
+| L08 | MGC | ema50 15m d=0.5 | 120m | 445 | 445 | level_rates |
+| L08 | MGC | ema50 15m d=1.0 | 120m | 45 | 45 | level_rates |
+| L08 | MGC | ema50 15m d=1.5 | 120m | 9 | 9 | level_rates |
+| L08 | MGC | ema50 5m d=0.5 | 120m | 315 | 315 | level_rates |
+| L08 | MGC | ema50 5m d=1.0 | 120m | 27 | 27 | level_rates |
+| L08 | MGC | ema50 5m d=1.5 | 120m | 9 | 9 | level_rates |
+| L08 | MGC | ema20 15m d=0.5 | 180m | 314 | 314 | level_rates |
+| L08 | MGC | ema20 15m d=1.0 | 180m | 29 | 29 | level_rates |
+| L08 | MGC | ema20 15m d=1.5 | 180m | 12 | 12 | level_rates |
+| L08 | MGC | ema20 5m d=0.5 | 180m | 95 | 95 | level_rates |
+| L08 | MGC | ema20 5m d=1.0 | 180m | 8 | 8 | level_rates |
+| L08 | MGC | ema20 5m d=1.5 | 180m | 3 | 3 | level_rates |
+| L08 | MGC | ema200 15m d=0.5 | 180m | 698 | 698 | level_rates |
+| L08 | MGC | ema200 15m d=1.0 | 180m | 77 | 77 | level_rates |
+| L08 | MGC | ema200 15m d=1.5 | 180m | 13 | 13 | level_rates |
+| L08 | MGC | ema200 5m d=0.5 | 180m | 528 | 528 | level_rates |
+| L08 | MGC | ema200 5m d=1.0 | 180m | 61 | 61 | level_rates |
+| L08 | MGC | ema200 5m d=1.5 | 180m | 15 | 15 | level_rates |
+| L08 | MGC | ema50 15m d=0.5 | 180m | 445 | 445 | level_rates |
+| L08 | MGC | ema50 15m d=1.0 | 180m | 45 | 45 | level_rates |
+| L08 | MGC | ema50 15m d=1.5 | 180m | 9 | 9 | level_rates |
+| L08 | MGC | ema50 5m d=0.5 | 180m | 315 | 315 | level_rates |
+| L08 | MGC | ema50 5m d=1.0 | 180m | 27 | 27 | level_rates |
+| L08 | MGC | ema50 5m d=1.5 | 180m | 9 | 9 | level_rates |
+| L08 | MNQ | ema20 15m d=0.5 | 60m | 488 | 488 | level_rates |
+| L08 | MNQ | ema20 15m d=1.0 | 60m | 98 | 98 | level_rates |
+| L08 | MNQ | ema20 15m d=1.5 | 60m | 20 | 20 | level_rates |
+| L08 | MNQ | ema20 5m d=0.5 | 60m | 194 | 194 | level_rates |
+| L08 | MNQ | ema20 5m d=1.0 | 60m | 19 | 19 | level_rates |
+| L08 | MNQ | ema20 5m d=1.5 | 60m | 4 | 4 | level_rates |
+| L08 | MNQ | ema200 15m d=0.5 | 60m | 705 | 705 | level_rates |
+| L08 | MNQ | ema200 15m d=1.0 | 60m | 114 | 114 | level_rates |
+| L08 | MNQ | ema200 15m d=1.5 | 60m | 25 | 25 | level_rates |
+| L08 | MNQ | ema200 5m d=0.5 | 60m | 659 | 659 | level_rates |
+| L08 | MNQ | ema200 5m d=1.0 | 60m | 107 | 107 | level_rates |
+| L08 | MNQ | ema200 5m d=1.5 | 60m | 22 | 22 | level_rates |
+| L08 | MNQ | ema50 15m d=0.5 | 60m | 574 | 574 | level_rates |
+| L08 | MNQ | ema50 15m d=1.0 | 60m | 93 | 93 | level_rates |
+| L08 | MNQ | ema50 15m d=1.5 | 60m | 26 | 26 | level_rates |
+| L08 | MNQ | ema50 5m d=0.5 | 60m | 454 | 454 | level_rates |
+| L08 | MNQ | ema50 5m d=1.0 | 60m | 91 | 91 | level_rates |
+| L08 | MNQ | ema50 5m d=1.5 | 60m | 20 | 20 | level_rates |
+| L08 | MNQ | ema20 15m d=0.5 | 120m | 488 | 488 | level_rates |
+| L08 | MNQ | ema20 15m d=1.0 | 120m | 98 | 98 | level_rates |
+| L08 | MNQ | ema20 15m d=1.5 | 120m | 20 | 20 | level_rates |
+| L08 | MNQ | ema20 5m d=0.5 | 120m | 194 | 194 | level_rates |
+| L08 | MNQ | ema20 5m d=1.0 | 120m | 19 | 19 | level_rates |
+| L08 | MNQ | ema20 5m d=1.5 | 120m | 4 | 4 | level_rates |
+| L08 | MNQ | ema200 15m d=0.5 | 120m | 705 | 705 | level_rates |
+| L08 | MNQ | ema200 15m d=1.0 | 120m | 114 | 114 | level_rates |
+| L08 | MNQ | ema200 15m d=1.5 | 120m | 25 | 25 | level_rates |
+| L08 | MNQ | ema200 5m d=0.5 | 120m | 659 | 659 | level_rates |
+| L08 | MNQ | ema200 5m d=1.0 | 120m | 107 | 107 | level_rates |
+| L08 | MNQ | ema200 5m d=1.5 | 120m | 22 | 22 | level_rates |
+| L08 | MNQ | ema50 15m d=0.5 | 120m | 574 | 574 | level_rates |
+| L08 | MNQ | ema50 15m d=1.0 | 120m | 93 | 93 | level_rates |
+| L08 | MNQ | ema50 15m d=1.5 | 120m | 26 | 26 | level_rates |
+| L08 | MNQ | ema50 5m d=0.5 | 120m | 454 | 454 | level_rates |
+| L08 | MNQ | ema50 5m d=1.0 | 120m | 91 | 91 | level_rates |
+| L08 | MNQ | ema50 5m d=1.5 | 120m | 20 | 20 | level_rates |
+| L08 | MNQ | ema20 15m d=0.5 | 180m | 488 | 488 | level_rates |
+| L08 | MNQ | ema20 15m d=1.0 | 180m | 98 | 98 | level_rates |
+| L08 | MNQ | ema20 15m d=1.5 | 180m | 20 | 20 | level_rates |
+| L08 | MNQ | ema20 5m d=0.5 | 180m | 194 | 194 | level_rates |
+| L08 | MNQ | ema20 5m d=1.0 | 180m | 19 | 19 | level_rates |
+| L08 | MNQ | ema20 5m d=1.5 | 180m | 4 | 4 | level_rates |
+| L08 | MNQ | ema200 15m d=0.5 | 180m | 705 | 705 | level_rates |
+| L08 | MNQ | ema200 15m d=1.0 | 180m | 114 | 114 | level_rates |
+| L08 | MNQ | ema200 15m d=1.5 | 180m | 25 | 25 | level_rates |
+| L08 | MNQ | ema200 5m d=0.5 | 180m | 659 | 659 | level_rates |
+| L08 | MNQ | ema200 5m d=1.0 | 180m | 107 | 107 | level_rates |
+| L08 | MNQ | ema200 5m d=1.5 | 180m | 22 | 22 | level_rates |
+| L08 | MNQ | ema50 15m d=0.5 | 180m | 574 | 574 | level_rates |
+| L08 | MNQ | ema50 15m d=1.0 | 180m | 93 | 93 | level_rates |
+| L08 | MNQ | ema50 15m d=1.5 | 180m | 26 | 26 | level_rates |
+| L08 | MNQ | ema50 5m d=0.5 | 180m | 454 | 454 | level_rates |
+| L08 | MNQ | ema50 5m d=1.0 | 180m | 91 | 91 | level_rates |
+| L08 | MNQ | ema50 5m d=1.5 | 180m | 20 | 20 | level_rates |
+| L09 | MGC | prior_month m=2 k=2 | 60m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=2 k=3 | 60m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=2 k=5 | 60m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=4 k=2 | 60m | 54 | 54 | level_rates |
+| L09 | MGC | prior_month m=4 k=3 | 60m | 54 | 54 | level_rates |
+| L09 | MGC | prior_month m=4 k=5 | 60m | 55 | 55 | level_rates |
+| L09 | MGC | prior_month m=8 k=2 | 60m | 46 | 46 | level_rates |
+| L09 | MGC | prior_month m=8 k=3 | 60m | 49 | 49 | level_rates |
+| L09 | MGC | prior_month m=8 k=5 | 60m | 51 | 51 | level_rates |
+| L09 | MGC | prior_week m=2 k=2 | 60m | 363 | 363 | level_rates |
+| L09 | MGC | prior_week m=2 k=3 | 60m | 363 | 363 | level_rates |
+| L09 | MGC | prior_week m=2 k=5 | 60m | 364 | 364 | level_rates |
+| L09 | MGC | prior_week m=4 k=2 | 60m | 355 | 355 | level_rates |
+| L09 | MGC | prior_week m=4 k=3 | 60m | 358 | 358 | level_rates |
+| L09 | MGC | prior_week m=4 k=5 | 60m | 361 | 361 | level_rates |
+| L09 | MGC | prior_week m=8 k=2 | 60m | 312 | 312 | level_rates |
+| L09 | MGC | prior_week m=8 k=3 | 60m | 334 | 334 | level_rates |
+| L09 | MGC | prior_week m=8 k=5 | 60m | 343 | 343 | level_rates |
+| L09 | MGC | prior_month m=2 k=2 | 120m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=2 k=3 | 120m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=2 k=5 | 120m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=4 k=2 | 120m | 54 | 54 | level_rates |
+| L09 | MGC | prior_month m=4 k=3 | 120m | 54 | 54 | level_rates |
+| L09 | MGC | prior_month m=4 k=5 | 120m | 55 | 55 | level_rates |
+| L09 | MGC | prior_month m=8 k=2 | 120m | 46 | 46 | level_rates |
+| L09 | MGC | prior_month m=8 k=3 | 120m | 49 | 49 | level_rates |
+| L09 | MGC | prior_month m=8 k=5 | 120m | 51 | 51 | level_rates |
+| L09 | MGC | prior_week m=2 k=2 | 120m | 363 | 363 | level_rates |
+| L09 | MGC | prior_week m=2 k=3 | 120m | 363 | 363 | level_rates |
+| L09 | MGC | prior_week m=2 k=5 | 120m | 364 | 364 | level_rates |
+| L09 | MGC | prior_week m=4 k=2 | 120m | 355 | 355 | level_rates |
+| L09 | MGC | prior_week m=4 k=3 | 120m | 358 | 358 | level_rates |
+| L09 | MGC | prior_week m=4 k=5 | 120m | 361 | 361 | level_rates |
+| L09 | MGC | prior_week m=8 k=2 | 120m | 312 | 312 | level_rates |
+| L09 | MGC | prior_week m=8 k=3 | 120m | 334 | 334 | level_rates |
+| L09 | MGC | prior_week m=8 k=5 | 120m | 343 | 343 | level_rates |
+| L09 | MGC | prior_month m=2 k=2 | 180m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=2 k=3 | 180m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=2 k=5 | 180m | 56 | 56 | level_rates |
+| L09 | MGC | prior_month m=4 k=2 | 180m | 54 | 54 | level_rates |
+| L09 | MGC | prior_month m=4 k=3 | 180m | 54 | 54 | level_rates |
+| L09 | MGC | prior_month m=4 k=5 | 180m | 55 | 55 | level_rates |
+| L09 | MGC | prior_month m=8 k=2 | 180m | 46 | 46 | level_rates |
+| L09 | MGC | prior_month m=8 k=3 | 180m | 49 | 49 | level_rates |
+| L09 | MGC | prior_month m=8 k=5 | 180m | 51 | 51 | level_rates |
+| L09 | MGC | prior_week m=2 k=2 | 180m | 363 | 363 | level_rates |
+| L09 | MGC | prior_week m=2 k=3 | 180m | 363 | 363 | level_rates |
+| L09 | MGC | prior_week m=2 k=5 | 180m | 364 | 364 | level_rates |
+| L09 | MGC | prior_week m=4 k=2 | 180m | 355 | 355 | level_rates |
+| L09 | MGC | prior_week m=4 k=3 | 180m | 358 | 358 | level_rates |
+| L09 | MGC | prior_week m=4 k=5 | 180m | 361 | 361 | level_rates |
+| L09 | MGC | prior_week m=8 k=2 | 180m | 312 | 312 | level_rates |
+| L09 | MGC | prior_week m=8 k=3 | 180m | 334 | 334 | level_rates |
+| L09 | MGC | prior_week m=8 k=5 | 180m | 343 | 343 | level_rates |
+| L09 | MNQ | prior_month m=2 k=2 | 60m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=2 k=3 | 60m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=2 k=5 | 60m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=4 k=2 | 60m | 60 | 60 | level_rates |
+| L09 | MNQ | prior_month m=4 k=3 | 60m | 61 | 61 | level_rates |
+| L09 | MNQ | prior_month m=4 k=5 | 60m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=8 k=2 | 60m | 48 | 48 | level_rates |
+| L09 | MNQ | prior_month m=8 k=3 | 60m | 53 | 53 | level_rates |
+| L09 | MNQ | prior_month m=8 k=5 | 60m | 58 | 58 | level_rates |
+| L09 | MNQ | prior_week m=2 k=2 | 60m | 443 | 443 | level_rates |
+| L09 | MNQ | prior_week m=2 k=3 | 60m | 445 | 445 | level_rates |
+| L09 | MNQ | prior_week m=2 k=5 | 60m | 446 | 446 | level_rates |
+| L09 | MNQ | prior_week m=4 k=2 | 60m | 429 | 429 | level_rates |
+| L09 | MNQ | prior_week m=4 k=3 | 60m | 433 | 433 | level_rates |
+| L09 | MNQ | prior_week m=4 k=5 | 60m | 438 | 438 | level_rates |
+| L09 | MNQ | prior_week m=8 k=2 | 60m | 373 | 373 | level_rates |
+| L09 | MNQ | prior_week m=8 k=3 | 60m | 401 | 401 | level_rates |
+| L09 | MNQ | prior_week m=8 k=5 | 60m | 423 | 423 | level_rates |
+| L09 | MNQ | prior_month m=2 k=2 | 120m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=2 k=3 | 120m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=2 k=5 | 120m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=4 k=2 | 120m | 60 | 60 | level_rates |
+| L09 | MNQ | prior_month m=4 k=3 | 120m | 61 | 61 | level_rates |
+| L09 | MNQ | prior_month m=4 k=5 | 120m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=8 k=2 | 120m | 48 | 48 | level_rates |
+| L09 | MNQ | prior_month m=8 k=3 | 120m | 53 | 53 | level_rates |
+| L09 | MNQ | prior_month m=8 k=5 | 120m | 58 | 58 | level_rates |
+| L09 | MNQ | prior_week m=2 k=2 | 120m | 443 | 443 | level_rates |
+| L09 | MNQ | prior_week m=2 k=3 | 120m | 445 | 445 | level_rates |
+| L09 | MNQ | prior_week m=2 k=5 | 120m | 446 | 446 | level_rates |
+| L09 | MNQ | prior_week m=4 k=2 | 120m | 429 | 429 | level_rates |
+| L09 | MNQ | prior_week m=4 k=3 | 120m | 433 | 433 | level_rates |
+| L09 | MNQ | prior_week m=4 k=5 | 120m | 438 | 438 | level_rates |
+| L09 | MNQ | prior_week m=8 k=2 | 120m | 373 | 373 | level_rates |
+| L09 | MNQ | prior_week m=8 k=3 | 120m | 401 | 401 | level_rates |
+| L09 | MNQ | prior_week m=8 k=5 | 120m | 423 | 423 | level_rates |
+| L09 | MNQ | prior_month m=2 k=2 | 180m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=2 k=3 | 180m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=2 k=5 | 180m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=4 k=2 | 180m | 60 | 60 | level_rates |
+| L09 | MNQ | prior_month m=4 k=3 | 180m | 61 | 61 | level_rates |
+| L09 | MNQ | prior_month m=4 k=5 | 180m | 63 | 63 | level_rates |
+| L09 | MNQ | prior_month m=8 k=2 | 180m | 48 | 48 | level_rates |
+| L09 | MNQ | prior_month m=8 k=3 | 180m | 53 | 53 | level_rates |
+| L09 | MNQ | prior_month m=8 k=5 | 180m | 58 | 58 | level_rates |
+| L09 | MNQ | prior_week m=2 k=2 | 180m | 443 | 443 | level_rates |
+| L09 | MNQ | prior_week m=2 k=3 | 180m | 445 | 445 | level_rates |
+| L09 | MNQ | prior_week m=2 k=5 | 180m | 446 | 446 | level_rates |
+| L09 | MNQ | prior_week m=4 k=2 | 180m | 429 | 429 | level_rates |
+| L09 | MNQ | prior_week m=4 k=3 | 180m | 433 | 433 | level_rates |
+| L09 | MNQ | prior_week m=4 k=5 | 180m | 438 | 438 | level_rates |
+| L09 | MNQ | prior_week m=8 k=2 | 180m | 373 | 373 | level_rates |
+| L09 | MNQ | prior_week m=8 k=3 | 180m | 401 | 401 | level_rates |
+| L09 | MNQ | prior_week m=8 k=5 | 180m | 423 | 423 | level_rates |
+| L10 | MGC | placebo curve anchor=CME | 30m | 91 | 91 | level_rates |
+| L10 | MGC | placebo curve anchor=R24 | 30m | 85 | 85 | level_rates |
+| L10 | MGC | placebo curve anchor=RTH | 30m | 1 | 1 | level_rates |
+| L10 | MGC | placebo curve anchor=CME | 60m | 91 | 91 | level_rates |
+| L10 | MGC | placebo curve anchor=R24 | 60m | 85 | 85 | level_rates |
+| L10 | MGC | placebo curve anchor=RTH | 60m | 1 | 1 | level_rates |
+| L10 | MGC | placebo curve anchor=CME | 120m | 91 | 91 | level_rates |
+| L10 | MGC | placebo curve anchor=R24 | 120m | 85 | 85 | level_rates |
+| L10 | MGC | placebo curve anchor=RTH | 120m | 1 | 1 | level_rates |
+| L10 | MNQ | placebo curve anchor=CME | 30m | 38 | 38 | level_rates |
+| L10 | MNQ | placebo curve anchor=R24 | 30m | 40 | 40 | level_rates |
+| L10 | MNQ | placebo curve anchor=RTH | 30m | 2 | 2 | level_rates |
+| L10 | MNQ | placebo curve anchor=CME | 60m | 38 | 38 | level_rates |
+| L10 | MNQ | placebo curve anchor=R24 | 60m | 40 | 40 | level_rates |
+| L10 | MNQ | placebo curve anchor=RTH | 60m | 2 | 2 | level_rates |
+| L10 | MNQ | placebo curve anchor=CME | 120m | 38 | 38 | level_rates |
+| L10 | MNQ | placebo curve anchor=R24 | 120m | 40 | 40 | level_rates |
+| L10 | MNQ | placebo curve anchor=RTH | 120m | 2 | 2 | level_rates |
+| L12 | MNQ | Asia m=2 k=2 | 180m | 5,420 | 4,933 | level_rates |
+| L12 | MNQ | Asia m=2 k=3 | 180m | 5,438 | 4,960 | level_rates |
+| L12 | MNQ | Asia m=2 k=5 | 180m | 5,442 | 4,967 | level_rates |
+| L12 | MNQ | Asia m=4 k=2 | 180m | 5,318 | 4,794 | level_rates |
+| L12 | MNQ | Asia m=4 k=3 | 180m | 5,368 | 4,868 | level_rates |
+| L12 | MNQ | Asia m=4 k=5 | 180m | 5,405 | 4,916 | level_rates |
+| L12 | MNQ | Asia m=8 k=2 | 180m | 4,903 | 4,351 | level_rates |
+| L12 | MNQ | Asia m=8 k=3 | 180m | 5,108 | 4,545 | level_rates |
+| L12 | MNQ | Asia m=8 k=5 | 180m | 5,242 | 4,703 | level_rates |

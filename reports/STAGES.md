@@ -48,6 +48,24 @@ Degenerate signature, measured: every level fires, sd ≈ 0, adjacent settings s
 high/low collision 92–99%. Sound signature: counts fall with the threshold, sd 16–370,
 collision 1–4%.
 
+### S2 — a registered prediction must be checked for reachability
+**Added 2026-09-12 after L12 (§45).** A registration that states a predicted magnitude must
+also record the effect size a BH survivor would require at the expected n. L12's prediction of
++1.3 to +3.5 bps carried a mandatory significance limb whose threshold was **2.82 bps** — so
+it was reachable only in the top fifth of the range, and 6.8% likely at the bottom of it.
+Nobody noticed until after the run.
+
+**The check SURFACES the problem; it does not auto-reject.** A prediction below the reachable
+threshold is often still worth testing, and rejecting by default would filter out exactly the
+small-effect hypotheses that matter on cost grounds. Three legitimate responses: register it as
+an **economics-only test with the significance limb explicitly waived** (what L12 should have
+been), **increase n**, or **proceed knowingly** with the low power recorded so a null cannot
+later be read as evidence of absence.
+
+**The audit that followed found something larger:** of 26 registrations across the F-, R- and
+L-series, **L12 is the only one that ever stated a magnitude at all.** So the check should
+require a magnitude or an explicit waiver, not merely validate one when volunteered.
+
 ### S6 — the placebo is an arbitrary region at a matched distance
 Redefined 2026-09-09 (§37). **It is a weaker control than a displaced real level**: it
 equalises where a region sits and how often price reaches it, and **nothing about how price

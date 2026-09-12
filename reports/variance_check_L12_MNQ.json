@@ -1,0 +1,41 @@
+[
+ {
+  "hypothesis": "L12",
+  "product": "MNQ",
+  "level_type": "sess_Asia",
+  "m": 2,
+  "fired": 5438,
+  "minute_sd": 202.44800565016513,
+  "minute_min": 541,
+  "minute_max": 1374,
+  "hi_lo_collision": 0.0,
+  "identical_minutes_vs_prev_m": NaN,
+  "up_share": 0.4801397572636999
+ },
+ {
+  "hypothesis": "L12",
+  "product": "MNQ",
+  "level_type": "sess_Asia",
+  "m": 4,
+  "fired": 5368,
+  "minute_sd": 203.1393844026584,
+  "minute_min": 541,
+  "minute_max": 1356,
+  "hi_lo_collision": 0.0,
+  "identical_minutes_vs_prev_m": 0.9236214605067065,
+  "up_share": 0.4823025335320417
+ },
+ {
+  "hypothesis": "L12",
+  "product": "MNQ",
+  "level_type": "sess_Asia",
+  "m": 8,
+  "fired": 5110,
+  "minute_sd": 206.27946589263433,
+  "minute_min": 541,
+  "minute_max": 1356,
+  "hi_lo_collision": 0.0011500862564692352,
+  "identical_minutes_vs_prev_m": 0.8365949119373777,
+  "up_share": 0.5001956947162427
+ }
+]
