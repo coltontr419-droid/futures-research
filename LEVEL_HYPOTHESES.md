@@ -696,3 +696,24 @@ mattered. No trial spent. See `decisions.md` §46.
 **The N-series draft produced zero registrations** — four declined on arithmetic, two
 withdrawn at S6, one deferred, one not a registration, two unmeasured. N unchanged at 756.
 A drafting process that filters ten to zero without spending a trial is the gate working.
+
+## N02 — Round-Number Cross Continuation
+
+**Params: 2** | **MNQ** | **Fires: 26,200 crosses (measured)**
+
+Osler's order-book result: stop-loss orders cluster **just beyond** round numbers and are
+positive-feedback, so crossing triggers them and extends the move. **The counterparty is the
+trader whose stop sits in the obvious cluster.** The best-evidenced mechanism in the N-series
+draft and the only one resting on a published order-book study rather than inference from
+price.
+
+**S3 overturned the draft's assumption.** It assumed crosses were a subset of approaches and
+therefore rarer. Measured: of 32,590 round-number events, **80.4% cross and 19.6% merely
+approach — a ratio of 4.10.** Price that reaches a round number usually goes through it.
+
+**S2: provable across the range** — 2.0–5.0 bps against a BH bar of 1.64. Before measurement
+it was judged to straddle on an assumed 12,000 events; the measured 26,200 moves it clear.
+
+**S5 and S6 are still owed. Not schedulable.** S6 is expected to be buildable because round
+levels sit at a distance from price — the property N04/N05 lacked — but that is an
+expectation, not a measurement.

@@ -2808,6 +2808,86 @@ L-series already operated.
    propose trade-time matching should find this entry rather than re-derive it.
 
 
+## 47. N02 measured and registered; N07 closed on a positive persistence result
+
+The two measurements 46 left open. Both spent no trial; N stays 756.
+
+### N02: the draft's assumption was backwards, and it decides the candidate
+
+The draft assumed crosses were a SUBSET of approaches and therefore rarer - *"lower than
+N01"*. **Measured on MNQ: of 32,590 round-number events, 26,200 (80.4%) CROSS and 6,390
+(19.6%) merely approach. Cross/approach = 4.10.** Price that reaches a round number usually
+goes through it.
+
+The definition was fixed before measuring and not adjusted after: through the level by >= 2
+points on the far side from the approach, within 60 minutes.
+
+**This reverses both round-number candidates' verdicts:**
+
+| | events | units | BH bar | predicted | verdict |
+|---|---|---|---|---|---|
+| **N02 crosses** | **26,200** | 11,963 | **1.64** | 2.0-5.0 | **PROVABLE ACROSS RANGE** |
+| N01 approaches | 6,390 | 2,918 | **3.32** | 1.5-4.0 | only the top 27% reachable |
+
+N02 had been judged to STRADDLE at eff/bar 1.4 on an assumed 12,000 events; the measured
+26,200 moves it clear at eff/bar 2.13, eff/cost 7.3x. **N01 was correctly dropped, by a wider
+margin than the estimate showed.**
+
+**Registered at S2, `schedulable: false`.** S5 and S6 are still owed. S6 is EXPECTED to be
+buildable - round levels sit at a distance from price, which is exactly what N04/N05 lacked
+(61.4% zero-distance, 46) - but that is an expectation and must be verified, not assumed.
+
+### N07: volume share PERSISTS, and R02's failure was specific to the basis
+
+Measured like for like against R02's basis, which closed at a half-life of **0.25 bars**:
+
+| series | AR(1) phi | half-life | ac at lag 30 |
+|---|---|---|---|
+| volume share, 1-minute | 0.877 | **5.29 bars** | 0.832 |
+| volume share, per session | 0.952 | **14.15 sessions** | 0.848 |
+
+**But most of that is deterministic, and saying so is the point.** MNQ's share of the pair
+rose from **0.292 in 2019 to 0.822 in 2026** - a secular adoption trend, not information.
+Stripping the time-of-day profile and the yearly mean:
+
+| | phi | half-life |
+|---|---|---|
+| raw | 0.877 | 5.29 |
+| minus time-of-day mean | 0.872 | 5.06 |
+| **minus time-of-day AND yearly mean** | **0.617** | **1.44 bars** |
+
+**The residual still persists at ~6x R02's basis** (1.44 against 0.25 bars), with
+autocorrelation 0.428 still at lag 60.
+
+**Which of the two outcomes this is, stated explicitly as required.** It is the SECOND branch:
+the retail-participation angle survives in a form the basis did not. That says something
+specific about why R02 failed. **R02 tested the BASIS - a price difference between two
+contracts on the same underlying, which arbitrage forces to mean-revert almost instantly.
+Volume share is a participation measure, and nothing arbitrages it.** R02's failure was a
+property of the observable it chose, not of the retail-participation idea.
+
+That is the first evidence in this programme that the angle survives at all, and it is
+recorded as such rather than as an open item.
+
+**N07 is nevertheless CLOSED as a registration.** It is a CONDITIONER, not a standalone
+signal - it re-evaluates a primary hypothesis stratified by participation quantile, and
+conditioners multiply k. With N02 the only registrable primary and N02 itself not past S5/S6,
+there is nothing to condition. **Closed as: question answered, available as a conditioner if
+and when a primary survives, not registered now.** Registering it before a primary exists
+would spend k on nothing, which its own draft entry warned against.
+
+### Decisions taken rather than resolved silently
+
+1. **The cross definition was not tuned.** N02 had no headroom at the assumed count, and the
+   instruction was explicit that a failure stays a failure. It passed on the first definition
+   tried; had it failed, the definition would not have been adjusted to rescue it.
+2. **N07's persistence is reported with its deterministic component separated.** Reporting
+   the raw 5.29-bar half-life alone would have overstated it by ~4x, and a secular adoption
+   trend is persistent without being informative.
+3. **N02 is registered but NOT schedulable.** S5 before S6, S6 before routing - the ordering
+   46 and 40 establish.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
