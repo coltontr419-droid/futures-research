@@ -548,6 +548,43 @@ class DegenerateCondition(ValueError):
 ALREADY_BEYOND_MAX: Final[float] = 0.25
 
 
+def swing_pivots(g: Grid, lookback: int = 20, tf: int = 5) -> LevelSet:
+    """N04/N05's level type: fractal pivots on `tf`-minute bars.
+
+    A pivot is a bar that is the extreme of its +/- `lookback` neighbours. The level becomes
+    live on the bar AFTER the pivot completes, which is the first moment it could be traded -
+    using the pivot bar itself would look ahead by `lookback` bars.
+
+    REF_PRICE IS THE CLOSE AT valid_from, NOT THE PIVOT PRICE. That is the whole distance
+    metric: `verify` matches a placebo on |level - ref|, so setting ref to the level itself
+    makes every distance identically ZERO - which is precisely L06's unfixable case, where
+    `open_RTH` and `open_CME` sit exactly at the reference price and no arbitrary region is
+    comparable (decisions.md 37). A first draft of this constructor had that defect.
+
+    LOOKBACK IS THE DOMINANT SELECTIVITY KNOB, not the penetration threshold that consumes
+    it: at lookback 5 there are 286,257 pivots (69/session) and no value of m reaches a
+    3-6/session target, while at 20 there are 157,298 (38/session). decisions.md 45.
+    """
+    step = int(tf)
+    sampled = g.close[:, ::step]
+    n_bars = sampled.shape[1]
+    px, row, valid = [], [], []
+    for r in range(g.n):
+        c = sampled[r]
+        if not np.isfinite(c).all():
+            continue
+        for j in range(lookback, n_bars - lookback):
+            w = c[j - lookback:j + lookback + 1]
+            if c[j] == w.max() or c[j] == w.min():
+                px.append(c[j])
+                row.append(r)
+                valid.append(min((j + 1) * step, ROW_MINUTES - 1))
+    row_a = np.asarray(row, int)
+    valid_a = np.asarray(valid, int)
+    ref = g.close[row_a, valid_a]
+    return _stack(f"swing_L{lookback}_{tf}m", np.asarray(px, float), row_a, valid_a, ref)
+
+
 def sweep_reclaim_directed(g: Grid, levels: LevelSet, m_ticks: int, k_bars: int,
                            product: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """`sweep_reclaim`, plus the SIDE that was penetrated.

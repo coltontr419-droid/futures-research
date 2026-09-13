@@ -655,7 +655,7 @@ Both entries below are sited at ~3–6.5 firings/session on 5-minute fractal piv
 lookback **L = 20**. `L` is the dominant knob, not the penetration depth: at L=5 there are
 286,257 pivots (69/session) and no value of `m` reaches the target band.
 
-## N04 — Failed-Breakout Trap
+## N04 — Failed-Breakout Trap  *(WITHDRAWN at S6)*
 
 **Params: 2** | **MNQ** | **Fires: 6.4–6.7/session (measured)**
 
@@ -671,7 +671,7 @@ range it *raises* at 44.2% already-beyond against a 25% limit; on swing pivots i
 
 **S2: provable across the whole predicted range.** 2.0–5.0 bps against a BH bar of 1.42.
 
-## N05 — Swing-Level Sweep and Reclaim
+## N05 — Swing-Level Sweep and Reclaim  *(WITHDRAWN at S6)*
 
 **Params: 2** | **MNQ** | **Fires: 3.2–4.0/session (measured)**
 
@@ -686,3 +686,13 @@ evidence than a null from N04.**
 
 **N04 and N05 are not duplicates**: measured overlap 2.1% of shared (row, minute), because
 N04 enters at the break bar and N05 at the reclaim bar.
+
+**BOTH WITHDRAWN AT S6, 2026-09-12.** Their level type has no valid placebo and cannot get
+one: a swing pivot is definitionally at-the-money when confirmed, so 61.4% of its levels sit
+exactly at the reference price against 0.1–7.1% for every other level type. `verify` returns
+the same DEGENERATE verdict L06 receives. S5 passed and S3 cleared the floor; neither
+mattered. No trial spent. See `decisions.md` §46.
+
+**The N-series draft produced zero registrations** — four declined on arithmetic, two
+withdrawn at S6, one deferred, one not a registration, two unmeasured. N unchanged at 756.
+A drafting process that filters ten to zero without spending a trial is the gate working.

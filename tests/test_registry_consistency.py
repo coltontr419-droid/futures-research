@@ -352,11 +352,18 @@ def test_the_two_excluded_entries_are_the_expected_ones() -> None:
              and the two band boundaries fired at identical (row, minute). Never run at
              Stage 1, no trial spent, N unaffected. decisions.md 40.
 
+    N04, N05 - WITHDRAWN AT S6 2026-09-12. Their 5m swing-pivot level type has no valid
+             placebo and cannot get one: a fractal pivot is at-the-money when confirmed, so
+             61.4% of its levels sit exactly at the reference price, against 0.1-7.1% for
+             every other level type in the catalogue. `verify` returns the same DEGENERATE
+             verdict L06 gets. S5 passed and S3 cleared the floor; neither mattered. No
+             trial spent. decisions.md 46.
+
     Each addition to this set must carry that kind of reason. Adding a name to make the test
     pass, without one, is the thing this assertion exists to catch.
     """
     excluded = {h for h, e in REG.items() if e["status"] == "excluded"}
-    assert excluded == {"F12", "F13", "L11"}, excluded
+    assert excluded == {"F12", "F13", "L11", "N04", "N05"}, excluded
     assert "BELOW FIRING-RATE GATE" in CATALOG_TEXT
     assert "DECAYED" in CATALOG_TEXT
 

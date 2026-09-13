@@ -2692,6 +2692,122 @@ one-liner.
 4. **The S2 check surfaces rather than rejects**, for the reason above.
 
 
+## 46. The placebo distance convention, examined for the first time; N04/N05 withdrawn
+
+Two hypotheses have now been closed by a placebo - L06 and, here, N04/N05 - and the
+convention that decides those closures had never been examined. It is examined now, and it
+holds.
+
+### The freestanding result: `valid_from` is correct because it measures REACHABILITY
+
+`verify` matches a placebo on |level - ref| taken at `valid_from`. **No hypothesis trades at
+`valid_from`** - each trades later, at a touch, a break or a reclaim - so the obvious
+objection is that the harness matches distance at a moment the hypothesis never trades at.
+
+Measured on MGC, both conventions, every level type already matched:
+
+| level type | at `valid_from` | at trade time | ratio |
+|---|---|---|---|
+| L03 prior_rth | 5.80 | 0.30 | 0.052 |
+| L03 prior_full | 8.90 | 0.50 | 0.056 |
+| L04 sess_Asia | 3.80 | 0.30 | 0.079 |
+| L04 sess_London | 6.60 | 0.30 | 0.045 |
+| L04 sess_US | 5.40 | 0.20 | 0.037 |
+| L02 or15 | 1.60 | 0.30 | 0.187 |
+| L02 or30 | 2.30 | 0.30 | 0.130 |
+| L02 or60 | 3.10 | 0.30 | 0.097 |
+
+**Trade-time distance collapses to 0.2-0.6 across eight level types whose `valid_from`
+distances span 1.6 to 8.9.** That is not a coincidence and not a property of these
+hypotheses: it is what "trading at the level" MEANS. Price is at the level at the moment the
+trade triggers, for every level type, by construction.
+
+**So matching at trade time would be matching on a constant.** It would carry no information,
+would place every placebo at the current price, and would equalise nothing.
+
+**`valid_from` is correct, and the reason is now stated rather than assumed: it measures
+REACHABILITY** - how far price must travel to reach the level. That is exactly what 37's null
+requires, because the touch rate is then an INDEPENDENT check that the arbitrary region is
+comparably reachable. Match on a quantity that is ~0 everywhere and the touch check has
+nothing to be independent of.
+
+### A retraction, the same shape as 41
+
+I proposed re-specifying the reference to trade consideration, on the grounds that N04 does
+not trade at `valid_from`. **That was wrong, and it would have rescued pivots by breaking the
+convention for the other eight level types.** The premise was true - no hypothesis trades at
+`valid_from` - and irrelevant, because it is true of every hypothesis equally.
+
+Same shape as 41's retraction: **a conclusion drawn from one case that a measurement across
+the population immediately refutes.** There the evidence was L02's aggregated rate spread;
+here it was a single level type's divergence. In both cases the fix was to measure the
+general claim rather than reason from the instance.
+
+### N04 and N05 withdrawn at S6
+
+**A swing pivot is definitionally at-the-money when confirmed.** The fractal test asserts the
+bar is the extreme of its neighbours, so at the moment the level becomes tradeable price is
+still there:
+
+| | median distance at `valid_from` | zero-share |
+|---|---|---|
+| **swing_L20_5m** | **0.000** | **61.4%** |
+| every other level type | 1.60 - 8.90 | 0.1% - 7.1% |
+
+It is also the ONLY level type whose distance is SMALLER at `valid_from` (0.00) than at trade
+time (0.60); every other type runs the other way by a factor of 5-27x.
+
+`verify` returns **DEGENERATE** on both products - *"a property of the level definition, not a
+tuning failure, and no scale or construction fixes it"* - the identical verdict L06 receives
+for `open_RTH` and `open_CME`. **Same class, same reason, and no trial spent.**
+
+**S5 had passed and S3 had cleared the floor.** N04 fired 6.4-6.7/session with entry-minute sd
+327 and up/down discriminating; N05 3.2-4.0/session with sd ~255 and counts falling with m;
+their mutual overlap was 2.1%. **None of it mattered**, which is exactly why the placebo was
+built before the S3 rates were routed - L11's rate also cleared its floor while the hypothesis
+died at S5.
+
+**A specification defect was caught on the way**, and it is worth recording because it nearly
+hid the real one. A first draft of `swing_pivots` set `ref_price = price`, forcing distance to
+zero BY DEFINITION. Corrected to the close at `valid_from`, which is the convention every
+other level type uses - and the distance is still zero, because of what a pivot IS. The bug
+and the property looked identical from the output; only fixing the bug revealed the property.
+
+### The N-series draft produced ZERO registrations, and that is the correct outcome
+
+Ten candidates in, none registered, **N unchanged at 756**:
+
+| | |
+|---|---|
+| declined on arithmetic before touching data | **4** - N06, N10, N01, N03 |
+| withdrawn at S6 | **2** - N04, N05 |
+| deferred | **1** - N08, k=36 and time-of-day overfits easily |
+| not a registration | **1** - N09, non-directional by its own text |
+| still unmeasured | **2** - N02 cross frequency, N07 persistence |
+
+**A drafting process that filters ten to zero without spending a trial is the gate working.**
+Recorded explicitly because a later reader sees an empty series and reads wasted effort. What
+it cost: no trials, no N, no SR\* movement. What it bought: the selectivity finding (45), the
+measured design effects by family, the boundary result, and this convention check - none of
+which existed before and all of which constrain every future registration.
+
+**The draft's own premise was refuted in the process** (45): it selected for firing rate, and
+the measurement put the economic optimum at 0.65 firings/session, essentially where the
+L-series already operated.
+
+### Decisions taken rather than resolved silently
+
+1. **`swing_pivots` is KEPT in `definitions.py`** though no registered hypothesis uses it. It
+   is correct code with a documented defect-and-fix in its docstring, and deleting it would
+   erase why the level type cannot be controlled. `bollinger_levels` is kept on the same
+   reasoning (40).
+2. **N04/N05 get `status: excluded`, `param_cap: 0`**, and are named in the pinned excluded
+   set with their reason - the same handling L11 received.
+3. **The convention was NOT changed.** It was tested and it held. Recording a convention that
+   survived examination matters as much as recording one that failed: the next person to
+   propose trade-time matching should find this entry rather than re-derive it.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

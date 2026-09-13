@@ -2965,10 +2965,13 @@
 
 - id: N04
   name: failed_breakout_trap_swing_levels
-  stopped_at: S2
+  stopped_at: S6
   stopped_at_reason: >
-    Registered 2026-09-12. S3 firing rate measured, S5 gate PASSED, S6 placebo not yet built.
-    No trial spent.
+    WITHDRAWN AT S6 2026-09-12. Its level type has NO VALID CONTROL and cannot get
+    one: a swing pivot is definitionally at-the-money when confirmed, so 61.4% of
+    levels sit exactly at the reference price and there is no distance distribution
+    to match. Same class as L06. S5 passed and the S3 rate cleared its floor; neither
+    mattered. NO TRIAL SPENT. decisions.md 46.
   mechanism: >
     Breakout entrants place stops back inside the level they broke. A break that fails traps
     them, and their forced exit is price-insensitive supply in the reversal direction. THE COUNTERPARTY is the breakout buyer; they keep doing it because breakout entry is the most widely
@@ -3055,10 +3058,20 @@
   horizon_minutes: [180]
   hold_hours: [3]
   registered: 2026-09-12
-  status: untested
+  status: excluded
+  excluded_reason: >
+    WITHDRAWN AT S6, not closed on evidence. The 5m swing-pivot level type has no valid
+    placebo: measured median distance from the reference price is 0.000 with a 61.4%
+    zero-share, against 0.1-7.1% for every other level type in the catalogue, because a
+    fractal pivot is AT the money at the moment it is confirmed. `verify` returns DEGENERATE
+    - "a property of the level definition, not a tuning failure, and no scale or construction
+    fixes it" - the identical verdict L06 receives. S5 PASSED and S3 cleared the floor, which
+    is exactly why the placebo was built before the rates were routed. NO TRIAL SPENT; N
+    stays 756. decisions.md 46.
+  withdrawn: 2026-09-12
   grade: B
   tier: B
-  param_cap: 2
+  param_cap: 0
   session: US
   symbols: [MNQ]
   stage4_reachable: false
@@ -3071,7 +3084,7 @@
     secondary: null
     rationale: Trapped-breakout flow is not instrument specific; MNQ is chosen for cost (0.48 bps).
   registered_test_order: 21
-  test_order: 21
+  test_order: null
   schedulable: false
   verdict_route:
     per_cell: nine cells, BH within the hypothesis at FDR 0.05
@@ -3081,10 +3094,13 @@
 
 - id: N05
   name: swing_level_sweep_reclaim
-  stopped_at: S2
+  stopped_at: S6
   stopped_at_reason: >
-    Registered 2026-09-12. S3 measured, S5 PASSED, S6 not yet built. No trial spent.
-    THE MARGINAL REGISTRATION OF THE TWO - see s2_check.
+    WITHDRAWN AT S6 2026-09-12. Its level type has NO VALID CONTROL and cannot get
+    one: a swing pivot is definitionally at-the-money when confirmed, so 61.4% of
+    levels sit exactly at the reference price and there is no distance distribution
+    to match. Same class as L06. S5 passed and the S3 rate cleared its floor; neither
+    mattered. NO TRIAL SPENT. decisions.md 46.
   mechanism: >
     Stop-clustering at swing extremes: a sweep beyond a pivot that fails and closes back inside
     marks liquidity taken and rejected, so the move counter to the penetration trades against a
@@ -3142,10 +3158,20 @@
   horizon_minutes: [180]
   hold_hours: [3]
   registered: 2026-09-12
-  status: untested
+  status: excluded
+  excluded_reason: >
+    WITHDRAWN AT S6, not closed on evidence. The 5m swing-pivot level type has no valid
+    placebo: measured median distance from the reference price is 0.000 with a 61.4%
+    zero-share, against 0.1-7.1% for every other level type in the catalogue, because a
+    fractal pivot is AT the money at the moment it is confirmed. `verify` returns DEGENERATE
+    - "a property of the level definition, not a tuning failure, and no scale or construction
+    fixes it" - the identical verdict L06 receives. S5 PASSED and S3 cleared the floor, which
+    is exactly why the placebo was built before the rates were routed. NO TRIAL SPENT; N
+    stays 756. decisions.md 46.
+  withdrawn: 2026-09-12
   grade: B-
   tier: B
-  param_cap: 2
+  param_cap: 0
   session: US
   symbols: [MNQ]
   stage4_reachable: false
@@ -3155,7 +3181,7 @@
     secondary: null
     rationale: Stop-clustering at swing extremes is not instrument specific.
   registered_test_order: 22
-  test_order: 22
+  test_order: null
   schedulable: false
   verdict_route:
     per_cell: nine cells, BH within the hypothesis at FDR 0.05
