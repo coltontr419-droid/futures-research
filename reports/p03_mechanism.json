@@ -1,0 +1,12 @@
+{
+  "half_life_bars": 0.7075, "half_life_minutes": 3.5374,
+  "bar_minutes": 5, "chosen_horizon": 15,
+  "horizon_grid": [15, 30, 60, 90, 120, 180, 240],
+  "baseline_elevation": -1.166188,
+  "elevation_by_lag": [1.470173, 0.431165, 0.460257, 0.450059, 0.447172, 0.446573, 0.455390, 0.439483, 0.448440, 0.441078, 0.438291, 0.432766, 0.445099],
+  "n_firings_fitted": 27437,
+  "median_move_bps": 13.5887,
+  "median_expected_bps": 4.2078,
+  "median_excess_bps": 9.1771,
+  "q25_excess_bps": 4.8837, "q75_excess_bps": 16.3747
+}

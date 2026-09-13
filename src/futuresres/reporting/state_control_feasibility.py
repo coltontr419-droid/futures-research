@@ -101,6 +101,7 @@ def build_state(df: pl.DataFrame) -> dict[str, np.ndarray]:
     # Trailing same-bucket threshold: previous LOOKBACK_SESSIONS only, never this one.
     n_sessions = sessions.size
     state = np.zeros(illiq.size, dtype=bool)
+    thresh_bar = np.full(illiq.size, np.nan)
     for bucket in np.unique(tod):
         in_bucket = np.flatnonzero(tod == bucket)
         b_sid, b_val = sid[in_bucket], illiq[in_bucket]
@@ -121,6 +122,7 @@ def build_state(df: pl.DataFrame) -> dict[str, np.ndarray]:
             counts.append(len(by_session[s]))
         ok = np.isfinite(b_val) & np.isfinite(thresh[b_sid])
         state[in_bucket[ok]] = b_val[ok] > thresh[b_sid][ok]
+        thresh_bar[in_bucket] = thresh[b_sid]
 
     # Session realised volatility, ranked causally against the same lookback.
     sess_vol = np.full(n_sessions, np.nan)
@@ -132,7 +134,8 @@ def build_state(df: pl.DataFrame) -> dict[str, np.ndarray]:
 
     year = sessions.astype("datetime64[Y]").astype(int)[sid] + 1970
     return {"state": state, "session": sid, "tod": tod, "vol_q": vol_q, "year": year,
-            "volume": volume, "n_sessions": n_sessions}
+            "volume": volume, "illiq": illiq, "ret_bps": ret_bps, "thresh": thresh_bar,
+            "n_sessions": n_sessions}
 
 
 def main() -> int:

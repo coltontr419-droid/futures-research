@@ -44,6 +44,7 @@ real) while the firing rate must stay flat near 10% (the rank is invariant to it
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Final
 
@@ -73,11 +74,14 @@ K_CELLS: Final[int] = 9
 #: measured on NQ, so MNQ's floor is the one that binds.
 COST_BPS: Final[float] = 0.48
 
-#: §54's predicted range for P03, from the mechanistic bracket (a 5m MNQ move has sd ~11 bps, a
-#: two-sigma thin move ~20 bps, 5-20% excess reversal gives 1-4) and consistent in DIRECTION
-#: with Campbell, Grossman and Wang (1993). A PRIOR, not a measurement.
-PREDICTED_LO: Final[float] = 1.0
-PREDICTED_HI: Final[float] = 4.0
+#: THE DECLINED ALTERNATIVE, kept so it reads as superseded rather than forgotten. §54
+#: predicted 1.0-4.0 bps from a mechanistic sketch (a 5m MNQ move has sd ~11 bps, a two-sigma
+#: thin move ~20 bps, 5-20% excess reversal) whose direction was attributed to Campbell,
+#: Grossman and Wang (1993). PROVENANCE: RECALLED FROM MEMORY, NEVER CHECKED against the paper,
+#: and recorded as such in §54 at the time. It is superseded by the impact measured on this
+#: series in `p03_mechanism.py`, which uses the same Amihud/Kyle mechanism and no recollection.
+DECLINED_LITERATURE_LO: Final[float] = 1.0
+DECLINED_LITERATURE_HI: Final[float] = 4.0
 
 #: Measured design effects by family (§45/§54). The round-number family is the closest
 #: analogue to a frequent intraday state; the upper figure is a deliberate pessimism, not a
@@ -88,17 +92,18 @@ DEFF_REALISTIC: Final[float] = 4.0
 
 
 def bh_bar(effective_units: float, horizon: int = HORIZON_MINUTES,
-           k: int = K_CELLS, paired: bool = False) -> float:
+           k: int = K_CELLS) -> float:
     """Smallest effect a BH rank-1 survivor must show, in bps.
 
-    `paired=True` applies the sqrt(2) inflation for a real-minus-control DIFFERENCE of two
-    event means. That is the CONSERVATIVE end: matching on regime correlates the two sides
-    positively, which reduces the variance of their difference, so the true factor lies
-    between 1 and sqrt(2). It is reported both ways rather than picked.
+    NO sqrt(2) PAIRING INFLATION IS APPLIED, and an earlier version of this file wrongly
+    applied one. The anchor is not the SE of a single mean: L12 measured 1.016 bps as **its
+    own bootstrap SE** on a real-minus-placebo table (`real | placebo | diff`), at 4,052
+    pairs, and 64.7/sqrt(4052) = 1.016. **The anchor is already the SE of a
+    difference-of-two-means**, so inflating it again double-counts the pairing. See §57.
     """
     z = float(norm.ppf(1 - (0.05 / k) / 2))
     se = SE_ANCHOR / np.sqrt(effective_units) * np.sqrt(horizon / HORIZON_MINUTES)
-    return float(z * se * (np.sqrt(2.0) if paired else 1.0))
+    return float(z * se)
 
 
 def main() -> int:
@@ -138,43 +143,72 @@ def main() -> int:
     print(f"\nfiring-rate spread across eras: {spread:.2%} "
           f"(min {min(rates.values()):.2%}, max {max(rates.values()):.2%})")
 
-    print("\nBH BAR at the post-warm-up sample")
-    print(f"{'DEFF':>6} {'eff units':>11} {'bar (single)':>13} {'bar (paired)':>13}")
+    mech = json.loads((ROOT / "reports" / "p03_mechanism.json").read_text())
+    horizon = int(mech["chosen_horizon"])
+    ceiling = float(mech["median_excess_bps"])
+    hl_min = float(mech["half_life_minutes"])
+
+    print(f"\nHORIZON, from the state's own clock (p03_mechanism.py, no forward returns)")
+    print(f"   half-life {hl_min:.1f} min -> nearest grid horizon H = {horizon}")
+    print(f"   NOTE: the half-life is BELOW the 5-minute bar, so it is resolution-limited -")
+    print(f"   any value under 5 min maps to the same grid point, the grid's smallest.")
+
+    print(f"\nBH BAR at H = {horizon}, post-warm-up sample")
+    print(f"{'DEFF':>6} {'eff units':>11} {'bar (bps)':>11}")
     rows = {}
     for label, deff in (("best", DEFF_BEST), ("realistic", DEFF_REALISTIC)):
         eff = n_pairs / deff
-        single, pair = bh_bar(eff), bh_bar(eff, paired=True)
-        rows[label] = (deff, eff, single, pair)
-        print(f"{deff:>6.2f} {eff:>11,.0f} {single:>13.2f} {pair:>13.2f}")
-
+        bar = bh_bar(eff, horizon=horizon)
+        rows[label] = (deff, eff, bar)
+        print(f"{deff:>6.2f} {eff:>11,.0f} {bar:>11.3f}")
     lo_bar = min(r[2] for r in rows.values())
-    hi_bar = max(r[3] for r in rows.values())
-    print(f"\npredicted {PREDICTED_LO:.1f}-{PREDICTED_HI:.1f} bps   "
-          f"cost floor {COST_BPS:.2f} bps   bar range {lo_bar:.2f}-{hi_bar:.2f} bps")
+    hi_bar = max(r[2] for r in rows.values())
 
-    clears_cost = PREDICTED_LO > COST_BPS
-    if PREDICTED_LO > hi_bar:
-        verdict = "CLEARS"
-    elif PREDICTED_HI < lo_bar:
+    print(f"\nMAGNITUDE, from measured impact rather than recalled literature")
+    print(f"   median move at a firing      {mech['median_move_bps']:.2f} bps")
+    print(f"   what its own volume buys     {mech['median_expected_bps']:.2f} bps")
+    print(f"   measured excess (CEILING)    {ceiling:.2f} bps")
+    print(f"   declined alternative         {DECLINED_LITERATURE_LO:.1f}-"
+          f"{DECLINED_LITERATURE_HI:.1f} bps (§54, recalled and unchecked)")
+
+    binding = max(hi_bar, COST_BPS)
+    required = binding / ceiling
+    print(f"\n   bar {lo_bar:.3f}-{hi_bar:.3f} bps   cost floor {COST_BPS:.2f} bps   "
+          f"binding constraint {binding:.3f} bps")
+    print(f"   REQUIRED REVERSION FRACTION: {required:.1%} of the measured excess")
+
+    # NO INVENTED CUTOFF. An earlier draft of this file declared CLEARS when the required
+    # fraction fell under a tenth - a constant chosen here, in this file, with nothing behind
+    # it. That is the same error as the recalled literature this module exists to replace.
+    # The measurement can rule the hypothesis OUT (a ceiling below the binding constraint);
+    # it cannot rule it IN without a claim about the reversion fraction, which is precisely
+    # what the test itself would measure. So the crossing point is reported and the judgement
+    # is left where it belongs.
+    if ceiling < binding:
         verdict = "BELOW"
+        note = "even FULL reversion of the excess cannot reach the binding constraint"
     else:
-        verdict = "STRADDLES"
-    print(f"\nvs cost floor : {'above across the range' if clears_cost else 'at/below at the low end'}")
-    print(f"vs BH bar     : {verdict}")
+        verdict = "NOT BELOW"
+        note = (f"clears iff more than {required:.1%} of the excess reverts within "
+                f"{horizon} min; this measurement cannot bound that fraction")
+    print(f"\nvs cost floor : ceiling is {ceiling / COST_BPS:.1f}x the floor")
+    print(f"vs BH bar     : {verdict} - {note}")
 
     OUT.write_text(
         "{\n"
-        f'  "hypothesis": "P03", "series": "NQ", "horizon_minutes": {HORIZON_MINUTES},\n'
+        f'  "hypothesis": "P03", "series": "NQ",\n'
         f'  "lookback_sessions": {LOOKBACK_SESSIONS}, "threshold_pct": {THRESHOLD_PCT},\n'
         f'  "n_sessions_post_warmup": {n_sessions_total}, "n_firings": {n_pairs},\n'
         f'  "firings_per_session": {cl.firings_per_session:.4f},\n'
         f'  "firing_rate_spread": {spread:.4f},\n'
         f'  "deff_best": {DEFF_BEST}, "deff_realistic": {DEFF_REALISTIC},\n'
-        f'  "bar_single_best": {rows["best"][2]:.4f}, '
-        f'"bar_paired_best": {rows["best"][3]:.4f},\n'
-        f'  "bar_single_realistic": {rows["realistic"][2]:.4f}, '
-        f'"bar_paired_realistic": {rows["realistic"][3]:.4f},\n'
-        f'  "predicted_lo": {PREDICTED_LO}, "predicted_hi": {PREDICTED_HI},\n'
+        f'  "bar_best": {rows["best"][2]:.4f}, '
+        f'"bar_realistic": {rows["realistic"][2]:.4f},\n'
+        f'  "horizon_minutes": {horizon}, "half_life_minutes": {hl_min:.4f},\n'
+        f'  "ceiling_bps": {ceiling:.4f}, "binding_bps": {binding:.4f},\n'
+        f'  "required_reversion_fraction": {required:.4f},\n'
+        f'  "declined_literature_lo": {DECLINED_LITERATURE_LO}, '
+        f'"declined_literature_hi": {DECLINED_LITERATURE_HI},\n'
         f'  "cost_bps": {COST_BPS}, "verdict": "{verdict}"\n'
         "}\n", encoding="utf-8")
     print(f"\nwrote {OUT.relative_to(ROOT)}")

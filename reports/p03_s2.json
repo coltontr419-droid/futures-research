@@ -1,12 +1,14 @@
 {
-  "hypothesis": "P03", "series": "NQ", "horizon_minutes": 180,
+  "hypothesis": "P03", "series": "NQ",
   "lookback_sessions": 60, "threshold_pct": 90.0,
   "n_sessions_post_warmup": 3559, "n_firings": 27437,
   "firings_per_session": 7.7092,
   "firing_rate_spread": 0.0961,
   "deff_best": 2.19, "deff_realistic": 4.0,
-  "bar_single_best": 1.6029, "bar_paired_best": 2.2668,
-  "bar_single_realistic": 2.1662, "bar_paired_realistic": 3.0635,
-  "predicted_lo": 1.0, "predicted_hi": 4.0,
-  "cost_bps": 0.48, "verdict": "STRADDLES"
+  "bar_best": 0.4627, "bar_realistic": 0.6253,
+  "horizon_minutes": 15, "half_life_minutes": 3.5374,
+  "ceiling_bps": 9.1771, "binding_bps": 0.6253,
+  "required_reversion_fraction": 0.0681,
+  "declined_literature_lo": 1.0, "declined_literature_hi": 4.0,
+  "cost_bps": 0.48, "verdict": "NOT BELOW"
 }

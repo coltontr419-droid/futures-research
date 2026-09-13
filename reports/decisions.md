@@ -3759,6 +3759,8 @@ bar (§54), and no S2 has been run. Bar mode's power cost is unmeasured in size.
 
 ## 56. P03's S2: the denominator fixed, and a straddling magnitude (S2)
 
+> **SUPERSEDED IN TWO PLACES BY §57, 2026-09-13.** Its bar arithmetic applied a sqrt(2) pairing inflation that **double-counts** - the SE anchor was already measured on a difference - and its horizon and magnitude were both assumed rather than measured. The denominator section stands. The text is left as written; §57 carries the corrections.
+
 `reporting/p03_s2.py`, `reports/p03_s2.json`. **NOT REGISTERED. No trial spent, no S5, no S6,
 no return scored.** S2 reads |return| only as the numerator of the state's own definition.
 
@@ -3832,6 +3834,122 @@ registration. The number is 1.0-4.0 against 1.60-3.06.
    against the entry's budget, with k re-derived if the cell count changes.
 4. **Bar mode is the only available control** (§55), so a null would be weaker evidence than a
    null under strict mode.
+
+## 57. The sqrt(2) error was mine; P03's horizon and magnitude measured (S2)
+
+`reporting/p03_mechanism.py`, `reports/p03_mechanism.json`, re-run `reports/p03_s2.json`.
+**Still not registered. No trial spent, no forward return read anywhere in this work.**
+
+### The sqrt(2) inflation: recorded as its own item, and it was an error in the CORRECTION
+
+§56 claimed §54's table "used the single-mean bar for a difference-of-two-means statistic and
+understated by up to 41%". **That claim is wrong, and checking it is what showed it.**
+
+The anchor's provenance decides it. §45 set SE = 64.7/sqrt(units) from L12, and L12's number
+was **"the test's own bootstrap SE of 1.016 bps"** on a table whose columns are
+`real | placebo | diff` - a real-minus-placebo difference, at 4,052 pairs. 64.7/sqrt(4052) =
+1.016. **The anchor is therefore ALREADY the SE of a difference of two means**, and inflating
+it again double-counts the pairing. §54's table was right; §56's correction of it was wrong.
+
+**Same class as the unit error and the scale error, one level up.** Each is a quantity computed
+correctly for a DIFFERENT object than the one in hand - bars instead of sessions (§54), a ratio
+whose denominator is not stationary (§52, §54), and here an SE for a single mean when the
+constant already described a difference. The new instance is that it appeared **in a
+correction**: the fix reproduced the error class it was fixing, by not checking the provenance
+of the constant it was adjusting. A correction is not exempt from the check it applies.
+
+**Swept the repo for the same mismatch.** The bar arithmetic exists in three places:
+
+| where | statistic | anchor used correctly? |
+|---|---|---|
+| `p03_s2.py` | real-minus-control difference | now yes - the inflation is removed and the reason is at the function |
+| §54's P-series table | real-minus-control differences throughout (every candidate needs a matched control, §55) | yes |
+| §45's L01/L08/L09 blocks | paired real-minus-placebo, and the text says so | yes - and those used **per-case measured SEs** (4.45, 4.20, 2.44, 3.06-3.39), not the anchor |
+
+**No other occurrence, and no occurrence of the mirror error** - the anchor is never applied to
+a single-mean statistic, which would OVERSTATE a bar rather than understate one.
+
+### P03's horizon, from the state's clock rather than from assumption
+
+R01's precedent (r-series §17): the MNQ/MES deviation half-life was measured on the series, the
+nearest grid horizon taken, and the choice recorded as data-informed rather than as an
+out-of-sample prior. Followed here. The state variable is log(illiquidity / its own trailing
+threshold); the decay is measured after each firing, within sessions, **using no forward
+returns** - the quantity is a property of the state, and no signal, return series or statistic
+exists when it runs.
+
+| lag | 0 | 1 bar (5m) | 2 | 6 (30m) | 12 (60m) | 24 (120m) |
+|---|---|---|---|---|---|---|
+| elevation | 1.470 | 0.431 | 0.460 | 0.455 | 0.445 | 0.414 |
+| vs lag 0 | 1.00 | **0.29** | 0.31 | 0.31 | 0.30 | 0.28 |
+
+**Half-life 3.5 minutes -> H = 15, the nearest grid point.** Two things stated rather than
+buried:
+
+- **The half-life is below the 5-minute bar, so it is resolution-limited.** 3.5 min comes from
+  interpolating inside the first bar. The choice is robust to that: any value under 5 minutes
+  maps to 15, the grid's smallest point. What is NOT robust is the implication - P03's
+  mechanism clock is faster than both the chosen bar and the tradeable grid, so H=15 is already
+  ~4 half-lives past decay. R01 rejected H=60 for being 2-7 half-lives past restoration; P03
+  cannot make the same choice because nothing shorter is on the grid.
+- **The spike decays but a plateau remains**: elevation falls to 0.29 in one bar and then sits
+  near 0.30 for two hours. The reverting claim is about the spike, so the spike's clock is the
+  one used.
+
+**The ordering is the safeguard and it is recorded deliberately.** Choosing the horizon after
+seeing which one clears the bar would be selecting a specification on the outcome - the same
+error as tuning a threshold until a result appears. Here the horizon was fixed by the state's
+decay, the magnitude by the series' impact relation, and only then was the bar recomputed.
+Neither measurement can see the bar: no forward return, no effect and no statistic exists when
+they run. That ordering is what makes H=15 a specification rather than a selection.
+
+### P03's magnitude, from measured impact rather than recalled literature
+
+**The declined alternative, with its provenance.** §54 predicted 1.0-4.0 bps from a sketch (a 5m
+MNQ move has sd ~11 bps, a two-sigma thin move ~20 bps, 5-20% excess reversal) whose direction
+was attributed to Campbell, Grossman and Wang (1993). **Recalled from memory, never checked
+against the paper**, and labelled as such in §54 at the time. **Superseded, not dropped** - the
+same Amihud/Kyle mechanism is now measured on this series.
+
+Within each (year, time-of-day bucket), log|return| = a + b log(volume) is fitted on all bars,
+which absorbs the secular volume growth and the intraday shape. The fitted value is the move a
+bar's own volume ordinarily buys; the residual is the excess displacement a thin move carries:
+
+    median move at a firing        13.59 bps
+    what its own volume buys        4.21 bps
+    measured EXCESS                 9.18 bps   (IQR 4.88-16.37)
+
+**The excess is a CEILING, not a prediction.** No reversion returns more than the move that was
+made. The fraction that actually reverts is not measurable without forward returns, so it is
+not guessed - and the ceiling is generous besides, because an unknown part of the excess is
+permanent information rather than transitory impact.
+
+### S2 re-run at H = 15: NOT BELOW, crossing at 6.8%
+
+    bar 0.463-0.625 bps (DEFF 2.19-4.00, 12,528-6,859 effective units, no sqrt(2))
+    cost floor 0.48 bps  ->  binding constraint 0.625 bps
+    measured ceiling 9.18 bps  =  19.1x the cost floor, 15x the binding constraint
+
+**P03 clears iff more than 6.8% of the measured excess reverts within 15 minutes.**
+
+The bar fell from §56's 1.60-3.06 for two reasons that are worth separating: the horizon moved
+from an assumed 180m to a measured 15m, which divides the bar by sqrt(12); and the spurious
+sqrt(2) came out. The magnitude rose because 9.18 bps of measured excess replaced a recalled
+1.0-4.0. **The cost floor now binds almost as hard as the BH bar** - 0.48 against 0.463-0.625 -
+which is a different regime from every earlier P-series entry, where significance dominated.
+
+**No verdict of CLEARS is recorded, and the reason is itself a correction.** The first draft of
+the re-run declared CLEARS when the required fraction fell below a tenth - **a constant invented
+in that file, with nothing behind it**, which is the same error as the recalled literature the
+module exists to replace. Removed. The measurement can rule P03 OUT (a ceiling below the binding
+constraint, which did not happen) but cannot rule it IN without a claim about the reversion
+fraction - and that fraction is exactly what the test would measure. So the crossing point is
+reported and the judgement is left where it belongs.
+
+**P03 is therefore NOT below its bar, and the P-series does not close here.** The waiver
+question §56 raised is no longer the live one: at H=15 the significance limb is nearly as cheap
+as the cost limb, so a waiver would buy little. What a registration now turns on is whether
+6.8% reversion within 15 minutes is a claim worth one trial.
 
 ## 10. Still outstanding, and blocking
 
