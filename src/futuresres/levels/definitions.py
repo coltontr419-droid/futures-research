@@ -415,7 +415,8 @@ def bollinger_levels(g: Grid, period: int = 20, k: float = 2.0,
 
 
 def fvg_zones_directed(g: Grid, w_ticks: int, tf: int,
-                       product: str) -> tuple[LevelSet, np.ndarray, np.ndarray]:
+                       product: str, *, w_bps: float | None = None
+                       ) -> tuple[LevelSet, np.ndarray, np.ndarray]:
     """Three-bar imbalances with the two properties `fvg_zones` throws away.
 
     Returns (levels, half_width, direction) where `direction` is the sign of the move that
@@ -429,26 +430,35 @@ def fvg_zones_directed(g: Grid, w_ticks: int, tf: int,
     step = tf
     hi = np.maximum.reduceat(g.high, np.arange(0, ROW_MINUTES, step), axis=1)
     lo = np.minimum.reduceat(g.low, np.arange(0, ROW_MINUTES, step), axis=1)
-    tick = TICK[product] * w_ticks
+    # SCALE-INVARIANT OPTION (decisions.md 52). With `w_bps` the minimum gap is a fraction of
+    # price at the gap's first bar rather than a fixed number of ticks. The index rose 14x over
+    # 2010-2026, so a fixed tick threshold was ~14x tighter in relative terms early in the
+    # sample than late. Default (w_bps None) is unchanged, byte for byte.
+    if w_bps is None:
+        tick = TICK[product] * w_ticks
+    else:
+        tick = (w_bps * 1e-4) * hi[:, :-2]
     bull = lo[:, 2:] - hi[:, :-2]
     bear = lo[:, :-2] - hi[:, 2:]
     price, row, valid, ref, half, direction = [], [], [], [], [], []
     for r in range(g.n):
-        for j in np.flatnonzero(bull[r] >= tick):
+        thr = tick if np.ndim(tick) == 0 else tick[r]
+        for j in np.flatnonzero(bull[r] >= thr):
             top, bot = lo[r, j + 2], hi[r, j]
             price.append((bot + top) / 2)
             half.append((top - bot) / 2)
             direction.append(1.0)
             row.append(r); valid.append(min((j + 3) * step, ROW_MINUTES - 1))
             ref.append(g.close[r, min((j + 3) * step, ROW_MINUTES - 1)])
-        for j in np.flatnonzero(bear[r] >= tick):
+        for j in np.flatnonzero(bear[r] >= thr):
             top, bot = lo[r, j], hi[r, j + 2]
             price.append((bot + top) / 2)
             half.append((top - bot) / 2)
             direction.append(-1.0)
             row.append(r); valid.append(min((j + 3) * step, ROW_MINUTES - 1))
             ref.append(g.close[r, min((j + 3) * step, ROW_MINUTES - 1)])
-    return (_stack(f"fvg_w{w_ticks}_{tf}m", price, row, valid, ref),
+    kind = f"fvg_w{w_ticks}_{tf}m" if w_bps is None else f"fvg_w{w_bps:g}bps_{tf}m"
+    return (_stack(kind, price, row, valid, ref),
             np.asarray(half, float), np.asarray(direction, float))
 
 

@@ -66,6 +66,30 @@ later be read as evidence of absence.
 L-series, **L12 is the only one that ever stated a magnitude at all.** So the check should
 require a magnitude or an explicit waiver, not merely validate one when volunteered.
 
+### S2 — thresholds must be scale-invariant over the sample
+**Added 2026-09-13 after N02 (§51, §52).** A registered threshold must be scale-invariant over
+the sample it runs on (bps, volatility units or ATR multiples), **or** the registration must
+state the price range the sample spans and pre-register an era split.
+
+The reason: the spliced NQ/MNQ index rose **14×** from 2010 to 2026. A threshold fixed in ticks
+or points therefore ran a **different trade in each era**, all pooled into one cell. N02's
+8-point break was a 41 bps move in 2010 and a 2.9 bps move in 2026.
+
+**No existing gate can see this.** S5 checks that a condition selects events and S6 checks that
+the placebo is matched. Both are computed on the pooled sample, so both pass while the
+condition drifts by an order of magnitude underneath them. Scale stationarity is a property
+across **time**, and nothing looked there.
+
+**Surface, don't reject**, as with the magnitude check. A point threshold can be a legitimate
+choice (round-number *levels* are round because they are in price units), but the registration
+must say so and carry the era split.
+
+### S8 — run the era split by default, not on suspicion
+N02's era split was requested because R01 had decayed after 2024. It found a mechanical
+artifact instead: the sign flip was the 14× scale drift, not decay. **A check aimed at one
+failure found a different one.** That is the case for running it on every S7 result as a
+default, rather than only when a specific failure is suspected.
+
 ### S6 — the placebo is an arbitrary region at a matched distance
 Redefined 2026-09-09 (§37). **It is a weaker control than a displaced real level**: it
 equalises where a region sits and how often price reaches it, and **nothing about how price

@@ -3162,6 +3162,95 @@ N01/N03/N06/N10 declined on arithmetic; N08 deferred; N07 closed as a conditione
 primary; N09 never a registration. 3 trials spent in total.
 
 
+## 52. Scale invariance: a failure class with no gate, and L07's exponents re-measured (S2, S5-S8)
+
+**A programme finding, recorded apart from N02** (51 was where it surfaced).
+
+### The failure class
+
+The spliced NQ/MNQ index rose **14x** over 2010-2026 (median 1,939 in 2010, 27,528 in 2026).
+**Every threshold in ticks or points has therefore been running a different trade in each era,
+pooled into one cell.** MNQ's 0.25-point tick was ~1.3 bps in 2010 and ~0.09 bps in 2026. N02's
+8-point break was a 41 bps move early and a 2.9 bps move late.
+
+**No gate could see it.** S5 checks that a condition selects events; S6 checks the placebo is
+matched. Both are computed on the pooled sample, so both pass while the condition drifts by an
+order of magnitude underneath them. Scale stationarity is a property across TIME, and nothing
+in S1-S8 looked across time before S8's era split.
+
+**It belongs with the other structural findings**, each a gap between the quantity measured
+and the quantity meant:
+
+| finding | what was measured | what was meant |
+|---|---|---|
+| `confirmed_break` (41) | a firing count | a selection of events |
+| missing magnitude (45) | a null | a null against a stated effect |
+| S5-before-S6 (44) | a matched placebo | a placebo for a valid treatment |
+| **scale invariance (here)** | **one cell** | **one trade** |
+
+### The S2 check, registered
+
+`reports/STAGES.md` S2: a threshold must be scale-invariant over the sample (bps, volatility
+or ATR units), **or** the registration must state the price range it spans and pre-register an
+era split. **Surface, don't reject.** Round-number LEVELS are legitimately in price units; the
+point is that the choice is declared.
+
+`test_schedulable_entries_declare_threshold_units` enforces it. **No entry is schedulable
+today, so the test currently checks nothing.** It gates the next registration without
+rewriting entries that predate it, which is the intent.
+
+### L07's selectivity exponents, re-measured with w scale-invariant
+
+45's "selectivity, not firing rate" rests on L07's w sweep, and w was in ticks across the same
+14x range. Re-measured with a new `w_bps` option on `fvg_zones_directed` (default behaviour
+unchanged; the L07 tests still pass) - same arm, same bootstrap, both units, log-log fits
+across the sweep. The first points cell reproduces L07's committed MNQ w=2/5m/g=10 cell
+exactly (n 96,377, |eff| 3.777), so a difference could not be a harness artifact.
+
+| | effect decay | bar fall | bar - effect |
+|---|---|---|---|
+| points, MNQ 5m | 0.385 | 0.689 | 0.304 |
+| **bps, MNQ 5m** | **0.417** | **0.664** | **0.247** |
+| 45 original, MGC 1m, endpoints | 0.412 | 0.624 | 0.212 |
+
+**The exponents survive.** Changing units moves each by ~0.03; the bar falls faster than the
+effect decays in both; the bps figures sit within 0.04 of 45's. **45's finding stands in
+direction and approximate magnitude and is not restated.** Economics at the tight end also
+hold: eff/cost 17.38 (points w=32t) against 16.67 (bps w=6.4).
+
+**The drift was real and concentrated at the tight end:**
+
+| zones/session | 2010-18 | 2019-23 | 2024-26 |
+|---|---|---|---|
+| points w=2t | 31.0 | 48.4 | 49.7 |
+| points w=32t | **0.8** | 9.8 | **15.9** |
+| bps w=0.4 | 41.3 | 46.9 | 45.3 |
+| bps w=6.4 | 5.0 | 10.3 | 7.7 |
+
+The tightest points cell was effectively a late-sample-only cell - 20x more zones per session
+in 2024-26 than 2010-18. In bps the spread falls to ~2x and follows volatility regime rather
+than price level. It left the exponents intact; it would not necessarily leave a per-cell
+effect estimate intact, which is why the S2 check exists.
+
+### Downstream uses, checked
+
+- **Headroom estimates (45)** - rest on the decay/fall exponents, which survive. Hold.
+- **Boundary sweep (45: eff/cost peak at w=24/tf=30m)** - run in points and on tf=5/15/30m.
+  The 5m arm's exponents are confirmed in bps; **the peak's exact location was NOT re-measured
+  in bps** and is unverified. The design principle (start tight, L/w is the cheap knob) holds.
+- **N04/N05 parameters** - withdrawn at S6 (46) for an unrelated reason; nothing to revisit.
+- **The x1.54 uplift, declined** - computed from the 0.412 decay exponent, now measured at 0.417
+  in bps. The uplift would have been essentially the same, and it was declined on principle
+  (a prediction should not be set by transfer from a refuted mechanism), which is untouched.
+
+### The era split found something real by looking for something else
+
+It was requested for N02 because R01 had decayed after 2024. It found no decay; it found a
+mechanical scale artifact. **A check aimed at one failure surfaced a different, unguarded
+one.** That is the argument for running it on every S7 result by default rather than on
+suspicion, and STAGES.md S8 now says so.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

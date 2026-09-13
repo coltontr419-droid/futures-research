@@ -673,3 +673,28 @@ def test_the_stage_reference_exists_and_defines_all_eight() -> None:
     assert "Stage 0" in text and "Stage 1" in text, (
         "STAGES.md must map the retired Stage 0 / Stage 1 language"
     )
+
+
+@pytest.mark.integrity
+def test_schedulable_entries_declare_threshold_units() -> None:
+    """S2 scale check (reports/STAGES.md, decisions.md 52).
+
+    The spliced index rose 14x over the sample, so a threshold in ticks or points runs a
+    different trade in each era and S5/S6 cannot see it. A schedulable entry must say what
+    its thresholds are denominated in; if they are not scale-invariant, it must pre-register
+    the era split. Checked only on SCHEDULABLE entries: it gates the next run without
+    rewriting the history of entries registered before the check existed.
+    """
+    invariant = {"bps", "volatility", "atr"}
+    for hid, entry in REG.items():
+        if not entry.get("schedulable"):
+            continue
+        units = entry.get("threshold_units")
+        assert units, (
+            f"{hid} is schedulable but does not declare threshold_units. See STAGES.md S2."
+        )
+        if str(units).lower() not in invariant:
+            assert entry.get("era_split_preregistered"), (
+                f"{hid} uses {units!r} thresholds, which are not scale-invariant over a 14x "
+                f"price range, and does not pre-register an era split."
+            )
