@@ -3544,6 +3544,34 @@ the fourth point would have overclaimed.
 On this arithmetic the honest summary is that **one of thirteen is worth registering first,
 and only once a control that does not yet exist has been built.**
 
+### Attribution, recorded on request 2026-09-13
+
+Two items above were softened by passive phrasing in the first write-up. Corrected here in the
+same terms as N06's ranking error (§45), because who made an error and when is part of what
+makes the record usable.
+
+1. **The unit error is the draft author's, and the draft was written AFTER §45.** Every
+   "n: High" in `P_SERIES_CANDIDATES.md` counts BARS satisfying a quantile condition, not
+   effective units. §45 had already recorded exactly this failure - N06's 18.8 firings/session,
+   and the errors §41 and §45 themselves cite - and the P-series draft repeated it in a document
+   written later. **Same shape as N06: a number that looked like an advantage was an artifact
+   of not checking what the unit of observation actually was.** It is not a review finding that
+   the draft happened to omit; it is a known error class recurring after its correction was
+   written down, which is worse, and is why it is recorded here by name rather than folded into
+   the table.
+
+2. **P03's scale claim was the draft's, and the REVIEW caught it.** The draft asserted
+   "Ratio-form observable, so §52's check passes natively." That assertion is wrong, and it was
+   not corrected in the brief - it was found in this review by measuring the splice: median 1m
+   bar volume falls from 83-140 (NQ, Mar-May 2019) to 26-39 (MNQ, Jun-Jul 2019), so the ratio
+   steps up ~3-5x at a contract change that has nothing to do with liquidity. **A ratio is not
+   automatically scale-invariant; it is scale-invariant only if its denominator is stationary,
+   and contract size is not.** §52 exists because this class of error is invisible until
+   measured, and the draft's sentence offered an assertion in place of the measurement.
+
+Both corrections are in the entries themselves, marked **[§54]**.
+
+
 ### Decisions taken rather than resolved silently
 
 1. **Predictions are priors and say so.** They set expectations for S2; they are not evidence
@@ -3555,6 +3583,114 @@ and only once a control that does not yet exist has been built.**
 4. **CHECKPOINT's State section was stale** (N = 684, L11 unmeasured, L07 the latest run) and is
    corrected in the same commit - the failure mode §36 records.
 
+
+## 55. The matched control for state conditions, built and fault-injected (S6)
+
+Report: `reports/state_control.md`. Code: `signals/state_control.py`,
+`reporting/state_control_feasibility.py`. Tests: `tests/test_state_control.py`, 17 passing.
+**Nothing registered, no trial spent, no return series scored anywhere in this work.**
+
+### What was built
+
+§54 left one part of the placebo question genuinely open: a state condition can beat the
+rotation null by firing in favourable REGIMES rather than by carrying information, because
+rotation moves the firings into different times of day, volatility regimes and years instead
+of holding them constant. The control transposes the level design — `make_region_placebo`
+matched the nuisance (distance, which determines exposure) and varied the claim (real level
+vs arbitrary region):
+
+    matched      time-of-day bucket, volatility quantile, year
+    varied       the state holds vs the state does not hold
+    reported     era-fallback rate, control-bar reuse, unmatched share
+
+Diagnostics follow §49's distance and touch ratios: a share-ratio test per axis, tolerances
+fixed before the first run (0.10 on the two constructed axes, 0.25 on the year, 5% on the
+fallback and unmatched shares), and a MATCHED/FAIL verdict that raises rather than returning a
+caveat. The statistic is real-minus-control with a SESSION bootstrap, pinned by test against
+`sweep_stage1.paired_stats` so the two cannot drift.
+
+### The claim was verified rather than accepted, and that was the point
+
+§54's claim — a condition cannot beat this control by firing in favourable regimes, because
+the control fires in the same regimes by construction — is the same SHAPE of claim as the
+P-series draft's "ratio-form, so the scale check passes natively", which §54 had just recorded
+as false. So it was fault-injected:
+
+1. a deliberately REGIME-LOADED fake condition, firing on even-numbered sessions inside a
+   drifting high-volatility regime and carrying no information by construction, **does beat a
+   rotation null**. The danger is real and not hypothetical.
+2. the same condition **does not beat the matched control**.
+3. a **genuine** state effect **does** beat it. Without (3), (2) would also pass for a control
+   that is null against everything, which is the trivial way to look rigorous.
+
+Plus the construction's guarantees: per-pair cell matching rather than on-average, determinism
+across processes, DEGENERATE as its own failure kind (§49's distinction), and injected
+corruption of each matched axis caught with the right failure kind.
+
+### Two design changes forced by measurement
+
+**The year is matched, not merely measured.** The first design left it free so that a trending
+state would be blocked by a year-share ratio. Measured, that check has a NOISE FLOOR: a
+condition with NO year trend deviates 0.37 (median, up to 0.55) at ~262 sessions/year over 16
+years — the real sample's shape — against a 0.25 tolerance. **The check would have failed
+well-behaved conditions at the sample size it was built for.** Widening the tolerance would
+have been fitting the null to the test, so the construction changed: the draw is stratified by
+year with fallback where a year holds none. Year deviation is then 0.000 at every realistic
+size, and a trending P01-shaped state is still blocked at ~28% ERA FALLBACK. Both pinned.
+
+**Whole-session exclusion is structurally unavailable to a frequent state.** Excluding every
+session the state touches is right for a session-level state (volume share: 0.952
+autocorrelation, §47) but presumes clean sessions exist. On real data they mostly do not, so a
+`bar` mode was added: exclude the firing bars, still require a different session. Its control
+bars are partly in-state, which **costs power, not validity** — the regimes are still matched
+pair by pair, so a regime-loaded condition gains nothing, and contamination only shrinks a real
+difference. The regime-loaded fake is run through bar mode too rather than assuming the
+argument transfers.
+
+### Feasibility measured on real data (matching only, no returns)
+
+P03-shaped state on NQ — 5m RTH bars, |bps| / volume, trailing 90th percentile of the same
+30-minute bucket over the previous 60 sessions:
+
+    bars 272,970   sessions 3,559   firings 27,791   7.81/session
+    sessions touched 92.6%   variance ratio vs Poisson 7.38   clean sessions 265
+
+| exclusion | distinct control bars | reuse | era fallback | verdict |
+|---|---|---|---|---|
+| strict | 8,264 | 69.9% | 37.4% | **FAIL** |
+| bar | 25,483 | 7.1% | 0.0% | **MATCHED** |
+
+**Strict mode fails on arithmetic.** At 7.81 firings in a ~77-bar session, even a perfectly
+INDEPENDENT state would touch ~99.9% of sessions; the 265 survivors range from 0% of 2011 to
+17.5% of 2025, so the residue is an unrepresentative sample of quiet years. No bucketing fixes
+it. Bar mode is clean on the same state, so a P03-shaped condition IS controllable.
+
+### Decisions taken rather than resolved silently
+
+1. **The exclusion mode is evidence-based, not a preference.** `session_clustering()` reports
+   firings/session, sessions touched, over-dispersion and clean-pool size, and an entry cites
+   them. Strict remains the default because it is the stronger control where it is available.
+2. **A null under bar mode is weaker evidence than a null under strict mode**, because bar
+   mode's contamination biases toward the null. Recorded now, before any entry can rely on it.
+3. **§17's limit is untouched.** A condition firing about once a session still has too few
+   events for any control to help — and strict mode, the one appropriate to session-level
+   states like P01 and P04, is exactly the mode that fails on a frequent state. A session-level
+   state must be checked for a clean pool BEFORE it is registered, not after.
+4. **The P03 lookback is a parameter, not a detail.** 60 sessions, fixed a priori. It sets the
+   warm-up (566 sessions lost of 4,125), how fast the threshold tracks the volume trend, and
+   how much the state clusters. It must be carried in the entry and counted against its
+   parameter budget — §45's point that the firing rate is a design lever, not a free choice.
+5. **A silent Int8 overflow was found and fixed while building the feasibility check**:
+   `dt.hour() * 60` wraps in polars, so 18:00 ET evaluated to 56 rather than 1080 and the RTH
+   filter matched nothing. It failed loudly this time; a narrower window would have returned a
+   wrong number instead of an empty frame. The cast is now explicit with the reason recorded at
+   the line.
+
+### What is still open
+
+The control does not make P03 registrable by itself. Its threshold still needs the trailing
+volume norm specified against a stationary denominator, its magnitude still straddles its BH
+bar (§54), and no S2 has been run. Bar mode's power cost is unmeasured in size.
 
 ## 10. Still outstanding, and blocking
 

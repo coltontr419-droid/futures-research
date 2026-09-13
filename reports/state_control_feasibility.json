@@ -1,0 +1,11 @@
+{
+  "series": "NQ", "bar_minutes": 5, "lookback_sessions": 60,
+  "threshold_pct": 90.0, "n_bars": 272970, "n_sessions": 3559,
+  "n_firings": 27791, "firings_per_session": 7.8087,
+  "sessions_touched": 3294, "sessions_touched_share": 0.9255,
+  "firings_per_session_variance_ratio": 7.3841,
+  "clean_sessions": 265, "strict_available": false,
+  "strict_verdict": "FAIL", "strict_fallback_rate": 0.3745,
+  "bar_verdict": "MATCHED", "bar_fallback_rate": 0.0000,
+  "bar_reuse_rate": 0.0712, "n_matched": 27437
+}
