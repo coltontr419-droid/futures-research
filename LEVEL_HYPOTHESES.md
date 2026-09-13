@@ -697,7 +697,7 @@ mattered. No trial spent. See `decisions.md` §46.
 withdrawn at S6, one deferred, one not a registration, two unmeasured. N unchanged at 756.
 A drafting process that filters ten to zero without spending a trial is the gate working.
 
-## N02 — Round-Number Cross Continuation
+## N02 — Round-Number Cross Continuation  *(RETIRED at S7)*
 
 **Params: 2** | **MNQ** | **Fires: 26,200 crosses (measured)**
 
@@ -717,3 +717,10 @@ it was judged to straddle on an assumed 12,000 events; the measured 26,200 moves
 **S5 and S6 are still owed. Not schedulable.** S6 is expected to be buildable because round
 levels sit at a distance from price — the property N04/N05 lacked — but that is an
 expectation, not a measurement.
+
+**N02 RETIRED AT S7, 2026-09-13.** 0 of 3 cells separate, cells disagree on sign, pooled
+~+0.07 bps against a registered 2.0–5.0. Its thresholds were in index points on an index that
+rose 14×, so the era split is uninterpretable and the null is weak evidence about Osler's
+mechanism. See `reports/n02_stage1.md` and `decisions.md` §51.
+
+**The N-series closes: ten candidates, one tested, zero promoted, 3 trials spent.**

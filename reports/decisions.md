@@ -3113,6 +3113,55 @@ H=180 only. BH rank-1 is computed at k=3.
 **N02 is now schedulable and S7 runs next.** 3 trials, N 756 -> 759.
 
 
+## 51. N02 retired at S7; fixed-point thresholds on a 14x price range (S7/S8)
+
+3 trials. **N 756 -> 759, SR\* 0.1369.** Report: `reports/n02_stage1.md`.
+
+**0 of 3 cells separate, 0 BH survivors.** Diffs +1.14 / +0.15 / -1.07 bps against a
+registered +2.0 to +5.0; pooled ~+0.07. Retired on the pre-registered clause *positive mean,
+no BH survivor*. **Power at the 3.5 bps midpoint was 68-78%**, so unlike L12 the significance
+limb was reachable, and the magnitude limb refutes on its own.
+
+### The era split looked striking; the defect behind it is programme-wide
+
+Per 46's standing rule the striking number was hunted before any write-up. The era split
+flipped sign - 2010-18 d=8 **-8.66 bps, p=0.0075**; 2024-26 d=2 **+4.43, p=0.033** - with both
+CIs excluding zero.
+
+**Cause: N02 is specified in index POINTS, and the index rose 14x over the sample.** Median
+1,939 in 2010, 27,528 in 2026. The 50-point grid was 258 bps apart in 2010 and 18 bps in 2026;
+d = 8 points was a **41 bps** breakout in 2010 and a **2.9 bps** one in 2026. Each cell is a
+different condition in each era. The sign flip compares two different trades and says nothing
+about decay or emergence; the 2024-26 positive is one of nine post-hoc era sub-tests with two
+nominal hits in opposite directions.
+
+**This is not confined to N02.** Every threshold in this programme specified in ticks or points
+and run over the 2010-2026 spliced series carries the same non-stationarity. MNQ's 0.25-point
+tick was ~1.3 bps in 2010 and ~0.09 bps in 2026. **L02, L03 and L04's m (ticks), L07's gap
+width w (ticks), L12's m and the N04/N05 penetration depths are all denominated this way.** For
+the L-series that means each cell pooled a threshold that was ~14x tighter in relative terms
+early in the sample than late. **No status changes - report only** - but it means L07's
+w-sweep, which the selectivity finding of 45 rests on, was sweeping a quantity that drifted by
+an order of magnitude within each cell. The direction of the selectivity result is unlikely to
+depend on it; its exponents may.
+
+**S5 and S6 cannot catch this.** S5 checks that a condition selects events; S6 checks the
+placebo is matched on distance and touch - both are computed on the pooled sample and both
+passed. Scale stationarity is a property across TIME and no current gate looks there.
+
+### Proposed standing S2 check
+
+A registered threshold must be scale-invariant over the sample - bps, volatility units or ATR
+multiples - or its registration must state the price range it spans and pre-register the era
+split. Surface, don't reject, as with 45's magnitude check.
+
+### The N-series closes
+
+Ten candidates; **one tested, zero promoted.** N02 retired at S7; N04/N05 withdrawn at S6;
+N01/N03/N06/N10 declined on arithmetic; N08 deferred; N07 closed as a conditioner with no
+primary; N09 never a registration. 3 trials spent in total.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -3190,10 +3190,10 @@
 
 - id: N02
   name: round_number_cross_continuation
-  stopped_at: S2
+  stopped_at: S7
   stopped_at_reason: >
-    Cleared S1-S6 on the corrected population (S5 re-gated, S6 MATCHED, S3 routed to
-    measured_rates.json). Scheduled for S7 2026-09-13.
+    Ran at S7 2026-09-13: 0 of 3 separate, 0 BH survivors, cells disagree on sign. Retired on
+    the pre-registered refutation clause. reports/n02_stage1.md, decisions.md 51.
   mechanism: >
     Osler (2003, Journal of Finance) documents from a major FX dealing bank's complete order
     book that stop-loss orders cluster JUST BEYOND round numbers while take-profit orders
@@ -3300,7 +3300,20 @@
   horizon_minutes: [180]
   hold_hours: [3]
   registered: 2026-09-12
-  status: untested
+  status: retired
+  retired_reason: >
+    RETIRED AT S7 ON ITS PRE-REGISTERED CLAUSE: positive pooled mean (~+0.07 bps) with no BH
+    survivor, against a registered +2.0 to +5.0. Cells +1.14 / +0.15 / -1.07 bps disagree on
+    sign. Power at the 3.5 bps midpoint was 68-78%, so unlike L12 the significance limb was
+    reachable, and the magnitude limb refutes independently.
+    THE CONDITION WAS MIS-SPECIFIED FOR THIS SAMPLE, and that limits what the null says. N02
+    is in POINTS on an index that rose 14x (median 1,939 in 2010, 27,528 in 2026): d=8 points
+    was a 41 bps breakout in 2010 and a 2.9 bps one in 2026. The era split flipped sign
+    (2010-18 d=8 -8.66 bps p=0.0075; 2024-26 d=2 +4.43 p=0.033) and is UNINTERPRETABLE for
+    that reason - two different trades, not decay or emergence. The 2024-26 subset is one of
+    nine post-hoc era tests with two nominal hits in opposite directions; not a finding.
+    Weak evidence about Osler's mechanism; revival needs a new registration with d in bps or
+    volatility units and the era split pre-registered.
   grade: B
   tier: B
   param_cap: 2
@@ -3314,8 +3327,12 @@
     rationale: >
       Round-number anchoring is not instrument specific; MNQ is chosen for cost (0.48 bps).
   registered_test_order: 23
-  test_order: 23
-  schedulable: true
+  test_order: null
+  schedulable: false
   verdict_route:
     per_cell: three cells (d in {2,4,8}, H=180), BH within the hypothesis at FDR 0.05
     aggregate: ASSUMED CLOSED across d; the same cross enters under multiple depth settings.
+  report: reports/n02_stage1.md
+  cells: reports/n02_cells.json
+  trials_spent: 3
+  stage1_ran: '2026-09-13'
