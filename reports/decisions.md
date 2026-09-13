@@ -3324,6 +3324,59 @@ era split, and would have admitted the half-escape-hatch case. Fixed. **A check 
 fired was also looser than its own specification**, and nothing would have shown it until an
 entry depended on it.
 
+### The bps result supersedes 45's conclusion, not just a data file
+
+**Corrected claim.** 45 concluded that the eff/cost optimum sits at **0.65 firings/session**,
+essentially where the L-series already operated (L12 1.46, L04 1.5), and therefore that
+once-per-session conditions were near the economic optimum. That rested on the points-
+denominated peak at w=24 ticks / 30m, which does not exist in bps. **The conclusion is
+withdrawn.**
+
+**What replaces it.** In bps the eff/cost curve rises monotonically to the tightest setting
+tested on both arms. So:
+
+- **the L-series was on the correct side of the curve but NOT at an optimum** - it operated
+  near 1.5 firings/session, and eff/cost was still climbing well below that;
+- **the optimum is tighter than anything this programme has swept**, at or beyond 12.8 bps;
+- **selectivity as the design lever survives and is strengthened** - there is no interior
+  point at which tightening stops paying economically within the range tested; the constraint
+  that eventually binds is provability (eff/bar), not economics.
+
+The historical text of 45 is left as written, per the decisions-log convention; this entry is
+the correction and 45 should be read through it.
+
+### The two-optima decision is orphaned
+
+45 recorded the choice of a 3-6.5 firings/session operating band as a PREFERENCE between two
+peaks an order of magnitude apart: eff/cost at w=24 ticks / 30m and eff/bar at w=12 ticks /
+5m. **One of those peaks is gone**, so the trade-off it described no longer holds. Nothing
+depended on it - the only registration it parameterised, N04, was withdrawn at S6 for an
+unrelated reason - but the reasoning is invalid and marked ORPHANED in N04's registry entry so
+it is not reused. (That entry's key also carried a stray non-ASCII character,
+`two_optima_是_a_preference`, a typo from its registration; fixed.)
+
+### 45 has now been revised three times, each time by measurement
+
+1. **Premise** - the N-series draft selected for firing rate on the view that once-per-session
+   conditions were the L-series' structural defect. Corrected by measuring the unit of
+   observation (sessions, not events) and the decay exponents: selectivity, not firing rate,
+   is the lever.
+2. **Exponents** - re-measured with the gap threshold in bps after the 14x scale finding (52).
+   **They held** (0.417/0.664 against 0.412/0.624); the revision was a verification, and it
+   converted a points-denominated result into a scale-robust one.
+3. **Optimum location** - the 0.65 firings/session peak was a points artifact; in bps the curve
+   rises to the edge of the tested range.
+
+**None of the three came from argument.** Each came from a measurement that someone chose to
+run on a result already written down as a finding. **And each time the revised version was
+more useful than the original**: the premise correction changed the design lever, the
+exponent check made it scale-robust, and the optimum correction points the next sweep in the
+right direction instead of anchoring it on a peak that was not there.
+
+That is worth keeping as an observation in its own right: **a recorded finding in this
+programme has been more reliable after it was re-measured than when it was first written, and
+the cost of re-measuring was always lower than the cost of building on the unrevised version.**
+
 ### The programme, closed on measurements
 
 **Four series. N = 759. SR\* 0.1369. Nothing promoted.**

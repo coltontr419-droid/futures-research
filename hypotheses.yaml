@@ -2998,10 +2998,16 @@
       knob and bar timeframe the expensive one: on L07, tightening w 8->32 at 5m moved eff/cost
       10.34 -> 17.38 while eff/bar only fell 7.43 -> 5.34, whereas tightening tf collapsed
       provability for almost no economic gain.
-    two_optima_是_a_preference: >
+    two_optima_is_a_preference: >
       eff/cost peaks at 0.65 firings/session and eff/bar at 8.70; these are an order of
       magnitude apart. The 3-6.5/session band trades ~1.5x eff/cost for ~2x provability margin.
       A later reader will see a number matching NEITHER peak - this is why.
+    two_optima_ORPHANED: >
+      ORPHANED 2026-09-13 (decisions.md 53). This preference was reasoned between two peaks:
+      eff/cost at w=24 ticks / 30m and eff/bar at w=12 ticks / 5m. The eff/cost peak does not
+      exist in bps - eff/cost rises monotonically to the tightest setting tested - so the
+      trade-off it described no longer holds. Nothing depended on it (N04 was withdrawn at S6
+      for an unrelated reason), but the reasoning is no longer valid and must not be reused.
     standing: >
       Data-informed, not an out-of-sample prior. Same standing as R01's pre-registered H=30.
   # ---- AN UPLIFT WAS CONSIDERED AND DECLINED ----
