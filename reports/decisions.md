@@ -4044,6 +4044,236 @@ rather than assumed (§57).
 finding that a state condition's placebo question was three-quarters already answered and
 one-quarter genuinely open.
 
+## 59. Q-series S1 reviewed: a premise corrected, three re-registrations, and the filter (S1, S2)
+
+Drafts saved as `Q_SERIES_FINAL.md` and `Q_SERIES_HANDOFF.md`, corrections inserted as **[§59]**.
+Measurements: `reports/q09_drawdown.json`, `reports/q_series_s1.json`, `reports/q_series_s2.json`;
+code in `reporting/q09_drawdown.py`, `q_series_s1.py`, `q_series_s2.py`. **Nothing registered, no
+trial spent, no firing rate measured. N stays 760.** No forward mean is computed anywhere: the
+data scripts read window SDs, counts and conditioner values only.
+
+### A correction to a stated premise: the drawdown rule was assumed, not confirmed
+
+**Confirmed with the firm.** The floor starts 4% below the starting balance and trails the running
+equity peak. It becomes static when it reaches the starting balance - when the PEAK reaches +4% -
+and then sits at breakeven permanently, so the cushion is the entire accumulated profit.
+
+**The handoff's rule was assumed:** trailing until +10%, then static at +6%. Every Phase 1 / Phase 2
+figure in the handoff was computed against it. **Same class as R04**, where a constraint was
+assumed to have a lever it did not have: a number derived correctly from a rule nobody had checked.
+
+**The handoff's own table is only partly reproducible, even under the rule it assumed.** For
+X = mu t + sigma W with running maximum M, the maximum reached before the first drawdown of size d
+is exponential (Taylor 1975; Lehoczky 1977): P(M reaches a first) = exp(-a/m), m = (e^(gd) - 1)/g,
+g = 2mu/sigma^2. That formula reproduces **five of the nine cells within 2.3 points and one within
+5, and misses three by 13-22 points**: Sharpe 1.5 at 0.5%/mo (67.5% vs 46%), 1.5 at 0.25% (96.3% vs
+83%), 2.1 at 0.5% (96.0% vs 76%). A finite horizon was tested as the explanation and rejected: no
+single horizon reproduces the set, the best (five years) still missing one cell by 24 points. **Its
+provenance is recorded as unverified**, which matters because the demotion of Q01 rested on two of
+its cells, one of them unreproduced.
+
+**The baseline in the brief needed correcting too.** A driftless walk reaches +4% before a 4%
+TRAILING drawdown with probability **exp(-1) = 36.8%**, not ~50%. 50% is the STATIC gambler's-ruin
+answer; a trailing floor follows every new high up, which is exactly why the rule bites.
+
+| P(peak +4% before a 4% trailing drawdown) | 1%/mo | 0.5%/mo | 0.25%/mo |
+|---|---|---|---|
+| Sharpe 1.0 | 49.5% | 62.0% | 81.9% |
+| Sharpe 1.5 | 65.0% | 85.5% | 98.5% |
+| Sharpe 2.1 | 84.9% | 98.4% | 100.0% |
+| **no edge** | **36.8%** | **36.8%** | **36.8%** |
+
+| superseded: P(+10% before 4% trailing), as printed | 1%/mo | 0.5%/mo | 0.25%/mo |
+|---|---|---|---|
+| Sharpe 1.0 | 17% | 30% | 61% |
+| Sharpe 1.5 | 34% | 46% | 83% |
+| Sharpe 2.1 | 64% | 76% | 95% |
+
+**Verified, not trusted.** A trade-level Monte Carlo (20,000 paths, ~2,000 trades a year) agrees:
+49.5% -> 52.3% Gaussian, 85.5% -> 86.5%, 36.8% -> 37.9%. The continuous formula is conservative by
+1-3 points because trade-level monitoring misses breaches between steps. Student-t tails
+(nu = 5 and 4.05, the latter at the programme's measured kurtosis) move every cell by under a
+point. Median time to lock at Sharpe 1.5: **0.45 years at 0.5%/mo, 1.14 years at 0.25%/mo**,
+against the handoff's ~3.3 years to +10%.
+
+### Phase 2: the 3-4x step-up does not survive as a step
+
+With the floor static at breakeven, fixed sizing breaches ever with probability exp(-g * cushion),
+and k-times sizing divides the exponent by k. **At the moment of lock the cushion is 4% - LESS than
+the handoff's ~6%:**
+
+| lifetime breach at lock, cushion 4% | 1x | 2x | 3x | 4x |
+|---|---|---|---|---|
+| Sharpe 1.5, base 0.5%/mo | 5.0% | 22.3% | **36.8%** | **47.2%** |
+| Sharpe 1.5, base 0.25%/mo | 0.2% | 5.0% | 13.5% | 22.3% |
+| Sharpe 2.1, base 0.5%/mo | 0.3% | 5.3% | 14.1% | 23.0% |
+
+**What survives is a destination, not a step.** Holding breach probability at its 1x-at-lock value
+requires size proportional to the cushion, so 3x is earned at +12% and 4x at +16%. Under that rule a
+breach needs a single trade to lose more than the whole cushion - 45 trade-SDs at Sharpe 1.5, 0.5%/mo
+- which Student-t tails put at **1.65e-3 over five years** (nu 4.05) and 1.5e-4 (nu 5). **Not
+modelled: intratrade adverse excursion**, which is larger than the trade-return distribution, and
+whether the firm marks the floor on intraday equity. Both would raise these figures.
+
+### Ordering: the demotion of edges does not hold
+
+The handoff moved Q08/Q09 ahead of Q01 because "at Sharpe 1.5 the gap between 34% and 83% is entirely
+a sizing choice." Corrected, the gap is **65.0% -> 98.5% (33.5 points, not 49)**, and at realistic
+middle sizing survival is already 85.5%. The decisive number is the no-edge row: **36.8% at every
+size.** At 4% annual volatility, moving from no edge to Sharpe 1.5 adds 48.7 points; no sizing adds
+anything to a zero edge. **Sizing multiplies an edge and cannot substitute for one.** Q09 is complete
+- it was a computation and cost nothing - and Q08 has nothing to act on until something survives.
+
+### Three Q candidates were already in the registry
+
+| Q | registry | status | what the Q draft missed |
+|---|---|---|---|
+| Q01 | **F02** order_imbalance_conditional_overnight_reversal | `stage1_uninformative`, **144 trials** | 87.1% of F02's (k=1) firings are Q01 firings |
+| Q03 | **F12** pre_fomc_announcement_drift | `excluded` | ~128 events, and the 24h hold crosses 17:00 ET |
+| Q04 | **F12's note** | - | "Do not register them individually" |
+| (Q01's premise) | **F13** unconditional_overnight_drift | `excluded` | excluded on the same Liberty Street finding |
+
+**F13's own entry says "recorded so it is not rediscovered"**, and the Q draft is that rediscovery.
+The consequence for Q01 is not procedural. F02 recorded MNQ post-2021 `sell_imb` at +3.27 bps as "the
+one directionally consistent result, and it is not evidence," so **the data on disk is not out of
+sample for Q01**: a registration now would re-test the family F02 already looked at, on the same
+data, after seeing it point the predicted way. NQ ends 2026-08-27 and F02 ran 2026-09-02. **A clean Q01
+test needs data after 2026-08-27.** F02's 144 trials stay in N either way.
+
+### Issue 1: Q01 and Q02 are one bet
+
+Measured on NQ, no trial: Q01's conditioner (last-30m price change per unit volume) against Q02's
+signal (last-30m price change) is **Spearman +0.972 full sample, +0.991 post-2021**. And **P(Q02 is
+long | Q01 fires) = 100%** - an identity rather than an estimate, because Q01's trailing tercile
+threshold is itself negative in 99.1% of sessions, so a Q01 firing implies a down close and fading a
+down close is long. phi = +0.735 over 3,375 sessions.
+
+**"Opposite sign" is wrong: both are long after a down close.** The windows are disjoint (16:00-16:59
+against 01:45-03:15 the next night), so their P&L correlation is not forced to one - but it cannot be
+assumed near zero, and both carry the same exposure on the same selloff days, which is where tails
+cluster. **The first two candidates of a portfolio built on rho <= 0.1 share a conditioner, so the
+recommended order was wrong and the portfolio needs different material.** Conditioner correlation is
+necessary evidence rather than sufficient, and it cost nothing to measure before either was run.
+
+### Issue 2: the sample period, and what extending it does not buy
+
+**"~1,500 sessions over six years" and "~72 month-ends" are the MNQ/MES-from-May-2019 sample - and MES is
+not on disk at all.** The NQ lineage carries these hypotheses instead, on one contract with no splice:
+
+| window | sessions (NQ, 2010-2026) | pre-2021 | post-2021 |
+|---|---|---|---|
+| last 30m RTH (Q01 conditioner, Q02 signal) | 3,435 | 2,048 | 1,387 |
+| 01:45-03:15 (Q01) | 3,559 | 2,120 | 1,439 |
+| 18:00-16:00 session (Q05) | 3,428 / 195 months | 2,041 / 127 | 1,387 / 68 |
+
+**The lineage more than doubles n - and none of the doubling lands where it matters.** Q10 makes
+post-2021 decisive, and post-2021 is ~1,387-1,440 sessions and 68 months whatever the lineage. The
+extension is entirely in the era Q10 discounts. **The 3,415 figure in the brief is not in the repo**;
+the nearest measured count is 3,435 sessions with a complete last-30m window.
+
+**Two venue findings, measured:** bars after 16:15 ET do not exist before 2015, and the 16:15-16:30
+window holds 0-4 sessions a year before 2021 (128 in 2021, full thereafter) - consistent with the
+former daily maintenance halt. And Q02's "hold into the Globex session" **crosses the 17:00 ET hard
+exit**, so it is not executable as written; its compliant holds are 16:00-16:59 (continuous only
+from mid-2021) or 16:00-16:14 (all eras). 2010-2012 are sparse in every window.
+
+### Issue 3: Q01's proxy measures illiquidity, and P03 already measured its weakness
+
+Price change per unit volume is P03's Amihud construction, signed. **It measures illiquidity, not
+imbalance**: dividing by volume ranks a heavy-volume selloff - the largest imbalance - below a thin
+one. Measured against a bulk-volume-classification order-flow imbalance ratio (Easley, Lopez de Prado
+& O'Hara 2012; each bar's volume signed by its standardised return, sigma from that session's own
+earlier RTH bars), **Spearman 0.792, against 0.774 for the raw return** - the division adds 0.02. It is
+not scale invariant either: **median |dp/V| falls from 0.00070 (2010) to 0.00035 (2026)** while the
+BVC ratio holds at 0.10-0.14 throughout.
+
+**What P03 implies for it as a conditioner.** P03 traded the construction as a signal and found its
+displacement mostly permanent at the mechanism's own clock - 0.86% of a 9.18 bps excess reverted
+within 15 minutes. Q01 uses it to select nights for a window ~10 hours later, which P03 did not test,
+so P03 does not refute Q01. But it removes the only reason to prefer the construction: it adds nothing
+over the return it is built from, it drifts with volume, and the one property P03 measured - whether
+what it flags reverts - came back weak. **Better on disk:** the BVC ratio, which is stationary, or the
+return itself, F02's choice. True signed imbalance needs aggressor-side data: `trades` is null and no
+`tbbo` is on disk, so that is a purchase.
+
+### Issue 4: the two drafts disagreed on ordering
+
+FINAL orders Q01, Q02, Q05, Q08, Q12. HANDOFF prints the same order and also labels Q08 and Q09 "now
+primary", contradicting itself. **Resolved: edges lead** (the no-edge row above), **Q09 is complete,
+Q08 waits for a survivor, Q12 waits for three, Q10/Q11 are gates.** But the filter below leaves no edge
+registrable on data now on disk, so the resolved order has nothing in its first slot yet.
+
+### The magnitude filter - ESTIMATES, NOT MEASUREMENTS
+
+Bars use window SDs measured on NQ and the SE of the statistic each candidate tests - a
+difference of two means for four of them (firing against non-firing nights, event against other
+days), a single mean for Q02's all-session fade. No anchor is adjusted. DEFF bracketed 1.14-2.19.
+k as written. **Post-2021 decides**, per Q10; every predicted range includes zero because decay
+since publication is the stated prior.
+
+| candidate | predicted post-2021 | n post (events/rest) | bar post-2021 | bar full | vs bar |
+|---|---|---|---|---|---|
+| Q01 | 0-3.0 | 478 / 908 | 2.81-3.89 | 1.78-2.47 | **STRADDLES** |
+| Q02 16:00-16:59 | 0-0.96 | 1,387 | 1.44-1.99 | 1.02-1.42 | BELOW |
+| Q02 16:00-16:14 | 0-0.96 | 1,387 | 1.04-1.43 | 0.59-0.82 | BELOW |
+| Q03 (09:30-14:00) | 0-25 | ~46 / 1,394 | 30.6-42.5 | 17.0-23.5 | BELOW |
+| Q05 | 0-10 | 476 / 911 | 16.4-22.7 | 9.2-12.8 | BELOW |
+| Q06 Monday only | 0-3 | 273 / 1,167 | 10.6-14.7 | 5.9-8.2 | BELOW |
+| Q06 as written, k=10 | 0-3 | 273 / 1,167 | 15.2-21.1 | 8.5-11.7 | BELOW |
+
+**Cannot be predicted:** Q04 and Q07 (no direction), Q08-Q12 (not signals). Every predictable range
+is at the 0.48 bps cost floor at its low end, and **the overnight spread for Q01 and Q06 is
+unmeasured** - the 0.10 bps spread in the floor is itself an estimate for RTH.
+
+**Provenance of each range:** Q01 - 3.6%/yr unconditional and ~0 since 2021 as CITED in F13 and the
+draft, amplification after selloffs ESTIMATED at up to ~2x, and F02's +3.27 bps deliberately NOT
+used. Q02 - P03's MEASURED reversal fraction up to P03's own 6.8% bar, times the MEASURED 14.1 bps
+median last-30m move. Q03 - 49 bps over 24h as cited in F12, share inside 09:30-14:00 ESTIMATED at up to
+half; the unconditional SD understates FOMC days and therefore the bar. Q05 and Q06 - RECALLED
+literature with no bps figure in either document.
+
+**The findings.** None clears both. **One straddles - Q01 - and it cannot be tested cleanly on disk
+data.** Four sit below their post-2021 bars. Two cannot state a magnitude, five are not signals.
+Q03's economics-only waiver rescues nothing: at ~46 events the economic estimate carries an interval
+wider than the effect, N10's reasoning (§45).
+
+### What this leaves, stated without taking the decision
+
+**No Q candidate is registrable as a primary on data now on disk.** The portfolio route has no
+material: the first pair shares a conditioner, four predictable candidates are below their decisive
+bar, and the fifth is F02 re-tested on data F02 has seen. The handoff anticipated "if Q01, Q02 and Q05
+all come back null"; **the filter reached most of that at S2 without spending a trial.** Whether to
+write it up as the programme's finding, or to wait for data after 2026-08-27 and test Q01 once on
+genuinely unseen data, is not decided here.
+
+### Proposed, not adopted
+
+1. **Q10 as a standing S8 requirement.** §53 already runs an era split by default; Q10 would fix the
+   break at 2021 and make the post-2021 half decisive. It changes the method, so it is left for
+   decision. The filter above applies it, so its effect is visible.
+2. **Outcome fault-injection for nulls as standing in §46**, from the handoff. Also left for decision.
+3. **Read `hypotheses.yaml` before drafting a series.** Three of twelve candidates were already
+   registered and one had spent 144 trials.
+
+### Decisions taken rather than resolved silently
+
+1. **The trailing-drawdown formula was verified by Monte Carlo before it was used**, and checked
+   against the handoff's table, which is why that table is recorded as partly unreproduced rather
+   than silently replaced.
+2. **The brief's ~50% baseline was corrected to 36.8%**, because the rule it describes is trailing.
+3. **F02's +3.27 bps was not used as Q01's prior.** It is a previous look at the same data.
+4. **Q02 and Q03 were assessed only at 17:00-compliant holds**, since the written versions are not
+   executable on the account.
+5. **No FOMC calendar is on disk**, so Q03's counts are eight a year rather than dates.
+6. **Three bugs in the measurement script were found before any number was used, and one is the
+   §54 class.** The imbalance ratio never joined (a datetime64 key against python dates), so every
+   correlation printed NaN - loud. A rolling window demanding 60 values in 60 rows went undefined
+   whenever one holiday fell inside it, leaving 64 sessions, on which P(Q02 long | Q01) = 100% and
+   phi = +0.699 still printed as numbers. And the session open was taken as the last bar before
+   midnight rather than the 18:00 reopen, which gave a "full session" SD of 130.5 bps - **almost
+   exactly the programme's familiar ~130 bps daily figure, and therefore a wrong answer
+   indistinguishable from a right one.** The corrected window gives 126.3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

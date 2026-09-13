@@ -1,0 +1,266 @@
+{
+ "rows": [
+  {
+   "id": "Q01",
+   "stat": "firing nights - other nights (difference)",
+   "k": 1,
+   "predicted_post": [
+    0.0,
+    3.0
+   ],
+   "predicted_pre": [
+    1.0,
+    4.0
+   ],
+   "provenance": "3.6%/yr for the 02:00-03:00 window over 1998-2019 and ~0 since 2021, both as CITED in F13 and the Q draft, not verified here; the size of the post-selloff amplification is stated in neither and is ESTIMATED at up to ~2x. F02's post-2021 +3.27 bps is deliberately NOT used: it is a prior look at this data.",
+   "sd_post": 23.72224556091293,
+   "sd_full": 22.928971215634537,
+   "n_post": [
+    478,
+    908
+   ],
+   "n_full": [
+    1105,
+    2117
+   ],
+   "kind": "diff",
+   "cost_note": "overnight spread UNMEASURED, likely above the RTH estimate",
+   "bar_post": [
+    2.8053112700564085,
+    3.888218731999409
+   ],
+   "bar_full": [
+    1.7807636656161834,
+    2.4681748210328016
+   ],
+   "vs_cost": "at cost at the low end",
+   "vs_bar_post": "STRADDLES"
+  },
+  {
+   "id": "Q02 16:00-16:59",
+   "stat": "signed fade, every session (single mean)",
+   "k": 1,
+   "predicted_post": [
+    0.0,
+    0.9576661102768044
+   ],
+   "predicted_pre": [
+    0.0,
+    0.9576661102768044
+   ],
+   "provenance": "P03's MEASURED reversal fraction (0.87% of excess at 15 min, a different condition on this series) up to P03's own 6.8% bar, times the MEASURED median last-30m move of 14.1 bps. Central estimate 0.12 bps.",
+   "sd_post": 25.61312070744374,
+   "sd_full": 25.1179912449066,
+   "n_post": [
+    1387
+   ],
+   "n_full": [
+    2644
+   ],
+   "kind": "mean",
+   "cost_note": "16:00-16:59 is continuous only from mid-2021 (16:15-16:30 halt before)",
+   "bar_post": [
+    1.4392120361564131,
+    1.9947772848001475
+   ],
+   "bar_full": [
+    1.0222442961993454,
+    1.4168514786888247
+   ],
+   "vs_cost": "at cost at the low end",
+   "vs_bar_post": "BELOW"
+  },
+  {
+   "id": "Q02 16:00-16:14",
+   "stat": "signed fade, every session (single mean)",
+   "k": 1,
+   "predicted_post": [
+    0.0,
+    0.9576661102768044
+   ],
+   "predicted_pre": [
+    0.0,
+    0.9576661102768044
+   ],
+   "provenance": "P03's MEASURED reversal fraction (0.87% of excess at 15 min, a different condition on this series) up to P03's own 6.8% bar, times the MEASURED median last-30m move of 14.1 bps. Central estimate 0.12 bps.",
+   "sd_post": 18.42357424802131,
+   "sd_full": 16.537463658754557,
+   "n_post": [
+    1387
+   ],
+   "n_full": [
+    3435
+   ],
+   "kind": "mean",
+   "cost_note": "the only window consistent across all eras",
+   "bar_post": [
+    1.0352283936672986,
+    1.4348477030407791
+   ],
+   "bar_full": [
+    0.5904811645266234,
+    0.8184189573940137
+   ],
+   "vs_cost": "at cost at the low end",
+   "vs_bar_post": "BELOW"
+  },
+  {
+   "id": "Q03",
+   "stat": "FOMC-day 09:30-14:00 - other days (difference)",
+   "k": 1,
+   "predicted_post": [
+    0.0,
+    25.0
+   ],
+   "predicted_pre": [
+    5.0,
+    30.0
+   ],
+   "provenance": "49 bps over the 24h before announcements (Lucca & Moench 2015 as CITED in F12, not verified); the share falling inside 09:30-14:00 is documented nowhere on disk and is ESTIMATED at up to ~half; post-2015 disappearance is reported by one line of work, as recorded in F12. SD is the UNCONDITIONAL window SD, which understates FOMC days and therefore the bar.",
+   "sd_post": 97.38291897535,
+   "sd_full": 84.95147607845385,
+   "n_post": [
+    45.714285714285715,
+    1394.2857142857142
+   ],
+   "n_full": [
+    113.23809523809524,
+    3453.7619047619046
+   ],
+   "kind": "diff",
+   "cost_note": "no FOMC calendar on disk; counts are 8 x years",
+   "bar_post": [
+    30.63110702936502,
+    42.455340127393775
+   ],
+   "bar_full": [
+    16.977765295861612,
+    23.53152955091904
+   ],
+   "vs_cost": "at cost at the low end",
+   "vs_bar_post": "BELOW"
+  },
+  {
+   "id": "Q05",
+   "stat": "turn-of-month sessions - other sessions (difference)",
+   "k": 1,
+   "predicted_post": [
+    0.0,
+    10.0
+   ],
+   "predicted_pre": [
+    2.0,
+    10.0
+   ],
+   "provenance": "RECALLED, not verified: turn-of-month days carry most of the equity premium (McConnell & Xu 2008). With an assumed ~8%/yr premium spread over 84 TOM sessions a year that is <=~10 bps a session. Neither Q document gives a bps figure. The N/M split must be pre-registered or k rises.",
+   "sd_post": 138.39597648296296,
+   "sd_full": 126.33012801893781,
+   "n_post": [
+    476,
+    911
+   ],
+   "n_full": [
+    1365,
+    2063
+   ],
+   "kind": "diff",
+   "cost_note": "session hold 18:00-16:00 includes the overnight spread",
+   "bar_post": [
+    16.379458750434274,
+    22.70226445572636
+   ],
+   "bar_full": [
+    9.223843375962582,
+    12.784435359547546
+   ],
+   "vs_cost": "at cost at the low end",
+   "vs_bar_post": "BELOW"
+  },
+  {
+   "id": "Q06 Monday only",
+   "stat": "Monday overnight - other overnights (difference)",
+   "k": 1,
+   "predicted_post": [
+    0.0,
+    3.0
+   ],
+   "predicted_pre": [
+    0.0,
+    3.0
+   ],
+   "provenance": "RECALLED, not verified: the weekend effect (French 1980) reversed or faded after the 1990s. No bps figure in either document; ESTIMATED small.",
+   "sd_post": 75.56457389760905,
+   "sd_full": 70.50596957319037,
+   "n_post": [
+    273,
+    1167
+   ],
+   "n_full": [
+    803,
+    2758
+   ],
+   "kind": "diff",
+   "cost_note": "overnight spread UNMEASURED",
+   "bar_post": [
+    10.631223512804576,
+    14.735092981581374
+   ],
+   "bar_full": [
+    5.916399466024114,
+    8.200250530246398
+   ],
+   "vs_cost": "at cost at the low end",
+   "vs_bar_post": "BELOW"
+  },
+  {
+   "id": "Q06 as written (10 cells)",
+   "stat": "Monday overnight - other overnights (difference)",
+   "k": 10,
+   "predicted_post": [
+    0.0,
+    3.0
+   ],
+   "predicted_pre": [
+    0.0,
+    3.0
+   ],
+   "provenance": "RECALLED, not verified: the weekend effect (French 1980) reversed or faded after the 1990s. No bps figure in either document; ESTIMATED small.",
+   "sd_post": 75.56457389760905,
+   "sd_full": 70.50596957319037,
+   "n_post": [
+    273,
+    1167
+   ],
+   "n_full": [
+    803,
+    2758
+   ],
+   "kind": "diff",
+   "cost_note": "overnight spread UNMEASURED",
+   "bar_post": [
+    15.225893758581616,
+    21.10339981001806
+   ],
+   "bar_full": [
+    8.473386867890985,
+    11.744287307750005
+   ],
+   "vs_cost": "at cost at the low end",
+   "vs_bar_post": "BELOW"
+  }
+ ],
+ "not_predictable": {
+  "Q04": "no direction - 'the pre-event book is thin' names a condition, not a trade; and F12 already records releases at ~200 observations, 'do not register them individually'",
+  "Q07": "no direction - forced roll flow is largely calendar-spread flow with no stated sign on the outright; ~65 rolls over 2010-2026, ~22 post-2021; spread files still unparsed",
+  "Q08": "not a signal - a sizing rule, contingent on a surviving edge",
+  "Q09": "not a signal - a computation, completed at S1 (q09_drawdown.py)",
+  "Q10": "not a signal - a standing S8 gate",
+  "Q11": "not a signal - an exclusion, contingent on a live primary (the P02/P10 case)",
+  "Q12": "not a signal - a measurement, contingent on three survivors"
+ },
+ "cost_bps": 0.48,
+ "deff_bracket": [
+  1.14,
+  2.19
+ ]
+}

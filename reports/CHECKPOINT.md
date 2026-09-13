@@ -219,6 +219,15 @@ nothing uses.
 
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
+**Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
+P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
+three candidates are already in the registry (Q01 = F02, Q03 = F12, Q04 under F12's note); Q01 and
+Q02 share a conditioner (Spearman +0.972); the magnitude filter leaves one straddle (Q01, not
+testable cleanly on disk data, which ends 2026-08-27) and four below their post-2021 bars. The
+drawdown rule was confirmed with the firm and Q09 recomputed (`q09_drawdown.py`). **Open decision:**
+write up the finding, or wait for post-2026-08-27 data and test Q01 once.
+
+
 The bullets under this block were accurate on 2026-09-10 and went **stale for three sessions**
 while N moved from 684 to 759 and four series closed. They are kept, not deleted, because a
 checkpoint that silently rewrites itself hides that it was ever wrong (`decisions.md` §36).
