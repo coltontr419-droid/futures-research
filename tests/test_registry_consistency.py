@@ -761,3 +761,154 @@ def test_s2_scale_check_passes_the_escape_hatch() -> None:
 def test_s2_scale_check_ignores_unschedulable_entries() -> None:
     """History is not rewritten: an unschedulable point entry is not checked."""
     check_threshold_units({"X07": {"schedulable": False, "threshold_units": "points"}})
+
+
+# ── standards adopted 2026-09-13 (reports/STAGES.md, decisions.md §60) ──────────────────────
+#
+# Both apply to entries REGISTERED AFTER adoption, so history is not rewritten - the caveat on
+# earlier nulls lives in STAGES.md and the terminal report, where a reader will see it, rather
+# than as a failing test nobody can fix. Both are functions taking the registry so they can be
+# FAULT-INJECTED: nothing live is registered after adoption, so a check that only ever saw the
+# live registry would never have been shown to fire (§53).
+
+STANDARDS_ADOPTED: Final[str] = "2026-09-13"
+NULL_STATUSES: Final[frozenset[str]] = frozenset(
+    {"retired", "stage1_inconclusive", "stage1_uninformative"}
+)
+INJECTION_FIELDS: Final[frozenset[str]] = frozenset(
+    {"test", "injected_bps", "sought_bps", "n_injection", "n_run", "recovered"}
+)
+
+
+def _registered_after_adoption(entry: dict) -> bool:
+    return str(entry.get("registered", "")) > STANDARDS_ADOPTED
+
+
+def check_post_2021_split(registry: dict[str, dict]) -> None:
+    """S8: the break is at 2021-01-01 and the post-2021 half decides."""
+    for hid, entry in registry.items():
+        if not (_registered_after_adoption(entry) and entry.get("schedulable")):
+            continue
+        split = entry.get("era_split") or {}
+        assert str(split.get("break")) == "2021-01-01", (
+            f"{hid} is schedulable and registered after {STANDARDS_ADOPTED} but does not "
+            f"pre-register the 2021-01-01 era break. See STAGES.md S8."
+        )
+        assert split.get("decisive") == "post", (
+            f"{hid} registers the era break but does not make the post-2021 half decisive. A "
+            f"result holding only before 2021 is not a result."
+        )
+
+
+def check_null_reportability(registry: dict[str, dict]) -> None:
+    """A null counts only from a pipeline shown to recover the effect SIZE sought, at the run's n."""
+    for hid, entry in registry.items():
+        if not (_registered_after_adoption(entry) and entry.get("status") in NULL_STATUSES):
+            continue
+        if entry.get("null_result") is False:
+            assert entry.get("null_result_reason"), (
+                f"{hid} declares its closure was not a null but gives no reason"
+            )
+            continue
+        inj = entry.get("outcome_injection") or {}
+        missing = INJECTION_FIELDS - set(inj)
+        assert not missing, (
+            f"{hid} reports a null without an outcome injection ({sorted(missing)} missing). "
+            f"A null only counts from a pipeline demonstrated to recover the effect sought."
+        )
+        assert (ROOT / str(inj["test"])).exists(), f"{hid}: injection test {inj['test']} missing"
+        assert inj["recovered"] is True, f"{hid}: the injected effect was not recovered"
+        assert float(inj["injected_bps"]) <= float(inj["sought_bps"]), (
+            f"{hid} injected {inj['injected_bps']} bps against {inj['sought_bps']} sought. "
+            f"Recovering a LARGER effect shows the plumbing, not the power - P03's +4.0 against "
+            f"0.625 is the recorded case."
+        )
+        assert int(inj["n_injection"]) <= int(inj["n_run"]), (
+            f"{hid} injected at n={inj['n_injection']} against a run of n={inj['n_run']}. "
+            f"A larger injection sample makes recovery easier than the run it vouches for."
+        )
+
+
+@pytest.mark.integrity
+def test_standards_adopted_2026_09_13_hold_on_the_live_registry() -> None:
+    check_post_2021_split(REG)
+    check_null_reportability(REG)
+
+
+def _future(**over: object) -> dict:
+    base = {"registered": "2026-09-14", "schedulable": True, "status": "untested",
+            "era_split": {"break": "2021-01-01", "decisive": "post"}}
+    base.update(over)
+    return base
+
+
+def _injection(**over: object) -> dict:
+    base = {"test": "tests/test_p03_outcomes.py", "injected_bps": 0.6, "sought_bps": 0.625,
+            "n_injection": 20000, "n_run": 24781, "recovered": True}
+    base.update(over)
+    return base
+
+
+def test_era_gate_fires_on_a_missing_split() -> None:
+    with pytest.raises(AssertionError, match="2021-01-01"):
+        check_post_2021_split({"X10": _future(era_split=None)})
+
+
+def test_era_gate_fires_on_the_wrong_break() -> None:
+    with pytest.raises(AssertionError, match="2021-01-01"):
+        check_post_2021_split({"X11": _future(era_split={"break": "2019-05-06", "decisive": "post"})})
+
+
+def test_era_gate_fires_when_the_early_half_decides() -> None:
+    with pytest.raises(AssertionError, match="decisive"):
+        check_post_2021_split({"X12": _future(era_split={"break": "2021-01-01", "decisive": "pre"})})
+
+
+def test_era_gate_passes_a_compliant_entry_and_leaves_history_alone() -> None:
+    check_post_2021_split({"X13": _future()})
+    check_post_2021_split({"X14": _future(registered="2026-09-13", era_split=None)})
+
+
+def test_null_gate_fires_without_an_injection() -> None:
+    with pytest.raises(AssertionError, match="without an outcome injection"):
+        check_null_reportability({"X20": _future(status="retired")})
+
+
+def test_null_gate_fires_on_an_injection_larger_than_the_effect_sought() -> None:
+    """P03's own shape: +4.0 injected against 0.625 sought. It would not pass today."""
+    with pytest.raises(AssertionError, match="LARGER effect"):
+        check_null_reportability({"X21": _future(status="retired",
+                                                 outcome_injection=_injection(injected_bps=4.0))})
+
+
+def test_null_gate_fires_on_an_injection_sample_larger_than_the_run() -> None:
+    with pytest.raises(AssertionError, match="larger injection sample"):
+        check_null_reportability({"X22": _future(status="stage1_inconclusive",
+                                                 outcome_injection=_injection(n_injection=99999))})
+
+
+def test_null_gate_fires_when_the_effect_was_not_recovered() -> None:
+    with pytest.raises(AssertionError, match="not recovered"):
+        check_null_reportability({"X23": _future(status="retired",
+                                                 outcome_injection=_injection(recovered=False))})
+
+
+def test_null_gate_fires_on_a_test_that_does_not_exist() -> None:
+    with pytest.raises(AssertionError, match="missing"):
+        check_null_reportability({"X24": _future(status="retired",
+                                                 outcome_injection=_injection(test="tests/nope.py"))})
+
+
+def test_null_gate_passes_a_compliant_null_and_an_honest_non_null() -> None:
+    check_null_reportability({"X25": _future(status="retired", outcome_injection=_injection())})
+    check_null_reportability({"X26": _future(status="retired", null_result=False,
+                                             null_result_reason="retired on a negative separation")})
+    with pytest.raises(AssertionError, match="no reason"):
+        check_null_reportability({"X27": _future(status="retired", null_result=False)})
+
+
+def test_null_gate_does_not_rewrite_history() -> None:
+    """P03 was registered on the adoption date and is below the standard; that is recorded in
+    STAGES.md as a caveat rather than turned into a failing test."""
+    check_null_reportability({"P03": _future(registered="2026-09-13", status="retired")})
+

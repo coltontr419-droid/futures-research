@@ -219,6 +219,14 @@ nothing uses.
 
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
+**THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
+alone. Six series, 66 candidates, 35 registered, 770 trials across two logs (futures-research 760,
+SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed without registration (§60). Two
+standards adopted as gates for any future entry: the post-2021 split decides (S8), and a null is
+reportable only from a pipeline shown to recover the effect size sought at the run's n (§60).
+**Nothing is scheduled. Nothing is pending.**
+
+
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
 three candidates are already in the registry (Q01 = F02, Q03 = F12, Q04 under F12's note); Q01 and

@@ -90,6 +90,52 @@ artifact instead: the sign flip was the 14× scale drift, not decay. **A check a
 failure found a different one.** That is the case for running it on every S7 result as a
 default, rather than only when a specific failure is suspected.
 
+### S8 — the break is at 2021-01-01 and the post-2021 half decides (ADOPTED 2026-09-13, §60)
+**A standing rule, not a per-entry note.** Every registration reports its result for
+2010–2020 and for 2021 onward separately, and **a result that holds only before 2021 is not a
+result**, whatever the full sample says. The registry carries it as
+`era_split: {break: '2021-01-01', decisive: post}`, and `check_post_2021_split` refuses a
+schedulable entry registered after adoption without it.
+
+**Why 2021.** The best-documented anomaly in this instrument class, the overnight drift, was
+measured as gone since 2021 by its own authors (F13's exclusion). R01 decayed by a factor of 3.3
+inside its own sample. An effect large enough to trade is the kind that attracts capital once
+known, so the recent half is the one that describes the market an account would trade.
+
+**What it costs, stated so it is not rediscovered.** Extending the sample backwards does not
+help: the NQ lineage more than doubles n on 2010–2026, and every added session lands in the
+half that does not decide. Post-2021 is ~1,390–1,440 sessions whatever the lineage (§59).
+
+### Before any null is reported — the pipeline must have recovered the effect it was looking for (ADOPTED 2026-09-13, §60)
+**A null counts only from a pipeline demonstrated to recover an injected effect of the size
+being sought, at the run's own noise and sample size.** Recovering a larger effect, or the same
+effect at a larger n or on quieter synthetic noise, demonstrates the plumbing and not the power,
+and does not qualify. The registry carries `outcome_injection` (test path, injected and sought
+bps, injection and run n, recovered) and `check_null_reportability` refuses a null status
+registered after adoption without it. An entry retired on a separation rather than a null
+declares `null_result: false` with a reason.
+
+**THIS IS A CAVEAT ON PRIOR FINDINGS, NOT ONLY A RULE GOING FORWARD.** Four series reported nulls
+before it existed, and every one of those nulls sits below it. None was uninjected; each was
+injected at the wrong size or the wrong noise:
+
+| series | nulls reported | the injection that existed | why it falls short |
+|---|---|---|---|
+| F | F03, F05, F06; F02, F07 uninformative | signed Stage 1 recovers a planted edge of ~90 bps over the hold; detection floors from injected effects | far above any sought effect; floors used a slow regime-flip construction (§38 decision 4) |
+| L | L02, L03, L12; L04 inconclusive | L07's paired statistic recovers +2.0 bps | per-event noise 5 bps against ~65 on real data; `sweep_stage1.paired_stats` had no recovery test of its own until §55 pinned it |
+| N | N02 | the same paired statistic | as above |
+| P | P03 | +4.0 bps recovered as +3.45 | 6.4x the 0.625 bps threshold, at n = 400 |
+
+**The R-series reported no null**: R01 separated, R02 closed on a measured half-life, R03 on
+arithmetic, R04 on permission. The nearest analogue is R02's half-life estimator, validated on a
+known 6.58-bar process rather than near the 0.25-bar reading that closed it.
+
+**What the caveat does and does not change.** No verdict above is reversed: most of those closures
+rest on economics or event count, which need no power argument (L07, L12, P03's real leg negative
+net of cost; F01, L01, L08, L09 never run). What changes is the word **absent**. Where a null was the
+reason for closure, it now reads "not found by a pipeline that was never shown to see this size",
+and F05 — the one test the F-series called adequately powered — is included in that.
+
 ### S6 — the placebo is an arbitrary region at a matched distance
 Redefined 2026-09-09 (§37). **It is a weaker control than a displaced real level**: it
 equalises where a region sits and how often price reaches it, and **nothing about how price

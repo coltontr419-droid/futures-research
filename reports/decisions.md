@@ -4274,6 +4274,100 @@ genuinely unseen data, is not decided here.
    exactly the programme's familiar ~130 bps daily figure, and therefore a wrong answer
    indistinguishable from a right one.** The corrected window gives 126.3.
 
+## 60. Two standards adopted, the Q-series closed, and the programme ended (S8, all)
+
+Terminal document: `reports/programme_conclusion.md`. **Nothing registered, no trial spent.
+futures-research N stays 760 (SR\* 0.1368); the R-series log, kept separately, stays at 10.**
+
+### Two standards adopted rather than left proposed
+
+**1. S8: the era break is 2021-01-01 and the post-2021 half decides.** Standing, in `STAGES.md`,
+and enforced for future entries by `check_post_2021_split`.
+
+**2. A null is reportable only from a pipeline demonstrated to recover an injected effect of the
+size being sought, at the run's own noise and n.** Standing, in `STAGES.md`, and enforced by
+`check_null_reportability`, which refuses an injection LARGER than the effect sought or on a
+LARGER sample than the run.
+
+Both gates apply to entries registered after 2026-09-13 and are fault-injected (11 tests), because
+nothing live is registered after adoption and a check never shown to fire proves nothing (§53).
+
+### The caveat on prior findings, stated precisely - including where the brief overstated it
+
+The instruction was to record that five series reported nulls before this standard existed.
+**Checked against both repos, it is four, and none of them was uninjected:**
+
+| series | nulls | injection that existed | why below the standard |
+|---|---|---|---|
+| F | F03, F05, F06; F02, F07 uninformative | planted ~90 bps edge in signed Stage 1; injected-effect detection floors | far above any sought effect; floors used a slow regime-flip construction |
+| L | L02, L03, L12; L04 inconclusive | L07's paired statistic recovers +2.0 bps | noise 5 bps per event against ~65 real; `sweep_stage1` untested until §55 |
+| N | N02 | the same | as above |
+| P | P03 | +4.0 recovered as +3.45 | 6.4x the 0.625 threshold, at n = 400 |
+
+**The R-series reported no null** - R01 separated, R02 closed on a measured half-life, R03 on
+arithmetic, R04 on permission. R02's half-life estimator was validated on a 6.58-bar process, not
+near the 0.25-bar reading that closed it, which is the nearest analogue.
+
+**No verdict is reversed, and the reason is specific.** Most closures rest on economics or event
+count, which need no power argument. What changes is the word "absent" wherever a null was the
+reason: it now reads "not found by a pipeline never shown to see this size" - F05 included, the one
+F-series test called adequately powered. **Saying "five series had no injection" would have been
+the easier sentence and a false one.**
+
+### The Q-series closed without registration
+
+On grounds already measured in §59:
+
+1. **Q01 is F02**, at 87.1% firing overlap. F02 has already looked at the post-2021 selloff family on
+   this data, so the data on disk is not a fresh test.
+2. **Q01 and Q02 are one bet.** Conditioners Spearman +0.972 (post-2021 +0.991); a Q01 firing implies
+   Q02 is long on 100% of nights.
+3. **Q02 crosses the 17:00 ET hard exit** as written.
+4. **Q03 and Q04 are already excluded** under F12.
+5. **Every predictable candidate sits below or straddling its post-2021 bar**: Q01 straddles; Q02,
+   Q03, Q05 and Q06 are below. Q04 and Q07 state no direction; Q08-Q12 are not signals.
+
+**The Q01 forward test was considered and rejected on arithmetic.** Matching the post-2021 bar's
+power needs as many firings as the post-2021 sample holds: 478 at a 34.2% firing rate is **1,397
+sessions**. Post-2021 NQ carries ~245 sessions a year with a usable window, so accumulating them
+takes **5.7 years**. **The brief put the sessions available since the data ends at twelve; measured,
+it is ten** (2026-08-28 to 2026-09-11, Labor Day excluded, the last RTH session on disk being
+2026-08-27). Ten or twelve, the wait is 5.65 years. **That is a six-year wait, not a deferred
+decision**, and it is recorded as rejected rather than pending.
+
+### The programme ends
+
+**No edge accessible at this cost structure and account size was found in intraday, calendar or
+non-price futures signals, across six independently designed series.** 66 candidates drafted, 35
+registered, 770 trials across two hash-chained logs, nothing promoted. `programme_conclusion.md`
+states it for a reader who has seen none of this, and states what would have to change for the
+question to be worth reopening. **Starting a seventh series is not on that list**: it would inherit
+the same cost floor, the same 1-minute bars and the same account, which are the four constraints
+that closed the first six.
+
+### Provenance items recorded at close
+
+1. **The handoff's Phase 1 table is only partly reproducible under its own rule.** Five cells within
+   2.3 points, one within 5, three off by 13-22; no single finite horizon explains them (the best,
+   five years, still misses one cell by 24 points). Source unverified.
+2. **3,415 sessions: §59's "not in the repo" was itself wrong.** It checked futures-research only.
+   The figure is **R03's measured usable-session ceiling in `r-series-research`**
+   (`reports/r03_firing_rate.json`), which the brief attributed to the F-series. The nearest measured
+   figure in futures-research is 3,435 sessions with a complete last-30m window. The correction is to
+   the attribution, not to the existence of the number.
+3. **N = 760 is one log.** It counts F (576), L (180), N (3) and P (1). The R-series trials (R01 9,
+   R02 1) sit in their own chain in `r-series-research`. "Six series, N = 760" undercounts by ten;
+   the programme total is 770 across two logs.
+
+### Decisions taken rather than resolved silently
+
+1. **The injection caveat was written from the tests, not from the brief.** Four series, and each had
+   an injection - at the wrong size.
+2. **The gates do not fail on history.** P03 is below the standard it helped motivate, and that is in
+   `STAGES.md` where a reader sees it, not in a red test nobody can fix.
+3. **The sessions-available figure was measured rather than copied.** Ten, not twelve; the conclusion
+   does not depend on it.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

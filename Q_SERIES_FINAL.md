@@ -1,5 +1,12 @@
 # Q-series — the final futures series
 
+> **CLOSED 2026-09-13 WITHOUT REGISTRATION — `reports/decisions.md` §60.** Q01 is F02 at 87.1% firing
+> overlap, so the data on disk is not a fresh test; Q01 and Q02 are one bet (+0.972); Q02 crosses the
+> 17:00 ET hard exit; Q03 and Q04 are already excluded as F12; every predictable candidate is below or
+> straddling its post-2021 bar. The Q01 forward test needs 1,397 sessions against ten available since
+> the data ends — a 5.7-year wait, rejected rather than deferred. The programme's terminal document is
+> `reports/programme_conclusion.md`.
+
 Status: **S1 draft.** Nothing registered. Every entry owes S2 magnitude,
 S2 scale invariance, S3 measured rate, S5 variance gate, S6 control.
 
