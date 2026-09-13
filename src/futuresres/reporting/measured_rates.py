@@ -330,6 +330,33 @@ def rates_from_level_rates(hid: str) -> list[Rate]:
     return out
 
 
+def rates_n02() -> list[Rate]:
+    """N02's S3 rate, MEASURED on the corrected population. Not declared.
+
+    Non-overlapping at H=180, greedy per session. N-series rates are not in level_rates.json,
+    so they are measured directly here rather than routed. decisions.md 50.
+    """
+    from futuresres.levels import definitions as D
+    from futuresres.signals.n02 import round_levels, crosses
+    g = D.load("MNQ", ROOT)
+    lv = round_levels(g)
+    out: list[Rate] = []
+    for d in (2.0, 4.0, 8.0):
+        f, m, _ = crosses(g, lv, d)
+        rows, mins = lv.row[f], m[f]
+        order = np.lexsort((mins, rows)); rows, mins = rows[order], mins[order]
+        ind, last_r, free = 0, -1, -1
+        for r, mm in zip(rows, mins):
+            if r != last_r:
+                last_r, free = r, -1
+            if mm >= free:
+                ind += 1; free = mm + 180
+        out.append(Rate("N02", "MNQ", f"round50_open d={d:g}", 180, int(f.sum()), int(ind),
+                        float(f.sum()) / g.n, "condition",
+                        "measured on the corrected session-open population, decisions.md 49"))
+    return out
+
+
 def measure_all(only: set[str] | None = None) -> list[Rate]:
     """Measure every hypothesis, or just `only`.
 
@@ -381,6 +408,11 @@ def measure_all(only: set[str] | None = None) -> list[Rate]:
             continue
         if hid.startswith("L"):
             rates += rates_from_level_rates(hid)
+            continue
+        if hid == "N02":
+            rates += rates_n02()
+            continue
+        if hid.startswith("N"):
             continue
         for product in products:
             if product not in spans:

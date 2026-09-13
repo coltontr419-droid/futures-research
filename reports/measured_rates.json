@@ -12329,5 +12329,38 @@
     "per_session": NaN,
     "source": "level_rates",
     "note": "routed from reports/level_rates.json; non-overlapping at this horizon"
+  },
+  {
+    "hypothesis": "N02",
+    "product": "MNQ",
+    "cell": "round50_open d=2",
+    "horizon": 180,
+    "firings": 7184,
+    "independent": 5742,
+    "per_session": 1.7419980601357905,
+    "source": "condition",
+    "note": "measured on the corrected session-open population, decisions.md 49"
+  },
+  {
+    "hypothesis": "N02",
+    "product": "MNQ",
+    "cell": "round50_open d=4",
+    "horizon": 180,
+    "firings": 7013,
+    "independent": 5574,
+    "per_session": 1.700533462657614,
+    "source": "condition",
+    "note": "measured on the corrected session-open population, decisions.md 49"
+  },
+  {
+    "hypothesis": "N02",
+    "product": "MNQ",
+    "cell": "round50_open d=8",
+    "horizon": 180,
+    "firings": 6679,
+    "independent": 5284,
+    "per_session": 1.6195441319107662,
+    "source": "condition",
+    "note": "measured on the corrected session-open population, decisions.md 49"
   }
 ]

@@ -3192,8 +3192,8 @@
   name: round_number_cross_continuation
   stopped_at: S2
   stopped_at_reason: >
-    Registered 2026-09-12. S3 firing rate MEASURED, S2 passed on the measured count. S5 gate
-    and S6 placebo NOT yet run - not schedulable. No trial spent.
+    Cleared S1-S6 on the corrected population (S5 re-gated, S6 MATCHED, S3 routed to
+    measured_rates.json). Scheduled for S7 2026-09-13.
   mechanism: >
     Osler (2003, Journal of Finance) documents from a major FX dealing bank's complete order
     book that stop-loss orders cluster JUST BEYOND round numbers while take-profit orders
@@ -3205,10 +3205,10 @@
     This is the best-evidenced mechanism in the N-series draft and the only one resting on a
     published order-book study rather than on inference from price.
   condition: >
-    Round-number levels on a 50-point grid. Price trades THROUGH a level by d points having
-    approached from one side; enter in the break direction, exit at H = 180 minutes or 15:55
-    ET. d in {2, 4, 8} points, H = 180. MNQ. Level touch tolerance 0.5 points, events
-    deduplicated at 30 minutes.
+    Round-number levels on a 50-point grid: the two nearest levels above and the two below the
+    SESSION-OPEN close, four per session, valid from the open (decisions.md 49). Price trades
+    THROUGH a level by d points from the side it started on; enter in the break direction,
+    exit at H = 180 minutes or 15:55 ET. d in {2, 4, 8} points, H = 180. MNQ. Three cells.
   # ---- S3 MEASURED, AND IT OVERTURNED THE DRAFT'S ASSUMPTION ----
   # The draft assumed crosses were a SUBSET of approaches and therefore rarer ("lower than
   # N01"). Measured on MNQ: of 32,590 round-number events, 26,200 (80.4%) CROSS and 6,390
@@ -3226,19 +3226,34 @@
       MEASURED, NEVER DECLARED. The definition of a cross was fixed before measuring and was
       not adjusted afterwards: through the level by >= 2 points on the far side from the
       approach, within 60 minutes.
+  # ---- S2 RECOMPUTED ON THE CORRECTED POPULATION, 2026-09-13, BEFORE ANY TRIAL ----
+  # The original check below was computed on the CIRCULAR population (26,200 events) and no
+  # longer describes what will run. The corrected population fires 6,596-7,105 times at
+  # 2.24 events/session, with DEFF MEASURED at 1.42-1.66 - lower than the 2.19 measured at
+  # 7.68 events/session, as expected for sparser events. The verdict moves from PROVABLE to
+  # STRADDLES. Registered under surface-don't-reject, same standing N05 had.
   s2_check:
-    events: 26200
-    deff: 2.19
-    deff_source: MEASURED on the round-number population, decisions.md 45
-    effective_units: 11963
-    bh_rank1_threshold_bps: 1.64
+    recomputed: '2026-09-13'
+    population: corrected, two grid levels either side of the session open
+    cells: 3
+    k_note: >
+      THREE CELLS, NOT NINE. The grid is d in {2,4,8} at H=180 only. An earlier version of this
+      entry said nine; BH rank-1 is computed at k=3.
+    per_d:
+      "2": {events: 7105, deff: 1.47, units: 4821, bh_bar_bps: 2.23}
+      "4": {events: 6938, deff: 1.42, units: 4896, bh_bar_bps: 2.21}
+      "8": {events: 6596, deff: 1.66, units: 3971, bh_bar_bps: 2.46}
     predicted_range_bps: [2.0, 5.0]
     verdict: >
-      PROVABLE ACROSS THE RANGE. The bottom of the prediction (2.0) exceeds the BH bar
-      (1.64). Before the measurement this entry was judged to STRADDLE on an assumed 12,000
-      events; the measured 26,200 moves it clear.
-    eff_over_bar_mid: 2.13
-    eff_over_cost_mid: 7.3
+      STRADDLES. The bottom of the predicted range (2.0) sits below the BH bar (2.21-2.46), so a
+      survivor is unreachable for a true effect in roughly the lowest 5-10% of the range.
+      eff/bar at midpoint 1.42-1.58, eff/cost 7.3x. A null from N02 is correspondingly weaker
+      evidence for effects near 2 bps.
+    superseded_check:
+      events: 26200
+      bh_rank1_threshold_bps: 1.64
+      verdict: PROVABLE ACROSS RANGE
+      why_superseded: computed on the circular population of decisions.md 49
   prediction:
     registered: 2026-09-12
     direction: positive
@@ -3274,8 +3289,14 @@
     reason: MGC touch rate 11.5%; most of the level population is unreachable within a session
     consequence: S8 rests on the era split only
   s5_gate:
-    passed: false
-    note: NOT YET RUN. Must pass before the S6 placebo is measured - the L11 ordering error.
+    passed: true
+    measured: '2026-09-13'
+    population: corrected (re-gated after the population changed; decisions.md 49)
+    per_d: {"2": {fired: 7184, minute_sd: 416.3}, "4": {fired: 7013, minute_sd: 414.8}, "8": {fired: 6679, minute_sd: 411.7}}
+    up_share: 0.51
+    note: >
+      PASSED on the corrected population. An earlier pass on the circular population was
+      invalidated when the population changed and the gate was re-run rather than inherited.
   horizon_minutes: [180]
   hold_hours: [3]
   registered: 2026-09-12
@@ -3294,7 +3315,7 @@
       Round-number anchoring is not instrument specific; MNQ is chosen for cost (0.48 bps).
   registered_test_order: 23
   test_order: 23
-  schedulable: false
+  schedulable: true
   verdict_route:
-    per_cell: nine cells, BH within the hypothesis at FDR 0.05
+    per_cell: three cells (d in {2,4,8}, H=180), BH within the hypothesis at FDR 0.05
     aggregate: ASSUMED CLOSED across d; the same cross enters under multiple depth settings.

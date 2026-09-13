@@ -3086,6 +3086,33 @@ because it is the same ordering error as L11's in a subtler form: there the stag
 order, here a stage's input changed underneath a passed gate.
 
 
+## 50. N02 re-checked on the corrected population before S7 (S2-S5)
+
+Recorded before any trial is spent, because the population change in 49 invalidated three
+things that had already been written down as settled.
+
+**S5 re-gated, not inherited.** The corrected population passed: d=2/4/8 fire 7,184 / 7,013 /
+6,679 with entry-minute sd 412-416, up-share 0.51, and the identical-minute share falling as d
+tightens (49.5% -> 31.4%), so d selects rather than offsets.
+
+**S3 fell from 26,200 to ~7,000 events.** The circular population admitted every level price
+touched; the corrected one holds four per session. Measured and routed to
+`measured_rates.json` via a direct N02 dispatch - N-series rates are not in
+`level_rates.json`, so they are measured, not routed from elsewhere. Independent counts at
+H=180: 5,742 / 5,574 / 5,284.
+
+**S2 moves from PROVABLE to STRADDLES.** DEFF measured on this population at 1.42-1.66 - lower
+than the 2.19 measured at 7.68 events/session, as sparser events should be - giving BH bars of
+2.21-2.46 at k=3 against a 2.0-5.0 prediction. The bottom ~5-10% of the range is unreachable;
+eff/bar at the midpoint 1.42-1.58, eff/cost 7.3x. Same standing N05 had: registered under
+surface-don't-reject, and a null near 2 bps is weak evidence.
+
+**The cell count in the entry was wrong: three cells, not nine.** The grid is d in {2,4,8} at
+H=180 only. BH rank-1 is computed at k=3.
+
+**N02 is now schedulable and S7 runs next.** 3 trials, N 756 -> 759.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
