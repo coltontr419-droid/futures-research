@@ -3395,6 +3395,167 @@ participation measures on MNQ/NQ (48, reopened, untested); L07's direction-mix a
 and `f01_rates`' OOM on this laptop (CHECKPOINT).
 
 
+## 54. P-series S1 draft reviewed: magnitudes, control design, corrections (S1, S2, S6)
+
+The draft is saved as `P_SERIES_CANDIDATES.md` with corrections inserted as **[§54]**
+blocks. **Nothing registered, no S5 or S6 run, no trial spent. N stays 759.**
+
+### Data claims checked against disk, before any arithmetic
+
+| claim in the draft | on disk |
+|---|---|
+| P02/P10: 672 spread files "on hand, unused" | present as raw `.csv.zst` only; **`parse.py` discarded them** before parquet |
+| P09: ~40 years of COT usable | COT yes, but **GC is not on disk**; tradeable MGC starts 2010 (~830 weeks) |
+| P12: MGC micro-share computable | **no** - needs GC volume, not on disk |
+| P07: small-lot share needs `trades` | confirmed - the parquet `trades` column is 100% null |
+| sample sizes | 4,125 spliced sessions; 4,006 MGC; **2,246 with both MNQ and NQ trading** |
+
+### Task 1: a predicted magnitude for all thirteen
+
+**Basis, and its limit.** These are PRIORS, not measurements, from three sources: the
+programme's own observed effect range at 180m (maximum 5.0 bps, L07; typical 0.3-3.5), a
+mechanistic bracket where one exists, and the direction of published results. **Literature
+magnitudes are recalled, not verified in this session**, and are used for sign and order of
+size only.
+
+**Bar arithmetic** uses the repo's measured anchor (SE = 64.7 / sqrt(units) bps at 180m,
+scaled by sqrt(horizon)), BH rank-1 at k=9, and effective units as a best/realistic bracket
+built from session counts and the measured DEFF families of §45 (spread-out events 2.19;
+clustered or persistent states higher). Cost floor 0.48 bps MNQ, 0.65 MGC.
+
+| id | horizon | predicted bps | vs cost | units best/realistic | BH bar | verdict |
+|---|---|---|---|---|---|---|
+| **P03** | 180m | 1.0-4.0 | 2.1-8.3x | 13,185 / 5,775 | 1.56 / 2.36 | **above cost; straddles bar** |
+| **P05** | 180m | 0.5-3.0 | 1.0-6.2x | 13,185 / 5,775 | 1.56 / 2.36 | at cost at low end; straddles (purchase) |
+| **P04** | RTH | 2.0-8.0 | 4.2-16.7x | 2,062 / 825 | 5.81 / 9.19 | above cost; mostly below bar (conditioner) |
+| P07 | 180m | 0.5-2.0 | 1.0-4.2x | 13,185 / 5,775 | 1.56 / 2.36 | at cost at low end; straddles (purchase) |
+| P01 | 180m | 0.5-2.0 | 1.0-4.2x | 1,795 / 1,123 | 4.23 / 5.35 | at cost at low end; **below bar even best case** |
+| P11 | 180m | 1.0-5.0 | 2.1-10.4x | 800 / 800 | 6.34 | above cost; below bar |
+| P08 | daily | 2.0-10.0 | 4.2-20.8x | 2,062 / 1,031 | 10.9 / 15.5 | above cost; below bar |
+| P09 | weekly | 5.0-20.0 | 7.7-30.8x | 332 / 166 | ~72 / ~102 | above cost; **below bar by 4-15x** |
+| P02 | - | **cannot predict** | - | - | - | contamination differential; no live primary |
+| P10 | - | **cannot predict** | - | - | - | exclusion test; no live primary |
+| P06 | - | **cannot predict** | - | - | - | no trade rule |
+| P12 | - | **cannot predict** | - | - | - | no trade rule; GC absent |
+| P13 | - | **cannot predict** | - | - | - | conditioner; no direction |
+
+**Reasoning for the predictable eight:**
+
+- **P03 (1-4 bps).** A mechanistic bracket exists: a 5m MNQ move has sd ~11 bps, a two-sigma
+  thin move is ~20 bps, and 5-20% excess reversal relative to a normally absorbed move gives
+  1-4. The direction is consistent with the volume-reversal relationship in Campbell,
+  Grossman and Wang (1993): low-volume price changes reverse more. The top of the range sits
+  at the programme's observed maximum.
+- **P05 (0.5-3).** OFI's price impact is overwhelmingly contemporaneous and its predictive
+  component decays within minutes (Cont, Kukanov and Stoikov, 2014). Divergence cases are a
+  minority. At 5-180m a small residual, and the draft rightly notes it is mined.
+- **P04 (2-8, RTH hold).** Overnight moves on thin Globex books partially corrected when RTH
+  liquidity arrives; larger in bps because the hold is session-length.
+- **P01, P07 (0.5-2).** Boehmer et al. (2021) find no aggregate-level prediction from retail
+  imbalance, and aggregate is where MNQ/NQ trades. Reduced to an information-content claim,
+  both are noisier proxies for thin-book conditions than P03, so they are bounded below it.
+- **P11 (1-5), P08 (2-10), P09 (5-20).** Longer or event-anchored horizons scale the bps up;
+  the event counts do not scale with them.
+
+### The findings from task 1, which matter more than the table
+
+**No candidate is cleanly above both the cost floor and its BH bar.** The best, P03, clears
+cost across its range and straddles its bar; nothing else does better without a purchase.
+
+**Five of thirteen cannot state a magnitude at all** - P02, P06, P10, P12, P13. That is a
+finding, not a gap in the review: an entry with no trade rule, or one whose only value is as
+a differential on a primary, cannot pass the S2 magnitude check as that check is written.
+Four of the five are conditioners or contamination tests, and **all four series are closed**,
+so there is nothing for them to condition.
+
+**Every "n: High" in the draft repeats the unit error §45 corrected.** The draft counts bars
+that satisfy a quantile condition. The bootstrap unit is the session, holds overlap, and a
+persistent state clusters into whole sessions. P01 is the sharpest case: "High" becomes
+~1,100-1,800 effective units on a 7.3-year sample, and a BH bar of 4.2-5.4 bps against a
+predicted 0.5-2.0.
+
+### Task 2: control design - partly a category error, partly still open
+
+**The location placebo is a category error for state conditions.** §37's null asks "is this
+location special?" by building an arbitrary region at a matched distance. A state has no
+location and nothing to displace - the same wall N04/N05 hit at S6 (§46) from a different
+direction.
+
+**The F14 pattern transfers only in part, and the part that matters already exists.**
+
+1. **F14 as built is not rate-matched.** It fires at thirteen fixed RTH slot opens with a hash
+   bit for direction, and its registered scope is harness validation at ~45,000 events. A hash
+   control thresholded to the real condition's rate would be a new construction.
+2. **A rate- and clustering-matched chance-alignment null is already inside every S7 run.**
+   `signed_rotation_null` rotates the entire direction series circularly against returns: the
+   firing count and its clustering are preserved exactly, and only the alignment with returns
+   is destroyed. That is strictly stronger than a hash control fired at the same rate, which
+   would preserve the count but not the clustering. **Building the proposed control would
+   duplicate the rotation null with a weaker one.**
+3. **F14 still transfers as a harness check** within its own scope, and §17's structural limit
+   stands: conditions firing about once a session cannot have a real-data negative control of
+   any construction.
+4. **What neither covers is exposure.** A state condition that fires disproportionately in
+   high-volatility regimes, at particular times of day or (for P01) in particular years can
+   beat the rotation null because of WHEN it fires - rotation moves the signal into different
+   regimes, so the confound is not held constant. **The S6 analogue for a state condition is a
+   confound-matched comparison**: the same trade rule on entries drawn from outside the state,
+   matched on time of day, trailing volatility and calendar year, with its own `verify`-style
+   matching check.
+
+**Decision recorded: the placebo question was MISFRAMED, not solved.** The alignment half was
+answered long ago by the rotation null; the location half does not apply; the confound-matched
+control is the genuinely open design question, and it must be built and fault-injected
+before any state condition proceeds to S7. Recording "misframed rather than solved" without
+the fourth point would have overclaimed.
+
+### Task 3: corrections to the draft
+
+- **P01: the sample bound is part of the entry.** MNQ launched 2019-05-06: **~7.3 years, 2,246
+  sessions**, with the 0.292 -> 0.822 adoption curve dominating much of it. Not sixteen years.
+- **P02: value is contingent.** A contamination conditioner improves a live primary; there is
+  none. Kept, and not ranked first on a benefit that is not currently available. Its data also
+  needs a parse change.
+- **P03: the draft's scale note is wrong** (found in review, not in the brief). |return| per
+  contract is not scale-invariant: the spliced series switches NQ -> MNQ on 2019-05-31 at one
+  tenth the notional; measured median 1m bar volume falls from 83-140 (NQ, Mar-May 2019) to
+  26-39 (MNQ, Jun-Jul 2019), so the ratio steps up ~3-5x at the splice, then trends within each
+  segment (median 16 in 2010, 784 in 2026). Threshold relative
+  to a trailing same-contract volume norm, or use `NQ.parquet` for the whole sample. **Ratio
+  form is not scale invariance** - the same class of error §52 recorded.
+- **P09: the 40 years are not available** without GC prices; MGC gives ~830 weeks.
+- **P12: GC checked and absent**; the entry cannot proceed without a purchase.
+
+### Recommended registration order, from the magnitudes rather than the draft
+
+1. **P03** - the only candidate that clears cost across its predicted range and reaches its
+   bar without a purchase. Register only after the volume normalisation is specified and the
+   confound-matched control exists.
+2. **Build the confound-matched control first.** It gates every state condition, including
+   P03, and it is the open item.
+3. **P05** - conditional on a purchase being justified on its own terms. Straddles its bar,
+   at cost at the low end, and mined.
+4. **P04, P08, P13 as conditioners, P02/P10 as contamination tests** - contingent on a primary
+   surviving S7. Nothing to do until one does.
+5. **Not registrable as specified:** P01 (below bar even best case), P07 (at cost at its low
+   end, contested, purchase), P09 (4-15x below bar, no GC), P11 (below bar, N10 class),
+   P06 and P12 (no trade rule; P12 also no GC).
+
+On this arithmetic the honest summary is that **one of thirteen is worth registering first,
+and only once a control that does not yet exist has been built.**
+
+### Decisions taken rather than resolved silently
+
+1. **Predictions are priors and say so.** They set expectations for S2; they are not evidence
+   and no entry's status depends on them.
+2. **k = 9 throughout** for comparability with §45-§53; conditioners with fewer cells would get a
+   modestly lower bar, which does not change any verdict above.
+3. **The draft is saved with corrections inserted, not rewritten**, so proposal and correction
+   remain distinguishable.
+4. **CHECKPOINT's State section was stale** (N = 684, L11 unmeasured, L07 the latest run) and is
+   corrected in the same commit - the failure mode §36 records.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

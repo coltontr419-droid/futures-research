@@ -217,6 +217,25 @@ nothing uses.
 
 ## State
 
+### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
+
+The bullets under this block were accurate on 2026-09-10 and went **stale for three sessions**
+while N moved from 684 to 759 and four series closed. They are kept, not deleted, because a
+checkpoint that silently rewrites itself hides that it was ever wrong (`decisions.md` §36).
+
+- **Four series closed. N = 759, SR\* = 0.1369, chain verified. Nothing promoted.**
+  F (14), R (5, separate repo), L (12, `reports/level_conclusion.md`), N (1 of 10 candidates
+  tested, `decisions.md` §51).
+- **P-series: S1 draft only**, `P_SERIES_CANDIDATES.md`, reviewed in `decisions.md` §54.
+  Nothing registered. One candidate (P03) is recommended first, and only after a
+  **confound-matched control for state conditions** is built — that control is the open item.
+- Stage numbering S1–S8 (`reports/STAGES.md`); S2 now carries a magnitude check and a
+  scale-invariance check (tested and fault-injected, §53).
+- 42/42 registry tests pass; the full suite must be run one file at a time on this laptop.
+
+### Historical (2026-09-10)
+
+
 - **372 tests with the data layer present; 300 from a clean clone at the pre-fix commit** (plus 3 collection
   errors). Both figures are stated because for most of this project's life only the first was
   ever measured, and it was measured on the one machine where the untracked package existed.
