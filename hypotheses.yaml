@@ -3251,10 +3251,28 @@
   # applies. That is exactly what N04/N05 lacked (61.4% zero-distance). It is an EXPECTATION,
   # not a measurement - S6 must still be built and matched before this can be scheduled.
   s6_placebo:
-    built: false
-    expectation: >
-      Buildable. Round levels sit at a distance from price, unlike swing pivots. Must be
-      verified, not assumed - decisions.md 46.
+    built: true
+    measured: '2026-09-13'
+    verdict: MATCHED on both products
+    MNQ: {levels: 16496, real_touch: 0.401, placebo_touch: 0.395, touch_ratio: 0.98, distance_ratio: 0.82}
+    MGC: {levels: 16020, real_touch: 0.115, placebo_touch: 0.122, touch_ratio: 1.06, distance_ratio: 0.88}
+    construction_correction: >
+      THE FIRST ATTEMPT FAILED AND THE FAILURE WAS MINE. The population admitted a grid level
+      only when price came within 0.5 points of it, so real levels were touched 100.0% BY
+      DEFINITION and the placebo was asked to match an outcome the population was selected on.
+      Corrected to the two nearest grid levels above and below the SESSION-OPEN close - four
+      per session, chosen without reference to where price later goes. Touch rate then falls
+      to an observed 40.1% / 11.5%. One re-measurement, binding; decisions.md 49.
+  # ---- S8 CROSS-MARKET ROUTE IS CLOSED BEFORE IT IS TRIED ----
+  # MGC's real touch rate is 11.5%: gold's session range rarely spans two 50-point grid steps,
+  # so most of its level population is unreachable within a session. The S6 match on MGC is
+  # genuine - a correctly matched placebo against a mostly-unreachable population - which
+  # makes it easy to misread as an open route. It is not one. N02 cannot use MGC as a
+  # robustness instrument and its S8 evidence must come from the ERA SPLIT alone.
+  s8_cross_market:
+    available: false
+    reason: MGC touch rate 11.5%; most of the level population is unreachable within a session
+    consequence: S8 rests on the era split only
   s5_gate:
     passed: false
     note: NOT YET RUN. Must pass before the S6 placebo is measured - the L11 ordering error.

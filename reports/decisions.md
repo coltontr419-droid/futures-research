@@ -3036,6 +3036,56 @@ closes with zero registrations from ten candidates** - no third attempt, no alte
 no re-scoping, and the closeout gets written rather than another option brought back.
 
 
+### Outcome: S6 MATCHED on both products
+
+| | MNQ | MGC |
+|---|---|---|
+| levels | 16,496 (4.0/session) | 16,020 (4.0/session) |
+| real distance median | 50.00 | 50.00 |
+| zero-share | 0.13% | 0.07% |
+| touch real / placebo | 40.1% / 39.5%, **ratio 0.98** | 11.5% / 12.2%, **ratio 1.06** |
+| distance ratio | 0.82 | 0.88 |
+| **verdict** | **MATCHED** | **MATCHED** |
+
+**The diagnosis in this entry was right, and the evidence is that touch rate now behaves like
+a measurement.** It fell from an imposed 100.0% to an observed 40.1% (MNQ) and 11.5% (MGC) -
+wildly different between products, which is what an outcome looks like and what a selection
+rule cannot produce. The circularity was the whole failure.
+
+### Two prediction misses, and one of them was avoidable
+
+**The median distance is exactly 50.00, not the 35-40 predicted - and that was DERIVABLE, not
+estimable.** Four levels drawn symmetrically around the session open put two at 0-50 points
+and two at 50-100 on either side, so the median lands on the grid spacing by construction.
+**A mechanical property of the population should be COMPUTED before it is stated, not guessed
+at.** Predicting a number that follows deterministically from a definition I had just written
+is the sloppier of the two misses, and the cheaper to have avoided.
+
+**MGC's real touch rate is 11.5%, far below the "high but well below 100%" I implied.** Gold's
+session range rarely spans two 50-point grid steps, so most of its level population is simply
+unreachable within a session.
+
+### MGC is unavailable to N02 as a robustness instrument
+
+**This is a downstream constraint, not an observation.** S8 conventionally asks whether an
+effect holds on another market. For N02 that route is **closed before it is tried**: at an
+11.5% touch rate most of gold's population is out of reach within a session, so MGC cannot
+supply a comparable event count no matter what the effect is.
+
+The S6 match on MGC is genuine - the placebo is correctly matched to a mostly-unreachable
+population - which makes this easy to misread as an open route. It is not one. **N02's S8
+evidence will have to come from the era split alone**, and a later reader should find that
+here rather than discover it when the cross-market check comes up empty.
+
+### An ordering slip, caught and corrected
+
+**S5 was validated on the OLD, circular population; S6 then passed on the CORRECTED one.** The
+rule from 46 is S5 before S6, and changing the population invalidated the S5 evidence without
+invalidating the rule. The corrected population is re-gated at S5 before S7 runs. Recorded
+because it is the same ordering error as L11's in a subtler form: there the stages ran out of
+order, here a stage's input changed underneath a passed gate.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
