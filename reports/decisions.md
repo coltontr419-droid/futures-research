@@ -2888,6 +2888,81 @@ would spend k on nothing, which its own draft entry warned against.
    46 and 40 establish.
 
 
+## 48. Why R02 failed: it chose the one observable on that pair that cannot persist
+
+**A programme-level finding, not an N07 registration note.** It reopens a direction rather
+than closing one, and a later session should find it here rather than rederive it.
+
+### The isolation
+
+R02 tested the **MNQ/NQ basis** - the price difference between two contracts on the same
+underlying - and closed because the basis had a half-life of **0.25 bars**. That was read at
+the time as the micro/mini relationship carrying no information.
+
+**It is not. A price difference between two contracts on one underlying is arbitraged, and
+arbitrage forces it to revert almost instantly.** The 0.25-bar half-life is not a discovery
+about retail participation; it is a restatement of the fact that the pair is arbitraged.
+
+**Volume share is a participation measure on the same pair, and nothing arbitrages it:**
+
+| observable, same pair | half-life |
+|---|---|
+| basis (R02's choice) | **0.25 bars** |
+| MNQ volume share | **1.44 bars** after detrending (5.29 raw) |
+
+~6x the persistence, with autocorrelation still 0.428 at lag 60.
+
+**So R02 chose the one observable on that pair that could not persist, and its mechanism was
+never tested.** The retail-participation idea was not refuted - the instrument for measuring
+it was incapable of carrying the signal. That is a direction left open, not closed:
+participation measures on MNQ/NQ remain untested, and the observable that failed was the
+wrong one for a structural reason that is now identified.
+
+**Recorded because the R-series conclusion currently reads as though the angle was tested and
+failed.** It was not.
+
+### The detrending, recorded explicitly
+
+| | phi | half-life |
+|---|---|---|
+| raw, 1-minute | 0.877 | 5.29 bars |
+| minus time-of-day mean | 0.872 | 5.06 bars |
+| **minus time-of-day AND yearly mean** | **0.617** | **1.44 bars** |
+
+**MNQ's share of the pair rose from 0.292 in 2019 to 0.822 in 2026.** That is a secular
+adoption trend. It is perfectly persistent and carries no information whatever.
+
+**Reporting the raw 5.29-bar figure would have overstated persistence by about 4x, on
+adoption rather than on signal.** The claim would have been "volume share has 21x the memory
+of the basis" instead of the true ~6x.
+
+**Same class as the `confirmed_break` defect (41) and the censored floor bound (45):** a
+number that looked like a result was partly an artifact of not asking what produced it. The
+recurring shape across all three is that the quantity measured and the quantity meant had
+drifted apart, and only decomposing the measurement revealed it.
+
+### N02's S6 PREDICTION, recorded BEFORE the measurement
+
+N04/N05 died at S6 because a swing pivot is at-the-money when confirmed - 61.4% of levels at
+zero distance from the reference, against 0.1-7.1% for every other level type (46). **Round
+numbers should not have that property**, because a price grid exists independently of where
+price currently is.
+
+**Stated in advance so the measurement can disagree:**
+
+- **median |level - ref| at `valid_from`: 8 to 30 MNQ points.** Distance to the nearest point
+  of a 50-point grid is roughly uniform on [0, 25] for a single nearest level, and wider if
+  the population includes further levels.
+- **zero-distance share: BELOW 5%**, and in the same band as established level types
+  (0.1-7.1%), not the pivot's 61.4%.
+- **`verify` PASSES on both products**, distance ratio and touch ratio within +/-25%.
+
+**If the match fails, N02 withdraws and the N-series closes with ZERO registrations from ten
+candidates.** Said plainly now rather than looked for afterwards: there is no fix to reach
+for, because 46 established that the `valid_from` convention is correct and a failure would
+be a property of the level definition, exactly as it was for pivots and for L06.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
