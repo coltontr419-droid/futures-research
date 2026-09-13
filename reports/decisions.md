@@ -3951,6 +3951,99 @@ question §56 raised is no longer the live one: at H=15 the significance limb is
 as the cost limb, so a waiver would buy little. What a registration now turns on is whether
 6.8% reversion within 15 minutes is a claim worth one trial.
 
+## 58. P03 registered, run and retired at S7; the P-series closes (S5-S8)
+
+`reports/p03_stage1.md`, `reports/p03_stage1.json`, `signals/p03.py`. **1 trial. N 759 -> 760,
+SR\* 0.1368, chain verified.** First registration of the P-series and the only one.
+
+| | |
+|---|---|
+| real - control | **+0.0794 bps** |
+| pre-registered threshold | **+0.625 bps** - misses by **7.9x** |
+| real leg net of the 0.48 floor | **-0.2796 bps** |
+| separated | no - CI [-0.302, +0.451], p 0.691 |
+| implied reversion fraction | **0.86%** of the measured excess, against 6.8% required |
+
+### The three things pre-registered before the run, and why each mattered afterwards
+
+1. **The refutation threshold, in the mechanism's own units.** "More than 6.8% of the measured
+   9.18 bps excess reverts within 15 minutes." Because the threshold was in units the
+   measurement produces, the result reads as a FRACTION - 0.86% against 6.8% - rather than as
+   two bps numbers whose ratio has to be argued after the fact.
+2. **That the prior was UNKNOWN, not high.** The 9.18 is a ceiling, part of it permanent
+   information rather than transitory impact. Recording that first is what stops a null being
+   written up as a surprise, and what makes it informative: **the null is informative because
+   the threshold was low, not because the effect was expected.**
+3. **That the binding limb is ECONOMICS, not significance.** Cost floor 0.48 against a bar of
+   0.463-0.625 - the first P-series entry where the two are comparable. Every earlier one was
+   significance-dominated (P01 needed 4.2-5.4 bps, P09 72-102). **That inverts what the null
+   means**, and it had to be said beforehand or it would have read as an excuse: P03's null
+   says the effect is small in bps, not that the test could not see it. The real leg is
+   negative net of cost, so the economics limb refutes on its own and needs no power argument -
+   the L12 shape (§45).
+
+### The gates held, in order, and the trial was spent only after them
+
+**S5 PASS**: entry-minute sd 110.2 over a 380-minute spread; neighbouring thresholds select
+genuinely different events (Q85 Jaccard 0.67, Q95 0.50), so the parameter is not an offset.
+Directional collapse is N/A by construction and says so rather than being skipped.
+
+**S6 MATCHED** in `bar` mode: 27,437/27,437 paired, 7.0% reuse, time-of-day / volatility / year
+deviations all **0.000**, era fallback **0.0%**. Bar mode was forced by the firing rate, not
+chosen (§55), and its contamination costs power.
+
+`stage1_run` is entered only after both pass, so an aborted run would have appended nothing.
+**A run that never compared anything never had a chance to produce a false positive**, and the
+accounting should say so.
+
+**S8 era split, by default (§53)**: early +0.0140, late +0.1449, neither significant, no sign
+flip. Unlike N02 - whose point thresholds ran a different trade in each era - P03's threshold is
+a rank, so the split is interpretable, and it says the null is uniform rather than era-specific.
+
+### The null was fault-injected before it was believed
+
+§46 says to look for the bug when something CLEARS. Nothing cleared, but **the mirror risk
+deserves the same treatment and nothing in the suite covered it**: a null manufactured by a sign
+error or an off-by-one in the hold is indistinguishable from a real one.
+`tests/test_p03_outcomes.py` pins four properties - a known injected +4.0 bps reversion is
+recovered as **+3.45**, a pure random walk returns zero within noise, the hold never crosses a
+session boundary, and a move that extends costs the fade rule money. **The machinery could have
+seen an effect seven times smaller than the one it was looking for.** The null is a measurement.
+
+### What the null does not settle, recorded before the run rather than after
+
+The state's decay half-life is **3.5 minutes** and **H=15 is the shortest horizon the grid
+carries**, so the test sits ~4 half-lives past the mechanism's clock. A null there is weak
+evidence about thin-move reversion AT ITS OWN TIMESCALE. **Re-testing shorter is a new
+registration with its own trial, not a re-reading of this one** - R01's rule (r-series §17):
+running another horizon afterwards would invalidate the argument that chose this one.
+
+### Two defects found while registering, both fixed rather than worked around
+
+1. **`catalog_status` crashed on a legitimate status.** Its `closed_by` table was missing
+   `stage1_inconclusive`, `stage1_passed` and `dead`, so the report died with a KeyError the
+   moment an entry carried one. **The crash predates P03** - verified by stashing the
+   registration and reproducing it. Completed the table, and kept the bare subscript rather
+   than `.get` so an unknown status still fails loudly instead of rendering a blank cell.
+2. **Two registry guards did not know the P-series existed.** The id pattern and the catalog
+   regex both hard-coded `[FLN]`. Widened to `[FLNP]` - which the id check's own comment
+   directs ("the pattern is widened deliberately when a series is opened"). This is coverage
+   extended to a new series, **not a check loosened**: both assertions still bind exactly as
+   before, and `found == set(REG)` is unchanged.
+
+### The P-series closes
+
+**Thirteen candidates, one registered, one tested, zero promoted, 1 trial spent.** §54 declined
+the other twelve on arithmetic before any trial: five could not state a magnitude at all, four
+sat below their BH bar, and the rest were conditioners with no live primary. P03 was the only
+one that reached its bar, and it did so only after its horizon and magnitude were measured
+rather than assumed (§57).
+
+**The series' most reusable output is not a hypothesis.** It is the matched state control
+(§55), its mode partition and clean-pool requirement now in `STAGES.md` under S6, and the
+finding that a state condition's placebo question was three-quarters already answered and
+one-quarter genuinely open.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -224,12 +224,21 @@ def render() -> str:
                       and min(v.aggregate_ceiling, v.data_ceiling)
                       >= (c.smallest_resolving_n or 0)]
                 agg_route = f"**open** {len(ok)}/{len(vs)}" if ok else "closed"
+        # EVERY status in the registry's closed set must appear here. Three were missing -
+        # `stage1_inconclusive`, `stage1_passed` and `dead` - and this report crashed with a
+        # KeyError the moment an entry carried one. It did, and the crash predates P03: a
+        # reporting tool that dies on a legitimate status is a gap in the report, not a
+        # reason to change the status. `.get` is deliberately NOT used: an unknown status
+        # must fail loudly rather than render as a blank cell nobody notices.
         closed_by = {
             "retired": ("evidence" if counts.get(hid, 0) > 0
                         else "premise — never run"),
+            "stage1_inconclusive": "power — ran, did not resolve",
+            "stage1_passed": "not closed — signal gate cleared only",
             "stage1_uninformative": "sample — ran, could not inform",
             "blocked_insufficient_events": "arithmetic — never ran",
             "excluded": "registration",
+            "dead": "structure — invalidated",
             "untested": "—",
         }[entry["status"]]
         a(f"| {hid} | {entry['name']} | `{entry['status']}` | {cell_route} | {agg_route} | "

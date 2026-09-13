@@ -440,3 +440,57 @@ catalog is session-anchored, the shifts happen on different dates, and a one-hou
 misalignment for a few weeks a year will produce results that look real and aren't. Build the
 session mapper first, test it against known dates, and treat it as load-bearing
 infrastructure rather than a utility function.
+
+---
+
+# P-series — non-price observables
+
+Registered from `P_SERIES_CANDIDATES.md` after the S1 review in `decisions.md` §54. Thirteen
+candidates were evaluated; **one was registered.** The rest are below their BH bar, lack a
+trade rule, or are conditioners with no live primary to condition.
+
+## P03 — Thin-Move Reversion  *(RETIRED at S7)*
+
+**Params: 2** | **NQ state / MNQ traded** | **Fires: 27,437 (measured), 7.71 per session**
+
+Amihud/Kyle. A price move is bought with volume, so a move achieved on **little** volume moved
+a thin book rather than absorbing informed flow. The displacement it creates is more likely
+transitory and should give part of itself back. **The counterparty is whoever crossed a thin
+book without information**, and they keep doing it because order size is chosen from account
+size rather than from book depth.
+
+**The threshold is a rank, not a level.** λ = |return in bps| / bar volume, thresholded at the
+90th percentile of λ over the same 30-minute bucket across the previous 60 sessions. That is
+dimensionless, so the NQ→MNQ notional change and the secular volume growth divide out. Measured
+evidence: the firing rate holds at **7.95–12.10% across 2012–2026** while median bar volume runs
+1,752 → 5,325.
+
+**H = 15 was measured, not assumed.** The state's own decay half-life is **3.5 minutes** — log
+illiquidity elevation falls to 0.29 of its spike within one 5-minute bar — and 15 is the nearest
+grid point (R01's precedent). It is resolution-limited, and H=15 is already ~4 half-lives past
+decay: **P03's clock is faster than the tradeable grid.**
+
+**S2: NOT BELOW, crossing at 6.8%.** Measured excess displacement at a firing is **9.18 bps**
+(median move 13.59, what its volume buys 4.21) against a binding constraint of 0.625 bps. The
+excess is a **ceiling, not a prediction** — part of it is permanent information — so the honest
+prior on the reversion fraction is **unknown, not high**.
+
+**This is an economics-binding regime.** Cost floor 0.48 bps against a BH bar of 0.463–0.625.
+Every earlier P-series entry was significance-dominated (P01 needed 4.2–5.4 bps, P09 72–102), so
+a null here means the effect is small in bps, **not** that the test could not see it.
+
+**S6 is the matched state control in `bar` mode**, not a level placebo. Strict mode is
+structurally unavailable: the state touches 92.6% of sessions. Bar mode's contamination costs
+power, not validity, so a null under it is weaker evidence than a null under strict mode.
+
+**P03 RETIRED AT S7, 2026-09-13.** Real − control **+0.0794 bps** against a pre-registered
+**+0.625** — 7.9× short, and the real leg is **−0.28 bps net of cost**, so it loses money before
+significance matters. Not separated (p 0.691); era split agrees with no sign flip. **The
+measured reversion is 0.86% of the excess, against the 6.8% required.** The null was
+fault-injected before it was believed: an injected +4.0 bps reversion is recovered as +3.45.
+**Caveat recorded before the run:** the state's half-life is 3.5 minutes and H=15 is the
+grid's shortest horizon, so this sits ~4 half-lives past the mechanism's clock. See
+`reports/p03_stage1.md` and `decisions.md` §58.
+
+**The P-series closes: thirteen candidates, one registered, one tested, zero promoted, 1 trial
+spent.**

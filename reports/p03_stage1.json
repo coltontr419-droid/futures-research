@@ -1,0 +1,74 @@
+{
+ "hypothesis": "P03",
+ "horizon_minutes": 15,
+ "lookback_sessions": 60,
+ "threshold_pct": 90.0,
+ "s5": {
+  "passed": true,
+  "entry_minute_sd": 110.2,
+  "entry_minute_spread": 380,
+  "neighbour_thresholds": {
+   "85.0": {
+    "events": 40902,
+    "jaccard_with_registered": 0.6708
+   },
+   "95.0": {
+    "events": 13737,
+    "jaccard_with_registered": 0.5007
+   }
+  },
+  "directional_collapse": "N/A - no level set; a bar carries one signed return",
+  "reason": ""
+ },
+ "control": {
+  "mode": "bar",
+  "verdict": "MATCHED",
+  "n_real": 27437,
+  "n_matched": 27437,
+  "control_bars": 25525,
+  "reuse_rate": 0.06968691912381086,
+  "fallback_rate": 0.0,
+  "tod_dev": 0.0,
+  "vol_dev": 0.0,
+  "year_dev": 0.0,
+  "firings_per_session": 7.709187974150042,
+  "sessions_touched_share": 0.9098061253161001
+ },
+ "result": {
+  "n": 24781,
+  "real_bps": 0.20036818605380818,
+  "control_bps": 0.12093898139546043,
+  "diff_bps": 0.07942920465834778,
+  "ci_low": -0.3021914402640459,
+  "ci_high": 0.45096677744150426,
+  "p_value": 0.691,
+  "separated": false,
+  "sharpe": 0.007773116890329013,
+  "cost_bps": 0.48,
+  "real_net_of_cost_bps": -0.2796318139461918,
+  "preregistered_threshold_bps": 0.625,
+  "clears_preregistered": false
+ },
+ "era_split": [
+  {
+   "era": "early",
+   "n": 12399,
+   "real_bps": 0.008771990454529607,
+   "control_bps": -0.005267047888945769,
+   "diff_bps": 0.014039038343475432,
+   "ci_low": -0.3949582877336898,
+   "ci_high": 0.41322657367653665,
+   "p_value": 0.9475
+  },
+  {
+   "era": "late",
+   "n": 12382,
+   "real_bps": 0.39222743570939334,
+   "control_bps": 0.24731828660442126,
+   "diff_bps": 0.1449091491049722,
+   "ci_low": -0.4960679226330505,
+   "ci_high": 0.780521251355569,
+   "p_value": 0.686
+  }
+ ]
+}

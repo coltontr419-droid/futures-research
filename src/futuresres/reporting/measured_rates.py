@@ -357,6 +357,35 @@ def rates_n02() -> list[Rate]:
     return out
 
 
+def rates_p03() -> list[Rate]:
+    """P03's firing rate, MEASURED on the registered state. Not declared.
+
+    Non-overlapping at H=15 (three 5-minute bars), greedy within each session: a position
+    cannot restart until it closes, so overlapping entries are one observation counted many
+    times (STAGES.md S4). The state is built by the same code the run uses, so the rate cannot
+    drift from what will actually fire. decisions.md 56-57.
+    """
+    from futuresres.reporting.state_control_feasibility import build_state, load_bars
+
+    w = build_state(load_bars())
+    fired = w["state"] & (w["vol_q"] >= 0)
+    sid = w["session"]
+    idx = np.flatnonzero(fired)
+    n_sessions = int(w["n_sessions"])
+
+    independent, last_session, free_slot = 0, -1, -1
+    for i in idx:
+        s = int(sid[i])
+        if s != last_session:
+            last_session, free_slot = s, -1
+        if i >= free_slot:
+            independent += 1
+            free_slot = i + 3          # 3 bars of 5 minutes = the H=15 hold
+    return [Rate("P03", "MNQ", "thin_move q90 lookback=60", 15, int(fired.sum()),
+                 independent, float(fired.sum()) / n_sessions, "condition",
+                 "state measured on the NQ lineage; traded instrument is MNQ")]
+
+
 def measure_all(only: set[str] | None = None) -> list[Rate]:
     """Measure every hypothesis, or just `only`.
 
@@ -411,6 +440,9 @@ def measure_all(only: set[str] | None = None) -> list[Rate]:
             continue
         if hid == "N02":
             rates += rates_n02()
+            continue
+        if hid == "P03":
+            rates += rates_p03()
             continue
         if hid.startswith("N"):
             continue

@@ -155,6 +155,10 @@ SCAN_POSITIONS: Final[dict[str, int]] = {
     "L12": 1,
     # N02: one scan position (the session-open grid levels), three depth cells on it.
     "N02": 1,
+    # P03: ONE scan position. The state is not anchored to a clock slot or a level - it can
+    # fire in any 5-minute bar of the session, and the single registered cell is that one
+    # condition. There is no grid axis to pool over.
+    "P03": 1,
     "F01": 2,    # entry_time in {15:00, 15:30}
     "F02": 2,    # window in {Europe, Asia}
     "F03": 13,   # the 13 RTH half-hour slots
@@ -196,6 +200,9 @@ SCAN_POSITIONS_DISJOINT: Final[dict[str, bool]] = {
     "L12": False,
     # False: d in {2,4,8} nests - a cross by 8 points was a cross by 2 first.
     "N02": False,
+    # Vacuous at one position, and recorded rather than defaulted: with a single scan
+    # position there is nothing to pool, so disjointness cannot restore sample either way.
+    "P03": True,
     "F01": False,   # 15:00 and 15:30 entries share a 15:55 exit
     "F02": True,    # Europe 01:30-04:00 and Asia 19:00-22:00 do not overlap
     "F03": True,    # 13 consecutive non-overlapping half-hour trades

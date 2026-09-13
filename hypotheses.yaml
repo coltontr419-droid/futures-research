@@ -3342,3 +3342,167 @@
   cells: reports/n02_cells.json
   trials_spent: 3
   stage1_ran: '2026-09-13'
+
+- id: P03
+  name: thin_move_reversion
+  mechanism: >
+    Amihud/Kyle. A price move is bought with volume: absorbing informed flow takes size, so a
+    move achieved on LITTLE volume moved a thin book rather than absorbing anything. The
+    displacement it creates is therefore more likely transitory, and should give part of itself
+    back. THE COUNTERPARTY is whoever crossed a thin book without information, and they keep
+    doing it because order size is chosen from account size rather than from book depth - a
+    habit that does not decay with experience, unlike a mispricing an arbitrageur can close.
+    Measured on this series rather than assumed: at a firing the median move is 13.59 bps while
+    the move its own volume ordinarily buys is 4.21 bps, leaving 9.18 bps of excess
+    displacement (decisions.md 57).
+  condition: >
+    NQ, 5-minute bars, RTH only (09:30-16:00 ET). Per bar, illiquidity lambda = |log return in
+    bps| / bar volume. The state fires when lambda exceeds the 90th percentile of lambda over
+    the SAME 30-minute bucket across the PREVIOUS 60 sessions. Entry at the firing bar's close,
+    FADE the move: direction = -sign(that bar's return). Exit at H = 15 minutes (3 bars) or the
+    session close, whichever comes first. ONE CELL - no sweep over threshold, lookback or
+    horizon.
+  # ---- THE DENOMINATOR IS A RANK, WHICH IS WHY THE THRESHOLD IS SCALE-INVARIANT ----
+  # |return| per contract is NOT scale invariant: the NQ->MNQ splice is a 10x notional change
+  # and bar volume grows secularly besides. What is thresholded here is lambda's rank within
+  # its own trailing distribution, which is dimensionless - any rescaling common to a
+  # 60-session window divides both sides of the comparison alike. Measured evidence: the firing
+  # rate holds at 7.95-12.10% across 2012-2026 while median bar volume runs 1,752 to 5,325.
+  # NQ-only avoids the splice entirely rather than modelling it. decisions.md 56.
+  threshold_units: quantile
+  price_range_stated: true
+  price_range_note: >
+    NQ close spans roughly 1,830 (2010) to 24,000+ (2026), a ~13x range. The threshold is a
+    trailing quantile and therefore carries no price units at all, but the range is stated and
+    the era split pre-registered rather than claiming an exemption the check does not grant.
+  era_split_preregistered: true
+  # ---- S2, COMPUTED FROM MEASURED QUANTITIES BEFORE THE RUN ----
+  s2_check:
+    measured: '2026-09-13'
+    cells: 1
+    horizon_minutes: 15
+    horizon_provenance: >
+      MEASURED, NOT ASSUMED. The state's own decay half-life is 3.5 minutes (log illiquidity
+      elevation falls to 0.29 of the spike within one 5m bar), and 15 is the nearest point on
+      the grid the registry uses. R01's precedent, r-series decisions.md 17. The half-life is
+      BELOW the bar resolution, so it is resolution-limited - but any value under 5 minutes
+      maps to the same grid point, so the choice is robust to that. H=15 is nonetheless ~4
+      half-lives past decay: P03's clock is faster than the tradeable grid.
+    n_firings: 27437
+    n_sessions_post_warmup: 3559
+    warmup_cost_sessions: 566
+    deff_range: [2.19, 4.00]
+    effective_units: [12528, 6859]
+    bh_bar_bps: [0.463, 0.625]
+    bh_bar_note: >
+      NO sqrt(2) pairing inflation. The SE anchor is ALREADY a difference SE - L12 measured
+      1.016 bps as its own bootstrap SE on a real|placebo|diff table at 4,052 pairs, and
+      64.7/sqrt(4052) = 1.016. decisions.md 57.
+    k_note: >
+      The bar is computed at k=9 for comparability with decisions.md 45-54. This entry runs ONE
+      cell, where BH rank-1 would give 0.327 bps. The CONSERVATIVE k=9 figure is what the
+      refutation threshold below is pinned to, deliberately - the pre-registered bar is not
+      lowered by the fact that the sweep was declined.
+    ceiling_bps: 9.18
+    ceiling_note: >
+      The measured excess is a CEILING, not a prediction: no reversion returns more than the
+      move that was made, and an unknown part of the 9.18 is PERMANENT information rather than
+      transitory impact. THE HONEST PRIOR ON THE REVERSION FRACTION IS UNKNOWN, NOT HIGH.
+    verdict: >
+      NOT BELOW. The ceiling exceeds the binding constraint by ~15x, so the hypothesis cannot
+      be ruled out on magnitude. It cannot be ruled IN either: that needs a claim about the
+      reversion fraction, which is what the test measures.
+  # ---- THIS IS AN ECONOMICS-BINDING REGIME, STATED BEFORE THE RESULT ----
+  # Cost floor 0.48 bps against a BH bar of 0.463-0.625. The two constraints are nearly equal,
+  # so significance is no longer the binding limb. EVERY EARLIER P-SERIES ENTRY WAS
+  # SIGNIFICANCE-DOMINATED - P01 needed 4.2-5.4 bps, P09 72-102 - and that inverts what a null
+  # means here. A null at P03 says the effect is small in bps, not that the test could not see
+  # it. Recorded before the run precisely so it cannot be claimed afterwards.
+  binding_constraint: economics
+  binding_constraint_note: >
+    cost floor 0.48 bps vs BH bar 0.463-0.625 bps; binding value 0.625 bps
+  prediction:
+    registered: '2026-09-13'
+    direction: positive
+    magnitude_bps: "> +0.625"
+    threshold_derivation: >
+      6.8% of the measured 9.18 bps excess displacement, reverting within 15 minutes. The
+      fraction is the number the test resolves; the 9.18 and the 0.625 are both measured
+      before the run.
+    confirms_if: >
+      real-minus-control mean above +0.625 bps AND the control MATCHED. That is, more than 6.8%
+      of the measured excess reverts within 15 minutes.
+    refutes_if: >
+      real-minus-control mean at or below +0.625 bps, including a positive mean that is smaller.
+      A NULL IS INFORMATIVE HERE BECAUSE THE THRESHOLD IS LOW, not because the effect was
+      expected - the prior on the reversion fraction is unknown.
+  # ---- S6 IS THE MATCHED STATE CONTROL, NOT A LEVEL PLACEBO ----
+  # A state has no location, so the arbitrary-region placebo of decisions.md 37 does not apply.
+  # The control draws each firing a partner from a DIFFERENT session in the same time-of-day
+  # bucket, volatility quantile and year, where the state does not hold. decisions.md 55.
+  s6_control:
+    kind: matched_state_control
+    session_exclusion: bar
+    mode_justification: >
+      STRICT MODE IS STRUCTURALLY UNAVAILABLE. The state fires 7.71 times per session and
+      touches 92.6% of sessions; even a perfectly independent state at that rate would touch
+      ~99.9%. The 265 clean sessions that survive range from 0% of 2011 to 17.5% of 2025, and
+      strict mode FAILS on them (37.4% era fallback, 69.9% reuse). Bar mode is MATCHED at 0%
+      fallback and 7.1% reuse. Its contamination costs power, not validity: control bars sit in
+      sessions that fire elsewhere, which shrinks a real difference but cannot manufacture one,
+      because the regimes are matched pair by pair.
+    consequence: >
+      A NULL UNDER BAR MODE IS WEAKER EVIDENCE THAN A NULL UNDER STRICT MODE. Recorded before
+      the run, decisions.md 55.
+  horizon_minutes: [15]
+  hold_hours: [0.25]
+  registered: '2026-09-13'
+  status: retired
+  stopped_at: S7
+  stopped_at_reason: >
+    Ran at S7 2026-09-13, one cell, one trial. Real-minus-control +0.0794 bps against a
+    PRE-REGISTERED +0.625, so it misses its own threshold by 7.9x; not separated (p 0.691).
+    The real leg is +0.2004 bps gross and -0.2796 NET of the 0.48 bps floor - it loses money
+    before significance is reached at all. reports/p03_stage1.md, decisions.md 58.
+  retired_reason: >
+    RETIRED ON ITS PRE-REGISTERED CLAUSE. The clause was "more than 6.8% of the measured
+    9.18 bps excess reverts within 15 minutes"; the measured reversion is 0.86% of it.
+    THE BINDING LIMB IS ECONOMICS, AS REGISTERED BEFORE THE RUN: the real leg is negative
+    net of cost, so the trade fails on money rather than on power. The era split agrees
+    (early +0.0140, late +0.1449, neither significant, no sign flip), so this is not decay.
+    WHAT THE NULL DOES NOT SETTLE, also recorded before the run: the state's own decay
+    half-life is 3.5 minutes and H=15 is the shortest horizon the grid carries, so the test
+    sits ~4 half-lives past the mechanism's clock. A null there is weak evidence about
+    thin-move reversion AT ITS OWN TIMESCALE. Re-testing at a shorter horizon would be a new
+    registration with its own trial, not a re-reading of this one - R01's rule (r-series 17).
+    The control ran in `bar` mode, whose contamination costs power, which pushes the same way.
+  schedulable: false
+  test_order: null
+  registered_test_order: 1
+  grade: B
+  tier: B
+  param_cap: 2
+  param_note: >
+    Two parameters: the 60-session lookback and the Q90 threshold, both fixed a priori before
+    any run. The horizon is NOT a third - it was measured from the state's decay, not chosen.
+    No sweep over any of them.
+  session: US
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    rationale: >
+      Thin-book displacement is a microstructure property of the instrument being traded, and
+      MNQ is what would be traded. The STATE is measured on the NQ lineage because it is one
+      contract over 2010-2026 and therefore free of the splice, but NQ and MNQ track the same
+      index at 1/10 notional, so a bps effect transfers directly. MGC is not claimed: gold's
+      book depth and participant mix are different enough that the mechanism must be measured
+      there rather than assumed, and it has not been.
+  instrument_note: >
+    The STATE is measured on NQ because it is one contract lineage over 2010-2026 and therefore
+    has no splice discontinuity. The TRADEABLE instrument is MNQ, same underlying at 1/10
+    notional, so the bps effect transfers and MNQ's 0.48 bps round-trip floor is the one that
+    binds.
+  stage4_reachable: false
+  stage4_reason: >
+    NQ/MNQ only. MGC would need its own state build and its own control, and neither is
+    measured; pooling is not assumed. S8 evidence therefore rests on the ERA SPLIT alone.

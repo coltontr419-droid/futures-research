@@ -19,7 +19,7 @@ Declared rates no longer gate anything. §21: F02 declared one firing per sessio
 
 | hypothesis | declared estimate | worst measured cell | source |
 |---|---|---|---|
-| N02 | none | 5,284 | condition |
+| P03 | none | 20,110 | condition |
 
 The declared column is kept only so the gap stays visible. It gates nothing.
 
@@ -27,12 +27,10 @@ The declared column is kept only so the gap stays visible. It gates nothing.
 
 | hypothesis | product | horizon | measured (min-max) | swept range needs | status |
 |---|---|---|---|---|---|
-| N02 | MNQ | 180m | 5,284 - 5,742 | 5,884 | BELOW SWEPT RANGE |
+| P03 | MNQ | 15m | 20,110 | 19,722 | **RESOLVABLE** |
 
 ## Every cell
 
 | hypothesis | product | cell | horizon | firings | independent | source |
 |---|---|---|---|---|---|---|
-| N02 | MNQ | round50_open d=2 | 180m | 7,184 | 5,742 | condition |
-| N02 | MNQ | round50_open d=4 | 180m | 7,013 | 5,574 | condition |
-| N02 | MNQ | round50_open d=8 | 180m | 6,679 | 5,284 | condition |
+| P03 | MNQ | thin_move q90 lookback=60 | 15m | 27,437 | 20,110 | condition |

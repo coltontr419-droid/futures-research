@@ -12362,5 +12362,16 @@
     "per_session": 1.6195441319107662,
     "source": "condition",
     "note": "measured on the corrected session-open population, decisions.md 49"
+  },
+  {
+    "hypothesis": "P03",
+    "product": "MNQ",
+    "cell": "thin_move q90 lookback=60",
+    "horizon": 15,
+    "firings": 27437,
+    "independent": 20110,
+    "per_session": 7.709187974150042,
+    "source": "condition",
+    "note": "state measured on the NQ lineage; traded instrument is MNQ"
   }
 ]
