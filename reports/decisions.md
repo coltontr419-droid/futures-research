@@ -3251,6 +3251,97 @@ one.** That is the argument for running it on every S7 result by default rather 
 suspicion, and STAGES.md S8 now says so.
 
 
+## 53. The boundary peak does not survive in bps; the S2 scale check fault-injected
+
+The two items 52 left open. No trial spent; N stays 759.
+
+### The boundary peak (S8 design input)
+
+45 placed the eff/cost optimum at **w=24 ticks / 30m, 18.41x**, turning down by w=32/30m
+(15.59x). 52 confirmed the decay/fall exponents in bps but only on the 5m arm, leaving the peak
+location - the specific parameter a future registration would inherit - unverified. Re-run on
+the 15m and 30m arms in bps, same harness as `sweep_tight_l07.json`:
+
+| tf | w_bps | f/sess | \|eff\| | eff/bar | eff/cost |
+|---|---|---|---|---|---|
+| 15 | 1.6 | 4.55 | 5.79 | 5.21 | 12.06 |
+| 15 | 3.2 | 3.07 | 6.45 | 4.89 | 13.45 |
+| 15 | 4.8 | 2.15 | 7.01 | 4.28 | 14.61 |
+| 15 | 6.4 | 1.57 | 9.27 | 4.27 | 19.31 |
+| 15 | 9.6 | 0.93 | 9.83 | 3.39 | 20.47 |
+| **15** | **12.8** | **0.58** | **12.06** | **3.08** | **25.13** |
+| 30 | 1.6 | 1.60 | 6.86 | 3.99 | 14.30 |
+| 30 | 3.2 | 1.15 | 6.59 | 2.90 | 13.74 |
+| 30 | 4.8 | 0.85 | 7.20 | 2.37 | 15.00 |
+| 30 | 6.4 | 0.64 | 9.79 | 2.75 | 20.39 |
+| 30 | 9.6 | 0.39 | 8.90 | 1.85 | 18.55 |
+| 30 | 12.8 | 0.26 | 12.72 | 1.84 | 26.50 |
+
+**The peak DISAPPEARS as an interior maximum.** In bps eff/cost keeps rising to the tightest
+cell tested on both arms. The points "turn" at w=32/30m does not reproduce; the single
+downward step in bps (30m, 6.4 -> 9.6) sits in cells of 1,075-2,629 events where the bar is up
+to 6.93 bps, i.e. eff/cost uncertainty of roughly +/-10, so it is noise and the tight cells
+cannot be ranked against each other.
+
+**The points location w=24 ticks / 30m is SUPERSEDED.** `sweep_tight_l07.json` now carries
+that note in every record, because a later reader opens the data file, not this entry.
+
+**Operative bps setting, under 45's stated objective (maximise eff/cost subject to eff/bar
+comfortably above 1): 15m / 12.8 bps** - eff/cost 25.1, eff/bar 3.08, 0.58 firings/session.
+The 30m arm reaches the same economics (26.5) at eff/bar 1.84, which is not comfortably above
+1.
+
+**The tf-is-expensive rule holds in bps.** At the same w, 15m -> 30m moves eff/cost 25.1 ->
+26.5 and collapses eff/bar 3.08 -> 1.84.
+
+**The true optimum is UNRESOLVED** - at or beyond 12.8 bps, the grid edge once again. No
+registration depends on it; it is recorded as an open design question, not a blocker, and a
+future registration citing it must sweep past the edge first.
+
+### The S2 scale-invariance check, fault-injected
+
+52 registered the check and noted it enforced nothing, since no entry is schedulable. By 46's
+own standard that made it an assumption. The check is now a function taking a registry, and
+fed deliberately:
+
+| injection | real check | sabotaged check (never fires) |
+|---|---|---|
+| point threshold | raises | **does not** - test fails |
+| tick threshold | raises | **does not** - test fails |
+| units undeclared | raises | **does not** - test fails |
+| era split pre-registered, price range not stated | raises | **does not** - test fails |
+| bps / BPS / volatility / ATR | passes | passes |
+| points + stated price range + pre-registered era split | passes | passes |
+| unschedulable point entry | passes (history not rewritten) | passes |
+
+**Every raise-injection fails against a check that cannot fire**, so the tests detect a dead
+check, not merely a live one. 42/42 pass on the real check. Recorded the same way as the DBN
+loader's truncation injection and the 41 guard's discrimination test.
+
+**The injection found a defect in the check as written in 52.** STAGES.md's escape hatch
+requires BOTH a stated price range AND a pre-registered era split; the check tested only the
+era split, and would have admitted the half-escape-hatch case. Fixed. **A check that had never
+fired was also looser than its own specification**, and nothing would have shown it until an
+entry depended on it.
+
+### The programme, closed on measurements
+
+**Four series. N = 759. SR\* 0.1369. Nothing promoted.**
+
+| series | registered | trials | promoted | closed |
+|---|---|---|---|---|
+| F | 14 | 576 | 0 | futures_conclusion.md |
+| R | 5 | (separate repo) | 0 | rseries_conclusion.md |
+| L | 12 | 180 | 0 | level_conclusion.md |
+| N | 1 of 10 candidates | 3 | 0 | 51 |
+
+Every route is resolved or explicitly blocked. What remains open is recorded as open, not
+dropped: the bps eff/cost optimum beyond the grid edge (here); L04's `sess_Asia` revival route
+(43, 45); the `d` ATR reference period for L01/L06/L08 (a specification question, frozen);
+participation measures on MNQ/NQ (48, reopened, untested); L07's direction-mix asymmetry (38);
+and `f01_rates`' OOM on this laptop (CHECKPOINT).
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

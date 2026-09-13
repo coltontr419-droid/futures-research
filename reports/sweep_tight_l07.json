@@ -9,7 +9,8 @@
   "se": 0.2407979690279154,
   "bar": 0.6677138160160239,
   "eff_over_bar": 7.430730333123775,
-  "eff_over_cost": 10.336669388575201
+  "eff_over_cost": 10.336669388575201,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 12,
@@ -21,7 +22,8 @@
   "se": 0.26261900286291195,
   "bar": 0.7282218254074619,
   "eff_over_bar": 7.620326877819242,
-  "eff_over_cost": 11.561017394098071
+  "eff_over_cost": 11.561017394098071,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 16,
@@ -33,7 +35,8 @@
   "se": 0.3173964112577014,
   "bar": 0.880115267608849,
   "eff_over_bar": 6.8383579424886225,
-  "eff_over_cost": 12.53863173033015
+  "eff_over_cost": 12.53863173033015,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 24,
@@ -45,7 +48,8 @@
   "se": 0.4515431274086241,
   "bar": 1.2520935534255664,
   "eff_over_bar": 6.1529397662503555,
-  "eff_over_cost": 16.050117116537255
+  "eff_over_cost": 16.050117116537255,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 32,
@@ -57,7 +61,8 @@
   "se": 0.5635721839501744,
   "bar": 1.562741309924549,
   "eff_over_bar": 5.3392465005187475,
-  "eff_over_cost": 17.383043896314025
+  "eff_over_cost": 17.383043896314025,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 8,
@@ -69,7 +74,8 @@
   "se": 0.4400716931857959,
   "bar": 1.2202841691893835,
   "eff_over_bar": 4.606582063206992,
-  "eff_over_cost": 11.711123262090126
+  "eff_over_cost": 11.711123262090126,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 12,
@@ -81,7 +87,8 @@
   "se": 0.5102274140058958,
   "bar": 1.4148204613900588,
   "eff_over_bar": 5.316785735896974,
-  "eff_over_cost": 15.6714525999455
+  "eff_over_cost": 15.6714525999455,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 16,
@@ -93,7 +100,8 @@
   "se": 0.5778138014655827,
   "bar": 1.6022321944026965,
   "eff_over_bar": 4.817594996299203,
-  "eff_over_cost": 16.08105375554984
+  "eff_over_cost": 16.08105375554984,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 24,
@@ -105,7 +113,8 @@
   "se": 0.7882056485702815,
   "bar": 2.1856322274513658,
   "eff_over_bar": 3.199510747023476,
-  "eff_over_cost": 14.568653751607298
+  "eff_over_cost": 14.568653751607298,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 32,
@@ -117,7 +126,8 @@
   "se": 0.9059759004466398,
   "bar": 2.5121998667507457,
   "eff_over_bar": 3.819069561192848,
-  "eff_over_cost": 19.98805425570938
+  "eff_over_cost": 19.98805425570938,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 8,
@@ -129,7 +139,8 @@
   "se": 0.7307851671376425,
   "bar": 2.02640975174012,
   "eff_over_bar": 3.5926719407908845,
-  "eff_over_cost": 15.16713636587865
+  "eff_over_cost": 15.16713636587865,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 12,
@@ -141,7 +152,8 @@
   "se": 0.9336244966322763,
   "bar": 2.588867247879933,
   "eff_over_bar": 2.8798874055350225,
-  "eff_over_cost": 15.53259621202403
+  "eff_over_cost": 15.53259621202403,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 16,
@@ -153,7 +165,8 @@
   "se": 1.062411451409328,
   "bar": 2.945983337249022,
   "eff_over_bar": 2.409281810336061,
-  "eff_over_cost": 14.786883474973322
+  "eff_over_cost": 14.786883474973322,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 24,
@@ -165,7 +178,8 @@
   "se": 1.2223642151604113,
   "bar": 3.38951976198591,
   "eff_over_bar": 2.6065568930220415,
-  "eff_over_cost": 18.40620020758084
+  "eff_over_cost": 18.40620020758084,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  },
  {
   "w": 32,
@@ -177,6 +191,7 @@
   "se": 1.3421899039164855,
   "bar": 3.721786965978778,
   "eff_over_bar": 2.010712520546351,
-  "eff_over_cost": 15.590507606874471
+  "eff_over_cost": 15.590507606874471,
+  "_SUPERSEDED": "SUPERSEDED FOR PARAMETER CHOICE (decisions.md 53). This sweep used gap width in TICKS over a 14x price range, so each cell pooled a threshold whose relative size drifted ~14x. Its eff/cost peak at w=24 ticks / 30m (18.41x) does NOT reproduce in bps: in reports/peak_bps_l07.json eff/cost keeps rising to the tightest cell tested (25.1x at 15m/12.8bps, 26.5x at 30m/12.8bps). Operative bps setting under 'max eff/cost subject to eff/bar comfortably >1': 15m / 12.8 bps. True optimum unresolved, at or beyond the grid edge. The decay/fall exponents drawn from this family survive in bps (decisions.md 52)."
  }
 ]

@@ -675,18 +675,21 @@ def test_the_stage_reference_exists_and_defines_all_eight() -> None:
     )
 
 
-@pytest.mark.integrity
-def test_schedulable_entries_declare_threshold_units() -> None:
-    """S2 scale check (reports/STAGES.md, decisions.md 52).
+def check_threshold_units(registry: dict[str, dict]) -> None:
+    """S2 scale check (reports/STAGES.md, decisions.md 52). Raises AssertionError on violation.
 
     The spliced index rose 14x over the sample, so a threshold in ticks or points runs a
     different trade in each era and S5/S6 cannot see it. A schedulable entry must say what
     its thresholds are denominated in; if they are not scale-invariant, it must pre-register
-    the era split. Checked only on SCHEDULABLE entries: it gates the next run without
+    the era split. Only SCHEDULABLE entries are checked: this gates the next run without
     rewriting the history of entries registered before the check existed.
+
+    A function taking the registry, not a loop over REG, so it can be FAULT-INJECTED (53): with
+    no entry schedulable today, a check that only ever sees the live registry has never been
+    shown to fire.
     """
     invariant = {"bps", "volatility", "atr"}
-    for hid, entry in REG.items():
+    for hid, entry in registry.items():
         if not entry.get("schedulable"):
             continue
         units = entry.get("threshold_units")
@@ -694,7 +697,67 @@ def test_schedulable_entries_declare_threshold_units() -> None:
             f"{hid} is schedulable but does not declare threshold_units. See STAGES.md S2."
         )
         if str(units).lower() not in invariant:
-            assert entry.get("era_split_preregistered"), (
+            assert entry.get("price_range_stated") and entry.get("era_split_preregistered"), (
                 f"{hid} uses {units!r} thresholds, which are not scale-invariant over a 14x "
-                f"price range, and does not pre-register an era split."
+                f"price range, and does not both state the price range and pre-register an "
+                f"era split."
             )
+
+
+@pytest.mark.integrity
+def test_schedulable_entries_declare_threshold_units() -> None:
+    check_threshold_units(REG)
+
+
+# -- fault injection: the check must FIRE on the shapes it exists to stop ----------------
+
+def _entry(**kw):
+    return {"schedulable": True, **kw}
+
+
+@pytest.mark.integrity
+def test_s2_scale_check_raises_on_a_point_threshold() -> None:
+    """N02's shape: thresholds in points, no era split. Must raise."""
+    with pytest.raises(AssertionError, match="not scale-invariant"):
+        check_threshold_units({"X01": _entry(threshold_units="points")})
+
+
+@pytest.mark.integrity
+def test_s2_scale_check_raises_on_ticks() -> None:
+    """L02/L03/L04/L07/L12's shape. Must raise."""
+    with pytest.raises(AssertionError, match="not scale-invariant"):
+        check_threshold_units({"X02": _entry(threshold_units="ticks")})
+
+
+@pytest.mark.integrity
+def test_s2_scale_check_raises_when_units_are_undeclared() -> None:
+    with pytest.raises(AssertionError, match="does not declare threshold_units"):
+        check_threshold_units({"X03": _entry()})
+
+
+@pytest.mark.integrity
+def test_s2_scale_check_raises_on_a_half_escape_hatch() -> None:
+    """Pre-registering the era split WITHOUT stating the price range is not enough."""
+    with pytest.raises(AssertionError, match="not scale-invariant"):
+        check_threshold_units({"X04": _entry(threshold_units="points",
+                                             era_split_preregistered=True)})
+
+
+@pytest.mark.integrity
+@pytest.mark.parametrize("units", ["bps", "BPS", "volatility", "atr"])
+def test_s2_scale_check_passes_scale_invariant_units(units: str) -> None:
+    check_threshold_units({"X05": _entry(threshold_units=units)})
+
+
+@pytest.mark.integrity
+def test_s2_scale_check_passes_the_escape_hatch() -> None:
+    """Points are allowed when the price range is stated AND the era split pre-registered."""
+    check_threshold_units({"X06": _entry(threshold_units="points",
+                                         price_range_stated="1,939-27,528, 14x",
+                                         era_split_preregistered=True)})
+
+
+@pytest.mark.integrity
+def test_s2_scale_check_ignores_unschedulable_entries() -> None:
+    """History is not rewritten: an unschedulable point entry is not checked."""
+    check_threshold_units({"X07": {"schedulable": False, "threshold_units": "points"}})
