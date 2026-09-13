@@ -132,7 +132,7 @@ def build_state(df: pl.DataFrame) -> dict[str, np.ndarray]:
 
     year = sessions.astype("datetime64[Y]").astype(int)[sid] + 1970
     return {"state": state, "session": sid, "tod": tod, "vol_q": vol_q, "year": year,
-            "n_sessions": n_sessions}
+            "volume": volume, "n_sessions": n_sessions}
 
 
 def main() -> int:

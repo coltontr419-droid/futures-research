@@ -1,0 +1,12 @@
+{
+  "hypothesis": "P03", "series": "NQ", "horizon_minutes": 180,
+  "lookback_sessions": 60, "threshold_pct": 90.0,
+  "n_sessions_post_warmup": 3559, "n_firings": 27437,
+  "firings_per_session": 7.7092,
+  "firing_rate_spread": 0.0961,
+  "deff_best": 2.19, "deff_realistic": 4.0,
+  "bar_single_best": 1.6029, "bar_paired_best": 2.2668,
+  "bar_single_realistic": 2.1662, "bar_paired_realistic": 3.0635,
+  "predicted_lo": 1.0, "predicted_hi": 4.0,
+  "cost_bps": 0.48, "verdict": "STRADDLES"
+}

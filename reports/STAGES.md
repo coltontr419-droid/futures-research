@@ -97,6 +97,25 @@ arrived**. A result under it means "behaves differently from an equally-reachabl
 region", which is weaker than "behaves differently given the same approach", and must be
 written in those words.
 
+**For a STATE condition the control is different in kind, and so is what can block it**
+(§54, §55). A state has no location, so there is no region to displace; the matched control
+draws each firing a partner from a different session in the same time-of-day bucket,
+volatility quantile and year, where the state does not hold. Two modes, and **the choice is
+forced by the firing rate rather than chosen**:
+
+| state | fires | mode |
+|---|---|---|
+| frequent (P03-like) | many times per session | `bar` — strict is structurally unavailable |
+| session-level (P01-like) | about once per session | `strict` — bar mode would draw the control from inside the state |
+
+**A CLEAN-POOL CHECK IS A REGISTRATION-TIME REQUIREMENT for any session-level state**, not a
+diagnostic run afterwards. Strict mode needs sessions in which the state never fires, and a
+state with a trending or high base rate does not have them: on NQ a P03-shaped state touches
+92.6% of sessions and the 265 survivors range from 0% of 2011 to 17.5% of 2025. A session-level
+state whose clean pool is thin **has no valid control and is not registrable** — the same
+disposition as L06, whose levels sit at the reference price and admit no matched region.
+`session_clustering()` reports the numbers the entry must cite.
+
 ### S7 — the trial log is the denominator
 Every comparison appends before it runs. N drives SR\*; BH corrects within a hypothesis.
 Cells that overlap heavily are not independent tests, which makes BH conservative — and also

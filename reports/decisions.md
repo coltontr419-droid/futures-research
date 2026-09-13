@@ -3544,6 +3544,71 @@ the fourth point would have overclaimed.
 On this arithmetic the honest summary is that **one of thirteen is worth registering first,
 and only once a control that does not yet exist has been built.**
 
+### The mode partition is a property of the control, not a P03 detail (added 2026-09-13)
+
+§55 found the two exclusion modes while building P03's control, which makes them look like a
+P03 implementation note. They are not. **The partition is a property of the control itself, and
+every P-series candidate falls on one side of it:**
+
+| | fires | control mode | failure mode of the WRONG choice |
+|---|---|---|---|
+| **frequent states** (P03, P05, P07, P13) | many times per session | **bar** — strict is structurally unavailable | strict leaves an unrepresentative residue of quiet years |
+| **session-level states** (P01, P02, P04, P08, P09, P11) | about once per session | **strict** — bar mode has no meaning | bar mode would draw a "control" from inside the state |
+
+**Neither mode is a preference and neither is always available.** A state firing several times
+a session touches nearly every session — at P03's 7.81/session even a perfectly INDEPENDENT
+state would touch ~99.9% of them — so the clean pool strict mode needs does not exist, and the
+265 sessions that survive on NQ range from 0% of 2011 to 17.5% of 2025. A session-level state
+has the opposite problem: the state IS the session, so excluding only the firing bars would
+draw the control from inside the condition, and strict mode is the only meaningful one. But
+strict mode is exactly the mode that fails when clean sessions are scarce, and scarcity is a
+property of the state's base rate, not of the code.
+
+**Therefore a CLEAN-POOL CHECK is a registration-time requirement, not a diagnostic to run
+afterwards.** `session_clustering()` reports firings per session, share of sessions touched,
+over-dispersion and clean-pool size; a session-level state whose clean pool is thin has no
+valid control and is not registrable, in the same way L06 is not registrable because its levels
+sit at the reference price (§37). Added to `STAGES.md` under S6 beside the placebo requirement,
+because S6 is where a condition without a valid control must stop.
+
+### The Int8 overflow, recorded in the truncated-read terms
+
+`dt.hour() * 60` wrapped in polars — `dt.hour()` is Int8, so 18:00 ET evaluated to **56 instead
+of 1080**. It was caught because the RTH filter then matched nothing and the run died on an
+empty frame.
+
+**That it failed loudly was a property of the window, not of the check.** The filter spanned
+09:30–16:00, which the wrapped values miss entirely. A NARROWER window — or one whose wrapped
+values happened to overlap it — would have returned a smaller, plausible, wrong set of bars,
+and every downstream number would have been computed correctly on the wrong input.
+
+**Same class as the zstd truncation the loader guards against** (`batch_ftp.py`): a truncated
+`.zst` decompresses cleanly to a shorter file, which is why that path verifies SHA-256 and size
+against the manifest rather than trusting a successful read. In both cases the defect produces
+**a silent wrong answer indistinguishable from a right one**, and in both cases the only
+protection is a check that does not depend on the operation appearing to succeed. The cast is
+now explicit with the reason recorded at the line.
+
+### P01's position, recorded honestly
+
+P01 fails on **two independent grounds**, and it is worth separating them because the second
+was not visible when §54's table was written:
+
+1. **Below its bar.** Predicted 0.5–2.0 bps against a BH bar of 4.2–5.4 at 1,123–1,795
+   effective units on the 7.3-year sample. Not close, and the best case does not reach it.
+2. **It requires the mode that fails on its own sample shape.** Micro share is a session-level
+   state, so it needs strict mode. Its base rate went 0.292 → 0.822 (§48), so in its late years
+   there are almost no sessions where the state does not hold — exactly the scarce-clean-pool
+   case above. The era fallback would then carry the comparison, which is the adoption curve
+   being compared against itself.
+
+**§48's persistence finding stands on its own and is not withdrawn.** Volume share persists at
+1.44 bars detrended against the basis's 0.25, and that measurement is unaffected by anything
+here. **What does not follow is that THIS TRADE RULE inherits it.** A persistent observable is
+a necessary condition for a tradeable state, not a sufficient one: P01 additionally needs a
+reachable magnitude and a constructible control, and it has neither. Recorded so that a later
+reader does not treat §48 as having pre-cleared P01.
+
 ### Attribution, recorded on request 2026-09-13
 
 Two items above were softened by passive phrasing in the first write-up. Corrected here in the
@@ -3691,6 +3756,82 @@ it. Bar mode is clean on the same state, so a P03-shaped condition IS controllab
 The control does not make P03 registrable by itself. Its threshold still needs the trailing
 volume norm specified against a stationary denominator, its magnitude still straddles its BH
 bar (§54), and no S2 has been run. Bar mode's power cost is unmeasured in size.
+
+## 56. P03's S2: the denominator fixed, and a straddling magnitude (S2)
+
+`reporting/p03_s2.py`, `reports/p03_s2.json`. **NOT REGISTERED. No trial spent, no S5, no S6,
+no return scored.** S2 reads |return| only as the numerator of the state's own definition.
+
+### The denominator, and why the draft's form could not work
+
+§54 recorded that |return| per contract is not scale invariant. The two non-stationarities are
+both large: the NQ→MNQ splice is a 10x notional change (measured median 1m bar volume 83-140
+→ 26-39), and volume grows secularly besides. A fixed ratio threshold would fire almost never
+early and almost always late — an era clock wearing a liquidity label.
+
+**What is registered is not a level but a RANK.** The state is
+
+    lambda_t > Q90( lambda over the SAME 30-minute bucket, previous 60 sessions )
+
+which is dimensionless. Any rescaling common to a 60-session window — a contract change, a
+tick-size change, secular growth — divides both sides of that comparison alike and leaves the
+rank untouched. The bucket term does the same for the time-of-day shape, which the draft had
+flagged as P03's largest confound. NQ-only is used, so the splice is avoided rather than
+modelled; a spliced series would additionally have to drop the 60 sessions after the splice,
+which is the one window a trailing denominator cannot absorb.
+
+**The evidence is the firing rate, not the argument.** If the denominator were non-stationary
+the rate would drift while the threshold sat still. Measured per year, 2012-2026: the rate
+stays in **7.95%-12.10%** around its 10% design point while median bar volume runs 1,752 →
+5,325. The rank construction holds across the eras it has to.
+
+**Two caveats recorded rather than smoothed.** 2011 fires at 17.56% — it has 3,315 bars against
+a full year's ~19,500, so the trailing bucket distribution is being built on sparse history.
+NQ 1m coverage before 2013 is partial (2011: 5,313 bars, 2012: 8,060, 2013+: ~16-19k), so the
+dense sample is really 2013-2026 and the early years contribute little n and more noise.
+
+### The arithmetic
+
+Post-warm-up sample **3,559 sessions** (566 of 4,125 spent on the 60-session lookback).
+**27,437 firings across 3,238 sessions, 7.71 per session.** Bar from §45's anchor,
+SE = 64.7/sqrt(effective units) at 180m, BH rank-1 at k=9.
+
+| DEFF | effective units | bar, single mean | bar, paired difference |
+|---|---|---|---|
+| 2.19 (round-number family, measured) | 12,528 | 1.60 | **2.27** |
+| 4.00 (deliberate pessimism) | 6,859 | 2.17 | **3.06** |
+
+**The paired column is the one that applies.** The statistic is real-minus-control, a
+difference of two event means, whose SE is inflated up to sqrt(2). That factor is the
+conservative end: matching on regime correlates the two sides positively, which reduces the
+variance of the difference, so the truth lies between the two columns. Reported both ways
+rather than picked. **§54's table used the single-mean bar and therefore understated P03's
+bar by up to 41%** — recorded here rather than silently corrected there.
+
+### Verdict: STRADDLES
+
+    predicted 1.0-4.0 bps    cost floor 0.48    bar 1.60-3.06
+
+**Above the cost floor across its whole predicted range** (2.1x at the low end, 8.3x at the
+high end). **Straddling its BH bar**: the top of the range clears even the pessimistic paired
+bar, the bottom is below every version of it.
+
+**Stopped here, deliberately.** A straddling S2 is registrable only with the significance limb
+explicitly waived (§45's three legitimate responses, of which L12 should have been the first),
+and that is a decision to take with the number in front of you rather than one to fold into a
+registration. The number is 1.0-4.0 against 1.60-3.06.
+
+### What a registration would still owe
+
+1. **The horizon is a free parameter and 180m was assumed** for comparability with §45-§54. A
+   thin-move reversion plausibly reverts faster; a shorter hold lowers the bar (sd scales as
+   sqrt(h)) but also the effect. Fixing it a priori is part of S2, not S5.
+2. **DEFF is bracketed, not measured.** P03's own design effect depends on the outcome, and
+   measuring it now would be looking at the answer.
+3. **The lookback (60 sessions) and the threshold (Q90) are parameters** and must be counted
+   against the entry's budget, with k re-derived if the cell count changes.
+4. **Bar mode is the only available control** (§55), so a null would be weaker evidence than a
+   null under strict mode.
 
 ## 10. Still outstanding, and blocking
 
