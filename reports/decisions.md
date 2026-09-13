@@ -2963,6 +2963,79 @@ for, because 46 established that the `valid_from` convention is correct and a fa
 be a property of the level definition, exactly as it was for pivots and for L06.
 
 
+## 49. N02's level population was circular; one corrected re-measurement, binding
+
+### The defect, in its own terms
+
+N02's first S6 attempt failed on both products with a TOUCH-RATE MISMATCH: real **100.0%**
+against placebo 57.6% on MNQ, real 90.0% against 62.7% on MGC.
+
+**The cause is a defect in the level population I built, not a property of round numbers.**
+The construction admitted a grid level into the population **only when price came within 0.5
+points of it**. So every real level was touched **by definition** - 100.0% is not a
+measurement, it is the selection rule restated.
+
+**The placebo was then asked to match an outcome the population had been selected on.** No
+arbitrary region can match a 100% touch rate that was imposed rather than observed. Every
+established level type in the catalogue - prior-day extremes, session extremes, opening
+ranges - is defined independently of whether price ever reaches it, which is why their touch
+rates are informative.
+
+### Why this is a bug and not the N04/N05 outcome
+
+The standing instruction rules out hunting for a fix after a hypothesis fails, and that is the
+right rule. This is distinguished on evidence recorded BEFORE the measurement (48):
+
+| pre-registered prediction | measured | |
+|---|---|---|
+| median distance 8-30 MNQ points | **10.5** | correct |
+| zero-share below 5%, inside the 0.1-7.1% band | **2.4% MNQ / 3.7% MGC** | correct |
+| `verify` passes | **failed on touch** | wrong |
+
+**Distance and zero-share landed exactly as predicted.** Round numbers do NOT have the pivot
+property - they are established at a distance, as claimed. The failure is on the one axis the
+circular construction directly determines, at exactly 100.0%, which is the signature of
+selecting on the outcome.
+
+`verify` also returns a different failure KIND. N04/N05 got **DEGENERATE** - *"a property of
+the level definition, not a tuning failure, and no scale or construction fixes it."* N02 got
+**TOUCH-RATE MISMATCH**, which is what a mis-specified population produces.
+
+**This is the N04/N05 precedent applied, not evaded.** There, `swing_pivots` had
+`ref_price = price`, forcing distance to zero by definition. That bug was fixed, the level set
+re-measured - **and the degeneracy was still there underneath**, because it was a real
+property the bug had been hiding. Fixing a construction defect and re-measuring is what
+distinguishes a bug from a property. It is not a rescue attempt, and it did not rescue pivots.
+
+### The corrected definition, stated in full BEFORE it runs
+
+**Population.** For each session, the **two nearest 50-point grid levels above and the two
+below the session-open close** - four levels per session, deterministic, chosen without any
+reference to where price subsequently goes.
+
+**`valid_from`.** Session start. The levels exist from the open; nothing about them is
+discovered later.
+
+**`ref_price`.** The session-open close. Distance is then |grid level - session open|, which
+measures reachability exactly as 46 requires.
+
+**What this changes.** Touch rate becomes an OUTCOME rather than a selection criterion.
+Expected real touch rate is high but well below 100% - the nearest level sits under 50 points
+away and the second under 100, against typical MNQ session ranges of several hundred points.
+Expected median distance is larger than the first attempt's 10.5, around 35-40 points, since
+the population now includes far levels that the touch-based construction discarded.
+
+**What this does NOT change.** The traded condition is unaltered: price trades through a level
+by d points, enter in the break direction, exit at H=180 or 15:55 ET, d in {2,4,8}.
+
+### One re-measurement, and it is binding
+
+**This is the only re-measurement.** If S6 passes, N02 proceeds to S7 with this construction
+correction recorded as part of its provenance. **If it fails, N02 withdraws and the N-series
+closes with zero registrations from ten candidates** - no third attempt, no alternative band,
+no re-scoping, and the closeout gets written rather than another option brought back.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
