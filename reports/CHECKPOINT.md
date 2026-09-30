@@ -9,6 +9,153 @@ Everything below is committed; nothing is in flight on disk.
 
 ---
 
+## THE STOPPING RULE — added 2026-09-29, before any seventh series is designed
+
+**This section is a gate on designing, not a summary.** Two conditions. A candidate series must
+state where it sits against both, in its own registration, before a trial is spent. Every number
+below was computed on 2026-09-29 from this repository and `r-series-research`; the derivations and
+the open decisions are in `decisions.md` §61.
+
+---
+
+### 1. Success condition, in Sharpe and volatility terms
+
+The stated goal — *large profits while experiencing a trailing $2,000 drawdown no more than a few
+times per year* — is converted here so a result can be **checked** against it rather than judged.
+
+**The account follows from the number.** $2,000 is 4% of $50,000, and 4% is the account's own
+trailing-drawdown floor (§1 of `programme_conclusion.md`), so the success condition is a **4%
+peak-to-trough excursion** on a $50,000 account. Annual profit at 10 / 15 / 20% is
+$5,000 / $7,500 / $10,000.
+
+**Required Sharpe is a floor, and permitted volatility is a ceiling.** Tolerating more drawdown
+events lowers the bar; the event count falls monotonically in Sharpe (verified on a grid from
+Sharpe 0.05 to 6.0, all three return targets).
+
+| annual return | ≤3 events/yr | ≤5 events/yr | ≤10 events/yr |
+|---|---|---|---|
+| **10%** | **SR ≥ 0.59** (vol ≤ 17.00%, $8,500) | SR ≥ 0.26 (vol ≤ 38.23%, $19,114) | **infeasible** |
+| **15%** | **SR ≥ 0.95** (vol ≤ 15.82%, $7,908) | SR ≥ 0.44 (vol ≤ 34.24%, $17,119) | **infeasible** |
+| **20%** | **SR ≥ 1.31** (vol ≤ 15.21%, $7,605) | SR ≥ 0.66 (vol ≤ 30.51%, $15,255) | **infeasible** |
+
+Model: iid normal daily P&L, arithmetic dollars on a fixed $50,000 base, 252 marks/year, 20,000
+paths. An event is counted once when an excursion first reaches $2,000 deep; a **new equity high is
+required before another can be counted**, so these are distinct episodes, not days underwater.
+Using the programme's own ~245 usable sessions instead of 252 moves the required Sharpe by 0.006 —
+immaterial.
+
+**Ten events per year is infeasible at daily marks, and that is a finding about the metric, not a
+missing row.** Distinct episodes are bounded by the number of new equity highs, which for a
+low-Sharpe path grows like √(marks). Measured ceilings as Sharpe → 0, at R = 15%:
+
+| marking | marks/yr | max attainable events/yr |
+|---|---|---|
+| daily | 252 | **8.76** |
+| hourly | 1,638 | 20.81 |
+| half-hourly | 3,276 | 28.52 |
+
+≈ 0.5·√marks. So **the marking convention is load-bearing and is an open decision** (§61): finer
+marking detects more excursions, so it *raises* the required Sharpe for the same event budget.
+Measured at R = 15%: ≤3 events needs SR ≥ 0.95 at daily marks but **SR ≥ 1.14 hourly**; ≤5 needs
+0.44 daily and **0.66 hourly**; ≤10 is infeasible daily and **SR ≥ 0.23 hourly**.
+
+### Where the programme's measured effects sit against this bar
+
+**Not close, and not by a margin that precision could close.** The bar is a Sharpe floor; every
+measured effect has a non-positive net edge, and a non-positive edge is Sharpe ≤ 0 at any
+volatility.
+
+| | gross bps/event | net of 0.48 cost |
+|---|---|---|
+| R01 (largest effect measured anywhere) | +0.452 | **−0.028** |
+| L12 | +0.306 | −0.174 |
+| P03 real leg | +0.200 | −0.280 |
+| L07 | negative in 108/108 cells, 1.8–10.3× cost | wrong sign |
+
+Turned the other way — what one MNQ contract ($48,000 notional) would have to earn **gross** per
+trade to produce the target, against R01's +0.452:
+
+| trades/yr | gross @10% | gross @15% | gross @20% | ×R01 @15% |
+|---|---|---|---|---|
+| 245 | 4.732 | 6.858 | 8.983 | **15.2×** |
+| 1,000 | 1.522 | 2.042 | 2.563 | 4.5× |
+| 5,000 | 0.688 | 0.792 | 0.897 | 1.8× |
+| 25,000 | 0.522 | 0.542 | 0.563 | 1.2× |
+
+**The ratio never reaches 1 at any frequency.** Its floor as trades → ∞ is **1.062×**, because the
+0.48 bps cost floor alone exceeds the 0.452 bps best measured effect. Raising trade count cannot
+close the gap; it is closed only by a larger effect or a lower cost.
+
+For scale: **SR\* = 0.1368** at N = 760 is the bar a Sharpe must clear merely to *mean* anything.
+The lowest success bar in the table (SR ≥ 0.26) is **1.9× SR\***; the 15%/≤3 bar is **6.9×**.
+
+---
+
+### 2. Termination condition: the next series stops when its expected value falls below its cost
+
+**Base rate, measured, both logs:**
+
+| | count |
+|---|---|
+| registered hypotheses | **35** |
+| spent ≥1 trial (13 in `futures-research` + R01, R02) | **15** |
+| promoted | **0** |
+
+Per-registration promotion probability, 0 successes in 35: exact 95% one-sided upper **0.0820**,
+rule of three 0.0857, Laplace 0.0270, Jeffreys 0.0139. Per series, 0 in 6: exact 95% upper
+**0.3930**, Laplace 0.1250, Jeffreys 0.0714.
+
+**Implied prior that a seventh series promotes anything**, at the measured mean of 5.83
+registrations per series:
+
+| per-hypothesis prior | P(7th series promotes ≥1) | promotion must be worth |
+|---|---|---|
+| Jeffreys 0.0139 | **7.8%** | **12.8× one series' cost** |
+| Laplace 0.0270 | 14.8% | 6.8× |
+| rule of three 0.0857 | 40.7% | 2.5× |
+
+Read the upper end with the caveat it deserves: the rule-of-three figure is a **95% upper bound on
+what the data cannot exclude**, not an estimate. And this base rate is if anything **optimistic**
+for a seventh series, because the six spent the best ideas first — the strongest unexplored one on
+record, R04, is closed by account permission rather than by evidence (§10 of
+`programme_conclusion.md`).
+
+**Cost of one series, in the three currencies that matter:**
+
+| currency | measured |
+|---|---|
+| **trials** | mean **128.3**, median **6.5** (F 576, L 180, R 10, N 3, P 1, Q 0) — wildly skewed |
+| **SR\* imposed on all future work** | +0.0002 at 10 trials, **+0.0019 at the mean 128**, +0.0026 at 180, +0.0069 at 576 |
+| **calendar** | 6 series in **16 days** of repository history (2026-08-28 → 2026-09-13), ≈2.7 days/series |
+
+The SR\* cost is small per series and **permanent and shared**: it is paid by every future
+hypothesis, including the one that would have promoted. That is the asymmetry the trial log exists
+to make visible.
+
+---
+
+### 3. "We cannot think of new hypotheses" is NOT a valid termination condition
+
+Stated plainly because it is the rule a closed programme drifts toward.
+
+Hypothesis generation is **unbounded and cheap** — this programme drafted 66 candidates in 16 days,
+and could draft 66 more in another 16 without learning anything. A termination condition that
+depends on running out of ideas therefore **can never bind**, and a rule that cannot bind is not a
+rule.
+
+The consequence is specific, not rhetorical. If the programme stops only when ideas run out, then
+whatever eventually survives is selected by **persistence** — by how long the search continued —
+rather than by evidence. That is precisely what N, SR\* and the trial log exist to prevent, and it
+is the failure the terminal report names in its own last line (§10: *"a seventh series would be
+widening the search until something appears, which is exactly what the trial log exists to
+prevent"*).
+
+**Valid termination conditions are about cost and evidence:** the expected value of the next series
+below its cost (§2 above), or one of the four binding constraints moving — information, permission,
+cost, time (§10 of `programme_conclusion.md`). **Not** the exhaustion of imagination.
+
+---
+
 ## READ FIRST — `reports/STAGES.md`
 
 **The programme uses one stage numbering, S1-S8, adopted 2026-09-12.** Every document, run

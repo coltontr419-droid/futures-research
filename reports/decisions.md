@@ -4368,6 +4368,184 @@ that closed the first six.
 3. **The sessions-available figure was measured rather than copied.** Ten, not twelve; the conclusion
    does not depend on it.
 
+## 61. A stopping rule, stated before a seventh series is designed (S2, S8)
+
+**Nothing registered, no trial spent. N stays 760 (SR\* 0.1368); the R-series log stays at 10.**
+Recorded in `reports/CHECKPOINT.md` as a gate on *designing*, not as a summary. Everything below
+was computed 2026-09-29 from `trials.jsonl` in both repositories and from the figures in
+`programme_conclusion.md`; nothing is transcribed from an earlier brief.
+
+### Why a stopping rule now
+
+The terminal report ends by arguing against a seventh series (§10). That argument is qualitative,
+and a qualitative argument loses to persistence: it can be re-litigated every time someone has a
+new idea. The programme has a trial log precisely because it does not trust that kind of judgement
+about its own work. A stopping rule is the same instrument applied one level up — **a bar stated in
+advance, so a seventh series is measured against it rather than argued for.**
+
+### 1. The success condition, converted
+
+**The account size follows from the number, and was not assumed.** $2,000 is 4% of $50,000, and 4%
+is the account's own trailing floor (§1 of the terminal report), so the stated condition is a **4%
+peak-to-trough excursion on a $50,000 account**. This is derived, not recalled, and it is the one
+place where the drawdown figure in the old Q-series handoff (§8, provenance note 1, only partly
+reproducible) is not relied on.
+
+**Method, stated because the event definition decides the answer.** iid normal daily P&L,
+arithmetic dollars on a fixed $50,000 base, 252 marks/year, 20,000 paths, bisection on Sharpe. An
+event is counted once when an excursion first reaches $2,000 deep, and **a new equity high is
+required before another can be counted** — distinct episodes, not days underwater. A simulation was
+used rather than a closed form deliberately: the answer depends entirely on the counting
+convention, and §6 of the terminal report is a list of constants that were correct for a different
+object than the one in hand.
+
+Required Sharpe is a **floor**; the volatility column is a **ceiling**. Verified monotone on a grid
+(Sharpe 0.05 → 6.0, all three return targets), so each target has exactly one crossing.
+
+| annual return | ≤3 events/yr | ≤5 events/yr |
+|---|---|---|
+| 10% | SR ≥ 0.59, vol ≤ 17.00% ($8,500) | SR ≥ 0.26, vol ≤ 38.23% ($19,114) |
+| 15% | SR ≥ 0.95, vol ≤ 15.82% ($7,908) | SR ≥ 0.44, vol ≤ 34.24% ($17,119) |
+| 20% | SR ≥ 1.31, vol ≤ 15.21% ($7,605) | SR ≥ 0.66, vol ≤ 30.51% ($15,255) |
+
+### The ten-events row does not exist, and finding that out corrected a bug of mine
+
+The first solver returned Sharpe 0.05 for all three ten-event cells — its own lower search bound, in
+every case. **That is the signature of a bound being hit, not a solution**, and reporting those three
+cells would have put four fabricated numbers into a rule about not fabricating numbers. Gridding the
+function showed why: events/yr **saturates** as Sharpe → 0 rather than growing without limit.
+
+Measured ceilings as Sharpe → 0 (R = 15%):
+
+| marking | marks/yr | max attainable events/yr |
+|---|---|---|
+| daily | 252 | **8.76** |
+| hourly | 1,638 | 20.81 |
+| half-hourly | 3,276 | 28.52 |
+
+≈ 0.5·√marks. The mechanism is the counting rule itself: **distinct episodes are bounded by the
+number of new equity highs**, and for a near-driftless path the number of records in n steps grows
+like √n. At daily marks that ceiling is 8.76, so **≤10 events/yr is not a constraint at all** — it
+is satisfied by every strategy, including one with no edge. It cannot discriminate and must not be
+used as a bar.
+
+### OPEN DECISION 1 — the marking convention, which is load-bearing
+
+Finer marking detects more excursions, so it **raises** the required Sharpe for the same event
+budget. Measured at R = 15%:
+
+| events/yr | daily (252) | hourly (1,638) |
+|---|---|---|
+| ≤3 | SR ≥ 0.95 | **SR ≥ 1.14** |
+| ≤5 | SR ≥ 0.44 | **SR ≥ 0.66** |
+| ≤10 | infeasible | SR ≥ 0.23 |
+
+The table in `CHECKPOINT.md` uses **daily marks**. A prop trailing drawdown is commonly evaluated on
+intraday equity, which would make the hourly column the right one and every bar ~20–50% stricter.
+**The record does not settle which applies** — §8's provenance note already flags the old drawdown
+table as only partly reproducible under its own rule. **Not resolved here.** Recorded so that
+whoever registers against this bar states which convention they are held to, rather than inheriting
+mine by accident.
+
+### OPEN DECISION 2 — a $2,000 trailing drawdown is account-ending, not merely costly
+
+Under the confirmed rule (floor 4% below start, trailing the peak until the peak reaches +4%, then
+locked at breakeven), a **$2,000 drawdown from the peak is fatal until the peak exceeds $52,000**:
+below that the floor *is* peak − $2,000, so reaching it breaches the floor. Once locked, a $2,000
+drawdown from a peak of exactly $52,000 lands on $50,000, the floor, and is still fatal; it is
+survivable only with a peak above $52,000.
+
+So "experiencing a trailing $2,000 drawdown a few times per year" is **only coherent in the locked
+regime with an equity cushion**. Taken literally against the account rule, the answer is that
+**even one such event ends the account** in the first phase, and the relevant question is not a rate
+but a ruin probability. The terminal report already states the no-edge case: the chance of reaching
+the +4% lock before a 4% drawdown is exp(−1) = 36.8% **at every position size**.
+
+**Not resolved here**, because the two readings imply different bars: a rate (the table above) or a
+survival probability. The table is computed for the rate reading and is labelled as such.
+
+### 2. Where the programme's own effects sit against the bar
+
+**Not close, and precision is not what is missing.** The bar is a Sharpe floor; every measured effect
+has a non-positive net edge, and a non-positive edge is Sharpe ≤ 0 at any volatility.
+
+| | gross bps/event | net of 0.48 cost |
+|---|---|---|
+| R01, the largest effect measured anywhere | +0.452 | **−0.028** |
+| L12 | +0.306 | −0.174 |
+| P03 real leg | +0.200 | −0.280 |
+| L07 | negative in 108/108 cells | wrong sign |
+
+Inverted — the **gross** bps one MNQ contract ($48,000 notional) must earn per trade, against R01:
+
+| trades/yr | gross @10% | gross @15% | gross @20% | ×R01 @15% |
+|---|---|---|---|---|
+| 245 | 4.732 | 6.858 | 8.983 | 15.2× |
+| 1,000 | 1.522 | 2.042 | 2.563 | 4.5× |
+| 5,000 | 0.688 | 0.792 | 0.897 | 1.8× |
+| 25,000 | 0.522 | 0.542 | 0.563 | 1.2× |
+
+**The ratio never reaches 1 at any trade frequency**; its floor as trades → ∞ is **1.062×**, because
+the 0.48 cost floor alone exceeds the 0.452 best measured effect. **Trading more often cannot close
+this gap** — only a larger effect or a lower cost can. That is the same conclusion §10 reaches about
+full-size contracts, arrived at from the drawdown constraint instead.
+
+SR\* = 0.1368 at N = 760 for scale: the weakest success bar in the table (SR ≥ 0.26) is **1.9× SR\***,
+and the 15%/≤3 bar is **6.9×**.
+
+### 3. The termination condition
+
+**Base rate, measured in both logs:** 35 registered, **15 spent ≥1 trial** (13 here — F02, F03, F04,
+F05, F06, F07, L02, L03, L04, L07, L12, N02, P03 — plus R01 and R02), **0 promoted**. Note F04 spent
+36 trials and is absent from the terminal report's S7 discussion; the log is the authority.
+
+Per registration, 0 in 35: exact 95% one-sided upper **0.0820**, rule of three 0.0857, Laplace
+0.0270, Jeffreys 0.0139. Per series, 0 in 6: exact 95% upper **0.3930**, Laplace 0.1250, Jeffreys
+0.0714.
+
+At the measured mean of 5.83 registrations/series, P(a seventh series promotes ≥1):
+
+| prior | P(promote) | a promotion must be worth |
+|---|---|---|
+| Jeffreys | **7.8%** | **12.8× one series' cost** |
+| Laplace | 14.8% | 6.8× |
+| rule of three | 40.7% | 2.5× |
+
+The rule-of-three figure is a **95% upper bound on what 35 observations cannot exclude**, not an
+estimate, and should not be quoted as one. The base rate is also **optimistic** for a seventh series,
+because the six spent the best ideas first: R04, the strongest unexplored idea on record, is closed
+by account permission rather than by evidence.
+
+**Cost of one series:** trials, mean **128.3** / median **6.5** (F 576, L 180, R 10, N 3, P 1, Q 0 —
+the mean is not a typical series); SR\* imposed permanently on all future work, **+0.0019** at the
+mean 128 trials (+0.0002 at 10, +0.0026 at 180, +0.0069 at 576); calendar, **6 series in 16 days** of
+repository history, ≈2.7 days/series.
+
+The SR\* cost is the one that compounds: small per series, **permanent and shared**, and paid by
+every future hypothesis *including the one that would have promoted*.
+
+### 4. "We cannot think of new hypotheses" is not a valid termination condition
+
+Recorded explicitly because it is the rule a closed programme drifts toward when it wants to stay
+open. Hypothesis generation is **unbounded and cheap** — 66 candidates in 16 days, and 66 more
+available for another 16 at no information gain. A condition that depends on exhausting ideas
+**can never bind**, and a rule that cannot bind is not a rule.
+
+The consequence is mechanical rather than rhetorical: stop only when ideas run out, and whatever
+eventually survives has been selected by **how long the search continued** rather than by evidence.
+N, SR\* and the trial log exist to prevent exactly that, and §10 of the terminal report names it in
+its own last line.
+
+Valid conditions are about cost and evidence — expected value below cost (above), or one of the four
+binding constraints moving (information, permission, cost, time). Not imagination.
+
+### What this section does NOT do
+
+It does not design a seventh series, and it does not reopen anything. Both open decisions above are
+left open on purpose. **The bar is stated so that a future series is checked against it rather than
+argued for** — which is the only reason a stopping rule is worth writing before the next idea
+arrives rather than after.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
