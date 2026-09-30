@@ -4546,6 +4546,125 @@ left open on purpose. **The bar is stated so that a future series is checked aga
 argued for** — which is the only reason a stopping rule is worth writing before the next idea
 arrives rather than after.
 
+## 62. Both open decisions ruled; the operative bar is two objects, not one (S2, S8)
+
+**No trial spent. N stays 760, SR\* 0.1368, chain intact.** §61 left two decisions open. Both are now
+ruled, strictly, and both rulings move the bar **up**. Computed 2026-09-29; §61's tables are kept and
+marked superseded rather than deleted.
+
+### Ruling 1 — the marking convention is intraday
+
+The firm evaluates its trailing floor continuously and the condition is stated as losing $2,000 from
+any point, so **daily marks measure something nobody enforces.** §61's table was therefore too lenient.
+
+**The bar converges, so the intraday figure is a limit rather than a grid choice.** Required Sharpe,
+R = 15%, ≤3 events, single-phase: **0.95** daily → 1.13 hourly → 1.17 (30-min) → 1.19 (15-min) →
+**1.20** (7.5-min). This mattered to check: had it diverged, "intraday" would have had no well-defined
+answer and the ruling would have been unimplementable.
+
+### Ruling 2 — two objects, and the stated condition describes only the second
+
+**Phase 1 (pre-lock) is a ruin probability. A rate is not computable.** The floor *is* peak − $2,000
+until the peak reaches $52,000, so the first 4% excursion is **terminal** — at most one occurrence, and
+a frequency against a single absorbing barrier is undefined.
+
+| Sharpe | P(lock) | P(ruin) |
+|---|---|---|
+| 0 | 0.384 | 0.616 |
+| 0.95 | 0.482 | 0.518 |
+| 1.31 | 0.564 | **0.436** |
+| 2.00 | 0.766 | 0.234 |
+| 3.00 | 0.965 | 0.035 |
+
+**At Sharpe 1.31 — the top of §61's table — the account still fails to survive phase 1 43.6% of the
+time.** The zero-edge row is the validation: it converges to **exp(−1) = 0.3679** as marking tightens
+(0.4068 daily → 0.3843 at 30-min → 0.3720 at 52,416 marks), matching the figure already in §4 of the
+terminal report. A simulator that reproduces a known analytic result on the same object is worth more
+here than one that merely runs.
+
+**Phase 2 (post-lock) is a rate, and "a few times per year" was stated against a regime the account
+does not start in.** It applies only after the lock, and only once cushion exists — at the lock point
+the floor sits **exactly one $2,000 drawdown below equity**, so early in phase 2 "experiencing a $2k
+drawdown" *is* hitting the floor.
+
+### A bug caught before publication: the rate must be conditioned on survival
+
+The first post-lock solve returned **SR ≥ 0.25 for ≤3 events/yr at R = 10%**, and reported ≤5 events as
+**INFEASIBLE while ≤3 was feasible** — backwards, since tolerating more events must lower the bar. The
+column beside it gave the diagnosis: **P(floor) = 88.8%.** Those paths were not experiencing few
+drawdowns; they were **dying before they could accumulate any**, and dead paths stop counting.
+
+Gridded, the all-paths metric is non-monotone and the survivor-conditioned one is monotone (R = 15%):
+
+| Sharpe | events (all paths) | events (survivors) | P(floor) |
+|---|---|---|---|
+| 0.05 | 3.21 | **47.30** | 98.0% |
+| 0.50 | 3.02 | 9.10 | 81.4% |
+| 1.00 | 2.56 | 4.02 | 53.2% |
+| 1.50 | 1.78 | 2.04 | 27.8% |
+| 2.50 | 0.39 | 0.37 | 3.3% |
+
+**Bisecting the all-paths metric would have published a bar that rewards dying early** — the same
+failure class as §6's list: a quantity computed correctly for a different object than the one in hand.
+This one was caught by the monotonicity violation, not by inspection, which is an argument for always
+reporting the shape rather than only the root.
+
+### THE OPERATIVE BAR
+
+Post-lock, intraday marks (3,276/yr), start $52,000, floor $50,000, events among survivors. Sharpe a
+floor, volatility a ceiling:
+
+| annual return | ≤3 events/yr | max vol | P(floor) yr1 | ≤5 events/yr | max vol | P(floor) yr1 |
+|---|---|---|---|---|---|---|
+| 10% | **SR ≥ 0.80** | 12.4% | 52.9% | SR ≥ 0.55 | 18.1% | 69.9% |
+| 15% | **SR ≥ 1.21** | 12.4% | 42.0% | SR ≥ 0.85 | 17.7% | 62.5% |
+| 20% | **SR ≥ 1.61** | 12.4% | 33.4% | SR ≥ 1.15 | 17.4% | 55.3% |
+
+**The event rate alone is not a sufficient bar** — every cell satisfying it still ruins often. Sharpe to
+hold first-year P(floor) down:
+
+| annual return | P ≤ 20% | P ≤ 10% | P ≤ 5% |
+|---|---|---|---|
+| 10% | 1.36 | 1.66 | 1.90 |
+| 15% | **1.71** | **2.06** | 2.34 |
+| 20% | 1.99 | 2.39 | 2.72 |
+
+**A registration is held to whichever is higher.** For 15% at ≤3 events with P(floor) ≤ 10% that is
+**SR ≥ 2.06**, not 1.21.
+
+### What both rulings do to the bar, and where it sits
+
+The expectation was that the operative bar would land materially above §61's 0.95–1.31 daily range.
+**It does.** At 15%, ≤3 events: **0.95 → 1.21** on the rate alone, and **→ 2.06** once first-year ruin
+is held to 10%. At 20%: 1.31 → 1.61 → **2.39**.
+
+Against the chance bar SR\* = 0.1368:
+
+| bar | Sharpe | ×SR\* |
+|---|---|---|
+| 10%, ≤3 events | 0.80 | 5.8× |
+| 15%, ≤3 events | 1.21 | 8.8× |
+| 20%, ≤3 events | 1.61 | 11.8× |
+| 15%, ≤3 ev **and** P(floor) ≤ 10% | **2.06** | **15.1×** |
+| 20%, ≤3 ev **and** P(floor) ≤ 10% | 2.39 | 17.5× |
+
+**Against every effect the programme measured, the comparison does not require precision.** R01,
++0.452 bps and the largest effect found anywhere in six series, is **−0.028 net** of the 0.48 cost
+floor; L12 is −0.174; P03's real leg is −0.280; L07 is negative in 108 of 108 cells. **A non-positive
+net edge is Sharpe ≤ 0 at any volatility.** So the operative bar is not a demanding target the
+programme fell short of — it is a target nothing measured here is on the same side of zero as.
+
+The sharpest statement of that is now promoted into the terminal report §9: **the required gross edge
+per trade falls with trade count but converges to 1.062× the best effect ever measured**, because the
+0.48 cost floor alone exceeds 0.452. Trading more often cannot close the gap; neither can sizing, which
+multiplies an edge and cannot supply one.
+
+### What this section does NOT do
+
+No series designed, nothing registered, no trial spent. §61's tables are retained and labelled
+superseded, including its two open-decision notes, because deleting them would hide that the bar moved
+and in which direction.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -385,6 +385,38 @@ small, the wrong sign, or decaying. Where samples were not adequate, the arithme
 trial was spent. The caveat in §7 weakens the word *absent* on specific nulls; it does not change
 which way the evidence points.
 
+### The sharpest form of the result — added 2026-09-29, promoted from `decisions.md` §61
+
+**Trading more often cannot close the gap.** This is stronger than any individual null, because it
+does not depend on any one hypothesis being right or any one sample being adequate.
+
+The edge a strategy needs *per trade* falls as it trades more often — spread a fixed annual target
+over more trades and each one has to carry less. So "trade more frequently" looks like a route out.
+It is not. Computed for one MNQ contract ($48,000 notional) against a $50,000 account, the **gross**
+bps required per trade, and its ratio to **+0.452 bps, the largest effect this programme measured
+anywhere** (R01):
+
+| trades/yr | gross needed @10% | @15% | @20% | ×R01 @15% |
+|---|---|---|---|---|
+| 245 | 4.732 | 6.858 | 8.983 | 15.2× |
+| 1,000 | 1.522 | 2.042 | 2.563 | 4.5× |
+| 5,000 | 0.688 | 0.792 | 0.897 | 1.8× |
+| 25,000 | 0.522 | 0.542 | 0.563 | 1.2× |
+
+**The ratio falls, but it converges to 1.062× and never reaches 1.** The limit is not a modelling
+artefact: as trades → ∞ the required *net* edge per trade → 0, so the required *gross* edge → the
+cost floor itself, 0.48 bps. And **0.48 > 0.452**. The round-trip cost alone exceeds the best effect
+ever measured here, so no trade frequency, holding period or position size reaches profitability.
+
+Sizing cannot help either, for the reason §4 already gives about the drawdown: sizing multiplies an
+edge and cannot supply one. A negative net edge scales to a larger negative number.
+
+**What this closes, and what it does not.** It closes "trade it more often" and "trade it bigger" as
+routes, permanently, on measured numbers rather than on a null. It leaves §10 exactly as written: the
+gap is closed only by a **larger effect** (which needs different information) or a **lower cost**
+(which needs a different cost structure) — and §10.3 already shows that full-size contracts at
+0.22 bps do not rescue any specific result on record.
+
 ---
 
 ## 10. What would have to change

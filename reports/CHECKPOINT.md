@@ -18,7 +18,92 @@ the open decisions are in `decisions.md` §61.
 
 ---
 
-### 1. Success condition, in Sharpe and volatility terms
+### 1. Success condition — REVISED 2026-09-29 under two rulings (§62)
+
+**Two rulings supersede the first version of this section.** (a) The marking convention is
+**intraday**: the firm evaluates its trailing floor continuously, and the condition is stated as
+losing $2,000 from any point, so daily marks measure something nobody enforces. (b) The bar is **two
+objects, not one**, and the stated condition describes only the second.
+
+**The account size is derived, not assumed:** $2,000 is 4% of $50,000 and 4% is the account's own
+floor, so the condition is a 4% peak-to-trough excursion on $50,000. The rule is
+**floor = min(peak − $2,000, $50,000)** — trailing pre-lock, fixed at breakeven once the peak reaches
+$52,000.
+
+---
+
+#### PHASE 1, pre-lock: a RUIN PROBABILITY. A rate is not computable here.
+
+Before the lock the floor *is* peak − $2,000, so **the first 4% excursion is terminal** — it can
+happen at most once, and a frequency has no meaning against a single absorbing barrier.
+
+| Sharpe | P(reach lock) | **P(ruin)** |
+|---|---|---|
+| 0 (no edge) | 0.384 | **0.616** |
+| 0.59 | 0.425 | 0.575 |
+| 0.95 | 0.482 | 0.518 |
+| 1.31 | 0.564 | **0.436** |
+| 2.00 | 0.766 | 0.234 |
+| 3.00 | 0.965 | 0.035 |
+
+**Even at Sharpe 1.31 the account fails to survive phase 1 more than two times in five.** The
+zero-edge row validates the simulator against theory: it converges to exp(−1) = 0.3679 as marking
+tightens (0.4068 daily → 0.3843 at 30-min → 0.3720 at 52,416 marks), which is the figure already in
+`programme_conclusion.md` §4.
+
+#### PHASE 2, post-lock: an EVENT RATE — and it must be conditioned on survival
+
+**"A few times per year" was stated against a regime the account does not start in.** It applies
+only here, and only once cushion exists: at the lock point the floor sits **exactly one $2,000
+drawdown below equity**, so early in phase 2 "experiencing a $2k drawdown" *is* hitting the floor.
+
+**OPERATIVE BAR** — post-lock, intraday marks (3,276/yr), start $52,000, floor $50,000, events counted
+among **survivors**. Sharpe is a floor, volatility a ceiling:
+
+| annual return | ≤3 events/yr | max vol | P(floor), yr 1 | ≤5 events/yr | max vol | P(floor), yr 1 |
+|---|---|---|---|---|---|---|
+| **10%** | **SR ≥ 0.80** | 12.4% | 52.9% | SR ≥ 0.55 | 18.1% | 69.9% |
+| **15%** | **SR ≥ 1.21** | 12.4% | 42.0% | SR ≥ 0.85 | 17.7% | 62.5% |
+| **20%** | **SR ≥ 1.61** | 12.4% | 33.4% | SR ≥ 1.15 | 17.4% | 55.3% |
+
+**The event rate alone is not a sufficient bar**, because every cell that satisfies it still ruins
+often. Sharpe required to hold first-year P(floor) down, post-lock:
+
+| annual return | P ≤ 20% | P ≤ 10% | P ≤ 5% |
+|---|---|---|---|
+| 10% | 1.36 | 1.66 | 1.90 |
+| 15% | **1.71** | **2.06** | 2.34 |
+| 20% | 1.99 | 2.39 | 2.72 |
+
+**A registration is checked against the binding one, which is whichever is higher** — for 15% at
+≤3 events with P(floor) ≤ 10%, that is **SR ≥ 2.06**, not 1.21.
+
+#### SUPERSEDED — the daily-mark table, kept for the record
+
+Not deleted, because it is what the first version of this rule asserted. It is **too lenient**: daily
+marks miss excursions the firm would enforce.
+
+| annual return | ≤3 events/yr | ≤5 events/yr | ≤10 events/yr |
+|---|---|---|---|
+| 10% | SR ≥ 0.59 (vol ≤ 17.00%) | SR ≥ 0.26 (vol ≤ 38.23%) | infeasible |
+| 15% | SR ≥ 0.95 (vol ≤ 15.82%) | SR ≥ 0.44 (vol ≤ 34.24%) | infeasible |
+| 20% | SR ≥ 1.31 (vol ≤ 15.21%) | SR ≥ 0.66 (vol ≤ 30.51%) | infeasible |
+
+The bar **converges** as marking tightens, so the intraday figure is a real limit, not grid-dependent
+(R = 15%, ≤3 events, single-phase): 0.95 daily → 1.13 hourly → 1.17 at 30-min → 1.19 at 15-min →
+1.20 at 7.5-min. The ten-events column stays infeasible at daily marks for the reason recorded in
+§61: distinct episodes are bounded by new equity highs, ~0.5·√marks, giving a ceiling of 8.76/yr.
+
+---
+
+### 1b. The first version of this section, for reference
+
+**SUPERSEDED 2026-09-29 — do not register against this.** Kept because it is what the rule asserted
+on 2026-09-13, and because deleting it would hide that the bar moved. Its two "OPEN DECISION" items
+are both now **ruled on** (§62): the marking convention is intraday, and the bar is two objects. Its
+single-table framing measures a rate in a phase where the event is terminal, so it is too lenient in
+phase 1 and unconditioned in phase 2.
+
 
 The stated goal — *large profits while experiencing a trailing $2,000 drawdown no more than a few
 times per year* — is converted here so a result can be **checked** against it rather than judged.
