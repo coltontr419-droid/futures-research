@@ -284,6 +284,27 @@ registration for any session-level state.
 looks identical to a real one. P03's outcome path was tested against a known injected reversion
 before its null was believed. **Now a standing rule, stricter than what P03 did** (§7 below).
 
+**9. Clearing a within-entry correction is not clearing the programme's bar (§63, §64).** BH within
+an entry and SR\* across the programme answer different questions, and a result can pass the first
+while failing the second. Four of the S-series' nine entries — RSI, Bollinger, MACD, stochastic,
+each in its shortest-timeframe cell — separated from their matched reference at 1.19–1.88 bps,
+inside their own within-entry BH bar. Converting SR\* to the same units (a per-event effect has
+per-observation Sharpe equal to effect over per-event noise, so the effect that merely reaches SR\*
+is SR\* times that noise) put all four roughly half of the prevailing SR\* at the N they would add.
+**Rule:** a registration's own BH bar is necessary and not sufficient; the comparison that decides
+anything is against the trial log's cumulative SR\* at the N the entry would face, not the N it was
+designed against.
+
+**10. A filter that closes every candidate it can evaluate is stronger evidence than one that closes
+most of them (§63, §64).** The P-series closed 9 of 13 candidates at no trial cost, but five of
+those could not state a predicted magnitude at all and were closed by being unreachable rather than
+by being measured against a bar; the Q-series closed 12 of 12, seven the same way. The S-series
+closed 9 of 9, and every one of the nine had stated a direction and a mechanical trade rule, so every
+one was actually tested against the arithmetic rather than exempted from it. **An unpredictable
+candidate survives a filter by sitting outside its reach, not by passing through it** — zero
+unpredictable candidates is the harder number to produce, not the easier one, because every entry
+had to be evaluated rather than waved past.
+
 ---
 
 ## 6. Errors found inside corrections
@@ -444,15 +465,32 @@ event and calendar edges — failed on the same four constraints. A seventh draf
 closed hypothesis with new parameters. **A seventh series would be widening the search until something
 appears, which is exactly what the trial log exists to prevent.**
 
-**This was then tested rather than left as an argument, 2026-10-02 (§63).** A seventh series was
-designed — nine retail indicators against a matched arbitrary reference, across five timeframes —
-and filtered at S2 without registering anything or spending a trial. **Five of its nine entries were
-already in the registry**, its 270 trials would raise N to 1,030 and SR\* to 0.1406, and **the
+**This was then tested rather than left as an argument, 2026-10-02 (§63, §64, CLOSED).** A seventh
+series was designed specifically so that it would not be the widening-search case the paragraph
+above warns against — nine mechanically specifiable retail indicators, each a separate hypothesis
+with a stated direction and trade rule, its overlap with the existing registry checked before any
+new cell was drafted, anything requiring discretion dropped and the reason recorded — and it closed
+on arithmetic anyway, without registering anything or spending a trial.
+
+**Five of its nine entries were already in the registry**, one of them — fair value gaps — having
+already been run at the only event count in the programme adequate to answer this series' own
+question: L07, **108 of 108 cells separating, negative in every one**, at 1.8–10.3× cost. The
+remaining 270 trials the series would spend would raise N to 1,030 and SR\* to 0.1406, and **the
 required per-event effect at that SR\* is 9.10 bps at a 180-minute horizon and 3.71 bps at 30
 minutes, against a largest predicted magnitude of 2.0 bps and a largest effect ever measured here of
-5.79 bps.** Four entries clear their own BH correction in their shortest-timeframe cells and all four
-sit below the prevailing SR\*. The paragraph above predicted the outcome; the arithmetic is on file
-so the prediction is checkable rather than rhetorical.
+5.79 bps.** Four entries clear their own BH correction in their shortest-timeframe cells and all
+four sit below the prevailing SR\* at roughly half of it — finding 9 above. All nine entries stated
+a predictable magnitude and none escaped the filter by being unpredictable, which finding 10 above
+records as the stronger result, not the weaker one. The paragraph two above predicted the outcome;
+the arithmetic is on file so the prediction is checkable rather than rhetorical.
+
+**Three weaknesses in the design are recorded as unresolved, not as settled against it** (§64): five
+of the nine entries have no firing rate measured at any timeframe and rest on an extrapolation
+rule; one entry's threshold, as drafted, is in price points rather than bps and repeats the exact
+scale error that retired N02; and five pairs of entries have unmeasured collinearity, any one of
+which could turn out to be a single bet counted twice, as Q01 and Q02 were. None of the three
+changes the arithmetic above — they are gaps in the design that a future registration would have to
+close, not grounds on which the current close could be reversed.
 
 ---
 
@@ -482,9 +520,9 @@ stay in the registry, and their trials stay in N.
 R05 direction that was never drafted as a hypothesis, and it is not counted.
 
 **The S row was added 2026-10-02** — a seventh series, retail indicators against a matched arbitrary
-reference, **designed and filtered at S2 but not registered**; see `reports/S_SERIES_DESIGN.md` and
-`decisions.md` §63. It is counted here because a series that is drafted and not registered is still a
-series the search looked at, which is exactly how Q is counted. **N, SR\* and the two chains are
-unchanged.** Five of its nine entries are already in `hypotheses.yaml` under another letter (L07, F10,
-L01, L08/F11, L11, F11), so §10's argument below is not merely unrefuted by it — the S-series is the
-clearest instance of it on record.
+reference, **designed and closed at S2 but not registered**; see `reports/S_SERIES_DESIGN.md` and
+`decisions.md` §63–§64. It is counted here because a series that is drafted and not registered is
+still a series the search looked at, which is exactly how Q is counted. **N, SR\* and the two chains
+are unchanged.** Five of its nine entries are already in `hypotheses.yaml` under another letter (L07,
+F10, L01, L08/F11, L11, F11), so §10's argument above is not merely unrefuted by it — the S-series is
+the clearest instance of it on record.

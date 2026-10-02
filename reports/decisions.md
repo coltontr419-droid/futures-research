@@ -4900,6 +4900,66 @@ its last line.
 7. **The series is counted in the ledger as the seventh**, at 9 drafted / 0 registered / 0 trials,
    exactly as Q is counted at 12/0/0.
 
+## 64. The S-series is closed, at design (S1, S2)
+
+**CLOSED. Nothing registered, no trial spent, N stays 760, SR\* stays 0.1368, both chains verify.**
+§63 is the arithmetic; this section is the close, and the two findings it produced that outlive the
+series are promoted into `programme_conclusion.md` §5 as findings 9 and 10, in the same form as the
+eight already there.
+
+**The series was designed specifically so it would not be a seventh search, and it closed on
+arithmetic anyway.** Every entry stated a direction and a mechanical trade rule before anything was
+measured; the overlap with the existing registry was checked before any new cell was drafted, not
+after; nothing discretionary was admitted, and what could not be made mechanical was dropped and the
+reason recorded (§63, "dropped for discretion"). None of that changed the result. §10 of the terminal
+report argued in advance that a seventh series inherits the same four constraints as the first six;
+this is the series that tried hardest not to, and the argument held anyway.
+
+**L07 had already answered the series' central question, at the only event count in the programme
+adequate to answer it.** The question this series asks — is a retail indicator's behaviour
+distinguishable from a matched arbitrary reference — is exactly L07's question, run at 23,545 to
+655,490 firings per cell, an order of magnitude or more above anything else on file. It came back
+**108 of 108 cells separating, negative in every one**, 1.8–10.3× the cost floor, with the real zone
+losing while the matched placebo won. Designing eight more entries around the same question at
+hundreds or thousands of firings per cell was not a fresh look at the question; it was a second
+attempt at an answer the programme's largest sample had already given.
+
+**Two findings are promoted rather than left in the design file, because they are general rather
+than specific to retail indicators:**
+
+1. **An entry can clear its own correction and still have established nothing** (§5 finding 9 of the
+   terminal report). Four of the nine S-entries — RSI, Bollinger, MACD, stochastic, each in its
+   shortest-timeframe cell — separated from their matched reference at 1.19–1.88 bps against a
+   within-entry BH bar reachable at that size. Every one of the four sat roughly half the prevailing
+   SR\* when the two were put in the same units. The within-entry bar and the across-programme bar
+   answer different questions, and a design that reports only the first is reporting the easier one.
+2. **A filter closing every candidate it can evaluate is a stronger result than one that closes most
+   of them** (§5 finding 10). The P-series closed 9 of 13 at no trial cost, but five of the
+   thirteen could not state a magnitude and were closed by being unreachable, not by being tested
+   against a bar. The Q-series closed 12 of 12, seven of them the same way. **The S-series closed 9
+   of 9, and all nine were predictable** — none escaped the filter by having no trade rule to check.
+   Zero unpredictable candidates is not a weaker finding than nine of thirteen; an unpredictable
+   candidate survives a filter by being outside its reach, not by passing through it.
+
+**Three design weaknesses stand unmet, not resolved, and are not claimed otherwise:**
+
+- **Five of the nine entries — S05, S06, S07, S08, S09 — have no firing rate of their own at any
+  timeframe.** Their counts in `s_series_s2.json` are extrapolated from a stated rule, not measured,
+  and three of them straddle their own bar at H=30m on the strength of that extrapolation alone.
+- **S07's threshold, as drafted, is in price points rather than bps or a trailing rank** — any
+  threshold on MACD's *magnitude* (as opposed to the sign of its crossing, which is unit-free) repeats
+  the exact error that retired N02: an 8-point break was 41 bps in 2010 and 2.9 bps in 2026 on an
+  index that rose 14×. Not fixed here; flagged so a later registration does not inherit it silently.
+- **Five collinearity pairs are unmeasured** — S02↔S08, S04↔S06, S04↔S07, S03↔S05, S09↔L03 — any one
+  of which could turn out to be the Q01/Q02 case (+0.972 Spearman, +0.991 post-2021,
+  P(long | fires) = 100%, found at no trial cost). Measuring them is the cheapest open item in the
+  design and was not done because nothing was registered to require it.
+
+**What this section does not do.** It does not register anything, open S5/S6/S7, or revisit the
+recommendation in §63 — collinearity measurements and the four unmeasured firing rates remain the
+only items that cost no trial, and S06 remains the only entry both genuinely new and plausibly above
+its own bar, still short of the prevailing SR\* by about 2×.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
