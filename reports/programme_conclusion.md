@@ -1,7 +1,7 @@
 # The futures research programme — terminal report
 
-**Six series. 66 candidates drafted, 35 registered, 770 trials across two hash-chained logs.
-Nothing promoted.**
+**Six series registered, a seventh drafted and closed at S2. 75 candidates drafted, 35 registered,
+770 trials across two hash-chained logs. Nothing promoted.**
 
 **No edge accessible at this cost structure and account size was found in intraday, calendar or
 non-price futures signals, across six independently designed series.**
@@ -444,6 +444,16 @@ event and calendar edges — failed on the same four constraints. A seventh draf
 closed hypothesis with new parameters. **A seventh series would be widening the search until something
 appears, which is exactly what the trial log exists to prevent.**
 
+**This was then tested rather than left as an argument, 2026-10-02 (§63).** A seventh series was
+designed — nine retail indicators against a matched arbitrary reference, across five timeframes —
+and filtered at S2 without registering anything or spending a trial. **Five of its nine entries were
+already in the registry**, its 270 trials would raise N to 1,030 and SR\* to 0.1406, and **the
+required per-event effect at that SR\* is 9.10 bps at a 180-minute horizon and 3.71 bps at 30
+minutes, against a largest predicted magnitude of 2.0 bps and a largest effect ever measured here of
+5.79 bps.** Four entries clear their own BH correction in their shortest-timeframe cells and all four
+sit below the prevailing SR\*. The paragraph above predicted the outcome; the arithmetic is on file
+so the prediction is checkable rather than rhetorical.
+
 ---
 
 ## 11. The ledger
@@ -465,7 +475,16 @@ stay in the registry, and their trials stay in N.
 | N | 10 | 3 | 3 | 0 |
 | P | 13 | 1 | 1 | 0 |
 | Q | 12 | 0 | 0 | 0 |
-| **total** | **66** | **35** | **770** | **0** |
+| **S** | **9** | **0** | **0** | **0** |
+| **total** | **75** | **35** | **770** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
+
+**The S row was added 2026-10-02** — a seventh series, retail indicators against a matched arbitrary
+reference, **designed and filtered at S2 but not registered**; see `reports/S_SERIES_DESIGN.md` and
+`decisions.md` §63. It is counted here because a series that is drafted and not registered is still a
+series the search looked at, which is exactly how Q is counted. **N, SR\* and the two chains are
+unchanged.** Five of its nine entries are already in `hypotheses.yaml` under another letter (L07, F10,
+L01, L08/F11, L11, F11), so §10's argument below is not merely unrefuted by it — the S-series is the
+clearest instance of it on record.

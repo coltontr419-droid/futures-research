@@ -4665,6 +4665,241 @@ No series designed, nothing registered, no trial spent. §61's tables are retain
 superseded, including its two open-decision notes, because deleting them would hide that the bar moved
 and in which direction.
 
+## 63. The S-series designed and filtered at S2; nothing registered (S1, S2, S6, S7)
+
+**NOTHING REGISTERED. NO TRIAL SPENT. N stays 760, SR\* 0.1368, both chains verify. S5, S6 and S7
+not run.** `hypotheses.yaml` is untouched. Design in `reports/S_SERIES_DESIGN.md`; arithmetic in
+`reports/s_series_s2.json` from `reporting/s_series_s2.py`.
+
+A seventh series — retail indicators tested against a matched arbitrary reference, nine entries,
+timeframes 5m/15m/30m/1h/4h, each indicator its own hypothesis rather than a combined signal. It
+is accounted for in the ledger as a seventh series (§11 of the terminal report, `CHECKPOINT.md`),
+not as a side investigation.
+
+### The overlap was reported before anything was designed, and it is most of the finding
+
+**Five of nine proposed entries are already in `hypotheses.yaml` under another series letter, and
+three of the five have measured firing rates on disk.** Found by reading the registry, which is
+§59's third unadopted proposal ("read `hypotheses.yaml` before drafting a series") applied for the
+first time *before* the drafting rather than after it. Three of twelve Q candidates were already
+registered and one had spent 144 trials; the cost of not looking is on record.
+
+| S | indicator | prior entry | its status | this entry is |
+|---|---|---|---|---|
+| S01 | fair value gaps | **L07** | retired at S8, **108 trials spent** | repeat |
+| S02 | RSI(14) | **F10** | retired unpowered, never run | timeframe extension |
+| S03 | VWAP | **L01** | blocked at S4, 237 events | repeat |
+| S04 | EMA(20/50/200) | **L08** (+ F11) | blocked at S4; F11 retired on premise | timeframe extension |
+| S05 | volume profile POC/VAH/VAL | none | — | **new** |
+| S06 | Bollinger bands | **L11** | **withdrawn at S5 — never tested** | repeat |
+| S07 | MACD(12,26,9) | **F11** | **retired on premise**, never run | repeat |
+| S08 | stochastic %K/%D | none; F10's family | — | **new** |
+| S09 | classic floor pivots | none as specified | a deterministic function of **L03**'s H/L/C | **new** |
+
+**For the repeats, re-running costs trials for information already on file in three of four
+cases, and the exception is worth separating.** S01 would spend ~30 trials to re-derive §38's
+measured −1.18 to −5.01 bps. S03 would re-measure 237 events. S07 inherits F11's **premise**
+retirement, and a premise is not repaired by sample at any size. **S06 is the one genuine
+information gain:** L11 was withdrawn before it was ever tested, and the `confirmed_break` defect
+that withdrew it is fixed (§41), so there is no L11 result to repeat.
+
+### L07 already answered this series' question at the only adequate event count
+
+The brief's question — are these indicators distinguishable from a matched arbitrary reference —
+is L07's question. L07 answered it for fair value gaps in **108 of 108 cells, negative in every
+one, at 1.8–10.3× cost**, with the decomposition sharper than the difference: the real zone loses
+while the matched region wins (§38). **"Distinguishable" was established and was not tradeable**,
+and the mirror is not registrable because the sign came from this data. Every S-entry inherits
+that bar.
+
+### A design finding that precedes the arithmetic: the timeframe axis is not one axis
+
+For the five **state** entries (FVG, RSI, Bollinger, MACD, stochastic) changing the timeframe
+changes the object — a 4h RSI(14) reads 14 four-hour bars. For the three **level** entries (VWAP,
+volume profile, pivots) it changes only the detection granularity: the session VWAP, the session
+POC and the prior-session pivot are the same prices on any bars. So those three entries' five
+timeframe cells re-enter on the same touches, which the L-series already measured as **97–100%
+pairwise overlap for every substantive hypothesis** (the placebo control the only disjoint route).
+
+**Both directions recorded, as §43 required for L04:** BH over 30 correlated cells is
+conservative, *and* a raw count of separations overstates the evidence. **It buys nothing on
+trials** — N counts comparisons appended, not independent ones, so five correlated cells spend
+five trials and raise SR\* for everything after. Correlation makes a grid cheaper in evidence and
+no cheaper in trials.
+
+### The S4/S5 vise, which is why S03 and S04 have no setting that works
+
+L01 fires 237 times and L08 659–950 because of a precondition: price must sit ≥ d ATR away for
+15–30 minutes before a touch counts. **Remove it and the condition fires on nearly every bar**,
+because price crosses a VWAP or an EMA constantly — that is the L11/L05/L02-sweep degenerate
+condition that failed S5 at entry-minute sd 0.05 and 99.6% high/low collision (§41). **Keep it
+and the count is 6–25× below the S4 floor.** There is no intermediate setting that passes both,
+and looking for one is parameter selection. This is also the reason the open `d` ATR
+reference-period decision must stay frozen: resolving it *in order to* schedule these is choosing
+a parameter to get a result.
+
+### DEFF was measured for these objects and it is 3–6× worse than the bracket in use
+
+The Q-series bracketed DEFF at 1.14–2.19. `peak_bps_l07.json` **measures** it for an intrabar
+indicator at two of this brief's own timeframes: **5.79 at 15m rising to 12.72 at 30m.** State
+entries were given 5.8 — the measured bracket's low end, the generous choice. Recorded because
+§45's unit error has now recurred twice after its correction was written down (§54), and the
+defence against a third is to use a measurement where one exists.
+
+### The filter validates against three measured results before it closes anything
+
+§60's standard is about runs, but a filter about to close nine entries owes the same
+demonstration. Checked on the programme's three measured effects with a known S7 outcome:
+
+| case | effect | per-event sd | Sharpe | vs SR\* then | recorded outcome |
+|---|---|---|---|---|---|
+| L07 @ tf=15m, w=1.6bps | 5.790 | 22.8 | **0.2539** | 0.1357 | separated 108/108 ✓ |
+| L04 best cell | 3.543 | 64.7 | 0.0548 | 0.1367 | nominal, 0 BH survivors ✓ |
+| L12 | 0.306 | 64.7 | 0.0047 | 0.1367 | 0 of 9 separated ✓ |
+
+**Three for three, and the discriminating case is the positive one** — a filter that only ever
+said "below the bar" would reproduce L04 and L12 by accident but not L07's separation.
+
+### The two multiplicity objects, kept apart
+
+**Within an entry:** 30 cells (5 timeframes × 3 parameters × 2 instruments), BH rank-1 at FDR
+0.05, z = 3.1440. Post-2021 decides, which multiplies every bar by 1/√0.337 = **1.72×**. Best-cell
+bars, post-2021, H=180m: S01 3.56, S02 4.61, S03 33.68, S04 16.82, S05 6.90, S06 3.54, S07 3.44,
+S08 2.91, S09 7.33. **Four of nine — S03, S04, S05, S09 — have a best-cell bar above 5.79 bps, the
+largest effect the programme has ever measured anywhere.**
+
+**Across the programme:** at 30 trials each, N runs 760 → **1,030** and SR\* 0.1368 → **0.1406**.
+The last entry faces N = 1,030. **+270 trials is a 36% increase in N and +0.0038 of permanent
+SR\*, about twice what one series costs at the measured mean of 128 trials** (§61). Projections
+hold the trial-Sharpe variance fixed at 0.0018559; new trials would move it too, in an
+unpredictable direction, and they are labelled projections for that reason.
+
+### Where the two meet, which is the result
+
+SR\* is a Sharpe and the bars are in bps, so they are not comparable until converted. An effect
+*e* against per-event noise anchor(H) has per-observation Sharpe *e*/anchor(H), so the effect that
+merely **reaches** SR\* is SR\* · anchor(H): at N = 1,030 that is **9.10 bps at H=180m and 3.71 bps
+at H=30m.**
+
+**Four entries clear their own BH bar at H=30m in their 5m cells — S02, S06, S07, S08, at
+1.19–1.88 bps — and every one of them sits below the prevailing SR\* by about a factor of two.**
+They pass the within-entry correction and fail the across-programme one. **The comparison does not
+turn on the horizon:** nothing in the series predicts above 2.0 bps, against 9.10 at H=180m and
+3.71 at H=30m. The only entry whose magnitude reaches SR\* in either column is S01 — whose
+magnitude is **measured rather than predicted, and negative.**
+
+### Both horizons are reported on purpose
+
+The bar falls as √H while the cost floor does not, so H=30m opens four entries and H=180m closes
+them. **Choosing the horizon that closes the series would be choosing a parameter to get a result,
+and so would choosing the one that opens it.** §53 is the record of that error being made in the
+other direction — a selectivity optimum that did not survive re-measurement in bps. Both columns
+are shown and the SR\* comparison resolves it without depending on the choice.
+
+### The filter's categories, against its two predecessors
+
+| series | candidates | closed at S1–S2 | could not state a magnitude |
+|---|---|---|---|
+| P | 13 | 9 | 5 |
+| Q | 12 | 12 | 7 |
+| **S** | **9** | **9** | **0** |
+
+**Every S-entry states a direction and a trade rule, so every one is predictable — and that is
+worse, not better.** The P- and Q-series' unpredictable candidates survived their filters only in
+the sense that the filter could not reach them. Nine of nine predictable and nine of nine below
+the operative bar is a stronger closure than nine of thirteen.
+
+### Dropped for discretion, with one dropped on a stronger ground
+
+Fibonacci retracements (the swing is chosen by eye; mechanising it substitutes a free parameter
+and a different indicator), order blocks and supply/demand zones, trendlines and chart patterns,
+Elliott wave and harmonic patterns, Wyckoff phases. **Ichimoku** is specifiable but is five
+components read jointly, which the brief excludes, and its one separable limb is a displaced MA
+with a band — S04/S06 again. **Supertrend, Keltner and parabolic SAR** are specifiable and are all
+the same object as S06, differing only in the volatility estimator; folded into S06 as a
+pre-registered parameter rather than given three entries at 30 trials each. **OBV, Chaikin money
+flow and the accumulation/distribution line** are specifiable but are non-price observables — the
+P-series class, closed — and walk into §54's correction that a volume-derived ratio is not
+scale-invariant because its denominator is not stationary.
+
+**The stronger ground:** order blocks were already tried mechanically as **N04/N05** and
+**withdrawn at S6** — median distance from price 0.000, 61.4% exactly zero, so no placebo can
+match them (§46). That is structural, like L06, not a specification gap.
+
+### Registration requirements not met by the design as drafted
+
+Recorded as unmet rather than assumed, because §54's P-series draft was written *after* §45 and
+§52 and repeated both errors.
+
+- **S07's scale invariance fails as drafted.** A MACD sign change is unit-free, but any threshold
+  on MACD *magnitude* is in price points — **the N02 error exactly**, where an 8-point break was
+  41 bps in 2010 and 2.9 bps in 2026 on an index that rose 14×. Must be normalised by price or by
+  a trailing rank.
+- **S09's thresholds are price levels by construction** and are admissible only under S2's escape
+  hatch: state the price range and pre-register the era split.
+- **S03 and S04 carry the open `d` ATR reference-period decision**, which is not theirs to resolve.
+- **Four state entries (S02, S06, S07, S08) need the §55 matched control in bar mode** plus a
+  clean-pool check, not a location placebo — a state has no location.
+- **Five collinearity pairs are unmeasured:** S02↔S08 (RSI and stochastic %K are both bounded
+  position-in-range measures on the same bars), S04↔S06 (a Bollinger band *is* an MA ± kσ),
+  S04↔S07 (MACD is the difference of two EMAs; F11 retired an MA crossover as "the same family as
+  F01"), S03↔S05 (VWAP is the volume-weighted **mean**, POC the **mode** — two statistics of one
+  distribution), S09↔L03 (PP = (H+L+C)/3 of the prior session). **Four of nine entries are at risk
+  of being a second look at another entry in the same series** — the one multiplicity cost the
+  trial log cannot price, since N counts comparisons and not whether two were the same bet. The
+  Q01/Q02 precedent (+0.972, +0.991 post-2021, P(long|fires) = 100%) says measuring this costs
+  nothing and can collapse four entries into two.
+
+### Against the stopping rule
+
+**Condition 1 (§62).** The operative bar is **SR ≥ 2.06** at 15% with ≤3 events and first-year
+P(floor) ≤ 10% — **15.1× SR\*** — and phase 1 is a ruin probability, 43.6% even at Sharpe 1.31.
+**No S-entry has a route to it.** Stated without overclaiming: the largest magnitude any entry
+predicts is 2.0 bps, which the convergence argument does not by itself forbid at high trade
+frequency — **but it is a prior with no measurement behind it, and the one entry with a
+measurement behind it is negative.**
+
+**Condition 2 (§61).** 0 promoted in 35 registrations; P(a seventh series promotes ≥1) is 7.8%
+on Jeffreys and 14.8% on Laplace, so a promotion must be worth 6.8–12.8× one series' cost. **The
+S-series costs 270 trials against a mean of 128 and a median of 6.5.** And the base rate is
+optimistic here for a reason specific to this series: **five of nine entries are already in the
+registry, so it is substantially re-drawing from the same urn rather than drawing from a new one.**
+
+**Condition 3 (§61.4).** The S-series was generated from a list of popular indicators, which is
+unbounded and cheap — §2's dropped list is longer than the kept one. A series assembled that way
+is selected by **availability**, not evidence, which is the failure the terminal report names in
+its last line.
+
+### Recommended order, and it begins with things that cost no trial
+
+1. **The five collinearity measurements.** No trial; logs to `measurements.jsonl` on the same
+   reasoning that keeps firing rates out of N.
+2. **Firing rates for S05, S06, S07, S08 and S09**, none of which has a measurement of its own
+   at any timeframe. No trial (§22). These are the weakest numbers in the design, and three of the
+   five straddle at H=30m on the strength of them.
+3. **S06 only, if anything** — the one entry that is both a genuine information gain and plausibly
+   above its own bar in its 5m cell. It would still need the §55 control in bar mode, a clean-pool
+   check, and the acknowledgement that it sits ~2× below the prevailing SR\*.
+4. **Not registrable as specified:** S01 (answered, 108 trials), S03 and S04 (the S4/S5 vise),
+   S07 (premise), S09 (a function of a retired null's inputs), S02 and S08 (below SR\*, and
+   probably one hypothesis).
+
+### Decisions taken rather than resolved silently
+
+1. **Nothing was added to `hypotheses.yaml`.** Registering is what that file means, and the brief
+   withheld it. The design lives in a report and this section.
+2. **Predicted magnitudes are priors and say so** (§54's rule), with one exception labelled as
+   such: S01's is L07's measurement.
+3. **The method was taken unchanged from §54 and §59** rather than re-derived, so the S-series
+   filter is comparable to the P- and Q-series filters instead of freshly favourable.
+4. **Firing counts are labelled MEASURED or EXTRAPOLATED per cell** in `s_series_s2.json`, with
+   the extrapolation rule stated. Eleven of 45 cells are measured on MNQ; the rest are not.
+5. **Both horizons are reported** rather than one chosen, for the reason above.
+6. **The trial-Sharpe variance is held fixed in the SR\* projection** and that is stated as an
+   assumption, not buried. New trials change the variance as well as N.
+7. **The series is counted in the ledger as the seventh**, at 9 drafted / 0 registered / 0 trials,
+   exactly as Q is counted at 12/0/0.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

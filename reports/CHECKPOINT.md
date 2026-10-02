@@ -452,11 +452,40 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series, 66 candidates, 35 registered, 770 trials across two logs (futures-research 760,
-SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed without registration (§60). Two
-standards adopted as gates for any future entry: the post-2021 split decides (S8), and a null is
-reportable only from a pipeline shown to recover the effect size sought at the run's n (§60).
-**Nothing is scheduled. Nothing is pending.**
+alone. Six series registered plus a seventh drafted, 75 candidates, 35 registered, 770 trials across
+two logs (futures-research 760, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
+without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
+decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
+the run's n (§60). **Nothing is scheduled. Nothing is pending.**
+
+**S-SERIES, 2026-10-02 — DESIGNED, NOT REGISTERED (§63).** A seventh series: nine retail indicators
+(fair value gaps, RSI, VWAP, EMAs, volume profile, Bollinger, MACD, stochastic, floor pivots) against
+a matched arbitrary reference, at 5m/15m/30m/1h/4h, each indicator its own hypothesis.
+`reports/S_SERIES_DESIGN.md`; arithmetic in `reports/s_series_s2.json`. **`hypotheses.yaml` is
+untouched, no trial is spent, S5/S6/S7 were not run, N stays 760 and SR\* stays 0.1368.** It is
+counted in the ledger as the seventh series at 9 drafted / 0 registered / 0 trials, the same way Q is
+counted at 12/0/0.
+
+Stated against this file's own stopping rule, which is what it asks a candidate series to do:
+
+- **Five of nine entries are already registered under another letter** — L07 (108 trials spent), F10,
+  L01, L08/F11, L11. Three have measured firing rates on disk.
+- **Within-entry cost:** 30 cells each, BH rank-1 at FDR 0.05 (z = 3.1440), post-2021 decisive, which
+  multiplies every bar by 1.72×. Best-cell bars run 2.91 to 33.68 bps; **four of nine — S03, S04,
+  S05, S09 — exceed 5.79 bps, the largest effect this programme has ever measured.**
+- **Across-programme cost:** 270 trials, N 760 → **1,030**, SR\* 0.1368 → **0.1406** — a 36% increase
+  in N and about twice the SR\* one series costs at the measured mean of 128 trials.
+- **The two bars meet badly.** SR\* at N = 1,030, expressed as the per-event effect that reaches it,
+  is **9.10 bps at H=180m and 3.71 bps at H=30m**. Four entries (S02 RSI, S06 Bollinger, S07 MACD,
+  S08 stochastic) clear their own BH bar in their 5m cells at 1.19–1.88 bps and **every one sits below
+  the prevailing SR\* by about 2×**. The only entry whose magnitude reaches SR\* is the fair-value-gap
+  repeat, whose magnitude is **measured and negative**.
+- **Nothing in the series has a route to the operative bar** of §62 (SR ≥ 2.06 at 15% / ≤3 events /
+  P(floor) ≤ 10%, 15.1× SR\*).
+
+**If it is taken further, the first two steps spend no trials:** the five collinearity measurements
+(S02↔S08, S04↔S06, S04↔S07, S03↔S05, S09↔L03 — the Q01/Q02 precedent suggests four entries may be
+two), and firing rates for S05–S09, none of which has a firing rate of its own at any timeframe.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

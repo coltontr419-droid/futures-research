@@ -1,0 +1,858 @@
+{
+ "note": "NOTHING REGISTERED, NO TRIAL SPENT. Bars are S2 arithmetic only.",
+ "method": {
+  "bar": "z(1-0.05/(2k)) * 64.7*sqrt(H/180) / sqrt(units)",
+  "units": "raw firings / DEFF",
+  "anchor_bps_at_180m": 64.7,
+  "deff_provenance": {
+   "5.79-12.72": "MEASURED, FVG at 15m/30m, reports/peak_bps_l07.json",
+   "2.19": "MEASURED, once-per-session level family, \u00a745",
+   "5.8": "the FVG bracket's low end, applied to other intrabar states"
+  },
+  "post_2021_share_of_sessions": 0.3371,
+  "cost_floor_bps": {
+   "MNQ": 0.48,
+   "MGC": 0.65
+  },
+  "sr_star_projection_holds_trial_variance_fixed": 0.0018559255842540115
+ },
+ "at_pickup": {
+  "N": 760,
+  "SR_star": 0.1368,
+  "trial_sharpe_variance": 0.0018559255842540115
+ },
+ "sr_star_as_an_effect_bps": {
+  "H=180m": 8.853,
+  "H=30m": 3.614
+ },
+ "validation": [
+  {
+   "case": "L07 @ tf=15m, w=1.6bps",
+   "effect_bps": 5.79,
+   "per_event_sd_bps": 22.8,
+   "sharpe": 0.2539,
+   "SR_star_then": 0.1357,
+   "clears_SR_star": true,
+   "recorded_outcome": "separated in 108/108 cells"
+  },
+  {
+   "case": "L04 best cell",
+   "effect_bps": 3.543,
+   "per_event_sd_bps": 64.7,
+   "sharpe": 0.0548,
+   "SR_star_then": 0.1367,
+   "clears_SR_star": false,
+   "recorded_outcome": "nominal separation, 0 BH survivors"
+  },
+  {
+   "case": "L12",
+   "effect_bps": 0.306,
+   "per_event_sd_bps": 64.7,
+   "sharpe": 0.0047,
+   "SR_star_then": 0.1367,
+   "clears_SR_star": false,
+   "recorded_outcome": "0 of 9 cells separated"
+  }
+ ],
+ "entries": [
+  {
+   "id": "S01",
+   "label": "Fair value gaps",
+   "overlap": "repeat",
+   "prior_work": "L07 - ran, 108 trials, retired at S8",
+   "kind": "state",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    1.18,
+    5.79
+   ],
+   "predicted_basis": "MEASURED, not a prior: L07's own real-minus-placebo difference, -1.176 to -5.008 bps (tick widths, \u00a738) and -5.79 bps at tf=15m w=1.6bps (peak_bps_l07.json). NEGATIVE.",
+   "threshold_units": "gap width in bps (1.6 / 4.8 / 12.8), already re-specified in bps by \u00a753",
+   "bar_post_best_bps_H180": 3.556,
+   "bar_post_worst_bps_H180": 29.378,
+   "bar_post_best_bps_H30": 1.452,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "above at top of range",
+   "vs_own_bar_H30": "above at top of range",
+   "N_after": 790,
+   "SR_star_after": 0.1373,
+   "SR_star_after_as_effect_bps": {
+    "180": 8.884,
+    "30": 3.627
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": true
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 56310,
+     "deff": 5.8,
+     "units_full": 9708.6,
+     "units_post": 3272.3,
+     "bar_post_bps_H180": 3.556,
+     "bar_post_bps_H30": 1.452,
+     "bar_full_bps_H180": 2.064,
+     "provenance": "EXTRAPOLATED x3 from the 15m bps measurement"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 18770,
+     "deff": 5.79,
+     "units_full": 3241.8,
+     "units_post": 1092.7,
+     "bar_post_bps_H180": 6.154,
+     "bar_post_bps_H30": 2.512,
+     "bar_full_bps_H180": 3.573,
+     "provenance": "MEASURED peak_bps_l07.json w=1.6bps"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 6601,
+     "deff": 6.86,
+     "units_full": 962.2,
+     "units_post": 324.3,
+     "bar_post_bps_H180": 11.295,
+     "bar_post_bps_H30": 4.611,
+     "bar_full_bps_H180": 6.558,
+     "provenance": "MEASURED peak_bps_l07.json w=1.6bps"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 3301,
+     "deff": 5.8,
+     "units_full": 569.1,
+     "units_post": 191.8,
+     "bar_post_bps_H180": 14.687,
+     "bar_post_bps_H30": 5.996,
+     "bar_full_bps_H180": 8.527,
+     "provenance": "EXTRAPOLATED /2 from the 30m measurement"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 825,
+     "deff": 5.8,
+     "units_full": 142.2,
+     "units_post": 47.9,
+     "bar_post_bps_H180": 29.378,
+     "bar_post_bps_H30": 11.994,
+     "bar_full_bps_H180": 17.056,
+     "provenance": "EXTRAPOLATED /8 from the 30m measurement"
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "label": "RSI(14) threshold crossings",
+   "overlap": "timeframe extension",
+   "prior_work": "F10 - registered, firing rate measured, retired unpowered",
+   "kind": "state",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    2.0
+   ],
+   "predicted_basis": "PRIOR. No literature bps figure for intraday futures RSI; bracketed by the programme's own observed range (typical 0.3-3.5 bps) with zero included because decay since publication is the stated prior (\u00a759).",
+   "threshold_units": "RSI is already unit-free; thresholds 30/70, 20/80, 25/75 are scale-invariant",
+   "bar_post_best_bps_H180": 4.606,
+   "bar_post_worst_bps_H180": 29.965,
+   "bar_post_best_bps_H30": 1.88,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "above at top of range",
+   "N_after": 820,
+   "SR_star_after": 0.1378,
+   "SR_star_after_as_effect_bps": {
+    "180": 8.915,
+    "30": 3.639
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 33564,
+     "deff": 5.8,
+     "units_full": 5786.9,
+     "units_post": 1950.5,
+     "bar_post_bps_H180": 4.606,
+     "bar_post_bps_H30": 1.88,
+     "bar_full_bps_H180": 2.674,
+     "provenance": "EXTRAPOLATED 1/tf from the 30m measurement"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 10550,
+     "deff": 5.8,
+     "units_full": 1819.0,
+     "units_post": 613.1,
+     "bar_post_bps_H180": 8.215,
+     "bar_post_bps_H30": 3.354,
+     "bar_full_bps_H180": 4.769,
+     "provenance": "EXTRAPOLATED 1/tf from the 30m measurement"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 5594,
+     "deff": 5.8,
+     "units_full": 964.5,
+     "units_post": 325.1,
+     "bar_post_bps_H180": 11.282,
+     "bar_post_bps_H30": 4.606,
+     "bar_full_bps_H180": 6.55,
+     "provenance": "MEASURED firing_rates.md F10 MNQ 30m"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 2966,
+     "deff": 5.8,
+     "units_full": 511.4,
+     "units_post": 172.4,
+     "bar_post_bps_H180": 15.494,
+     "bar_post_bps_H30": 6.325,
+     "bar_full_bps_H180": 8.995,
+     "provenance": "MEASURED firing_rates.md F10 MNQ 60m"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 793,
+     "deff": 5.8,
+     "units_full": 136.7,
+     "units_post": 46.1,
+     "bar_post_bps_H180": 29.965,
+     "bar_post_bps_H30": 12.233,
+     "bar_full_bps_H180": 17.396,
+     "provenance": "EXTRAPOLATED /2 from the MEASURED 120m count 1,585"
+    }
+   ]
+  },
+  {
+   "id": "S03",
+   "label": "VWAP touch after separation",
+   "overlap": "repeat",
+   "prior_work": "L01 - registered, firing rate measured, blocked at S4",
+   "kind": "level",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    1.5
+   ],
+   "predicted_basis": "PRIOR. L01 never ran. The nearest measured level-reaction magnitudes are L03's null, L04's +3.54 bps (did not replicate) and L12's +0.306 bps out of sample.",
+   "threshold_units": "d in ATR multiples - scale-invariant, but WHICH ATR is the open specification (CHECKPOINT: the d-ATR reference period, deliberately frozen)",
+   "bar_post_best_bps_H180": 33.681,
+   "bar_post_worst_bps_H180": 33.681,
+   "bar_post_best_bps_H30": 13.75,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "BELOW even at top of range",
+   "N_after": 850,
+   "SR_star_after": 0.1382,
+   "SR_star_after_as_effect_bps": {
+    "180": 8.943,
+    "30": 3.651
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 237,
+     "deff": 2.19,
+     "units_full": 108.2,
+     "units_post": 36.5,
+     "bar_post_bps_H180": 33.681,
+     "bar_post_bps_H30": 13.75,
+     "bar_full_bps_H180": 19.554,
+     "provenance": "MEASURED level_rates.md L01 MNQ best cell (anchor=CME d=0.5)"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 237,
+     "deff": 2.19,
+     "units_full": 108.2,
+     "units_post": 36.5,
+     "bar_post_bps_H180": 33.681,
+     "bar_post_bps_H30": 13.75,
+     "bar_full_bps_H180": 19.554,
+     "provenance": "MEASURED - the level set is identical; tf is detection granularity only"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 237,
+     "deff": 2.19,
+     "units_full": 108.2,
+     "units_post": 36.5,
+     "bar_post_bps_H180": 33.681,
+     "bar_post_bps_H30": 13.75,
+     "bar_full_bps_H180": 19.554,
+     "provenance": "MEASURED - as above"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 237,
+     "deff": 2.19,
+     "units_full": 108.2,
+     "units_post": 36.5,
+     "bar_post_bps_H180": 33.681,
+     "bar_post_bps_H30": 13.75,
+     "bar_full_bps_H180": 19.554,
+     "provenance": "MEASURED - as above"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 237,
+     "deff": 2.19,
+     "units_full": 108.2,
+     "units_post": 36.5,
+     "bar_post_bps_H180": 33.681,
+     "bar_post_bps_H30": 13.75,
+     "bar_full_bps_H180": 19.554,
+     "provenance": "MEASURED - as above"
+    }
+   ]
+  },
+  {
+   "id": "S04",
+   "label": "EMA(20/50/200) touch after separation",
+   "overlap": "timeframe extension",
+   "prior_work": "L08 - registered, firing rate measured at 5m and 15m, blocked at S4; F11 ma_crossover retired on premise",
+   "kind": "level",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    1.5
+   ],
+   "predicted_basis": "PRIOR. Same basis as S03. L08's own registry entry grades the mechanism weak: 'no institution executes against a 50 EMA'.",
+   "threshold_units": "d in ATR multiples; same open ATR-period specification as S03",
+   "bar_post_best_bps_H180": 16.823,
+   "bar_post_worst_bps_H180": 21.168,
+   "bar_post_best_bps_H30": 6.868,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "BELOW even at top of range",
+   "N_after": 880,
+   "SR_star_after": 0.1387,
+   "SR_star_after_as_effect_bps": {
+    "180": 8.971,
+    "30": 3.662
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 659,
+     "deff": 2.19,
+     "units_full": 300.9,
+     "units_post": 101.4,
+     "bar_post_bps_H180": 20.198,
+     "bar_post_bps_H30": 8.246,
+     "bar_full_bps_H180": 11.726,
+     "provenance": "MEASURED level_rates.md L08 MNQ ema200 5m d=0.5"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 705,
+     "deff": 2.19,
+     "units_full": 321.9,
+     "units_post": 108.5,
+     "bar_post_bps_H180": 19.528,
+     "bar_post_bps_H30": 7.972,
+     "bar_full_bps_H180": 11.337,
+     "provenance": "MEASURED level_rates.md L08 MNQ ema200 15m d=0.5"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 850,
+     "deff": 2.19,
+     "units_full": 388.1,
+     "units_post": 130.8,
+     "bar_post_bps_H180": 17.785,
+     "bar_post_bps_H30": 7.261,
+     "bar_full_bps_H180": 10.325,
+     "provenance": "EXTRAPOLATED - rises with tf as the EMA lags further"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 950,
+     "deff": 2.19,
+     "units_full": 433.8,
+     "units_post": 146.2,
+     "bar_post_bps_H180": 16.823,
+     "bar_post_bps_H30": 6.868,
+     "bar_full_bps_H180": 9.767,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 600,
+     "deff": 2.19,
+     "units_full": 274.0,
+     "units_post": 92.3,
+     "bar_post_bps_H180": 21.168,
+     "bar_post_bps_H30": 8.642,
+     "bar_full_bps_H180": 12.289,
+     "provenance": "EXTRAPOLATED - falls again; ~5.75 4h bars/session caps it"
+    }
+   ]
+  },
+  {
+   "id": "S05",
+   "label": "Volume profile POC / VAH / VAL",
+   "overlap": "new",
+   "prior_work": "none - absent from all six series",
+   "kind": "level",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    1.5
+   ],
+   "predicted_basis": "PRIOR. Same basis as S03. No published bps figure; the mechanism is the same self-fulfilling story L08 carries.",
+   "threshold_units": "value area at 70% of volume and bin width in bps, not ticks",
+   "bar_post_best_bps_H180": 6.902,
+   "bar_post_worst_bps_H180": 6.902,
+   "bar_post_best_bps_H30": 2.818,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "BELOW even at top of range",
+   "N_after": 910,
+   "SR_star_after": 0.1391,
+   "SR_star_after_as_effect_bps": {
+    "180": 8.998,
+    "30": 3.673
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 5643,
+     "deff": 2.19,
+     "units_full": 2576.7,
+     "units_post": 868.5,
+     "bar_post_bps_H180": 6.902,
+     "bar_post_bps_H30": 2.818,
+     "bar_full_bps_H180": 4.007,
+     "provenance": "EXTRAPOLATED x1.5 from L03's MEASURED 3,762 (3 levels/session vs 2)"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 5643,
+     "deff": 2.19,
+     "units_full": 2576.7,
+     "units_post": 868.5,
+     "bar_post_bps_H180": 6.902,
+     "bar_post_bps_H30": 2.818,
+     "bar_full_bps_H180": 4.007,
+     "provenance": "EXTRAPOLATED - level set identical across tf"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 5643,
+     "deff": 2.19,
+     "units_full": 2576.7,
+     "units_post": 868.5,
+     "bar_post_bps_H180": 6.902,
+     "bar_post_bps_H30": 2.818,
+     "bar_full_bps_H180": 4.007,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 5643,
+     "deff": 2.19,
+     "units_full": 2576.7,
+     "units_post": 868.5,
+     "bar_post_bps_H180": 6.902,
+     "bar_post_bps_H30": 2.818,
+     "bar_full_bps_H180": 4.007,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 5643,
+     "deff": 2.19,
+     "units_full": 2576.7,
+     "units_post": 868.5,
+     "bar_post_bps_H180": 6.902,
+     "bar_post_bps_H30": 2.818,
+     "bar_full_bps_H180": 4.007,
+     "provenance": "EXTRAPOLATED - as above"
+    }
+   ]
+  },
+  {
+   "id": "S06",
+   "label": "Bollinger band breakout",
+   "overlap": "repeat",
+   "prior_work": "L11 - registered then WITHDRAWN at S5; never actually tested (confirmed_break defect)",
+   "kind": "state",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    2.0
+   ],
+   "predicted_basis": "PRIOR. L11's only numbers are recorded under `degenerate_measurements` and are explicitly not evidence.",
+   "threshold_units": "k in standard deviations - scale-invariant by construction",
+   "bar_post_best_bps_H180": 3.541,
+   "bar_post_worst_bps_H180": 24.513,
+   "bar_post_best_bps_H30": 1.445,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "above at top of range",
+   "N_after": 940,
+   "SR_star_after": 0.1395,
+   "SR_star_after_as_effect_bps": {
+    "180": 9.024,
+    "30": 3.684
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 56800,
+     "deff": 5.8,
+     "units_full": 9793.1,
+     "units_post": 3300.8,
+     "bar_post_bps_H180": 3.541,
+     "bar_post_bps_H30": 1.445,
+     "bar_full_bps_H180": 2.056,
+     "provenance": "EXTRAPOLATED ~5% of bars, from bars/session x sessions"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 18950,
+     "deff": 5.8,
+     "units_full": 3267.2,
+     "units_post": 1101.2,
+     "bar_post_bps_H180": 6.13,
+     "bar_post_bps_H30": 2.502,
+     "bar_full_bps_H180": 3.559,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 9475,
+     "deff": 5.8,
+     "units_full": 1633.6,
+     "units_post": 550.6,
+     "bar_post_bps_H180": 8.669,
+     "bar_post_bps_H30": 3.539,
+     "bar_full_bps_H180": 5.033,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 4740,
+     "deff": 5.8,
+     "units_full": 817.2,
+     "units_post": 275.5,
+     "bar_post_bps_H180": 12.256,
+     "bar_post_bps_H30": 5.004,
+     "bar_full_bps_H180": 7.116,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 1185,
+     "deff": 5.8,
+     "units_full": 204.3,
+     "units_post": 68.9,
+     "bar_post_bps_H180": 24.513,
+     "bar_post_bps_H30": 10.007,
+     "bar_full_bps_H180": 14.231,
+     "provenance": "EXTRAPOLATED - as above"
+    }
+   ]
+  },
+  {
+   "id": "S07",
+   "label": "MACD(12,26,9) signal cross",
+   "overlap": "repeat",
+   "prior_work": "F11 ma_crossover_control - RETIRED ON PREMISE, never run",
+   "kind": "state",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    2.0
+   ],
+   "predicted_basis": "PRIOR. F11's retirement is on premise, not power, so no magnitude was ever stated.",
+   "threshold_units": "MACD is a price difference; its threshold is a sign change, which is unit-free",
+   "bar_post_best_bps_H180": 3.445,
+   "bar_post_worst_bps_H180": 23.867,
+   "bar_post_best_bps_H30": 1.406,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "above at top of range",
+   "N_after": 970,
+   "SR_star_after": 0.1399,
+   "SR_star_after_as_effect_bps": {
+    "180": 9.049,
+    "30": 3.694
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 60000,
+     "deff": 5.8,
+     "units_full": 10344.8,
+     "units_post": 3486.7,
+     "bar_post_bps_H180": 3.445,
+     "bar_post_bps_H30": 1.406,
+     "bar_full_bps_H180": 2.0,
+     "provenance": "EXTRAPOLATED from F11's MEASURED 164,775 in-state 30m bars"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 20000,
+     "deff": 5.8,
+     "units_full": 3448.3,
+     "units_post": 1162.2,
+     "bar_post_bps_H180": 5.967,
+     "bar_post_bps_H30": 2.436,
+     "bar_full_bps_H180": 3.464,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 10000,
+     "deff": 5.8,
+     "units_full": 1724.1,
+     "units_post": 581.1,
+     "bar_post_bps_H180": 8.438,
+     "bar_post_bps_H30": 3.445,
+     "bar_full_bps_H180": 4.899,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 5000,
+     "deff": 5.8,
+     "units_full": 862.1,
+     "units_post": 290.6,
+     "bar_post_bps_H180": 11.933,
+     "bar_post_bps_H30": 4.872,
+     "bar_full_bps_H180": 6.928,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 1250,
+     "deff": 5.8,
+     "units_full": 215.5,
+     "units_post": 72.6,
+     "bar_post_bps_H180": 23.867,
+     "bar_post_bps_H30": 9.744,
+     "bar_full_bps_H180": 13.856,
+     "provenance": "EXTRAPOLATED - as above"
+    }
+   ]
+  },
+  {
+   "id": "S08",
+   "label": "Stochastic %K/%D threshold crossings",
+   "overlap": "new",
+   "prior_work": "none directly; same family as F10 (RSI)",
+   "kind": "state",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    2.0
+   ],
+   "predicted_basis": "PRIOR. Same basis as S02, to which it is expected to be near-collinear.",
+   "threshold_units": "%K is bounded 0-100; thresholds are scale-invariant",
+   "bar_post_best_bps_H180": 2.913,
+   "bar_post_worst_bps_H180": 18.949,
+   "bar_post_best_bps_H30": 1.189,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "above at top of range",
+   "N_after": 1000,
+   "SR_star_after": 0.1402,
+   "SR_star_after_as_effect_bps": {
+    "180": 9.073,
+    "30": 3.704
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 83910,
+     "deff": 5.8,
+     "units_full": 14467.2,
+     "units_post": 4876.2,
+     "bar_post_bps_H180": 2.913,
+     "bar_post_bps_H30": 1.189,
+     "bar_full_bps_H180": 1.691,
+     "provenance": "EXTRAPOLATED 2.5x F10's MEASURED counts (looser bounds fire more)"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 26375,
+     "deff": 5.8,
+     "units_full": 4547.4,
+     "units_post": 1532.7,
+     "bar_post_bps_H180": 5.196,
+     "bar_post_bps_H30": 2.121,
+     "bar_full_bps_H180": 3.016,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 13985,
+     "deff": 5.8,
+     "units_full": 2411.2,
+     "units_post": 812.7,
+     "bar_post_bps_H180": 7.135,
+     "bar_post_bps_H30": 2.913,
+     "bar_full_bps_H180": 4.143,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 7415,
+     "deff": 5.8,
+     "units_full": 1278.4,
+     "units_post": 430.9,
+     "bar_post_bps_H180": 9.799,
+     "bar_post_bps_H30": 4.001,
+     "bar_full_bps_H180": 5.689,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 1983,
+     "deff": 5.8,
+     "units_full": 341.9,
+     "units_post": 115.2,
+     "bar_post_bps_H180": 18.949,
+     "bar_post_bps_H30": 7.736,
+     "bar_full_bps_H180": 11.001,
+     "provenance": "EXTRAPOLATED - as above"
+    }
+   ]
+  },
+  {
+   "id": "S09",
+   "label": "Classic floor pivots (PP, R1/S1, R2/S2)",
+   "overlap": "new",
+   "prior_work": "none as specified; a deterministic function of L03's prior-day H/L/C",
+   "kind": "level",
+   "cells_k": 30,
+   "horizon_min": 180.0,
+   "predicted_bps": [
+    0.0,
+    1.5
+   ],
+   "predicted_basis": "PRIOR. Same basis as S03; L03 tested the inputs and returned 0 of 18.",
+   "threshold_units": "pivot distances are price levels by construction - the registration must state the price range and pre-register the era split (S2 scale rule, escape hatch)",
+   "bar_post_best_bps_H180": 7.333,
+   "bar_post_worst_bps_H180": 7.333,
+   "bar_post_best_bps_H30": 2.994,
+   "vs_cost_floor": "above",
+   "vs_own_bar_H180": "BELOW even at top of range",
+   "vs_own_bar_H30": "BELOW even at top of range",
+   "N_after": 1030,
+   "SR_star_after": 0.1406,
+   "SR_star_after_as_effect_bps": {
+    "180": 9.096,
+    "30": 3.714
+   },
+   "top_of_range_clears_SR_star": {
+    "180": false,
+    "30": false
+   },
+   "cells": [
+    {
+     "tf": "5m",
+     "n_raw": 5000,
+     "deff": 2.19,
+     "units_full": 2283.1,
+     "units_post": 769.5,
+     "bar_post_bps_H180": 7.333,
+     "bar_post_bps_H30": 2.994,
+     "bar_full_bps_H180": 4.257,
+     "provenance": "EXTRAPOLATED from L03's MEASURED 3,762 prior-day touches"
+    },
+    {
+     "tf": "15m",
+     "n_raw": 5000,
+     "deff": 2.19,
+     "units_full": 2283.1,
+     "units_post": 769.5,
+     "bar_post_bps_H180": 7.333,
+     "bar_post_bps_H30": 2.994,
+     "bar_full_bps_H180": 4.257,
+     "provenance": "EXTRAPOLATED - level set identical across tf"
+    },
+    {
+     "tf": "30m",
+     "n_raw": 5000,
+     "deff": 2.19,
+     "units_full": 2283.1,
+     "units_post": 769.5,
+     "bar_post_bps_H180": 7.333,
+     "bar_post_bps_H30": 2.994,
+     "bar_full_bps_H180": 4.257,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "1h",
+     "n_raw": 5000,
+     "deff": 2.19,
+     "units_full": 2283.1,
+     "units_post": 769.5,
+     "bar_post_bps_H180": 7.333,
+     "bar_post_bps_H30": 2.994,
+     "bar_full_bps_H180": 4.257,
+     "provenance": "EXTRAPOLATED - as above"
+    },
+    {
+     "tf": "4h",
+     "n_raw": 5000,
+     "deff": 2.19,
+     "units_full": 2283.1,
+     "units_post": 769.5,
+     "bar_post_bps_H180": 7.333,
+     "bar_post_bps_H30": 2.994,
+     "bar_full_bps_H180": 4.257,
+     "provenance": "EXTRAPOLATED - as above"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "N_start": 760,
+  "N_end": 1030,
+  "trials_added": 270,
+  "SR_star_start": 0.1368,
+  "SR_star_end": 0.1406
+ }
+}
