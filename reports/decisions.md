@@ -5112,6 +5112,77 @@ is not on disk. Per §61 that is a reason to stop, not a ninth series.
 6. **The discreteness finding is not promoted into the terminal report.** Finding 6 of
    `programme_conclusion.md` is the natural home; adding it is left to the user.
 
+### Addendum, 2026-10-02, after `5b4e51d` — error 1 was model-dependent
+
+*Appended after commit rather than edited into the list above, so the section reads as committed.*
+
+**The figures in error 1 were written by a session running on Sonnet (`claude-sonnet-5`), selected by
+mistake for this work.** The same work was then redone on Opus, which measured them, found them
+contradicted, and discarded them before any commit. **This was not a rule failure.** The standing rule —
+measure before asserting, and nothing enters the record unverified — held: the numbers never reached a
+commit. What failed was the model, which wrote down results it had not computed. A rule that catches
+that before commit is a backstop, not a reason to keep generating the error.
+
+**Practical implication, recorded as a working rule: design and measurement tasks in this programme do
+not route to Sonnet, even when they look routine.** The figures in question were exactly the kind that
+look routine — a correlation and an era table, sitting in a markup block — which is what made them
+dangerous.
+
+**Scope, checked rather than assumed.** §64 and the terminal report's findings 9 and 10 were also
+written in that Sonnet session. Their figures restate §63's computed output, and were re-verified
+against `reports/s_series_s2.json` on 2026-10-02: the four 5m-cell bars (1.88, 1.45, 1.41, 1.19 bps),
+SR\* in bps at the N each would face (3.64–3.70), and N 760 → 1,030 / SR\* 0.1368 → 0.1406 all
+match. The incident does not extend to them.
+
+## 66. The T-series is closed (S1, S2)
+
+**CLOSED. Nothing registered, no trial spent; N 760, SR\* 0.1368, both chains verify.** Seven
+measurement records in this repository (m00116–m00122) and one in `r-series-research` (m00003), none
+counted in N. §65 is the measurement; this section is the close.
+
+**T01 closes the methodological route.** A volume clock was the one T-series idea aimed at a binding
+constraint rather than at a new effect, and it does not work here for a reason that is structural, not
+a matter of tuning: **effective n falls under it rather than rising** (0.48× MNQ, 0.41× MGC), because
+there are no dead bars to remove — the continuous series holds traded minutes only, and a volume clock
+can merge right-skewed traded minutes but never split one. So the floor that blocked L01, L08 and F01
+is a power floor that resampling does not move. That last step rests on the floor's construction (an
+injection-recovery power sweep on a mean) and on `calibration.md`'s measurement that coverage does not
+separate at γ₄ 115 against 226 — not on recalibrating the floor under a volume clock, which was not
+done.
+
+**T05 validates the programme's sign-symmetric design rather than exposing it.** Every hypothesis in
+seven series was built the same way long and short; nobody had checked that choice. Split by the sign
+of the conditioning move, L07 (all 108 cells), P03 and R01 each carry their effect on both sides, at
+power §60 accepts. No closed entry was averaging a real effect with a null. **It also closes the L07
+direction-mix item open since the L-series** (`level_conclusion.md`): a sign that holds separately for
+bullish and bearish gaps cannot come from the mix between them.
+
+**T02 and T04 are not collinear, and each fails independently.** Their conditioners correlate at
++0.05 to +0.07 and their firings overlap less than chance, so registering both would not have been one
+bet counted twice. But T02's condition holds in 57–94% of windows — it selects almost nothing — and its
+conditioner is not scale-free; T04's holds in under 0.2%. **T03 is the S-series finding repeating:** it
+clears its own BH bar (0.85 bps) while sitting below the prevailing SR\* (2.96 bps). T06 restates F05;
+T07 has no primary.
+
+**The statistical-character axis is closed alongside level, state and time.** It was the fourth and last
+structural dimension reachable from the data on disk — where price is, when, in what state the market
+is, and how price arrived. The basis is the one the Q- and S-series closed on: arithmetic and measured
+properties of each entry's own condition at S1–S2, not nulls at adequate power. **What remains requires
+a data purchase or an account structure permitting constructions this one does not** (terminal report
+§10, items 1 and 2); the T-series makes the data item concrete, since a true volume clock and a
+jump/diffusion split free of the tick grid both need trade-level data.
+
+**The discreteness finding is promoted** — as finding 11 of `programme_conclusion.md`, a new finding
+and not an amendment to finding 6. Finding 6 covers a ratio whose denominator trends, as in P03. J is a
+ratio built from one return series in which both terms scale together; it still drifts because the tick
+grid underneath does not, and T02's jump fraction halved across eras for that reason. A reader applying
+finding 6 to J would have concluded it was safe, so finding 6 does not cover it. This supersedes §65's
+decision 6.
+
+**Verification.** 19 of 20 test files pass, run one file at a time per CHECKPOINT. **`tests/test_roll.py`
+was OOM-killed after 12 of its 18 tests and is unverified this session.** It covers `data/roll` code that
+this change does not touch, and it is not claimed passing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

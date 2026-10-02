@@ -487,7 +487,7 @@ Stated against this file's own stopping rule, which is what it asks a candidate 
 (S02↔S08, S04↔S06, S04↔S07, S03↔S05, S09↔L03 — the Q01/Q02 precedent suggests four entries may be
 two), and firing rates for S05–S09, none of which has a firing rate of its own at any timeframe.
 
-**T-SERIES, 2026-10-02 — T01 AND T05 MEASURED, T02–T07 CLOSED AT S2, NOT REGISTERED (§65).** An
+**T-SERIES, 2026-10-02 — CLOSED (§65, §66). T01 AND T05 MEASURED, T02–T07 CLOSED AT S2, NOT REGISTERED.** An
 eighth series on the statistical character of the price path. `T_SERIES_CANDIDATES.md` (draft with
 [§65] corrections). **No trial spent; N 760, SR\* 0.1368; `hypotheses.yaml` untouched.** Counted in
 the ledger at 7 drafted / 0 registered.
@@ -502,8 +502,14 @@ the ledger at 7 drafted / 0 registered.
 - **T02–T07 fail the S2 filter.** T02's condition holds in 57–94% of windows and J is not
   scale-free (price discreteness); T04 barely fires; T03 clears its own BH bar and sits below SR\*;
   T06 is F05 restated; T07 has no primary.
-- **Open, for the user:** whether to add the discreteness finding (a ratio of one series' moments
-  is not invariant to a fixed tick grid) to finding 6 of the terminal report.
+- **Decided (§66):** the discreteness finding is promoted as **finding 11** of the terminal report — a
+  new finding, not an amendment to finding 6, because finding 6 would have called J safe.
+- **The statistical-character axis is closed** alongside level, state and time: the fourth and last
+  structural dimension reachable from data on disk. What remains needs a data purchase or a
+  different account structure.
+- **Working rule (§65 addendum):** design and measurement tasks in this programme do not route to
+  Sonnet, even when they look routine — the T-series' fabricated figures came from a Sonnet session.
+- `tests/test_roll.py` OOM-killed after 12 of 18 tests on 2026-10-02 — unverified, untouched code.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

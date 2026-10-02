@@ -305,6 +305,21 @@ candidate survives a filter by sitting outside its reach, not by passing through
 unpredictable candidates is the harder number to produce, not the easier one, because every entry
 had to be evaluated rather than waved past.
 
+**11. A ratio of one series' own moments still drifts when the price grid under it does not scale
+(§65, §66).** Finding 6 covers a ratio whose denominator trends: P03 divided a price move by contract
+volume, which steps 3–5× at the NQ→MNQ splice and trends on its own. T02's jump fraction is the other
+case. J = (RV − BV) / RV is built from **one** return series over **one** window, so both terms scale
+together and a change in price level cancels exactly — and J still **halved across eras** (index
+median 0.093 → 0.049, MGC 0.112 → 0.046). The tick grid is fixed in price units while price rose: as
+the index tick shrank from 0.56 to 0.12 bps, the share of 1-minute returns that are exactly zero fell
+from 18% to 3%, and each zero removes two bipower terms against one realised-variance term. So a fixed
+J threshold selected a different share of windows in each era. **A reader applying finding 6 to J would
+have concluded it was safe** — it has no trending denominator — so finding 6 does not cover this; it
+was found only because J was measured by era rather than declared scale-free from its algebra.
+**Rule:** any statistic computed from prices on a tick grid is checked by era against the share of
+zero returns, however its algebra scales; thresholds on it are ranks within its own trailing
+distribution.
+
 ---
 
 ## 6. Errors found inside corrections
@@ -491,6 +506,29 @@ scale error that retired N02; and five pairs of entries have unmeasured collinea
 which could turn out to be a single bet counted twice, as Q01 and Q02 were. None of the three
 changes the arithmetic above — they are gaps in the design that a future registration would have to
 close, not grounds on which the current close could be reversed.
+
+**An eighth series, 2026-10-02 — the statistical character of the price path (§65, §66, CLOSED).**
+How price arrived, rather than where, when or in what state. Two zero-trial measurements and an S2
+filter; nothing registered, no trial spent.
+
+- **A volume clock closes the methodological route.** It was the one idea that attacked a binding
+  constraint rather than looking for a new effect. Effective n **falls** under it (0.48× on MNQ,
+  0.41× on MGC): there are no dead bars to remove, only right-skewed traded minutes to merge. So the
+  floor that blocked L01, L08 and F01 is a power floor that resampling does not move.
+- **Splitting by the sign of the conditioning move validates the sign-symmetric design** every series
+  used rather than exposing it: L07 (all 108 cells), P03 and R01 each carry their effect on both
+  sides, at power §60 accepts. It also closes the L07 direction-mix question open since the L-series.
+- **T02 and T04 are not collinear but each fails on its own** — T02's condition holds in 57–94% of
+  windows, T04's in under 0.2% — and **T03 repeats finding 9**, clearing its own BH bar while sitting
+  below SR\*. T06 restates F05; T07 has no primary to condition.
+
+**With it the statistical-character axis is closed alongside level, state and time — the fourth and
+last structural dimension reachable from the data on disk** (where price is, when, in what state the
+market is, how price arrived). Like the Q- and S-series, it closed at S1–S2 on arithmetic and on
+measured properties of its own conditions, not on nulls at adequate power. **What remains requires a
+data purchase or an account structure permitting constructions this one does not** — §10's items 1
+and 2. The data item is concrete here: a true volume clock, and a jump/diffusion split free of the tick
+grid, both need trade-level data.
 
 ---
 

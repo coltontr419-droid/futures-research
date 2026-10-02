@@ -2,6 +2,9 @@
 
 **Status: S1 draft. Nothing registered. No trial spent.**
 
+> **[§66] CLOSED 2026-10-02.** Nothing registered, no trial spent; the account of the close is
+> `decisions.md` §66, and the discreteness finding is finding 11 of `programme_conclusion.md`.
+>
 > **[§65] Reviewed 2026-10-02. Still nothing registered, no trial spent; N = 760, SR\* = 0.1368.**
 > The draft below is kept as written. Corrections are inserted as **[§65]** blocks, the P- and
 > Q-series convention (§54, §59), so proposal and correction stay distinguishable. Every figure
