@@ -4960,6 +4960,158 @@ recommendation in §63 — collinearity measurements and the four unmeasured fir
 only items that cost no trial, and S06 remains the only entry both genuinely new and plausibly above
 its own bar, still short of the prevailing SR\* by about 2×.
 
+## 65. The T-series: T01 and T05 measured, T02–T07 closed at S2; nothing registered (S1–S6)
+
+**NOTHING REGISTERED. NO TRIAL SPENT. N stays 760, SR\* 0.1368, both chains verify. S5, S6 and S7
+not run.** `hypotheses.yaml` untouched. Measurements logged to `measurements.jsonl` here (T01 ×2,
+T02/T04 ×2, T05 ×3) and in `r-series-research` (R01's T05 split ×1), none counted in N. The draft
+is saved as `T_SERIES_CANDIDATES.md` with corrections inserted as **[§65]** blocks. Reports:
+`t01_volume_clock.md`, `t05_sign_asymmetry.md`, `t02_t04_scale_collinearity.md`, `t_series_s2.md`.
+
+An eighth series drafted against the same data: the statistical character of the price path —
+volume clocks, jump/diffusion, realised skew, path efficiency, sign asymmetry, elapsed time since a
+large move, variance ratio. It is counted in the ledger as the eighth, at 7 drafted / 0 registered.
+
+### T01 — volume clock. Reopens nothing; two premises corrected, two cells withdrawn
+
+- **There are no dead bars.** Zero `volume == 0` rows in either product; an untraded minute is
+  absent, not forward-filled. The mechanism is unequal weighting of *traded* minutes (MGC: 1 to
+  10,400 contracts a minute).
+- **Effective n falls, it does not rise.** At the mean-minute threshold, 0.48× (MNQ) and 0.41×
+  (MGC) as many bars as traded minutes. The draft's trap — "if n rises, check it is not
+  manufactured" — is never reached.
+- **Kurtosis at matched n** (volume vs a trade-minute clock): MNQ 86 vs 112, 39 vs 73, 20 vs 51.
+  MGC's only valid cell goes the other way, 67 vs 30 — single-row absorption, measured: built from
+  minutes, a volume clock can merge quiet minutes but never split a busy one.
+- **The pre-stated validity check failed in two cells, and they are withdrawn.** Before any
+  result, the module said realised variance should be close across partitions at matched n and
+  that a large divergence would mean the construction is wrong. Raw ratios came back 0.69–0.96.
+  A first draft of the write-up then *explained* that gap (bid-ask netting) instead of applying the
+  criterion — the post-hoc move the trial log exists to prevent. It was replaced by a test: restore
+  each session's dropped first leg, which differs by partition. Result 0.854–0.963 — a partial
+  explanation (most of the gap on coarse bars, almost none on fine). **MGC k=1 and k=5 stay outside
+  ±10%, so their kurtosis figures (164 vs 433, 65 vs 329) — the most striking numbers in T01 — are
+  withdrawn, not interpreted.**
+- **The three improvements the draft promised do not follow.** α: `calibration.md` §A already found
+  coverage indistinguishable at γ₄ = 115 and 226. n_min: falls, but is tens of events against
+  floors in thousands. Detection floor: a power floor on a mean, σ- and n-driven — not recalibrated
+  here, argued and labelled so.
+- **F01's "4,125 against 19,722" is the superseded ceiling.** §22 measured 3,523 (MNQ) / 3,449
+  (MGC) at best, 66 / 115 at worst. The brief repeated the pre-§22 number; the measurement uses the
+  measured one. **No S4-blocked entry crosses its floor; none qualifies for re-registration.**
+
+### T05 — sign asymmetry. Every closed conclusion survives the split, at reportable power
+
+Each split is of numbers first **reproduced exactly** from the record — all 108 L07 cells
+(`l07_cells.json`, events exact, means to 1e-9), P03 (`p03_stage1.json`), all nine R01 cells
+(`r01_checks.json`) — the §38 decision-2 practice. Gaps are tested with **sessions as the unit**;
+R01 on non-overlapping entries, the independence its registered t already assumed.
+
+| | sides | gap | verdict |
+|---|---|---|---|
+| L07 MNQ | both negative in 54/54; weaker side ≥ 2.31× cost | median +0.23 bps; BH 0/54 | survives |
+| L07 MGC | both negative in 54/54; weaker side ≥ 1.76× cost | median +0.13 bps; BH 5/54 | survives |
+| P03 | +0.133 / +0.025; neither clears +0.625; real legs net −0.32 / −0.24 | p = 0.81 | survives |
+| R01 | +0.492 long / +0.411 short (best cell) | p 0.41–0.95, sign flips | survives |
+
+**No closed entry was averaging a real effect with a null.** L07 carries one small, consistent lean —
+down-created gaps (traded long) are the more negative side on both instruments, 5–9% of the effect,
+surviving BH only on MGC in one overlapping family. That also **closes the open item in
+`level_conclusion.md`**: a bullish/bearish mix difference cannot manufacture a sign that holds on
+each side separately. R01's long side alone nominally clears the 0.48 single-leg floor by 0.012 bps;
+selecting it would be choosing a subset by its result, the split is not significant, and R01 is a
+two-leg trade against 0.96.
+
+**§60 applied to T05's own nulls.** "No asymmetry" is a null, so the pipeline had to recover an
+injected asymmetry *of the size sought* — one side carrying the whole effect, a gap of 2 × |pooled| —
+*at each run's own noise and n*, by adding it to the real paired differences. Recovered exactly and
+detected everywhere: L07's least-powered cell on both instruments (power 1.00), R01 (≥ 0.995 in
+eight cells, **0.68** in W=120 k=2.5), **P03 at 0.82**. P03's null is reportable, narrowly.
+
+### T02/T04 — not one hypothesis; each fails on its own; J is not scale-free
+
+- **Collinearity (the brief's gate):** Spearman ρ(J, ER) **+0.047 to +0.073** on non-overlapping
+  windows, both instruments, every W — the predicted direction, a tenth of the 0.6 threshold.
+  Firing overlap, the test that decided Q01/Q02, agrees: below independence, Jaccard ≤ 0.0015.
+  **Registering both would not be one bet counted twice.**
+- **But T02's condition selects almost everything:** J < j_low in 57–94% of windows. **T04's
+  almost nothing:** ER > 0.5 in 0.08–0.19% of windows, ER > 0.8 in none — a third of its grid empty.
+- **J is not scale-invariant — the P03 failure class through a new channel.** A ratio of moments of
+  one series is invariant to multiplicative scale, not to price *discreteness*: as price rises on a
+  fixed tick, fewer 1-minute returns are exactly zero, and every zero removes two bipower terms
+  against one RV term. J's median halves across eras (index 0.093 → 0.049, zero returns 18% → 3%;
+  MGC 0.112 → 0.046), so a fixed j_low selects a different share each era. **This is a transferable
+  finding and a candidate addition to finding 6 of the terminal report**; it is recorded here and not
+  promoted, which is the user's call. ER and RSkew are stable.
+
+### The S2 filter — every predictable entry fails, and SR\* binds twice
+
+Method unchanged from §54/§59/§63 (k = 54, post-2021 decisive, DEFF 5.8), plus one sensitivity §63
+lacked: SR\* converted to bps with the **outright** per-trade σ (lenient) as well as the paired-
+difference anchor. Verdicts are stated under the lenient one.
+
+| | prior | own BH bar | SR\* in bps | binds | |
+|---|---|---|---|---|---|
+| T02 | 0–0.5 | 0.85 | 2.95 | SR\* | below both |
+| T03 | 0–1.0 | 0.85 | 2.96 | SR\* | **clears its bar, below SR\*** |
+| T04 | 0–0.5 | 59–218 | 2.98 | BH bar | below both |
+| T06 | — | | | | cannot predict; F05 restated |
+| T07 | — | | | | cannot predict; no primary |
+
+T02's draft range (2–5) cites R01's +0.452 as its anchor, which supports ~0.5; its measured
+analogues (P03 +0.079, L12 +0.306, R01 +0.452) give 0–0.5. **T03 is the second instance of
+finding 9**: an entry clearing its own correction while sitting below the programme's bar. T06's
+draft distinguishes it from "L-series volatility compression"; that was F05 — tested at adequate
+power and retired — and T06 arms the same trade.
+
+### What the draft's closing paragraph may and may not say
+
+The draft asked, if T02–T06 came back null at adequate power, to state that the statistical-character
+axis is closed and is the last. **They did not come back null; they were not run** — closed at
+S1–S2 by arithmetic and by measured properties of their own conditions. That is a stronger reason
+not to run them and a weaker claim about the axis: **not shown empty by evidence, shown not worth
+searching with these instruments on this data at this cost.** And the data limit is specific — a
+true volume clock and a jump/diffusion split free of the tick grid both need trade-level data that
+is not on disk. Per §61 that is a reason to stop, not a ninth series.
+
+### Errors made and caught in this work, recorded because the record is the point
+
+1. **Figures written before they were measured.** A first draft of the [§65] markup stated
+   ρ(J, ER) ≈ −0.74 / −0.79, "exceeds 0.6, one hypothesis", and "J moves at most a few hundredths
+   across eras" — none of it measured; the measurement says +0.05 to +0.07 and a ~2× drift. Caught
+   and discarded before any commit. **The worst class of error this programme can make**, worse than
+   any §6 entry: not a constant computed for the wrong object, but no computation at all.
+2. **An event-level permutation test for T05's gap** — the §45 unit error recurring a fourth time
+   after its correction was written. Replaced by a session bootstrap; a test now pins that it is
+   wider than the event-level version under a shared session shock.
+3. **A NaN-poisoned rolling sum** in the T02/T04 module: one boundary NaN made every later window
+   NaN. The S2 filter had already consumed those NaN firing rates once; both were rerun. Pinned by
+   test.
+4. **`np.setdiff1d` inside a 10,000-iteration loop** — a multi-minute hang misread at first as data
+   size.
+5. **Memory, four times.** `definitions.load` (~626 MB) now OOMs alone on this machine with the
+   editor open; T05 builds the same grid in year chunks (470 MB) and the FVG zones in row chunks,
+   both pinned equal to the shared code by test and, at run time, by every one of 108 cells
+   reproducing to 1e-9. R01's split OOM'd calling the evaluator eighteen times and was rewritten on
+   the registered non-overlapping statistic. T02/T04 was rewritten per era. The first T01 loop was
+   split one (product, k) per process.
+6. **The T01 realised-variance criterion explained instead of applied** — above.
+7. **A wrong figure given in conversation, not committed:** MGC's tick was described as ~8 bps in
+   2010; it was 0.78 bps. The mechanism did not depend on it.
+
+### Decisions taken rather than resolved silently
+
+1. **Nothing added to `hypotheses.yaml`; S5–S7 not run.**
+2. **Withdrawn cells stay in the tables, marked**, not dropped — a cell that vanishes is
+   indistinguishable from one never computed.
+3. **R01's p-value uses the normal tail**, not Student's t: `r-series-research` does not declare
+   scipy, and at Welch df in the thousands the two agree beyond the precision reported.
+4. **ρ(J, ER) on non-overlapping windows.** The first run used every rolling window (+0.05 to
+   +0.08); windows sharing W−1 of W returns carry almost no independent information.
+5. **T04's `|net| > k × ATR` clause omitted** — the draft fixes neither k nor which ATR.
+6. **The discreteness finding is not promoted into the terminal report.** Finding 6 of
+   `programme_conclusion.md` is the natural home; adding it is left to the user.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

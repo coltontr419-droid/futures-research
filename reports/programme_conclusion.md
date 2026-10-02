@@ -1,7 +1,7 @@
 # The futures research programme — terminal report
 
-**Six series registered, a seventh drafted and closed at S2. 75 candidates drafted, 35 registered,
-770 trials across two hash-chained logs. Nothing promoted.**
+**Six series registered; a seventh and an eighth drafted and closed at S2. 82 candidates drafted,
+35 registered, 770 trials across two hash-chained logs. Nothing promoted.**
 
 **No edge accessible at this cost structure and account size was found in intraday, calendar or
 non-price futures signals, across six independently designed series.**
@@ -514,7 +514,8 @@ stay in the registry, and their trials stay in N.
 | P | 13 | 1 | 1 | 0 |
 | Q | 12 | 0 | 0 | 0 |
 | **S** | **9** | **0** | **0** | **0** |
-| **total** | **75** | **35** | **770** | **0** |
+| **T** | **7** | **0** | **0** | **0** |
+| **total** | **82** | **35** | **770** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
@@ -526,3 +527,9 @@ still a series the search looked at, which is exactly how Q is counted. **N, SR\
 are unchanged.** Five of its nine entries are already in `hypotheses.yaml` under another letter (L07,
 F10, L01, L08/F11, L11, F11), so §10's argument above is not merely unrefuted by it — the S-series is
 the clearest instance of it on record.
+
+**The T row was added 2026-10-02** — an eighth series, the statistical character of the price path,
+**two measurements run and the rest closed at S2, nothing registered**; `T_SERIES_CANDIDATES.md` and
+`decisions.md` §65. **N, SR\* and the chains are unchanged.** Its two zero-trial measurements changed
+no closed conclusion: a volume clock does not move the binding floor, and L07, P03 and R01 each carry
+their effect on both sides of a sign split.

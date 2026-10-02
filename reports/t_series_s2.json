@@ -1,0 +1,197 @@
+{
+ "N_at_pickup": 760,
+ "SR_star_at_pickup": 0.13683414397443835,
+ "trial_sharpe_variance": 0.0018559255842540115,
+ "k_cells": 54,
+ "z_bh": 3.3121176662593377,
+ "deff": 5.8,
+ "post_2021_sessions": 1390,
+ "entries": [
+  {
+   "id": "T02",
+   "label": "jump vs diffusion, fade diffusive moves",
+   "prior": [
+    0.0,
+    0.5
+   ],
+   "prior_basis": "MEASURED analogues of the same counterparty claim (liquidity consumption reverts): P03 real-minus-control +0.079 bps (S58), L12 +0.306, R01 +0.452 - the largest effect the programme has measured. The draft's 2-5 bps cites R01's +0.452 as its anchor, which supports ~0.5, not 2-5; the draft's range is reported beside it, not used.",
+   "draft_range": [
+    2.0,
+    5.0
+   ],
+   "firings_per_rth_session": {
+    "INDEX": 323.55982780233364,
+    "MGC": 317.7367268251181
+   },
+   "N_after": 814,
+   "SR_star_after": 0.13769086294569938,
+   "by_horizon": {
+    "30_rth": {
+     "units": 3075.5747126436786,
+     "bar": 1.5775069157826538
+    },
+    "30_full": {
+     "units": 10504.885057471265,
+     "bar": 0.8535692481376765
+    },
+    "30_srstar_anchor": 3.6369202438319066,
+    "30_srstar_outright": 2.9465844670379666,
+    "60_rth": {
+     "units": 1537.7873563218393,
+     "bar": 3.155013831565307
+    },
+    "60_full": {
+     "units": 5252.442528735633,
+     "bar": 1.707138496275353
+    },
+    "60_srstar_anchor": 5.143381934096346,
+    "60_srstar_outright": 4.185802233549261,
+    "120_rth": {
+     "units": 768.8936781609196,
+     "bar": 6.310027663130615
+    },
+    "120_full": {
+     "units": 2626.2212643678163,
+     "bar": 3.414276992550706
+    },
+    "120_srstar_anchor": 7.273840487663813,
+    "120_srstar_outright": 5.919618288096959
+   },
+   "lowest_bar_any_case": 0.8535692481376765,
+   "lowest_bar_horizon": 30,
+   "lowest_srstar_bps_lenient": 2.9465844670379666,
+   "prior_top_clears_bar": false,
+   "prior_top_clears_srstar": false,
+   "draft_top_clears_bar": true,
+   "draft_top_clears_srstar": true,
+   "binding": "SR*"
+  },
+  {
+   "id": "T03",
+   "label": "realised skewness, fade the tail",
+   "prior": [
+    0.0,
+    1.0
+   ],
+   "prior_basis": "No measured analogue in seven series. The cited result is weekly and cross-sectional in equities; the draft itself says neither property transfers. Bounded by the programme's typical measured range, zero included (S59: decay is the stated prior).",
+   "draft_range": [
+    1.0,
+    3.0
+   ],
+   "firings_per_rth_session": {
+    "INDEX": 156.0,
+    "MGC": 156.0
+   },
+   "N_after": 868,
+   "SR_star_after": 0.13848836851564275,
+   "by_horizon": {
+    "30_rth": {
+     "units": 3075.5747126436786,
+     "bar": 1.5775069157826538
+    },
+    "30_full": {
+     "units": 10504.885057471265,
+     "bar": 0.8535692481376765
+    },
+    "30_srstar_anchor": 3.6579852883079487,
+    "30_srstar_outright": 2.9636510862347545,
+    "60_rth": {
+     "units": 1537.7873563218393,
+     "bar": 3.155013831565307
+    },
+    "60_full": {
+     "units": 5252.442528735633,
+     "bar": 1.707138496275353
+    },
+    "60_srstar_anchor": 5.1731724056863575,
+    "60_srstar_outright": 4.210046402875539,
+    "120_rth": {
+     "units": 768.8936781609196,
+     "bar": 6.310027663130615
+    },
+    "120_full": {
+     "units": 2626.2212643678163,
+     "bar": 3.414276992550706
+    },
+    "120_srstar_anchor": 7.315970576615897,
+    "120_srstar_outright": 5.953904721166651
+   },
+   "lowest_bar_any_case": 0.8535692481376765,
+   "lowest_bar_horizon": 30,
+   "lowest_srstar_bps_lenient": 2.9636510862347545,
+   "prior_top_clears_bar": true,
+   "prior_top_clears_srstar": false,
+   "draft_top_clears_bar": true,
+   "draft_top_clears_srstar": true,
+   "binding": "SR*"
+  },
+  {
+   "id": "T04",
+   "label": "path efficiency, fade one-sided runs",
+   "prior": [
+    0.0,
+    0.5
+   ],
+   "prior_basis": "Same counterparty story as T02 by the draft's own account, so the same measured analogues. The draft states no magnitude at all.",
+   "draft_range": null,
+   "firings_per_rth_session": {
+    "INDEX": 0.02636238564754715,
+    "MGC": 0.0027062252231051897
+   },
+   "N_after": 922,
+   "SR_star_after": 0.1392341100564196,
+   "by_horizon": {
+    "30_rth": {
+     "units": 0.6402459894539091,
+     "bar": 109.33544559695164
+    },
+    "30_full": {
+     "units": 2.1868142237191956,
+     "bar": 59.16004117591208
+    },
+    "30_srstar_anchor": 3.677683055089956,
+    "30_srstar_outright": 2.9796099552073794,
+    "60_rth": {
+     "units": 0.6402459894539091,
+     "bar": 154.62367001131472
+    },
+    "60_full": {
+     "units": 2.1868142237191956,
+     "bar": 83.6649325815256
+    },
+    "60_srstar_anchor": 5.201029254617935,
+    "60_srstar_outright": 4.232716945715156,
+    "120_rth": {
+     "units": 0.6402459894539091,
+     "bar": 218.6708911939033
+    },
+    "120_full": {
+     "units": 2.1868142237191956,
+     "bar": 118.32008235182415
+    },
+    "120_srstar_anchor": 7.355366110179912,
+    "120_srstar_outright": 5.985965710316798
+   },
+   "lowest_bar_any_case": 59.16004117591208,
+   "lowest_bar_horizon": 30,
+   "lowest_srstar_bps_lenient": 2.9796099552073794,
+   "prior_top_clears_bar": false,
+   "prior_top_clears_srstar": false,
+   "draft_top_clears_bar": null,
+   "draft_top_clears_srstar": null,
+   "binding": "BH bar"
+  }
+ ],
+ "not_predictable": [
+  {
+   "id": "T06",
+   "label": "duration since last large move",
+   "why": "Its own mechanism forecasts MAGNITUDE, not direction (draft: 'the win rate must come back near 50%'), so a signed bps prediction is undefined. And it is not new: 'arm after quiet, trade the first k-sigma breach in its direction' is F05 (volatility compression -> first close beyond k*sigma), the one F-series hypothesis tested at adequate power (45 cells, 11,000-18,600 events) and retired on a null. The draft calls it distinct from 'L-series volatility compression'; that entry is F05, not an L entry."
+  },
+  {
+   "id": "T07",
+   "label": "variance-ratio regime",
+   "why": "A conditioner with no surviving primary to condition, the Q08 disposition. No trade rule, so no magnitude, and nothing for it to do."
+  }
+ ]
+}

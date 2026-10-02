@@ -452,7 +452,7 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series registered plus a seventh drafted, 75 candidates, 35 registered, 770 trials across
+alone. Six series registered plus a seventh and an eighth drafted, 82 candidates, 35 registered, 770 trials across
 two logs (futures-research 760, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
 without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
 decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
@@ -486,6 +486,24 @@ Stated against this file's own stopping rule, which is what it asks a candidate 
 **If it is taken further, the first two steps spend no trials:** the five collinearity measurements
 (S02↔S08, S04↔S06, S04↔S07, S03↔S05, S09↔L03 — the Q01/Q02 precedent suggests four entries may be
 two), and firing rates for S05–S09, none of which has a firing rate of its own at any timeframe.
+
+**T-SERIES, 2026-10-02 — T01 AND T05 MEASURED, T02–T07 CLOSED AT S2, NOT REGISTERED (§65).** An
+eighth series on the statistical character of the price path. `T_SERIES_CANDIDATES.md` (draft with
+[§65] corrections). **No trial spent; N 760, SR\* 0.1368; `hypotheses.yaml` untouched.** Counted in
+the ledger at 7 drafted / 0 registered.
+
+- **T01 (volume clock) reopens nothing.** There are no dead bars to remove; effective n *falls*
+  (0.48× MNQ, 0.41× MGC); kurtosis falls on MNQ at matched n but MGC's two strongest cells fail the
+  construction's own pre-stated check and are withdrawn; the floor blocking L01/L08/F01 is a power
+  floor kurtosis does not move. F01's "4,125" is the pre-§22 ceiling; measured best cell 3,523.
+- **T05 (sign split) changes no closed conclusion.** L07 (108 cells), P03 and R01 reproduced exactly
+  from the record, then split: every one carries its effect on both sides. §60 injection passed for
+  all three (P03 narrowly, power 0.82).
+- **T02–T07 fail the S2 filter.** T02's condition holds in 57–94% of windows and J is not
+  scale-free (price discreteness); T04 barely fires; T03 clears its own BH bar and sits below SR\*;
+  T06 is F05 restated; T07 has no primary.
+- **Open, for the user:** whether to add the discreteness finding (a ratio of one series' moments
+  is not invariant to a fixed tick grid) to finding 6 of the terminal report.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
