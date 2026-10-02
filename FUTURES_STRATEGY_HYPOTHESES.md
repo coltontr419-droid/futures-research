@@ -494,3 +494,29 @@ grid's shortest horizon, so this sits ~4 half-lives past the mechanism's clock. 
 
 **The P-series closes: thirteen candidates, one registered, one tested, zero promoted, 1 trial
 spent.**
+
+---
+
+## U01 — Large Opening Gap Non-Fill  *(BLOCKED at S4)*
+
+**A single hypothesis, not a series.** Registered 2026-10-02 from a third-party claim: "large
+opening gaps fill same-session only about 8% of the time." The source is a social media clip
+describing its author's own backtest, with no visible trial count, cost assumption or control, so
+it carries **no prior weight** and is registered on its own terms — recorded as L11's was.
+
+**Condition.** A CME reopen — daily (18:00 ET after the 17:00–18:00 break) or weekly (Sunday
+18:00 ET) — whose first price is 0.4% or more from the prior session's last price. **Credit where
+due:** 0.4% is a percentage, so the threshold satisfies the S2 scale check (§52) natively.
+
+**Blocked before any test.** Measured on the NQ→MNQ splice and MGC, 2010–2026: 104 and 46 such
+gaps in sixteen years (42 and 28 since 2021), against floors of 5,884 and 2,862. No trial spent.
+
+**And the claim does not describe these instruments.** Gaps of 0.4% or more fill same-session
+46–100% of the time here, and the fill-rate curve tracks a driftless random walk scaled by session
+volatility — a smooth decline with no break at 0.4%, which is what arithmetic alone predicts.
+
+**Why the 8% would not have supported a trade anyway.** Non-fill includes drifting sideways,
+continuing away from the gap and partial retracement; only continuation pays. The registered S2
+claim is a forward-return distribution against a volatility-matched control, not a fill rate.
+
+`hypotheses.yaml` (U01) · `reports/u01_gap_fill.md` · `decisions.md` §67

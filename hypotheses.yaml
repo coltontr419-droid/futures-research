@@ -3506,3 +3506,136 @@
   stage4_reason: >
     NQ/MNQ only. MGC would need its own state build and its own control, and neither is
     measured; pooling is not assumed. S8 evidence therefore rests on the ERA SPLIT alone.
+
+- id: U01
+  name: large_opening_gap_non_fill
+  stopped_at: S4
+  stopped_at_reason: >
+    Blocked on event count before any test, measured 2026-10-02 (`reports/u01_gap_fill.md`,
+    decisions.md 67). Nothing was run at S5, S6 or S7 and no trial was spent.
+  mechanism: >
+    REGISTERED ON ITS OWN TERMS. The source states an outcome, not a mechanism - "large opening
+    gaps fill same-session only about 8% of the time" - and names no participant. THE
+    COUNTERPARTY THE CLAIM IMPLIES is the gap-fill fader: a trader who sells a large up-open or
+    buys a large down-open on the belief that gaps fill, and who would be paying anyone trading
+    with the gap if gaps in fact continued. That counterparty is stated here so the Stage 0
+    requirement is met honestly; it is the claim's implication, not the source's account, and
+    it carries no more weight than the claim. A 0.4% gap at a CME reopen almost always follows
+    news during the break, so the condition may select a volatility regime rather than any
+    property of gaps - the confound the control below is chosen to remove.
+  condition: >
+    CME trading day (18:00-17:00 ET). daily: the 18:00 ET reopen after the 17:00-18:00
+    maintenance break, Monday-Thursday sessions; weekly: the Sunday 18:00 ET reopen. Gap =
+    log(first price of the session / last price of the prior session). Fires when |gap| >= 0.4%.
+    A session counts only if its first and the prior session's last bar are the same contract,
+    the break is normal (< 6 h daily, < 3 days weekly), the session first traded within 5
+    minutes of the reopen, and the prior session traded within 5 minutes of its own scheduled
+    close. The 09:30 RTH open against the 16:00 close is NOT the condition: index futures trade
+    through it, so it is a move in continuous trading rather than a gap in the futures price.
+  horizon_minutes: [1375]
+  hold_hours: [22.916666666666668]   # 1,375 minutes exactly: 18:00 to 16:55 ET
+  hold_note: >
+    Same session: the reopen to 16:55 ET, flat before the 17:00 close and never across it, so
+    the account's rule is satisfied. The registry's 8-hour hold check (a heuristic for "flat by
+    17:00") would reject it if U01 were untested; the heuristic is stricter than the rule it
+    stands in for. Recorded, not resolved - it does not bite on a blocked entry.
+  registered: 2026-10-02
+  blocked: 2026-10-02
+  status: blocked_insufficient_events
+  blocked_reason: >
+    Measured before registration, both instruments, the NQ splice extending MNQ back to 2010.
+    Gaps of 0.4% or more at a valid reopen: MGC 3 daily + 43 weekly = 46 (28 since 2021) against
+    a 180-minute-proxy floor of 2,862; the index 41 daily + 63 weekly = 104 (42 since 2021)
+    against 5,884. Short by 62x and 57x on the full sample and more on the post-2021 half that
+    decides. A session-length hold has no resolved floor at all; the 180-minute proxy is the
+    most generous that exists. This is arithmetic done ahead of testing, like F01: U01 was never
+    run, and the count says only that no test of it could carry a verdict. No trials spent.
+  schedulable: false
+  test_order: null
+  grade: D
+  tier: C
+  param_cap: 1
+  param_note: >
+    One axis: open type (daily, weekly). The 0.4% threshold is fixed by the claim, not swept.
+  session: Globex
+  symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      A gap at a reopen exists on any futures contract with a maintenance break, and the claim
+      is not instrument-specific, so both are legitimate. MNQ is measured on the NQ->MNQ splice
+      because gaps are price ratios on one price grid, which the splice preserves.
+  threshold_units: bps
+  threshold_note: >
+    CREDIT WHERE DUE: 0.4% is a percentage of price, so the threshold satisfies the S2
+    scale-invariance check (decisions.md 52) natively, with no restatement and no era-split
+    escape hatch. That is unusual among candidates here - N02's points, L07's ticks and P03's
+    ratio all had to be corrected, and T02's "scale-free" jump fraction was not.
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  provenance:
+    source: third-party claim (a social media clip describing the author's own backtest)
+    trial_count_available: false
+    cost_assumption_available: false
+    control_available: false
+    prior_weight: none
+    note: >
+      Recorded as L11's was. No trial count, cost assumption or control is visible, so the
+      claim carries no prior weight and is registered on its own terms. Its instrument and gap
+      definition are not stated either; the definition above is this programme's reading.
+  s2_claim:
+    descriptive_figure_is_not_a_trade: >
+      The 8% figure is a fill rate, and a fill rate does not by itself support a trade.
+      Non-fill includes drifting sideways, continuing away from the gap, and partial
+      retracement, and only one of those - continuation - pays a trade taken in the gap's
+      direction.
+    stated_as: >
+      Conditional on |gap| >= 0.4% at a valid reopen, the distribution of the same-session
+      forward return from the open to 16:55 ET, signed in the gap's direction, compared with the
+      same quantity on matched control sessions (below). The claim would need its mean, real
+      minus control, above the round-trip cost floor (0.48 bps MNQ, 0.65 MGC) in the post-2021
+      half.
+    predicted_magnitude_bps: 0.0
+    magnitude_basis: >
+      No positive magnitude can be stated. The only measured input is the fill rate, and at and
+      above 0.4% it matches a driftless random walk scaled by session volatility (below) - which
+      is the zero-drift case, whose signed forward return has mean zero.
+  s6_control:
+    chosen: state_control, strict (session) mode
+    matched_on: [volatility quantile (trailing, ex ante), time of day, calendar year]
+    control_direction: >
+      A control session takes its own direction by the same rule - the sign of its own (small)
+      open-versus-prior-close move; sessions whose open equals the prior close exactly are not
+      eligible, having no direction.
+    why_not_a_no_gap_move_at_the_same_clock_position: >
+      At a reopen, a displacement from the prior close WITHOUT a gap cannot exist: any
+      displacement at the open is a gap. A no-gap comparison would have to be taken minutes or
+      hours later, after continuous trading had moved price 0.4%, which reintroduces exactly the
+      timing confound that limited L07 (real and placebo entries 16-47 minutes apart, decisions.md
+      38). And it would hold the displacement constant while leaving the volatility regime free,
+      when the volatility regime is the named confound. The volatility-matched state control
+      targets that confound directly with a construction already fault-injected (decisions.md 55).
+    clean_pool: >
+      A session-level state needs strict mode and therefore a clean pool (STAGES.md S6).
+      Sessions with a valid open and no 0.4% gap: MGC 2,233 daily / 564 weekly, the index 2,593
+      daily / 421 weekly - ample, so strict mode is available. Decided before any S6 run; none
+      was run.
+  s1_measurement:
+    fill_curve: >
+      Same-session fill by gap size, daily and weekly, both instruments, against the
+      reflection-principle prediction 2(1 - Phi(g / sigma)) with sigma the session's own
+      realised volatility. SHAPE: a smooth decline in all four panels with no break at 0.4% or
+      elsewhere, so 0.4% is a cut on a continuous relationship and has no special status.
+      Weekly opens, where most large gaps are, track the random walk (overall MGC 83.7% observed
+      vs 85.4% predicted, z -0.9; the index 76.6% vs 81.9%, z -2.6, concentrated at 0.1-0.2%);
+      at and above 0.4% bins agree within a few points. Daily opens fill MORE than the walk
+      (the index +7.9 points, z +7.4) at gaps of a few ticks - consistent with the reopen print
+      itself reverting - the opposite direction to the claim and far below 0.4%.
+    claimed_8pct_on_these_instruments: >
+      At this definition, gaps of 0.4% or more fill same-session 46.5-60.3% (weekly) and
+      80.5-100% (daily). The claimed ~8% is not what occurs here; it may describe another
+      instrument or definition, which the source does not state.
+    no_threshold_selected: >
+      The curve is reported on a grid fixed before measuring. No gap size is chosen from it;
+      choosing the best-performing one would be a search over thresholds.

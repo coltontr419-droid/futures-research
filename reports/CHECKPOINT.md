@@ -452,7 +452,7 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series registered plus a seventh and an eighth drafted, 82 candidates, 35 registered, 770 trials across
+alone. Six series registered plus a seventh and an eighth drafted, and one single hypothesis (U01), 83 candidates, 36 registered, 770 trials across
 two logs (futures-research 760, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
 without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
 decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
@@ -510,6 +510,14 @@ the ledger at 7 drafted / 0 registered.
 - **Working rule (§65 addendum):** design and measurement tasks in this programme do not route to
   Sonnet, even when they look routine — the T-series' fabricated figures came from a Sonnet session.
 - `tests/test_roll.py` OOM-killed after 12 of 18 tests on 2026-10-02 — unverified, untouched code.
+
+**U01, 2026-10-02 — REGISTERED, BLOCKED ON EVENT COUNT (§67).** A single hypothesis, not a series:
+"large opening gaps (≥ 0.4%) fill same-session only ~8% of the time", from an unsourced clip, no
+prior weight. Read as the CME reopen (daily 18:00 ET, weekly Sunday). **104 index and 46 MGC gaps in
+sixteen years (42 / 28 since 2021) against floors of 5,884 / 2,862 — blocked like F01. No trial
+spent.** The fill curve declines smoothly with no break at 0.4% and tracks a driftless random walk;
+gaps that size fill 46–100% here (46–81% where n exceeds three), not 8%. Control decided for the record (state_control strict,
+volatility-matched); S5–S7 not run. Registrations now 36.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

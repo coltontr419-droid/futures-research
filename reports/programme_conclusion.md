@@ -1,7 +1,8 @@
 # The futures research programme — terminal report
 
-**Six series registered; a seventh and an eighth drafted and closed at S2. 82 candidates drafted,
-35 registered, 770 trials across two hash-chained logs. Nothing promoted.**
+**Six series registered; a seventh and an eighth drafted and closed at S2; one single hypothesis
+registered and blocked. 83 candidates drafted, 36 registered, 770 trials across two hash-chained
+logs. Nothing promoted.**
 
 **No edge accessible at this cost structure and account size was found in intraday, calendar or
 non-price futures signals, across six independently designed series.**
@@ -553,7 +554,8 @@ stay in the registry, and their trials stay in N.
 | Q | 12 | 0 | 0 | 0 |
 | **S** | **9** | **0** | **0** | **0** |
 | **T** | **7** | **0** | **0** | **0** |
-| **total** | **82** | **35** | **770** | **0** |
+| **U01** (single) | **1** | **1** | **0** | **0** |
+| **total** | **83** | **36** | **770** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
@@ -571,3 +573,8 @@ the clearest instance of it on record.
 `decisions.md` §65. **N, SR\* and the chains are unchanged.** Its two zero-trial measurements changed
 no closed conclusion: a volume clock does not move the binding floor, and L07, P03 and R01 each carry
 their effect on both sides of a sign split.
+
+**The U01 row was added 2026-10-02** — a single hypothesis from an unsourced third-party claim
+("large opening gaps fill only ~8% of the time"), **registered and blocked on event count**: 104 and
+46 gaps of 0.4% or more in sixteen years against floors of 5,884 and 2,862. Its fill-rate curve
+tracks a driftless random walk, and gaps that size fill 46–100% of the time here (46–81% where n exceeds three). `decisions.md` §67.

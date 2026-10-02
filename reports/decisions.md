@@ -5183,6 +5183,129 @@ decision 6.
 was OOM-killed after 12 of its 18 tests and is unverified this session.** It covers `data/roll` code that
 this change does not touch, and it is not claimed passing.
 
+## 67. U01 registered and blocked on event count; the fill curve is arithmetic (S1–S4)
+
+**A single hypothesis, not a series. Registered as U01, status `blocked_insufficient_events`. No
+trial spent: N 760, SR\* 0.1368, chain intact. Two measurement records (m00123 MGC, m00124 the
+index), not counted in N. S5, S6 and S7 not run.** Measurement in `reports/u01_gap_fill.md`
+(`reporting/u01_gap_fill.py`); entry in `hypotheses.yaml` and `FUTURES_STRATEGY_HYPOTHESES.md`.
+
+**The claim, and its weight.** "Large opening gaps — 0.4% or more at the open of a new day or week —
+fill same-session only about 8% of the time." The source is a social media clip describing its
+author's own backtest: no trial count, cost assumption or control visible, and no instrument or gap
+definition stated. **It carries no prior weight and is registered on its own terms**, with the same
+`provenance` block L11 carries.
+
+### The condition, fixed before counting
+
+In this programme's session convention: **daily** is the 18:00 ET reopen after the 17:00–18:00
+maintenance break against the prior session's last price; **weekly** is the Sunday 18:00 ET reopen
+against Friday's. The 09:30 RTH open against the 16:00 close is not used — index futures trade
+through it, so it is a move in continuous trading, not a gap in the futures price. Choosing between
+the two readings by which one fills less would have been selecting the condition by its result, so
+the choice was made first and is recorded as a decision the user can overrule.
+
+Validity rules, and when each was fixed:
+
+1. **Same contract** for the open and the prior close (a roll is not a gap), and a **normal break**
+   (< 6 h daily, < 3 days weekly). Fixed before counting.
+2. **The open must be an open: first print within 5 minutes of the reopen.** Fixed after seeing the
+   delay distribution — 87% of 2010 MGC sessions first traded more than 15 minutes late — and before
+   any count of large gaps or any fill rate.
+3. **The prior close must be a close: the prior session traded within 5 minutes of its own
+   scheduled close** (that product-year's modal last-print time; the schedule moved — index bars
+   after 16:15 ET do not exist before 2015, §59). **Fixed AFTER a first count and fill table had been
+   seen**, and recorded as such. It was diagnosed from a coverage anomaly, not the fill rates: index
+   "daily breaks" of ~21.5 hours in 2010–2012 traced to sessions holding ~110 bars that end around
+   20:30 ET — the early NQ data is incomplete (median 113 bars a session in 2010 against 1,380 now),
+   and MGC sessions before ~2016 are thin. **It can only remove sessions, so it cannot move the event
+   count toward the floor**; the blocking verdict is robust to it in direction. First-run counts (127
+   index, 54 MGC) are superseded by those below.
+
+### Firing rate: blocked, like F01
+
+| | daily opens | gaps ≥ 0.4% | weekly opens | gaps ≥ 0.4% | total (post-2021) | floor (180m proxy) |
+|---|---|---|---|---|---|---|
+| index (NQ→MNQ) | 2,634 | 41 | 484 | 63 | **104 (42)** | 5,884 |
+| MGC | 2,236 | 3 | 607 | 43 | **46 (28)** | 2,862 |
+
+**57× and 62× short on the full sample, more on the post-2021 half that decides.** A session-length
+hold has no resolved floor at all; the 180-minute proxy is the most generous one that exists. The
+brief anticipated "the low hundreds"; it is tens to one hundred. Nothing further is needed for the
+verdict, and the entry's `blocked_reason` states the arithmetic, not a finding about the market.
+
+### The fill curve: a smooth decline that tracks a random walk
+
+Measured as the brief asked, a measurement and not a trial: same-session fill by gap size on a grid
+fixed before measuring, daily and weekly, both instruments, against the reflection-principle
+prediction 2(1 − Φ(g/σ)) for a driftless walk, σ the session's own realised volatility after the open
+(and, as a check, the trailing 20-session median).
+
+- **Shape: a smooth decline in all four panels, with no break at 0.4% or anywhere else.** 0.4% is a
+  cut on a continuous relationship and has no special status.
+- **Weekly opens — where most large gaps are — track the random walk.** Overall MGC 83.7% observed
+  against 85.4% predicted (z −0.9); the index 76.6% against 81.9% (z −2.6, concentrated at
+  0.1–0.2%). At and above 0.4% the bins agree within a few points (73 vs 72, 69 vs 71, 56 vs 59). One
+  MGC bin (0.5–0.75%, n = 18) sits at z −3.6 with both neighbours on track: one of ~36 bins, not a
+  break.
+- **Daily opens fill MORE than the walk** (the index +7.9 points, z +7.4; MGC +4.0, z +3.5), at gaps of
+  a few ticks (median gap/σ ≈ 0.1) — consistent with the reopen print itself reverting. That is a
+  microstructure effect, in the direction opposite to the claim, far below 0.4%.
+- **The "8%" is not what happens on these instruments.** Gaps of 0.4% or more fill 46.5% (MGC weekly)
+  to 80.5% (index daily) of the time, and all three of MGC's daily ones — what arithmetic predicts. The clip may describe another
+  instrument or definition; it does not say.
+
+**By the brief's own test, U01 closes here twice over:** no effect beyond arithmetic at the stated
+threshold, and too few events for any test of it to carry a verdict.
+
+**No threshold was selected from the curve.** Picking the best-performing gap size would be a
+search over thresholds and would have to be counted as one; the curve is reported, not mined.
+
+### What the registration records, as the brief required
+
+- **The 8% is descriptive and does not support a trade.** Non-fill includes drifting sideways,
+  continuing away from the gap and partial retracement; only continuation pays. The S2 claim is
+  stated as the same-session forward return in the gap's direction, real minus a matched control,
+  against the cost floor in the post-2021 half. **Predicted magnitude 0 bps**: the only measured
+  input matches the zero-drift walk, whose signed return has mean zero.
+- **The control, chosen before any S6 work: state_control in strict (session) mode, matched on
+  ex-ante volatility quantile, time of day and year.** The alternative — a 0.4% move at the same
+  clock position with no gap — cannot be built at a reopen: any displacement at the open *is* a gap,
+  so the comparison would be taken minutes or hours later and reintroduce L07's timing confound
+  (§38), while holding displacement fixed and leaving the named confound, the volatility regime,
+  free. Clean pool for strict mode: 2,233 / 564 (MGC daily / weekly), 2,593 / 421 (index) — ample.
+- **Credit where due: 0.4% is a percentage, so the threshold passes §52 natively**, with no
+  restatement and no era-split escape hatch — unusual here (N02's points, L07's ticks, P03's ratio
+  and T02's "scale-free" J all needed correcting).
+
+### Registry changes made to admit it
+
+- **The ID and catalog checks accepted `[FLNP]\d\d`**, with a comment that the pattern widens
+  "deliberately when a series is opened". U01 is not a series; the pattern is widened to
+  `[FLNPU]` with a comment naming U as single hypotheses outside any series. Extended, not
+  loosened — an unknown letter still fails.
+- **The 8-hour hold check is stricter than the rule it stands in for.** A same-session hold from the
+  18:00 reopen to 16:55 is ~23 hours, yet never crosses 17:00 and so satisfies the account. The check
+  would reject U01 if it were untested; blocked, it does not bite. Recorded, not changed.
+
+### The base rate moves trivially
+
+Registrations go from 35 to **36**, still 0 promoted and 15 that spent a trial. §61's per-registration
+exact 95% upper bound moves from 0.0820 to 0.0798. §61 is not rewritten; the figure is noted here.
+
+### Decisions taken rather than resolved silently
+
+1. **The CME reopen reading**, not the RTH open — above. The user can overrule it; doing so would be a
+   new registration, not a re-cut of this one.
+2. **The stale-close rule was added after results were seen**, and is recorded as such with its
+   diagnosis and its one-directional effect.
+3. **MGC's thin early years are excluded by the validity rules, not by year** (2011–2015 retain
+   22–102 valid opens a year against ~238 from 2016).
+4. **The session's own realised volatility is the primary random-walk scale**, because it absorbs the
+   volatility-regime confound the brief names; the ex-ante scale is reported beside it and agrees.
+   Realised volatility on 1-minute bars slightly overstates σ through microstructure noise, which
+   biases the prediction toward MORE fill — the wrong direction to manufacture the daily excess.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
