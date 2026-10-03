@@ -5752,6 +5752,41 @@ bind at any size the grid reaches.
 3. W04 becomes schedulable once the alignment measurement is recorded and the runner passes outcome
    injection at Sharpe 1.39.
 
+## 74. W04's daily bars measured against the sessions it trades: they stand in (S8)
+
+**No trial spent; N 760. Two measurement records (correlations of price changes, no strategy return).**
+`reports/w_daily_alignment.md` (`reporting/w_daily_alignment.py`). Owed by §73 before W04 could be
+scheduled.
+
+From the on-disk 1-minute data, UTC-day returns (last close before 00:00 UTC, Sunday bars dropped so
+Monday runs from Friday, same contract only) against the 18:00-to-16:55 held session return:
+
+| | era | days | corr, same session | corr, next session | SD ratio | corr, 21-day blocks |
+|---|---|---|---|---|---|---|
+| index | full | 3,166 | 0.966 | −0.065 | 1.016 | 0.981 |
+| index | post-2021 | 1,384 | 0.972 | −0.068 | 1.020 | 0.990 |
+| MGC | full | 3,131 | 0.972 | 0.012 | 1.022 | 0.987 |
+| MGC | post-2021 | 1,381 | 0.969 | 0.010 | 1.025 | 0.989 |
+
+**A UTC bar stands in for its session at 0.97 daily and 0.98–0.99 over 21-day blocks**, the span a
+monthly rule lives on. The UTC series is 2% more volatile (it carries a few extra hours). The
+next-session correlation is small; on the index it is negative, which the 1–2 hour overlap alone would
+not produce, so it is not attributed here — the one-session delay removes it from W04 whatever its source.
+**ohlcv-1d is adequate; ohlcv-1h is not needed.**
+
+**What the vendor bar is, checked.** On the purchased file's MNQ and MGC rows, the 1d close equals the
+1-minute last close before 00:00 UTC for the same contract and date on 99.4% and 98.7% of matched bars
+(median difference 0 ticks). Matches cover only contracts the continuous file holds that day (2,233 of
+7,572 MNQ bars; 4,879 of 28,813 MGC), since the purchased file carries every expiry.
+
+**Two facts the W04 runner must handle, found here:**
+- **Sunday-evening bars exist** (952 MNQ, 3,046 MGC): the Globex reopen falls on a Sunday UTC date.
+  They are dropped, so Monday's return spans Friday's close to Monday's, as measured above.
+- **The vendor names contracts with a one-digit year** (`MGCM9`). The decade is resolved from the bar's
+  date; a wrong decade would splice unrelated contracts.
+
+W04 now needs only its runner and the outcome-injection test at Sharpe 1.39 to be schedulable.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

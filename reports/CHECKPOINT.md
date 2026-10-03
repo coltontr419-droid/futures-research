@@ -563,8 +563,9 @@ unit-consistent, decided post-2021 at ≈1.39. Daily data on disk (ohlcv-1d, to 
 read**; entry amended before reading it (one-session delay, same-bar carry). EV computed
 (`reports/w_prop_ev.md`): optimum ~$150–250/day of σ, ≈+$2,300 per evaluation at Sharpe 1.39; positive
 at zero edge at some sizes, so not evidence; one MNQ ($847/day) puts the integer book above the optimum,
-where a HARD daily limit makes EV negative. **Next:** alignment measurement (UTC-day vs session, MNQ/MGC
-1-minute), then the W04 runner with outcome injection at 1.39. **Open, for the user:** the firm's reading
+where a HARD daily limit makes EV negative. **Alignment measured (§74):** UTC-day bars track the
+held sessions at 0.97 daily, 0.98–0.99 over 21 days; ohlcv-1d is adequate. **Next:** the W04 runner
+with outcome injection at 1.39 (drop Sunday bars; resolve the vendor's one-digit contract years). **Open, for the user:** the firm's reading
 of the daily loss limit (breach vs flat for the day).
 
 

@@ -3817,8 +3817,9 @@
     Data on disk 2026-10-03 (job GLBX-20261003-SDXCG4PTPA, ohlcv-1d, parent symbology, 2010-06-06 to
     2026-09-11, manifest hashes verified). Registered before the data was purchased; amended the same
     day after it arrived and BEFORE any price in it was read (decisions.md 73) - only the inventory of
-    symbols and dates was looked at. Becomes schedulable when the alignment measurement is recorded and
-    the runner's outcome-injection test passes.
+    symbols and dates was looked at. Alignment measured (decisions.md 74): UTC-day bars track the held
+    sessions at 0.97 daily and 0.98-0.99 over 21 days. Becomes schedulable when the runner's
+    outcome-injection test passes.
   test_order: 24
   registered_test_order: 24
   grade: B
