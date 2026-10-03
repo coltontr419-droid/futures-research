@@ -3811,8 +3811,24 @@
   horizon_minutes: [1375]
   hold_hours: [22.916666666666668]   # 18:00 to 16:55 ET, inside one CME trading day
   registered: 2026-10-03
-  status: untested
+  status: retired
   schedulable: false
+  retired: 2026-10-03
+  retired_reason: >
+    Run as trial t00767 (decisions.md 76). Post-2021 net Sharpe -0.42 against the registered bar 1.31
+    (unit-consistent SR* at the sample's own T = 1,481); gross 0.31, so it would not clear at zero cost.
+    Full sample -0.49 net (bar 0.80). Rotation null: 13.4% of rotations at or above the real. Daily
+    re-entry on the lowest-volatility micros (M6E, micro 10Y: ~5% of a day's SD per round trip) costs
+    0.73 of Sharpe. Informative null: the gross result's one-sided 95% upper bound (~1.10) is below
+    the bar.
+  outcome_injection:
+    test: src/futuresres/signals/w04.py
+    injected_bps: 1.29        # UNITS: annualised Sharpe, not bps - the effect W04 seeks is a Sharpe
+    sought_bps: 1.31
+    n_injection: 1481
+    n_run: 1481
+    recovered: true
+    report: reports/w04_injection.json
   schedulable_note: >
     Data on disk 2026-10-03 (job GLBX-20261003-SDXCG4PTPA, ohlcv-1d, parent symbology, 2010-06-06 to
     2026-09-11, manifest hashes verified). Registered before the data was purchased; amended the same
@@ -3820,7 +3836,7 @@
     symbols and dates was looked at. Alignment measured (decisions.md 74): UTC-day bars track the held
     sessions at 0.97 daily and 0.98-0.99 over 21 days. Becomes schedulable when the runner's
     outcome-injection test passes.
-  test_order: 24
+  test_order: null
   registered_test_order: 24
   grade: B
   tier: B

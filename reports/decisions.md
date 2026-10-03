@@ -5801,6 +5801,79 @@ fractional optimum; the runner reports both. **No reduced-universe variant is ne
 registered. W04's entry now names SOFT and computes the integer-book EV at that book's own σ (beyond the
 grid) with the same simulator. No trial spent; N 760.
 
+## 76. W04 run: it does not clear, gross or net; the daily-horizon cost premise corrected (S5–S8)
+
+**One trial spent: t00767. N 760 → 761; SR\* 0.1368 (unchanged to four places).** Report:
+`reports/w04_trial.md`. Runner committed before the run (`e5b62db`): `data/daily_bars.py`,
+`signals/w04.py` (positions only), `signals/portfolio.py` (the evaluator, a new runner entry point in
+the boundary test), `signals/w04_trial.py`; `tests/test_w04.py` (9, incl. no look-ahead).
+
+### The bar, by the registered rule — lower than the number quoted
+
+The entry fixes the bar as the unit-consistent SR\* "at the post-2021 sample's own T". The daily file
+has **1,481** post-2021 bars (weekdays on the union of six markets' calendars), not the 1,320 sessions
+of the 1-minute sample §72 used, so **the bar is 1.31, not the ≈1.39 quoted.** The registered rule is
+applied; the quoted figure was an estimate of it. It decides nothing here.
+
+### Outcome injection first (§60), synthetic only
+
+A carry edge planted in six synthetic t(5) markets, calibrated so the pipeline's own long-sample Sharpe
+is 1.29 (sought 1.31), recovered at n = 1,481 as 1.32 on average over 200 runs (bias 0.03, Monte Carlo
+SE 0.034); SD of the estimate 0.48; **power at the bar 51%**, and a true Sharpe of 2.10 clears it 95% of
+the time. `reports/w04_injection.json`.
+
+### The result
+
+| | T | gross | net | bar |
+|---|---|---|---|---|
+| **post-2021 (decides)** | 1,481 | 0.31 | **−0.42** | 1.31 |
+| full | 3,972 | 0.37 | −0.49 | 0.80 |
+| pre-2021 | 2,491 | 0.40 | −0.54 | — |
+
+Sleeves, net post-2021: trend −0.60, carry −0.62. Rotation null (500): mean −0.81, 95th percentile
+−0.15; 13.4% of rotations at or above the real — **the timing is not distinguishable from its own null.**
+
+**W04 does not clear, and would not have cleared at zero cost:** gross 0.31 against 1.31. With the
+estimate's SD of 0.48, the gross result's one-sided 95% upper bound is ≈1.10, so a true gross Sharpe at
+the bar is itself unlikely (p ≈ 0.02) — this null is informative about the bar despite 51% power at it.
+The published priors (0.7–1.2, pre-decay) were not met in either era: 0.40 gross before 2021, 0.31 after.
+
+### What was wrong in the premise: cost DOES bind at a daily horizon, on low-volatility markets
+
+§72 measured the chained round trip at 0.34–0.56% of a day's SD on MNQ and MGC and concluded **"at a
+daily horizon the cost floor does not bind."** True of those two; **false as a portfolio statement.**
+Measured here (post-2021, assumed $1.82 + one tick per micro round trip):
+
+| micro | round trip / day's SD |
+|---|---|
+| MNQ | 0.5% |
+| MGC | 1.2% |
+| MCL | 1.5% |
+| MHG | 1.7% |
+| micro 10Y (ZN equivalent, DV01 assumed $70) | **4.7%** |
+| M6E | **4.9%** |
+
+Equal-risk sizing gives the two lowest-volatility markets the largest notional, and a daily re-entry
+charges them every day: **the drag is 0.73 of Sharpe** (gross 0.31 → net −0.42). §72's wording stands
+corrected by this section; its feasibility measurements were right for what they measured. The finding
+generalises: **chained session holds cost one round trip per market per day, and in units of a day's
+risk that is ~10× larger on FX and rates micros than on the index.**
+
+### The economics row — defective as defined, and moot
+
+The "smallest integer-micro book" was implemented as each held position rounding to at least one
+micro. Netting the two sleeves leaves some markets with tiny weights, which forces the scale up: daily
+$σ $7,173, median 39 micros, over the 30-micro cap on 61% of days — **not a tradable book.** Its soft-limit
+EV (+$548) is the zero-edge lottery effect at huge size (P(pass) 38%, against §59's 36.8% with no edge),
+not value. At the EV-optimal sizes with the measured Sharpe: −$51 ($150/day), −$5 ($250/day). The verdict
+does not depend on this row; the definition is recorded as a defect, not repaired after the fact.
+
+### Status
+
+**W04 retired** (`hypotheses.yaml`), on an informative null. The W-series has no other registration.
+W01–W03 and W05 were closed at S2 below every bar; **W04's result is no evidence for or against them, but
+W02 and W03 share its universe and its daily re-entry, so they share its cost drag.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -452,8 +452,8 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), and a ninth series designed (W) with one registration (W04), 89 candidates, 38 registered, 770 trials across
-two logs (futures-research 760, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
+alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), and a ninth series designed (W) with one registration (W04, run and retired), 89 candidates, 38 registered, 771 trials across
+two logs (futures-research 761, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
 without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
 decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
 the run's n (§60). **Nothing is scheduled. Nothing is pending.**
@@ -566,6 +566,13 @@ at zero edge at some sizes, so not evidence; one MNQ ($847/day) puts the integer
 where a HARD daily limit makes EV negative. **Alignment measured (§74):** UTC-day bars track the
 held sessions at 0.97 daily, 0.98–0.99 over 21 days; ohlcv-1d is adequate. **Next:** the W04 runner
 with outcome injection at 1.39 (drop Sunday bars; resolve the vendor's one-digit contract years). **Daily loss limit ruled SOFT (§75)** — flat for the day, not a breach.
+
+**W04 RUN AND RETIRED, 2026-10-03 (§76), trial t00767; N 761.** Post-2021 net Sharpe −0.42 vs bar 1.31
+(SR\* at the file's own T = 1,481); gross 0.31, so not even at zero cost. Rotation null: 13.4% at or
+above. Injection recovered (1.29 → 1.32, power 51% at the bar). **Premise corrected:** a daily round
+trip is ~5% of a day's SD on M6E and the micro 10Y (0.5% on MNQ); equal-risk sizing loads them; drag
+0.73 Sharpe. Integer-book economics row defective (over the 30-micro cap 61% of days) and moot.
+**Nothing is scheduled.**
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

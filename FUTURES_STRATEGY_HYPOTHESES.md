@@ -550,7 +550,7 @@ the programme's rule, and at a ceiling below every floor it could not change the
 
 ---
 
-## W04 — Trend Plus Carry, Daily Portfolio  *(REGISTERED; data on disk, not yet read)*
+## W04 — Trend Plus Carry, Daily Portfolio  *(RETIRED — run 2026-10-03, t00767)*
 
 **The W-series' one registration.** Time-series momentum (Moskowitz, Ooi & Pedersen 2012) and carry
 timing (Koijen, Moskowitz, Pedersen & Vrugt 2018), at equal risk, across one CME market per sector —
@@ -562,3 +562,6 @@ daily round trips, against the unit-consistent multiple-testing bar (~1.39); the
 prop-evaluation EV at that Sharpe. Prior 0.7–1.2, from the papers, labelled optimistic.
 
 `hypotheses.yaml` (W04) · `W_SERIES_CANDIDATES.md` · `decisions.md` §72–§73
+
+**Result (decisions.md §76):** post-2021 net Sharpe −0.42 against 1.31; gross 0.31. Daily re-entry on
+the lowest-volatility micros costs 0.73 of Sharpe. Retired on an informative null.

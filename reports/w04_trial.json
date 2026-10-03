@@ -1,0 +1,125 @@
+{
+ "hypothesis": "W04",
+ "n_after": 761,
+ "first_held": "2011-06-02",
+ "last_bar": "2026-09-11",
+ "post_2021": {
+  "t": 1481,
+  "sharpe_gross": 0.3064701347244175,
+  "sharpe_net": -0.4199140613695433,
+  "mean_daily_net": -0.020592516565568188,
+  "sd_daily_net": 0.7784832571280454,
+  "cost_share_of_gross_mean": 2.3698944619133244
+ },
+ "full": {
+  "t": 3972,
+  "sharpe_gross": 0.36723214142642985,
+  "sharpe_net": -0.4942131976145957,
+  "mean_daily_net": -0.02378269650931959,
+  "sd_daily_net": 0.7639184963966075,
+  "cost_share_of_gross_mean": 2.3458315372231127
+ },
+ "pre_2021": {
+  "t": 2491,
+  "sharpe_gross": 0.4044736328919127,
+  "sharpe_net": -0.539732470256895,
+  "mean_daily_net": -0.02567938719446445,
+  "sd_daily_net": 0.7552772095192097,
+  "cost_share_of_gross_mean": 2.3346542560271337
+ },
+ "bar_post_2021": 1.310355587794815,
+ "bar_full": 0.8001328008692615,
+ "clears_post_2021_bar": false,
+ "rotation_null_post_2021": {
+  "n": 500,
+  "mean": -0.8145029102861335,
+  "p95": -0.15351471705308084,
+  "share_at_or_above_real": 0.134
+ },
+ "sleeves": {
+  "trend": {
+   "post_2021": {
+    "t": 1481,
+    "sharpe_gross": 0.2758392959985029,
+    "sharpe_net": -0.6044582102325912,
+    "mean_daily_net": -0.021071300897428567,
+    "sd_daily_net": 0.5533823946613892,
+    "cost_share_of_gross_mean": 3.1909484292057955
+   },
+   "full": {
+    "t": 3972,
+    "sharpe_gross": 0.5382904598193008,
+    "sharpe_net": -0.5611365225424021,
+    "mean_daily_net": -0.0196427325021353,
+    "sd_daily_net": 0.5556913497800897,
+    "cost_share_of_gross_mean": 2.0415393208356845
+   }
+  },
+  "carry": {
+   "post_2021": {
+    "t": 1481,
+    "sharpe_gross": 0.1521350027599808,
+    "sharpe_net": -0.6201076047656827,
+    "mean_daily_net": -0.022060711223103775,
+    "sd_daily_net": 0.564745426693476,
+    "cost_share_of_gross_mean": 5.074181957372681
+   },
+   "full": {
+    "t": 3972,
+    "sharpe_gross": -0.03402082957592975,
+    "sharpe_net": -1.1213936523289207,
+    "mean_daily_net": -0.0391623430731351,
+    "sd_daily_net": 0.5543842003114018,
+    "cost_share_of_gross_mean": -31.96627372448975
+   }
+  }
+ },
+ "integer_book": {
+  "daily_dollar_sigma": 7172.912638339893,
+  "sharpe": 0.25348974415195874,
+  "contracts_median": 39.0,
+  "contracts_max": 384,
+  "share_of_days_over_30_micros": 0.6144496961512491
+ },
+ "economics_soft_limit": {
+  "sigma_150": {
+   "daily_sigma": 150.0,
+   "p_pass": 0.10316666666666667,
+   "expected_payout": 278.9922424812,
+   "ev": -51.217300317356205
+  },
+  "sigma_250": {
+   "daily_sigma": 250.0,
+   "p_pass": 0.17983333333333335,
+   "expected_payout": 416.9677854048527,
+   "ev": -5.015293258027313
+  },
+  "integer_book": {
+   "daily_sigma": 7172.912638339893,
+   "p_pass": 0.37683333333333335,
+   "expected_payout": 1667.040260635675,
+   "ev": 548.1963382162102
+  },
+  "integer_book_own_sharpe": {
+   "daily_sigma": 7172.912638339893,
+   "p_pass": 0.3878333333333333,
+   "expected_payout": 2081.840834179172,
+   "ev": 727.4072701891555
+  }
+ },
+ "injection": {
+  "sought_sharpe": 1.310355587794815,
+  "kappa": 0.0468597412109375,
+  "long_sample_truth": 1.2904362918743069,
+  "n_injection": 1481,
+  "reps": 200,
+  "mean_estimate": 1.3180519408511426,
+  "sd_estimate": 0.47858168140338814,
+  "bias": 0.02761564897683577,
+  "mc_se": 0.03384083522719956,
+  "recovered": true,
+  "bar": 1.310355587794815,
+  "power_at_bar": 0.51,
+  "sharpe_detectable_at_95pct": 2.0976224537033885
+ }
+}
