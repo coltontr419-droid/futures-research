@@ -1,8 +1,8 @@
 # The futures research programme — terminal report
 
 **Six series registered; a seventh and an eighth drafted and closed at S2; two single hypotheses
-registered and blocked; a ninth series (W, daily horizons) designed. 89 candidates drafted, 37
-registered, 770 trials across two hash-chained logs. Nothing promoted.**
+registered and blocked; a ninth series (W, daily horizons) designed, one hypothesis registered. 89
+candidates drafted, 38 registered, 770 trials across two hash-chained logs. Nothing promoted.**
 
 **No edge accessible at this cost structure and account size was found in intraday, calendar or
 non-price futures signals, across six independently designed series.**
@@ -568,8 +568,8 @@ stay in the registry, and their trials stay in N.
 | **T** | **7** | **0** | **0** | **0** |
 | **U01** (single) | **1** | **1** | **0** | **0** |
 | **V01** (single) | **1** | **1** | **0** | **0** |
-| **W** | **5** | **0** | **0** | **0** |
-| **total** | **89** | **37** | **770** | **0** |
+| **W** | **5** | **1** | **0** | **0** |
+| **total** | **89** | **38** | **770** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
@@ -605,3 +605,9 @@ trip, so **cost stops binding**. What binds instead is the multiple-testing bar 
 (Sharpe 0.96–1.39 at N = 760) and, under §62's objective, the drawdown risk budget. Its best candidate,
 trend plus carry (prior 0.77–1.27), is the first in nine series whose published prior reaches a
 multiple-testing bar here. Designed, not registered. `decisions.md` §72.
+
+**W04 was registered 2026-10-03** — trend plus carry across six sectors, one portfolio-level trial,
+decided at the unit-consistent post-2021 bar (≈1.39), registered before its daily data was bought and
+amended before any of it was read. Its success condition, prop-evaluation EV for this account, was
+computed: ≈+$2,300 per $80 evaluation at the bar's Sharpe, at a small optimal size that one MNQ
+contract already exceeds. **Not yet run; N and SR\* unchanged.** `decisions.md` §73.

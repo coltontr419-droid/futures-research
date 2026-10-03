@@ -3774,3 +3774,113 @@
       registration-time clean-pool check (STAGES.md S6) fails. A threshold would create a pool, but
       the comparison would then be large against small displacement, a dose-response design rather
       than displaced against undisplaced, and would need its own justification.
+
+- id: W04
+  name: trend_plus_carry_daily_portfolio
+  mechanism: >
+    Two published premia, combined at equal risk, held at a daily horizon through chained CME session
+    holds (18:00 ET reopen to 16:55 ET, confirmed with the firm 2026-10-03). TREND (Moskowitz, Ooi &
+    Pedersen 2012): prices under-react to information and then over-react with a lag; THE
+    COUNTERPARTY is slow-moving capital - hedgers and allocators who rebalance on schedules and so
+    trade against persistent moves. CARRY TIMING (Koijen, Moskowitz, Pedersen & Vrugt 2018, section
+    3.7): a futures position earns its carry if prices do not move; the counterparty is the hedger
+    paying a premium to lay off exposure along the curve. Both are registered from the literature with
+    their published parameters; nothing is fitted to this data.
+  condition: >
+    UNIVERSE, fixed 2026-10-03 before any daily data existed: one liquid CME market per sector -
+    equity index NQ, precious metals GC, industrial metals HG, energy CL, rates ZN, FX 6E - so the
+    account's no-correlated-opposite-positions rule cannot be triggered. ES and MES, present in the
+    purchased file, are NOT in the universe. Returns from the full-size contracts (history from 2010),
+    traded through the micros (MNQ, MGC, MHG, MCL, micro 10Y yield, M6E). Outright contracts only;
+    calendar spreads and strips in the file are discarded. Front contract by volume crossover (the
+    repo's roll rule), returns same-contract only.
+    DATA: GLBX.MDP3 ohlcv-1d, whose bars close at 00:00 UTC (19:00 or 20:00 ET), not at the 17:00 session
+    end. A daily return here stands in for the session it mostly covers; the alignment is MEASURED on the
+    on-disk 1-minute MNQ and MGC before any W04 return is computed (decisions.md 73).
+    TIMING, to keep a UTC close from leaking into a trade that starts before it: every signal and every
+    volatility estimate uses bars up to and including day D, and the position it sets is first held in
+    the session that opens AFTER the one that opens on day D's evening - a one-session delay.
+    TREND: sign of the trailing 252-bar return, at month end. CARRY: C = (F1 - F2) / F2 / (years between
+    F1's and F2's expiries), both closes from the SAME bar; F1 is the front contract by the roll rule, F2
+    the highest-volume outright on that bar among contracts expiring after F1 (so an illiquid serial month
+    with a stale price is never used); position = sign(C - expanding mean of the market's own C), at month
+    end, from the first 252 bars. SIZING: each market at inverse ex-ante volatility (EWMA, centre of mass
+    60 bars, MOP's estimator), each sleeve to equal ex-ante volatility, the two sleeves 50/50, weights
+    netted per market. Positions are re-entered at every 18:00 reopen and closed at 16:55; one round trip
+    per market held per session is charged.
+  horizon_minutes: [1375]
+  hold_hours: [22.916666666666668]   # 18:00 to 16:55 ET, inside one CME trading day
+  registered: 2026-10-03
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    Data on disk 2026-10-03 (job GLBX-20261003-SDXCG4PTPA, ohlcv-1d, parent symbology, 2010-06-06 to
+    2026-09-11, manifest hashes verified). Registered before the data was purchased; amended the same
+    day after it arrived and BEFORE any price in it was read (decisions.md 73) - only the inventory of
+    symbols and dates was looked at. Becomes schedulable when the alignment measurement is recorded and
+    the runner's outcome-injection test passes.
+  test_order: 24
+  registered_test_order: 24
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: >
+    No free parameters: lookback 252, EWMA centre of mass 60, monthly rebalance, carry reference =
+    expanding own mean, 50/50 sleeves - all published or fixed by the papers. One cell. ONE TRIAL.
+  session: Globex
+  symbols: [MNQ, MGC]
+  portfolio_markets: [NQ/MNQ, GC/MGC, HG/MHG, CL/MCL, ZN/10Y, 6E/M6E]
+  portfolio_note: >
+    The registry's schema models a hypothesis on two instruments; W04 is a six-market portfolio.
+    `symbols` lists the two that also carry this registry's Stage 4 meaning; the full universe is
+    `portfolio_markets`. Stage 4 (two uncorrelated instruments as separate confirmations) does not
+    describe a portfolio rule, and is not claimed.
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Trend and carry are documented across every futures asset class in the cited papers; neither is
+      specific to equity indices or gold. MNQ and MGC are two of the six markets the portfolio holds.
+  stage4_reachable: false
+  stage4_reason: >
+    A portfolio return is one series; it cannot be split into independent per-instrument
+    confirmations without becoming six different hypotheses. Robustness comes from the era split and
+    from the sleeves reported separately.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  prediction:
+    sharpe_prior: [0.7, 1.2]
+    basis: >
+      Trend: MOP report 0.3-0.5 per market and about 1.0 across 58; the implied average strategy
+      correlation (0.07-0.24) gives 0.63-0.83 for six markets. Carry timing: KMPV report 0.6 per
+      asset class on average and a little over 0.9 globally (section 3.7); six markets give roughly
+      0.6-0.9. Combined at equal risk with an ASSUMED trend-carry correlation of 0-0.5 (unsourced):
+      0.7-1.2. Published, pre-decay figures - optimistic.
+  decision_rule:
+    statistic: annualised Sharpe of daily portfolio returns NET of the chained round trips, post-2021
+    bar_post_2021: >
+      The unit-consistent SR* at the N this trial makes (761) and the post-2021 sample's own T -
+      about 1.39. Ruled by the user to the analyst's choice and chosen in decisions.md 73: the single
+      per-observation SR* (2.17 on daily observations) compares a daily strategy with per-trade
+      intraday Sharpes, which are not the same units.
+    full_sample_reported: unit-consistent SR* about 0.96, reported beside it, not decisive
+    economics: >
+      The prop-evaluation EV at the measured post-2021 Sharpe, from `reports/w_prop_ev.md` - the success
+      condition the user chose (decisions.md 73) - read at TWO sizes: the EV-optimal daily $ sigma
+      (an upper bound, fractional contracts) and the smallest INTEGER-micro book the registered sizing
+      allows, whose realised daily $ sigma the runner reports; each under both readings of the daily loss
+      limit. EV is an economics row only: it is positive at zero edge at some sizes, so it is never
+      evidence of one.
+    costs: >
+      One round trip per market per session held, at an ASSUMED $1.82 commission per micro round
+      trip plus one tick (the programme's MNQ figure; decisions.md 71 says to verify it), charged in
+      bps of each micro's notional. Gross reported beside net.
+  outcome_injection_required: >
+    Before any null is reported (STAGES.md, adopted 60): the runner must recover an injected
+    portfolio Sharpe of the size sought (1.39) at the run's own n and noise.
+  s6_control: >
+    A portfolio rule has no location or state to match. Its control is the rotation null already used
+    by every S7 run (decisions.md 54): each sleeve's signal series rotated against returns, keeping its
+    persistence and its exposure, destroying its alignment.

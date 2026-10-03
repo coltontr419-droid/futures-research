@@ -452,7 +452,7 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), and a ninth series designed (W), 89 candidates, 37 registered, 770 trials across
+alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), and a ninth series designed (W) with one registration (W04), 89 candidates, 38 registered, 770 trials across
 two logs (futures-research 760, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
 without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
 decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
@@ -556,6 +556,16 @@ budget (not contract count — a prop account allows 20–30 micros). Best candi
 prior 0.77–1.27) straddles the full-sample bar. **Open, for the user:** confirm the overnight-inside-the-
 session hold with the firm; choose §62's bar or prop-evaluation EV (and supply the eval terms); rule on
 the SR\* convention; buy ohlcv-1d; then W04 as one trial.
+
+**W04 REGISTERED, 2026-10-03 (§73). No trial spent; N 760.** The firm confirmed the hold; objective =
+prop-evaluation EV ($80 fee, +$3k target, $2k buffer, 90/10, no resets, $1k daily limit, 30 micros); SR\*
+unit-consistent, decided post-2021 at ≈1.39. Daily data on disk (ohlcv-1d, to 2026-09-11), **not yet
+read**; entry amended before reading it (one-session delay, same-bar carry). EV computed
+(`reports/w_prop_ev.md`): optimum ~$150–250/day of σ, ≈+$2,300 per evaluation at Sharpe 1.39; positive
+at zero edge at some sizes, so not evidence; one MNQ ($847/day) puts the integer book above the optimum,
+where a HARD daily limit makes EV negative. **Next:** alignment measurement (UTC-day vs session, MNQ/MGC
+1-minute), then the W04 runner with outcome injection at 1.39. **Open, for the user:** the firm's reading
+of the daily loss limit (breach vs flat for the day).
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

@@ -1,0 +1,851 @@
+{
+ "validation": {
+  "p_pass": 0.2602,
+  "closed_form": 0.24525296078096157,
+  "tolerance": 0.024302370811647152,
+  "ok": true
+ },
+ "n_paths": 6000,
+ "grid": [
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.0,
+   "daily_sigma": 100,
+   "p_pass": 0.05566666666666667,
+   "median_days": 197.0,
+   "expected_payout": 306.32136991662253,
+   "p_survive": 0.3055,
+   "ev": -62.94811040797468
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.0,
+   "daily_sigma": 150,
+   "p_pass": 0.19,
+   "median_days": 148.0,
+   "expected_payout": 559.1589475135468,
+   "p_survive": 0.08116666666666666,
+   "ev": 26.24020002757389
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.0,
+   "daily_sigma": 250,
+   "p_pass": 0.25883333333333336,
+   "median_days": 63.0,
+   "expected_payout": 683.1194933291001,
+   "p_survive": 0.003,
+   "ev": 96.81409552334875
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.0,
+   "daily_sigma": 400,
+   "p_pass": 0.23333333333333334,
+   "median_days": 25.0,
+   "expected_payout": 545.0145610535795,
+   "p_survive": 0.0,
+   "ev": 47.170064245835235
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.0,
+   "daily_sigma": 600,
+   "p_pass": 0.1975,
+   "median_days": 11.0,
+   "expected_payout": 231.5298216281447,
+   "p_survive": 0.0,
+   "ev": -34.27286022844142
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.0,
+   "daily_sigma": 900,
+   "p_pass": 0.1775,
+   "median_days": 5.0,
+   "expected_payout": 33.79929741387696,
+   "p_survive": 0.0,
+   "ev": -74.00062470903684
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.4,
+   "daily_sigma": 100,
+   "p_pass": 0.11316666666666667,
+   "median_days": 187.0,
+   "expected_payout": 672.5318783260509,
+   "p_survive": 0.4781666666666667,
+   "ev": -3.891809102768576
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.4,
+   "daily_sigma": 150,
+   "p_pass": 0.2935,
+   "median_days": 146.0,
+   "expected_payout": 1092.4145074639673,
+   "p_survive": 0.16766666666666666,
+   "ev": 240.62365794067438
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.4,
+   "daily_sigma": 250,
+   "p_pass": 0.3385,
+   "median_days": 64.0,
+   "expected_payout": 1090.986746941938,
+   "p_survive": 0.0095,
+   "ev": 289.29901383984605
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.4,
+   "daily_sigma": 400,
+   "p_pass": 0.2915,
+   "median_days": 26.0,
+   "expected_payout": 775.5401187584944,
+   "p_survive": 0.0,
+   "ev": 146.0699446181011
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.4,
+   "daily_sigma": 600,
+   "p_pass": 0.22033333333333333,
+   "median_days": 11.0,
+   "expected_payout": 292.44790244853874,
+   "p_survive": 0.0,
+   "ev": -15.563978827171965
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.4,
+   "daily_sigma": 900,
+   "p_pass": 0.19516666666666665,
+   "median_days": 5.0,
+   "expected_payout": 50.82600882464663,
+   "p_survive": 0.0,
+   "ev": -70.08045727772313
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.7,
+   "daily_sigma": 100,
+   "p_pass": 0.19366666666666665,
+   "median_days": 187.0,
+   "expected_payout": 1081.2293803686412,
+   "p_survive": 0.6115,
+   "ev": 129.39808999806016
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.7,
+   "daily_sigma": 150,
+   "p_pass": 0.393,
+   "median_days": 143.0,
+   "expected_payout": 1756.4053525040583,
+   "p_survive": 0.261,
+   "ev": 610.2673035340949
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.7,
+   "daily_sigma": 250,
+   "p_pass": 0.40016666666666667,
+   "median_days": 64.0,
+   "expected_payout": 1652.854838872173,
+   "p_survive": 0.02266666666666667,
+   "ev": 581.4174113553479
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.7,
+   "daily_sigma": 400,
+   "p_pass": 0.3238333333333333,
+   "median_days": 26.0,
+   "expected_payout": 967.5976471032067,
+   "p_survive": 0.0,
+   "ev": 233.34037138692173
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.7,
+   "daily_sigma": 600,
+   "p_pass": 0.236,
+   "median_days": 11.0,
+   "expected_payout": 278.44841554117096,
+   "p_survive": 0.0,
+   "ev": -14.28617393228366
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 0.7,
+   "daily_sigma": 900,
+   "p_pass": 0.20366666666666666,
+   "median_days": 5.0,
+   "expected_payout": 44.022343147976535,
+   "p_survive": 0.0,
+   "ev": -71.03411611219545
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.0,
+   "daily_sigma": 100,
+   "p_pass": 0.2765,
+   "median_days": 184.0,
+   "expected_payout": 1606.5709623843034,
+   "p_survive": 0.732,
+   "ev": 364.2168710992599
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.0,
+   "daily_sigma": 150,
+   "p_pass": 0.49983333333333335,
+   "median_days": 136.0,
+   "expected_payout": 2477.2414023191204,
+   "p_survive": 0.3655,
+   "ev": 1158.207827592507
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.0,
+   "daily_sigma": 250,
+   "p_pass": 0.4651666666666667,
+   "median_days": 65.0,
+   "expected_payout": 2424.068461574618,
+   "p_survive": 0.04533333333333334,
+   "ev": 1047.59584604246
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.0,
+   "daily_sigma": 400,
+   "p_pass": 0.3561666666666667,
+   "median_days": 25.0,
+   "expected_payout": 1253.8858533703537,
+   "p_survive": 0.00016666666666666666,
+   "ev": 366.5923447754077
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.0,
+   "daily_sigma": 600,
+   "p_pass": 0.25783333333333336,
+   "median_days": 11.0,
+   "expected_payout": 381.6120729832101,
+   "p_survive": 0.0,
+   "ev": 18.392312817504347
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.0,
+   "daily_sigma": 900,
+   "p_pass": 0.21966666666666668,
+   "median_days": 5.0,
+   "expected_payout": 63.70642831417813,
+   "p_survive": 0.0,
+   "ev": -66.00582124698553
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.25,
+   "daily_sigma": 100,
+   "p_pass": 0.35833333333333334,
+   "median_days": 184.0,
+   "expected_payout": 2127.9802122168517,
+   "p_survive": 0.8178333333333333,
+   "ev": 682.5262427110385
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.25,
+   "daily_sigma": 150,
+   "p_pass": 0.5976666666666667,
+   "median_days": 135.0,
+   "expected_payout": 3266.770176801119,
+   "p_survive": 0.45466666666666666,
+   "ev": 1872.439642334802
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.25,
+   "daily_sigma": 250,
+   "p_pass": 0.5305,
+   "median_days": 60.0,
+   "expected_payout": 3197.1359448658764,
+   "p_survive": 0.0645,
+   "ev": 1616.0806187513474
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.25,
+   "daily_sigma": 400,
+   "p_pass": 0.3968333333333333,
+   "median_days": 25.0,
+   "expected_payout": 1570.432951882076,
+   "p_survive": 0.0,
+   "ev": 543.2001430718705
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.25,
+   "daily_sigma": 600,
+   "p_pass": 0.289,
+   "median_days": 11.0,
+   "expected_payout": 488.5597056650979,
+   "p_survive": 0.0,
+   "ev": 61.1937549372133
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.25,
+   "daily_sigma": 900,
+   "p_pass": 0.23416666666666666,
+   "median_days": 5.0,
+   "expected_payout": 82.4674722176784,
+   "p_survive": 0.0,
+   "ev": -60.688866922360305
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.5,
+   "daily_sigma": 100,
+   "p_pass": 0.45,
+   "median_days": 177.0,
+   "expected_payout": 2774.35391748847,
+   "p_survive": 0.8721666666666666,
+   "ev": 1168.4592628698115
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.5,
+   "daily_sigma": 150,
+   "p_pass": 0.6668333333333333,
+   "median_days": 127.0,
+   "expected_payout": 4139.318369631591,
+   "p_survive": 0.545,
+   "ev": 2680.2354661493323
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.5,
+   "daily_sigma": 250,
+   "p_pass": 0.59,
+   "median_days": 61.0,
+   "expected_payout": 4053.9609695736754,
+   "p_survive": 0.10466666666666667,
+   "ev": 2311.8369720484684
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.5,
+   "daily_sigma": 400,
+   "p_pass": 0.427,
+   "median_days": 25.0,
+   "expected_payout": 1938.396882972471,
+   "p_survive": 0.00016666666666666666,
+   "ev": 747.6954690292451
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.5,
+   "daily_sigma": 600,
+   "p_pass": 0.30266666666666664,
+   "median_days": 11.0,
+   "expected_payout": 530.2046807200869,
+   "p_survive": 0.0,
+   "ev": 80.47528336461295
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 1.5,
+   "daily_sigma": 900,
+   "p_pass": 0.24983333333333332,
+   "median_days": 5.0,
+   "expected_payout": 75.83843130426277,
+   "p_survive": 0.0,
+   "ev": -61.05303191248502
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 2.0,
+   "daily_sigma": 100,
+   "p_pass": 0.6316666666666667,
+   "median_days": 170.0,
+   "expected_payout": 4020.2980724632243,
+   "p_survive": 0.9446666666666667,
+   "ev": 2459.4882824392703
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 2.0,
+   "daily_sigma": 150,
+   "p_pass": 0.8088333333333333,
+   "median_days": 116.0,
+   "expected_payout": 6063.51430934304,
+   "p_survive": 0.696,
+   "ev": 4824.372490540295
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 2.0,
+   "daily_sigma": 250,
+   "p_pass": 0.6763333333333333,
+   "median_days": 54.0,
+   "expected_payout": 6447.750366194535,
+   "p_survive": 0.18633333333333332,
+   "ev": 4280.82849766957
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 2.0,
+   "daily_sigma": 400,
+   "p_pass": 0.496,
+   "median_days": 24.0,
+   "expected_payout": 2531.1325479562406,
+   "p_survive": 0.0003333333333333333,
+   "ev": 1175.4417437862953
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 2.0,
+   "daily_sigma": 600,
+   "p_pass": 0.3328333333333333,
+   "median_days": 11.0,
+   "expected_payout": 695.0343626410893,
+   "p_survive": 0.0,
+   "ev": 151.33060369904254
+  },
+  {
+   "daily_limit": "hard",
+   "sharpe": 2.0,
+   "daily_sigma": 900,
+   "p_pass": 0.2675,
+   "median_days": 5.0,
+   "expected_payout": 122.74744935176506,
+   "p_survive": 0.0,
+   "ev": -47.16505729840284
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.0,
+   "daily_sigma": 100,
+   "p_pass": 0.059833333333333336,
+   "median_days": 187.0,
+   "expected_payout": 317.5115006546977,
+   "p_survive": 0.31566666666666665,
+   "ev": -61.00222854416059
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.0,
+   "daily_sigma": 150,
+   "p_pass": 0.1815,
+   "median_days": 146.0,
+   "expected_payout": 570.5027535951168,
+   "p_survive": 0.08466666666666667,
+   "ev": 23.546249777513694
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.0,
+   "daily_sigma": 250,
+   "p_pass": 0.25433333333333336,
+   "median_days": 67.0,
+   "expected_payout": 738.0650581634102,
+   "p_survive": 0.003833333333333333,
+   "ev": 107.71454645956067
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.0,
+   "daily_sigma": 400,
+   "p_pass": 0.2703333333333333,
+   "median_days": 27.0,
+   "expected_payout": 718.2357638151385,
+   "p_survive": 0.0,
+   "ev": 114.16306815135908
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.0,
+   "daily_sigma": 600,
+   "p_pass": 0.26666666666666666,
+   "median_days": 13.0,
+   "expected_payout": 753.401855654913,
+   "p_survive": 0.0,
+   "ev": 120.90716150797681
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.0,
+   "daily_sigma": 900,
+   "p_pass": 0.275,
+   "median_days": 6.0,
+   "expected_payout": 843.606834713158,
+   "p_survive": 0.0,
+   "ev": 151.99187954611847
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.4,
+   "daily_sigma": 100,
+   "p_pass": 0.109,
+   "median_days": 189.5,
+   "expected_payout": 650.7576909616363,
+   "p_survive": 0.4791666666666667,
+   "ev": -9.06741168518164
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.4,
+   "daily_sigma": 150,
+   "p_pass": 0.2861666666666667,
+   "median_days": 145.0,
+   "expected_payout": 1153.2088743525383,
+   "p_survive": 0.1765,
+   "ev": 250.00993954388474
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.4,
+   "daily_sigma": 250,
+   "p_pass": 0.33766666666666667,
+   "median_days": 65.0,
+   "expected_payout": 1202.8021709939312,
+   "p_survive": 0.012,
+   "ev": 326.14619973895077
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.4,
+   "daily_sigma": 400,
+   "p_pass": 0.30783333333333335,
+   "median_days": 27.0,
+   "expected_payout": 1099.7356616147638,
+   "p_survive": 0.0005,
+   "ev": 258.53529450041145
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.4,
+   "daily_sigma": 600,
+   "p_pass": 0.3006666666666667,
+   "median_days": 13.0,
+   "expected_payout": 1007.0519331650164,
+   "p_survive": 0.0,
+   "ev": 222.7869479049483
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.4,
+   "daily_sigma": 900,
+   "p_pass": 0.30266666666666664,
+   "median_days": 6.0,
+   "expected_payout": 1038.5752617919545,
+   "p_survive": 0.0,
+   "ev": 234.34211256903154
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.7,
+   "daily_sigma": 100,
+   "p_pass": 0.1845,
+   "median_days": 186.0,
+   "expected_payout": 1078.4528641576378,
+   "p_survive": 0.6191666666666666,
+   "ev": 118.97455343708418
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.7,
+   "daily_sigma": 150,
+   "p_pass": 0.3955,
+   "median_days": 142.0,
+   "expected_payout": 1727.7134672192894,
+   "p_survive": 0.26466666666666666,
+   "ev": 603.310676285229
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.7,
+   "daily_sigma": 250,
+   "p_pass": 0.39966666666666667,
+   "median_days": 65.0,
+   "expected_payout": 1709.7967536679027,
+   "p_survive": 0.027,
+   "ev": 603.3487692159384
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.7,
+   "daily_sigma": 400,
+   "p_pass": 0.352,
+   "median_days": 26.0,
+   "expected_payout": 1441.9873105364188,
+   "p_survive": 0.00016666666666666666,
+   "ev": 427.5795333088194
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.7,
+   "daily_sigma": 600,
+   "p_pass": 0.3378333333333333,
+   "median_days": 13.0,
+   "expected_payout": 1344.7896632532809,
+   "p_survive": 0.0,
+   "ev": 374.3147745690667
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 0.7,
+   "daily_sigma": 900,
+   "p_pass": 0.3258333333333333,
+   "median_days": 6.0,
+   "expected_payout": 1275.482518815247,
+   "p_survive": 0.0,
+   "ev": 335.59472071396794
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.0,
+   "daily_sigma": 100,
+   "p_pass": 0.26566666666666666,
+   "median_days": 186.0,
+   "expected_payout": 1639.941407760056,
+   "p_survive": 0.7318333333333333,
+   "ev": 355.6777673282549
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.0,
+   "daily_sigma": 150,
+   "p_pass": 0.48733333333333334,
+   "median_days": 137.0,
+   "expected_payout": 2479.2239496149878,
+   "p_survive": 0.36866666666666664,
+   "ev": 1128.2084714457042
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.0,
+   "daily_sigma": 250,
+   "p_pass": 0.4791666666666667,
+   "median_days": 63.0,
+   "expected_payout": 2489.4703437933763,
+   "p_survive": 0.04833333333333333,
+   "ev": 1112.8712064009928
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.0,
+   "daily_sigma": 400,
+   "p_pass": 0.4051666666666667,
+   "median_days": 26.0,
+   "expected_payout": 1975.6419703946208,
+   "p_survive": 0.0016666666666666668,
+   "ev": 720.4642716715539
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.0,
+   "daily_sigma": 600,
+   "p_pass": 0.36283333333333334,
+   "median_days": 13.0,
+   "expected_payout": 1602.6777279801704,
+   "p_survive": 0.0,
+   "ev": 501.5049023021385
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.0,
+   "daily_sigma": 900,
+   "p_pass": 0.3476666666666667,
+   "median_days": 6.0,
+   "expected_payout": 1468.3935934037418,
+   "p_survive": 0.0,
+   "ev": 430.51150597336755
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.25,
+   "daily_sigma": 100,
+   "p_pass": 0.35533333333333333,
+   "median_days": 185.0,
+   "expected_payout": 2128.2910876740843,
+   "p_survive": 0.805,
+   "ev": 676.2527664868579
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.25,
+   "daily_sigma": 150,
+   "p_pass": 0.5808333333333333,
+   "median_days": 136.0,
+   "expected_payout": 3208.065304710419,
+   "p_survive": 0.44666666666666666,
+   "ev": 1783.3512644859682
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.25,
+   "daily_sigma": 250,
+   "p_pass": 0.529,
+   "median_days": 61.0,
+   "expected_payout": 3192.7768631036793,
+   "p_survive": 0.06733333333333333,
+   "ev": 1608.9789605818464
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.25,
+   "daily_sigma": 400,
+   "p_pass": 0.43116666666666664,
+   "median_days": 26.0,
+   "expected_payout": 2335.372876247549,
+   "p_survive": 0.0018333333333333333,
+   "ev": 926.9349384754014
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.25,
+   "daily_sigma": 600,
+   "p_pass": 0.3898333333333333,
+   "median_days": 13.0,
+   "expected_payout": 1999.723677709164,
+   "p_survive": 0.0,
+   "ev": 699.5589470269557
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.25,
+   "daily_sigma": 900,
+   "p_pass": 0.3476666666666667,
+   "median_days": 6.0,
+   "expected_payout": 1811.0593753973671,
+   "p_survive": 0.0,
+   "ev": 549.644976179818
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.5,
+   "daily_sigma": 100,
+   "p_pass": 0.4455,
+   "median_days": 180.0,
+   "expected_payout": 2702.736877054996,
+   "p_survive": 0.8695,
+   "ev": 1124.0692787280007
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.5,
+   "daily_sigma": 150,
+   "p_pass": 0.672,
+   "median_days": 128.0,
+   "expected_payout": 4109.805656150249,
+   "p_survive": 0.5545,
+   "ev": 2681.7894009329675
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.5,
+   "daily_sigma": 250,
+   "p_pass": 0.5813333333333334,
+   "median_days": 59.0,
+   "expected_payout": 4096.986896199473,
+   "p_survive": 0.10216666666666667,
+   "ev": 2301.7150489906276
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.5,
+   "daily_sigma": 400,
+   "p_pass": 0.4736666666666667,
+   "median_days": 25.0,
+   "expected_payout": 3033.610910609455,
+   "p_survive": 0.0045,
+   "ev": 1356.920367992012
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.5,
+   "daily_sigma": 600,
+   "p_pass": 0.4093333333333333,
+   "median_days": 12.0,
+   "expected_payout": 2452.400403604778,
+   "p_survive": 0.00016666666666666666,
+   "ev": 923.8492318755558
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 1.5,
+   "daily_sigma": 900,
+   "p_pass": 0.37716666666666665,
+   "median_days": 6.0,
+   "expected_payout": 2086.626717574442,
+   "p_survive": 0.0,
+   "ev": 707.0060436451603
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 2.0,
+   "daily_sigma": 100,
+   "p_pass": 0.6353333333333333,
+   "median_days": 169.0,
+   "expected_payout": 4030.713634443369,
+   "p_survive": 0.9403333333333334,
+   "ev": 2480.8467290830204
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 2.0,
+   "daily_sigma": 150,
+   "p_pass": 0.8095,
+   "median_days": 117.0,
+   "expected_payout": 6143.038490808375,
+   "p_survive": 0.713,
+   "ev": 4892.78965830938
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 2.0,
+   "daily_sigma": 250,
+   "p_pass": 0.688,
+   "median_days": 56.0,
+   "expected_payout": 6837.22555465186,
+   "p_survive": 0.20683333333333334,
+   "ev": 4624.011181600479
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 2.0,
+   "daily_sigma": 400,
+   "p_pass": 0.5448333333333333,
+   "median_days": 25.0,
+   "expected_payout": 4884.517761420553,
+   "p_survive": 0.012333333333333333,
+   "ev": 2581.248093680631
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 2.0,
+   "daily_sigma": 600,
+   "p_pass": 0.4756666666666667,
+   "median_days": 12.0,
+   "expected_payout": 3614.071294798167,
+   "p_survive": 0.00016666666666666666,
+   "ev": 1639.0932458923282
+  },
+  {
+   "daily_limit": "soft",
+   "sharpe": 2.0,
+   "daily_sigma": 900,
+   "p_pass": 0.42033333333333334,
+   "median_days": 6.0,
+   "expected_payout": 2855.6588975155923,
+   "p_survive": 0.0,
+   "ev": 1120.3286232557207
+  }
+ ]
+}

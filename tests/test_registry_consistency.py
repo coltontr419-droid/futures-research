@@ -89,7 +89,8 @@ def test_ids_are_unique_and_well_formed() -> None:
     # (U01 2026-10-02, decisions.md 67; V01 2026-10-03, decisions.md 69). The pattern is widened
     # deliberately when a letter is opened, not loosened to whatever happens to be present: an id
     # that matches nothing is a typo, and an id matching a letter nobody declared is worse.
-    assert all(re.fullmatch(r"[FLNPUV]\d\d", i) for i in ids), ids
+    # W: the daily-horizon series, its first registration 2026-10-03 (decisions.md 72-73).
+    assert all(re.fullmatch(r"[FLNPUVW]\d\d", i) for i in ids), ids
 
 
 @pytest.mark.integrity
@@ -298,13 +299,20 @@ def test_every_schedulable_hold_fits_inside_the_trading_day() -> None:
     hypothesis whose hold is written in days — F12's 24-hour hold is exactly the case this
     is meant to catch, and it is excluded partly on that ground.
     """
+    # 2026-10-03 (decisions.md 73): the 8-hour figure was a HEURISTIC for "flat by 17:00", stricter
+    # than the rule. The firm has since confirmed that a hold from the 18:00 reopen to 16:55 is within
+    # it, so the check now encodes the confirmed rule itself: a hold must fit inside ONE CME trading
+    # day (18:00 to 16:55 ET, 1,375 minutes) and therefore can never cross 17:00. It still rejects
+    # F12's 24-hour hold and anything longer than a session. It was left unchanged for U01 (§68)
+    # because a blocked entry does not need it; W04 is a live entry whose hold the firm confirmed.
+    session_hours = 1375 / 60
     for hid, entry in REG.items():
         if entry["status"] != "untested":
             continue
         longest = max(entry["hold_hours"])
-        assert longest <= 8, (
-            f"{hid} declares a {longest}h hold, which cannot be guaranteed flat by "
-            f"17:00 ET. §2 treats that as an invalid backtest, not an optimistic one."
+        assert longest <= session_hours + 1e-9, (
+            f"{hid} declares a {longest}h hold, longer than one CME trading day (18:00 to 16:55 ET), "
+            f"so it would cross 17:00. §2 treats that as an invalid backtest, not an optimistic one."
         )
 
 
@@ -332,7 +340,7 @@ def test_every_registry_entry_appears_in_the_catalog() -> None:
 
 @pytest.mark.integrity
 def test_every_catalog_entry_appears_in_the_registry() -> None:
-    found = set(re.findall(r"^#+ ([FLNPUV]\d\d) — ", CATALOG_TEXT, re.M))
+    found = set(re.findall(r"^#+ ([FLNPUVW]\d\d) — ", CATALOG_TEXT, re.M))
     assert found == set(REG), (
         f"catalog and registry disagree: only in catalog {sorted(found - set(REG))}, "
         f"only in registry {sorted(set(REG) - found)}"

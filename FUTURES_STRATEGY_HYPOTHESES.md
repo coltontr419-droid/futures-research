@@ -547,3 +547,18 @@ and it was never needed.
 the programme's rule, and at a ceiling below every floor it could not change the verdict.
 
 `hypotheses.yaml` (V01) · `reports/v01_reopen_rate.md` · `decisions.md` §69
+
+---
+
+## W04 — Trend Plus Carry, Daily Portfolio  *(REGISTERED; data on disk, not yet read)*
+
+**The W-series' one registration.** Time-series momentum (Moskowitz, Ooi & Pedersen 2012) and carry
+timing (Koijen, Moskowitz, Pedersen & Vrugt 2018), at equal risk, across one CME market per sector —
+NQ, GC, HG, CL, ZN, 6E — traded through their micros at a daily horizon by chained 18:00-to-16:55
+session holds (confirmed with the firm). Published parameters, no free ones, **one trial**.
+
+**Pre-registered before the data was purchased**, amended after it arrived and before any price was read (daily UTC bars, a one-session delay, carry from same-bar closes). The decisive statistic is the post-2021 Sharpe net of the
+daily round trips, against the unit-consistent multiple-testing bar (~1.39); the economics is the
+prop-evaluation EV at that Sharpe. Prior 0.7–1.2, from the papers, labelled optimistic.
+
+`hypotheses.yaml` (W04) · `W_SERIES_CANDIDATES.md` · `decisions.md` §72–§73

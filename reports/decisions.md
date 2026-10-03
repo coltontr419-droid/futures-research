@@ -5645,6 +5645,113 @@ and nothing here is evidence of an edge — it is the first design whose prior m
 4. Buy ohlcv-1d for W02–W04's added markets (price once an API key exists).
 5. If all four go the right way: register W04 alone, one portfolio-level trial.
 
+## 73. W04 registered before its data; the prop-evaluation success condition computed (S1, S2, S8)
+
+**One registration (W04), no trial spent; N 760, SR\* 0.1368. One computation logged to
+`measurements.jsonl` (prop-evaluation EV, not counted in N).** Entry: `hypotheses.yaml` W04; EV:
+`reports/w_prop_ev.md` (`reporting/w_prop_ev.py`).
+
+### The rulings received (answers to §72's five open points)
+
+1. **The firm confirmed** that an 18:00-to-16:55 hold is within "flat by 17:00". Daily horizons are open.
+2. **Objective: prop-evaluation EV.** Terms supplied: $80 fee, +$3,000 target, a $2,000 buffer before
+   payout, 90/10 split, no resets, $1,000 daily loss limit, 30 micros. Two terms were ambiguous and are
+   modelled, not chosen: the daily loss limit is run both HARD (breach ends the account) and SOFT (flat
+   for the day); "a $2k buffer before payout" is read as withdrawals only above $52,000, the lock point.
+3. **SR\* convention left to the analyst; chosen: unit-consistent.** The single per-observation SR\*
+   (2.17 read daily) compares a daily Sharpe with per-trade intraday Sharpes, which are not the same
+   units. W04 is decided at the post-2021 unit-consistent bar, **≈1.39** at N = 761; the full-sample 0.96
+   is reported beside it, not decisive.
+4. **Data purchased by the user** (below).
+5. **W04 registered alone, as one portfolio-level trial.**
+
+### The data, and what changed because of it
+
+**ohlcv-eod is not offered for GLBX.MDP3.** The settings given earlier named it from the schema enum
+without checking it against the dataset; the error was the analyst's. ohlcv-1h costs ~10× ohlcv-1d, so
+**ohlcv-1d was bought.** Its bars close at 00:00 UTC (19:00/20:00 ET): each misses the first 1–2 hours
+of its own session and carries the first 1–2 hours of the next. Two consequences, both written into the
+entry before any price was read:
+
+- **Look-ahead, removed by construction.** A month-end close at 20:00 ET lies after the 18:00 reopen, so
+  a signal traded at that reopen would use prices not yet seen. The entry now delays every position by
+  one session; for a monthly signal this costs almost nothing.
+- **Alignment, to be measured before use.** With positions constant between monthly rebalances, the
+  shifted hours telescope within a holding period; what remains is day-level noise and the rebalance
+  edges, unbiased in sign. It is MEASURED, not assumed: UTC-day against 18:00→16:55 session returns on
+  the on-disk 1-minute MNQ and MGC, daily and 21-day correlation — price dispersions only, no strategy
+  return.
+
+**Received** (job GLBX-20261003-SDXCG4PTPA; three manifest SHA-256 hashes verified; parent symbology;
+2010-06-06 to **2026-09-11**, three weeks short of today, ~15 of ~1,320 post-2021 sessions): every W04
+product with all expiries — NQ, GC, HG, CL, ZN, 6E from 2010; micros M6E and MGC from 2010, MNQ 2019,
+MCL and 10Y 2021, MHG 2022 (micros are used for costs only). **The file also holds ES and MES, which are
+not in W04's universe and will not be used**, and calendar spreads and strips (about half the rows),
+which are discarded.
+
+**Amendments to the entry, made after the data arrived and before any price in it was read** (only the
+symbol and date inventory above was looked at): ohlcv-1d and the one-session delay; carry from the
+**same bar's** closes, with F2 the highest-volume outright expiring after F1, so a stale serial month
+(gold lists every month, trades mainly the even ones) is never used; outright contracts only; ES/MES
+excluded; weights netted per market; the economics row read at two sizes (below).
+
+**One registry check changed.** `test_registry_consistency.py` capped holds at 8 hours; W04 holds 22.9.
+§68 ruled it be left, not loosened, for U01: "a check stricter than the account rule fails safe;
+relaxing it for a blocked entry would be fixing a test rather than an entry." It is now replaced by the account's own bound — a hold must fit inside one CME trading day — because W04
+needs the longer hold and the firm has confirmed it. This departs from §68's letter for a live entry,
+and is recorded as such; the 8-hour figure was a heuristic for "flat by 17:00", not the rule.
+
+### The success condition, computed
+
+Simulator: daily-horizon P&L marked 13 times a session, Student-t (ν = 5) innovations, the account's
+trailing floor, lock, target, daily limit and monthly withdrawals; funded account followed two years;
+an evaluation not passed in a year counts as failed. **Validated against the closed form first**: no
+drift, no daily limit, P(pass) 0.260 against exp(−1)·2/3 = 0.245 — inside tolerance, but high by
+~0.015 from discrete monitoring, so **every EV below is slightly optimistic.** 6,000 paths per cell.
+
+EV per $80 evaluation (USD), HARD daily limit, selected cells:
+
+| Sharpe | $100/day σ | $150 | $250 | $400 | $600 | $900 |
+|---|---|---|---|---|---|---|
+| 0 | −63 | +26 | +97 | +47 | −34 | −74 |
+| 1.0 | +364 | +1,158 | +1,048 | +367 | +18 | −66 |
+| 1.25 | +683 | +1,872 | +1,616 | +543 | +61 | −61 |
+| 1.5 | +1,168 | +2,680 | +2,312 | +748 | +80 | −61 |
+
+SOFT is close to HARD at small size and diverges above $400/day: at Sharpe 1.0, +720 at $400 and +431 at
+$900 (HARD: +367, −66). Full grid in the report. Four findings:
+
+1. **The edge, not the size, drives EV.** At $150/day, Sharpe 0 → +$26; Sharpe 1.0 → +$1,158; at the
+   decision bar 1.39 (interpolated) ≈ **+$2,300 per evaluation**.
+2. **EV is not evidence.** At zero edge it is positive at moderate size (+$97 HARD at $250; +$152 SOFT at
+   $900): the firm absorbs losses beyond the fee. Matches §59 (sizing multiplies an edge, never supplies
+   one). EV is therefore an economics row in W04's decision rule; the Sharpe bar decides.
+3. **The optimum is small: ~$150–250/day of σ**, the opposite of R06's high-volatility optima under 10%
+   structures. Below $150 the one-year evaluation cap binds (an assumed term; the firm's real time limit
+   was not supplied). Above ~$400 the $1,000 daily limit and the $2,000 floor dominate.
+4. **Granularity binds again, at this objective.** One MNQ is $847/day of σ and one MGC $538 (§72,
+   measured). Under W04's registered equal-risk sizing, any integer book that holds MNQ at all holds every
+   market near $847/day — on the order of $2,000/day with all six on. **That is above the grid's top
+   size, where under the HARD reading EV is already −$66 at Sharpe 1.0 and −$47 at Sharpe 2.0; under SOFT
+   it is +$431 at 1.0.** The
+   trial's statistic (Sharpe) is scale-free and unaffected; its economics are not. The entry now requires
+   the runner to report EV at both the EV-optimal (fractional) size and the smallest integer book.
+
+**Not modelled:** consistency rules, minimum trading days, payout caps, funded-account time limits,
+slippage beyond the assumed one tick, the firm's real evaluation time limit. The 30-micro cap does not
+bind at any size the grid reaches.
+
+### Open, for the user
+
+1. **Ask the firm which reading of the $1,000 daily loss limit applies** — breach, or flat for the day.
+   Under HARD, W04 as registered cannot be traded near its EV optimum; under SOFT it can be traded at
+   positive EV if its edge is real.
+2. If HARD: whether to register, BEFORE W04 runs, a variant whose book drops markets that cannot be held
+   at under one contract at the target size. That would be a separate entry with its own trial, not an
+   edit to W04.
+3. W04 becomes schedulable once the alignment measurement is recorded and the runner passes outcome
+   injection at Sharpe 1.39.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
