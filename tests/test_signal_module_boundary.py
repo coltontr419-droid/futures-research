@@ -60,8 +60,10 @@ ALLOWED: Final[dict[str, frozenset[str]]] = {
 }
 
 #: Modules that run a hypothesis end to end. Each must route through the shared evaluator.
+#: evaluate_portfolio (portfolio.py, decisions.md 76) is W04's: a daily portfolio has no events and no
+#: baseline; it takes positions and per-market held returns and builds the scored series itself.
 RUNNER_ENTRYPOINTS: Final[frozenset[str]] = frozenset({
-    "evaluate_signed_signal", "evaluate_cell", "run_staged",
+    "evaluate_signed_signal", "evaluate_cell", "run_staged", "evaluate_portfolio",
 })
 
 #: Vocabulary that only a module producing a Stage 1 VERDICT has any use for. Referencing
@@ -141,7 +143,7 @@ def test_the_allowlist_is_not_a_place_to_hide_a_signed_signal() -> None:
 def _hypothesis_modules() -> list[Path]:
     """Per-hypothesis runners: f01.py, f02.py, ... (s01.py in the crypto lineage)."""
     return [p for p in _modules(SIGNALS)
-            if len(p.stem) >= 3 and p.stem[0] in "fs" and p.stem[1:3].isdigit()]
+            if len(p.stem) >= 3 and p.stem[0] in "fsw" and p.stem[1:3].isdigit()]
 
 
 @pytest.mark.integrity

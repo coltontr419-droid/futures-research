@@ -1,0 +1,15 @@
+{
+ "sought_sharpe": 1.310355587794815,
+ "kappa": 0.0468597412109375,
+ "long_sample_truth": 1.2904362918743069,
+ "n_injection": 1481,
+ "reps": 200,
+ "mean_estimate": 1.3180519408511426,
+ "sd_estimate": 0.47858168140338814,
+ "bias": 0.02761564897683577,
+ "mc_se": 0.03384083522719956,
+ "recovered": true,
+ "bar": 1.310355587794815,
+ "power_at_bar": 0.51,
+ "sharpe_detectable_at_95pct": 2.0976224537033885
+}
