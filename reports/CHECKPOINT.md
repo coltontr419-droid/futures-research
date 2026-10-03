@@ -452,7 +452,7 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), and a ninth series designed (W) with one registration (W04, run and retired), 89 candidates, 38 registered, 771 trials across
+alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), a ninth series designed (W) with one registration (W04, run and retired), and a tenth (X) closed at X02, 96 candidates, 38 registered, 771 trials across
 two logs (futures-research 761, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
 without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
 decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
@@ -573,6 +573,12 @@ above. Injection recovered (1.29 → 1.32, power 51% at the bar). **Premise corr
 trip is ~5% of a day's SD on M6E and the micro 10Y (0.5% on MNQ); equal-risk sizing loads them; drag
 0.73 Sharpe. Integer-book economics row defective (over the 30-micro cap 61% of days) and moot.
 **Nothing is scheduled.**
+
+**X-SERIES, 2026-10-03 — CLOSED AT X02, NOTHING REGISTERED (§77).** Overlap: X03/X04/X07 repeat W
+work (W04's sleeves); X05, X06 new. X01: only MNQ cost-eligible at full time in market; MES, MGC, MCL
+marginal; M6E, micro 10Y, MHG excluded (fees partly unverified; broker charge assumed). X02: post-2021
+pooled effective n 255 (185 on cost survivors) vs SR\* floor 404 at 0.2 monthly Sharpe. X07 not
+blocked on data. **Nothing is scheduled.**
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

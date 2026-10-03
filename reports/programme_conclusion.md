@@ -2,7 +2,8 @@
 
 **Six series registered; a seventh and an eighth drafted and closed at S2; two single hypotheses
 registered and blocked; a ninth series (W, daily horizons) designed, one hypothesis registered and
-retired. 89 candidates drafted, 38 registered, 771 trials across two hash-chained logs. Nothing promoted.**
+retired; a tenth (X, monthly horizon) closed at its floor measurement. 96 candidates drafted, 38
+registered, 771 trials across two hash-chained logs. Nothing promoted.**
 
 **No edge accessible at this cost structure and account size was found in intraday, calendar or
 non-price futures signals, across six independently designed series.**
@@ -569,7 +570,8 @@ stay in the registry, and their trials stay in N.
 | **U01** (single) | **1** | **1** | **0** | **0** |
 | **V01** (single) | **1** | **1** | **0** | **0** |
 | **W** | **5** | **1** | **1** | **0** |
-| **total** | **89** | **38** | **771** | **0** |
+| **X** | **7** | **0** | **0** | **0** |
+| **total** | **96** | **38** | **771** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
@@ -617,3 +619,11 @@ contract already exceeds. `decisions.md` §73.
 W-series' central premise: **cost does bind at a daily horizon on low-volatility markets** — a daily
 round trip is ~5% of a day's SD on the euro and 10-year micros against 0.5% on MNQ, and equal-risk
 sizing loads exactly those, costing 0.73 of Sharpe. N 761, SR\* 0.1368. `decisions.md` §76.
+
+**The X row was added 2026-10-03** — a tenth series at the monthly horizon, drafted outside this
+repository, **closed at its own floor measurement with nothing registered.** Three of its seven
+candidates repeat W work (TSMOM and carry ran as W04's sleeves). Measured: the daily flatten tax
+excludes the euro, 10-year and copper micros on cost, and post-2021 the seven markets pool to 255
+effective months against 404 needed to see a 0.2 monthly Sharpe at the SR\* bar (185 on the cost
+survivors). A null at this horizon could rule out only effects two to three times the literature's
+per-market TSMOM. `decisions.md` §77.

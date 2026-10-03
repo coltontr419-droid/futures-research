@@ -5874,6 +5874,147 @@ does not depend on this row; the definition is recorded as a defect, not repaire
 W01–W03 and W05 were closed at S2 below every bar; **W04's result is no evidence for or against them, but
 W02 and W03 share its universe and its daily re-entry, so they share its cost drag.**
 
+## 77. X-series S1 reviewed: overlap with W, the flatten tax, the monthly floor — closed at X02 (S1, S2, S4)
+
+**No trial spent; N 761, SR\* 0.1368 (r-series chain: 10, unchanged). Nothing registered. Two
+measurement records (m00132 X01, m00133 X02).** Draft: `X_SERIES_CANDIDATES.md` (supplied by the user,
+committed as received apart from a status banner). Measurement: `reports/x01_x02.md` (`reporting/x01_x02.py`).
+
+### Step zero — the overlap with the W-series
+
+The draft did not know the W-series' contents. They are: **W01** TSMOM on MNQ + MGC, **W02** TSMOM across
+~10 micros, **W03** carry timing, **W05** volatility-managed index — all four closed at S2 below every bar
+and never registered — and **W04** trend + carry across NQ, GC, HG, CL, ZN, 6E, **registered, run (t00767)
+and retired**: post-2021 net −0.42 against 1.31 (§76). W04 reports each sleeve: **trend (12-month sign,
+inverse-vol, monthly) gross 0.28 / net −0.60 post-2021, gross 0.54 full; carry gross 0.15 / net −0.62.**
+
+| X | verdict | against |
+|---|---|---|
+| X01 flatten tax | **measurement, partly on file** — §72 measured MNQ and MGC, §76 all six W04 micros; extended here to fees, MES, and days-in-market | §72, §76 |
+| X02 monthly floor | **new measurement** | — |
+| X03 TSMOM | **repeat / parameter variation**: W02's rule, and W04's trend sleeve already ran it at L = 12 on six of X's seven markets; X03 adds ES and sweeps L ∈ {3, 6, 12}, vol window ∈ {20, 60} | W02, W04 trend sleeve |
+| X04 selective TSMOM | **parameter variation** of X03 (a magnitude threshold on the same signal) | W02 / W04 |
+| X05 long-horizon reversal | **new** — no entry in either registry tests 24–60-month reversal | — |
+| X06 cross-asset lead-lag | **new** — R01 is intraday NQ/ES relative value, R04 cross-sectional ranking (closed on permission); neither is a daily lead-lag | — |
+| X07 carry | **repeat**: W03's rule, and W04's carry sleeve ran it | W03, W04 carry sleeve |
+
+Three of seven are repeats or variations of on-file work: X03 and X07 directly, X04 by construction on
+X03. **Their information is on file at one trial already spent**, and re-running them would spend trials
+on it. The draft's statement that carry is "likely blocked on data" because only the front month is on
+disk is wrong — see X07 below.
+
+### X01 — the flatten tax, measured
+
+Post-2021 daily bars; one micro round trip per market per day held. **Fees:** exchange fees per side from
+secondary sources, because CME's fee-schedule PDF refuses automated download (it returned a bot-block page
+for both the CME and CBOT/NYMEX schedules dated 2026-02-01): equity micros $0.35 and MGC $0.60 (AMP's
+notice of the 2025-02-01 change, $0.50 → $0.60) are corroborated; **MHG $0.62, MCL $0.52, M6E ~$0.43 and
+10Y $0.30 are from search summaries and unverified.** NFA $0.02 per side. **The account's
+broker/clearing charge is not known** and is assumed at $1.08 per round trip, the residual of the
+programme's $1.82 MNQ assumption. **Spread: one tick per round trip, assumed** (no quote data on disk;
+it can only be higher, §71).
+
+| micro | round trip | bps of notional | / one day's $σ | Sharpe drag at d = 63 / 126 / 189 / 252 | verdict |
+|---|---|---|---|---|---|
+| MNQ | $2.32 | 0.71 | 0.51% | 0.04 / 0.06 / 0.07 / 0.08 | **eligible** |
+| MES | $3.07 | 1.31 | 1.27% | 0.10 / 0.14 / 0.17 / 0.20 | marginal |
+| MGC | $3.32 | 1.65 | 1.45% | 0.12 / 0.16 / 0.20 / 0.23 | marginal |
+| MCL | $3.16 | 4.21 | 1.73% | 0.14 / 0.19 / 0.24 / 0.27 | marginal |
+| MHG | $3.61 | 3.35 | 2.03% | 0.16 / 0.23 / 0.28 / 0.32 | **excluded** |
+| 10Y | $2.72 | n/a (yield-quoted) | 3.72% | 0.30 / 0.42 / 0.51 / 0.59 | **excluded** |
+| M6E | $3.23 | 2.34 | 5.12% | 0.41 / 0.57 / 0.70 / 0.81 | **excluded** |
+
+Drag in Sharpe units is √d × (round trip / day's $σ) for a position at its own volatility; in % of
+notional it is d × bps / 100. **The right unit is risk, not notional**: MCL costs the most per dollar of
+notional (4.21 bps) but crude moves enough that it is only marginal; M6E costs about half as much per
+notional and is excluded because the euro barely moves. The draft ranked by bps of notional and so had
+MCL as the worst and M6E as middling — the reverse of the measured order. **Only MNQ is cost-eligible at
+full time in market; MES, MGC and MCL are marginal; M6E, the micro 10Y and MHG are excluded before any
+hypothesis names them** — the same mechanism that cost W04 0.73 of Sharpe (§76).
+
+### X02 — the monthly floor, measured
+
+Non-overlapping calendar-month returns of the seven front contracts; full months only. The test is the
+programme's: clearing the unit-consistent SR\* at the sample's own T, so 80% power at a true monthly
+Sharpe s needs s√T ≥ F_N + 0.84, with **F_N = 3.18 at N = 762**. Pooling: effective number of independent
+instruments from the eigenvalues of the measured monthly correlation matrix, (Σλ)²/Σλ² — invariant to the
+signs of the correlations, so "signed" and "absolute" agree.
+
+**Measured correlation, post-2021:** NQ–ES **0.91**; ZN–6E 0.54, GC–6E 0.52, ES–ZN 0.51, HG–6E 0.51; mean
+|ρ| 0.32. **M_eff: 3.75 of 7 post-2021 (4.17 full); 2.71 of the 4 cost survivors** (NQ, ES, GC, CL — NQ and
+ES are almost one market).
+
+| monthly Sharpe (annual) | SR\* floor | post-2021 pooled, all 7 | post-2021 pooled, cost survivors | full pooled, all 7 |
+|---|---|---|---|---|
+| 0.1 (0.35) | 1,615 | 255 — power 6% | 185 — 3% | 813 — 37% |
+| **0.2 (0.69)** | **404** | **255 — power 51%** | **185 — 32%** | 813 — 99% |
+| 0.3 (1.04) | 179 | 255 — 95% | 185 — 82% | 813 — 100% |
+
+The single-test floor (one-sided 5%, no multiplicity) is 155 at 0.2; post-2021 clears it. **The SR\* floor
+governs** (ruling 3 below).
+
+**The draft's "~190 months, marginal" was right about the calendar and wrong about the decision.** It
+counted the full sample; the post-2021 half decides (S8), and that half has **68 months**. Pooled across
+all seven markets it carries 255 effective months, against 404 needed.
+
+**By the brief's own rule, the series closes here:** post-2021 pooled effective n falls below the floor at
+0.2 monthly Sharpe, on the full universe (255 < 404) and more so on the instruments X01 leaves (185).
+**Nothing is registered.**
+
+### Does this horizon clear the injection standard?
+
+**The standard (§60) can be met at this horizon, and already has been: W04 recovered its sought effect at
+its run's own n (§76), and its null is informative** — its gross Sharpe's one-sided 95% bound sits below
+the bar. So the brief's "first horizon in nine series where a null means absence" was reached by W04,
+not by this series. **What X02 adds is the size at which it holds:** post-2021, pooled across all seven
+markets, a null means absence only for per-market monthly Sharpes of about **0.25 or more (≈0.87 a
+year)** — 80% power needs s ≥ (3.18 + 0.84)/√255. On the cost survivors that rises to ≈0.30 (≈1.03 a year).
+The literature's per-market TSMOM is 0.3–0.5 annual (MOP), so **a null at this horizon cannot speak to the
+effect sizes the literature reports** — it can only rule out effects two to three times larger.
+
+### X07 — data availability
+
+**Not blocked.** The purchased file is parent symbology, every listed expiry, from 2010 (§73–§74); carry was
+computed from it for six markets in W04, with F2 the highest-volume later outright on the same bar (ZN's
+carry was undefined on 17% of bars, where no later ZN contract traded). Carry is on file as W04's sleeve
+and closed as W03.
+
+### X03 — two notes the brief asks to be carried into any entry
+
+1. **The anti-hedging suppression rule must be fixed at registration.** It removes positions
+   non-randomly (precisely the opposite-signed correlated pairs), so choosing it after seeing results
+   would be a free parameter. Post-2021 NQ–ES is ρ 0.91: the pair the firm names would be in conflict
+   whenever their 12-month signs differ.
+2. **Prior refutation, cited by what it tested (finding 12).** Oliveira, Guzman & Firoozye (2025),
+   *(Non-Parametric) Bootstrap Robust Optimization for Portfolios and Trading Strategies*, arXiv
+   2510.12725: **on 21 ETFs, daily from 2006, 80/20 train/test, the in-sample-optimised TSMOM
+   parameterisations' "test-period Sharpe ratios become negative for nearly all parameterizations"**
+   (verbatim); on a futures dataset (commodities, bonds, currencies, equity indices) they report in-sample
+   ~0.6 and "severe out-of-sample degradation". **What it tested is parameter selection, not MOP's fixed
+   12-month rule** — so it bears directly on X03's sweep over L and vol window, and less on a single
+   published parameterisation. The brief's "negative on both ETF and futures" is verbatim only for ETFs.
+
+### Rulings made here, logged rather than resolved silently
+
+1. **Fees from secondary sources**, four unverified; broker/clearing assumed at $1.08 per round trip;
+   spread assumed one tick. The verdicts that could move: MHG sits at 0.32 (excluded) on a $0.62 fee that
+   is unverified. The others are not close to a boundary.
+2. **Eligibility thresholds**, Sharpe drag at full time in market: eligible ≤ 0.15, excluded > 0.30 —
+   half and all of MOP's lower per-market estimate (0.3). A strategy in the market less of the time pays
+   √(fraction) of that.
+3. **The SR\* floor governs X02's closing rule, not the single-test floor.** Every registration since §73
+   is decided by SR\* at its own T; a floor that ignores 761 trials would certify power against a bar
+   no entry is judged by.
+4. **Pooling assumes equal per-instrument Sharpe and equal risk weights.** Unequal Sharpes or the
+   anti-hedging suppression would lower M_eff; this is the optimistic case.
+5. **N at registration taken as 762** (the next trial).
+
+### Status
+
+**X-series closed at X02, nothing registered.** X05 and X06 are new and are the only candidates not
+already on file. Neither changes the X02 arithmetic: X05 loses 24–60 months of the 68 to its lookback,
+and X06 adds up to 56 ordered pairs of multiplicity. They are closed with the series.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

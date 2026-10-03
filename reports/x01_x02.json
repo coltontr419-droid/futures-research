@@ -1,0 +1,405 @@
+{
+ "x01": {
+  "MNQ": {
+   "root": "NQ",
+   "post_2021_bars": 1481,
+   "median_price": 16287.0,
+   "notional": 32574.0,
+   "daily_dollar_sigma": 457.99200418961937,
+   "fee_source": "secondary: CME equity micros $0.35 (search summary, 2026 schedule)",
+   "exchange_fee_side": 0.35,
+   "round_trip_usd": 2.3200000000000003,
+   "round_trip_of_which_spread_assumed": 0.5,
+   "round_trip_of_which_broker_assumed": 1.08,
+   "round_trip_bps_notional": 0.7122244735064777,
+   "round_trip_over_day_sigma": 0.005065590619000122,
+   "drag_pct_notional_by_days": {
+    "63": 0.4487014183090809,
+    "126": 0.8974028366181618,
+    "189": 1.3461042549272428,
+    "252": 1.7948056732363236
+   },
+   "sharpe_drag_by_days": {
+    "63": 0.040206879064608195,
+    "126": 0.05686111367386377,
+    "189": 0.06964035735367881,
+    "252": 0.08041375812921639
+   },
+   "verdict": "eligible"
+  },
+  "MES": {
+   "root": "ES",
+   "post_2021_bars": 1481,
+   "median_price": 4687.75,
+   "notional": 23438.75,
+   "daily_dollar_sigma": 242.34295389527657,
+   "fee_source": "secondary: as MNQ",
+   "exchange_fee_side": 0.35,
+   "round_trip_usd": 3.0700000000000003,
+   "round_trip_of_which_spread_assumed": 1.25,
+   "round_trip_of_which_broker_assumed": 1.08,
+   "round_trip_bps_notional": 1.3097968108367555,
+   "round_trip_over_day_sigma": 0.012667997771978287,
+   "drag_pct_notional_by_days": {
+    "63": 0.825171990827156,
+    "126": 1.650343981654312,
+    "189": 2.4755159724814675,
+    "252": 3.300687963308624
+   },
+   "sharpe_drag_by_days": {
+    "63": 0.1005491151413246,
+    "126": 0.14219792231747516,
+    "189": 0.1741561760808673,
+    "252": 0.2010982302826492
+   },
+   "verdict": "marginal"
+  },
+  "MGC": {
+   "root": "GC",
+   "post_2021_bars": 1478,
+   "median_price": 2016.3,
+   "notional": 20163.0,
+   "daily_dollar_sigma": 228.9632248957003,
+   "fee_source": "secondary: AMP notice, $0.50 -> $0.60 from 2025-02-01",
+   "exchange_fee_side": 0.6,
+   "round_trip_usd": 3.3200000000000003,
+   "round_trip_of_which_spread_assumed": 1.0,
+   "round_trip_of_which_broker_assumed": 1.08,
+   "round_trip_bps_notional": 1.6465803699846255,
+   "round_trip_over_day_sigma": 0.014500145171838669,
+   "drag_pct_notional_by_days": {
+    "63": 1.0373456330903141,
+    "126": 2.0746912661806283,
+    "189": 3.112036899270942,
+    "252": 4.1493825323612565
+   },
+   "sharpe_drag_by_days": {
+    "63": 0.11509133429705716,
+    "126": 0.162763725874514,
+    "189": 0.19934403851339746,
+    "252": 0.23018266859411432
+   },
+   "verdict": "marginal"
+  },
+  "MHG": {
+   "root": "HG",
+   "post_2021_bars": 1478,
+   "median_price": 4.311249999999999,
+   "notional": 10778.124999999998,
+   "daily_dollar_sigma": 177.6414021542787,
+   "fee_source": "secondary: search summary, unverified",
+   "exchange_fee_side": 0.62,
+   "round_trip_usd": 3.6100000000000003,
+   "round_trip_of_which_spread_assumed": 1.25,
+   "round_trip_of_which_broker_assumed": 1.08,
+   "round_trip_bps_notional": 3.34937663090751,
+   "round_trip_over_day_sigma": 0.02032183914459746,
+   "drag_pct_notional_by_days": {
+    "63": 2.110107277471731,
+    "126": 4.220214554943462,
+    "189": 6.330321832415195,
+    "252": 8.440429109886924
+   },
+   "sharpe_drag_by_days": {
+    "63": 0.16129959768018734,
+    "126": 0.22811207864464478,
+    "189": 0.2793790984225035,
+    "252": 0.3225991953603747
+   },
+   "verdict": "excluded"
+  },
+  "MCL": {
+   "root": "CL",
+   "post_2021_bars": 1478,
+   "median_price": 74.99,
+   "notional": 7498.999999999999,
+   "daily_dollar_sigma": 182.96119559557266,
+   "fee_source": "secondary: search summary, unverified",
+   "exchange_fee_side": 0.52,
+   "round_trip_usd": 3.16,
+   "round_trip_of_which_spread_assumed": 1.0,
+   "round_trip_of_which_broker_assumed": 1.08,
+   "round_trip_bps_notional": 4.2138951860248035,
+   "round_trip_over_day_sigma": 0.017271421897488228,
+   "drag_pct_notional_by_days": {
+    "63": 2.6547539671956266,
+    "126": 5.309507934391253,
+    "189": 7.964261901586879,
+    "252": 10.619015868782506
+   },
+   "sharpe_drag_by_days": {
+    "63": 0.1370876613876875,
+    "126": 0.1938712299684781,
+    "189": 0.2374427946142729,
+    "252": 0.274175322775375
+   },
+   "verdict": "marginal"
+  },
+  "M6E": {
+   "root": "6E",
+   "post_2021_bars": 1481,
+   "median_price": 1.105,
+   "notional": 13812.5,
+   "daily_dollar_sigma": 63.06815422836211,
+   "fee_source": "secondary: ~$0.45 incl. NFA and clearing (broker comparison), unverified",
+   "exchange_fee_side": 0.43,
+   "round_trip_usd": 3.23,
+   "round_trip_of_which_spread_assumed": 1.25,
+   "round_trip_of_which_broker_assumed": 1.08,
+   "round_trip_bps_notional": 2.3384615384615386,
+   "round_trip_over_day_sigma": 0.051214436818692415,
+   "drag_pct_notional_by_days": {
+    "63": 1.4732307692307691,
+    "126": 2.9464615384615382,
+    "189": 4.419692307692308,
+    "252": 5.8929230769230765
+   },
+   "sharpe_drag_by_days": {
+    "63": 0.40650199007547033,
+    "126": 0.5748806274963834,
+    "189": 0.7040821001885741,
+    "252": 0.8130039801509407
+   },
+   "verdict": "excluded"
+  },
+  "10Y": {
+   "root": "10Y",
+   "post_2021_bars": 1321,
+   "median_price": 4.106,
+   "notional": null,
+   "daily_dollar_sigma": 73.08148234979548,
+   "fee_source": "secondary: broker example $0.30 non-member, unverified",
+   "exchange_fee_side": 0.3,
+   "round_trip_usd": 2.72,
+   "round_trip_of_which_spread_assumed": 1.0,
+   "round_trip_of_which_broker_assumed": 1.08,
+   "round_trip_bps_notional": null,
+   "round_trip_over_day_sigma": 0.03721873055312502,
+   "drag_pct_notional_by_days": null,
+   "sharpe_drag_by_days": {
+    "63": 0.2954145154712708,
+    "126": 0.4177792143013477,
+    "189": 0.5116729500895832,
+    "252": 0.5908290309425416
+   },
+   "verdict": "excluded"
+  }
+ },
+ "x02": {
+  "universe": [
+   "NQ",
+   "ES",
+   "GC",
+   "HG",
+   "CL",
+   "ZN",
+   "6E"
+  ],
+  "F_N": 3.177009893029328,
+  "N": 762,
+  "eras": {
+   "full": {
+    "cost_survivors": [
+     "NQ",
+     "ES",
+     "GC",
+     "CL"
+    ],
+    "m_eff_cost_survivors": 2.726743269879652,
+    "floors_cost_survivors": {
+     "0.1": {
+      "pooled_n": 531.7149376265321,
+      "floor_sr_star": 1614.9396131696406,
+      "clears_sr_star": false,
+      "power_at_sr_star": 0.19184557098486954
+     },
+     "0.2": {
+      "pooled_n": 531.7149376265321,
+      "floor_sr_star": 403.73490329241014,
+      "clears_sr_star": true,
+      "power_at_sr_star": 0.9243249690353326
+     },
+     "0.3": {
+      "pooled_n": 531.7149376265321,
+      "floor_sr_star": 179.43773479662678,
+      "clears_sr_star": true,
+      "power_at_sr_star": 0.9999082361201617
+     }
+    },
+    "months": 195,
+    "monthly_vol_pct": {
+     "NQ": 4.931734763209242,
+     "ES": 3.9925646458204787,
+     "GC": 4.731650430145576,
+     "HG": 6.177018951407474,
+     "CL": 11.489496575499198,
+     "ZN": 1.4872945062283964,
+     "6E": 2.3673724136346306
+    },
+    "corr": {
+     "NQ-ES": 0.9108179444244855,
+     "NQ-GC": 0.11071059777298649,
+     "NQ-HG": 0.36117730507508067,
+     "NQ-CL": 0.13277216345789383,
+     "NQ-ZN": 0.10093756234976828,
+     "NQ-6E": 0.32755084241175453,
+     "ES-GC": 0.10358092420539167,
+     "ES-HG": 0.44786143722359845,
+     "ES-CL": 0.2521718401416449,
+     "ES-ZN": 0.028684651292819222,
+     "ES-6E": 0.3661542010160726,
+     "GC-HG": 0.3181422357739759,
+     "GC-CL": -0.010423444412665817,
+     "GC-ZN": 0.3305392538780627,
+     "GC-6E": 0.35572141799835566,
+     "HG-CL": 0.33754793823515844,
+     "HG-ZN": -0.11534004551478716,
+     "HG-6E": 0.4866382661799389,
+     "CL-ZN": -0.30967397912767264,
+     "CL-6E": 0.2135881730488705,
+     "ZN-6E": 0.12770062652675487
+    },
+    "mean_abs_pairwise_corr": 0.2737016595270352,
+    "m_eff_signed": 4.1693654451515725,
+    "m_eff_abs": 4.169365445151574,
+    "sr_star_monthly_at_T": 0.22751040393687294,
+    "floors": {
+     "0.1": {
+      "floor_sr_star": 1614.9396131696406,
+      "floor_single_test": 618.2557232019765,
+      "pooled_n_abs": 813.026261804557,
+      "pooled_n_signed": 813.0262618045566,
+      "clears_sr_star_abs": false,
+      "clears_single_test_abs": true,
+      "single_instrument_months": 195,
+      "single_instrument_clears_sr_star": false,
+      "power_at_sr_star_abs": 0.372345211155153
+     },
+     "0.2": {
+      "floor_sr_star": 403.73490329241014,
+      "floor_single_test": 154.56393080049412,
+      "pooled_n_abs": 813.026261804557,
+      "pooled_n_signed": 813.0262618045566,
+      "clears_sr_star_abs": true,
+      "clears_single_test_abs": true,
+      "single_instrument_months": 195,
+      "single_instrument_clears_sr_star": false,
+      "power_at_sr_star_abs": 0.994226814782364
+     },
+     "0.3": {
+      "floor_sr_star": 179.43773479662678,
+      "floor_single_test": 68.69508035577519,
+      "pooled_n_abs": 813.026261804557,
+      "pooled_n_signed": 813.0262618045566,
+      "clears_sr_star_abs": true,
+      "clears_single_test_abs": true,
+      "single_instrument_months": 195,
+      "single_instrument_clears_sr_star": true,
+      "power_at_sr_star_abs": 0.9999999621471194
+     }
+    }
+   },
+   "post_2021": {
+    "cost_survivors": [
+     "NQ",
+     "ES",
+     "GC",
+     "CL"
+    ],
+    "m_eff_cost_survivors": 2.713907413560803,
+    "floors_cost_survivors": {
+     "0.1": {
+      "pooled_n": 184.5457041221346,
+      "floor_sr_star": 1614.9396131696406,
+      "clears_sr_star": false,
+      "power_at_sr_star": 0.03449128562221339
+     },
+     "0.2": {
+      "pooled_n": 184.5457041221346,
+      "floor_sr_star": 403.73490329241014,
+      "clears_sr_star": false,
+      "power_at_sr_star": 0.3227373329229989
+     },
+     "0.3": {
+      "pooled_n": 184.5457041221346,
+      "floor_sr_star": 179.43773479662678,
+      "clears_sr_star": true,
+      "power_at_sr_star": 0.8155186562545899
+     }
+    },
+    "months": 68,
+    "monthly_vol_pct": {
+     "NQ": 5.662512380235206,
+     "ES": 4.361793326187954,
+     "GC": 4.77581004415033,
+     "HG": 5.823946370687556,
+     "CL": 10.381916394227943,
+     "ZN": 1.7453708059674364,
+     "6E": 2.0542381526501
+    },
+    "corr": {
+     "NQ-ES": 0.9125349183547664,
+     "NQ-GC": 0.15632212396259224,
+     "NQ-HG": 0.26415235142830046,
+     "NQ-CL": -0.16412264657927797,
+     "NQ-ZN": 0.48275133799790804,
+     "NQ-6E": 0.23835047788195626,
+     "ES-GC": 0.19310811418448878,
+     "ES-HG": 0.3361481811132985,
+     "ES-CL": -0.03350701226981889,
+     "ES-ZN": 0.5073469396813711,
+     "ES-6E": 0.31728302083584675,
+     "GC-HG": 0.44785508375324423,
+     "GC-CL": -0.15897475989610083,
+     "GC-ZN": 0.381391883051443,
+     "GC-6E": 0.5158420455049396,
+     "HG-CL": 0.11012430420108936,
+     "HG-ZN": 0.22817304064100252,
+     "HG-6E": 0.5101473629034788,
+     "CL-ZN": -0.17738143666553916,
+     "CL-6E": -0.0008211190989708349,
+     "ZN-6E": 0.5413904545923236
+    },
+    "mean_abs_pairwise_corr": 0.3179870768856075,
+    "m_eff_signed": 3.746396981036779,
+    "m_eff_abs": 3.74639698103678,
+    "sr_star_monthly_at_T": 0.3852690400762407,
+    "floors": {
+     "0.1": {
+      "floor_sr_star": 1614.9396131696406,
+      "floor_single_test": 618.2557232019765,
+      "pooled_n_abs": 254.75499471050105,
+      "pooled_n_signed": 254.754994710501,
+      "clears_sr_star_abs": false,
+      "clears_single_test_abs": false,
+      "single_instrument_months": 68,
+      "single_instrument_clears_sr_star": false,
+      "power_at_sr_star_abs": 0.05694984885216369
+     },
+     "0.2": {
+      "floor_sr_star": 403.73490329241014,
+      "floor_single_test": 154.56393080049412,
+      "pooled_n_abs": 254.75499471050105,
+      "pooled_n_signed": 254.754994710501,
+      "clears_sr_star_abs": false,
+      "clears_single_test_abs": true,
+      "single_instrument_months": 68,
+      "single_instrument_clears_sr_star": false,
+      "power_at_sr_star_abs": 0.5060634259586309
+     },
+     "0.3": {
+      "floor_sr_star": 179.43773479662678,
+      "floor_single_test": 68.69508035577519,
+      "pooled_n_abs": 254.75499471050105,
+      "pooled_n_signed": 254.754994710501,
+      "clears_sr_star_abs": true,
+      "clears_single_test_abs": true,
+      "single_instrument_months": 68,
+      "single_instrument_clears_sr_star": false,
+      "power_at_sr_star_abs": 0.946443255604458
+     }
+    }
+   }
+  }
+ }
+}
