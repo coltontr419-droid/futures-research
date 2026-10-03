@@ -5347,6 +5347,86 @@ file.** §67 is the measurement; this section records how its open points were r
 4. **The 8-hour hold check is left as noted, not loosened.** A check stricter than the account rule
    fails safe; relaxing it for a blocked entry would be fixing a test rather than an entry.
 
+## 69. V01 registered and blocked at its ceiling; no forward return computed (S1–S4)
+
+**A single hypothesis, registered post-hoc and marked so. Status `blocked_insufficient_events`. No
+trial spent: N 760, SR\* 0.1368, chain intact. Two measurement records (m00125 MGC, m00126 the
+index), not counted in N. No forward return was computed; S5, S6 and S7 not run.** Measurement in
+`reports/v01_reopen_rate.md` (`reporting/v01_reopen_rate.py`).
+
+**The mechanism**, as given: the first print after the CME maintenance break is set against thin
+depth, so a displaced reopen is partly a liquidity artifact that corrects when real depth arrives;
+the counterparty is whoever quoted into the thin book, and they persist because someone has to make
+the first price.
+
+**A citation corrected before it entered the record.** The brief called this "L03's absorption
+mechanism". The absorption mechanism is **L02's** (its absorption arm: "whoever holds an overnight
+position that must be adjusted once real depth arrives") — retired at S7 on a null, 0 of 27. L03's is
+a stop sweep, forced flow beyond a reference point: a different counterparty. The entry cites L02.
+
+**Provenance, marked rather than smoothed.** The observation came from U01's fill curve (§67–§68), so
+the mechanism was written after the effect was seen, although it predicts the direction
+independently. That is the shape §38 declined to register for L07's mirror; V01 is registered only
+because it is blocked, with the order of events in its `provenance` block and the 36 looks (9 bins ×
+2 open types × 2 instruments) that produced it.
+
+### Two conflicts in the brief, and how they were resolved
+
+1. **"Measure the forward return against the volatility-matched control" versus "do not run S6 and
+   do not spend a trial".** A real-minus-control forward return IS the S6/S7 comparison, and by the
+   programme's rule a comparison is a trial logged before it runs; the P- and Q-series reviews
+   computed no forward mean before registering (§59). Measuring it unlogged would breach the trial
+   log; logging it would breach the brief.
+2. **"Whatever threshold defines the displacement range where the excess appears"** is a range chosen
+   from U01's curve — the selection the U01 brief itself ruled out.
+
+**Both dissolve on one costless measurement.** V01 fires at most once per daily reopen, so the count
+of every valid daily reopen with a nonzero displacement is the largest any threshold could leave. If
+that ceiling is below the floor, every threshold is blocked — none has to be chosen — and no return
+could change the verdict, so the outcome look is moot rather than skipped.
+
+### The ceiling
+
+| | ceiling (every reopen fires) | post-2021 | floor 60m (the mechanism's scale) | floor 180m (most generous) |
+|---|---|---|---|---|
+| index (NQ→MNQ) | **2,469** | 1,015 | 19,722 — 8.0× short | 5,884 — 2.4× short |
+| MGC | **1,926** | 901 | 5,620 — 2.9× short | 2,862 — 1.5× short |
+
+On the post-2021 half that decides, 5.8× and 3.2× short of even the generous floor. Adding the Sunday
+reopens — excluded by the mechanism's own wording, since they follow the weekend close rather than the
+maintenance break — would give 2,942 and 2,499, still below; the exclusion does not decide the verdict.
+
+### What else registration surfaced
+
+- **Scale.** Median |displacement| is 2.55 bps (MGC) and 3.01 bps (index), 0.03 of trailing session
+  volatility; p90 9.15 and 13.34 bps. Any threshold would be stated in volatility units. None was set.
+- **The S2 magnitude ceiling does not close it.** A fade cannot return more than the displacement, and
+  the median displacement sits above both cost floors. The event count closes it.
+- **No valid control as specified.** With no threshold the condition fires on every valid daily
+  reopen, so the volatility-matched control in strict mode has an empty clean pool — the L06
+  disposition, and the registration-time clean-pool check fails. A threshold would create a pool, but
+  the comparison would become large against small displacement, a dose-response design needing its
+  own justification.
+- **13.9% of MGC's valid daily reopens print exactly at the prior close** (zero displacement, no
+  direction) — counted out, not faded.
+
+### The base rate
+
+Registrations 36 → **37**, 0 promoted, 15 that spent a trial. §61's per-registration exact 95% upper
+bound moves to 0.0778. Not rewritten there; noted here.
+
+### Decisions taken rather than resolved silently
+
+1. **The forward return was not measured**, for the reasons above. If the economics number is still
+   wanted, it is a trial: logged first, against the volatility-matched control, with a threshold and a
+   horizon fixed beforehand. That is the user's decision, and it would not change the event-count
+   verdict.
+2. **No threshold was set**, rather than a curve-chosen one recorded as provisional.
+3. **The Sunday reopen is out by the mechanism's wording**, and its inclusion is reported beside the
+   verdict so the exclusion can be seen not to decide it.
+4. **The 60-minute horizon** is the mechanism's own clock ("when real depth arrives"); the 180-minute
+   proxy is reported beside it as the most generous floor.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -452,7 +452,7 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series registered plus a seventh and an eighth drafted, and one single hypothesis (U01), 83 candidates, 36 registered, 770 trials across
+alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), 84 candidates, 37 registered, 770 trials across
 two logs (futures-research 760, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
 without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
 decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
@@ -523,6 +523,15 @@ separate registration); the daily-reopen fill excess is recorded as a measured p
 corrected scale of 5–30 bps, tradeability not established; the early-NQ session-length defect
 (a source-data truncation, verified in the vendor CSV) is in the terminal report's error table; the
 8-hour hold check stays as it is.
+
+**V01, 2026-10-03 — REGISTERED POST-HOC, BLOCKED AT ITS CEILING (§69).** Reopen displacement
+reversion: the first print after the maintenance break, set against thin depth, corrects when depth
+arrives (closest relative L02's absorption arm, not L03). Written after U01's curve showed the effect,
+and marked so. **Every valid daily reopen firing would give 2,469 index / 1,926 MGC events (1,015 / 901
+since 2021), below every floor — so no threshold was chosen and no forward return computed** (a
+real-minus-control return is the S6/S7 comparison, i.e. a trial). No valid strict-mode control without
+a threshold. Registrations now 37. **Open, for the user:** whether the forward-return economics is
+still wanted as a logged trial; it cannot change the verdict.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

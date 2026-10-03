@@ -520,3 +520,28 @@ continuing away from the gap and partial retracement; only continuation pays. Th
 claim is a forward-return distribution against a volatility-matched control, not a fill rate.
 
 `hypotheses.yaml` (U01) · `reports/u01_gap_fill.md` · `decisions.md` §67
+
+---
+
+## V01 — Reopen Displacement Reversion  *(BLOCKED at S4)*
+
+**A single hypothesis, and a post-hoc one — marked as such.** Registered 2026-10-03. The
+mechanism: the first print after the CME maintenance break is set against thin depth, so a
+displaced reopen is partly a liquidity artifact that corrects when real depth arrives; the
+counterparty is whoever quoted into the thin book. Its closest registered relative is **L02's
+absorption arm** (retired at S7, 0 of 27), not L03, whose mechanism is a stop sweep.
+
+**Provenance.** The observation came from U01's fill curve — daily reopens filling more often than a
+random walk at small gaps — so this mechanism was written after the effect was seen, though it
+predicts the direction independently. Not presented as a fresh hypothesis.
+
+**Blocked at its ceiling, with no threshold chosen.** It fires at most once per daily reopen, so the
+count of every valid daily reopen with a nonzero displacement is the largest any threshold could
+leave: 2,469 on the index and 1,926 on MGC (1,015 and 901 since 2021), below every floor. The only
+threshold on offer was the range where U01's curve showed the excess — a range chosen from a curve —
+and it was never needed.
+
+**No forward return was computed.** A real-minus-control return is the S6/S7 comparison, a trial by
+the programme's rule, and at a ceiling below every floor it could not change the verdict.
+
+`hypotheses.yaml` (V01) · `reports/v01_reopen_rate.md` · `decisions.md` §69

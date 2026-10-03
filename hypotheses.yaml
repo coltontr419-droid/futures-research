@@ -3668,3 +3668,105 @@
       not a measured return, so tradeability is not established either way - the same
       distinction this entry draws for the 8%. It was not what U01 registered, and it is not
       pursued.
+
+- id: V01
+  name: reopen_displacement_reversion
+  stopped_at: S4
+  stopped_at_reason: >
+    Blocked on event count at its CEILING, before any threshold was chosen, measured 2026-10-03
+    (`reports/v01_reopen_rate.md`, decisions.md 69). No forward return computed; nothing run at S5,
+    S6 or S7; no trial spent.
+  mechanism: >
+    The first print after the CME maintenance break is set against thin liquidity, with little
+    resting depth to anchor it. A displaced reopen is therefore partly a liquidity artifact rather
+    than a repricing, and it corrects when real depth arrives. THE COUNTERPARTY is whoever quoted
+    into the thin book; they persist because someone has to make the first price. The closest
+    registered mechanism is L02's ABSORPTION arm ("whoever holds an overnight position that must be
+    adjusted once real depth arrives"), applied to the reopen rather than to the opening range - not
+    L03, whose mechanism is a stop sweep (forced flow beyond a reference point), a different
+    counterparty. L02's absorption arm was retired at S7 on a null, 0 of 27 cells.
+  condition: >
+    The daily CME reopen (18:00 ET, after the 17:00-18:00 maintenance break), validity rules as U01's
+    (same contract, normal break, first print within 5 minutes of the reopen, prior session traded
+    within 5 minutes of its scheduled close). Displacement = log(first price / prior session's last
+    price), nonzero. Trade: fade the displacement at the reopen print. The Sunday reopen is excluded
+    by the mechanism's own wording - it follows the weekend close, not the maintenance break.
+    THRESHOLD DELIBERATELY UNSET: see threshold_note.
+  horizon_minutes: [60]
+  hold_hours: [1]
+  registered: 2026-10-03
+  blocked: 2026-10-03
+  status: blocked_insufficient_events
+  blocked_reason: >
+    The condition fires at most once per daily reopen, so the count of valid daily reopens with a
+    nonzero displacement is the largest any threshold could leave: 1,926 on MGC (901 since 2021)
+    and 2,469 on the NQ->MNQ splice (1,015 since 2021). Against the 60-minute proxy floor, the
+    mechanism's own scale, that is 2.9x and 8.0x short (5,620 and 19,722); against the most generous
+    floor that exists, the 180-minute proxy, 1.5x and 2.4x short (2,862 and 5,884), and 3.2x and 5.8x
+    on the post-2021 half that decides. Adding the excluded Sunday reopens would give 2,499 and 2,942,
+    still below. Every threshold is therefore blocked. Arithmetic done ahead of testing, like F01 and
+    U01; V01 was never run. No trials spent.
+  schedulable: false
+  test_order: null
+  grade: D
+  tier: C
+  param_cap: 1
+  param_note: >
+    One axis would be a displacement threshold in volatility units. None was chosen: the ceiling
+    makes the choice moot, and the only threshold on offer came from U01's curve.
+  session: Globex
+  symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      Every CME futures contract with a daily maintenance break has a reopen print set against thin
+      depth, so the mechanism is not instrument-specific. MNQ is measured on the NQ->MNQ splice,
+      which preserves price ratios.
+  threshold_units: volatility
+  threshold_note: >
+    Any threshold must be in bps or volatility units, never points: the displacements span about 6
+    ticks to over 200 across the sample, so a point threshold would run a different condition in each
+    era. Measured scale: median |displacement| 2.55 bps (MGC) and 3.01 bps (index); 0.029 and 0.033
+    of trailing session volatility. NO THRESHOLD WAS SET. The only candidate - the 0.05-0.3% range
+    where U01's curve showed the excess - would be a range chosen from a curve, which is a search
+    over thresholds; and the unfiltered ceiling is already below every floor, so no threshold could
+    change the verdict.
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  provenance:
+    source: post-hoc, from this programme's own measurement (U01's fill curve, decisions.md 67-68)
+    trial_count_available: true
+    cost_assumption_available: true
+    control_available: false
+    prior_weight: reduced - written after the effect was seen
+    note: >
+      MARKED, NOT PRESENTED AS FRESH. The observation emerged from U01's fill-curve measurement, so
+      this mechanism was written AFTER the effect was seen, even though it predicts the direction
+      independently. A mechanism that fits an effect already observed is the case decisions.md 38
+      declined to register for L07's mirror; it is registered here only because it is blocked, and
+      the order of events is recorded so a later reader does not mistake it for a prediction. The
+      looks that produced it: U01's grid of 9 gap bins x 2 open types x 2 instruments, 36 cells.
+  s2_claim:
+    stated_as: >
+      The forward return from the reopen print, faded, over the next 60 minutes, conditional on
+      displacement size, real minus a matched control, in bps, against the 0.48 / 0.65 cost floors in
+      the post-2021 half.
+    magnitude_ceiling_bps: >
+      A fade cannot return more than the displacement it fades: median 2.55 bps (MGC), 3.01 (index),
+      p90 9.15 and 13.34. The ceiling sits above the cost floors, so the S2 magnitude check does not
+      close V01; the event count does.
+    forward_return_not_measured: >
+      Not computed, deliberately. A real-minus-control forward return IS the S6/S7 comparison, which
+      by the programme's rule is a trial logged before it runs; the brief withheld trials and S6. And
+      at a ceiling below every floor, no return could change the verdict. U01's excess TOUCH
+      frequency is not a return and is not converted into one here.
+  s6_control:
+    intended: state_control, strict (session) mode, matched on ex-ante volatility quantile, time of
+      day and year - as U01
+    availability: >
+      NOT AVAILABLE AS SPECIFIED. With no threshold the condition fires on every valid daily reopen,
+      so there are no clean sessions and strict mode has an empty pool - the L06 disposition, and the
+      registration-time clean-pool check (STAGES.md S6) fails. A threshold would create a pool, but
+      the comparison would then be large against small displacement, a dose-response design rather
+      than displaced against undisplaced, and would need its own justification.
