@@ -3682,9 +3682,13 @@
     than a repricing, and it corrects when real depth arrives. THE COUNTERPARTY is whoever quoted
     into the thin book; they persist because someone has to make the first price. The closest
     registered mechanism is L02's ABSORPTION arm ("whoever holds an overnight position that must be
-    adjusted once real depth arrives"), applied to the reopen rather than to the opening range - not
-    L03, whose mechanism is a stop sweep (forced flow beyond a reference point), a different
-    counterparty. L02's absorption arm was retired at S7 on a null, 0 of 27 cells.
+    adjusted once real depth arrives") - not L03, whose mechanism is a stop sweep, a different
+    counterparty. CORRECTED 2026-10-03 (decisions.md 70): L02 IS NOT PRIOR EVIDENCE AGAINST V01. It
+    tested only the 09:30 cash-open range, on MGC alone, where by its own pre-run note it measured
+    cross-asset spillover and "does not refute the mechanism, which was never properly exposed";
+    its 0-of-27 null says nothing about the CME reopen. The only registered entry touching the CME
+    reopen is L06's open_CME level, stopped at S6 with no valid control and never tested. V01's
+    mechanism has no prior test.
   condition: >
     The daily CME reopen (18:00 ET, after the 17:00-18:00 maintenance break), validity rules as U01's
     (same contract, normal break, first print within 5 minutes of the reopen, prior session traded

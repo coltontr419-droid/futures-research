@@ -533,6 +533,14 @@ real-minus-control return is the S6/S7 comparison, i.e. a trial). No valid stric
 a threshold. Registrations now 37. **Open, for the user:** whether the forward-return economics is
 still wanted as a logged trial; it cannot change the verdict.
 
+**COST-FLOOR AUDIT, 2026-10-03 (§70) — SCOPED, NOT YET QUOTED.** The floor is ~80% commission; quotes
+can only confirm or raise the spread part, so the convergence result inverts only via commission (below
+~$1.69 per MNQ round trip vs the assumed $1.82) or passive fills — neither measured by mbp-1. The
+30-session sample is pre-registered (`reports/spread_sample_sessions.json`) and the quote script is
+committed (`reporting/cost_floor_quote.py`). **Blocked on a Databento API key** — the `.env` holds FTP
+credentials only. **V01 corrected:** L02 tested only the 09:30 cash open on MGC; no entry ever tested the
+CME reopen, so V01's mechanism had no prior test.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

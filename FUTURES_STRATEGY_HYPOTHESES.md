@@ -529,7 +529,9 @@ claim is a forward-return distribution against a volatility-matched control, not
 mechanism: the first print after the CME maintenance break is set against thin depth, so a
 displaced reopen is partly a liquidity artifact that corrects when real depth arrives; the
 counterparty is whoever quoted into the thin book. Its closest registered relative is **L02's
-absorption arm** (retired at S7, 0 of 27), not L03, whose mechanism is a stop sweep.
+absorption arm**, not L03, whose mechanism is a stop sweep. **L02 is not prior evidence against
+it** (corrected, §70): L02 tested only the 09:30 cash-open range, on MGC alone, and its own record
+calls its 0-of-27 null unable to refute its mechanism. No registered entry ever tested the CME reopen.
 
 **Provenance.** The observation came from U01's fill curve — daily reopens filling more often than a
 random walk at small gaps — so this mechanism was written after the effect was seen, though it

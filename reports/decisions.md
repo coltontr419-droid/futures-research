@@ -5427,6 +5427,85 @@ bound moves to 0.0778. Not rewritten there; noted here.
 4. **The 60-minute horizon** is the mechanism's own clock ("when real depth arrives"); the 180-minute
    proxy is reported beside it as the most generous floor.
 
+## 70. The cost-floor audit, scoped but not yet quoted; V01's prior evidence corrected (S8)
+
+**No trial spent; N 760, SR\* 0.1368. No market data downloaded, nothing purchased.**
+
+### 1. Auditing the cost floor — what the record already settles
+
+Every series closed against 0.48 bps (MNQ) and 0.65 (MGC), and the convergence result (§9 of the
+terminal report) rests on 0.48 exceeding R01's +0.452 — a margin of **0.028 bps, about $0.13 per MNQ
+round trip on $48,000**. The floor has never been checked. Its composition, from `CLAUDE_FUTURES.md`
+§4, decides what a quote pull can and cannot do to it:
+
+| | commission (fee table) | spread (one assumed tick) | floor |
+|---|---|---|---|
+| MNQ | 0.38 bps (≈ $1.82 round trip) | 0.10 | 0.48 |
+| MGC | 0.53 | 0.12 | 0.65 |
+
+- **About four-fifths of the floor is commission**, which no market data measures.
+- **For a market-order round trip, quotes can only confirm or RAISE the spread component, never lower
+  it.** A futures book cannot quote inside one tick, so crossing it costs at least the one tick the
+  0.10 already assumes; wider spreads (overnight, thin reopens, event minutes) add to it.
+- **So the convergence result inverts only through the commission or through passive execution.** At
+  exactly one tick of spread it inverts if all-in commission is below 0.352 bps — **about $1.69 per
+  round trip against the assumed $1.82**. Or if orders fill passively and EARN the spread, which is a
+  question of fill probability. The first is a fee-schedule check; the second needs order-level data
+  and the strategy's own order behaviour. **Neither is answered by mbp-1.**
+- **An inversion would not rescue R01.** R01 is a two-leg trade against a 0.96 floor, and its effect is
+  smaller than one tick of its coarser leg (0.569 bps on MES, `r01_checks.json` CHECK 2) — a spread
+  that cannot be crossed for less than the effect. The convergence statement compares the best
+  measured effect with a one-leg floor in the abstract; it is not R01's own economics.
+
+### 2. The quote, and why it is not in this section yet
+
+**There is no Databento API key on this machine.** `.env` holds FTP batch-delivery credentials (a
+12-character password, not a `db-` key), and the historical metadata API accepts only a key. The cost
+was not estimated from memory: pricing is usage-based and changes, and a remembered number in an audit
+of an assumed number would be the wrong kind of error.
+
+What exists instead, committed so the quote runs the moment a key does
+(`reporting/cost_floor_quote.py`, endpoints and parameters confirmed from Databento's own client
+source, metadata calls only — nothing downloaded or billed):
+
+- **Front-month symbology** (`MNQ.v.0`, `MGC.v.0`, stype_in `continuous`) as the primary quote: the
+  spread a strategy pays is the front month's. The ohlcv-1m pull (~$40, the scale reference) used
+  `parent` symbology — every expiry and calendar spread — which in mbp-1 would price quotes nobody
+  trades; parent is quoted beside it for the full and recent windows so the difference is visible.
+- **Three windows per instrument:** full range (MNQ from 2019-05-06, when it began; MGC from 2010-06-06),
+  the last two years, and the sample.
+- **The sample is pre-registered** (`reports/spread_sample_sessions.json`): 30 full CME sessions per
+  instrument (18:00–17:00 ET, so each spans the whole trading day), 10 per era, two per weekday, none
+  on adjacent days, drawn once with a fixed seed from sessions on disk — **before any quote or any
+  quote data exists**, so it cannot be chosen after seeing anything. It happens to include 2020-03-09
+  and 2020-03-11 on MNQ, which is what an unselected draw should be allowed to do.
+
+### 3. What a 30-session sample would and would not establish
+
+**Would establish:** the quoted spread's distribution by hour of the CME day, typical (median) and
+worst-case (p95, p99), in ticks and bps, per era; how often the spread exceeds the one tick the floor
+assumes; top-of-book size, i.e. whether a one-lot fills at the touch; the 18:00 reopen specifically
+(the thin-liquidity minute U01 and V01 concern). Those are most of what the spread component needs,
+and they can only confirm or raise it.
+
+**Would not establish:** slippage and fill probability, which depend on order type, latency and queue
+position rather than on quotes; anything about passive execution — the one route by which spread cost
+could fall below a tick; the commission, which is 79% of the floor; the spread on the specific minutes a
+strategy would trade, conditional on its signal; and rare tails — thirty sessions resolve a typical hour
+well and a news minute poorly.
+
+### 4. V01: L02 is not prior evidence against it — corrected
+
+**The V01 entry overstated the prior evidence.** It placed L02's absorption arm — same counterparty,
+retired at S7 on a null, 0 of 27 — beside V01's mechanism as though that null bore on it. **It does
+not.** L02 tested **only the 09:30 cash-open range** (`[09:30, 09:30 + W]` ET), **on MGC alone** at one
+horizon; MNQ was excluded on event count. On MGC it measured cross-asset spillover from the equity open,
+and its own note, written before it ran (§42), says the null "does not refute the mechanism, which was
+never properly exposed." **It never tested the CME reopen.** The only registered entry that touches the
+reopen at all is L06's `open_CME` level, which stopped at S6 — a magnitude-only condition with no valid
+control — and was never tested. **V01's mechanism had no prior test.** Corrected in the entry and its
+catalog section; §69 stands as written.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
