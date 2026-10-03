@@ -565,8 +565,7 @@ read**; entry amended before reading it (one-session delay, same-bar carry). EV 
 at zero edge at some sizes, so not evidence; one MNQ ($847/day) puts the integer book above the optimum,
 where a HARD daily limit makes EV negative. **Alignment measured (§74):** UTC-day bars track the
 held sessions at 0.97 daily, 0.98–0.99 over 21 days; ohlcv-1d is adequate. **Next:** the W04 runner
-with outcome injection at 1.39 (drop Sunday bars; resolve the vendor's one-digit contract years). **Open, for the user:** the firm's reading
-of the daily loss limit (breach vs flat for the day).
+with outcome injection at 1.39 (drop Sunday bars; resolve the vendor's one-digit contract years). **Daily loss limit ruled SOFT (§75)** — flat for the day, not a breach.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

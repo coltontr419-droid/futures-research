@@ -5787,6 +5787,20 @@ not produce, so it is not attributed here — the one-session delay removes it f
 
 W04 now needs only its runner and the outcome-injection test at Sharpe 1.39 to be schedulable.
 
+## 75. The daily loss limit is soft (ruling)
+
+**Ruled by the user 2026-10-03, from the firm: hitting the $1,000 daily loss limit stops trading for that
+day; it does not end the account.** §73's SOFT reading governs; the HARD columns in
+`reports/w_prop_ev.md` stay as published, as the reading that was not adopted.
+
+**What it settles.** §73's fourth finding was conditional on this. Under SOFT, W04's integer book —
+about $2,000/day of σ once MNQ is held at equal risk — stays positive-EV if the edge is real: at the
+grid's top size ($900/day) SOFT EV is +$431 at Sharpe 1.0 against −$66 under HARD, and +$1,120 at
+Sharpe 2.0. That book still sits well above the ~$150–250/day optimum, so it gives up EV against the
+fractional optimum; the runner reports both. **No reduced-universe variant is needed**, and none is
+registered. W04's entry now names SOFT and computes the integer-book EV at that book's own σ (beyond the
+grid) with the same simulator. No trial spent; N 760.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

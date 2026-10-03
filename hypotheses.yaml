@@ -3871,9 +3871,11 @@
       The prop-evaluation EV at the measured post-2021 Sharpe, from `reports/w_prop_ev.md` - the success
       condition the user chose (decisions.md 73) - read at TWO sizes: the EV-optimal daily $ sigma
       (an upper bound, fractional contracts) and the smallest INTEGER-micro book the registered sizing
-      allows, whose realised daily $ sigma the runner reports; each under both readings of the daily loss
-      limit. EV is an economics row only: it is positive at zero edge at some sizes, so it is never
-      evidence of one.
+      allows, whose realised daily $ sigma the runner reports. The daily loss limit is SOFT (flat for the
+      rest of the day; the user's ruling from the firm, decisions.md 75); the integer-book EV is
+      simulated at that book's own sigma with `w_prop_ev`'s soft-limit simulator, since it lies above
+      the published grid. EV is an economics row only: it is positive at zero edge at some sizes, so it
+      is never evidence of one.
     costs: >
       One round trip per market per session held, at an ASSUMED $1.82 commission per micro round
       trip plus one tick (the programme's MNQ figure; decisions.md 71 says to verify it), charged in
