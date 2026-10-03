@@ -541,6 +541,13 @@ committed (`reporting/cost_floor_quote.py`). **Blocked on a Databento API key** 
 credentials only. **V01 corrected:** L02 tested only the 09:30 cash open on MGC; no entry ever tested the
 CME reopen, so V01's mechanism had no prior test.
 
+**Premise corrected (§71):** quotes cannot lower the floor — the spread term already assumes the
+one-tick minimum. **The audit that matters is a fee-schedule check of all-in commission against the
+assumed $1.82 MNQ round trip** (the flip point is ~$1.69); `cost_floor_quote.py` stays ready but audits
+the smaller term. Passive fills are the one route needing a measurement quotes cannot make (resting
+orders, measured fill probability). **Finding 12** promoted: cite prior evidence by what it tested,
+not by counterparty.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

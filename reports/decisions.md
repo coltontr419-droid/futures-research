@@ -5506,6 +5506,73 @@ reopen at all is L06's `open_CME` level, which stopped at S6 — a magnitude-onl
 control — and was never tested. **V01's mechanism had no prior test.** Corrected in the entry and its
 catalog section; §69 stands as written.
 
+## 71. The cost-floor audit's premise corrected; a method finding on citing prior evidence (S2, S8)
+
+**No trial spent; N 760, SR\* 0.1368. Nothing measured anew.** §70 is the analysis; this section
+records it as a correction to the audit's own premise, and promotes one method finding.
+
+### 1. The audit's premise was wrong, and the correction is recorded as such
+
+The audit was framed as: the 0.48 / 0.65 floor has never been checked, and **if the real floor is
+lower**, the convergence result inverts — so measure it with top-of-book quotes. **Quotes cannot lower
+the floor.**
+
+- **The floor is about 80% commission and 20% spread on both instruments** (MNQ 0.38 + 0.10, 79%
+  commission; MGC 0.53 + 0.12, 82%).
+- **The spread term already assumes exactly one tick, the minimum a futures book can quote.** For a
+  round trip that crosses the spread, quote data can therefore only CONFIRM or RAISE that term.
+- **The convergence result flips only if all-in commission is under about $1.69 per MNQ round trip
+  against $1.82 assumed — a margin of $0.13 — or if orders fill passively and earn the spread rather
+  than paying it.** Neither is measured by mbp-1.
+
+### 2. The practical consequence
+
+**The highest-value cost audit is confirming actual all-in commission (broker, exchange, clearing and
+NFA fees, per side, at the account's actual tier) against the assumed $1.82 MNQ round trip** — a
+fee-schedule check, not a data purchase. It addresses ~80% of the floor, where a $0.13 difference
+decides the convergence result, and costs nothing but reading a schedule.
+
+**`reporting/cost_floor_quote.py` stays committed and ready**, with its pre-registered 30-session
+sample, **but it audits the smaller term.** It can show how often and by how much the spread exceeds
+one tick — by hour, era, and at the thin 18:00 reopen — which can only add to the floor. It is worth
+running before any strategy's economics turn on the spread; it is not the audit that could invert the
+convergence result.
+
+### 3. Passive fills: the route no quote data can reach
+
+Of the two routes that could move the floor down, **passive execution is the only one that needs a
+measurement this programme cannot make from quote data.** A resting order that fills earns the spread
+instead of paying it — fully passive on both sides, the MNQ floor would fall from 0.48 to about 0.28
+bps. But whether it fills, and what it is filled against, are the questions: **fill probability and
+adverse selection require resting orders and a measured fill rate** — order-level data at minimum,
+and properly the strategy's own orders on a live or demo account. Quote data describes the queue a
+resting order would join; it cannot say whether the order would have been filled, or on which side of
+the move.
+
+**The other route, commission, is not a measurement problem.** It moves the floor by whatever the fee
+schedule says — by more than the $0.13 margin if the real schedule differs materially (an all-in $1.20
+round trip would put MNQ's floor near 0.35 bps) — and §2's check determines it exactly.
+
+### 4. Method finding — promoted to the terminal report as finding 12
+
+**An entry can be recorded as previously refuted by matching on counterparty description rather than
+on what was actually tested.** V01's registration placed L02's absorption-arm null (retired at S7, 0
+of 27) beside V01's mechanism because the two name the same counterparty — whoever is positioned
+against thin depth when real liquidity arrives. **What L02 tested was different in every respect that
+matters:** the 09:30 cash-open range, on MGC alone, where it measured spillover from the equity open
+into gold — and a note written before it ran (§42) stated that its null could not refute its own
+mechanism. **V01's mechanism had never been tested by anything** (§70).
+
+**Two steps produced it, and both are recorded.** The brief named the prior entry by its mechanism
+(and as L03, corrected to L02 in §69). The registration then carried that mechanism match through to
+the prior entry's RESULT without checking its test — the session, the instrument, the horizon, and the
+entry's own statement of what its null could establish. The second step is the one a rule can catch,
+and it was mine.
+
+**Rule:** before citing a prior entry as evidence for or against a new one, check what it TESTED —
+session and clock, instrument, horizon, condition, and any pre-written limit on what its result can
+establish — not what it is ABOUT. A shared counterparty is a mechanism match, not an evidence match.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -321,6 +321,17 @@ was found only because J was measured by era rather than declared scale-free fro
 zero returns, however its algebra scales; thresholds on it are ranks within its own trailing
 distribution.
 
+**12. Citing a prior entry as evidence requires matching on what it tested, not on what it is about
+(§69–§71).** V01 (reopen displacement reversion) was registered with L02's absorption-arm null — 0 of
+27 — beside its mechanism, because both name the same counterparty: whoever is positioned against thin
+depth when real liquidity arrives. But L02 tested the 09:30 cash-open range, on MGC only, where it
+measured spillover from the equity open into gold, and a note written before it ran said its null
+could not refute its own mechanism. Nothing had ever tested V01's mechanism. The record would have
+read as "refuted in advance" by an entry that never examined the reopen. **Rule:** before a prior
+entry is cited for or against a new one, check its session and clock, instrument, horizon, condition,
+and any pre-written limit on what its result can establish. A shared counterparty is a mechanism
+match, not an evidence match.
+
 ---
 
 ## 6. Errors found inside corrections

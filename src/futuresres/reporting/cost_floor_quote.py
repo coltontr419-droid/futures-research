@@ -1,5 +1,12 @@
 """Price a top-of-book quote pull (Databento GLBX.MDP3, mbp-1) for auditing the cost floor.
 
+IT AUDITS THE SMALLER TERM (decisions.md 71). The cost floor is ~80% commission and ~20% spread,
+and the spread term already assumes the one-tick minimum a futures book can quote, so quote data can
+only confirm or RAISE it. Whether the convergence result (0.48 > 0.452) inverts turns on all-in
+commission (flip point ~$1.69 per MNQ round trip against $1.82 assumed) - a fee-schedule check - or
+on passive fills, which quote data cannot measure. Run this before a strategy's economics turn on the
+spread, not as the audit that could invert the result.
+
 QUOTES ONLY - this module downloads no market data and spends nothing. It calls Databento's free
 metadata endpoints (`get_record_count`, `get_cost`, `get_dataset_range`), which return what a pull
 WOULD contain and cost.
