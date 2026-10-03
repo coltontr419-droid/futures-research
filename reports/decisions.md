@@ -5573,6 +5573,78 @@ and it was mine.
 session and clock, instrument, horizon, condition, and any pre-written limit on what its result can
 establish — not what it is ABOUT. A shared counterparty is a mechanism match, not an evidence match.
 
+## 72. The W-series: daily horizons were reachable all along; what binds there instead (S1, S2)
+
+**Designed, not registered. No trial spent; N 760, SR\* 0.1368. Two measurement records (feasibility:
+dispersions, granularity, correlation — no strategy return computed).** Draft: `W_SERIES_CANDIDATES.md`;
+measurement: `reports/w_series_feasibility.md`.
+
+Asked to find where the record's "end of the road" is wrong rather than to add another intraday search.
+
+### The premise the record got wrong
+
+**Daily horizons were filed as forbidden (terminal report §10) and are not.** The rule is flat by 17:00;
+an 18:00-to-16:55 hold never crosses it, and chaining such holds re-creates daily exposure. Measured: the
+excluded 16:55→reopen window carries 1.1–1.6% of a day's variance, the held part correlates 0.99 with the
+full day, and one round trip is 0.34–0.56% of a day's SD (1.2%/yr MNQ, 1.6%/yr MGC traded every day).
+**At a daily horizon the cost floor does not bind.** No series ever tested a daily-horizon strategy. The
+firm's reading of an overnight hold inside one CME trading day is the load-bearing premise to confirm.
+
+### What binds instead — corrected mid-design on the user's point
+
+A first draft concluded that account size binds. **The user corrected it: a prop account permits 20–30
+micros, so it is not margin-limited.** Correct, and the draft had framed a risk limit as a capacity limit.
+What remains is the $2,000 trailing drawdown, and what it implies depends on the objective:
+
+- **Under §62's ruled bar** (ruin ≤ 10%, max vol 12.4%): total risk ≈ $391/day of σ. One MNQ ($847/day at
+  $59k notional) or one MGC ($538) exceeds it alone; diversifying inside it needs small contracts whose
+  forced daily round trip drags Sharpe by several tenths.
+- **Under prop-evaluation economics** (the fee as capital at risk): risk is set by EV per attempt, large
+  size can be rational, standard micros fit, and cost drag stays at 0.04–0.09. The success condition
+  becomes EV = P(pass) × payout − fee; R06's barrier machinery computes it once this account's terms are
+  supplied (R06 itself used 10% structures).
+- **Under both: evidence.** Sizing multiplies an edge and cannot supply one (§59: 36.8% pass at no edge, at
+  every size).
+
+### The multiple-testing bar for daily strategies — a decision to rule
+
+SR\* has been one per-observation number (0.1368) built from mostly per-trade intraday Sharpes. Read on a
+daily observation it is **2.17** annualised. The unit-consistent version — null variance of a daily Sharpe
+at the strategy's own T, N unchanged — gives **0.96** (full sample) and **1.39** (post-2021, decisive).
+Not resolved here. **Either way, the 760 trials already spent are now the main wall for daily strategies**
+— the permanent shared cost §61 described, arriving where cost stopped binding.
+
+### The candidates and the filter (priors sourced, arithmetic shown in the draft)
+
+| | prior | vs 0.96 | vs 1.39 | vs 2.06 |
+|---|---|---|---|---|
+| W01 trend, MNQ + MGC | 0.41–0.64 | below | below | below |
+| W02 trend, ~10 micros | 0.73–0.89 | below | below | below |
+| W03 carry timing | 0.6–0.9 | below | below | below |
+| **W04 trend + carry** | **0.77–1.27** | **straddles** | below | below |
+| W05 vol-managed index | 0.4–0.5 | below | below | below |
+
+Sources: Moskowitz, Ooi & Pedersen 2012 (0.3–0.5 per market, ~1.0 across 58); Koijen, Moskowitz, Pedersen
+& Vrugt 2018 (carry timing 0.6 per class, 0.9 global — read from the manuscript text); Moreira & Muir 2017
+with Cederburg et al. 2020 (no out-of-sample gain). W04's combination assumes a trend–carry correlation of
+0–0.5, unsourced and labelled.
+
+### What this overturns, stated no more strongly than it is
+
+**Overturned:** cost binds everywhere (it does not at a daily horizon), and daily horizons are unreachable
+(they are, subject to the firm). **W04 is the first candidate in nine series whose published prior reaches
+a multiple-testing bar on this data.** **Not overturned:** no prior clears the post-2021 bar or §62's 2.06,
+and nothing here is evidence of an edge — it is the first design whose prior makes a trial worth spending.
+
+### Open, for the user
+
+1. Confirm with the firm that an 18:00-to-16:55 hold is within "flat by 17:00".
+2. Choose the objective: §62's bar or prop-evaluation EV — and for EV supply fee, target, payout split,
+   reset cost, daily loss limit, contract limit.
+3. Rule on the SR\* convention for daily strategies.
+4. Buy ohlcv-1d for W02–W04's added markets (price once an API key exists).
+5. If all four go the right way: register W04 alone, one portfolio-level trial.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,104 @@
+{
+ "INDEX": {
+  "product": "INDEX",
+  "sessions": 2780,
+  "eras": {
+   "2010-2015": {
+    "sessions": 342,
+    "sd_day_bps": 92.79719661452887,
+    "sd_excluded_window_bps": 16.94750349603982,
+    "excluded_share_of_day_variance": 0.03335352591362281,
+    "corr_held_vs_day": 0.9831951015081895,
+    "round_trip_cost_over_day_sd": 0.005172570050729834,
+    "round_trip_cost_pct_per_year": 1.2096,
+    "median_price": 3641.75,
+    "notional_per_contract": 7283.5,
+    "annual_vol": 0.14731098276360502,
+    "one_contract_vol_on_account": 0.02145879085917434,
+    "contracts_at_vol_ceiling": 5.778517569501634
+   },
+   "2016-2020": {
+    "sessions": 1118,
+    "sd_day_bps": 133.07079329216248,
+    "sd_excluded_window_bps": 16.02940654189514,
+    "excluded_share_of_day_variance": 0.014510066260366087,
+    "corr_held_vs_day": 0.9921341938613343,
+    "round_trip_cost_over_day_sd": 0.00360710256642222,
+    "round_trip_cost_pct_per_year": 1.2096,
+    "median_price": 6817.25,
+    "notional_per_contract": 13634.5,
+    "annual_vol": 0.2112433354902864,
+    "one_contract_vol_on_account": 0.057603945154846195,
+    "contracts_at_vol_ceiling": 2.152630339235852
+   },
+   "2021-2026": {
+    "sessions": 1320,
+    "sd_day_bps": 143.11150981578248,
+    "sd_excluded_window_bps": 17.93303319056237,
+    "excluded_share_of_day_variance": 0.01570212309074732,
+    "corr_held_vs_day": 0.9922231022516567,
+    "round_trip_cost_over_day_sd": 0.0033540279228265477,
+    "round_trip_cost_pct_per_year": 1.2096,
+    "median_price": 16048.375,
+    "notional_per_contract": 32096.75,
+    "annual_vol": 0.22718247883412374,
+    "one_contract_vol_on_account": 0.14583638455038322,
+    "contracts_at_vol_ceiling": 0.8502679244435106
+   }
+  }
+ },
+ "correlation": {
+  "sessions": 2360,
+  "full": 0.10417170125108838,
+  "post_2021": 0.13781561732270886,
+  "post_n": 1267
+ },
+ "MGC": {
+  "product": "MGC",
+  "sessions": 2738,
+  "eras": {
+   "2010-2015": {
+    "sessions": 324,
+    "sd_day_bps": 135.12823757268634,
+    "sd_excluded_window_bps": 14.366415818563176,
+    "excluded_share_of_day_variance": 0.01130328400825932,
+    "corr_held_vs_day": 0.9915362080954955,
+    "round_trip_cost_over_day_sd": 0.004810245524369848,
+    "round_trip_cost_pct_per_year": 1.6380000000000001,
+    "median_price": 1580.65,
+    "notional_per_contract": 15806.5,
+    "annual_vol": 0.21450942703186945,
+    "one_contract_vol_on_account": 0.06781286516758489,
+    "contracts_at_vol_ceiling": 1.8285615818408603
+   },
+   "2016-2020": {
+    "sessions": 1095,
+    "sd_day_bps": 91.68381370814694,
+    "sd_excluded_window_bps": 10.317745994096795,
+    "excluded_share_of_day_variance": 0.012664391395469347,
+    "corr_held_vs_day": 0.9928400642632025,
+    "round_trip_cost_over_day_sd": 0.007089582923209504,
+    "round_trip_cost_pct_per_year": 1.6380000000000001,
+    "median_price": 1312.5,
+    "notional_per_contract": 13125.0,
+    "annual_vol": 0.1455435421930389,
+    "one_contract_vol_on_account": 0.03820517982567271,
+    "contracts_at_vol_ceiling": 3.2456331985820364
+   },
+   "2021-2026": {
+    "sessions": 1319,
+    "sd_day_bps": 115.72664140487991,
+    "sd_excluded_window_bps": 12.297264473672223,
+    "excluded_share_of_day_variance": 0.011291465922277913,
+    "corr_held_vs_day": 0.9942293397187995,
+    "round_trip_cost_over_day_sd": 0.005616684214708326,
+    "round_trip_cost_pct_per_year": 1.6380000000000001,
+    "median_price": 2005.1,
+    "notional_per_contract": 20051.0,
+    "annual_vol": 0.18371034793323765,
+    "one_contract_vol_on_account": 0.07367152372818697,
+    "contracts_at_vol_ceiling": 1.6831469436888706
+   }
+  }
+ }
+}

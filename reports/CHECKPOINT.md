@@ -452,7 +452,7 @@ nothing uses.
 ### CURRENT, 2026-09-13 — read this, not the historical bullets beneath it
 
 **THE PROGRAMME IS CLOSED, 2026-09-13.** Read `reports/programme_conclusion.md` first; it stands
-alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), 84 candidates, 37 registered, 770 trials across
+alone. Six series registered plus a seventh and an eighth drafted, and two single hypotheses (U01, V01), and a ninth series designed (W), 89 candidates, 37 registered, 770 trials across
 two logs (futures-research 760, SR\* 0.1368; r-series 10), nothing promoted. The Q-series closed
 without registration (§60). Two standards adopted as gates for any future entry: the post-2021 split
 decides (S8), and a null is reportable only from a pipeline shown to recover the effect size sought at
@@ -547,6 +547,15 @@ assumed $1.82 MNQ round trip** (the flip point is ~$1.69); `cost_floor_quote.py`
 the smaller term. Passive fills are the one route needing a measurement quotes cannot make (resting
 orders, measured fill probability). **Finding 12** promoted: cite prior evidence by what it tested,
 not by counterparty.
+
+**W-SERIES, 2026-10-03 — DESIGNED, NOT REGISTERED (§72).** Daily horizons via chained 18:00-to-16:55
+session holds: the record filed them as forbidden; measured, the chain keeps 98–99% of the day's
+variance and cost stops binding. Binding instead: the multiple-testing bar for daily strategies (0.96
+full / 1.39 post-2021, or 2.17 under the single SR\*) and, under §62's objective, the drawdown risk
+budget (not contract count — a prop account allows 20–30 micros). Best candidate W04 (trend + carry,
+prior 0.77–1.27) straddles the full-sample bar. **Open, for the user:** confirm the overnight-inside-the-
+session hold with the firm; choose §62's bar or prop-evaluation EV (and supply the eval terms); rule on
+the SR\* convention; buy ohlcv-1d; then W04 as one trial.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
