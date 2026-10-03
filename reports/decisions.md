@@ -5306,6 +5306,47 @@ exact 95% upper bound moves from 0.0820 to 0.0798. §61 is not rewritten; the fi
    Realised volatility on 1-minute bars slightly overstates σ through microstructure noise, which
    biases the prediction toward MORE fill — the wrong direction to manufacture the daily excess.
 
+## 68. U01: four rulings recorded (S1, S2)
+
+**No trial spent; N 760, SR\* 0.1368. Nothing measured anew except a provenance check of the vendor
+file.** §67 is the measurement; this section records how its open points were ruled.
+
+1. **The CME reopen definition is settled, and recorded in the entry** (`definition_settled`), not
+   left as a session decision. Index futures trade through 09:30, so a cash-open displacement is a
+   move made in continuous trading rather than a gap in the futures price; the reopen is the only
+   point where the futures price can gap. **A cash-open version would be a separate registration with
+   a different mechanism** — cross-market price discovery at the equity open, not a discontinuity in
+   the futures price.
+
+2. **The daily-open observation is recorded as a measured property in its own right** — in the
+   entry (`s1_measurement.reopen_microstructure`) and in `u01_gap_fill.md`, not discarded with the
+   hypothesis. At daily reopens small gaps fill more often than a driftless walk predicts (the index
+   +4.7, +8.8 and +15.1 points at 0.05–0.3%, z +3.1 to +4.3; MGC the same direction, smaller); weekly
+   opens do not show it significantly. It was not what U01 registered and is not pursued.
+
+   **A correction to how it was first described.** §67 and the session report placed the excess "at
+   gaps of a few ticks". **They are 5–30 bps** — from about 6 ticks (MGC, 2010, smallest bin) to over
+   200 (the index today) — small only relative to session volatility (gap/σ 0.07–0.22). That matters
+   because "not tradeable at that magnitude" was ruled on the few-ticks description. On the corrected
+   scale the record does not assert it: the excess is a touch-probability difference, not a measured
+   return, so **tradeability is not established either way** — the same distinction U01's entry draws
+   for the 8% — and the observation is recorded as not pursued rather than as untradeable. The
+   reverting-reopen-print reading is an interpretation, not a test.
+
+3. **The early-NQ session-length defect is added to the terminal report's error table (§6).**
+   2010–2012 index sessions end in the evening — the 2010-06-08 session holds 119 rows ending 20:30
+   ET with none in RTH — so each such "prior close" was an evening print and the next reopen showed a
+   fake 21-hour break: every bar valid, no check failing, the count wrong downstream. **Provenance
+   checked before it was recorded:** the same 119 rows, ending 00:30Z, are in the vendor's own
+   `ohlcv-1m.NQM0.csv.zst`, the parsed parquet and the continuous series, so the defect is in the
+   SOURCE DATA and the pipeline reproduced it faithfully. It was found through the break-length
+   anomaly, not the fill rates, and the validity rule that fixed it can only remove sessions, so it
+   cannot bias the count toward the floor. (The first lookup matched `MNQM0` for `NQM0` — a substring
+   glob — and returned nothing; the exact file was then read.)
+
+4. **The 8-hour hold check is left as noted, not loosened.** A check stricter than the account rule
+   fails safe; relaxing it for a blocked entry would be fixing a test rather than an entry.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

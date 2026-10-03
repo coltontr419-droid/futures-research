@@ -518,6 +518,11 @@ sixteen years (42 / 28 since 2021) against floors of 5,884 / 2,862 — blocked l
 spent.** The fill curve declines smoothly with no break at 0.4% and tracks a driftless random walk;
 gaps that size fill 46–100% here (46–81% where n exceeds three), not 8%. Control decided for the record (state_control strict,
 volatility-matched); S5–S7 not run. Registrations now 36.
+Rulings (§68): the CME reopen definition is settled in the entry (a cash-open version would be a
+separate registration); the daily-reopen fill excess is recorded as a measured property, at its
+corrected scale of 5–30 bps, tradeability not established; the early-NQ session-length defect
+(a source-data truncation, verified in the vendor CSV) is in the terminal report's error table; the
+8-hour hold check stays as it is.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

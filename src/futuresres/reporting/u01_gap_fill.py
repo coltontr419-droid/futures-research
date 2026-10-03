@@ -312,6 +312,28 @@ def render(res: dict) -> str:
             a(f"All {kind} opens with |gap| ≥ 0.05%: n = {c['n']:,}, observed {c['obs']:.1%} against "
               f"{c['rw_own']:.1%} predicted, z = {c['z']:+.2f}.")
             a("")
+    a("## Reopen microstructure — a measured property, recorded in its own right")
+    a("")
+    a("At **daily** opens (18:00 ET after a one-hour break), small gaps fill more often than the "
+      "driftless walk predicts. Not what U01 registered, and not pursued — but a property of the "
+      "data, not discarded with the hypothesis (`decisions.md` §68).")
+    a("")
+    a("| product | open | gap (%) | n | observed | RW, own σ | excess | z |")
+    a("|---|---|---|---|---|---|---|---|")
+    for p, r in res.items():
+        for kind in ("daily", "weekly"):
+            for b in r["curve"][kind]:
+                if b["n"] and b["hi_pct"] <= 0.3 + 1e-9:
+                    a(f"| {p} | {kind} | {b['lo_pct']:g}–{b['hi_pct']:g} | {b['n']:,} | "
+                      f"{b['fill_obs']:.1%} | {b['fill_rw_own']:.1%} | "
+                      f"{b['obs_minus_own']:+.1%} | {b['z_vs_own']:+.2f} |")
+    a("")
+    a("Gaps of 5–30 bps: from about 6 ticks (MGC, 2010) to over 200 (the index today), small only "
+      "relative to session volatility. The excess is a touch-probability difference, not a "
+      "measured return, so tradeability is not established either way. Consistent with the "
+      "reopen print reverting against thin liquidity after the break — an interpretation, not a "
+      "test.")
+    a("")
     return "\n".join(w)
 
 

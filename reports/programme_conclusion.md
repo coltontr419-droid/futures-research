@@ -341,6 +341,7 @@ quietly fixed.
 | §57 | a module built to replace recalled literature with measurement | contained an invented one-tenth cutoff that declared CLEARS |
 | §59 | a session volatility window | the session open was taken at 23:59 rather than 18:00, giving **130.5 bps — almost exactly the familiar ~130 daily figure**, and so a wrong answer indistinguishable from a right one. Corrected: 126.3 |
 | §59 → §60 | "3,415 is not in the repo" | checked one repository of two; it is R03's measured ceiling |
+| §67, §68 | U01's gap count, on the NQ→MNQ splice | **2010–2012 index sessions end in the evening in the vendor's own data** — the 2010-06-08 session holds 119 rows ending 20:30 ET, none in RTH, identical in the vendor CSV, the parsed parquet and the continuous series (median ~110 bars a session in 2010–2012 against 1,380 now). Each such session's "prior close" was an evening print, and the next reopen showed a **fake 21-hour break**. Every bar was valid and no check failed; the count was wrong downstream. Found through that break-length anomaly, not through the fill rates, and the validity rule that fixed it can only REMOVE sessions, so it cannot bias the count toward the floor |
 
 **The pattern.** Almost none were arithmetic slips. Each was a quantity computed correctly for a
 different object than the one in hand: a constant from a different statistic, a count of the wrong

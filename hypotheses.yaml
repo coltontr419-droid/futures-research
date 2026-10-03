@@ -3539,6 +3539,9 @@
     the account's rule is satisfied. The registry's 8-hour hold check (a heuristic for "flat by
     17:00") would reject it if U01 were untested; the heuristic is stricter than the rule it
     stands in for. Recorded, not resolved - it does not bite on a blocked entry.
+    LEFT AS NOTED, NOT LOOSENED (ruled 2026-10-02, decisions.md 68): a check stricter than the
+    account rule fails safe, and relaxing it for a blocked entry would be fixing a test rather
+    than an entry.
   registered: 2026-10-02
   blocked: 2026-10-02
   status: blocked_insufficient_events
@@ -3621,6 +3624,18 @@
       Sessions with a valid open and no 0.4% gap: MGC 2,233 daily / 564 weekly, the index 2,593
       daily / 421 weekly - ample, so strict mode is available. Decided before any S6 run; none
       was run.
+  definition_settled:
+    ruled: 2026-10-02 (decisions.md 68)
+    reading: CME reopen - daily 18:00 ET after the maintenance break, weekly Sunday 18:00 ET
+    why: >
+      Index futures trade through 09:30, so a displacement at the cash open is a MOVE made during
+      continuous trading, not a gap in the futures price. The CME reopen is the only point at
+      which the futures price can gap.
+    cash_open_version: >
+      A separate registration, not a re-cut of this one, because it would carry a different
+      mechanism: the cash open is where equity-market participants first act on information the
+      futures already traded overnight, which is a claim about cross-market price discovery,
+      not about a discontinuity in the futures price.
   s1_measurement:
     fill_curve: >
       Same-session fill by gap size, daily and weekly, both instruments, against the
@@ -3630,8 +3645,8 @@
       Weekly opens, where most large gaps are, track the random walk (overall MGC 83.7% observed
       vs 85.4% predicted, z -0.9; the index 76.6% vs 81.9%, z -2.6, concentrated at 0.1-0.2%);
       at and above 0.4% bins agree within a few points. Daily opens fill MORE than the walk
-      (the index +7.9 points, z +7.4) at gaps of a few ticks - consistent with the reopen print
-      itself reverting - the opposite direction to the claim and far below 0.4%.
+      (the index +7.9 points, z +7.4) at small gaps - the opposite direction to the claim and far
+      below 0.4%; recorded in its own right under reopen_microstructure below.
     claimed_8pct_on_these_instruments: >
       At this definition, gaps of 0.4% or more fill same-session 46.5-60.3% (weekly) and
       80.5-100% (daily). The claimed ~8% is not what occurs here; it may describe another
@@ -3639,3 +3654,17 @@
     no_threshold_selected: >
       The curve is reported on a grid fixed before measuring. No gap size is chosen from it;
       choosing the best-performing one would be a search over thresholds.
+    reopen_microstructure: >
+      A MEASURED PROPERTY OF THE DAILY REOPEN, recorded in its own right and not discarded with
+      the hypothesis. At daily (18:00 ET, after a one-hour break) opens, small gaps fill MORE often
+      than a driftless walk predicts: on the index 96.4% against 91.6% at 0.05-0.1% (n 443,
+      z +3.9), 92.1% against 83.3% at 0.1-0.2% (n 253, z +4.3), 91.5% against 76.4% at 0.2-0.3%
+      (n 59, z +3.1); on MGC the same direction, smaller (+2.3 and +5.9 points, z +1.8 and +2.4).
+      Weekly opens do not show it significantly (MGC +2.3 and +3.9 points at z <= 1.3; the index
+      sits below the walk). SCALE, CORRECTED: these are gaps of 5-30 bps - from about 6 ticks (MGC,
+      2010, smallest bin) to over 200 (the index today, largest), not "a few ticks" as first
+      described - and small only relative to session volatility (gap/sigma 0.07-0.22). Consistent with the reopen print itself reverting against thin liquidity after
+      the break; that reading is an interpretation, not a test. It is a touch-probability excess,
+      not a measured return, so tradeability is not established either way - the same
+      distinction this entry draws for the 8%. It was not what U01 registered, and it is not
+      pursued.

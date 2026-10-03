@@ -81,3 +81,24 @@ All daily opens with |gap| ≥ 0.05%: n = 825, observed 93.5% against 85.6% pred
 | 1.5–∞ | 4 | 100.0% | [51.0%, 100.0%] | 60.9% | 29.0% | +39.1% | +1.67 | 0.50 |
 
 All weekly opens with |gap| ≥ 0.05%: n = 312, observed 76.6% against 81.9% predicted, z = -2.63.
+
+## Reopen microstructure — a measured property, recorded in its own right
+
+At **daily** opens (18:00 ET after a one-hour break), small gaps fill more often than the driftless walk predicts. Not what U01 registered, and not pursued — but a property of the data, not discarded with the hypothesis (`decisions.md` §68).
+
+| product | open | gap (%) | n | observed | RW, own σ | excess | z |
+|---|---|---|---|---|---|---|---|
+| MGC | daily | 0.05–0.1 | 336 | 96.4% | 94.1% | +2.3% | +1.80 |
+| MGC | daily | 0.1–0.2 | 129 | 96.9% | 91.0% | +5.9% | +2.35 |
+| MGC | daily | 0.2–0.3 | 30 | 96.7% | 86.7% | +10.0% | +1.63 |
+| MGC | weekly | 0.05–0.1 | 108 | 95.4% | 93.1% | +2.3% | +0.95 |
+| MGC | weekly | 0.1–0.2 | 115 | 92.2% | 88.3% | +3.9% | +1.32 |
+| MGC | weekly | 0.2–0.3 | 40 | 75.0% | 83.5% | -8.5% | -1.48 |
+| INDEX | daily | 0.05–0.1 | 443 | 96.4% | 91.6% | +4.7% | +3.89 |
+| INDEX | daily | 0.1–0.2 | 253 | 92.1% | 83.3% | +8.8% | +4.31 |
+| INDEX | daily | 0.2–0.3 | 59 | 91.5% | 76.4% | +15.1% | +3.09 |
+| INDEX | weekly | 0.05–0.1 | 93 | 91.4% | 92.2% | -0.8% | -0.29 |
+| INDEX | weekly | 0.1–0.2 | 97 | 75.3% | 87.1% | -11.8% | -3.52 |
+| INDEX | weekly | 0.2–0.3 | 37 | 78.4% | 81.7% | -3.3% | -0.53 |
+
+Gaps of 5–30 bps: from about 6 ticks (MGC, 2010) to over 200 (the index today), small only relative to session volatility. The excess is a touch-probability difference, not a measured return, so tradeability is not established either way. Consistent with the reopen print reverting against thin liquidity after the break — an interpretation, not a test.
