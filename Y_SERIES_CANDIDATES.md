@@ -18,6 +18,11 @@ trial spent; N 761, SR\* 0.1368.** Account of the design: `decisions.md` §79; T
 > floor fixes at $50,000. §80–§81's evaluation figures are superseded. **RTH, 1 MNQ, long: +$62
 > (2015–20) and +$78 (post-2021) per $80**, +$45 under an imposed Sharpe of −0.3; pass rate 18–19%.
 > 10 evaluations net positive 40%, 20 53%, 40 67%.
+>
+> **[§83] Sessions, direction, MGC.** Picking among windows mostly picks noise: MNQ's pre-registered
+> pick (Asia long) fell from +$97 to +$17 post-2021. **Two policies are stable across both eras: MNQ
+> 09:30–16:00 long (+$67 / +$82) and MGC London 03:00–11:30 long (+$68 / +$70)**; 40 evaluations finish net
+> positive 67% on either. Shorter RTH windows do not help.
 
 ---
 

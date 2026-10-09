@@ -6285,6 +6285,55 @@ predicts, exp(−2,913/2,087) ≈ 0.248.
   earlier account description into a new firm's model, without being re-checked against the new firm's
   terms.**
 
+## 83. Y03: session, direction and instrument under Tradeify's rules — two stable policies (S2, S8)
+
+**No trial spent; N 761, SR\* 0.1368. Two computation records (Y03, MNQ and MGC).**
+`reports/y03_sessions.md` (`reporting/y03_sessions.py`), on Tradeify's confirmed rules (§81–§82) and
+demeaned real sessions; one contract.
+
+### Fixed before running
+
+Windows: **Asia 19:00–03:00 ET and London 03:00–11:30 ET, the repo's own definitions**
+(`levels/definitions.py`; London overlaps the US morning by two hours, as defined); RTH 09:30–16:00 and
+its halves, 09:30–12:00 and 12:00–16:00 (the shorter-window check §82 proposed). Long and short. 1 MNQ
+($2.32 round trip) and 1 MGC ($3.32). **Selection rule: per instrument, the highest 2015–20 EV is the
+pick and its post-2021 EV the confirmation.** MGC's complete sessions run from 2011-02-01 (2,863); MNQ's
+from 2015-11-20 (2,638).
+
+### Result
+
+- **The pre-registered pick failed for MNQ:** Asia long, +$97 in 2015–20, fell to **+$17** post-2021
+  (+$74 → +$22 at 16,000 accounts). **For MGC it held:** London long, +$74 → **+$75**.
+- **Across the 4,000-account grid, most MNQ cells moved between eras by more than the ±$15–25 Monte Carlo
+  error.** At zero edge, choosing among windows and directions is mostly choosing noise and regime;
+  **the finding is how little the choice matters once one stable cell is in hand**, not which cell wins.
+- **Shorter windows do not help systematically.** MGC's 12:00–16:00 window is slightly negative (−$7 to
+  +$6): its small daily swing makes the fixed round trip a larger share and slows resolution.
+- **Long and short show no consistent difference with drift removed**, as expected; a real equity
+  premium can only favour long on MNQ.
+
+**Contenders re-run at 16,000 accounts** (chosen after the grid; precision, not a new selection; the
+quoted ± is Monte Carlo error given the historical pool, and is smaller than the real uncertainty the
+era-to-era difference shows):
+
+| policy | EV 2015–20 | EV post-2021 | 10 evaluations net positive | 40 |
+|---|---|---|---|---|
+| **MNQ 09:30–16:00, long** | **+$67** | **+$82** | 40% | 67% |
+| **MGC London 03:00–11:30, long** | **+$68** | **+$70** | 41% | 67% |
+| MNQ 09:30–16:00, short | +$13 | +$62 | 37% | 62% |
+| MNQ Asia 19:00–03:00, long | +$74 | +$22 | 33% | 50% |
+
+### Decisions taken rather than resolved silently
+
+1. **Two operating policies, both stable across eras: MNQ 09:30–16:00 long (Y03's original) and MGC
+   London 03:00–11:30 long.** They are on different instruments with a low measured correlation
+   (post-2021 monthly NQ–GC ρ 0.16, §77), so evaluations run on both are closer to independent than two
+   on one — a budget split across them should be less lumpy. **Not computed jointly**; stated as a
+   direction, not a figure.
+2. **The MNQ Asia cell is not adopted** despite winning its selection: it failed its own confirmation.
+3. **The contender re-run was chosen after seeing the grid** and is labelled so; it refines estimates,
+   it does not add a selection.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

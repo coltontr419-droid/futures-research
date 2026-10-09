@@ -656,3 +656,5 @@ With the rules confirmed (§81: intraday breach fails, daily payouts, a $1,250 c
 **+$85 to +$125 per evaluation**, and ten evaluations finish net positive about half the time.
 **Corrected (§82):** Tradeify's evaluation floor keeps trailing past $52,000, which lowers this to
 **+$62 to +$78 per evaluation** (pass rate 18–19%; ten evaluations net positive 40% of the time).
+Across sessions, directions and gold (§83) the choice of window mostly picks noise; two policies hold in
+both eras — **MNQ 09:30–16:00 long and MGC London 03:00–11:30 long, about +$70 to +$80 each.**

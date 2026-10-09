@@ -609,6 +609,10 @@ live (3 payouts on one account / 10 total); fee $80. **RTH, 1 MNQ, long: +$85 / 
 §81's figures superseded: **RTH, 1 MNQ, long: +$62 / +$78 per $80 (2015–20 / post-2021)**, +$45 at an
 imposed Sharpe −0.3; pass 18–19%; 10 evaluations net positive 40%, 40 67%. **Next: Y05.**
 
+**Y03, 2026-10-09 (§83): sessions, direction, MGC.** Window choice is mostly noise (MNQ Asia long
++$97 → +$17). **Two stable policies: MNQ 09:30–16:00 long (+$67 / +$82) and MGC London 03:00–11:30 long
+(+$68 / +$70).** Shorts no better; shorter windows no better. **Next: Y05 forward demo test.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
