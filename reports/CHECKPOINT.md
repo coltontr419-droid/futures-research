@@ -594,6 +594,12 @@ bound). Very skewed: 10 evaluations net positive 26%, 40 evaluations 59%. **Bloc
 full rulebook** (consistency rules, payout caps, time limits, floor timing). Then Y05, a forward demo
 test. **Nothing is scheduled.**
 
+**Y02, 2026-10-09 (§80): Tradeify daily accounts modelled.** Zero-edge EV still positive. The 40% eval
+consistency rule binds hardest on large positions, so the policy is **RTH 09:30–16:00, 1 MNQ, long:
++$93–$145 per $80** (both eras, every payout frequency), +$53 under an imposed Sharpe −0.3. Open with the
+user: payout frequency, when the account goes live, whether an intraday dip below the EOD floor fails
+(the gentler reading gives +$208). **Next: Y05, a forward demo test.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

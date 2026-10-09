@@ -1,7 +1,13 @@
 # Y-series — the evaluation is the edge
 
-**Status: S1 design, 2026-10-09. Y01 measured (two computation records, m00134–m00135). Nothing
-registered. No trial spent; N 761, SR\* 0.1368.** Account of the design: `decisions.md` §79.
+**Status: S1 design, 2026-10-09. Y01 and Y02 measured (computation records). Nothing registered. No
+trial spent; N 761, SR\* 0.1368.** Account of the design: `decisions.md` §79; Tradeify's rules: §80.
+
+> **[§80] Y02 done — Tradeify daily accounts.** Under the 40% evaluation consistency rule, the $1,250
+> payout cap, no time limit and an end-of-day floor (intraday breach assumed to fail), the zero-edge EV
+> stays positive. **The consistency rule cuts large positions' pass rates, so the policy is now RTH, 1
+> MNQ, long: +$93 to +$145 per $80**, +$53 under an imposed Sharpe of −0.3. 40 evaluations finish net
+> positive 62% of the time. `reports/y02_tradeify.md`.
 
 ---
 

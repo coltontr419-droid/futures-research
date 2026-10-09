@@ -650,3 +650,5 @@ the account instead. On 2,638 real MNQ sessions with drift removed, **one $80 ev
 beyond the fee; a martingale argument puts the structural value near +$82 and says sizing cannot move it
 much. It is a lottery with positive expectation — ten evaluations finish net positive 26% of the time —
 and it rests on account rules not yet supplied. Nothing registered; no trial. `decisions.md` §79.
+Under Tradeify's daily-account rules (§80) it stays positive at **+$93 to +$145 per evaluation** with
+one MNQ during regular hours, the 40% evaluation consistency rule being what sets that size.

@@ -6148,6 +6148,62 @@ why the real paths are demeaned exactly before use.
    most of the EV.
 5. **Cross-account opposite positions are excluded outright** as typically prohibited by the firm.
 
+## 80. Y02: the evaluation under Tradeify's daily-account rules — still positive; the policy changes (S2, S8)
+
+**No trial spent; N 761, SR\* 0.1368. One computation record (Y02).** `reports/y02_tradeify.md`
+(`reporting/y02_tradeify.py`), on Y01's demeaned real MNQ sessions.
+
+### The rules, supplied by the user 2026-10-09, and the readings taken
+
+Firm: **Tradeify, daily accounts.** **40% consistency rule in the evaluation, none funded. Payouts capped
+at $1,250 until live, no cap after; no maximum number of payouts. No evaluation time limit. End-of-day
+floor.** Readings where the rule was not fully specified, each modelled rather than chosen:
+- **Consistency:** pass needs profit ≥ $3,000 and the best day ≤ 40% of total profit, tested at a day's
+  close; a failing ratio means trading on.
+- **End-of-day floor:** set from the highest closing balance, $2,000 below it, fixed at $50,000 once that
+  reaches $52,000. **Primary reading: falling to the day's floor intraday still fails**; the close-only
+  reading is reported beside it.
+- **Payout frequency was not supplied:** daily, weekly and monthly all run. **When the account goes live
+  was not supplied:** the $1,250 cap is applied throughout (conservative), uncapped reported beside it.
+- Unchanged: $80 fee, soft $1,000 daily limit, $2.32 round trip; funded account followed 504 sessions;
+  evaluations capped at 2,000 sessions (none reached it).
+
+Engine checked against Y01's validated engine where the two rules coincide (one bar per session):
+identical, 0.3026 each.
+
+### Result: still positive, and the consistency rule picks the size
+
+| policy (primary reading) | P(pass) | EV per $80, 2015–20 | EV per $80, post-2021 |
+|---|---|---|---|
+| **RTH, 1 MNQ** | 21–22% | **+$93 to +$100** | **+$104 to +$145** |
+| RTH, 2 MNQ | 16% | +$71 to +$100 | +$71 to +$73 |
+| full session, 1 MNQ | 17–18% | +$39 to +$64 | +$37 to +$48 |
+| full session, 2 MNQ | 11–12% | −$12 to +$16 | +$31 to +$53 |
+
+(Ranges span the three payout frequencies; ±$15–25 Monte Carlo error.)
+
+- **The consistency rule is what binds, and it binds hardest on large positions**: post-2021, RTH 2 MNQ
+  passes 27% without it and 16% with it; RTH 1 MNQ 26% → 22%. A large position reaches $3,000 in a few
+  big days, each too large a share of the profit. **The policy moves from RTH 2 MNQ (Y01) to RTH 1 MNQ.**
+- **The payout cap and frequency barely matter** — differences sit inside the noise. Capping can even
+  help: equity left in the account is cushion above the floor.
+- **The close-only floor reading would raise RTH 1 MNQ to +$208.** Which reading Tradeify applies is
+  worth confirming.
+- **Robust to an adverse market:** RTH 1 MNQ under an imposed long Sharpe of −0.3 gives +$53 (19% pass);
+  zero +$139; +0.3 +$265.
+- **Budget, RTH 1 MNQ, monthly:** 10 evaluations net positive 35% (median −$800, mean +$1,480); 40
+  evaluations 62% (median +$2,308, mean +$5,889).
+
+### Decisions taken rather than resolved silently
+
+1. **The primary floor reading is the stricter one** (intraday breach of the end-of-day floor fails);
+   the gentler reading is reported, not used.
+2. **The $1,250 cap is applied for the whole funded horizon**, because the point at which the account goes
+   live was not supplied.
+3. **The operating policy (Y03) is revised to RTH 09:30–16:00, 1 MNQ, long**, chosen as positive in both
+   eras at every payout frequency and under the adverse drift. RTH 2 MNQ, Y01's choice, is set aside
+   because the consistency rule cuts its pass rate by ~40%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
