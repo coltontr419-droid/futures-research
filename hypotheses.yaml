@@ -116,7 +116,26 @@
   # NO TRIALS SPENT. Nothing was run, so N is unchanged.
   status: blocked_insufficient_events
   blocked: 2026-09-02
+  # [2026-10-09, decisions.md 78] CORRECTED. The 4,125 / 4,006 in the registration comments above and
+  # in blocked_reason_as_registered below were the pre-§22 DECLARED ceiling, not measured firing counts.
   blocked_reason: >
+    Closed on both verdict routes before any Stage 1 run. CORRECTED 2026-10-09 (decisions.md 78): the
+    figures first written here, 4,125 events on MNQ and 4,006 on MGC, were the pre-§22 declared ceiling -
+    one firing per session over the sample's trading sessions - not a measured firing count, and
+    decisions.md 22 and 65 superseded them. Per cell, MEASURED (reports/measured_rates.json, carried
+    forward from the §22 measurement; f01_rates cannot be re-run on the 2.7 GB machine, CHECKPOINT):
+    best cell 3,523 events on MNQ against the 19,722 at which a floor resolves at the 60-minute proxy
+    (5.6x short) and 3,449 on MGC against 5,620 (1.63x short); worst cell 66 on MNQ and 115 on MGC (299x
+    and 49x short) - all four combinations below the swept range. The correction WIDENS the gap, which
+    was 4.8x and 1.4x as first written, so the block is firmer, not weaker. The worst-cell counts use
+    the volatility-filter variants (>median, >p66), whose quantity and lookback this entry never states
+    and decisions.md 28 left open, so they rest on a condition that is itself undefined. Aggregate: the
+    two entry times 15:00 and 15:30 BOTH EXIT AT 15:55, so the later position is entirely contained in
+    the earlier one and pooling stacks two near-duplicate readings of the same ~3,500 sessions the cells
+    fire on (3,557 MNQ, 3,482 MGC) instead of doubling the independent sample. Same structural defect as
+    F07, found by reading the exit rule rather than the entry times. This is arithmetic done ahead of
+    testing, not evidence: F01 was never run and nothing here says it would fail. No trials spent.
+  blocked_reason_as_registered: >
     Closed on both verdict routes before any Stage 1 run. Per-cell:
     entry_time is a grid axis so a cell fires once a session, giving
     4,125 events on MNQ against the 19,722 at which a floor resolves
@@ -2039,6 +2058,10 @@
   # measurement block is removed from level_rates.py rather than left publishing a
   # meaningless rate. Reviving L05 requires a corrected condition and a fresh measurement -
   # the shared function now REFUSES this shape. decisions.md 41.
+  # [2026-10-09, decisions.md 78] STATUS CORRECTED. "Already blocked, so nothing downstream changes"
+  # above did not survive decisions.md 45, which withdrew the S4 count that block rested on. The status
+  # is now `excluded` - the registry's existing status for a condition withdrawn as defective, with
+  # L11 (same `confirmed_break` defect) as the precedent - so it no longer carries a withdrawn number.
   condition_defect:
     found: 2026-09-11
     entry_minute_sd: 0.05
@@ -2058,10 +2081,22 @@
   horizon_minutes: [60, 120, 180]
   hold_hours: [1, 3]
   registered: 2026-09-02
-  status: blocked_insufficient_events
+  status: excluded
+  status_before_2026_10_09: blocked_insufficient_events
+  excluded_reason: >
+    WITHDRAWN AS DEFECTIVE, not closed on evidence. Status corrected 2026-10-09 (decisions.md 78) from
+    blocked_insufficient_events. The registered condition is built on `confirmed_break`, which fires on
+    every session at a fixed minute (entry-minute sd 0.05, 8,234 of 8,234 levels firing, 99.6% high/low
+    collision; decisions.md 41), so it cannot reach S6 at any n: it stops at S5. decisions.md 45
+    withdrew the S4 count the block had rested on - MNQ best cell 4,669 events, 0.79x of the 5,884
+    floor at 180m - because it describes the degenerate condition, not breaks. That figure is the
+    closest any recorded count comes to a floor, and it belongs to a withdrawn condition, so it must
+    not be read as a near-miss and must not be inherited by any corrected version, which would be a
+    new registration measured from scratch. Never run at Stage 1; no trial spent; N unaffected.
   grade: C+
   tier: B
-  param_cap: 3
+  param_cap: 0
+  param_cap_registered: 3
   session: US
   symbols: [MNQ]
   registered_test_order: 16
@@ -2099,6 +2134,7 @@
   # disagreed about whether the work had been done. decisions.md 36.
   # NO STAGE 1, NO TRIAL. N stays at 576 and SR* at 0.1334.
   firing_rate:
+    withdrawn: '2026-09-11 (decisions.md 41, 45) - measured on the degenerate condition; kept as history, not an event count'
     measured: true
     declared: null
     measured_on: '2026-09-05'
@@ -2122,12 +2158,13 @@
       the 60m and 180m detection-floor cells from reports/calibration.md. No Stage 1 was run and no
       trial was spent.
   verdict_route_measured:
+    withdrawn: '2026-09-11 (decisions.md 41, 45) - the per-cell route below rests on the withdrawn count'
     per_cell: blocked_insufficient_events on MNQ
     aggregate: closed_overlapping on every product, as assumed at registration
     measured_on: '2026-09-09'
     note: Measured, not assumed. The `verdict_route` key above records what was ASSUMED at registration
       and is deliberately left as written.
-  blocked_reason: 'Measured, never run. MNQ best cell 4,669 events against a 5,884 floor at 180m (0.79x).
+  blocked_reason_superseded: 'Measured, never run. MNQ best cell 4,669 events against a 5,884 floor at 180m (0.79x).
     Blocked on event count before any Stage 1: the arithmetic is the justification, and nothing here
     is a statement about the market. reports/level_rates.md, decisions.md 36.'
 

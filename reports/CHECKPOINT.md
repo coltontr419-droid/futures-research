@@ -580,6 +580,13 @@ marginal; M6E, micro 10Y, MHG excluded (fees partly unverified; broker charge as
 pooled effective n 255 (185 on cost survivors) vs SR\* floor 404 at 0.2 monthly Sharpe. X07 not
 blocked on data. **Nothing is scheduled.**
 
+**BLOCKED-ENTRY RECONCILIATION, 2026-10-09 (§78) — no gap narrowed.** Two superseded numbers corrected,
+both widening the gap: F01 (4,125 → best cell 3,523 / 3,449, worst 66 / 115) and L05 (count withdrawn by
+§45; **status `excluded`, was `blocked_insufficient_events`**, L11's precedent; pinned set in the
+registry test updated). V01's 1.15× (180m proxy, Sunday reopens included) is the narrowest live figure and
+a ceiling, not a candidate. Source reconciliation ran on Sonnet at the user's instruction (§65 caveat).
+**Nothing is scheduled.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

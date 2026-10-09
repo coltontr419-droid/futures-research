@@ -42,7 +42,7 @@ not of the strategies.
 
 | id | name | verdict | resolved by | trials |
 |---|---|---|---|---|
-| F01 | market_intraday_momentum | `blocked_insufficient_events` | arithmetic, before running: 4,125 events vs 19,722, and its two entry times share a 15:55 exit so pooling adds nothing | 0 |
+| F01 | market_intraday_momentum | `blocked_insufficient_events` | arithmetic, before running: best cell 3,523 events (MNQ) and 3,449 (MGC) vs 19,722 and 5,620, worst cell 66 and 115 *[corrected 2026-10-09: this row first read "4,125 events", the pre-§22 declared ceiling; decisions.md 22, 65, 78 — the gap widens, the block is firmer]*, and its two entry times share a 15:55 exit so pooling adds nothing | 0 |
 | F02 | order_imbalance_conditional_overnight_reversal | `stage1_uninformative` | sample — all 144 cells below the swept range; a *declared* firing rate was wrong by 40× | 144 |
 | F03 | half_hour_periodicity | `retired` | evidence, on its **aggregate** route only (53,625 independent events); per-cell was uninformative | 234 |
 | F04 | lbma_auction_flow | `retired` | evidence, narrowed to MGC 120m alone; best cell 0.09× floor | 36 |

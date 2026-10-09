@@ -627,3 +627,18 @@ excludes the euro, 10-year and copper micros on cost, and post-2021 the seven ma
 effective months against 404 needed to see a 0.2 monthly Sharpe at the SR\* bar (185 on the cost
 survivors). A null at this horizon could rule out only effects two to three times the literature's
 per-market TSMOM. `decisions.md` §77.
+
+**The blocked-entry reconciliation was recorded 2026-10-09.** Every event-count block — the eight
+registry entries blocked on event count, R03 and F12 — was re-derived under current conventions: counts
+per cell and measured, the withdrawn L05 count, effective n, and the post-2021 half. **No gap narrowed.**
+Two entries carried superseded numbers, and both corrections widen the gap. F01's "4,125 events" was a
+pre-§22 declared ceiling; measured, its best cell is 3,523 (MNQ) and 3,449 (MGC) and its worst 66 and
+115, which is 5.6× and 1.63× short at the best cell, up from 4.8× and 1.4×. L05's block rested on a
+count of a condition that fires on every session, withdrawn in §45, and its 0.79× — the closest any
+recorded count came to a floor — belonged to that withdrawn condition; its status is now `excluded`, as
+L11's is. **V01's 1.15× at the 180-minute proxy is the narrowest live figure and is not a candidate**:
+it is a ceiling count with every reopen firing and no threshold applied, and at its own 60-minute
+horizon it is 2.25× short, and 4.9× short on the post-2021 half (all three with the Sunday reopens V01's
+wording excludes; as defined, 1.49×, 2.92× and 6.2×). **The §65 caveat applies to the source
+reconciliation**, which ran on Sonnet at the user's instruction and recomputed from the record rather than
+measuring; the F01 counts are the §22 measurement carried forward. `decisions.md` §78.

@@ -349,7 +349,7 @@ def test_every_catalog_entry_appears_in_the_registry() -> None:
 
 @pytest.mark.integrity
 def test_the_two_excluded_entries_are_the_expected_ones() -> None:
-    """F12, F13 and L11 are excluded; assert the registry agrees and nothing else crept in.
+    """F12, F13, L05 and L11 are excluded; assert the registry agrees and nothing else crept in.
 
     Pinned explicitly because "excluded" is the one status that costs zero trials, which
     makes it the cheapest place to hide a hypothesis someone did not want to test.
@@ -360,6 +360,13 @@ def test_the_two_excluded_entries_are_the_expected_ones() -> None:
              every session, `kbars` shifted entry by k-1 bars rather than selecting events,
              and the two band boundaries fired at identical (row, minute). Never run at
              Stage 1, no trial spent, N unaffected. decisions.md 40.
+
+    L05    - STATUS CORRECTED 2026-10-09 from blocked_insufficient_events (decisions.md 78). Its
+             condition is built on `confirmed_break` and fires on every session at a fixed
+             minute (entry-minute sd 0.05, 8,234 of 8,234 levels, 99.6% high/low collision), so
+             it stops at S5 and cannot reach S6 at any n; decisions.md 45 withdrew the S4 count
+             the block had rested on. The same defect as L11, so the same status. Never run, no
+             trial spent, N unaffected.
 
     N04, N05 - WITHDRAWN AT S6 2026-09-12. Their 5m swing-pivot level type has no valid
              placebo and cannot get one: a fractal pivot is at-the-money when confirmed, so
@@ -372,7 +379,7 @@ def test_the_two_excluded_entries_are_the_expected_ones() -> None:
     pass, without one, is the thing this assertion exists to catch.
     """
     excluded = {h for h, e in REG.items() if e["status"] == "excluded"}
-    assert excluded == {"F12", "F13", "L11", "N04", "N05"}, excluded
+    assert excluded == {"F12", "F13", "L05", "L11", "N04", "N05"}, excluded
     assert "BELOW FIRING-RATE GATE" in CATALOG_TEXT
     assert "DECAYED" in CATALOG_TEXT
 

@@ -6015,6 +6015,83 @@ and closed as W03.
 already on file. Neither changes the X02 arithmetic: X05 loses 24–60 months of the 68 to its lookback,
 and X06 adds up to 56 ordered pairs of multiplicity. They are closed with the series.
 
+## 78. The blocked-entry reconciliation: two superseded numbers corrected, no gap narrowed (S4, S8)
+
+**No trial spent; N 761, SR\* 0.1368 (r-series chain: 10, unchanged). Nothing re-measured and nothing
+logged.** Corrections to `hypotheses.yaml` (F01, L05), `reports/futures_conclusion.md` (F01 row),
+`tests/test_registry_consistency.py` (pinned set) and the records named below.
+
+**The §65 caveat applies to the source reconciliation.** It ran on Sonnet (`claude-sonnet-5-5`) at the
+user's instruction, after the model rule was raised. It recomputed gaps from the record — each a recorded
+count divided by a recorded floor — and measured nothing. The F01 counts it relies on are the §22
+measurement carried forward: `f01_rates` is OOM-killed on this machine (CHECKPOINT) and could not be
+re-run.
+
+### What was reconciled
+
+Every entry closed on an event count: the eight registry entries with status
+`blocked_insufficient_events` (F01, L01, L05, L06, L08, L09, U01, V01), R03 (r-series), and F12
+(`excluded`, "roughly 128" events, a declared estimate never measured). Counts as recorded at the time,
+set against the current conventions: §13 (per cell, not per scan), §22 (measured, worst cell gates),
+§41 and §45 (L05's count was sessions, not breaks, and is withdrawn), S4 (effective n), S8 (post-2021
+decides), §65 (F01's 4,125 superseded), §67–§69 (U01's validity rule, V01's ceiling).
+
+### The finding
+
+**Every event-count block was re-derived under current conventions and no gap narrowed.** Two entries
+carried superseded numbers; both corrections widen the gap.
+
+| entry | as first recorded | under current conventions | gap |
+|---|---|---|---|
+| F01 | 4,125 MNQ / 4,006 MGC "events" — the pre-§22 declared ceiling | best cell 3,523 / 3,449; worst cell 66 / 115 (§22, carried forward) | 60m proxy: 4.8× / 1.4× → 5.6× / 1.63× at the best cell; 299× / 49× at the worst |
+| L05 | MNQ best cell 4,669, worst 2,015; 0.794× of the 5,884 floor at 180m | **no valid count** — withdrawn (§41, §45) | the 1.26× short it implied does not stand |
+| U01 | 54 MGC / 127 index (before the stale-prior-close rule, §67) | 46 / 104 (28 / 42 post-2021) | 180m proxy: 53× / 46× → 62× / 57×; post-2021 102× / 140× |
+
+L01, L06, L08, L09, V01 and R03 are unchanged from their recorded counts. The L-series registry blocks
+match the live `level_rates.json` cell for cell, except L05, which the cache no longer holds.
+
+### V01's 1.15× is the narrowest live figure and is not a candidate
+
+On MGC with the Sunday reopens added (2,499 events), V01 is **1.15× short** at the 180-minute proxy
+(2,862), **2.25× short** at its own 60-minute horizon (5,620), and **4.9× short** on the post-2021 half
+(1,150 events). It is not a candidate: it is a **ceiling count** — every valid reopen firing, no threshold
+applied — so any real condition fires on fewer, and the 180-minute proxy is not V01's horizon. The Sunday
+reopens are excluded by V01's own wording (§69); as defined, the same three figures are **1.49×, 2.92×
+and 6.2×**. The one place the record shows a gap this narrow is a ceiling at the wrong horizon.
+
+### Corrections made
+
+1. **F01.** `blocked_reason` now carries the §22 figures, the widened gap, and the fact that the
+   worst-cell counts use a volatility filter (`>median`, `>p66`) with no stated quantity or lookback, which
+   §28 left open. The text first registered is preserved as `blocked_reason_as_registered`. The F01 row of
+   `futures_conclusion.md` carries the correction inline, marked with its date, rather than replacing the
+   old figure silently. Status stays `blocked_insufficient_events` — the block is real, only its number
+   was stale.
+2. **L05.** Status `blocked_insufficient_events` → **`excluded`**, with an `excluded_reason`; the old
+   status is kept as `status_before_2026_10_09` and the old reason as `blocked_reason_superseded`. The
+   `firing_rate` and `verdict_route_measured` blocks are kept as history and marked withdrawn.
+   `condition_defect` already said the figure must not be inherited; the status now agrees with it.
+
+### Decisions taken rather than resolved silently
+
+1. **`excluded` is the status chosen for L05, and it reverses §41's "noted, not withdrawn".** §41's
+   reason was that L05 was "already blocked, so nothing downstream changes". §45 then withdrew the S4
+   count that block rested on, so the reason no longer held. The registry's vocabulary is closed (§36
+   decision 3): `blocked_insufficient_events` is defined as arithmetic showing no route can carry a
+   verdict, which is no longer true of L05; `untested` requires a live `test_order`; `retired` means
+   closed on evidence. `excluded` is the existing status for a condition withdrawn as defective, and L11
+   (the same `confirmed_break` defect) is the precedent. **The user can overrule it; doing so reopens the
+   contradiction between L05's status and its own `stopped_at_reason`.**
+2. **The pinned excluded set in the registry test now includes L05**, with the reason in the test's
+   docstring as that test requires. `param_cap` is 0 as the excluded-entry test requires; the registered
+   value, 3, is kept as `param_cap_registered`.
+3. **As-registered text is preserved**, under a renamed key, as the registry does elsewhere
+   (`verdict_route` beside `verdict_route_measured`).
+4. **Not corrected here:** `reports/catalog_status.md` is a generated report last built 2026-09-13 and
+   still shows L05 as blocked with an unmeasured rate; it is stale in more than this respect and
+   regenerating it would bring unrelated changes. The L-series counts that are correct but conditional —
+   L01, L06 and L08 on the open `d` ATR scale, L09 and L05 on tick thresholds (§52) — are unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
