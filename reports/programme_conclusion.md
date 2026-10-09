@@ -652,3 +652,5 @@ much. It is a lottery with positive expectation — ten evaluations finish net p
 and it rests on account rules not yet supplied. Nothing registered; no trial. `decisions.md` §79.
 Under Tradeify's daily-account rules (§80) it stays positive at **+$93 to +$145 per evaluation** with
 one MNQ during regular hours, the 40% evaluation consistency rule being what sets that size.
+With the rules confirmed (§81: intraday breach fails, daily payouts, a $1,250 cap until live) it is
+**+$85 to +$125 per evaluation**, and ten evaluations finish net positive about half the time.

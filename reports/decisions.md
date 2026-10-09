@@ -6204,6 +6204,43 @@ identical, 0.3026 each.
    eras at every payout frequency and under the adverse drift. RTH 2 MNQ, Y01's choice, is set aside
    because the consistency rule cuts its pass rate by ~40%.
 
+## 81. Tradeify's rules confirmed; the final-rules EV (S2, S8)
+
+**No trial spent; N 761, SR\* 0.1368. One computation record (Y02, final rules).** Appended to
+`reports/y02_tradeify.md` (`y02_tradeify.py --final`).
+
+### The three open points of §80, answered by the user 2026-10-09
+
+1. **Falling below the end-of-day floor intraday fails the account immediately** — the primary reading of
+   §80, now confirmed; the gentler close-only reading (+$208) does not apply.
+2. **Payouts are daily**, capped at $1,250 until the account goes **live, after 3 payouts on one account
+   or 10 in total**; uncapped after. Modelled per account (live after 3 payouts on that account); the
+   10-in-total route across accounts is not modelled, so this is the conservative case. **Assumed:** any
+   nonzero withdrawal above the $52,000 buffer counts as a payout (no minimum payout size was supplied),
+   and going live changes nothing but the cap.
+3. **The fee is $80.**
+
+### Result
+
+| policy | P(pass) | EV per $80, 2015–20 | EV per $80, post-2021 |
+|---|---|---|---|
+| **RTH 09:30–16:00, 1 MNQ** | 21–22% | **+$85** | **+$125** |
+| RTH, 2 MNQ | 16–18% | +$92 | +$79 |
+| full session, 1 MNQ | 18% | +$60 | +$54 |
+
+- **RTH, 1 MNQ under an imposed long Sharpe:** −0.3 → +$69; 0 → +$112; +0.3 → +$175 (the 0 cell repeats the
+  table's +$125 on a fresh draw; the gap is Monte Carlo error, ±$15–25).
+- **About 37% of funded accounts take at least one payout.** Daily payouts with the live rule make
+  outcomes less lumpy than monthly: **10 evaluations ($800) finish net positive 46% of the time** (median
+  −$333, mean +$1,268); **20, 61%** (median +$1,124); **40, 76%** (median +$3,707, mean +$5,010).
+- **The operating policy stands: RTH, 1 MNQ, long.** RTH 2 MNQ is within noise of it before 2021 and well
+  below it after; the full session is lower in both eras.
+
+### What the figures still assume
+
+The funded account is followed two years; going live changes only the cap; no minimum payout size; the
+$2.32 round trip (commission assumed, §71). **The forward demo test (Y05) is the check on all of it.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

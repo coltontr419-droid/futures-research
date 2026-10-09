@@ -8,6 +8,11 @@ trial spent; N 761, SR\* 0.1368.** Account of the design: `decisions.md` §79; T
 > stays positive. **The consistency rule cuts large positions' pass rates, so the policy is now RTH, 1
 > MNQ, long: +$93 to +$145 per $80**, +$53 under an imposed Sharpe of −0.3. 40 evaluations finish net
 > positive 62% of the time. `reports/y02_tradeify.md`.
+>
+> **[§81] Rules confirmed** — intraday breach of the end-of-day floor fails; daily payouts, $1,250 cap
+> until live (3 payouts on one account or 10 in total); fee $80. **RTH, 1 MNQ, long: +$85 (2015–20) and
+> +$125 (post-2021) per $80**; +$69 under an imposed Sharpe of −0.3. 10 evaluations net positive 46%,
+> 20 61%, 40 76%. **Next: Y05, a forward demo test.**
 
 ---
 

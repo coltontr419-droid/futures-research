@@ -982,5 +982,106 @@
    "expected_payout": 1523.7084573418185,
    "ev": 206.4571899802619
   }
- ]
+ ],
+ "final_rules": {
+  "cells": [
+   {
+    "era": "pre_2021",
+    "window": "rth",
+    "contracts": 1,
+    "p_pass": 0.212,
+    "days_to_pass_median": 22.0,
+    "expected_payout": 780.5789849052024,
+    "p_any_payout": 0.368,
+    "ev": 85.48274479990292
+   },
+   {
+    "era": "pre_2021",
+    "window": "rth",
+    "contracts": 2,
+    "p_pass": 0.176,
+    "days_to_pass_median": 14.0,
+    "expected_payout": 978.0609371568714,
+    "p_any_payout": 0.36125,
+    "ev": 92.13872493960938
+   },
+   {
+    "era": "pre_2021",
+    "window": "full",
+    "contracts": 1,
+    "p_pass": 0.17675,
+    "days_to_pass_median": 19.0,
+    "expected_payout": 789.7892840516026,
+    "p_any_payout": 0.34425,
+    "ev": 59.59525595612075
+   },
+   {
+    "era": "post_2021",
+    "window": "rth",
+    "contracts": 1,
+    "p_pass": 0.21925,
+    "days_to_pass_median": 16.0,
+    "expected_payout": 935.7049371974437,
+    "p_any_payout": 0.37475,
+    "ev": 125.15330748053952
+   },
+   {
+    "era": "post_2021",
+    "window": "rth",
+    "contracts": 2,
+    "p_pass": 0.16125,
+    "days_to_pass_median": 11.0,
+    "expected_payout": 988.9543649134557,
+    "p_any_payout": 0.35575,
+    "ev": 79.46889134229474
+   },
+   {
+    "era": "post_2021",
+    "window": "full",
+    "contracts": 1,
+    "p_pass": 0.1815,
+    "days_to_pass_median": 13.5,
+    "expected_payout": 736.5029531175311,
+    "p_any_payout": 0.3405,
+    "ev": 53.675285990831895
+   }
+  ],
+  "drift": [
+   {
+    "sharpe": -0.3,
+    "p_pass": 0.19925,
+    "ev": 69.35927565564151
+   },
+   {
+    "sharpe": 0.0,
+    "p_pass": 0.21875,
+    "ev": 112.41533935058649
+   },
+   {
+    "sharpe": 0.3,
+    "p_pass": 0.26175,
+    "ev": 174.95612110631376
+   }
+  ],
+  "budget": {
+   "10": {
+    "p_net_positive": 0.45545,
+    "median": -333.02200452994805,
+    "p95": 8108.620022393739,
+    "mean": 1267.6699655916002
+   },
+   "20": {
+    "p_net_positive": 0.6088,
+    "median": 1124.139039100653,
+    "p95": 11431.574043029803,
+    "mean": 2472.6963137440293
+   },
+   "40": {
+    "p_net_positive": 0.76465,
+    "median": 3707.4635482215963,
+    "p95": 17430.788590678152,
+    "mean": 5010.4437516385715
+   }
+  }
+ }
 }

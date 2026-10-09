@@ -600,6 +600,11 @@ consistency rule binds hardest on large positions, so the policy is **RTH 09:30�
 user: payout frequency, when the account goes live, whether an intraday dip below the EOD floor fails
 (the gentler reading gives +$208). **Next: Y05, a forward demo test.**
 
+**Tradeify rules confirmed, 2026-10-09 (§81).** Intraday breach fails; daily payouts, $1,250 cap until
+live (3 payouts on one account / 10 total); fee $80. **RTH, 1 MNQ, long: +$85 / +$125 per $80
+(2015–20 / post-2021)**, +$69 at an imposed Sharpe −0.3; 10 evaluations net positive 46%, 40 76%.
+**Next: Y05, forward demo test. Nothing else is scheduled.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

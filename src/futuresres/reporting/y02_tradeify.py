@@ -111,11 +111,11 @@ def run_eval(paths, n, rng, intraday_breach: bool, consistency: float | None, ac
 
 
 def run_funded(paths, n, rng, intraday_breach: bool, every: int, cap: float | None,
-               accounts: int = ACCOUNTS) -> np.ndarray:
+               accounts: int = ACCOUNTS, live_after: int | None = None) -> np.ndarray:
     h_all, l_all, c_all = paths
     S = len(c_all)
     eq = np.full(accounts, y.START); peak = eq.copy()
-    alive = np.ones(accounts, bool); paid = np.zeros(accounts)
+    alive = np.ones(accounts, bool); paid = np.zeros(accounts); n_payouts = np.zeros(accounts, int)
     for d in range(y.FUNDED_DAYS):
         act = np.flatnonzero(alive)
         if not len(act):
@@ -130,7 +130,12 @@ def run_funded(paths, n, rng, intraday_breach: bool, every: int, cap: float | No
         if (d + 1) % every == 0:
             excess = np.where(alive, np.maximum(eq - (y.START + y.LOCK), 0.0), 0.0)
             if cap is not None:
-                excess = np.minimum(excess, cap)
+                capped = np.minimum(excess, cap)
+                if live_after is not None:          # uncapped once this account has gone live
+                    excess = np.where(n_payouts >= live_after, excess, capped)
+                else:
+                    excess = capped
+            n_payouts += excess > 0
             paid += y.SPLIT * excess
             eq -= excess
     return paid
@@ -215,6 +220,42 @@ def drift_check(seed: int = 7) -> list[dict]:
     return out
 
 
+def final_rules(seed: int = 11) -> dict:
+    """Tradeify as confirmed 2026-10-09: intraday breach of the end-of-day floor fails; DAILY payouts,
+    capped at $1,250 until the account goes live after 3 payouts on it (the per-account route; the
+    10-in-total route across accounts is not modelled, so this is the conservative case); fee $80."""
+    dates, H, L, C, notional = y.load_sessions()
+    rng = np.random.default_rng(seed)
+    sd_session = float(C[dates >= y.ERA][:, -1].std())
+    out = {"cells": [], "drift": [], "budget": {}}
+    for era, mask in (("pre_2021", dates < y.ERA), ("post_2021", dates >= y.ERA)):
+        for window, n in (("rth", 1), ("rth", 2), ("full", 1)):
+            h, l, c, _ = y.window_paths(H[mask], L[mask], C[mask], window, None)
+            usd = (h * notional, l * notional, c * notional)
+            e = run_eval(usd, n, rng, True, CONSISTENCY)
+            paid = run_funded(usd, n, rng, True, 1, CAP, live_after=3)
+            ev = e["p_pass"] * paid.mean() - y.FEE
+            out["cells"].append({"era": era, "window": window, "contracts": n, "p_pass": e["p_pass"],
+                                 "days_to_pass_median": e["days_to_pass_median"],
+                                 "expected_payout": float(paid.mean()),
+                                 "p_any_payout": float((paid > 0).mean()), "ev": ev})
+            if era == "post_2021" and window == "rth" and n == 1:
+                out["budget"] = _budget(e["p_pass"], paid, rng)
+            print(f"final {era} {window} n={n}: pass {e['p_pass']:.3f} payout {paid.mean():.0f} EV {ev:+.0f}",
+                  flush=True)
+    post = dates >= y.ERA
+    _, _, c0, _ = y.window_paths(H[post], L[post], C[post], "rth", 0.0)
+    share = float(c0[:, -1].std() / sd_session)
+    for s in (-0.3, 0.0, 0.3):
+        h, l, c, _ = y.window_paths(H[post], L[post], C[post], "rth", s / math.sqrt(252) * sd_session * share)
+        usd = (h * notional, l * notional, c * notional)
+        e = run_eval(usd, 1, rng, True, CONSISTENCY)
+        paid = run_funded(usd, 1, rng, True, 1, CAP, live_after=3)
+        out["drift"].append({"sharpe": s, "p_pass": e["p_pass"], "ev": e["p_pass"] * paid.mean() - y.FEE})
+        print(f"final drift rth n=1 S={s:+.1f}: EV {out['drift'][-1]['ev']:+.0f}", flush=True)
+    return out
+
+
 def _budget(p, payouts, rng, reps: int = 20000) -> dict:
     out = {}
     for k in (10, 20, 40):
@@ -274,6 +315,24 @@ def render(r: dict) -> str:
             row = [d for d in r["drift"] if d["window"] == window and d["contracts"] == n]
             a(f"| {window}, {n} MNQ | " + " | ".join(f"{d['ev']:+,.0f} ({d['p_pass']:.0%})" for d in row) + " |")
         a("")
+    if r.get("final_rules"):
+        fr = r["final_rules"]
+        a("## FINAL — Tradeify as confirmed: intraday breach fails, DAILY payouts, $1,250 cap until 3 payouts")
+        a("")
+        a("| era | policy | P(pass) | median days to pass | E[payout] | P(any payout) | EV per $80 |")
+        a("|---|---|---|---|---|---|---|")
+        for x in fr["cells"]:
+            a(f"| {x['era']} | {x['window']}, {x['contracts']} MNQ | {x['p_pass']:.1%} | {x['days_to_pass_median']:.0f} | "
+              f"{x['expected_payout']:,.0f} | {x['p_any_payout']:.0%} | **{x['ev']:+,.0f}** |")
+        a("")
+        a("RTH, 1 MNQ, post-2021, imposed drift: " + "; ".join(
+            f"Sharpe {d['sharpe']:+.1f} → {d['ev']:+,.0f} ({d['p_pass']:.0%})" for d in fr["drift"]))
+        a("")
+        a("| RTH, 1 MNQ: K evaluations | outlay | P(net > 0) | median | 95th pct | mean |")
+        a("|---|---|---|---|---|---|")
+        for k, v in fr["budget"].items():
+            a(f"| {k} | ${80 * int(k):,} | {v['p_net_positive']:.0%} | {v['median']:+,.0f} | {v['p95']:+,.0f} | {v['mean']:+,.0f} |")
+        a("")
     a("## A budget of evaluations, post-2021, primary reading, monthly payouts")
     a("")
     a("| policy | K | outlay | P(net > 0) | median | 95th pct | mean |")
@@ -291,7 +350,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--log", action="store_true")
     ap.add_argument("--drift", action="store_true", help="add the imposed-drift check to the saved run")
+    ap.add_argument("--final", action="store_true", help="add the confirmed-rules run to the saved run")
     args = ap.parse_args(argv)
+    if args.final:
+        r = json.loads(OUT_JSON.read_text())
+        r["final_rules"] = final_rules()
+        OUT_JSON.write_text(json.dumps(r, indent=1, default=float) + "\n")
+        return main([])
     if args.drift:
         r = json.loads(OUT_JSON.read_text())
         r["drift"] = drift_check()
@@ -320,7 +385,7 @@ def main(argv: list[str] | None = None) -> int:
             params={"kind": "structure_ev_tradeify", "check": r["check"],
                     "cells": [{k: x[k] for k in ("era", "window", "contracts", "floor", "payout_every", "cap",
                                                  "p_pass", "expected_payout", "ev")} for x in r["cells"]],
-                    "budget": r["budget"], "drift": r.get("drift")},
+                    "budget": r["budget"], "drift": r.get("drift"), "final_rules": r.get("final_rules")},
             note=("kind=computation; NOT a trial and NOT counted in N. Y02: zero-edge evaluation EV under "
                   "Tradeify's daily-account rules on demeaned real MNQ sessions. decisions.md 80."),
         ))
