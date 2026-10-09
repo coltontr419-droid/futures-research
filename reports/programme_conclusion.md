@@ -571,7 +571,8 @@ stay in the registry, and their trials stay in N.
 | **V01** (single) | **1** | **1** | **0** | **0** |
 | **W** | **5** | **1** | **1** | **0** |
 | **X** | **7** | **0** | **0** | **0** |
-| **total** | **96** | **38** | **771** | **0** |
+| **Y** | **7** | **0** | **0** | **0** |
+| **total** | **103** | **38** | **771** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
@@ -642,3 +643,10 @@ horizon it is 2.25× short, and 4.9× short on the post-2021 half (all three wit
 wording excludes; as defined, 1.49×, 2.92× and 6.2×). **The §65 caveat applies to the source
 reconciliation**, which ran on Sonnet at the user's instruction and recomputed from the record rather than
 measuring; the F01 counts are the §22 measurement carried forward. `decisions.md` §78.
+
+**The Y row was added 2026-10-09** — an eleventh series that stops searching the market and measures
+the account instead. On 2,638 real MNQ sessions with drift removed, **one $80 evaluation is worth about
++$60 to +$127 at zero edge**, positive in every window and both eras, because the firm absorbs losses
+beyond the fee; a martingale argument puts the structural value near +$82 and says sizing cannot move it
+much. It is a lottery with positive expectation — ten evaluations finish net positive 26% of the time —
+and it rests on account rules not yet supplied. Nothing registered; no trial. `decisions.md` §79.

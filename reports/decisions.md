@@ -6092,6 +6092,62 @@ and 6.2×**. The one place the record shows a gap this narrow is a ceiling at th
    regenerating it would bring unrelated changes. The L-series counts that are correct but conditional —
    L01, L06 and L08 on the open `d` ATR scale, L09 and L05 on tick thresholds (§52) — are unchanged.
 
+## 79. The Y-series: the account's payoff structure, measured on real paths (S1, S2, S8)
+
+**Designed, not registered. No trial spent; N 761, SR\* 0.1368. Two computation records (m00134 Y01,
+m00135 its sensitivity).** Draft: `Y_SERIES_CANDIDATES.md`. Engine: `reporting/y01_structure_ev.py`;
+sensitivity: `reporting/y01_sensitivity.py`.
+
+Asked for a series with a high chance of producing something that performs in the prop account, after
+the record had concluded that searching should stop. **The answer is not another market search.** At
+N = 761 a new market claim needs a post-2021 Sharpe of ~1.3, and no published effect tested came close.
+What the record had found and not followed up is §73's finding that the evaluation is worth more than its
+fee at zero edge.
+
+### What was measured
+
+**Y01: zero-edge EV of one $80 evaluation on resampled real MNQ sessions**, drift removed per era, the
+account's rules as supplied (§73, §75), the intraday trailing floor tested on each minute's low, the soft
+daily limit, $2.32 round trip. 2,638 complete sessions 2015-11-20 to 2026-08-27 (the U01 completeness
+rule excludes earlier, incomplete NQ sessions, so "pre-2021" here is 2015–2020).
+
+- **Positive in every cell and both eras: +$5 to +$127 per $80** (post-2021: +$31 to +$127). RTH 2 MNQ:
+  +$119 (2015–20), +$127 (post-2021). ±$10 Monte Carlo error per cell.
+- **Robust:** RTH 2 MNQ stays at +$77 under an imposed long Sharpe of −0.3; doubling cost moves it by
+  ~$18.
+- **Extremely skewed:** 10 evaluations ($800) finish net positive 26% of the time with a median of −$800;
+  40 evaluations ($3,200) 59%, median +$2,061, mean +$4,935.
+
+### Why the number is a constant, not a tunable edge
+
+At zero drift P(pass) ≈ e⁻¹·⅔ = 0.245 at any size (time-change invariance of a martingale), and the
+funded account's expected withdrawals are bounded by the identity E[final equity] + E[withdrawals] =
+$50,000: ≈ 0.632 × ($2,000 − $836) ≈ $736. **EV ≈ 0.245 × 0.9 × $736 − $80 ≈ +$82.** The measured cells sit
+around it. Sizing and timing cannot move it much; drift, overshoot, the fee and the payout rules can.
+
+### A validation failure that is itself a finding
+
+The engine first failed its closed-form check (0.290 against 0.245). Not a code fault: a finite pool of
+3,000 random-walk sessions carried a residual drift of ~$20/day, an annual Sharpe of ~0.5, which alone
+moved P(pass) from 0.22 to 0.29 across seeds. Demeaned, it validates at 0.247–0.255. **Pass rates are
+very sensitive to small drifts**, which is why cost and any real premium matter more than sizing, and
+why the real paths are demeaned exactly before use.
+
+### Decisions taken rather than resolved silently
+
+1. **The Y entries are not market hypotheses and are not registered.** Y01 removes drift, so it makes no
+   claim about direction; a forward demo test (Y05) uses new data and makes no predictive claim. Neither
+   is a trial. **If a Y entry ever asserts a premium from this data, that assertion is a trial.**
+2. **The long tilt (Y04) rests on an external prior (equity premium, Sharpe ~0.3), labelled and never
+   estimated here.** The policy's EV is positive without it (zero drift) and at an imposed −0.3.
+3. **The operating policy (Y03: RTH, 2 MNQ, long) was fixed from Y01's grid before the sensitivity run**
+   and stated in that module's docstring, so it was not chosen from the sensitivity results.
+4. **The account terms not supplied are assumed and listed** (evaluation cap 252 sessions, funded
+   horizon 504, monthly unlimited withdrawals, intraday trailing floor). **Y02 — the firm's full
+   rulebook — blocks any real-money use**; consistency rules and payout caps in particular could remove
+   most of the EV.
+5. **Cross-account opposite positions are excluded outright** as typically prohibited by the firm.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,230 @@
+{
+ "sessions_post_2021": 1387,
+ "mnq_notional": 59204.0,
+ "drift": [
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": -0.3,
+   "cost": 2.32,
+   "p_pass": 0.23025,
+   "expected_payout": 683.6875777123336,
+   "ev": 77.4190647682648
+  },
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": -0.15,
+   "cost": 2.32,
+   "p_pass": 0.2375,
+   "expected_payout": 759.0426499079226,
+   "ev": 100.2726293531316
+  },
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": 0.0,
+   "cost": 2.32,
+   "p_pass": 0.26025,
+   "expected_payout": 777.6130140222838,
+   "ev": 122.37378689929935
+  },
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": 0.15,
+   "cost": 2.32,
+   "p_pass": 0.2655,
+   "expected_payout": 879.052432376286,
+   "ev": 153.38842079590395
+  },
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": 0.3,
+   "cost": 2.32,
+   "p_pass": 0.25925,
+   "expected_payout": 1033.3149392684861,
+   "ev": 187.88689800535502
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": -0.3,
+   "cost": 2.32,
+   "p_pass": 0.2085,
+   "expected_payout": 447.9066099978738,
+   "ev": 13.388528184556677
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": -0.15,
+   "cost": 2.32,
+   "p_pass": 0.22675,
+   "expected_payout": 507.5734829457929,
+   "ev": 35.09228725795853
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": 0.0,
+   "cost": 2.32,
+   "p_pass": 0.239,
+   "expected_payout": 647.9846246903659,
+   "ev": 74.86832530099744
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": 0.15,
+   "cost": 2.32,
+   "p_pass": 0.2475,
+   "expected_payout": 629.7512959729871,
+   "ev": 75.86344575331432
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": 0.3,
+   "cost": 2.32,
+   "p_pass": 0.23175,
+   "expected_payout": 742.6570820980155,
+   "ev": 92.11077877621511
+  }
+ ],
+ "cost": [
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": 0.0,
+   "cost": 0.0,
+   "p_pass": 0.25375,
+   "expected_payout": 850.4080667002738,
+   "ev": 135.79104692519445
+  },
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": 0.0,
+   "cost": 2.32,
+   "p_pass": 0.247,
+   "expected_payout": 813.5445905303685,
+   "ev": 120.94551386100102
+  },
+  {
+   "window": "rth",
+   "contracts": 2,
+   "sharpe": 0.0,
+   "cost": 4.64,
+   "p_pass": 0.251,
+   "expected_payout": 787.9849860455151,
+   "ev": 117.78423149742432
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": 0.0,
+   "cost": 0.0,
+   "p_pass": 0.24175,
+   "expected_payout": 629.0239485659838,
+   "ev": 72.06653956582659
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": 0.0,
+   "cost": 2.32,
+   "p_pass": 0.2415,
+   "expected_payout": 600.5560761658559,
+   "ev": 65.03429239405418
+  },
+  {
+   "window": "full",
+   "contracts": 1,
+   "sharpe": 0.0,
+   "cost": 4.64,
+   "p_pass": 0.22625,
+   "expected_payout": 580.3683729598803,
+   "ev": 51.30834438217292
+  }
+ ],
+ "budget": {
+  "rth_2": {
+   "p_pass": 0.26025,
+   "ev": 122.37378689929935,
+   "by_k": {
+    "5": {
+     "p_net_positive": 0.14065,
+     "median": -400.0,
+     "p05": -400.0,
+     "p95": 6452.887622173332,
+     "mean": 562.6168441714739,
+     "outlay": 400.0
+    },
+    "10": {
+     "p_net_positive": 0.26375,
+     "median": -800.0,
+     "p05": -800.0,
+     "p95": 11240.17658892443,
+     "mean": 1225.8500288407308,
+     "outlay": 800.0
+    },
+    "20": {
+     "p_net_positive": 0.42665,
+     "median": -1600.0,
+     "p05": -1600.0,
+     "p95": 16780.202519163522,
+     "mean": 2444.9978116437546,
+     "outlay": 1600.0
+    },
+    "40": {
+     "p_net_positive": 0.5932,
+     "median": 2061.0740671272615,
+     "p05": -3200.0,
+     "p95": 23922.480547361607,
+     "mean": 4935.336876394637,
+     "outlay": 3200.0
+    }
+   }
+  },
+  "full_1": {
+   "p_pass": 0.239,
+   "ev": 74.86832530099744,
+   "by_k": {
+    "5": {
+     "p_net_positive": 0.16365,
+     "median": -400.0,
+     "p05": -400.0,
+     "p95": 5131.334546855937,
+     "mean": 375.9651111627869,
+     "outlay": 400.0
+    },
+    "10": {
+     "p_net_positive": 0.29065,
+     "median": -800.0,
+     "p05": -800.0,
+     "p95": 7885.574046424877,
+     "mean": 796.6890897076175,
+     "outlay": 800.0
+    },
+    "20": {
+     "p_net_positive": 0.443,
+     "median": -1014.1865720252936,
+     "p05": -1600.0,
+     "p95": 10925.539887377576,
+     "mean": 1516.9715940029785,
+     "outlay": 1600.0
+    },
+    "40": {
+     "p_net_positive": 0.58375,
+     "median": 1202.5168528843064,
+     "p05": -3200.0,
+     "p95": 15896.669800802558,
+     "mean": 2972.9797774027484,
+     "outlay": 3200.0
+    }
+   }
+  }
+ }
+}

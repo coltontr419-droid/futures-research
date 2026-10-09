@@ -587,6 +587,13 @@ registry test updated). V01's 1.15× (180m proxy, Sunday reopens included) is th
 a ceiling, not a candidate. Source reconciliation ran on Sonnet at the user's instruction (§65 caveat).
 **Nothing is scheduled.**
 
+**Y-SERIES, 2026-10-09 — DESIGNED, NOT REGISTERED (§79).** The account's payoff structure, not a market
+edge. Y01 on real MNQ paths, drift removed: zero-edge EV +$5 to +$127 per $80 evaluation (RTH 2 MNQ
++$119 / +$127 pre/post-2021; +$77 under an imposed Sharpe −0.3). Structural value ≈ +$82 (martingale
+bound). Very skewed: 10 evaluations net positive 26%, 40 evaluations 59%. **Blocking: Y02, the firm's
+full rulebook** (consistency rules, payout caps, time limits, floor timing). Then Y05, a forward demo
+test. **Nothing is scheduled.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
