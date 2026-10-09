@@ -654,3 +654,5 @@ Under Tradeify's daily-account rules (§80) it stays positive at **+$93 to +$145
 one MNQ during regular hours, the 40% evaluation consistency rule being what sets that size.
 With the rules confirmed (§81: intraday breach fails, daily payouts, a $1,250 cap until live) it is
 **+$85 to +$125 per evaluation**, and ten evaluations finish net positive about half the time.
+**Corrected (§82):** Tradeify's evaluation floor keeps trailing past $52,000, which lowers this to
+**+$62 to +$78 per evaluation** (pass rate 18–19%; ten evaluations net positive 40% of the time).

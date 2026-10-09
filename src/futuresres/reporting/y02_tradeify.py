@@ -51,17 +51,21 @@ POLICIES: Final[tuple[tuple[str, int], ...]] = (("rth", 1), ("rth", 2), ("full",
 FREQS: Final[dict[str, int]] = {"daily": 1, "weekly": 5, "monthly": 21}
 
 
-def _floor(peak_eod: np.ndarray) -> np.ndarray:
+def _floor(peak_eod: np.ndarray, lock: bool = True) -> np.ndarray:
+    """$2,000 below the highest end-of-day balance. FUNDED: fixed at $50,000 once that balance reaches
+    $52,000. EVALUATION (lock=False, user 2026-10-09): never fixed - at $52,999 the floor is $50,999."""
+    if not lock:
+        return peak_eod - y.TRAIL
     return np.where(peak_eod >= y.START + y.LOCK, y.START, peak_eod - y.TRAIL)
 
 
-def day_eod(eq, peak_eod, h, l, c, n, intraday_breach: bool):
+def day_eod(eq, peak_eod, h, l, c, n, intraday_breach: bool, lock: bool = True):
     """One session under an END-OF-DAY floor. Returns (new_eq, day_pnl, breached)."""
     A, W = c.shape
     E0 = eq[:, None]
     lo = E0 + l * n
     cl = E0 + c * n
-    floor = _floor(peak_eod)[:, None]
+    floor = _floor(peak_eod, lock)[:, None]
     big = W + 1
     stop = lo <= E0 - y.DAILY
     t_s = np.where(stop.any(1), stop.argmax(1), big)
@@ -82,7 +86,8 @@ def day_eod(eq, peak_eod, h, l, c, n, intraday_breach: bool):
     return new_eq, new_eq - eq, breached
 
 
-def run_eval(paths, n, rng, intraday_breach: bool, consistency: float | None, accounts: int = ACCOUNTS):
+def run_eval(paths, n, rng, intraday_breach: bool, consistency: float | None, accounts: int = ACCOUNTS,
+             lock: bool = True):
     h_all, l_all, c_all = paths
     S = len(c_all)
     eq = np.full(accounts, y.START); peak = eq.copy(); best = np.zeros(accounts)
@@ -94,7 +99,7 @@ def run_eval(paths, n, rng, intraday_breach: bool, consistency: float | None, ac
         idx = rng.integers(0, S, len(act))
         for k in range(0, len(act), y.CHUNK):
             a_, i_ = act[k:k + y.CHUNK], idx[k:k + y.CHUNK]
-            ne, pnl, br = day_eod(eq[a_], peak[a_], h_all[i_], l_all[i_], c_all[i_], n, intraday_breach)
+            ne, pnl, br = day_eod(eq[a_], peak[a_], h_all[i_], l_all[i_], c_all[i_], n, intraday_breach, lock)
             eq[a_] = ne; days[a_] += 1
             best[a_] = np.maximum(best[a_], pnl)
             peak[a_] = np.maximum(peak[a_], ne)
@@ -221,7 +226,9 @@ def drift_check(seed: int = 7) -> list[dict]:
 
 
 def final_rules(seed: int = 11) -> dict:
-    """Tradeify as confirmed 2026-10-09: intraday breach of the end-of-day floor fails; DAILY payouts,
+    """Tradeify as confirmed 2026-10-09: EVALUATION floor trails the end-of-day balance with no lock
+    (decisions.md 82); FUNDED floor fixed at $50,000 once the end-of-day balance reaches $52,000;
+    intraday breach of the end-of-day floor fails; DAILY payouts,
     capped at $1,250 until the account goes live after 3 payouts on it (the per-account route; the
     10-in-total route across accounts is not modelled, so this is the conservative case); fee $80."""
     dates, H, L, C, notional = y.load_sessions()
@@ -232,7 +239,7 @@ def final_rules(seed: int = 11) -> dict:
         for window, n in (("rth", 1), ("rth", 2), ("full", 1)):
             h, l, c, _ = y.window_paths(H[mask], L[mask], C[mask], window, None)
             usd = (h * notional, l * notional, c * notional)
-            e = run_eval(usd, n, rng, True, CONSISTENCY)
+            e = run_eval(usd, n, rng, True, CONSISTENCY, lock=False)
             paid = run_funded(usd, n, rng, True, 1, CAP, live_after=3)
             ev = e["p_pass"] * paid.mean() - y.FEE
             out["cells"].append({"era": era, "window": window, "contracts": n, "p_pass": e["p_pass"],
@@ -249,7 +256,7 @@ def final_rules(seed: int = 11) -> dict:
     for s in (-0.3, 0.0, 0.3):
         h, l, c, _ = y.window_paths(H[post], L[post], C[post], "rth", s / math.sqrt(252) * sd_session * share)
         usd = (h * notional, l * notional, c * notional)
-        e = run_eval(usd, 1, rng, True, CONSISTENCY)
+        e = run_eval(usd, 1, rng, True, CONSISTENCY, lock=False)
         paid = run_funded(usd, 1, rng, True, 1, CAP, live_after=3)
         out["drift"].append({"sharpe": s, "p_pass": e["p_pass"], "ev": e["p_pass"] * paid.mean() - y.FEE})
         print(f"final drift rth n=1 S={s:+.1f}: EV {out['drift'][-1]['ev']:+.0f}", flush=True)
@@ -317,7 +324,7 @@ def render(r: dict) -> str:
         a("")
     if r.get("final_rules"):
         fr = r["final_rules"]
-        a("## FINAL — Tradeify as confirmed: intraday breach fails, DAILY payouts, $1,250 cap until 3 payouts")
+        a("## FINAL — Tradeify as confirmed: evaluation floor never locks; intraday breach fails; DAILY payouts, $1,250 cap until 3 payouts")
         a("")
         a("| era | policy | P(pass) | median days to pass | E[payout] | P(any payout) | EV per $80 |")
         a("|---|---|---|---|---|---|---|")

@@ -605,6 +605,10 @@ live (3 payouts on one account / 10 total); fee $80. **RTH, 1 MNQ, long: +$85 / 
 (2015–20 / post-2021)**, +$69 at an imposed Sharpe −0.3; 10 evaluations net positive 46%, 40 76%.
 **Next: Y05, forward demo test. Nothing else is scheduled.**
 
+**CORRECTION, 2026-10-09 (§82): Tradeify's evaluation floor never locks** (funded does, at $50,000).
+§81's figures superseded: **RTH, 1 MNQ, long: +$62 / +$78 per $80 (2015–20 / post-2021)**, +$45 at an
+imposed Sharpe −0.3; pass 18–19%; 10 evaluations net positive 40%, 40 67%. **Next: Y05.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

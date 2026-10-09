@@ -6241,6 +6241,50 @@ identical, 0.3026 each.
 The funded account is followed two years; going live changes only the cap; no minimum payout size; the
 $2.32 round trip (commission assumed, §71). **The forward demo test (Y05) is the check on all of it.**
 
+## 82. Correction: the evaluation's floor never locks; §80–§81's evaluation figures superseded (S2)
+
+**No trial spent; N 761, SR\* 0.1368. One computation record (Y02, corrected final rules).**
+
+### What was wrong
+
+§79–§81 gave the evaluation the same floor rule as the funded account: trailing $2,000 below the peak,
+**fixed at $50,000 once the peak reached $52,000**. That rule came from the account as first described
+(§62, §73) and was carried into the Tradeify model without being checked. **The user corrected it
+2026-10-09: Tradeify's evaluation floor starts at $48,000 and keeps trailing the end-of-day balance with
+no lock — at $52,999 the floor is $50,999.** The funded account's floor is as modelled: fixed at $50,000
+once the end-of-day balance reaches $52,000. Also confirmed: passing needs $53,000, and the funded
+account must build the $2,000 buffer to $52,000 before anything is withdrawable — both as modelled.
+
+Without the lock the evaluation is a single trailing-drawdown race to +$3,000: at zero drift, continuous
+monitoring, P(pass) = exp(−3,000/2,000) = 0.223, against 0.245 with the lock. Checked on the engine with
+one Gaussian bar a day: 0.245, which is what the discrete-monitoring correction (≈0.58σ on each barrier)
+predicts, exp(−2,913/2,087) ≈ 0.248.
+
+### Corrected result (Tradeify as confirmed)
+
+| policy | P(pass) | EV per $80, 2015–20 | EV per $80, post-2021 |
+|---|---|---|---|
+| **RTH 09:30–16:00, 1 MNQ** | 18–19% | **+$62** | **+$78** |
+| full session, 1 MNQ | 13–16% | +$29 | +$44 |
+| RTH, 2 MNQ | 11% | +$22 | +$23 |
+
+- RTH, 1 MNQ under an imposed long Sharpe: −0.3 → **+$45**; 0 → +$87; +0.3 → +$138.
+- Budget, RTH 1 MNQ: 10 evaluations net positive **40%** (median −$657, mean +$796); 20, **53%** (median
+  +$280); 40, **67%** (median +$1,981, mean +$3,140).
+- **The policy stands: RTH, 1 MNQ, long** — best in both eras, positive under the adverse drift. Larger
+  positions lose more to the unlocked floor and the consistency rule together.
+
+### What is superseded, and what is not
+
+- **§80's evaluation figures and §81's results table are superseded** for Tradeify by the table above.
+  They are left as written, with this section as the correction.
+- **Y01 (§79) is not wrong for the account it modelled** — the lock rule as first described — but that is
+  not Tradeify's evaluation. Its martingale argument still holds; its constant becomes
+  0.223 × 0.9 × E[withdrawals] − $80.
+- The method point, recorded because it is the same shape as finding 12: **a rule carried from an
+  earlier account description into a new firm's model, without being re-checked against the new firm's
+  terms.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

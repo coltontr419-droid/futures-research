@@ -989,98 +989,98 @@
     "era": "pre_2021",
     "window": "rth",
     "contracts": 1,
-    "p_pass": 0.212,
-    "days_to_pass_median": 22.0,
-    "expected_payout": 780.5789849052024,
-    "p_any_payout": 0.368,
-    "ev": 85.48274479990292
+    "p_pass": 0.18,
+    "days_to_pass_median": 20.0,
+    "expected_payout": 786.1192682217558,
+    "p_any_payout": 0.37,
+    "ev": 61.501468279916025
    },
    {
     "era": "pre_2021",
     "window": "rth",
     "contracts": 2,
-    "p_pass": 0.176,
+    "p_pass": 0.11,
+    "days_to_pass_median": 10.0,
+    "expected_payout": 929.4615638040264,
+    "p_any_payout": 0.36225,
+    "ev": 22.240772018442897
+   },
+   {
+    "era": "pre_2021",
+    "window": "full",
+    "contracts": 1,
+    "p_pass": 0.134,
+    "days_to_pass_median": 15.5,
+    "expected_payout": 813.6656683287115,
+    "p_any_payout": 0.35925,
+    "ev": 29.03119955604734
+   },
+   {
+    "era": "post_2021",
+    "window": "rth",
+    "contracts": 1,
+    "p_pass": 0.19325,
     "days_to_pass_median": 14.0,
-    "expected_payout": 978.0609371568714,
-    "p_any_payout": 0.36125,
-    "ev": 92.13872493960938
-   },
-   {
-    "era": "pre_2021",
-    "window": "full",
-    "contracts": 1,
-    "p_pass": 0.17675,
-    "days_to_pass_median": 19.0,
-    "expected_payout": 789.7892840516026,
-    "p_any_payout": 0.34425,
-    "ev": 59.59525595612075
-   },
-   {
-    "era": "post_2021",
-    "window": "rth",
-    "contracts": 1,
-    "p_pass": 0.21925,
-    "days_to_pass_median": 16.0,
-    "expected_payout": 935.7049371974437,
-    "p_any_payout": 0.37475,
-    "ev": 125.15330748053952
+    "expected_payout": 815.7421348680995,
+    "p_any_payout": 0.3715,
+    "ev": 77.64216756326022
    },
    {
     "era": "post_2021",
     "window": "rth",
     "contracts": 2,
-    "p_pass": 0.16125,
-    "days_to_pass_median": 11.0,
-    "expected_payout": 988.9543649134557,
-    "p_any_payout": 0.35575,
-    "ev": 79.46889134229474
+    "p_pass": 0.10875,
+    "days_to_pass_median": 8.0,
+    "expected_payout": 948.4658384947344,
+    "p_any_payout": 0.35075,
+    "ev": 23.145659936302366
    },
    {
     "era": "post_2021",
     "window": "full",
     "contracts": 1,
-    "p_pass": 0.1815,
-    "days_to_pass_median": 13.5,
-    "expected_payout": 736.5029531175311,
-    "p_any_payout": 0.3405,
-    "ev": 53.675285990831895
+    "p_pass": 0.157,
+    "days_to_pass_median": 11.0,
+    "expected_payout": 787.0434622689027,
+    "p_any_payout": 0.352,
+    "ev": 43.565823576217724
    }
   ],
   "drift": [
    {
     "sharpe": -0.3,
-    "p_pass": 0.19925,
-    "ev": 69.35927565564151
+    "p_pass": 0.1615,
+    "ev": 45.30904471855443
    },
    {
     "sharpe": 0.0,
-    "p_pass": 0.21875,
-    "ev": 112.41533935058649
+    "p_pass": 0.1895,
+    "ev": 87.20175040466873
    },
    {
     "sharpe": 0.3,
-    "p_pass": 0.26175,
-    "ev": 174.95612110631376
+    "p_pass": 0.20875,
+    "ev": 137.74083736565612
    }
   ],
   "budget": {
    "10": {
-    "p_net_positive": 0.45545,
-    "median": -333.02200452994805,
-    "p95": 8108.620022393739,
-    "mean": 1267.6699655916002
+    "p_net_positive": 0.39845,
+    "median": -657.2197414417257,
+    "p95": 6535.868240482346,
+    "mean": 796.4725628194817
    },
    "20": {
-    "p_net_positive": 0.6088,
-    "median": 1124.139039100653,
-    "p95": 11431.574043029803,
-    "mean": 2472.6963137440293
+    "p_net_positive": 0.53215,
+    "median": 280.3570612104054,
+    "p95": 8918.4976975713,
+    "mean": 1506.830535876592
    },
    "40": {
-    "p_net_positive": 0.76465,
-    "median": 3707.4635482215963,
-    "p95": 17430.788590678152,
-    "mean": 5010.4437516385715
+    "p_net_positive": 0.66655,
+    "median": 1980.698926856066,
+    "p95": 13444.31827588159,
+    "mean": 3140.4486853207927
    }
   }
  }

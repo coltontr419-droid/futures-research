@@ -13,6 +13,11 @@ trial spent; N 761, SR\* 0.1368.** Account of the design: `decisions.md` §79; T
 > until live (3 payouts on one account or 10 in total); fee $80. **RTH, 1 MNQ, long: +$85 (2015–20) and
 > +$125 (post-2021) per $80**; +$69 under an imposed Sharpe of −0.3. 10 evaluations net positive 46%,
 > 20 61%, 40 76%. **Next: Y05, a forward demo test.**
+>
+> **[§82] CORRECTION — the evaluation floor never locks** (at $52,999 it is $50,999); only the funded
+> floor fixes at $50,000. §80–§81's evaluation figures are superseded. **RTH, 1 MNQ, long: +$62
+> (2015–20) and +$78 (post-2021) per $80**, +$45 under an imposed Sharpe of −0.3; pass rate 18–19%.
+> 10 evaluations net positive 40%, 20 53%, 40 67%.
 
 ---
 
