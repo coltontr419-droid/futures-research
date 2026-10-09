@@ -23,6 +23,10 @@ trial spent; N 761, SR\* 0.1368.** Account of the design: `decisions.md` §79; T
 > pick (Asia long) fell from +$97 to +$17 post-2021. **Two policies are stable across both eras: MNQ
 > 09:30–16:00 long (+$67 / +$82) and MGC London 03:00–11:30 long (+$68 / +$70)**; 40 evaluations finish net
 > positive 67% on either. Shorter RTH windows do not help.
+>
+> **[§84] Both on one account is worse:** +$65 / +$46 per $80 (2016–20 / post-2021) against MNQ alone
+> +$71 / +$82 and MGC alone +$45 / +$74. The combined day is bigger, so the 40% consistency rule bites
+> harder, and the cost doubles. **Use separate accounts, one per instrument.**
 
 ---
 

@@ -613,6 +613,9 @@ imposed Sharpe −0.3; pass 18–19%; 10 evaluations net positive 40%, 40 67%. *
 +$97 → +$17). **Two stable policies: MNQ 09:30–16:00 long (+$67 / +$82) and MGC London 03:00–11:30 long
 (+$68 / +$70).** Shorts no better; shorter windows no better. **Next: Y05 forward demo test.**
 
+**Y04, 2026-10-09 (§84):** both policies on ONE account: +$65 / +$46 per $80, worse than each alone (MNQ
++$71 / +$82, MGC +$45 / +$74 on the same paired dates). **Separate accounts per instrument.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

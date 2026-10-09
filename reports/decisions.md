@@ -6334,6 +6334,39 @@ era-to-era difference shows):
 3. **The contender re-run was chosen after seeing the grid** and is labelled so; it refines estimates,
    it does not add a selection.
 
+## 84. Y04: MNQ New York and MGC London on one account — worse than each on its own (S2)
+
+**No trial spent; N 761, SR\* 0.1368. One computation record (Y04).** `reports/y04_combined.md`
+(`reporting/y04_combined.py`), Tradeify's confirmed rules, drift removed, 16,000 accounts.
+
+Asked by the user: trade both stable policies (§83) on the same account. Built by pairing the two
+instruments' sessions BY DATE (2,499 dates both have complete, 2016-01-27 to 2026-08-27), so their real
+co-movement is kept: MGC long 03:00–11:30, MNQ long 09:30–16:00, one floor, one soft daily limit, the 40%
+consistency rule on the combined daily P&L, both round trips ($5.64). The combined minute low is the sum
+of the two legs' lows — conservative, it can only overstate an excursion.
+
+| | daily $σ | EV per $80, 2016–20 | EV per $80, post-2021 | 40 evaluations net positive, post-2021 |
+|---|---|---|---|---|
+| **both, one account** | 712 / 817 | **+$65** | **+$46** | 56% |
+| MNQ New York alone | 618 / 699 | +$71 | +$82 | 66% |
+| MGC London alone | 318 / 386 | +$45 | +$74 | 69% |
+
+**One account holding both is worse than either alone after 2021, and worse than MNQ alone in both
+eras.** The legs are nearly uncorrelated (daily P&L ρ +0.06), so combining them raises the day's swing
+(to $817 after 2021) — and with it the share of profit a single good day carries against the 40%
+consistency rule — and doubles the daily cost, without changing the structural value per account. Per
+dollar of fees, **two separate accounts, one per instrument, return about +$156 per $160 post-2021 (+$82
+and +$74) against +$46 per $80 combined.**
+
+### Decisions taken rather than resolved silently
+
+1. **Recommended: separate accounts per instrument, not both on one.** Whether Tradeify permits one
+   trader several evaluations or funded accounts at once, and on what terms, was not supplied and must be
+   checked.
+2. **MGC London's 2016–20 figure here (+$45) is below §83's 2015–20 (+$68)** because the paired sample
+   starts in 2016 rather than 2011 and uses only dates MNQ also has; §83's single-instrument figure stands
+   for MGC alone.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
