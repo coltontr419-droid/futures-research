@@ -649,6 +649,10 @@ prior P(pass) 49%, EV +$202 (~490 days to pass); 2 ZN ~170 days. **Open: Tradeif
 within 42 trading days needs an annual Sharpe of ~5 (1 MNQ); at Sharpe 1, 12%; at no edge, 7%. Nothing
 available approaches it. The account's geometry, not only the edge, sets the frontier.
 
+**Firms compared (§92), 4-month payout window.** 11 account types × 4 strategies. Best P(payout ≤ 84 days):
+Lucid Flex 13% (no edge) / 21% (Sharpe 1) — but only if its drawdown is checked at the close; intraday
+8% / 13%, level with Topstep (9% / 17%) and Tradeify Select Daily (7% / 12%). No firm makes it likely.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

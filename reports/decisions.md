@@ -6710,6 +6710,60 @@ Account types with a static or end-of-evaluation-locked floor, a lower target re
 no consistency rule move the frontier; the engine (`y02_tradeify`, `z_speed_frontier`) can price any
 firm's terms in minutes.
 
+## 92. Eleven prop-firm account types priced against the strategies: none makes a 4-month payout likely (S8)
+
+**No trial spent; N 762, SR\* 0.1367. One computation record (firm comparison).** `reports/z_firms.md`
+(`reporting/z_firms.py`). The user relaxed the requirement to **a first payout within 4 months (84
+trading days)** and asked for Tradeify's other account types plus Apex, Lucid, Take Profit Trader, Alpha
+Futures and Topstep.
+
+### Rules — gathered 2026-10-09, third-party summaries, several conflicting
+
+50K accounts: Tradeify Select Daily (the user's confirmed terms), Select Flex, Growth, Lightning; Apex
+EOD; Topstep (standard path); Lucid Flex, Lucid Pro; Take Profit Trader; Alpha Futures Zero, Advanced.
+**None could be confirmed on the firms' own pages** (Tradeify's help centre refused automated access);
+each assumption is written into its spec (`note`) and the report. Sources: Prop Data Lab (Tradeify,
+verified against its help centre 2026-08-26), and guides from QuantVPS, Prop Trading Vibes, Tradecovex,
+Phidias, Tradetanto, LuxAlgo, PropScope and Alpha Futures' own comparison page — listed in the session.
+
+### The engine, checked first
+
+One general engine (floor trailing at end of day or intraday, stopping at the start or never; soft daily
+limits; consistency that raises the target; minimum days; time limits; subscriptions and activation fees;
+payouts by buffer or share of profit, qualifying days, caps and ladders). **It reproduces §82** (Tradeify,
+user's terms, 1 MNQ RTH, no edge: P(pass) 0.189 vs 0.193, two-year EV +$78 vs +$78) — after a bug was
+caught: "uncapped after going live" had been written as an empty value, which numpy turned into NaN and
+which silently blocked every payout after the third. Funded payouts then matched the validated engine
+exactly ($868 each). Run one strategy per process; the first attempts were killed for memory.
+
+### Result — P(a first payout within 84 trading days)
+
+| account | no edge (1 MNQ RTH) | Sharpe 1 (1 MNQ RTH) | MGC London, no edge | Z02, Sharpe 0.41 |
+|---|---|---|---|---|
+| Tradeify Select Daily (user's) | 7% | 12% | 7% | 5% |
+| Tradeify Select Flex | 8% | 15% | 13% | 14% |
+| Topstep | 9% | 17% | 13% | 14% |
+| **Lucid Flex** (close-only drawdown) | **13%** | **21%** | 11% | 14% |
+| Lucid Flex (intraday breach) | 8% | 13% | — | — |
+| all others | 1–7% | 8–15% | 1–11% | 2–8% |
+
+EV per attempt within the 84 days, no edge / Sharpe 1: Lucid Flex +$117 / +$453, Topstep +$79 / +$295,
+Tradeify Select Daily +$89 / +$282; Apex, Alpha, Take Profit Trader, Tradeify Growth and Lightning are
+negative at no edge (fees, time limits, monthly subscriptions, higher buffers).
+
+### What it means
+
+- **No account type makes a payout within 4 months likely.** The best is ~13% at no edge and ~21% with a
+  Sharpe-1 edge — and that best (Lucid Flex) depends on its drawdown being checked at the close only;
+  with intraday breach it falls to 8% / 13%, level with Topstep and Tradeify.
+- **The structure, not the firm, binds:** a ~$3,000 target, a ~$2,000 trailing drawdown and a buffer
+  before payout appear in every firm's 50K account in some form.
+- **Within that, the cheapest accounts with no time limit and no monthly subscription do best**
+  (Tradeify Select Daily at the user's $80, Lucid Flex, Topstep); time limits (Apex), subscriptions (Take
+  Profit Trader, Alpha) and high buffers (Lucid Pro, Growth) do worst.
+- **Strategies:** the Sharpe-1 column is the best published effect found, assumed rather than measured;
+  Z02's confirmed edge (0.41) gives 2–14%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
