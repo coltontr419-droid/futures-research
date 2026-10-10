@@ -1,0 +1,17 @@
+{
+ "window": [
+  "2010-06-07",
+  "2023-03-17"
+ ],
+ "ar1": {
+  "threshold": 0.6542769256010617,
+  "calendar": 0.9171270270391849
+ },
+ "paper_ar1": {
+  "threshold": 0.61,
+  "calendar": 0.91
+ },
+ "corr_threshold_calendar": 0.6266024138287725,
+ "paper_corr": 0.605,
+ "ok": true
+}

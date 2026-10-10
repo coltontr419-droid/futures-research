@@ -6478,6 +6478,61 @@ close, exit 16:55 ET on D+1.
 - **Honest odds:** a realistic prior after decay is Sharpe ~0.5; the post-2023 test (SE ≈ 0.54) can catch
   a dead effect but only weakly confirm a live one.
 
+## 87. Z02 registered: rulings, two readings, construction check and injection — before the trial (S1–S5)
+
+**One registration (Z02). No trial spent yet; N 761, SR\* 0.1368.** Entry: `hypotheses.yaml` Z02;
+construction `signals/z02.py`; runner `signals/z02_trial.py`; tests `tests/test_z02.py` (5, including
+the paper's own worked example: a +10% equity day moves both signals by +2.26%).
+
+### Rulings received (§86's three open points), user 2026-10-09
+
+1. **The decision rule is accepted**: confirm if the post-2023-03-17 Sharpe is > 0 with the published
+   sign AND the Tradeify EV at the posterior Sharpe (prior Normal(0.5, 0.35)) is positive; reject if ≤ 0.
+   It replaces the SR\* bar for this externally specified hypothesis.
+2. **Long equity with short bonds counts as hedging and is not allowed.** Z01, the paper's long/short
+   spread, is therefore untradeable and **is not run** (it would spend a trial on information that
+   cannot change what is traded). **Z02, the S&P leg alone on MES, is the one test.**
+3. **Daily bars first**; hourly ES/ZN only if needed.
+
+### Two readings, both fixed before any return was computed
+
+- **The Threshold reset (B.1).** The PDF text loses the notation, leaving it open whether a breach is
+  judged on the previous day's weight or on the day's drifted weight. **Calibrated against the paper's
+  own published signal property** (Table C.1: Threshold AR(1) 0.61) on 2010–2023, signals only:
+  previous-day reading **0.78** (0.80 and 0.77 in the two halves — not an era effect); drifted-weight
+  reading **0.65**. **The drifted-weight reading is used.** The construction check had been set at ±0.10
+  before running; the literal reading failed it, and this is recorded rather than smoothed over. Matching
+  a published, non-return statistic is a construction choice, not result-fishing — no strategy return
+  existed when it was made.
+- **"Four business days before month-end"** = the 4th-from-last business day, the last being −1 (the
+  paper's Figure D.2 axis).
+
+### Construction check — passed (signals only, 2010-06-07 to 2023-03-17)
+
+| | ours | paper (1997–2023) |
+|---|---|---|
+| Threshold AR(1) | 0.65 | 0.61 |
+| Calendar AR(1) | 0.92 | 0.91 |
+| correlation Threshold–Calendar | 0.63 | 0.605 |
+
+The correlation was not used to calibrate and moved closer under the chosen reading.
+
+### Outcome injection — passed (§60)
+
+Real post-2023 weights, real ES noise with its alignment destroyed, Sharpe 0.5 planted (the prior
+mean): **recovered 0.52 at n = 908**, SD of the estimate **0.49**, P(estimate > 0) **86%**. The SD is the
+standard error the posterior will use.
+
+### Registry changes made to admit it
+
+- The ID and catalog patterns accept `Z`.
+- **`SINGLE_MARKET_INSTRUMENTS = {MES}`**: an entry that claims no two-instrument confirmation
+  (`stage4_reachable: false`) may name MES as its mechanism's primary instrument. The mechanism is the
+  S&P leg of 60/40 portfolios; naming MNQ would misstate where it holds. MES never counts as Stage 4
+  evidence. Every other entry is checked exactly as before.
+- `schedulable: false` as for W04: the event-rate gate does not apply to a position held most days; the
+  runner refuses to run without the check and the injection.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

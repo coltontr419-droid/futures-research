@@ -3940,3 +3940,81 @@
     A portfolio rule has no location or state to match. Its control is the rotation null already used
     by every S7 run (decisions.md 54): each sleeve's signal series rotated against returns, keeping its
     persistence and its exposure, destroying its alignment.
+
+- id: Z02
+  name: rebalancing_front_running_equity_leg
+  mechanism: >
+    Front-running institutional rebalancing (Harvey, Mazzoleni & Melone, "The Unintended Consequences of
+    Rebalancing", NBER w33554, 2025, rev. 2026). Pensions and balanced funds hold trillions in 60/40-style
+    portfolios and rebalance mechanically - on calendar dates (month-end; mature pensions also sell for
+    benefit payments about four business days before month-end) or when weights drift past a threshold.
+    After equities outperform they must sell equities, and the trades are predictable. THE COUNTERPARTY is
+    the rebalancing fund; it keeps doing it because its policy requires it (estimated cost ~$16bn a year).
+    Published on 1997-09-10 to 2023-03-17: next-day equity returns 17 bps lower when equities are
+    overweight; the long/short S&P-10y strategy Sharpe 1.11 (~1 net), skewness +5.2. Registered from the
+    paper to the letter; nothing is fitted to this data.
+  condition: >
+    The paper's construction (Appendix B, Section 4), implemented in signals/z02.py: a 60/40 S&P / 10-year
+    drift simulation from ES and ZN daily held returns; Threshold signal averaged over delta = 0-2.5% by
+    0.1%; Calendar signal reset on the last business day; weight = mean of (-Threshold / 1.5%) and a
+    modified Calendar signal (sign(-Calendar) in the last 5 business days; on the first business day the
+    sign of the Calendar signal at the previous month's 4th-from-last business day; else 0). TWO READINGS,
+    both recorded in decisions.md 87 before any return was computed: the Threshold reset is triggered by
+    the day's drifted weight (calibrated to the paper's published signal AR(1)); "four business days
+    before month-end" is the 4th-from-last business day. Z02 trades the S&P leg ALONE: position weight(D)
+    in MES, entered 20:00 ET after bar D's close, exited 16:55 ET on D+1; one MES round trip ($3.07) per
+    contract per day held. The paper's long/short spread (Z01) is not run: holding equities against bonds
+    counts as hedging in this account (user, 2026-10-09).
+    DATA: GLBX.MDP3 ohlcv-1d ES and ZN, 00:00 UTC closes (decisions.md 74).
+  horizon_minutes: [1255]
+  hold_hours: [20.916666666666668]   # 20:00 ET to 16:55 ET, inside one CME trading day
+  registered: 2026-10-09
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    Construction check passed (signals only, 2010-2023: Threshold AR(1) 0.65 vs the paper's 0.61, Calendar
+    0.92 vs 0.91, correlation 0.63 vs 0.605). Outcome injection passed at the test's own n (908): Sharpe 0.5
+    planted, 0.52 recovered, SD 0.49. Registered before any return was computed. `schedulable: false`
+    because the event-rate gate does not apply to a position held most days (as W04); the runner itself
+    refuses to run without the construction check and the injection.
+  test_order: 25
+  registered_test_order: 25
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: >
+    No free parameters: the delta range, 1.5% scale, last-week and day-4 rules are the paper's. ONE TRIAL.
+  session: Globex
+  symbols: [MES]
+  mechanism_instruments:
+    primary: MES
+    secondary: null
+    rationale: >
+      The mechanism is about the S&P 500 leg of 60/40 portfolios, so it holds on the S&P micro (MES), the
+      instrument the paper studied. No second-instrument confirmation is claimed (stage4_reachable: false);
+      MES is admitted as a single-market primary by the registry test for that case (decisions.md 87).
+  stage4_reachable: false
+  stage4_reason: >
+    One mechanism on one market; robustness comes from the test being entirely after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2023-03-18', end: 'end of data (2026-09-11)', reason: 'after the paper sample ends'}
+  prediction:
+    sharpe_prior: [0.15, 0.85]
+    basis: >
+      Prior Normal(0.5, 0.35): the published ~1.0 (spread, net) halved for publication decay. The equity leg
+      alone has no published Sharpe; the prior is the user's ruling (decisions.md 86).
+  decision_rule:
+    statistic: annualised Sharpe of the MES leg's daily returns net of cost, 2023-03-18 onward
+    rule: >
+      Ruled by the user 2026-10-09 (decisions.md 86). CONFIRM if the test Sharpe is > 0 with the published
+      sign AND the Tradeify evaluation EV at the posterior Sharpe (prior Normal(0.5, 0.35) updated with the
+      test, SE from the outcome injection) is positive. REJECT if the test Sharpe is <= 0. This replaces
+      the SR* bar for an externally specified hypothesis tested only after its authors' sample.
+  outcome_injection_required: >
+    Done before the run: reports/z02_injection.json.
+  s6_control: >
+    The rotation null of decisions.md 54: the weight series rotated against returns, keeping its
+    persistence and exposure.

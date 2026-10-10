@@ -49,6 +49,8 @@ class MarketDaily:
     carry: np.ndarray          # C on each date (NaN when no F2 traded)
     front_close: np.ndarray    # front contract close (for notional)
     crossover: np.ndarray      # bool, the roll session
+    ret_low: np.ndarray | None = None    # held contract's low vs its previous close (Z02's floor check)
+    ret_high: np.ndarray | None = None   # held contract's high vs its previous close
 
 
 def resolve_decade(frame: pl.DataFrame) -> pl.DataFrame:
@@ -66,12 +68,12 @@ def load_root(root: str, path: Path = DAILY_FILE) -> pl.DataFrame:
     """Outright daily bars for one root: date, contract, close, volume. Sundays dropped."""
     pat = f"^{root}[{MONTHS}][0-9]$"
     f = (pl.scan_csv(path, schema_overrides={"instrument_id": pl.Int64})
-           .select("ts_event", "instrument_id", "close", "volume", "symbol")
+           .select("ts_event", "instrument_id", "high", "low", "close", "volume", "symbol")
            .filter(pl.col("symbol").str.contains(pat))
            .with_columns(pl.col("ts_event").str.slice(0, 10).str.to_date().alias("date"))
            .filter(pl.col("date").dt.weekday() != 7)
            .collect())
-    return resolve_decade(f).select("date", "contract", "close", "volume")
+    return resolve_decade(f).select("date", "contract", "high", "low", "close", "volume")
 
 
 def _months(contract: str) -> int:
@@ -85,6 +87,9 @@ def build_market(root: str, bars: pl.DataFrame) -> MarketDaily:
     crossover_dates = cal.dropped_sessions
     dates = sorted(cal.front_by_session)
     closes = {(d, c): px for d, c, px in bars.select("date", "contract", "close").iter_rows()}
+    has_hl = "high" in bars.columns and "low" in bars.columns
+    hl = ({(d, c): (hi, lo) for d, c, hi, lo in bars.select("date", "contract", "high", "low").iter_rows()}
+          if has_hl else {})
     by_date: dict = {}
     for d, c, px, v in bars.select("date", "contract", "close", "volume").iter_rows():
         by_date.setdefault(d, []).append((c, px, v))
@@ -92,14 +97,20 @@ def build_market(root: str, bars: pl.DataFrame) -> MarketDaily:
     n = len(dates)
     ret = np.zeros(n); carry = np.full(n, np.nan); front_close = np.full(n, np.nan)
     cross = np.zeros(n, bool)
+    r_lo = np.zeros(n); r_hi = np.zeros(n)
     last_close: dict[str, float] = {}
     prev_front: str | None = None
     for i, d in enumerate(dates):
         front = cal.front_by_session[d]
         if prev_front is not None and prev_front in last_close and (d, prev_front) in closes:
             ret[i] = closes[(d, prev_front)] / last_close[prev_front] - 1.0
+            if has_hl:
+                hi_, lo_ = hl[(d, prev_front)]
+                r_hi[i] = hi_ / last_close[prev_front] - 1.0
+                r_lo[i] = lo_ / last_close[prev_front] - 1.0
         if d in crossover_dates:
             ret[i] = 0.0
+            r_lo[i] = 0.0; r_hi[i] = 0.0
             cross[i] = True
         for c, px, _ in by_date[d]:
             last_close[c] = px
@@ -112,7 +123,8 @@ def build_market(root: str, bars: pl.DataFrame) -> MarketDaily:
             carry[i] = (f1 - f2) / f2 / yrs
         prev_front = front
     return MarketDaily(root=root, dates=np.array(dates, dtype="datetime64[D]"), ret=ret, carry=carry,
-                       front_close=front_close, crossover=cross)
+                       front_close=front_close, crossover=cross,
+                       ret_low=r_lo if has_hl else None, ret_high=r_hi if has_hl else None)
 
 
 def load_market(root: str, path: Path = DAILY_FILE) -> MarketDaily:

@@ -62,6 +62,11 @@ RESOLVED_STATUSES: Final[frozenset[str]] = frozenset({
 #: checks only, so they must never appear as a hypothesis's declared symbols.
 STAGE4_INSTRUMENTS: Final[frozenset[str]] = frozenset({"MNQ", "MGC"})
 ROBUSTNESS_ONLY: Final[frozenset[str]] = frozenset({"ES", "YM", "RTY", "NQ"})
+#: Single-market instruments a mechanism may NAME as its primary when the entry claims no two-instrument
+#: confirmation (stage4_reachable: false). Added for Z02 (decisions.md 87), whose mechanism is the S&P 500
+#: leg of 60/40 portfolios: naming MNQ there would misstate where the mechanism holds. MES never counts as
+#: Stage 4 evidence.
+SINGLE_MARKET_INSTRUMENTS: Final[frozenset[str]] = frozenset({"MES"})
 
 REG: Final[dict[str, dict[str, Any]]] = {
     e["id"]: e for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
@@ -90,7 +95,7 @@ def test_ids_are_unique_and_well_formed() -> None:
     # deliberately when a letter is opened, not loosened to whatever happens to be present: an id
     # that matches nothing is a typo, and an id matching a letter nobody declared is worse.
     # W: the daily-horizon series, its first registration 2026-10-03 (decisions.md 72-73).
-    assert all(re.fullmatch(r"[FLNPUVW]\d\d", i) for i in ids), ids
+    assert all(re.fullmatch(r"[FLNPUVWZ]\d\d", i) for i in ids), ids
 
 
 @pytest.mark.integrity
@@ -340,7 +345,7 @@ def test_every_registry_entry_appears_in_the_catalog() -> None:
 
 @pytest.mark.integrity
 def test_every_catalog_entry_appears_in_the_registry() -> None:
-    found = set(re.findall(r"^#+ ([FLNPUVW]\d\d) — ", CATALOG_TEXT, re.M))
+    found = set(re.findall(r"^#+ ([FLNPUVWZ]\d\d) — ", CATALOG_TEXT, re.M))
     assert found == set(REG), (
         f"catalog and registry disagree: only in catalog {sorted(found - set(REG))}, "
         f"only in registry {sorted(set(REG) - found)}"
@@ -615,7 +620,9 @@ def test_every_hypothesis_names_the_instruments_its_mechanism_can_hold_in() -> N
             f"`symbols` records what WILL be run; this records what CAN be run, and the "
             f"two differing is exactly the error §5.10 exists to catch."
         )
-        assert mi.get("primary") in STAGE4_INSTRUMENTS, mi
+        allowed = STAGE4_INSTRUMENTS | (SINGLE_MARKET_INSTRUMENTS if entry.get("stage4_reachable") is False
+                                        else frozenset())
+        assert mi.get("primary") in allowed, mi
         assert "rationale" in mi and len(mi["rationale"]) > 40, (
             f"{hid}'s instrument choice needs a reason, not just a list"
         )

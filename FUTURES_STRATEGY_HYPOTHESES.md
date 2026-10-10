@@ -565,3 +565,15 @@ prop-evaluation EV at that Sharpe. Prior 0.7–1.2, from the papers, labelled op
 
 **Result (decisions.md §76):** post-2021 net Sharpe −0.42 against 1.31; gross 0.31. Daily re-entry on
 the lowest-volatility micros costs 0.73 of Sharpe. Retired on an informative null.
+
+---
+
+## Z02 — Front-Running Rebalancers, Equity Leg  *(REGISTERED)*
+
+Harvey, Mazzoleni & Melone (NBER w33554): pensions and balanced funds rebalance 60/40 portfolios on
+calendar dates and thresholds, predictably; next-day equity returns 17 bps lower when equities are
+overweight; the published long/short strategy Sharpe ~1.1 over 1997–2023. Replicated to the letter, the
+S&P leg alone on MES (the long/short spread counts as hedging in the account), and tested **only on
+2023-03-18 onward**, after the paper's sample. One trial; decision rule ruled by the user (§86).
+
+`hypotheses.yaml` (Z02) · `Z_SERIES_CANDIDATES.md` · `decisions.md` §86–§87
