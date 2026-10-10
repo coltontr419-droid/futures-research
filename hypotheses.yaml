@@ -4177,6 +4177,14 @@
     2026-08; always-long +0.35), MGC -0.25 (2011-07 to 2026-08; always-long +0.13). Sessions in short-signal
     months ROSE in both windows (MNQ +14.8 bps, MGC +2.9 bps). Posterior MNQ +0.02 +/- 0.22, MGC -0.03 +/- 0.21.
     The trend sign does not predict these intraday windows; the plans stay always-long.
+  outcome_injection:
+    test: src/futuresres/signals/z06_trial.py
+    injected_bps: 0.2         # UNITS: annualised Sharpe of sign x window return, not bps (per product)
+    sought_bps: 0.2
+    n_injection: 2638         # MNQ; MGC 2,846 (both in the report)
+    n_run: 2638
+    recovered: true
+    report: reports/z06_injection.json
   schedulable: false
   schedulable_note: >
     Not event-rate gated (a position every session); the runner refuses to run without its outcome injection.
