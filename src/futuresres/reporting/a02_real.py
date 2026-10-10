@@ -43,12 +43,19 @@ def _bracket_day(h, l, c, W, L):
     out = c[:, -1].copy()
     stop = (tl < big) & (tl <= tw)
     take = (tw < big) & ~stop
-    out[stop] = np.minimum(-L, l[rows, np.minimum(tl, T - 1)])[stop]   # gap-through fills at the bar low
+    if STOP_FILL == "bar_low":
+        out[stop] = np.minimum(-L, l[rows, np.minimum(tl, T - 1)])[stop]   # gap-through fills at the bar low
+    else:
+        out[stop] = -L[stop]
     out[take] = W[take]
     return out, stop, take
 
 
 _PATHS = {}
+#: how a stop fills. "bar_low" (the default, used A02-A09): at the low of the first minute bar that touches it -
+#: conservative, and for tight stops on fast bars it can double the loss. "level": at the stop price (a stop
+#: order in normal conditions; the user reports fills within ~$10, decisions.md 108).
+STOP_FILL = "bar_low"
 
 
 def run(contracts: int = 5, accounts: int = 8000, seed: int = 93) -> dict:

@@ -690,3 +690,7 @@ Volatility-scaled size adds nothing. The demo forward test runs 4 MNQ.
 
 **Gold account (§106):** the same staking on 8 MGC (London, long) gives 48–64% / +$700–1,350 over 4 months on two
 histories, nearly uncorrelated (+0.06) with the MNQ account — a second, near-independent attempt.
+
+**Stop fills and unseen data (§108):** with stops filled at the stop price (the user's execution) the plans are better
+than A07/A08 reported — 4 MNQ 65–79% / +$1,140–1,830, 8 MGC 74–77% / +$2,030–2,420 over 4 months. Six weeks after
+the data (2026-08-28 → 10-09) both plans landed at the historical median for that length.

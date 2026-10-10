@@ -7220,6 +7220,45 @@ At **$10 a trade the plans are essentially unchanged** (block-bootstrap net −$
 move both ways, which is path noise). At $20, MNQ falls to 56–63% and +$300–740; gold holds. With fills
 confirmed, the demo's execution purpose is largely answered; what remains is the firm's rule enforcement.
 
+## 108. A10: six weeks of unseen data, and the stop-fill assumption corrected — both plans better than reported (S8)
+
+**No trial spent; N 764. Computation records m00157 (forward, first run; superseded), m00158 (84-day, stop
+fills) and m00159 (forward, final).** `reports/a10_forward.{json,md}`, `reports/a10_levelfill_84d.json`
+(`reporting/a10_forward.py`, `reporting/a10_levelfill.py`).
+
+**New data.** Batch `GLBX-20261010-3KALFURKDJ` (GLBX.MDP3, ohlcv-1m, `MNQ.FUT` + `MGC.FUT`, parent,
+2026-08-28 → 2026-10-10 UTC exclusive, CSV/zstd, the original job's settings; NQ not needed after 2019),
+fetched over FTP and verified against its manifest (47 files): 16 outright contracts, 28 spreads discarded.
+Parsed to `data/parquet_update`, rolled by `roll.py`'s rule to `data/continuous_update` (MNQ U6→Z6 on
+2026-09-15, that session dropped; MGC Z6 throughout); the 2026-08-28 session, split by the two purchases at
+00:00 UTC, completed from the existing series (same contract, 120 + 1,260 = 1,380 bars). The canonical
+`data/` series are untouched. (`parse.py` overwrote `reports/batch_contents.md`; restored from git.)
+
+**The stop-fill assumption.** A02–A09 filled a stop at the LOW of the first minute bar touching it. On
+tight stops at 09:30 that doubled the loss (planned −$200, booked −$221 to −$485 in the forward log). The
+user reports fills within ~$10, so `a02_real.STOP_FILL = "level"` (fill at the stop price) is added; the
+default stays `bar_low` so every earlier record reproduces.
+
+**84 days, stop-price fills** (P(payout) / mean net; replay · block):
+
+| | 2021–26 | 2015–20 (MNQ) / 2011–20 (MGC) |
+|---|---|---|
+| 4 MNQ, bar-low (A07) | 72% +$1,053 · 69% +$1,043 | 78% +$1,527 · 65% +$1,324 |
+| **4 MNQ, stop price** | **79% +$1,143 · 71% +$1,317** | **72% +$1,833 · 65% +$1,685** |
+| 5 MNQ, stop price | 77% +$1,940 · 76% +$1,998 | 69% +$2,358 · 71% +$1,759 |
+| 8 MGC, bar-low (A08) | 48% +$1,299 · 54% +$692 | 60% +$1,352 · 64% +$1,353 |
+| **8 MGC, stop price** | **77% +$2,210 · 76% +$2,031** | **74% +$2,396 · 76% +$2,419** |
+
+Under realistic fills the size curves are smoother (part of A07/A08's noise was the fill artifact) and **8 MGC
+is strong in both eras**. 5 MNQ edges 4 in both eras; the playbook stays at 4 (no re-selection on a further
+look) — noted as the option.
+
+**Forward, 2026-08-28 → 2026-10-09, real prices and drift, stop-price fills:** 4 MNQ — 2 evaluations bought,
+one passed-free run to a funded account (ends funded at $49,288), no payout yet, net −$160; 8 MGC — 7
+evaluations, one passed (funded failed in 3 days), net −$560. **Both sit at the historical median for a
+29–31-session stretch** (MNQ −$320, MGC −$400; P(net > 0) at that length 29% / 38%). Six weeks can neither
+confirm nor refute a plan whose value shows over four months.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

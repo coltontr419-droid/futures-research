@@ -1,0 +1,844 @@
+{
+ "MNQ": {
+  "forward": {
+   "product": "MNQ",
+   "contracts": 4,
+   "slippage": 0.0,
+   "sessions": 29,
+   "first": "2026-08-28",
+   "last": "2026-10-09",
+   "accounts_bought": 2,
+   "fees": 160.0,
+   "paid_to_you": 0.0,
+   "net": -160.0,
+   "end_phase": "funded",
+   "end_balance": 49288.16,
+   "payouts": 0,
+   "exits": {
+    "take": 16,
+    "stop": 11,
+    "close": 2
+   },
+   "log": [
+    {
+     "date": "2026-08-28",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 29628.0,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1200.72,
+     "balance_close": 51200.72
+    },
+    {
+     "date": "2026-08-31",
+     "phase": "eval",
+     "balance_open": 51200.72,
+     "entry": 29438.25,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "close",
+     "pnl": 534.72,
+     "balance_close": 51735.44
+    },
+    {
+     "date": "2026-09-01",
+     "phase": "eval",
+     "balance_open": 51735.44,
+     "entry": 29111.75,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1200.72,
+     "balance_close": 52936.16
+    },
+    {
+     "date": "2026-09-02",
+     "phase": "eval",
+     "balance_open": 52936.16,
+     "entry": 29098.25,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "stop",
+     "pnl": -199.28,
+     "balance_close": 52736.88
+    },
+    {
+     "date": "2026-09-03",
+     "phase": "eval",
+     "balance_open": 52736.88,
+     "entry": 29249.25,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52837.6
+    },
+    {
+     "date": "2026-09-04",
+     "phase": "eval",
+     "balance_open": 52837.6,
+     "entry": 29588.5,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "stop",
+     "pnl": -199.28,
+     "balance_close": 52638.32
+    },
+    {
+     "date": "2026-09-08",
+     "phase": "eval",
+     "balance_open": 52638.32,
+     "entry": 29644.5,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52739.04
+    },
+    {
+     "date": "2026-09-09",
+     "phase": "eval",
+     "balance_open": 52739.04,
+     "entry": 29454.75,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "stop",
+     "pnl": -199.28,
+     "balance_close": 52539.76
+    },
+    {
+     "date": "2026-09-10",
+     "phase": "eval",
+     "balance_open": 52539.76,
+     "entry": 29089.25,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52640.48
+    },
+    {
+     "date": "2026-09-11",
+     "phase": "eval",
+     "balance_open": 52640.48,
+     "entry": 29417.75,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "stop",
+     "pnl": -199.28,
+     "balance_close": 52441.2
+    },
+    {
+     "date": "2026-09-14",
+     "phase": "eval",
+     "balance_open": 52441.2,
+     "entry": 28905.0,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52541.92
+    },
+    {
+     "date": "2026-09-16",
+     "phase": "eval",
+     "balance_open": 52541.92,
+     "entry": 29386.25,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52642.64
+    },
+    {
+     "date": "2026-09-17",
+     "phase": "eval",
+     "balance_open": 52642.64,
+     "entry": 29717.75,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52743.36
+    },
+    {
+     "date": "2026-09-18",
+     "phase": "eval",
+     "balance_open": 52743.36,
+     "entry": 29814.5,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52844.08
+    },
+    {
+     "date": "2026-09-21",
+     "phase": "eval",
+     "balance_open": 52844.08,
+     "entry": 30221.75,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 52944.8
+    },
+    {
+     "date": "2026-09-22",
+     "phase": "eval",
+     "balance_open": 52944.8,
+     "entry": 30764.0,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 100.72,
+     "balance_close": 53045.52,
+     "event": "PASSED"
+    },
+    {
+     "date": "2026-09-23",
+     "phase": "funded",
+     "balance_open": 50000.0,
+     "entry": 31005.75,
+     "take": 3000.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -999.28,
+     "balance_close": 49000.72
+    },
+    {
+     "date": "2026-09-24",
+     "phase": "funded",
+     "balance_open": 49000.72,
+     "entry": 30519.25,
+     "take": 1000.0,
+     "stop": 999.7200000000012,
+     "exit": "take",
+     "pnl": 1000.72,
+     "balance_close": 50001.44
+    },
+    {
+     "date": "2026-09-25",
+     "phase": "funded",
+     "balance_open": 50001.44,
+     "entry": 30819.5,
+     "take": 3000.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -999.28,
+     "balance_close": 49002.16
+    },
+    {
+     "date": "2026-09-28",
+     "phase": "funded",
+     "balance_open": 49002.16,
+     "entry": 30717.75,
+     "take": 1000.0,
+     "stop": 999.7200000000012,
+     "exit": "stop",
+     "pnl": -999.28,
+     "balance_close": 48002.88
+    },
+    {
+     "date": "2026-09-29",
+     "phase": "funded",
+     "balance_open": 48002.88,
+     "entry": 30709.0,
+     "take": 100.0,
+     "stop": 1,
+     "exit": "stop",
+     "pnl": -9.28,
+     "balance_close": 47993.6,
+     "event": "funded FAILED"
+    },
+    {
+     "date": "2026-09-30",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 30699.25,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1200.72,
+     "balance_close": 51200.72
+    },
+    {
+     "date": "2026-10-01",
+     "phase": "eval",
+     "balance_open": 51200.72,
+     "entry": 30797.0,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -999.28,
+     "balance_close": 50201.44
+    },
+    {
+     "date": "2026-10-02",
+     "phase": "eval",
+     "balance_open": 50201.44,
+     "entry": 31148.0,
+     "take": 1000.0,
+     "stop": 999.7200000000012,
+     "exit": "take",
+     "pnl": 1000.72,
+     "balance_close": 51202.16
+    },
+    {
+     "date": "2026-10-05",
+     "phase": "eval",
+     "balance_open": 51202.16,
+     "entry": 31055.0,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1200.72,
+     "balance_close": 52402.88
+    },
+    {
+     "date": "2026-10-06",
+     "phase": "eval",
+     "balance_open": 52402.88,
+     "entry": 31513.5,
+     "take": 600.0,
+     "stop": 600.0,
+     "exit": "take",
+     "pnl": 600.72,
+     "balance_close": 53003.6,
+     "event": "PASSED"
+    },
+    {
+     "date": "2026-10-07",
+     "phase": "funded",
+     "balance_open": 50000.0,
+     "entry": 31234.0,
+     "take": 3000.0,
+     "stop": 1000.0,
+     "exit": "close",
+     "pnl": 1286.72,
+     "balance_close": 51286.72
+    },
+    {
+     "date": "2026-10-08",
+     "phase": "funded",
+     "balance_open": 51286.72,
+     "entry": 31234.25,
+     "take": 3000.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -999.28,
+     "balance_close": 50287.44
+    },
+    {
+     "date": "2026-10-09",
+     "phase": "funded",
+     "balance_open": 50287.44,
+     "entry": 31167.5,
+     "take": 1000.0,
+     "stop": 999.7200000000012,
+     "exit": "stop",
+     "pnl": -999.28,
+     "balance_close": 49288.16
+    }
+   ]
+  },
+  "forward_slip10": {
+   "product": "MNQ",
+   "contracts": 4,
+   "slippage": 10.0,
+   "sessions": 29,
+   "first": "2026-08-28",
+   "last": "2026-10-09",
+   "accounts_bought": 1,
+   "fees": 80.0,
+   "paid_to_you": 0.0,
+   "net": -80.0,
+   "end_phase": "eval",
+   "end_balance": 51364.880000000034,
+   "payouts": 0,
+   "exits": {
+    "take": 15,
+    "stop": 13,
+    "close": 1
+   }
+  },
+  "forward_bar_low": {
+   "product": "MNQ",
+   "contracts": 4,
+   "slippage": 0.0,
+   "sessions": 29,
+   "first": "2026-08-28",
+   "last": "2026-10-09",
+   "accounts_bought": 3,
+   "fees": 240.0,
+   "paid_to_you": 0.0,
+   "net": -240.0,
+   "end_phase": "eval",
+   "end_balance": 50000.0,
+   "payouts": 0,
+   "exits": {
+    "take": 14,
+    "stop": 13,
+    "close": 2
+   }
+  },
+  "history_same_length": {
+   "p_any_payout": 0.3166421207658321,
+   "mean_net": 259.8698642027747,
+   "p_net_positive": 0.29381443298969073,
+   "net_p10_p50_p90": [
+    -480.0,
+    -320.0,
+    2212.420867919922
+   ],
+   "mean_attempts": 4.84020618556701
+  },
+  "history_same_length_bar_low": {
+   "p_any_payout": 0.33063328424153166,
+   "mean_net": 245.21486530121362,
+   "p_net_positive": 0.30486008836524303,
+   "net_p10_p50_p90": [
+    -640.0,
+    -400.0,
+    1994.3016708374025
+   ],
+   "mean_attempts": 5.527245949926362
+  }
+ },
+ "MGC": {
+  "forward": {
+   "product": "MGC",
+   "contracts": 8,
+   "slippage": 0.0,
+   "sessions": 31,
+   "first": "2026-08-28",
+   "last": "2026-10-09",
+   "accounts_bought": 7,
+   "fees": 560.0,
+   "paid_to_you": 0.0,
+   "net": -560.0,
+   "end_phase": "eval",
+   "end_balance": 50184.640000000014,
+   "payouts": 0,
+   "exits": {
+    "take": 10,
+    "stop": 21,
+    "close": 0
+   },
+   "log": [
+    {
+     "date": "2026-08-28",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 4665.5,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 48997.44
+    },
+    {
+     "date": "2026-08-31",
+     "phase": "eval",
+     "balance_open": 48997.44,
+     "entry": 4489.5,
+     "take": 1000.0,
+     "stop": 996.4400000000023,
+     "exit": "take",
+     "pnl": 997.44,
+     "balance_close": 49994.88
+    },
+    {
+     "date": "2026-09-01",
+     "phase": "eval",
+     "balance_open": 49994.88,
+     "entry": 4478.0,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 48992.32
+    },
+    {
+     "date": "2026-09-02",
+     "phase": "eval",
+     "balance_open": 48992.32,
+     "entry": 4368.2,
+     "take": 1000.0,
+     "stop": 991.320000000007,
+     "exit": "stop",
+     "pnl": -994.56,
+     "balance_close": 47997.76,
+     "event": "eval FAILED"
+    },
+    {
+     "date": "2026-09-03",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 4466.4,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1197.44,
+     "balance_close": 51197.44
+    },
+    {
+     "date": "2026-09-04",
+     "phase": "eval",
+     "balance_open": 51197.44,
+     "entry": 4509.4,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1197.44,
+     "balance_close": 52394.88
+    },
+    {
+     "date": "2026-09-07",
+     "phase": "eval",
+     "balance_open": 52394.88,
+     "entry": 4438.5,
+     "take": 600.0,
+     "stop": 600.0,
+     "exit": "take",
+     "pnl": 597.44,
+     "balance_close": 52992.32
+    },
+    {
+     "date": "2026-09-08",
+     "phase": "eval",
+     "balance_open": 52992.32,
+     "entry": 4448.4,
+     "take": 100.0,
+     "stop": 200.0,
+     "exit": "take",
+     "pnl": 101.44,
+     "balance_close": 53093.76,
+     "event": "PASSED"
+    },
+    {
+     "date": "2026-09-09",
+     "phase": "funded",
+     "balance_open": 50000.0,
+     "entry": 4444.4,
+     "take": 3000.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 48997.44
+    },
+    {
+     "date": "2026-09-10",
+     "phase": "funded",
+     "balance_open": 48997.44,
+     "entry": 4469.3,
+     "take": 1000.0,
+     "stop": 996.4400000000023,
+     "exit": "stop",
+     "pnl": -994.56,
+     "balance_close": 48002.88
+    },
+    {
+     "date": "2026-09-11",
+     "phase": "funded",
+     "balance_open": 48002.88,
+     "entry": 4394.2,
+     "take": 100.0,
+     "stop": 1.8800000000046566,
+     "exit": "stop",
+     "pnl": -26.56,
+     "balance_close": 47976.32,
+     "event": "funded FAILED"
+    },
+    {
+     "date": "2026-09-14",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 4362.5,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 48997.44
+    },
+    {
+     "date": "2026-09-15",
+     "phase": "eval",
+     "balance_open": 48997.44,
+     "entry": 4333.5,
+     "take": 1000.0,
+     "stop": 996.4400000000023,
+     "exit": "stop",
+     "pnl": -994.56,
+     "balance_close": 48002.88
+    },
+    {
+     "date": "2026-09-16",
+     "phase": "eval",
+     "balance_open": 48002.88,
+     "entry": 4373.0,
+     "take": 100.0,
+     "stop": 1.8800000000046566,
+     "exit": "stop",
+     "pnl": -26.56,
+     "balance_close": 47976.32,
+     "event": "eval FAILED"
+    },
+    {
+     "date": "2026-09-17",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 4349.4,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1197.44,
+     "balance_close": 51197.44
+    },
+    {
+     "date": "2026-09-18",
+     "phase": "eval",
+     "balance_open": 51197.44,
+     "entry": 4433.1,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 50194.88
+    },
+    {
+     "date": "2026-09-21",
+     "phase": "eval",
+     "balance_open": 50194.88,
+     "entry": 4391.0,
+     "take": 1000.0,
+     "stop": 996.4400000000023,
+     "exit": "stop",
+     "pnl": -994.56,
+     "balance_close": 49200.32
+    },
+    {
+     "date": "2026-09-22",
+     "phase": "eval",
+     "balance_open": 49200.32,
+     "entry": 4354.9,
+     "take": 100.0,
+     "stop": 1.8800000000046566,
+     "exit": "stop",
+     "pnl": -26.56,
+     "balance_close": 49173.76,
+     "event": "eval FAILED"
+    },
+    {
+     "date": "2026-09-23",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 4368.1,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 48997.44
+    },
+    {
+     "date": "2026-09-24",
+     "phase": "eval",
+     "balance_open": 48997.44,
+     "entry": 4310.9,
+     "take": 1000.0,
+     "stop": 996.4400000000023,
+     "exit": "stop",
+     "pnl": -994.56,
+     "balance_close": 48002.88
+    },
+    {
+     "date": "2026-09-25",
+     "phase": "eval",
+     "balance_open": 48002.88,
+     "entry": 4311.0,
+     "take": 100.0,
+     "stop": 1.8800000000046566,
+     "exit": "stop",
+     "pnl": -26.56,
+     "balance_close": 47976.32,
+     "event": "eval FAILED"
+    },
+    {
+     "date": "2026-09-28",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 4196.5,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 48997.44
+    },
+    {
+     "date": "2026-09-29",
+     "phase": "eval",
+     "balance_open": 48997.44,
+     "entry": 4171.9,
+     "take": 1000.0,
+     "stop": 996.4400000000023,
+     "exit": "take",
+     "pnl": 997.44,
+     "balance_close": 49994.88
+    },
+    {
+     "date": "2026-09-30",
+     "phase": "eval",
+     "balance_open": 49994.88,
+     "entry": 4222.8,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 48992.32
+    },
+    {
+     "date": "2026-10-01",
+     "phase": "eval",
+     "balance_open": 48992.32,
+     "entry": 4211.6,
+     "take": 1000.0,
+     "stop": 991.320000000007,
+     "exit": "stop",
+     "pnl": -994.56,
+     "balance_close": 47997.76,
+     "event": "eval FAILED"
+    },
+    {
+     "date": "2026-10-02",
+     "phase": "eval",
+     "balance_open": 50000.0,
+     "entry": 4210.9,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "take",
+     "pnl": 1197.44,
+     "balance_close": 51197.44
+    },
+    {
+     "date": "2026-10-05",
+     "phase": "eval",
+     "balance_open": 51197.44,
+     "entry": 4183.9,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 50194.88
+    },
+    {
+     "date": "2026-10-06",
+     "phase": "eval",
+     "balance_open": 50194.88,
+     "entry": 4159.0,
+     "take": 1000.0,
+     "stop": 996.4400000000023,
+     "exit": "take",
+     "pnl": 997.44,
+     "balance_close": 51192.32
+    },
+    {
+     "date": "2026-10-07",
+     "phase": "eval",
+     "balance_open": 51192.32,
+     "entry": 4156.9,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 50189.76
+    },
+    {
+     "date": "2026-10-08",
+     "phase": "eval",
+     "balance_open": 50189.76,
+     "entry": 4145.5,
+     "take": 1000.0,
+     "stop": 991.320000000007,
+     "exit": "take",
+     "pnl": 997.44,
+     "balance_close": 51187.2
+    },
+    {
+     "date": "2026-10-09",
+     "phase": "eval",
+     "balance_open": 51187.2,
+     "entry": 4220.7,
+     "take": 1200.0,
+     "stop": 1000.0,
+     "exit": "stop",
+     "pnl": -1002.56,
+     "balance_close": 50184.64
+    }
+   ]
+  },
+  "forward_slip10": {
+   "product": "MGC",
+   "contracts": 8,
+   "slippage": 10.0,
+   "sessions": 31,
+   "first": "2026-08-28",
+   "last": "2026-10-09",
+   "accounts_bought": 6,
+   "fees": 480.0,
+   "paid_to_you": 0.0,
+   "net": -480.0,
+   "end_phase": "eval",
+   "end_balance": 49553.28000000003,
+   "payouts": 0,
+   "exits": {
+    "take": 13,
+    "stop": 18,
+    "close": 0
+   }
+  },
+  "forward_bar_low": {
+   "product": "MGC",
+   "contracts": 8,
+   "slippage": 0.0,
+   "sessions": 31,
+   "first": "2026-08-28",
+   "last": "2026-10-09",
+   "accounts_bought": 7,
+   "fees": 560.0,
+   "paid_to_you": 0.0,
+   "net": -560.0,
+   "end_phase": "eval",
+   "end_balance": 50184.640000000014,
+   "payouts": 0,
+   "exits": {
+    "take": 12,
+    "stop": 19,
+    "close": 0
+   }
+  },
+  "history_same_length": {
+   "p_any_payout": 0.4069423929098966,
+   "mean_net": 620.171068159974,
+   "p_net_positive": 0.3803545051698671,
+   "net_p10_p50_p90": [
+    -560.0,
+    -400.0,
+    3126.373254394531
+   ],
+   "mean_attempts": 5.357459379615952
+  },
+  "history_same_length_bar_low": {
+   "p_any_payout": 0.23559822747415066,
+   "mean_net": 215.72103184597177,
+   "p_net_positive": 0.2171344165435746,
+   "net_p10_p50_p90": [
+    -720.0,
+    -480.0,
+    2400.0
+   ],
+   "mean_attempts": 6.380354505169867
+  }
+ }
+}

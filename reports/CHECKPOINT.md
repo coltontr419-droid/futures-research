@@ -702,6 +702,10 @@ m00153 superseded by m00154. Playbook default now 4.
 **A09 (§107): fills within ~$10 (user) change little;** at $20 MNQ drops to 56–63%. Gold holds 03:00–11:30 ET (AM),
 never through the 17:00–18:00 break.
 
+**A10 (§108): unseen data 08-28→10-09 + stop-price fills.** With fills at the stop (the user's execution) the 4-month
+results rise: 4 MNQ 65–79% / +$1,140–1,830; 8 MGC 74–77% / +$2,030–2,420. Forward 6 weeks: MNQ −$160 (in funded),
+MGC −$560 — both at the historical median for that length. New data in data/{raw,parquet,continuous}_update.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
