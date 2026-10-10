@@ -7324,6 +7324,24 @@ session) and +0.13 in the MGC window over these years. The zero-edge backtests r
 realised drift of this size adds roughly +$100–300 per 4 months to MNQ. It is the equity premium inside the
 window, not an edge to count on.
 
+## 111. Z07 registered — index-level reversal (MAC(5)) as the MNQ bracket's direction (S1–S5)
+
+**No trial spent at registration; N 765.** Baltussen, van Bekkum & Da (2019, JFE 132(1)): across 20 indexes,
+daily index returns turned negatively autocorrelated after ~1999 as index futures and ETFs grew — a forced
+flow (index arbitrage price pressure that reverses). Trading against MAC(5) earned Sharpe 0.67 on the S&P 500
+after March 1999; Nasdaq 100 MAC(5) after 1999 −0.111 (t −3.84); sample to 2016-12-31. Not previously in the
+registry (F02/Q01 condition on the overnight gap, a different and intraday signal).
+
+**Fixed before any return** (`hypotheses.yaml` Z07; `signals/z07.py`, `signals/z07_trial.py`): S = 4r1 + 3r2 +
+2r3 + r4 on the four roll-correct NQ daily returns dated before the session; SHORT the 09:30–16:00 window if
+S > 0, LONG otherwise; real window returns; sessions 2017-01-01 → 2026-08-27. CONFIRM only if (1) Sharpe > 0,
+(2) it beats always-long, (3) posterior > 0. Prior Normal(0.3, 0.3), an assumption. **A named risk:** the paper
+measures close-to-close; a reversal that happens overnight or at the open is not in the 09:30–16:00 window. The
+same rule on the close-to-close return is reported beside it (not decisive).
+
+**Outcome injection** (`reports/z07_injection.json`): 0.3 planted, recovered 0.305 (SD 0.34, 2,366 sessions);
+P(estimate > 0) 81%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

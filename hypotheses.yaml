@@ -4225,3 +4225,59 @@
   s6_control: >
     Always-long Sharpe in the same window; the share of short months; the result by period (2011-15, 2016-20,
     2021-26).
+- id: Z07
+  name: index_reversal_sets_mnq_bracket_direction
+  mechanism: >
+    Index-level negative serial dependence (Baltussen, van Bekkum & Da 2019, Journal of Financial Economics
+    132(1)): across 20 indexes, daily index returns turned from positively to significantly negatively
+    autocorrelated after ~1999 as index products grew; trading against MAC(5) earned Sharpe 0.67 on the S&P 500
+    after March 1999 (Nasdaq 100 MAC(5) after 1999: -0.111, t -3.84), sample to 2016-12-31. THE COUNTERPARTY is
+    index-product arbitrage: price pressure in the basket from futures/ETF flows that reverses.
+  condition: >
+    For each MNQ session t: S = 4 r1 + 3 r2 + 2 r3 + r4, the paper's MAC(5) weights on the four most recent
+    roll-correct daily NQ returns dated BEFORE t (data/daily_bars.py; a bar dated t-1 closes 00:00 UTC, before
+    09:30 ET on t). Direction of the plan's 09:30-16:00 ET window: SHORT if S > 0, LONG if S <= 0 (against the
+    recent move). Real window returns (drift kept), complete sessions only. No free parameters.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-10
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    Not event-rate gated (a position every session); the runner refuses to run without its outcome injection.
+    Registered before any Z07 return was computed.
+  test_order: 8
+  registered_test_order: 29
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - the paper's MAC(5) weights, sign only. ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      The effect is documented for equity indexes including the Nasdaq 100; MNQ is the plan's instrument. Gold is
+      not an equity index and is not tested.
+  stage4_reachable: false
+  stage4_reason: One index; the test window is after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: full}
+  test_window: {start: '2017-01-01', end: '2026-08-27', reason: 'after the paper sample (to 2016-12-31)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: >
+      Prior Normal(0.3, 0.3): the published S&P 500 Sharpe 0.67 (close-to-close, continuous weights), roughly
+      halved; a sign-only rule on the 09:30-16:00 window misses any reversal that happens overnight. An ASSUMPTION.
+  decision_rule:
+    rule: >
+      CONFIRM only if (1) Sharpe of direction x window return > 0; (2) its mean exceeds the always-long window
+      mean (it must beat the plan's current direction); (3) posterior > 0 (=> plan EV at posterior > zero-edge EV
+      by A11, decisions.md 109).
+  outcome_injection_required: Done before the run - reports/z07_injection.json.
+  s6_control: >
+    Always-long Sharpe in the same window; share of short sessions; window mean on short sessions; result by
+    period (2017-20, 2021-26); the same rule on the close-to-close daily return, for comparison with the paper.

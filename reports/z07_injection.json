@@ -1,0 +1,8 @@
+{
+ "n_sessions": 2366,
+ "sought_sharpe": 0.3,
+ "mean_estimate": 0.3053165350507482,
+ "sd_estimate": 0.33848257653810915,
+ "power_sharpe_gt_0": 0.813,
+ "recovered": true
+}
