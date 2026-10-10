@@ -6668,6 +6668,48 @@ concentration fixes Z02's problem; the cost is time.
 
 **Open with the user:** whether Tradeify allows ZN or the micro 10-year; go-ahead for the one trial.
 
+## 91. The user's timeline — a payout within 1–2 months — needs an edge of about Sharpe 5 (S2, S8)
+
+**No trial spent; N 762, SR\* 0.1367. One computation record (m00145).** `reports/z_speed_frontier.json`
+(`reporting/z_speed_frontier.py`). Z03 not run: the user requires passing and a first payout within 1–2
+months, and Z03 (§90) would take ~8–24 months to pass.
+
+### What the requirement implies, computed
+
+Tradeify's confirmed rules, resampled real MNQ 09:30–16:00 sessions (post-2021) with drift removed and an
+edge imposed; a funded account starting the day after the pass, which must clear the $2,000 buffer.
+**P(a first payout within 42 trading days of starting the evaluation):**
+
+| annual Sharpe | 1 MNQ | 2 MNQ | 3 MNQ |
+|---|---|---|---|
+| 0 | 7% | 4% | 2% |
+| 1 | 12% | 6% | 3% |
+| 2 | 20% | 9% | 5% |
+| 3 | 30% | 13% | 6% |
+| 5 | **51%** | 23% | 10% |
+
+(P(pass within 42 days), 1 MNQ: 20% / 27% / 38% / 48% / 66%.)
+
+### What it means
+
+- **A coin-flip chance of a payout within two months needs an annual Sharpe of about 5** at one MNQ.
+  Larger positions make it worse: the trailing floor and the 40% consistency rule punish large days
+  more than they reward them.
+- **Nothing in twelve series approaches that.** The one effect confirmed out of sample (Z02, §88) is
+  ~0.5; the best published, account-tradeable effects found (§86, §90) are ~0.9–1.1 before decay.
+  Daily-horizon Sharpes of ~5 in index futures belong to infrastructure-heavy market-making, not to
+  anything this programme can find or a retail account can run.
+- **At the edges actually available, a 1–2 month payout is a ~7–12% outcome per evaluation** — luck,
+  not strategy.
+
+### What would change the arithmetic
+
+The frontier is set by the account's geometry as much as by the edge: a $3,000 target against a $2,000
+trailing floor that never locks during the evaluation, a 40% consistency rule, and a $2,000 funded buffer.
+Account types with a static or end-of-evaluation-locked floor, a lower target relative to the drawdown, or
+no consistency rule move the frontier; the engine (`y02_tradeify`, `z_speed_frontier`) can price any
+firm's terms in minutes.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

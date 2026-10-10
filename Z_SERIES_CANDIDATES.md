@@ -175,3 +175,6 @@ rate to 49–75% if it is real — what Z02 lacked — at the cost of time: abou
 contract, eight months with two.**
 
 **Open before it runs:** whether Tradeify allows ZN (or the micro 10-year yield contract) in this account.
+
+> **[§91] NOT RUN.** The user needs a pass and a payout within 1–2 months; Z03 would take ~8–24 months to
+> pass. Computed: a 50% chance of a payout within 42 trading days needs an annual Sharpe of about 5.
