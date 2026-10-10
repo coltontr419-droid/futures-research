@@ -3,7 +3,8 @@
     python -m futuresres.reporting.a06_playbook eval   --balance 50300 --peak 50300 --best 300
     python -m futuresres.reporting.a06_playbook funded --balance 51200 --peak 51200 --payouts 0
     python -m futuresres.reporting.a06_playbook eval --product MGC --balance 50000   # the gold account (8 MGC, 03:00-11:30 ET)
-    python -m futuresres.reporting.a06_playbook table [--product MGC]   # writes reports/a06_playbook_{eval,funded}[_mgc].csv
+    python -m futuresres.reporting.a06_playbook eval --product MCL --balance 50000   # the crude account (10 MCL, 18:00-16:55 ET)
+    python -m futuresres.reporting.a06_playbook table [--product MGC|MCL]   # writes reports/a06_playbook_{eval,funded}[_mgc].csv
 
 The trade, exactly as replayed in A03 (a02_real.sequential): at 09:30 ET buy 4 MNQ (default; decisions.md 105) at market; one OCO bracket -
 take-profit +W, stop -L in NET dollars (the order offsets add/subtract the round trips, $2.32 a contract, as A02 does); flat
@@ -30,7 +31,9 @@ START = 50_000.0
 #: MNQ 4 - decisions.md 105 (beats A03's 2 on both histories). MGC 8 London long - decisions.md 106 (the Y03
 #: gold cell; 8 matches 4 MNQ's daily $ swing; near-uncorrelated with the MNQ account).
 PRODUCTS = {"MNQ": {"n": 4, "mult": 2.0, "rt": 2.32, "tick": 0.25, "entry": "09:30", "exit": "16:00"},
-            "MGC": {"n": 8, "mult": 10.0, "rt": 3.32, "tick": 0.10, "entry": "03:00", "exit": "11:30"}}
+            "MGC": {"n": 8, "mult": 10.0, "rt": 3.32, "tick": 0.10, "entry": "03:00", "exit": "11:30"},
+            # decisions.md 116: 10 MCL, the whole session (enter at the 18:00 ET open, flat by 16:55 ET)
+            "MCL": {"n": 10, "mult": 100.0, "rt": 3.32, "tick": 0.01, "entry": "18:00", "exit": "16:55"}}
 CONTRACTS = PRODUCTS["MNQ"]["n"]
 
 
