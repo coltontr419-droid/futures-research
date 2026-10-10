@@ -602,7 +602,7 @@ one of 58 futures (1985–2009). A follow-on to W04: here the sign only chooses 
 in the two staking plans (MNQ 09:30–16:00, MGC 03:00–11:30 ET), whose costs are paid either way. Tested
 2011-07 → 2026-08; must also beat always-long. One trial. `hypotheses.yaml` (Z06) · `decisions.md` §110
 
-## Z07 — Index Reversal Sets the MNQ Bracket's Direction  *(registered, untested)*
+## Z07 — Index Reversal Sets the MNQ Bracket's Direction  *(RETIRED — t00772, does not beat always-long)*
 
 Baltussen, van Bekkum & Da (2019): daily index returns turned negatively autocorrelated after ~1999 as index
 products grew (Sharpe 0.67 against MAC(5) on the S&P 500, to 2016). The sign of the MAC(5)-weighted last four

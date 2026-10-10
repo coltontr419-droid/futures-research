@@ -1,0 +1,49 @@
+{
+ "hypothesis": "Z07",
+ "window": [
+  "2017-01-03",
+  "2026-08-27"
+ ],
+ "sessions": 2366,
+ "sharpe_signal": 0.08893157374158342,
+ "sharpe_always_long": 0.3490714334204816,
+ "mean_signal_bps": 0.6420912660836028,
+ "mean_long_bps": 2.519746755594099,
+ "short_share": 0.5925612848689772,
+ "mean_bps_on_short_sessions": 1.5843555236026512,
+ "mean_bps_on_long_sessions": 3.8801393979717025,
+ "close_to_close_sharpe_of_rule": 0.24788443220253895,
+ "close_to_close_sessions": 2366,
+ "posterior": {
+  "mean": 0.2071412418838524,
+  "sd": 0.2245102211992171
+ },
+ "eras": {
+  "2017-20": {
+   "sessions": 979,
+   "sharpe_signal": 0.4555444464754993,
+   "sharpe_long": 0.3904531011380593,
+   "short_share": 0.6332992849846782
+  },
+  "2021-26": {
+   "sessions": 1387,
+   "sharpe_signal": -0.1514020359793151,
+   "sharpe_long": 0.3221786042809386,
+   "short_share": 0.5638067772170151
+  }
+ },
+ "conditions": {
+  "sharpe_gt_0": true,
+  "beats_always_long": false,
+  "posterior_gt_0": true
+ },
+ "decision": "REJECT",
+ "injection": {
+  "n_sessions": 2366,
+  "sought_sharpe": 0.3,
+  "mean_estimate": 0.3053165350507482,
+  "sd_estimate": 0.33848257653810915,
+  "power_sharpe_gt_0": 0.813,
+  "recovered": true
+ }
+}

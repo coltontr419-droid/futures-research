@@ -7342,6 +7342,28 @@ same rule on the close-to-close return is reported beside it (not decisive).
 **Outcome injection** (`reports/z07_injection.json`): 0.3 planted, recovered 0.305 (SD 0.34, 2,366 sessions);
 P(estimate > 0) 81%.
 
+### Z07 run: rejected — the reversal leans the right way but does not beat always-long (S6–S8)
+
+**One trial spent: t00772. N 765 → 766.** `reports/z07_trial.{json,md}`.
+
+| 2017-01 → 2026-08, 2,366 sessions | |
+|---|---|
+| **Sharpe, direction × 09:30–16:00** (needs > 0) | **+0.09** |
+| Sharpe, always long (must beat) | +0.35 |
+| window mean: long sessions / short sessions (59% short) | +3.88 / **+1.58 bps** |
+| by period, signal / long | 2017–20 +0.46 / +0.39; 2021–26 **−0.15** / +0.32 |
+| same rule, close-to-close (the paper's basis; not decisive) | +0.25 (published 0.67 to 2016) |
+| posterior | +0.21 ± 0.22 |
+
+**REJECTED** on condition (2). The ranking is right — windows after down weeks rose more than after up weeks —
+but even the "short" sessions rose, so shorting them gives up the drift; and the effect faded after 2020.
+**Not done, deliberately:** a "long or flat" variant (skip instead of short) would be a new specification chosen
+after seeing these numbers; it is not run. Z07 retired.
+
+**Where the screen stands.** Against §109's bar, the two strongest documented candidates acting inside the
+windows (trend, index reversal) failed against always-long; the remaining literature is either decayed, outside
+the windows, cross-sectional, or second looks at Z02/Z05's already-used test data. The plans run always-long.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

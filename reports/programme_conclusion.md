@@ -697,3 +697,6 @@ the data (2026-08-28 → 10-09) both plans landed at the historical median for t
 
 **Z06 (§110, t00771):** the 12-month trend sign does not predict the plans' intraday windows (MNQ −0.17, MGC −0.25;
 always-long +0.35 / +0.13). Retired; the plans stay always-long.
+
+**Z07 (§111, t00772):** index-level reversal (Baltussen, van Bekkum & Da 2019) as the MNQ direction: +0.09 vs always-long
++0.35, faded after 2020. Retired.

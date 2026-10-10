@@ -4241,12 +4241,26 @@
   horizon_minutes: [390]
   hold_hours: [6.5]
   registered: 2026-10-10
-  status: untested
+  status: retired
+  retired: 2026-10-10
+  retired_reason: >
+    Trial t00772 (decisions.md 111), REJECTED: direction x window Sharpe +0.09 against always-long +0.35 (2017-01
+    to 2026-08, 2,366 sessions); short-signal sessions still rose (+1.58 bps vs +3.88 on long sessions), so
+    shorting them costs the drift. Faded: 2017-20 +0.46, 2021-26 -0.15. Close-to-close, the paper's basis, +0.25
+    (published 0.67). Posterior +0.21 +/- 0.22.
+  outcome_injection:
+    test: src/futuresres/signals/z07_trial.py
+    injected_bps: 0.3         # UNITS: annualised Sharpe of direction x window return, not bps
+    sought_bps: 0.3
+    n_injection: 2366
+    n_run: 2366
+    recovered: true
+    report: reports/z07_injection.json
   schedulable: false
   schedulable_note: >
     Not event-rate gated (a position every session); the runner refuses to run without its outcome injection.
     Registered before any Z07 return was computed.
-  test_order: 8
+  test_order: null
   registered_test_order: 29
   grade: B
   tier: B
