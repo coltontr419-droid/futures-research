@@ -1,0 +1,141 @@
+{
+ "sizing": "sign_1",
+ "first_start": "2010-06-09",
+ "last_start": "2025-07-18",
+ "all": {
+  "starts": 3920,
+  "p_pass": 0.1576530612244898,
+  "p_fail": 0.8423469387755103,
+  "p_open_at_data_end": 0.0,
+  "days_to_pass_median": 41.5,
+  "days_to_pass_mean": 47.17313915857605,
+  "days_to_fail_median": 44.0,
+  "days_to_fail_mean": 57.940339188370686,
+  "p_payout_given_pass": 0.4190938511326861,
+  "days_start_to_first_payout_median": 83.0,
+  "days_start_to_first_payout_mean": 83.95366795366796,
+  "funded_days_to_fail_median": 39.0,
+  "mean_payout_given_pass": 474.24556597743253,
+  "p_funded_censored": 0.0,
+  "ev": -5.233734751517013,
+  "p_net_positive": 0.05918367346938776
+ },
+ "starts_2010_2022": {
+  "starts": 3312,
+  "p_pass": 0.17119565217391305,
+  "p_fail": 0.8288043478260869,
+  "p_open_at_data_end": 0.0,
+  "days_to_pass_median": 41.0,
+  "days_to_pass_mean": 47.17460317460318,
+  "days_to_fail_median": 43.0,
+  "days_to_fail_mean": 55.59489981785064,
+  "p_payout_given_pass": 0.4497354497354497,
+  "days_start_to_first_payout_median": 84.0,
+  "days_start_to_first_payout_mean": 84.23529411764706,
+  "funded_days_to_fail_median": 43.0,
+  "mean_payout_given_pass": 515.0242695333446,
+  "p_funded_censored": 0.0,
+  "ev": 8.169915708154127,
+  "p_net_positive": 0.06884057971014493
+ },
+ "starts_2023_on_test": {
+  "starts": 608,
+  "p_pass": 0.08388157894736842,
+  "p_fail": 0.9161184210526315,
+  "p_open_at_data_end": 0.0,
+  "days_to_pass_median": 42.0,
+  "days_to_pass_mean": 47.15686274509804,
+  "days_to_fail_median": 50.0,
+  "days_to_fail_mean": 69.49910233393177,
+  "p_payout_given_pass": 0.0784313725490196,
+  "days_start_to_first_payout_median": 66.0,
+  "days_start_to_first_payout_mean": 66.0,
+  "funded_days_to_fail_median": 22.0,
+  "mean_payout_given_pass": 20.88233232640851,
+  "p_funded_censored": 0.0,
+  "ev": -78.24835699235719,
+  "p_net_positive": 0.006578947368421052
+ },
+ "by_year": {
+  "2010": {
+   "starts": 147,
+   "p_pass": 0.0,
+   "ev": -80.0
+  },
+  "2011": {
+   "starts": 258,
+   "p_pass": 0.313953488372093,
+   "ev": 73.59002018616805
+  },
+  "2012": {
+   "starts": 259,
+   "p_pass": 0.5096525096525096,
+   "ev": 448.21676040000466
+  },
+  "2013": {
+   "starts": 258,
+   "p_pass": 0.12790697674418605,
+   "ev": -80.0
+  },
+  "2014": {
+   "starts": 259,
+   "p_pass": 0.003861003861003861,
+   "ev": -80.0
+  },
+  "2015": {
+   "starts": 260,
+   "p_pass": 0.0,
+   "ev": -80.0
+  },
+  "2016": {
+   "starts": 259,
+   "p_pass": 0.04247104247104247,
+   "ev": -79.04457325289829
+  },
+  "2017": {
+   "starts": 259,
+   "p_pass": 0.0,
+   "ev": -80.0
+  },
+  "2018": {
+   "starts": 260,
+   "p_pass": 0.046153846153846156,
+   "ev": -80.0
+  },
+  "2019": {
+   "starts": 260,
+   "p_pass": 0.19615384615384615,
+   "ev": -46.00224008673404
+  },
+  "2020": {
+   "starts": 260,
+   "p_pass": 0.2653846153846154,
+   "ev": -77.10639512188239
+  },
+  "2021": {
+   "starts": 259,
+   "p_pass": 0.1776061776061776,
+   "ev": -80.0
+  },
+  "2022": {
+   "starts": 259,
+   "p_pass": 0.29343629343629346,
+   "ev": 229.4884242523267
+  },
+  "2023": {
+   "starts": 260,
+   "p_pass": 0.4076923076923077,
+   "ev": 22.510312953111608
+  },
+  "2024": {
+   "starts": 261,
+   "p_pass": 0.0,
+   "ev": -80.0
+  },
+  "2025": {
+   "starts": 142,
+   "p_pass": 0.0,
+   "ev": -80.0
+  }
+ }
+}

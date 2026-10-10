@@ -676,3 +676,5 @@ the rebalancing signal earned a net Sharpe of +0.51, beating 98.4% of its rotati
 0.50 ± 0.28. In the Tradeify account, one MES in the signal's direction is worth about **+$410 per $80
 evaluation** at the posterior — subject to verifying that sizing on forward data. Not promoted: the
 programme's promotion bar is SR\*, which this rule replaced. `decisions.md` §87–§88.
+**In the account it does not pay (§89):** on today's contract size and replayed from every start date in
+real order, one MES by the signal is about break-even. Closed for the account; the finding stands.

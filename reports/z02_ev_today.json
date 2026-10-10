@@ -1,0 +1,112 @@
+{
+ "proportional_cap2_0.0": {
+  "sharpe_assumed": 0.0,
+  "sizing": "proportional_cap2",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 576.3347934170016,
+  "median_contracts": 1.0,
+  "p_pass": 0.10025,
+  "expected_payout": 667.9237502036915,
+  "ev": -13.040644042079919
+ },
+ "proportional_cap2_0.2": {
+  "sharpe_assumed": 0.2,
+  "sizing": "proportional_cap2",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 576.3347934170016,
+  "median_contracts": 1.0,
+  "p_pass": 0.11925,
+  "expected_payout": 729.5639320369836,
+  "ev": 7.0004988954102885
+ },
+ "proportional_cap2_0.41": {
+  "sharpe_assumed": 0.41,
+  "sizing": "proportional_cap2",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 576.3347934170016,
+  "median_contracts": 1.0,
+  "p_pass": 0.13875,
+  "expected_payout": 833.9007361294846,
+  "ev": 35.703727137966
+ },
+ "proportional_cap2_0.5": {
+  "sharpe_assumed": 0.5,
+  "sizing": "proportional_cap2",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 576.3347934170016,
+  "median_contracts": 1.0,
+  "p_pass": 0.144625,
+  "expected_payout": 891.6510277228898,
+  "ev": 48.95502988442294
+ },
+ "proportional_cap2_0.78": {
+  "sharpe_assumed": 0.78,
+  "sizing": "proportional_cap2",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 576.3347934170016,
+  "median_contracts": 1.0,
+  "p_pass": 0.176125,
+  "expected_payout": 1064.6858545742416,
+  "ev": 107.51779613688831
+ },
+ "sign_1_0.0": {
+  "sharpe_assumed": 0.0,
+  "sizing": "sign_1",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 383.4709364987584,
+  "median_contracts": 1.0,
+  "p_pass": 0.151375,
+  "expected_payout": 693.2384445704876,
+  "ev": 24.938969546857564
+ },
+ "sign_1_0.2": {
+  "sharpe_assumed": 0.2,
+  "sizing": "sign_1",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 383.4709364987584,
+  "median_contracts": 1.0,
+  "p_pass": 0.1725,
+  "expected_payout": 805.6192613991137,
+  "ev": 58.969322591347094
+ },
+ "sign_1_0.41": {
+  "sharpe_assumed": 0.41,
+  "sizing": "sign_1",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 383.4709364987584,
+  "median_contracts": 1.0,
+  "p_pass": 0.204875,
+  "expected_payout": 929.75516914015,
+  "ev": 110.48359027758823
+ },
+ "sign_1_0.5": {
+  "sharpe_assumed": 0.5,
+  "sizing": "sign_1",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 383.4709364987584,
+  "median_contracts": 1.0,
+  "p_pass": 0.218875,
+  "expected_payout": 1013.9717474289158,
+  "ev": 141.93306621850394
+ },
+ "sign_1_0.78": {
+  "sharpe_assumed": 0.78,
+  "sizing": "sign_1",
+  "K": 5.2813906263945,
+  "days_in_market_share": 0.7965419232591189,
+  "daily_sigma_usd_in_market": 383.4709364987584,
+  "median_contracts": 1.0,
+  "p_pass": 0.26175,
+  "expected_payout": 1292.2928148328,
+  "ev": 258.2576442824854
+ }
+}

@@ -6603,6 +6603,47 @@ SR\* at N = 762: 0.1367.
 A forward demo of **Z02, sign-only, 1 MES** under Tradeify's rules from 2026-09-12 on: new data, the
 sizing's Sharpe measured as it accrues, the fills and the 20:00 ET entry checked in practice.
 
+## 89. Z02 in the account: the replay is break-even, a sizing error corrected, closed for this account (S8)
+
+**No trial spent; N 762, SR\* 0.1367. One computation record (replay and corrected EV).**
+`reports/z02_replay.json`, `reports/z02_ev_today.json`.
+
+### A correction to §88's account figures
+
+§88's EV used each day's HISTORICAL contract value. A 2010 MES was ~$5.5k of exposure against ~$38k today,
+so the simulated daily swing ($175) was about half of today's ($380), and **+$410 per evaluation was
+overstated.** On today's contract value:
+
+| one MES by the signal's sign, EV per $80 at Sharpe | 0 | 0.20 | **0.41** | 0.50 | 0.78 |
+|---|---|---|---|---|---|
+| | +$25 | +$59 | **+$110** | +$142 | +$258 |
+
+0.41 is the one-MES sizing's own realised net Sharpe in the test window (the paper's proportional sizing:
++0.50; in 2010–2023, +0.20 against +0.58 — the sign-only sizing keeps less of the edge). That realised
+figure is a second look at data already seen, and is reported as description, not confirmation.
+
+### The every-start-date replay (requested by the user; realised returns, real order, today's contract)
+
+| start dates | accounts | P(pass) | payout given pass | EV per $80 |
+|---|---|---|---|---|
+| all, 2010–2025 | 3,920 | 16% | 42% | **−$5** |
+| 2010–2022 | 3,312 | 17% | 45% | +$8 |
+| **2023 on (the test window)** | 608 | 8% | 8% | **−$78** |
+
+Days (2010–2022 starts, trading days): to pass median 41 (mean 47); to fail median 43 (mean 56); from the
+start of an evaluation to the first payout median 84; a funded account that fails does so at a median 43
+days in (22 for 2023 starts).
+
+### What it means
+
+**The rebalancing effect is real out of sample (§88), and it does not carry this account.** A Sharpe of
+~0.4 at one MES's ~$380 daily swing is an expected ~$10 a day; the account's +$3,000 target and $2,000
+trailing floor are reached by noise long before the drift matters. The modelled EV (+$110) and the
+real-order replay (≈ $0) differ in the same direction the Y-series found (§85). **Z02 is closed for this
+account** at the user's decision 2026-10-09; the finding stands. Lesson carried forward: **in this
+account an edge must be large relative to the daily swing on the days it is held — a high Sharpe per
+day in the market — or the barriers decide.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

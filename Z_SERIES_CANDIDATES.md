@@ -7,6 +7,11 @@ registration §87; result §88.
 > Sharpe **+0.51** (gross +0.66), beating 98.4% of its rotation null; posterior 0.50 ± 0.28. In the
 > Tradeify account, **one MES in the signal's direction: +$410 per $80 evaluation at the posterior**
 > (P(pass) 36%; +$161 to +$836 across ±1 SD) — that sizing's Sharpe to be verified on forward data.
+>
+> **[§89] CORRECTED AND CLOSED FOR THE ACCOUNT.** The +$410 used historical contract sizes; on today's
+> MES it is +$110 at the one-MES sizing's own Sharpe (+0.41). Replayed from every start date in real
+> order: EV −$5 overall, −$78 for 2023 starts. The effect is real; one MES in this account does not
+> carry it. Closed at the user's decision.
 
 ---
 

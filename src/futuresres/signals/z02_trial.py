@@ -133,7 +133,9 @@ def _prop_ev(dates, r_sp, price, lo, hi, held, sharpe: float, seed: int = 88,
     nz = np.abs(held[pre & (held != 0)])
     K = 1.0 / float(np.median(nz))
     contracts = _contracts(held, K, sizing)
-    notional = np.r_[price[0], price[:-1]] * MES_MULT
+    # TODAY's contract value for every day (decisions.md 89): one MES now is ~$38k of exposure; using each
+    # day's historical value mixed 2010's ~$5.5k contract in and understated today's daily swing by half.
+    notional = np.full(len(price), float(price[np.isfinite(price)][-1]) * MES_MULT)
     live = (contracts != 0) & np.isfinite(notional)
     c_usd = contracts * notional * r_sp
     adverse = np.where(contracts > 0, contracts * notional * lo, -contracts * notional * hi)
@@ -273,3 +275,108 @@ def render(s: dict) -> str:
       f"P(pass) {ev['p_pass']:.1%}, E[payout] {ev['expected_payout']:,.0f}, EV {ev['ev']:+,.0f}.")
     a("")
     return "\n".join(w)
+
+
+# --------------------------------------------------------------------------- every-start-date replay
+def replay(sizing: str = "sign_1", room: int = 300) -> dict:
+    """Start a Tradeify evaluation on EVERY trading day and walk it forward through the strategy's REAL
+    daily P&L in order; a pass starts a funded account the next day. DESCRIPTIVE: it uses realised returns,
+    so it is a second look at data already seen and is not counted as confirmation (decisions.md 89).
+    Tracks days to pass, to fail, and from the evaluation's start to the first payout."""
+    import futuresres.reporting.y01_structure_ev as y
+    import futuresres.reporting.y02_tradeify as z
+    dates, r_sp, r_ty, price, lo, hi = _data()
+    held = _held(dates, r_sp, r_ty)
+    pre = dates <= np.datetime64("2023-03-17")
+    K = 1.0 / float(np.median(np.abs(held[pre & (held != 0)])))
+    contracts = _contracts(held, K, sizing)
+    notional = np.full(len(price), float(price[np.isfinite(price)][-1]) * MES_MULT)   # today's contract
+    c = contracts * notional * r_sp - np.abs(contracts) * MES_RT
+    l = np.minimum(np.where(contracts > 0, contracts * notional * lo, -contracts * notional * hi)
+                   - np.abs(contracts) * MES_RT, c)
+    first = int(np.flatnonzero(held != 0)[0])
+    c, l, d = c[first:], l[first:], dates[first:]
+    S = len(c)
+    starts = np.arange(0, S - room)
+    A = len(starts)
+    saved = (y.RT_COST, y.TICK_USD)
+    y.RT_COST, y.TICK_USD = 0.0, 1.25
+    try:
+        eq = np.full(A, y.START); peak = eq.copy(); best = np.zeros(A)
+        state = np.zeros(A, int); end = np.full(A, -1); days = np.zeros(A, int)
+        for k in range(S):
+            act = np.flatnonzero(state == 0)
+            if not len(act):
+                break
+            idx = starts[act] + k
+            out = idx >= S
+            state[act[out]] = 2
+            act, idx = act[~out], idx[~out]
+            if not len(act):
+                break
+            ne, pnl, br = z.day_eod(eq[act], peak[act], c[idx, None], l[idx, None], c[idx, None], 1, True, False)
+            eq[act] = ne; days[act] += 1
+            best[act] = np.maximum(best[act], pnl); peak[act] = np.maximum(peak[act], ne)
+            prof = ne - y.START
+            ok = (~br) & (prof >= y.TARGET) & (best[act] <= z.CONSISTENCY * prof)
+            state[act[br]] = -1; state[act[ok]] = 1; end[act[br | ok]] = idx[br | ok]
+        passed = np.flatnonzero(state == 1)
+        fstart = end[passed] + 1
+        F = len(passed)
+        feq = np.full(F, y.START); fpk = feq.copy(); paid = np.zeros(F); npay = np.zeros(F, int)
+        alive = np.ones(F, bool); cens = np.zeros(F, bool)
+        first_pay = np.full(F, -1); fdays = np.zeros(F, int); fail_day = np.full(F, -1)
+        for k in range(y.FUNDED_DAYS):
+            act = np.flatnonzero(alive & ~cens)
+            if not len(act):
+                break
+            idx = fstart[act] + k
+            out = idx >= S
+            cens[act[out]] = True
+            act, idx = act[~out], idx[~out]
+            if not len(act):
+                break
+            ne, _, br = z.day_eod(feq[act], fpk[act], c[idx, None], l[idx, None], c[idx, None], 1, True, True)
+            feq[act] = ne; fpk[act] = np.maximum(fpk[act], ne); fdays[act] += 1
+            alive[act[br]] = False; fail_day[act[br]] = k + 1
+            live = act[~br]
+            ex = np.maximum(feq[live] - (y.START + y.LOCK), 0.0)
+            ex = np.where(npay[live] >= 3, ex, np.minimum(ex, z.CAP))
+            newly = live[(ex > 0) & (first_pay[live] < 0)]
+            first_pay[newly] = k + 1
+            npay[live] += ex > 0; paid[live] += y.SPLIT * ex; feq[live] -= ex
+    finally:
+        y.RT_COST, y.TICK_USD = saved
+    net = np.full(A, -80.0); net[passed] += paid
+    eval_days_to_first_pay = days[passed] + first_pay
+    start_dates = d[starts]
+    test = start_dates >= np.datetime64(TEST_START)
+
+    def summ(mask):
+        pm = mask[passed]
+        return {
+            "starts": int(mask.sum()), "p_pass": float((state[mask] == 1).mean()),
+            "p_fail": float((state[mask] == -1).mean()), "p_open_at_data_end": float((state[mask] == 2).mean()),
+            "days_to_pass_median": float(np.median(days[mask & (state == 1)])) if (mask & (state == 1)).any() else None,
+            "days_to_pass_mean": float(np.mean(days[mask & (state == 1)])) if (mask & (state == 1)).any() else None,
+            "days_to_fail_median": float(np.median(days[mask & (state == -1)])) if (mask & (state == -1)).any() else None,
+            "days_to_fail_mean": float(np.mean(days[mask & (state == -1)])) if (mask & (state == -1)).any() else None,
+            "p_payout_given_pass": float((first_pay[pm] > 0).mean()) if pm.any() else None,
+            "days_start_to_first_payout_median": (float(np.median(eval_days_to_first_pay[pm & (first_pay > 0)]))
+                                                  if (pm & (first_pay > 0)).any() else None),
+            "days_start_to_first_payout_mean": (float(np.mean(eval_days_to_first_pay[pm & (first_pay > 0)]))
+                                                if (pm & (first_pay > 0)).any() else None),
+            "funded_days_to_fail_median": (float(np.median(fail_day[pm & (fail_day > 0)]))
+                                           if (pm & (fail_day > 0)).any() else None),
+            "mean_payout_given_pass": float(paid[pm].mean()) if pm.any() else None,
+            "p_funded_censored": float(cens[pm].mean()) if pm.any() else None,
+            "ev": float(net[mask].mean()), "p_net_positive": float((net[mask] > 0).mean()),
+        }
+    years = start_dates.astype("datetime64[Y]").astype(int) + 1970
+    res = {"sizing": sizing, "first_start": str(start_dates[0]), "last_start": str(start_dates[-1]),
+           "all": summ(np.ones(A, bool)), "starts_2010_2022": summ(~test), "starts_2023_on_test": summ(test),
+           "by_year": {int(yy): {"starts": int((years == yy).sum()), "p_pass": float((state[years == yy] == 1).mean()),
+                                 "ev": float(net[years == yy].mean())} for yy in np.unique(years)}}
+    path = ROOT / "reports" / "z02_replay.json"
+    path.write_text(json.dumps(res, indent=1, default=float) + "\n")
+    return res

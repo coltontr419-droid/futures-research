@@ -637,6 +637,10 @@ any return. **Test 2023-03-18 → 2026-09-11: net Sharpe +0.51, beats 98.4% of r
 by the signal's sign: +$410** (unverified Sharpe for that sizing). **Next: forward demo of Z02, sign-only,
 1 MES.**
 
+**Z02 CLOSED FOR THE ACCOUNT (§89).** +$410 corrected to +$110 (today's MES ~$38k, ~$380/day); every-start
+replay in real order ≈ break-even (−$5; 2023 starts −$78). Effect real, too small against the account's
+barriers. Lesson: need high Sharpe per day in the market. **Searching for the next Z candidate.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
