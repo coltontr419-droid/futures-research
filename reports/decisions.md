@@ -6889,6 +6889,45 @@ Kelly-safe size the bankroll grows slowly. **Route 1 does not scale into a busin
   shrinks the bankroll problem that closed route 1 (§94). **Route 2's realistic target: a portfolio of
   modest, independently confirmed edges reaching ~1–1.5 combined, staked with the A01 solver.**
 
+## 96. Z03 dropped (ZN not tradable); Z04 — the macro-announcement premium — registered before its trial (S1–S5)
+
+**One registration (Z04). No trial spent yet; N 762, SR\* 0.1367.**
+
+### The user's constraints, 2026-10-09
+
+- **ZN is not supported at the user's firms.** Z03 (Treasury month-end) is dropped. The micro 10-year
+  yield contract is assumed unsupported as well.
+- **A Sharpe of ~0.5 is acceptable for now; the aim is to add independent pieces to a strategy portfolio**
+  (§95's target: several modest confirmed edges, ~1–1.5 combined, staked with A01).
+
+### Candidates rejected before testing (web sources in the session)
+
+- **Turn-of-the-month** (Maberly & Waggoner 2000): disappeared after 1990 in S&P futures; a third-party
+  reconstruction 1990–2026 shows Sharpe ~0.28.
+- **Month-end FX hedge rebalancing at the London fix** (Melvin & Prins 2015): ~14 bps per 10% relative
+  equity outperformance, in one hour, once a month; EUR/USD (the only micro FX pair at Tradeify) not
+  statistically reliable.
+
+### Z04, specified before any return on the event days was computed
+
+Savor & Wilson (2013, 1958–2009): **11.4 bps on FOMC, employment and inflation announcement days vs
+1.1 bps otherwise**; Ai, Bansal & Guo (2023) report it persisting to 2023 (10.68 vs 0.93); its FOMC part was
+low in 2016–2019. A risk premium, not a flow.
+
+- **Calendar built and checked** (`reports/z_macro_calendar.json`): FOMC decision days parsed from the
+  Federal Reserve's own pages (8 a year; 7 in 2020); Employment Situation and CPI release dates from BLS
+  archive pages read through a page reader (BLS refuses direct downloads) — **checked mechanically**: 12 a
+  year each, every non-Friday jobs report a known exception (2013 and 2025 shutdowns, July 4 weeks, a 2026
+  delay), the missing months the 2025 shutdown. ~31 event days a year.
+- **Position:** long MES on each event date's UTC-day bar (20:00 ET the evening before to the 16:55 exit).
+- **Test window 2010-01-01 to 2026-09-11** — after the original sample, but NOT wholly independent: the
+  2023 extension covered most of it.
+- **Decision (the Z rule, extended before the run):** confirm only if (1) event-day mean > other-day mean
+  (Welch t > 1.645 — the paper's claim, so a rising market alone cannot pass), (2) net Sharpe > 0, (3)
+  Tradeify EV at the posterior > 0 with 1 MES; prior Normal(0.25, 0.35).
+- **Outcome injection passed:** Sharpe 0.25 planted on the 506 event days, recovered 0.24 (SD 0.24);
+  P(estimate > 0) 84%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

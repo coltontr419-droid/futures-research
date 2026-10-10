@@ -4024,3 +4024,57 @@
   s6_control: >
     The rotation null of decisions.md 54: the weight series rotated against returns, keeping its
     persistence and exposure.
+
+- id: Z04
+  name: macro_announcement_premium_mes
+  mechanism: >
+    The macro-announcement premium (Savor & Wilson 2013, JFQA; 1958-2009): US stocks earn 11.4 bps on days
+    of scheduled inflation, employment and FOMC announcements against 1.1 bps on other days. A RISK PREMIUM:
+    investors are paid for bearing macro-news risk on those days. THE COUNTERPARTY is every holder who sheds
+    or hedges equity exposure into scheduled macro risk. Persistence reported by Ai, Bansal & Guo (2023 NBER,
+    1961-2023: 10.68 vs 0.93 bps); the FOMC part was low in 2016-2019 (Kurov, Wolfe & Gilbert 2021).
+  condition: >
+    Long ES/MES on each FOMC decision day, Employment Situation release day and CPI release day
+    (reports/z_macro_calendar.json, 2010-2026, sources recorded there), held on that date's UTC-day bar
+    (20:00 ET the evening before to the account's 16:55 ET exit); flat otherwise. $3.07 per MES round trip.
+    The calendar is published in advance - no look-ahead. PPI is not included.
+  horizon_minutes: [1255]
+  hold_hours: [20.916666666666668]
+  registered: 2026-10-09
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    Not event-rate gated (a calendar position, as Z02); the runner refuses to run without its outcome
+    injection. Registered before any return on the event days was computed.
+  test_order: 26
+  registered_test_order: 26
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - the event set and holding rule are fixed above. ONE TRIAL.
+  session: Globex
+  symbols: [MES]
+  mechanism_instruments:
+    primary: MES
+    secondary: null
+    rationale: >
+      The premium is documented on the broad US stock market; MES is the S&P micro. No two-instrument
+      confirmation is claimed (stage4_reachable: false), as for Z02 (decisions.md 87).
+  stage4_reachable: false
+  stage4_reason: One premium on one market; the test window is after the original sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2010-01-01', end: '2026-09-11', reason: 'after the original sample (1958-2009)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior Normal(0.25, 0.35) - the published annual ~0.5 for an event-only strategy, halved for decay.
+  decision_rule:
+    rule: >
+      User's Z rule (decisions.md 86), extended before the run (decisions.md 96): CONFIRM only if (1) the
+      mean ES return on event days exceeds that on other days (Welch t > 1.645), (2) the strategy's net
+      Sharpe is > 0, and (3) the Tradeify EV at the posterior Sharpe is > 0 with 1 MES. Condition (1) is the
+      paper's claim, and stops a rising market from passing the test on its own.
+  outcome_injection_required: Done before the run - reports/z04_injection.json.
+  s6_control: The rotation null of decisions.md 54 - the event calendar shifted against returns.

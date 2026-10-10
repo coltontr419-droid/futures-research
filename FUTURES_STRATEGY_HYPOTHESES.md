@@ -577,3 +577,12 @@ S&P leg alone on MES (the long/short spread counts as hedging in the account), a
 2023-03-18 onward**, after the paper's sample. One trial; decision rule ruled by the user (§86).
 
 `hypotheses.yaml` (Z02) · `Z_SERIES_CANDIDATES.md` · `decisions.md` §86–§87
+
+---
+
+## Z04 — Macro-Announcement Premium on MES  *(REGISTERED)*
+
+Savor & Wilson (2013): stocks earn ~11 bps on FOMC, jobs and CPI days against ~1 bp otherwise — a risk
+premium reported to persist to 2023. Long MES on those days only, tested 2010–2026 (after the original
+sample); confirmed only if event days beat other days, the net Sharpe is positive and the Tradeify EV at
+the posterior is positive. One trial. `hypotheses.yaml` (Z04) · `decisions.md` §96–§97

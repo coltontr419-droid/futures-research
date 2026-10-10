@@ -1,0 +1,9 @@
+{
+ "n_event_days": 506,
+ "years": 16.73015873015873,
+ "sought_sharpe": 0.25,
+ "mean_estimate": 0.24071259775129852,
+ "sd_estimate": 0.236165126323546,
+ "power_sharpe_gt_0": 0.844,
+ "recovered": true
+}
