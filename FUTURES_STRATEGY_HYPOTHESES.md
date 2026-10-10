@@ -589,7 +589,7 @@ the posterior is positive. One trial. `hypotheses.yaml` (Z04) · `decisions.md` 
 
 ---
 
-## Z05 — Gold: Long Overnight, Short the New York Day  *(REGISTERED)*
+## Z05 — Gold: Long Overnight, Short the New York Day  *(CONFIRMED, marginally — t00770)*
 
 Blose, Gondhalekar & Kort (2018): COMEX gold earns positive returns overnight and negative returns in the
 day session (1985–2012). 1 MGC long 18:00–08:20, short 08:20–13:30, long 13:30–16:55 ET; tested 2013–2026.

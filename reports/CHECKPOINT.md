@@ -673,6 +673,10 @@ ES 2010–2026 (+3.4 vs +5.7 bps, t −0.43). Portfolio so far: Z02 only (~0.4�
 (Mou 2011, Sharpe ≤4.39 to 2010) — a CL calendar spread; needs the user's ruling on whether spreads count
 as hedging.**
 
+**Goldman roll out (a spread is long and short at once). Z05 run (§99–§100), t00770, N 764: gold long
+overnight / short NY day CONFIRMED marginally** (net Sharpe +0.22, t 1.82; only 2021–26 positive; short leg
+earns nothing). Portfolio: Z02 + Z05 ≈ 0.5 combined. Search continues.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

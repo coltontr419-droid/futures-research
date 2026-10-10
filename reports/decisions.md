@@ -6989,6 +6989,31 @@ specification follows the stated claim and **the prior, Normal(0.25, 0.35), is a
   recovered, SD 0.30, P(estimate > 0) 80%, n = 2,736 sessions.
 - Registry: MGC admitted as a single-market primary alongside MES (§87's rule).
 
+## 100. Z05 run: confirmed under the rule, marginally — and possibly gold's rally (S6–S8)
+
+**One trial spent: t00770. N 763 → 764.** `reports/z05_trial.md`.
+
+| 2013-01-02 → 2026-08-27, 2,736 sessions | value |
+|---|---|
+| mean overnight / New York day return | +2.9 / −0.7 bps |
+| Welch t, overnight − day (needed > 1.645) | **+1.82** |
+| net Sharpe, three round trips a day (gross) | **+0.22** (+0.56) |
+| long-overnight leg alone / short-day leg alone | +0.30 / **0.00** |
+| by period: 2013–16 / 2017–20 / 2021–26 | −0.20 / −0.06 / **+0.52** |
+| posterior Sharpe | 0.24 ± 0.23 |
+| Tradeify EV at the posterior, 1 MGC, 2 years | +$47 (zero edge +$5) |
+
+**CONFIRMED under the user's rule (§86), marginally.** Three reasons to discount it:
+1. **The short New York leg earns nothing**; the result is the long-overnight leg, net of three round trips.
+2. **It appears only in 2021–2026**, the period of gold's large rally; a long position held ~18 hours a day
+   collects much of any drift, and the overnight−day test only partly separates drift from the published
+   asymmetry.
+3. **t = 1.82** against a 1.645 bar.
+
+**Not done, deliberately:** switching to "long overnight only" after seeing the legs would be fitting the
+result; it would need a forward test of its own. **Portfolio so far:** Z02 (~0.4–0.5, MES) and Z05 (~0.24,
+MGC) — about 0.5 combined if independent.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

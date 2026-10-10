@@ -550,7 +550,7 @@ grid, both need trade-level data.
 
 | log | N | covers | SR\* | chain |
 |---|---|---|---|---|
-| `futures-research/trials.jsonl` | **763** | F 576, L 180, N 3, P 1, Q 0, W 1, Z 2 | **0.1367** | verifies |
+| `futures-research/trials.jsonl` | **764** | F 576, L 180, N 3, P 1, Q 0, W 1, Z 3 | **0.1367** | verifies |
 | `r-series-research/trials.jsonl` | **10** | R01 9, R02 1 | never binding | verifies |
 
 Controls, firing-rate measurements and computations (F14, L10, R06, the Q09 drawdown arithmetic) are
@@ -572,9 +572,9 @@ stay in the registry, and their trials stay in N.
 | **W** | **5** | **1** | **1** | **0** |
 | **X** | **7** | **0** | **0** | **0** |
 | **Y** | **7** | **0** | **0** | **0** |
-| **Z** | **4** | **2** | **2** | **0** |
+| **Z** | **5** | **3** | **3** | **0** |
 | **A** | **3** | **0** | **0** | **0** |
-| **total** | **110** | **40** | **773** | **0** |
+| **total** | **111** | **41** | **774** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
