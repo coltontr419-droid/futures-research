@@ -699,6 +699,9 @@ m00153 superseded by m00154. Playbook default now 4.
 **A08 (§106): a second demo account on gold — 8 MGC, London 03:00–11:30 ET long.** 48–64% P(payout in 4 months),
 +$700–1,350 across both histories; correlation with the MNQ account +0.06. `a06_playbook --product MGC`.
 
+**A09 (§107): fills within ~$10 (user) change little;** at $20 MNQ drops to 56–63%. Gold holds 03:00–11:30 ET (AM),
+never through the 17:00–18:00 break.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

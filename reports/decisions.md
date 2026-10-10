@@ -7198,6 +7198,28 @@ back-to-back $80 attempts). One MGC's daily window swing: $362 (2011–20), $386
 - Playbook: `a06_playbook ... --product MGC` (8 MGC, buy at 03:00 ET, flat at 11:30 ET); tables
   `reports/a06_playbook_{eval,funded}_mgc.csv`. The 03:00 entry needs a time-triggered order.
 
+## 107. A09: both demo plans survive the user's slippage; neither holds through the 17:00–18:00 break (S8)
+
+**No trial spent; N 764. Computation record m00156** (`reports/a09_slippage.json`, `reporting/a09_slippage.py`).
+
+**Hours, confirmed against the user's rule** (no position held through the 17:00–18:00 ET daily close): the
+MNQ plan holds 09:30–16:00 ET; the gold plan **03:00–11:30 ET (3 AM to 11:30 AM;** London window = minutes
+540–1050 after the 18:00 open). Both open and close inside one trading day.
+
+**Slippage.** The user reports fills within ~$10 a trade. Added to commissions per day's trade (the
+same $ on take, stop and close outcomes):
+
+| P(payout in 4 months) / mean net | slip $0 | slip $10 | slip $20 |
+|---|---|---|---|
+| 4 MNQ, 2021–26 (replay · block) | 72% +$1,053 · 69% +$1,043 | 80% +$1,230 · 66% +$879 | 63% +$308 · 61% +$487 |
+| 4 MNQ, 2015–20 | 78% +$1,527 · 65% +$1,324 | 76% +$1,267 · 63% +$1,107 | 56% +$478 · 56% +$739 |
+| 8 MGC, 2021–26 | 48% +$1,299 · 54% +$692 | 51% +$1,076 · 55% +$790 | 43% +$653 · 54% +$578 |
+| 8 MGC, 2011–20 | 60% +$1,352 · 64% +$1,353 | 68% +$1,800 · 69% +$1,411 | 63% +$1,730 · 64% +$1,366 |
+
+At **$10 a trade the plans are essentially unchanged** (block-bootstrap net −$160 to +$100; in-order replays
+move both ways, which is path noise). At $20, MNQ falls to 56–63% and +$300–740; gold holds. With fills
+confirmed, the demo's execution purpose is largely answered; what remains is the firm's rule enforcement.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
