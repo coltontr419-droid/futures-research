@@ -97,6 +97,12 @@ def walk(prod: str, slip: float = 0.0) -> dict:
     for i, d in enumerate(dates):
         t = pb.ticket(phase, eq, pk, best, npay, n, prod)
         row = {"date": d, "phase": phase, "balance_open": round(eq, 2), "entry": entry[i]}
+        if t.get("finished"):               # within one day's costs of the floor: the account is over (decisions.md 113)
+            row.update(action="finished", pnl=0.0, event=f"{phase} FINISHED (at the floor)")
+            phase, eq, pk, best, npay = "eval", START, START, 0.0, 0
+            if i + 1 < len(dates):
+                fees += 80.0; accounts += 1
+            log.append(row); continue
         if not t["trade"]:
             row.update(action="no trade", pnl=0.0); log.append(row); continue
         # orders at the playbook's points (what the trader actually enters), on this day's real path

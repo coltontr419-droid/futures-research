@@ -217,11 +217,15 @@ def sequential(contracts: int = 2, mode: str = "iid", traders: int = 6000, windo
         floor = np.where(ev, pk - 2000, np.where(pk >= START + 2000, START, pk - 2000))
         L = np.minimum(L, np.maximum(eq - floor - 1, 1))
         trade = a > 0
+        # an account the policy cannot trade (it sits within a $100 unit of its floor - an invalid solver state,
+        # reached when a capped stop fills exactly at its price) is FINISHED and replaced by a new evaluation,
+        # as the playbook says (decisions.md 113). Before this, with STOP_FILL "level" it sat untraded for ever.
+        finished = ~trade & ~np.asarray(passive, bool)
         pnl, _, _ = _bracket_day(h[idx], l[idx], c[idx], np.where(trade, W + cost, 1e12),
                                  np.where(trade, np.maximum(L - cost, 1.0), 1e12))
         pnl = np.where(trade, pnl - cost, 0.0)
         ne = eq + pnl
-        br = ne <= floor
+        br = (ne <= floor) | finished
         eq = ne; pk = np.maximum(pk, ne)
         best = np.where(ev, np.maximum(best, pnl), best)
         prof = eq - START

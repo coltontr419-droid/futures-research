@@ -7388,6 +7388,37 @@ four months costs ~$1,000–1,500 at the 10th percentile and ~$2,600 at worst. C
 overlap heavily (~16 independent windows per history), the edge is zero, and the real drift (§110: MNQ window
 +0.35) is not counted.
 
+## 113. A13: size as part of the policy fails everywhere; a stuck-account defect found and fixed (S8)
+
+**No trial spent; N 766. Computation record m00162** (`reports/a13_size_policy.json`,
+`reporting/a13_size_policy.py`).
+
+**Design, fixed before running:** the staking game re-solved over (take, stop, contracts) — MNQ 2–6, MGC 4–12;
+W ∈ {1,2,3,4,6,8,10,12,15,20,30}, L ∈ {2,4,5,6,8,10} ($100) — with each action's net outcome distribution
+measured on real sessions (stops at the stop price), learned on one history and tested on the other in both
+directions; adopted only if it beats the fixed-size fair-odds policy on mean net AND P(payout) in both.
+
+| learned → tested (84 days, replay) | fixed size, fair odds | size-aware | size-aware, in sample |
+|---|---|---|---|
+| MNQ 2015–20 → 2021–26 | 79% +$1,148 | 44% +$934 | 56% +$1,011 |
+| MNQ 2021–26 → 2015–20 | 70% +$1,627 | 46% +$339 | 55% +$937 |
+| MGC 2011–20 → 2021–26 | 77% +$2,016 | 24% −$81 | 55% +$2,225 |
+| MGC 2021–26 → 2011–20 | 73% +$2,392 | 42% +$325 | 52% +$943 |
+
+**Not adopted on either product.** It is worse even in sample, so the fault is the approach, not only the regime:
+as in A05 (§102), outcome tables measured from 1-minute bars mislead the solver — a tight bracket whose levels
+are both touched inside one fast minute is booked as a stop (W=1/L=2 at 4 MNQ: take 53% vs ~64% fair), so it
+avoids the small end-game brackets the fair-odds policy depends on. **The fair-coin policy at a fixed,
+risk-matched size (4 MNQ, 8 MGC) stays.**
+
+**A defect found on the way, and its reach.** With stops filling exactly at their price, a stop capped one dollar
+above the floor leaves the account at floor + $1 — a state the A13 solver gives no action, so its replay held
+the account untraded for ever (no fail, no new evaluation). Fixed in `a02_real.sequential` and A13 (an
+untradable account is finished and replaced, the playbook's rule, §108) and in `a10_forward.walk`. **Reach:
+none on recorded results** — A03 reproduces exactly (60.6%, +$674.7), and A10b, A11 and A12 rerun to
+byte-identical reports (the fair-odds policy always has an action); A10's forward log changes only in labels
+(five "FAILED on a $9–27 trade" days become "FINISHED at the floor", same outcomes and nets).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

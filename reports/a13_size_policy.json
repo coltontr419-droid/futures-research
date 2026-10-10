@@ -1,0 +1,170 @@
+{
+ "MNQ train pre": {
+  "product": "MNQ",
+  "train": "pre",
+  "test": "post",
+  "fixed_fair_odds": {
+   "p_any_payout": 0.7897160399079048,
+   "mean_net": 1148.1783568995602,
+   "p_net_positive": 0.580199539524175,
+   "mean_fees": 1016.0552570990023
+  },
+  "size_policy": {
+   "p_any_payout": 0.44128933231005374,
+   "mean_net": 933.5731311789314,
+   "p_net_positive": 0.4351496546431312,
+   "mean_fees": 640.552570990023
+  },
+  "size_policy_in_sample": {
+   "p_any_payout": 0.5604113110539846,
+   "mean_net": 1011.2631925993121,
+   "p_net_positive": 0.508140531276778,
+   "mean_fees": 502.6906598114824
+  },
+  "eval_first_action": [
+   2,
+   1200,
+   800
+  ],
+  "funded_first_action": [
+   6,
+   3000,
+   1000
+  ],
+  "sizes_used_eval": [
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "beats_fixed": false
+ },
+ "MNQ train post": {
+  "product": "MNQ",
+  "train": "post",
+  "test": "pre",
+  "fixed_fair_odds": {
+   "p_any_payout": 0.7043701799485861,
+   "mean_net": 1626.7170904119503,
+   "p_net_positive": 0.5569837189374465,
+   "mean_fees": 818.8517566409597
+  },
+  "size_policy": {
+   "p_any_payout": 0.46358183376178236,
+   "mean_net": 339.39598928123024,
+   "p_net_positive": 0.4250214224507284,
+   "mean_fees": 427.96915167095113
+  },
+  "size_policy_in_sample": {
+   "p_any_payout": 0.5533384497313891,
+   "mean_net": 937.0131509296363,
+   "p_net_positive": 0.5471987720644667,
+   "mean_fees": 427.07597851112814
+  },
+  "eval_first_action": [
+   6,
+   1200,
+   1000
+  ],
+  "funded_first_action": [
+   6,
+   3000,
+   1000
+  ],
+  "sizes_used_eval": [
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "beats_fixed": false
+ },
+ "MGC train pre": {
+  "product": "MGC",
+  "train": "pre",
+  "test": "post",
+  "fixed_fair_odds": {
+   "p_any_payout": 0.7678708685626441,
+   "mean_net": 2015.825665663207,
+   "p_net_positive": 0.6748654880860876,
+   "mean_fees": 1049.6541122213682
+  },
+  "size_policy": {
+   "p_any_payout": 0.23904688700999233,
+   "mean_net": -80.73541369075319,
+   "p_net_positive": 0.16218293620292082,
+   "mean_fees": 394.65026902382783
+  },
+  "size_policy_in_sample": {
+   "p_any_payout": 0.5523672883787661,
+   "mean_net": 2224.941547191297,
+   "p_net_positive": 0.5150645624103299,
+   "mean_fees": 339.3974175035868
+  },
+  "eval_first_action": [
+   12,
+   1200,
+   400
+  ],
+  "funded_first_action": [
+   12,
+   3000,
+   200
+  ],
+  "sizes_used_eval": [
+   4,
+   6,
+   8,
+   10,
+   12
+  ],
+  "beats_fixed": false
+ },
+ "MGC train post": {
+  "product": "MGC",
+  "train": "post",
+  "test": "pre",
+  "fixed_fair_odds": {
+   "p_any_payout": 0.7324246771879483,
+   "mean_net": 2392.0892809809025,
+   "p_net_positive": 0.6370157819225251,
+   "mean_fees": 892.5681492109039
+  },
+  "size_policy": {
+   "p_any_payout": 0.4167862266857963,
+   "mean_net": 324.80609936262647,
+   "p_net_positive": 0.3285509325681492,
+   "mean_fees": 590.5308464849354
+  },
+  "size_policy_in_sample": {
+   "p_any_payout": 0.5188316679477325,
+   "mean_net": 943.0671573292924,
+   "p_net_positive": 0.44734819369715606,
+   "mean_fees": 675.0499615680246
+  },
+  "eval_first_action": [
+   4,
+   1200,
+   1000
+  ],
+  "funded_first_action": [
+   6,
+   3000,
+   1000
+  ],
+  "sizes_used_eval": [
+   4,
+   6,
+   8,
+   10,
+   12
+  ],
+  "beats_fixed": false
+ },
+ "adopt": {
+  "MNQ": false,
+  "MGC": false
+ }
+}

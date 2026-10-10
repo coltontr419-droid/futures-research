@@ -703,3 +703,6 @@ always-long +0.35 / +0.13). Retired; the plans stay always-long.
 
 **Two accounts together (§112):** 4 MNQ + 8 MGC from the same date: a payout within 4 months from 93–97% of start
 dates, mean net +$3,400–4,400, P(net > 0) 72–79%, worst −$2,600 (zero edge, real order).
+
+**Size-aware policy (§113):** re-solving over contract size with measured odds fails on both products and both
+directions (worse even in sample). The fixed, risk-matched size with the fair-coin policy remains the plan.

@@ -718,6 +718,9 @@ faded to −0.15 in 2021–26). Screen queue for in-window edges near dry; plans
 **A12 (§112): both accounts together:** P(≥1 payout in 4 months) 93–97%, median first payout ~22–25 trading days,
 mean net +$3,400–4,400, P(net>0) 72–79%, 10th pct −$1,000 to −$1,400, worst −$2,600.
 
+**A13 (§113): size-aware solver rejected** (24–46% vs fixed 70–79%, worse even in sample). Fixed 4 MNQ / 8 MGC stay.
+Stuck-at-floor replay defect fixed; no recorded result changed.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
