@@ -7108,6 +7108,26 @@ held day before decay or failed its post-publication record; the two that passed
 size has been found.** The search can continue, but the expected yield per candidate is now low; the
 alternative on the table is a demo forward test of the A01/A03 solved policy, which is the bar.
 
+## 104. A06: the solved policy as a daily ticket for the demo forward test; the search continues alongside (S8)
+
+**No trial spent; N 764.** `reporting/a06_playbook.py`; lookup tables `reports/a06_playbook_{eval,funded}.csv`;
+log template `reports/a06_demo_log.csv`. The user will run A03 on a demo account and wants the edge search to
+continue meanwhile rather than wait four months on it.
+
+**The ticket is A03's replay rule, nothing added:** at 09:30 ET buy 2 MNQ at market; one OCO bracket on the
+fill — take-profit +W, stop −L (net dollars; the order offsets add the $4.64 round trip, as A02); close at
+16:00 ET if neither fills. W and L come from the 21-day-horizon A01 policy at yesterday's end-of-day state
+(evaluation: balance, EOD peak, best day; funded: balance, peak, payouts), with the stop capped one dollar
+above the floor — the same rounding and cap as `a02_real.sequential`. Examples: a fresh evaluation is
++$1,200 / −$1,000 (301.25 / 248.75 points); a fresh funded account +$3,000 / −$1,000.
+
+**What the demo can and cannot show.** The policy has zero edge; its value is the rules' asymmetry. One
+four-month run is one draw from a distribution in which **P(net > 0) is 45% even if everything works**
+(A03), so the demo's P&L cannot confirm or refute it. What the demo *can* check, day by day, is the
+assumptions the replay makes: fills at the 09:30 open, the bracket executing at its prices, stop slippage on
+gaps, the firm marking the floor and consistency rule as modelled, and costs. Judge the demo on those, by
+comparing each logged day against the replay's outcome for that day's bars, not on whether it pays out.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

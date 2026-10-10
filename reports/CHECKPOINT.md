@@ -688,6 +688,10 @@ Weak edges can't move the solver's bracket odds. **Search continues; the bar is 
 gross on MNQ and MGC inside the paper's own sample (m00152); pre-holiday has no large-cap effect after 1990
 (Ko & Yang 2024). No surviving effect of several bps/held day found; demo forward test of A03 is the alternative.
 
+**A06 (§104): demo forward test of A03 starts; search continues alongside.** Daily ticket:
+`python -m futuresres.reporting.a06_playbook eval --balance B --peak P --best D`; tables in reports/a06_playbook_*.csv.
+Judge the demo on execution vs replay, not P&L (P(net>0) is 45% even if it works).
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
