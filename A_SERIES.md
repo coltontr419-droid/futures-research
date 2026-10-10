@@ -61,3 +61,11 @@ A failed account is replaced next day by a new $80 evaluation.
 - **To check before money:** that Tradeify's terms permit bracket trading of this kind (most firms do; some
   prohibit "gambling-style" behaviour); actual commission; how stops fill in fast markets. **A forward demo
   of the exact policy is the next step.**
+
+## A04 — route 1, a portfolio of parallel accounts (decisions.md §94)
+
+Four lanes that move almost independently (daily correlations +0.02 to +0.08), payouts reinvested,
+12 months replayed in real order: **mean net positive (+$2,043 from $800; +$4,230 from $1,600), but
+68–84% of runs lose the whole budget.** Each attempt is a long-odds, thin-edge bet (~8% at a ~$1,000–1,500
+payout for $80); Kelly sizing wants ~$4,000–8,000 of reserve per concurrent account. **Route 1 does not
+scale at zero edge.** The solver stays as the tool for staking a real edge (route 2).

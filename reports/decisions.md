@@ -6806,6 +6806,50 @@ first payout on day 38, ~10 attempts ($824 in fees), mean net +$675, P(net > 0) 
 4. **Open, for the user:** whether Tradeify's terms allow this bracket behaviour; real commission; a
    forward demo of the exact policy before money.
 
+## 94. Route 1 — a portfolio of parallel accounts, payouts reinvested — mostly goes bust (S8)
+
+**No trial spent; N 762, SR\* 0.1367. Zero edge. One computation record.** `reports/a04_portfolio.md`
+(`reporting/a04_portfolio.py`).
+
+The user's point: one account at a time does not scale, and a policy that burns accounts is not a
+business. Recorded first, as the user was told: **with zero edge every funded account eventually dies,
+and its expected lifetime payouts are capped near 90% of the $2,000 cushion (~$1,800) whatever the
+policy** — the martingale identity of §79. So without an edge, scaling can only mean more parallel
+attempts. The user chose that route ("route 1").
+
+### The lanes
+
+The solved policy (A01) on four instrument-sessions, contracts sized to ~2 MNQ New York's daily swing:
+MNQ 09:30–16:00 (2), MNQ 19:00–03:00 (5), MGC 03:00–11:30 (4), MGC 12:00–16:00 (7). Sessions paired by
+date (2016-01-27 to 2026-08-27) and replayed in real order. **Daily correlations between lanes +0.02 to
++0.08** — they diversify. Each alone, back-to-back for 84 days: P(≥1 payout) 36–50%, mean net +$100 to
++$546 (MNQ New York here +$329, below A03's +$675 because this sample includes 2016–2020).
+
+### The portfolio — 12 months, every 5th start date (450), payouts reinvested
+
+| budget, max accounts | busted by month 4 | busted by month 12 | mean net, 12 months | 90th pct bankroll | bankroll above start |
+|---|---|---|---|---|---|
+| $800, 4 | 62% | **69%** | +$2,043 | $11,949 | 28% |
+| $800, 8 | 79% | 84% | +$1,932 | $12,287 | 14% |
+| $1,600, 8 | 59% | **68%** | +$4,230 | $24,375 | 28% |
+| $1,600, 12 | 72% | 78% | +$4,379 | — | 20% |
+
+**A positive average carried by ~3 runs in 10; ~7 in 10 lose the whole budget.** More concurrent
+accounts make it worse.
+
+### Why — the bet's shape
+
+Each attempt risks $80 for a ~8% chance at a payout of roughly $1,000–1,500: long odds, thin edge. The
+Kelly fraction for such a bet is ~2% of bankroll, so each concurrent account wants a reserve of roughly
+$4,000–8,000; the budgets tested bet 5–10× too much, and ruin arrives before the long shots do. At a
+Kelly-safe size the bankroll grows slowly. **Route 1 does not scale into a business at zero edge.**
+
+### What this closes and what it leaves
+
+- Closes: scaling the zero-edge structure by parallel accounts, as an income route.
+- Leaves: the A-series staking solver as a TOOL — the right way to stake any real edge once one exists
+  (route 2), since a modest edge staked the solved way pays far more than the same edge traded passively.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

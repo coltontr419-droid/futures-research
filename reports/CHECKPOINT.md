@@ -658,6 +658,10 @@ executed on real MNQ paths with drift removed. Single attempt (2 MNQ): pass 23%,
 1–2 weeks. **Back-to-back for 4 months, real history replayed: P(≥1 payout) 61%, mean net +$675 after
 ~$824 fees, P(net > 0) 45%** (passive: 32%, +$84). **Next: confirm Tradeify permits it; forward demo.**
 
+**Route 1 closed (§94):** parallel accounts with payouts reinvested go bust in 68–84% of runs within 12
+months (mean net positive, carried by ~3 in 10). Kelly needs ~$4–8k reserve per concurrent account.
+Zero edge cannot scale. **Open: route 2 — find an edge large on the days it is held; stake it with A01.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
