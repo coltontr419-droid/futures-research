@@ -669,6 +669,10 @@ confirmed edges (~1–1.5 combined), staked with A01. Rejected: end-of-day rever
 **Z03 dropped (ZN not tradable). Z04 run and RETIRED (§96–§97), t00769, N 763:** no announcement premium in
 ES 2010–2026 (+3.4 vs +5.7 bps, t −0.43). Portfolio so far: Z02 only (~0.4–0.5). Search continues.
 
+**Screened out (§98):** buyback blackouts, oil→stocks lag, gold autumn effect. **Open: the Goldman roll
+(Mou 2011, Sharpe ≤4.39 to 2010) — a CL calendar spread; needs the user's ruling on whether spreads count
+as hedging.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

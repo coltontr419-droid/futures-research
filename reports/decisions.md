@@ -6950,6 +6950,22 @@ statement about the pre-2010 premium, and not independent of the UTC-day bar app
 studies does not appear in S&P futures, this way, since 2010. Two Z tests: Z02 confirmed (~0.4–0.5),
 Z04 rejected.
 
+## 98. Four more candidates screened out before testing; the Goldman roll needs a tradability ruling (S1, S2)
+
+**No trial spent; N 763, SR\* 0.1367.** Literature only (sources in the session).
+
+| candidate | published | after publication | verdict |
+|---|---|---|---|
+| Buyback blackout windows (MES/MNQ) | industry commentary | State Street 1994–2018: no significant negative return; 10b5-1 plans keep buying | **rejected** |
+| Oil predicts stocks with a lag (Driesprong, Jacobsen & Maat, JFE 2008) | 12 of 18 markets | a 2026 study of 44 markets: "present only up to the global financial crisis and has largely disappeared ever since" | **rejected** |
+| Gold autumn effect (Sept, Nov; 1980–2010) | in-sample only | no post-2010 test; a recent study finds commodity seasonals do not beat buy-and-hold out of sample; 2 months a year | **rejected** |
+| **Goldman roll front-running** (Mou 2011) | **Sharpe up to 4.39, 2000–Mar 2010**; index funds roll on business days 5–9 | mixed: traders roll early/late (Irwin, Sanders & Yan); a CFTC study finds small roll-day effects | **open — needs a ruling** |
+
+**The Goldman roll is the strongest candidate found in route 2**: a forced flow on a published schedule,
+and testable after its sample on the purchased data (every CL expiry from 2010, including CME's own
+calendar-spread instruments). **But the trade is a calendar spread — long one CL expiry, short the next —
+which may count as hedging under the user's firm's rules.** No test until the user rules on it.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
