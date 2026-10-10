@@ -721,6 +721,9 @@ mean net +$3,400–4,400, P(net>0) 72–79%, 10th pct −$1,000 to −$1,400, wo
 **A13 (§113): size-aware solver rejected** (24–46% vs fixed 70–79%, worse even in sample). Fixed 4 MNQ / 8 MGC stay.
 Stuck-at-floor replay defect fixed; no recorded result changed.
 
+**§114 scaling:** k parallel MNQ+MGC pairs scale mean net linearly (+$34–43k for 10 pairs / 4 months) but NOT the
+odds (P(net>0) stays 72–83%; worst −$24k at 10). Breadth across uncorrelated markets is the lever. Open: funded-account cap.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

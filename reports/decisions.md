@@ -7419,6 +7419,27 @@ none on recorded results** — A03 reproduces exactly (60.6%, +$674.7), and A10b
 byte-identical reports (the fair-odds policy always has an action); A10's forward log changes only in labels
 (five "FAILED on a $9–27 trade" days become "FINISHED at the floor", same outcomes and nets).
 
+## 114. Scaling: parallel streams on one market multiply the bet, not the odds — breadth is the lever (S8)
+
+**No trial spent; N 766. Computation record m00163** (`reports/a12_joint.json` → `parallel_pairs`;
+`a12_joint.scale`). The user needs more than one payout in four months; Tradeify does not limit evaluation
+purchases. k parallel pairs (1 MNQ + 1 MGC stream each), pair i started i trading days after the first, each
+run back-to-back in real order for 84 trading days; the sum over pairs, from every first start date:
+
+| k pairs | fees | mean net | P(net > 0) | 10th pct | worst |
+|---|---|---|---|---|---|
+| 1 | $1.8–2.1k | +$3.4–4.4k | 72–80% | −$1.0–1.4k | −$2.6k |
+| 5 | $8.8–10.5k | +$16.8–21.7k | 74–82% | −$4.9–6.6k | −$12.6k |
+| 10 | $17.7–21.0k | +$33.7–43.1k | 75–82% | −$8.9–11.3k | −$23.7k |
+| 20 | $35.4–42.0k | +$67.7–85.1k | 75–83% | −$14.2–17.4k | −$45.2k |
+
+(ranges: 2021–26 and 2016–20 histories.) **Expected net scales linearly; the odds do not move.** Streams on the
+same market trade the same days with similar brackets, so they win and lose together: k pairs is one bet k
+times larger, and the worst case grows with it. **Breadth — the same staking on markets that do not move
+together (MNQ–MGC daily correlation +0.06) — is what raises P(net > 0).** Candidate micros (each needs 1-minute
+data and its own window check, as gold had): MCL, MHG, M6E, SIL, M2K (partly correlated with MNQ). Open with
+the user: Tradeify's cap on simultaneous FUNDED accounts, and whether copying one plan across accounts is allowed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

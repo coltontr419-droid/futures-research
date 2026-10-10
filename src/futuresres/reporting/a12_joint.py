@@ -60,6 +60,22 @@ def combine(m: dict, g_: dict) -> dict:
             "worst_net": float(net.min())}
 
 
+def scale(m: dict, g_: dict, ks=(1, 2, 5, 10, 20)) -> dict:
+    """k parallel pairs (1 MNQ + 1 MGC stream each), pair i started i trading days after the first: the sum of
+    their real-order outcomes, over every first start date (decisions.md 114)."""
+    common, im, ig = np.intersect1d(m["date"], g_["date"], return_indices=True)
+    net = m["net"][im] + g_["net"][ig]; fees = m["fees"][im] + g_["fees"][ig]; paid = m["paid"][im] + g_["paid"][ig]
+    out = {}
+    for k in ks:
+        S = len(net) - k
+        tot = np.array([net[s:s + k].sum() for s in range(S)])
+        out[k] = {"fees": float(np.mean([fees[s:s + k].sum() for s in range(S)])),
+                  "paid": float(np.mean([paid[s:s + k].sum() for s in range(S)])),
+                  "mean_net": float(tot.mean()), "median_net": float(np.median(tot)), "p_net_positive": float((tot > 0).mean()),
+                  "net_p10": float(np.quantile(tot, 0.1)), "worst": float(tot.min())}
+    return out
+
+
 def run() -> dict:
     warnings.filterwarnings("ignore")
     with contextlib.redirect_stdout(io.StringIO()), np.errstate(all="ignore"):
@@ -67,7 +83,9 @@ def run() -> dict:
     a2.STOP_FILL = "level"
     out = {}
     for era in ("post", "pre"):
-        out[era] = combine(per_start(era, "MNQ"), per_start(era, "MGC"))
+        m, gg = per_start(era, "MNQ"), per_start(era, "MGC")
+        out[era] = combine(m, gg)
+        out[era]["parallel_pairs"] = scale(m, gg)
         print(era, json.dumps(out[era]), flush=True)
     return out
 
