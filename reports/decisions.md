@@ -6966,6 +6966,29 @@ and testable after its sample on the purchased data (every CL expiry from 2010, 
 calendar-spread instruments). **But the trade is a calendar spread — long one CL expiry, short the next —
 which may count as hedging under the user's firm's rules.** No test until the user rules on it.
 
+## 99. Goldman roll out (a spread is long and short at once); Z05 — gold overnight/day — registered (S1–S5)
+
+**One registration (Z05). No trial spent yet; N 763, SR\* 0.1367.**
+
+**User's ruling, 2026-10-09:** the firm allows anything that is never long and short at the same time.
+**The Goldman roll (§98) is therefore out** — a calendar spread is long one expiry and short another at once.
+An outright version is not viable: the roll moves the gap between expiries by a fraction of a percent over
+several days, against crude's ~2% daily swing.
+
+**Z05**, from Blose, Gondhalekar & Kort (2018, J. Econ. & Finance): COMEX gold earns significantly positive
+returns overnight and significantly negative returns in the day session, in up and down markets, 1985–2012.
+The paper's tables could not be read (Springer and ResearchGate refuse automated access), so the
+specification follows the stated claim and **the prior, Normal(0.25, 0.35), is an assumption**.
+- **Position:** 1 MGC long 18:00–08:20 ET, short 08:20–13:30 ET (the COMEX day session), long 13:30–16:55,
+  flat 16:55–18:00 — sequential, never simultaneous. Three round trips a day at $3.32.
+- **Test window 2013-01-01 to 2026-08-27**, after the paper's sample; MGC minute data, complete sessions.
+- **Confirm only if** overnight minus day > 0 (Welch t > 1.645) with the published signs, net Sharpe > 0,
+  and Tradeify EV at the posterior > 0 with 1 MGC.
+- **Outcome injection:** the first version used a permutation, which leaves the sample mean and SD
+  unchanged and so reported zero uncertainty — corrected to a bootstrap: Sharpe 0.25 planted, 0.25
+  recovered, SD 0.30, P(estimate > 0) 80%, n = 2,736 sessions.
+- Registry: MGC admitted as a single-market primary alongside MES (§87's rule).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

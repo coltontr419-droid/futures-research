@@ -586,3 +586,11 @@ Savor & Wilson (2013): stocks earn ~11 bps on FOMC, jobs and CPI days against ~1
 premium reported to persist to 2023. Long MES on those days only, tested 2010–2026 (after the original
 sample); confirmed only if event days beat other days, the net Sharpe is positive and the Tradeify EV at
 the posterior is positive. One trial. `hypotheses.yaml` (Z04) · `decisions.md` §96–§97
+
+---
+
+## Z05 — Gold: Long Overnight, Short the New York Day  *(REGISTERED)*
+
+Blose, Gondhalekar & Kort (2018): COMEX gold earns positive returns overnight and negative returns in the
+day session (1985–2012). 1 MGC long 18:00–08:20, short 08:20–13:30, long 13:30–16:55 ET; tested 2013–2026.
+One trial. `hypotheses.yaml` (Z05) · `decisions.md` §99–§100
