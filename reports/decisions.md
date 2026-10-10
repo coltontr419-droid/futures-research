@@ -6367,6 +6367,63 @@ and +$74) against +$46 per $80 combined.**
    starts in 2016 rather than 2011 and uses only dates MNQ also has; §83's single-instrument figure stands
    for MGC alone.
 
+## 85. Y05 historical replay: real order weakens and widens the structure value (S8)
+
+**No trial spent; N 761, SR\* 0.1368. Two computation records (Y05 replay, MNQ and MGC, block bootstrap
+included).** `reports/y05_replay.md` (`reporting/y05_replay.py`).
+
+Asked by the user: instead of months of demo accounts, start accounts on many historical dates and see
+how they would have done. Done exhaustively rather than at random: **an account started on every
+complete session that leaves room for an evaluation and a two-year funded period** (MNQ 2,038 start
+dates, 2015-11-20 to 2024-03-14; MGC 2,263, 2011-02-01 to 2024-03-13), walking forward through the
+sessions **in their real order** under Tradeify's confirmed rules, with the two policies fixed in §83.
+
+### Result
+
+| | P(pass) | median days to pass | EV per $80, drift removed | EV per $80, actual history | share of accounts net positive (actual) |
+|---|---|---|---|---|---|
+| MNQ 09:30–16:00 long | 23% (actual 32%) | 31 | **+$1** | +$119 | 14% |
+| MGC London long | 22% (actual 24%) | 58 | **+$44** | +$115 | 12% |
+
+**"Actual history" includes the market's real moves** — for long MNQ, the 2016–2026 rise; for long gold,
+the 2024–25 rally. It is descriptive only, asserts no premium and is not counted as evidence (§79
+decision 1). **The drift-removed replay is the rule structure alone, and it is far below the resampled
+simulation** (§83: +$67 / +$82 MNQ, +$68 / +$70 MGC).
+
+**By start year the outcome is dominated by when the account starts.** MNQ drift-removed: −$80 to
++$408 (2023 starts); MGC: −$80 to +$1,803 (2015 starts). Accounts started near each other share their
+fate, so 2,000 start dates hold only a few dozen independent episodes.
+
+### Why — a block bootstrap separates clustering from noise
+
+Accounts built from random runs of consecutive real sessions (8,000 per cell, drift removed): runs of
+one day are the resampling of Y01–Y04; longer runs keep real clustering and trends inside each run.
+
+| EV per $80 | 1 day | 21 days | 63 days | 252 days |
+|---|---|---|---|---|
+| MNQ, 2015–20 | +$56 | +$2 | +$10 | −$61 |
+| MNQ, post-2021 | +$99 | +$55 | +$84 | +$49 |
+| MGC, 2011–20 | +$72 | +$72 | +$116 | +$162 |
+| MGC, post-2021 | +$64 | +$49 | +$13 | +$42 |
+
+- **Runs of one day reproduce the resampled simulation** (+$56 to +$99) — the wiring is consistent.
+- **With real runs kept, EV ranges from −$61 to +$162 with no consistent direction.** Removing each era's
+  mean drift leaves the multi-month trends inside it, and those decide much of an account's fate. Long
+  runs have few distinct episodes, so they describe particular years more than a law.
+- **The resampled simulation's ±$3–5 was the error of a model that assumed independent days. The real
+  uncertainty is an order of magnitude larger.**
+
+### What changes in the Y-series' claims
+
+1. **The zero-edge value is now stated as "positive in most estimates, roughly $0 to $80 per $80 fee
+   with real-order uncertainty of the same size", not as +$70–80.** MNQ's real-order replay is at zero.
+2. **Accounts started at the same time are not diversified against each other.** A budget should be
+   spread over time, not spent at once; the earlier budget tables (§79–§84) assumed independent
+   evaluations and overstate how quickly a budget converges.
+3. **The forward demo test (Y05) is not replaced** by this replay: the replay checks real-order dynamics
+   on old data, not current fills, current rules or the next regime. It does shorten what the demo test
+   must answer.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

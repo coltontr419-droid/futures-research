@@ -658,3 +658,6 @@ With the rules confirmed (§81: intraday breach fails, daily payouts, a $1,250 c
 **+$62 to +$78 per evaluation** (pass rate 18–19%; ten evaluations net positive 40% of the time).
 Across sessions, directions and gold (§83) the choice of window mostly picks noise; two policies hold in
 both eras — **MNQ 09:30–16:00 long and MGC London 03:00–11:30 long, about +$70 to +$80 each.**
+**Replayed through real history in order (§85), that value shrinks and widens:** drift removed, +$1 (MNQ)
+and +$44 (MGC) per evaluation, and anywhere from −$61 to +$162 once real clustering is kept. The
+structure's value is best read as roughly $0–80 per $80 fee, with uncertainty as large as the estimate.

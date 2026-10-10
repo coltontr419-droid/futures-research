@@ -616,6 +616,12 @@ imposed Sharpe −0.3; pass 18–19%; 10 evaluations net positive 40%, 40 67%. *
 **Y04, 2026-10-09 (§84):** both policies on ONE account: +$65 / +$46 per $80, worse than each alone (MNQ
 +$71 / +$82, MGC +$45 / +$74 on the same paired dates). **Separate accounts per instrument.**
 
+**Y05 historical replay, 2026-10-09 (§85).** Every start date, real order: drift removed MNQ **+$1**, MGC
+**+$44** per $80 (actual history +$119 / +$115, bull markets included, descriptive only). Block bootstrap:
+−$61 to +$162 depending on era and run length. **The resampled ±$5 understated real uncertainty by ~10×.**
+Zero-edge value now stated as roughly $0–80 per evaluation, uncertain by as much; spread evaluations over
+time. Forward demo test still needed.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

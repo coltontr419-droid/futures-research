@@ -27,6 +27,13 @@ trial spent; N 761, SR\* 0.1368.** Account of the design: `decisions.md` §79; T
 > **[§84] Both on one account is worse:** +$65 / +$46 per $80 (2016–20 / post-2021) against MNQ alone
 > +$71 / +$82 and MGC alone +$45 / +$74. The combined day is bigger, so the 40% consistency rule bites
 > harder, and the cost doubles. **Use separate accounts, one per instrument.**
+>
+> **[§85] HISTORICAL REPLAY — the value is weaker and far less certain than the resampled figures.**
+> Accounts started on every historical date, walked through real history in order: drift removed, MNQ
+> **+$1** and MGC **+$44** per $80 (actual history, which includes the bull markets: +$119, +$115). A block
+> bootstrap keeping real clustering puts the value anywhere from **−$61 to +$162**. Read the zero-edge value
+> as roughly $0–80 per evaluation with uncertainty of the same size, and **spread evaluations over time** —
+> accounts started together share their fate.
 
 ---
 
