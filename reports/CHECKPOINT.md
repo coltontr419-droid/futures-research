@@ -681,6 +681,9 @@ earns nothing). Portfolio: Z02 + Z05 ≈ 0.5 combined. Search continues.
 4-month P(payout) 15%, net −$230 (A03: 61%, +$675). Z02's one-MES version is +0.06 over the full period.
 Weak edges can't move the solver's bracket odds. **Search continues; the bar is now A03.**
 
+**A05 (§102): real-odds re-solve fails** — learned on 2015–20 (57% of brackets end at the close), tested
+2021–26: 43%, −$8 vs A01's 61%, +$675. Fair-odds policy is the robust one; A03 remains the bar.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

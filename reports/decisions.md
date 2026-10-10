@@ -7042,6 +7042,29 @@ point counted as the sum of both legs' worst points (conservative).
 not zero but A03: it needs an edge large enough to move the solver's bracket odds, i.e. several bps a day
 on MNQ/MES/MGC, consistently, after costs.
 
+## 102. A05: re-solving the staking with real bracket odds makes it worse (S8)
+
+**No trial spent; N 764, SR\* 0.1367. Zero edge. One computation record.** `reports/a05_empirical.json`
+(`reporting/a05_empirical.py`).
+
+A01 priced every bracket as a fair coin. A05 measured each bracket's real NET outcome distribution (2 MNQ,
+09:30–16:00, cost netted as in A02) on **2015-11 to 2020-12** sessions (drift removed), re-solved both games
+with those distributions (on a reduced 21-bracket menu; A01 keeps its full grid), and ran A03's test on
+**2021–2026**, the same real-history back-to-back replay:
+
+| 84 trading days, 2021–2026 replay | A01 fair-odds policy | A05 real-odds policy |
+|---|---|---|
+| P(≥1 payout) | **61%** | 43% |
+| mean net | **+$675** | −$8 |
+| P(net > 0) | 45% | 38% |
+
+**Why:** in the training years, a +$1,200 / −$1,000 bracket on 2 MNQ hit its target 17% of the time, its
+stop 26%, and **ended at the close with neither 57% of the time** — calmer markets relative to today's
+contract value. The learned policy fitted that regime and transferred badly. **The fair-odds policy
+assumes no regime and is the more robust one.** A vol-normalised version (sizing contracts to a constant
+daily swing) might transfer, but it is a further refinement on a single historical regime split, and is not
+pursued now. A03 stands as the bar.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -69,3 +69,10 @@ Four lanes that move almost independently (daily correlations +0.02 to +0.08), p
 68–84% of runs lose the whole budget.** Each attempt is a long-odds, thin-edge bet (~8% at a ~$1,000–1,500
 payout for $80); Kelly sizing wants ~$4,000–8,000 of reserve per concurrent account. **Route 1 does not
 scale at zero edge.** The solver stays as the tool for staking a real edge (route 2).
+
+## A05 — real bracket odds (decisions.md §102)
+
+Re-solved with each bracket's real outcome distribution from 2015–2020, tested on 2021–2026: **worse**
+(43% payout in 4 months, −$8, against A01's 61%, +$675). The training years were calmer relative to today's
+contract value — 57% of brackets ended at the close untouched — so the learned policy fitted the wrong
+regime. The fair-odds policy is the robust one.

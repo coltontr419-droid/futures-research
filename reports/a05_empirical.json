@@ -1,0 +1,67 @@
+{
+ "train": "MNQ 09:30-16:00, 2015-11 to 2020-12, drift removed",
+ "bracket_odds_sample": {
+  "1200/1000": {
+   "p_take": 0.1672,
+   "p_stop": 0.2568,
+   "fair_take": 0.45454545454545453
+  },
+  "1000/1000": {
+   "p_take": 0.21662669864108713,
+   "p_stop": 0.25099920063948844,
+   "fair_take": 0.5
+  },
+  "600/1000": {
+   "p_take": 0.40367705835331735,
+   "p_stop": 0.22941646682653877,
+   "fair_take": 0.625
+  },
+  "1500/500": {
+   "p_take": 0.08253205128205128,
+   "p_stop": 0.5080128205128205,
+   "fair_take": 0.25
+  }
+ },
+ "A01 fair-odds policy": {
+  "contracts": 2,
+  "mode": "replay",
+  "passive": false,
+  "traders": 1303,
+  "window_days": 84,
+  "p_any_payout": 0.6055257099002302,
+  "median_day_first_payout": 38.0,
+  "mean_attempts": 10.302379125095932,
+  "mean_fees": 824.1903300076746,
+  "mean_paid": 1498.877448973396,
+  "mean_net": 674.6871189657213,
+  "p_net_positive": 0.45049884881043745,
+  "net_p10_p50_p90": [
+   -960.0,
+   -229.08198165893552,
+   3797.673818969727
+  ]
+ },
+ "A05 real-odds policy": {
+  "contracts": 2,
+  "mode": "replay",
+  "passive": false,
+  "traders": 1303,
+  "window_days": 84,
+  "p_any_payout": 0.4328472755180353,
+  "median_day_first_payout": 38.0,
+  "mean_attempts": 10.038372985418265,
+  "mean_fees": 803.0698388334613,
+  "mean_paid": 795.056796183663,
+  "mean_net": -8.013042649798264,
+  "p_net_positive": 0.3821949347659248,
+  "net_p10_p50_p90": [
+   -1040.0,
+   -640.0,
+   1860.5574310302736
+  ]
+ },
+ "A05_first_day_bracket": [
+  1200,
+  800
+ ]
+}
