@@ -1,0 +1,55 @@
+{
+ "hypothesis": "Z04",
+ "window": [
+  "2010-06-07",
+  "2026-09-11"
+ ],
+ "event_days": 506,
+ "mean_event_bps": 3.3690037998303897,
+ "mean_other_bps": 5.671532568364821,
+ "welch_t": -0.42646745800069474,
+ "sharpe_net": 0.039723810549931494,
+ "sharpe_gross": 0.16074382876508783,
+ "rotation_null": {
+  "n": 500,
+  "mean": 0.15272789896748135,
+  "p95": 0.5162489885907888,
+  "share_at_or_above_real": 0.672
+ },
+ "posterior": {
+  "mean": 0.10550984444451923,
+  "sd": 0.19576716310552486
+ },
+ "ev_at_posterior": {
+  "sharpe_assumed": 0.10550984444451923,
+  "event_day_sigma_usd": 441.70421645796205,
+  "p_pass": 0.19175,
+  "p_pass_84": 0.0075,
+  "p_payout_84": 0.0,
+  "p_payout_ever": 0.050875,
+  "mean_fees": 80.0,
+  "ev_84": -80.0,
+  "ev_2y": -16.867530163348277
+ },
+ "ev_at_zero_edge": {
+  "sharpe_assumed": 0.0,
+  "event_day_sigma_usd": 441.70421645796205,
+  "p_pass": 0.16425,
+  "p_pass_84": 0.007375,
+  "p_payout_84": 0.0,
+  "p_payout_ever": 0.040375,
+  "mean_fees": 80.0,
+  "ev_84": -80.0,
+  "ev_2y": -27.1838404468894
+ },
+ "decision": "REJECT",
+ "injection": {
+  "n_event_days": 506,
+  "years": 16.73015873015873,
+  "sought_sharpe": 0.25,
+  "mean_estimate": 0.24071259775129852,
+  "sd_estimate": 0.236165126323546,
+  "power_sharpe_gt_0": 0.844,
+  "recovered": true
+ }
+}

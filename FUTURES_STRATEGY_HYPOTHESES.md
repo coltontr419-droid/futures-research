@@ -580,7 +580,7 @@ S&P leg alone on MES (the long/short spread counts as hedging in the account), a
 
 ---
 
-## Z04 — Macro-Announcement Premium on MES  *(REGISTERED)*
+## Z04 — Macro-Announcement Premium on MES  *(RETIRED — t00769, no premium in 2010–2026)*
 
 Savor & Wilson (2013): stocks earn ~11 bps on FOMC, jobs and CPI days against ~1 bp otherwise — a risk
 premium reported to persist to 2023. Long MES on those days only, tested 2010–2026 (after the original

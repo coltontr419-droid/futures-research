@@ -6928,6 +6928,28 @@ low in 2016–2019. A risk premium, not a flow.
 - **Outcome injection passed:** Sharpe 0.25 planted on the 506 event days, recovered 0.24 (SD 0.24);
   P(estimate > 0) 84%.
 
+## 97. Z04 run and retired: no announcement premium in ES since 2010 (S6–S8)
+
+**One trial spent: t00769. N 762 → 763.** `reports/z04_trial.md`.
+
+| 2010-06-07 → 2026-09-11 | value |
+|---|---|
+| mean ES return, 506 event days | **+3.4 bps** |
+| mean ES return, other days | +5.7 bps |
+| Welch t (needed > 1.645) | **−0.43** |
+| strategy net Sharpe (gross) | +0.04 (+0.16) |
+| calendar-shift control: share at or above the real | 0.67 |
+| posterior Sharpe | 0.11 ± 0.20 |
+| Tradeify EV at the posterior, 1 MES, 2 years | −$17 (zero edge −$27) |
+
+**Rejected on every condition.** Event days earned LESS than other days. The injection had shown 84% power
+for a Sharpe of 0.25 at this n, so this is an informative null for the effect size sought — not a
+statement about the pre-2010 premium, and not independent of the UTC-day bar approximation (§74).
+
+**For the portfolio search:** a published risk premium reported to persist to 2023 in broad-market
+studies does not appear in S&P futures, this way, since 2010. Two Z tests: Z02 confirmed (~0.4–0.5),
+Z04 rejected.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

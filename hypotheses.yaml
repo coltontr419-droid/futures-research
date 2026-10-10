@@ -4041,12 +4041,26 @@
   horizon_minutes: [1255]
   hold_hours: [20.916666666666668]
   registered: 2026-10-09
-  status: untested
+  status: retired
+  retired: 2026-10-09
+  retired_reason: >
+    Run as trial t00769 (decisions.md 97), 2010-2026: mean ES return +3.4 bps on 506 event days vs +5.7
+    bps on other days (Welch t -0.43, needed > 1.645); strategy net Sharpe +0.04; 67% of calendar shifts
+    did as well or better; posterior 0.11 +/- 0.20; Tradeify EV at the posterior -$17. Informative null:
+    the injection recovered a Sharpe of 0.25 at this n with 84% power.
+  outcome_injection:
+    test: src/futuresres/signals/z04_trial.py
+    injected_bps: 0.25        # UNITS: annualised Sharpe of the event-day strategy, not bps
+    sought_bps: 0.25
+    n_injection: 506
+    n_run: 506
+    recovered: true
+    report: reports/z04_injection.json
   schedulable: false
   schedulable_note: >
     Not event-rate gated (a calendar position, as Z02); the runner refuses to run without its outcome
     injection. Registered before any return on the event days was computed.
-  test_order: 26
+  test_order: null
   registered_test_order: 26
   grade: B
   tier: B
