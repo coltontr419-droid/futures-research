@@ -608,3 +608,10 @@ Baltussen, van Bekkum & Da (2019): daily index returns turned negatively autocor
 products grew (Sharpe 0.67 against MAC(5) on the S&P 500, to 2016). The sign of the MAC(5)-weighted last four
 days sets the MNQ 09:30–16:00 bracket's direction (against the move); must beat always-long. Tested 2017–2026.
 One trial. `hypotheses.yaml` (Z07) · `decisions.md` §111
+
+## Z08 — Hedger Flow Sets the Commodity Brackets' Direction  *(registered, untested)*
+
+Kang, Rouwenhorst & Tang (2020): commodity prices rise the week after commercial hedgers buy and fall after they
+sell — hedgers provide liquidity to impatient speculators (1994–2014). The sign of last week's commercial net
+change (CFTC COT) sets the direction of the crude (full session) and gold (London) brackets for the next week.
+Tested 2015–2026; must beat always-long. One trial. `hypotheses.yaml` (Z08) · `decisions.md` §117

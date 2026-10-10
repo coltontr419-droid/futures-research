@@ -7496,6 +7496,32 @@ plan near five streams × ~$1–2k per four months. Raising it needs a real edge
 survive to uncapped "live" payouts (the policy already maximises this), or **more firms**: each firm has its own
 cap, and §92 priced eleven account types — the same staking, re-solved per firm's rules, multiplies the slots.
 
+## 117. Z08 registered — commercial hedgers' weekly flow (CFTC COT) as the commodity brackets' direction (S1–S5)
+
+**No trial spent at registration; N 766.** The user stays with Tradeify and wants a real edge (#3). Lesson of
+Z06/Z07: on MNQ a signal must beat a drift-earning long; on gold and crude the long earns little, and §109 shows
+gold gains most per unit of edge — so the search turns to commodity direction. Not previously tested (the
+X-series cites hedging pressure only as trend/carry's mechanism).
+
+**Source:** Kang, Rouwenhorst & Tang (2020, JF 75(1)), 26 commodities incl. gold and crude, 1994-01 → 2014-11:
+weekly position changes are driven by impatient speculators; commercials supply liquidity, and prices rise the
+week after hedgers BUY (a typical change moves next week's expected return ~0.17%; t 4–5 in both halves). A 2023
+retest (Maréchal, J. Futures Markets 43(5)) exists; its findings could not be read.
+
+**Size screen inside the paper's sample only** (2010-06 → 2014-11, owned daily bars; COT legacy files from the
+CFTC, free, `data/cot/`): crude Sharpe **+0.70** (always-long +0.04; +7.6 bps after hedger buying, −6.5 after
+selling); gold +0.24 (always-long −0.06). MGC minute sessions are sparse before 2016 (56–86 a year), so gold's
+screen used daily GC.
+
+**Fixed before any post-2014 return** (`hypotheses.yaml` Z08; `data/cot.py`, `signals/z08.py`,
+`signals/z08_trial.py`): Q = weekly change in commercial net long / previous open interest; the five sessions
+of the week after the Friday release take sign(Q). Crude: the full session (daily CL bars, the window of §116);
+gold: London 03:00–11:30 (MGC minute, real returns). 2015-01-01 → 2026-08-27. Per product, CONFIRM only if
+Sharpe > 0, it beats always-long, and posterior > 0. Prior Normal(0.3, 0.3), an assumption.
+
+**Outcome injection** (`reports/z08_injection.json`): 0.3 planted, recovered 0.301 for both (crude 2,864
+sessions, SD 0.29; gold 2,578, SD 0.30); P(estimate > 0) 84%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

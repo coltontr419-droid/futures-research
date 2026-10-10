@@ -1,0 +1,19 @@
+{
+ "MCL": {
+  "n_sessions": 2864,
+  "sought_sharpe": 0.3,
+  "mean_estimate": 0.3007231185445171,
+  "sd_estimate": 0.288460632069898,
+  "power_sharpe_gt_0": 0.8415,
+  "recovered": true
+ },
+ "MGC": {
+  "n_sessions": 2578,
+  "sought_sharpe": 0.3,
+  "mean_estimate": 0.3006044371932646,
+  "sd_estimate": 0.30388384444109456,
+  "power_sharpe_gt_0": 0.8355,
+  "recovered": true
+ },
+ "recovered": true
+}

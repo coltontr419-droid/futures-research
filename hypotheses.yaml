@@ -4295,3 +4295,59 @@
   s6_control: >
     Always-long Sharpe in the same window; share of short sessions; window mean on short sessions; result by
     period (2017-20, 2021-26); the same rule on the close-to-close daily return, for comparison with the paper.
+- id: Z08
+  name: hedger_flow_sets_commodity_bracket_direction
+  mechanism: >
+    Liquidity provision in commodity futures (Kang, Rouwenhorst & Tang 2020, Journal of Finance 75(1)): weekly
+    changes in positions are driven by impatient speculators, and commercial hedgers supply the liquidity; prices
+    rise in the weeks after hedgers BUY and fall after they sell (a typical change moves next week's expected return
+    by ~0.17%, t 4-5 in both halves of 1994-2014; 26 commodities incl. gold and crude). THE COUNTERPARTY is the
+    speculator paying for immediacy.
+  condition: >
+    CFTC legacy COT, commercials: Q = weekly change in net long / previous open interest (data/cot.py). Positions
+    as of Tuesday, released Friday; the five sessions of the following week take sign(Q): long if hedgers bought,
+    short if they sold. Applied to each staking plan's window: crude the full session (owned roll-correct daily CL
+    bars, as decisions.md 116), gold the London window 03:00-11:30 ET (MGC 1-minute, real returns). No free parameters.
+  horizon_minutes: [1375, 510]
+  hold_hours: [22.916666666666668, 8.5]
+  registered: 2026-10-10
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    Not event-rate gated; the runner refuses to run without its outcome injection. Registered after a size screen
+    INSIDE the paper's sample only (2010-06 to 2014-11; crude +0.70, gold +0.24 on daily bars, decisions.md 117);
+    no post-2014 Z08 return computed before registration.
+  test_order: 8
+  registered_test_order: 30
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - the paper's Q and its one-week horizon, sign only. ONE TRIAL, both products.
+  session: Globex
+  symbols: [MCL, MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: MCL
+    rationale: >
+      The effect is documented per commodity, gold and crude included; MGC and MCL are the staking plans'
+      instruments. Each product is decided on its own; no two-instrument confirmation is claimed.
+  stage4_reachable: false
+  stage4_reason: Per-commodity decisions for the staking plans; the test window is after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: full}
+  test_window: {start: '2015-01-01', end: '2026-08-27', reason: 'after the paper sample (1994-01 to 2014-11)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: >
+      Prior Normal(0.3, 0.3) per product, an ASSUMPTION: the paper's effect is a cross-sectional slope; the
+      in-sample screen on our data (crude +0.70, gold +0.24, 2010-06 to 2014-11) roughly halved and pooled.
+  decision_rule:
+    rule: >
+      Per product, CONFIRM only if (1) the annualised Sharpe of sign x window return > 0; (2) its mean exceeds the
+      always-long window mean; (3) the posterior > 0 (=> plan EV at posterior > zero-edge EV, decisions.md 109).
+  outcome_injection_required: Done before the run - reports/z08_injection.json.
+  s6_control: >
+    Always-long in the same window; the long-signal and short-signal session means; by period (2015-20, 2021-26);
+    for gold, the same rule on the full-session daily GC return (not decisive).
