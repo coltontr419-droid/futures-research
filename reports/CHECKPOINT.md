@@ -734,6 +734,9 @@ more firms = more slots.
 **Z08 (§117), t00773, N 767: COT hedger flow — GOLD CONFIRMED (marginal, era-unstable), crude rejected.** Gold account now
 takes the weekly COT side: `python -m futuresres.signals.z08 --direction` → `a06_playbook --product MGC --side ...`.
 
+**A16 (§118): portfolio now** (MNQ long + MGC COT-directed + MCL long): mean net +$4.8–5.4k / 4 months, P(net>0) 85–87%,
+10th pct −$0.5–0.8k, worst −$2.4–3.1k, fees ~$2.5–3.0k.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

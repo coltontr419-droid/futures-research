@@ -7546,6 +7546,26 @@ Z06/Z07's pattern:** the ranking is right, but the "sell" weeks still rose, so s
 long|short` (a mirrored bracket; the policy is symmetric at zero edge). Crude and MNQ stay long. First reading:
 positions of 2026-10-06 (released 10-09), commercials +1.58% of open interest → long gold, sessions 10-12 → 10-16.
 
+## 118. A16: the portfolio with gold's COT direction — P(net > 0) 85–87%, bad case roughly halved (S8)
+
+**No trial spent; N 767.** `reporting/a16_portfolio.py` (prints; figures here). Three Tradeify accounts — 4 MNQ
+09:30–16:00 long, 8 MGC London with Z08's weekly direction, 10 MCL session long — with gold's edge planted at Z08's
+**posterior** Sharpe 0.36 (as A11; not the in-sample result), real order, stops at the stop price, 84 days:
+
+| 2021–26 / 2016–20 | gold always long, zero edge | **gold with COT direction (posterior 0.36)** |
+|---|---|---|
+| gold alone: P(payout) / mean net | 77% +$2,210 / 76% +$2,662 | **81% +$3,261 / 88% +$3,182** |
+| three accounts: P(≥1 payout) | 99.9% / 98.6% | 99.9% / 100% |
+| streams paying, mean | 2.01 / 2.02 | 2.05 / 2.14 |
+| paid out / fees | $6,740 / $3,001 · $7,449 / $2,539 | $7,755 / $2,966 · $7,932 / $2,502 |
+| mean / median net | +$3,739 / +$2,977 · +$4,910 / +$3,491 | **+$4,789 / +$4,240 · +$5,431 / +$4,119** |
+| P(net > 0) | 78% / 81% | **87% / 85%** |
+| 10th percentile / worst | −$1,300 / −$3,120 · −$1,000 / −$3,360 | **−$470 / −$3,120 · −$785 / −$2,364** |
+
+The gain is +$520–1,050 per four months on the mean and, more usefully, a bad four months roughly halved.
+Caveats: the edge is Z08's marginal, era-unstable confirmation (§117); MCL rests on one-bar-a-day estimates (±30%);
+the starts overlap (~16 independent windows per history).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
