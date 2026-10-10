@@ -4152,3 +4152,62 @@
   s6_control: >
     The two legs reported separately (long-overnight only, short-day only) and the result by period
     (2013-16, 2017-20, 2021-26).
+- id: Z06
+  name: trend_sign_sets_bracket_direction
+  mechanism: >
+    Time-series momentum (Moskowitz, Ooi & Pedersen 2012, Journal of Financial Economics): the sign of an
+    instrument's past 12-month excess return predicts its next month's return, in every one of 58 futures,
+    1985-2009; replicated over a century (Hurst, Ooi & Pedersen 2017) and in live trend funds since. THE
+    COUNTERPARTY is slow-moving capital - hedgers and allocators trading on schedules against persistent
+    moves. A FOLLOW-ON TO W04 (decisions.md 72-76), which held the same signal at a daily horizon inside a
+    trend-plus-carry portfolio and failed on costs and its Sharpe-1.31 bar; here the signal only sets the
+    DIRECTION of the staking plans' daily bracket, whose costs are paid either way (decisions.md 109).
+  condition: >
+    At each month end, sign of the trailing 12-month held return (data/daily_bars.py, roll-correct, NQ and
+    GC), applied to every session dated in the next month: long (+1) or short (-1) the plan's window - MNQ
+    09:30-16:00 ET, MGC 03:00-11:30 ET (the two demo plans, decisions.md 106). Window return from 1-minute
+    bars, real drift (not removed), complete sessions only. No free parameters (12 months, monthly, as published).
+  horizon_minutes: [390, 510]
+  hold_hours: [6.5, 8.5]
+  registered: 2026-10-10
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    Not event-rate gated (a position every session); the runner refuses to run without its outcome injection.
+    Registered before any Z06 return was computed. W04 never reported its trend sleeve per market or gross.
+  test_order: 8
+  registered_test_order: 28
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - lookback 12 months, monthly rebalance, as published. ONE TRIAL, both products.
+  session: Globex
+  symbols: [MNQ, MGC]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: MGC
+    rationale: >
+      The effect is documented per instrument across equity-index and precious-metal futures; MNQ and MGC are
+      the two plans' instruments. Each product is decided on its own; no two-instrument confirmation is claimed.
+  stage4_reachable: false
+  stage4_reason: Per-instrument decisions for the two staking plans; the test window is after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: full}
+  test_window: {start: '2011-07-01', end: '2026-08-27', reason: 'after the paper sample (1985-2009); 12 months of daily data needed first'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: >
+      Prior Normal(0.2, 0.3) per product - the published per-instrument gross Sharpes are shown only as a chart
+      (Fig. 2, all positive, 0 to ~1.2, typical ~0.4); half of the typical value, an ASSUMPTION.
+  decision_rule:
+    rule: >
+      Per product, CONFIRM only if (1) the annualised Sharpe of sign x window return > 0 (the published claim);
+      (2) the mean of sign x window return exceeds the mean of the window return - the signal must beat the
+      plans' current always-long; (3) the posterior Sharpe > 0, which by A11 (decisions.md 109, monotone in S)
+      means the plan's EV at the posterior exceeds its zero-edge EV.
+  outcome_injection_required: Done before the run - reports/z06_injection.json.
+  s6_control: >
+    Always-long Sharpe in the same window; the share of short months; the result by period (2011-15, 2016-20,
+    2021-26).

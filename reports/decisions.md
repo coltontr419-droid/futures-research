@@ -7280,6 +7280,28 @@ day), surviving after publication, is worth +$100–600 per 4 months — most on
 §95–§103 only for SIZE (not for decay) are reopened against it; those rejected for not surviving publication
 stay out. The window matters: an effect must act inside 09:30–16:00 (MNQ) or 03:00–11:30 ET (MGC).
 
+## 110. Z06 registered — the 12-month trend sign as the bracket's direction; a follow-on to W04 (S1–S5)
+
+**No trial spent at registration; N 764.** Screening against §109's bar: the only candidate with strong
+post-publication evidence that acts inside the plans' windows and fits a direction tilt is **time-series
+momentum** (Moskowitz, Ooi & Pedersen 2012: sign of the past 12-month return, all 58 futures, 1985–2009;
+replicated over a century and in live trend funds). **It is not new to the programme:** W04 (§72–§76) held
+the same signal daily in a trend-plus-carry book and failed — mostly on cost (round trips 0.5–4.7% of a day's
+SD) against a Sharpe-1.31 bar, with the trend sleeve −0.60 net post-2021; W04 never reported the trend sleeve
+gross or per market. Here the sign only sets a bracket the plans pay for anyway, so cost does not enter,
+and the question W04 did not answer is asked: does the sign predict the DIRECTION of these windows?
+
+**Fixed before any return** (`hypotheses.yaml` Z06; `signals/z06.py`, `signals/z06_trial.py`): sign of the
+roll-correct held return over the 12 calendar months ending at each month end (NQ, GC daily bars), applied to
+every session of the next month (no leakage: the month-end bar closes 00:00 UTC, before any later window
+opens); windows MNQ 09:30–16:00 and MGC 03:00–11:30 ET; real window returns; sessions 2011-07 → 2026-08-27
+(MNQ's complete sessions begin 2015-11-20). Per product, CONFIRM only if (1) Sharpe(sign × r) > 0, (2)
+mean(sign × r) > mean(r) — it must beat the plans' current always-long — and (3) posterior > 0. Prior
+Normal(0.2, 0.3), an assumption (the paper charts per-instrument Sharpes, 0 to ~1.2). One trial, both products.
+
+**Outcome injection** (`reports/z06_injection.json`): Sharpe 0.2 planted by bootstrap, recovered 0.197 (MNQ,
+2,638 sessions, SD 0.31) and 0.201 (MGC, 2,846, SD 0.30); P(estimate > 0) 72% / 74%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

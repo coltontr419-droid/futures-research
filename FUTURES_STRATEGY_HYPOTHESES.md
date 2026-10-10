@@ -594,3 +594,10 @@ the posterior is positive. One trial. `hypotheses.yaml` (Z04) · `decisions.md` 
 Blose, Gondhalekar & Kort (2018): COMEX gold earns positive returns overnight and negative returns in the
 day session (1985–2012). 1 MGC long 18:00–08:20, short 08:20–13:30, long 13:30–16:55 ET; tested 2013–2026.
 One trial. `hypotheses.yaml` (Z05) · `decisions.md` §99–§100
+
+## Z06 — Trend Sign Sets the Bracket's Direction  *(registered, untested)*
+
+Moskowitz, Ooi & Pedersen (2012): the sign of the past 12-month return predicts the next month, in every
+one of 58 futures (1985–2009). A follow-on to W04: here the sign only chooses the daily bracket's direction
+in the two staking plans (MNQ 09:30–16:00, MGC 03:00–11:30 ET), whose costs are paid either way. Tested
+2011-07 → 2026-08; must also beat always-long. One trial. `hypotheses.yaml` (Z06) · `decisions.md` §110

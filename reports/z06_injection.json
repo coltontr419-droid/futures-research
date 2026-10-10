@@ -1,0 +1,19 @@
+{
+ "MNQ": {
+  "n_sessions": 2638,
+  "sought_sharpe": 0.2,
+  "mean_estimate": 0.19701477276526466,
+  "sd_estimate": 0.3095068151658668,
+  "power_sharpe_gt_0": 0.72,
+  "recovered": true
+ },
+ "MGC": {
+  "n_sessions": 2846,
+  "sought_sharpe": 0.2,
+  "mean_estimate": 0.20147488298102706,
+  "sd_estimate": 0.29781355098759293,
+  "power_sharpe_gt_0": 0.74,
+  "recovered": true
+ },
+ "recovered": true
+}
