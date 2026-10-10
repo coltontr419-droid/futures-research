@@ -7522,6 +7522,30 @@ Sharpe > 0, it beats always-long, and posterior > 0. Prior Normal(0.3, 0.3), an 
 **Outcome injection** (`reports/z08_injection.json`): 0.3 planted, recovered 0.301 for both (crude 2,864
 sessions, SD 0.29; gold 2,578, SD 0.30); P(estimate > 0) 84%.
 
+### Z08 run: gold confirmed, marginally and unstably; crude rejected (S6–S8)
+
+**One trial spent: t00773. N 766 → 767.** `reports/z08_trial.{json,md}`.
+
+| 2015 → 2026-08 | MGC, London 03:00–11:30 (2,578 sessions) | MCL, session (2,864) |
+|---|---|---|
+| **Sharpe, hedger-flow sign × window** | **+0.42** | +0.17 |
+| Sharpe, always long (must beat) | +0.36 | +0.23 |
+| mean after hedger buying / selling | +3.77 / −0.30 bps | +6.79 / +1.14 bps |
+| by period, signal / long | 2015–20 −0.08 / +0.74; 2021–26 **+0.79** / +0.09 | 2015–20 +0.03 / −0.13; 2021–26 +0.36 / +0.71 |
+| posterior | +0.36 ± 0.21 | +0.23 ± 0.21 |
+| decision | **CONFIRM** | REJECT (condition 2) |
+
+**Gold is confirmed under the user's rule but should be read as marginal:** it beats always-long by 0.3 bps a
+session overall, the two eras disagree in sign, and the full-session daily check (not decisive) does not beat
+always-long (+0.39 vs +0.59). Its value to the plan, by §109, is of order +$500–900 per four months at the
+posterior against a zero-drift long — and roughly nothing against a gold that keeps rallying. **Crude repeats
+Z06/Z07's pattern:** the ranking is right, but the "sell" weeks still rose, so shorting them gives up the drift.
+
+**Adopted:** the gold account takes the weekly COT direction — `python -m futuresres.signals.z08 --direction`
+(refreshes this year's CFTC file; prints the side for the coming week) then `a06_playbook --product MGC --side
+long|short` (a mirrored bracket; the policy is symmetric at zero edge). Crude and MNQ stay long. First reading:
+positions of 2026-10-06 (released 10-09), commercials +1.58% of open interest → long gold, sessions 10-12 → 10-16.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

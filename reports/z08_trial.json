@@ -1,0 +1,101 @@
+{
+ "hypothesis": "Z08",
+ "products": {
+  "MCL": {
+   "window": [
+    "2015-01-01",
+    "2026-08-27"
+   ],
+   "sessions": 2864,
+   "sharpe_signal": 0.17227198394323243,
+   "sharpe_always_long": 0.23345354504083957,
+   "mean_signal_bps": 3.0339591163747546,
+   "mean_long_bps": 4.111252480034519,
+   "long_share": 0.526536312849162,
+   "mean_bps_after_hedger_buying": 6.785108094202971,
+   "mean_bps_after_hedger_selling": 1.1376726377291915,
+   "posterior": {
+    "mean": 0.23363228322347834,
+    "sd": 0.20793227539023526
+   },
+   "eras": {
+    "2015-20": {
+     "sessions": 1473,
+     "sharpe_signal": 0.02552957018189372,
+     "sharpe_long": -0.1320029423492555
+    },
+    "2021-26": {
+     "sessions": 1391,
+     "sharpe_signal": 0.3639652615977352,
+     "sharpe_long": 0.7091970045391697
+    }
+   },
+   "conditions": {
+    "sharpe_gt_0": true,
+    "beats_always_long": false,
+    "posterior_gt_0": true
+   },
+   "decision": "REJECT"
+  },
+  "MGC": {
+   "window": [
+    "2015-01-26",
+    "2026-08-27"
+   ],
+   "sessions": 2578,
+   "sharpe_signal": 0.4229761297417354,
+   "sharpe_always_long": 0.36211024223750476,
+   "mean_signal_bps": 2.0462480804026875,
+   "mean_long_bps": 1.7519608685661718,
+   "long_share": 0.5038789759503491,
+   "mean_bps_after_hedger_buying": 3.7689694651430794,
+   "mean_bps_after_hedger_selling": -0.2965881282699522,
+   "posterior": {
+    "mean": 0.36069718363256775,
+    "sd": 0.21349193407763428
+   },
+   "eras": {
+    "2015-20": {
+     "sessions": 1195,
+     "sharpe_signal": -0.08143066500490612,
+     "sharpe_long": 0.7414109863608169
+    },
+    "2021-26": {
+     "sessions": 1383,
+     "sharpe_signal": 0.7874170475760468,
+     "sharpe_long": 0.0938686224564432
+    }
+   },
+   "conditions": {
+    "sharpe_gt_0": true,
+    "beats_always_long": true,
+    "posterior_gt_0": true
+   },
+   "decision": "CONFIRM"
+  }
+ },
+ "gold_full_session_daily": {
+  "sharpe_signal": 0.3905422401152385,
+  "sharpe_long": 0.5928469263177236,
+  "sessions": 2948
+ },
+ "injection": {
+  "MCL": {
+   "n_sessions": 2864,
+   "sought_sharpe": 0.3,
+   "mean_estimate": 0.3007231185445171,
+   "sd_estimate": 0.288460632069898,
+   "power_sharpe_gt_0": 0.8415,
+   "recovered": true
+  },
+  "MGC": {
+   "n_sessions": 2578,
+   "sought_sharpe": 0.3,
+   "mean_estimate": 0.3006044371932646,
+   "sd_estimate": 0.30388384444109456,
+   "power_sharpe_gt_0": 0.8355,
+   "recovered": true
+  },
+  "recovered": true
+ }
+}

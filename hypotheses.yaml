@@ -4311,13 +4311,27 @@
   horizon_minutes: [1375, 510]
   hold_hours: [22.916666666666668, 8.5]
   registered: 2026-10-10
-  status: untested
+  status: stage1_passed
+  stage1_reason: >
+    Run as trial t00773 (decisions.md 117), 2015-2026. MGC (London 03:00-11:30) CONFIRMED under the rule:
+    Sharpe +0.42 vs always-long +0.36 (+2.05 vs +1.75 bps), +3.8 bps after hedger buying vs -0.3 after selling;
+    posterior +0.36 +/- 0.21 - MARGINALLY and unstably: 2015-20 -0.08 (long +0.74), 2021-26 +0.79 (long +0.09);
+    full-session daily GC (not decisive) +0.39 vs long +0.59. MCL (session) REJECTED: +0.17 vs always-long +0.23
+    (sold weeks still +1.1 bps). Adopted as the gold account's weekly direction; crude stays long.
+  outcome_injection:
+    test: src/futuresres/signals/z08_trial.py
+    injected_bps: 0.3         # UNITS: annualised Sharpe of sign x window return, not bps (per product)
+    sought_bps: 0.3
+    n_injection: 2578         # MGC; MCL 2,864 (both in the report)
+    n_run: 2578
+    recovered: true
+    report: reports/z08_injection.json
   schedulable: false
   schedulable_note: >
     Not event-rate gated; the runner refuses to run without its outcome injection. Registered after a size screen
     INSIDE the paper's sample only (2010-06 to 2014-11; crude +0.70, gold +0.24 on daily bars, decisions.md 117);
     no post-2014 Z08 return computed before registration.
-  test_order: 8
+  test_order: null
   registered_test_order: 30
   grade: B
   tier: B

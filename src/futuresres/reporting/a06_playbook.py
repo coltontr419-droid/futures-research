@@ -2,7 +2,8 @@
 
     python -m futuresres.reporting.a06_playbook eval   --balance 50300 --peak 50300 --best 300
     python -m futuresres.reporting.a06_playbook funded --balance 51200 --peak 51200 --payouts 0
-    python -m futuresres.reporting.a06_playbook eval --product MGC --balance 50000   # the gold account (8 MGC, 03:00-11:30 ET)
+    python -m futuresres.reporting.a06_playbook eval --product MGC --side long --balance 50000   # gold (8 MGC, 03:00-11:30 ET);
+                                                     # --side from `python -m futuresres.signals.z08 --direction`, weekly
     python -m futuresres.reporting.a06_playbook eval --product MCL --balance 50000   # the crude account (10 MCL, 18:00-16:55 ET)
     python -m futuresres.reporting.a06_playbook table [--product MGC|MCL]   # writes reports/a06_playbook_{eval,funded}[_mgc].csv
 
@@ -50,7 +51,7 @@ def _pts(usd: float, n: int, p: dict) -> float:
 
 
 def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0, n: int | None = None,
-           product: str = "MNQ") -> dict:
+           product: str = "MNQ", side: str = "long") -> dict:
     """The day's order, by the same state rounding and stop cap as a02_real.sequential."""
     pe, pf = _solve()
     p = PRODUCTS[product]; n = n or p["n"]
@@ -74,7 +75,7 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
     W = (a // 100) * 100.0
     L = min((a % 100) * 100.0, max(balance - floor - 1, 1))
     cost = p["rt"] * n
-    return {"trade": True, "product": product, "contracts": n, "entry": p["entry"], "exit": p["exit"],
+    return {"trade": True, "product": product, "side": side, "contracts": n, "entry": p["entry"], "exit": p["exit"],
             "take_net": W, "stop_net": L, "floor": floor,
             "take_points": _pts(W + cost, n, p), "stop_points": _pts(max(L - cost, 1.0), n, p)}
 
@@ -87,9 +88,10 @@ def _print(t: dict) -> None:
     if not t["trade"]:
         print(f"NO TRADE today (stand aside). Floor ${t['floor']:,.0f}.")
         return
-    print(f"{t['entry']} ET: BUY {t['contracts']} {t['product']} at market, then one OCO bracket on the fill price:\n"
-          f"  take-profit  fill + {t['take_points']:.2f} pts   (≈ +${t['take_net']:,.0f} net)\n"
-          f"  stop         fill - {t['stop_points']:.2f} pts   (≈ -${t['stop_net']:,.0f} net)\n"
+    up, dn = ("+", "-") if t["side"] == "long" else ("-", "+")
+    print(f"{t['entry']} ET: {'BUY' if t['side'] == 'long' else 'SELL'} {t['contracts']} {t['product']} at market, then one OCO bracket on the fill price:\n"
+          f"  take-profit  fill {up} {t['take_points']:.2f} pts   (≈ +${t['take_net']:,.0f} net)\n"
+          f"  stop         fill {dn} {t['stop_points']:.2f} pts   (≈ -${t['stop_net']:,.0f} net)\n"
           f"{t['exit']} ET: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
 
 
@@ -126,10 +128,12 @@ def main(argv=None) -> int:
     ap.add_argument("--best", type=float, default=0.0); ap.add_argument("--payouts", type=int, default=0)
     ap.add_argument("--contracts", type=int, default=None)
     ap.add_argument("--product", choices=tuple(PRODUCTS), default="MNQ")
+    ap.add_argument("--side", choices=("long", "short"), default="long",
+                    help="MGC: this week's direction from `python -m futuresres.signals.z08 --direction` (decisions.md 117)")
     a = ap.parse_args(argv)
     if a.phase == "table":
         table(a.product); return 0
-    _print(ticket(a.phase, a.balance, a.peak if a.peak is not None else a.balance, a.best, a.payouts, a.contracts, a.product))
+    _print(ticket(a.phase, a.balance, a.peak if a.peak is not None else a.balance, a.best, a.payouts, a.contracts, a.product, a.side))
     return 0
 
 

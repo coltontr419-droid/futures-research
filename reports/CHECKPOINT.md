@@ -731,6 +731,9 @@ OHLC rule within ~10–15% of 1-minute → order ohlcv-1h CL.v.0, NG.v.0 (minute
 accounts: P(≥1 payout) 99%, 2 of 3 streams pay, mean net +$3.7–4.9k, P(net>0) 78–81%. 5-funded cap ⇒ ~5 streams max;
 more firms = more slots.
 
+**Z08 (§117), t00773, N 767: COT hedger flow — GOLD CONFIRMED (marginal, era-unstable), crude rejected.** Gold account now
+takes the weekly COT side: `python -m futuresres.signals.z08 --direction` → `a06_playbook --product MGC --side ...`.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

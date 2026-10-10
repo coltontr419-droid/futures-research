@@ -710,3 +710,6 @@ directions (worse even in sample). The fixed, risk-matched size with the fair-co
 **Three accounts (§116):** adding crude (from owned daily bars, approximate) gives a payout within 4 months from ~99% of
 start dates and 2 of 3 streams paying on average; P(net > 0) 78–81%. Five funded accounts per firm caps scale near five
 streams; more firms add slots.
+
+**Z08 (§117, t00773):** CFTC hedger flow (Kang, Rouwenhorst & Tang 2020) sets gold's weekly direction — confirmed under
+the rule (+0.42 vs always-long +0.36) but marginal and era-unstable; crude rejected. Adopted for the gold account.
