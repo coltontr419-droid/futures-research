@@ -6424,6 +6424,60 @@ one day are the resampling of Y01–Y04; longer runs keep real clustering and tr
    on old data, not current fills, current rules or the next regime. It does shorten what the demo test
    must answer.
 
+## 86. The Z-series: decide on external out-of-sample evidence; Z01, front-running rebalancers (S1, S2)
+
+**Designed, not registered. No trial spent; N 761, SR\* 0.1368. Nothing measured on our data.**
+Draft: `Z_SERIES_CANDIDATES.md`.
+
+The user closed the Y-series' practical use: the account structure is worth too little to build income
+on (§85). Asked for a different basis.
+
+### The basis
+
+Income needs a real edge, and a modest one is worth a lot in this account (§73: Sharpe 0.4 ≈ +$250 per
+evaluation, 1.0 ≈ +$1,100). This programme can no longer discover one on its own searched history (SR\*
+≈1.3 at N = 761). **The Z-series takes its evidence from outside**: an effect published by others,
+replicated exactly as published, tested only on data AFTER the authors' sample ends.
+
+### The literature, checked before choosing (web sources in the draft)
+
+Turn-of-the-month faded after 1990; the Treasury auction cycle reportedly reversed after 2010; the
+pre-FOMC drift disappeared after 2015. **Calendar and event anomalies decay once published.** The one
+candidate with a forced counterparty and no post-publication record: **Harvey, Mazzoleni & Melone (NBER
+w33554, 2025/2026), front-running pension and balanced-fund rebalancing** — read from the paper itself:
+next-day equity returns 17 bps lower when equities are overweight; long S&P / short 10-year futures by
+the signal, 1997-09-10 to 2023-03-17: 10.2% a year, 9.2% volatility, **Sharpe 1.11 (≈1 net)**, alphas
+t > 4, **skewness +5.2**; Sharpe 0.90 excluding the 2008–09 and 2020 crises; weaker in calm markets.
+
+### Z01 and Z02, specified before any data is touched
+
+The construction is copied from the paper's Appendix B and Section 4 (60/40 drift simulation; Threshold
+signal averaged over δ = 0–2.5%; Calendar signal with the last-week and first-day rules; weight = mean of
+−Threshold/1.5% and the modified Calendar). **Z01**: the published long/short ES–ZN spread. **Z02**: the
+equity leg alone, on MES. **Test window: 2023-03-18 to 2026-09-11**, about 880 daily observations the
+authors never saw; signals from the purchased ES and ZN daily bars; entry at 20:00 ET after bar D's
+close, exit 16:55 ET on D+1.
+
+### Rulings needed before anything runs
+
+1. **The decision rule.** SR\* at N = 762 and this test's length is ≈1.7 — a bar for claims found by
+   searching our data, which Z01 was not. Proposed: confirm if the post-2023 Sharpe is > 0 with the
+   published sign and the prop EV at the posterior Sharpe (prior 0.5 ± 0.35, the published ~1.0 halved
+   for decay) is positive; reject if ≤ 0. **This departs from every earlier registration's rule and is
+   the user's to make.**
+2. **Tradeify's rule on opposite positions** in correlated products, for long-equity / short-bond (Z01).
+   Z02 avoids the question.
+3. **Optional data:** ES and ZN 1-hour bars would replace the UTC-close approximation of the entry.
+
+### Decisions taken rather than resolved silently
+
+- **Z01 was chosen among four literature candidates by their post-publication record**, not by any
+  result on our data; that selection is recorded here and does not touch our history.
+- **The 2010–2023 construction check is not evidence**: the paper already used those years, and it
+  compares signal properties only.
+- **Honest odds:** a realistic prior after decay is Sharpe ~0.5; the post-2023 test (SE ≈ 0.54) can catch
+  a dead effect but only weakly confirm a live one.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

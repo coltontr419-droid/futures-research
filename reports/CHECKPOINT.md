@@ -622,6 +622,14 @@ imposed Sharpe −0.3; pass 18–19%; 10 evaluations net positive 40%, 40 67%. *
 Zero-edge value now stated as roughly $0–80 per evaluation, uncertain by as much; spread evaluations over
 time. Forward demo test still needed.
 
+**Y-series set aside by the user, 2026-10-09:** the structure value is too small for income.
+
+**Z-SERIES, 2026-10-09 — DESIGNED, NOT REGISTERED (§86).** Evidence from outside, tested after the
+authors' sample. Z01: front-running rebalancers (Harvey, Mazzoleni & Melone 2025; Sharpe ~1.1 in
+1997–2023, skew +5.2), long/short ES–ZN; Z02 the MES leg alone. Test window 2023-03-18 to 2026-09-11.
+**Open, for the user:** the decision rule (proposed: post-2023 Sharpe > 0 with the published sign, and
+positive prop EV at the posterior), Tradeify's rule on long-equity/short-bond, optional ES/ZN 1-hour data.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

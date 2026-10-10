@@ -572,7 +572,8 @@ stay in the registry, and their trials stay in N.
 | **W** | **5** | **1** | **1** | **0** |
 | **X** | **7** | **0** | **0** | **0** |
 | **Y** | **7** | **0** | **0** | **0** |
-| **total** | **103** | **38** | **771** | **0** |
+| **Z** | **2** | **0** | **0** | **0** |
+| **total** | **105** | **38** | **771** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
@@ -661,3 +662,10 @@ both eras — **MNQ 09:30–16:00 long and MGC London 03:00–11:30 long, about 
 **Replayed through real history in order (§85), that value shrinks and widens:** drift removed, +$1 (MNQ)
 and +$44 (MGC) per evaluation, and anywhere from −$61 to +$162 once real clustering is kept. The
 structure's value is best read as roughly $0–80 per $80 fee, with uncertainty as large as the estimate.
+
+**The Z row was added 2026-10-09** — a twelfth series on a different basis: take evidence from outside,
+not from searching this data. Published calendar and event anomalies were checked and found to decay
+after publication; the lead candidate is **front-running institutional rebalancing (Harvey, Mazzoleni &
+Melone 2025: Sharpe ~1 over 1997–2023, a forced counterparty, no post-publication record yet)**, to be
+replicated exactly and tested on the 3.5 years after its sample ends. Designed; awaiting the user's
+ruling on its decision rule. `decisions.md` §86.
