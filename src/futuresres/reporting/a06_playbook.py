@@ -63,6 +63,9 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
         pk = max(int(np.clip(np.rint((peak - START) / 100), 0, g.BUFFER)), int(np.clip(b, 0, g.BUFFER)))
         a = int(pf[b - g.F_BMIN, pk, min(payouts, g.LIVE_AFTER)])
         floor = START if peak >= START + 2000 else peak - 2000
+    room = balance - floor
+    if room <= p["rt"] * n + 10:              # commissions + ~$10 slippage alone would breach (decisions.md 108)
+        return {"trade": False, "finished": True, "floor": floor}
     if a <= 0:
         return {"trade": False, "floor": floor}
     W = (a // 100) * 100.0
@@ -74,6 +77,10 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
 
 
 def _print(t: dict) -> None:
+    if t.get("finished"):
+        print(f"ACCOUNT FINISHED: within one day's costs of the floor (${t['floor']:,.0f}); any trade breaches it. "
+              f"Start a new evaluation.")
+        return
     if not t["trade"]:
         print(f"NO TRADE today (stand aside). Floor ${t['floor']:,.0f}.")
         return
