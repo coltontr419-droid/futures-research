@@ -692,6 +692,10 @@ gross on MNQ and MGC inside the paper's own sample (m00152); pre-holiday has no 
 `python -m futuresres.reporting.a06_playbook eval --balance B --peak P --best D`; tables in reports/a06_playbook_*.csv.
 Judge the demo on execution vs replay, not P&L (P(net>0) is 45% even if it works).
 
+**A07 (§105): run the demo at 4 MNQ, not 2.** 4 beats 2 on both histories (2021–26, 2015–20), replay and block
+bootstrap: ~65–78% P(payout in 4 months), +$1,000–1,500 mean net vs 35–61%, +$95–675. Vol scaling adds nothing.
+m00153 superseded by m00154. Playbook default now 4.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

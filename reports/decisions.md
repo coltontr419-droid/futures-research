@@ -7128,6 +7128,48 @@ assumptions the replay makes: fills at the 09:30 open, the bracket executing at 
 gaps, the firm marking the floor and consistency rule as modelled, and costs. Judge the demo on those, by
 comparing each logged day against the replay's outcome for that day's bars, not on whether it pays out.
 
+## 105. A07: volatility-scaled size does not help; 4 MNQ beats A03's 2 on both histories — the demo runs 4 (S8)
+
+**No trial spent; N 764. Zero edge. Computation record m00154** (`reports/a07_volscaled.json`,
+`reporting/a07_volscaled.py`). **m00153 is superseded:** its `--log` re-read the JSON left by the first,
+vol-only run instead of the full grid (the log is append-only; the record stays, this note corrects it).
+
+A05 showed the fixed 2-MNQ bracket behaves differently by regime (in calm years most brackets end at the
+close). A07 tested a rule fixed before the run — contracts = clip(round(2 × σ_ref / σ̂₂₀), 1, 15) on a
+trailing 20-session σ̂ — and, as controls, the same A01 policy at **fixed** sizes 1–8 MNQ. Two independent
+histories (2021–26, A03's; 2015–20, A05's; drift removed within each, today's contract value), each by
+in-order replay from every start date and by a 21-session block bootstrap (new `a02_real` mode `block`,
+2 × 6,000 paths). 84 trading days of back-to-back $80 attempts.
+
+| P(≥1 payout) / mean net | 2021–26 replay | 2021–26 block | 2015–20 replay | 2015–20 block |
+|---|---|---|---|---|
+| fixed 2 (A03) | 61% / +$675 | 55% / +$509 | 35% / +$180 | 40% / +$95 |
+| fixed 3 | 53% / −$51 | 54% / +$234 | 56% / +$269 | 55% / +$624 |
+| **fixed 4** | **72% / +$1,053** | **69% / +$1,043** | **78% / +$1,527** | **65% / +$1,324** |
+| fixed 5 | 74% / +$1,416 | 67% / +$1,111 | 46% / +$389 | 56% / +$525 |
+| fixed 6 | 83% / +$1,905 | 73% / +$1,390 | 58% / −$9 | 61% / +$401 |
+| fixed 8 | 48% / +$150 | 54% / +$261 | 65% / +$432 | 67% / +$527 |
+
+- **Vol scaling: no reliable gain** over a fixed size of the same average (2021–26 levels 0.75–2.0: 49–93%,
+  non-monotone; 2015–20: 46–71%). The 93% at 1.5× is a spike between 72% and 74%. Dropped.
+- **Size: 4 MNQ beats 2 MNQ on every measure in all four tests**, and is the only size near the top in both
+  histories. 2 MNQ was A03's choice against 3 on one history (§93), where 3 happens to be a dip.
+  Mechanism, plausibly: at 2 MNQ many days end at the close with neither level hit, so the account moves
+  less like the solver's fair coin; at 4 the brackets resolve. The response is not smooth (3 and 8 dip) and
+  4 was picked by looking — mild selection, partly answered by its holding in both histories and both
+  methods. **Effective samples are small** (~16 independent 84-day windows per history).
+- **The demo runs 4 MNQ** (`a06_playbook` default; tables regenerated). Typical tickets: evaluation start
+  +$1,200 / −$1,000 = +151.25 / −123.75 points; funded +$3,000 / −$1,000.
+
+**Two literature leads screened out, no trial:** a gold trend preprint (arXiv 2511.08571: Sharpe 2.88, 43%
+a year at 15% volatility with a 0.52% maximum drawdown — internally inconsistent, spot gold, signal not
+specifiable) and the same-half-hour periodicity (Heston, Korajczyk & Sadka 2010; a cross-sectional stock
+effect with no index-futures evidence).
+
+**Memory note:** the 2.7 GB machine now has ~1 GB free with the editor open; loading the full NQ minute
+series was OOM-killed. `a07_volscaled` streams each era to a subset file and caches the paths under
+`data/cache` (gitignored); results matched the earlier full-series load exactly (sessions, σ).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -163,7 +163,8 @@ def sequential(contracts: int = 2, mode: str = "iid", traders: int = 6000, windo
                seed: int = 94, fee: float = 80.0, passive: bool = False) -> dict:
     """Back-to-back attempts within `window` trading days: one account at a time; a failed evaluation or
     funded account is replaced by a new $80 evaluation the next day. mode 'iid' resamples real sessions;
-    'replay' walks real sessions IN ORDER from every start date (window must fit). Policy as in run()."""
+    'replay' walks real sessions IN ORDER from every start date (window must fit); 'block' strings together
+    21-session blocks of real sessions in order from random starts (regimes kept, many more paths). Policy as in run()."""
     warnings.filterwarnings("ignore")
     import io, contextlib
     if "eval" not in g.POLICY:
@@ -185,11 +186,14 @@ def sequential(contracts: int = 2, mode: str = "iid", traders: int = 6000, windo
         A = len(starts)
     else:
         A = traders
+    BLOCK = 21                                    # mode 'block': real sessions in order, 21-day blocks at random starts
     phase = np.zeros(A, int)                      # 0 eval, 1 funded
     eq = np.full(A, START); pk = eq.copy(); best = np.zeros(A); npay = np.zeros(A, int)
     fees = np.full(A, fee); paid = np.zeros(A); first = np.full(A, -1); attempts = np.ones(A, int)
     for d in range(window):
-        idx = (starts + d) if mode == "replay" else rng.integers(0, S, A)
+        if mode == "block" and d % BLOCK == 0:
+            bstart = rng.integers(0, S - BLOCK, A)
+        idx = (starts + d) if mode == "replay" else (bstart + d % BLOCK) if mode == "block" else rng.integers(0, S, A)
         ev = phase == 0
         fu = ~ev
         b_e = np.clip(np.rint((eq - START) / 100).astype(int), g.B_MIN, g.B_MAX)

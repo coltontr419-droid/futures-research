@@ -683,3 +683,7 @@ real order, one MES by the signal is about break-even. Closed for the account; t
 **Option 2 screen (§103, 2026-10-10):** looking for edges of several bps a held day, the two strongest
 remaining literature candidates failed before any trial — intraday momentum on size (~1 bp a day gross
 on MNQ/MGC inside its own published sample), the pre-holiday effect on post-publication survival. N unchanged at 764.
+
+**Staking size (§105, 2026-10-10):** the zero-edge solved policy at 4 MNQ instead of 2 raises the 4-month payout
+chance to ~65–78% and mean net to +$1,000–1,500 on two independent histories (replay and block bootstrap).
+Volatility-scaled size adds nothing. The demo forward test runs 4 MNQ.

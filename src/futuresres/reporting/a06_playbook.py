@@ -4,8 +4,8 @@
     python -m futuresres.reporting.a06_playbook funded --balance 51200 --peak 51200 --payouts 0
     python -m futuresres.reporting.a06_playbook table          # writes reports/a06_playbook_{eval,funded}.csv
 
-The trade, exactly as replayed in A03 (a02_real.sequential): at 09:30 ET buy 2 MNQ at market; one OCO bracket -
-take-profit +W, stop -L in NET dollars (the order offsets add/subtract the $4.64 round trip, as A02 does); flat
+The trade, exactly as replayed in A03 (a02_real.sequential): at 09:30 ET buy 4 MNQ (default; decisions.md 105) at market; one OCO bracket -
+take-profit +W, stop -L in NET dollars (the order offsets add/subtract the round trips, $2.32 a contract, as A02 does); flat
 at 16:00 ET if neither fills. A state with no trade (policy 0) means stand aside. Inputs are the account's
 END-OF-DAY figures from yesterday: balance, the highest end-of-day balance (the trailing floor's peak), and in
 the evaluation the best single day's profit so far (the 40% consistency rule); in funded, payouts taken.
@@ -25,9 +25,9 @@ import futuresres.reporting.a01_game as g
 
 ROOT = Path(__file__).resolve().parents[3]
 START = 50_000.0
-CONTRACTS = 2
+CONTRACTS = 4                   # decisions.md 105: 4 MNQ beats A03's 2 on both histories, replay and block bootstrap
 MULT = 2.0                      # MNQ $ per point
-COST = 2.32 * CONTRACTS
+RT1 = 2.32
 TICK = 0.25
 
 
@@ -39,11 +39,11 @@ def _solve():
     return g.POLICY["eval"], g.POLICY["funded"]
 
 
-def _pts(usd: float) -> float:
-    return round(usd / (CONTRACTS * MULT) / TICK) * TICK
+def _pts(usd: float, n: int) -> float:
+    return round(usd / (n * MULT) / TICK) * TICK
 
 
-def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0) -> dict:
+def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0, n: int = CONTRACTS) -> dict:
     """The day's order, by the same state rounding and stop cap as a02_real.sequential."""
     pe, pf = _solve()
     peak = max(peak, balance)
@@ -62,15 +62,16 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
         return {"trade": False, "floor": floor}
     W = (a // 100) * 100.0
     L = min((a % 100) * 100.0, max(balance - floor - 1, 1))
-    return {"trade": True, "take_net": W, "stop_net": L, "floor": floor,
-            "take_points": _pts(W + COST), "stop_points": _pts(max(L - COST, 1.0))}
+    cost = RT1 * n
+    return {"trade": True, "contracts": n, "take_net": W, "stop_net": L, "floor": floor,
+            "take_points": _pts(W + cost, n), "stop_points": _pts(max(L - cost, 1.0), n)}
 
 
 def _print(t: dict) -> None:
     if not t["trade"]:
         print(f"NO TRADE today (stand aside). Floor ${t['floor']:,.0f}.")
         return
-    print(f"09:30 ET: BUY {CONTRACTS} MNQ at market, then one OCO bracket on the fill price:\n"
+    print(f"09:30 ET: BUY {t['contracts']} MNQ at market, then one OCO bracket on the fill price:\n"
           f"  take-profit  fill + {t['take_points']:.2f} pts   (≈ +${t['take_net']:,.0f} net)\n"
           f"  stop         fill - {t['stop_points']:.2f} pts   (≈ -${t['stop_net']:,.0f} net)\n"
           f"16:00 ET: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
@@ -106,10 +107,11 @@ def main(argv=None) -> int:
     ap.add_argument("phase", choices=("eval", "funded", "table"))
     ap.add_argument("--balance", type=float, default=START); ap.add_argument("--peak", type=float, default=None)
     ap.add_argument("--best", type=float, default=0.0); ap.add_argument("--payouts", type=int, default=0)
+    ap.add_argument("--contracts", type=int, default=CONTRACTS)
     a = ap.parse_args(argv)
     if a.phase == "table":
         table(); return 0
-    _print(ticket(a.phase, a.balance, a.peak if a.peak is not None else a.balance, a.best, a.payouts))
+    _print(ticket(a.phase, a.balance, a.peak if a.peak is not None else a.balance, a.best, a.payouts, a.contracts))
     return 0
 
 
