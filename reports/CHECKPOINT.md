@@ -641,6 +641,10 @@ by the signal's sign: +$410** (unverified Sharpe for that sizing). **Next: forwa
 replay in real order ≈ break-even (−$5; 2023 starts −$78). Effect real, too small against the account's
 barriers. Lesson: need high Sharpe per day in the market. **Searching for the next Z candidate.**
 
+**Z03 DESIGNED (§90): Treasury end-of-month (Hartley & Schwarz 2019).** Long ZN the last 2 business days
+of each month; test 2019-01 → 2026-09, after the paper's sample. Account check before testing: 1 ZN at the
+prior P(pass) 49%, EV +$202 (~490 days to pass); 2 ZN ~170 days. **Open: Tradeify product permission; go-ahead.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

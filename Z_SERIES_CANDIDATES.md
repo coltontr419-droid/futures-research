@@ -125,3 +125,53 @@ still need a forward demo period.
 - Kurov, Wolfe & Gilbert (2021), [The Disappearing Pre-FOMC Announcement Drift](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3134546).
 - Turn-of-the-month: [Carchano & Pardo summary](https://paperswithbacktest.com/strategies/closing-the-question-on-the-continuation-of-turn-of-the-month-effects-evidence-from-the-s-p-index-futures-contract); Maberly & Waggoner via [CXO Advisory](https://www.cxoadvisory.com/calendar-effects/stock-index-futures-calendar-effects/).
 - Treasury auctions: [Lou, Yan & Zhang](https://personal.lse.ac.uk/loud/Shocks.pdf); [HBS WP 26-033](https://www.hbs.edu/ris/download.aspx?name=26-033.pdf).
+
+---
+
+## Z03 — the Treasury end-of-month effect (designed, specified, not yet run)
+
+**The lesson from Z02 (§89):** in this account an edge must be large relative to the daily swing on the
+days it is held. A modest edge spread over most days loses to the $2,000 trailing floor. So the next
+candidate must be **event-concentrated**.
+
+**Literature checked first:** Hartzmark & Solomon (AER 2025), dividend-reinvestment pressure — real but ~6
+bps on large payout days, far too small for the account, and it needs CRSP's dividend calendar.
+Intraday gamma-hedging momentum (Baltussen et al. 2021) — weakened in the 0DTE era and needs options
+positioning data.
+
+**Source.** Hartley & Schwarz, *Predictable End-of-Month Treasury Returns* (Rodney White Center WP 17-19,
+November 2019), sample 1990–2018.
+
+**Mechanism and counterparty.** Bond-index trackers extend duration when indices rebalance at month-end,
+and insurers — measured directly in the paper — are large net buyers of Treasuries on index rebalancing
+dates (window dressing and duration matching). The buying is scheduled and does not depend on price.
+
+**What the paper measured:** long Treasuries only over the last few days of each month; at other times
+returns are indistinguishable from zero. 10-year note, last 2 days: Sharpe **0.87** (Table 3); 10-year
+**futures**, last 2 days: **+0.14% per month** (Table 8, t ≈ 7); the rest of the month Sharpe 0.04–0.27.
+
+**Specification, fixed now (before any return on our data):**
+- **Long ZN (10-year futures), the last 2 business days of each month** — the window most of the paper's
+  figures and tables use (Figure 1, Table 4), and the 10-year its headline maturity — not chosen from the
+  table's best cell.
+- Entry at 20:00 ET after the close of the 3rd-to-last business day; one session re-entry (flat 17:00–18:00);
+  exit 16:55 ET on the last business day. Daily bars (UTC close), as in Z02.
+- **Test window: 2019-01-01 to 2026-09-11 — after the paper's sample ends (2018).** ~92 months, ~184 held days.
+- Cost: ASSUMED $19.60 per ZN round trip (one tick $15.625 + $4 commission) per day held.
+- **Decision rule, the same form the user approved for Z02:** confirm if the test Sharpe is > 0 and the
+  Tradeify EV at the posterior is positive; prior Normal(0.44, 0.35) — the published 0.87 halved for decay.
+
+**Account check, done BEFORE the test** (real ZN event-day returns with drift removed, Tradeify's rules,
+the drift then imposed; no return of the strategy computed):
+
+| 1 ZN | P(pass) | EV per $80 | median trading days to pass |
+|---|---|---|---|
+| no edge | 22% | −$22 | 489 |
+| prior, Sharpe 0.44 | **49%** | **+$202** | 493 |
+| published, 0.87 | 75% | +$760 | 433 |
+
+With 2 ZN: +$180 / +$692, ~170 days to pass. **Concentrating the edge into 2 days a month lifts the pass
+rate to 49–75% if it is real — what Z02 lacked — at the cost of time: about two years to pass with one
+contract, eight months with two.**
+
+**Open before it runs:** whether Tradeify allows ZN (or the micro 10-year yield contract) in this account.

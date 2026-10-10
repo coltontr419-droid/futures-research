@@ -6644,6 +6644,30 @@ account** at the user's decision 2026-10-09; the finding stands. Lesson carried 
 account an edge must be large relative to the daily swing on the days it is held — a high Sharpe per
 day in the market — or the barriers decide.**
 
+## 90. Z03 designed: the Treasury end-of-month effect, account-checked before any test (S1, S2)
+
+**Designed, not registered. No trial spent; N 762, SR\* 0.1367.** Draft: `Z_SERIES_CANDIDATES.md` (Z03).
+
+The user asked for another hypothesis on the same path. **Z02's lesson made the criteria sharper**: in
+this account the edge must be large relative to the daily swing **on the days it is held**, so the search
+was for event-concentrated forced flows. Rejected after reading: Hartzmark & Solomon (AER 2025, dividend
+reinvestment; ~6 bps on large payout days — too small, and needs CRSP dates); intraday gamma momentum
+(weakened in the 0DTE era; needs options positioning).
+
+**Chosen: Hartley & Schwarz (2019), the Treasury end-of-month effect** — index-duration extension and
+insurer buying at month-end; 10-year note last-2-days Sharpe 0.87, 10-year futures +0.14% a month
+(1990–2018), nothing at other times. **Specification fixed before any return on our data**: long ZN the
+last 2 business days of each month (the window the paper's figures and tables mostly use — not the
+table's best cell); test window 2019-01-01 to 2026-09-11, after the paper's sample; Z02's decision-rule
+form with prior Normal(0.44, 0.35).
+
+**Account check first, as Z02 taught:** real ZN event-day returns, drift removed, the drift imposed —
+one ZN gives P(pass) 49% and EV +$202 per $80 at the prior (75% and +$760 at the published Sharpe;
+−$22 with no edge), but a median of ~490 trading days to pass; two ZN pass in ~170. The effect's
+concentration fixes Z02's problem; the cost is time.
+
+**Open with the user:** whether Tradeify allows ZN or the micro 10-year; go-ahead for the one trial.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

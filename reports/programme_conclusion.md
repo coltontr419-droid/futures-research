@@ -572,8 +572,8 @@ stay in the registry, and their trials stay in N.
 | **W** | **5** | **1** | **1** | **0** |
 | **X** | **7** | **0** | **0** | **0** |
 | **Y** | **7** | **0** | **0** | **0** |
-| **Z** | **2** | **1** | **1** | **0** |
-| **total** | **105** | **39** | **772** | **0** |
+| **Z** | **3** | **1** | **1** | **0** |
+| **total** | **106** | **39** | **772** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
