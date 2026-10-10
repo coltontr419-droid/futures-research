@@ -7065,6 +7065,49 @@ assumes no regime and is the more robust one.** A vol-normalised version (sizing
 daily swing) might transfer, but it is a further refinement on a single historical regime split, and is not
 pursued now. A03 stands as the bar.
 
+## 103. Option 2 — edges big enough to move the solver: two screened out on size or survival (S1, S2)
+
+**No trial spent; N 764, SR\* 0.1367. One computation record (m00152).** `reports/z_screen_intramom.json`
+(`reporting/z_screen_intramom.py`). The user approved option 2 after §102: look only for edges of **several
+bps per held day**, reliably, on MNQ / MES / MGC, and screen on size before spending a trial.
+
+### Market intraday momentum (Baltussen, Da, Lammers & Martens, JFE 2021)
+
+The return from the previous close to 30 minutes before today's close (r_ROD) predicts the last half hour,
+across 60+ futures, 1974–May 2020; the stated mechanism is forced hedging by short-gamma option dealers and
+leveraged ETFs. Published: NQ β 6.36 (t 7.97), R² 4.1%; the equity 1/N timing strategy earns 6.86% a year at
+Sharpe 1.73 — **~2.7 bps a day, gross, for a diversified portfolio**; no costs (the authors say it may not be
+exploitable after costs except at a tick). Already marginal against the bar, so the size was measured **on
+our data inside the paper's own sample** (to 2020-04-30; the script asserts nothing later is read, so the
+2020-05 → 2026 test window stays clean):
+
+| paper's sample, our data | days | corr(r_ROD, r_LH) | timing, gross bps/day (t) | gross Sharpe | net $/day, 1 contract | net Sharpe |
+|---|---|---|---|---|---|---|
+| MNQ (NQ), last half hour 15:30–16:00 | 1,841 | +0.09 | **+1.1** (1.55) | +0.57 | −0.88 | −0.34 |
+| MGC (gold), last half hour 13:00–13:30 | 897 | +0.20 | **+1.2** (2.03) | +1.07 | −1.61 | −0.98 |
+
+(Days whose signal spans a contract roll, or missing a bar at either time, are dropped.) **About 1 bp a day
+before costs, inside the sample that made the claim** — real for gold, but a dollar or two a day on today's
+contract, eaten by the round trip. **Rejected on size; no registration, no trial.** A test on 2020-05 →
+2026 would be well powered for the published size but cannot reach the bar even if the effect survived.
+
+### Pre-holiday effect (Ariel 1990; Lakonishok & Smidt 1988)
+
+Large per held day in the original samples (~20–30 bps on the day before a US market holiday, ~9 days a
+year). **The one peer-reviewed post-publication test** (Ko & Yang, *Critical Finance Review* 2024, 1983–2019)
+finds it **now exists only among small firms; for large firms the difference became insignificant,
+especially after 1990.** Supportive recent sources are a short conference sample and a practitioner blog
+(~0.15% over three days since 2005). **Rejected on survival; no trial.**
+
+### Where option 2 stands
+
+The bar (§95) is a combined annual Sharpe of ~3 for a coin-flip payout within 4 months, or several bps a held
+day for the A01 solver's brackets to move. Every candidate read across §95–§103 is either ≲1–1.5 bps a
+held day before decay or failed its post-publication record; the two that passed tests (Z02 ~0.5, Z05
+~0.2) do not move the account (§101). **No published, surviving, account-tradeable effect of the required
+size has been found.** The search can continue, but the expected yield per candidate is now low; the
+alternative on the table is a demo forward test of the A01/A03 solved policy, which is the bar.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

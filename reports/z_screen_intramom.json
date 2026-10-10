@@ -1,0 +1,32 @@
+{
+ "MNQ": {
+  "window": [
+   "2010-06-21",
+   "2020-04-30"
+  ],
+  "days": 1841,
+  "corr_rod_lh": 0.08793715095466094,
+  "timing_gross_bps_per_day": 1.1231082867426532,
+  "t_gross": 1.5497461502518741,
+  "sd_last_half_hour_bps": 31.117665327724257,
+  "sharpe_gross": 0.5733686485835027,
+  "net_usd_per_day_1_contract": -0.8820577574441106,
+  "sharpe_net_1_contract": -0.3430962051229504,
+  "hit_rate": 0.503530689842477
+ },
+ "MGC": {
+  "window": [
+   "2010-12-07",
+   "2020-04-30"
+  ],
+  "days": 897,
+  "corr_rod_lh": 0.2000648988481747,
+  "timing_gross_bps_per_day": 1.1965714325067283,
+  "t_gross": 2.0277964452784816,
+  "sd_last_half_hour_bps": 17.71665508876686,
+  "sharpe_gross": 1.074801852427758,
+  "net_usd_per_day_1_contract": -1.6131532436824148,
+  "sharpe_net_1_contract": -0.9753867071838781,
+  "hit_rate": 0.5105908584169454
+ }
+}

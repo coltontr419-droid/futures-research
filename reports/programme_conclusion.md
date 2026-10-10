@@ -679,3 +679,7 @@ evaluation** at the posterior — subject to verifying that sizing on forward da
 programme's promotion bar is SR\*, which this rule replaced. `decisions.md` §87–§88.
 **In the account it does not pay (§89):** on today's contract size and replayed from every start date in
 real order, one MES by the signal is about break-even. Closed for the account; the finding stands.
+
+**Option 2 screen (§103, 2026-10-10):** looking for edges of several bps a held day, the two strongest
+remaining literature candidates failed before any trial — intraday momentum on size (~1 bp a day gross
+on MNQ/MGC inside its own published sample), the pre-holiday effect on post-publication survival. N unchanged at 764.

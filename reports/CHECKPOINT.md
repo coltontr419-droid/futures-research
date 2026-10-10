@@ -684,6 +684,10 @@ Weak edges can't move the solver's bracket odds. **Search continues; the bar is 
 **A05 (§102): real-odds re-solve fails** — learned on 2015–20 (57% of brackets end at the close), tested
 2021–26: 43%, −$8 vs A01's 61%, +$675. Fair-odds policy is the robust one; A03 remains the bar.
 
+**Option 2 (§103): two candidates screened out, no trial.** Intraday momentum (Baltussen et al. 2021) is ~1 bp/day
+gross on MNQ and MGC inside the paper's own sample (m00152); pre-holiday has no large-cap effect after 1990
+(Ko & Yang 2024). No surviving effect of several bps/held day found; demo forward test of A03 is the alternative.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
