@@ -6764,6 +6764,48 @@ negative at no edge (fees, time limits, monthly subscriptions, higher buffers).
 - **Strategies:** the Sharpe-1 column is the best published effect found, assumed rather than measured;
   Z02's confirmed edge (0.41) gives 2–14%.
 
+## 93. The A-series: the account played optimally — a payout within 4 months in ~60% of runs (S8)
+
+**No trial spent; N 762, SR\* 0.1367. No market claim (zero edge throughout). One computation record.**
+`A_SERIES.md`; `reporting/a01_game.py`, `reporting/a02_real.py`; `reports/a01_game.json`,
+`a02_real.json`, `a02_sequential.json`.
+
+The user asked for strategies built around prop-firm rules. Noted first, plainly: most quick prop-firm
+successes are the visible tail of very many attempts — the lottery measured in §91–§92 — and software
+cannot create a market edge. **What had never been tried was optimising the STAKING within the rules.**
+
+### A01 — solved exactly (fair odds)
+
+Daily bracket choice (+W / −L), dynamic programming on Tradeify's evaluation and funded rules. **Max
+P(pass) 30% within ~10 trading days** (vs ~19% passive); funded P(first payout) 48%; whole path P(payout
+within 84 days) 14.5%, EV +$245 per attempt. Three defects found and fixed on the way, each recorded in
+code: odds priced on a stop beyond the floor (gave 41%, above the 40% fair ceiling); a free "wait" action
+that tied with trading once values settled and left 4,602 reachable states idle; orders not netted for
+cost, which left the deciding day $7 short of the target.
+
+### A02 — real MNQ minute paths
+
+Engine checked on fair synthetic paths (26.4% with costs, vs 30% without). On real paths, drift removed:
+2 MNQ — P(pass) 23%, P(payout within 84 days) 8%, EV +$123 per $80; median 7 days to pass, 12 to a
+first payout. **Real intraday behaviour erases most of the single-attempt gain; the speed remains.**
+
+### A03 — back-to-back attempts over 84 trading days
+
+**Solved policy, 2 MNQ, real history replayed from every start date: P(at least one payout) 61%, median
+first payout on day 38, ~10 attempts ($824 in fees), mean net +$675, P(net > 0) 45%** (resampled: 53%,
++$763). Passive 1 MNQ, the same way: 32%, +$84. 3 MNQ replayed: −$51.
+
+### Decisions taken rather than resolved silently
+
+1. **"Wait" is not an action** in the solved game: in a fair game it never raises the objective, and as a
+   tie-break it stranded accounts.
+2. **The evaluation policy is the one solved for P(pass within 21 days); the funded policy maximises
+   expected dollars within 21 days** — applied as stationary tables.
+3. **No market claim**: every path is demeaned; the result is a property of the rules plus real intraday
+   path shape and costs.
+4. **Open, for the user:** whether Tradeify's terms allow this bracket behaviour; real commission; a
+   forward demo of the exact policy before money.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

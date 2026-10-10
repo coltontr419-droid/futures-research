@@ -653,6 +653,11 @@ available approaches it. The account's geometry, not only the edge, sets the fro
 Lucid Flex 13% (no edge) / 21% (Sharpe 1) — but only if its drawdown is checked at the close; intraday
 8% / 13%, level with Topstep (9% / 17%) and Tradeify Select Daily (7% / 12%). No firm makes it likely.
 
+**A-SERIES, 2026-10-09 (§93): the account played optimally.** Staking solved by DP on Tradeify's rules,
+executed on real MNQ paths with drift removed. Single attempt (2 MNQ): pass 23%, EV +$123, resolves in
+1–2 weeks. **Back-to-back for 4 months, real history replayed: P(≥1 payout) 61%, mean net +$675 after
+~$824 fees, P(net > 0) 45%** (passive: 32%, +$84). **Next: confirm Tradeify permits it; forward demo.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

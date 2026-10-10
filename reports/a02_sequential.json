@@ -1,0 +1,112 @@
+{
+ "iid_2": {
+  "contracts": 2,
+  "mode": "iid",
+  "traders": 6000,
+  "window_days": 84,
+  "p_any_payout": 0.5283333333333333,
+  "median_day_first_payout": 36.0,
+  "mean_attempts": 9.785833333333333,
+  "mean_fees": 782.8666666666667,
+  "mean_paid": 1545.949427869928,
+  "mean_net": 763.0827612032613,
+  "p_net_positive": 0.4255,
+  "net_p10_p50_p90": [
+   -1040.0,
+   -320.0,
+   4047.2326338577277
+  ]
+ },
+ "iid_3": {
+  "contracts": 3,
+  "mode": "iid",
+  "traders": 6000,
+  "window_days": 84,
+  "p_any_payout": 0.6285,
+  "median_day_first_payout": 34.0,
+  "mean_attempts": 12.939666666666668,
+  "mean_fees": 1035.1733333333334,
+  "mean_paid": 2165.2704275253295,
+  "mean_net": 1130.0970941919963,
+  "p_net_positive": 0.5006666666666667,
+  "net_p10_p50_p90": [
+   -1280.0,
+   4.775687408447311,
+   5087.032924270633
+  ]
+ },
+ "replay_2": {
+  "contracts": 2,
+  "mode": "replay",
+  "traders": 1303,
+  "window_days": 84,
+  "p_any_payout": 0.6055257099002302,
+  "median_day_first_payout": 38.0,
+  "mean_attempts": 10.302379125095932,
+  "mean_fees": 824.1903300076746,
+  "mean_paid": 1498.877448973396,
+  "mean_net": 674.6871189657213,
+  "p_net_positive": 0.45049884881043745,
+  "net_p10_p50_p90": [
+   -960.0,
+   -229.08198165893552,
+   3797.673818969727
+  ]
+ },
+ "replay_3": {
+  "contracts": 3,
+  "mode": "replay",
+  "traders": 1303,
+  "window_days": 84,
+  "p_any_payout": 0.5280122793553338,
+  "median_day_first_payout": 39.0,
+  "mean_attempts": 13.220260936300845,
+  "mean_fees": 1057.6208749040675,
+  "mean_paid": 1006.5227369180387,
+  "mean_net": -51.09813798602877,
+  "p_net_positive": 0.3844973138910207,
+  "net_p10_p50_p90": [
+   -1280.0,
+   -720.0,
+   2033.027201538084
+  ]
+ },
+ "passive_iid_1": {
+  "contracts": 1,
+  "mode": "iid",
+  "passive": true,
+  "traders": 6000,
+  "window_days": 84,
+  "p_any_payout": 0.2813333333333333,
+  "median_day_first_payout": 48.0,
+  "mean_attempts": 6.288333333333333,
+  "mean_fees": 503.06666666666666,
+  "mean_paid": 605.9987295186103,
+  "mean_net": 102.93206285194358,
+  "p_net_positive": 0.22616666666666665,
+  "net_p10_p50_p90": [
+   -720.0,
+   -480.0,
+   1813.736418552399
+  ]
+ },
+ "passive_replay_1": {
+  "contracts": 1,
+  "mode": "replay",
+  "passive": true,
+  "traders": 1303,
+  "window_days": 84,
+  "p_any_payout": 0.3177283192632387,
+  "median_day_first_payout": 55.0,
+  "mean_attempts": 6.082118188795088,
+  "mean_fees": 486.5694551036071,
+  "mean_paid": 570.2187375859123,
+  "mean_net": 83.64928248230532,
+  "p_net_positive": 0.2409823484267076,
+  "net_p10_p50_p90": [
+   -640.0,
+   -400.0,
+   2161.3795763015746
+  ]
+ }
+}

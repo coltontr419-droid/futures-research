@@ -1,0 +1,47 @@
+{
+ "2": {
+  "contracts": 2,
+  "p_pass": 0.23375,
+  "days_to_pass_median": 7.0,
+  "p_payout_84": 0.07975,
+  "days_to_first_payout_median": 12.0,
+  "dollars_84": 203.0705184994966,
+  "ev_84": 123.07051849949659,
+  "ev_2y": 123.44278846032921,
+  "bracket_outcomes": {
+   "take": 0.38120285358824546,
+   "stop": 0.3789665978991795,
+   "time": 0.23983054851257501
+  }
+ },
+ "3": {
+  "contracts": 3,
+  "p_pass": 0.218375,
+  "days_to_pass_median": 5.0,
+  "p_payout_84": 0.07125,
+  "days_to_first_payout_median": 8.0,
+  "dollars_84": 189.3712987579465,
+  "ev_84": 109.3712987579465,
+  "ev_2y": 109.3712987579465,
+  "bracket_outcomes": {
+   "take": 0.4233889484157355,
+   "stop": 0.47565109007019307,
+   "time": 0.10095996151407141
+  }
+ },
+ "5": {
+  "contracts": 5,
+  "p_pass": 0.18925,
+  "days_to_pass_median": 5.0,
+  "p_payout_84": 0.066625,
+  "days_to_first_payout_median": 6.0,
+  "dollars_84": 165.08013566064835,
+  "ev_84": 85.08013566064835,
+  "ev_2y": 85.08013566064835,
+  "bracket_outcomes": {
+   "take": 0.4339525841118972,
+   "stop": 0.5484419722417239,
+   "time": 0.017605443646379004
+  }
+ }
+}
