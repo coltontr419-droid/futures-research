@@ -2,7 +2,8 @@
 
     python -m futuresres.reporting.a06_playbook eval   --balance 50300 --peak 50300 --best 300
     python -m futuresres.reporting.a06_playbook funded --balance 51200 --peak 51200 --payouts 0
-    python -m futuresres.reporting.a06_playbook table          # writes reports/a06_playbook_{eval,funded}.csv
+    python -m futuresres.reporting.a06_playbook eval --product MGC --balance 50000   # the gold account (8 MGC, 03:00-11:30 ET)
+    python -m futuresres.reporting.a06_playbook table [--product MGC]   # writes reports/a06_playbook_{eval,funded}[_mgc].csv
 
 The trade, exactly as replayed in A03 (a02_real.sequential): at 09:30 ET buy 4 MNQ (default; decisions.md 105) at market; one OCO bracket -
 take-profit +W, stop -L in NET dollars (the order offsets add/subtract the round trips, $2.32 a contract, as A02 does); flat
@@ -25,10 +26,12 @@ import futuresres.reporting.a01_game as g
 
 ROOT = Path(__file__).resolve().parents[3]
 START = 50_000.0
-CONTRACTS = 4                   # decisions.md 105: 4 MNQ beats A03's 2 on both histories, replay and block bootstrap
-MULT = 2.0                      # MNQ $ per point
-RT1 = 2.32
-TICK = 0.25
+#: per product: default size, $ per point, round trip per contract, tick, entry and exit (ET).
+#: MNQ 4 - decisions.md 105 (beats A03's 2 on both histories). MGC 8 London long - decisions.md 106 (the Y03
+#: gold cell; 8 matches 4 MNQ's daily $ swing; near-uncorrelated with the MNQ account).
+PRODUCTS = {"MNQ": {"n": 4, "mult": 2.0, "rt": 2.32, "tick": 0.25, "entry": "09:30", "exit": "16:00"},
+            "MGC": {"n": 8, "mult": 10.0, "rt": 3.32, "tick": 0.10, "entry": "03:00", "exit": "11:30"}}
+CONTRACTS = PRODUCTS["MNQ"]["n"]
 
 
 def _solve():
@@ -39,13 +42,15 @@ def _solve():
     return g.POLICY["eval"], g.POLICY["funded"]
 
 
-def _pts(usd: float, n: int) -> float:
-    return round(usd / (n * MULT) / TICK) * TICK
+def _pts(usd: float, n: int, p: dict) -> float:
+    return round(round(usd / (n * p["mult"]) / p["tick"]) * p["tick"], 2)
 
 
-def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0, n: int = CONTRACTS) -> dict:
+def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0, n: int | None = None,
+           product: str = "MNQ") -> dict:
     """The day's order, by the same state rounding and stop cap as a02_real.sequential."""
     pe, pf = _solve()
+    p = PRODUCTS[product]; n = n or p["n"]
     peak = max(peak, balance)
     if phase == "eval":
         b = int(np.clip(np.rint((balance - START) / 100), g.B_MIN, g.B_MAX))
@@ -62,22 +67,23 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
         return {"trade": False, "floor": floor}
     W = (a // 100) * 100.0
     L = min((a % 100) * 100.0, max(balance - floor - 1, 1))
-    cost = RT1 * n
-    return {"trade": True, "contracts": n, "take_net": W, "stop_net": L, "floor": floor,
-            "take_points": _pts(W + cost, n), "stop_points": _pts(max(L - cost, 1.0), n)}
+    cost = p["rt"] * n
+    return {"trade": True, "product": product, "contracts": n, "entry": p["entry"], "exit": p["exit"],
+            "take_net": W, "stop_net": L, "floor": floor,
+            "take_points": _pts(W + cost, n, p), "stop_points": _pts(max(L - cost, 1.0), n, p)}
 
 
 def _print(t: dict) -> None:
     if not t["trade"]:
         print(f"NO TRADE today (stand aside). Floor ${t['floor']:,.0f}.")
         return
-    print(f"09:30 ET: BUY {t['contracts']} MNQ at market, then one OCO bracket on the fill price:\n"
+    print(f"{t['entry']} ET: BUY {t['contracts']} {t['product']} at market, then one OCO bracket on the fill price:\n"
           f"  take-profit  fill + {t['take_points']:.2f} pts   (≈ +${t['take_net']:,.0f} net)\n"
           f"  stop         fill - {t['stop_points']:.2f} pts   (≈ -${t['stop_net']:,.0f} net)\n"
-          f"16:00 ET: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
+          f"{t['exit']} ET: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
 
 
-def table() -> None:
+def table(product: str = "MNQ") -> None:
     """Every reachable state's ticket, for reference without Python."""
     rows = ["balance,peak,best_day,trade,take_net,stop_net,take_points,stop_points"]
     for b in range(-19, 30):
@@ -85,21 +91,22 @@ def table() -> None:
             for bd in range(0, 13):
                 if bd > max(pk, 0):
                     continue
-                t = ticket("eval", START + 100 * b, START + 100 * pk, 100 * bd)
+                t = ticket("eval", START + 100 * b, START + 100 * pk, 100 * bd, product=product)
                 rows.append(f"{START+100*b:.0f},{START+100*pk:.0f},{100*bd},{int(t['trade'])},"
                             + (f"{t['take_net']:.0f},{t['stop_net']:.0f},{t['take_points']},{t['stop_points']}" if t["trade"] else ",,,"))
-    (ROOT / "reports" / "a06_playbook_eval.csv").write_text("\n".join(rows) + "\n")
+    sfx = "" if product == "MNQ" else f"_{product.lower()}"
+    (ROOT / "reports" / f"a06_playbook_eval{sfx}.csv").write_text("\n".join(rows) + "\n")
     rows = ["balance,peak,payouts,trade,take_net,stop_net,take_points,stop_points"]
     for b in range(-19, 21):
         for pk in range(max(b, 0), 21):
             if pk - b >= 20 and pk < 20:
                 continue
             for n in range(0, g.LIVE_AFTER + 1):
-                t = ticket("funded", START + 100 * b, START + 100 * pk, payouts=n)
+                t = ticket("funded", START + 100 * b, START + 100 * pk, payouts=n, product=product)
                 rows.append(f"{START+100*b:.0f},{START+100*pk:.0f},{n},{int(t['trade'])},"
                             + (f"{t['take_net']:.0f},{t['stop_net']:.0f},{t['take_points']},{t['stop_points']}" if t["trade"] else ",,,"))
-    (ROOT / "reports" / "a06_playbook_funded.csv").write_text("\n".join(rows) + "\n")
-    print("wrote reports/a06_playbook_eval.csv, reports/a06_playbook_funded.csv")
+    (ROOT / "reports" / f"a06_playbook_funded{sfx}.csv").write_text("\n".join(rows) + "\n")
+    print(f"wrote reports/a06_playbook_eval{sfx}.csv, reports/a06_playbook_funded{sfx}.csv")
 
 
 def main(argv=None) -> int:
@@ -107,11 +114,12 @@ def main(argv=None) -> int:
     ap.add_argument("phase", choices=("eval", "funded", "table"))
     ap.add_argument("--balance", type=float, default=START); ap.add_argument("--peak", type=float, default=None)
     ap.add_argument("--best", type=float, default=0.0); ap.add_argument("--payouts", type=int, default=0)
-    ap.add_argument("--contracts", type=int, default=CONTRACTS)
+    ap.add_argument("--contracts", type=int, default=None)
+    ap.add_argument("--product", choices=tuple(PRODUCTS), default="MNQ")
     a = ap.parse_args(argv)
     if a.phase == "table":
-        table(); return 0
-    _print(ticket(a.phase, a.balance, a.peak if a.peak is not None else a.balance, a.best, a.payouts, a.contracts))
+        table(a.product); return 0
+    _print(ticket(a.phase, a.balance, a.peak if a.peak is not None else a.balance, a.best, a.payouts, a.contracts, a.product))
     return 0
 
 

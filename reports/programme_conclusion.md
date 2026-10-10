@@ -687,3 +687,6 @@ on MNQ/MGC inside its own published sample), the pre-holiday effect on post-publ
 **Staking size (§105, 2026-10-10):** the zero-edge solved policy at 4 MNQ instead of 2 raises the 4-month payout
 chance to ~65–78% and mean net to +$1,000–1,500 on two independent histories (replay and block bootstrap).
 Volatility-scaled size adds nothing. The demo forward test runs 4 MNQ.
+
+**Gold account (§106):** the same staking on 8 MGC (London, long) gives 48–64% / +$700–1,350 over 4 months on two
+histories, nearly uncorrelated (+0.06) with the MNQ account — a second, near-independent attempt.

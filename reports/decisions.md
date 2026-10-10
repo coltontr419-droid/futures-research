@@ -7170,6 +7170,34 @@ effect with no index-futures evidence).
 series was OOM-killed. `a07_volscaled` streams each era to a subset file and caches the paths under
 `data/cache` (gitignored); results matched the earlier full-series load exactly (sessions, σ).
 
+## 106. A08: the same staking on gold — 8 MGC London long, a second, near-independent account (S8)
+
+**No trial spent; N 764. Zero edge. Computation record m00155** (`reports/a08_gold.json`,
+`reporting/a08_gold.py`). The A01 policy on **MGC, London 03:00–11:30 ET, long — the gold cell fixed in Y03
+(§83) before any of this**, at fixed sizes 2–15; A07's tests (2011–20 and 2021–26 histories, drift removed
+within each, today's contract value; in-order replay and 21-session block bootstrap; 84 trading days of
+back-to-back $80 attempts). One MGC's daily window swing: $362 (2011–20), $386 (2021–26).
+
+| P(≥1 payout) / mean net | 2011–20 replay | 2011–20 block | 2021–26 replay | 2021–26 block |
+|---|---|---|---|---|
+| 2 MGC | 17% / +$46 | 22% / +$13 | 35% / −$66 | 33% / +$64 |
+| 4 | 40% / −$112 | 47% / +$313 | 60% / +$858 | 51% / +$575 |
+| 6 | 52% / +$433 | 60% / +$586 | 62% / +$1,594 | 58% / +$1,073 |
+| **8** | **60% / +$1,352** | **64% / +$1,353** | **48% / +$1,299** | **54% / +$692** |
+| 10 | 78% / +$2,710 | 74% / +$2,395 | 48% / +$829 | 49% / +$521 |
+| 12 | 77% / +$3,274 | 77% / +$2,892 | 55% / +$571 | 53% / +$394 |
+| 15 | 77% / +$2,591 | 77% / +$2,467 | 55% / +$265 | 55% / +$129 |
+
+- **The best size differs by era** (10–12 in 2011–20, 6 in 2021–26), so the best cell is not taken.
+  **8 MGC is chosen by matching risk, not by its row:** its daily $ swing (~$3,100) is close to 4 MNQ's
+  (~$2,800). Across both products the plan does best when the position's daily swing is roughly 2.5–4× the
+  $1,000 stop — enough for brackets to resolve rather than end at the close (an observation from two
+  products' grids, not a fitted rule).
+- **Correlation of daily results with the MNQ account: +0.06 (2021–26) and +0.06 (2011–20).** Two accounts
+  are close to independent attempts.
+- Playbook: `a06_playbook ... --product MGC` (8 MGC, buy at 03:00 ET, flat at 11:30 ET); tables
+  `reports/a06_playbook_{eval,funded}_mgc.csv`. The 03:00 entry needs a time-triggered order.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
