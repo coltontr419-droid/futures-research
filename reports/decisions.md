@@ -7259,6 +7259,27 @@ evaluations, one passed (funded failed in 3 days), net −$560. **Both sit at th
 29–31-session stretch** (MNQ −$320, MGC −$400; P(net > 0) at that length 29% / 38%). Six weeks can neither
 confirm nor refute a plan whose value shows over four months.
 
+## 109. A11: the edge bar for the staking plans — Sharpe 0.25–0.5 on the window's direction now pays (S2, S8)
+
+**No trial spent; N 764. Computation record m00160** (`reports/a11_edge_bar.json`, `reporting/a11_edge_bar.py`).
+Route 2's bar (§95) asked an edge to win the account on its own: annual Sharpe ~3. The plans now earn from the
+account's structure (§105–§108), so an edge only has to **tilt each day's bracket** — pick its direction, or
+make the long side likelier. Planted as a drift of S/√252 × σ_window per session on the drift-free paths,
+stops filling at the stop price, 84 trading days (P(payout) / mean net, block bootstrap; replay similar):
+
+| annual Sharpe on the window | 4 MNQ 2021–26 | 4 MNQ 2015–20 | 8 MGC 2021–26 | 8 MGC 2011–20 |
+|---|---|---|---|---|
+| 0 | 71% +$1,317 | 65% +$1,685 | 76% +$2,031 | 76% +$2,419 |
+| 0.25 | 72% +$1,475 | 65% +$1,789 | 80% +$2,556 | 81% +$2,872 |
+| 0.5 | 73% +$1,574 | 70% +$1,966 | 81% +$3,251 | 81% +$3,196 |
+| 1.0 | 78% +$1,935 | 76% +$2,651 | 83% +$3,708 | 85% +$4,078 |
+| 2.0 | 82% +$2,816 | 85% +$4,493 | 90% +$5,439 | 91% +$6,994 |
+
+**The new screening bar: a directional effect of annual Sharpe ≥ ~0.25 on the traded window (≈1.5 bps a
+day), surviving after publication, is worth +$100–600 per 4 months — most on gold.** Candidates rejected in
+§95–§103 only for SIZE (not for decay) are reopened against it; those rejected for not surviving publication
+stay out. The window matters: an effect must act inside 09:30–16:00 (MNQ) or 03:00–11:30 ET (MGC).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

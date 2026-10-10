@@ -706,6 +706,9 @@ never through the 17:00–18:00 break.
 results rise: 4 MNQ 65–79% / +$1,140–1,830; 8 MGC 74–77% / +$2,030–2,420. Forward 6 weeks: MNQ −$160 (in funded),
 MGC −$560 — both at the historical median for that length. New data in data/{raw,parquet,continuous}_update.
 
+**A11 (§109): new edge bar.** A directional tilt of annual Sharpe ≥ ~0.25 on the traded window adds +$100–600 per
+4 months (most on gold); 0.5 adds +$260–1,450. Screen against THAT, not §95's Sharpe-3 bar.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
