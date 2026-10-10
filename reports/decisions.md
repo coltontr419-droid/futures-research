@@ -7302,6 +7302,28 @@ Normal(0.2, 0.3), an assumption (the paper charts per-instrument Sharpes, 0 to ~
 **Outcome injection** (`reports/z06_injection.json`): Sharpe 0.2 planted by bootstrap, recovered 0.197 (MNQ,
 2,638 sessions, SD 0.31) and 0.201 (MGC, 2,846, SD 0.30); P(estimate > 0) 72% / 74%.
 
+### Z06 run: rejected on both products — the plans stay always-long (S6–S8)
+
+**One trial spent: t00771. N 764 → 765.** `reports/z06_trial.{json,md}`.
+
+| | MNQ 09:30–16:00 (2015-11 → 2026-08) | MGC 03:00–11:30 (2011-07 → 2026-08) |
+|---|---|---|
+| sessions; share short | 2,638; 12% | 2,846; 34% |
+| **Sharpe, sign × window** (needs > 0) | **−0.17** | **−0.25** |
+| Sharpe, always long | +0.35 | +0.13 |
+| window mean on short-signal sessions | **+14.8 bps** | +2.9 bps |
+| posterior | +0.02 ± 0.22 | −0.03 ± 0.21 |
+| by period, signal / long | 2016–20 −0.15 / +0.44; 2021–26 −0.16 / +0.32 | 2011–15 −0.86 / −1.16; 2016–20 −0.18 / +0.68; 2021–26 −0.14 / +0.11 |
+
+**REJECTED on both:** conditions (1) and (2) fail for each, (3) also for MGC. The months the trend said "short"
+were UP in both windows; in every period the signal trails always-long except gold's 2011–15 bear market,
+where both were negative. Z06 retired.
+
+**A by-product, descriptive:** with real drift, always-long earned Sharpe +0.35 in the MNQ window (2.5 bps a
+session) and +0.13 in the MGC window over these years. The zero-edge backtests remove it; by §109's table a
+realised drift of this size adds roughly +$100–300 per 4 months to MNQ. It is the equity premium inside the
+window, not an edge to count on.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

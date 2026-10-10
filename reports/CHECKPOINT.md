@@ -709,6 +709,9 @@ MGC −$560 — both at the historical median for that length. New data in data/
 **A11 (§109): new edge bar.** A directional tilt of annual Sharpe ≥ ~0.25 on the traded window adds +$100–600 per
 4 months (most on gold); 0.5 adds +$260–1,450. Screen against THAT, not §95's Sharpe-3 bar.
 
+**Z06 (§110), t00771, N 765: trend sign as bracket direction REJECTED on both** (MNQ −0.17, MGC −0.25 vs always-long
++0.35 / +0.13). Plans stay always-long.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

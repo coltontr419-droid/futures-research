@@ -694,3 +694,6 @@ histories, nearly uncorrelated (+0.06) with the MNQ account — a second, near-i
 **Stop fills and unseen data (§108):** with stops filled at the stop price (the user's execution) the plans are better
 than A07/A08 reported — 4 MNQ 65–79% / +$1,140–1,830, 8 MGC 74–77% / +$2,030–2,420 over 4 months. Six weeks after
 the data (2026-08-28 → 10-09) both plans landed at the historical median for that length.
+
+**Z06 (§110, t00771):** the 12-month trend sign does not predict the plans' intraday windows (MNQ −0.17, MGC −0.25;
+always-long +0.35 / +0.13). Retired; the plans stay always-long.

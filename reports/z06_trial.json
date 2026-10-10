@@ -1,0 +1,110 @@
+{
+ "hypothesis": "Z06",
+ "products": {
+  "MNQ": {
+   "window": [
+    "2015-11-20",
+    "2026-08-27"
+   ],
+   "sessions": 2638,
+   "sharpe_signal": -0.167835717768015,
+   "sharpe_always_long": 0.3543390414150524,
+   "mean_signal_bps": -1.1804576390783201,
+   "mean_long_bps": 2.4917306724788837,
+   "short_share": 0.12395754359363154,
+   "mean_bps_on_short_days": 14.812282516648171,
+   "posterior": {
+    "mean": 0.02181808294672701,
+    "sd": 0.21541457328251779
+   },
+   "eras": {
+    "2011-15": {
+     "sessions": 25,
+     "sharpe_signal": -1.883558920208901,
+     "sharpe_long": -1.883558920208901,
+     "short_share": 0.0
+    },
+    "2016-20": {
+     "sessions": 1226,
+     "sharpe_signal": -0.14552887283669755,
+     "sharpe_long": 0.43806962115303083,
+     "short_share": 0.06688417618270799
+    },
+    "2021-26": {
+     "sessions": 1387,
+     "sharpe_signal": -0.1610738790758804,
+     "sharpe_long": 0.3221786042809386,
+     "short_share": 0.17664023071377072
+    }
+   },
+   "conditions": {
+    "sharpe_gt_0": false,
+    "beats_always_long": false,
+    "posterior_gt_0": true
+   },
+   "decision": "REJECT"
+  },
+  "MGC": {
+   "window": [
+    "2011-07-01",
+    "2026-08-27"
+   ],
+   "sessions": 2846,
+   "sharpe_signal": -0.25154348055066816,
+   "sharpe_always_long": 0.12823587430467817,
+   "mean_signal_bps": -1.2767667768524629,
+   "mean_long_bps": 0.6509511599885297,
+   "short_share": 0.3355586788475053,
+   "mean_bps_on_short_days": 2.8724006535337514,
+   "posterior": {
+    "mean": -0.02742319763892751,
+    "sd": 0.2113547670157725
+   },
+   "eras": {
+    "2011-15": {
+     "sessions": 297,
+     "sharpe_signal": -0.856702883253092,
+     "sharpe_long": -1.1575367760051107,
+     "short_share": 0.632996632996633
+    },
+    "2016-20": {
+     "sessions": 1164,
+     "sharpe_signal": -0.17505274929779832,
+     "sharpe_long": 0.6786254923705596,
+     "short_share": 0.34192439862542956
+    },
+    "2021-26": {
+     "sessions": 1385,
+     "sharpe_signal": -0.141014253614826,
+     "sharpe_long": 0.10916270686038507,
+     "short_share": 0.2664259927797834
+    }
+   },
+   "conditions": {
+    "sharpe_gt_0": false,
+    "beats_always_long": false,
+    "posterior_gt_0": false
+   },
+   "decision": "REJECT"
+  }
+ },
+ "injection": {
+  "MNQ": {
+   "n_sessions": 2638,
+   "sought_sharpe": 0.2,
+   "mean_estimate": 0.19701477276526466,
+   "sd_estimate": 0.3095068151658668,
+   "power_sharpe_gt_0": 0.72,
+   "recovered": true
+  },
+  "MGC": {
+   "n_sessions": 2846,
+   "sought_sharpe": 0.2,
+   "mean_estimate": 0.20147488298102706,
+   "sd_estimate": 0.29781355098759293,
+   "power_sharpe_gt_0": 0.74,
+   "recovered": true
+  },
+  "recovered": true
+ }
+}

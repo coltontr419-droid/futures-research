@@ -4170,12 +4170,18 @@
   horizon_minutes: [390, 510]
   hold_hours: [6.5, 8.5]
   registered: 2026-10-10
-  status: untested
+  status: retired
+  retired: 2026-10-10
+  retired_reason: >
+    Trial t00771 (decisions.md 110), REJECTED on both products. Sign x window Sharpe: MNQ -0.17 (2015-11 to
+    2026-08; always-long +0.35), MGC -0.25 (2011-07 to 2026-08; always-long +0.13). Sessions in short-signal
+    months ROSE in both windows (MNQ +14.8 bps, MGC +2.9 bps). Posterior MNQ +0.02 +/- 0.22, MGC -0.03 +/- 0.21.
+    The trend sign does not predict these intraday windows; the plans stay always-long.
   schedulable: false
   schedulable_note: >
     Not event-rate gated (a position every session); the runner refuses to run without its outcome injection.
     Registered before any Z06 return was computed. W04 never reported its trend sleeve per market or gross.
-  test_order: 8
+  test_order: null
   registered_test_order: 28
   grade: B
   tier: B

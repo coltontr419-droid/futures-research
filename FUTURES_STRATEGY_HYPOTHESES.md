@@ -595,7 +595,7 @@ Blose, Gondhalekar & Kort (2018): COMEX gold earns positive returns overnight an
 day session (1985–2012). 1 MGC long 18:00–08:20, short 08:20–13:30, long 13:30–16:55 ET; tested 2013–2026.
 One trial. `hypotheses.yaml` (Z05) · `decisions.md` §99–§100
 
-## Z06 — Trend Sign Sets the Bracket's Direction  *(registered, untested)*
+## Z06 — Trend Sign Sets the Bracket's Direction  *(RETIRED — t00771, worse than always-long on both)*
 
 Moskowitz, Ooi & Pedersen (2012): the sign of the past 12-month return predicts the next month, in every
 one of 58 futures (1985–2009). A follow-on to W04: here the sign only chooses the daily bracket's direction
