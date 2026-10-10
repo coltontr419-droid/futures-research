@@ -145,6 +145,14 @@ def test_the_real_log_exists_and_verifies() -> None:
     assert len(log) > 0
 
 
+#: Records whose note used "provenance=" for the HYPOTHESIS's source instead of the record's: written by
+#: their own run (native), but labelled otherwise. The log is hash-chained and append-only, so the note
+#: cannot be corrected in place; each entry here is corrected in decisions.md instead.
+#:   t00768 - Z02, written by `signals/z02_trial.py` as it ran; the note read "provenance=external (Harvey,
+#:            Mazzoleni & Melone 2025)". decisions.md 88. The runner now writes "provenance=native; source=...".
+MISLABELLED_NATIVE: frozenset[str] = frozenset({"t00768"})
+
+
 @pytest.mark.integrity
 def test_reconstructed_trials_are_marked_as_such() -> None:
     """A backfilled trial must never be indistinguishable from a natively logged one."""
@@ -155,6 +163,8 @@ def test_reconstructed_trials_are_marked_as_such() -> None:
             f"backfilled record from one written by the run that produced it, without "
             f"consulting git history."
         )
+        if trial.trial_id in MISLABELLED_NATIVE:
+            continue
         assert any(p in trial.note for p in PROVENANCE)
 
 

@@ -6533,6 +6533,76 @@ standard error the posterior will use.
 - `schedulable: false` as for W04: the event-rate gate does not apply to a position held most days; the
   runner refuses to run without the check and the injection.
 
+## 88. Z02 run: the rebalancing effect survives out of sample — confirmed (S6–S8)
+
+**One trial spent: t00768. N 761 → 762.** Report: `reports/z02_trial.md`; full results
+`reports/z02_trial.json` (including the corrected EV and the sizing comparison).
+
+### The test — 2023-03-18 to 2026-09-11, after the paper's sample
+
+| | T | Sharpe gross | Sharpe net |
+|---|---|---|---|
+| **test window** | 908 | +0.66 | **+0.51** |
+| 2010–2023-03-17 (inside the paper's sample; context, not evidence) | 3,312 | +0.68 | +0.37 |
+
+- **Rotation null (500): the real result beats 98.4% of rotations** (mean −0.51, 95th percentile +0.25).
+  The null mean is negative because the signal leans short (equities were mostly "overweight" in a rising
+  market); the strategy earned +0.51 against that lean, not because of it.
+- Outcome injection (before the run): Sharpe 0.5 recovered as 0.52 at this n, SD 0.49.
+- **Posterior Sharpe 0.50 ± 0.28** (prior Normal(0.5, 0.35), test 0.51, SE 0.49).
+
+**By the user's rule (§86–§87): CONFIRM** — the test Sharpe is positive with the published sign, and the
+Tradeify EV at the posterior is positive. **The first rebalancing-effect result on data after its
+publication sample, and the first hypothesis in twelve series to pass its own pre-registered rule.**
+
+### A correction to the decision's EV component, made in the open
+
+The trial's record (t00768) carries an EV at the posterior of +$27. **That figure charged the MES cost
+twice**: the posterior is a Sharpe NET of cost, and the EV code subtracted the cost again. Corrected
+(`z02_trial._prop_ev`), with the same sizing: **+$93 at the posterior** (−$18 at zero edge; +$15 and +$202
+at ±1 SD). The decision does not change; the trial log is append-only and keeps the first figure, and
+this section is the correction.
+
+### Sizing — an economics choice, compared on shape, not on realised returns
+
+The EV simulation imposes the drift, so comparing sizings compares the SHAPE of the returns (variance,
+skew, the consistency rule) and does not re-test the edge. Four rules fixed before the comparison, EV per
+$80 at Sharpe 0 / 0.22 / **0.50** / 0.79:
+
+| sizing | daily $σ | EV |
+|---|---|---|
+| the paper's proportional weights, capped at 5 MES | 369 | −18 / +15 / **+93** / +202 |
+| proportional, capped at 2 | 258 | +25 / +91 / **+226** / +453 |
+| **sign of the signal, 1 MES** | **175** | **+50 / +161 / +410 / +836** (P(pass) 36% at 0.50) |
+| sign of the signal, 2 MES | 350 | +25 / +75 / +173 / +319 |
+
+**One MES in the signal's direction is the best fit for this account by a wide margin**: small, steady
+daily swings sit well inside the trailing floor and the 40% consistency rule, and the edge does the work.
+
+### What is NOT established, stated plainly
+
+1. **The posterior is the PROPORTIONAL construction's Sharpe.** That the sign-only version keeps it is
+   plausible (same direction, same days) but unverified. Checking it on the test window now would be a
+   second look at data already seen. **The check is forward data.**
+2. **908 days is a short test**: the posterior's ±0.28 spans +$161 to +$836 per evaluation for the
+   sign-only sizing.
+3. **Daily bars, not settlement**: entry at 20:00 ET after the UTC close is an approximation of the
+   paper's close-to-close return.
+4. **Publication** (2025) may yet erode it; the test window is mostly before wide circulation.
+
+### A second record correction
+
+t00768's note reads `provenance=external (...)`. That field records who wrote the RECORD (`native` or
+`reconstructed`), and was misused for the hypothesis's source. **The record is native** — written by
+`z02_trial.py` as it ran. The log cannot be edited; `tests/test_trial_logging.py` lists t00768 in a
+documented `MISLABELLED_NATIVE` set, and the runner now writes `provenance=native; source=external`.
+SR\* at N = 762: 0.1367.
+
+### Next
+
+A forward demo of **Z02, sign-only, 1 MES** under Tradeify's rules from 2026-09-12 on: new data, the
+sizing's Sharpe measured as it accrues, the fills and the 20:00 ET entry checked in practice.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

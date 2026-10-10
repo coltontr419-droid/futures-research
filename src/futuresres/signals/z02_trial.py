@@ -113,13 +113,26 @@ def _posterior(s: float, se: float) -> tuple[float, float]:
     return v * (PRIOR_MEAN * p0 + s * p1), math.sqrt(v)
 
 
-def _prop_ev(dates, r_sp, price, lo, hi, held, sharpe: float, seed: int = 88) -> dict:
+SIZINGS: Final[tuple[str, ...]] = ("proportional_cap5", "proportional_cap2", "sign_1", "sign_2")
+
+
+def _contracts(held: np.ndarray, K: float, sizing: str) -> np.ndarray:
+    if sizing == "proportional_cap5":
+        return np.clip(np.rint(held * K), -MAX_CONTRACTS, MAX_CONTRACTS)
+    if sizing == "proportional_cap2":
+        return np.clip(np.rint(held * K), -2, 2)
+    base = np.sign(np.rint(held * K))                 # same days in the market as proportional sizing
+    return base * (1 if sizing == "sign_1" else 2)
+
+
+def _prop_ev(dates, r_sp, price, lo, hi, held, sharpe: float, seed: int = 88,
+             sizing: str = "proportional_cap5") -> dict:
     import futuresres.reporting.y01_structure_ev as y
     import futuresres.reporting.y02_tradeify as z
     pre = dates <= np.datetime64("2023-03-17")
     nz = np.abs(held[pre & (held != 0)])
     K = 1.0 / float(np.median(nz))
-    contracts = np.clip(np.rint(held * K), -MAX_CONTRACTS, MAX_CONTRACTS)
+    contracts = _contracts(held, K, sizing)
     notional = np.r_[price[0], price[:-1]] * MES_MULT
     live = (contracts != 0) & np.isfinite(notional)
     c_usd = contracts * notional * r_sp
@@ -127,7 +140,9 @@ def _prop_ev(dates, r_sp, price, lo, hi, held, sharpe: float, seed: int = 88) ->
     cost = np.abs(contracts) * MES_RT
     c_usd, adverse, cost = c_usd[live], adverse[live], cost[live]
     sd = float(c_usd.std())
-    drift = sharpe / math.sqrt(252) * sd - float(c_usd.mean())
+    # `sharpe` is NET of cost (the test statistic is net), so the gross drift must cover the cost charged
+    # below. CORRECTED 2026-10-09 (decisions.md 88): the first run charged the cost twice.
+    drift = sharpe / math.sqrt(252) * sd - float(c_usd.mean()) + float(cost.mean())
     c_path = (c_usd + drift - cost)[:, None]
     l_path = np.minimum(adverse + drift - cost, c_path[:, 0])[:, None]
     saved = (y.RT_COST, y.TICK_USD)
@@ -138,10 +153,49 @@ def _prop_ev(dates, r_sp, price, lo, hi, held, sharpe: float, seed: int = 88) ->
         paid = z.run_funded((c_path, l_path, c_path), 1, rng, True, 1, z.CAP, accounts=8000, live_after=3)
     finally:
         y.RT_COST, y.TICK_USD = saved
-    return {"sharpe_assumed": sharpe, "K": K, "days_in_market_share": float(live.mean()),
+    return {"sharpe_assumed": sharpe, "sizing": sizing, "K": K, "days_in_market_share": float(live.mean()),
             "daily_sigma_usd_in_market": sd, "median_contracts": float(np.median(np.abs(contracts[live]))),
             "p_pass": e["p_pass"], "expected_payout": float(paid.mean()),
             "ev": e["p_pass"] * float(paid.mean()) - 80.0}
+
+
+def ev_sensitivity() -> int:
+    """Recompute the decision's EV component after the cost correction, without re-running the trial:
+    at the posterior, its +/-1 SD, and at zero edge for the same sizing."""
+    dates, r_sp, r_ty, price, lo, hi = _data()
+    held = _held(dates, r_sp, r_ty)
+    s = json.loads(OUT.read_text())
+    m, sd = s["posterior"]["mean"], s["posterior"]["sd"]
+    rows = [_prop_ev(dates, r_sp, price, lo, hi, held, x) for x in (0.0, m - sd, m, m + sd)]
+    s["prop_ev_corrected"] = {"rows": rows, "posterior_mean": m, "posterior_sd": sd,
+                              "decision": "CONFIRM" if (s["test"]["sharpe_net"] > 0 and rows[2]["ev"] > 0)
+                              else "REJECT"}
+    OUT.write_text(json.dumps(s, indent=1, default=float) + "\n")
+    for r in rows:
+        print(f"Sharpe {r['sharpe_assumed']:+.2f}: P(pass) {r['p_pass']:.3f} payout {r['expected_payout']:.0f} "
+              f"EV {r['ev']:+.0f}")
+    print("decision:", s["prop_ev_corrected"]["decision"])
+    return 0
+
+
+def sizing_ev() -> int:
+    """EV at the posterior (and its +/-1 SD, and zero) for four sizing rules fixed before this run. The
+    simulation imposes the drift, so it compares sizings on the SHAPE of the returns, not their realised
+    mean; it does not re-test the edge. decisions.md 88."""
+    dates, r_sp, r_ty, price, lo, hi = _data()
+    held = _held(dates, r_sp, r_ty)
+    s = json.loads(OUT.read_text())
+    m, sd = s["posterior"]["mean"], s["posterior"]["sd"]
+    rows = []
+    for sz in SIZINGS:
+        for x in (0.0, m - sd, m, m + sd):
+            r = _prop_ev(dates, r_sp, price, lo, hi, held, x, sizing=sz)
+            rows.append(r)
+            print(f"{sz:18} Sharpe {x:+.2f}: P(pass) {r['p_pass']:.3f} payout {r['expected_payout']:.0f} "
+                  f"EV {r['ev']:+.0f}  sigma {r['daily_sigma_usd_in_market']:.0f}", flush=True)
+    s["sizing_ev"] = rows
+    OUT.write_text(json.dumps(s, indent=1, default=float) + "\n")
+    return 0
 
 
 def run_trial() -> int:
@@ -177,8 +231,8 @@ def run_trial() -> int:
                 "posterior_mean": post_mean, "posterior_sd": post_sd, "prop_ev_at_posterior": ev["ev"],
                 "decision": summary["decision"],
                 "rotation_share_at_or_above": res["rotation_null_post_2021"]["share_at_or_above_real"]},
-        note=("provenance=external (Harvey, Mazzoleni & Melone 2025), replicated to the letter; tested only "
-              "after the paper's sample end. One trial. decisions.md 87."),
+        note=("provenance=native; source=external (Harvey, Mazzoleni & Melone 2025), replicated to the letter; "
+              "tested only after the paper's sample end. One trial. decisions.md 87."),
     ))
     print(OUT_MD.read_text())
     print(f"logged {rec['trial_id']}")

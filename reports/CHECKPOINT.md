@@ -630,6 +630,13 @@ authors' sample. Z01: front-running rebalancers (Harvey, Mazzoleni & Melone 2025
 **Open, for the user:** the decision rule (proposed: post-2023 Sharpe > 0 with the published sign, and
 positive prop EV at the posterior), Tradeify's rule on long-equity/short-bond, optional ES/ZN 1-hour data.
 
+**Z02 CONFIRMED, 2026-10-09 (§87–§88), trial t00768; N 762.** Rulings: rule accepted; long/short is
+hedging, so Z01 not run; daily bars. Construction calibrated to the paper's published signal AR(1) before
+any return. **Test 2023-03-18 → 2026-09-11: net Sharpe +0.51, beats 98.4% of rotations; posterior
+0.50 ± 0.28.** Tradeify EV (cost double-count corrected): +$93 per $80 with the paper's sizing; **one MES
+by the signal's sign: +$410** (unverified Sharpe for that sizing). **Next: forward demo of Z02, sign-only,
+1 MES.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

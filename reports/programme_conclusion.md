@@ -550,7 +550,7 @@ grid, both need trade-level data.
 
 | log | N | covers | SR\* | chain |
 |---|---|---|---|---|
-| `futures-research/trials.jsonl` | **761** | F 576, L 180, N 3, P 1, Q 0, W 1 | **0.1368** | verifies |
+| `futures-research/trials.jsonl` | **762** | F 576, L 180, N 3, P 1, Q 0, W 1, Z 1 | **0.1368** | verifies |
 | `r-series-research/trials.jsonl` | **10** | R01 9, R02 1 | never binding | verifies |
 
 Controls, firing-rate measurements and computations (F14, L10, R06, the Q09 drawdown arithmetic) are
@@ -572,8 +572,8 @@ stay in the registry, and their trials stay in N.
 | **W** | **5** | **1** | **1** | **0** |
 | **X** | **7** | **0** | **0** | **0** |
 | **Y** | **7** | **0** | **0** | **0** |
-| **Z** | **2** | **0** | **0** | **0** |
-| **total** | **105** | **38** | **771** | **0** |
+| **Z** | **2** | **1** | **1** | **0** |
+| **total** | **105** | **39** | **772** | **0** |
 
 "Drafted" counts candidates written up as hypotheses in a series document. The R-series also named an
 R05 direction that was never drafted as a hypothesis, and it is not counted.
@@ -669,3 +669,10 @@ after publication; the lead candidate is **front-running institutional rebalanci
 Melone 2025: Sharpe ~1 over 1997–2023, a forced counterparty, no post-publication record yet)**, to be
 replicated exactly and tested on the 3.5 years after its sample ends. Designed; awaiting the user's
 ruling on its decision rule. `decisions.md` §86.
+
+**Z02 was run 2026-10-09 (trial t00768) and confirmed under the user's rule** — the first hypothesis in
+twelve series to pass its own pre-registered test. On 3.5 years after the paper's sample, the MES leg of
+the rebalancing signal earned a net Sharpe of +0.51, beating 98.4% of its rotation null; the posterior is
+0.50 ± 0.28. In the Tradeify account, one MES in the signal's direction is worth about **+$410 per $80
+evaluation** at the posterior — subject to verifying that sizing on forward data. Not promoted: the
+programme's promotion bar is SR\*, which this rule replaced. `decisions.md` §87–§88.

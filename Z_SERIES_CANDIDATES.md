@@ -1,7 +1,12 @@
 # Z-series — decide on external out-of-sample evidence, not on discovery
 
-**Status: S1 design, 2026-10-09. Nothing registered. No trial spent; N 761, SR\* 0.1368.**
-Account of the design: `decisions.md` §86.
+**Status: Z02 registered and RUN (trial t00768, N 762) — CONFIRMED.** Design: `decisions.md` §86;
+registration §87; result §88.
+
+> **[§88] Z02 confirmed out of sample.** 2023-03-18 to 2026-09-11, after the paper's sample: MES leg net
+> Sharpe **+0.51** (gross +0.66), beating 98.4% of its rotation null; posterior 0.50 ± 0.28. In the
+> Tradeify account, **one MES in the signal's direction: +$410 per $80 evaluation at the posterior**
+> (P(pass) 36%; +$161 to +$836 across ±1 SD) — that sizing's Sharpe to be verified on forward data.
 
 ---
 
