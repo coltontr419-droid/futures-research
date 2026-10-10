@@ -706,3 +706,7 @@ dates, mean net +$3,400–4,400, P(net > 0) 72–79%, worst −$2,600 (zero edge
 
 **Size-aware policy (§113):** re-solving over contract size with measured odds fails on both products and both
 directions (worse even in sample). The fixed, risk-matched size with the fair-coin policy remains the plan.
+
+**Three accounts (§116):** adding crude (from owned daily bars, approximate) gives a payout within 4 months from ~99% of
+start dates and 2 of 3 streams paying on average; P(net > 0) 78–81%. Five funded accounts per firm caps scale near five
+streams; more firms add slots.

@@ -7464,6 +7464,38 @@ the **OHLC path rule** (open nearer the high → high first; open = previous bar
 market works and at what size. Databento has 1-hour but no 30-minute schema. Proposed order: `ohlcv-1h`,
 `CL.v.0` and `NG.v.0`, continuous symbology, 2010-06-06 → 2026-10-10.
 
+## 116. A15: crude from owned daily bars — a weak but independent third account; the 5-funded cap bounds scale (S8)
+
+**No trial spent; N 766. Computation record m00164** (`reports/a15_crude.json`, `reporting/a15_crude.py`).
+Hourly crude data still cost >$100 (Databento's per-GB price for 1h exceeds 1m's), so crude is built from the
+**owned** ohlcv-1d file: one bar per session, the OHLC path rule for a bar touching both levels, window the whole
+session (18:00→16:55, permitted). **Checked first** on MNQ and MGC full sessions against 1-minute paths: one bar a
+day lands within ~±30% on mean net and ~5 points on P(payout) (hourly ~10–15%) — a go/no-go tool, not a precise one.
+Further approximation: UTC-day bars, not exact sessions (0.97, §74).
+
+**Crude alone** (P(payout) / mean net, replay; 2016–20 · 2021–26): 5 MCL 18% −$235 · 26% −$11; **10 MCL 55% +$545 ·
+45% +$397**; 15 MCL 61% +$1,105 · 50% +$487; 20 MCL 74% +$1,188 · 50% +$518; 30 MCL 81% +$3,513 · 60% +$775.
+The size was fixed by the risk-matching rule before looking (one MCL's daily SD ≈ $250 → 10 MCL ≈ 4 MNQ's $2,800).
+Larger looks better in both histories, but that is seen after the fact and within the method's error; not adopted.
+
+**Three accounts together** (4 MNQ RTH + 8 MGC London + 10 MCL session; same start dates, real order, 84 days):
+
+| | 2016-01 → 2020-08 (997 starts) | 2021-01 → 2026-04 (1,214) |
+|---|---|---|
+| P(at least one payout) | 98.6% | 99.9% |
+| streams with a payout, mean | 2.0 of 3 | 2.0 of 3 |
+| mean / median net | +$4,910 / +$3,491 | +$3,739 / +$2,977 |
+| P(net > 0) — three markets (two) | **81%** (72%) | **78%** (79%) |
+| 10th percentile / worst | −$1,000 / −$3,360 | −$1,300 / −$3,120 |
+| fees | $2,539 | $3,001 |
+| net correlations MNQ–MGC, MNQ–CL, MGC–CL | +0.25, −0.12, −0.31 | −0.17, −0.02, −0.19 |
+
+**What scale is available.** Each stream holds at most one funded account, and the user's firm allows five funded
+at once — so parallel copies (§114) are capped too: **about five streams in total**. At zero edge that bounds the
+plan near five streams × ~$1–2k per four months. Raising it needs a real edge (none found), funded accounts that
+survive to uncapped "live" payouts (the policy already maximises this), or **more firms**: each firm has its own
+cap, and §92 priced eleven account types — the same staking, re-solved per firm's rules, multiplies the slots.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
