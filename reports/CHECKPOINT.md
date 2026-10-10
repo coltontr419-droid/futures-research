@@ -662,6 +662,10 @@ executed on real MNQ paths with drift removed. Single attempt (2 MNQ): pass 23%,
 months (mean net positive, carried by ~3 in 10). Kelly needs ~$4–8k reserve per concurrent account.
 Zero edge cannot scale. **Open: route 2 — find an edge large on the days it is held; stake it with A01.**
 
+**Route 2's bar (§95):** a coin-flip payout within 4 months needs annual Sharpe ~3; nothing published and
+surviving is near it. EV per attempt rises steeply from Sharpe ~1 (+$155–326). Target: a portfolio of modest
+confirmed edges (~1–1.5 combined), staked with A01. Rejected: end-of-day reversal, OpEx week, dash for cash.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

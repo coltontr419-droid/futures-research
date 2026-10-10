@@ -6850,6 +6850,45 @@ Kelly-safe size the bankroll grows slowly. **Route 1 does not scale into a busin
 - Leaves: the A-series staking solver as a TOOL — the right way to stake any real edge once one exists
   (route 2), since a modest edge staked the solved way pays far more than the same edge traded passively.
 
+## 95. Route 2's bar: the edge needed for a payout within 4 months; three literature candidates rejected (S1, S2)
+
+**No trial spent; N 762, SR\* 0.1367. One computation record.** `reports/b_event_frontier.json`
+(`reporting/b_event_frontier.py`). The user chose route 2 — find an edge, stake it with the A01 solver.
+
+### Candidates read and rejected before any test
+
+- **End-of-day reversal** (Baltussen, Da & Soebhag 2024): a cross-section of individual stocks, 3–4 bps a
+  day long-short; not an index effect.
+- **Option-expiration week** (Stivers & Sun 2013): S&P 100 stocks against the equal-weighted index, to 2010;
+  index-level ~0.2% a week — about 4 bps a day.
+- **Dash for cash** (Etula et al., RFS 2020): forced pension cash needs at month-end; ~25 bps over T−3..T−1
+  and 48 bps over T−3..T+3 (working-paper figures) — about 7–8 bps a held day against ~100 bps of daily
+  swing.
+
+### The bar, computed (Tradeify Select Daily, user's terms; synthetic held-day returns)
+
+| per-held-day Sharpe × days a month (annual) | P(payout within 84 days) | EV per $80, 84 days |
+|---|---|---|
+| 0.10 × 10 (1.1) | 11% | +$155 |
+| 0.10 × 21 (1.6) | 20% | +$326 |
+| 0.15 × 21 (2.4) | 28% | +$595 |
+| 0.20 × 10 (2.2) | 21% | +$450 |
+| 0.20 × 21 (3.2) | **43%** | +$1,181 |
+| 0.30 × 10 (3.3) | **39%** | +$588 |
+| 0.30 × 21 (4.8) | 72% | +$3,620 |
+
+(Simple sizing, best of four daily swings; the A01 solver would add to these.)
+
+### What it means
+
+- **A coin-flip chance of a payout within 4 months needs an annual Sharpe of ~3**, however the edge is spread
+  across days: concentration helps against the barriers but costs time.
+- **No published, surviving, account-tradeable futures effect found is near 3**; the best are ~1 before
+  decay, and Z02 is ~0.4–0.5 confirmed.
+- **Expected value per attempt rises steeply from Sharpe ~1** (+$155 to +$326 vs +$89 at zero edge), which
+  shrinks the bankroll problem that closed route 1 (§94). **Route 2's realistic target: a portfolio of
+  modest, independently confirmed edges reaching ~1–1.5 combined, staked with the A01 solver.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
