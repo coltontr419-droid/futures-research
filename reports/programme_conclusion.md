@@ -713,3 +713,7 @@ streams; more firms add slots.
 
 **Z08 (§117, t00773):** CFTC hedger flow (Kang, Rouwenhorst & Tang 2020) sets gold's weekly direction — confirmed under
 the rule (+0.42 vs always-long +0.36) but marginal and era-unstable; crude rejected. Adopted for the gold account.
+
+**Strict rule (§119):** from 2026-10-10 a direction edge must beat always-long at t > 1.645 and its own shifted-signal
+placebo at the 95th percentile. Under it Z08's gold result fails (t +0.15); Z08 is retired and §118's portfolio gain is
+withdrawn. The portfolio stands at its zero-edge figures.

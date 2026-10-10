@@ -4311,13 +4311,14 @@
   horizon_minutes: [1375, 510]
   hold_hours: [22.916666666666668, 8.5]
   registered: 2026-10-10
-  status: stage1_passed
-  stage1_reason: >
-    Run as trial t00773 (decisions.md 117), 2015-2026. MGC (London 03:00-11:30) CONFIRMED under the rule:
-    Sharpe +0.42 vs always-long +0.36 (+2.05 vs +1.75 bps), +3.8 bps after hedger buying vs -0.3 after selling;
-    posterior +0.36 +/- 0.21 - MARGINALLY and unstably: 2015-20 -0.08 (long +0.74), 2021-26 +0.79 (long +0.09);
-    full-session daily GC (not decisive) +0.39 vs long +0.59. MCL (session) REJECTED: +0.17 vs always-long +0.23
-    (sold weeks still +1.1 bps). Adopted as the gold account's weekly direction; crude stays long.
+  status: retired
+  retired: 2026-10-10
+  retired_reason: >
+    Trial t00773 (decisions.md 117) confirmed gold under the then-current Z rule (Sharpe +0.42 vs always-long
+    +0.36, posterior +0.36) and rejected crude. Re-read under the STRICT Z rule adopted before any further
+    candidate (decisions.md 119): gold's per-session advantage over always-long has t +0.15 (needs 1.645) and sits
+    at the 89th percentile of its shifted-signal placebo (needs 95) - its Sharpe was gold's drift, not the signal.
+    Not a confirmed edge; the gold account returns to always-long.
   outcome_injection:
     test: src/futuresres/signals/z08_trial.py
     injected_bps: 0.3         # UNITS: annualised Sharpe of sign x window return, not bps (per product)

@@ -7566,6 +7566,36 @@ The gain is +$520–1,050 per four months on the mean and, more usefully, a bad 
 Caveats: the edge is Z08's marginal, era-unstable confirmation (§117); MCL rests on one-bar-a-day estimates (±30%);
 the starts overlap (~16 independent windows per history).
 
+## 119. The strict Z rule, adopted before any further candidate; Z08's gold result does not survive it (S2, S8)
+
+**No trial spent; N 767.** `signals/z_strict.py`, `reports/z_strict_review.json` (descriptive re-reading of used
+test data — no new trial). The user asked whether the Z-series ran "as vigorously as before". It did not: the Z
+rule (§86) confirms on test-window Sharpe > 0 and a positive posterior — a bar a null signal clears roughly a
+quarter to half the time — with no multiple-testing deflation (it replaced SR\*), few placebo nulls and no
+second-instrument confirmation. **At the user's direction, from here on a direction signal confirms for a market
+only if ALL hold:** (1) it beats the plan's current always-long with one-sided **t > 1.645** on the per-session
+difference d = s·r − r; (2) mean(d) exceeds the **95th percentile** of the same statistic with the signal circularly
+shifted (≥ 20 sessions, every 5th); (3) posterior > 0 under the registered prior, reported beside a zero-mean
+prior; (4) the result is reported against the running count of Z market-tests (8 so far; 0.4 chance passes
+expected at 5%).
+
+**Z06–Z08 re-read under it:**
+
+| test | t, beats long (> 1.645) | placebo pct (≥ 95) | Sharpe | posterior: registered / zero prior | strict |
+|---|---|---|---|---|---|
+| Z06 MNQ | -1.98 | 0 | -0.17 | +0.02 / -0.08 | no |
+| Z06 MGC | -1.22 | 14 | -0.25 | -0.03 / -0.13 | no |
+| Z07 MNQ | -0.60 | 68 | +0.09 | +0.20 / +0.04 | no |
+| Z08 MCL | -0.14 | 68 | +0.17 | +0.24 / +0.09 | no |
+| Z08 MGC | +0.15 | 89 | +0.42 | +0.36 / +0.20 | no |
+
+**Z08's gold "confirmation" does not survive:** its +0.42 was gold's drift (always-long +0.36), not the signal —
+the advantage over always-long has t +0.15. **Z08 retired; the gold account returns to always-long** (playbook
+default; the weekly `--direction` step is dropped). **§118's improvement is withdrawn**: it planted Z08's posterior
+as an edge over a zero-drift long, which the evidence does not support. **The portfolio stands at its zero-edge
+figures (§116): +$3.7–4.9k mean net per four months, P(net > 0) 78–81%.** Z02 (98.4% of its rotation null) is the
+one prior confirmation of placebo strength; Z05 (Welch t 1.82, 2021–26 only) predates the rule and is not used.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

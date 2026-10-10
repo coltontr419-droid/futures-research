@@ -2,8 +2,7 @@
 
     python -m futuresres.reporting.a06_playbook eval   --balance 50300 --peak 50300 --best 300
     python -m futuresres.reporting.a06_playbook funded --balance 51200 --peak 51200 --payouts 0
-    python -m futuresres.reporting.a06_playbook eval --product MGC --side long --balance 50000   # gold (8 MGC, 03:00-11:30 ET);
-                                                     # --side from `python -m futuresres.signals.z08 --direction`, weekly
+    python -m futuresres.reporting.a06_playbook eval --product MGC --balance 50000   # gold (8 MGC, 03:00-11:30 ET), long
     python -m futuresres.reporting.a06_playbook eval --product MCL --balance 50000   # the crude account (10 MCL, 18:00-16:55 ET)
     python -m futuresres.reporting.a06_playbook table [--product MGC|MCL]   # writes reports/a06_playbook_{eval,funded}[_mgc].csv
 
@@ -129,7 +128,7 @@ def main(argv=None) -> int:
     ap.add_argument("--contracts", type=int, default=None)
     ap.add_argument("--product", choices=tuple(PRODUCTS), default="MNQ")
     ap.add_argument("--side", choices=("long", "short"), default="long",
-                    help="MGC: this week's direction from `python -m futuresres.signals.z08 --direction` (decisions.md 117)")
+                    help="default long for every product; Z08's weekly COT side for gold was retired under the strict rule (decisions.md 119)")
     a = ap.parse_args(argv)
     if a.phase == "table":
         table(a.product); return 0

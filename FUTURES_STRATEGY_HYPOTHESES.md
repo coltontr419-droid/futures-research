@@ -609,7 +609,7 @@ products grew (Sharpe 0.67 against MAC(5) on the S&P 500, to 2016). The sign of 
 days sets the MNQ 09:30–16:00 bracket's direction (against the move); must beat always-long. Tested 2017–2026.
 One trial. `hypotheses.yaml` (Z07) · `decisions.md` §111
 
-## Z08 — Hedger Flow Sets the Commodity Brackets' Direction  *(GOLD CONFIRMED, marginally; crude rejected — t00773)*
+## Z08 — Hedger Flow Sets the Commodity Brackets' Direction  *(RETIRED — t00773; gold fails the strict rule, §119)*
 
 Kang, Rouwenhorst & Tang (2020): commodity prices rise the week after commercial hedgers buy and fall after they
 sell — hedgers provide liquidity to impatient speculators (1994–2014). The sign of last week's commercial net

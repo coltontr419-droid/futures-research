@@ -737,6 +737,10 @@ takes the weekly COT side: `python -m futuresres.signals.z08 --direction` → `a
 **A16 (§118): portfolio now** (MNQ long + MGC COT-directed + MCL long): mean net +$4.8–5.4k / 4 months, P(net>0) 85–87%,
 10th pct −$0.5–0.8k, worst −$2.4–3.1k, fees ~$2.5–3.0k.
 
+**§119 STRICT Z RULE (user, 2026-10-10):** a direction signal confirms only with t > 1.645 vs always-long, ≥ 95th pct of a
+shifted-signal placebo, posterior > 0, reported against the running test count. **Z08 gold fails (t +0.15) → retired; gold
+back to always-long; §118's gain WITHDRAWN.** Portfolio = §116 zero-edge: +$3.7–4.9k / 4 months, P(net>0) 78–81%.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

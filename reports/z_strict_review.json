@@ -1,0 +1,76 @@
+{
+ "Z06 MNQ": {
+  "sessions": 2638,
+  "t_beats_long": -1.9841781755820025,
+  "placebo_percentile": 0.0,
+  "sharpe_signal": -0.167835717768015,
+  "posterior_registered_prior": 0.021561121097457985,
+  "posterior_zero_prior": -0.08141791531298706,
+  "conditions": {
+   "t_gt_1.645": false,
+   "placebo_ge_95": false,
+   "posterior_gt_0": true
+  },
+  "strict_confirm": false
+ },
+ "Z06 MGC": {
+  "sessions": 2846,
+  "t_beats_long": -1.2162865256489033,
+  "placebo_percentile": 13.87900355871886,
+  "sharpe_signal": -0.25154348055066816,
+  "posterior_registered_prior": -0.027611184138717975,
+  "posterior_zero_prior": -0.1267964480423666,
+  "conditions": {
+   "t_gt_1.645": false,
+   "placebo_ge_95": false,
+   "posterior_gt_0": false
+  },
+  "strict_confirm": false
+ },
+ "Z07 MNQ": {
+  "sessions": 2366,
+  "t_beats_long": -0.5979360007504313,
+  "placebo_percentile": 68.45493562231759,
+  "sharpe_signal": 0.08893157374158342,
+  "posterior_registered_prior": 0.20333180477595553,
+  "posterior_zero_prior": 0.04073017875969539,
+  "conditions": {
+   "t_gt_1.645": false,
+   "placebo_ge_95": false,
+   "posterior_gt_0": true
+  },
+  "strict_confirm": false
+ },
+ "Z08 MCL": {
+  "sessions": 2864,
+  "t_beats_long": -0.1368281387782503,
+  "placebo_percentile": 68.31858407079646,
+  "sharpe_signal": 0.17227198394323243,
+  "posterior_registered_prior": 0.23541436476225594,
+  "posterior_zero_prior": 0.08710928001649322,
+  "conditions": {
+   "t_gt_1.645": false,
+   "placebo_ge_95": false,
+   "posterior_gt_0": true
+  },
+  "strict_confirm": false
+ },
+ "Z08 MGC": {
+  "sessions": 2578,
+  "t_beats_long": 0.14677638682383556,
+  "placebo_percentile": 89.1732283464567,
+  "sharpe_signal": 0.4229761297417354,
+  "posterior_registered_prior": 0.35894988145671136,
+  "posterior_zero_prior": 0.20275798855972368,
+  "conditions": {
+   "t_gt_1.645": false,
+   "placebo_ge_95": false,
+   "posterior_gt_0": true
+  },
+  "strict_confirm": false
+ },
+ "running_count": {
+  "z_market_tests": 8,
+  "expected_chance_passes_at_5pct": 0.4
+ }
+}
