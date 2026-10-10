@@ -1,0 +1,44 @@
+{
+ "post": {
+  "common_starts": 1276,
+  "first": "2021-01-04",
+  "last": "2026-04-24",
+  "p_payout_mnq": 0.7891849529780565,
+  "p_payout_mgc": 0.768025078369906,
+  "p_any_payout": 0.9717868338557993,
+  "p_any_payout_if_independent": 0.95109619598864,
+  "p_both_payout": 0.585423197492163,
+  "median_day_first_payout": 25.0,
+  "mean_net": 3355.742939583037,
+  "p_net_positive": 0.7946708463949843,
+  "net_p10_p50_p90": [
+   -1020.0,
+   2786.954974365234,
+   8255.97894897461
+  ],
+  "mean_fees": 2105.141065830721,
+  "corr_net": -0.1754308249798668,
+  "worst_net": -2560.0
+ },
+ "pre": {
+  "common_starts": 1056,
+  "first": "2016-01-27",
+  "last": "2020-08-26",
+  "p_payout_mnq": 0.709280303030303,
+  "p_payout_mgc": 0.7613636363636364,
+  "p_any_payout": 0.928030303030303,
+  "p_any_payout_if_independent": 0.930623708677686,
+  "p_both_payout": 0.5426136363636364,
+  "median_day_first_payout": 22.0,
+  "mean_net": 4361.110983171066,
+  "p_net_positive": 0.71875,
+  "net_p10_p50_p90": [
+   -1440.0,
+   1944.9770336151123,
+   13105.051700592041
+  ],
+  "mean_fees": 1768.2575757575758,
+  "corr_net": 0.2590807696370148,
+  "worst_net": -2160.0
+ }
+}

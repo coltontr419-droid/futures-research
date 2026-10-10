@@ -715,6 +715,9 @@ MGC −$560 — both at the historical median for that length. New data in data/
 **Z07 (§111), t00772, N 766: index reversal (MAC(5)) as MNQ direction REJECTED** (+0.09 vs always-long +0.35;
 faded to −0.15 in 2021–26). Screen queue for in-window edges near dry; plans run always-long.
 
+**A12 (§112): both accounts together:** P(≥1 payout in 4 months) 93–97%, median first payout ~22–25 trading days,
+mean net +$3,400–4,400, P(net>0) 72–79%, 10th pct −$1,000 to −$1,400, worst −$2,600.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

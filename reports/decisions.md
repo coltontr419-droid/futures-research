@@ -7364,6 +7364,30 @@ after seeing these numbers; it is not run. Z07 retired.
 windows (trend, index reversal) failed against always-long; the remaining literature is either decayed, outside
 the windows, cross-sectional, or second looks at Z02/Z05's already-used test data. The plans run always-long.
 
+## 112. A12: the two accounts together — a payout within 4 months from 93–97% of start dates (S8)
+
+**No trial spent; N 766. Zero edge (drift removed). Computation record m00161** (`reports/a12_joint.json`,
+`reporting/a12_joint.py`; `a02_real.sequential` gains an opt-in `per_trader` output, default unchanged).
+4 MNQ (09:30–16:00) and 8 MGC (03:00–11:30 ET) started on the same date, each run back-to-back through real
+history in order for 84 trading days, stops at the stop price; paired on common start dates.
+
+| 84 trading days, both accounts | 2021-01 → 2026-04 starts (1,276) | 2016-01 → 2020-08 starts (1,056) |
+|---|---|---|
+| P(at least one payout) — measured | **97%** | **93%** |
+| — if independent (§106's estimate) | 95% | 93% |
+| P(both pay out) | 59% | 54% |
+| median trading days to the first payout | 25 | 22 |
+| mean net / median net | +$3,356 / +$2,787 | +$4,361 / +$1,945 |
+| P(net > 0) | 79% | 72% |
+| net 10th / 90th percentile; worst start | −$1,020 / +$8,256; −$2,560 | −$1,440 / +$13,105; −$2,160 |
+| mean fees | $2,105 | $1,768 |
+| correlation of the two accounts' net | −0.18 | +0.26 |
+
+**The independence estimate held.** With both accounts the chance of no payout in four months is 3–7%; a bad
+four months costs ~$1,000–1,500 at the 10th percentile and ~$2,600 at worst. Caveats as before: start dates
+overlap heavily (~16 independent windows per history), the edge is zero, and the real drift (§110: MNQ window
++0.35) is not counted.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

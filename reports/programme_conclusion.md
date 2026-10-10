@@ -700,3 +700,6 @@ always-long +0.35 / +0.13). Retired; the plans stay always-long.
 
 **Z07 (§111, t00772):** index-level reversal (Baltussen, van Bekkum & Da 2019) as the MNQ direction: +0.09 vs always-long
 +0.35, faded after 2020. Retired.
+
+**Two accounts together (§112):** 4 MNQ + 8 MGC from the same date: a payout within 4 months from 93–97% of start
+dates, mean net +$3,400–4,400, P(net > 0) 72–79%, worst −$2,600 (zero edge, real order).

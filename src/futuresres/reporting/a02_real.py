@@ -167,7 +167,7 @@ if __name__ == "__main__":
 
 
 def sequential(contracts: int = 2, mode: str = "iid", traders: int = 6000, window: int = HORIZON,
-               seed: int = 94, fee: float = 80.0, passive: bool = False) -> dict:
+               seed: int = 94, fee: float = 80.0, passive: bool = False, per_trader: bool = False) -> dict:
     """Back-to-back attempts within `window` trading days: one account at a time; a failed evaluation or
     funded account is replaced by a new $80 evaluation the next day. mode 'iid' resamples real sessions;
     'replay' walks real sessions IN ORDER from every start date (window must fit); 'block' strings together
@@ -248,4 +248,6 @@ def sequential(contracts: int = 2, mode: str = "iid", traders: int = 6000, windo
             "mean_attempts": float(attempts.mean()), "mean_fees": float(fees.mean()),
             "mean_paid": float(paid.mean()), "mean_net": float(net.mean()),
             "p_net_positive": float((net > 0).mean()),
-            "net_p10_p50_p90": [float(x) for x in np.quantile(net, [0.1, 0.5, 0.9])]}
+            "net_p10_p50_p90": [float(x) for x in np.quantile(net, [0.1, 0.5, 0.9])],
+            **({"each": {"start": (starts if mode == "replay" else np.arange(A)), "net": net, "first_payout_day": first,
+                         "fees": fees, "paid": paid}} if per_trader else {})}
