@@ -7014,6 +7014,34 @@ specification follows the stated claim and **the prior, Normal(0.25, 0.35), is a
 result; it would need a forward test of its own. **Portfolio so far:** Z02 (~0.4–0.5, MES) and Z05 (~0.24,
 MGC) — about 0.5 combined if independent.
 
+## 101. The edge portfolio (Z02 + Z05) in the account: worse than zero-edge solved staking (S8)
+
+**No trial spent; N 764, SR\* 0.1367. One computation record.** `reports/zp_portfolio.md`
+(`reporting/zp_portfolio.py`). Realised returns, real order — descriptive, partly a second look.
+
+Z02 (1 MES by the rebalancing signal's sign) + Z05 (1 MGC, gold long overnight / short the NY day) in one
+Tradeify account (different products; never long and short in one), 2,736 days 2013–2026; the day's worst
+point counted as the sum of both legs' worst points (conservative).
+
+| strategy | realised Sharpe | 4 months back-to-back: P(≥1 payout) | mean net | P(net > 0) |
+|---|---|---|---|---|
+| Z02 + Z05, 1 unit | +0.21 | 15% | −$230 | 8% |
+| Z02 + Z05, 2 units | +0.21 | 13% | −$832 | 6% |
+| Z05 alone, 1 MGC | +0.22 | 18% | +$191 | 17% |
+| Z02 alone, 1 MES | +0.06 | 3% | −$193 | 2% |
+| **A03, zero-edge solved staking, 2 MNQ** | 0 | **61%** | **+$675** | 45% |
+
+**Two findings.**
+1. **The edges are weaker over the full period than in their tests**: Z02's one-MES version earns +0.06 over
+   2013–2026 (its +0.41 was the 2023–2026 test window; 2013–2023 lies inside the paper's sample).
+2. **In this account, staking dominates a weak edge**: passive daily holding of ~0.2-Sharpe edges loses to
+   the zero-edge solved policy. A 0.2–0.4 Sharpe edge shifts a ~±1% daily bracket's odds by a fraction of a
+   percent, so weak edges add almost nothing to the solver either.
+
+**Verdict (the user's own condition): not good enough — keep searching.** What a candidate must now beat is
+not zero but A03: it needs an edge large enough to move the solver's bracket odds, i.e. several bps a day
+on MNQ/MES/MGC, consistently, after costs.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

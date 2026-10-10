@@ -677,6 +677,10 @@ as hedging.**
 overnight / short NY day CONFIRMED marginally** (net Sharpe +0.22, t 1.82; only 2021–26 positive; short leg
 earns nothing). Portfolio: Z02 + Z05 ≈ 0.5 combined. Search continues.
 
+**Edge portfolio in the account (§101): worse than zero-edge solved staking.** Z02 + Z05 replayed 2013–2026:
+4-month P(payout) 15%, net −$230 (A03: 61%, +$675). Z02's one-MES version is +0.06 over the full period.
+Weak edges can't move the solver's bracket odds. **Search continues; the bar is now A03.**
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
