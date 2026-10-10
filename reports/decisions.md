@@ -7440,6 +7440,30 @@ together (MNQ–MGC daily correlation +0.06) — is what raises P(net > 0).** Ca
 data and its own window check, as gold had): MCL, MHG, M6E, SIL, M2K (partly correlated with MNQ). Open with
 the user: Tradeify's cap on simultaneous FUNDED accounts, and whether copying one plan across accounts is allowed.
 
+## 115. Breadth on a budget: crude is the third market; hourly candles are enough with the OHLC rule (S2, S8)
+
+**No trial spent; N 766.** The user can hold 5 funded Tradeify accounts at once and may copy one plan across
+accounts; the tradable list is broad (CME equity, FX, energy, metals, grains, livestock; Eurex). Minute data for
+six candidates was quoted at $668, and for two continuous series still $549 — too expensive.
+
+**Correlations from data already owned** (`data/raw_daily`, roll-correct daily returns, 2021–26 / 2016–20):
+crude vs Nasdaq **+0.04** / +0.23, vs gold **+0.06** / +0.01; copper +0.35 / +0.43 against Nasdaq / gold
+(2021–26); the euro +0.41 against gold. **Crude is the clear third account** (one CL ≈ $2,500 daily SD, so ~2 CL
+or 15–20 MCL); copper and the euro add little; natural gas (not in the file) is the likely fourth.
+
+**Hourly candles, tested on MNQ and MGC** (`reporting/a14_coarse_bars.py`): minute paths rebuilt as 30-minute
+and 1-hour candles. A plain tie rule spans $500–$5,000 of mean net (pessimistic vs optimistic) — unusable. With
+the **OHLC path rule** (open nearer the high → high first; open = previous bar's close):
+
+| mean net, block bootstrap | 1-minute | 30-minute | 1-hour |
+|---|---|---|---|
+| MNQ 2021–26 / 2015–20 | +$1,317 / +$1,685 | +$1,116 / +$1,508 | +$1,422 / +$1,523 |
+| MGC 2021–26 / 2011–20 | +$2,031 / +$2,419 | +$1,870 / +$2,112 | +$1,819 / +$2,074 |
+
+**Hourly is within ~10–15% of the minute answer, slightly conservative in 3 of 4** — enough to decide whether a
+market works and at what size. Databento has 1-hour but no 30-minute schema. Proposed order: `ohlcv-1h`,
+`CL.v.0` and `NG.v.0`, continuous symbology, 2010-06-06 → 2026-10-10.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

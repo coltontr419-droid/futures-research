@@ -724,6 +724,9 @@ Stuck-at-floor replay defect fixed; no recorded result changed.
 **§114 scaling:** k parallel MNQ+MGC pairs scale mean net linearly (+$34–43k for 10 pairs / 4 months) but NOT the
 odds (P(net>0) stays 72–83%; worst −$24k at 10). Breadth across uncorrelated markets is the lever. Open: funded-account cap.
 
+**§115:** 5 funded accounts max; copying allowed. Crude ≈ uncorrelated with MNQ/gold → third market. Hourly candles +
+OHLC rule within ~10–15% of 1-minute → order ohlcv-1h CL.v.0, NG.v.0 (minute data quoted $549–668, too expensive).
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
