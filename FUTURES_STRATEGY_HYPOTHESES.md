@@ -615,3 +615,9 @@ Kang, Rouwenhorst & Tang (2020): commodity prices rise the week after commercial
 sell — hedgers provide liquidity to impatient speculators (1994–2014). The sign of last week's commercial net
 change (CFTC COT) sets the direction of the crude (full session) and gold (London) brackets for the next week.
 Tested 2015–2026; must beat always-long. One trial. `hypotheses.yaml` (Z08) · `decisions.md` §117
+
+## Z09 — Index Roll Selling: Short Crude on Roll Days  *(registered, untested)*
+
+Mou (2011): GSCI index funds sell the next-to-expire crude contract on business days 5–9 every month. The
+crude plan goes short on those days and long otherwise — the outright, since the spread is not allowed. Tested
+2010-06 → 2026-08 under the strict rule. One trial. `hypotheses.yaml` (Z09) · `decisions.md` §120

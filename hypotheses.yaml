@@ -4366,3 +4366,59 @@
   s6_control: >
     Always-long in the same window; the long-signal and short-signal session means; by period (2015-20, 2021-26);
     for gold, the same rule on the full-session daily GC return (not decisive).
+- id: Z09
+  name: index_roll_selling_shorts_crude_on_roll_days
+  mechanism: >
+    Commodity index roll pressure (Mou 2011, "Limits to Arbitrage and Commodity Index Investment: Front-Running the
+    Goldman Roll"): funds tracking the S&P GSCI roll their crude position out of the next-to-expire contract on the
+    5th-9th business days of each month; the predictable selling depresses that contract (published as a calendar
+    spread, Sharpe up to 4.39, 2000 to March 2010). THE COUNTERPARTY is the index fund, forced to sell on a
+    published schedule. The spread is not tradable in this account (decisions.md 99); this tests the OUTRIGHT.
+  condition: >
+    Crude plan (10 MCL, full session; owned roll-correct daily CL bars, decisions.md 116): SHORT on the 5th-9th
+    trading days of each month, LONG otherwise. Construction check before any return (decisions.md 120): on
+    99.5% of roll days the volume-front contract the series holds is the one the GSCI sells (100% in every year
+    except 2020, 92%). No free parameters.
+  horizon_minutes: [1375]
+  hold_hours: [22.916666666666668]
+  registered: 2026-10-10
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    Not event-rate gated (~5 short sessions a month); the runner refuses to run without its outcome injection.
+    Registered before any Z09 return was computed; all owned data (2010-06 on) postdates the paper's sample.
+  test_order: 8
+  registered_test_order: 31
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - the GSCI's published roll days. ONE TRIAL. Decided by the STRICT Z rule (decisions.md 119).
+  session: Globex
+  symbols: [MCL]
+  mechanism_instruments:
+    primary: MCL
+    secondary: null
+    rationale: >
+      The roll pressure is documented in NYMEX WTI crude; MCL is the crude plan's instrument (1/10 CL). No second
+      instrument is claimed.
+  stage4_reachable: false
+  stage4_reason: One market, one published calendar; the test window is after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: full}
+  test_window: {start: '2010-06-01', end: '2026-08-27', reason: 'after the paper sample (2000 to March 2010)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: >
+      Prior Normal(0.2, 0.3), an ASSUMPTION: the published figure is for the spread, not the outright, and later
+      work reports traders rolling early (decisions.md 98).
+  decision_rule:
+    rule: >
+      The STRICT Z rule (decisions.md 119, signals/z_strict.py): CONFIRM only if (1) the per-session advantage
+      over always-long has one-sided t > 1.645; (2) it exceeds the 95th percentile of the same statistic with the
+      roll calendar circularly shifted; (3) posterior > 0, reported beside a zero-mean prior; (4) reported against
+      the running count of Z market-tests (9 with this one).
+  outcome_injection_required: Done before the run - reports/z09_injection.json.
+  s6_control: >
+    Mean return on roll days vs other days; by period (2010-15, 2016-20, 2021-26); the effect on days 5-9 one by one.

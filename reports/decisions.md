@@ -7596,6 +7596,32 @@ as an edge over a zero-drift long, which the evidence does not support. **The po
 figures (§116): +$3.7–4.9k mean net per four months, P(net > 0) 78–81%.** Z02 (98.4% of its rotation null) is the
 one prior confirmation of placebo strength; Z05 (Welch t 1.82, 2021–26 only) predates the rule and is not used.
 
+## 120. Searching under the strict rule: Z02 as MNQ direction (descriptive); Z09 — index roll selling — registered (S1–S5)
+
+**No trial spent at registration; N 767.** Recent literature on daily predictability of crude and gold is thin and
+mostly negative (oil predictability largely an averaging artefact — Conlon, Cotter & Eyiah-Donkor; gold: weak
+or preprint-only); nothing new for index futures beyond intraday momentum (§103).
+
+**Z02 as the MNQ bracket's direction — descriptive, a second look, no trial.** The one programme result of placebo
+strength. Its sign set the 09:30–16:00 direction (long when the weight is ≥ 0): in the paper's sample (2015-11 →
+2023-03) Sharpe +0.57 vs always-long +0.40, placebo 100th pct, **t(beats long) +0.32**; in Z02's own test window
+(2023-03 → 2026-08, already used) +0.83 vs +0.25, placebo 99th, **t +0.72**. Its timing is real against shifted
+versions, but it is short 75–79% of days against an equity drift, so its advantage over always-long is too noisy
+to pass the strict rule. Not adopted.
+
+**Z09 registered** (`hypotheses.yaml` Z09; `signals/z09.py`, `signals/z09_trial.py`). Mou (2011): GSCI funds sell
+the next-to-expire crude contract on the 5th–9th business days; set aside in §98–§99 only as a SPREAD. The outright
+is allowed: the crude plan shorts on trading days 5–9 and is long otherwise. **Construction check before any
+return:** on 99.5% of roll days the volume-front contract our daily series holds is the one the GSCI sells (100%
+every year but 2020's 92%). All owned data (2010-06 on) postdates the paper. Strict rule; prior Normal(0.2, 0.3), an
+assumption. `tests/test_registry_consistency.py`: MCL added to the single-market primaries (crude is a plan
+instrument since §116).
+
+**Outcome injection** (`reports/z09_injection.json`): the first run FAILED — the plant had the wrong sign (roll days
+higher); caught by recovery (−0.04 for +0.2) and fixed to e = noise + s·μ. Rerun: 0.2 planted, recovered 0.208
+(SD 0.24, 3,993 sessions). **Power under the strict rule at the prior's size is only 10%** (P(Sharpe > 0) 79%): this
+test can confirm a large roll effect, not a small one — recorded before the run.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
