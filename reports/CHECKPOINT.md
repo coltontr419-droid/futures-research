@@ -747,6 +747,9 @@ short crude on GSCI roll days REJECTED** (t −0.20; worked to 2020, reversed 20
 **§121: power screen** (`z_strict.power`) before any registration — needs ~5–10 bps/day on signal days. Screened out:
 dash for cash (power 8%), EDHEC rebalancing (= Z02), gold ETF flows (thesis only), post-OpEx weakness (practitioner only).
 
+**Z10 (§122, t00775, N 769): gotobi (free USD/JPY spot) REJECTED** — net +0.49 bps, t 0.67; faded to ~0 by 2024.
+Ten Z market-tests, none passing the strict rule.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

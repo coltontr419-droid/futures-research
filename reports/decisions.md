@@ -7697,6 +7697,25 @@ single-market primaries.
 **Outcome injection** (`reports/z10_injection.json`): +0.8 bp planted, recovered 0.81 (SD 0.84, 316 events); **power of the
 strict t at the prior's size 24.5%** (roughly 70% if the full in-sample size holds).
 
+### Z10 run: rejected — half the in-sample size, then gone (S6–S8)
+
+**One trial spent: t00775. N 768 → 769.** `reports/z10_trial.{json,md}`. 10th Z market-test.
+
+| 2021-01 → 2026-09, 316 gotobi events, 18:00 ET → 9:55 JST | |
+|---|---|
+| gross / net mean (SD) | +1.49 / **+0.49 bps** (13.0) |
+| **t, net** (> 1.645) | **+0.67** |
+| placebo: random non-gotobi sets / calendar shifted ±1–4 days (≥ 95) | 92.8th / 50th |
+| net, 2021–23 / 2024–26 | +0.87 (t 0.88) / **+0.10** (t 0.09) |
+| non-gotobi days, same window; the paper's 03:00 JST window (not tradable) | +0.56; +2.15 bps gross |
+
+**REJECTED.** The effect came in at about half its 2018–20 size and has been near zero since 2024: a well-known flow
+anomaly competed away, as Z09's roll was. Data cost: nothing (free spot data).
+
+**Ten Z market-tests under the strict rule (Z02–Z10), none passing it.** The pattern across Z04, Z06–Z10: published
+effects are either too small for the strict bar at our sample sizes (§121's power screen) or front-run after
+publication (Z09, Z10). Z02 alone has placebo-strength timing, and it cannot beat an always-long equity plan.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

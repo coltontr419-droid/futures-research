@@ -1,0 +1,58 @@
+{
+ "hypothesis": "Z10",
+ "window": [
+  "2021-01-05",
+  "2026-09-30"
+ ],
+ "events": 316,
+ "gross_bps": 1.4867331549799234,
+ "net_bps": 0.48673315497992353,
+ "sd_bps": 12.99082077243551,
+ "t_net": 0.6660362707788925,
+ "win_rate_net": 0.5126582278481012,
+ "other_days_gross_bps": 0.5563938794504106,
+ "paper_window_gross_bps": 2.1494946406675934,
+ "placebo_random_pct": 92.75,
+ "placebo_shift_pct": 50.0,
+ "shifted_net_means": [
+  -0.26829880095551056,
+  0.7167963232851006,
+  0.5118118018007433,
+  -1.2669354468029903,
+  -0.6926354287056277,
+  1.2633645384280403,
+  -2.123417363577929,
+  0.8017638379384223
+ ],
+ "posterior_bps": {
+  "registered_prior": 0.5957916656408732,
+  "zero_prior": 0.3172853062361034
+ },
+ "eras": {
+  "2021-23": {
+   "events": 159,
+   "net_bps": 0.8691517840992757,
+   "t": 0.8754519039290971
+  },
+  "2024-26": {
+   "events": 157,
+   "net_bps": 0.09944295096733116,
+   "t": 0.09242712956997996
+  }
+ },
+ "conditions": {
+  "t_gt_1.645": false,
+  "placebo_ge_95": false,
+  "posterior_gt_0": true
+ },
+ "z_market_tests": 10,
+ "decision": "REJECT",
+ "injection": {
+  "n_events": 316,
+  "sought_net_bps": 0.8,
+  "mean_estimate": 0.8094579138205856,
+  "sd_estimate_bps": 0.8423806115802851,
+  "power_strict_t": 0.245,
+  "recovered": true
+ }
+}

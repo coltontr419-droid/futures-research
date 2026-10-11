@@ -4452,13 +4452,27 @@
   horizon_minutes: [175]
   hold_hours: [1.9166666666666667, 2.9166666666666665]
   registered: 2026-10-10
-  status: untested
+  status: retired
+  retired: 2026-10-10
+  retired_reason: >
+    Trial t00775 (decisions.md 122), REJECTED under the strict rule: 316 gotobi events 2021-01 to 2026-09, 18:00 ET ->
+    9:55 JST gross +1.49 bps, net +0.49 (SD 13.0), t +0.67; placebo 92.8th pct (random sets) / 50th (shifted
+    calendar). Fading: 2021-23 net +0.87, 2024-26 +0.10. Half the in-sample size, then gone - a widely known effect
+    competed away.
+  outcome_injection:
+    test: src/futuresres/signals/z10_trial.py
+    injected_bps: 0.8
+    sought_bps: 0.8
+    n_injection: 316
+    n_run: 316
+    recovered: true
+    report: reports/z10_injection.json
   schedulable: false
   schedulable_note: >
     ~70 events a year; the runner refuses to run without its outcome injection. Registered after a size screen INSIDE
     the paper's sample only (2018-2020: tradable window +2.67 bps, SD 12.4, t 2.88; paper's window +2.68, t 1.91) and
     on 2016-17 (before it: -0.94 bps, t -0.56); no 2021-2026 return computed before registration.
-  test_order: 8
+  test_order: null
   registered_test_order: 32
   grade: B
   tier: B
