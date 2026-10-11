@@ -7890,6 +7890,36 @@ data-driven search is testing ideas on the data that suggested them. This protoc
    mean halved; reported against the running count (Z and D market-tests together).
 6. **If nothing passes selection, nothing is carried forward**, and that is the result.
 
+## 130. D-series discovery (2010–17): seven cells pass, four carried, three dropped as untradable; D01 registered (S1–S5)
+
+**No trial spent at registration; N 771.** `reporting/d_discovery.py`, `reports/d_discovery.json`. Seven markets (GBP/USD,
+AUD/USD, USD/CAD, USD/CHF, DAX, Nikkei, silver; free HistData, whole-hour prices), 2010-01 → 2017-12 only (asserted).
+**912 testable cells** (of 1,008: cells with fewer than 30 hours — closed index hours — drop out); **7 pass**
+|t| > 4.1 and |mean| > 2 × cost; the protocol carries four:
+
+| carried | discovery mean (SD), t |
+|---|---|
+| USD/CHF 21:00–22:00 UTC, all weekdays | −1.90 bps (10.8), −7.88 |
+| **silver 11:00–12:00 UTC, all weekdays** | **−5.53 bps (33.7), −7.27** |
+| AUD/USD 22:00–23:00 UTC, all weekdays | −1.62 bps (9.7), −6.56 |
+| USD/CAD 22:00–23:00 UTC, Thursdays | +1.63 bps (5.6), +5.52 |
+
+**Three dropped before any validation data was read — untradable, and probably not real.** 21:00–23:00 UTC is 17:00–19:00
+New York (16:00–18:00 in winter): it covers CME's 17:00–18:00 ET daily break, when 6S / 6A / 6C do not trade and the account
+may not hold, and it is the FX rollover, when spreads widen sharply. HistData's quotes are BID prices, so a spread blow-out
+reads as a fall in the bid and its normalisation as a rise — the signs found (negative into rollover, positive out of it)
+fit that artefact. **The protocol (§129) should have excluded the CME break window; it is added to it now** for any later
+D-series scan. The decision used no 2018–2026 data.
+
+**D01 registered** (`hypotheses.yaml` D01; `signals/d01.py`): short silver (SI) 11:00 → 12:00 UTC every weekday — the hour
+ending at the 12:00 London silver fix in both summer and winter (an electronic auction since August 2014; the fix-dip
+pattern is documented for the manipulation era); net of 1.5 bp (2.0 bp reported: SI's tick is ~1.7 bp). Validation 2018-01 →
+2026-09, sealed until now; strict rule against silver's other 23 hours; prior Normal(+1.3, 1.5) bps net; 13th Z+D test.
+The registry gains the D series and SI (`tests/test_registry_consistency.py`).
+
+**Outcome injection** (`reports/d01_injection.json`, noise from silver's other hours only): +1.3 bps planted, recovered 1.34
+(SD 0.94, 2,169 events); power of the strict t 39% at the prior's size, near 100% at the discovery size.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
