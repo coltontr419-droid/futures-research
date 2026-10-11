@@ -781,6 +781,9 @@ still silver's weakest hour (placebo 95th) but +0.75 bps net, t 0.95, faded afte
 **A19–A20 (§135–136):** longer planning horizons lose (cost-blind solver buys tiny stops). **Live plan now uses stops ≥ $500**
 (`a06_playbook.PLAN_L_SET`), +2–4% in both histories; bot policy.json re-exported — droplet must copy it and restart.
 
+**A21 (§137): accounts 4 and 5 = Nikkei (1 NKD, 20:00–02:00 ET) and DAX (2 FDXM, 03:00–11:30 ET).** Five accounts: per 4 months
+mean +$6.4–10.5k, ends ahead 85–96%. OPEN: user to confirm Tradeify permits NKD/FDXM + contract cap; then add to bot.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

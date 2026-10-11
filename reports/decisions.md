@@ -8078,6 +8078,40 @@ Crude (10 MCL, one-bar approximation), full → restricted: replay 45% +$397 →
   end-game ticket (MNQ eval at $52,700, best day $1,100): +$300 / −$500 (was +$100 / −$200-type). The droplet needs the new
   `policy.json` (copy and restart).
 
+## 137. A21: Nikkei (1 NKD) and DAX (2 FDXM) fill the two unused funded slots — five accounts, ends ahead 85–96% (S8)
+
+**No trial spent; N 773.** `reporting/a21_more_accounts.py`; `reports/a21_{market}.json`, `a21_corr.json`, `a21_portfolio.json`. The user
+chose to improve what works rather than search for new edges; Tradeify allows 5 funded accounts and the plan used 3. Candidates with
+free HistData 1-minute data, windows fixed in advance from each main session: DAX (FDXM, €5/pt) Xetra 09:00–17:30 Frankfurt; Nikkei
+(NKD, $5/pt) 09:00–15:00 Tokyo; EUR/GBP/AUD/JPY (6E/6B/6A/6J) 08:00–16:00 London; silver (SI) COMEX 08:25–13:25 New York. Zero edge,
+drift removed per era, today's contract values, stops at the stop price, the live policy (stops ≥ $500, §136); assumed ≤ 3 full-size
+contracts and round trips FDXM/NKD $4, FX/SI $4.5 (estimates). Bid-quote CFD/spot data — an approximation of the futures.
+
+**Alone, at the risk-matched size (daily swing ≈ $2,900; 84 days, replay · block, P(payout) and mean net):**
+
+| market (size) | 2010–20 | 2021–26 | daily correlation with MNQ / MGC / MCL (2021–26) |
+|---|---|---|---|
+| **Nikkei, 1 NKD** (swing $2.9–3.5k) | 71% +$1,117 · 80% +$2,020 | 75% +$1,855 · 79% +$2,135 | **+0.01 / +0.01 / +0.03** |
+| **DAX, 2 FDXM** ($2.4–2.8k) | 75% +$1,724 · 74% +$1,888 | 85% +$3,621 · 79% +$3,023 | +0.19 / +0.16 / −0.05 |
+| silver, 1 SI ($3.7–4.6k, cannot go smaller) | 75% +$2,058 · 75% +$2,388 | 86% +$2,605 · 81% +$2,394 | +0.14 / **+0.58** / +0.07 |
+| euro, 3 6E (undersized, $1.4–1.8k) | 66% +$2,236 · 72% +$2,024 | 75% +$1,657 · 71% +$1,626 | +0.05 / +0.32 / −0.05 |
+| pound / aussie / yen, 3 (undersized, < $1.1k) | 27–43% | 35–51% | gold +0.29–0.40 |
+
+**Portfolio (joint replay on common start dates; 3 = MNQ 4, MGC 8, MCL 10):**
+
+| per four months | 3 accounts | + NKD | + NKD + DAX | + NKD + DAX, extra slippage (NKD +$25, DAX +$10 a trade) |
+|---|---|---|---|---|
+| 2021–26 mean / median | +$4,712 / +$3,224 | +$6,785 / +$6,200 | **+$10,475 / +$9,422** | +$10,034 / +$9,013 |
+| 2021–26 P(net > 0); 10th pct | 80%; −$1,060 | 90%; +$25 | **96%; +$1,374** | 96%; +$1,194 |
+| 2010–20 mean / median | +$5,363 / +$4,346 | +$6,115 / +$5,212 | **+$6,833 / +$5,831** | +$6,392 / +$5,482 |
+| 2010–20 P(net > 0); 10th pct | 80%; −$899 | 79%; −$1,895 | **87%; −$1,505** | 85%; −$1,880 |
+| fees | $2.6–3.0k | $3.7–4.1k | $4.7–5.1k | |
+
+**Recommended: add Nikkei (1 NKD, 09:00–15:00 Tokyo = 20:00–02:00 New York) and DAX (2 FDXM, 09:00–17:30 Frankfurt = 03:00–11:30
+New York) as accounts 4 and 5** — Nikkei is uncorrelated with everything; DAX nearly so. Silver duplicates gold; the FX contracts are
+too small within a 3-contract cap. Open with the user before the bot is changed: that his Tradeify account type permits NKD and FDXM
+and how FDXM counts against the contract cap; the extra $2.1k of evaluation fees per four months.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
