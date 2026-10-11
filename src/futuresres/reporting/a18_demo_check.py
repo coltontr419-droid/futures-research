@@ -1,6 +1,7 @@
 """A18 - the demo checker: do the live tickets behave like the backtest? decisions.md 126.
 
     python -m futuresres.reporting.a18_demo_check shadow_log.csv [demo_log.csv]
+    python -m futuresres.reporting.a18_demo_check --export-expected      # bot/expected.json for the bot's weekly check
 
 For every finished ticket in the bot's shadow log (bot/schedule.py): the probability, on 2021-26 history (the same
 1-minute paths as A07/A08, drift removed, stops at the stop price, a minute touching both = stop), that THIS bracket -
@@ -15,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import datetime as dt
 import math
 import sys
@@ -65,6 +67,27 @@ def expected(product: str, side: str, take_pts: float, stop_pts: float, n: int) 
     net = gross - RT[product] * n
     return {"p_take": float(take.mean()), "p_stop": float(stop.mean()), "p_time": float(1 - take.mean() - stop.mean()),
             "mean_net": float(net.mean()), "sd_net": float(net.std())}
+
+
+def export_expected(path: Path | None = None) -> Path:
+    """bot/expected.json: for every bracket the live policy can choose (W in A01's W_SET x L in the plan's menu, $100 units)
+    and every product, the 2021-26 P(take), P(stop), P(time exit), mean and SD of net P&L - so the bot's weekly check needs
+    no history on the droplet (decisions.md 139)."""
+    import futuresres.reporting.a01_game as g
+    import futuresres.reporting.a06_playbook as pb
+    out = {}
+    for prod, p in pb.PRODUCTS.items():
+        n, cost = p["n"], p["rt"] * p["n"]
+        out[prod] = {}
+        for W in g.W_SET:
+            for L in pb.PLAN_L_SET:
+                tp = pb._pts(W * 100 + cost, n, p); sp = pb._pts(max(L * 100 - cost, 1.0), n, p)
+                e = expected(prod, "long", tp, sp, n)
+                out[prod][f"{W},{L}"] = [round(e[k], 4) for k in ("p_take", "p_stop", "p_time")] + [round(e["mean_net"], 1), round(e["sd_net"], 1)]
+    path = path or (ROOT / "bot" / "expected.json")
+    path.write_text(json.dumps(out, separators=(",", ":")))
+    print(f"wrote {path}")
+    return path
 
 
 def check(shadow_csv: Path, demo_csv: Path | None = None) -> dict:
@@ -128,8 +151,11 @@ def render(r: dict) -> str:
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(); ap.add_argument("shadow"); ap.add_argument("demo", nargs="?")
+    ap = argparse.ArgumentParser(); ap.add_argument("shadow", nargs="?"); ap.add_argument("demo", nargs="?")
+    ap.add_argument("--export-expected", action="store_true")
     a = ap.parse_args(argv)
+    if a.export_expected:
+        export_expected(); return 0
     print(render(check(Path(a.shadow), Path(a.demo) if a.demo else None)))
     return 0
 

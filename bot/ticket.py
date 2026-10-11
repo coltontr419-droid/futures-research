@@ -55,6 +55,11 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
             "take_points": _pts(W + cost, n, p), "stop_points": _pts(max(L - cost, 1.0), n, p)}
 
 
+def _ticks(points: float, product: str) -> int:
+    """Points as a whole number of the instrument's ticks - what TradingView's bracket fields take."""
+    return int(round(points / policy()["PRODUCTS"][product]["tick"]))
+
+
 def describe(t: dict, product: str) -> str:
     if t.get("finished"):
         return (f"**{product}: ACCOUNT FINISHED** - within one day's costs of the floor (${t['floor']:,.0f}); any trade "
@@ -65,6 +70,6 @@ def describe(t: dict, product: str) -> str:
     verb = "BUY" if t["side"] == "long" else "SELL"
     tz = policy()["PRODUCTS"][product].get("tz", "ET")
     return (f"**{product}** - {t['entry']} {tz}: **{verb} {t['contracts']} {product}** at market, then one OCO bracket on the fill:\n"
-            f"> take-profit: fill {up} **{t['take_points']:.2f}** pts (~ +${t['take_net']:,.0f} net)\n"
-            f"> stop: fill {dn} **{t['stop_points']:.2f}** pts (~ -${t['stop_net']:,.0f} net)\n"
+            f"> take-profit: fill {up} **{t['take_points']:.2f}** pts = **{_ticks(t['take_points'], product)} ticks** (~ +${t['take_net']:,.0f} net)\n"
+            f"> stop: fill {dn} **{t['stop_points']:.2f}** pts = **{_ticks(t['stop_points'], product)} ticks** (~ -${t['stop_net']:,.0f} net)\n"
             f"> {t['exit']} {tz}: if neither filled, close at market. Floor today ${t['floor']:,.0f}.")

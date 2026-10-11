@@ -103,8 +103,8 @@ def _print(t: dict) -> None:
     up, dn = ("+", "-") if t["side"] == "long" else ("-", "+")
     tz = PRODUCTS[t["product"]].get("tz", "ET")
     print(f"{t['entry']} {tz}: {'BUY' if t['side'] == 'long' else 'SELL'} {t['contracts']} {t['product']} at market, then one OCO bracket on the fill price:\n"
-          f"  take-profit  fill {up} {t['take_points']:.2f} pts   (≈ +${t['take_net']:,.0f} net)\n"
-          f"  stop         fill {dn} {t['stop_points']:.2f} pts   (≈ -${t['stop_net']:,.0f} net)\n"
+          f"  take-profit  fill {up} {t['take_points']:.2f} pts = {round(t['take_points'] / PRODUCTS[t['product']]['tick'])} ticks   (≈ +${t['take_net']:,.0f} net)\n"
+          f"  stop         fill {dn} {t['stop_points']:.2f} pts = {round(t['stop_points'] / PRODUCTS[t['product']]['tick'])} ticks   (≈ -${t['stop_net']:,.0f} net)\n"
           f"{t['exit']} {tz}: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
 
 

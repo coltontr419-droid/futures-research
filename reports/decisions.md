@@ -8127,6 +8127,16 @@ and how FDXM counts against the contract cap; the extra $2.1k of evaluation fees
 - **Demo checker** (A18): expected outcome rates for NKD and FDXM from A21's 2021–26 paths.
 - Tests: tickets equal the playbook on 3,000 random states over all five products; the schedule's NKD/FDXM windows; state migration.
 
+## 139. The bot shows ticks and posts a weekly check against the backtest (S8)
+
+**No trial spent; N 773.** At the user's request, while the demo runs: (1) every ticket shows its take and stop in **ticks** beside
+points (TradingView's bracket fields take ticks; tick sizes MNQ 0.25, MGC 0.10, MCL 0.01, NKD 5, FDXM 1); (2) the Friday 17:30 alert
+carries a **weekly check** — the week's shadow-tracked outcomes (take / stop / time exit) and P&L against the backtest's expectation
+for the same brackets, flagged UNUSUAL if |z| ≥ 2 on P&L or the outcome mix's chi-square ≥ 6. Expectations are precomputed from
+2021–26 paths for every bracket the live policy can choose (W_SET × the plan's stop menu, 76 per product) into `bot/expected.json`
+(`a18_demo_check --export-expected`), so the droplet needs no history; a stop capped near the floor maps to the nearest menu
+bracket. Tests extended. Deployed to the droplet with the user's go-ahead.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

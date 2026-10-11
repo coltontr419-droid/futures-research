@@ -89,7 +89,9 @@ def test_schedule_alert_track_and_report(tmp_path):
     assert "Results" in text and text.count("TAKE") == 5 and "not recorded" not in text
     assert "Results" not in sc.alert_text(bk, tx, mon)                     # each result reported once
     fri = dt.datetime(2026, 10, 16, 17, 30, tzinfo=sc.ET)
-    assert "No new tickets" in sc.alert_text(bk, tx, fri)
+    fri_text = sc.alert_text(bk, tx, fri)
+    assert "No new tickets" in fri_text and "Weekly check" in fri_text and "take / stop / time exit **5 / 0 / 0**" in fri_text
+    assert "ticks" in sc.ticket_post(tx.t[-1]) or tx.t[-1]["status"] == "done"
 
 
 def test_existing_three_account_state_gains_the_new_accounts(tmp_path):
