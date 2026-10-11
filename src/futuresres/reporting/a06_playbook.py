@@ -38,8 +38,14 @@ PRODUCTS = {"MNQ": {"n": 4, "mult": 2.0, "rt": 2.32, "tick": 0.25, "entry": "09:
 CONTRACTS = PRODUCTS["MNQ"]["n"]
 
 
+#: decisions.md 136 (A20): the live plan's stop menu excludes stops under $500 ($100 units) - tight brackets only work in the
+#: cost-free fair-coin model; better in both histories (MNQ+MGC +$70-160 per 4 months). The solver's default is unchanged.
+PLAN_L_SET = (5, 6, 8, 10)
+
+
 def _solve():
     if "eval" not in g.POLICY:
+        g.L_SET = PLAN_L_SET
         with contextlib.redirect_stdout(io.StringIO()), np.errstate(all="ignore"):
             g.solve_all(21, keep_policy_at=21)
             g.solve_funded(21, "dollars", keep_policy_at=21)

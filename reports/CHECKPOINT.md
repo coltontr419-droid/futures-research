@@ -778,6 +778,9 @@ still silver's weakest hour (placebo 95th) but +0.75 bps net, t 0.95, faded afte
 56 tests, 1 carried: **D02 AUD into the Tokyo fix at month-end (t00779, N 773) REJECT** — −0.33 bps out of sample.
 14 Z+D tests, none confirmed; watchlist empty.
 
+**A19–A20 (§135–136):** longer planning horizons lose (cost-blind solver buys tiny stops). **Live plan now uses stops ≥ $500**
+(`a06_playbook.PLAN_L_SET`), +2–4% in both histories; bot policy.json re-exported — droplet must copy it and restart.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

@@ -8052,6 +8052,32 @@ one-minute both-touched rule) and pays commissions every day: 84-day P(payout) f
 0–1% (He 84). The 21-day horizon is what keeps the solver away from brackets that only work on paper; it stays.
 **Next (A20):** the long horizons again with a menu restricted to stops ≥ $500, where costs and tick noise are small.
 
+## 136. A20: stops of at least $500 improve the plan slightly in both histories; longer horizons still lose — adopted (S8)
+
+**No trial spent; N 773. Computation record m00166** (`reports/a20_menu.json`, `reporting/a20_menu.py`). Block-bootstrap mean
+net, MNQ + MGC, stops at the stop price:
+
+| menu, He / Hf | 84 days: 2021–26 / 2015–20 | 252 days | 84-day P(payout) MNQ / MGC, 2021–26 · 2015–20 |
+|---|---|---|---|
+| full (A01), 21 / 21 | +$3,346 / +$4,035 | +$11,079 / +$13,131 | 70% / 77% · 64% / 76% |
+| **stops ≥ $500, 21 / 21** | **+$3,412 / +$4,191** | **+$11,297 / +$13,830** | **71% / 77% · 68% / 77%** |
+| stops ≥ $500, 21 / 63 | +$1,079 / +$1,039 | +$3,866 / +$3,732 | 71% / 77% · 68% / 77% |
+| stops ≥ $500, 21 / 126 | +$20 / +$131 | +$709 / +$1,024 | 32–40% |
+| stops ≥ $500, 42 / 21 | +$2,296 / +$2,918 | +$7,860 / +$9,791 | 57% / 57–67% |
+| stops ≥ $500, 42 / 63 | +$523 / +$848 | +$2,273 / +$3,184 | 57% / 57–67% |
+
+Crude (10 MCL, one-bar approximation), full → restricted: replay 45% +$397 → 52% +$820 (2021–26), 55% +$545 → 49% +$418
+(2016–20); block +$254 → +$295, +$649 → +$684 — neutral to slightly better.
+
+- **Removing stops under $500 helps in both histories** (+2–4%: +$66–156 per four months, +$218–699 a year; MNQ's 2015–20
+  P(payout) 64% → 68%). The tight brackets were losing to tick noise, the one-minute both-touched rule and commissions.
+- **Longer horizons still lose** even without tight stops: the funded policy planned over 63+ days plays for survival and
+  withdraws far less within any realistic window. The 21-day horizon stays.
+- **Adopted for the live plan only:** `a06_playbook.PLAN_L_SET = (5, 6, 8, 10)`; the solver's default menu (A01's) is unchanged so
+  every earlier record reproduces. `bot/policy.json` re-exported; tables regenerated; `tests/test_bot_ticket.py` passes. Example
+  end-game ticket (MNQ eval at $52,700, best day $1,100): +$300 / −$500 (was +$100 / −$200-type). The droplet needs the new
+  `policy.json` (copy and restart).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

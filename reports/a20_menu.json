@@ -1,0 +1,942 @@
+{
+ "post": {
+  "full He21_Hf21": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7897160399079048,
+      "mean_net": 1142.7140437338412,
+      "p_net_positive": 0.580199539524175,
+      "mean_attempts": 12.76899462778204,
+      "mean_fees": 1021.5195702225633,
+      "mean_paid": 2164.2336139564045
+     },
+     "block": {
+      "p_any_payout": 0.7012499999999999,
+      "mean_net": 1295.2948418710826,
+      "p_net_positive": 0.573,
+      "mean_attempts": 12.634875000000001,
+      "mean_fees": 1010.79,
+      "mean_paid": 2306.084841871083
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 3912.0826982485564,
+      "p_net_positive": 0.8052863436123348,
+      "mean_attempts": 36.55594713656388,
+      "mean_fees": 2924.4757709251103,
+      "mean_paid": 6836.558469173666
+     },
+     "block": {
+      "p_any_payout": 0.9746250000000001,
+      "mean_net": 4420.11092440579,
+      "p_net_positive": 0.8142499999999999,
+      "mean_attempts": 36.482375,
+      "mean_fees": 2918.59,
+      "mean_paid": 7338.700924405789
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7678708685626441,
+      "mean_net": 2210.3613906238743,
+      "p_net_positive": 0.6933128362797848,
+      "mean_attempts": 13.541890853189853,
+      "mean_fees": 1083.3512682551884,
+      "mean_paid": 3293.712658879062
+     },
+     "block": {
+      "p_any_payout": 0.768625,
+      "mean_net": 2051.145183422661,
+      "p_net_positive": 0.65025,
+      "mean_attempts": 13.460374999999999,
+      "mean_fees": 1076.83,
+      "mean_paid": 3127.975183422661
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 7573.882168215477,
+      "p_net_positive": 0.9346866725507502,
+      "mean_attempts": 38.663724624889674,
+      "mean_fees": 3093.097969991174,
+      "mean_paid": 10666.98013820665
+     },
+     "block": {
+      "p_any_payout": 0.98825,
+      "mean_net": 6658.718389641475,
+      "p_net_positive": 0.891125,
+      "mean_attempts": 39.096999999999994,
+      "mean_fees": 3127.76,
+      "mean_paid": 9786.478389641476
+     }
+    }
+   }
+  },
+  "stops>=500 He21_Hf21": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.8035303146584805,
+      "mean_net": 1265.5297023757823,
+      "p_net_positive": 0.5932463545663853,
+      "mean_attempts": 12.858019953952418,
+      "mean_fees": 1028.6415963161935,
+      "mean_paid": 2294.1712986919756
+     },
+     "block": {
+      "p_any_payout": 0.7130000000000001,
+      "mean_net": 1348.6839057992458,
+      "p_net_positive": 0.584,
+      "mean_attempts": 12.7795,
+      "mean_fees": 1022.3599999999999,
+      "mean_paid": 2371.043905799246
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 4529.442648248127,
+      "p_net_positive": 0.8951541850220265,
+      "mean_attempts": 36.950660792951545,
+      "mean_fees": 2956.0528634361235,
+      "mean_paid": 7485.495511684248
+     },
+     "block": {
+      "p_any_payout": 0.9781249999999999,
+      "mean_net": 4613.417106967629,
+      "p_net_positive": 0.825,
+      "mean_attempts": 37.04175,
+      "mean_fees": 2963.34,
+      "mean_paid": 7576.757106967629
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7678708685626441,
+      "mean_net": 2229.167240015568,
+      "p_net_positive": 0.6933128362797848,
+      "mean_attempts": 13.546502690238277,
+      "mean_fees": 1083.7202152190623,
+      "mean_paid": 3312.8874552346306
+     },
+     "block": {
+      "p_any_payout": 0.7691250000000001,
+      "mean_net": 2063.2488379102706,
+      "p_net_positive": 0.651125,
+      "mean_attempts": 13.485,
+      "mean_fees": 1078.8000000000002,
+      "mean_paid": 3142.048837910271
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 7647.566810929785,
+      "p_net_positive": 0.9346866725507502,
+      "mean_attempts": 38.66902030008826,
+      "mean_fees": 3093.521624007061,
+      "mean_paid": 10741.088434936846
+     },
+     "block": {
+      "p_any_payout": 0.9886250000000001,
+      "mean_net": 6683.2203408519745,
+      "p_net_positive": 0.8908750000000001,
+      "mean_attempts": 39.18,
+      "mean_fees": 3134.3999999999996,
+      "mean_paid": 9817.620340851976
+     }
+    }
+   }
+  },
+  "stops>=500 He21_Hf63": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.8035303146584805,
+      "mean_net": 819.7225952756653,
+      "p_net_positive": 0.7498081350729087,
+      "mean_attempts": 8.655410590943976,
+      "mean_fees": 692.432847275518,
+      "mean_paid": 1512.1554425511833
+     },
+     "block": {
+      "p_any_payout": 0.71375,
+      "mean_net": 596.3662801634788,
+      "p_net_positive": 0.64425,
+      "mean_attempts": 9.277125,
+      "mean_fees": 742.17,
+      "mean_paid": 1338.5362801634788
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 3342.526383756982,
+      "p_net_positive": 1.0,
+      "mean_attempts": 19.751541850220264,
+      "mean_fees": 1580.123348017621,
+      "mean_paid": 4922.649731774603
+     },
+     "block": {
+      "p_any_payout": 0.9784999999999999,
+      "mean_net": 2219.3734908752085,
+      "p_net_positive": 0.813375,
+      "mean_attempts": 23.087125,
+      "mean_fees": 1846.97,
+      "mean_paid": 4066.3434908752083
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7678708685626441,
+      "mean_net": 525.825703270668,
+      "p_net_positive": 0.6395080707148347,
+      "mean_attempts": 10.390468870099923,
+      "mean_fees": 831.2375096079938,
+      "mean_paid": 1357.0632128786622
+     },
+     "block": {
+      "p_any_payout": 0.7691250000000001,
+      "mean_net": 482.96715781428816,
+      "p_net_positive": 0.6481250000000001,
+      "mean_attempts": 10.376375,
+      "mean_fees": 830.11,
+      "mean_paid": 1313.077157814288
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 1634.4564354771128,
+      "p_net_positive": 0.7890556045895851,
+      "mean_attempts": 28.694616063548104,
+      "mean_fees": 2295.569285083848,
+      "mean_paid": 3930.025720560961
+     },
+     "block": {
+      "p_any_payout": 0.9886250000000001,
+      "mean_net": 1646.8098430298091,
+      "p_net_positive": 0.7637499999999999,
+      "mean_attempts": 28.193125000000002,
+      "mean_fees": 2255.45,
+      "mean_paid": 3902.259843029809
+     }
+    }
+   }
+  },
+  "stops>=500 He21_Hf126": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.4904067536454336,
+      "mean_net": 181.27852542083806,
+      "p_net_positive": 0.42517267843438217,
+      "mean_attempts": 5.459708365310822,
+      "mean_fees": 436.7766692248657,
+      "mean_paid": 618.0551946457038
+     },
+     "block": {
+      "p_any_payout": 0.398125,
+      "mean_net": 199.34856572824717,
+      "p_net_positive": 0.37875000000000003,
+      "mean_attempts": 5.700749999999999,
+      "mean_fees": 456.06,
+      "mean_paid": 655.4085657282473
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.9427312775330396,
+      "mean_net": 1344.9805703990785,
+      "p_net_positive": 0.8140969162995595,
+      "mean_attempts": 11.783259911894273,
+      "mean_fees": 942.6607929515418,
+      "mean_paid": 2287.6413633506204
+     },
+     "block": {
+      "p_any_payout": 0.77275,
+      "mean_net": 1020.1283148132385,
+      "p_net_positive": 0.65225,
+      "mean_attempts": 13.431750000000001,
+      "mean_fees": 1074.54,
+      "mean_paid": 2094.6683148132383
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.2905457340507302,
+      "mean_net": -185.71069819357282,
+      "p_net_positive": 0.2590315142198309,
+      "mean_attempts": 7.305918524212145,
+      "mean_fees": 584.4734819369716,
+      "mean_paid": 398.76278374339876
+     },
+     "block": {
+      "p_any_payout": 0.3235,
+      "mean_net": -179.19233872721193,
+      "p_net_positive": 0.280625,
+      "mean_attempts": 7.700749999999999,
+      "mean_fees": 616.06,
+      "mean_paid": 436.86766127278804
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.6381288614298323,
+      "mean_net": -244.1587290640122,
+      "p_net_positive": 0.412180052956752,
+      "mean_attempts": 19.55604589585172,
+      "mean_fees": 1564.4836716681377,
+      "mean_paid": 1320.3249426041257
+     },
+     "block": {
+      "p_any_payout": 0.679,
+      "mean_net": -311.2727475548267,
+      "p_net_positive": 0.35724999999999996,
+      "mean_attempts": 20.192375,
+      "mean_fees": 1615.3899999999999,
+      "mean_paid": 1304.1172524451733
+     }
+    }
+   }
+  },
+  "stops>=500 He42_Hf21": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.5149654643131235,
+      "mean_net": 551.0746676879029,
+      "p_net_positive": 0.488871834228703,
+      "mean_attempts": 9.22256331542594,
+      "mean_fees": 737.8050652340752,
+      "mean_paid": 1288.8797329219778
+     },
+     "block": {
+      "p_any_payout": 0.56975,
+      "mean_net": 1072.6581524948597,
+      "p_net_positive": 0.505125,
+      "mean_attempts": 9.6295,
+      "mean_fees": 770.3599999999999,
+      "mean_paid": 1843.0181524948598
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.8466960352422908,
+      "mean_net": 1572.1264020183746,
+      "p_net_positive": 0.733920704845815,
+      "mean_attempts": 24.86784140969163,
+      "mean_fees": 1989.4273127753304,
+      "mean_paid": 3561.5537147937052
+     },
+     "block": {
+      "p_any_payout": 0.928625,
+      "mean_net": 3679.5506419449803,
+      "p_net_positive": 0.7715,
+      "mean_attempts": 27.429000000000002,
+      "mean_fees": 2194.3199999999997,
+      "mean_paid": 5873.870641944981
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.5219062259800153,
+      "mean_net": 1066.2717837686268,
+      "p_net_positive": 0.48424289008455035,
+      "mean_attempts": 9.887778631821675,
+      "mean_fees": 791.022290545734,
+      "mean_paid": 1857.2940743143608
+     },
+     "block": {
+      "p_any_payout": 0.56675,
+      "mean_net": 1223.1729204952717,
+      "p_net_positive": 0.500875,
+      "mean_attempts": 10.247,
+      "mean_fees": 819.76,
+      "mean_paid": 2042.9329204952714
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.9761694616063548,
+      "mean_net": 3152.8552007468106,
+      "p_net_positive": 0.9355692850838482,
+      "mean_attempts": 27.203883495145632,
+      "mean_fees": 2176.3106796116504,
+      "mean_paid": 5329.165880358461
+     },
+     "block": {
+      "p_any_payout": 0.926375,
+      "mean_net": 4180.040829641675,
+      "p_net_positive": 0.776375,
+      "mean_attempts": 29.338124999999998,
+      "mean_fees": 2347.05,
+      "mean_paid": 6527.090829641676
+     }
+    }
+   }
+  },
+  "stops>=500 He42_Hf63": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.5149654643131235,
+      "mean_net": 208.6431403286715,
+      "p_net_positive": 0.43438219493476593,
+      "mean_attempts": 7.006907137375288,
+      "mean_fees": 560.552570990023,
+      "mean_paid": 769.1957113186945
+     },
+     "block": {
+      "p_any_payout": 0.570125,
+      "mean_net": 333.8151481756091,
+      "p_net_positive": 0.5165,
+      "mean_attempts": 7.6015,
+      "mean_fees": 608.12,
+      "mean_paid": 941.9351481756091
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.8466960352422908,
+      "mean_net": 913.496754975676,
+      "p_net_positive": 0.6925110132158591,
+      "mean_attempts": 16.44669603524229,
+      "mean_fees": 1315.7356828193833,
+      "mean_paid": 2229.2324377950595
+     },
+     "block": {
+      "p_any_payout": 0.929,
+      "mean_net": 1429.7323896684884,
+      "p_net_positive": 0.71225,
+      "mean_attempts": 19.316,
+      "mean_fees": 1545.28,
+      "mean_paid": 2975.0123896684886
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.5219062259800153,
+      "mean_net": 65.76745561369562,
+      "p_net_positive": 0.4388931591083782,
+      "mean_attempts": 8.646425826287471,
+      "mean_fees": 691.7140661029977,
+      "mean_paid": 757.4815217166934
+     },
+     "block": {
+      "p_any_payout": 0.566875,
+      "mean_net": 188.89669946334362,
+      "p_net_positive": 0.49625,
+      "mean_attempts": 8.688125,
+      "mean_fees": 695.05,
+      "mean_paid": 883.9466994633435
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.9761694616063548,
+      "mean_net": 57.81673837175225,
+      "p_net_positive": 0.3159752868490733,
+      "mean_attempts": 23.93909973521624,
+      "mean_fees": 1915.1279788172992,
+      "mean_paid": 1972.9447171890517
+     },
+     "block": {
+      "p_any_payout": 0.926375,
+      "mean_net": 843.559076519227,
+      "p_net_positive": 0.6279999999999999,
+      "mean_attempts": 23.705375,
+      "mean_fees": 1896.4299999999998,
+      "mean_paid": 2739.9890765192267
+     }
+    }
+   }
+  }
+ },
+ "pre": {
+  "full He21_Hf21": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7215081405312768,
+      "mean_net": 1833.1827084846952,
+      "p_net_positive": 0.5732647814910026,
+      "mean_attempts": 10.253641816623821,
+      "mean_fees": 820.2913453299058,
+      "mean_paid": 2653.474053814601
+     },
+     "block": {
+      "p_any_payout": 0.642,
+      "mean_net": 1631.5106817563594,
+      "p_net_positive": 0.5445,
+      "mean_attempts": 10.187375,
+      "mean_fees": 814.99,
+      "mean_paid": 2446.50068175636
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 5280.423992168533,
+      "p_net_positive": 0.8888888888888888,
+      "mean_attempts": 29.10910910910911,
+      "mean_fees": 2328.7287287287286,
+      "mean_paid": 7609.152720897262
+     },
+     "block": {
+      "p_any_payout": 0.955875,
+      "mean_net": 5493.211713530511,
+      "p_net_positive": 0.82525,
+      "mean_attempts": 28.704875,
+      "mean_fees": 2296.39,
+      "mean_paid": 7789.601713530511
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7381635581061693,
+      "mean_net": 2395.8428537212794,
+      "p_net_positive": 0.6341463414634146,
+      "mean_attempts": 12.086800573888091,
+      "mean_fees": 966.9440459110474,
+      "mean_paid": 3362.786899632327
+     },
+     "block": {
+      "p_any_payout": 0.761625,
+      "mean_net": 2403.8377412025065,
+      "p_net_positive": 0.641625,
+      "mean_attempts": 11.8005,
+      "mean_fees": 944.04,
+      "mean_paid": 3347.8777412025065
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 7563.216734927708,
+      "p_net_positive": 0.8238172920065253,
+      "mean_attempts": 34.474714518760194,
+      "mean_fees": 2757.977161500816,
+      "mean_paid": 10321.193896428524
+     },
+     "block": {
+      "p_any_payout": 0.987375,
+      "mean_net": 7637.9509019080815,
+      "p_net_positive": 0.8915,
+      "mean_attempts": 33.790125,
+      "mean_fees": 2703.21,
+      "mean_paid": 10341.160901908082
+     }
+    }
+   }
+  },
+  "stops>=500 He21_Hf21": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7592116538131962,
+      "mean_net": 1957.4923274372006,
+      "p_net_positive": 0.609254498714653,
+      "mean_attempts": 10.437874892887747,
+      "mean_fees": 835.0299914310197,
+      "mean_paid": 2792.5223188682203
+     },
+     "block": {
+      "p_any_payout": 0.68275,
+      "mean_net": 1795.4204080171376,
+      "p_net_positive": 0.578125,
+      "mean_attempts": 10.552125,
+      "mean_fees": 844.1700000000001,
+      "mean_paid": 2639.5904080171376
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 5741.570399682348,
+      "p_net_positive": 0.9309309309309309,
+      "mean_attempts": 29.725725725725727,
+      "mean_fees": 2378.058058058058,
+      "mean_paid": 8119.628457740405
+     },
+     "block": {
+      "p_any_payout": 0.974125,
+      "mean_net": 6123.234373374244,
+      "p_net_positive": 0.853375,
+      "mean_attempts": 30.145249999999997,
+      "mean_fees": 2411.62,
+      "mean_paid": 8534.854373374246
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7410329985652798,
+      "mean_net": 2386.8110470908614,
+      "p_net_positive": 0.633428981348637,
+      "mean_attempts": 11.944763271162124,
+      "mean_fees": 955.5810616929699,
+      "mean_paid": 3342.392108783831
+     },
+     "block": {
+      "p_any_payout": 0.767375,
+      "mean_net": 2395.4027004141417,
+      "p_net_positive": 0.64675,
+      "mean_attempts": 11.8865,
+      "mean_fees": 950.9200000000001,
+      "mean_paid": 3346.3227004141418
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 7467.203354809374,
+      "p_net_positive": 0.8238172920065253,
+      "mean_attempts": 33.898858075040785,
+      "mean_fees": 2711.9086460032627,
+      "mean_paid": 10179.112000812636
+     },
+     "block": {
+      "p_any_payout": 0.9890000000000001,
+      "mean_net": 7707.04450944609,
+      "p_net_positive": 0.8967499999999999,
+      "mean_attempts": 34.258875,
+      "mean_fees": 2740.71,
+      "mean_paid": 10447.754509446091
+     }
+    }
+   }
+  },
+  "stops>=500 He21_Hf63": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7592116538131962,
+      "mean_net": 440.6517503202319,
+      "p_net_positive": 0.5604113110539846,
+      "mean_attempts": 8.008568980291345,
+      "mean_fees": 640.6855184233076,
+      "mean_paid": 1081.3372687435394
+     },
+     "block": {
+      "p_any_payout": 0.68325,
+      "mean_net": 505.35845601103307,
+      "p_net_positive": 0.57775,
+      "mean_attempts": 8.142,
+      "mean_fees": 651.36,
+      "mean_paid": 1156.7184560110331
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 2037.69232561247,
+      "p_net_positive": 0.8508508508508509,
+      "mean_attempts": 19.05805805805806,
+      "mean_fees": 1524.6446446446446,
+      "mean_paid": 3562.336970257115
+     },
+     "block": {
+      "p_any_payout": 0.974375,
+      "mean_net": 1984.7196845686049,
+      "p_net_positive": 0.78975,
+      "mean_attempts": 20.322499999999998,
+      "mean_fees": 1625.8,
+      "mean_paid": 3610.5196845686046
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.7410329985652798,
+      "mean_net": 554.0193376253804,
+      "p_net_positive": 0.6456241032998565,
+      "mean_attempts": 8.507890961262554,
+      "mean_fees": 680.6312769010043,
+      "mean_paid": 1234.6506145263847
+     },
+     "block": {
+      "p_any_payout": 0.76725,
+      "mean_net": 533.9827826267333,
+      "p_net_positive": 0.683125,
+      "mean_attempts": 9.0725,
+      "mean_fees": 725.8,
+      "mean_paid": 1259.782782626733
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 1783.294354821496,
+      "p_net_positive": 0.7732463295269169,
+      "mean_attempts": 21.52936378466558,
+      "mean_fees": 1722.3491027732464,
+      "mean_paid": 3505.6434575947424
+     },
+     "block": {
+      "p_any_payout": 0.989125,
+      "mean_net": 1747.3331292942346,
+      "p_net_positive": 0.79225,
+      "mean_attempts": 24.475125,
+      "mean_fees": 1958.01,
+      "mean_paid": 3705.3431292942346
+     }
+    }
+   }
+  },
+  "stops>=500 He21_Hf126": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.4138817480719794,
+      "mean_net": 206.6167424650609,
+      "p_net_positive": 0.3496143958868895,
+      "mean_attempts": 5.5629820051413885,
+      "mean_fees": 445.03856041131104,
+      "mean_paid": 651.6553028763719
+     },
+     "block": {
+      "p_any_payout": 0.34525,
+      "mean_net": 118.28795889682769,
+      "p_net_positive": 0.31837499999999996,
+      "mean_attempts": 5.6605,
+      "mean_fees": 452.84000000000003,
+      "mean_paid": 571.1279588968277
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.7807807807807807,
+      "mean_net": 1489.17693196584,
+      "p_net_positive": 0.6796796796796797,
+      "mean_attempts": 13.397397397397397,
+      "mean_fees": 1071.7917917917919,
+      "mean_paid": 2560.9687237576322
+     },
+     "block": {
+      "p_any_payout": 0.7295,
+      "mean_net": 784.1199226735116,
+      "p_net_positive": 0.597375,
+      "mean_attempts": 13.666250000000002,
+      "mean_fees": 1093.3,
+      "mean_paid": 1877.4199226735116
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.42898134863701576,
+      "mean_net": 128.2492348491718,
+      "p_net_positive": 0.41606886657101866,
+      "mean_attempts": 6.4519368723099,
+      "mean_fees": 516.1549497847919,
+      "mean_paid": 644.4041846339638
+     },
+     "block": {
+      "p_any_payout": 0.39175,
+      "mean_net": 12.320778500246998,
+      "p_net_positive": 0.374375,
+      "mean_attempts": 7.02975,
+      "mean_fees": 562.38,
+      "mean_paid": 574.700778500247
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.9037520391517129,
+      "mean_net": 782.4696724146459,
+      "p_net_positive": 0.6264274061990212,
+      "mean_attempts": 15.909461663947798,
+      "mean_fees": 1272.7569331158238,
+      "mean_paid": 2055.22660553047
+     },
+     "block": {
+      "p_any_payout": 0.7625,
+      "mean_net": 240.24099649682046,
+      "p_net_positive": 0.505125,
+      "mean_attempts": 18.425874999999998,
+      "mean_fees": 1474.0700000000002,
+      "mean_paid": 1714.3109964968205
+     }
+    }
+   }
+  },
+  "stops>=500 He42_Hf21": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.662382176520994,
+      "mean_net": 1241.6369052839566,
+      "p_net_positive": 0.6452442159383034,
+      "mean_attempts": 8.505569837189375,
+      "mean_fees": 680.4455869751499,
+      "mean_paid": 1922.0824922591069
+     },
+     "block": {
+      "p_any_payout": 0.569,
+      "mean_net": 1019.5091318249704,
+      "p_net_positive": 0.48912500000000003,
+      "mean_attempts": 8.399999999999999,
+      "mean_fees": 672.0,
+      "mean_paid": 1691.5091318249702
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.8888888888888888,
+      "mean_net": 4045.2198393593562,
+      "p_net_positive": 0.8198198198198198,
+      "mean_attempts": 23.982982982982982,
+      "mean_fees": 1918.6386386386387,
+      "mean_paid": 5963.8584779979965
+     },
+     "block": {
+      "p_any_payout": 0.9295,
+      "mean_net": 3656.5886573617313,
+      "p_net_positive": 0.76125,
+      "mean_attempts": 23.575625000000002,
+      "mean_fees": 1886.05,
+      "mean_paid": 5542.638657361731
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.6721664275466284,
+      "mean_net": 2422.891919972736,
+      "p_net_positive": 0.6542324246771879,
+      "mean_attempts": 9.621951219512194,
+      "mean_fees": 769.7560975609756,
+      "mean_paid": 3192.6480175337115
+     },
+     "block": {
+      "p_any_payout": 0.66575,
+      "mean_net": 1898.4546035112708,
+      "p_net_positive": 0.6214999999999999,
+      "mean_attempts": 9.429375,
+      "mean_fees": 754.35,
+      "mean_paid": 2652.804603511271
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 8801.410056008252,
+      "p_net_positive": 0.8939641109298532,
+      "mean_attempts": 27.392332789559543,
+      "mean_fees": 2191.3866231647635,
+      "mean_paid": 10992.796679173014
+     },
+     "block": {
+      "p_any_payout": 0.961,
+      "mean_net": 6134.207694049164,
+      "p_net_positive": 0.8494999999999999,
+      "mean_attempts": 26.811875,
+      "mean_fees": 2144.95,
+      "mean_paid": 8279.157694049165
+     }
+    }
+   }
+  },
+  "stops>=500 He42_Hf63": {
+   "MNQ": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.662382176520994,
+      "mean_net": 442.5527824550586,
+      "p_net_positive": 0.6015424164524421,
+      "mean_attempts": 6.8063410454155955,
+      "mean_fees": 544.5072836332477,
+      "mean_paid": 987.0600660883063
+     },
+     "block": {
+      "p_any_payout": 0.5700000000000001,
+      "mean_net": 346.21228979608713,
+      "p_net_positive": 0.5097499999999999,
+      "mean_attempts": 6.8466249999999995,
+      "mean_fees": 547.73,
+      "mean_paid": 893.9422897960872
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 0.8888888888888888,
+      "mean_net": 1943.5221111536264,
+      "p_net_positive": 0.8108108108108109,
+      "mean_attempts": 16.02202202202202,
+      "mean_fees": 1281.7617617617618,
+      "mean_paid": 3225.283872915388
+     },
+     "block": {
+      "p_any_payout": 0.929875,
+      "mean_net": 1519.911782579726,
+      "p_net_positive": 0.735125,
+      "mean_attempts": 17.195124999999997,
+      "mean_fees": 1375.61,
+      "mean_paid": 2895.521782579726
+     }
+    }
+   },
+   "MGC": {
+    "84": {
+     "replay": {
+      "p_any_payout": 0.6721664275466284,
+      "mean_net": 507.5802618928415,
+      "p_net_positive": 0.6219512195121951,
+      "mean_attempts": 7.655667144906743,
+      "mean_fees": 612.4533715925395,
+      "mean_paid": 1120.0336334853807
+     },
+     "block": {
+      "p_any_payout": 0.6656249999999999,
+      "mean_net": 501.7402111087769,
+      "p_net_positive": 0.640625,
+      "mean_attempts": 7.69925,
+      "mean_fees": 615.94,
+      "mean_paid": 1117.6802111087768
+     }
+    },
+    "252": {
+     "replay": {
+      "p_any_payout": 1.0,
+      "mean_net": 2030.3952352516023,
+      "p_net_positive": 0.7275693311582382,
+      "mean_attempts": 19.802610114192497,
+      "mean_fees": 1584.2088091353996,
+      "mean_paid": 3614.6040443870015
+     },
+     "block": {
+      "p_any_payout": 0.961125,
+      "mean_net": 1663.6932326795547,
+      "p_net_positive": 0.7777499999999999,
+      "mean_attempts": 20.701625,
+      "mean_fees": 1656.13,
+      "mean_paid": 3319.823232679555
+     }
+    }
+   }
+  }
+ }
+}
