@@ -8030,6 +8030,28 @@ per §133; prior Normal(+0.64, 1.0) bp; 14th Z+D test. 6A added to the registry'
 the outcome the expected-chance-pass count (2.8 of 56) warned of, and the reason every carried cell still gets the sealed
 check. Fourteen Z+D market-tests, none confirmed; the watchlist is empty.
 
+## 135. A19: planning further ahead makes the plan worse — the cost-blind solver buys tiny stops (S8)
+
+**No trial spent; N 773. Computation record (A19)** (`reports/a19_horizon.json`, `reporting/a19_horizon.py`). The user approved
+re-solving the policy for lifetime value (a zero-edge funded account can be worth up to its cushion). Evaluation solved for
+P(pass within He days), funded for E[payouts within Hf days]; He ∈ {21, 42, 84}, Hf ∈ {21, 63, 126, 252}; 4 MNQ + 8 MGC, drift
+removed, stops at the stop price; block-bootstrap mean net, MNQ + MGC:
+
+| He / Hf | 84 days: 2021–26 / 2015–20 | 252 days: 2021–26 / 2015–20 |
+|---|---|---|
+| **21 / 21 (the plan)** | **+$3,346 / +$4,035** | **+$11,079 / +$13,131** |
+| 42 / 21 | +$1,739 / +$2,625 | +$5,646 / +$8,473 |
+| 21 / 63 | +$312 / +$408 | +$1,152 / +$1,461 |
+| 21 / 126–252 | −$722 / −$499 | −$1,829 / −$1,086 |
+| 84 / any | −$420 to −$439 / −$270 to −$385 | about −$1,100 / −$630 to −$940 |
+
+**Why:** the A01 solver prices every bracket as a fair coin and ignores commissions. Planning further ahead raises the value of
+surviving, so it chooses tight stops — funded +$3,000 / −$200 instead of +$3,000 / −$1,000; evaluation +$600 / −$200 instead of
++$1,200 / −$1,000. On real paths a $200 stop on 4 MNQ is a few ticks wide, resolves within minutes (often against, under the
+one-minute both-touched rule) and pays commissions every day: 84-day P(payout) falls from 70–77% to 12–15% (Hf 252) and to
+0–1% (He 84). The 21-day horizon is what keeps the solver away from brackets that only work on paper; it stays.
+**Next (A20):** the long horizons again with a menu restricted to stops ≥ $500, where costs and tick noise are small.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
