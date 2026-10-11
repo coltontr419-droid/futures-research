@@ -717,3 +717,6 @@ the rule (+0.42 vs always-long +0.36) but marginal and era-unstable; crude rejec
 **Strict rule (§119):** from 2026-10-10 a direction edge must beat always-long at t > 1.645 and its own shifted-signal
 placebo at the 95th percentile. Under it Z08's gold result fails (t +0.15); Z08 is retired and §118's portfolio gain is
 withdrawn. The portfolio stands at its zero-edge figures.
+
+**Z09 (§120, t00774):** the outright version of the Goldman roll (short crude on GSCI roll days) is rejected under the strict
+rule — the effect held to 2020 and reversed after 2021.

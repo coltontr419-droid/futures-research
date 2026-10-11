@@ -1,0 +1,61 @@
+{
+ "hypothesis": "Z09",
+ "window": [
+  "2010-06-08",
+  "2026-08-27"
+ ],
+ "sessions": 3993,
+ "t_beats_long": -0.20181152912368894,
+ "placebo_percentile": 52.46523388116309,
+ "sharpe_signal": 0.08682473961648177,
+ "posterior_registered_prior": 0.13347433906795403,
+ "posterior_zero_prior": 0.05103653544657908,
+ "conditions": {
+  "t_gt_1.645": false,
+  "placebo_ge_95": false,
+  "posterior_gt_0": true
+ },
+ "strict_confirm": false,
+ "roll_day_bps": 1.5862392273761177,
+ "other_day_bps": 2.331833974762108,
+ "roll_sessions": 970,
+ "eras": {
+  "2010-15": {
+   "sessions": 1371,
+   "roll_bps": -15.777410053773904,
+   "other_bps": -2.3669345121202414,
+   "strict_t": 1.6641910289652158
+  },
+  "2016-20": {
+   "sessions": 1229,
+   "roll_bps": -20.890888867177196,
+   "other_bps": 7.865258094177366,
+   "strict_t": 1.2752630042873865
+  },
+  "2021-26": {
+   "sessions": 1393,
+   "roll_bps": 38.22683409415639,
+   "other_bps": 2.066088875131392,
+   "strict_t": -2.634028071109416
+  }
+ },
+ "bps_by_trading_day": {
+  "5": 0.17395193260715222,
+  "6": -3.0998227292676788,
+  "7": 0.58435794036809,
+  "8": 8.839614416568864,
+  "9": 1.4520851986125918
+ },
+ "z_market_tests": 9,
+ "expected_chance_passes_at_5pct": 0.45,
+ "decision": "REJECT",
+ "injection": {
+  "n_sessions": 3993,
+  "sought_sharpe": 0.2,
+  "mean_estimate": 0.2082941159604388,
+  "sd_estimate": 0.24451292182445256,
+  "power_sharpe_gt_0": 0.793,
+  "power_strict_t": 0.101,
+  "recovered": true
+ }
+}

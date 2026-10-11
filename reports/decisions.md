@@ -7622,6 +7622,22 @@ higher); caught by recovery (−0.04 for +0.2) and fixed to e = noise + s·μ. R
 (SD 0.24, 3,993 sessions). **Power under the strict rule at the prior's size is only 10%** (P(Sharpe > 0) 79%): this
 test can confirm a large roll effect, not a small one — recorded before the run.
 
+### Z09 run: rejected — the roll effect held to 2020 and reversed after (S6–S8)
+
+**One trial spent: t00774. N 767 → 768.** `reports/z09_trial.{json,md}`. Strict rule, 9th Z market-test (0.45 chance
+passes expected at 5%).
+
+| 2010-06 → 2026-08 (3,993 sessions; 970 on roll days) | |
+|---|---|
+| crude, roll days (5th–9th) / other days | +1.59 / +2.33 bps |
+| **t, advantage over always-long** (> 1.645) | **−0.20** |
+| **placebo percentile** (≥ 95) | **52.5** |
+| posterior (registered / zero prior) | +0.13 / +0.05 |
+| by period, roll / other bps (t) | 2010–15 −15.8 / −2.4 (+1.66); 2016–20 −20.9 / +7.9 (+1.28); 2021–26 **+38.2** / +2.1 (**−2.63**) |
+
+**REJECTED.** The roll pressure was visible through 2020 — near the bar in each half-decade — and reversed sharply
+after 2021, the signature of an effect that has been front-run. No shifted-window variant is run after seeing this.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

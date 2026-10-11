@@ -741,6 +741,9 @@ takes the weekly COT side: `python -m futuresres.signals.z08 --direction` → `a
 shifted-signal placebo, posterior > 0, reported against the running test count. **Z08 gold fails (t +0.15) → retired; gold
 back to always-long; §118's gain WITHDRAWN.** Portfolio = §116 zero-edge: +$3.7–4.9k / 4 months, P(net>0) 78–81%.
 
+**§120:** Z02 as MNQ direction — placebo 99–100th but t +0.32/+0.72 → not adopted (descriptive). **Z09 (t00774, N 768):
+short crude on GSCI roll days REJECTED** (t −0.20; worked to 2020, reversed 2021–26).
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

@@ -616,7 +616,7 @@ sell — hedgers provide liquidity to impatient speculators (1994–2014). The s
 change (CFTC COT) sets the direction of the crude (full session) and gold (London) brackets for the next week.
 Tested 2015–2026; must beat always-long. One trial. `hypotheses.yaml` (Z08) · `decisions.md` §117
 
-## Z09 — Index Roll Selling: Short Crude on Roll Days  *(registered, untested)*
+## Z09 — Index Roll Selling: Short Crude on Roll Days  *(RETIRED — t00774; worked to 2020, reversed after)*
 
 Mou (2011): GSCI index funds sell the next-to-expire crude contract on business days 5–9 every month. The
 crude plan goes short on those days and long otherwise — the outright, since the spread is not allowed. Tested

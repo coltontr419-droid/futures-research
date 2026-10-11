@@ -4382,12 +4382,26 @@
   horizon_minutes: [1375]
   hold_hours: [22.916666666666668]
   registered: 2026-10-10
-  status: untested
+  status: retired
+  retired: 2026-10-10
+  retired_reason: >
+    Trial t00774 (decisions.md 120), REJECTED under the strict rule: roll days +1.59 bps vs other days +2.33 (2010-06
+    to 2026-08, 970 roll sessions); t(beats always-long) -0.20, placebo 52.5th pct. By period the effect held then
+    reversed: roll days -15.8 / -20.9 bps in 2010-15 / 2016-20 (t +1.66, +1.28) but +38.2 bps in 2021-26 (t -2.63) -
+    the pattern of a crowded, front-run effect. No shifted-window variant is run after seeing this.
+  outcome_injection:
+    test: src/futuresres/signals/z09_trial.py
+    injected_bps: 0.2         # UNITS: annualised Sharpe of sign x session return, not bps
+    sought_bps: 0.2
+    n_injection: 3993
+    n_run: 3993
+    recovered: true
+    report: reports/z09_injection.json
   schedulable: false
   schedulable_note: >
     Not event-rate gated (~5 short sessions a month); the runner refuses to run without its outcome injection.
     Registered before any Z09 return was computed; all owned data (2010-06 on) postdates the paper's sample.
-  test_order: 8
+  test_order: null
   registered_test_order: 31
   grade: B
   tier: B
