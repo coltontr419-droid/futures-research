@@ -4579,3 +4579,60 @@
   s6_control: >
     Gross and net; by period (2013-19, 2020-26); the slope on the relative equity return; the paper's hour on non-month-end
     days.
+- id: Z12
+  name: eur_weakens_in_european_hours_strengthens_in_us_hours
+  mechanism: >
+    Time-of-day FX returns (Breedon & Ranaldo 2013, Journal of Money, Credit and Banking; EBS data 1997-2007; also Cornett
+    et al. 1995, Ranaldo 2009): currencies tend to depreciate in their own trading hours and appreciate in the counter
+    currency's, because local participants are net buyers of foreign currency in their own hours (order flow). For
+    EUR/USD a simple strategy - short EUR in European hours, long in US hours - earned after-cost Sharpe ratios of 1.3 and
+    0.9 for the two legs. THE COUNTERPARTY is the local customer flow intermediated across sessions.
+  condition: >
+    EUR/USD (6E), every New York weekday: SHORT from 07:00 London (the European open) to 08:00 New York (the US open),
+    then LONG from 08:00 to 16:00 New York - the paper's open-to-open / open-to-close strategy read without overlap
+    (the account cannot be long and short at once; READING fixed before any data was examined). Net of 0.8 bp per leg's
+    round trip. Free HistData EUR/USD spot, hourly prices (data/fx_fix.hourly_utc).
+  horizon_minutes: [480]
+  hold_hours: [6.0, 8.0]
+  registered: 2026-10-11
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    ~250 events a year; the runner refuses to run without its outcome injection. No in-sample screen is possible (the
+    paper's sample is 1997-2007; the free data starts in 2010) - registered on the published size, before any return
+    was computed.
+  test_order: 8
+  registered_test_order: 34
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - the paper's session table; the non-overlapping reading fixed in advance. ONE TRIAL.
+  session: Globex
+  symbols: [6E]
+  mechanism_instruments:
+    primary: 6E
+    secondary: null
+    rationale: >
+      6E (CME euro futures) is tradable in the user's account; the test uses EUR/USD spot, which 6E tracks. The paper
+      found the strategy profitable after costs only for EUR/USD; no second pair is claimed.
+  stage4_reachable: false
+  stage4_reason: One currency pair; the whole test window is after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2018-01-01', decisive: full}
+  test_window: {start: '2010-01-04', end: '2026-09-30', reason: 'after the paper sample (1997-2007)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: >
+      Prior on the annual net Sharpe of the two-leg day Normal(0.6, 0.4): the published legs (1.3, 0.9 after costs) roughly
+      halved for decay since publication; an ASSUMPTION.
+  decision_rule:
+    rule: >
+      The STRICT Z rule for a standalone trade: CONFIRM only if (1) the daily net P&L has one-sided t > 1.645; (2) the real
+      schedule's mean is at or above the 95th percentile of the same two-leg schedule shifted by each of the other 23
+      whole hours (UTC); (3) the posterior > 0, reported beside a zero-mean prior; (4) reported against the running count
+      (12 Z market-tests).
+  outcome_injection_required: Done before the run - reports/z12_injection.json.
+  s6_control: >
+    Each leg separately; gross and net; by period (2010-17, 2018-26); the shifted-schedule placebo means.

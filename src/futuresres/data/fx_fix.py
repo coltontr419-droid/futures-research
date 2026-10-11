@@ -57,3 +57,19 @@ def daily_close(index: str) -> pl.DataFrame:
     res = pl.concat(parts).group_by("date").agg(pl.col("close").last()).sort("date")
     CACHE.mkdir(parents=True, exist_ok=True); res.write_parquet(out)
     return res
+
+
+def hourly_utc(pair: str) -> pl.DataFrame:
+    """Price at every whole UTC hour (close of the bar ending then): columns utc (datetime, UTC, on the hour), c.
+    decisions.md 128."""
+    out = CACHE / f"hourly_{pair}.parquet"
+    if out.exists():
+        return pl.read_parquet(out)
+    parts = []
+    for f in sorted(FX_DIR.glob(f"{pair}_*.zip")):
+        d = _read(f)
+        d = d.filter(pl.col("utc").dt.minute() == 59).with_columns((pl.col("utc") + pl.duration(minutes=1)).alias("utc"))
+        parts.append(d.select("utc", "c"))
+    res = pl.concat(parts).unique("utc", keep="last").sort("utc")
+    CACHE.mkdir(parents=True, exist_ok=True); res.write_parquet(out)
+    return res

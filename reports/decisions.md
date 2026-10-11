@@ -7829,6 +7829,26 @@ strict t at that size 82%.
 published in 2013 (working paper), and the WM/Reuters fix window was widened from one minute to five in February 2015.
 Data cost: nothing.
 
+## 128. Z12 registered — the euro weakens in European hours and strengthens in US hours (S1–S5)
+
+**No trial spent at registration; N 770.** One more documented FX effect before building our own hypotheses, chosen
+because it acts every day (≈ 4,200 observations, not ≈ 160): Breedon & Ranaldo (2013, JMCB; EBS 1997-01 → 2007-06; also
+Cornett et al. 1995, Ranaldo 2009) — currencies depreciate in their own trading hours, as local participants are net buyers
+of foreign currency then; for EUR/USD a simple short-in-European-hours / long-in-US-hours strategy earned **after-cost
+Sharpe ratios of 1.3 (morning short) and 0.9 (afternoon long)**. Sessions per their Table 1: Europe 07:00–15:00 London,
+US 08:00–16:00 New York.
+
+**Fixed before any return** (`hypotheses.yaml` Z12; `signals/z12.py`, `signals/z12_trial.py`; `data/fx_fix.hourly_utc`,
+102,744 hourly EUR/USD prices 2010–2026): every New York weekday, SHORT 07:00 London → 08:00 New York, LONG 08:00 → 16:00
+New York — the paper's "open-to-open / open-to-close" read without the 08:00–10:00 overlap (the account cannot be long and
+short at once; a READING fixed in advance); 0.8 bp per leg; 2010-01-04 → 2026-09-30 (entirely after the paper). No
+in-sample screen is possible (the free data starts in 2010). Strict rule: daily net t > 1.645; at or above the 95th
+percentile of the same schedule shifted by each of the other 23 hours; posterior > 0 (prior annual net Sharpe
+Normal(0.6, 0.4), an assumption); 12th Z test.
+
+**Outcome injection** (`reports/z12_injection.json`): net Sharpe 0.6 planted, recovered 0.599 (SD 0.24, 4,231 days); power of
+the strict t 80%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

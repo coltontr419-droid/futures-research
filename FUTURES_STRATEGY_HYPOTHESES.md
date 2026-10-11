@@ -634,3 +634,9 @@ Melvin & Prins (2015): international equity managers reset currency hedges at th
 equity outperformance predicts the currency's fall in the hour before it. Long EUR/USD (6E) 15:00→16:00 London on the
 month's last weekday when the S&P beat the DAX, short otherwise. Tested 2013–2026 on free data, strict rule. One trial.
 `hypotheses.yaml` (Z11) · `decisions.md` §127
+
+## Z12 — The Euro Weakens in European Hours, Strengthens in US Hours  *(registered, untested)*
+
+Breedon & Ranaldo (2013): currencies depreciate in their own trading hours (local participants buy foreign currency).
+EUR/USD short 07:00 London → 08:00 New York, long 08:00 → 16:00 New York, every weekday, net of costs. Tested
+2010–2026 (the paper ends 2007) on free data, strict rule. One trial. `hypotheses.yaml` (Z12) · `decisions.md` §128
