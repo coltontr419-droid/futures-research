@@ -7732,6 +7732,32 @@ DigitalOcean droplet already running another bot, without keeping the laptop on.
   appended to `demo_log.csv` for the backtest comparison.
 - **Not automated:** orders are still placed by hand (automated execution needs the firm's permission first).
 
+## 124. A 9 PM schedule: entering everything at 9 PM ET is clearly weaker than the current windows (S8)
+
+**No trial spent; N 769.** Scratch computations (`a01`/`a02`/`a08`/`a12`/`a15` machinery; figures here). The user's work
+schedule allows notifications only around 9 PM ET. Two routes: keep the windows and pre-place time-triggered orders
+(platform-dependent), or move every entry to 9 PM ET, held to 16:55 the next day (bracket or flatten).
+
+**The 9 PM window (21:00 → 16:55), zero edge, stops at the stop price, risk-matched sizes** (swing ≈ $2.8–3.1k → 3 MNQ,
+6 MGC; crude unchanged, its daily-bar estimate already covers the session):
+
+| 84 days, block bootstrap (replay similar) | current window | 9 PM entry |
+|---|---|---|
+| MNQ, 2021–26 / 2015–20 | 4 MNQ 71% +$1,317 / 65% +$1,685 | 3 MNQ 62% +$1,471 / 50% +$468 |
+| MGC, 2021–26 / 2011–20 | 8 MGC 76% +$2,031 / 76% +$2,419 | 6 MGC 68% +$1,998 / 64% +$1,847 |
+
+| three accounts together | current (2021–26 · 2016–20) | all at 9 PM |
+|---|---|---|
+| P(≥1 payout) | 99.9% · 98.6% | 89.0% · 86.4% |
+| mean / median net | +$3,739 / +$2,977 · +$4,910 / +$3,491 | +$4,158 / +$2,983 · +$2,422 / +$1,599 |
+| P(net > 0) | 78% · 81% | **67% · 64%** |
+| 10th percentile / worst | −$1,300 / −$3,120 · −$1,000 / −$3,360 | **−$2,960 / −$3,520 · −$2,160 / −$3,440** |
+
+**Weaker, chiefly in the tail:** P(net > 0) falls ~13–17 points and the 10th percentile roughly doubles — plausibly
+because three long windows sharing the same overnight move are more correlated than the current staggered ones.
+Preferred: keep the current windows with time-triggered entries and exits, if the user's platform supports them;
+otherwise the 9 PM plan at these figures. Awaiting the user's platform.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

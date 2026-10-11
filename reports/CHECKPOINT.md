@@ -753,6 +753,9 @@ Ten Z market-tests, none passing the strict rule.
 **§123: Discord demo bot** in `bot/` (README has deploy steps for the DigitalOcean droplet). Tickets at 02:55 / 09:25 /
 17:55 ET, `!eod` bookkeeping, `demo_log.csv`. Bot tickets == playbook on 3,000 states (tests/test_bot_ticket.py).
 
+**§124: user can only act ~9 PM ET.** All-at-9PM plan is weaker (P(net>0) 64–67% vs 78–81%, p10 ~−$2–3k). Prefer
+current windows via time-triggered orders if the platform allows. OPEN: which platform.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
