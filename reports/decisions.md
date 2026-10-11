@@ -7868,6 +7868,28 @@ since 2018.
 stronger in its paper's years than after: the shared failure is publication and arbitrage, not the tests. The literature
 route is now exhausted for the user's markets; the next step is hypotheses of our own on untouched data (§129).
 
+## 129. The D-series protocol: hypotheses of our own, discovered on 2010–17, validated once on sealed 2018–26 (S1)
+
+**No trial spent; N 771. Written and committed BEFORE any discovery scan.** The literature route is exhausted for the
+user's markets (§128: twelve strict-rule tests, none passing). At the user's direction, hypotheses are now generated from
+data. The programme's earlier data-driven series (F, L, N, P, Q; ~760 trials) found nothing, and the common failure of
+data-driven search is testing ideas on the data that suggested them. This protocol prevents that:
+
+1. **Universe — markets this programme has not examined**, free HistData 1-minute, each tradable in the user's account:
+   GBP/USD (6B), AUD/USD (6A), USD/CAD (6C), USD/CHF (6S), DAX (FDAX), Nikkei 225 (NKD), silver (SI). Excluded: EUR/USD
+   and USD/JPY (seen in Z10–Z12), and the S&P/Nasdaq/gold/crude futures this programme has searched since 2026-08.
+2. **Discovery window 2010-01-01 → 2017-12-31 only.** The discovery code asserts that no row after 2017-12-31 is read.
+3. **Two pattern families, fixed now:** (D-a) each UTC hour of the day, mean 1-hour return over all weekdays — 7 × 24 = 168
+   tests; (D-b) each UTC hour on each weekday — 7 × 24 × 5 = 840 tests. 1,008 in all.
+4. **Selection:** two-sided |t| > 4.1 (Bonferroni, 0.05 / 1,008) AND |mean| > 2 × the instrument's round-trip cost (FX
+   0.8 bp; DAX and Nikkei 1.0 bp; silver 1.5 bp). **At most 5 candidates carried forward**, by |t|; a D-b candidate inside a
+   carried D-a hour of the same instrument is dropped as a duplicate.
+5. **Validation window 2018-01-01 → 2026-09-30, sealed until each candidate is registered.** One trial per candidate,
+   STRICT rule for a standalone trade: net one-sided t > 1.645 in the discovered direction; at or above the 95th percentile of
+   the same instrument's other 23 hours (D-a) or other hour-weekday cells (D-b); posterior > 0 with prior = the discovery
+   mean halved; reported against the running count (Z and D market-tests together).
+6. **If nothing passes selection, nothing is carried forward**, and that is the result.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
