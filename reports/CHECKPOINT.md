@@ -750,6 +750,9 @@ dash for cash (power 8%), EDHEC rebalancing (= Z02), gold ETF flows (thesis only
 **Z10 (§122, t00775, N 769): gotobi (free USD/JPY spot) REJECTED** — net +0.49 bps, t 0.67; faded to ~0 by 2024.
 Ten Z market-tests, none passing the strict rule.
 
+**§123: Discord demo bot** in `bot/` (README has deploy steps for the DigitalOcean droplet). Tickets at 02:55 / 09:25 /
+17:55 ET, `!eod` bookkeeping, `demo_log.csv`. Bot tickets == playbook on 3,000 states (tests/test_bot_ticket.py).
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

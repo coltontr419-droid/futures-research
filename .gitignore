@@ -29,3 +29,8 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
+
+# Discord bot runtime files (live on the droplet)
+bot/state.json
+bot/demo_log.csv
+bot/*.tmp

@@ -7716,6 +7716,22 @@ anomaly competed away, as Z09's roll was. Data cost: nothing (free spot data).
 effects are either too small for the strict bar at our sample sizes (§121's power screen) or front-run after
 publication (Z09, Z10). Z02 alone has placebo-strength timing, and it cannot beat an always-long equity plan.
 
+## 123. A Discord bot for the demo: scheduled tickets, account bookkeeping, the demo log (S8)
+
+**No trial spent; N 769.** `bot/` (`futures_bot.py`, `ticket.py`, `accounts.py`, `policy.json`, systemd unit, README);
+`a06_playbook export` writes `bot/policy.json`; `tests/test_bot_ticket.py`. The user wants callouts in Discord from a
+DigitalOcean droplet already running another bot, without keeping the laptop on.
+
+- **Light by design:** the solved policy is exported once (271 KB JSON) and `ticket.py` reproduces
+  `a06_playbook.ticket` in plain Python — no numpy or solver on the droplet; `discord.py` only; systemd caps it at 200 MB.
+- **Checked:** the bot's ticket equals the playbook's on 3,000 random states (eval and funded, all three products,
+  stops near the floor, finished accounts); the bookkeeping (pass with the 40% rule, funded lock and payout cap, floor
+  breach, new evaluation) is unit-tested.
+- **Schedule (New York time):** MGC 02:55 Mon–Fri, MNQ 09:25 Mon–Fri, MCL 17:55 Sun–Thu, end-of-day reminder 17:05.
+  The user reports closing balances with `!eod`; payouts, new evaluations and corrections by command; every event is
+  appended to `demo_log.csv` for the backtest comparison.
+- **Not automated:** orders are still placed by hand (automated execution needs the firm's permission first).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

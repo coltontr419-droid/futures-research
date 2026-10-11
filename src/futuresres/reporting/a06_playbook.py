@@ -4,7 +4,8 @@
     python -m futuresres.reporting.a06_playbook funded --balance 51200 --peak 51200 --payouts 0
     python -m futuresres.reporting.a06_playbook eval --product MGC --balance 50000   # gold (8 MGC, 03:00-11:30 ET), long
     python -m futuresres.reporting.a06_playbook eval --product MCL --balance 50000   # the crude account (10 MCL, 18:00-16:55 ET)
-    python -m futuresres.reporting.a06_playbook table [--product MGC|MCL]   # writes reports/a06_playbook_{eval,funded}[_mgc].csv
+    python -m futuresres.reporting.a06_playbook table [--product MGC|MCL]
+    python -m futuresres.reporting.a06_playbook export        # bot/policy.json for the Discord bot   # writes reports/a06_playbook_{eval,funded}[_mgc].csv
 
 The trade, exactly as replayed in A03 (a02_real.sequential): at 09:30 ET buy 4 MNQ (default; decisions.md 105) at market; one OCO bracket -
 take-profit +W, stop -L in NET dollars (the order offsets add/subtract the round trips, $2.32 a contract, as A02 does); flat
@@ -94,6 +95,21 @@ def _print(t: dict) -> None:
           f"{t['exit']} ET: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
 
 
+def export(path: Path | None = None) -> Path:
+    """The solved policy and every constant `ticket` uses, as JSON, for the Discord bot (bot/, decisions.md 123): it
+    reproduces `ticket` in plain Python on the droplet without numpy or the solver."""
+    import json
+    pe, pf = _solve()
+    out = {"START": START, "B_MIN": g.B_MIN, "B_MAX": g.B_MAX, "BD_MAX": g.BD_MAX, "F_BMIN": g.F_BMIN, "F_BMAX": g.F_BMAX,
+           "BUFFER": g.BUFFER, "LIVE_AFTER": g.LIVE_AFTER, "PRODUCTS": PRODUCTS,
+           "eval": np.asarray(pe).astype(int).tolist(), "funded": np.asarray(pf).astype(int).tolist()}
+    path = path or (ROOT / "bot" / "policy.json")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(out, separators=(",", ":")))
+    print(f"wrote {path} ({path.stat().st_size // 1024} KB)")
+    return path
+
+
 def table(product: str = "MNQ") -> None:
     """Every reachable state's ticket, for reference without Python."""
     rows = ["balance,peak,best_day,trade,take_net,stop_net,take_points,stop_points"]
@@ -122,7 +138,7 @@ def table(product: str = "MNQ") -> None:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="futuresres.reporting.a06_playbook")
-    ap.add_argument("phase", choices=("eval", "funded", "table"))
+    ap.add_argument("phase", choices=("eval", "funded", "table", "export"))
     ap.add_argument("--balance", type=float, default=START); ap.add_argument("--peak", type=float, default=None)
     ap.add_argument("--best", type=float, default=0.0); ap.add_argument("--payouts", type=int, default=0)
     ap.add_argument("--contracts", type=int, default=None)
@@ -132,6 +148,8 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
     if a.phase == "table":
         table(a.product); return 0
+    if a.phase == "export":
+        export(); return 0
     _print(ticket(a.phase, a.balance, a.peak if a.peak is not None else a.balance, a.best, a.payouts, a.contracts, a.product, a.side))
     return 0
 

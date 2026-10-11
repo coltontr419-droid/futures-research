@@ -1,0 +1,17 @@
+[Unit]
+Description=Futures demo Discord bot (futures-research decisions.md 123)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/futures-bot
+ExecStart=/opt/futures-bot/venv/bin/python /opt/futures-bot/futures_bot.py
+Restart=always
+RestartSec=10
+# keep it light next to the other bot on this droplet
+MemoryMax=200M
+Nice=5
+
+[Install]
+WantedBy=multi-user.target
