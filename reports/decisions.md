@@ -7813,6 +7813,22 @@ across months; posterior > 0 (prior Normal(+3, 3) bps, an assumption, shaded for
 **Outcome injection** (`reports/z11_injection.json`): +3 bps planted, recovered 3.03 (SD 1.16, 158 events); power of the
 strict t at that size 82%.
 
+### Z11 run: rejected — strong in 2010–12, gone since 2013 (S6–S8)
+
+**One trial spent: t00776. N 769 → 770.** `reports/z11_trial.{json,md}`. 11th Z market-test; power 82% at the prior's size.
+
+| 2013-01 → 2026-09, 158 month-ends | |
+|---|---|
+| gross / net per event (SD) | **−0.92 / −1.92 bps** (17.9) |
+| t, net (> 1.645) | −1.34 |
+| slope on S&P − DAX | +0.05 bps per 1% (in-sample 2010–12: +1.90) |
+| placebos: 5 weekdays before / permuted signal (≥ 95) | 20th / 30th pct |
+| 2013–19 / 2020–26 net | −0.19 / −3.88 bps |
+
+**REJECTED.** The hedging-channel effect was clear in the paper's years and our 2010–12 slice and has been absent since —
+published in 2013 (working paper), and the WM/Reuters fix window was widened from one minute to five in February 2015.
+Data cost: nothing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

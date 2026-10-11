@@ -4524,13 +4524,26 @@
   horizon_minutes: [60]
   hold_hours: [1.0]
   registered: 2026-10-11
-  status: untested
+  status: retired
+  retired: 2026-10-11
+  retired_reason: >
+    Trial t00776 (decisions.md 127), REJECTED under the strict rule: 158 month-ends 2013-01 to 2026-09, EUR/USD 15:00-16:00
+    London signed by S&P - DAX: gross -0.92 bps, net -1.92 (SD 17.9), t -1.34; slope +0.05 bps per 1%; placebos 20th / 30th
+    pct; 2013-19 -0.19, 2020-26 -3.88. Strong in 2010-12 (+11.1 bps), absent since - after the paper and the 2015 fix reform.
+  outcome_injection:
+    test: src/futuresres/signals/z11_trial.py
+    injected_bps: 3.0
+    sought_bps: 3.0
+    n_injection: 158
+    n_run: 158
+    recovered: true
+    report: reports/z11_injection.json
   schedulable: false
   schedulable_note: >
     12 events a year; the runner refuses to run without its outcome injection. Registered after a screen INSIDE the
     paper's sample only (2010-11 to 2012-12, 26 events): EUR/USD +11.09 bps, t +3.19, win 81%; GBP/USD -5.68 bps,
     t -1.41 (dropped). No 2013-2026 return computed before registration.
-  test_order: 8
+  test_order: null
   registered_test_order: 33
   grade: B
   tier: B
