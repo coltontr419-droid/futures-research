@@ -7951,6 +7951,32 @@ at zero edge (vs ~$1,800 at Tradeify), but the plan would have to change (≤ 3%
 direction). **The user declined: evaluation fees of ~$500 are too high; stay with Tradeify.** Not to be re-proposed unless the
 user raises it.
 
+## 132. D-series family 2 protocol: 30-minute windows around fixings, opens and closes (S1)
+
+**No trial spent; N 772. Written and committed BEFORE the scan.** The user asked for a second discovery family. Lesson of
+§130: the only pattern that persisted out of sample (silver into the London fix, 95th-percentile placebo in 2018–26) sat on a
+SCHEDULED flow. Family 2 therefore scans the 30 minutes before and after each scheduled fixing, open or close in the same
+seven markets — a small, mechanism-led family, so the multiple-testing bar is lower and moderate effects can pass.
+
+1. **Windows (local time; 30 minutes before the event, then 30 minutes after):**
+   - GBP/USD, AUD/USD, USD/CAD, USD/CHF: the WM/Reuters 16:00 London fix; the Tokyo 09:55 JST fix (window ends / starts at 09:55);
+     USD/CAD also the Bank of Canada 16:30 New York rate. (26 windows: 4 × 2 × 2 + 1 × 2 + DST-robust local definitions.)
+   - Silver (XAG/USD): COMEX settlement 13:25 New York, before and after; the London fix 12:00 London AFTER only (the
+     before-window is D01's, already validated). (3 windows)
+   - DAX: Xetra open 09:00 Frankfurt (after); US open 15:30 Frankfurt (after); Xetra closing auction 17:30 Frankfurt (before,
+     after). (4 windows)
+   - Nikkei: Tokyo open 09:00 JST (after); morning close 11:30 JST (before); afternoon open 12:30 JST (after); close 15:00 JST
+     (before) — the 2010–17 schedule. (4 windows)
+2. **Two day-sets per window:** all weekdays; the last weekday of the month. Total ≈ 2 × 29 = 58 tests (the exact count is
+   reported; cells under 30 observations drop out).
+3. **Discovery 2010-01 → 2017-12 only** (asserted). **Selection:** two-sided |t| > Bonferroni at 0.05 over the tests run (≈ 3.2
+   for 58) AND |mean| > 2 × cost (FX 0.8 bp; DAX, Nikkei 1.0; silver 1.5). At most 5 carried, by |t|; a month-end cell is a
+   duplicate if its all-weekday cell is carried.
+4. **Exclusion (added after §130):** any window overlapping 17:00–18:00 New York (the CME break) is not scanned.
+5. **Validation 2018-01 → 2026-09, sealed until registration;** one trial each; the strict rule for a standalone trade (net t >
+   1.645 in the discovered direction; ≥ 95th percentile of the same instrument's other family-2 windows of the same day-set;
+   posterior > 0 with prior = discovery mean halved less cost); reported against the running count.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
