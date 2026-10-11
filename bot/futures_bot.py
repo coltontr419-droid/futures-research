@@ -1,14 +1,17 @@
-"""Discord bot for the demo forward test: posts each account's order ticket before its entry and keeps the demo log.
-decisions.md 123.
+"""Discord bot for the demo forward test: one alert a day at 17:30 New York time with the next tickets and how the
+finished ones played out; account bookkeeping; the demo and shadow logs. decisions.md 123, 125.
 
     python futures_bot.py            (on the droplet, as a systemd service; see bot/README.md)
 
-Schedule (New York time, daylight saving handled): MGC ticket 02:55 Mon-Fri, MNQ 09:25 Mon-Fri, MCL 17:55 Sun-Thu
-(crude's session opens at 18:00 for the next day), and an end-of-day reminder at 17:05 Mon-Fri.
+The 17:30 alert (Sun-Thu): results of finished tickets, then crude (MCL) 18:00 tonight -> 16:55 tomorrow, gold (MGC)
+03:00 -> 11:30 tomorrow, Nasdaq (MNQ) 09:30 -> 16:00 tomorrow. Friday: results only. Every ticket is shadow-tracked on
+free 1-minute prices after its window closes, traded or not.
 
 Commands (in the configured channel):
-  !ticket [MNQ|MGC|MCL]          the order for now (all three if omitted)
-  !eod <PRODUCT> <balance>       end-of-day balance -> peak, best day, pass / fail / payout checks
+  !eod <PRODUCT> <balance>       today's closing balance (send after 17:00; a ticket already issued is reissued)
+  !took <PRODUCT> / !skipped <PRODUCT>   mark whether you placed the latest ticket
+  !results [n]                   finished tickets and how they played out (all, or the last n)
+  !ticket                        the tickets issued at the last alert
   !payout <PRODUCT> <amount>     a payout received (the amount withdrawn, before the 90% split)
   !new <PRODUCT>                 a new $50k evaluation bought
   !set <PRODUCT> <eval|funded> <balance> <peak> [best_day] [payouts]   correct the state by hand
@@ -16,27 +19,23 @@ Commands (in the configured channel):
   !help                          this list
 
 Settings (environment or bot/.env): DISCORD_TOKEN, DISCORD_CHANNEL_ID, optional DISCORD_USER_ID (only that user's
-commands are accepted), optional BOT_DATA_DIR (state.json and demo_log.csv; default: this folder).
+commands are accepted), optional BOT_DATA_DIR (state.json, tickets.json, demo_log.csv, shadow_log.csv; default: here).
 """
 
 from __future__ import annotations
 
+import asyncio
 import datetime as dt
 import os
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 import discord
 from discord.ext import commands, tasks
 
 from accounts import PRODUCTS, Book
-from ticket import describe, ticket
+from schedule import ALERT, ET, Tickets, alert_text, last_trading_day, ticket_post
 
 HERE = Path(__file__).resolve().parent
-ET = ZoneInfo("America/New_York")
-#: (product, hh, mm, weekdays) - weekday(): Mon=0 .. Sun=6
-SCHEDULE = [("MGC", 2, 55, {0, 1, 2, 3, 4}), ("MNQ", 9, 25, {0, 1, 2, 3, 4}), ("MCL", 17, 55, {6, 0, 1, 2, 3})]
-EOD_REMINDER = (17, 5, {0, 1, 2, 3, 4})
 
 
 def _load_env(path: Path) -> None:
@@ -54,19 +53,23 @@ CHANNEL_ID = int(os.environ.get("DISCORD_CHANNEL_ID", "0") or 0)
 USER_ID = int(os.environ.get("DISCORD_USER_ID", "0") or 0)
 DATA = Path(os.environ.get("BOT_DATA_DIR", str(HERE)))
 book = Book(DATA / "state.json", DATA / "demo_log.csv")
+tix = Tickets(DATA / "tickets.json", DATA / "shadow_log.csv")
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents, help_command=None)
-_posted: set[tuple[str, str]] = set()
+LAST_ALERT = DATA / "last_alert.txt"          # survives restarts, so an alert is never posted twice
 
 
-def ticket_text(product: str) -> str:
-    a = book.s[product]
-    if a["phase"] == "dead":
-        return f"**{product}: account failed** - buy a new evaluation and send `!new {product}`."
-    t = ticket(a["phase"], a["balance"], a["peak"], a["best"], a["payouts"], product)
-    return f"[{a['phase']} - balance ${a['balance']:,.2f}]\n" + describe(t, product)
+async def send(ch, text: str) -> None:
+    """Discord caps a message at 2,000 characters: split on blank lines."""
+    chunk = ""
+    for part in text.split("\n\n"):
+        if len(chunk) + len(part) + 2 > 1900:
+            await ch.send(chunk); chunk = ""
+        chunk = (chunk + "\n\n" + part) if chunk else part
+    if chunk:
+        await ch.send(chunk)
 
 
 def _allowed(ctx) -> bool:
@@ -83,36 +86,26 @@ def _product(p: str) -> str:
 @bot.event
 async def on_ready():
     print(f"logged in as {bot.user}; channel {CHANNEL_ID}")
-    if not scheduler.is_running():
-        scheduler.start()
+    if not loop.is_running():
+        loop.start()
 
 
-@tasks.loop(seconds=20)
-async def scheduler():
+@tasks.loop(seconds=30)
+async def loop():
     now = dt.datetime.now(ET)
+    # shadow-track finished windows (network call off the event loop)
+    try:
+        await asyncio.to_thread(tix.track, now)
+    except Exception as e:                                   # never let tracking stop the alert
+        print("tracking error:", e)
     ch = bot.get_channel(CHANNEL_ID)
     if ch is None:
         return
-    today = now.date().isoformat()
-    for product, hh, mm, days in SCHEDULE:
-        key = (product, today)
-        if now.weekday() in days and (now.hour, now.minute) == (hh, mm) and key not in _posted:
-            _posted.add(key)
-            await ch.send(ticket_text(product))
-    hh, mm, days = EOD_REMINDER
-    key = ("EOD", today)
-    if now.weekday() in days and (now.hour, now.minute) == (hh, mm) and key not in _posted:
-        _posted.add(key)
-        await ch.send("End of day: send each account's closing balance - `!eod MNQ <balance>`, `!eod MGC <balance>`, "
-                      "`!eod MCL <balance>` (also any payouts: `!payout`).")
-
-
-@bot.command(name="ticket")
-async def ticket_cmd(ctx, product: str = ""):
-    if not _allowed(ctx):
-        return
-    ps = [_product(product)] if product else list(PRODUCTS)
-    await ctx.send("\n\n".join(ticket_text(p) for p in ps))
+    key = now.date().isoformat()
+    done = LAST_ALERT.read_text().strip() if LAST_ALERT.exists() else ""
+    if now.weekday() != 5 and (now.hour, now.minute) >= ALERT and key != done and (now.hour, now.minute) < (ALERT[0] + 2, 0):
+        LAST_ALERT.write_text(key)
+        await send(ch, f"**{now:%A %d %B} - 17:30 ET**\n\n" + alert_text(book, tix, now))
 
 
 @bot.command(name="eod")
@@ -120,10 +113,47 @@ async def eod_cmd(ctx, product: str, balance: float):
     if not _allowed(ctx):
         return
     p = _product(product)
-    msgs = book.eod(p, balance)
+    now = dt.datetime.now(ET)
+    day = last_trading_day(now.date() if now.hour >= 17 else now.date() - dt.timedelta(days=1)).isoformat()
+    msgs = book.eod(p, balance, day)
     a = book.s[p]
-    head = f"{p}: closed ${balance:,.2f} recorded. Peak ${a['peak']:,.2f}, best day ${a['best']:,.0f}." if a["phase"] != "dead" else ""
-    await ctx.send("\n".join([m for m in [head, *msgs] if m]))
+    out = [f"{p}: closed ${balance:,.2f} ({day}) recorded. Peak ${a['peak']:,.2f}, best day ${a['best']:,.0f}." if a["phase"] != "dead" else ""]
+    out += msgs
+    # reissue this product's ticket if the alert already went out and its entry is still ahead
+    pend = [r for r in tix.t if r["product"] == p and r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["entry"]) > now]
+    if pend:
+        alert_day = dt.datetime.fromisoformat(pend[-1]["issued"]).date()
+        out.append("Updated ticket:\n" + ticket_post(tix.issue(book, p, alert_day, now)))
+    await send(ctx.channel, "\n".join(m for m in out if m))
+
+
+@bot.command(name="took")
+async def took_cmd(ctx, product: str):
+    if _allowed(ctx):
+        r = tix.mark(_product(product), True)
+        await ctx.send("Marked as traded." if r else "No open ticket to mark.")
+
+
+@bot.command(name="skipped")
+async def skipped_cmd(ctx, product: str):
+    if _allowed(ctx):
+        r = tix.mark(_product(product), False)
+        await ctx.send("Marked as skipped - it is still tracked." if r else "No open ticket to mark.")
+
+
+@bot.command(name="results")
+async def results_cmd(ctx, n: int = 0):
+    if _allowed(ctx):
+        await send(ctx.channel, tix.summary(n))
+
+
+@bot.command(name="ticket")
+async def ticket_cmd(ctx):
+    if not _allowed(ctx):
+        return
+    now = dt.datetime.now(ET)
+    live = [r for r in tix.t if r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["exit"]) > now]
+    await send(ctx.channel, "\n\n".join(ticket_post(r) for r in live) or "No open tickets - the next ones come with the 17:30 alert.")
 
 
 @bot.command(name="payout")
@@ -135,8 +165,7 @@ async def payout_cmd(ctx, product: str, amount: float):
 @bot.command(name="new")
 async def new_cmd(ctx, product: str):
     if _allowed(ctx):
-        p = _product(product)
-        await ctx.send(book.new(p) + "\n\n" + ticket_text(p))
+        await ctx.send(book.new(_product(product)))
 
 
 @bot.command(name="set")

@@ -1,15 +1,25 @@
 # Futures demo bot (Discord)
 
-Posts each account's order ticket before its entry and keeps the demo log. Runs beside other bots on a small
-DigitalOcean droplet: plain Python + `discord.py`, ~50–70 MB of memory, near-zero CPU, capped at 200 MB by systemd.
-`decisions.md` §123.
+One alert a day at **17:30 New York time** with the next tickets and how the finished ones played out; the account
+bookkeeping; the demo and shadow logs. Runs beside other bots on a small DigitalOcean droplet: plain Python +
+`discord.py`, ~50–70 MB of memory, near-zero CPU, capped at 200 MB by systemd. `decisions.md` §123, §125.
 
-| when (New York time) | what |
-|---|---|
-| 02:55 Mon–Fri | gold ticket (8 MGC, 03:00 → 11:30) |
-| 09:25 Mon–Fri | Nasdaq ticket (4 MNQ, 09:30 → 16:00) |
-| 17:05 Mon–Fri | reminder to send end-of-day balances |
-| 17:55 Sun–Thu | crude ticket (10 MCL, 18:00 → 16:55 next day) |
+**The 17:30 alert (Sun–Thu)**, after the 17:00 close:
+
+| ticket | window (New York time) | you place it |
+|---|---|---|
+| crude, 10 MCL | 18:00 tonight → 16:55 tomorrow | at 18:00, after the alert |
+| gold, 8 MGC | 03:00 → 11:30 tomorrow | at 03:00 (or skip) |
+| Nasdaq, 4 MNQ | 09:30 → 16:00 tomorrow | at 09:30 (or skip) |
+
+On Fridays the alert carries results only. **Send the day's closing balances (`!eod`) between 17:00 and 17:30** so the
+tickets use them; a balance sent after the alert reissues that ticket.
+
+**Every ticket is tracked whether or not you trade it**: after its window closes the bot pulls free 1-minute prices
+(Yahoo: NQ=F, GC=F, CL=F — the same prices as the micros), applies the backtests' rules (entry at the open of the entry
+minute, take / stop at their prices, a minute touching both counts as the stop, else out at the exit time, commissions
+charged) and logs the outcome to `shadow_log.csv`; results appear in the next alert and on `!results`. Checked against the
+programme's Databento data for 6–9 October 2026: all 8 outcomes identical. Mark what you did with `!took` / `!skipped`.
 
 ## 1. Create the Discord bot (one time, ~5 minutes)
 
@@ -47,12 +57,13 @@ Check the droplet clock is right: `timedatectl` (the bot converts to New York ti
 
 ## 3. Use it
 
-In the channel: `!status`, then `!ticket` to see today's orders. After each close: `!eod MNQ 50850` (and MGC, MCL).
+In the channel: `!status`; after each close (17:00–17:30): `!eod MNQ 50850`, `!eod MGC ...`, `!eod MCL ...`.
+`!ticket` repeats the open tickets; `!results` lists every finished ticket and its outcome.
 When a payout is approved: `!payout MNQ 1250`. When an evaluation fails and you buy another: `!new MGC`.
 To fix a mistake: `!set MNQ eval 50850 51200 400 0` (phase, balance, peak, best day, payouts). `!help` lists all.
 
-Everything is written to `demo_log.csv` in the bot folder — send it to me to compare the demo against the backtest:
-`scp root@DROPLET_IP:/opt/futures-bot/demo_log.csv .`
+Account events go to `demo_log.csv` and ticket outcomes to `shadow_log.csv` in the bot folder — send them to me to compare
+the demo against the backtest: `scp root@DROPLET_IP:/opt/futures-bot/*_log.csv .`
 
 ## Updating the policy
 

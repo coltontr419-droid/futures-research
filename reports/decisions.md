@@ -7758,6 +7758,24 @@ because three long windows sharing the same overnight move are more correlated t
 Preferred: keep the current windows with time-triggered entries and exits, if the user's platform supports them;
 otherwise the 9 PM plan at these figures. Awaiting the user's platform.
 
+## 125. The bot on the user's schedule: one 17:30 ET alert, manual trading, every ticket shadow-tracked (S8)
+
+**No trial spent; N 769.** `bot/schedule.py`, `bot/shadow.py`, `bot/futures_bot.py` rewritten; tests extended. Tradovate has
+no scheduled market entry and TradingView only SENDS webhooks (a bridge with Tradovate access would be needed to place
+orders); the user chose manual trading with one alert at 17:30 ET, which lets crude keep its 18:00 entry (§116) — an
+interim move of crude to 21:00 was reverted before anything used it.
+
+- **The 17:30 alert (Sun–Thu):** results of finished tickets; any closing balance not yet recorded (a balance sent later
+  reissues that ticket); then crude 18:00 tonight → 16:55, gold 03:00 → 11:30 and MNQ 09:30 → 16:00 tomorrow. Friday:
+  results only. The alert date is persisted, so a restart cannot post twice.
+- **Shadow tracking:** every ticket, traded or not, is simulated after its window on free Yahoo 1-minute bars (NQ=F,
+  GC=F, CL=F) by the backtests' rules (entry at the entry minute's open; take/stop at their prices; a minute touching
+  both = stop; else the exit-time close; commissions) and appended to `shadow_log.csv`; `!took` / `!skipped` mark it.
+  **Validated** against the programme's Databento data for 2026-10-06..09: all 8 MNQ and MGC outcomes identical (take,
+  stop, time exit), P&L equal but for one tick on a time exit, entry prices within 1–3 ticks.
+- Tests: the schedule's windows (a Sunday alert yields MCL Sun 18:00 → Mon 16:55, MGC Mon 03:00 → 11:30, MNQ Mon
+  09:30 → 16:00), tracking with a fake feed, results reported once, Friday without tickets.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

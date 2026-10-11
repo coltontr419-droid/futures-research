@@ -16,7 +16,8 @@ PRODUCTS = ("MNQ", "MGC", "MCL")
 
 def fresh(product: str) -> dict:
     return {"product": product, "phase": "eval", "balance": START, "peak": START, "best": 0.0, "payouts": 0,
-            "evals_bought": 1, "fees": FEE, "paid": 0.0, "since": dt.date.today().isoformat()}
+            "evals_bought": 1, "fees": FEE, "paid": 0.0, "since": dt.date.today().isoformat(),
+            "eod_date": dt.date.today().isoformat()}
 
 
 class Book:
@@ -45,9 +46,10 @@ class Book:
             return a["peak"] - TRAIL                        # trails the EOD peak, never locks
         return START if a["peak"] >= LOCK_AT else a["peak"] - TRAIL
 
-    def eod(self, product: str, balance: float) -> list[str]:
-        """Record an end-of-day balance; returns the messages to post."""
+    def eod(self, product: str, balance: float, day: str | None = None) -> list[str]:
+        """Record an end-of-day balance (for trading day `day`, ISO date); returns the messages to post."""
         a = self.s[product]; msgs = []
+        a["eod_date"] = day or dt.date.today().isoformat()
         fl = self.floor(a)
         pnl = balance - a["balance"]
         a["balance"] = balance

@@ -756,6 +756,9 @@ Ten Z market-tests, none passing the strict rule.
 **§124: user can only act ~9 PM ET.** All-at-9PM plan is weaker (P(net>0) 64–67% vs 78–81%, p10 ~−$2–3k). Prefer
 current windows via time-triggered orders if the platform allows. OPEN: which platform.
 
+**§125: manual trading; bot posts ONE alert at 17:30 ET** (crude 18:00 tonight, gold 03:00 + MNQ 09:30 tomorrow) and
+shadow-tracks every ticket on free Yahoo 1-minute data (validated: 8/8 outcomes match Databento). Tradovate platform.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

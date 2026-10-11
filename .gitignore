@@ -34,3 +34,6 @@ Thumbs.db
 bot/state.json
 bot/demo_log.csv
 bot/*.tmp
+bot/tickets.json
+bot/shadow_log.csv
+bot/last_alert.txt
