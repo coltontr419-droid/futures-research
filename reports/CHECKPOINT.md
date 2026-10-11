@@ -771,7 +771,8 @@ Twelve strict-rule tests, none passing; literature exhausted for these markets.
 **D-series (§129–130):** own hypotheses discovered on 2010–17 (7 untouched markets, 912 cells). 4 carried; 3 FX rollover-hour
 cells dropped as untradable (CME break, bid-quote artefact). **D01 silver into the London fix (t00778, N 772) REJECTED** —
 still silver's weakest hour (placebo 95th) but +0.75 bps net, t 0.95, faded after 2021. 13 strict tests, none passing.
-Next: price forex prop firms (FTMO, FundedNext, FundingPips 2-step) with the solver.
+~~Next: price forex prop firms (FTMO, FundedNext, FundingPips 2-step) with the solver.~~ **§131: user declined forex firms
+(evals ~$500 too expensive) — stay with Tradeify.**
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

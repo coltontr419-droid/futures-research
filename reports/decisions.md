@@ -7939,6 +7939,18 @@ fix is still silver's weakest — but at ~40% of its discovery size it does not 
 examined, the next lever is the account structure itself: the user has asked about forex prop firms, whose static drawdowns
 may be worth several times Tradeify's per attempt at zero edge (to be priced, §131).
 
+## 131. Forex prop firms considered and set aside by the user — evaluation fees too high (S2)
+
+**No trial spent; N 772.** The user asked whether forex prop firms (FTMO, FundedNext, Alpha Capital, The5ers, FundingPips, E8
+Markets) are worth pursuing. Third-party rule summaries were gathered for all six and FundedNext's official help centre was
+read (Stellar 2-Step $100k: $549.99 fee refunded with the first payout; 8% / 5% targets, ≥ 5 trading days per phase; 5% daily
+loss on the initial balance, raised by the day's profits; **10% static maximum loss**; funded: ≤ 3% risk at any time, first
+payout after 21 days then every 14, 80% split, news profits counted at 40%; "account rolling", "breaching several accounts in a
+short span" and "one-sided betting" treated as gambling). The static 10% cushion would let a funded account pay up to ~$8,000
+at zero edge (vs ~$1,800 at Tradeify), but the plan would have to change (≤ 3% risk a day, one account at a time, mixed
+direction). **The user declined: evaluation fees of ~$500 are too high; stay with Tradeify.** Not to be re-proposed unless the
+user raises it.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
