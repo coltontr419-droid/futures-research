@@ -641,7 +641,7 @@ Breedon & Ranaldo (2013): currencies depreciate in their own trading hours (loca
 EUR/USD short 07:00 London → 08:00 New York, long 08:00 → 16:00 New York, every weekday, net of costs. Tested
 2010–2026 (the paper ends 2007) on free data, strict rule. One trial. `hypotheses.yaml` (Z12) · `decisions.md` §128
 
-## D01 — Silver Falls Into the London Fix  *(registered, untested)*
+## D01 — Silver Falls Into the London Fix  *(RETIRED — t00778; 40% of the discovery size, faded after 2021)*
 
 Data-derived (D-series): the 2010–2017 discovery scan found silver's 11:00–12:00 UTC hour — the hour ending at the
 12:00 London silver fix, summer and winter — averaging −5.5 bps (t −7.3). Short SI in that hour every weekday, net of

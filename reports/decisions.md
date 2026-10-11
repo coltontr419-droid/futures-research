@@ -7920,6 +7920,25 @@ The registry gains the D series and SI (`tests/test_registry_consistency.py`).
 **Outcome injection** (`reports/d01_injection.json`, noise from silver's other hours only): +1.3 bps planted, recovered 1.34
 (SD 0.94, 2,169 events); power of the strict t 39% at the prior's size, near 100% at the discovery size.
 
+### D01 validation: rejected — the hour is still unusual, but too small after costs and fading (S6–S8)
+
+**One trial spent: t00778. N 771 → 772.** `reports/d01_trial.{json,md}`. 13th Z+D market-test; power 39% at the prior's size.
+
+| sealed 2018-01 → 2026-09, 2,169 weekdays | |
+|---|---|
+| short 11:00 → 12:00 UTC, gross (SD) | **+2.25 bps** (36.8) — discovery −5.53 for the long, i.e. +5.53 for the short |
+| net at 1.5 bp / at 2.0 bp (t) | **+0.75 (t +0.95)** / +0.25 (t +0.32) |
+| placebo: silver's other hours | **95th pct** (passes) |
+| 2018–21 / 2022–26 net (t) | +2.04 (+1.91) / −0.38 (−0.33) |
+
+**REJECTED** on condition (1). Unlike every Z test, the pattern itself survived out of sample — the hour into the London silver
+fix is still silver's weakest — but at ~40% of its discovery size it does not cover SI's costs, and it was near zero after
+2021. The D-series scan produced one genuine, out-of-sample-persistent pattern; it is not tradable at a profit.
+
+**Running total: thirteen strict-rule market-tests (Z02–Z12, D01), none passing.** With the user's markets and the free data
+examined, the next lever is the account structure itself: the user has asked about forex prop firms, whose static drawdowns
+may be worth several times Tradeify's per attempt at zero edge (to be priced, §131).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

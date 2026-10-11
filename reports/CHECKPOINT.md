@@ -768,6 +768,11 @@ Eleven strict-rule market-tests, none passing. Next: own hypotheses on untouched
 **Z12 (§128, t00777, N 771): EUR/USD time-of-day REJECTED** — net +0.06 bps/day; 2010–17 Sharpe 0.41, 2018–26 −0.45.
 Twelve strict-rule tests, none passing; literature exhausted for these markets.
 
+**D-series (§129–130):** own hypotheses discovered on 2010–17 (7 untouched markets, 912 cells). 4 carried; 3 FX rollover-hour
+cells dropped as untradable (CME break, bid-quote artefact). **D01 silver into the London fix (t00778, N 772) REJECTED** —
+still silver's weakest hour (placebo 95th) but +0.75 bps net, t 0.95, faded after 2021. 13 strict tests, none passing.
+Next: price forex prop firms (FTMO, FundedNext, FundingPips 2-step) with the solver.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

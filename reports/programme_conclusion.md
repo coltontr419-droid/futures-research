@@ -729,3 +729,7 @@ since 2013. Eleven strict-rule market-tests, none passing.
 
 **Z12 (§128, t00777):** EUR/USD's time-of-day pattern (Breedon & Ranaldo 2013) survives gross but not costs, and reversed after
 2017. Twelve strict-rule tests, none passing; the literature route is exhausted for the user's markets.
+
+**D-series (§129–130):** the first data-derived hypotheses under a sealed discovery/validation split. The one tradable
+candidate (silver into the London fix) persisted out of sample but at 40% of its size — too small after costs. Thirteen
+strict-rule tests, none passing.

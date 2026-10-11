@@ -4665,12 +4665,26 @@
   horizon_minutes: [60]
   hold_hours: [1.0]
   registered: 2026-10-11
-  status: untested
+  status: retired
+  retired: 2026-10-11
+  retired_reason: >
+    Trial t00778 (decisions.md 130), REJECTED under the strict rule on the sealed 2018-2026 window: 2,169 weekdays; the
+    11:00-12:00 UTC silver short gross +2.25 bps (SD 36.8), net +0.75 at 1.5 bp (t +0.95), +0.25 at 2.0 bp; placebo 95th pct
+    (the hour is still silver's most negative); 2018-21 net +2.04 (t 1.91), 2022-26 -0.38. About 40% of the discovery size
+    (-5.53 bps, t -7.27), and fading.
+  outcome_injection:
+    test: src/futuresres/signals/d01.py
+    injected_bps: 1.3
+    sought_bps: 1.3
+    n_injection: 2169
+    n_run: 2169
+    recovered: true
+    report: reports/d01_injection.json
   schedulable: false
   schedulable_note: >
     ~250 events a year; the runner refuses to run without its outcome injection; the validation window 2018-2026 was
     sealed until this registration (d_discovery asserts discovery read nothing after 2017-12-31).
-  test_order: 8
+  test_order: null
   registered_test_order: 35
   grade: B
   tier: B
