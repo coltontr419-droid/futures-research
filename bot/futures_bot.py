@@ -7,8 +7,9 @@ The 17:30 alert (Sun-Thu): results of finished tickets, then crude (MCL) 18:00 t
 03:00 -> 11:30 tomorrow, Nasdaq (MNQ) 09:30 -> 16:00 tomorrow. Friday: results only. Every ticket is shadow-tracked on
 free 1-minute prices after its window closes, traded or not.
 
-Commands (in the configured channel):
-  !eod <PRODUCT> <balance>       today's closing balance (send after 17:00; a ticket already issued is reissued)
+Commands (in the configured channel; start with ! or mention the bot, e.g. "@Bot eod MNQ 50850"):
+  !eod <PRODUCT> <balance>       the account balance after the 17:00 ET close, all positions flat (send 17:00-17:30;
+                                 a ticket already issued is reissued)
   !took <PRODUCT> / !skipped <PRODUCT>   mark whether you placed the latest ticket
   !results [n]                   finished tickets and how they played out (all, or the last n)
   !ticket                        the tickets issued at the last alert
@@ -57,7 +58,9 @@ tix = Tickets(DATA / "tickets.json", DATA / "shadow_log.csv")
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix="!", intents=intents, help_command=None)
+# commands work as "!eod MNQ 50850" or by mentioning the bot: "@Bot eod MNQ 50850" (or "@Bot !eod ...")
+bot = commands.Bot(command_prefix=lambda b, m: commands.when_mentioned_or("!")(b, m) + [f"<@{b.user.id}> !", f"<@!{b.user.id}> !"],
+                   intents=intents, help_command=None)
 LAST_ALERT = DATA / "last_alert.txt"          # survives restarts, so an alert is never posted twice
 
 
@@ -185,7 +188,7 @@ async def status_cmd(ctx):
 @bot.command(name="help")
 async def help_cmd(ctx):
     if _allowed(ctx):
-        await ctx.send("```" + __doc__.split("Commands (in the configured channel):")[1].split("Settings")[0] + "```")
+        await ctx.send("```" + __doc__.split("e.g. \"@Bot eod MNQ 50850\"):")[1].split("Settings")[0] + "```")
 
 
 @bot.event
