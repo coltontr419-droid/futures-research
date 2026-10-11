@@ -4508,3 +4508,61 @@
   s6_control: >
     Gross and net; non-gotobi days in the same window; the paper's full 03:00 JST window (not tradable; descriptive);
     by period (2021-23, 2024-26).
+- id: Z11
+  name: month_end_fx_hedge_rebalancing_at_the_london_fix
+  mechanism: >
+    The hedging channel at the month-end London 4 p.m. WM/Reuters fix (Melvin & Prins 2015, Journal of Financial
+    Markets 22; 10 currencies, 2004-04 to 2012-12): international equity managers reset currency hedges at the
+    month-end fix, so a country's equity outperformance over the month predicts its currency's depreciation in the hour
+    before the fix (panel slope -0.0142: 10% -> 14 bps). THE COUNTERPARTY is the passive hedger resetting on a schedule.
+  condition: >
+    EUR/USD (6E): on the last weekday of each month, from 15:00 to 16:00 London time, LONG EUR/USD if the S&P 500
+    outperformed the DAX month to date (first to second-last trading day, close to close), SHORT otherwise; net of
+    1.0 bp. Free HistData 1-minute bars (data/fx_fix.py): EUR/USD spot, S&P 500 and DAX index CFDs (the DAX stands in
+    for the Eurozone market; HistData's Euro Stoxx ends in 2019). GBP/USD failed the in-sample screen (wrong sign) and
+    is not tested.
+  horizon_minutes: [60]
+  hold_hours: [1.0]
+  registered: 2026-10-11
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    12 events a year; the runner refuses to run without its outcome injection. Registered after a screen INSIDE the
+    paper's sample only (2010-11 to 2012-12, 26 events): EUR/USD +11.09 bps, t +3.19, win 81%; GBP/USD -5.68 bps,
+    t -1.41 (dropped). No 2013-2026 return computed before registration.
+  test_order: 8
+  registered_test_order: 33
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - the paper's window and signal; the DAX substitution fixed before testing. ONE TRIAL.
+  session: Globex
+  symbols: [6E]
+  mechanism_instruments:
+    primary: 6E
+    secondary: null
+    rationale: >
+      6E (CME euro futures) is tradable in the user's account; the test uses EUR/USD spot, which 6E tracks. One pair;
+      no second-instrument confirmation is claimed (GBP failed its screen).
+  stage4_reachable: false
+  stage4_reason: One currency pair; the test window is after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2020-01-01', decisive: full}
+  test_window: {start: '2013-01-01', end: '2026-09-30', reason: 'after the paper sample (2004-04 to 2012-12)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: >
+      Prior on the net mean per event Normal(+3 bps, 3 bps): the in-sample +11.1 bps, roughly halved, less the 1 bp cost,
+      shaded down for the 2015 fix reform (window widened to five minutes); an ASSUMPTION.
+  decision_rule:
+    rule: >
+      The STRICT Z rule for a standalone trade: CONFIRM only if (1) the net mean per event has one-sided t > 1.645;
+      (2) it is at or above the 95th percentile of BOTH placebos - the same signed trade on each of the 5 weekdays
+      before month-end, and the month's signal randomly permuted across months; (3) the posterior > 0, reported beside a
+      zero-mean prior; (4) reported against the running count (11 Z market-tests).
+  outcome_injection_required: Done before the run - reports/z11_injection.json.
+  s6_control: >
+    Gross and net; by period (2013-19, 2020-26); the slope on the relative equity return; the paper's hour on non-month-end
+    days.

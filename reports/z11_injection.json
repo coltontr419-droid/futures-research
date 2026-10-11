@@ -1,0 +1,8 @@
+{
+ "n_events": 158,
+ "sought_net_bps": 3.0,
+ "mean_estimate": 3.025685440387332,
+ "sd_estimate_bps": 1.161871665126506,
+ "power_strict_t": 0.8225,
+ "recovered": true
+}

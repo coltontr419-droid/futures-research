@@ -68,7 +68,8 @@ ROBUSTNESS_ONLY: Final[frozenset[str]] = frozenset({"ES", "YM", "RTY", "NQ"})
 #: Stage 4 evidence.
 #: MCL added for Z09 (decisions.md 120): crude is the third staking plan's instrument (decisions.md 116).
 #: 6J added for Z10 (decisions.md 122): CME yen futures, tradable in the user's account; tested on USD/JPY spot.
-SINGLE_MARKET_INSTRUMENTS: Final[frozenset[str]] = frozenset({"MES", "MGC", "MCL", "6J"})
+#: 6E added for Z11 (decisions.md 127): CME euro futures, tradable in the user's account; tested on EUR/USD spot.
+SINGLE_MARKET_INSTRUMENTS: Final[frozenset[str]] = frozenset({"MES", "MGC", "MCL", "6J", "6E"})
 
 REG: Final[dict[str, dict[str, Any]]] = {
     e["id"]: e for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))

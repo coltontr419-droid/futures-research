@@ -7789,6 +7789,30 @@ P&L; it then compares the live counts (chi-square, three cells) and P&L (z again
 observed take / stop / time exit **26 / 27 / 2 against 23.9 / 29.0 / 2.1 expected** (chi-square 0.32, p ≈ 0.85); shadow P&L
 −$4,177 against −$1,543 ± $7,015 (z −0.38). The live outcome mix is what history predicts.
 
+## 127. Z11 registered — month-end FX hedge rebalancing at the London 4 p.m. fix (EUR/USD), on free data (S1–S5)
+
+**No trial spent at registration; N 769.** The user asked to keep searching and, when the literature runs out, to build
+hypotheses from data. This one is from the literature: Melvin & Prins (2015, Journal of Financial Markets 22; 10
+currencies, 2004-04 to 2012-12) — international equity managers reset currency hedges at the month-end WM/Reuters 4 p.m.
+fix, so a country's equity outperformance over the month predicts its currency's fall in the hour before the fix
+(panel slope −0.0142: 10% → 14 bps; R² 0.03). A forced, scheduled flow, like Z02's.
+
+**Data, free** (HistData 1-minute; `data/fx_fix.py`, one file at a time): EUR/USD and GBP/USD spot; S&P 500, FTSE 100 and
+DAX index CFDs (the DAX stands in for the Eurozone market; HistData's Euro Stoxx 50 stops in 2019).
+
+**Screen inside the paper's sample only** (2010-11 → 2012-12, 26 month-ends each): **EUR/USD +11.09 bps per event, t +3.19,
+win 81%** (slope +1.90 bps per 1% of S&P − DAX, the predicted sign); **GBP/USD −5.68 bps, t −1.41, win 31%** — the wrong
+sign; GBP is dropped and not tested (recorded; it counts against the strict rule's running total).
+
+**Fixed before any 2013–2026 return** (`hypotheses.yaml` Z11; `signals/z11.py`, `signals/z11_trial.py`): on the last weekday
+of each month, 15:00 → 16:00 London (10:00–11:00 ET most of the year), long EUR/USD (6E) if the S&P 500 beat the DAX from
+the first to the second-last trading day, short otherwise; net of 1.0 bp; 2013-01 → 2026-09. Strict rule: net t > 1.645;
+at or above the 95th percentile of BOTH the same signed trade on the 5 weekdays before month-end and the signal permuted
+across months; posterior > 0 (prior Normal(+3, 3) bps, an assumption, shaded for the 2015 fix reform); 11th Z test.
+
+**Outcome injection** (`reports/z11_injection.json`): +3 bps planted, recovered 3.03 (SD 1.16, 158 events); power of the
+strict t at that size 82%.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

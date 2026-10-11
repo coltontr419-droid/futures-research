@@ -627,3 +627,10 @@ crude plan goes short on those days and long otherwise — the outright, since t
 Japanese importers settle on days divisible by five at the 9:55 JST fix; banks pre-buy dollars, so USD/JPY rises into
 9:55 (arXiv 2301.13204, 2018–2020). Long USD/JPY (short 6J) from the 18:00 ET reopen to the fix on gotobi days,
 net of 1 bp. Tested 2021–2026 on free spot data under the strict rule. One trial. `hypotheses.yaml` (Z10) · `decisions.md` §122
+
+## Z11 — Month-End FX Hedge Rebalancing at the London Fix  *(registered, untested)*
+
+Melvin & Prins (2015): international equity managers reset currency hedges at the month-end 4 p.m. London fix, so
+equity outperformance predicts the currency's fall in the hour before it. Long EUR/USD (6E) 15:00→16:00 London on the
+month's last weekday when the S&P beat the DAX, short otherwise. Tested 2013–2026 on free data, strict rule. One trial.
+`hypotheses.yaml` (Z11) · `decisions.md` §127
