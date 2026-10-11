@@ -7776,6 +7776,19 @@ interim move of crude to 21:00 was reverted before anything used it.
 - Tests: the schedule's windows (a Sunday alert yields MCL Sun 18:00 → Mon 16:55, MGC Mon 03:00 → 11:30, MNQ Mon
   09:30 → 16:00), tracking with a fake feed, results reported once, Friday without tickets.
 
+## 126. A18: the demo checker — and the six unseen weeks already match the backtest's outcome mix (S8)
+
+**No trial spent; N 769.** `reporting/a18_demo_check.py`. The bot is deployed on the user's droplet (34 MB, systemd,
+clock synced) and the demo starts 2026-10-11. For every finished ticket in the bot's shadow log the checker computes,
+on 2021–26 history (A07/A08 paths, drift removed, stops at the stop price, a minute touching both = stop; crude by the
+one-bar approximation), the probability that THAT bracket ends in a take, a stop or a time exit and its expected net
+P&L; it then compares the live counts (chi-square, three cells) and P&L (z against the summed expectation), and with
+`demo_log.csv` measures the execution gap on traded tickets (closing-balance change vs shadow P&L).
+
+**First run, on the forward check's 55 MNQ and MGC tickets (2026-08-28 → 10-09, data no backtest had seen):**
+observed take / stop / time exit **26 / 27 / 2 against 23.9 / 29.0 / 2.1 expected** (chi-square 0.32, p ≈ 0.85); shadow P&L
+−$4,177 against −$1,543 ± $7,015 (z −0.38). The live outcome mix is what history predicts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
