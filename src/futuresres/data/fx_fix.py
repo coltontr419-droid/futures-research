@@ -73,3 +73,19 @@ def hourly_utc(pair: str) -> pl.DataFrame:
     res = pl.concat(parts).unique("utc", keep="last").sort("utc")
     CACHE.mkdir(parents=True, exist_ok=True); res.write_parquet(out)
     return res
+
+
+def quarter_marks(pair: str) -> dict:
+    """{UTC datetime: price} at minutes :00, :25, :30 and :55 of every hour (close of the bar ending then).
+    decisions.md 132-134 (family-2 windows, incl. the 09:55 Tokyo fix)."""
+    import datetime as _dt
+    out = CACHE / f"marks_{pair}.parquet"
+    if not out.exists():
+        parts = []
+        for f in sorted(FX_DIR.glob(f"{pair}_*.zip")):
+            d = _read(f).with_columns((pl.col("utc") + pl.duration(minutes=1)).alias("utc"))
+            parts.append(d.filter(pl.col("utc").dt.minute().is_in([0, 25, 30, 55])).select("utc", "c"))
+        res = pl.concat(parts).unique("utc", keep="last").sort("utc")
+        CACHE.mkdir(parents=True, exist_ok=True); res.write_parquet(out)
+    res = pl.read_parquet(out)
+    return {u.replace(tzinfo=_dt.timezone.utc): c for u, c in zip(res["utc"].to_list(), res["c"].to_list())}

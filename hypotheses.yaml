@@ -4717,3 +4717,50 @@
   outcome_injection_required: Done before the run - reports/d01_injection.json.
   s6_control: >
     Gross, net at 1.5 and at 2.0 bp; by period (2018-21, 2022-26); the same hour in gold (XAU) not run (not in the universe).
+- id: D02
+  name: aud_rises_into_the_tokyo_fix_at_month_end
+  mechanism: >
+    DATA-DERIVED (D-series family 2, decisions.md 132-134): in the 2010-2017 scan of 56 windows around scheduled fixings,
+    opens and closes, AUD/USD's 30 minutes before the 09:55 JST Tokyo fix on the month's last weekday averaged +2.88 bps
+    (SD 8.3, t +3.25, n 88) - the only cell beating twice its cost. Plausible flow: month-end settlement of Japanese
+    and regional AUD purchases priced at the Tokyo TTM fix. THE COUNTERPARTY would be fix-bound customer flow.
+  condition: >
+    On the last weekday (Tokyo date) of each month, LONG AUD/USD (6A) from 09:25 to 09:55 JST (20:25 or 19:25 New York the
+    evening before); free HistData AUD/USD spot 1-minute; net of 0.8 bp.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-11
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    12 events a year; the runner refuses to run without its outcome injection; validation 2018-2026 sealed until now.
+  test_order: 8
+  registered_test_order: 36
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Selected from 56 family-2 cells (uncorrected |t| > 1.96 and > 2x cost, decisions.md 133). ONE TRIAL.
+  session: Globex
+  symbols: [6A]
+  mechanism_instruments:
+    primary: 6A
+    secondary: null
+    rationale: >
+      6A (CME Australian dollar futures) is tradable in the user's account; the test uses AUD/USD spot, which 6A tracks.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market cell; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2022-01-01', decisive: full}
+  test_window: {start: '2018-01-01', end: '2026-09-30', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the net mean per event Normal(+0.64 bp, 1.0) - the discovery mean halved less the 0.8 bp cost.
+  decision_rule:
+    rule: >
+      Strict rule, standalone (decisions.md 119, 132): CONFIRM if the net mean has one-sided t > 1.645, it is at or above the
+      95th percentile of AUD/USD's other family-2 windows on month-end days, and the posterior > 0; else WATCHLIST if the
+      net mean > 0 (forward-tested by the bot, decisions.md 133); else REJECT.
+  outcome_injection_required: Done before the run - reports/d02_injection.json.
+  s6_control: Gross and net; by period (2018-21, 2022-26); the same window on all weekdays.

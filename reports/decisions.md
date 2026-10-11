@@ -7992,6 +7992,30 @@ is amended:
    demo bot (shadow-tracked, no capital) until they either meet the strict rule on the combined out-of-sample record or fade.
    Only CONFIRM counts as an edge for the plan and its projections; the strict rule itself is not relaxed.
 
+## 134. D-series family 2 discovery: one cell beats twice its cost; D02 registered (S1–S5)
+
+**No trial spent at registration; N 772.** `reporting/d2_discovery.py`, `reports/d2_discovery.json`; price marks at :00/:25/:30/:55
+(`data/fx_fix.quarter_marks`). **56 tests on 2010–17** (no window touched the CME break); about 2.8 would clear |t| > 1.96 by
+chance and **6 did**; **one also beats 2 × cost and is carried (amendment §133: no multiple-testing cut):**
+
+| cell (2010–17) | mean (SD), t, n |
+|---|---|
+| **AUD/USD, 30 min before the 09:55 JST Tokyo fix, month-end** | **+2.88 bps (8.3), +3.25, 88** — carried |
+| USD/CHF, 30 min before the Tokyo fix, all weekdays | +0.52 (5.8), +3.92 — below 2 × cost (0.8 bp) |
+| USD/CAD, 30 min after the Bank of Canada 16:30 rate | −0.51 (7.5), −3.01 — below cost |
+| GBP/USD, before the Tokyo fix, month-end | +1.24 (4.0), +2.89 — below 2 × cost |
+| USD/CAD, before the Tokyo fix | +0.30 (4.6), +2.65 — below cost |
+| USD/CHF, before the WM/R 16:00 fix | −0.79 (13.7), −2.62 — below 2 × cost |
+
+The Tokyo-fix pre-window is where most of the signal sits (four of six), consistent with the dollar-buying flow behind
+the gotobi effect (Z10) — but mostly too small for CME futures costs.
+
+**D02 registered** (`hypotheses.yaml` D02, `signals/d02.py`): long AUD/USD (6A) 09:25 → 09:55 JST on the month's last weekday
+(20:25 / 19:25 New York the evening before), net of 0.8 bp; sealed validation 2018-01 → 2026-09; CONFIRM / WATCHLIST / REJECT
+per §133; prior Normal(+0.64, 1.0) bp; 14th Z+D test. 6A added to the registry's single-market primaries.
+**Injection** (`reports/d02_injection.json`): +0.64 bp planted, recovered 0.63 (SD 0.88, 100 month-ends); power of the strict t
+22% at the prior's size.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

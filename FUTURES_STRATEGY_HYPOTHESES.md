@@ -646,3 +646,9 @@ EUR/USD short 07:00 London → 08:00 New York, long 08:00 → 16:00 New York, ev
 Data-derived (D-series): the 2010–2017 discovery scan found silver's 11:00–12:00 UTC hour — the hour ending at the
 12:00 London silver fix, summer and winter — averaging −5.5 bps (t −7.3). Short SI in that hour every weekday, net of
 cost; validated once on sealed 2018–2026 data under the strict rule. `hypotheses.yaml` (D01) · `decisions.md` §130
+
+## D02 — AUD Rises Into the Tokyo Fix at Month-End  *(registered, untested)*
+
+Data-derived (D-series family 2): AUD/USD's 30 minutes before the 09:55 JST Tokyo fix on the month's last weekday averaged
++2.9 bps (t 3.3) in 2010–2017. Long 6A 09:25 → 09:55 JST at month-end, net of cost; validated once on sealed 2018–2026 data
+(confirm / watchlist / reject). `hypotheses.yaml` (D02) · `decisions.md` §134
