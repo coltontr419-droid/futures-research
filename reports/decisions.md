@@ -8016,6 +8016,20 @@ per §133; prior Normal(+0.64, 1.0) bp; 14th Z+D test. 6A added to the registry'
 **Injection** (`reports/d02_injection.json`): +0.64 bp planted, recovered 0.63 (SD 0.88, 100 month-ends); power of the strict t
 22% at the prior's size.
 
+### D02 validation: REJECT — the discovery did not recur (S6–S8)
+
+**One trial spent: t00779. N 772 → 773.** `reports/d02_trial.{json,md}`.
+
+| sealed 2018-01 → 2026-09, 100 month-ends | |
+|---|---|
+| long AUD/USD 09:25 → 09:55 JST, gross / net (SD) | **−0.33 / −1.13 bps** (8.2) |
+| t / placebo (other month-end windows) | −1.38 / 0th pct |
+| 2018–21 / 2022–26 net | +0.01 / −2.06 bps |
+
+**REJECT tier** (net ≤ 0; nothing to forward-test). The one cell family 2 carried was a chance pass of the uncorrected scan —
+the outcome the expected-chance-pass count (2.8 of 56) warned of, and the reason every carried cell still gets the sealed
+check. Fourteen Z+D market-tests, none confirmed; the watchlist is empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

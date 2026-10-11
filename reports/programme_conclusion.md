@@ -733,3 +733,6 @@ since 2013. Eleven strict-rule market-tests, none passing.
 **D-series (§129–130):** the first data-derived hypotheses under a sealed discovery/validation split. The one tradable
 candidate (silver into the London fix) persisted out of sample but at 40% of its size — too small after costs. Thirteen
 strict-rule tests, none passing.
+
+**D-series family 2 (§132–134):** windows around fixings, opens and closes; the one carried cell (AUD/USD into the Tokyo fix at
+month-end) did not recur on sealed data. Fourteen Z+D tests, none confirmed.

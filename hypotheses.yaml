@@ -4730,11 +4730,24 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-11
-  status: untested
+  status: retired
+  retired: 2026-10-11
+  retired_reason: >
+    Trial t00779 (decisions.md 134), REJECT tier (net mean <= 0) on the sealed 2018-2026 window: 100 month-ends, long AUD/USD
+    09:25-09:55 JST gross -0.33 bps (SD 8.2), net -1.13, t -1.38; placebo 0th pct; 2018-21 +0.01, 2022-26 -2.06. The
+    discovery's +2.88 bps (t 3.25, n 88) did not recur - a chance pass of the uncorrected scan.
+  outcome_injection:
+    test: src/futuresres/signals/d02.py
+    injected_bps: 0.64
+    sought_bps: 0.64
+    n_injection: 100
+    n_run: 100
+    recovered: true
+    report: reports/d02_injection.json
   schedulable: false
   schedulable_note: >
     12 events a year; the runner refuses to run without its outcome injection; validation 2018-2026 sealed until now.
-  test_order: 8
+  test_order: null
   registered_test_order: 36
   grade: B
   tier: B

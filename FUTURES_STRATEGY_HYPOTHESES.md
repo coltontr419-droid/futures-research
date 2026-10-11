@@ -647,7 +647,7 @@ Data-derived (D-series): the 2010–2017 discovery scan found silver's 11:00–1
 12:00 London silver fix, summer and winter — averaging −5.5 bps (t −7.3). Short SI in that hour every weekday, net of
 cost; validated once on sealed 2018–2026 data under the strict rule. `hypotheses.yaml` (D01) · `decisions.md` §130
 
-## D02 — AUD Rises Into the Tokyo Fix at Month-End  *(registered, untested)*
+## D02 — AUD Rises Into the Tokyo Fix at Month-End  *(RETIRED — t00779; did not recur out of sample)*
 
 Data-derived (D-series family 2): AUD/USD's 30 minutes before the 09:55 JST Tokyo fix on the month's last weekday averaged
 +2.9 bps (t 3.3) in 2010–2017. Long 6A 09:25 → 09:55 JST at month-end, net of cost; validated once on sealed 2018–2026 data

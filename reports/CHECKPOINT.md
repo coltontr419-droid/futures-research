@@ -774,6 +774,10 @@ still silver's weakest hour (placebo 95th) but +0.75 bps net, t 0.95, faded afte
 ~~Next: price forex prop firms (FTMO, FundedNext, FundingPips 2-step) with the solver.~~ **§131: user declined forex firms
 (evals ~$500 too expensive) — stay with Tradeify.**
 
+**§132–134: D-series family 2** (fixing/open/close windows; user amendment §133: no multiple-testing cut, watchlist tier).
+56 tests, 1 carried: **D02 AUD into the Tokyo fix at month-end (t00779, N 773) REJECT** — −0.33 bps out of sample.
+14 Z+D tests, none confirmed; watchlist empty.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**
