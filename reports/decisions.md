@@ -7638,6 +7638,34 @@ passes expected at 5%).
 **REJECTED.** The roll pressure was visible through 2020 — near the bar in each half-decade — and reversed sharply
 after 2021, the signature of an effect that has been front-run. No shifted-window variant is run after seeing this.
 
+## 121. A power screen before registering, and four more candidates screened out under the strict rule (S1, S2)
+
+**No trial spent; N 768.** `signals/z_strict.power` — the strict rule's chance of passing condition (1) if a
+candidate's published effect is exactly right (the placebo and posterior can only lower it). Run on the plans'
+own scales (MNQ 09:30–16:00: always-long +2.5 bps, SD ~120 bps, ~2,600 sessions; gold: SD ~100 bps, ~2,500):
+
+| case | expected t | power |
+|---|---|---|
+| MNQ short on 1/4 of days averaging −1.3 bps | 0.28 | 8% |
+| ... averaging −10 bps | 2.08 | 66% |
+| ... averaging −20 bps | 4.11 | ~100% |
+| gold 50/50 signal at ±3 bps | 1.06 | 28% |
+| gold 50/50 signal at ±5 bps | 1.76 | 55% |
+
+**A candidate is registered only if its published effect gives meaningful power** — in practice ~5–10 bps a day or
+more on the days it acts. This keeps trials off candidates that cannot pass even if the paper is right.
+
+**Screened out:**
+- **Dash for cash** (Etula, Rinne, Suominen & Vaittinen, RFS 33(1) 2020; working paper 1980–2014): institutions sell
+  T−8..T−4 before the last month-end settlement day (T = last trading day; the window would shift with the US move to
+  T+2 in 2017 and T+1 in 2024). The selling window earns −3.4% annualised on the S&P (−1.3 bps a day) against +28.6%
+  over T−3..T+3: as MNQ's short days, **power 8%**. Out on size.
+- **Rebalancing pressure** (EDHEC-hosted SSRN 5122748: −17 bps next day when funds are overweight equities): the same
+  work as Z02 (§120 covers Z02 as MNQ direction).
+- **Gold ETF flow pressure:** only a thesis (short-lag VAR, reversing at 3–5 days); no peer-reviewed effect to fix.
+- **Post-options-expiration weakness ("vanna/charm"):** practitioner commentary only; the peer-reviewed findings are
+  expiration-week strength (Johnson & So 2013) and pinning (Ni, Pearson & Poteshman 2005).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

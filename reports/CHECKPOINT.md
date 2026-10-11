@@ -744,6 +744,9 @@ back to always-long; §118's gain WITHDRAWN.** Portfolio = §116 zero-edge: +$3.
 **§120:** Z02 as MNQ direction — placebo 99–100th but t +0.32/+0.72 → not adopted (descriptive). **Z09 (t00774, N 768):
 short crude on GSCI roll days REJECTED** (t −0.20; worked to 2020, reversed 2021–26).
 
+**§121: power screen** (`z_strict.power`) before any registration — needs ~5–10 bps/day on signal days. Screened out:
+dash for cash (power 8%), EDHEC rebalancing (= Z02), gold ETF flows (thesis only), post-OpEx weakness (practitioner only).
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

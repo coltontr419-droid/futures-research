@@ -9,6 +9,8 @@ A direction signal s (+1/-1 per session) on window returns r CONFIRMS for a mark
   4. count         reported against the running number of Z market-tests and the chance passes expected at 5%.
 
     python -m futuresres.signals.z_strict          # re-reads Z06-Z08 under this rule (descriptive; no trial)
+
+    z_strict.power(...)                            # pre-registration screen: power at the published effect size
 """
 
 from __future__ import annotations
@@ -42,6 +44,21 @@ def strict(r: np.ndarray, s: np.ndarray, prior_mean: float, prior_sd: float) -> 
             "posterior_registered_prior": post, "posterior_zero_prior": post0,
             "conditions": {"t_gt_1.645": t > T_CRIT, "placebo_ge_95": pct >= PLACEBO_PCT, "posterior_gt_0": post > 0},
             "strict_confirm": bool(t > T_CRIT and pct >= PLACEBO_PCT and post > 0)}
+
+
+def power(short_mean_bps: float, short_share: float, long_mean_bps: float, sd_bps: float, n: int,
+          reps: int = 4000, seed: int = 0) -> dict:
+    """Screen BEFORE registering (decisions.md 121): the strict rule's chance of passing if the published effect is
+    exactly right. A short-signal share p of sessions with mean short_mean_bps, the rest long_mean_bps, daily SD
+    sd_bps, n sessions; condition (1) only (t > 1.645 on d = s*r - r) - the placebo and posterior can only lower it."""
+    rng = np.random.default_rng(seed)
+    passes = 0; ts = []
+    for _ in range(reps):
+        s = np.where(rng.random(n) < short_share, -1.0, 1.0)
+        r = rng.standard_normal(n) * sd_bps + np.where(s < 0, short_mean_bps, long_mean_bps)
+        d = s * r - r
+        tv = d.mean() / (d.std(ddof=1) / math.sqrt(n)); ts.append(tv); passes += tv > T_CRIT
+    return {"expected_t": float(np.mean(ts)), "power": passes / reps}
 
 
 def review() -> dict:
