@@ -8109,7 +8109,7 @@ contracts and round trips FDXM/NKD $4, FX/SI $4.5 (estimates). Bid-quote CFD/spo
 
 **Recommended: add Nikkei (1 NKD, 09:00–15:00 Tokyo = 20:00–02:00 New York) and DAX (2 FDXM, 09:00–17:30 Frankfurt = 03:00–11:30
 New York) as accounts 4 and 5** — Nikkei is uncorrelated with everything; DAX nearly so. Silver duplicates gold; the FX contracts are
-too small within a 3-contract cap. Open with the user before the bot is changed: that his Tradeify account type permits NKD and FDXM
+too small within a 3-contract cap. Open with the user before the bot is changed: that their Tradeify account type permits NKD and FDXM
 and how FDXM counts against the contract cap; the extra $2.1k of evaluation fees per four months.
 
 ## 10. Still outstanding, and blocking
