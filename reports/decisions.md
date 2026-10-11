@@ -7666,6 +7666,37 @@ more on the days it acts. This keeps trials off candidates that cannot pass even
 - **Post-options-expiration weakness ("vanna/charm"):** practitioner commentary only; the peer-reviewed findings are
   expiration-week strength (Johnson & So 2013) and pinning (Ni, Pearson & Poteshman 2005).
 
+## 122. Z10 registered — gotobi importers' dollar buying into the Tokyo fix, on free spot data (S1–S5)
+
+**No trial spent at registration; N 768.** The user chose to keep screening (option 1), then asked for yen data. The
+Databento portal refused every yen request (continuous symbology "no data"; parent symbology not found in the UI),
+so the test uses **free USD/JPY spot 1-minute bars** (HistData.com, 2016-01 → 2026-09, `data/fx_histdata/`, gitignored;
+`data/fx.py` keeps only the three minutes needed, one file at a time). 6J futures mirror the spot rate inversely.
+
+**Source and mechanism:** arXiv 2301.13204 (Suzuki group; 2018–2020, building on their earlier study) — USD/JPY rises
+into the 9:55 JST TTM fix on days divisible by five, as banks pre-buy dollars for importers' "goto-barai" settlements;
+the Tokyo fixing is studied in Ito & Yamada (2017, J. International Economics). **Evidence is thinner than the
+programme's usual** (a 4-page preprint), and the preprint itself says the effect is widely known.
+
+**The account constraint fixes the window:** the paper enters at 03:00 JST (13:00–14:00 ET), which holds through the
+17:00–18:00 ET CME break the account forbids. The tradable part — the 18:00 ET reopen to 9:55 JST — is fixed here.
+
+**Screen inside the paper's sample only** (and before it): 2018–20, the paper's window +2.68 bps (SD 18.9, t 1.91, win
+63%; 181 events vs the paper's 185); **the tradable window +2.67 bps (SD 12.4, t 2.88, win 64%)**; non-gotobi days −1.1
+to −1.6. **2016–17: −0.94 bps (t −0.56)** — absent before the paper's sample; a warning recorded before the run.
+Dollar scale: one 6J ≈ $84k notional, so +2.7 bps ≈ $22 gross, ~$14 after the 1 bp cost; at 3 contracts ~$40 per event,
+~70 events a year — a small, high-consistency add-on, not a new engine.
+
+**Fixed before any 2021–2026 return** (`hypotheses.yaml` Z10; `signals/z10.py`, `signals/z10_trial.py`): long USD/JPY
+18:00 ET → 9:55 JST on gotobi days (the 5th…30th or the last business day before a weekend one; Tue–Fri JST),
+net of 1.0 bp; 2021-01-01 → 2026-09-30. **The strict rule for a standalone trade:** net mean t > 1.645; at or above the
+95th percentile of BOTH the calendar shifted ±1–4 business days and random same-size non-gotobi sets; posterior > 0
+(prior Normal(+0.8 bp, 1.0), an assumption); reported as the 10th Z market-test. 6J added to the registry's
+single-market primaries.
+
+**Outcome injection** (`reports/z10_injection.json`): +0.8 bp planted, recovered 0.81 (SD 0.84, 316 events); **power of the
+strict t at the prior's size 24.5%** (roughly 70% if the full in-sample size holds).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

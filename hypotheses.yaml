@@ -4436,3 +4436,61 @@
   outcome_injection_required: Done before the run - reports/z09_injection.json.
   s6_control: >
     Mean return on roll days vs other days; by period (2010-15, 2016-20, 2021-26); the effect on days 5-9 one by one.
+- id: Z10
+  name: gotobi_importer_dollar_buying_before_tokyo_fix
+  mechanism: >
+    The gotobi effect (Suzuki group, arXiv 2301.13204, sample 2018-2020, building on their earlier study; the Tokyo
+    fixing itself: Ito & Yamada 2017, Journal of International Economics): Japanese importers settle on days divisible
+    by five ("goto-barai") at the 9:55 JST TTM fix, and banks pre-buy the dollars, so USD/JPY rises toward 9:55 on
+    gotobi days. THE COUNTERPARTY is the importer paying a business-custom schedule regardless of price.
+  condition: >
+    Long USD/JPY (= short 6J yen futures) from the 18:00 ET CME Globex reopen to the 9:55 JST fix (19:55 or 20:55 ET)
+    on gotobi days - the 5th/10th/15th/20th/25th/30th, or the last business day before a weekend one - Tuesday to
+    Friday JST (the paper's rule). The paper's own window (03:00 JST) holds through the 17:00-18:00 ET CME break,
+    which the account forbids; the tradable part is fixed here before any post-2020 return. Measured on free USD/JPY
+    spot 1-minute bars (HistData; data/fx.py), net of 1.0 bp a round trip for 6J (tick + commission).
+  horizon_minutes: [175]
+  hold_hours: [1.9166666666666667, 2.9166666666666665]
+  registered: 2026-10-10
+  status: untested
+  schedulable: false
+  schedulable_note: >
+    ~70 events a year; the runner refuses to run without its outcome injection. Registered after a size screen INSIDE
+    the paper's sample only (2018-2020: tradable window +2.67 bps, SD 12.4, t 2.88; paper's window +2.68, t 1.91) and
+    on 2016-17 (before it: -0.94 bps, t -0.56); no 2021-2026 return computed before registration.
+  test_order: 8
+  registered_test_order: 32
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: No free parameters - the paper's calendar and fix time; the entry is the account's first allowed minute. ONE TRIAL.
+  session: Globex
+  symbols: [6J]
+  mechanism_instruments:
+    primary: 6J
+    secondary: null
+    rationale: >
+      6J (CME yen futures, USD per JPY) is tradable in the user's account; the test uses USD/JPY spot, which 6J mirrors
+      inversely. One market; no second-instrument confirmation is claimed.
+  stage4_reachable: false
+  stage4_reason: One currency pair, one published calendar; the test window is after the paper's sample.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2024-01-01', decisive: full}
+  test_window: {start: '2021-01-01', end: '2026-09-30', reason: 'after the paper sample (2018-2020)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: >
+      Prior on the net mean per event Normal(+0.8 bp, 1.0 bp): the in-sample tradable-window gross +2.67 bps, halved,
+      less the 1.0 bp cost; an ASSUMPTION.
+  decision_rule:
+    rule: >
+      The STRICT Z rule adapted to a standalone trade (benchmark: not trading): CONFIRM only if (1) the net mean per
+      gotobi event has one-sided t > 1.645; (2) it exceeds the 95th percentile of the same statistic on the
+      gotobi calendar shifted by 1-4 business days and on random same-size sets of non-gotobi Tue-Fri days; (3) the
+      posterior mean > 0, reported beside a zero-mean prior; (4) reported against the running count (10 Z market-tests).
+  outcome_injection_required: Done before the run - reports/z10_injection.json.
+  s6_control: >
+    Gross and net; non-gotobi days in the same window; the paper's full 03:00 JST window (not tradable; descriptive);
+    by period (2021-23, 2024-26).
