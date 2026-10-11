@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 START, TARGET, TRAIL, LOCK_AT, CONSISTENCY, CAP, LIVE_AFTER, FEE = 50_000.0, 3_000.0, 2_000.0, 52_000.0, 0.40, 1_250.0, 3, 80.0
-PRODUCTS = ("MNQ", "MGC", "MCL")
+PRODUCTS = ("MNQ", "MGC", "MCL", "NKD", "FDXM")          # NKD, FDXM: accounts 4-5, decisions.md 138
 
 
 def fresh(product: str) -> dict:
@@ -23,7 +23,9 @@ def fresh(product: str) -> dict:
 class Book:
     def __init__(self, state_path: Path, log_path: Path):
         self.state_path, self.log_path = Path(state_path), Path(log_path)
-        self.s = json.loads(self.state_path.read_text()) if self.state_path.exists() else {p: fresh(p) for p in PRODUCTS}
+        self.s = json.loads(self.state_path.read_text()) if self.state_path.exists() else {}
+        for p in PRODUCTS:                         # products added later start as fresh evaluations
+            self.s.setdefault(p, fresh(p))
 
     # ------------------------------------------------------------------ persistence
     def save(self) -> None:

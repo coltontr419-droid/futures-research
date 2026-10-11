@@ -30,7 +30,7 @@ def test_bot_ticket_matches_playbook(both):
     rng = np.random.default_rng(123)
     for _ in range(3000):
         phase = "eval" if rng.random() < 0.6 else "funded"
-        product = ("MNQ", "MGC", "MCL")[rng.integers(3)]
+        product = ("MNQ", "MGC", "MCL", "NKD", "FDXM")[rng.integers(5)]
         peak = 50_000 + float(rng.integers(0, 4_200))
         balance = float(np.round(peak - rng.uniform(0, 2_100), 2))
         best = float(rng.uniform(0, 1_900)) if phase == "eval" else 0.0
@@ -66,11 +66,13 @@ def test_schedule_alert_track_and_report(tmp_path):
     tx = sc.Tickets(tmp_path / "t.json", tmp_path / "shadow.csv")
     sun = dt.datetime(2026, 10, 11, 17, 30, tzinfo=sc.ET)                    # a Sunday
     text = sc.alert_text(bk, tx, sun)
-    assert text.count("BUY") == 3
+    assert text.count("BUY") == 5
     win = {r["product"]: (r["entry"], r["exit"]) for r in tx.t}
     assert win["MCL"] == ("2026-10-11T18:00:00-04:00", "2026-10-12T16:55:00-04:00")
     assert win["MGC"] == ("2026-10-12T03:00:00-04:00", "2026-10-12T11:30:00-04:00")
     assert win["MNQ"] == ("2026-10-12T09:30:00-04:00", "2026-10-12T16:00:00-04:00")
+    assert win["NKD"] == ("2026-10-11T20:00:00-04:00", "2026-10-12T02:00:00-04:00")      # 09:00-15:00 Tokyo
+    assert win["FDXM"] == ("2026-10-12T03:00:00-04:00", "2026-10-12T11:30:00-04:00")     # 09:00-17:30 Frankfurt
     # shadow-track with a fake feed: price rises straight through the take
     def fetch(product, start, end):
         t, out, px = start, [], 100.0
@@ -78,12 +80,23 @@ def test_schedule_alert_track_and_report(tmp_path):
             out.append((t, px, px + 50.0, px - 0.001, px + 50.0)); px += 50.0; t += dt.timedelta(minutes=1)
         return out
     done = tx.track(dt.datetime(2026, 10, 12, 17, 10, tzinfo=sc.ET), fetch=fetch)
-    assert {r["product"] for r in done} == {"MCL", "MGC", "MNQ"} and all(r["result"]["outcome"] == "TAKE" for r in done)
-    assert (tmp_path / "shadow.csv").read_text().count("TAKE") == 3
+    assert {r["product"] for r in done} == {"MCL", "MGC", "MNQ", "NKD", "FDXM"} and all(r["result"]["outcome"] == "TAKE" for r in done)
+    assert (tmp_path / "shadow.csv").read_text().count("TAKE") == 5
     mon = dt.datetime(2026, 10, 12, 17, 30, tzinfo=sc.ET)
-    bk.eod("MNQ", 51_000, "2026-10-12"); bk.eod("MGC", 50_500, "2026-10-12"); bk.eod("MCL", 49_500, "2026-10-12")
+    for p, b in (("MNQ", 51_000), ("MGC", 50_500), ("MCL", 49_500), ("NKD", 50_200), ("FDXM", 50_900)):
+        bk.eod(p, b, "2026-10-12")
     text = sc.alert_text(bk, tx, mon)
-    assert "Results" in text and text.count("TAKE") == 3 and "not recorded" not in text
+    assert "Results" in text and text.count("TAKE") == 5 and "not recorded" not in text
     assert "Results" not in sc.alert_text(bk, tx, mon)                     # each result reported once
     fri = dt.datetime(2026, 10, 16, 17, 30, tzinfo=sc.ET)
     assert "No new tickets" in sc.alert_text(bk, tx, fri)
+
+
+def test_existing_three_account_state_gains_the_new_accounts(tmp_path):
+    import json
+    import accounts as ac
+    old = {p: ac.fresh(p) for p in ("MNQ", "MGC", "MCL")}
+    old["MNQ"]["balance"] = 51_234.0
+    (tmp_path / "s.json").write_text(json.dumps(old))
+    bk = ac.Book(tmp_path / "s.json", tmp_path / "log.csv")
+    assert bk.s["MNQ"]["balance"] == 51_234.0 and bk.s["NKD"]["phase"] == "eval" and bk.s["FDXM"]["balance"] == 50_000.0

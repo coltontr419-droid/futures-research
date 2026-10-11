@@ -8112,6 +8112,21 @@ New York) as accounts 4 and 5** — Nikkei is uncorrelated with everything; DAX 
 too small within a 3-contract cap. Open with the user before the bot is changed: that their Tradeify account type permits NKD and FDXM
 and how FDXM counts against the contract cap; the extra $2.1k of evaluation fees per four months.
 
+## 138. Nikkei and DAX added to the demo — forward test first; evaluations bought only if it comes back positive (S8)
+
+**No trial spent; N 773.** The user confirmed: Tradeify permits NKD and FDXM; the per-account cap is taken as 3 minis / 30 micros
+(Tradeify states no separate rule for them); the two extra evaluations will be bought **only if the forward test is positive**.
+
+- **Playbook** (`a06_playbook.PRODUCTS`): NKD 1 contract, $5 a point, tick 5, rt $4, 09:00–15:00 Tokyo; FDXM 2 contracts, €5 a point at
+  EUR/USD 1.12 ($5.60), tick 1, rt $4, 09:00–17:30 Frankfurt. Fresh-evaluation tickets: NKD +240 / −200 points, FDXM +108 / −89 points
+  (≈ +$1,200 / −$1,000 net). `bot/policy.json` re-exported.
+- **Bot:** windows defined in each exchange's own time zone and converted per date (NKD 20:00 → 02:00 New York in summer, 19:00 →
+  01:00 in winter; FDXM 03:00 → 11:30, shifting an hour in the weeks when Europe and the US change clocks on different dates); the
+  17:30 alert now carries five tickets (MCL, NKD, MGC, FDXM, MNQ). Shadow tracking from Yahoo: NKD=F; FDXM on the DAX index (^GDAXI,
+  Xetra hours). Bookkeeping for five accounts; an existing three-account `state.json` is kept and the two new accounts start fresh.
+- **Demo checker** (A18): expected outcome rates for NKD and FDXM from A21's 2021–26 paths.
+- Tests: tickets equal the playbook on 3,000 random states over all five products; the schedule's NKD/FDXM windows; state migration.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -12,7 +12,7 @@ import urllib.request
 from zoneinfo import ZoneInfo
 
 ET = ZoneInfo("America/New_York")
-YAHOO = {"MNQ": "NQ=F", "MGC": "GC=F", "MCL": "CL=F"}
+YAHOO = {"MNQ": "NQ=F", "MGC": "GC=F", "MCL": "CL=F", "NKD": "NKD=F", "FDXM": "^GDAXI"}   # FDXM tracked on the DAX index
 
 
 def bars(product: str, start: dt.datetime, end: dt.datetime) -> list[tuple[dt.datetime, float, float, float, float]]:

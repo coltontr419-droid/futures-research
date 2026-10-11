@@ -22,9 +22,11 @@ from ticket import describe, policy, ticket
 
 ET = ZoneInfo("America/New_York")
 ALERT = (17, 30)
-#: product -> (entry day offset from the alert, entry hh:mm, exit day offset, exit hh:mm)
-WINDOWS = {"MCL": (0, (18, 0), 1, (16, 55)), "MGC": (1, (3, 0), 1, (11, 30)), "MNQ": (1, (9, 30), 1, (16, 0))}
-ORDER = ("MCL", "MGC", "MNQ")                      # by entry time after the alert
+#: product -> (time zone, entry day offset from the alert's New York date, entry hh:mm, exit day offset, exit hh:mm), local time.
+#: NKD and FDXM (decisions.md 138) follow Tokyo and Frankfurt clocks, so their New York times shift with daylight saving.
+WINDOWS = {"MCL": (ET, 0, (18, 0), 1, (16, 55)), "MGC": (ET, 1, (3, 0), 1, (11, 30)), "MNQ": (ET, 1, (9, 30), 1, (16, 0)),
+           "NKD": (ZoneInfo("Asia/Tokyo"), 1, (9, 0), 1, (15, 0)), "FDXM": (ZoneInfo("Europe/Berlin"), 1, (9, 0), 1, (17, 30))}
+ORDER = ("MCL", "NKD", "MGC", "FDXM", "MNQ")         # by entry time after the 17:30 alert
 SHADOW_DELAY = dt.timedelta(minutes=5)
 
 
@@ -46,9 +48,9 @@ class Tickets:
     def issue(self, book: Book, product: str, alert_day: dt.date, now: dt.datetime) -> dict | None:
         """Record (or replace, if still pending) the ticket for `product` from the alert on `alert_day`."""
         a = book.s[product]
-        e_off, (eh, em), x_off, (xh, xm) = WINDOWS[product]
-        entry = dt.datetime.combine(alert_day + dt.timedelta(days=e_off), dt.time(eh, em), ET)
-        exit_ = dt.datetime.combine(alert_day + dt.timedelta(days=x_off), dt.time(xh, xm), ET)
+        tz, e_off, (eh, em), x_off, (xh, xm) = WINDOWS[product]
+        entry = dt.datetime.combine(alert_day + dt.timedelta(days=e_off), dt.time(eh, em), tz).astimezone(ET)
+        exit_ = dt.datetime.combine(alert_day + dt.timedelta(days=x_off), dt.time(xh, xm), tz).astimezone(ET)
         if a["phase"] == "dead":
             tk = {"trade": False, "finished": True, "floor": 0.0}
         else:

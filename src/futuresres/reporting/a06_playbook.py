@@ -34,7 +34,13 @@ START = 50_000.0
 PRODUCTS = {"MNQ": {"n": 4, "mult": 2.0, "rt": 2.32, "tick": 0.25, "entry": "09:30", "exit": "16:00"},
             "MGC": {"n": 8, "mult": 10.0, "rt": 3.32, "tick": 0.10, "entry": "03:00", "exit": "11:30"},
             # decisions.md 116: 10 MCL, the whole session (enter at the 18:00 ET open, flat by 16:55 ET)
-            "MCL": {"n": 10, "mult": 100.0, "rt": 3.32, "tick": 0.01, "entry": "18:00", "exit": "16:55"}}
+            "MCL": {"n": 10, "mult": 100.0, "rt": 3.32, "tick": 0.01, "entry": "18:00", "exit": "16:55"},
+            # decisions.md 137-138 (A21): accounts 4 and 5, forward-tested on the demo before evaluations are bought.
+            # NKD: $5 a point, tick 5 points; Tokyo session. FDXM: EUR 5 a point (converted at EUR_USD), tick 1; Xetra session.
+            "NKD": {"n": 1, "mult": 5.0, "rt": 4.0, "tick": 5.0, "entry": "09:00", "exit": "15:00", "tz": "Tokyo"},
+            "FDXM": {"n": 2, "mult": 5.0 * 1.12, "rt": 4.0, "tick": 1.0, "entry": "09:00", "exit": "17:30", "tz": "Frankfurt"}}
+#: the EUR/USD rate behind FDXM's dollar value per point (export time; the bot refreshes it live when it can)
+EUR_USD = 1.12
 CONTRACTS = PRODUCTS["MNQ"]["n"]
 
 
@@ -95,10 +101,11 @@ def _print(t: dict) -> None:
         print(f"NO TRADE today (stand aside). Floor ${t['floor']:,.0f}.")
         return
     up, dn = ("+", "-") if t["side"] == "long" else ("-", "+")
-    print(f"{t['entry']} ET: {'BUY' if t['side'] == 'long' else 'SELL'} {t['contracts']} {t['product']} at market, then one OCO bracket on the fill price:\n"
+    tz = PRODUCTS[t["product"]].get("tz", "ET")
+    print(f"{t['entry']} {tz}: {'BUY' if t['side'] == 'long' else 'SELL'} {t['contracts']} {t['product']} at market, then one OCO bracket on the fill price:\n"
           f"  take-profit  fill {up} {t['take_points']:.2f} pts   (≈ +${t['take_net']:,.0f} net)\n"
           f"  stop         fill {dn} {t['stop_points']:.2f} pts   (≈ -${t['stop_net']:,.0f} net)\n"
-          f"{t['exit']} ET: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
+          f"{t['exit']} {tz}: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
 
 
 def export(path: Path | None = None) -> Path:

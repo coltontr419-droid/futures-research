@@ -783,6 +783,7 @@ still silver's weakest hour (placebo 95th) but +0.75 bps net, t 0.95, faded afte
 
 **A21 (§137): accounts 4 and 5 = Nikkei (1 NKD, 20:00–02:00 ET) and DAX (2 FDXM, 03:00–11:30 ET).** Five accounts: per 4 months
 mean +$6.4–10.5k, ends ahead 85–96%. OPEN: user to confirm Tradeify permits NKD/FDXM + contract cap; then add to bot.
+**§138: NKD + FDXM added to the bot (5 tickets at 17:30); forward test first, evals only if positive.** Deploy pending user OK.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
