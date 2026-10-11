@@ -762,6 +762,9 @@ shadow-tracks every ticket on free Yahoo 1-minute data (validated: 8/8 outcomes 
 **§126: bot DEPLOYED (droplet, 2026-10-11); demo starts.** Checker: `python -m futuresres.reporting.a18_demo_check shadow_log.csv
 demo_log.csv`. On the 55 forward tickets: take/stop/time 26/27/2 vs 23.9/29.0/2.1 expected (p 0.85).
 
+**Z11 (§127, t00776, N 770): month-end FX fix (EUR/USD, free data) REJECTED** — −0.92 bps since 2013 (2010–12: +11).
+Eleven strict-rule market-tests, none passing. Next: own hypotheses on untouched markets (discovery 2010–17 / validation 2018–26).
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

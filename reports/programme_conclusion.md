@@ -723,3 +723,6 @@ rule — the effect held to 2020 and reversed after 2021.
 
 **Z10 (§122, t00775):** the gotobi effect, tested free on USD/JPY spot in the account-tradable window, came in at half its
 published size and has faded to zero since 2024. Ten strict-rule market-tests, none passing.
+
+**Z11 (§127, t00776):** month-end FX hedge rebalancing at the London fix (EUR/USD), strong in the paper's era, has been absent
+since 2013. Eleven strict-rule market-tests, none passing.
