@@ -7977,6 +7977,21 @@ seven markets — a small, mechanism-led family, so the multiple-testing bar is 
    1.645 in the discovered direction; ≥ 95th percentile of the same instrument's other family-2 windows of the same day-set;
    posterior > 0 with prior = discovery mean halved less cost); reported against the running count.
 
+## 133. Amendment before the family-2 scan (user): no multiple-testing cut in discovery; a watchlist tier for forward testing (S1)
+
+**No trial spent; N 772. Committed BEFORE the scan.** The user directs that candidates not be discarded for failing a
+multiple-testing penalty: "I want to know if something works ... then we can forward test to see if it's still viable." §132
+is amended:
+
+1. **Discovery selection:** two-sided |t| > 1.96 (uncorrected) AND |mean| > 2 × cost. **All** passing cells are carried (a
+   month-end cell remains a duplicate of a carried all-weekday cell). The number of tests run and carried is reported, so the
+   expected count of chance passes (~5% of tests) is visible beside the result.
+2. **Validation unchanged:** one trial per candidate on the sealed 2018-01 → 2026-09 window.
+3. **Three outcomes:** **CONFIRM** — the strict rule (§119/§132) holds; **WATCHLIST** — the strict rule fails but the net mean
+   in validation is > 0 in the discovered direction; **REJECT** — net mean ≤ 0. Watchlist items are forward-tested live by the
+   demo bot (shadow-tracked, no capital) until they either meet the strict rule on the combined out-of-sample record or fade.
+   Only CONFIRM counts as an edge for the plan and its projections; the strict rule itself is not relaxed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
