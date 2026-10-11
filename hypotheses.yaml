@@ -4595,13 +4595,26 @@
   horizon_minutes: [480]
   hold_hours: [6.0, 8.0]
   registered: 2026-10-11
-  status: untested
+  status: retired
+  retired: 2026-10-11
+  retired_reason: >
+    Trial t00777 (decisions.md 128), REJECTED under the strict rule: 4,231 weekdays 2010-2026; morning short +1.26 bps
+    gross, afternoon long +0.40; net of 1.6 bps a day +0.06 (SD 47.6), t +0.09, annual net Sharpe +0.02; placebo 87th pct.
+    The pattern survives gross but costs absorb it, and it decayed: 2010-17 net +1.40 (Sharpe 0.41), 2018-26 -1.18 (-0.45).
+  outcome_injection:
+    test: src/futuresres/signals/z12_trial.py
+    injected_bps: 0.6         # UNITS: annual net Sharpe, not bps
+    sought_bps: 0.6
+    n_injection: 4231
+    n_run: 4231
+    recovered: true
+    report: reports/z12_injection.json
   schedulable: false
   schedulable_note: >
     ~250 events a year; the runner refuses to run without its outcome injection. No in-sample screen is possible (the
     paper's sample is 1997-2007; the free data starts in 2010) - registered on the published size, before any return
     was computed.
-  test_order: 8
+  test_order: null
   registered_test_order: 34
   grade: B
   tier: B

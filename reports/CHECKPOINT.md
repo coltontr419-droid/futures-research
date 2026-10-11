@@ -765,6 +765,9 @@ demo_log.csv`. On the 55 forward tickets: take/stop/time 26/27/2 vs 23.9/29.0/2.
 **Z11 (§127, t00776, N 770): month-end FX fix (EUR/USD, free data) REJECTED** — −0.92 bps since 2013 (2010–12: +11).
 Eleven strict-rule market-tests, none passing. Next: own hypotheses on untouched markets (discovery 2010–17 / validation 2018–26).
 
+**Z12 (§128, t00777, N 771): EUR/USD time-of-day REJECTED** — net +0.06 bps/day; 2010–17 Sharpe 0.41, 2018–26 −0.45.
+Twelve strict-rule tests, none passing; literature exhausted for these markets.
+
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
 P-series closed with zero promotions. **Q-series S1 reviewed in §59, nothing registered:**

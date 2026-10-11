@@ -726,3 +726,6 @@ published size and has faded to zero since 2024. Ten strict-rule market-tests, n
 
 **Z11 (§127, t00776):** month-end FX hedge rebalancing at the London fix (EUR/USD), strong in the paper's era, has been absent
 since 2013. Eleven strict-rule market-tests, none passing.
+
+**Z12 (§128, t00777):** EUR/USD's time-of-day pattern (Breedon & Ranaldo 2013) survives gross but not costs, and reversed after
+2017. Twelve strict-rule tests, none passing; the literature route is exhausted for the user's markets.

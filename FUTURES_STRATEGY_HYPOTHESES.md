@@ -635,7 +635,7 @@ equity outperformance predicts the currency's fall in the hour before it. Long E
 month's last weekday when the S&P beat the DAX, short otherwise. Tested 2013–2026 on free data, strict rule. One trial.
 `hypotheses.yaml` (Z11) · `decisions.md` §127
 
-## Z12 — The Euro Weakens in European Hours, Strengthens in US Hours  *(registered, untested)*
+## Z12 — The Euro Weakens in European Hours, Strengthens in US Hours  *(RETIRED — t00777; costs absorb it, decayed after 2017)*
 
 Breedon & Ranaldo (2013): currencies depreciate in their own trading hours (local participants buy foreign currency).
 EUR/USD short 07:00 London → 08:00 New York, long 08:00 → 16:00 New York, every weekday, net of costs. Tested

@@ -7849,6 +7849,25 @@ Normal(0.6, 0.4), an assumption); 12th Z test.
 **Outcome injection** (`reports/z12_injection.json`): net Sharpe 0.6 planted, recovered 0.599 (SD 0.24, 4,231 days); power of
 the strict t 80%.
 
+### Z12 run: rejected — real gross, eaten by costs, decayed after 2017 (S6–S8)
+
+**One trial spent: t00777. N 770 → 771.** `reports/z12_trial.{json,md}`. 12th Z market-test; power 80%.
+
+| 2010-01 → 2026-09, 4,231 weekdays | |
+|---|---|
+| morning short / afternoon long, gross | +1.26 / +0.40 bps |
+| day net of 1.6 bps (SD) | **+0.06 bps** (47.6) |
+| t / annual net Sharpe | **+0.09** / +0.02 |
+| placebo: schedule shifted by each other hour | 87th pct |
+| 2010–17 / 2018–26 net (Sharpe) | +1.40 (+0.41) / **−1.18 (−0.45)** |
+
+**REJECTED.** The direction the paper found still shows gross, but two round trips a day absorb it, and it has reversed
+since 2018.
+
+**Twelve strict-rule market-tests (Z02–Z12), none passing.** Every forced-flow and calendar effect tested since §86 was
+stronger in its paper's years than after: the shared failure is publication and arbitrage, not the tests. The literature
+route is now exhausted for the user's markets; the next step is hypotheses of our own on untouched data (§129).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
