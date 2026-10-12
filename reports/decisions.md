@@ -8345,6 +8345,8 @@ fact. **Recommendation: stay with five 50K Daily accounts** for the four-month g
 P(net > 0) ±2–4 points. **Worth it if the add-on costs less than ~$12–27 per evaluation** (break-even by history); the price is
 open with the user.
 
+**Decided (user, 2026-10-12):** the add-on costs more than $27 per evaluation — not bought; the plan stays at 40% consistency.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

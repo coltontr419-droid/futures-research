@@ -796,7 +796,7 @@ Z10, Z11, D01, D02 still REJECT. Discovery re-scanned: 9 new carried cells await
 **§143–§144: D03–D11 validated (t00785–t00793, N 787). D03 CONFIRMS but is a quote artefact (zero on 6S futures) → invalidated.
 Watchlist: Z12, D04, D05, D08, D09, D10 (none tradable; years to decide). Rejected D06, D07, D11. Still 0 tradable edges.**
 **§145 (A23): 100K/150K Daily and Flex lose to five 50K Daily accounts over four months (fees 2–3x, passes later). Stay at 50K.
-50% consistency add-on worth it below ~$12–27 per eval — price open with the user.**
+50% consistency add-on worth it below ~$12–27 per eval — costs more; not bought (user).**
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
