@@ -1,0 +1,64 @@
+{
+ "hypothesis": "D05",
+ "cell": "GBP rises into the London 4 pm fix at month-end",
+ "side": "long",
+ "pair": "gbpusd",
+ "future": "6B",
+ "window": [
+  "2018-01-31",
+  "2026-09-30"
+ ],
+ "events": 102,
+ "gross_bps": 2.340793351946186,
+ "net_bps": 1.5407933519461858,
+ "sd_bps": 22.532245431097802,
+ "t_net": 0.6906213637056854,
+ "win_rate_net": 0.5686274509803921,
+ "placebo_pct": 100.0,
+ "placebo_cells_net": {
+  "Tokyo 09:55 fix before": -1.982891197197011,
+  "WM/R 16:00 London fix after": -3.7776288925288624,
+  "Tokyo 09:55 fix after": 0.441916716063858
+ },
+ "prior": [
+  2.0164999999999997,
+  1.0
+ ],
+ "posterior_bps": {
+  "registered_prior": 1.9369167422721476,
+  "zero_prior": 0.2577667453985694
+ },
+ "eras": {
+  "2018-21": {
+   "events": 46,
+   "net_bps": -2.198335258605362,
+   "t": -0.5842807956863603
+  },
+  "2022-26": {
+   "events": 56,
+   "net_bps": 4.612220424899242,
+   "t": 1.77467687350861
+  }
+ },
+ "discovery": {
+  "mean_bps": 5.633,
+  "t": 2.84,
+  "n": 96
+ },
+ "conditions": {
+  "t_gt_1.645": false,
+  "placebo_ge_95": true,
+  "posterior_gt_0": true
+ },
+ "z_d_market_test_number": 17,
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D05",
+  "n_events": 102,
+  "sought_net_bps": 2.0164999999999997,
+  "mean_estimate": 2.0435085882746487,
+  "sd_estimate_bps": 1.2910261830271343,
+  "power_strict_t": 0.518,
+  "recovered": true
+ }
+}

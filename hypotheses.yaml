@@ -4597,10 +4597,12 @@
   registered: 2026-10-11
   status: retired
   retired: 2026-10-11
+  outcome_tier: WATCHLIST
   retired_reason: >
     Trial t00777 (decisions.md 128), REJECTED under the strict rule: 4,231 weekdays 2010-2026; morning short +1.26 bps
     gross, afternoon long +0.40; net of 1.6 bps a day +0.06 (SD 47.6), t +0.09, annual net Sharpe +0.02; placebo 87th pct.
     The pattern survives gross but costs absorb it, and it decayed: 2010-17 net +1.40 (Sharpe 0.41), 2018-26 -1.18 (-0.45).
+    Corrected-clock re-run t00782 (decisions.md 142) supersedes t00777: CONFIRM on the registered 2010-2026 statistic (net +1.46 bps/day, t +2.00, placebo 100th pct) but fails the post-2021 gate (2021-26 net +0.28, t +0.25, Sharpe 0.10; the edge sits in 2012-17). Not adopted; watchlist.
   outcome_injection:
     test: src/futuresres/signals/z12_trial.py
     injected_bps: 0.6         # UNITS: annual net Sharpe, not bps
@@ -4667,11 +4669,13 @@
   registered: 2026-10-11
   status: retired
   retired: 2026-10-11
+  outcome_tier: REJECT
   retired_reason: >
     Trial t00778 (decisions.md 130), REJECTED under the strict rule on the sealed 2018-2026 window: 2,169 weekdays; the
     11:00-12:00 UTC silver short gross +2.25 bps (SD 36.8), net +0.75 at 1.5 bp (t +0.95), +0.25 at 2.0 bp; placebo 95th pct
     (the hour is still silver's most negative); 2018-21 net +2.04 (t 1.91), 2022-26 -0.38. About 40% of the discovery size
     (-5.53 bps, t -7.27), and fading.
+    Corrected-clock re-run t00783 (decisions.md 142) supersedes t00778: net -2.23 bps, t -2.52, placebo 26th pct - REJECT.
   outcome_injection:
     test: src/futuresres/signals/d01.py
     injected_bps: 1.3
@@ -4732,10 +4736,12 @@
   registered: 2026-10-11
   status: retired
   retired: 2026-10-11
+  outcome_tier: REJECT
   retired_reason: >
     Trial t00779 (decisions.md 134), REJECT tier (net mean <= 0) on the sealed 2018-2026 window: 100 month-ends, long AUD/USD
     09:25-09:55 JST gross -0.33 bps (SD 8.2), net -1.13, t -1.38; placebo 0th pct; 2018-21 +0.01, 2022-26 -2.06. The
     discovery's +2.88 bps (t 3.25, n 88) did not recur - a chance pass of the uncorrected scan.
+    Corrected-clock re-run t00784 (decisions.md 142) supersedes t00779: net -4.72 bps, t -2.75, placebo 0th pct - REJECT.
   outcome_injection:
     test: src/futuresres/signals/d02.py
     injected_bps: 0.64
@@ -4789,12 +4795,25 @@
   horizon_minutes: [60]
   hold_hours: [1.0]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: INVALIDATED
+  retired_reason: >
+    Trial t00785 (decisions.md 144), CONFIRM on the registered statistic, INVALIDATED as a quote artefact, sealed 2018-2026: 401 events; short gross +2.61 bps (SD 7.1), net +1.81, t +5.12; placebo 95th pct; 2018-21 +1.70, 2022-26 +1.90. The effect lives only in the last hour before the weekend close (16:00-17:00 New York: -4.20 bps t -9.4 in US summer at 20:00 UTC, -4.63 t -8.4 in winter at 21:00 UTC; the hour before it +0.14) and is absent on CME 6S futures trades (Yahoo 6S=F, 117 Fridays 2024-26: -0.06 bps, t -0.10) while present on quote feeds (CHF=X -4.41, t -8.6): the bid falling as the spread widens into the close. Not tradable; not adopted, not watchlisted.
   outcome_injection_required: Before the run - reports/d03_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 0.638
+    sought_bps: 0.638
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d03_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 37
+  test_order: null
+  registered_test_order: 37
   grade: B
   tier: B
   param_cap: 0
@@ -4834,12 +4853,25 @@
   horizon_minutes: [60]
   hold_hours: [1.0]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00786 (decisions.md 144), WATCHLIST (net > 0, strict rule failed; forward-test candidate, decisions.md 133), sealed 2018-2026: 2171 events; short gross +1.93 bps (SD 36.1), net +0.43, t +0.56; placebo 91th pct; 2018-21 +1.21, 2022-26 -0.25.
   outcome_injection_required: Before the run - reports/d04_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 0.071
+    sought_bps: 0.071
+    n_injection: 2171
+    n_run: 2171
+    recovered: true
+    report: reports/d04_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 38
+  test_order: null
+  registered_test_order: 38
   grade: B
   tier: B
   param_cap: 0
@@ -4879,12 +4911,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00787 (decisions.md 144), WATCHLIST (net > 0, strict rule failed; forward-test candidate, decisions.md 133), sealed 2018-2026: 102 events; long gross +2.34 bps (SD 22.5), net +1.54, t +0.69; placebo 100th pct; 2018-21 -2.20, 2022-26 +4.61.
   outcome_injection_required: Before the run - reports/d05_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 2.016
+    sought_bps: 2.016
+    n_injection: 102
+    n_run: 102
+    recovered: true
+    report: reports/d05_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 39
+  test_order: null
+  registered_test_order: 39
   grade: B
   tier: B
   param_cap: 0
@@ -4924,12 +4969,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00788 (decisions.md 144), REJECT (net mean <= 0), sealed 2018-2026: 100 events; short gross -4.42 bps (SD 28.9), net -5.42, t -1.88; placebo 0th pct; 2018-21 -7.38, 2022-26 -3.88.
   outcome_injection_required: Before the run - reports/d06_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 3.356
+    sought_bps: 3.356
+    n_injection: 100
+    n_run: 100
+    recovered: true
+    report: reports/d06_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 40
+  test_order: null
+  registered_test_order: 40
   grade: B
   tier: B
   param_cap: 0
@@ -4969,12 +5027,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00789 (decisions.md 144), REJECT (net mean <= 0), sealed 2018-2026: 2161 events; short gross -0.00 bps (SD 19.8), net -1.00, t -2.35; placebo 33th pct; 2018-21 -0.68, 2022-26 -1.26.
   outcome_injection_required: Before the run - reports/d07_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 0.176
+    sought_bps: 0.176
+    n_injection: 2161
+    n_run: 2161
+    recovered: true
+    report: reports/d07_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 41
+  test_order: null
+  registered_test_order: 41
   grade: B
   tier: B
   param_cap: 0
@@ -5014,12 +5085,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00790 (decisions.md 144), WATCHLIST (net > 0, strict rule failed; forward-test candidate, decisions.md 133), sealed 2018-2026: 97 events; short gross +3.13 bps (SD 13.7), net +2.33, t +1.68; placebo 67th pct; 2018-21 +2.36, 2022-26 +2.30.
   outcome_injection_required: Before the run - reports/d08_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 0.925
+    sought_bps: 0.925
+    n_injection: 97
+    n_run: 97
+    recovered: true
+    report: reports/d08_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 42
+  test_order: null
+  registered_test_order: 42
   grade: B
   tier: B
   param_cap: 0
@@ -5059,12 +5143,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00791 (decisions.md 144), WATCHLIST (net > 0, strict rule failed; forward-test candidate, decisions.md 133), sealed 2018-2026: 97 events; long gross +2.83 bps (SD 14.0), net +2.03, t +1.44; placebo 100th pct; 2018-21 +3.19, 2022-26 +1.03.
   outcome_injection_required: Before the run - reports/d09_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 0.791
+    sought_bps: 0.791
+    n_injection: 97
+    n_run: 97
+    recovered: true
+    report: reports/d09_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 43
+  test_order: null
+  registered_test_order: 43
   grade: B
   tier: B
   param_cap: 0
@@ -5104,12 +5201,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00792 (decisions.md 144), WATCHLIST (net > 0, strict rule failed; forward-test candidate, decisions.md 133), sealed 2018-2026: 99 events; long gross +0.91 bps (SD 19.8), net +0.11, t +0.06; placebo 67th pct; 2018-21 -3.49, 2022-26 +3.24.
   outcome_injection_required: Before the run - reports/d10_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 1.316
+    sought_bps: 1.316
+    n_injection: 99
+    n_run: 99
+    recovered: true
+    report: reports/d10_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 44
+  test_order: null
+  registered_test_order: 44
   grade: B
   tier: B
   param_cap: 0
@@ -5149,12 +5259,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-12
-  status: untested
+  status: retired
+  retired: 2026-10-12
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00793 (decisions.md 144), REJECT (net mean <= 0), sealed 2018-2026: 94 events; long gross -0.45 bps (SD 23.6), net -1.45, t -0.60; placebo 67th pct; 2018-21 -4.84, 2022-26 +1.53.
   outcome_injection_required: Before the run - reports/d11_injection.json (src/futuresres/signals/d_cells.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_cells.py
+    injected_bps: 1.127
+    sought_bps: 1.127
+    n_injection: 94
+    n_run: 94
+    recovered: true
+    report: reports/d11_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 45
+  test_order: null
+  registered_test_order: 45
   grade: B
   tier: B
   param_cap: 0

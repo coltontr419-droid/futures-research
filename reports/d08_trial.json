@@ -1,0 +1,64 @@
+{
+ "hypothesis": "D08",
+ "cell": "AUD falls after the London 4 pm fix at month-end",
+ "side": "short",
+ "pair": "audusd",
+ "future": "6A",
+ "window": [
+  "2018-01-31",
+  "2026-09-30"
+ ],
+ "events": 97,
+ "gross_bps": 3.1287347933185474,
+ "net_bps": 2.328734793318547,
+ "sd_bps": 13.6765491774175,
+ "t_net": 1.6769857322898336,
+ "win_rate_net": 0.5979381443298969,
+ "placebo_pct": 66.66666666666666,
+ "placebo_cells_net": {
+  "WM/R 16:00 London fix before": -1.711490282379986,
+  "Tokyo 09:55 fix before": 3.1231723461102554,
+  "Tokyo 09:55 fix after": -3.3977693253286945
+ },
+ "prior": [
+  0.9255,
+  1.0
+ ],
+ "posterior_bps": {
+  "registered_prior": 1.4046928695033556,
+  "zero_prior": 0.7952433286546193
+ },
+ "eras": {
+  "2018-21": {
+   "events": 46,
+   "net_bps": 2.360737998060077,
+   "t": 0.9715355632771931
+  },
+  "2022-26": {
+   "events": 51,
+   "net_bps": 2.2998691576693244,
+   "t": 1.5336681738629425
+  }
+ },
+ "discovery": {
+  "mean_bps": -3.451,
+  "t": -2.41,
+  "n": 96
+ },
+ "conditions": {
+  "t_gt_1.645": true,
+  "placebo_ge_95": false,
+  "posterior_gt_0": true
+ },
+ "z_d_market_test_number": 20,
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D08",
+  "n_events": 97,
+  "sought_net_bps": 0.9255,
+  "mean_estimate": 0.9006528089795043,
+  "sd_estimate_bps": 1.1169453492719952,
+  "power_strict_t": 0.22,
+  "recovered": true
+ }
+}

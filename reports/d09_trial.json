@@ -1,0 +1,64 @@
+{
+ "hypothesis": "D09",
+ "cell": "USD/CHF rises after the London 4 pm fix at month-end",
+ "side": "long",
+ "pair": "usdchf",
+ "future": "6S",
+ "window": [
+  "2018-01-31",
+  "2026-09-30"
+ ],
+ "events": 97,
+ "gross_bps": 2.8336783301094726,
+ "net_bps": 2.0336783301094714,
+ "sd_bps": 13.955140941469109,
+ "t_net": 1.4352709708809124,
+ "win_rate_net": 0.5670103092783505,
+ "placebo_pct": 100.0,
+ "placebo_cells_net": {
+  "WM/R 16:00 London fix before": -2.622964117818215,
+  "Tokyo 09:55 fix before": -1.8254387658374627,
+  "Tokyo 09:55 fix after": -0.940930550521017
+ },
+ "prior": [
+  0.7909999999999999,
+  1.0
+ ],
+ "posterior_bps": {
+  "registered_prior": 1.2041669845891885,
+  "zero_prior": 0.6761594878713999
+ },
+ "eras": {
+  "2018-21": {
+   "events": 45,
+   "net_bps": 3.1932307660495396,
+   "t": 1.4976380506570992
+  },
+  "2022-26": {
+   "events": 52,
+   "net_bps": 1.0302194913151805,
+   "t": 0.5420061246979903
+  }
+ },
+ "discovery": {
+  "mean_bps": 3.182,
+  "t": 2.34,
+  "n": 96
+ },
+ "conditions": {
+  "t_gt_1.645": false,
+  "placebo_ge_95": true,
+  "posterior_gt_0": true
+ },
+ "z_d_market_test_number": 21,
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D09",
+  "n_events": 97,
+  "sought_net_bps": 0.7909999999999999,
+  "mean_estimate": 0.7882002144674455,
+  "sd_estimate_bps": 0.9313686691334437,
+  "power_strict_t": 0.254,
+  "recovered": true
+ }
+}

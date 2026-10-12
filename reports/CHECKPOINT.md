@@ -793,6 +793,8 @@ OPEN: Tradeify 5-funded cap; shadow-track ZS/NG/LE; deploy regenerated bot/expec
 **§141: soybeans (3 ZS, 19:00→13:15 Chicago) added to the demo bot as a sixth ticket; expected.json deployed.** Next: re-run Z10–Z12, D01–D02.
 **§142: re-runs done (t00780–t00784, N 778). Z12 CONFIRMS on 2010–26 but fails S8 (2021–26 Sharpe 0.10) → watchlist, not adopted;
 Z10, Z11, D01, D02 still REJECT. Discovery re-scanned: 9 new carried cells await the user's go-ahead to validate.**
+**§143–§144: D03–D11 validated (t00785–t00793, N 787). D03 CONFIRMS but is a quote artefact (zero on 6S futures) → invalidated.
+Watchlist: Z12, D04, D05, D08, D09, D10 (none tradable; years to decide). Rejected D06, D07, D11. Still 0 tradable edges.**
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

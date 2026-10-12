@@ -1,0 +1,64 @@
+{
+ "hypothesis": "D06",
+ "cell": "DAX falls in the first half hour of Xetra at month-end",
+ "side": "short",
+ "pair": "grxeur",
+ "future": "FDXM",
+ "window": [
+  "2018-01-31",
+  "2026-09-30"
+ ],
+ "events": 100,
+ "gross_bps": -4.423535282855761,
+ "net_bps": -5.423535282855761,
+ "sd_bps": 28.901858763750297,
+ "t_net": -1.8765351139484998,
+ "win_rate_net": 0.41,
+ "placebo_pct": 0.0,
+ "placebo_cells_net": {
+  "US open 15:30 Frankfurt after": 0.9840946960580217,
+  "Xetra close auction 17:30 before": 2.5295869851022394,
+  "Xetra close auction 17:30 after": -0.5468888255036191
+ },
+ "prior": [
+  3.356,
+  1.0
+ ],
+ "posterior_bps": {
+  "registered_prior": 2.417330954883305,
+  "zero_prior": -0.5798603822523715
+ },
+ "eras": {
+  "2018-21": {
+   "events": 44,
+   "net_bps": -7.384257225543655,
+   "t": -1.5153463548786381
+  },
+  "2022-26": {
+   "events": 56,
+   "net_bps": -3.882968042172418,
+   "t": -1.1133064348624344
+  }
+ },
+ "discovery": {
+  "mean_bps": -8.712,
+  "t": -2.64,
+  "n": 79
+ },
+ "conditions": {
+  "t_gt_1.645": false,
+  "placebo_ge_95": false,
+  "posterior_gt_0": true
+ },
+ "z_d_market_test_number": 18,
+ "decision": "REJECT",
+ "injection": {
+  "hypothesis": "D06",
+  "n_events": 100,
+  "sought_net_bps": 3.356,
+  "mean_estimate": 3.352733073878391,
+  "sd_estimate_bps": 3.2149076555964555,
+  "power_strict_t": 0.266,
+  "recovered": true
+ }
+}

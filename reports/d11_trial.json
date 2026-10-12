@@ -1,0 +1,64 @@
+{
+ "hypothesis": "D11",
+ "cell": "DAX rises after the Xetra closing auction at month-end",
+ "side": "long",
+ "pair": "grxeur",
+ "future": "FDXM",
+ "window": [
+  "2018-01-31",
+  "2026-09-30"
+ ],
+ "events": 94,
+ "gross_bps": -0.45311117449638116,
+ "net_bps": -1.4531111744963812,
+ "sd_bps": 23.558689602789816,
+ "t_net": -0.5980143963829395,
+ "win_rate_net": 0.46808510638297873,
+ "placebo_pct": 66.66666666666666,
+ "placebo_cells_net": {
+  "Xetra open 09:00 after": 3.423535282855761,
+  "US open 15:30 Frankfurt after": -2.9840946960580212,
+  "Xetra close auction 17:30 before": -4.529586985102239
+ },
+ "prior": [
+  1.1275,
+  1.0
+ ],
+ "posterior_bps": {
+  "registered_prior": 0.753735717830724,
+  "zero_prior": -0.21046218059324115
+ },
+ "eras": {
+  "2018-21": {
+   "events": 44,
+   "net_bps": -4.841899445409776,
+   "t": -1.2630690690751472
+  },
+  "2022-26": {
+   "events": 50,
+   "net_bps": 1.5290225039074081,
+   "t": 0.5005332946748923
+  }
+ },
+ "discovery": {
+  "mean_bps": 4.255,
+  "t": 1.97,
+  "n": 78
+ },
+ "conditions": {
+  "t_gt_1.645": false,
+  "placebo_ge_95": false,
+  "posterior_gt_0": true
+ },
+ "z_d_market_test_number": 23,
+ "decision": "REJECT",
+ "injection": {
+  "hypothesis": "D11",
+  "n_events": 94,
+  "sought_net_bps": 1.1275,
+  "mean_estimate": 1.1612697431680277,
+  "sd_estimate_bps": 1.9302370202087322,
+  "power_strict_t": 0.1545,
+  "recovered": true
+ }
+}

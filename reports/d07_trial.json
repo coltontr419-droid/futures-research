@@ -1,0 +1,64 @@
+{
+ "hypothesis": "D07",
+ "cell": "Nikkei falls into the Tokyo morning close",
+ "side": "short",
+ "pair": "jpxjpy",
+ "future": "NKD",
+ "window": [
+  "2018-01-04",
+  "2026-09-30"
+ ],
+ "events": 2161,
+ "gross_bps": -0.00090554961856478,
+ "net_bps": -1.0009055496185646,
+ "sd_bps": 19.793414335413665,
+ "t_net": -2.350713843117419,
+ "win_rate_net": 0.44979176307265156,
+ "placebo_pct": 33.33333333333333,
+ "placebo_cells_net": {
+  "Tokyo open 09:00 after": -0.478597984237618,
+  "Tokyo afternoon open 12:30 after": -0.6895597457984177,
+  "Tokyo close 15:00 before": -1.3600499352394002
+ },
+ "prior": [
+  0.17599999999999993,
+  1.0
+ ],
+ "posterior_bps": {
+  "registered_prior": -0.8202839096550448,
+  "zero_prior": -0.8472949205589211
+ },
+ "eras": {
+  "2018-21": {
+   "events": 963,
+   "net_bps": -0.6761498360513886,
+   "t": -1.089805432563341
+  },
+  "2022-26": {
+   "events": 1198,
+   "net_bps": -1.2619570956663033,
+   "t": -2.160052901211801
+  }
+ },
+ "discovery": {
+  "mean_bps": -2.352,
+  "t": -2.6,
+  "n": 1153
+ },
+ "conditions": {
+  "t_gt_1.645": false,
+  "placebo_ge_95": false,
+  "posterior_gt_0": false
+ },
+ "z_d_market_test_number": 19,
+ "decision": "REJECT",
+ "injection": {
+  "hypothesis": "D07",
+  "n_events": 2161,
+  "sought_net_bps": 0.17599999999999993,
+  "mean_estimate": 0.1700183941209606,
+  "sd_estimate_bps": 0.4208389903173187,
+  "power_strict_t": 0.106,
+  "recovered": true
+ }
+}

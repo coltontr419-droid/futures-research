@@ -8279,6 +8279,37 @@ without it. Caveats on record before the run: D03 sits in the Friday-close bid-s
 nearly zero (the discovery mean is barely twice the cost); D05–D11 come from an uncorrected scan where ~2.9 of 58 cells pass by
 chance and 8 did; D08 and D10 are one pair's before/after windows on the same days.
 
+## 144. D03–D11 validated: one artefact, five watchlist cells, three rejects — still no tradable edge (S6–S8)
+
+**Nine trials spent: t00785–t00793. N 778 → 787.** `reports/d0{3..9}_trial.*`, `d10_trial.*`, `d11_trial.*`; injections all
+recovered (power of the strict t at the prior's size 7–52%). The trial log's chain verifies (787 records).
+
+| id, trial | cell | events | net bps | t | placebo pct | 2018–21 / 2022–26 net | tier |
+|---|---|---|---|---|---|---|---|
+| D03 t00785 | USD/CHF falls in the last New York hour on Fridays (20:00-21:00 UTC) | 401 | +1.81 | +5.12 | 95 | +1.70 / +1.90 | **INVALIDATED (quote artefact)** |
+| D04 t00786 | silver falls 10:00-11:00 UTC | 2171 | +0.43 | +0.56 | 91 | +1.21 / -0.25 | **WATCHLIST** |
+| D05 t00787 | GBP rises into the London 4 pm fix at month-end | 102 | +1.54 | +0.69 | 100 | -2.20 / +4.61 | **WATCHLIST** |
+| D06 t00788 | DAX falls in the first half hour of Xetra at month-end | 100 | -5.42 | -1.88 | 0 | -7.38 / -3.88 | **REJECT** |
+| D07 t00789 | Nikkei falls into the Tokyo morning close | 2161 | -1.00 | -2.35 | 33 | -0.68 / -1.26 | **REJECT** |
+| D08 t00790 | AUD falls after the London 4 pm fix at month-end | 97 | +2.33 | +1.68 | 67 | +2.36 / +2.30 | **WATCHLIST** |
+| D09 t00791 | USD/CHF rises after the London 4 pm fix at month-end | 97 | +2.03 | +1.44 | 100 | +3.19 / +1.03 | **WATCHLIST** |
+| D10 t00792 | AUD rises into the London 4 pm fix at month-end | 99 | +0.11 | +0.06 | 67 | -3.49 / +3.24 | **WATCHLIST** |
+| D11 t00793 | DAX rises after the Xetra closing auction at month-end | 94 | -1.45 | -0.60 | 67 | -4.84 / +1.53 | **REJECT** |
+
+**D03 passes the strict rule as registered (t +5.12, both halves t +3.63) and is not real.** Checked after the run, as §143 said
+it would need: on HistData the drop lives only in the last hour before the weekend close, 16:00–17:00 New York, in both seasons
+(US summer, 20:00 UTC: −4.20 bps, t −9.4; winter, 21:00 UTC: −4.63, t −8.4) and is absent the hour before (+0.14). On **CME 6S
+futures trades** (Yahoo 6S=F hourly, 117 Fridays 2024–26) the same hour is **−0.06 bps, t −0.10**; on a quote feed (CHF=X) it is
+−4.41, t −8.6. The bid falls as the spread widens into the close — §130's artefact, now shown on traded prices. Recorded as
+INVALIDATED; not adopted and not watchlisted. Lesson for the protocol: any cell adjacent to a market close is checked against
+traded futures prices before validation.
+
+**Watchlist** (§133; with Z12, §142): D04, D05, D08, D09, D10. None is tradable as it stands: net 0.1–2.3 bps a trade, 12 events a
+year for the month-end cells. Years of forward data the strict t would need at the validated size (one-sided 1.645, same SD):
+D04 ~75, D05 ~48, D08 ~8, D09 ~11, D10 ~7122. A forward test in the bot would not decide any of them within the user's
+horizon; recommended instead: re-read them from free data once a year. **Rejected:** D06, D07, D11. Running count: 23 Z and D
+market-tests; 0 tradable confirmations.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
