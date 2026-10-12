@@ -8207,6 +8207,18 @@ a go/no-go, not a forecast. **Open with the user:** Tradeify's 5-funded cap (a s
 swap); shadow-tracking ZS and NG/LE in the bot before buying anything; deploying the regenerated `expected.json`; re-running
 Z10–Z12, D01–D02 and the D-series scans on the corrected clock.
 
+## 141. Soybeans added to the demo bot as a sixth ticket (S8)
+
+**No trial spent; N 773.** The user: "since it's a demo just add soybeans to the bot." 3 ZS, the whole CBOT session — enter at the
+19:00 Chicago open (20:00 New York), flat by 13:15 Chicago (14:15 New York; the close is 13:20); prices in cents a bushel, $50 a
+cent, tick ¼ cent ($12.50), round trip $4.50 (estimate). Fresh-evaluation ticket: +8.00 / −6.50 cents = 32 / 26 ticks (≈ +$1,200 /
+−$1,000 net). Playbook (`a06_playbook.PRODUCTS["ZS"]`), `bot/policy.json` and `bot/expected.json` re-exported (ZS expectations
+from A22's cleaned 2024–26 hourly sessions — coarser than the minute-based products); bot: accounts, schedule (Chicago clock),
+shadow tracking on Yahoo `ZS=F` (checked on the 2026-10-08 session: 964 minute bars, bracket resolved). The corrected
+`expected.json` of §140 was deployed 2026-10-11 and this change 2026-10-12, with the user's go-ahead; previous files kept in
+`/opt/futures-bot/backup-2026-10-12/`. Demo only — under Tradeify's 5-funded cap a soybean account would replace one of the five.
+Caveat: Yahoo's continuous series can mix two contract months near a roll (§140), so a shadow result there may be wrong.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

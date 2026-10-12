@@ -38,7 +38,10 @@ PRODUCTS = {"MNQ": {"n": 4, "mult": 2.0, "rt": 2.32, "tick": 0.25, "entry": "09:
             # decisions.md 137-138 (A21): accounts 4 and 5, forward-tested on the demo before evaluations are bought.
             # NKD: $5 a point, tick 5 points; Tokyo session. FDXM: EUR 5 a point (converted at EUR_USD), tick 1; Xetra session.
             "NKD": {"n": 1, "mult": 5.0, "rt": 4.0, "tick": 5.0, "entry": "09:00", "exit": "15:00", "tz": "Tokyo"},
-            "FDXM": {"n": 2, "mult": 5.0 * 1.12, "rt": 4.0, "tick": 1.0, "entry": "09:00", "exit": "17:30", "tz": "Frankfurt"}}
+            "FDXM": {"n": 2, "mult": 5.0 * 1.12, "rt": 4.0, "tick": 1.0, "entry": "09:00", "exit": "17:30", "tz": "Frankfurt"},
+            # decisions.md 140-141 (A22): soybeans, 3 ZS, the whole CBOT session (19:00 -> flat by 13:15 Chicago); prices in
+            # cents a bushel, $50 a cent, tick 1/4 cent ($12.50). Demo only - no evaluation planned under the 5-funded cap.
+            "ZS": {"n": 3, "mult": 50.0, "rt": 4.5, "tick": 0.25, "entry": "19:00", "exit": "13:15", "tz": "Chicago"}}
 #: the EUR/USD rate behind FDXM's dollar value per point (export time; the bot refreshes it live when it can)
 EUR_USD = 1.12
 CONTRACTS = PRODUCTS["MNQ"]["n"]

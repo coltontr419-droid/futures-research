@@ -790,6 +790,7 @@ Accounts 4–5 hold after the fix (five accounts +$8.1k / +$9.4k per 4 months, e
 futures. **Z10–Z12, D01–D02 and the D-series scans used the wrong clock — re-run needed.** Sixth market: **soybeans (3 ZS)**,
 best in all three histories and best swap for crude; seventh: natural gas (27 MNG) or cattle (3 LE). Free Yahoo data only.
 OPEN: Tradeify 5-funded cap; shadow-track ZS/NG/LE; deploy regenerated bot/expected.json (user OK).
+**§141: soybeans (3 ZS, 19:00→13:15 Chicago) added to the demo bot as a sixth ticket; expected.json deployed.** Next: re-run Z10–Z12, D01–D02.
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

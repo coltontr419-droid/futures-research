@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 START, TARGET, TRAIL, LOCK_AT, CONSISTENCY, CAP, LIVE_AFTER, FEE = 50_000.0, 3_000.0, 2_000.0, 52_000.0, 0.40, 1_250.0, 3, 80.0
-PRODUCTS = ("MNQ", "MGC", "MCL", "NKD", "FDXM")          # NKD, FDXM: accounts 4-5, decisions.md 138
+PRODUCTS = ("MNQ", "MGC", "MCL", "NKD", "FDXM", "ZS")    # NKD, FDXM: accounts 4-5 (decisions.md 138); ZS: demo-only sixth (141)
 
 
 def fresh(product: str) -> dict:

@@ -26,7 +26,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[3]
 WINDOWS = {"MNQ": ("rth_0930_1600", 2.0), "MGC": ("london_0300_1130", 10.0)}
-RT = {"MNQ": 2.32, "MGC": 3.32, "MCL": 3.32, "NKD": 4.0, "FDXM": 4.0}
+RT = {"MNQ": 2.32, "MGC": 3.32, "MCL": 3.32, "NKD": 4.0, "FDXM": 4.0, "ZS": 4.5}
 _PATHS: dict = {}
 
 
@@ -39,6 +39,10 @@ def _paths(product: str):
             per_pt = 5.0 * (1.12 if product == "FDXM" else 1.0)
             # one contract's GROSS $ paths, then re-expressed per "mult" so expected() can scale by points x mult x n
             _PATHS[product] = (z["h"] * usd, z["l"] * usd, z["c"] * usd, None)
+        elif product == "ZS":                                # sixth (demo) account: A22's cleaned Yahoo hourly sessions,
+            import futuresres.reporting.a22_more_markets as a22   # 3 points a bar (OHLC path rule), decisions.md 140-141
+            p, _, _ = a22.hourly_paths("ZS")
+            _PATHS[product] = (p, p, p, None)
         elif product == "MCL":
             import futuresres.reporting.a15_crude as c15
             h, l, c, _ = c15.mcl_paths("post")
@@ -55,7 +59,7 @@ def expected(product: str, side: str, take_pts: float, stop_pts: float, n: int) 
     import futuresres.reporting.a02_real as a2
     import futuresres.reporting.a15_crude as c15
     h, l, c, _ = _paths(product)
-    mult = {"MNQ": 2.0, "MGC": 10.0, "MCL": 100.0, "NKD": 5.0, "FDXM": 5.0 * 1.12}[product]
+    mult = {"MNQ": 2.0, "MGC": 10.0, "MCL": 100.0, "NKD": 5.0, "FDXM": 5.0 * 1.12, "ZS": 50.0}[product]
     if side == "short":                                       # a short's high is the long's low, mirrored
         h, l, c = -l, -h, -c
     W = np.full(len(c), take_pts * mult * n); L = np.full(len(c), stop_pts * mult * n)

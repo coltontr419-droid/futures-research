@@ -25,8 +25,9 @@ ALERT = (17, 30)
 #: product -> (time zone, entry day offset from the alert's New York date, entry hh:mm, exit day offset, exit hh:mm), local time.
 #: NKD and FDXM (decisions.md 138) follow Tokyo and Frankfurt clocks, so their New York times shift with daylight saving.
 WINDOWS = {"MCL": (ET, 0, (18, 0), 1, (16, 55)), "MGC": (ET, 1, (3, 0), 1, (11, 30)), "MNQ": (ET, 1, (9, 30), 1, (16, 0)),
-           "NKD": (ZoneInfo("Asia/Tokyo"), 1, (9, 0), 1, (15, 0)), "FDXM": (ZoneInfo("Europe/Berlin"), 1, (9, 0), 1, (17, 30))}
-ORDER = ("MCL", "NKD", "MGC", "FDXM", "MNQ")         # by entry time after the 17:30 alert
+           "NKD": (ZoneInfo("Asia/Tokyo"), 1, (9, 0), 1, (15, 0)), "FDXM": (ZoneInfo("Europe/Berlin"), 1, (9, 0), 1, (17, 30)),
+           "ZS": (ZoneInfo("America/Chicago"), 0, (19, 0), 1, (13, 15))}    # soybeans, decisions.md 141
+ORDER = ("MCL", "ZS", "NKD", "MGC", "FDXM", "MNQ")   # by entry time after the 17:30 alert
 SHADOW_DELAY = dt.timedelta(minutes=5)
 
 
