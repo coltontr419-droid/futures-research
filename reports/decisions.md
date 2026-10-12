@@ -8219,6 +8219,39 @@ shadow tracking on Yahoo `ZS=F` (checked on the 2026-10-08 session: 964 minute b
 `/opt/futures-bot/backup-2026-10-12/`. Demo only — under Tradeify's 5-funded cap a soybean account would replace one of the five.
 Caveat: Yahoo's continuous series can mix two contract months near a roll (§140), so a shadow result there may be wrong.
 
+## 142. The five HistData tests re-run on the corrected clock — Z12 confirms but fails the post-2021 gate; discovery re-scanned (S1–S8)
+
+**Five trials spent: t00780–t00784, each written through `TrialLog.supersede` naming t00775–t00779. N 773 → 778.** Each module's
+own `--inject` then `--run`, code unchanged; only the loaders' clock changed (§140). Old reports kept in the session scratch.
+
+| test (old → new) | net | t | placebo pct | posterior > 0 | decision |
+|---|---|---|---|---|---|
+| Z10 gotobi, 18:00 ET → 09:55 JST | +0.49 → +0.46 bps | +0.67 → +0.54 | 93 / 50 → 39 / 50 | yes → yes | REJECT → REJECT |
+| Z11 month-end EUR/USD London fix | −1.92 → −0.17 bps | −1.34 → −0.09 | 30 → 63 | no → yes | REJECT → REJECT |
+| **Z12 EUR/USD short Europe, long US** | **+0.06 → +1.46 bps/day** | **+0.09 → +2.00** | **87 → 100** | yes → yes | **REJECT → CONFIRM** |
+| D01 silver short 11:00–12:00 UTC (sealed 2018–26) | +0.75 → −2.23 bps | +0.95 → −2.52 | 95 → 26 | yes → no | REJECT → REJECT |
+| D02 AUD long into the Tokyo fix, month-end (sealed) | −1.13 → −4.72 bps | −1.38 → −2.75 | 0 → 0 | no → no | REJECT → REJECT |
+
+**Z12 confirms on its registered statistic and window (2010–26; injection power 79%) — and fails S8, the post-2021 gate.**
+By period, net bps a day (t, annual Sharpe): 2010–17 +2.72 (+2.31, 0.81); 2018–20 +0.28 (+0.20, 0.11); **2021–26 +0.28 (+0.25,
+0.10)**; morning leg alone 2021–26 +0.40 (Sharpe 0.25), afternoon −0.12. By year the edge lives in 2012–2017 (Sharpe +1.0 to +3.0)
+and is flat since 2018. The strength after the paper (2013) and the fade since 2018 are both in the data; the registered test
+pools them. **Not adopted** (S8; and 6E at ≤ 3 contracts carries ~$60 a day of edge). Net > 0 out of sample, so it goes to the
+**watchlist** (§133), the programme's first entry there; a forward test would read the 2026–27 days as they come.
+
+**D01 and D02 now point the other way on sealed data** (silver rises 11:00–12:00 UTC, t −2.52 for the short; AUD falls into the
+Tokyo fix at month-end, t −2.75 for the long). Reversed signs found on sealed data are not hypotheses — recorded, not acted on.
+
+**Discovery re-scanned on 2010–17 with the corrected clock** (`reports/d_discovery.json`, `d2_discovery.json`; rules unchanged).
+Family 1 (|t| > 4.1, 926 tests): carried USD/CHF 20:00 UTC Fridays (t −6.07), USD/CHF 21:00 UTC Fridays (−4.47; inside the CME
+break — excluded under §130's amendment), silver 10:00 UTC all weekdays (−4.22; replaces the 11:00 UTC cell D01 was built on, old
+t −7.27). Family 2 (|t| > 1.96 and 2× cost, 58 tests, ~2.9 by chance): **8 carried, was 1** — GBP/USD into the 16:00 London fix at
+month-end (+2.84), DAX after the Xetra open at month-end (−2.64), Nikkei into the Tokyo morning close (−2.60), AUD/USD into the Tokyo
+fix at month-end (+2.57, D02's cell), AUD/USD after the London fix at month-end (−2.41), USD/CHF after the London fix at month-end
+(+2.34), AUD/USD into the London fix at month-end (+2.04), DAX after the Xetra close at month-end (+1.97). **None registered yet —
+open with the user** (each would be one validation trial on the sealed 2018–26 window; the Friday USD/CHF cell sits in the
+Friday-close bid-spread pattern §130 described). The trial log's chain verifies (778 records).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

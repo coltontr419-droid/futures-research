@@ -4,33 +4,33 @@
   "2018-01-31",
   "2026-09-30"
  ],
- "events": 100,
- "gross_bps": -0.32894446684785805,
- "net_bps": -1.1289444668478585,
- "sd_bps": 8.197539547784533,
- "t_net": -1.3771747733171558,
- "win_rate_net": 0.47,
+ "events": 105,
+ "gross_bps": -3.9231723461102557,
+ "net_bps": -4.723172346110256,
+ "sd_bps": 17.584059489320165,
+ "t_net": -2.7523857343140077,
+ "win_rate_net": 0.37142857142857144,
  "placebo_other_windows_pct": 0.0,
  "other_windows_net": {
-  "WM/R 16:00 London fix before": -0.35784202209599963,
-  "WM/R 16:00 London fix after": -0.5471884154671444,
-  "Tokyo 09:55 fix after": 0.28617136521197767
+  "WM/R 16:00 London fix before": 0.11149028237998507,
+  "WM/R 16:00 London fix after": -3.9287347933185472,
+  "Tokyo 09:55 fix after": 1.7977693253286935
  },
- "all_weekdays_gross_bps": -0.3930596266433374,
+ "all_weekdays_gross_bps": -0.8936976905262931,
  "posterior_bps": {
-  "registered_prior": -0.41798332579283054,
-  "zero_prior": -0.6752074155269897
+  "registered_prior": -0.7195708704187324,
+  "zero_prior": -1.1973300731974639
  },
  "eras": {
   "2018-21": {
-   "events": 45,
-   "net_bps": 0.007854633549437858,
-   "t": 0.005773836424552615
+   "events": 48,
+   "net_bps": -5.747903466276846,
+   "t": -1.650117386428105
   },
   "2022-26": {
-   "events": 55,
-   "net_bps": -2.059052821718373,
-   "t": -2.089978312136702
+   "events": 57,
+   "net_bps": -3.860240876496286,
+   "t": -3.1844676424709037
   }
  },
  "conditions": {
@@ -41,11 +41,11 @@
  "z_d_market_tests": 14,
  "decision": "REJECT",
  "injection": {
-  "n_events": 100,
+  "n_events": 105,
   "sought_net_bps": 0.64,
-  "mean_estimate": 0.6338229313210796,
-  "sd_estimate_bps": 0.87947631258133,
-  "power_strict_t": 0.215,
+  "mean_estimate": 0.6369794900317898,
+  "sd_estimate_bps": 1.1598559160207527,
+  "power_strict_t": 0.199,
   "recovered": true
  }
 }

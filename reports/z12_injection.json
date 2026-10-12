@@ -1,8 +1,8 @@
 {
- "n_days": 4231,
+ "n_days": 4238,
  "sought_net_sharpe": 0.6,
- "mean_estimate": 0.5993392716066325,
- "sd_estimate": 0.24351673616130337,
- "power_strict_t": 0.803,
+ "mean_estimate": 0.5954756013954218,
+ "sd_estimate": 0.24249253874780483,
+ "power_strict_t": 0.7885,
  "recovered": true
 }
