@@ -8252,6 +8252,33 @@ fix at month-end (+2.57, D02's cell), AUD/USD after the London fix at month-end 
 open with the user** (each would be one validation trial on the sealed 2018–26 window; the Friday USD/CHF cell sits in the
 Friday-close bid-spread pattern §130 described). The trial log's chain verifies (778 records).
 
+## 143. D03–D11 registered — the nine cells of the corrected-clock re-scan, each to be validated once (S1–S5)
+
+**No trial spent at registration; N 778. Committed BEFORE any validation data is read.** The user: "test those 9." From §142's
+re-scan, the cells carried that were never validated (D02's cell was; USD/CHF 21:00 UTC Fridays is excluded as inside the CME
+break, §130). One module, `signals/d_cells.py`; `hypotheses.yaml` D03–D11; catalog sections; 6S, 6B, FDXM, NKD added to the
+registry's single-market primaries.
+
+| id | cell (discovery 2010–17: mean, t, n) | trade | prior net (bp) |
+|---|---|---|---|
+| D03 | USD/CHF 20:00–21:00 UTC, Fridays (−2.88, −6.07, 403) | short USD/CHF (long 6S) | N(+0.64, 1.0) |
+| D04 | silver 10:00–11:00 UTC, all weekdays (−3.14, −4.22, 1,949) | short SI | N(+0.07, 1.5) |
+| D05 | GBP/USD 30 min into the 16:00 London fix, month-end (+5.63, +2.84, 96) | long 6B | N(+2.02, 1.0) |
+| D06 | DAX 30 min after the Xetra open, month-end (−8.71, −2.64, 79) | short FDXM | N(+3.36, 1.0) |
+| D07 | Nikkei 30 min into the Tokyo morning close, all weekdays (−2.35, −2.60, 1,153) | short NKD | N(+0.18, 1.0) |
+| D08 | AUD/USD 30 min after the London fix, month-end (−3.45, −2.41, 96) | short 6A | N(+0.93, 1.0) |
+| D09 | USD/CHF 30 min after the London fix, month-end (+3.18, +2.34, 96) | long USD/CHF (short 6S) | N(+0.79, 1.0) |
+| D10 | AUD/USD 30 min into the London fix, month-end (+4.23, +2.04, 96) | long 6A | N(+1.32, 1.0) |
+| D11 | DAX 30 min after the Xetra closing auction, month-end (+4.25, +1.97, 78) | long FDXM | N(+1.13, 1.0) |
+
+**Fixed now:** direction = the discovery sign; costs as the scans (FX 0.8, DAX/Nikkei 1.0, silver 1.5 bp); prior mean per §132
+(discovery mean halved less cost), prior SD max(1.0, cost) — the rule D01 (1.5) and D02 (1.0) used without stating it; placebo =
+the same trade in the instrument's other cells of its family and day-set; tiers per §133; Z and D market-tests 15–23; outcome
+injection from the placebo cells' demeaned returns (family 1) or the same window on all weekdays (family 2), the runner refusing
+without it. Caveats on record before the run: D03 sits in the Friday-close bid-spread pattern §130 described; D04's prior is
+nearly zero (the discovery mean is barely twice the cost); D05–D11 come from an uncorrected scan where ~2.9 of 58 cells pass by
+chance and 8 did; D08 and D10 are one pair's before/after windows on the same days.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
