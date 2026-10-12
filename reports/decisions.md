@@ -8310,6 +8310,41 @@ D04 ~75, D05 ~48, D08 ~8, D09 ~11, D10 ~7122. A forward test in the bot would no
 horizon; recommended instead: re-read them from free data once a year. **Rejected:** D06, D07, D11. Running count: 23 Z and D
 market-tests; 0 tradable confirmations.
 
+## 145. A23: Tradeify's 100K and 150K accounts lose to the 50K over four months — stay at 50K; 50% consistency is worth ≤ $12–27 (S8)
+
+**No trial spent; N 787.** `reporting/a23_account_sizes.py`; `reports/a23_check.json`, `a23_solve.json`, `a23_book.json`.
+The user's rules (2026-10-12; in the module's docstring): 100K / 150K evaluations, target $6k / $9k, EOD drawdown $3k / $4.5k, no
+daily loss limit, consistency 40% (50% for an add-on, price unknown), fees $185.50 / $258.30 after the standing 30% sale; funded
+Daily (drawdown $2.5k / $3.5k locking at the start, daily loss $1,250 / $1,750, $1,750 / $2,500 a payout) and Flex (drawdown $3k /
+$4.5k, no daily limit, $3,500 / $4,500 every 5 winning days of ≥ $200 / $250); payouts above the lock point, capped until the 3rd,
+90%, no funded consistency on any size; 5 accounts in total. The A01 game re-solved per spec (take menu scaled by target, stop
+menu by drawdown and capped by the daily limit, Flex with a winning-day state), contracts × evaluation-drawdown ratio. **Check:**
+the 50K spec reproduces the live engine — MNQ +$1,265.35 vs +$1,265.53, MGC +$2,248 vs +$2,229, identical payout rates — after
+implementing the playbook's FINISHED rule (§113; the live engine reaches nearly the same end through its fixed 2.32 cost).
+
+**Game values** (zero edge; P(pass within 21 days) / funded E[$] in 21 days): 50K 0.300 / $1,080; 100K Daily 0.220 / $1,588; 150K
+Daily 0.220 / $2,266; 100K Flex 0.220 / $1,631; 150K Flex 0.220 / $2,376. At 50% consistency the passes rise to 0.327 / 0.250.
+
+**Five-account books, 84 days, real order, every size per market (5⁵ = 3,125 books per era):**
+
+| per four months (40% consistency) | 2016–20, crude | 2016–20, soybeans | 2021–26, crude | 2021–26, soybeans |
+|---|---|---|---|---|
+| **all 50K Daily** | **+$7,852, 93%, p10 +$419** | **+$8,907, 88%** | **+$8,807, 93%, p10 +$1,133** | **+$12,499, 98%, p10 +$3,941** |
+| all 100K Daily | +$504, 49% | +$2,460, 59% | +$2,497, 46% | +$6,159, 68% |
+| all 150K Daily | +$2,656, 57% | +$4,352, 56% | +$2,917, 55% | +$5,512, 68% |
+| all 100K Flex | −$516, 40% | +$377, 50% | +$3,277, 66% | +$8,433, 82% |
+| all 150K Flex | −$250, 43% | +$1,368, 44% | +$518, 47% | +$3,163, 58% |
+| fees, all 50K / all larger | ~$5.0k / $11–14k | | ~$5.2–5.4k / $11–14k | |
+
+The larger accounts pass less often within the window (more evaluations bought at 2.3–3.2× the price) and their larger payouts
+mostly fall after four months. The best mixed books beat all-50K by at most ~$0.7–1.4k on the mean, at a lower P(net > 0) and 10th
+percentile, and the winning mix differs by history (gold on a 150K in 2016–20; MNQ on a 100K Flex in 2021–26) — chosen after the
+fact. **Recommendation: stay with five 50K Daily accounts** for the four-month goal.
+
+**50% consistency on the 50K:** +$999 / +$737 (2016–20) and +$1,668 / +$1,754 (2021–26) per four months on ~62–68 evaluations;
+P(net > 0) ±2–4 points. **Worth it if the add-on costs less than ~$12–27 per evaluation** (break-even by history); the price is
+open with the user.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,2814 @@
+{
+ "pre": {
+  "cons 0.40 | MNQ+MGC+MCL+NKD+FDXM": {
+   "common_starts": 689,
+   "first": "2016-01-27",
+   "last": "2020-08-12",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 7851.8585486211905,
+     "median_net": 6466.65,
+     "p_net_positive": 0.9332365747460087,
+     "net_p10": 419.4000000000001,
+     "worst": -5005.6,
+     "mean_fees": 4968.359941944847,
+     "fees_p90": 5456.000000000004
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "MCL": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 2656.257779390421,
+     "median_net": 2295.2799999999997,
+     "p_net_positive": 0.5689404934687954,
+     "net_p10": -7107.9400000000005,
+     "worst": -12447.28,
+     "mean_fees": 12792.035703918722,
+     "fees_p90": 14464.800000000001
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "MCL": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 503.8940203193033,
+     "median_net": -472.0599999999995,
+     "p_net_positive": 0.4934687953555878,
+     "net_p10": -9540.45,
+     "worst": -12243.0,
+     "mean_fees": 11610.576923076924,
+     "fees_p90": 13356.0
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "MCL": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": -250.37856313497835,
+     "median_net": -2354.4199999999996,
+     "p_net_positive": 0.432510885341074,
+     "net_p10": -12641.836000000001,
+     "worst": -14723.1,
+     "mean_fees": 12492.872568940493,
+     "fees_p90": 14206.5
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "MCL": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": -515.8113642960814,
+     "median_net": -1289.0300000000002,
+     "p_net_positive": 0.4034833091436865,
+     "net_p10": -7432.43,
+     "worst": -10687.42,
+     "mean_fees": 11050.576923076924,
+     "fees_p90": 12799.5
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8528.821741654572,
+     "median_net": 8388.220000000001,
+     "p_net_positive": 0.7939042089985486,
+     "net_p10": -2737.882,
+     "worst": -6544.0199999999995,
+     "mean_fees": 7773.495210449926,
+     "fees_p90": 8802.6
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8340.33640058055,
+     "median_net": 8020.919999999999,
+     "p_net_positive": 0.8301886792452831,
+     "net_p10": -1295.1000000000001,
+     "worst": -5886.61,
+     "mean_fees": 6308.420174165457,
+     "fees_p90": 7001.3
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8040.343889695209,
+     "median_net": 7058.3,
+     "p_net_positive": 0.8592162554426706,
+     "net_p10": -1084.4940000000001,
+     "worst": -3700.2,
+     "mean_fees": 6433.434978229318,
+     "fees_p90": 7306.660000000001
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 7938.164513788098,
+     "median_net": 6903.300000000001,
+     "p_net_positive": 0.772133526850508,
+     "net_p10": -2316.962,
+     "worst": -8498.5,
+     "mean_fees": 9450.675181422352,
+     "fees_p90": 10862.2
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 7851.8585486211905,
+     "median_net": 6466.65,
+     "p_net_positive": 0.9332365747460087,
+     "net_p10": 419.4000000000001,
+     "worst": -5005.6,
+     "mean_fees": 4968.359941944847,
+     "fees_p90": 5456.000000000004
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 7749.679172714077,
+     "median_net": 5943.34,
+     "p_net_positive": 0.8548621190130624,
+     "net_p10": -1997.4280000000003,
+     "worst": -8514.9,
+     "mean_fees": 7985.60014513788,
+     "fees_p90": 9079.2
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 7672.577968069666,
+     "median_net": 7676.16,
+     "p_net_positive": 0.8403483309143687,
+     "net_p10": -4098.6900000000005,
+     "worst": -8319.220000000001,
+     "mean_fees": 9170.746298984033,
+     "fees_p90": 10604.74
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 7620.859564586356,
+     "median_net": 5041.150000000001,
+     "p_net_positive": 0.7053701015965167,
+     "net_p10": -5052.494000000001,
+     "worst": -8756.8,
+     "mean_fees": 9345.705660377358,
+     "fees_p90": 10705.86
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 7484.092626995646,
+     "median_net": 7240.860000000001,
+     "p_net_positive": 0.7968069666182874,
+     "net_p10": -2802.85,
+     "worst": -8291.11,
+     "mean_fees": 7705.671262699565,
+     "fees_p90": 8802.0
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 7475.235210449928,
+     "median_net": 7001.83,
+     "p_net_positive": 0.8388969521044993,
+     "net_p10": -2415.358,
+     "worst": -5764.82,
+     "mean_fees": 7796.805515239477,
+     "fees_p90": 8726.32
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": -215.12853410740203,
+     "p_payout": 0.5529753265602322
+    },
+    "MNQ|100K Flex": {
+     "mean_net": 707.2039042089987,
+     "p_payout": 0.5283018867924528
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -1057.40557329463,
+     "p_payout": 0.35268505079825835
+    },
+    "MNQ|150K Flex": {
+     "mean_net": -117.76384615384603,
+     "p_payout": 0.2467343976777939
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 1939.1568069666184,
+     "p_payout": 0.7024673439767779
+    },
+    "MGC|100K Daily": {
+     "mean_net": 1118.472177068215,
+     "p_payout": 0.7460087082728593
+    },
+    "MGC|100K Flex": {
+     "mean_net": 1765.578708272859,
+     "p_payout": 0.6400580551523948
+    },
+    "MGC|150K Daily": {
+     "mean_net": 2898.325442670537,
+     "p_payout": 0.7271407837445574
+    },
+    "MGC|150K Flex": {
+     "mean_net": 830.2608272859218,
+     "p_payout": 0.5297532656023222
+    },
+    "MGC|50K Daily": {
+     "mean_net": 2409.847590711175,
+     "p_payout": 0.8737300435413643
+    },
+    "MCL|100K Daily": {
+     "mean_net": -1703.504542815675,
+     "p_payout": 0.16981132075471697
+    },
+    "MCL|100K Flex": {
+     "mean_net": -1780.252467343977,
+     "p_payout": 0.32365747460087085
+    },
+    "MCL|150K Daily": {
+     "mean_net": -1807.8900870827285,
+     "p_payout": 0.25689404934687954
+    },
+    "MCL|150K Flex": {
+     "mean_net": -1927.1937880986939,
+     "p_payout": 0.19593613933236576
+    },
+    "MCL|50K Daily": {
+     "mean_net": 477.4542670537012,
+     "p_payout": 0.5529753265602322
+    },
+    "NKD|100K Daily": {
+     "mean_net": -324.35336719883884,
+     "p_payout": 0.5994194484760522
+    },
+    "NKD|100K Flex": {
+     "mean_net": -1066.3747460087081,
+     "p_payout": 0.3918722786647315
+    },
+    "NKD|150K Daily": {
+     "mean_net": 729.2331640058055,
+     "p_payout": 0.4513788098693759
+    },
+    "NKD|150K Flex": {
+     "mean_net": -612.3716400580552,
+     "p_payout": 0.2467343976777939
+    },
+    "NKD|50K Daily": {
+     "mean_net": 540.7478229317852,
+     "p_payout": 0.6560232220609579
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 1628.4082873730044,
+     "p_payout": 0.6182873730043541
+    },
+    "FDXM|100K Flex": {
+     "mean_net": -141.96676342525404,
+     "p_payout": 0.42525399129172714
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 1893.9948330914367,
+     "p_payout": 0.5631349782293179
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 1576.6898838896952,
+     "p_payout": 0.3062409288824383
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 2484.6520609579093,
+     "p_payout": 0.7329462989840348
+    }
+   }
+  },
+  "cons 0.40 | MNQ+MGC+ZS+NKD+FDXM": {
+   "common_starts": 724,
+   "first": "2016-01-27",
+   "last": "2020-08-12",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8907.25174033149,
+     "median_net": 6719.74,
+     "p_net_positive": 0.8784530386740331,
+     "net_p10": -751.7369999999999,
+     "worst": -4595.969999999999,
+     "mean_fees": 4894.03314917127,
+     "fees_p90": 5280.0
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "ZS": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 4352.454654696133,
+     "median_net": 1983.6400000000003,
+     "p_net_positive": 0.5552486187845304,
+     "net_p10": -6849.64,
+     "worst": -12188.980000000001,
+     "mean_fees": 12352.733701657458,
+     "fees_p90": 13948.2
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "ZS": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 2460.052168508287,
+     "median_net": 2055.21,
+     "p_net_positive": 0.5911602209944752,
+     "net_p10": -7005.821000000001,
+     "worst": -11501.0,
+     "mean_fees": 11437.2023480663,
+     "fees_p90": 12614.0
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "ZS": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 1367.6927486187842,
+     "median_net": -1019.4750000000006,
+     "p_net_positive": 0.4419889502762431,
+     "net_p10": -9123.3,
+     "worst": -14981.4,
+     "mean_fees": 12035.923756906079,
+     "fees_p90": 13431.6
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "ZS": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": 377.2181215469613,
+     "median_net": 42.38500000000022,
+     "p_net_positive": 0.5,
+     "net_p10": -6885.019,
+     "worst": -12037.91,
+     "mean_fees": 10938.09461325967,
+     "fees_p90": 12243.0
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9618.31611878453,
+     "median_net": 9601.130000000001,
+     "p_net_positive": 0.8660220994475138,
+     "net_p10": -551.2149999999999,
+     "worst": -5100.38,
+     "mean_fees": 7701.78093922652,
+     "fees_p90": 8642.6
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9392.60723756906,
+     "median_net": 6884.344999999999,
+     "p_net_positive": 0.8715469613259669,
+     "net_p10": -418.96099999999984,
+     "worst": -5476.98,
+     "mean_fees": 6234.773204419889,
+     "fees_p90": 6823.0
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9132.960621546961,
+     "median_net": 7858.7,
+     "p_net_positive": 0.8370165745856354,
+     "net_p10": -1155.452,
+     "worst": -4306.09,
+     "mean_fees": 6361.0408839779,
+     "fees_p90": 7063.0
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 9082.958218232045,
+     "median_net": 7778.075000000001,
+     "p_net_positive": 0.7762430939226519,
+     "net_p10": -2288.5800000000004,
+     "worst": -7512.9400000000005,
+     "mean_fees": 9381.13135359116,
+     "fees_p90": 10622.2
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8907.25174033149,
+     "median_net": 6719.74,
+     "p_net_positive": 0.8784530386740331,
+     "net_p10": -751.7369999999999,
+     "worst": -4595.969999999999,
+     "mean_fees": 4894.03314917127,
+     "fees_p90": 5280.0
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 8857.249337016574,
+     "median_net": 7116.460000000001,
+     "p_net_positive": 0.8080110497237569,
+     "net_p10": -2445.704,
+     "worst": -8121.02,
+     "mean_fees": 7914.123618784531,
+     "fees_p90": 8980.9
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 8772.63752762431,
+     "median_net": 7497.605,
+     "p_net_positive": 0.8674033149171271,
+     "net_p10": -1012.6140000000007,
+     "worst": -7019.219999999999,
+     "mean_fees": 9098.640745856354,
+     "fees_p90": 10337.8
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 8747.766643646408,
+     "median_net": 6970.4,
+     "p_net_positive": 0.7265193370165746,
+     "net_p10": -3255.91,
+     "worst": -8309.65,
+     "mean_fees": 9273.744198895027,
+     "fees_p90": 10542.2
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 8597.602720994473,
+     "median_net": 8155.0,
+     "p_net_positive": 0.8052486187845304,
+     "net_p10": -3407.24,
+     "worst": -7519.2,
+     "mean_fees": 8040.391298342542,
+     "fees_p90": 9220.9
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 8546.92864640884,
+     "median_net": 6931.51,
+     "p_net_positive": 0.8107734806629834,
+     "net_p10": -2120.01,
+     "worst": -8102.12,
+     "mean_fees": 7631.633011049724,
+     "fees_p90": 8536.5
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": -197.97820441988947,
+     "p_payout": 0.5538674033149171
+    },
+    "MNQ|100K Flex": {
+     "mean_net": 698.0350000000001,
+     "p_payout": 0.5262430939226519
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -1050.9692127071824,
+     "p_payout": 0.35497237569060774
+    },
+    "MNQ|150K Flex": {
+     "mean_net": -127.15610497237587,
+     "p_payout": 0.24585635359116023
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 1926.3821270718233,
+     "p_payout": 0.7016574585635359
+    },
+    "MGC|100K Daily": {
+     "mean_net": 1106.7621546961327,
+     "p_payout": 0.744475138121547
+    },
+    "MGC|100K Flex": {
+     "mean_net": 1716.6894613259672,
+     "p_payout": 0.6367403314917127
+    },
+    "MGC|150K Daily": {
+     "mean_net": 2867.1682458563537,
+     "p_payout": 0.7265193370165746
+    },
+    "MGC|150K Flex": {
+     "mean_net": 791.5899447513812,
+     "p_payout": 0.5262430939226519
+    },
+    "MGC|50K Daily": {
+     "mean_net": 2381.8127486187846,
+     "p_payout": 0.8715469613259669
+    },
+    "ZS|100K Daily": {
+     "mean_net": 253.36722375690616,
+     "p_payout": 0.5593922651933702
+    },
+    "ZS|100K Flex": {
+     "mean_net": -857.4174447513811,
+     "p_payout": 0.27348066298342544
+    },
+    "ZS|150K Daily": {
+     "mean_net": -168.4472651933701,
+     "p_payout": 0.3287292817679558
+    },
+    "ZS|150K Flex": {
+     "mean_net": -326.2598342541438,
+     "p_payout": 0.3370165745856354
+    },
+    "ZS|50K Daily": {
+     "mean_net": 1584.7049585635361,
+     "p_payout": 0.6850828729281768
+    },
+    "NKD|100K Daily": {
+     "mean_net": -346.72770718232044,
+     "p_payout": 0.5966850828729282
+    },
+    "NKD|100K Flex": {
+     "mean_net": -1070.827997237569,
+     "p_payout": 0.39088397790055246
+    },
+    "NKD|150K Daily": {
+     "mean_net": 749.7534944751382,
+     "p_payout": 0.4558011049723757
+    },
+    "NKD|150K Flex": {
+     "mean_net": -590.2390745856354,
+     "p_payout": 0.25
+    },
+    "NKD|50K Daily": {
+     "mean_net": 524.0446132596684,
+     "p_payout": 0.6519337016574586
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 1644.6287016574586,
+     "p_payout": 0.6187845303867403
+    },
+    "FDXM|100K Flex": {
+     "mean_net": -109.26089779005511,
+     "p_payout": 0.42679558011049723
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 1954.9493922651932,
+     "p_payout": 0.569060773480663
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 1619.7578176795582,
+     "p_payout": 0.30662983425414364
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 2490.307292817679,
+     "p_payout": 0.7306629834254144
+    }
+   }
+  },
+  "cons 0.50 | MNQ+MGC+MCL+NKD+FDXM": {
+   "common_starts": 689,
+   "first": "2016-01-27",
+   "last": "2020-08-12",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8850.852902757619,
+     "median_net": 8014.07,
+     "p_net_positive": 0.9056603773584906,
+     "net_p10": 621.4699999999999,
+     "worst": -2376.41,
+     "mean_fees": 4963.599419448476,
+     "fees_p90": 5680.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "MCL": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 1040.1869956458638,
+     "median_net": -1396.5299999999997,
+     "p_net_positive": 0.4716981132075472,
+     "net_p10": -8904.0,
+     "worst": -11130.0,
+     "mean_fees": 8765.884615384615,
+     "fees_p90": 10017.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "MCL": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": -1251.9722931785195,
+     "median_net": -2440.94,
+     "p_net_positive": 0.33236574746008707,
+     "net_p10": -8904.0,
+     "worst": -11872.0,
+     "mean_fees": 8617.538461538461,
+     "fees_p90": 10202.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "MCL": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": -1541.958374455733,
+     "median_net": -6105.79,
+     "p_net_positive": 0.3149492017416546,
+     "net_p10": -13431.6,
+     "worst": -15239.7,
+     "mean_fees": 12273.936139332365,
+     "fees_p90": 14206.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "MCL": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": -2447.904528301887,
+     "median_net": -4053.91,
+     "p_net_positive": 0.32220609579100146,
+     "net_p10": -11171.848000000002,
+     "worst": -15756.300000000001,
+     "mean_fees": 12669.446298984034,
+     "fees_p90": 14774.760000000013
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 9140.447503628448,
+     "median_net": 6551.08,
+     "p_net_positive": 0.8867924528301887,
+     "net_p10": -472.52600000000047,
+     "worst": -5210.91,
+     "mean_fees": 6481.3345428156745,
+     "fees_p90": 7743.260000000001
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8850.852902757619,
+     "median_net": 8014.07,
+     "p_net_positive": 0.9056603773584906,
+     "net_p10": 621.4699999999999,
+     "worst": -2376.41,
+     "mean_fees": 4963.599419448476,
+     "fees_p90": 5680.0
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 8189.679172714077,
+     "median_net": 4674.079999999999,
+     "p_net_positive": 0.7213352685050798,
+     "net_p10": -1796.016,
+     "worst": -8196.7,
+     "mean_fees": 7546.873730043541,
+     "fees_p90": 8886.6
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "100K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 8053.983352685052,
+     "median_net": 5395.26,
+     "p_net_positive": 0.8432510885341074,
+     "net_p10": -1128.236,
+     "worst": -6582.41,
+     "mean_fees": 7406.081277213353,
+     "fees_p90": 8703.9
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 7915.266284470246,
+     "median_net": 5431.42,
+     "p_net_positive": 0.7968069666182874,
+     "net_p10": -2122.13,
+     "worst": -5574.91,
+     "mean_fees": 7037.668359941945,
+     "fees_p90": 8476.820000000002
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 7900.084571843253,
+     "median_net": 6911.41,
+     "p_net_positive": 0.9056603773584906,
+     "net_p10": 147.47999999999956,
+     "worst": -6151.5,
+     "mean_fees": 6029.1386066763425,
+     "fees_p90": 6866.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 7864.223062409288,
+     "median_net": 5066.029999999999,
+     "p_net_positive": 0.8156748911465893,
+     "net_p10": -2199.19,
+     "worst": -8751.2,
+     "mean_fees": 7008.860667634252,
+     "fees_p90": 8420.1
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "100K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 7764.388751814223,
+     "median_net": 7141.66,
+     "p_net_positive": 0.9100145137880987,
+     "net_p10": 560.5539999999993,
+     "worst": -3829.0,
+     "mean_fees": 5888.346153846154,
+     "fees_p90": 6626.0
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 7676.156995645863,
+     "median_net": 6214.79,
+     "p_net_positive": 0.8969521044992743,
+     "net_p10": -47.8100000000002,
+     "worst": -5210.91,
+     "mean_fees": 6554.063425253991,
+     "fees_p90": 7701.220000000001
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 7625.671683599419,
+     "median_net": 6702.129999999999,
+     "p_net_positive": 0.9013062409288825,
+     "net_p10": 43.32999999999999,
+     "worst": -3031.41,
+     "mean_fees": 5519.933236574746,
+     "fees_p90": 6546.0
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": -142.36516690856294,
+     "p_payout": 0.37735849056603776
+    },
+    "MNQ|100K Flex": {
+     "mean_net": -91.32194484760524,
+     "p_payout": 0.420899854862119
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -1390.3763280116111,
+     "p_payout": 0.204644412191582
+    },
+    "MNQ|150K Flex": {
+     "mean_net": -741.4443396226413,
+     "p_payout": 0.14078374455732948
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 1133.8592743105953,
+     "p_payout": 0.6531204644412192
+    },
+    "MGC|100K Daily": {
+     "mean_net": 75.36124818577649,
+     "p_payout": 0.397677793904209
+    },
+    "MGC|100K Flex": {
+     "mean_net": 313.9261248185777,
+     "p_payout": 0.28592162554426703
+    },
+    "MGC|150K Daily": {
+     "mean_net": 504.7663570391872,
+     "p_payout": 0.4847605224963715
+    },
+    "MGC|150K Flex": {
+     "mean_net": 737.3671552975326,
+     "p_payout": 0.397677793904209
+    },
+    "MGC|50K Daily": {
+     "mean_net": 2821.0965166908563,
+     "p_payout": 0.8592162554426706
+    },
+    "MCL|100K Daily": {
+     "mean_net": -680.6476777939042,
+     "p_payout": 0.3178519593613933
+    },
+    "MCL|100K Flex": {
+     "mean_net": -1242.4287808417998,
+     "p_payout": 0.16545718432510886
+    },
+    "MCL|150K Daily": {
+     "mean_net": -2123.19557329463,
+     "p_payout": 0.10304789550072568
+    },
+    "MCL|150K Flex": {
+     "mean_net": -2415.0552394775036,
+     "p_payout": 0.09869375907111756
+    },
+    "MCL|50K Daily": {
+     "mean_net": 405.8164731494919,
+     "p_payout": 0.49637155297532654
+    },
+    "NKD|100K Daily": {
+     "mean_net": 1157.2083309143686,
+     "p_payout": 0.3991291727140784
+    },
+    "NKD|100K Flex": {
+     "mean_net": -480.2328737300435,
+     "p_payout": 0.35268505079825835
+    },
+    "NKD|150K Daily": {
+     "mean_net": -646.5070537010158,
+     "p_payout": 0.2656023222060958
+    },
+    "NKD|150K Flex": {
+     "mean_net": -1794.5245283018867,
+     "p_payout": 0.15820029027576196
+    },
+    "NKD|50K Daily": {
+     "mean_net": 2107.976661828737,
+     "p_payout": 0.690856313497823
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 630.6302612481859,
+     "p_payout": 0.44847605224963716
+    },
+    "FDXM|100K Flex": {
+     "mean_net": 248.08518142235116,
+     "p_payout": 0.33381712626995647
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 1207.408069666183,
+     "p_payout": 0.5123367198838897
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 2671.6985776487663,
+     "p_payout": 0.4862119013062409
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 2382.1039767779394,
+     "p_payout": 0.6531204644412192
+    }
+   }
+  },
+  "cons 0.50 | MNQ+MGC+ZS+NKD+FDXM": {
+   "common_starts": 724,
+   "first": "2016-01-27",
+   "last": "2020-08-12",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9643.92497237569,
+     "median_net": 8517.68,
+     "p_net_positive": 0.8743093922651933,
+     "net_p10": -649.9250000000001,
+     "worst": -4720.0,
+     "mean_fees": 4947.845303867403,
+     "fees_p90": 5600.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "ZS": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 2021.8418232044198,
+     "median_net": 1366.29,
+     "p_net_positive": 0.5524861878453039,
+     "net_p10": -8807.08,
+     "worst": -10944.5,
+     "mean_fees": 8683.398480662983,
+     "fees_p90": 9831.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "ZS": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 1382.8858011049724,
+     "median_net": -1715.3999999999996,
+     "p_net_positive": 0.4350828729281768,
+     "net_p10": -10590.300000000001,
+     "worst": -15239.7,
+     "mean_fees": 12025.577486187847,
+     "fees_p90": 14206.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "ZS": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 992.7566298342542,
+     "median_net": -1235.2600000000002,
+     "p_net_positive": 0.47928176795580113,
+     "net_p10": -9144.188999999998,
+     "worst": -14206.500000000002,
+     "mean_fees": 12583.205801104972,
+     "fees_p90": 14981.4
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "ZS": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": -663.2623066298345,
+     "median_net": -2305.83,
+     "p_net_positive": 0.3687845303867403,
+     "net_p10": -6937.797,
+     "worst": -11686.5,
+     "mean_fees": 8571.176104972375,
+     "fees_p90": 9831.5
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 10090.374488950276,
+     "median_net": 7393.75,
+     "p_net_positive": 0.888121546961326,
+     "net_p10": -416.61000000000075,
+     "worst": -6994.5,
+     "mean_fees": 8049.396685082872,
+     "fees_p90": 9479.2
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 9965.195925414364,
+     "median_net": 7848.230000000001,
+     "p_net_positive": 0.8646408839779005,
+     "net_p10": -2169.142000000001,
+     "worst": -5728.1,
+     "mean_fees": 6463.047790055248,
+     "fees_p90": 7517.9
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9769.103535911601,
+     "median_net": 8804.4,
+     "p_net_positive": 0.9392265193370166,
+     "net_p10": 1983.303,
+     "worst": -5986.4,
+     "mean_fees": 6534.1941988950275,
+     "fees_p90": 7357.9
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9643.92497237569,
+     "median_net": 8517.68,
+     "p_net_positive": 0.8743093922651933,
+     "net_p10": -649.9250000000001,
+     "worst": -4720.0,
+     "mean_fees": 4947.845303867403,
+     "fees_p90": 5600.0
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "150K Flex",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 9194.687610497238,
+     "median_net": 6992.914999999999,
+     "p_net_positive": 0.888121546961326,
+     "net_p10": -248.38700000000057,
+     "worst": -7012.21,
+     "mean_fees": 7902.0515193370165,
+     "fees_p90": 9257.5
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "150K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 9185.962430939227,
+     "median_net": 6269.33,
+     "p_net_positive": 0.8107734806629834,
+     "net_p10": -1997.9690000000007,
+     "worst": -8602.5,
+     "mean_fees": 9117.519613259668,
+     "fees_p90": 10590.24
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 9060.783867403316,
+     "median_net": 5878.605,
+     "p_net_positive": 0.8162983425414365,
+     "net_p10": -1600.641,
+     "worst": -7636.7,
+     "mean_fees": 7531.170718232043,
+     "fees_p90": 8703.9
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "100K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 9006.29388121547,
+     "median_net": 6505.9400000000005,
+     "p_net_positive": 0.8549723756906077,
+     "net_p10": -2016.7220000000004,
+     "worst": -6597.6,
+     "mean_fees": 7327.0111878453035,
+     "fees_p90": 8484.53
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 8891.561077348066,
+     "median_net": 6202.504999999999,
+     "p_net_positive": 0.8729281767955801,
+     "net_p10": -3478.61,
+     "worst": -7296.21,
+     "mean_fees": 8601.920856353592,
+     "fees_p90": 10173.11
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "150K Flex",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8873.416657458563,
+     "median_net": 8415.75,
+     "p_net_positive": 0.9295580110497238,
+     "net_p10": 1554.1,
+     "worst": -5469.8,
+     "mean_fees": 6386.849033149171,
+     "fees_p90": 7161.3
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": -130.94063535911596,
+     "p_payout": 0.3798342541436464
+    },
+    "MNQ|100K Flex": {
+     "mean_net": -74.80122928176795,
+     "p_payout": 0.425414364640884
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -1391.6038812154695,
+     "p_payout": 0.20165745856353592
+    },
+    "MNQ|150K Flex": {
+     "mean_net": -767.8633287292819,
+     "p_payout": 0.13950276243093923
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 1124.012182320442,
+     "p_payout": 0.649171270718232
+    },
+    "MGC|100K Daily": {
+     "mean_net": 61.76019337016573,
+     "p_payout": 0.39502762430939226
+    },
+    "MGC|100K Flex": {
+     "mean_net": 294.87930939226527,
+     "p_payout": 0.28314917127071826
+    },
+    "MGC|150K Daily": {
+     "mean_net": 455.60675414364647,
+     "p_payout": 0.48342541436464087
+    },
+    "MGC|150K Flex": {
+     "mean_net": 742.8632596685082,
+     "p_payout": 0.393646408839779
+    },
+    "MGC|50K Daily": {
+     "mean_net": 2790.3533839779,
+     "p_payout": 0.8577348066298343
+    },
+    "ZS|100K Daily": {
+     "mean_net": 319.2395303867403,
+     "p_payout": 0.5207182320441989
+    },
+    "ZS|100K Flex": {
+     "mean_net": -611.8660082872929,
+     "p_payout": 0.3383977900552486
+    },
+    "ZS|150K Daily": {
+     "mean_net": 1403.3201381215472,
+     "p_payout": 0.6146408839779005
+    },
+    "ZS|150K Flex": {
+     "mean_net": 507.6332596685082,
+     "p_payout": 0.39502762430939226
+    },
+    "ZS|50K Daily": {
+     "mean_net": 1278.1415745856352,
+     "p_payout": 0.6215469613259669
+    },
+    "NKD|100K Daily": {
+     "mean_net": 1164.357872928177,
+     "p_payout": 0.39917127071823205
+    },
+    "NKD|100K Flex": {
+     "mean_net": -507.32795580110496,
+     "p_payout": 0.35220994475138123
+    },
+    "NKD|150K Daily": {
+     "mean_net": -674.4800828729279,
+     "p_payout": 0.2638121546961326
+    },
+    "NKD|150K Flex": {
+     "mean_net": -1803.6662430939225,
+     "p_payout": 0.15607734806629833
+    },
+    "NKD|50K Daily": {
+     "mean_net": 2068.7699309392265,
+     "p_payout": 0.6878453038674033
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 607.424861878453,
+     "p_payout": 0.44751381215469616
+    },
+    "FDXM|100K Flex": {
+     "mean_net": 235.8535773480663,
+     "p_payout": 0.3301104972375691
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 1199.9137016574587,
+     "p_payout": 0.511049723756906
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 2703.91885359116,
+     "p_payout": 0.4861878453038674
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 2382.647900552486,
+     "p_payout": 0.6560773480662984
+    }
+   }
+  }
+ },
+ "post": {
+  "cons 0.40 | MNQ+MGC+MCL+NKD+FDXM": {
+   "common_starts": 1040,
+   "first": "2021-01-04",
+   "last": "2026-04-24",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8807.20291346154,
+     "median_net": 8925.619999999999,
+     "p_net_positive": 0.9298076923076923,
+     "net_p10": 1132.8030000000003,
+     "worst": -4380.0,
+     "mean_fees": 5360.538461538462,
+     "fees_p90": 5760.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "MCL": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": 3277.177461538461,
+     "median_net": 2950.5,
+     "p_net_positive": 0.6644230769230769,
+     "net_p10": -7796.578,
+     "worst": -14469.0,
+     "mean_fees": 11879.491346153845,
+     "fees_p90": 13170.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "MCL": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 2917.298826923077,
+     "median_net": 1581.1,
+     "p_net_positive": 0.5538461538461539,
+     "net_p10": -11544.67,
+     "worst": -14723.099999999999,
+     "mean_fees": 13760.684134615385,
+     "fees_p90": 14981.400000000001
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "MCL": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 2496.5769038461544,
+     "median_net": -1131.695,
+     "p_net_positive": 0.4625,
+     "net_p10": -9408.003999999999,
+     "worst": -14283.5,
+     "mean_fees": 12605.08173076923,
+     "fees_p90": 13541.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "MCL": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 518.2329519230768,
+     "median_net": -549.93,
+     "p_net_positive": 0.46923076923076923,
+     "net_p10": -9757.719,
+     "worst": -14981.4,
+     "mean_fees": 13262.463173076922,
+     "fees_p90": 14464.800000000001
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9663.878894230767,
+     "median_net": 9445.755000000001,
+     "p_net_positive": 0.8884615384615384,
+     "net_p10": -301.37999999999977,
+     "worst": -8585.0,
+     "mean_fees": 7618.684134615384,
+     "fees_p90": 8605.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 9647.744067307693,
+     "median_net": 9045.314999999999,
+     "p_net_positive": 0.8913461538461539,
+     "net_p10": -387.0499999999994,
+     "worst": -11019.5,
+     "mean_fees": 9173.447788461537,
+     "fees_p90": 10449.9
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9640.363076923077,
+     "median_net": 9829.01,
+     "p_net_positive": 0.9173076923076923,
+     "net_p10": 452.6700000000001,
+     "worst": -6077.0,
+     "mean_fees": 6399.517307692307,
+     "fees_p90": 7077.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 9624.228249999998,
+     "median_net": 9388.595000000001,
+     "p_net_positive": 0.8769230769230769,
+     "net_p10": -682.4879999999994,
+     "worst": -8511.5,
+     "mean_fees": 7954.280961538461,
+     "fees_p90": 9052.9
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9222.729961538462,
+     "median_net": 8663.835,
+     "p_net_positive": 0.8538461538461538,
+     "net_p10": -1625.55,
+     "worst": -8697.91,
+     "mean_fees": 7928.326442307693,
+     "fees_p90": 8823.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 9206.595134615385,
+     "median_net": 9301.24,
+     "p_net_positive": 0.825,
+     "net_p10": -3182.7400000000002,
+     "worst": -11019.5,
+     "mean_fees": 9483.090096153845,
+     "fees_p90": 10624.7
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 9021.829153846153,
+     "median_net": 8165.764999999999,
+     "p_net_positive": 0.8125,
+     "net_p10": -2766.47,
+     "worst": -8974.9,
+     "mean_fees": 8035.851826923076,
+     "fees_p90": 9060.3
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 9005.694326923076,
+     "median_net": 9846.89,
+     "p_net_positive": 0.8163461538461538,
+     "net_p10": -4499.9839999999995,
+     "worst": -11409.4,
+     "mean_fees": 9590.615480769231,
+     "fees_p90": 10763.5
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "MCL": "100K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8893.669605769232,
+     "median_net": 7818.85,
+     "p_net_positive": 0.8201923076923077,
+     "net_p10": -2407.229,
+     "worst": -10776.5,
+     "mean_fees": 9253.238461538462,
+     "fees_p90": 10373.0
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 8890.492567307692,
+     "median_net": 8469.990000000002,
+     "p_net_positive": 0.8625,
+     "net_p10": -688.5299999999997,
+     "worst": -9265.9,
+     "mean_fees": 7971.560865384615,
+     "fees_p90": 8958.3
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": 154.781201923077,
+     "p_payout": 0.7153846153846154
+    },
+    "MNQ|100K Flex": {
+     "mean_net": 2111.563653846154,
+     "p_payout": 0.6615384615384615
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -376.62175961538463,
+     "p_payout": 0.46634615384615385
+    },
+    "MNQ|150K Flex": {
+     "mean_net": 1338.177326923077,
+     "p_payout": 0.5076923076923077
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 1278.4034903846152,
+     "p_payout": 0.8096153846153846
+    },
+    "MGC|100K Daily": {
+     "mean_net": -614.6500769230769,
+     "p_payout": 0.44903846153846155
+    },
+    "MGC|100K Flex": {
+     "mean_net": 601.9048365384616,
+     "p_payout": 0.4403846153846154
+    },
+    "MGC|150K Daily": {
+     "mean_net": 380.7553942307691,
+     "p_payout": 0.3971153846153846
+    },
+    "MGC|150K Flex": {
+     "mean_net": -70.89403846153823,
+     "p_payout": 0.47884615384615387
+    },
+    "MGC|50K Daily": {
+     "mean_net": 2329.458096153846,
+     "p_payout": 0.7471153846153846
+    },
+    "MCL|100K Daily": {
+     "mean_net": -342.84672115384626,
+     "p_payout": 0.4
+    },
+    "MCL|100K Flex": {
+     "mean_net": -2152.162807692308,
+     "p_payout": 0.15384615384615385
+    },
+    "MCL|150K Daily": {
+     "mean_net": -1224.1448173076924,
+     "p_payout": 0.22692307692307692
+    },
+    "MCL|150K Flex": {
+     "mean_net": -2329.7562019230772,
+     "p_payout": 0.13173076923076923
+    },
+    "MCL|50K Daily": {
+     "mean_net": 427.36256730769225,
+     "p_payout": 0.49230769230769234
+    },
+    "NKD|100K Daily": {
+     "mean_net": 2411.1407788461534,
+     "p_payout": 0.5240384615384616
+    },
+    "NKD|100K Flex": {
+     "mean_net": 2852.2897115384617,
+     "p_payout": 0.7240384615384615
+    },
+    "NKD|150K Daily": {
+     "mean_net": 2210.239971153846,
+     "p_payout": 0.4980769230769231
+    },
+    "NKD|150K Flex": {
+     "mean_net": 728.7602788461536,
+     "p_payout": 0.4346153846153846
+    },
+    "NKD|50K Daily": {
+     "mean_net": 2828.7738942307697,
+     "p_payout": 0.7557692307692307
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 888.1517211538461,
+     "p_payout": 0.6903846153846154
+    },
+    "FDXM|100K Flex": {
+     "mean_net": -136.4179326923078,
+     "p_payout": 0.5240384615384616
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 1927.0700384615384,
+     "p_payout": 0.5221153846153846
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 851.9455865384615,
+     "p_payout": 0.5048076923076923
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 1943.2048653846155,
+     "p_payout": 0.8413461538461539
+    }
+   }
+  },
+  "cons 0.40 | MNQ+MGC+ZS+NKD+FDXM": {
+   "common_starts": 1095,
+   "first": "2021-01-04",
+   "last": "2026-04-24",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 12498.59299543379,
+     "median_net": 11513.33,
+     "p_net_positive": 0.9753424657534246,
+     "net_p10": 3940.838,
+     "worst": -2919.08,
+     "mean_fees": 5175.37899543379,
+     "fees_p90": 5680.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "ZS": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": 8432.98406392694,
+     "median_net": 6996.280000000001,
+     "p_net_positive": 0.821917808219178,
+     "net_p10": -3037.1899999999996,
+     "worst": -11872.0,
+     "mean_fees": 11028.356164383562,
+     "fees_p90": 12614.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "ZS": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 6158.896611872146,
+     "median_net": 5637.22,
+     "p_net_positive": 0.6812785388127854,
+     "net_p10": -5641.108,
+     "worst": -13470.32,
+     "mean_fees": 11982.622374429224,
+     "fees_p90": 13170.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "ZS": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 5511.558164383561,
+     "median_net": 4679.449999999999,
+     "p_net_positive": 0.6794520547945205,
+     "net_p10": -9433.405999999999,
+     "worst": -14464.8,
+     "mean_fees": 13209.155342465754,
+     "fees_p90": 14464.800000000001
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "ZS": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 3163.008182648402,
+     "median_net": 1871.3600000000006,
+     "p_net_positive": 0.5808219178082191,
+     "net_p10": -8374.112,
+     "worst": -14723.1,
+     "mean_fees": 12583.102191780821,
+     "fees_p90": 13948.2
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 13318.619269406392,
+     "median_net": 13201.130000000001,
+     "p_net_positive": 0.9333333333333333,
+     "net_p10": 2857.4000000000005,
+     "worst": -5738.8099999999995,
+     "mean_fees": 7436.190867579909,
+     "fees_p90": 8390.5
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 13305.742155251142,
+     "median_net": 12044.41,
+     "p_net_positive": 0.9470319634703196,
+     "net_p10": 2026.276,
+     "worst": -6408.6,
+     "mean_fees": 8989.639269406392,
+     "fees_p90": 10232.32
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 13296.26295890411,
+     "median_net": 12524.06,
+     "p_net_positive": 0.9625570776255707,
+     "net_p10": 4164.4400000000005,
+     "worst": -4290.58,
+     "mean_fees": 6216.517351598173,
+     "fees_p90": 6891.5
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 13283.385844748858,
+     "median_net": 11933.93,
+     "p_net_positive": 0.9625570776255707,
+     "net_p10": 3449.434,
+     "worst": -4052.4,
+     "mean_fees": 7769.965753424657,
+     "fees_p90": 8882.2
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 12864.411716894978,
+     "median_net": 13055.67,
+     "p_net_positive": 0.9114155251141552,
+     "net_p10": 987.2480000000003,
+     "worst": -8697.91,
+     "mean_fees": 7746.035159817352,
+     "fees_p90": 8576.0
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 12851.534602739726,
+     "median_net": 11813.51,
+     "p_net_positive": 0.915068493150685,
+     "net_p10": 746.9360000000005,
+     "worst": -10115.1,
+     "mean_fees": 9299.483561643836,
+     "fees_p90": 10402.8
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 12643.064621004565,
+     "median_net": 12806.22,
+     "p_net_positive": 0.9004566210045662,
+     "net_p10": 168.25200000000072,
+     "worst": -6171.88,
+     "mean_fees": 7852.4767123287675,
+     "fees_p90": 8892.9
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 12630.187506849315,
+     "median_net": 12166.23,
+     "p_net_positive": 0.8876712328767123,
+     "net_p10": -523.8159999999998,
+     "worst": -8441.400000000001,
+     "mean_fees": 9405.92511415525,
+     "fees_p90": 10589.52
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 12563.316621004566,
+     "median_net": 12337.98,
+     "p_net_positive": 0.9315068493150684,
+     "net_p10": 2265.89,
+     "worst": -6241.41,
+     "mean_fees": 7788.024292237443,
+     "fees_p90": 8736.6
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 12550.439506849314,
+     "median_net": 10759.210000000001,
+     "p_net_positive": 0.9415525114155251,
+     "net_p10": 1718.2320000000002,
+     "worst": -6354.700000000001,
+     "mean_fees": 9341.472694063928,
+     "fees_p90": 10632.3
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": 146.8966301369864,
+     "p_payout": 0.7159817351598173
+    },
+    "MNQ|100K Flex": {
+     "mean_net": 2085.4726575342465,
+     "p_payout": 0.6584474885844749
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -355.51085844748843,
+     "p_payout": 0.46757990867579907
+    },
+    "MNQ|150K Flex": {
+     "mean_net": 1330.1700091324203,
+     "p_payout": 0.5077625570776255
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 1287.802694063927,
+     "p_payout": 0.8100456621004566
+    },
+    "MGC|100K Daily": {
+     "mean_net": -612.9561187214612,
+     "p_payout": 0.4474885844748858
+    },
+    "MGC|100K Flex": {
+     "mean_net": 598.0746392694065,
+     "p_payout": 0.4374429223744292
+    },
+    "MGC|150K Daily": {
+     "mean_net": 361.43050228310494,
+     "p_payout": 0.3963470319634703
+    },
+    "MGC|150K Flex": {
+     "mean_net": -55.433196347031945,
+     "p_payout": 0.480365296803653
+    },
+    "MGC|50K Daily": {
+     "mean_net": 2333.983260273973,
+     "p_payout": 0.7461187214611872
+    },
+    "ZS|100K Daily": {
+     "mean_net": 3296.6220365296813,
+     "p_payout": 0.7059360730593607
+    },
+    "ZS|100K Flex": {
+     "mean_net": 3019.5876712328763,
+     "p_payout": 0.7159817351598173
+    },
+    "ZS|150K Daily": {
+     "mean_net": 1371.7141369863014,
+     "p_payout": 0.5461187214611872
+    },
+    "ZS|150K Flex": {
+     "mean_net": 339.07506849315087,
+     "p_payout": 0.365296803652968
+    },
+    "ZS|50K Daily": {
+     "mean_net": 4076.8072054794525,
+     "p_payout": 0.8447488584474886
+    },
+    "NKD|100K Daily": {
+     "mean_net": 2402.8407397260276,
+     "p_payout": 0.5251141552511416
+    },
+    "NKD|100K Flex": {
+     "mean_net": 2857.0482922374426,
+     "p_payout": 0.7232876712328767
+    },
+    "NKD|150K Daily": {
+     "mean_net": 2181.4936438356167,
+     "p_payout": 0.4995433789954338
+    },
+    "NKD|150K Flex": {
+     "mean_net": 709.397296803653,
+     "p_payout": 0.4328767123287671
+    },
+    "NKD|50K Daily": {
+     "mean_net": 2834.69198173516,
+     "p_payout": 0.7561643835616438
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 925.4933242009133,
+     "p_payout": 0.6940639269406392
+    },
+    "FDXM|100K Flex": {
+     "mean_net": -127.19919634703201,
+     "p_payout": 0.5251141552511416
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 1952.4307397260275,
+     "p_payout": 0.5223744292237443
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 839.7990045662102,
+     "p_payout": 0.5050228310502283
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 1965.3078538812786,
+     "p_payout": 0.8429223744292238
+    }
+   }
+  },
+  "cons 0.50 | MNQ+MGC+MCL+NKD+FDXM": {
+   "common_starts": 1040,
+   "first": "2021-01-04",
+   "last": "2026-04-24",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 10475.054548076923,
+     "median_net": 10221.744999999999,
+     "p_net_positive": 0.885576923076923,
+     "net_p10": -752.6439999999998,
+     "worst": -3854.0699999999997,
+     "mean_fees": 5440.384615384615,
+     "fees_p90": 5920.0
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "MCL": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 6063.328269230769,
+     "median_net": 2485.5750000000007,
+     "p_net_positive": 0.5961538461538461,
+     "net_p10": -10156.5,
+     "worst": -15756.3,
+     "mean_fees": 12896.620961538461,
+     "fees_p90": 14464.8
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "MCL": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": 4677.956576923077,
+     "median_net": 3495.365,
+     "p_net_positive": 0.6317307692307692,
+     "net_p10": -7238.0,
+     "worst": -11686.5,
+     "mean_fees": 9218.636538461538,
+     "fees_p90": 10388.0
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "MCL": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 3703.0185673076926,
+     "median_net": -1925.5249999999996,
+     "p_net_positive": 0.4519230769230769,
+     "net_p10": -12028.59,
+     "worst": -15497.999999999998,
+     "mean_fees": 13607.939423076923,
+     "fees_p90": 14981.400000000001
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "MCL": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 662.3380288461536,
+     "median_net": -1245.24,
+     "p_net_positive": 0.4346153846153846,
+     "net_p10": -7989.88,
+     "worst": -11315.5,
+     "mean_fees": 9540.942788461538,
+     "fees_p90": 10388.0
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 11742.344019230768,
+     "median_net": 8236.79,
+     "p_net_positive": 0.7653846153846153,
+     "net_p10": -5580.791,
+     "worst": -11654.6,
+     "mean_fees": 9068.317019230768,
+     "fees_p90": 10381.4
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 11691.996509615385,
+     "median_net": 9183.25,
+     "p_net_positive": 0.8105769230769231,
+     "net_p10": -3291.3009999999995,
+     "worst": -9852.4,
+     "mean_fees": 8362.427596153846,
+     "fees_p90": 9442.6
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 11410.317817307692,
+     "median_net": 9590.325,
+     "p_net_positive": 0.8317307692307693,
+     "net_p10": -4013.4499999999994,
+     "worst": -8724.650000000001,
+     "mean_fees": 7540.345673076923,
+     "fees_p90": 8431.53
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 11359.970307692307,
+     "median_net": 10691.2,
+     "p_net_positive": 0.8509615384615384,
+     "net_p10": -2767.889,
+     "worst": -6922.45,
+     "mean_fees": 6834.45625,
+     "fees_p90": 7536.2
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 11303.603076923077,
+     "median_net": 7305.610000000001,
+     "p_net_positive": 0.75,
+     "net_p10": -5434.1,
+     "worst": -12135.4,
+     "mean_fees": 9844.495192307691,
+     "fees_p90": 11182.2
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 10985.892932692308,
+     "median_net": 7755.790000000001,
+     "p_net_positive": 0.7413461538461539,
+     "net_p10": -6770.699,
+     "worst": -12858.9,
+     "mean_fees": 9915.04875,
+     "fees_p90": 11283.970000000001
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 10971.576874999999,
+     "median_net": 8030.825000000001,
+     "p_net_positive": 0.825,
+     "net_p10": -3779.283999999999,
+     "worst": -9322.050000000001,
+     "mean_fees": 8316.523846153847,
+     "fees_p90": 9346.13
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Flex",
+      "MCL": "50K Daily",
+      "NKD": "100K Flex",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 10935.545423076921,
+     "median_net": 8822.49,
+     "p_net_positive": 0.7586538461538461,
+     "net_p10": -5988.62,
+     "worst": -11169.4,
+     "mean_fees": 9209.159326923076,
+     "fees_p90": 10392.83
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 10915.988798076922,
+     "median_net": 7070.66,
+     "p_net_positive": 0.7634615384615384,
+     "net_p10": -5730.79,
+     "worst": -11381.9,
+     "mean_fees": 9280.917788461538,
+     "fees_p90": 10510.53
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Daily",
+      "MCL": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 10865.641288461538,
+     "median_net": 8578.83,
+     "p_net_positive": 0.7634615384615384,
+     "net_p10": -3912.5439999999994,
+     "worst": -9612.4,
+     "mean_fees": 8575.028365384615,
+     "fees_p90": 9639.2
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": 756.3177307692309,
+     "p_payout": 0.6644230769230769
+    },
+    "MNQ|100K Flex": {
+     "mean_net": 2299.8833653846154,
+     "p_payout": 0.4894230769230769
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -837.7344903846152,
+     "p_payout": 0.3471153846153846
+    },
+    "MNQ|150K Flex": {
+     "mean_net": 1861.1424230769235,
+     "p_payout": 0.3548076923076923
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 2249.5358557692307,
+     "p_payout": 0.7615384615384615
+    },
+    "MGC|100K Daily": {
+     "mean_net": -275.4594326923076,
+     "p_payout": 0.27884615384615385
+    },
+    "MGC|100K Flex": {
+     "mean_net": 224.42253846153864,
+     "p_payout": 0.3798076923076923
+    },
+    "MGC|150K Daily": {
+     "mean_net": 1579.2574903846155,
+     "p_payout": 0.5336538461538461
+    },
+    "MGC|150K Flex": {
+     "mean_net": 2405.612711538461,
+     "p_payout": 0.5990384615384615
+    },
+    "MGC|50K Daily": {
+     "mean_net": 1520.696951923077,
+     "p_payout": 0.6125
+    },
+    "MCL|100K Daily": {
+     "mean_net": -1524.3432692307692,
+     "p_payout": 0.21153846153846154
+    },
+    "MCL|100K Flex": {
+     "mean_net": -1926.0805192307691,
+     "p_payout": 0.1125
+    },
+    "MCL|150K Daily": {
+     "mean_net": -1121.3663076923076,
+     "p_payout": 0.40865384615384615
+    },
+    "MCL|150K Flex": {
+     "mean_net": -1053.976730769231,
+     "p_payout": 0.3144230769230769
+    },
+    "MCL|50K Daily": {
+     "mean_net": 1040.4988076923075,
+     "p_payout": 0.5096153846153846
+    },
+    "NKD|100K Daily": {
+     "mean_net": 1320.5886538461536,
+     "p_payout": 0.5711538461538461
+    },
+    "NKD|100K Flex": {
+     "mean_net": 2681.2580288461536,
+     "p_payout": 0.6201923076923077
+    },
+    "NKD|150K Daily": {
+     "mean_net": 1524.221855769231,
+     "p_payout": 0.425
+    },
+    "NKD|150K Flex": {
+     "mean_net": 1907.3251730769232,
+     "p_payout": 0.5644230769230769
+    },
+    "NKD|50K Daily": {
+     "mean_net": 3437.709115384616,
+     "p_payout": 0.801923076923077
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 385.23434615384605,
+     "p_payout": 0.4778846153846154
+    },
+    "FDXM|100K Flex": {
+     "mean_net": 1398.4731634615384,
+     "p_payout": 0.5201923076923077
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 2558.6400192307697,
+     "p_payout": 0.4596153846153846
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 943.2246923076924,
+     "p_payout": 0.4701923076923077
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 2226.6138173076924,
+     "p_payout": 0.8336538461538462
+    }
+   }
+  },
+  "cons 0.50 | MNQ+MGC+ZS+NKD+FDXM": {
+   "common_starts": 1095,
+   "first": "2021-01-04",
+   "last": "2026-04-24",
+   "uniform": [
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "50K Daily",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 14252.935543378997,
+     "median_net": 13355.23,
+     "p_net_positive": 0.9899543378995433,
+     "net_p10": 4273.544,
+     "worst": -921.81,
+     "mean_fees": 5263.92694063927,
+     "fees_p90": 5840.0
+    },
+    {
+     "book": {
+      "MNQ": "150K Daily",
+      "MGC": "150K Daily",
+      "ZS": "150K Daily",
+      "NKD": "150K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 9798.875835616438,
+     "median_net": 7264.110000000001,
+     "p_net_positive": 0.6648401826484018,
+     "net_p10": -10583.1,
+     "worst": -14981.4,
+     "mean_fees": 13075.877260273972,
+     "fees_p90": 14723.1
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "100K Flex",
+      "ZS": "100K Flex",
+      "NKD": "100K Flex",
+      "FDXM": "100K Flex"
+     },
+     "mean_net": 9251.102739726028,
+     "median_net": 8779.45,
+     "p_net_positive": 0.8073059360730593,
+     "net_p10": -5501.639999999999,
+     "worst": -10573.5,
+     "mean_fees": 8913.825570776256,
+     "fees_p90": 10202.5
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "ZS": "150K Flex",
+      "NKD": "150K Flex",
+      "FDXM": "150K Flex"
+     },
+     "mean_net": 8832.310328767122,
+     "median_net": 6704.600000000001,
+     "p_net_positive": 0.6748858447488585,
+     "net_p10": -7345.854,
+     "worst": -15498.0,
+     "mean_fees": 12304.515616438355,
+     "fees_p90": 13948.2
+    },
+    {
+     "book": {
+      "MNQ": "100K Daily",
+      "MGC": "100K Daily",
+      "ZS": "100K Daily",
+      "NKD": "100K Daily",
+      "FDXM": "100K Daily"
+     },
+     "mean_net": 4739.821945205479,
+     "median_net": 3437.9799999999996,
+     "p_net_positive": 0.6867579908675799,
+     "net_p10": -5833.164,
+     "worst": -11130.0,
+     "mean_fees": 9321.417351598173,
+     "fees_p90": 10388.0
+    }
+   ],
+   "top10": [
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Flex",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 15648.885799086758,
+     "median_net": 13103.66,
+     "p_net_positive": 0.8337899543378996,
+     "net_p10": -3930.5999999999995,
+     "worst": -13055.9,
+     "mean_fees": 10353.831598173516,
+     "fees_p90": 11834.32
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Flex",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 15628.165689497717,
+     "median_net": 15086.52,
+     "p_net_positive": 0.8593607305936073,
+     "net_p10": -1518.152,
+     "worst": -11957.1,
+     "mean_fees": 9647.45808219178,
+     "fees_p90": 11040.500000000002
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Flex",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 15513.489251141553,
+     "median_net": 11590.279999999999,
+     "p_net_positive": 0.902283105022831,
+     "net_p10": 45.86799999999986,
+     "worst": -7218.31,
+     "mean_fees": 8895.668949771689,
+     "fees_p90": 10131.32
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Flex",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 15492.769141552511,
+     "median_net": 12721.61,
+     "p_net_positive": 0.915068493150685,
+     "net_p10": 941.0240000000002,
+     "worst": -4210.5,
+     "mean_fees": 8189.295433789955,
+     "fees_p90": 9239.2
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Flex",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 15312.027698630138,
+     "median_net": 14040.24,
+     "p_net_positive": 0.8648401826484018,
+     "net_p10": -2093.3939999999993,
+     "worst": -10847.0,
+     "mean_fees": 8823.796529680365,
+     "fees_p90": 9942.94
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Flex",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 15291.307589041096,
+     "median_net": 14988.43,
+     "p_net_positive": 0.8995433789954338,
+     "net_p10": -73.73999999999933,
+     "worst": -10297.5,
+     "mean_fees": 8117.423013698631,
+     "fees_p90": 9111.199999999999
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "ZS": "150K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 15221.570091324202,
+     "median_net": 13267.77,
+     "p_net_positive": 0.7981735159817351,
+     "net_p10": -4706.452,
+     "worst": -13420.1,
+     "mean_fees": 11129.279452054794,
+     "fees_p90": 12656.18
+    },
+    {
+     "book": {
+      "MNQ": "100K Flex",
+      "MGC": "150K Flex",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 15176.63115068493,
+     "median_net": 13734.470000000001,
+     "p_net_positive": 0.9168949771689497,
+     "net_p10": 1350.3180000000004,
+     "worst": -4412.16,
+     "mean_fees": 7365.633881278539,
+     "fees_p90": 8278.4
+    },
+    {
+     "book": {
+      "MNQ": "50K Daily",
+      "MGC": "150K Flex",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "50K Daily"
+     },
+     "mean_net": 15155.911041095893,
+     "median_net": 13851.510000000002,
+     "p_net_positive": 0.9598173515981735,
+     "net_p10": 2636.9400000000005,
+     "worst": -2891.9700000000003,
+     "mean_fees": 6659.260365296804,
+     "fees_p90": 7437.9
+    },
+    {
+     "book": {
+      "MNQ": "150K Flex",
+      "MGC": "150K Flex",
+      "ZS": "50K Daily",
+      "NKD": "50K Daily",
+      "FDXM": "150K Daily"
+     },
+     "mean_net": 15086.173543378996,
+     "median_net": 10761.39,
+     "p_net_positive": 0.8721461187214612,
+     "net_p10": -1614.886,
+     "worst": -7575.31,
+     "mean_fees": 9671.116803652969,
+     "fees_p90": 11022.2
+    }
+   ],
+   "per_market": {
+    "MNQ|100K Daily": {
+     "mean_net": 750.6842922374428,
+     "p_payout": 0.6639269406392694
+    },
+    "MNQ|100K Flex": {
+     "mean_net": 2281.0039726027394,
+     "p_payout": 0.4885844748858447
+    },
+    "MNQ|150K Daily": {
+     "mean_net": -835.158219178082,
+     "p_payout": 0.34885844748858447
+    },
+    "MNQ|150K Flex": {
+     "mean_net": 1853.688264840183,
+     "p_payout": 0.354337899543379
+    },
+    "MNQ|50K Daily": {
+     "mean_net": 2260.283863013699,
+     "p_payout": 0.7662100456621005
+    },
+    "MGC|100K Daily": {
+     "mean_net": -255.41264840182652,
+     "p_payout": 0.2831050228310502
+    },
+    "MGC|100K Flex": {
+     "mean_net": 231.71529680365308,
+     "p_payout": 0.3835616438356164
+    },
+    "MGC|150K Daily": {
+     "mean_net": 1585.5110867579908,
+     "p_payout": 0.5333333333333333
+    },
+    "MGC|150K Flex": {
+     "mean_net": 2419.097771689497,
+     "p_payout": 0.6009132420091324
+    },
+    "MGC|50K Daily": {
+     "mean_net": 1516.122273972603,
+     "p_payout": 0.6118721461187214
+    },
+    "ZS|100K Daily": {
+     "mean_net": 2539.2343470319634,
+     "p_payout": 0.6529680365296804
+    },
+    "ZS|100K Flex": {
+     "mean_net": 2645.6727579908675,
+     "p_payout": 0.6045662100456621
+    },
+    "ZS|150K Daily": {
+     "mean_net": 4937.79903196347,
+     "p_payout": 0.6410958904109589
+    },
+    "ZS|150K Flex": {
+     "mean_net": 1698.270785388128,
+     "p_payout": 0.4785388127853881
+    },
+    "ZS|50K Daily": {
+     "mean_net": 4802.402484018265,
+     "p_payout": 0.8684931506849315
+    },
+    "NKD|100K Daily": {
+     "mean_net": 1297.9861826484018,
+     "p_payout": 0.5689497716894977
+    },
+    "NKD|100K Flex": {
+     "mean_net": 2691.6274977168955,
+     "p_payout": 0.6200913242009133
+    },
+    "NKD|150K Daily": {
+     "mean_net": 1540.239652968037,
+     "p_payout": 0.4301369863013699
+    },
+    "NKD|150K Flex": {
+     "mean_net": 1930.8204931506848,
+     "p_payout": 0.5671232876712329
+    },
+    "NKD|50K Daily": {
+     "mean_net": 3440.5007397260274,
+     "p_payout": 0.8027397260273973
+    },
+    "FDXM|100K Daily": {
+     "mean_net": 407.3297716894978,
+     "p_payout": 0.4794520547945205
+    },
+    "FDXM|100K Flex": {
+     "mean_net": 1401.083214611872,
+     "p_payout": 0.5223744292237443
+    },
+    "FDXM|150K Daily": {
+     "mean_net": 2570.4842831050228,
+     "p_payout": 0.4621004566210046
+    },
+    "FDXM|150K Flex": {
+     "mean_net": 930.43301369863,
+     "p_payout": 0.4684931506849315
+    },
+    "FDXM|50K Daily": {
+     "mean_net": 2233.626182648402,
+     "p_payout": 0.8337899543378996
+    }
+   }
+  }
+ }
+}
