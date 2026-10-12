@@ -8,7 +8,7 @@
 Windows fixed before any result, from each market's main session (local time): DAX (FDXM, EUR 5 a point) Xetra 09:00-17:30
 Frankfurt; Nikkei (NKD, $5 a point) 09:00-15:00 Tokyo; EUR, GBP, AUD, JPY (6E, 6B, 6A, 6J) 08:00-16:00 London; silver (SI,
 5,000 oz) COMEX 08:25-13:25 New York. None touches the 17:00-18:00 ET CME break. Paths: free HistData 1-minute bars (bid
-quotes; EST without DST), relative to the window's first minute, drift removed within each era (2010-20, 2021-26), in dollars
+quotes; New York local time with daylight saving - decisions.md 140), relative to the window's first minute, drift removed within each era (2010-20, 2021-26), in dollars
 at TODAY's contract value; entry long (6J long the yen). Assumed: at most 3 full-size contracts per account; commissions per
 contract round trip FDXM $4.0, NKD $4.0, FX $4.5, SI $4.5 (estimates).
 """
@@ -82,7 +82,7 @@ def build(market: str) -> None:
     for f in sorted(FX_DIR.glob(f"{sym}_*.zip")):
         z = zipfile.ZipFile(f); n = [x for x in z.namelist() if x.lower().endswith(".csv")][0]
         d = pl.read_csv(z.read(n), separator=";", has_header=False, new_columns=["ts", "o", "h", "l", "c"], columns=[0, 1, 2, 3, 4])
-        d = d.with_columns(pl.col("ts").str.strptime(pl.Datetime, "%Y%m%d %H%M%S").dt.replace_time_zone("Etc/GMT+5")
+        d = d.with_columns(pl.col("ts").str.strptime(pl.Datetime, "%Y%m%d %H%M%S").dt.replace_time_zone("America/New_York", ambiguous="earliest", non_existent="null")
                            .dt.convert_time_zone(tzname).alias("t")).drop("ts")
         d = d.with_columns(pl.col("t").dt.date().alias("date"),
                            (pl.col("t").dt.hour().cast(pl.Int32) * 60 + pl.col("t").dt.minute().cast(pl.Int32) - (sh * 60 + sm)).alias("m"))

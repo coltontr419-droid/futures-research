@@ -1,0 +1,37 @@
+{
+ "real_source": "NKD=F",
+ "sessions_common": 558,
+ "first": "2024-05-20",
+ "last": "2026-09-30",
+ "real_sessions_dropped_jump": 3,
+ "corr_window_return": 0.9803590656102416,
+ "sd_ratio_real_over_proxy": 0.9990329456558659,
+ "range_ratio_real_over_proxy": 0.9897700921819063,
+ "real_daily_sd_usd_one": 3325.679201571864,
+ "nkd_window_volume_median": 1246.5,
+ "nkd_window_volume_p10": 564.2,
+ "real": {
+  "replay": [
+   0.6666666666666666,
+   3600.0965187684396,
+   0.6223628691983122
+  ],
+  "block": [
+   0.6995,
+   2585.6553308446646,
+   0.648
+  ]
+ },
+ "proxy": {
+  "replay": [
+   0.6286919831223629,
+   3007.717085227483,
+   0.5991561181434599
+  ],
+  "block": [
+   0.725625,
+   2445.3267522019505,
+   0.646
+  ]
+ }
+}

@@ -8137,6 +8137,76 @@ for the same brackets, flagged UNUSUAL if |z| ≥ 2 on P&L or the outcome mix's 
 (`a18_demo_check --export-expected`), so the droplet needs no history; a stop capped near the floor maps to the nearest menu
 bracket. Tests extended. Deployed to the droplet with the user's go-ahead.
 
+## 140. Accounts 4–5 re-checked on real prices — a clock bug in all HistData work, fixed; soybeans is the sixth market (S8)
+
+**No trial spent; N 773.** `reporting/a22_more_markets.py`; `reports/a22_*.json`; A21 re-run (`reports/a21_*.json` overwritten
+with corrected values). At the user's request: re-check the NKD/DAX backtest, then look for a sixth and seventh market.
+
+**A clock bug, found by the re-check.** HistData's ASCII M1 timestamps are **New York local time with daylight saving**, not
+"EST without DST (UTC−5)" as `data/fx.py`, `data/fx_fix.py` and A21 assumed — so every HistData window ran **one hour late from
+March to November**. Shown three ways: A21's Nikkei proxy vs real NKD futures (window-return correlation 0.996 in US summer only
+when shifted an hour; 0.994 in winter unshifted); HistData S&P (spxusd) vs Databento NQ 1-minute returns, 2024 (summer 0.895 at
+−60 min, 0.012 at 0; winter 0.894 at 0); silver (xagusd) vs Databento MGC (0.708 / 0.010; 0.673 at 0 in winter). All three
+loaders now read the stamps as America/New_York; caches built the old way are in `data/cache/stale_utc5/`.
+**Affected and not re-run: Z10 (gotobi), Z11 (month-end fix), Z12 (EUR time of day), D01 (silver fix), D02 (AUD Tokyo fix) —
+trials t00775–t00779 — and both D-series discovery scans (§130, §134).** Their windows were an hour off for ~8 months a year;
+their REJECT verdicts are unsafe until re-run. Records stay as written (append-only).
+
+**Accounts 4–5, corrected** (A21 re-run; 84 days; replay):
+
+| | 2010–20 old → corrected | 2021–26 old → corrected |
+|---|---|---|
+| 1 NKD alone | 71% +$1,117 → 67% +$1,189 | 75% +$1,855 → 74% +$2,763 |
+| 2 FDXM alone | 75% +$1,724 → 73% +$2,072 | 85% +$3,621 → 83% +$1,879 |
+| five accounts: mean / P(net > 0) / 10th pct | +$6,833 / 87% / −$1,505 → **+$8,109 / 84% / −$654** | +$10,475 / 96% / +$1,374 → **+$9,448 / 94% / +$1,300** |
+
+**Real prices.** Yahoo hourly bars (NKD=F, 2024-05 → 2026-09; the official DAX index ^GDAXI for DAX — Yahoo has no Eurex
+futures), same dates, both as hourly bars with the OHLC path rule. Corrected proxy vs real: NKD correlation 0.98, SD ratio ~0.99,
+range ~0.97; 1 NKD replay +$3,600 real vs +$3,008 proxy (block +$2,586 / +$2,445). DAX correlation 0.94 (the index opens on a
+Xetra auction with stale prints; the CFD, like FDXM, trades before 09:00), +$3,906 index vs +$2,023 proxy — the proxy is the
+closer and more conservative guide for FDXM. NKD window volume: median ~1,250 contracts. **Accounts 4–5 stand.** `bot/expected.json`
+regenerated (NKD/FDXM outcome rates move ≤ 5 points; MNQ/MGC/MCL unchanged) — not yet deployed.
+
+**Sixth and seventh market.** Candidates fixed before any result, each market's whole session: natural gas (MNG), platinum (PL),
+copper (MHG), corn/soybeans/wheat (ZC/ZS/ZW), live cattle/lean hogs (LE/HE), bitcoin (MBT, not on Tradeify's stated list). Free
+Yahoo data: hourly ~730 days for all; daily since 2010 only where Yahoo's daily bar matched the hourly-built session (NG, BTC,
+grains), copper from the owned Databento file. **Yahoo's continuous hourly series interleaves two contract months around rolls**
+(corn June 2024, hogs Sept–Oct 2025 and March 2026, swings of 4–25%); sessions with an internal open/close jump > 0.8% or a
+one-hour move > max(5%, 15× the median) are dropped (NG 32, PL 12, HG 20, ZC 63, ZS 33, ZW 68, LE 34, HE 112, BTC 21 of ~560; the
+rule also drops a few real extremes, e.g. copper 2025-07-30). Sizes by the daily-swing rule ($2,900) within 3 full / 30 micro:
+27 MNG, 1 PL, 10 MHG, 3 ZC/ZS/ZW/LE/HE (corn and hogs reach only ~$1k), 13 MBT.
+
+Alone (replay P(payout), mean net; 2024–26 hourly · 2010–20 · 2021–26): **ZS 83% +$5,299 · 68% +$3,324 · 74% +$2,891**; LE 88%
++$3,367 (hourly only); NG 84% +$2,025 · 48% +$900 · 75% +$1,364; BTC 73% +$1,429 · 71% +$3,483 (2017–20) · 54% +$1,496; HG 48%
+−$509 · 39% +$493 · 66% +$1,594; PL 60% +$606; ZW 42% +$2,194 · 59% +$3,161 · 56% +$858; HE 52% +$1,077; ZC 37% +$271.
+Correlation with the five live accounts ≤ 0.2 for NG, ZS, LE, HE; copper +0.26–0.38 (Nasdaq, gold), platinum +0.44 (gold), bitcoin
++0.31 (Nasdaq); the grains +0.4–0.6 with each other.
+
+**Portfolio** (joint replay, common start dates, one run without bitcoin — `a22_portfolio.json`; with bitcoin in
+`a22_portfolio_with_btc.json`; per four months, mean / P(net > 0) / 10th pct):
+
+| | 2024–26 hourly (229 starts) | 2016–20 (669) | 2021–26 (1,019) |
+|---|---|---|---|
+| five live | +$8,329 / 99% / +$1,380 | +$8,117 / 84% / −$679 | +$9,446 / 94% / +$1,300 |
+| **+ soybeans (6)** | **+$14,327 / 100% / +$3,773** | **+$9,524 / 87% / −$968** | **+$12,586 / 96% / +$2,768** |
+| + natural gas (6) | +$9,673 / 94% / +$547 | +$9,095 / 93% / +$1,280 | +$10,860 / 96% / +$1,376 |
+| + cattle (6) | +$10,437 / 100% / +$1,403 | — | — |
+| + soybeans + natural gas (7) | +$15,671 / 100% / +$5,685 | +$10,503 / 94% / +$1,322 | +$14,000 / 97% / +$3,873 |
+| + soybeans + cattle (7) | +$16,436 / 100% / +$5,014 | — | — |
+| soybeans in place of crude (5) | +$12,593 / 100% / +$3,688 | +$9,119 / 86% / −$408 | +$11,495 / 97% / +$2,778 |
+
+**Stress — stops filled at the bar's extreme** (an upper bound on gap slippage; soybeans and cattle pause overnight / trade one
+session): ZS hourly +$5,299 → +$2,586, daily +$3,324 → −$320 and +$2,891 → −$162; LE hourly +$3,367 → +$2,794; NG hourly
++$2,025 → −$292. On daily bars the bound is extreme (a whole day's low as the fill); on hourly bars soybeans and cattle keep most
+of their result and natural gas does not. Soybeans bar-to-bar gaps > 0.25%: 2.8% of hours.
+
+**Reading.** Soybeans (3 ZS) is the best sixth market in all three histories and the best swap for crude if the plan stays at
+five accounts; natural gas (27 MNG) is the better-tested seventh (long history, the best 10th percentile in 2016–20), cattle (3 LE)
+the stronger one on two years of data only. All on free Yahoo bars (hourly within ~10–15%, daily ~30% of the minute answer) —
+a go/no-go, not a forecast. **Open with the user:** Tradeify's 5-funded cap (a sixth or seventh account needs it lifted — or a
+swap); shadow-tracking ZS and NG/LE in the bot before buying anything; deploying the regenerated `expected.json`; re-running
+Z10–Z12, D01–D02 and the D-series scans on the corrected clock.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

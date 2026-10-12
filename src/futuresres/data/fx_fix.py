@@ -1,7 +1,8 @@
 """Free HistData 1-minute bars (EUR/USD, GBP/USD; S&P 500, Euro Stoxx 50, FTSE 100 index CFDs) reduced to what the
 month-end-fix test needs, one file at a time (the 2.7 GB machine). decisions.md 127.
 
-HistData ASCII M1 timestamps are EST without DST (UTC-5). Kept per pair: the price at 15:00 and 16:00 London time
+HistData ASCII M1 timestamps are New York local time WITH daylight saving (decisions.md 140; read as
+UTC-5 until then, an hour late from March to November). Kept per pair: the price at 15:00 and 16:00 London time
 (close of the bar ending then) on every date; per index: the last price of each New York trading date (a daily close).
 """
 
@@ -21,7 +22,7 @@ def _read(f: Path) -> pl.DataFrame:
     z = zipfile.ZipFile(f)
     name = [n for n in z.namelist() if n.lower().endswith(".csv")][0]
     d = pl.read_csv(z.read(name), separator=";", has_header=False, new_columns=["ts", "c"], columns=[0, 4])
-    return d.with_columns(pl.col("ts").str.strptime(pl.Datetime, "%Y%m%d %H%M%S").dt.replace_time_zone("Etc/GMT+5")
+    return d.with_columns(pl.col("ts").str.strptime(pl.Datetime, "%Y%m%d %H%M%S").dt.replace_time_zone("America/New_York", ambiguous="earliest", non_existent="null")
                           .dt.convert_time_zone("UTC").alias("utc")).drop("ts")
 
 

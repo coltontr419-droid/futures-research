@@ -1,4 +1,4 @@
-"""Free USD/JPY spot 1-minute bars from HistData.com (ASCII M1; timestamps EST without DST, UTC-5), downloaded to
+"""Free USD/JPY spot 1-minute bars from HistData.com (ASCII M1; timestamps New York local time WITH daylight saving - see decisions.md 140), downloaded to
 data/fx_histdata/usdjpy_{YYYY|YYYYMM}.zip (gitignored). decisions.md 122.
 
 Only the minutes a gotobi test needs are kept (one file at a time - the 2.7 GB machine): the close of the bar ending
@@ -28,7 +28,7 @@ def key_points() -> pl.DataFrame:
         z = zipfile.ZipFile(f)
         name = [n for n in z.namelist() if n.lower().endswith(".csv")][0]
         d = pl.read_csv(z.read(name), separator=";", has_header=False, new_columns=["ts", "o", "c"], columns=[0, 1, 4])
-        d = d.with_columns(pl.col("ts").str.strptime(pl.Datetime, "%Y%m%d %H%M%S").dt.replace_time_zone("Etc/GMT+5")
+        d = d.with_columns(pl.col("ts").str.strptime(pl.Datetime, "%Y%m%d %H%M%S").dt.replace_time_zone("America/New_York", ambiguous="earliest", non_existent="null")
                            .dt.convert_time_zone("UTC").alias("utc")).drop("ts")
         d = d.with_columns(pl.col("utc").dt.convert_time_zone("Asia/Tokyo").alias("jst"),
                            pl.col("utc").dt.convert_time_zone("America/New_York").alias("et"))

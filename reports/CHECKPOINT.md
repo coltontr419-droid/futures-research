@@ -784,6 +784,12 @@ still silver's weakest hour (placebo 95th) but +0.75 bps net, t 0.95, faded afte
 **A21 (§137): accounts 4 and 5 = Nikkei (1 NKD, 20:00–02:00 ET) and DAX (2 FDXM, 03:00–11:30 ET).** Five accounts: per 4 months
 mean +$6.4–10.5k, ends ahead 85–96%. OPEN: user to confirm Tradeify permits NKD/FDXM + contract cap; then add to bot.
 **§138: NKD + FDXM added to the bot (5 tickets at 17:30); forward test first, evals only if positive.** Deploy pending user OK.
+**§139:** ticks in tickets + Friday weekly check (deployed).
+**§140 (A22): HistData stamps are New York time WITH DST — every HistData window was an hour late Mar–Nov; loaders fixed.**
+Accounts 4–5 hold after the fix (five accounts +$8.1k / +$9.4k per 4 months, ends ahead 84% / 94%); NKD checks out on real
+futures. **Z10–Z12, D01–D02 and the D-series scans used the wrong clock — re-run needed.** Sixth market: **soybeans (3 ZS)**,
+best in all three histories and best swap for crude; seventh: natural gas (27 MNG) or cattle (3 LE). Free Yahoo data only.
+OPEN: Tradeify 5-funded cap; shadow-track ZS/NG/LE; deploy regenerated bot/expected.json (user OK).
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the
