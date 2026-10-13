@@ -10498,6 +10498,14 @@ V-shaped crises, slightly negative in ordinary years. That is a crisis bet, not 
 than it looks: the losing years are the normal ones, and the winning trades come in the weeks the daily loss limits bind hardest.
 Neither is forward-tracked for deployment; future sector-shock fades on MNQ are read in this light. Z and D market-test 118.
 
+## 337. D-series family 78 protocol: Nasdaq against the S&P inside the day (S1)
+
+**No trial spent; N 882. Written and committed BEFORE any statistic is computed.** Family 17 tested relative value on daily bars only.
+Divergence = MNQ's 09:30 → 12:00 return (day grid) minus the S&P's (HistData spxusd, corrected clock) over the same span, in bps.
+Target MNQ 12:00 → 16:00, against the divergence (catch-down) or with it, fixed by discovery. Forms **all** and **strong** (|divergence|
+above its discovery median). **2 tests**, with the descriptive 2010–17 column (§306; NQ day sessions are sparse before 2013). Cost MNQ
+0.5 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
