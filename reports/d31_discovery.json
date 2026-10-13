@@ -1,0 +1,591 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 56,
+ "carried": [
+  {
+   "group": "small",
+   "market": "ZW",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 324,
+   "net_bps": 24.156632812407363,
+   "t_week": 2.430048339527493,
+   "carried": true
+  },
+  {
+   "group": "small",
+   "market": "SI",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1255,
+   "net_bps": 7.221762121353909,
+   "t_week": 1.9763378504003857,
+   "carried": true
+  }
+ ],
+ "all": [
+  {
+   "group": "small",
+   "market": "ZW",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 324,
+   "net_bps": 24.156632812407363,
+   "t_week": 2.430048339527493,
+   "carried": true
+  },
+  {
+   "group": "small",
+   "market": "SI",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1255,
+   "net_bps": 7.221762121353909,
+   "t_week": 1.9763378504003857,
+   "carried": true
+  },
+  {
+   "group": "small",
+   "market": "ES",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1256,
+   "net_bps": 6.613609586241734,
+   "t_week": 1.8420772900197764,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "NQ",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 306,
+   "net_bps": 11.51133563193473,
+   "t_week": 1.4513443183163055,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ES",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 368,
+   "net_bps": 12.106443486883439,
+   "t_week": 1.433460302804171,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZW",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 275,
+   "net_bps": 14.160001344471334,
+   "t_week": 1.3019201995592196,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "6E",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 500,
+   "net_bps": 2.8541289514202823,
+   "t_week": 1.2767187865822032,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZS",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 331,
+   "net_bps": 7.455129120315191,
+   "t_week": 1.2011750343428143,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "CL",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1255,
+   "net_bps": 10.3164925617616,
+   "t_week": 1.1918969941768345,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "NQ",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 197,
+   "net_bps": 10.218928696502582,
+   "t_week": 1.1438869830253806,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "6E",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 295,
+   "net_bps": 2.2774897282077413,
+   "t_week": 1.0851540296840376,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "6J",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1257,
+   "net_bps": 1.3585653477768185,
+   "t_week": 0.9580888435284073,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "NG",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1256,
+   "net_bps": 8.021356413362712,
+   "t_week": 0.873506966785259,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "SI",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1255,
+   "net_bps": 3.0423374263316902,
+   "t_week": 0.8270060728057531,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "NG",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1256,
+   "net_bps": 7.594792930356779,
+   "t_week": 0.8269595732102931,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "6J",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 295,
+   "net_bps": 2.176836307361078,
+   "t_week": 0.7961593154235668,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "6E",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1257,
+   "net_bps": 0.9401245582954582,
+   "t_week": 0.7257584856582667,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ZC",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1255,
+   "net_bps": 3.0966259543470396,
+   "t_week": 0.7079551517808371,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ZN",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 468,
+   "net_bps": 0.925941468429987,
+   "t_week": 0.67311199075444,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ZS",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1257,
+   "net_bps": 2.2404061228421956,
+   "t_week": 0.6120675754743259,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ES",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1256,
+   "net_bps": 2.189012232936897,
+   "t_week": 0.6054947464267918,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "CL",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 359,
+   "net_bps": 8.390912653700688,
+   "t_week": 0.5755104429306602,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "6E",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1257,
+   "net_bps": 0.7121468335260008,
+   "t_week": 0.5494950821593596,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZN",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 390,
+   "net_bps": 0.7320660155756522,
+   "t_week": 0.5134129507101373,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "CL",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1255,
+   "net_bps": 4.331027039600562,
+   "t_week": 0.4991419985173276,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "RTY",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 290,
+   "net_bps": 3.351309561904973,
+   "t_week": 0.49204115635136875,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ZW",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1257,
+   "net_bps": 2.6151395949510357,
+   "t_week": 0.4911208980047312,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "NG",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 349,
+   "net_bps": 7.971559867592588,
+   "t_week": 0.4006242639924215,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "NQ",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1257,
+   "net_bps": 1.4300944743451007,
+   "t_week": 0.36598054163402816,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ES",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 388,
+   "net_bps": 2.379552781610517,
+   "t_week": 0.33056339192489137,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ZS",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 342,
+   "net_bps": 1.9766014927784963,
+   "t_week": 0.2818729784288506,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "HG",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 463,
+   "net_bps": 1.2076762731920319,
+   "t_week": 0.2622112302419697,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "6J",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 326,
+   "net_bps": 0.8062156951175627,
+   "t_week": 0.25555524026496657,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "RTY",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 267,
+   "net_bps": 1.9726619436145159,
+   "t_week": 0.23925144788328195,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "GC",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1256,
+   "net_bps": 0.5138171737606234,
+   "t_week": 0.21736596232373878,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "NQ",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1257,
+   "net_bps": 0.7589290864814785,
+   "t_week": 0.1941566531636426,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "SI",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 301,
+   "net_bps": 1.086151515787042,
+   "t_week": 0.18878197848803296,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "GC",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 367,
+   "net_bps": 0.6921911788216312,
+   "t_week": 0.1845298989937242,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "CL",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 338,
+   "net_bps": 3.0123940057974767,
+   "t_week": 0.14748701280180604,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "SI",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 343,
+   "net_bps": 0.9427871860726385,
+   "t_week": 0.1330942192303718,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "NG",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 478,
+   "net_bps": 1.9794750236496896,
+   "t_week": 0.12274643068885696,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "RTY",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1257,
+   "net_bps": 0.5078042231238213,
+   "t_week": 0.11375230923857496,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZS",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1257,
+   "net_bps": 0.39527555339356363,
+   "t_week": 0.10787464756562912,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "GC",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1256,
+   "net_bps": 0.2048214904491799,
+   "t_week": 0.08662404725558422,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "GC",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 365,
+   "net_bps": 0.16735277363686318,
+   "t_week": 0.03725019608329184,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ZC",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 407,
+   "net_bps": 0.09447726685420829,
+   "t_week": 0.01228822038985913,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "HG",
+   "kind": "crowding",
+   "rule": "follow",
+   "sessions": 315,
+   "net_bps": -0.37029361466457555,
+   "t_week": -0.05392430250915462,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZC",
+   "kind": "crowding",
+   "rule": "fade",
+   "sessions": 345,
+   "net_bps": -1.7544064734108262,
+   "t_week": -0.19049820379980523,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZW",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1257,
+   "net_bps": -1.2337437431615184,
+   "t_week": -0.2314308104419029,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "ZN",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1257,
+   "net_bps": -0.2437496132829217,
+   "t_week": -0.2576848760909295,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "RTY",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1257,
+   "net_bps": -1.2071498900045505,
+   "t_week": -0.27030247664352347,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "6J",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1257,
+   "net_bps": -0.3977436343088464,
+   "t_week": -0.2795808155636517,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZN",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1257,
+   "net_bps": -0.27791486023461526,
+   "t_week": -0.29384203927071134,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "ZC",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1255,
+   "net_bps": -1.3846270702572456,
+   "t_week": -0.31582234748382726,
+   "carried": false
+  },
+  {
+   "group": "small",
+   "market": "HG",
+   "kind": "flow",
+   "rule": "follow",
+   "sessions": 1256,
+   "net_bps": -1.3525092643501426,
+   "t_week": -0.45300780307861344,
+   "carried": false
+  },
+  {
+   "group": "commercial",
+   "market": "HG",
+   "kind": "flow",
+   "rule": "fade",
+   "sessions": 1256,
+   "net_bps": -1.9709295674707756,
+   "t_week": -0.6600192239363333,
+   "carried": false
+  }
+ ]
+}

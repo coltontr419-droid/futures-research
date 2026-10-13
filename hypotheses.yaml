@@ -10063,3 +10063,89 @@
       decisions.md 207, 3 via 224: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 106.
   s6_control: By year; non-shock days.
+- id: D95
+  name: zw_fades_small_crowding
+  mechanism: >
+    DATA-DERIVED (D-series family 31, COT groups, decisions.md 230-231): in 2018-2022, ZW's sessions in the week after a COT
+    report traded to fade the small traders' crowding earned +24.16 bps a session net (week-clustered t +2.43).
+    THE COUNTERPARTY would be the positioning group itself. Carried by a scan with fewer passes than chance (2 of 56).
+  condition: >
+    Each week: trade ZW's five sessions after the Friday COT release fadeing the small crowding signal; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - the shuffled-week placebo is the control (decisions.md 231).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 129
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-31 scan (56 tests, decisions.md 230). ONE TRIAL.
+  session: Globex
+  symbols: [ZW]
+  mechanism_instruments:
+    primary: ZW
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 228, 3: CONFIRM if net > 0 week-clustered t > 1.645, >= 95th pct of shuffled weeks, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 107.
+  s6_control: By year; shuffled weekly signal.
+- id: D96
+  name: si_follows_small_flow
+  mechanism: >
+    DATA-DERIVED (D-series family 31, COT groups, decisions.md 230-231): in 2018-2022, SI's sessions in the week after a COT
+    report traded to follow the small traders' flow earned +7.22 bps a session net (week-clustered t +1.98).
+    THE COUNTERPARTY would be the positioning group itself. Carried by a scan with fewer passes than chance (2 of 56).
+  condition: >
+    Each week: trade SI's five sessions after the Friday COT release following the small flow signal; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - the shuffled-week placebo is the control (decisions.md 231).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 130
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-31 scan (56 tests, decisions.md 230). ONE TRIAL.
+  session: Globex
+  symbols: [SI]
+  mechanism_instruments:
+    primary: SI
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 228, 3: CONFIRM if net > 0 week-clustered t > 1.645, >= 95th pct of shuffled weeks, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 108.
+  s6_control: By year; shuffled weekly signal.

@@ -9713,6 +9713,18 @@ design (flow and crowding, next week's five sessions, week-clustered t, recent-p
 (group long − short) / open interest for each group. **14 markets × 2 groups × 2 signals = 56 tests**; ~2.8 by chance. Z and D
 market-tests from 107.
 
+## 231. Family-31 discovery: two of 56 (fewer than chance, ~2.8); D95–D96 registered per protocol (S1–S5)
+
+**No trial spent at registration; N 870. Committed BEFORE validation data is read.** `reporting/d31_cotgroups.py`,
+`reports/d31_discovery.json`; `signals/d_cot.py`.
+
+| id | market | signal | rule | sessions | discovery net |
+|---|---|---|---|---|---|
+| D95 | ZW | small crowding | fade | 324 | +24.16, t +2.43 |
+| D96 | SI | small flow | follow | 1255 | +7.22, t +1.98 |
+
+Z and D market-tests 107–108.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
