@@ -10197,6 +10197,11 @@ session** (09:30 → 16:00); follow or fade fixed by discovery; forms **all** an
 at both ends of each target. **2 targets × 2 forms = 4 tests.** Cost MNQ 0.5 bps; recent-period design; carried at net > 0, t > 1.96;
 validation as §207, 3.
 
+## 296. Family-59 discovery: the post-close hour predicts neither the night nor the next day — 0 of 4 carried (S1)
+
+**No trial spent; N 878.** `reports/d59_discovery.json`: best follows a strong post-close move into the next day +6.9 bps (t +1.21).
+Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
