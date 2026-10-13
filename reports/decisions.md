@@ -10518,6 +10518,18 @@ in 2010–17 (−2.3, t −1.60). Empty.
 (above the discovery median). **2 tests**, with the descriptive 2010–17 column. Cost MNQ 0.5 bps; recent-period design; carried at
 net > 0, t > 1.96; validation as §207, 3.
 
+## 340. Family-79 discovery: MNQ's Asian night and European morning — 0 of 2 carried (S1)
+
+**No trial spent; N 882.** `reports/d79_discovery.json`: fading a strong Asian night +5.1 bps (t +1.87; 2010–17 +1.7, t +0.67). Empty.
+
+## 341. D-series family 80 protocol: soybeans against the crush margin (S1)
+
+**No trial spent; N 882. Written and committed BEFORE any statistic is computed.** Family 75's design for the demo's soybean account:
+board crush ($/bu) = ZM × 0.022 + ZL × 0.11 − ZS (Yahoo settlements; ZM $/short ton, ZL ¢/lb, ZS ¢/bu converted to $), roll-jump days
+dropped as §329. **A shock** — the crush's daily change beyond 2 SD of the previous 60; **B stretch** — its level more than 2 SD from
+the previous-60 mean. Target ZS's next session (family-10 open → settlement), with or against, fixed by discovery. **2 tests**, with
+the descriptive 2010–17 column. Cost ZS 0.7 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
