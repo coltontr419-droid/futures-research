@@ -60,6 +60,9 @@ class Spec:
     live_after: int = 3
     k_contracts: float = field(default=1.0)
     cap_usd: float = 0.0             # the real per-payout cap in $ (the game uses whole $100 units)
+    cost: float = 0.0                # A24: round trip $ per trade priced into the odds, p = (L - c) / (W + L); 0 = A01's fair coin
+    he: int = 21                     # A24: evaluation horizon (days) the policy is solved for
+    hf: int = 21                     # A24: funded horizon (days)
 
     @property
     def w_set(self) -> tuple:
@@ -109,7 +112,7 @@ def solve_eval(s: Spec, days: int = 21) -> tuple[np.ndarray, dict, float]:
             vw = np.where(win_pass, 1.0, V[bw - B_MIN, pkw, bdw])
             dist = B - (PK - s.dd)
             for L in s.l_eval:
-                Le = np.minimum(L, dist); p = Le / (W + Le)
+                Le = np.minimum(L, dist); p = np.clip(Le - s.cost / 100, 0, None) / (W + Le)
                 bl = B - Le; fail = bl <= PK - s.dd
                 vl = np.where(fail, 0.0, V[np.clip(bl, B_MIN, B_MAX) - B_MIN, PK, BD])
                 val = p * vw + (1 - p) * vl
@@ -150,7 +153,7 @@ def solve_funded(s: Spec, days: int = 21) -> tuple[np.ndarray, dict, float]:
             bw, pkw, nw, ww, aw = settle(np.minimum(B + W, FMAX), won)
             rw = aw * 90.0 + V[bw - FMIN, pkw, nw, ww]
             for L in s.l_funded:
-                Le = np.minimum(L, np.maximum(B - floor, 1)); p = Le / (W + Le)
+                Le = np.minimum(L, np.maximum(B - floor, 1)); p = np.clip(Le - s.cost / 100, 0, None) / (W + Le)
                 bl = B - Le; failL = bl <= floor
                 bl2, pkl, nl, wl, al = settle(np.clip(bl, FMIN, FMAX), 0)
                 rl = np.where(failL, 0.0, al * 90.0 + V[bl2 - FMIN, pkl, nl, wl])
@@ -166,7 +169,7 @@ _POL: dict = {}
 
 def policy(s: Spec):
     if s not in _POL:
-        pe, ge, v_e = solve_eval(s); pf, gf, v_f = solve_funded(s)
+        pe, ge, v_e = solve_eval(s, s.he); pf, gf, v_f = solve_funded(s, s.hf)
         _POL[s] = (pe, ge, v_e, pf, gf, v_f)
     return _POL[s]
 
@@ -208,12 +211,14 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON) -> d
         # breaches it - and is replaced by a new evaluation. (a02_real reaches nearly the same end through its 2.32 engine cost.)
         trade = (a > 0) & (eq - floor > cost + 10)
         pnl = _bracket(h[idx], l[idx], c[idx], np.where(trade, W + cost, 1e12), np.where(trade, np.maximum(L - cost, 1.0), 1e12))
-        pnl = np.where(trade, pnl - cost, 0.0)
+        # P&L to the cent: float32 paths made a +$600 take land at $599.99, so an account at exactly the target failed to
+        # pass (found on crude, decisions.md 146); the live engine's 2.32 offsets happened to avoid it.
+        pnl = np.round(np.where(trade, pnl.astype(np.float64) - cost, 0.0), 2)
         ne = eq + pnl; br = (ne <= floor) | ~trade
         eq = ne; pk = np.maximum(pk, ne)
         best = np.where(ev, np.maximum(best, pnl), best)
         prof = eq - START
-        ok = ev & ~br & (prof >= s.target * 100) & (best <= s.cons * prof)
+        ok = ev & ~br & (prof >= s.target * 100 - 0.005) & (best <= s.cons * prof + 0.005)
         if s.flex_thr:
             wc = np.where(fu & (pnl >= s.flex_thr), wc + 1, wc)
             elig = wc >= 5

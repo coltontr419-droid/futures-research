@@ -8347,6 +8347,41 @@ open with the user.
 
 **Decided (user, 2026-10-12):** the add-on costs more than $27 per evaluation — not bought; the plan stays at 40% consistency.
 
+**Corrected 2026-10-13 (§146):** A23's replay summed float32 P&L, so an account landing exactly on the target (e.g. +$600 on a
+$33.20 round trip read as $599.99) failed to pass. Fixed (P&L to the cent; ½-cent tolerance on the target) and re-run: all-50K books
+**+$8,023, 92%** (2016–20, crude) and **+$9,468, 93%, p10 +$1,748** (2021–26, crude); soybean books unchanged; the 100K / 150K books
+unchanged to the dollar. The conclusion stands.
+
+## 146. A24: pricing commissions into the solver does not improve the plan — not adopted; a float-precision bug in A23 fixed (S8)
+
+**No trial spent; N 787.** `reporting/a24_cost_aware.py`, `reports/a24_book.json`. A01 prices a bracket +W / −L (net) as a fair
+coin, L / (W + L); with the round trip c the gross levels are W + c and L − c, so on a fair market P(win) = (L − c) / (W + L).
+A24 adds only that known term (A05's measured odds fitted one regime, §102) and re-tries the longer horizons that the cost-blind
+solver spoiled (§135–136). Variants fixed before any result, one rule for every market; live sizes; 84-day replay from every start.
+
+**Engine fix first.** A24's first pass showed crude far below the live engine (+$242 vs +$820): A23's replay summed float32
+paths, so an evaluation landing exactly on +$3,000 read $2,999.99 and never passed. Fixed (P&L rounded to the cent, ½-cent
+tolerance on target and consistency); A23 and A24 re-run. Against the live engine: MNQ +$1,265.3 vs +$1,265.5, MGC +$2,248 vs
++$2,229, MCL +$834 vs +$820 (payout rate 60% vs 52%: on days within one round trip of the floor A23 retires the account, as the
+playbook and bot do, §113, while the live engine trades on with a $1 stop through its fixed 2.32 cost offset).
+
+| five accounts, per four months (mean / P(net > 0) / 10th pct) | 2016–20, crude | 2016–20, soybeans | 2021–26, crude | 2021–26, soybeans |
+|---|---|---|---|---|
+| **plan (fair coin, 21 / 21)** | **+$8,023 / 92% / +$259** | +$8,907 / 88% / −$752 | **+$9,468 / 93% / +$1,748** | **+$12,499 / 98% / +$3,941** |
+| cost-aware, 21 / 21 | +$8,105 / 85% / −$910 | +$8,648 / 81% / −$1,447 | +$8,219 / 90% / +$17 | +$11,608 / 96% / +$1,847 |
+| cost-aware, 42 / 21 | +$8,708 / 85% / −$1,359 | +$9,902 / 89% / −$369 | +$8,225 / 85% / −$723 | +$10,362 / 95% / +$1,681 |
+| cost-aware, 21 / 63 and 42 / 63 | = 21 / 21 and 42 / 21 (the funded policy does not change) | | | |
+
+By market (2021–26 / 2016–20 mean net, plan → cost-aware): MNQ +$1,265 → +$1,741 / +$1,960 → +$2,050; MGC +$2,248 → +$1,408 /
++$2,075 → +$2,477; MCL +$834 → +$636 / +$678 → +$771; NKD +$2,763 → +$1,694 / +$1,189 → +$1,655; FDXM +$1,879 → +$1,991 /
++$2,071 → +$2,037; ZS +$3,727 → +$3,859 / +$3,024 → +$3,922.
+
+**Reading.** Pricing the commission in shifts brackets slightly and moves single markets by ±$1k either way, with no sign
+that holds across both histories except MNQ's small gain; the books lose P(net > 0) and the 10th percentile in every case, and
+the mean in three of four. Picking the variant per market would be choosing after the fact. **Not adopted; the plan's fair-coin
+solver stays.** With the ≥ $500 stop menu (§136) the commission is already small against the brackets (c / (W + L) ≈ 0.2–1.5%),
+so there was little left to fix — the cost-blind failure of §135 lived in the tiny stops that menu removed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
