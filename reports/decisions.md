@@ -8747,6 +8747,37 @@ D34 (gold's move, strong days) t +1.60 — both short of 1.645 by a hair, placeb
 (D03's lesson, §144); (2) silver is not one of the plan's accounts — its value in the plan (a silver account in place of the
 weakest, at the risk-matched size, the rule on strong days and long otherwise) must be replayed before anything changes.
 
+## 164. D32 checked on real silver futures and replayed in the plan: real, but too small to move the brackets (S8)
+
+**No trial spent; N 812.** `reporting/a26_silver.py`, `reports/a26_silver.json`.
+
+**Real futures.** COMEX silver (Yahoo SI=F hourly, 2024-05 → 2026-10, contract-switch hours dropped; the window ends at 11:00 or
+12:00 as hourly bars allow): the D32 rule earns **+15.9 bps a day beyond drift (t +1.59)** to 11:00 and **+24.0 (t +2.17)** to 12:00;
+against always-long +14.7 (t +0.98) / +19.7 (t +1.18). The free bid-quote series on the same span: +18.5 (t +1.95). Same sign and
+size on traded prices — **not a quote artefact** (contrast D03, §144).
+
+**In the plan** (A23 engine; a silver London-window account, 3 SIL — one SIL $61k, window SD $958, swing $2,874; drift removed so
+only skill beyond drift is credited; the rule short on 23–26% of days, acting on 48–57%):
+
+| 84 days, per account | 2010–20 (rule in sample) | 2021–26 (out of sample) |
+|---|---|---|
+| silver, always long | 60%, +$1,440, P(net > 0) 49% | 80%, **+$1,865**, 71% |
+| silver with D32 | 63%, +$1,574, 53% | 77%, +$1,684, 63% |
+
+| five accounts, per four months | 2010–20 | 2021–26 |
+|---|---|---|
+| 5 live (crude) | +$8,023, 92% | +$9,468, 93% |
+| silver always long for crude | **+$9,563, 91%** | **+$10,375, 96%** |
+| silver with D32 for crude | +$8,361, 87% | +$10,179, 94% |
+| 5 with soybeans for crude (§140) | +$8,907, 88% | +$12,499, 98% |
+
+**Reading.** D32 adds ~9–14 bps a day on the days it acts — about $15–20 a day on 3 SIL — against brackets of ±$1,000–1,200 that
+resolve within hours. The bracket's take-or-stop is decided by the path, the rule predicts the window's end-to-end drift, and at this
+size the drift does not move the hit rates (Z02's lesson, §89: an edge must be large against the daily swing on the days it is
+held). **D32 stands as a confirmed edge; it is not adopted into the plan.** Side finding: silver's London window, always long, beat
+crude as the fifth account in both histories (+$0.9–1.5k per four months), but its window correlates +0.77–0.81 with gold's, and
+soybeans in crude's place remains the better swap in 2021–26.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

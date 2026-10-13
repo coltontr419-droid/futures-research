@@ -1,0 +1,131 @@
+{
+ "size": {
+  "SIL": 3,
+  "one_contract_daily_sd": 958.1209716796875,
+  "notional_one": 61137.0
+ },
+ "pre": {
+  "SIL always long": {
+   "p_payout": 0.6009492515516612,
+   "mean_net": 1440.4033048557862,
+   "p_net_positive": 0.4855786783497627,
+   "short_days": 0.0,
+   "strong_days": 0.0
+  },
+  "SIL with D32": {
+   "p_payout": 0.6272362175976633,
+   "mean_net": 1573.797753559693,
+   "p_net_positive": 0.5290251916757941,
+   "short_days": 0.22883457314913214,
+   "strong_days": 0.48352816153028694
+  },
+  "5 live": {
+   "starts": 689,
+   "mean_net": 8022.817082728593,
+   "median_net": 6520.6900000000005,
+   "p_net_positive": 0.9216255442670537,
+   "net_p10": 259.4000000000001,
+   "worst": -5005.6,
+   "mean_fees": 4989.027576197387
+  },
+  "silver (always long) for crude": {
+   "starts": 725,
+   "mean_net": 9562.717333793104,
+   "median_net": 8027.740999999998,
+   "p_net_positive": 0.9131034482758621,
+   "net_p10": 278.4838000000001,
+   "worst": -2518.653000000002,
+   "mean_fees": 4854.951724137931
+  },
+  "silver with D32 for crude": {
+   "starts": 725,
+   "mean_net": 8360.765991724136,
+   "median_net": 6429.71,
+   "p_net_positive": 0.8731034482758621,
+   "net_p10": -540.6299999999999,
+   "worst": -4685.6,
+   "mean_fees": 4841.931034482759
+  },
+  "5 with soybeans": {
+   "starts": 724,
+   "mean_net": 8907.25455801105,
+   "median_net": 6719.75,
+   "p_net_positive": 0.8784530386740331,
+   "net_p10": -751.7439999999998,
+   "worst": -4595.969999999999,
+   "mean_fees": 4894.03314917127
+  },
+  "silver with D32 for crude, soybeans for DAX": {
+   "starts": 744,
+   "mean_net": 7892.325528225805,
+   "median_net": 4570.3150000000005,
+   "p_net_positive": 0.7473118279569892,
+   "net_p10": -3635.97,
+   "worst": -5360.0,
+   "mean_fees": 4789.247311827957
+  },
+  "corr_silver_gold_window": 0.8091973777697772
+ },
+ "post": {
+  "SIL always long": {
+   "p_payout": 0.7957911145752143,
+   "mean_net": 1864.507515198753,
+   "p_net_positive": 0.7131722525331254,
+   "short_days": 0.0,
+   "strong_days": 0.0
+  },
+  "SIL with D32": {
+   "p_payout": 0.7724084177708496,
+   "mean_net": 1683.6024216679657,
+   "p_net_positive": 0.6266562743569758,
+   "short_days": 0.2626188734455011,
+   "strong_days": 0.5713240673006583
+  },
+  "5 live": {
+   "starts": 1040,
+   "mean_net": 9468.020903846154,
+   "median_net": 8821.17,
+   "p_net_positive": 0.9326923076923077,
+   "net_p10": 1747.569,
+   "worst": -4380.0,
+   "mean_fees": 5394.384615384615
+  },
+  "silver (always long) for crude": {
+   "starts": 1095,
+   "mean_net": 10374.526598173516,
+   "median_net": 9623.7,
+   "p_net_positive": 0.9561643835616438,
+   "net_p10": 2063.5380000000005,
+   "worst": -4760.0,
+   "mean_fees": 5309.1506849315065
+  },
+  "silver with D32 for crude": {
+   "starts": 1095,
+   "mean_net": 10179.386099543379,
+   "median_net": 10170.512999999999,
+   "p_net_positive": 0.94337899543379,
+   "net_p10": 1702.5,
+   "worst": -5120.0,
+   "mean_fees": 5306.520547945205
+  },
+  "5 with soybeans": {
+   "starts": 1095,
+   "mean_net": 12498.591278538812,
+   "median_net": 11513.33,
+   "p_net_positive": 0.9753424657534246,
+   "net_p10": 3940.8320000000003,
+   "worst": -2919.08,
+   "mean_fees": 5175.37899543379
+  },
+  "silver with D32 for crude, soybeans for DAX": {
+   "starts": 1150,
+   "mean_net": 12093.944700869564,
+   "median_net": 11202.3,
+   "p_net_positive": 0.9782608695652174,
+   "net_p10": 3650.599,
+   "worst": -3079.08,
+   "mean_fees": 5226.226086956522
+  },
+  "corr_silver_gold_window": 0.7743940538906173
+ }
+}
