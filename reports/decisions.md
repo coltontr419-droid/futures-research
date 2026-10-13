@@ -9734,6 +9734,21 @@ Z and D market-tests 107–108.
 | D95 t00877 | ZW fades small crowding (next week) | 217 | -12.37 (t -1.25) | 12 | **REJECT** |
 | D96 t00878 | SI follows small flow (next week) | 915 | -1.41 (t -0.24) | 42 | **REJECT** |
 
+## 233. D68's timing: since 2023 the S&P's response to a bond shock is all in the day window (S8)
+
+**No trial spent; N 872.** Owned MNQ trades after a ZN shock (Yahoo ZN, 2 σ): 2018–22 night 18:00 → 09:30 +20.1 bps (t +1.67) and day
+09:30 → 16:00 +19.8 (t +1.19); **2023–26 night +2.0 (t +0.13), day +40.7 (t +2.26).** The deployed implementation (§211: the MNQ
+ticket's 09:30 → 16:00 window) is the right one; no change.
+
+## 234. D-series family 32 protocol: weekend gaps (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** Weekend news arrives while futures are shut; the
+Sunday 18:00 reopen gaps from Friday's close. Does Monday's window follow or reverse it? Family-8 grids (owned trades): MNQ — gap =
+the night session's first price (Sunday 18:00) against Friday's day-window close (16:00); target = Monday's day window 09:30–16:00.
+MGC — gap = Sunday 18:00 against Friday's London close (11:30); target = Monday's London window 03:00–11:30. Forms: |gap| > 1 σ
+and > 2 σ (σ = SD of the previous 52 weekend gaps). **2 markets × 2 thresholds = 4 tests.** Recent-period design (§180); carried at
+net > 0 with t > 1.96 (follow or fade by the sign); validation as §207, 3 (placebo: random non-gap Mondays). Z and D tests from 109.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
