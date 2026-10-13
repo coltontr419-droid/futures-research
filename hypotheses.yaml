@@ -7880,12 +7880,25 @@
   horizon_minutes: [60]
   hold_hours: [1.0]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00838 (decisions.md 184), REJECT on sealed 2023-2026: 932 nights; net -1.28 bps (t -3.52); 0th pct of the session's other hours; negative in all four years (2023 -1.12, 2024 -1.30, 2025 -1.08, 2026 -1.76).
   outcome_injection_required: Before the run - reports/d56_injection.json (src/futuresres/signals/d_hours.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_hours.py
+    injected_bps: 0.004
+    sought_bps: 0.004
+    n_injection: 932
+    n_run: 932
+    recovered: true
+    report: reports/d56_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 90
+  test_order: null
+  registered_test_order: 90
   grade: C
   tier: C
   param_cap: 0

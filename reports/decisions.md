@@ -9102,6 +9102,11 @@ recent-period design (discovery 2018-01 → 2022-12; validation 2023-01 → 2026
 cost). Fewer passes than chance — the hours of traded MNQ and gold carry no excess drift. Even if real, +0.57 bps net is ~$11 a night on
 4 MNQ. Z and D market-test 68.
 
+## 184. D56 validated: the midnight MNQ hour reversed — rejected; family 14 empty (S6–S8)
+
+**One trial spent: t00838. N 831 → 832.** 932 nights, 2023-01 → 2026-08: net -1.28 bps (t -3.52), the worst of the
+night session's 16 hours, negative in every year. The 2018–22 drift was the scan's chance pass. Z and D market-test 68.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
