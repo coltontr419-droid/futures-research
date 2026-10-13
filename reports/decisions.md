@@ -10138,6 +10138,11 @@ target session's minute closes (MNQ day; gold London), same contract as the next
 session open→close traded with it or against it, fixed by discovery. Forms **all** and **extreme** (CLV > 0.85 or < 0.15). **2 × 2 =
 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 288. Family-56 discovery: the previous close location — 0 of 4 carried (S1)
+
+**No trial spent; N 877.** `reports/d56_discovery.json`: fading an extreme close +7.7 bps on MNQ (t +1.45), +4.4 on gold (t +1.41).
+Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
