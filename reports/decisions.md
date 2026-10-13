@@ -9051,6 +9051,27 @@ evening, as the account requires). Z and D market-tests 65–67.
 
 The 2010–17 "buy the extreme, sell the extreme" week (+68 / +61 bps net) reversed sign on 2018–26 in both halves. Nothing to adopt.
 
+## 180. D-series family 13 protocol: volatility regimes — recent-period discovery (2018–22), sealed 2023 → 2026-08 (S1)
+
+**No trial spent; N 831. Written and committed BEFORE any regime statistic is computed.** §179 note: nearly everything found on
+2010–17 weakened or flipped on 2018–26 — the markets the user will trade behave like the recent years, not the early 2010s. The
+user approved (2026-10-13) a change of design for NEW questions: **discovery 2018-01 → 2022-12; validation 2023-01 → 2026-08,
+sealed**. Disclosed: the family-3/4 validations (§151, §154) read these windows' 2018–26 returns for unconditioned statistics; the
+regime-conditioned statistic here was not computed.
+
+1. **Windows and predictors** (family-3 series, §149, bad-print rule): NKD, DAX, MGC, MNQ windows — predictors their own previous
+   window and their own pre-window move (NKD 15:00 → 09:00 Tokyo, DAX 17:30 → 09:00, MGC 11:30 → 03:00, MNQ 16:00 → 09:30); MCL and
+   ZS sessions — predictor their own previous session. **10 predictor pairs.**
+2. **Regime, from the target's own past only:** σ20 = SD of its previous 20 window returns; HIGH if σ20 is above the median of
+   σ20 over its previous 250 sessions, else LOW. **10 pairs × 2 regimes = 20 tests**; ~1 pass |t| > 1.96 by chance.
+3. **Discovery statistic** as §149, 4 (sign of the predictor × the target demeaned within the period), within the regime's days;
+   follow or fade by the sign; carried at |t| > 1.96.
+4. **Validation (one trial each), sealed:** CONFIRM if (a) **against not trading**: direction × raw return − the account's cost a
+   day (bps: MNQ 0.5, MGC 0.8, MCL 5.4 — ten micros, NKD 0.2, DAX 0.3, ZS 0.7) has mean > 0 with t > 1.645 (against always-long
+   reported beside it); (b) placebo, predictor shifted ±2…±11 days, ≥ 95th pct; (c) posterior > 0, prior Normal(discovery/2,
+   |discovery|/2); (d) S8 has no separate half here — the sealed window IS the recent period; (d) becomes: positive in at least 3 of
+   the 4 calendar years 2023–2026. WATCHLIST if net > 0 otherwise; REJECT. Z and D market-tests from 68.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
