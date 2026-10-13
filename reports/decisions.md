@@ -9847,6 +9847,11 @@ outlier filter): **ZT=F** (2-year), **ZB=F** (30-year), **DX-Y.NYB** (dollar ind
 the previous 60 (family 24). Targets: MNQ day 09:30–16:00 and MGC London 03:00–11:30 (family-8 grids), follow or fade fixed by
 discovery. **5 × 2 = 10 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 249. Family-39 discovery: shocks in five new markets — 0 of 10 carried (S1)
+
+**No trial spent; N 872.** `reports/d39_discovery.json`: best MNQ fades a bitcoin shock +31.0 bps (t +1.64, n 73); MNQ follows a
+2-year shock +21.9 (t +1.44). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
