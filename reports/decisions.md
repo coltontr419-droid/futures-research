@@ -10143,6 +10143,15 @@ session open→close traded with it or against it, fixed by discovery. Forms **a
 **No trial spent; N 877.** `reports/d56_discovery.json`: fading an extreme close +7.7 bps on MNQ (t +1.45), +4.4 on gold (t +1.41).
 Empty.
 
+## 289. D-series family 57 protocol: the newer shock predictors into the plan's other products (S1)
+
+**No trial spent; N 877. Written and committed BEFORE any statistic is computed.** Cross-asset tail shocks are the only class that has
+confirmed (D68, D84, D89). Families 38–39 tried six newer predictors only on MNQ and gold. Here: predictors **ZT, ZB, DX, HYG, BTC**
+(family 39's series) and **VIX** (family 38, log change), shock on the previous weekday as family 24 (|x| > 2 × SD of the previous
+60); targets **NKD and DAX** (A21 window paths, as family 37), **CL and ZS** (family-10 Yahoo sessions). Follow or fade fixed by
+discovery. **6 × 4 = 24 tests** (~1.2 carried by chance). Costs §177/§180 (NKD 0.2, DAX 0.3, CL 0.7, ZS 0.7); recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
