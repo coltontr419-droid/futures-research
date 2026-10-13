@@ -10418,6 +10418,20 @@ AWAY from $10 levels into settlement but below cost (−0.7 net). Empty.
 with the descriptive 2010–17 column (§306). Costs §177/§180 (MGC 0.8, SI 0.5); recent-period design; carried at net > 0, t > 1.96;
 validation as §207, 3.
 
+## 326. Family-73 discovery: gold and silver catching up — 0 of 2 carried (S1)
+
+**No trial spent; N 880.** `reports/d73_discovery.json`: gold +0.5 bps (t +0.27), silver +2.4 (t +0.77). Empty.
+
+## 327. D-series family 74 protocol: the ECB reference-rate fix (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** The ECB publishes euro reference rates from a 14:15
+Frankfurt concertation; some corporate and fund flows execute against it. HistData (corrected clock) at Frankfurt times for EUR, GBP,
+JPY, CHF against the dollar, in the futures' direction (6E, 6B, 6J, 6S). **Pre** 13:45 → 14:15 and **post** 14:15 → 14:45, each traded
+long or short (fixed by discovery) every day — the question is a directional drift around the fix, judged against the same pair's
+mean 30-minute return in 10:00–13:00 Frankfurt (not crediting drift). **4 pairs × 2 windows = 8 tests**, with the descriptive 2010–17
+column (§306; JPY from 2016). Costs §177 (6E 0.3, 6J 0.5; 6B, 6S 0.5); recent-period design; carried at net > 0, t > 1.96; validation
+as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

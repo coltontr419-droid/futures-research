@@ -1,0 +1,29 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "target": "gold",
+   "n": 1216,
+   "rule": "with divergence",
+   "net_bps": 0.48790050039165844,
+   "t": 0.26680460496513764,
+   "early_net": 2.6614448834523525,
+   "early_t": 1.0773026797164413,
+   "carried": false
+  },
+  {
+   "target": "silver",
+   "n": 1216,
+   "rule": "with divergence",
+   "net_bps": 2.4361695864025417,
+   "t": 0.7684177273285601,
+   "early_net": -0.6048384616497416,
+   "early_t": -0.14100563356607634,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
