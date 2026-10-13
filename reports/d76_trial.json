@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D76",
+ "cell": "ZS fades a ZN shock over days2-3",
+ "trades": 39,
+ "net_bps": 3.8309083041374596,
+ "t_net": 0.18103073733070765,
+ "placebo_pct": 21.9,
+ "by_year": {
+  "2023": 9.962621489490639,
+  "2024": -15.513026509459236,
+  "2025": 58.184363342854,
+  "2026": -39.244718587695225
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D76",
+  "n_events": 39,
+  "sought_bps": 24.641334408140487,
+  "mean_estimate": 24.629442119329596,
+  "sd_estimate_bps": 21.256428853372952,
+  "power_strict_t": 0.317,
+  "recovered": true
+ }
+}

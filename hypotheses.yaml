@@ -8957,12 +8957,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00857 (decisions.md 217), WATCHLIST on sealed 2023-2026: 40 trades; net +4.47 bps (t +0.19); placebo 53th pct.
   outcome_injection_required: Before the run - reports/d75_injection.json (src/futuresres/signals/d_shocklag.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_shocklag.py
+    injected_bps: 45.212
+    sought_bps: 45.212
+    n_injection: 40
+    n_run: 40
+    recovered: true
+    report: reports/d75_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 109
+  test_order: null
+  registered_test_order: 109
   grade: C
   tier: C
   param_cap: 0
@@ -9000,12 +9013,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00858 (decisions.md 217), WATCHLIST on sealed 2023-2026: 39 trades; net +3.83 bps (t +0.18); placebo 22th pct.
   outcome_injection_required: Before the run - reports/d76_injection.json (src/futuresres/signals/d_shocklag.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_shocklag.py
+    injected_bps: 24.641
+    sought_bps: 24.641
+    n_injection: 39
+    n_run: 39
+    recovered: true
+    report: reports/d76_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 110
+  test_order: null
+  registered_test_order: 110
   grade: C
   tier: C
   param_cap: 0
@@ -9043,12 +9069,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00859 (decisions.md 217), REJECT on sealed 2023-2026: 38 trades; net -18.23 bps (t -0.63); placebo 37th pct.
   outcome_injection_required: Before the run - reports/d77_injection.json (src/futuresres/signals/d_shocklag.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_shocklag.py
+    injected_bps: 16.678
+    sought_bps: 16.678
+    n_injection: 38
+    n_run: 38
+    recovered: true
+    report: reports/d77_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 111
+  test_order: null
+  registered_test_order: 111
   grade: C
   tier: C
   param_cap: 0
@@ -9086,12 +9125,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00860 (decisions.md 217), WATCHLIST on sealed 2023-2026: 40 trades; net +9.67 bps (t +0.60); placebo 54th pct.
   outcome_injection_required: Before the run - reports/d78_injection.json (src/futuresres/signals/d_shocklag.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_shocklag.py
+    injected_bps: 19.54
+    sought_bps: 19.54
+    n_injection: 40
+    n_run: 40
+    recovered: true
+    report: reports/d78_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 112
+  test_order: null
+  registered_test_order: 112
   grade: C
   tier: C
   param_cap: 0

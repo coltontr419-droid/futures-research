@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D75",
+ "n_events": 40,
+ "sought_bps": 45.211591606630805,
+ "mean_estimate": 44.35491537166836,
+ "sd_estimate_bps": 21.953192953807633,
+ "power_strict_t": 0.679,
+ "recovered": true
+}

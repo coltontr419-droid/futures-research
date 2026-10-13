@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D78",
+ "cell": "ES follows a GC shock over days2-3",
+ "trades": 40,
+ "net_bps": 9.668361864821112,
+ "t_net": 0.5961087835420469,
+ "placebo_pct": 54.1,
+ "by_year": {
+  "2023": 30.437894111836435,
+  "2024": -58.78084624345537,
+  "2025": 28.585914241311542,
+  "2026": 29.87900728816764
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D78",
+  "n_events": 40,
+  "sought_bps": 19.539700293566796,
+  "mean_estimate": 18.98200941348224,
+  "sd_estimate_bps": 16.041554182353735,
+  "power_strict_t": 0.3145,
+  "recovered": true
+ }
+}

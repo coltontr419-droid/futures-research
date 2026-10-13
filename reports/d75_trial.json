@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D75",
+ "cell": "ES follows a GC shock over next3",
+ "trades": 40,
+ "net_bps": 4.4672901141343875,
+ "t_net": 0.19447521929096231,
+ "placebo_pct": 53.1,
+ "by_year": {
+  "2023": 42.81238499788323,
+  "2024": -100.91977155071271,
+  "2025": 44.21623012639238,
+  "2026": 17.106332202413235
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D75",
+  "n_events": 40,
+  "sought_bps": 45.211591606630805,
+  "mean_estimate": 44.35491537166836,
+  "sd_estimate_bps": 21.953192953807633,
+  "power_strict_t": 0.679,
+  "recovered": true
+ }
+}

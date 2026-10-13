@@ -9540,6 +9540,26 @@ Gold following a bond shock (D72) was positive only through one year (2026 +93);
 
 As a family the multi-session response shows no excess signal. Z and D market-tests 87–90.
 
+## 217. D75–D78 validated: no confirmation — the shock response does not extend past the next session (S6–S8)
+
+**Four trials spent: t00857–t00860. N 850 → 854.**
+
+| id, trial | rule | trades | net bps a trade (t) | placebo pct | years positive | tier |
+|---|---|---|---|---|---|---|
+| D75 t00857 | ES follows a GC shock over next3 | 40 | +4.47 (t +0.19) | 53 | 3 of 4 | **WATCHLIST** |
+| D76 t00858 | ZS fades a ZN shock over days2-3 | 39 | +3.83 (t +0.18) | 22 | 2 of 4 | **WATCHLIST** |
+| D77 t00859 | GC follows a ES shock over days2-3 | 38 | -18.23 (t -0.63) | 37 | 0 of 4 | **REJECT** |
+| D78 t00860 | ES follows a GC shock over days2-3 | 40 | +9.67 (t +0.60) | 54 | 3 of 4 | **WATCHLIST** |
+
+## 218. D-series family 27 protocol: volume shocks — does a heavy-volume session's move continue? (S1)
+
+**No trial spent; N 854. Written and committed BEFORE any statistic is computed.** Recent-period design (§180). Yahoo daily bars
+carry volume (continuous front month; a roll day inflates it — those sessions are dropped: |volume change| with a price-series jump
+is not identifiable here, so a session is a volume shock only if its volume exceeds 2 × the mean of the previous 60 AND the next
+session's volume stays above 1.2 × that mean, which excludes one-day roll spikes). **Trade:** the next session (h = 1) or the next
+three (h = 3) in the shock session's direction or against it, fixed by discovery; daily round trips, §177's costs. **14 markets × 2 h
+= 28 tests**; ~1.4 by chance. Carried at net > 0 with t > 1.96; validation as §207, 3 (sealed 2023-01 → 2026-08). Z and D from 91.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

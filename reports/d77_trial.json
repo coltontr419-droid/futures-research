@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D77",
+ "cell": "GC follows a ES shock over days2-3",
+ "trades": 38,
+ "net_bps": -18.227681276736394,
+ "t_net": -0.6256917988563706,
+ "placebo_pct": 36.9,
+ "by_year": {
+  "2023": -0.2900976119539308,
+  "2024": -34.562773933436375,
+  "2025": -2.7592421710925468,
+  "2026": -26.096804158553738
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "injection": {
+  "hypothesis": "D77",
+  "n_events": 38,
+  "sought_bps": 16.67829302187441,
+  "mean_estimate": 16.333970856850385,
+  "sd_estimate_bps": 27.920528246860453,
+  "power_strict_t": 0.1545,
+  "recovered": true
+ }
+}

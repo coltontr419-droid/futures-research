@@ -1008,19 +1008,19 @@ Data-derived (D-series family 25). `hypotheses.yaml` (D73) · `decisions.md` §2
 
 Data-derived (D-series family 25). `hypotheses.yaml` (D74) · `decisions.md` §213
 
-## D75 — ES Follows a GC Shock (next3)
+## D75 — ES Follows a GC Shock (next3)  *(WATCHLIST — t00857)*
 
 Data-derived (D-series family 26). `hypotheses.yaml` (D75) · `decisions.md` §216
 
-## D76 — ZS Fades a ZN Shock (days2-3)
+## D76 — ZS Fades a ZN Shock (days2-3)  *(WATCHLIST — t00858)*
 
 Data-derived (D-series family 26). `hypotheses.yaml` (D76) · `decisions.md` §216
 
-## D77 — GC Follows a ES Shock (days2-3)
+## D77 — GC Follows a ES Shock (days2-3)  *(REJECT — t00859)*
 
 Data-derived (D-series family 26). `hypotheses.yaml` (D77) · `decisions.md` §216
 
-## D78 — ES Follows a GC Shock (days2-3)
+## D78 — ES Follows a GC Shock (days2-3)  *(WATCHLIST — t00860)*
 
 Data-derived (D-series family 26). `hypotheses.yaml` (D78) · `decisions.md` §216
 

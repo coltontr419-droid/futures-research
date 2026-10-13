@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D77",
+ "n_events": 38,
+ "sought_bps": 16.67829302187441,
+ "mean_estimate": 16.333970856850385,
+ "sd_estimate_bps": 27.920528246860453,
+ "power_strict_t": 0.1545,
+ "recovered": true
+}
