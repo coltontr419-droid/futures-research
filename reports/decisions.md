@@ -8674,6 +8674,20 @@ in the two non-US windows; MNQ nothing (best |t| 0.75), gold +1.59 at best.
 D29 and D31 are one effect (every day / strong days). Data: corrected HistData CFD minute bars, mid-session prices plus the
 window's end as in §149. Z and D market-tests 41–43.
 
+## 160. D29–D31 validated: the opening drive faded after 2020 — no confirmation (S6–S8)
+
+**Three trials spent: t00811–t00813. N 804 → 807.** Z and D market-tests 41–43.
+
+| id, trial | rule | days | beyond drift, bps a day | vs always-long | placebo pct | 2018–20 / 2021–26 | tier |
+|---|---|---|---|---|---|---|---|
+| D29 t00811 | DAX follows its first 30 minutes (every day) | 2154 | -0.20 (t -0.11) | -1.48 (t -0.56) | 20 | +2.25 / -1.55 | **REJECT** |
+| D30 t00812 | NKD follows its first 30 minutes (strong days) | 1256 | +2.61 (t +1.28) | +3.55 (t +1.26) | 95 | +8.12 / +0.17 | **WATCHLIST** |
+| D31 t00813 | DAX follows its first 30 minutes (strong days) | 1023 | +1.19 (t +0.40) | +0.30 (t +0.07) | 35 | +4.16 / -0.44 | **WATCHLIST** |
+
+The opening-drive continuation held in 2018–20 (Nikkei strong days +8.1 bps, t +2.04; DAX +2.3) and is gone in 2021–26 (Nikkei
++0.2, DAX −1.6). D30 keeps a 95th-percentile placebo on the pooled window but fails (a) and stands on its first three years.
+Watchlist for D30 and D31 in form; nothing to adopt.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
