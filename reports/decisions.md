@@ -8945,6 +8945,26 @@ only against always-long (t +0.03), because shorting the Russell after S&P up-da
 days (RTY's Yahoo history from 2017), so the 2018–26 result is most of the evidence. D41 (10-year notes fading the yen) holds a
 100th-percentile placebo at +0.9 bps — too small to matter. Watchlist for D39, D41, D42, D43, D45.
 
+## 174. D-series family 11 protocol: commodity seasonality — standalone, daily round trips, net of each market's cost (S1)
+
+**No trial spent; N 821. Written and committed BEFORE any monthly statistic is computed.** The user: keep searching on the data
+we have (a year of order-book data, $369, waits until the props pay); standalone strategies count, and an account that pays a few
+times before failing is a win. Commodities carry seasonal supply and demand (heating, driving, planting, harvest); this family
+asks whether any market drifts reliably in a calendar month — **as a standalone strategy**, so judged against not trading.
+
+1. **Markets and data:** CL, NG, ZC, ZS, ZW, GC, SI, HG — Yahoo daily bars (fetched, §140, §171), each session's open → settlement
+   return (one bar, one contract; the account must be flat 17:00–18:00, so a strategy is a daily round trip). Bad prints: §149 rule.
+2. **Cost per day (round trip at the account's tradable size, bps of notional):** CL (full) 0.7, NG (full) 1.4, ZC 1.9, ZS 0.7,
+   ZW 1.4, GC via MGC 0.8, SI via SIL 0.5, HG via MHG 2.0.
+3. **Tests:** market × calendar month = **96**; ~4.8 pass by chance. Statistic: the mean RAW session return on that month's days
+   (standalone: drift counts), t over days. **Carried:** |t| > 1.96 AND |mean| > the day's cost. Direction = the sign.
+   Discovery 2010-01 → 2017-12.
+4. **Validation (one trial each), sealed 2018-01 → 2026-08:** CONFIRM if (a) the rule's net mean per day (direction × return −
+   cost) > 0 with t > 1.645 — **against not trading**; (b) placebo: real ≥ 95th percentile of 1,000 draws of the same number of
+   the market's days from OTHER months, same direction and cost; (c) posterior > 0, prior Normal(discovery/2, |discovery|/2);
+   (d) 2021–26 alone > 0. WATCHLIST if net > 0 otherwise; REJECT. A CONFIRM is replayed as its own 50K Daily account (one-bar
+   paths, trading only that month, payouts before failure counted) before it counts as usable. Z and D market-tests from 58.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
