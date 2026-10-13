@@ -9939,6 +9939,14 @@ V1 raises the mean in both histories but lowers P(net > 0) in 2016–20 and the 
 Per market the sign flips between histories (MNQ +$778 in 2021–26, −$531 in 2010–20; crude worse in both), which is what a
 zero-edge reshuffle of variance looks like. The fixed-contract plan stays. `a23.replay(nvec=...)` is kept for later sizing questions.
 
+## 259. D-series family 43 protocol: gold's Asia session as a target (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** No family has traded gold's Asia session (18:00 →
+03:00 ET, family-8 grid, dated by its end day D). Predictors finished before it opens, on the previous weekday: **gold's London window**
+(03:00–11:30) and **MNQ's day session** (09:30–16:00), each open→close on its own grid. Target open→close, same contract; follow or
+fade fixed by discovery; forms **all** and **strong** (|predictor| above its discovery median). **2 × 2 = 4 tests.** Cost MGC 0.8 bps;
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
