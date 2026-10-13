@@ -9817,6 +9817,22 @@ family-24 definition) is known before entry. **Predictors: all 14 family-10 mark
 discovery; costs §180 (NKD 0.2, DAX 0.3 bps). Recent-period design (§180); carried at net > 0, t > 1.96; validation as §207, 3. ~1.4
 carried expected by chance — the validation is the filter.
 
+## 245. Family-37 discovery: NKD and DAX after US shocks — 0 of 28 carried (S1)
+
+**No trial spent; N 872.** `reports/d37_discovery.json`: best DAX after a ZN shock, follow, +25.9 bps (t +1.87), n 79; NKD after a ZN
+shock, follow, +15.5 (t +1.61). Both point the same way as the confirmed D68 (MNQ follows a ZN shock) but neither clears the bar, and
+no pooled test is formed after seeing them. Recorded as consistent with D68, not as evidence. Empty.
+
+## 246. D-series family 38 protocol: the volatility index (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** First use of the VIX in the programme (Yahoo ^VIX,
+^VIX3M daily closes, 16:15 ET). Signals on day D−1, known before both targets open (MNQ day 09:30–16:00 on D; MGC London 03:00–11:30
+on D): **A shock** — |log VIX change| > 2 × SD of the previous 60; direction = sign of the change; follow/fade fixed by discovery.
+**B inversion** — VIX close > VIX3M close; **C elevated** — VIX close ≥ 1.25 × its previous-20 mean; B and C trade the target long or
+short (fixed by discovery) on those days only, judged on the DEMEANED target return (discovery-window mean removed) so that drift is
+not carried. **3 signals × 2 targets = 6 tests.** Costs §180; recent-period design (§180); carried at net > 0, t > 1.96; validation as
+§207, 3 (placebo: random other days).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,262 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 28,
+ "all": [
+  {
+   "target": "DAX",
+   "predictor": "ZN",
+   "n": 79,
+   "rule": "follow",
+   "net_bps": 25.911056318038284,
+   "t": 1.8687955187320144,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "6E",
+   "n": 64,
+   "rule": "fade",
+   "net_bps": 30.925068098592593,
+   "t": 1.8489202075298863,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "ZN",
+   "n": 81,
+   "rule": "follow",
+   "net_bps": 15.461725689072086,
+   "t": 1.6055369422118393,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "RTY",
+   "n": 75,
+   "rule": "follow",
+   "net_bps": 21.13706804684674,
+   "t": 1.5444124495885718,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "6J",
+   "n": 76,
+   "rule": "follow",
+   "net_bps": 15.091432080534595,
+   "t": 1.3261228556496003,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "GC",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 16.962703484699038,
+   "t": 1.2482368347142603,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "ZC",
+   "n": 77,
+   "rule": "fade",
+   "net_bps": 14.296695224784749,
+   "t": 1.2134711398239406,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "NQ",
+   "n": 93,
+   "rule": "fade",
+   "net_bps": 14.120090523406471,
+   "t": 1.1991027961483214,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "SI",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 14.89870970079718,
+   "t": 1.146472697388338,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "NG",
+   "n": 67,
+   "rule": "fade",
+   "net_bps": 14.751334474319172,
+   "t": 1.1302541236089116,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "SI",
+   "n": 80,
+   "rule": "fade",
+   "net_bps": 10.969701739277117,
+   "t": 1.102714362683048,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "ES",
+   "n": 88,
+   "rule": "fade",
+   "net_bps": 13.165630454907,
+   "t": 1.0685114021631592,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "GC",
+   "n": 83,
+   "rule": "follow",
+   "net_bps": 14.006984013904418,
+   "t": 1.0665732647605357,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "ES",
+   "n": 90,
+   "rule": "fade",
+   "net_bps": 13.557139551772789,
+   "t": 1.042197235837474,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "ZS",
+   "n": 76,
+   "rule": "follow",
+   "net_bps": 14.339693403487882,
+   "t": 1.0066292312352816,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "HG",
+   "n": 72,
+   "rule": "fade",
+   "net_bps": 12.05755036671217,
+   "t": 1.0051067823900044,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "CL",
+   "n": 69,
+   "rule": "fade",
+   "net_bps": 12.480680697024173,
+   "t": 0.9268885479709715,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "RTY",
+   "n": 75,
+   "rule": "fade",
+   "net_bps": 10.977745324675926,
+   "t": 0.8252775626799289,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "ZC",
+   "n": 76,
+   "rule": "follow",
+   "net_bps": 7.026840862131208,
+   "t": 0.7333393143953999,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "CL",
+   "n": 76,
+   "rule": "follow",
+   "net_bps": 9.497073884998862,
+   "t": 0.6497947132888623,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "HG",
+   "n": 75,
+   "rule": "follow",
+   "net_bps": 8.316353439477588,
+   "t": 0.613828699008474,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "6E",
+   "n": 65,
+   "rule": "follow",
+   "net_bps": 7.223016088628528,
+   "t": 0.4948445947550951,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "ZW",
+   "n": 76,
+   "rule": "fade",
+   "net_bps": 7.9689394615667135,
+   "t": 0.4860109021816654,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "ZS",
+   "n": 77,
+   "rule": "follow",
+   "net_bps": 6.969548644723563,
+   "t": 0.48532964239541354,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "NG",
+   "n": 65,
+   "rule": "fade",
+   "net_bps": 4.00365407346533,
+   "t": 0.3954534460855144,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "ZW",
+   "n": 76,
+   "rule": "fade",
+   "net_bps": 3.8423049315569755,
+   "t": 0.3119292623658378,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "NQ",
+   "n": 94,
+   "rule": "fade",
+   "net_bps": 2.705279304875815,
+   "t": 0.22183699146643948,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "6J",
+   "n": 76,
+   "rule": "fade",
+   "net_bps": 1.1362582681458513,
+   "t": 0.0846228872282075,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
