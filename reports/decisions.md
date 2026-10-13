@@ -10214,6 +10214,17 @@ validation as §207, 3.
 
 **No trial spent; N 878.** `reports/d60_discovery.json`: MNQ −0.0 bps (t −0.01), gold +1.9 (t +0.91), demeaned. Empty.
 
+## 299. D-series family 61 protocol: Treasury auction demand (S1)
+
+**No trial spent; N 878. Written and committed BEFORE any data is fetched or any statistic computed.** New data: TreasuryDirect's
+public auction results (`TA_WS/securities/search`), every Note and Bond auction (2, 3, 5, 7, 10, 20, 30 years; reopenings grouped by
+the rounded original term; TIPS and FRNs excluded), results at ~13:00 ET. A weak auction is a timed rates shock — D68's class.
+Demand measures, each as a z-score against the previous 6 auctions of the same term: **dealer share** (primaryDealerAccepted /
+competitiveAccepted; high = weak) and **bid-to-cover** (low = weak). Event = |z| > 1, direction = weak (+1) or strong (−1).
+Targets: **MNQ 13:01 → 16:00 the same day** (day grid) and **MNQ's next day session** 09:30 → 16:00; with or against, fixed by
+discovery. **2 measures × 2 targets = 4 tests.** Cost MNQ 0.5 bps; recent-period design; carried at net > 0, t > 1.96; validation
+as §207, 3 (placebo: |z| ≤ 1 auctions).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
