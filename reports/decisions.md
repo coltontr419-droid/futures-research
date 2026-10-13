@@ -9700,6 +9700,19 @@ following week (Monday … Friday), each a daily round trip (§177's costs). Rec
    the signal from a random other week, 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years. CONFIRM if all; WATCHLIST if net
    > 0; REJECT. A CONFIRM is replayed as a standalone account. Z and D market-tests from 107.
 
+## 229. Family-30 discovery: speculator positioning sets no direction — 0 of 28 carried (S1)
+
+**No trial spent; N 870.** `reporting/d30_cot.py`, `reports/d30_discovery.json`. Best: wheat fading crowded speculator positions
+(+20.5 bps a session, t +1.55, 60 weeks), ES following speculator flow (+5.5, t +1.52). Family 30 is empty.
+
+## 230. D-series family 31 protocol: small-trader and commercial positioning (S1)
+
+**No trial spent; N 870. Written and committed BEFORE any statistic is computed.** The other two COT groups: non-reportable
+(small traders — the retail proxy) and commercials (hedgers; Z08 used them for gold and crude only, 2010–26, retired). Exactly §228's
+design (flow and crowding, next week's five sessions, week-clustered t, recent-period discovery / sealed validation), with net =
+(group long − short) / open interest for each group. **14 markets × 2 groups × 2 signals = 56 tests**; ~2.8 by chance. Z and D
+market-tests from 107.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
