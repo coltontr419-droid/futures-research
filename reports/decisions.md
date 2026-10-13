@@ -8525,6 +8525,36 @@ variants of the Nikkei fade (D12, D15) failed outright — the 09:00 CFD-quote c
 watchlist with D13, D14, D19. D16 is the only one with a placebo at the 100th percentile and a stronger second half; it is also the
 kind of rule (a bracket direction chosen by a move that has already happened) the plan could use at no cost.
 
+## 152. D-series family 4 protocol: the overnight state at the open (MNQ, gold), from traded futures data with volume (S1)
+
+**No trial spent; N 797. Written and committed BEFORE any data is built or scanned.** The user: keep searching. Family 3 used
+window returns only; the owned Databento data also carries **volume and the path** of the hours before each entry, which free
+quote data cannot. Question: does the state of the market just before the plan's entry — where it sits in its overnight range,
+how busy and how volatile the night was, the last half hour, how the previous window ended — predict the window's direction?
+
+1. **Targets:** MNQ 09:30–16:00 and MGC 03:00–11:30 New York (the plan's windows), from 1-minute TRADES (owned; MNQ = NQ/MNQ
+   spliced, sparse before 2013, §149 addendum). A day whose segment spans two contracts is dropped.
+2. **Segments** (New York time; Globex break 17:00–18:00 excluded by the data):
+   - MNQ: overnight = 18:00 (previous day) → 09:30; pre-open = 09:00 → 09:30; previous window = 09:30 → 16:00 of the previous
+     day, its last hour 15:00 → 16:00.
+   - MGC: overnight = 11:30 (previous day) → 03:00; pre-open = 02:30 → 03:00; previous window 03:00 → 11:30, last hour 10:30 → 11:30.
+   For each: return, high, low, last price, volume, realised variance (sum of squared 1-minute log returns).
+3. **Predictors, all known at entry; 12 tests per market, 24 in all:**
+   (1) overnight close location = (last − low) / (high − low) − ½, every day; (2) the same, strong days (|value| above its
+   2010–17 median); (3) overnight return, days with overnight volume above its 2010–17 median (volume as the ratio to the
+   previous 20 days' mean); (4) overnight return, days with overnight realised variance above its median (same ratio form);
+   (5) pre-open return, every day; (6) pre-open return, strong days; (7) pre-open return, days with pre-open volume above median
+   (ratio form); (8) previous window close location, every day; (9) the same, strong days; (10) previous window's last-hour
+   return, every day; (11) the same, strong days; (12) the overnight return on days the entry price lies OUTSIDE the previous
+   window's high–low range (a gap beyond it).
+   ~1.2 of 24 pass |t| > 1.96 by chance. D16 (§151) used gold's 11:30 → 03:00 return on strong days; (3) and (4) condition the
+   same return on volume and variance instead — related, recorded.
+4. **Discovery 2010-06 → 2017-12 only** (asserted); statistic and selection exactly as §149, 4 (sign of the predictor × the
+   target demeaned within the period; carried at |t| > 1.96; follow or fade fixed by the sign).
+5. **Validation exactly as §149, 5** (sealed 2018-01 → 2026-08; one trial each; (a) against always-long t > 1.645, (b) placebo with
+   the predictor shifted ±2…±11 days ≥ 95th pct, (c) posterior > 0 with prior Normal(discovery/2, |discovery|/2), (d) 2021–26
+   > 0; CONFIRM / WATCHLIST / REJECT); Z and D market-tests from 34. Bad-print rule of §149 addendum applies.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
