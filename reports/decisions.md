@@ -8838,6 +8838,28 @@ cost (e.g. after a 5-minute 2σ move on high volume, 10,421 trades, net −1.37 
 and volume reactions in MNQ and gold are smaller than a tick plus commission;** a many-trades-a-day standalone strategy would need
 information this data does not carry (the order book, order flow). Nothing to validate; no trial spent.
 
+## 168. D-series family 9 protocol: drift after scheduled releases — does the first reaction predict the rest of the day? (S1)
+
+**No trial spent; N 812. Written and committed BEFORE any event or return is computed.** §165–167: a standalone strategy needs
+moves that are large on the days it trades; minute reactions on ordinary days are below costs. The largest information events
+in these markets are scheduled: US releases at 08:30 New York (CPI, payrolls, PPI, retail sales, claims) and Fed decisions at
+14:00. Question: does the first 5 or 15 minutes after the release predict the move over the rest of the session?
+
+1. **Data:** the family-8 minute grids (owned Databento trades): MNQ night (to 09:30) and day (09:30–16:00); MGC London
+   (03:00–11:30). Discovery **2013-01 → 2017-12**; validation **2018-01 → 2026-08**, sealed.
+2. **Release days, from the data alone:** an 08:30 day is one whose 08:30–08:35 volume exceeds 3× the median volume of those
+   five minutes over the previous 20 sessions — in MNQ for the MNQ tests, in MGC for the MGC tests. A 14:00 day: MNQ's 14:00–14:05
+   volume over 3× its 20-session median. (Detected, not looked up; recorded counts are reported.)
+3. **Tests:** predictor = the move from the release minute to +k, k ∈ {5, 15}; target = +k → session end — MNQ 08:30: to 16:00
+   (night and day grids joined; one contract required); MGC 08:30: to 11:30; MNQ 14:00: to 16:00. Forms: every release day; strong
+   (|predictor| above its 2013–17 median). **3 event types × 2 k × 2 forms = 12 tests**; ~0.6 pass by chance.
+4. **Statistic and selection:** sign(predictor) × target in points, demeaned within period; follow / fade by sign; carried at
+   |t| > 1.96 AND the rule's mean minus a round-trip cost (MNQ 1.41 pts, MGC 0.432 pts) > 0.
+5. **Validation (one trial each):** CONFIRM if (a) the rule's net mean per trade (after cost) > 0, t > 1.645; (b) placebo: real
+   at or above the 95th percentile of the same rule on 1,000 random draws of non-release days at the same clock times; (c) posterior
+   > 0, prior Normal(discovery/2, |discovery|/2); (d) 2021–26 alone > 0. Any CONFIRM is then replayed as its own 50K Daily
+   account (A27 engine) before it counts as usable. Z and D market-tests from 49.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
