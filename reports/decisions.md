@@ -10264,6 +10264,14 @@ introduced — 2010-01 → 2017-12 (never used by family 63) on the owned MGC Lo
 sign with mean > 0 on both is required before anything is forward-tracked or proposed. (iii) Scale if it held: ~14 events a year;
 +30 bps on gold's ~$4,000 × 10 oz ≈ $40,000 MGC notional is ~$120 a contract per event, ~$950 at the plan's 8 contracts.
 
+## 305. D103 validated (t00885): REJECT — gold stopped answering real yields after 2022 (S1, S8)
+
+**N 879.** Sealed 2023-01 → 2026-08, 42 events, injection recovered first (power 31%): net **-11.08 bps** (t
+-0.61); placebo **21th** pct; years 2 of 4 (2023 +2.5, 2024 +0.4, 2025 −41.0, 2026 −25.4). The
+pre-committed 2010–17 check (§304): MGC London +2.7 (t +0.32, 5 of 8 years); GC=F daily sessions −6.5 (t −0.67). So the effect was a
+2018–22 phenomenon: the gold/real-yield link that held then broke as central-bank buying took over the gold price from 2022. Closed.
+Z and D market-test 115.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

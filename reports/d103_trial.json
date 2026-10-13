@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D103",
+ "cell": "MGC fades the previous session's DFII10 shock",
+ "trades": 42,
+ "net_bps": -11.08127672558739,
+ "t_net": -0.6072772205533697,
+ "placebo_pct": 21.3,
+ "by_year": {
+  "2023": 2.4951581818716853,
+  "2024": 0.375907648526707,
+  "2025": -40.964664626121525,
+  "2026": -25.35933134896415
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 115,
+ "injection": {
+  "hypothesis": "D103",
+  "n_events": 42,
+  "sought_bps": 15.781603257085228,
+  "mean_estimate": 15.120004719810458,
+  "sd_estimate_bps": 18.43748642175796,
+  "power_strict_t": 0.307,
+  "recovered": true
+ }
+}

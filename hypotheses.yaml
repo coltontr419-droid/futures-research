@@ -10538,12 +10538,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00885 (decisions.md 305), REJECT on sealed 2023-2026: 42 trades; net -11.08 bps (t -0.61); placebo 21th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_realyield.py
+    injected_bps: 15.782
+    sought_bps: 15.782
+    n_injection: 42
+    n_run: 42
+    recovered: true
+    report: reports/d103_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 137
+  test_order: null
+  registered_test_order: 137
   grade: C
   tier: C
   param_cap: 0
