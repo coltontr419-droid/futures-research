@@ -8575,6 +8575,27 @@ six passes would be one finding, not six. And D16 (§151) already read gold's 11
 not independent of that look. Data: the owned NQ file has full day sessions on only ~72 days of 2011 (an artefact of the original
 pull; overnight complete). Z and D market-tests 34–39.
 
+## 154. D22–D27 validated: all six on the watchlist — gold's overnight continuation is real but smaller than gold's drift (S6–S8)
+
+**Six trials spent: t00804–t00809. N 797 → 803.** Injections all recovered. Z and D market-tests 34–39.
+
+| id, trial | rule | days | beyond drift, bps a day | vs always-long | placebo pct | 2018–20 / 2021–26 | tier |
+|---|---|---|---|---|---|---|---|
+| D22 t00804 | MGC follows ON_loc (strong days) | 1117 | +2.93 (t +1.32) | +0.55 (t +0.17) | 95 | -0.58 / +4.77 | **WATCHLIST** |
+| D23 t00805 | MGC follows ON_ret (ON vratio above median) | 1281 | +1.61 (t +0.71) | +4.21 (t +1.31) | 80 | -3.11 / +4.09 | **WATCHLIST** |
+| D24 t00806 | MGC follows ON_loc (every day) | 2188 | +3.18 (t +1.92) | +1.90 (t +0.77) | 100 | +1.27 / +4.20 | **WATCHLIST** |
+| D25 t00807 | MGC follows PRE_ret (strong days) | 1218 | +0.74 (t +0.30) | -0.88 (t -0.27) | 55 | -5.97 / +3.99 | **WATCHLIST** |
+| D26 t00808 | MGC follows ON_ret (entry outside the previous window's range) | 839 | +4.97 (t +1.84) | +3.79 (t +0.95) | 100 | -1.54 / +8.35 | **WATCHLIST** |
+| D27 t00809 | MGC follows ON_ret (ON rvratio above median) | 1235 | +0.89 (t +0.38) | +2.22 (t +0.64) | 70 | -1.08 / +1.96 | **WATCHLIST** |
+
+**Reading.** Every measurement of the phenomenon is positive beyond drift on the sealed window (+0.7 to +5.0 bps a day), every
+one is positive on 2021–26 alone (+2.0 to +8.4), and three of six place the real rule at the 95th–100th percentile of its
+shifted placebos (D22, D24, D26; D24, every day, t +1.92). With D16 (§151) that is seven correlated looks pointing one way:
+**gold continues its overnight move into the London window.** None beats always-long (best t +1.31): over 2018–26 gold's drift
+(+2.6 bps a day in this window, far more in 2024–26) costs a direction rule its short days. Effect size ~3 bps against a window
+SD of ~77 bps — about $10–15 a day on the plan's 8 MGC. **Not adopted** (the strict rule is not met); watchlisted. The
+watchlist now holds a coherent family (D13, D16, D22–D27); the bot could shadow-track it as a forward test (§133) at no cost.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

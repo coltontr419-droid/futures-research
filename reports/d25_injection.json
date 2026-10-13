@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D25",
+ "n_events": 1218,
+ "sought_bps": 3.34080650515536,
+ "mean_estimate": 3.4523275491172205,
+ "sd_estimate_bps": 2.4427568932896344,
+ "power_strict_t": 0.4235,
+ "recovered": true
+}

@@ -767,37 +767,37 @@ Data-derived (D-series family 3): the soybean session traded against the same da
 in 2010–2017 (t 2.01). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D21) · `decisions.md` §150
 
-## D22 — Gold follows where its overnight session (11:30 -> 03:00 ET) closed within its high-low range (days with |predictor| above its 2010-17 median)
+## D22 — Gold follows where its overnight session (11:30 -> 03:00 ET) closed within its high-low range (days with |predictor| above its 2010-17 median)  *(WATCHLIST — t00804)*
 
 Data-derived (D-series family 4): gold's 03:00–11:30 ET window traded in that direction earned 7.89 bps a day beyond
 drift in 2010–2017 (t 3.39). Sets the plan's gold bracket direction; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D22) · `decisions.md` §153
 
-## D23 — Gold follows its overnight return (11:30 -> 03:00 ET) (days with overnight volume above its 2010-17 median)
+## D23 — Gold follows its overnight return (11:30 -> 03:00 ET) (days with overnight volume above its 2010-17 median)  *(WATCHLIST — t00805)*
 
 Data-derived (D-series family 4): gold's 03:00–11:30 ET window traded in that direction earned 7.22 bps a day beyond
 drift in 2010–2017 (t 2.75). Sets the plan's gold bracket direction; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D23) · `decisions.md` §153
 
-## D24 — Gold follows where its overnight session (11:30 -> 03:00 ET) closed within its high-low range (every day)
+## D24 — Gold follows where its overnight session (11:30 -> 03:00 ET) closed within its high-low range (every day)  *(WATCHLIST — t00806)*
 
 Data-derived (D-series family 4): gold's 03:00–11:30 ET window traded in that direction earned 4.60 bps a day beyond
 drift in 2010–2017 (t 2.57). Sets the plan's gold bracket direction; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D24) · `decisions.md` §153
 
-## D25 — Gold follows its last half hour before the window (02:30 -> 03:00 ET) (days with |predictor| above its 2010-17 median)
+## D25 — Gold follows its last half hour before the window (02:30 -> 03:00 ET) (days with |predictor| above its 2010-17 median)  *(WATCHLIST — t00807)*
 
 Data-derived (D-series family 4): gold's 03:00–11:30 ET window traded in that direction earned 6.68 bps a day beyond
 drift in 2010–2017 (t 2.29). Sets the plan's gold bracket direction; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D25) · `decisions.md` §153
 
-## D26 — Gold follows its overnight return (11:30 -> 03:00 ET) (days the 03:00 price is outside the previous window's high-low range)
+## D26 — Gold follows its overnight return (11:30 -> 03:00 ET) (days the 03:00 price is outside the previous window's high-low range)  *(WATCHLIST — t00808)*
 
 Data-derived (D-series family 4): gold's 03:00–11:30 ET window traded in that direction earned 6.65 bps a day beyond
 drift in 2010–2017 (t 2.28). Sets the plan's gold bracket direction; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D26) · `decisions.md` §153
 
-## D27 — Gold follows its overnight return (11:30 -> 03:00 ET) (days with overnight realised variance above its 2010-17 median)
+## D27 — Gold follows its overnight return (11:30 -> 03:00 ET) (days with overnight realised variance above its 2010-17 median)  *(WATCHLIST — t00809)*
 
 Data-derived (D-series family 4): gold's 03:00–11:30 ET window traded in that direction earned 5.53 bps a day beyond
 drift in 2010–2017 (t 2.04). Sets the plan's gold bracket direction; validated once on sealed 2018–2026 data.
