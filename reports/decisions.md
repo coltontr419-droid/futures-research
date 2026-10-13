@@ -10272,6 +10272,17 @@ pre-committed 2010–17 check (§304): MGC London +2.7 (t +0.32, 5 of 8 years); 
 2018–22 phenomenon: the gold/real-yield link that held then broke as central-bank buying took over the gold price from 2022. Closed.
 Z and D market-test 115.
 
+## 306. D-series family 64 protocol: platinum shocks; and a descriptive 2010–17 column from here on (S1)
+
+**No trial spent; N 879. Written and committed BEFORE any statistic is computed.** Platinum (Yahoo PL=F daily, open→settlement,
+family-10 outlier filter) has not been a predictor. Shock on the previous weekday as family 24 → gold's London window and MNQ's day
+session (family-8 grids), follow or fade fixed by discovery. **2 tests.** Costs §180; recent-period design; carried at net > 0,
+t > 1.96; validation as §207, 3.
+
+**Descriptive only (does not change carrying):** every carried test since §252 (D97–D103) failed out of sample, and the two checked
+on 2010–17 were flat or reversed. From this family on, each scan also prints the same rule on 2010-01 → 2017-12 beside the discovery
+result, so a carried test's history is visible before a trial is spent. The carrying rule (§119, §133) is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
