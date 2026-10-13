@@ -1,0 +1,211 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 20,
+ "expected_chance_passes_5pct": 1.0,
+ "carried": [],
+ "all": [
+  {
+   "target": "MGC_win",
+   "predictor": "MGC_pre",
+   "when": "same",
+   "regime": "high",
+   "n": 657,
+   "mean_bps": -4.921842017829792,
+   "t": -1.657094703776186,
+   "rule": "fade"
+  },
+  {
+   "target": "NKD_win",
+   "predictor": "NKD_pre",
+   "when": "same",
+   "regime": "high",
+   "n": 700,
+   "mean_bps": 4.876437071221025,
+   "t": 1.4554799825782196,
+   "rule": "follow"
+  },
+  {
+   "target": "NKD_win",
+   "predictor": "NKD_pre",
+   "when": "same",
+   "regime": "low",
+   "n": 576,
+   "mean_bps": 3.8932316450021665,
+   "t": 1.4434114096842015,
+   "rule": "follow"
+  },
+  {
+   "target": "ZS",
+   "predictor": "ZS",
+   "when": "prev",
+   "regime": "low",
+   "n": 537,
+   "mean_bps": 5.1628148337206605,
+   "t": 1.25505307508074,
+   "rule": "follow"
+  },
+  {
+   "target": "MNQ_win",
+   "predictor": "MNQ_win",
+   "when": "prev",
+   "regime": "high",
+   "n": 652,
+   "mean_bps": -6.620306771385062,
+   "t": -1.148253079536358,
+   "rule": "fade"
+  },
+  {
+   "target": "MGC_win",
+   "predictor": "MGC_win",
+   "when": "prev",
+   "regime": "high",
+   "n": 652,
+   "mean_bps": -3.4349780215077472,
+   "t": -1.138203397461079,
+   "rule": "fade"
+  },
+  {
+   "target": "MCL",
+   "predictor": "MCL",
+   "when": "prev",
+   "regime": "high",
+   "n": 652,
+   "mean_bps": 15.256384118594825,
+   "t": 1.0659090079208324,
+   "rule": "follow"
+  },
+  {
+   "target": "MNQ_win",
+   "predictor": "MNQ_win",
+   "when": "prev",
+   "regime": "low",
+   "n": 508,
+   "mean_bps": -4.253097345584513,
+   "t": -1.030472809214563,
+   "rule": "fade"
+  },
+  {
+   "target": "MGC_win",
+   "predictor": "MGC_pre",
+   "when": "same",
+   "regime": "low",
+   "n": 580,
+   "mean_bps": 2.5506150581724882,
+   "t": 0.9211525146872405,
+   "rule": "follow"
+  },
+  {
+   "target": "DAX_win",
+   "predictor": "DAX_win",
+   "when": "prev",
+   "regime": "low",
+   "n": 543,
+   "mean_bps": 3.1096693289528745,
+   "t": 0.9100341249772885,
+   "rule": "follow"
+  },
+  {
+   "target": "NKD_win",
+   "predictor": "NKD_win",
+   "when": "prev",
+   "regime": "high",
+   "n": 685,
+   "mean_bps": -3.0177713810243296,
+   "t": -0.8883547119036582,
+   "rule": "fade"
+  },
+  {
+   "target": "MCL",
+   "predictor": "MCL",
+   "when": "prev",
+   "regime": "low",
+   "n": 504,
+   "mean_bps": -6.629351238015533,
+   "t": -0.8213296729666921,
+   "rule": "fade"
+  },
+  {
+   "target": "NKD_win",
+   "predictor": "NKD_win",
+   "when": "prev",
+   "regime": "low",
+   "n": 567,
+   "mean_bps": -1.5498261076155857,
+   "t": -0.567803381401017,
+   "rule": "fade"
+  },
+  {
+   "target": "DAX_win",
+   "predictor": "DAX_pre",
+   "when": "same",
+   "regime": "high",
+   "n": 726,
+   "mean_bps": 2.1400295200865638,
+   "t": 0.5273336419167096,
+   "rule": "follow"
+  },
+  {
+   "target": "DAX_win",
+   "predictor": "DAX_win",
+   "when": "prev",
+   "regime": "high",
+   "n": 718,
+   "mean_bps": 1.987679352040718,
+   "t": 0.48494915750083595,
+   "rule": "follow"
+  },
+  {
+   "target": "DAX_win",
+   "predictor": "DAX_pre",
+   "when": "same",
+   "regime": "low",
+   "n": 553,
+   "mean_bps": 1.3369063016153113,
+   "t": 0.39611925733601416,
+   "rule": "follow"
+  },
+  {
+   "target": "MNQ_win",
+   "predictor": "MNQ_on",
+   "when": "same",
+   "regime": "low",
+   "n": 511,
+   "mean_bps": 1.1215515575667536,
+   "t": 0.2723700231235795,
+   "rule": "follow"
+  },
+  {
+   "target": "MNQ_win",
+   "predictor": "MNQ_on",
+   "when": "same",
+   "regime": "high",
+   "n": 661,
+   "mean_bps": 1.4059581635839313,
+   "t": 0.24414914007949426,
+   "rule": "follow"
+  },
+  {
+   "target": "MGC_win",
+   "predictor": "MGC_win",
+   "when": "prev",
+   "regime": "low",
+   "n": 569,
+   "mean_bps": 0.17309899236018558,
+   "t": 0.061471232628133594,
+   "rule": "follow"
+  },
+  {
+   "target": "ZS",
+   "predictor": "ZS",
+   "when": "prev",
+   "regime": "high",
+   "n": 676,
+   "mean_bps": -0.0075027877979659775,
+   "t": -0.0013972163858915958,
+   "rule": "fade"
+  }
+ ]
+}

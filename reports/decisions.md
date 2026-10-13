@@ -9072,6 +9072,28 @@ regime-conditioned statistic here was not computed.
    |discovery|/2); (d) S8 has no separate half here — the sealed window IS the recent period; (d) becomes: positive in at least 3 of
    the 4 calendar years 2023–2026. WATCHLIST if net > 0 otherwise; REJECT. Z and D market-tests from 68.
 
+## 181. Family-13 discovery: no volatility-regime pattern — 0 of 20 carried (S1)
+
+**No trial spent; N 831.** `reporting/d13_regime.py`, `reports/d13_discovery.json`. 20 tests on 2018-01 → 2022-12; **none carried**
+(best: gold's window FADING its pre-window move in high-volatility stretches, −4.9 bps, t −1.66 — the opposite of the 2010–17
+continuation, §154). Conditioning the six windows' hand-offs on recent volatility finds nothing; family 13 is empty.
+
+## 182. D-series family 14 protocol: hour-of-day drift on traded MNQ and gold, recent-period design (S1)
+
+**No trial spent; N 831. Written and committed BEFORE any hourly statistic is computed.** The user approved this order
+(2026-10-13). Families 1–2 scanned hours on free FX / CFD quotes; this scans the plan's two traded-data markets, with §180's
+recent-period design (discovery 2018-01 → 2022-12; validation 2023-01 → 2026-08, sealed).
+
+1. **Data:** the family-8 minute grids (owned Databento trades; contract-consistent, §169): MNQ day 09:30–16:00 and night
+   18:00–09:30; MGC London 03:00–11:30 and Asia 18:00–03:00 (New York). **Cells:** each clock hour of each session starting on the
+   hour or the session start (the last may be shorter): MNQ day 7, MNQ night 16, MGC London 9, MGC Asia 9 = **41 tests**, every
+   weekday; ~2 pass by chance. Return = close at the hour's end ÷ close at its start (one contract) − 1.
+2. **Standalone, net of cost a round trip** (bps, one contract): MNQ 0.56 ($2.32 + one tick on ~$50k), MGC 1.0 ($3.32 + one tick on
+   ~$42k). **Carried:** |t| > 1.96 AND |mean| > cost; direction = the sign.
+3. **Validation (one trial each), sealed:** CONFIRM if (a) net mean > 0 against not trading, t > 1.645; (b) placebo: real ≥ 95th
+   percentile of the same session's other hours (net, same direction); (c) posterior > 0, prior Normal(discovery/2,
+   |discovery|/2); (d) positive in at least 3 of the 4 years 2023–2026. WATCHLIST if net > 0; REJECT. Z and D market-tests from 68.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
