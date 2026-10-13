@@ -9578,6 +9578,25 @@ volume may enter as a false event — it dilutes, it cannot bias the direction r
 
 NQ rests on 17 events (2020 dominates). Z and D market-tests 91–93.
 
+## 220. D79–D81 validated: no confirmation (S6–S8)
+
+**Three trials spent: t00861–t00863. N 854 → 857.**
+
+| id, trial | rule | trades | net bps (t) | placebo pct | tier |
+|---|---|---|---|---|---|
+| D79 t00861 | NQ follows a volume-shock session over the next 3 | 1 | -132.40 (t +nan) | 24 | **REJECT** |
+| D80 t00862 | ZS fades a volume-shock session over the next 1 | 67 | +5.60 (t +0.42) | 82 | **WATCHLIST** |
+| D81 t00863 | ZW fades a volume-shock session over the next 1 | 50 | +9.55 (t +0.34) | 91 | **WATCHLIST** |
+
+## 221. D-series family 28 protocol: yield-curve shocks — steepening and flattening days (S1)
+
+**No trial spent; N 857. Written and committed BEFORE any data is fetched.** D68 (bond shock → equities next session) is the
+programme's most robust directional finding. Its natural extension: the SHAPE of the curve. Yahoo daily ZT (2-year), ZN (10-year), ZB
+(30-year) sessions, open → settlement. **Curve change** = ZT − ZB session return (a steepener in price terms: the long end falls
+against the short); a shock day = |change| > 2 σ of its previous 60. **Targets:** the next session of ES, NQ, GC, 6E, 6J, HG
+(Yahoo, §171), each in the shock's direction or against it, fixed by discovery. **6 tests**; ~0.3 by chance. Recent-period
+design (§180); carried at net > 0 with t > 1.96; validation as §207, 3. Z and D market-tests from 94.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

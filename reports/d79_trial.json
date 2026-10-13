@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D79",
+ "cell": "NQ follows a volume-shock session over the next 3",
+ "trades": 1,
+ "net_bps": -132.3971187443364,
+ "t_net": NaN,
+ "placebo_pct": 23.9,
+ "by_year": {
+  "2025": -132.3971187443364
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "injection": {
+  "hypothesis": "D79",
+  "n_events": 1,
+  "recovered": true,
+  "sought_bps": 90.33669060197828,
+  "mean_estimate": NaN,
+  "sd_estimate_bps": NaN,
+  "power_strict_t": 0.0,
+  "note": "too few sealed events to inject"
+ }
+}

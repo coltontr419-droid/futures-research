@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D81",
+ "cell": "ZW fades a volume-shock session over the next 1",
+ "trades": 50,
+ "net_bps": 9.546181879092794,
+ "t_net": 0.3369632083502172,
+ "placebo_pct": 90.9,
+ "by_year": {
+  "2023": 132.74759208609493,
+  "2024": -45.8861557994488,
+  "2025": -0.5317495835044037,
+  "2026": -77.77244252722974
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D81",
+  "n_events": 50,
+  "sought_bps": 23.33251970185775,
+  "mean_estimate": 23.164188902809368,
+  "sd_estimate_bps": 28.22498014645924,
+  "power_strict_t": 0.175,
+  "recovered": true
+ }
+}

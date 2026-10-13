@@ -1,0 +1,10 @@
+{
+ "hypothesis": "D79",
+ "n_events": 1,
+ "recovered": true,
+ "sought_bps": 90.33669060197828,
+ "mean_estimate": NaN,
+ "sd_estimate_bps": NaN,
+ "power_strict_t": 0.0,
+ "note": "too few sealed events to inject"
+}

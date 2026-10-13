@@ -9181,12 +9181,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00861 (decisions.md 220), REJECT on sealed 2023-2026: 1 trades; net -132.40 bps; placebo 24th pct.
   outcome_injection_required: Before the run - reports/d79_injection.json (src/futuresres/signals/d_volume.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_volume.py
+    injected_bps: 90.337
+    sought_bps: 90.337
+    n_injection: 1
+    n_run: 1
+    recovered: true
+    report: reports/d79_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 113
+  test_order: null
+  registered_test_order: 113
   grade: C
   tier: C
   param_cap: 0
@@ -9224,12 +9237,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00862 (decisions.md 220), WATCHLIST on sealed 2023-2026: 67 trades; net +5.60 bps; placebo 82th pct.
   outcome_injection_required: Before the run - reports/d80_injection.json (src/futuresres/signals/d_volume.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_volume.py
+    injected_bps: 8.491
+    sought_bps: 8.491
+    n_injection: 67
+    n_run: 67
+    recovered: true
+    report: reports/d80_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 114
+  test_order: null
+  registered_test_order: 114
   grade: C
   tier: C
   param_cap: 0
@@ -9267,12 +9293,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00863 (decisions.md 220), WATCHLIST on sealed 2023-2026: 50 trades; net +9.55 bps; placebo 91th pct.
   outcome_injection_required: Before the run - reports/d81_injection.json (src/futuresres/signals/d_volume.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_volume.py
+    injected_bps: 23.333
+    sought_bps: 23.333
+    n_injection: 50
+    n_run: 50
+    recovered: true
+    report: reports/d81_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 115
+  test_order: null
+  registered_test_order: 115
   grade: C
   tier: C
   param_cap: 0
