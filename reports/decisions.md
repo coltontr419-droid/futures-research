@@ -8640,6 +8640,25 @@ Thu −16.1, Fri −1.1); 2018–20 +21.42, **2021–26 -5.14**. Fails (a), (b) 
 form (the pooled mean is above zero). The discovery's −23.4 bps (t −2.33) was the scan's chance pass; family 5 found nothing.
 Z and D market-tests: 40.
 
+## 158. D-series family 6 protocol: the opening drive — does a window's first 30 or 60 minutes set the rest of it? (S1)
+
+**No trial spent; N 804. Written and committed BEFORE any data is built.** The user: continue. Families 3–5 asked about information
+before a window; this asks about the window's own start. If its first stretch predicts the remainder, the ticket would enter at
+the end of that stretch in the predicted direction and close at the window's usual end — the same bracket logic, a later start.
+F06 (cash_open_drive_continuation, MNQ, retired) tested a published version for MNQ only; gold's London window, Tokyo and Xetra
+are untested.
+
+1. **Windows with intraday data:** MNQ 09:30–16:00 and MGC 03:00–11:30 New York (owned Databento trades; a move whose two prices
+   are from different contracts is dropped); NKD 09:00–15:00 Tokyo and DAX 09:00–17:30 Frankfurt (corrected HistData CFD minute
+   bars — mid-session prices only; no session close is used except the window's end, as in §149). Crude and soybeans have no
+   minute history here and are not tested.
+2. **Predictor and target:** prices at the window's start, +30, +60 minutes and end (close of the last 1-minute bar before each
+   time). Predictor = start → +k; target = +k → end; k ∈ {30, 60}. Forms: every day; strong days (|predictor| above its 2010–17
+   median). **4 markets × 2 k × 2 forms = 16 tests**; ~0.8 pass |t| > 1.96 by chance.
+3. **Discovery 2010-06 → 2017-12;** statistic, selection and follow / fade exactly as §149, 4 (target demeaned within period).
+4. **Validation exactly as §149, 5** (sealed 2018-01 → 2026-08; one trial each; the always-long baseline is a long position over
+   the same remainder +k → end); Z and D market-tests from 41.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
