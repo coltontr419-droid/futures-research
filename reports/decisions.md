@@ -8431,6 +8431,46 @@ every market: the plan (all, funded horizon 21), choose at 21, 63 and 126 days. 
   uncapped payouts later, which a four-month goal cannot use.
 - **Not adopted.** Taking everything allowed every day remains the plan; with no edge, money in the account is only exposed.
 
+## 149. D-series family 3 protocol: the session relay — does a finished window predict the direction of the next one? (S1)
+
+**No trial spent; N 787. Written and committed BEFORE any data is built or scanned.** The user: keep searching; published effects
+are likely gone — find something from what the programme has seen. Everything tested so far was a published effect or a scan of
+clock patterns; the plan itself trades six windows that hand over from Tokyo to Europe to New York. If a window that has fully
+closed predicts the DIRECTION of a later one, the bot can choose long or short for that ticket at no extra cost (one trade a day
+either way) — direction is the one lever the zero-edge plan leaves open. Not covered before: Z06/Z07 used a market's own long
+history (rejected), F08 same-hour MNQ/gold divergence (premise failure), Z05 gold day/night (marginal). Nothing tested the relay.
+
+1. **Windows and returns** (each from the start of the window to its end, the plan's windows; ET unless stated):
+   NKD 09:00–15:00 Tokyo (= 20:00/19:00 → 02:00/01:00 New York); DAX 09:00–17:30 Frankfurt; MGC 03:00–11:30; MNQ 09:30–16:00;
+   MCL the CME session (owned daily bars, roll-correct, bar dated D ≈ 20:00 D−1 → 20:00 D New York — an approximation);
+   ZS the CBOT session (Yahoo daily, open → settlement; §140 checked it against hourly sessions). Plus pre-window moves:
+   NKD Tokyo 15:00 → next 09:00; DAX 17:30 → next 09:00; MGC 11:30 → next 03:00; MNQ 16:00 → next 09:30; and the morning so far at
+   MNQ's entry: DAX and MGC 03:00 → 09:30.
+2. **Sources:** MNQ (NQ/MNQ spliced) and MGC 1-minute Databento TRADES (owned); NKD, DAX free HistData CFD minute bars on the
+   corrected clock (§140) — window opens and closes only, none at a session close where §144's quote artefact lived; prices are the
+   close of the last minute bar before each time; a window or move whose two prices come from different contracts is dropped.
+3. **Tests (40 target × predictor pairs; every predictor has FINISHED before the target's entry):**
+   - NKD (entry 20:00 D): MNQ, DAX, MGC, MCL, ZS windows of D; NKD's own window of D; NKD's pre-window move (to 09:00 Tokyo D+1).
+   - ZS (entry 20:00 D): MNQ, DAX, MGC, MCL windows of D; NKD of D; ZS's own session of D.
+   - MCL (entry 18:00 D): MNQ, DAX, MGC, ZS windows of D; NKD of D; MCL's own session of D.
+   - DAX (entry 03:00 D): NKD of D (closed 02:00); MNQ, MGC, MCL, ZS of D−1; DAX's own window of D−1; DAX's pre-window move.
+   - MGC (entry 03:00 D): NKD of D; MNQ, DAX, MCL, ZS of D−1; MGC's own window of D−1; MGC's pre-window move.
+   - MNQ (entry 09:30 D): NKD of D; DAX and MGC 03:00 → 09:30 of D; MCL, ZS of D−1; MNQ's own window of D−1; MNQ's overnight move.
+   Two forms each: every day (direction = sign of the predictor), and strong days only (|predictor| above its 2010–17 median).
+   **80 tests**; at |t| > 1.96 about 4 pass by chance.
+4. **Discovery 2010-06 → 2017-12 only** (asserted). Statistic: mean of sign(predictor) × target, the target demeaned within the
+   period (directional skill beyond drift), two-sided t. **Carried: every test with |t| > 1.96** (§133: no multiple-testing cut);
+   its sign fixes the rule — momentum (follow the predictor) or reversal (fade it). No cost filter: the direction is chosen for a
+   trade the plan makes anyway.
+5. **Validation 2018-01 → 2026-08, sealed until registration; one trial per carried test.** CONFIRM only if all hold:
+   (a) **against always-long** (§119): the daily difference (rule direction − always long) × the target's RAW return has t > 1.645;
+   (b) placebo: the real rule's mean at or above the 95th percentile of the same rule with the predictor shifted ±2…±11 trading
+   days (20 shifts); (c) posterior > 0, prior Normal(discovery mean / 2, |discovery mean| / 2) on the demeaned statistic;
+   (d) **S8: the demeaned statistic is positive on 2021–2026 alone**; reported against the running count (Z and D market-tests
+   from 24). WATCHLIST if the validation mean (demeaned) > 0 but a condition fails; REJECT otherwise.
+6. **Use, if any confirms:** the direction rule is put into the plan's replay (A23 engine, the confirmed market only) and the
+   effect on P(payout) and net per four months reported before anything changes in the bot.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
