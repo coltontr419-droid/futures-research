@@ -6312,3 +6312,141 @@
       decisions.md 155, 4 with the 156 addendum: CONFIRM if (a) the short rule against always-long t > 1.645, (b) Monday beats
       each other weekday, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT. Z and D test 40.
   s6_control: By period; the other four weekdays.
+- id: D29
+  name: dax_follows_first_30_minutes_all
+  mechanism: >
+    DATA-DERIVED (D-series family 6, the opening drive, decisions.md 158-159): in 2010-2017 the remainder of the DAX window (09:00-17:30 Frankfurt)
+    after its first 30 minutes, traded in the direction of those minutes on every day, earned 5.98 bps a day
+    beyond drift (t 2.64, n 1797). Continuation of the opening move as orders that build over the session follow
+    the open's information: THE COUNTERPARTY would be slower participants who act through the session. Carried by the scan.
+  condition: >
+    On every day: enter the plan's FDXM bracket 30 minutes after the window opens, in the direction of the move
+    so far, closing at the window's usual end. Corrected HistData CFD minute bars.
+  horizon_minutes: [480]
+  hold_hours: [8.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d29_injection.json (src/futuresres/signals/d_drive.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 63
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-6 scan (16 tests, |t| > 1.96, decisions.md 158); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      FDXM is one of the plan's accounts; the rule sets that account's entry time and direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+2.99 bps, 2.99) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 158): CONFIRM if (a) against always-long over the same remainder t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 41.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.
+- id: D30
+  name: nkd_follows_first_30_minutes_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 6, the opening drive, decisions.md 158-159): in 2010-2017 the remainder of the Nikkei window (09:00-15:00 Tokyo)
+    after its first 30 minutes, traded in the direction of those minutes on days with |first-30-minute move| above its 2010-17 median (17.5 bps), earned 6.00 bps a day
+    beyond drift (t 2.16, n 906). Continuation of the opening move as orders that build over the session follow
+    the open's information: THE COUNTERPARTY would be slower participants who act through the session. Carried by the scan.
+  condition: >
+    On days with |first-30-minute move| above its 2010-17 median (17.5 bps): enter the plan's NKD bracket 30 minutes after the window opens, in the direction of the move
+    so far, closing at the window's usual end. Corrected HistData CFD minute bars.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d30_injection.json (src/futuresres/signals/d_drive.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 64
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-6 scan (16 tests, |t| > 1.96, decisions.md 158); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      NKD is one of the plan's accounts; the rule sets that account's entry time and direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.00 bps, 3.00) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 158): CONFIRM if (a) against always-long over the same remainder t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 42.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.
+- id: D31
+  name: dax_follows_first_30_minutes_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 6, the opening drive, decisions.md 158-159): in 2010-2017 the remainder of the DAX window (09:00-17:30 Frankfurt)
+    after its first 30 minutes, traded in the direction of those minutes on days with |first-30-minute move| above its 2010-17 median (18.5 bps), earned 7.67 bps a day
+    beyond drift (t 2.11, n 898). Continuation of the opening move as orders that build over the session follow
+    the open's information: THE COUNTERPARTY would be slower participants who act through the session. Carried by the scan.
+  condition: >
+    On days with |first-30-minute move| above its 2010-17 median (18.5 bps): enter the plan's FDXM bracket 30 minutes after the window opens, in the direction of the move
+    so far, closing at the window's usual end. Corrected HistData CFD minute bars.
+  horizon_minutes: [480]
+  hold_hours: [8.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d31_injection.json (src/futuresres/signals/d_drive.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 65
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-6 scan (16 tests, |t| > 1.96, decisions.md 158); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      FDXM is one of the plan's accounts; the rule sets that account's entry time and direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.84 bps, 3.84) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 158): CONFIRM if (a) against always-long over the same remainder t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 43.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.

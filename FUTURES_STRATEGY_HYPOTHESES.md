@@ -808,3 +808,21 @@ drift in 2010–2017 (t 2.04). Sets the plan's gold bracket direction; validated
 Data-derived (D-series family 5): the only calendar cell of 72 carried (≈3.6 by chance). Short the plan's crude bracket on
 Mondays; validated once on sealed 2018–2026 data. `hypotheses.yaml` (D28) · `decisions.md` §156
 
+## D29 — DAX Follows Its First 30 Minutes (every day)
+
+Data-derived (D-series family 6): the rest of the DAX window (09:00-17:30 Frankfurt) traded in the direction of its first 30 minutes earned
+5.98 bps a day beyond drift in 2010–2017 (t 2.64). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D29) · `decisions.md` §159
+
+## D30 — NKD Follows Its First 30 Minutes (strong days)
+
+Data-derived (D-series family 6): the rest of the Nikkei window (09:00-15:00 Tokyo) traded in the direction of its first 30 minutes earned
+6.00 bps a day beyond drift in 2010–2017 (t 2.16). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D30) · `decisions.md` §159
+
+## D31 — DAX Follows Its First 30 Minutes (strong days)
+
+Data-derived (D-series family 6): the rest of the DAX window (09:00-17:30 Frankfurt) traded in the direction of its first 30 minutes earned
+7.67 bps a day beyond drift in 2010–2017 (t 2.11). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D31) · `decisions.md` §159
+

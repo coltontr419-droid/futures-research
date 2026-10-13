@@ -8659,6 +8659,21 @@ are untested.
 4. **Validation exactly as §149, 5** (sealed 2018-01 → 2026-08; one trial each; the always-long baseline is a long position over
    the same remainder +k → end); Z and D market-tests from 41.
 
+## 159. Family-6 discovery: three carried (≈0.8 by chance) — DAX and Nikkei continue their first half hour; D29–D31 registered (S1–S5)
+
+**No trial spent at registration; N 804. Committed BEFORE validation data is read.** `reporting/d6_drive.py`,
+`reports/d6_discovery.json`; `signals/d_drive.py`. 16 tests, 2010-06 → 2017-12; **3 carried**, all "follow the first 30 minutes",
+in the two non-US windows; MNQ nothing (best |t| 0.75), gold +1.59 at best.
+
+| id | market | predictor | form | discovery (bps beyond drift a day) | prior |
+|---|---|---|---|---|---|
+| D29 | DAX | first 30 min | all | +5.98, t +2.64, n 1797 | N(+2.99, 2.99) |
+| D30 | NKD | first 30 min | strong | +6.00, t +2.16, n 906 | N(+3.00, 3.00) |
+| D31 | DAX | first 30 min | strong | +7.67, t +2.11, n 898 | N(+3.84, 3.84) |
+
+D29 and D31 are one effect (every day / strong days). Data: corrected HistData CFD minute bars, mid-session prices plus the
+window's end as in §149. Z and D market-tests 41–43.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
