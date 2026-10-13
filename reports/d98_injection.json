@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D98",
+ "n_events": 302,
+ "sought_bps": 0.7168000051677557,
+ "mean_estimate": 0.700088541124421,
+ "sd_estimate_bps": 0.5357341500087396,
+ "power_strict_t": 0.3665,
+ "recovered": true
+}

@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D97",
+ "cell": "6B fades the move into the London fix",
+ "trades": 840,
+ "net_bps": -0.6006811716254328,
+ "t_net": -2.0076336181481804,
+ "placebo_pct": 0.0,
+ "by_year": {
+  "2023": 0.614340337177971,
+  "2024": -1.134262927571939,
+  "2025": -1.452213647993712,
+  "2026": 0.4355976836871765
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 109,
+ "injection": {
+  "hypothesis": "D97",
+  "n_events": 840,
+  "sought_bps": 0.34113337691210466,
+  "mean_estimate": 0.35124274804544175,
+  "sd_estimate_bps": 0.2957638154833442,
+  "power_strict_t": 0.3195,
+  "recovered": true
+ }
+}

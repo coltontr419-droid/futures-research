@@ -9888,6 +9888,17 @@ over 16:00 → 16:30 (gross +0.2 to +1.9 bps) — one direction everywhere, the 
 Validated once each by `signals/d_fix.py` (outcome injection first) because the protocol says so; the answer goes to the watchlist
 or the record, not to the bot.
 
+## 254. D97–D99 validated (t00879–t00881): the fix reversal did not survive — 0 CONFIRM (S1)
+
+**N 875.** Sealed 2023-01 → 2026-08, HistData minute bars, outcome injection recovered first (power 25–37%).
+- **D97** 6B fade, all days: **REJECT** — 840 days, −0.60 bps (t −2.01): the sign reversed; years 2 of 4.
+- **D98** 6B fade, strong: **REJECT** — 302 days, −0.77 bps (t −1.42); years 1 of 4.
+- **D99** 6S fade, strong: **WATCHLIST** — 408 days, +0.18 bps (t +0.31); placebo 0th pct; years 3 of 4. Not worth tracking:
+  a positive mean this small is below any futures round trip.
+
+The one-direction-everywhere pattern of 2018–22 was a period effect (the fix's reform after 2015 and the post-2020 shift to
+algorithmic fix execution are both plausible), not a standing edge. Family 41 is closed. Z and D market-tests reach 111.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

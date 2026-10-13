@@ -10188,12 +10188,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00879 (decisions.md 254), REJECT on sealed 2023-2026: 840 days; net -0.60 bps (t -2.01); placebo 0th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_fix.py
+    injected_bps: 0.341
+    sought_bps: 0.341
+    n_injection: 840
+    n_run: 840
+    recovered: true
+    report: reports/d97_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 131
+  test_order: null
+  registered_test_order: 131
   grade: C
   tier: C
   param_cap: 0
@@ -10234,12 +10247,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00880 (decisions.md 254), REJECT on sealed 2023-2026: 302 days; net -0.77 bps (t -1.42); placebo 0th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_fix.py
+    injected_bps: 0.717
+    sought_bps: 0.717
+    n_injection: 302
+    n_run: 302
+    recovered: true
+    report: reports/d98_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 132
+  test_order: null
+  registered_test_order: 132
   grade: C
   tier: C
   param_cap: 0
@@ -10280,12 +10306,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00881 (decisions.md 254), WATCHLIST on sealed 2023-2026: 408 days; net +0.18 bps (t +0.31); placebo 0th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_fix.py
+    injected_bps: 0.497
+    sought_bps: 0.497
+    n_injection: 408
+    n_run: 408
+    recovered: true
+    report: reports/d99_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 133
+  test_order: null
+  registered_test_order: 133
   grade: C
   tier: C
   param_cap: 0

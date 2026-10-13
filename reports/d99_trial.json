@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D99",
+ "cell": "6S fades the strong move into the London fix",
+ "trades": 408,
+ "net_bps": 0.17998688260129111,
+ "t_net": 0.3144956691118922,
+ "placebo_pct": 0.0,
+ "by_year": {
+  "2023": 0.40179795737586715,
+  "2024": 0.007180653933335346,
+  "2025": -1.0611414821244407,
+  "2026": 1.9491960495535101
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 111,
+ "injection": {
+  "hypothesis": "D99",
+  "n_events": 408,
+  "sought_bps": 0.4966158570535986,
+  "mean_estimate": 0.5142211590240561,
+  "sd_estimate_bps": 0.5621191674466123,
+  "power_strict_t": 0.253,
+  "recovered": true
+ }
+}
