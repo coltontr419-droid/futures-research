@@ -8860,6 +8860,22 @@ in these markets are scheduled: US releases at 08:30 New York (CPI, payrolls, PP
    > 0, prior Normal(discovery/2, |discovery|/2); (d) 2021–26 alone > 0. Any CONFIRM is then replayed as its own 50K Daily
    account (A27 engine) before it counts as usable. Z and D market-tests from 49.
 
+## 169. Family-9 discovery: gold fades its first reaction to 08:30 releases — two carried (≈0.6 by chance); D37–D38 registered (S1–S5)
+
+**No trial spent at registration; N 812. Committed BEFORE validation data is read.** `reporting/d9_events.py`,
+`reports/d9_discovery.json`; `signals/d_events.py`. **Bug found and fixed before any result was used:** the family-8 grids numbered
+contracts separately in each session file, so the MNQ 08:30 test (night and day grids joined) saw false contract changes and kept 18
+of 187 release days; contracts are now coded year × 12 + month in every grid (`d8_intraday.build`), grids rebuilt, scan re-run
+(family 8's single-grid tests are unaffected). Release days detected 2013–17: MNQ 08:30 189, MGC 08:30 239, MNQ 14:00 107.
+
+| id | event | predictor | form | rule | discovery | prior |
+|---|---|---|---|---|---|---|
+| D37 | MGC 08:30 | first 15 min | all | fade | -0.93 pts, t -2.07, n 239; net +0.50 | N(+0.46, 0.46) |
+| D38 | MGC 08:30 | first 5 min | all | fade | -0.97 pts, t -1.99, n 239; net +0.54 | N(+0.49, 0.49) |
+
+MNQ shows nothing at 08:30 or 14:00 (best t +1.18). D37 and D38 are one effect. Economics are thin: ~0.5 points net a trade is
+~$40 on 8 MGC, ~48 release days a year. Z and D market-tests 49–50.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

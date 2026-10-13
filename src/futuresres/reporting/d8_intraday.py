@@ -38,7 +38,7 @@ def build(market: str, session: str) -> None:
     a, b = SESSIONS[(market, session)]
     T = (b - a) % 1440
     lf = (pl.scan_parquet(ROOT / "data" / "continuous" / FILES[market])
-          .select("ts_event", pl.col("close").cast(pl.Float32), pl.col("volume").cast(pl.Int32), pl.col("contract").cast(pl.Categorical))
+          .select("ts_event", pl.col("close").cast(pl.Float32), pl.col("volume").cast(pl.Int32), "contract")
           .with_columns(pl.col("ts_event").dt.convert_time_zone("America/New_York").alias("t"))
           .with_columns(pl.col("t").dt.date().alias("date"),
                         (pl.col("t").dt.hour().cast(pl.Int32) * 60 + pl.col("t").dt.minute().cast(pl.Int32)).alias("m"))
@@ -50,7 +50,10 @@ def build(market: str, session: str) -> None:
         lf = lf.with_columns(pl.when(pl.col("m") >= a).then(nd).otherwise(pl.col("date")).alias("D"))
     else:
         lf = lf.with_columns(pl.col("date").alias("D"))
-    d = lf.filter(pl.col("D").dt.weekday() <= 5).select("D", "off", "close", "volume", pl.col("contract").to_physical().cast(pl.Int32).alias("ct")).collect()
+    # contract id = year * 12 + month index, from the symbol ("NQH2011" -> 2011 * 12 + 2): the same in every grid (decisions.md 169)
+    month = pl.col("contract").str.slice(-5, 1).replace_strict({c: i for i, c in enumerate("FGHJKMNQUVXZ")}, return_dtype=pl.Int32)
+    ct = pl.col("contract").str.slice(-4, 4).cast(pl.Int32) * 12 + month
+    d = lf.filter(pl.col("D").dt.weekday() <= 5).select("D", "off", "close", "volume", ct.alias("ct")).collect()
     days = np.array(sorted(set(d["D"].to_list())))
     di = {x: i for i, x in enumerate(days)}
     C = np.full((len(days), T), np.nan, np.float32); V = np.zeros((len(days), T), np.float32); K = np.full((len(days), T), -1, np.int32)

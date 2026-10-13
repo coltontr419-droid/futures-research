@@ -856,3 +856,11 @@ Data-derived (D-series family 7, from the gold finding): XAGUSD from 03:00 to 11
 6.67 bps a day beyond drift in 2010–2017 (t 2.20). Validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D36) · `decisions.md` §162
 
+## D37 — Gold Fades Its First 15 Minutes After 08:30 Releases
+
+Data-derived (D-series family 9). `hypotheses.yaml` (D37) · `decisions.md` §169
+
+## D38 — Gold Fades Its First 5 Minutes After 08:30 Releases
+
+Data-derived (D-series family 9). `hypotheses.yaml` (D38) · `decisions.md` §169
+
