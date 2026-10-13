@@ -9513,6 +9513,19 @@ as in family 24. Z and D market-tests 84–86.
 
 Gold following a bond shock (D72) was positive only through one year (2026 +93); nothing generalises beyond D68's S&P response.
 
+## 215. D-series family 26 protocol: the response to a shock over the following sessions (S1)
+
+**No trial spent; N 850. Written and committed BEFORE any statistic is computed.** Family 24 measured the session right after a shock
+(D68 confirmed). This asks whether the response continues: the next three sessions together, and sessions two and three alone
+(skipping the first). Recent-period design (§180).
+
+1. **Shock day** in P ∈ {ZN, 6E, ES, CL, GC} (Yahoo sessions, |session| > 2 σ of the previous 60). **Targets:** every other §171
+   market. **Trade:** (i) sessions D+1 … D+3, or (ii) sessions D+2 … D+3, each a daily round trip in the shock's direction or against
+   it (fixed by discovery); net of h costs. **5 × 13 × 2 = 130 tests**; ~6.5 by chance. Non-overlapping (a shock during an open
+   trade is ignored).
+2. **Carried:** net > 0 with t > 1.96. **Validation (one trial each), sealed 2023-01 → 2026-08:** as §207, 3 (net t > 1.645;
+   placebo after random non-shock days ≥ 95th pct; positive in ≥ 3 of 4 years). Z and D market-tests from 87.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
