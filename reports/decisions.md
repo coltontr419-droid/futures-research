@@ -9313,6 +9313,27 @@ validation 2023-01 → 2026-08, sealed.
    Z and D market-tests from 76. A CONFIRM is then replayed as the plan's account for that market (A23 engine, REAL drift) against
    the current window before anything changes.
 
+## 200. Family-20 discovery: no window's drift is significant on 2018–22 — 0 of 4 carried (S1)
+
+**No trial spent; N 839.** `reports/d20_discovery.json`. Net, long, 2018-01 → 2022-12: MNQ night +2.99 bps (t +1.24), MNQ day −0.84
+(t −0.24), MGC Asia −1.61 (t −1.48), MGC London +0.57 (t +0.27). MNQ's drift sits in the night session, but not significantly.
+
+## 201. D-series family 21 protocol: carry (the futures curve's slope) as the daily direction (S1)
+
+**No trial spent; N 839. Written and committed BEFORE any carry statistic is computed.** Backwardated commodities (front above the
+next contract) pay longs a hedging premium; the owned daily file measures each market's carry (`data/daily_bars.py`: C = (F1 − F2)
+/ F2 / years, the front against the next liquid contract). W04 (§73–§75, retired) combined trend and carry in a daily portfolio on
+2010–26; carry alone, per market, on the recent period was not measured. Recent-period design (§180).
+
+1. **Markets** (owned GLBX daily bars, roll-correct held returns, bars ≈ the session, §74): NQ, GC, HG, CL, ZN, 6E. **Trade:** each
+   day's held return in the sign of the previous day's carry (long backwardation / positive carry, short contango); a daily round
+   trip at the account's contract, cost (bps) NQ 0.5, GC 0.8, HG 2.0, CL 0.7, ZN 0.4, 6E 0.3. Forms: every day; days with |carry|
+   above its 2018–22 median. **6 × 2 = 12 tests.**
+2. **Discovery 2018-01 → 2022-12;** net bps a day, t; **carried** if net > 0 with t > 1.96.
+3. **Validation (one trial each), sealed 2023-01 → 2026-09:** (a) net > 0 against not trading t > 1.645; (b) placebo: the carry
+   sign from a random other day, 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years; CONFIRM if all; WATCHLIST if net >
+   0; REJECT. Z and D market-tests from 76.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
