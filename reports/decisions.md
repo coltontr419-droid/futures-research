@@ -9833,6 +9833,20 @@ short (fixed by discovery) on those days only, judged on the DEMEANED target ret
 not carried. **3 signals × 2 targets = 6 tests.** Costs §180; recent-period design (§180); carried at net > 0, t > 1.96; validation as
 §207, 3 (placebo: random other days).
 
+## 247. Family-38 discovery: the VIX predicts nothing usable — 0 of 6 carried (S1)
+
+**No trial spent; N 872.** `reports/d38_discovery.json`: MNQ follows a VIX shock +23.3 bps (t +1.36, n 75); elevated-VIX short +18.2
+(t +0.95); inversion and every gold test ~0. Empty.
+
+## 248. D-series family 39 protocol: shocks in markets new to the programme (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** D68 (a 10-year shock leads MNQ) is the strongest
+confirmed rule; family 24 used only four predictors from the 14-market universe. New predictors (Yahoo daily, open→close, family-10
+outlier filter): **ZT=F** (2-year), **ZB=F** (30-year), **DX-Y.NYB** (dollar index), **HYG** (high-yield credit, 16:00 close),
+**BTC-USD** (dated by its UTC day, which ends 20:00 ET — before both targets open). Shock on the previous weekday: |return| > 2 × SD of
+the previous 60 (family 24). Targets: MNQ day 09:30–16:00 and MGC London 03:00–11:30 (family-8 grids), follow or fade fixed by
+discovery. **5 × 2 = 10 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
