@@ -8724,6 +8724,29 @@ reappears in silver at two to three times its size relative to the window (silve
 The currencies show nothing but USD/CHF fading gold's move (t −2.21). Silver's four tests are one phenomenon; correlated. USD/JPY data
 here start 2016. Z and D market-tests 44–48.
 
+## 163. D32 CONFIRMS: silver's London window follows its own strong overnight move (S6–S8)
+
+**Five trials spent: t00814–t00818. N 807 → 812.** Z and D market-tests 44–48.
+
+| id, trial | rule | days | beyond drift, bps a day | vs always-long | placebo pct | 2018–20 / 2021–26 | tier |
+|---|---|---|---|---|---|---|---|
+| D32 t00814 | xagusd London window follows its own overnight move (strong days) | 1132 | +9.07 (t +1.93) | +14.07 (t +2.06) | 100 | +6.55 / +10.08 | **CONFIRM** |
+| D33 t00815 | xagusd London window follows gold's overnight move (every day) | 2088 | +2.57 (t +0.82) | +3.97 (t +0.87) | 85 | +2.57 / +2.57 | **WATCHLIST** |
+| D34 t00816 | xagusd London window follows gold's overnight move (strong days) | 944 | +11.50 (t +2.27) | +12.27 (t +1.60) | 100 | +6.94 / +13.57 | **WATCHLIST** |
+| D35 t00817 | usdchf London window fades gold's overnight move (every day) | 2083 | -0.12 (t -0.14) | +0.58 (t +0.46) | 40 | -1.65 / +0.72 | **REJECT** |
+| D36 t00818 | xagusd London window follows its own overnight move (every day) | 2181 | +6.63 (t +2.16) | +7.23 (t +1.64) | 100 | +2.38 / +8.96 | **WATCHLIST** |
+
+**D32 meets the strict rule on sealed data** — silver (XAG/USD), 03:00 → 11:30 New York, in the direction of its own move from the
+previous 11:30, on days that move exceeds its 2010–17 median (≈ half of days): against always-long +14.07 bps a day (t +2.06);
+placebo 100th percentile; posterior +8.99; 2018–20 +6.55, **2021–26 +10.08**. Reported against the running count: the 48th Z and D
+market-test, with no multiple-testing cut (the user's rule, §133). Its siblings: D36 (every day) t +1.64 against always-long,
+D34 (gold's move, strong days) t +1.60 — both short of 1.645 by a hair, placebo 100th, stronger after 2021; D33 weaker; USD/CHF
+(D35) rejected.
+
+**Not yet adopted. Before any use:** (1) the validation used free bid quotes — the effect must be checked on traded silver futures
+(D03's lesson, §144); (2) silver is not one of the plan's accounts — its value in the plan (a silver account in place of the
+weakest, at the risk-matched size, the rule on strong days and long otherwise) must be replayed before anything changes.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

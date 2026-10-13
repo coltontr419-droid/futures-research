@@ -6502,12 +6502,24 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: stage1_passed
+  outcome_tier: CONFIRM
+  stage1_reason: >
+    Trial t00814 (decisions.md 163), CONFIRM on sealed 2018-2026: 1132 days; demeaned +9.07 bps a day (t +1.93); against always-long +14.07 (t +2.06); placebo 100th pct; 2018-20 +6.55, 2021-26 +10.08.
   outcome_injection_required: Before the run - reports/d32_injection.json (src/futuresres/signals/d_london.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_london.py
+    injected_bps: 8.701
+    sought_bps: 8.701
+    n_injection: 1132
+    n_run: 1132
+    recovered: true
+    report: reports/d32_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 66
+  test_order: null
+  registered_test_order: 66
   grade: B
   tier: B
   param_cap: 0
@@ -6548,12 +6560,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00815 (decisions.md 163), WATCHLIST on sealed 2018-2026: 2088 days; demeaned +2.57 bps a day (t +0.82); against always-long +3.97 (t +0.87); placebo 85th pct; 2018-20 +2.57, 2021-26 +2.57.
   outcome_injection_required: Before the run - reports/d33_injection.json (src/futuresres/signals/d_london.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_london.py
+    injected_bps: 6.183
+    sought_bps: 6.183
+    n_injection: 2088
+    n_run: 2088
+    recovered: true
+    report: reports/d33_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 67
+  test_order: null
+  registered_test_order: 67
   grade: B
   tier: B
   param_cap: 0
@@ -6594,12 +6619,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00816 (decisions.md 163), WATCHLIST on sealed 2018-2026: 944 days; demeaned +11.50 bps a day (t +2.27); against always-long +12.27 (t +1.60); placebo 100th pct; 2018-20 +6.94, 2021-26 +13.57.
   outcome_injection_required: Before the run - reports/d34_injection.json (src/futuresres/signals/d_london.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_london.py
+    injected_bps: 9.233
+    sought_bps: 9.233
+    n_injection: 944
+    n_run: 944
+    recovered: true
+    report: reports/d34_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 68
+  test_order: null
+  registered_test_order: 68
   grade: B
   tier: B
   param_cap: 0
@@ -6640,12 +6678,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00817 (decisions.md 163), REJECT on sealed 2018-2026: 2083 days; demeaned -0.12 bps a day (t -0.14); against always-long +0.58 (t +0.46); placebo 40th pct; 2018-20 -1.65, 2021-26 +0.72.
   outcome_injection_required: Before the run - reports/d35_injection.json (src/futuresres/signals/d_london.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_london.py
+    injected_bps: 1.413
+    sought_bps: 1.413
+    n_injection: 2083
+    n_run: 2083
+    recovered: true
+    report: reports/d35_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 69
+  test_order: null
+  registered_test_order: 69
   grade: B
   tier: B
   param_cap: 0
@@ -6686,12 +6737,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00818 (decisions.md 163), WATCHLIST on sealed 2018-2026: 2181 days; demeaned +6.63 bps a day (t +2.16); against always-long +7.23 (t +1.64); placebo 100th pct; 2018-20 +2.38, 2021-26 +8.96.
   outcome_injection_required: Before the run - reports/d36_injection.json (src/futuresres/signals/d_london.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_london.py
+    injected_bps: 3.336
+    sought_bps: 3.336
+    n_injection: 2181
+    n_run: 2181
+    recovered: true
+    report: reports/d36_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 70
+  test_order: null
+  registered_test_order: 70
   grade: B
   tier: B
   param_cap: 0

@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D35",
+ "n_events": 2083,
+ "sought_bps": 1.4127360896462,
+ "mean_estimate": 1.4401854102366876,
+ "sd_estimate_bps": 0.8337051781001662,
+ "power_strict_t": 0.5275,
+ "recovered": true
+}

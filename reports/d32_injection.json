@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D32",
+ "n_events": 1132,
+ "sought_bps": 8.70095299038038,
+ "mean_estimate": 8.72484872995838,
+ "sd_estimate_bps": 4.69792495721579,
+ "power_strict_t": 0.58,
+ "recovered": true
+}
