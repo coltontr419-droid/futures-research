@@ -10094,6 +10094,14 @@ The plan's always-long MNQ ticket made **+3.24** over the same sessions, so swit
 direction would add ~0.6 bps — nothing. Discovery's +9.6 was 2018–22 specific. WATCHLIST by the positive mean; no action.
 Z and D market-test 113.
 
+## 281. D-series family 53 protocol: gold against the dollar before New York (S1)
+
+**No trial spent; N 877. Written and committed BEFORE any statistic is computed.** Gold is priced in dollars; a dollar move that gold
+has not matched may be closed later. Divergence = gold's 03:00 → 08:00 ET return (London grid) minus
+EUR/USD's (HistData eurusd, corrected clock) over the same span, in bps (a weaker dollar should lift both). Target: gold 08:00 → 11:30,
+against the divergence (catch-up) or with it, fixed by discovery; forms **all** and **strong** (above the discovery median). **2 tests.**
+Cost MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
