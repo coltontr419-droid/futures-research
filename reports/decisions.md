@@ -10152,6 +10152,13 @@ confirmed (D68, D84, D89). Families 38–39 tried six newer predictors only on M
 discovery. **6 × 4 = 24 tests** (~1.2 carried by chance). Costs §177/§180 (NKD 0.2, DAX 0.3, CL 0.7, ZS 0.7); recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 290. Family-57 discovery: 1 of 24 carried (fewer than chance, ~1.2); D102 registered per protocol (S1)
+
+**No trial spent yet; N 877.** `reports/d57_discovery.json` (module `reporting/d57_newshock.py`): **D102** the DAX window fades a
+HYG shock, +27.59 bps, t +1.98, n 89. Next: NKD follows a 2-year shock +21.7 (t +1.91); DAX follows a dollar
+shock +28.6 (t +1.70). Registered as families 10, 26 and 31 did with a chance-level count; the sealed window decides. Z and D
+market-test 114.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

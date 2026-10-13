@@ -1116,3 +1116,7 @@ Data-derived (D-series family 49). `hypotheses.yaml` (D100) · `decisions.md` §
 ## D101 — Mnq Day Follows Opening Minute  *(WATCHLIST — t00883)*
 
 Data-derived (D-series family 52). `hypotheses.yaml` (D101) · `decisions.md` §279
+
+## D102 — Dax Fades Credit Shock  *(registered)*
+
+Data-derived (D-series family 57). `hypotheses.yaml` (D102) · `decisions.md` §290

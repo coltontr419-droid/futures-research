@@ -1,0 +1,236 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 24,
+ "all": [
+  {
+   "predictor": "HYG",
+   "target": "DAX",
+   "n": 89,
+   "rule": "fade",
+   "net_bps": 27.586602971663567,
+   "t": 1.9764648908360225,
+   "carried": true
+  },
+  {
+   "predictor": "ZT",
+   "target": "NKD",
+   "n": 89,
+   "rule": "follow",
+   "net_bps": 21.71260778979566,
+   "t": 1.9133100983887508,
+   "carried": false
+  },
+  {
+   "predictor": "DX",
+   "target": "DAX",
+   "n": 62,
+   "rule": "follow",
+   "net_bps": 28.57001857978307,
+   "t": 1.702824695567834,
+   "carried": false
+  },
+  {
+   "predictor": "BTC",
+   "target": "CL",
+   "n": 73,
+   "rule": "follow",
+   "net_bps": 69.66833080629796,
+   "t": 1.540284387888833,
+   "carried": false
+  },
+  {
+   "predictor": "ZB",
+   "target": "NKD",
+   "n": 73,
+   "rule": "follow",
+   "net_bps": 17.42218899049713,
+   "t": 1.2658311172613632,
+   "carried": false
+  },
+  {
+   "predictor": "VIX",
+   "target": "NKD",
+   "n": 74,
+   "rule": "follow",
+   "net_bps": 14.615028608683023,
+   "t": 1.232444136444672,
+   "carried": false
+  },
+  {
+   "predictor": "BTC",
+   "target": "ZS",
+   "n": 73,
+   "rule": "follow",
+   "net_bps": 20.521636508801155,
+   "t": 1.2264382862355885,
+   "carried": false
+  },
+  {
+   "predictor": "ZB",
+   "target": "CL",
+   "n": 72,
+   "rule": "follow",
+   "net_bps": 56.24971582347102,
+   "t": 0.9666822990672143,
+   "carried": false
+  },
+  {
+   "predictor": "HYG",
+   "target": "NKD",
+   "n": 87,
+   "rule": "fade",
+   "net_bps": 12.029312844032514,
+   "t": 0.7522858389087764,
+   "carried": false
+  },
+  {
+   "predictor": "VIX",
+   "target": "CL",
+   "n": 76,
+   "rule": "follow",
+   "net_bps": 24.322627604653963,
+   "t": 0.5976041465125499,
+   "carried": false
+  },
+  {
+   "predictor": "ZB",
+   "target": "ZS",
+   "n": 72,
+   "rule": "follow",
+   "net_bps": 8.224627532707604,
+   "t": 0.5241957459352019,
+   "carried": false
+  },
+  {
+   "predictor": "BTC",
+   "target": "NKD",
+   "n": 69,
+   "rule": "fade",
+   "net_bps": 6.659420881601574,
+   "t": 0.5234841226907526,
+   "carried": false
+  },
+  {
+   "predictor": "DX",
+   "target": "ZS",
+   "n": 65,
+   "rule": "fade",
+   "net_bps": 9.387753505232851,
+   "t": 0.4737731724434202,
+   "carried": false
+  },
+  {
+   "predictor": "DX",
+   "target": "CL",
+   "n": 65,
+   "rule": "fade",
+   "net_bps": 26.608972677169888,
+   "t": 0.413461783469628,
+   "carried": false
+  },
+  {
+   "predictor": "ZT",
+   "target": "DAX",
+   "n": 88,
+   "rule": "fade",
+   "net_bps": 4.456923809426637,
+   "t": 0.34732697657895,
+   "carried": false
+  },
+  {
+   "predictor": "VIX",
+   "target": "DAX",
+   "n": 77,
+   "rule": "fade",
+   "net_bps": 2.1372245965211025,
+   "t": 0.18227645545624863,
+   "carried": false
+  },
+  {
+   "predictor": "ZT",
+   "target": "ZS",
+   "n": 90,
+   "rule": "follow",
+   "net_bps": 2.6651122835055485,
+   "t": 0.17525529388325595,
+   "carried": false
+  },
+  {
+   "predictor": "DX",
+   "target": "NKD",
+   "n": 62,
+   "rule": "fade",
+   "net_bps": 1.9770458476655046,
+   "t": 0.13178902676060453,
+   "carried": false
+  },
+  {
+   "predictor": "BTC",
+   "target": "DAX",
+   "n": 69,
+   "rule": "fade",
+   "net_bps": 2.0897987367767503,
+   "t": 0.12755329064295834,
+   "carried": false
+  },
+  {
+   "predictor": "VIX",
+   "target": "ZS",
+   "n": 76,
+   "rule": "fade",
+   "net_bps": 1.4483034757797988,
+   "t": 0.10011999092199438,
+   "carried": false
+  },
+  {
+   "predictor": "HYG",
+   "target": "CL",
+   "n": 89,
+   "rule": "follow",
+   "net_bps": 4.337266913660299,
+   "t": 0.09467571850226261,
+   "carried": false
+  },
+  {
+   "predictor": "HYG",
+   "target": "ZS",
+   "n": 89,
+   "rule": "follow",
+   "net_bps": 0.9365744933749609,
+   "t": 0.07530896428429185,
+   "carried": false
+  },
+  {
+   "predictor": "ZB",
+   "target": "DAX",
+   "n": 72,
+   "rule": "fade",
+   "net_bps": 0.1836122964964741,
+   "t": 0.011269553316960609,
+   "carried": false
+  },
+  {
+   "predictor": "ZT",
+   "target": "CL",
+   "n": 90,
+   "rule": "fade",
+   "net_bps": 0.20465182864754372,
+   "t": 0.00708490791184787,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "predictor": "HYG",
+   "target": "DAX",
+   "n": 89,
+   "rule": "fade",
+   "net_bps": 27.586602971663567,
+   "t": 1.9764648908360225,
+   "carried": true
+  }
+ ]
+}

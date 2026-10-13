@@ -10468,3 +10468,47 @@
       sealed sessions, 1000 draws - keeps drift, breaks the link), positive in >= 3 of 4 years; else WATCHLIST if net > 0; else
       REJECT. Z and D market-test 113.
   s6_control: By year; shuffled first-minute signs; always-long reported alongside.
+- id: D102
+  name: dax_fades_credit_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 57, newer shock predictors, decisions.md 289-290): in 2018-2022, the DAX's Xetra window
+    (09:00-17:30 Frankfurt) after a high-yield credit (HYG) session beyond 2 sigma, traded AGAINST the shock, earned
+    +27.59 bps net (t +1.98, n 89). THE COUNTERPARTY would be European
+    risk sellers over-reacting overnight to US credit stress. Carried by a scan with no more passes than chance (1 of 24).
+  condition: >
+    After a HYG session (open -> close) beyond 2 x the SD of its previous 60, trade the next DAX window against its sign; net of 0.3 bps.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 136
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-57 scan (24 tests, decisions.md 289). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      The plan's DAX account trades FDXM; one market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days),
+      positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 114.
+  s6_control: By year; non-shock placebo.
