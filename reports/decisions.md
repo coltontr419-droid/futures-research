@@ -9397,6 +9397,25 @@ market (flight to safety, risk-on rebound). Recent-period design (§180).
    rule after random non-shock days (direction from that day's sign), 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years.
    CONFIRM if all; WATCHLIST if net > 0; REJECT. Z and D market-tests from 76.
 
+## 208. Family-24 discovery: eight cross-market shock responses (≈2.6 by chance); D64–D71 registered (S1–S5)
+
+**No trial spent at registration; N 839. Committed BEFORE validation data is read.** `reporting/d24_shock.py`,
+`reports/d24_discovery.json`; `signals/d_shock.py`. 52 tests on 2018-01 → 2022-12; **8 carried** — three times the chance count,
+with per-trade effects of 11–80 bps. Bond (ZN) shocks lead four of them (euro, gold, S&P, copper all follow the next session).
+
+| id | shock | target | rule | trades | discovery net | prior |
+|---|---|---|---|---|---|---|
+| D64 | ZN shock | 6E | follow | 82 | +23.84, t +3.65 | N(+11.92, 11.92) |
+| D65 | GC shock | 6E | follow | 87 | +18.81, t +3.15 | N(+9.41, 9.41) |
+| D66 | CL shock | ZC | fade | 75 | +44.70, t +2.64 | N(+22.35, 22.35) |
+| D67 | ZN shock | GC | follow | 82 | +29.36, t +2.49 | N(+14.68, 14.68) |
+| D68 | ZN shock | ES | follow | 81 | +37.60, t +2.15 | N(+18.80, 18.80) |
+| D69 | GC shock | ES | follow | 86 | +46.38, t +2.11 | N(+23.19, 23.19) |
+| D70 | ES shock | NG | follow | 88 | +79.63, t +2.11 | N(+39.81, 39.81) |
+| D71 | ZN shock | HG | follow | 82 | +34.42, t +2.08 | N(+17.21, 17.21) |
+
+Correlated: the four ZN-led tests share their event days. Z and D market-tests 76–83.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
