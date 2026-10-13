@@ -9094,6 +9094,14 @@ recent-period design (discovery 2018-01 → 2022-12; validation 2023-01 → 2026
    percentile of the same session's other hours (net, same direction); (c) posterior > 0, prior Normal(discovery/2,
    |discovery|/2); (d) positive in at least 3 of the 4 years 2023–2026. WATCHLIST if net > 0; REJECT. Z and D market-tests from 68.
 
+## 183. Family-14 discovery: one hour of 41 (≈2 by chance) — MNQ long 00:00 → 01:00; D56 registered (S1–S5)
+
+**No trial spent at registration; N 831. Committed BEFORE validation data is read.** `reporting/d14_hours.py`,
+`reports/d14_discovery.json`; `signals/d_hours.py`. 41 hours on 2018-01 → 2022-12: **1 carried** — MNQ 00:00 → 01:00 New York,
++1.13 bps gross (t +2.59, n 1272) against a 0.56 bps round trip; next MGC 19:00 +0.81 (t +2.29, below its 1.0 bps
+cost). Fewer passes than chance — the hours of traded MNQ and gold carry no excess drift. Even if real, +0.57 bps net is ~$11 a night on
+4 MNQ. Z and D market-test 68.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

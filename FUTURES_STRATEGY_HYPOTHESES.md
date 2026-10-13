@@ -932,3 +932,7 @@ Data-derived (D-series family 12). `hypotheses.yaml` (D54) · `decisions.md` §1
 
 Data-derived (D-series family 12). `hypotheses.yaml` (D55) · `decisions.md` §178
 
+## D56 — MNQ Long the Midnight Hour
+
+Data-derived (D-series family 14). `hypotheses.yaml` (D56) · `decisions.md` §183
+

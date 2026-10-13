@@ -7869,3 +7869,46 @@
       decisions.md 177, 4: CONFIRM if (a) net per trade > 0 against not trading t > 1.645, (b) >= 95th pct of random non-event
       starts, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if > 0; else REJECT. Z and D market-test 67.
   s6_control: By period; after up vs after down sessions; random non-event starts.
+- id: D56
+  name: mnq_long_midnight_hour
+  mechanism: >
+    DATA-DERIVED (D-series family 14, hour-of-day on traded futures, decisions.md 182-183): in 2018-2022 MNQ rose +1.13 bps
+    on average from 00:00 to 01:00 New York (t +2.59, n 1272), against a 0.56 bps round trip. THE COUNTERPARTY would be
+    Asian-session flow; no mechanism is claimed beyond the scan (1 of 41 carried, ~2 expected by chance).
+  condition: >
+    Every weekday night: long MNQ 00:00 -> 01:00 New York; net of 0.56 bps.
+  horizon_minutes: [60]
+  hold_hours: [1.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d56_injection.json (src/futuresres/signals/d_hours.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 90
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-14 scan (41 tests, decisions.md 182). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      MNQ is one of the plan's accounts; a standalone one-hour trade.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market hour cell; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the hour's return Normal(+0.56 bps, 0.56) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 182, 3: CONFIRM if net > 0 against not trading t > 1.645, >= 95th pct of the session's other hours, posterior > 0,
+      positive in >= 3 of 4 years 2023-2026; else WATCHLIST if net > 0; else REJECT. Z and D market-test 68.
+  s6_control: By year; the session's other hours.
