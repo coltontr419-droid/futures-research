@@ -1,0 +1,27 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "form": "all",
+   "median_abs_div_bps": 32.549592858112646,
+   "n": 1244,
+   "rule": "with divergence",
+   "net_bps": 2.619384915115749,
+   "t": 0.7458498540189987,
+   "carried": false
+  },
+  {
+   "form": "strong",
+   "median_abs_div_bps": 32.549592858112646,
+   "n": 622,
+   "rule": "with divergence",
+   "net_bps": 6.629483839323283,
+   "t": 1.1994032673216106,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

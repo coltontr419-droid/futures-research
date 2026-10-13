@@ -9959,6 +9959,18 @@ the gap closes in the US session. Divergence on day D = DAX (HistData grxeur, co
 discovery). Forms **all** and **strong** (|divergence| above its discovery median). **2 tests.** Cost MNQ 0.5 bps; recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 262. Family-44 discovery: Europe's pre-US divergence — 0 of 2 carried (S1)
+
+**No trial spent; N 875.** `reports/d44_discovery.json`: MNQ moves with the divergence +2.6 bps (t +0.75), strong +6.6 (t +1.20). Empty.
+
+## 263. D-series family 45 protocol: bitcoin's weekend into Monday (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** Bitcoin is the one large risk asset that trades
+through the weekend. Weekend move = the sum of BTC-USD's Saturday and Sunday UTC daily open→close returns (Yahoo; ends 20:00 ET Sunday,
+before both targets open). Targets on Monday: MNQ day 09:30–16:00 and MGC London 03:00–11:30 (family-8 grids), follow or fade fixed
+by discovery; forms **all** and **strong** (|weekend| above its discovery median). **2 × 2 = 4 tests.** Costs §180; recent-period
+design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
