@@ -1,0 +1,27 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "form": "all",
+   "n": 1216,
+   "median_abs_div": 20.174543530285803,
+   "rule": "catch-up (against)",
+   "net_bps": 1.123306587495301,
+   "t": 0.6315642791966005,
+   "carried": false
+  },
+  {
+   "form": "strong",
+   "n": 608,
+   "median_abs_div": 20.174543530285803,
+   "rule": "catch-up (against)",
+   "net_bps": 1.1325002227958862,
+   "t": 0.4118965530691032,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

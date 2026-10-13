@@ -10102,6 +10102,18 @@ EUR/USD's (HistData eurusd, corrected clock) over the same span, in bps (a weake
 against the divergence (catch-up) or with it, fixed by discovery; forms **all** and **strong** (above the discovery median). **2 tests.**
 Cost MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 282. Family-53 discovery: gold against the dollar before New York — 0 of 2 carried (S1)
+
+**No trial spent; N 877.** `reports/d53_discovery.json`: catch-up +1.1 bps (t +0.63 / +0.41). Empty.
+
+## 283. D-series family 54 protocol: the top of the hour (S1)
+
+**No trial spent; N 877. Written and committed BEFORE any statistic is computed.** Scheduled execution (TWAP slices, hourly
+rebalances) clusters at the top of the hour. Each full hour inside the window (MNQ 10:00–15:00 → 6 hours; gold 04:00–11:00 → 8):
+pre = :55 → :00, target = :00 → :05, follow or fade fixed by discovery, same contract; t clustered by day (family 8's statistic).
+Forms **all** and **strong** (|pre| above its discovery median). **2 markets × 2 forms = 4 tests.** Costs §180 per round trip;
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
