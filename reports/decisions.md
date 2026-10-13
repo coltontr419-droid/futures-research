@@ -10432,6 +10432,10 @@ mean 30-minute return in 10:00–13:00 Frankfurt (not crediting drift). **4 pair
 column (§306; JPY from 2016). Costs §177 (6E 0.3, 6J 0.5; 6B, 6S 0.5); recent-period design; carried at net > 0, t > 1.96; validation
 as §207, 3.
 
+## 328. Family-74 discovery: the ECB reference-rate fix — 0 of 8 carried (S1)
+
+**No trial spent; N 880.** `reports/d74_discovery.json`: every |net| < 0.5 bps; best 6E long after the fix +0.5 (t +1.36). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
