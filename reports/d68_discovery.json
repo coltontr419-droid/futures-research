@@ -1,0 +1,57 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "test": "settlement",
+   "form": "all",
+   "n": 1202,
+   "rule": "fade",
+   "gross_bps": 1.021761417388916,
+   "net_bps": 0.22176150977611542,
+   "t": 0.6137552857398987,
+   "early_net": 0.23198501765727997,
+   "early_t": 0.6866054534912109,
+   "carried": false
+  },
+  {
+   "test": "settlement",
+   "form": "strong",
+   "n": 632,
+   "rule": "fade",
+   "gross_bps": 1.538643717765808,
+   "net_bps": 0.7386439442634583,
+   "t": 1.2850779294967651,
+   "early_net": 0.8001335263252258,
+   "early_t": 1.7301372289657593,
+   "carried": false
+  },
+  {
+   "test": "relay",
+   "form": "all",
+   "n": 1213,
+   "rule": "follow",
+   "gross_bps": 0.9507933855056763,
+   "net_bps": 0.1507934182882309,
+   "t": 0.13897335529327393,
+   "early_net": 2.4571352005004883,
+   "early_t": 1.2955127954483032,
+   "carried": false
+  },
+  {
+   "test": "relay",
+   "form": "strong",
+   "n": 609,
+   "rule": "follow",
+   "gross_bps": 2.2205734252929688,
+   "net_bps": 1.4205734729766846,
+   "t": 0.8712762594223022,
+   "early_net": 2.9406039714813232,
+   "early_t": 0.9493582248687744,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

@@ -10350,6 +10350,11 @@ discovery; forms **all** and **strong**. (ii) **Relay**: the same day's London w
 16:55, follow or fade; forms **all** and **strong**. Same contract throughout. **4 tests**, with the descriptive 2010–17 column (§306).
 Cost MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 316. Family-68 discovery: gold's New York afternoon — 0 of 4 carried (S1)
+
+**No trial spent; N 880.** `reports/d68_discovery.json`: a small settlement fade (strong +0.7 bps net, t +1.29; 2010–17 +0.8, t +1.73)
+and a London→afternoon follow (+1.4, t +0.87) — consistent in sign across periods but below the bar and below cost-worthiness. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
