@@ -10086,6 +10086,14 @@ it — no look-ahead. **Placebo (fixed now):** first-minute signs shuffled acros
 link), 1000 draws. Scale: +9.6 bps on ~$40,000 notional ≈ $38 a contract a session; at 4 contracts ~$150 — account-sized if it held.
 Z and D market-test 113.
 
+## 280. D101 validated (t00883): WATCHLIST — the opening minute adds ~0.6 bps over the plan's long (S1)
+
+**N 877.** Sealed 2023-01 → 2026-08, 926 sessions, injection recovered first (power 41%): net **+3.80 bps** (t
++1.13); placebo (shuffled signs) **91th** pct; years 3 of 4 (2023 +5.5, 2024 −0.6, 2025 +3.9, 2026 +7.8).
+The plan's always-long MNQ ticket made **+3.24** over the same sessions, so switching to the opening-minute
+direction would add ~0.6 bps — nothing. Discovery's +9.6 was 2018–22 specific. WATCHLIST by the positive mean; no action.
+Z and D market-test 113.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

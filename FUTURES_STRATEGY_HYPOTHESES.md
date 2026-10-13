@@ -1113,6 +1113,6 @@ Data-derived (D-series family 41). `hypotheses.yaml` (D99) · `decisions.md` §2
 
 Data-derived (D-series family 49). `hypotheses.yaml` (D100) · `decisions.md` §272
 
-## D101 — Mnq Day Follows Opening Minute  *(registered)*
+## D101 — Mnq Day Follows Opening Minute  *(WATCHLIST — t00883)*
 
 Data-derived (D-series family 52). `hypotheses.yaml` (D101) · `decisions.md` §279

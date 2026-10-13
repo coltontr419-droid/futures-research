@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D101",
+ "cell": "MNQ day follows its opening minute",
+ "trades": 926,
+ "net_bps": 3.800875663757324,
+ "t_net": 1.1311415433883667,
+ "placebo_pct": 91.10000000000001,
+ "always_long_net_bps": 3.2447450160980225,
+ "by_year": {
+  "2023": 5.469423294067383,
+  "2024": -0.6349384188652039,
+  "2025": 3.9411792755126953,
+  "2026": 7.817195892333984
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 113,
+ "injection": {
+  "hypothesis": "D101",
+  "n_events": 926,
+  "sought_bps": 4.794016361236572,
+  "mean_estimate": 4.811423785636667,
+  "sd_estimate_bps": 3.314135057406806,
+  "power_strict_t": 0.413,
+  "recovered": true
+ }
+}
