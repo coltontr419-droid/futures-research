@@ -10445,6 +10445,19 @@ crack's daily change beyond 2 × SD of the previous 60; **B stretch** — the cr
 Target CL's next session (family-10 open → settlement), with the signal's sign or against it, fixed by discovery. **2 tests**, with
 the descriptive 2010–17 column (§306). Cost CL 0.7 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 330. Family-75 discovery: crude against its refining margin — 0 of 2 carried (S1)
+
+**No trial spent; N 880.** `reports/d75_discovery.json`: fading a crack shock +20.3 bps (t +0.51; 2010–17 +34.0, t +1.90); following a
+stretch +26.8 (t +1.09; 2010–17 −17.2). Empty.
+
+## 331. D-series family 76 protocol: sector and regional ETF shocks (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** Predictors new to the programme (Yahoo daily, open →
+close, 16:00 ET; family-10 outlier filter): **SMH** (semiconductors), **XLF** (banks), **XLE** (energy), **EEM** (emerging markets),
+**FXI** (China large caps), **TLT** (long Treasuries). Shock on the previous weekday as family 24. Targets: MNQ's day session and gold's
+London window (family-8 grids), follow or fade fixed by discovery. **6 × 2 = 12 tests** (~0.6 by chance), with the descriptive 2010–17
+column (§306). Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

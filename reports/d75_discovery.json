@@ -1,0 +1,29 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "signal": "crack shock",
+   "n": 85,
+   "rule": "against",
+   "net_bps": 20.332936477288897,
+   "t": 0.5077276361907466,
+   "early_net": 34.04240467554472,
+   "early_t": 1.903061222841933,
+   "carried": false
+  },
+  {
+   "signal": "crack stretch",
+   "n": 163,
+   "rule": "with",
+   "net_bps": 26.835311257887906,
+   "t": 1.0915265873073123,
+   "early_net": -17.159982008883773,
+   "early_t": -1.3478356858059501,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
