@@ -10368,6 +10368,16 @@ same window on other weekdays).
 **No trial spent; N 880.** `reports/d69_discovery.json`: gold's Friday afternoon was strong in 2010–17 (+8.5 bps over other days,
 t +2.48) and is gone in 2018–22 (−0.5, t −0.20); MNQ +5.0 (t +1.11; 2010–17 −2.3). Empty.
 
+## 319. D-series family 70 protocol: the commodity index roll (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** Index funds tracking the S&P GSCI roll from the
+front contract to the next on the 5th–9th business days of each month (the "Goldman roll"): selling pressure on the front month in
+those days is a documented, monthly flow. Family-10 Yahoo front-continuous sessions (open → settlement) of the GSCI's commodity
+futures in the universe: **CL, NG, HG, GC, SI, ZC, ZS, ZW**. Each roll-day session's return minus the market's mean on other days in
+discovery (not crediting drift); long or short fixed by discovery. **8 tests** (~0.4 by chance), with the descriptive 2010–17 column
+(§306). Costs §177; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: other business days).
+Business days = weekdays with a session in the market's own series.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
