@@ -1088,11 +1088,11 @@ Data-derived (D-series family 29). `hypotheses.yaml` (D93) · `decisions.md` §2
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D94) · `decisions.md` §225
 
-## D95 — ZW Fades Small Crowding
+## D95 — ZW Fades Small Crowding  *(REJECT — t00877)*
 
 Data-derived (D-series family 31). `hypotheses.yaml` (D95) · `decisions.md` §231
 
-## D96 — SI Follows Small Flow
+## D96 — SI Follows Small Flow  *(REJECT — t00878)*
 
 Data-derived (D-series family 31). `hypotheses.yaml` (D96) · `decisions.md` §231
 

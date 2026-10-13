@@ -9725,6 +9725,15 @@ market-tests from 107.
 
 Z and D market-tests 107–108.
 
+## 232. D95–D96 validated: rejected; COT positioning holds nothing (S6–S8)
+
+**Two trials spent: t00877–t00878. N 870 → 872.**
+
+| id, trial | rule | sessions | net bps (t) | placebo pct | tier |
+|---|---|---|---|---|---|
+| D95 t00877 | ZW fades small crowding (next week) | 217 | -12.37 (t -1.25) | 12 | **REJECT** |
+| D96 t00878 | SI follows small flow (next week) | 915 | -1.41 (t -0.24) | 42 | **REJECT** |
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

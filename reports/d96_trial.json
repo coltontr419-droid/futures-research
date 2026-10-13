@@ -1,0 +1,21 @@
+{
+ "hypothesis": "D96",
+ "cell": "SI follows small flow (next week)",
+ "sessions": 915,
+ "net_bps": -1.409332805870142,
+ "t_week": -0.24055280761993897,
+ "placebo_pct": 42.1,
+ "by_year": {
+  "2023": -0.3644523736530613,
+  "2024": 12.202617890206918,
+  "2025": -8.391072348026439,
+  "2026": -13.26879571742136
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 108
+}

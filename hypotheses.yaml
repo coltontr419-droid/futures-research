@@ -10074,12 +10074,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00877 (decisions.md 232), REJECT on sealed 2023-2026: 217 sessions; net -12.37 bps (week-clustered t -1.25); placebo 12th pct.
   outcome_injection_required: Not applicable - the shuffled-week placebo is the control (decisions.md 231).
+  outcome_injection:
+    test: src/futuresres/signals/d_cot.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 217
+    recovered: true
+    report: reports/d95_trial.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 129
+  test_order: null
+  registered_test_order: 129
   grade: C
   tier: C
   param_cap: 0
@@ -10117,12 +10130,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00878 (decisions.md 232), REJECT on sealed 2023-2026: 915 sessions; net -1.41 bps (week-clustered t -0.24); placebo 42th pct.
   outcome_injection_required: Not applicable - the shuffled-week placebo is the control (decisions.md 231).
+  outcome_injection:
+    test: src/futuresres/signals/d_cot.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 915
+    recovered: true
+    report: reports/d96_trial.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 130
+  test_order: null
+  registered_test_order: 130
   grade: C
   tier: C
   param_cap: 0

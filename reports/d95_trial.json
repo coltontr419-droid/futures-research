@@ -1,0 +1,21 @@
+{
+ "hypothesis": "D95",
+ "cell": "ZW fades small crowding (next week)",
+ "sessions": 217,
+ "net_bps": -12.369598399421022,
+ "t_week": -1.2497294058839667,
+ "placebo_pct": 11.600000000000001,
+ "by_year": {
+  "2023": 2.025965376423437,
+  "2024": -37.939844081159364,
+  "2025": -18.52063617613339,
+  "2026": -53.975542179313926
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 107
+}
