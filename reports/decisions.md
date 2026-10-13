@@ -8829,6 +8829,15 @@ reverse over the next minutes, and does it depend on volume?
    |discovery|/2); (d) 2021–26 alone > 0. WATCHLIST if net > 0 otherwise; REJECT. Any CONFIRM is then replayed as its own 50K
    Daily account (A27's engine) before it counts as usable.
 
+## 167. Family-8 discovery: no short-horizon reaction beats its costs — 0 of 72 carried (S1)
+
+**No trial spent; N 812.** `reporting/d8_intraday.py` (minute grids per session, 2010–2026, cached), `reports/d8_discovery.json`.
+72 tests, 2013-01 → 2017-12: **none carried** (|t| > 1.96 with net > 0 after costs). The largest gross effects are reversals after
+LOW-volume moves in gold — 0.2–0.37 points before costs against 0.432 points a round trip — and every MNQ cell loses about its
+cost (e.g. after a 5-minute 2σ move on high volume, 10,421 trades, net −1.37 points, t −23). **At one-minute resolution, price
+and volume reactions in MNQ and gold are smaller than a tick plus commission;** a many-trades-a-day standalone strategy would need
+information this data does not carry (the order book, order flow). Nothing to validate; no trial spent.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
