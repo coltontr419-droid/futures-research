@@ -1,0 +1,346 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 24,
+ "carried": [],
+ "all": [
+  {
+   "pair": [
+    "HG",
+    "GC"
+   ],
+   "leg": "HG",
+   "threshold": 2.5,
+   "rule": "revert",
+   "n": 64,
+   "gross_revert_bps": 23.21777639687725,
+   "net_bps": 21.21777639687725,
+   "t": 1.568954859863041,
+   "carried": false
+  },
+  {
+   "pair": [
+    "HG",
+    "GC"
+   ],
+   "leg": "HG",
+   "threshold": 1.5,
+   "rule": "revert",
+   "n": 371,
+   "gross_revert_bps": 8.741886411369943,
+   "net_bps": 6.7418864113699435,
+   "t": 1.150936346842056,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ES",
+    "ZN"
+   ],
+   "leg": "ES",
+   "threshold": 1.5,
+   "rule": "revert",
+   "n": 477,
+   "gross_revert_bps": 7.8805464293134015,
+   "net_bps": 6.980546429313402,
+   "t": 1.1180960979128913,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ZS",
+    "ZC"
+   ],
+   "leg": "ZC",
+   "threshold": 2.5,
+   "rule": "continue",
+   "n": 88,
+   "gross_revert_bps": -20.462833116715128,
+   "net_bps": 18.562833116715126,
+   "t": 1.075087362116387,
+   "carried": false
+  },
+  {
+   "pair": [
+    "CL",
+    "NG"
+   ],
+   "leg": "NG",
+   "threshold": 2.5,
+   "rule": "continue",
+   "n": 88,
+   "gross_revert_bps": -40.24185778632566,
+   "net_bps": 38.84185778632566,
+   "t": 0.9452826181811315,
+   "carried": false
+  },
+  {
+   "pair": [
+    "HG",
+    "GC"
+   ],
+   "leg": "GC",
+   "threshold": 2.5,
+   "rule": "revert",
+   "n": 64,
+   "gross_revert_bps": 8.620210219507303,
+   "net_bps": 7.820210219507304,
+   "t": 0.8835052169345404,
+   "carried": false
+  },
+  {
+   "pair": [
+    "CL",
+    "NG"
+   ],
+   "leg": "CL",
+   "threshold": 1.5,
+   "rule": "continue",
+   "n": 467,
+   "gross_revert_bps": -14.32347453897249,
+   "net_bps": 13.623474538972495,
+   "t": 0.8530036772220678,
+   "carried": false
+  },
+  {
+   "pair": [
+    "CL",
+    "NG"
+   ],
+   "leg": "CL",
+   "threshold": 2.5,
+   "rule": "continue",
+   "n": 88,
+   "gross_revert_bps": -41.181489357639585,
+   "net_bps": 40.48148935763958,
+   "t": 0.8202815054558222,
+   "carried": false
+  },
+  {
+   "pair": [
+    "NQ",
+    "ES"
+   ],
+   "leg": "ES",
+   "threshold": 2.5,
+   "rule": "revert",
+   "n": 62,
+   "gross_revert_bps": 16.952489237383507,
+   "net_bps": 16.052489237383515,
+   "t": 0.7977165721140119,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ES",
+    "ZN"
+   ],
+   "leg": "ZN",
+   "threshold": 2.5,
+   "rule": "revert",
+   "n": 55,
+   "gross_revert_bps": 6.035256515268515,
+   "net_bps": 5.635256515268516,
+   "t": 0.7695370423073953,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ES",
+    "ZN"
+   ],
+   "leg": "ES",
+   "threshold": 2.5,
+   "rule": "continue",
+   "n": 55,
+   "gross_revert_bps": -25.515451413275525,
+   "net_bps": 24.615451413275533,
+   "t": 0.6524325254570748,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ZS",
+    "ZC"
+   ],
+   "leg": "ZS",
+   "threshold": 1.5,
+   "rule": "revert",
+   "n": 462,
+   "gross_revert_bps": 4.404543695323752,
+   "net_bps": 3.704543695323755,
+   "t": 0.6041000745370005,
+   "carried": false
+  },
+  {
+   "pair": [
+    "NQ",
+    "ES"
+   ],
+   "leg": "ES",
+   "threshold": 1.5,
+   "rule": "revert",
+   "n": 406,
+   "gross_revert_bps": 4.523705683414815,
+   "net_bps": 3.6237056834148147,
+   "t": 0.47137085711003324,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ZS",
+    "ZC"
+   ],
+   "leg": "ZS",
+   "threshold": 2.5,
+   "rule": "revert",
+   "n": 88,
+   "gross_revert_bps": 6.485258722711349,
+   "net_bps": 5.785258722711354,
+   "t": 0.3809113852784574,
+   "carried": false
+  },
+  {
+   "pair": [
+    "GC",
+    "SI"
+   ],
+   "leg": "SI",
+   "threshold": 1.5,
+   "rule": "continue",
+   "n": 431,
+   "gross_revert_bps": -3.2299418287244,
+   "net_bps": 2.7299418287244,
+   "t": 0.3650584347360096,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ZS",
+    "ZC"
+   ],
+   "leg": "ZC",
+   "threshold": 1.5,
+   "rule": "continue",
+   "n": 462,
+   "gross_revert_bps": -4.36463762955738,
+   "net_bps": 2.464637629557378,
+   "t": 0.35525028242835327,
+   "carried": false
+  },
+  {
+   "pair": [
+    "NQ",
+    "ES"
+   ],
+   "leg": "NQ",
+   "threshold": 2.5,
+   "rule": "revert",
+   "n": 62,
+   "gross_revert_bps": 5.276528662901314,
+   "net_bps": 4.776528662901314,
+   "t": 0.21340286874662406,
+   "carried": false
+  },
+  {
+   "pair": [
+    "ES",
+    "ZN"
+   ],
+   "leg": "ZN",
+   "threshold": 1.5,
+   "rule": "continue",
+   "n": 477,
+   "gross_revert_bps": -0.7005176366321215,
+   "net_bps": 0.3005176366321217,
+   "t": 0.19907199839576017,
+   "carried": false
+  },
+  {
+   "pair": [
+    "HG",
+    "GC"
+   ],
+   "leg": "GC",
+   "threshold": 1.5,
+   "rule": "revert",
+   "n": 371,
+   "gross_revert_bps": 1.7015510240888052,
+   "net_bps": 0.901551024088805,
+   "t": 0.19380493025211215,
+   "carried": false
+  },
+  {
+   "pair": [
+    "GC",
+    "SI"
+   ],
+   "leg": "SI",
+   "threshold": 2.5,
+   "rule": "continue",
+   "n": 103,
+   "gross_revert_bps": -3.8378836041355093,
+   "net_bps": 3.3378836041355093,
+   "t": 0.1740388801250567,
+   "carried": false
+  },
+  {
+   "pair": [
+    "CL",
+    "NG"
+   ],
+   "leg": "NG",
+   "threshold": 1.5,
+   "rule": "continue",
+   "n": 467,
+   "gross_revert_bps": -3.15491022528438,
+   "net_bps": 1.7549102252843864,
+   "t": 0.10316353188945418,
+   "carried": false
+  },
+  {
+   "pair": [
+    "GC",
+    "SI"
+   ],
+   "leg": "GC",
+   "threshold": 1.5,
+   "rule": "continue",
+   "n": 431,
+   "gross_revert_bps": -1.123182049736372,
+   "net_bps": 0.32318204973637304,
+   "t": 0.07100092882779616,
+   "carried": false
+  },
+  {
+   "pair": [
+    "NQ",
+    "ES"
+   ],
+   "leg": "NQ",
+   "threshold": 1.5,
+   "rule": "continue",
+   "n": 406,
+   "gross_revert_bps": -1.0561002706096778,
+   "net_bps": 0.5561002706096779,
+   "t": 0.0602609182701691,
+   "carried": false
+  },
+  {
+   "pair": [
+    "GC",
+    "SI"
+   ],
+   "leg": "GC",
+   "threshold": 2.5,
+   "rule": "revert",
+   "n": 103,
+   "gross_revert_bps": 1.103100217673739,
+   "net_bps": 0.303100217673737,
+   "t": 0.02451611846855714,
+   "carried": false
+  }
+ ]
+}

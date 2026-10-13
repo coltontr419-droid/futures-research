@@ -9179,6 +9179,25 @@ spread position — opposite positions across products count as hedging in this 
 3. **Validation as §187, 4** (sealed; (a) net > 0 t > 1.645 against not trading; (b) placebo: the z state from a random other day,
    1,000 draws, ≥ 95th pct; (c) posterior > 0; (d) positive in ≥ 3 of 4 years). Z and D market-tests from 70.
 
+## 191. Family-17 discovery: no relative-value state predicts the next session — 0 of 24 carried (S1)
+
+**No trial spent; N 833.** `reporting/d17_relative.py`, `reports/d17_discovery.json`. 24 tests on 2018-01 → 2022-12; **none
+carried** (best: copper after the copper/gold ratio is 2.5 SD stretched, reversion +21.2 bps net on 64 sessions, t +1.57). Family
+17 is empty.
+
+## 192. D-series family 18 protocol: weekly structure and short-trend persistence (S1)
+
+**No trial spent; N 833. Written and committed BEFORE any statistic is computed.** Recent-period design (§180): discovery 2018-01
+→ 2022-12; validation 2023-01 → 2026-08, sealed. Year-round by construction.
+
+1. **Universe:** the 14 futures of §171 (Yahoo daily sessions, open → settlement; roll-free; §177's costs).
+2. **Tests, per market:** (i) **week so far** — the sum of Monday–Wednesday sessions predicts Thursday's and Friday's sessions
+   (each traded open → settlement, in or against its direction); (ii) **5-session trend** — the sum of the previous 5 sessions
+   predicts the next; (iii) **20-session trend** — the previous 20 predict the next. **14 × 3 = 42 tests**; ~2.1 by chance.
+   Statistic: net bps a trade, follow or fade by the gross sign; t over trades. **Carried:** |t| > 1.96 AND net > 0.
+3. **Validation as §187, 4** (sealed; (a) net > 0 t > 1.645 against not trading; (b) placebo, the predictor from a random other
+   date, 1,000 draws, ≥ 95th pct; (c) posterior > 0; (d) positive in ≥ 3 of 4 years). Z and D market-tests from 70.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
