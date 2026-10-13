@@ -1117,6 +1117,6 @@ Data-derived (D-series family 49). `hypotheses.yaml` (D100) · `decisions.md` §
 
 Data-derived (D-series family 52). `hypotheses.yaml` (D101) · `decisions.md` §279
 
-## D102 — Dax Fades Credit Shock  *(registered)*
+## D102 — Dax Fades Credit Shock  *(WATCHLIST — t00884)*
 
 Data-derived (D-series family 57). `hypotheses.yaml` (D102) · `decisions.md` §290

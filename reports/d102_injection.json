@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D102",
+ "n_events": 31,
+ "sought_bps": 13.793301485831783,
+ "mean_estimate": 14.101334628750346,
+ "sd_estimate_bps": 23.236080354863283,
+ "power_strict_t": 0.109,
+ "recovered": true
+}

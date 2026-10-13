@@ -10159,6 +10159,16 @@ HYG shock, +27.59 bps, t +1.98, n 89. Next: NKD follows a 2-year shock +21.7 (t 
 shock +28.6 (t +1.70). Registered as families 10, 26 and 31 did with a chance-level count; the sealed window decides. Z and D
 market-test 114.
 
+## 291. D102 validated (t00884): WATCHLIST — fails only on t, with 31 events; an untouched-period check fixed before running (S1, S8)
+
+**N 878.** Sealed 2023-01 → 2026-08, injection recovered first (power **11%** — 31 events): net **+36.56 bps** (t
++1.58 < 1.645); placebo (after non-shock days) **100th** pct; years 3 of 4 (2023 −26.8, 2024 +0.8,
+2025 +59.0, 2026 +105.4). It kept its sign and grew (discovery +27.6). WATCHLIST under §119 — not confirmed, not deployed.
+
+**A check on untouched data, fixed now (no trial; it cannot change the tier).** 2010-01 → 2017-12 has never been used by family 57.
+The same rule (HYG shock on the previous weekday, fade, 0.3 bps) on (i) A21's DAX window paths and (ii) the real index, Yahoo ^GDAXI
+daily open→close. Read: the same sign with mean > 0 on both supports forward-tracking; anything else drops it to the record.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
