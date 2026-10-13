@@ -9995,6 +9995,18 @@ whole afternoon: MNQ 09:30 → 12:00 predicts 13:00 → 16:00; gold (London grid
 08:30 releases). Prices at those minutes, same contract; follow or fade fixed by discovery; forms **all** and **strong** (|morning|
 above its discovery median). **2 × 2 = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation §207, 3.
 
+## 268. Family-47 discovery: the morning does not set the afternoon — 0 of 4 carried (S1)
+
+**No trial spent; N 875.** `reports/d47_discovery.json`: MNQ follow +4.0 bps (t +1.81), strong +4.6 (t +1.28); gold ~0. Empty.
+
+## 269. D-series family 48 protocol: drift after the 10:00 ET releases (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** Family 9 (§168) covered 08:30 and 14:00 only.
+10:00 ET carries ISM, consumer confidence, home sales, JOLTS. Release days detected as family 9: 5-minute volume from 10:00 above 3 ×
+its previous-20 median. The first k minutes (k = 5, 15) from 09:59's close predict 10:00+k → the window's close (MNQ day grid to
+16:00; gold London grid to 11:30), follow or fade fixed by discovery. **2 markets × 2 k = 4 tests.** Costs §180; recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
