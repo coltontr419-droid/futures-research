@@ -9951,6 +9951,14 @@ recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
 **No trial spent; N 875.** `reports/d43_discovery.json`: best follows MNQ's day, +1.2 bps (t +1.12). Asia gold barely moves. Empty.
 
+## 261. D-series family 44 protocol: Europe's pre-US move against MNQ's (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** If US index futures under-react to Europe's morning,
+the gap closes in the US session. Divergence on day D = DAX (HistData grxeur, corrected clock) 03:00 → 09:30 ET return minus MNQ's
+(night grid) over the same span, in bps. Target: MNQ day 09:30–16:00 on D, in the sign of the divergence or against it (fixed by
+discovery). Forms **all** and **strong** (|divergence| above its discovery median). **2 tests.** Cost MNQ 0.5 bps; recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
