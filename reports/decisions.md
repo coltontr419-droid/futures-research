@@ -10244,6 +10244,15 @@ net > 0, t > 1.96; validation as §207, 3.
 **No trial spent; N 878.** `reports/d62_discovery.json`: best DAX short after a weak auction +14.6 bps (t +1.79); ZN itself does not
 move after its own auctions (t +0.30 / +0.05) — the result is priced by the close. Empty.
 
+## 303. D-series family 63 protocol: real-yield and breakeven shocks (S1)
+
+**No trial spent; N 878. Written and committed BEFORE any statistic is computed.** New data: FRED daily **DFII10** (10-year TIPS real
+yield) and **T10YIE** (10-year breakeven inflation), end-of-day values from that day's closing prices (fredgraph CSV; the high-yield
+OAS series only reaches back to 2023 there and is excluded). Change in bps on day D; shock = |change| > 2 × SD of the previous 60.
+Targets on the next weekday: **gold's London window** and **MNQ's day session** (family-8 grids), with or against the shock's sign,
+fixed by discovery. **2 × 2 = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+(Deployment note for later: a live version needs those closing values by 03:00 ET — a market proxy, not FRED's publication.)
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
