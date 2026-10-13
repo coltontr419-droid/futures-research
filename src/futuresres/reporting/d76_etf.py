@@ -29,18 +29,19 @@ DISC = (dt.date(2018, 1, 1), dt.date(2022, 12, 31))
 VAL = (dt.date(2023, 1, 1), dt.date(2026, 8, 31))
 EARLY = (dt.date(2010, 1, 1), dt.date(2017, 12, 31))
 PRED = ("SMH", "XLF", "XLE", "EEM", "FXI", "TLT")
+PRED77 = ("GDX", "KRE", "XLU", "LQD", "XLK", "XLY")           # family 77 (decisions.md 334)
 COST = {"MNQ": 0.5, "MGC": 0.8}
 _S: dict = {}
 
 
 def fetch() -> None:
-    for s in PRED:
+    for s in PRED + PRED77:
         a22.fetch(s, "1d"); time.sleep(0.5)
 
 
 def series() -> dict:
     if not _S:
-        for s in PRED:
+        for s in PRED + PRED77:
             z = a22.load(s, "1d").with_columns(pl.col("ts").dt.date().alias("date")).filter(pl.col("date").dt.weekday() <= 5)
             r = ((z["c"] / z["o"] - 1) * 1e4).to_numpy(); ds = z["date"].to_list()
             md = np.nanmedian(r); rs = 1.4826 * np.nanmedian(np.abs(r - md))
@@ -65,9 +66,9 @@ def _t(x) -> float:
     return float(x.mean() / (x.std(ddof=1) / math.sqrt(len(x)))) if len(x) > 2 else float("nan")
 
 
-def scan() -> dict:
+def scan(preds=PRED, out_path=OUT) -> dict:
     res = []
-    for p in PRED:
+    for p in preds:
         for m, cost in COST.items():
             D, Y, X = rows(p, m, *DISC); assert D.max() <= DISC[1], "discovery read sealed data"
             g = np.sign(X) * Y; dirn = 1 if g.mean() > 0 else -1; net = dirn * g - cost
@@ -80,17 +81,20 @@ def scan() -> dict:
         print(f"{r['target']} after {r['predictor']:3}: n {r['n']} {r['rule']:6} net {r['net_bps']:+6.2f} t {r['t']:+5.2f}"
               f"{'  CARRIED' if r['carried'] else ''} | 2010-17 {r['early_net']:+6.2f} t {r['early_t']:+5.2f}", flush=True)
     out = {"window": [str(DISC[0]), str(DISC[1])], "tests": len(res), "all": res, "carried": [r for r in res if r["carried"]]}
-    OUT.write_text(json.dumps(out, indent=1) + "\n")
+    out_path.write_text(json.dumps(out, indent=1) + "\n")
     return out
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(); ap.add_argument("--fetch", action="store_true"); ap.add_argument("--scan", action="store_true")
+    ap.add_argument("--family77", action="store_true")
     a = ap.parse_args(argv)
     if a.fetch:
         fetch()
     if a.scan:
         scan()
+    if a.family77:
+        scan(PRED77, ROOT / "reports" / "d77_discovery.json")
     return 0
 
 

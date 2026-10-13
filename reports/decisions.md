@@ -10473,6 +10473,13 @@ market-test 117.
 rebound), and 2010–17 was only weakly the same sign (+9.0, t +0.69). WATCHLIST under §207, 3 — forward-tracked, not deployed. The
 second result in a row (after D104) that fails only (c). Z and D market-test 117.
 
+## 334. D-series family 77 protocol: a second set of ETF shocks (S1)
+
+**No trial spent; N 881. Written and committed BEFORE any statistic is computed.** Family 76's design (§331) with six more predictors:
+**GDX** (gold miners), **KRE** (regional banks), **XLU** (utilities), **LQD** (investment-grade credit), **XLK** (technology), **XLY**
+(consumer discretionary). Targets MNQ day and gold London; **12 tests**, descriptive 2010–17 column. Costs §180; recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
