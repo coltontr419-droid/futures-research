@@ -9473,6 +9473,20 @@ shorts). Deployed 17:22 New York with the user's go-ahead (previous schedule.py 
 check (2026-10-13): ZN +18 bps against a 52 bps threshold — no shock, MNQ long. The `!eod` filing fix (§147) was already live.
 Expected frequency ≈ 14 shock days a year; the demo's forward record is D68's first out-of-sample use.
 
+## 212. D-series family 25 protocol: shocks into the plan's next windows (S1)
+
+**No trial spent; N 847. Written and committed BEFORE any statistic is computed.** Family 24 found the largest per-trade effects of
+the programme after shock days (D68 confirmed and deployed, §209–§211). This family carries the shocks into the plan's own next
+windows. Recent-period design (§180): discovery 2018-01 → 2022-12; validation 2023-01 → 2026-08, sealed.
+
+1. **Shock day** (Yahoo daily sessions, §171): |session| > 2 σ (SD of the previous 60) in ZN, 6E, ES, CL or GC on day D−1.
+2. **Targets, the plan's windows after it** (family-3 series, §149): NKD (Tokyo date D, entry 20:00 New York D−1), DAX and MGC
+   (03:00 D), MNQ (09:30 D), ZS (session D). Traded in the shock's direction (follow) or against it (fade), fixed by discovery.
+   **5 × 5 = 25 pairs minus ZN → MNQ (D68) = 24 tests**; ~1.2 by chance. Net of the account's cost (§180's table).
+3. **Carried:** net > 0 with t > 1.96. **Validation (one trial each), sealed:** (a) net > 0 against not trading t > 1.645;
+   (b) placebo: the same rule after random non-shock days, 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years. CONFIRM if
+   all; WATCHLIST if net > 0; REJECT. Z and D market-tests from 84.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
