@@ -10337,6 +10337,11 @@ target = the 30 minutes after, follow or fade fixed by discovery, same contract;
 median). **2 × 2 = 4 tests**, with the descriptive 2010–17 column (§306; the SGE benchmark began April 2016, so 2016–17 only). Cost
 MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the same rule one hour earlier).
 
+## 314. Family-67 discovery: the Shanghai gold auctions — 0 of 4 carried (S1)
+
+**No trial spent; N 880.** `reports/d67_discovery.json`: gross moves around either auction are +0.1 to +0.3 bps against 0.8 bps of
+cost; every net is negative (2016–17 the same). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

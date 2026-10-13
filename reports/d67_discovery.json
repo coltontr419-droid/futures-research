@@ -1,0 +1,57 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "auction": "10:15 Beijing",
+   "form": "all",
+   "n": 1232,
+   "rule": "follow",
+   "gross_bps": 0.12354224175214767,
+   "net_bps": -0.6764578223228455,
+   "t": -2.5196692943573,
+   "early_net": -0.6106755137443542,
+   "early_t": -1.0402846336364746,
+   "carried": false
+  },
+  {
+   "auction": "10:15 Beijing",
+   "form": "strong",
+   "n": 632,
+   "rule": "fade",
+   "gross_bps": 0.2300485074520111,
+   "net_bps": -0.5699514746665955,
+   "t": -1.2916629314422607,
+   "early_net": -1.5483958721160889,
+   "early_t": -1.2334563732147217,
+   "carried": false
+  },
+  {
+   "auction": "14:15 Beijing",
+   "form": "all",
+   "n": 1230,
+   "rule": "follow",
+   "gross_bps": 0.2569105625152588,
+   "net_bps": -0.5430894494056702,
+   "t": -1.5001862049102783,
+   "early_net": -1.07144033908844,
+   "early_t": -2.453880786895752,
+   "carried": false
+  },
+  {
+   "auction": "14:15 Beijing",
+   "form": "strong",
+   "n": 632,
+   "rule": "follow",
+   "gross_bps": 0.1107344776391983,
+   "net_bps": -0.6892654895782471,
+   "t": -1.2431870698928833,
+   "early_net": -1.0171090364456177,
+   "early_t": -1.2731473445892334,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

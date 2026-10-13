@@ -26,7 +26,8 @@ FILES = {"MNQ": "NQ_MNQ_spliced.parquet", "MGC": "MGC.parquet"}
 #: (market, session) -> (start minute, end minute) New York; start > end wraps (the session is dated by its END day)
 SESSIONS = {("MNQ", "day"): (570, 960), ("MNQ", "night"): (1080, 570), ("MGC", "london"): (180, 690), ("MGC", "asia"): (1080, 180)}
 #: grids built for later families, outside family 8's scan (decisions.md 293): MNQ after the cash close, 16:00 -> 16:55
-EXTRA_SESSIONS = {("MNQ", "post"): (960, 1015)}
+EXTRA_SESSIONS = {("MNQ", "post"): (960, 1015),
+                  ("MGC", "ny"): (690, 1015)}            # gold's New York afternoon, 11:30 -> 16:55 (decisions.md 315)
 COST = {"MNQ": 1.41, "MGC": 0.432}            # points per round trip: commission + one tick
 KS, HS = (5, 15, 30), (5, 15, 30)
 FFILL = 5                                      # a missing minute takes the last close only within 5 minutes
