@@ -1,0 +1,53 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "NKD",
+   "form": "all",
+   "n": 1265,
+   "rule": "follow",
+   "net_bps": 0.24919612950337644,
+   "t": 0.20478656802394316,
+   "early_net": 2.268890490685276,
+   "early_t": 1.7559746996449461,
+   "carried": false
+  },
+  {
+   "market": "NKD",
+   "form": "strong",
+   "n": 637,
+   "rule": "follow",
+   "net_bps": 1.51979315156943,
+   "t": 0.7757080711047328,
+   "early_net": 4.638004650511339,
+   "early_t": 2.1941604784905646,
+   "carried": false
+  },
+  {
+   "market": "DAX",
+   "form": "all",
+   "n": 1281,
+   "rule": "follow",
+   "net_bps": 2.2108568614729376,
+   "t": 1.1413032793558247,
+   "early_net": -0.5695475547682234,
+   "early_t": -0.3313993197841053,
+   "carried": false
+  },
+  {
+   "market": "DAX",
+   "form": "strong",
+   "n": 640,
+   "rule": "follow",
+   "net_bps": 4.800071503652221,
+   "t": 1.4664602070182662,
+   "early_net": 0.014626234580442017,
+   "early_t": 0.0052136219185181,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

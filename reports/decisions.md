@@ -10295,6 +10295,11 @@ DAX: 09:00 → 12:00 Berlin predicts 13:00 → 17:30 (HistData via `d3.histdata`
 discovery; forms **all** and **strong** (above the discovery median). **2 × 2 = 4 tests**, with the descriptive 2010–17 column (§306).
 Costs §180 (NKD 0.2, DAX 0.3); recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 309. Family-65 discovery: the foreign windows' morning — 0 of 4 carried (S1)
+
+**No trial spent; N 879.** `reports/d65_discovery.json`: NKD follows a strong morning +1.5 bps (t +0.78; 2010–17 +4.6, t +2.19 —
+an older effect that has faded); DAX +4.8 (t +1.47; 2010–17 0.0). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
