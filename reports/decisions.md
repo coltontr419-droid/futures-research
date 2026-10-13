@@ -9924,6 +9924,21 @@ n_d = round(n × reference / F_d) clipped. Variants: **plan** (n fixed); **V1** 
 default path unchanged and re-checked), 50K Daily, live sizes, both histories, every start, 84 days; books of the five live markets.
 Adopt only if V1 or V2 beats the plan on the five-account book in BOTH histories on mean net and P(net > 0).
 
+## 258. A29 result: volatility-sized contracts do not beat the plan — not adopted (S8)
+
+**No trial; N 875.** `reports/a29_book.json`, five live markets, 50K Daily, every start, 84 days:
+
+| book | 2016–20 mean / P(net>0) / p10 | 2021–26 mean / P(net>0) / p10 |
+|---|---|---|
+| plan | +8,023 / 92% / +259 | +9,468 / 93% / +1,748 |
+| V1 (ref/F, [1, 2n]) | +8,268 / 88% / −140 | +10,569 / 93% / +1,237 |
+| V2 (ref/F, [1, n]) | +7,246 / 89% / −272 | +8,671 / 93% / +1,286 |
+| V3 (F/ref, [1, 2n]) | +7,406 / 90% / −75 | +9,517 / 91% / +285 |
+
+V1 raises the mean in both histories but lowers P(net > 0) in 2016–20 and the 10th percentile in both, so it fails §257's rule.
+Per market the sign flips between histories (MNQ +$778 in 2021–26, −$531 in 2010–20; crude worse in both), which is what a
+zero-edge reshuffle of variance looks like. The fixed-contract plan stays. `a23.replay(nvec=...)` is kept for later sizing questions.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
