@@ -9560,6 +9560,11 @@ session's volume stays above 1.2 × that mean, which excludes one-day roll spike
 three (h = 3) in the shock session's direction or against it, fixed by discovery; daily round trips, §177's costs. **14 markets × 2 h
 = 28 tests**; ~1.4 by chance. Carried at net > 0 with t > 1.96; validation as §207, 3 (sealed 2023-01 → 2026-08). Z and D from 91.
 
+**Amendment before any computation (a flaw in the protocol as committed):** the roll filter used the NEXT session's volume, which is
+not known when the next session is entered — look-ahead. Replaced: a volume shock is volume > 2 × the mean of the previous 60
+sessions, judged only on information known at the shock session's close; no roll filter (a roll-day spike in Yahoo's continuous
+volume may enter as a false event — it dilutes, it cannot bias the direction rule).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
