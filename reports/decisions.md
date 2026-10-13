@@ -10506,6 +10506,18 @@ Target MNQ 12:00 → 16:00, against the divergence (catch-down) or with it, fixe
 above its discovery median). **2 tests**, with the descriptive 2010–17 column (§306; NQ day sessions are sparse before 2013). Cost MNQ
 0.5 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 338. Family-78 discovery: Nasdaq against the S&P inside the day — 0 of 2 carried (S1)
+
+**No trial spent; N 882.** `reports/d78_discovery.json`: MNQ with the morning divergence +3.7 bps (t +1.51) — and the opposite sign
+in 2010–17 (−2.3, t −1.60). Empty.
+
+## 339. D-series family 79 protocol: MNQ's Asian night sets its European morning (S1)
+
+**No trial spent; N 882. Written and committed BEFORE any statistic is computed.** MNQ's night grid split at 03:00 ET: the Asian part
+18:00 → 03:00 predicts the European part 03:00 → 09:30, follow or fade fixed by discovery, same contract; forms **all** and **strong**
+(above the discovery median). **2 tests**, with the descriptive 2010–17 column. Cost MNQ 0.5 bps; recent-period design; carried at
+net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
