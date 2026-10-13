@@ -9463,6 +9463,16 @@ replicated in sign on an independent source, economically sensible — and it is
 account in 2021–26, nothing in 2015–20. Too rare (≈ 14 days a year) to carry an account alone. **Candidate for the plan, not yet
 adopted:** the user decides; the clean forward test is the demo (the bot could set MNQ's direction on bond-shock days).
 
+## 211. D68 added to the demo: the MNQ ticket follows a 10-year-note shock (S8)
+
+**No trial spent; N 847.** The user (2026-10-13, minutes before the 17:30 alert): "go ahead". `bot/d68.py`: at each alert, today's
+ZN session (Yahoo daily ZN=F, open → settlement) against 2 × the SD of its previous 60 sessions; beyond it, the MNQ ticket is
+issued in the shock's direction (LONG after a bond rally, SHORT after a sell-off) and the post carries a "D68" line; otherwise, or if
+the data cannot be read, LONG as before. `bot/schedule.py` passes the side to the ticket (the shadow tracker already handles
+shorts). Deployed 17:22 New York with the user's go-ahead (previous schedule.py in `/opt/futures-bot/backup-2026-10-13b/`); the first
+check (2026-10-13): ZN +18 bps against a 52 bps threshold — no shock, MNQ long. The `!eod` filing fix (§147) was already live.
+Expected frequency ≈ 14 shock days a year; the demo's forward record is D68's first out-of-sample use.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

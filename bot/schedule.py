@@ -16,6 +16,7 @@ import json
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import d68
 import shadow
 from accounts import PRODUCTS, Book
 from ticket import describe, policy, ticket
@@ -66,7 +67,9 @@ class Tickets:
         if a["phase"] == "dead":
             tk = {"trade": False, "finished": True, "floor": 0.0}
         else:
-            tk = ticket(a["phase"], a["balance"], a["peak"], a["best"], a["payouts"], product)
+            side, why = (d68.mnq_side(alert_day) if product == "MNQ" else ("long", ""))   # D68 (decisions.md 211)
+            tk = ticket(a["phase"], a["balance"], a["peak"], a["best"], a["payouts"], product, side)
+            tk["note"] = why
         rec = {"product": product, "issued": now.isoformat(timespec="seconds"), "entry": entry.isoformat(), "exit": exit_.isoformat(),
                "phase": a["phase"], "balance": a["balance"], "ticket": tk, "status": "pending" if tk.get("trade") else "none",
                "traded": None, "result": None}
@@ -215,4 +218,5 @@ def ticket_post(rec: dict) -> str:
     head = f"__{rec['product']} - {e:%a %d %b} {e:%H:%M} -> {x:%a} {x:%H:%M} ET__ [{rec['phase']}, balance ${rec['balance']:,.2f}]"
     if rec["phase"] == "dead":
         return head + f"\n**{rec['product']}: account failed** - buy a new evaluation and send `!new {rec['product']}`."
-    return head + "\n" + describe(rec["ticket"], rec["product"])
+    note = rec["ticket"].get("note", "")
+    return head + "\n" + describe(rec["ticket"], rec["product"]) + (f"\n> {note}" if note.startswith("D68") else "")
