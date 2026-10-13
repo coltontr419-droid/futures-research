@@ -10391,6 +10391,20 @@ Business days = weekdays with a session in the market's own series.
 discovery. **2 tests**, with the descriptive 2010–17 column (§306). Cost NKD 0.2 bps; recent-period design; carried at net > 0,
 t > 1.96; validation as §207, 3 (placebo: non-gotobi days).
 
+## 322. Family-71 discovery: the Nikkei on gotobi days — 0 of 2 carried (S1)
+
+**No trial spent; N 880.** `reports/d71_discovery.json`: pre −0.1 bps (t −0.02), post +1.4 (t +0.64). The gotobi flow does not reach
+the Nikkei. Empty.
+
+## 323. D-series family 72 protocol: pinning to round strikes into the close (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** Option open interest clusters at round strikes, and
+dealers' hedging can pull the underlying toward them into expiry and the close. **MNQ**: at 15:00 the NQ price's nearest multiple of
+100; trade 15:00 → 16:00 toward it (direction = sign(level − price)), or away (fixed by discovery). **Gold**: at 13:00 the nearest
+multiple of $10; trade 13:00 → 13:30 (into settlement, family-68 grid) toward or away. Only when the distance is under half the grid
+step (always true) — so all days. **2 tests**, with the descriptive 2010–17 column (§306). Costs §180; recent-period design; carried
+at net > 0, t > 1.96; validation as §207, 3 (placebo: a level grid shifted by half a step).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
