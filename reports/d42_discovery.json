@@ -1,0 +1,63 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "band": "1-2 sigma",
+   "target": "MNQ",
+   "n": 285,
+   "rule": "fade",
+   "net_bps": 0.8288175181338662,
+   "t": 0.10976873416573454,
+   "carried": false
+  },
+  {
+   "band": "1-2 sigma",
+   "target": "DAX",
+   "n": 276,
+   "rule": "fade",
+   "net_bps": 10.103555499473492,
+   "t": 1.599929567269648,
+   "carried": false
+  },
+  {
+   "band": "1-2 sigma",
+   "target": "NKD",
+   "n": 268,
+   "rule": "follow",
+   "net_bps": 4.564146582255676,
+   "t": 0.8926388666888174,
+   "carried": false
+  },
+  {
+   "band": "0.5-1 sigma",
+   "target": "MNQ",
+   "n": 370,
+   "rule": "follow",
+   "net_bps": 2.9648631894910658,
+   "t": 0.4372189413873409,
+   "carried": false
+  },
+  {
+   "band": "0.5-1 sigma",
+   "target": "DAX",
+   "n": 354,
+   "rule": "fade",
+   "net_bps": 7.43830116111249,
+   "t": 1.5454463195571126,
+   "carried": false
+  },
+  {
+   "band": "0.5-1 sigma",
+   "target": "NKD",
+   "n": 328,
+   "rule": "follow",
+   "net_bps": 0.32883465672294365,
+   "t": 0.072719526077885,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

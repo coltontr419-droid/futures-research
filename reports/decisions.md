@@ -9908,6 +9908,11 @@ D68's own days: **1σ < |r| ≤ 2σ** and **0.5σ < |r| ≤ 1σ**. Targets: MNQ 
 (A21 paths, as family 37). Follow or fade fixed by discovery. **2 bands × 3 targets = 6 tests.** Costs §180; recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3 (placebo: days with |r| ≤ 0.5σ).
 
+## 256. Family-42 discovery: D68 does not extend below 2σ — 0 of 6 carried (S1)
+
+**No trial spent; N 875.** `reports/d42_discovery.json`: MNQ after 1–2σ ZN moves +0.8 bps (t +0.11), after 0.5–1σ +3.0 (t +0.44);
+DAX even fades moderate moves (t +1.60 for the fade). The 10-year effect is a tail phenomenon only; D68 stays as deployed. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
