@@ -1,0 +1,49 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "MNQ",
+   "k": 5,
+   "release_days": 8,
+   "n": 8,
+   "rule": "fade",
+   "net_bps": 68.23078918457031,
+   "t": 1.0023455619812012,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "k": 15,
+   "release_days": 8,
+   "n": 8,
+   "rule": "fade",
+   "net_bps": 17.618616104125977,
+   "t": 0.2560826241970062,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "k": 5,
+   "release_days": 68,
+   "n": 68,
+   "rule": "follow",
+   "net_bps": 6.866156578063965,
+   "t": 1.4825595617294312,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "k": 15,
+   "release_days": 68,
+   "n": 68,
+   "rule": "follow",
+   "net_bps": 6.454665184020996,
+   "t": 1.7738465070724487,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

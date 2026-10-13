@@ -10007,6 +10007,12 @@ its previous-20 median. The first k minutes (k = 5, 15) from 09:59's close predi
 16:00; gold London grid to 11:30), follow or fade fixed by discovery. **2 markets × 2 k = 4 tests.** Costs §180; recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 270. Family-48 discovery: 10:00 releases — 0 of 4 carried; the MNQ half is uninformative (S1)
+
+**No trial spent; N 875.** `reports/d48_discovery.json`: gold, 68 detected release days, follow +6.9 / +6.5 bps (t +1.48 / +1.77).
+MNQ: the volume detector found only **8** days in five years — 10:00 volume sits inside the opening half hour's, so 3 × the median is
+rarely reached. That half tests nothing; it is NOT re-tuned after the fact (a release calendar would be needed). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
