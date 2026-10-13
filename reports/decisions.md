@@ -9501,6 +9501,18 @@ windows. Recent-period design (§180): discovery 2018-01 → 2022-12; validation
 Next: DAX following a ZN shock (+25.7, t +1.93), Nikkei following a ZN shock (+14.9, t +1.57) — bond shocks lead most of the list,
 as in family 24. Z and D market-tests 84–86.
 
+## 214. D72–D74 validated: no confirmation — shocks into the plan's other windows did not hold (S6–S8)
+
+**Three trials spent: t00854–t00856. N 847 → 850.** Z and D market-tests 84–86.
+
+| id, trial | rule | trades | net bps a trade (t) | placebo pct | years positive | tier |
+|---|---|---|---|---|---|---|
+| D72 t00854 | MGC_win follows the previous session's ZN shock | 47 | +15.12 (t +1.00) | 92 | 1 of 4 | **WATCHLIST** |
+| D73 t00855 | MGC_win follows the previous session's 6E shock | 41 | -6.43 (t -0.34) | 42 | 2 of 4 | **REJECT** |
+| D74 t00856 | DAX_win fades the previous session's 6E shock | 41 | +13.10 (t +0.74) | 81 | 2 of 4 | **WATCHLIST** |
+
+Gold following a bond shock (D72) was positive only through one year (2026 +93); nothing generalises beyond D68's S&P response.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

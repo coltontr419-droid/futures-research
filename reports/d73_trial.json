@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D73",
+ "cell": "MGC_win follows the previous session's 6E shock",
+ "trades": 41,
+ "net_bps": -6.428445627777406,
+ "t_net": -0.3445754398939772,
+ "placebo_pct": 41.8,
+ "by_year": {
+  "2023": -37.64679064002828,
+  "2024": -21.80407447237853,
+  "2025": 9.563904903611324,
+  "2026": 27.123340278215494
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 85,
+ "injection": {
+  "hypothesis": "D73",
+  "n_events": 41,
+  "sought_bps": 11.62325948162636,
+  "mean_estimate": 11.585704602163426,
+  "sd_estimate_bps": 18.234169012927644,
+  "power_strict_t": 0.136,
+  "recovered": true
+ }
+}

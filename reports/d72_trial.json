@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D72",
+ "cell": "MGC_win follows the previous session's ZN shock",
+ "trades": 47,
+ "net_bps": 15.115777003530678,
+ "t_net": 0.9987687281889907,
+ "placebo_pct": 91.5,
+ "by_year": {
+  "2023": -8.584369762608357,
+  "2024": -17.689815393211326,
+  "2025": -1.50057432003353,
+  "2026": 93.22979469227039
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 84,
+ "injection": {
+  "hypothesis": "D72",
+  "n_events": 47,
+  "sought_bps": 10.911381479827547,
+  "mean_estimate": 10.5961734915037,
+  "sd_estimate_bps": 14.898107413277492,
+  "power_strict_t": 0.156,
+  "recovered": true
+ }
+}

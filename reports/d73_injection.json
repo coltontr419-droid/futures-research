@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D73",
+ "n_events": 41,
+ "sought_bps": 11.62325948162636,
+ "mean_estimate": 11.585704602163426,
+ "sd_estimate_bps": 18.234169012927644,
+ "power_strict_t": 0.136,
+ "recovered": true
+}

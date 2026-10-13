@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D74",
+ "cell": "DAX_win fades the previous session's 6E shock",
+ "trades": 41,
+ "net_bps": 13.09759792052009,
+ "t_net": 0.7385574917287719,
+ "placebo_pct": 81.2,
+ "by_year": {
+  "2023": -11.647550584666815,
+  "2024": -1.4978289608278246,
+  "2025": 28.960885859964673,
+  "2026": 28.130851696240676
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 86,
+ "injection": {
+  "hypothesis": "D74",
+  "n_events": 41,
+  "sought_bps": 15.834452494946113,
+  "mean_estimate": 15.851090262647391,
+  "sd_estimate_bps": 17.10507778833456,
+  "power_strict_t": 0.184,
+  "recovered": true
+ }
+}

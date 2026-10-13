@@ -8789,12 +8789,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00854 (decisions.md 214), WATCHLIST on sealed 2023-2026: 47 trades; net +15.12 bps (t +1.00); placebo 92th pct; positive in 1 of 4 years.
   outcome_injection_required: Before the run - reports/d72_injection.json (src/futuresres/signals/d_shockwin.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_shockwin.py
+    injected_bps: 10.911
+    sought_bps: 10.911
+    n_injection: 47
+    n_run: 47
+    recovered: true
+    report: reports/d72_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 106
+  test_order: null
+  registered_test_order: 106
   grade: B
   tier: B
   param_cap: 0
@@ -8832,12 +8845,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00855 (decisions.md 214), REJECT on sealed 2023-2026: 41 trades; net -6.43 bps (t -0.34); placebo 42th pct; positive in 2 of 4 years.
   outcome_injection_required: Before the run - reports/d73_injection.json (src/futuresres/signals/d_shockwin.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_shockwin.py
+    injected_bps: 11.623
+    sought_bps: 11.623
+    n_injection: 41
+    n_run: 41
+    recovered: true
+    report: reports/d73_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 107
+  test_order: null
+  registered_test_order: 107
   grade: B
   tier: B
   param_cap: 0
@@ -8875,12 +8901,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00856 (decisions.md 214), WATCHLIST on sealed 2023-2026: 41 trades; net +13.10 bps (t +0.74); placebo 81th pct; positive in 2 of 4 years.
   outcome_injection_required: Before the run - reports/d74_injection.json (src/futuresres/signals/d_shockwin.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_shockwin.py
+    injected_bps: 15.834
+    sought_bps: 15.834
+    n_injection: 41
+    n_run: 41
+    recovered: true
+    report: reports/d74_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 108
+  test_order: null
+  registered_test_order: 108
   grade: B
   tier: B
   param_cap: 0
