@@ -1,0 +1,25 @@
+{
+ "hypothesis": "D58",
+ "target": "NKD_win",
+ "days": 880,
+ "net_bps": 2.249130474168109,
+ "t_net": 0.756012941066969,
+ "placebo_pct": 79.60000000000001,
+ "vs_always_long_bps": 3.2185681578111764,
+ "t_vs_always_long": 0.744777564184356,
+ "always_long_required": false,
+ "share_long": 0.5079545454545454,
+ "by_year": {
+  "2023": 4.01886280501355,
+  "2024": 11.547040263020977,
+  "2025": -5.201752803406069,
+  "2026": -2.504925016883224
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "WATCHLIST"
+}

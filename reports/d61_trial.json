@@ -1,0 +1,25 @@
+{
+ "hypothesis": "D61",
+ "target": "MNQ_win",
+ "days": 893,
+ "net_bps": -1.9214112090603057,
+ "t_net": -0.58997090298643,
+ "placebo_pct": 14.000000000000002,
+ "vs_always_long_bps": -3.636994257473486,
+ "t_vs_always_long": -1.2187179893180584,
+ "always_long_required": true,
+ "share_long": 0.8029115341545353,
+ "by_year": {
+  "2023": 3.3750517349389977,
+  "2024": -5.8894582357227385,
+  "2025": -3.156301918718175,
+  "2026": -2.053027783543821
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false,
+  "d": false
+ },
+ "decision": "REJECT"
+}

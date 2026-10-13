@@ -1,0 +1,25 @@
+{
+ "hypothesis": "D62",
+ "target": "MCL",
+ "days": 904,
+ "net_bps": 2.4437534065321214,
+ "t_net": 0.3031435821708974,
+ "placebo_pct": 93.0,
+ "vs_always_long_bps": 1.8616351535265212,
+ "t_vs_always_long": 1.1661152658193967,
+ "always_long_required": true,
+ "share_long": 0.9933628318584071,
+ "by_year": {
+  "2023": -8.508962960939808,
+  "2024": -3.332709924361654,
+  "2025": -1.8158489767422907,
+  "2026": 33.92499701460823
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false,
+  "d": false
+ },
+ "decision": "WATCHLIST"
+}

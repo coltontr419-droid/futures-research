@@ -9243,6 +9243,25 @@ fitted on 2018-01 → 2022-12, scored ONCE on sealed 2023-01 → 2026-08. **6 tr
 The models lean on the relay hand-offs (yesterday's MNQ against Tokyo and Xetra), trends and volatility state; DAX's best penalty
 already loses out of fold. Z and D market-tests 70–75.
 
+## 196. D58–D63 scored: no confirmation; the gold model (D60) passes everything but always-long (S6–S8)
+
+**Six trials spent: t00840–t00845. N 833 → 839.** Frozen 2018–22 models, sealed 2023-01 → 2026-08:
+
+| id, trial | window | net bps a day (t) | placebo pct | vs always-long | years positive | tier |
+|---|---|---|---|---|---|---|
+| D58 t00840 | NKD_win | +2.25 (t +0.76) | 80 | +3.22 (t +0.74) | 2 of 4 | **WATCHLIST** |
+| D59 t00841 | DAX_win | +2.52 (t +1.01) | 86 | -0.19 (t -0.05) | 2 of 4 | **WATCHLIST** |
+| D60 t00842 | MGC_win | +5.35 (t +1.89) | 98 | +4.72 (t +1.30) req. | 3 of 4 | **WATCHLIST** |
+| D61 t00843 | MNQ_win | -1.92 (t -0.59) | 14 | -3.64 (t -1.22) req. | 1 of 4 | **REJECT** |
+| D62 t00844 | MCL | +2.44 (t +0.30) | 93 | +1.86 (t +1.17) req. | 1 of 4 | **WATCHLIST** |
+| D63 t00845 | ZS | -3.75 (t -1.05) | 22 | -2.04 (t -0.41) req. | 1 of 4 | **REJECT** |
+
+**D60, gold:** net +5.35 bps a day (t +1.89), placebo 98th percentile, positive 2024–26 (+6.7, +7.9, +7.9) — and +4.7 bps a day
+over always-long (t +1.30), short of 1.645, the condition required because gold's 2018–22 drift was positive. It is the fourth
+independent route to the same finding (D16, D22–D27, D32/D36, now a model): **gold and silver carry a persistent, modest
+directional predictability into the London window, smaller than their own recent drift.** Combining signals did not lift the
+other windows (Nikkei, DAX: watchlist on noise; MNQ, soybeans: reject; crude: long 99% of days).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

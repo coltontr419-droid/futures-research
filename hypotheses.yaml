@@ -7994,12 +7994,25 @@
   horizon_minutes: [360]
   hold_hours: [6.0]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00840 (decisions.md 196), WATCHLIST on sealed 2023-2026: 880 days; net +2.25 bps a day (t +0.76); placebo 80th pct; vs always-long +3.22 (t +0.74); positive in 2 of 4 years.
   outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  outcome_injection:
+    test: src/futuresres/signals/d_model.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 880
+    recovered: true
+    report: reports/d58_trial.json
   schedulable: false
   schedulable_note: >
     Scored once on the sealed 2023-2026 window.
-  test_order: 92
+  test_order: null
+  registered_test_order: 92
   grade: C
   tier: C
   param_cap: 0
@@ -8038,12 +8051,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00841 (decisions.md 196), WATCHLIST on sealed 2023-2026: 877 days; net +2.52 bps a day (t +1.01); placebo 86th pct; vs always-long -0.19 (t -0.05); positive in 2 of 4 years.
   outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  outcome_injection:
+    test: src/futuresres/signals/d_model.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 877
+    recovered: true
+    report: reports/d59_trial.json
   schedulable: false
   schedulable_note: >
     Scored once on the sealed 2023-2026 window.
-  test_order: 93
+  test_order: null
+  registered_test_order: 93
   grade: C
   tier: C
   param_cap: 0
@@ -8082,12 +8108,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00842 (decisions.md 196), WATCHLIST on sealed 2023-2026: 923 days; net +5.35 bps a day (t +1.89); placebo 98th pct; vs always-long +4.72 (t +1.30); positive in 3 of 4 years.
   outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  outcome_injection:
+    test: src/futuresres/signals/d_model.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 923
+    recovered: true
+    report: reports/d60_trial.json
   schedulable: false
   schedulable_note: >
     Scored once on the sealed 2023-2026 window.
-  test_order: 94
+  test_order: null
+  registered_test_order: 94
   grade: C
   tier: C
   param_cap: 0
@@ -8126,12 +8165,25 @@
   horizon_minutes: [390]
   hold_hours: [6.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00843 (decisions.md 196), REJECT on sealed 2023-2026: 893 days; net -1.92 bps a day (t -0.59); placebo 14th pct; vs always-long -3.64 (t -1.22); positive in 1 of 4 years.
   outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  outcome_injection:
+    test: src/futuresres/signals/d_model.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 893
+    recovered: true
+    report: reports/d61_trial.json
   schedulable: false
   schedulable_note: >
     Scored once on the sealed 2023-2026 window.
-  test_order: 95
+  test_order: null
+  registered_test_order: 95
   grade: C
   tier: C
   param_cap: 0
@@ -8170,12 +8222,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00844 (decisions.md 196), WATCHLIST on sealed 2023-2026: 904 days; net +2.44 bps a day (t +0.30); placebo 93th pct; vs always-long +1.86 (t +1.17); positive in 1 of 4 years.
   outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  outcome_injection:
+    test: src/futuresres/signals/d_model.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 904
+    recovered: true
+    report: reports/d62_trial.json
   schedulable: false
   schedulable_note: >
     Scored once on the sealed 2023-2026 window.
-  test_order: 96
+  test_order: null
+  registered_test_order: 96
   grade: C
   tier: C
   param_cap: 0
@@ -8214,12 +8279,25 @@
   horizon_minutes: [1095]
   hold_hours: [18.25]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00845 (decisions.md 196), REJECT on sealed 2023-2026: 919 days; net -3.75 bps a day (t -1.05); placebo 22th pct; vs always-long -2.04 (t -0.41); positive in 1 of 4 years.
   outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  outcome_injection:
+    test: src/futuresres/signals/d_model.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 919
+    recovered: true
+    report: reports/d63_trial.json
   schedulable: false
   schedulable_note: >
     Scored once on the sealed 2023-2026 window.
-  test_order: 97
+  test_order: null
+  registered_test_order: 97
   grade: C
   tier: C
   param_cap: 0

@@ -940,27 +940,27 @@ Data-derived (D-series family 14). `hypotheses.yaml` (D56) · `decisions.md` §1
 
 Data-derived (D-series family 16). `hypotheses.yaml` (D57) · `decisions.md` §188
 
-## D58 — Combined Model for NKD_win
+## D58 — Combined Model for NKD_win  *(WATCHLIST — t00840)*
 
 Data-derived (D-series family 19). `hypotheses.yaml` (D58) · `decisions.md` §195
 
-## D59 — Combined Model for DAX_win
+## D59 — Combined Model for DAX_win  *(WATCHLIST — t00841)*
 
 Data-derived (D-series family 19). `hypotheses.yaml` (D59) · `decisions.md` §195
 
-## D60 — Combined Model for MGC_win
+## D60 — Combined Model for MGC_win  *(WATCHLIST — t00842)*
 
 Data-derived (D-series family 19). `hypotheses.yaml` (D60) · `decisions.md` §195
 
-## D61 — Combined Model for MNQ_win
+## D61 — Combined Model for MNQ_win  *(REJECT — t00843)*
 
 Data-derived (D-series family 19). `hypotheses.yaml` (D61) · `decisions.md` §195
 
-## D62 — Combined Model for MCL
+## D62 — Combined Model for MCL  *(WATCHLIST — t00844)*
 
 Data-derived (D-series family 19). `hypotheses.yaml` (D62) · `decisions.md` §195
 
-## D63 — Combined Model for ZS
+## D63 — Combined Model for ZS  *(REJECT — t00845)*
 
 Data-derived (D-series family 19). `hypotheses.yaml` (D63) · `decisions.md` §195
 

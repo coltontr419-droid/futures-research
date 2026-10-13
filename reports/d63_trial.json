@@ -1,0 +1,25 @@
+{
+ "hypothesis": "D63",
+ "target": "ZS",
+ "days": 919,
+ "net_bps": -3.751518824979448,
+ "t_net": -1.0506783823057646,
+ "placebo_pct": 21.6,
+ "vs_always_long_bps": -2.0415940476197334,
+ "t_vs_always_long": -0.40707328839138596,
+ "always_long_required": true,
+ "share_long": 0.5408052230685527,
+ "by_year": {
+  "2023": -14.57064121832347,
+  "2024": -0.457299181974643,
+  "2025": -3.9805034338404224,
+  "2026": 7.887712410700662
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false,
+  "d": false
+ },
+ "decision": "REJECT"
+}

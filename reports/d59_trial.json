@@ -1,0 +1,25 @@
+{
+ "hypothesis": "D59",
+ "target": "DAX_win",
+ "days": 877,
+ "net_bps": 2.5187017041495685,
+ "t_net": 1.0051223554914732,
+ "placebo_pct": 86.0,
+ "vs_always_long_bps": -0.19228644017960633,
+ "t_vs_always_long": -0.050843994315450114,
+ "always_long_required": false,
+ "share_long": 0.5039908779931584,
+ "by_year": {
+  "2023": -0.5667576211470563,
+  "2024": -0.04871757646056688,
+  "2025": 4.881887145159626,
+  "2026": 6.258161601622465
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "WATCHLIST"
+}
