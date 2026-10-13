@@ -1,0 +1,25 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "target": "MNQ",
+   "n": 1204,
+   "rule": "long when VRP high",
+   "net_bps": 0.5319033265113831,
+   "t": 0.14930742979049683,
+   "carried": false
+  },
+  {
+   "target": "MGC",
+   "n": 1200,
+   "rule": "short when VRP high",
+   "net_bps": 0.07805613428354263,
+   "t": 0.037586428225040436,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

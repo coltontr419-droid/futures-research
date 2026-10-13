@@ -10127,6 +10127,17 @@ trailing 250-session median → one side, below → the other, fixed by discover
 DEMEANED (discovery mean removed) so drift is not carried. **2 targets = 2 tests.** Costs §180; recent-period design; carried at net
 > 0, t > 1.96; validation as §207, 3.
 
+## 286. Family-55 discovery: the variance risk premium — 0 of 2 carried (S1)
+
+**No trial spent; N 877.** `reports/d55_discovery.json`: MNQ +0.5 bps (t +0.15), gold +0.1 (t +0.04). Empty.
+
+## 287. D-series family 56 protocol: the previous session's close location (S1)
+
+**No trial spent; N 877. Written and committed BEFORE any statistic is computed.** CLV = (close − low) / (high − low) of the previous
+target session's minute closes (MNQ day; gold London), same contract as the next session's open. Signal sign(CLV − 0.5); the next
+session open→close traded with it or against it, fixed by discovery. Forms **all** and **extreme** (CLV > 0.85 or < 0.15). **2 × 2 =
+4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
