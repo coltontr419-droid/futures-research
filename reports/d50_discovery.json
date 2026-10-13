@@ -1,0 +1,53 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "auction": "10:30 London",
+   "form": "all",
+   "median_abs_pre_bps": 5.498230457305908,
+   "n": 1266,
+   "rule": "fade",
+   "gross_bps": 0.1625031679868698,
+   "net_bps": -0.637496829032898,
+   "t": -1.7771036624908447,
+   "carried": false
+  },
+  {
+   "auction": "10:30 London",
+   "form": "strong",
+   "median_abs_pre_bps": 5.498230457305908,
+   "n": 633,
+   "rule": "fade",
+   "gross_bps": 0.3038838803768158,
+   "net_bps": -0.49611613154411316,
+   "t": -0.7880275249481201,
+   "carried": false
+  },
+  {
+   "auction": "15:00 London",
+   "form": "all",
+   "median_abs_pre_bps": 12.132525444030762,
+   "n": 1182,
+   "rule": "follow",
+   "gross_bps": 0.6564746499061584,
+   "net_bps": -0.14352530241012573,
+   "t": -0.20286570489406586,
+   "carried": false
+  },
+  {
+   "auction": "15:00 London",
+   "form": "strong",
+   "median_abs_pre_bps": 12.132525444030762,
+   "n": 591,
+   "rule": "follow",
+   "gross_bps": 0.7871866226196289,
+   "net_bps": -0.012812916189432144,
+   "t": -0.011136566288769245,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

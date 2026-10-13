@@ -10051,6 +10051,19 @@ the 30 minutes into the auction; target = the 30 minutes after, follow or fade f
 **strong** (|pre-move| above its discovery median). **2 auctions × 2 forms = 4 tests.** Cost MGC 0.8 bps; recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the same rule one hour earlier).
 
+## 275. Family-50 discovery: the LBMA gold auctions — 0 of 4 carried (S1)
+
+**No trial spent; N 876.** `reports/d50_discovery.json`: gross moves after either auction are +0.2 to +0.8 bps, below gold's 0.8 bps
+cost; every net is ≤ 0. Empty.
+
+## 276. D-series family 51 protocol: MNQ's night session as a target (S1)
+
+**No trial spent; N 876. Written and committed BEFORE any statistic is computed.** The plan trades MNQ's day; the night (18:00 → 09:30,
+family-8 grid, dated by its end day) has not been a target. Predictors from the preceding day session (09:30–16:00): its whole
+return, and its last hour (15:00 → 16:00). Target open→close of the night, same contract as the predictor's end; follow or fade fixed
+by discovery; forms **all** and **strong** (above the discovery median). **2 × 2 = 4 tests.** Cost MNQ 0.5 bps; recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
