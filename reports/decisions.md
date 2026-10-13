@@ -8474,6 +8474,30 @@ history (rejected), F08 same-hour MNQ/gold divergence (premise failure), Z05 gol
    as bad prints (two DAX CFD overnight values, +27,100 and −7,423 bps); the owned NQ minute data is sparse before 2013 (33 days in
    2010, 72 in 2011, 107 in 2012), so MNQ's discovery sample is ~1,300 days, not ~1,900.
 
+## 150. Family-3 discovery: ten tests carried (≈4 by chance); D12–D21 registered before validation (S1–S5)
+
+**No trial spent at registration; N 787. Committed BEFORE any validation data is read.** `reporting/d3_relay.py` (`--build`,
+`--scan`), `reports/d3_discovery.json`; `signals/d_relay.py`; `hypotheses.yaml` D12–D21; catalog sections; MNQ and ZS added to the
+registry's single-market primaries. 80 tests on 2010-06 → 2017-12 (asserted); |t| > 1.96 expected ~4 by chance; **10 carried**:
+
+| id | target | rule | predictor | form | discovery (bps beyond drift a day) | prior |
+|---|---|---|---|---|---|---|
+| D12 | NKD_win | fade | NKD_pre (same) | all | -6.52, t -3.10, n 1812 | N(+3.26, 3.26) |
+| D13 | MGC_win | follow | MGC_pre (same) | all | +6.10, t +2.89, n 1349 | N(+3.05, 3.05) |
+| D14 | MNQ_win | fade | MNQ_win (prev) | all | -6.15, t -2.74, n 1047 | N(+3.07, 3.07) |
+| D15 | NKD_win | fade | NKD_pre (same) | strong | -8.44, t -2.51, n 906 | N(+4.22, 4.22) |
+| D16 | MGC_win | follow | MGC_pre (same) | strong | +8.20, t +2.46, n 674 | N(+4.10, 4.10) |
+| D17 | MCL | fade | MGC_win (prev) | strong | -17.88, t -2.31, n 653 | N(+8.94, 8.94) |
+| D18 | MCL | fade | MNQ_win (prev) | all | -12.54, t -2.26, n 1234 | N(+6.27, 6.27) |
+| D19 | MGC_win | fade | MGC_win (prev) | strong | -7.95, t -2.24, n 592 | N(+3.97, 3.97) |
+| D20 | MNQ_win | fade | ZS (prev) | strong | -6.72, t -2.11, n 625 | N(+3.36, 3.36) |
+| D21 | ZS | fade | MGC_win (prev) | all | -6.97, t -2.01, n 1337 | N(+3.49, 3.49) |
+
+Seven distinct relationships (D12/D15 and D13/D16 are one pair's every-day and strong-day forms). **Noted before the run:** D12/D15's
+predictor ends at the price the Nikkei window starts from, so a noisy CFD quote at 09:00 Tokyo would make the two look negatively
+related — a fade could be partly measurement; D13/D16 (gold) runs the opposite way to that artefact. Validation per §149, 5;
+Z and D market-tests 24–33.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

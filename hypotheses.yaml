@@ -5305,3 +5305,463 @@
       above the 95th percentile of the same trade in GRXEUR's other family-2 windows on month-end days, and the posterior > 0; else WATCHLIST if the net mean > 0 (forward-tested,
       decisions.md 133); else REJECT. Z and D market-test number 23.
   s6_control: Gross and net; by period (2018-21, 2022-26); the placebo cells' net means.
+- id: D12
+  name: nkd_win_fades_nkd_pre_all
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the Nikkei window (09:00-15:00 Tokyo)
+    traded against its own move from the previous Tokyo close (15:00) to the open (09:00) earned 6.52 bps a day beyond drift (t 3.10, n 1812, every day).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Every day: trade the plan's Nikkei window (09:00-15:00 Tokyo) bracket against the sign of its own move from the previous Tokyo close (15:00) to the open (09:00)
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d12_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 46
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      NKD is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.26 bps, 3.26) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 24.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D13
+  name: mgc_win_follows_mgc_pre_all
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of its own move from the previous window's close (11:30 ET) to 03:00 ET earned 6.10 bps a day beyond drift (t 2.89, n 1349, every day).
+    A continuation of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders slow to act on news priced outside the window. Carried by the scan, not predicted.
+  condition: >
+    Every day: trade the plan's gold window (03:00-11:30 ET) bracket in the direction of the sign of its own move from the previous window's close (11:30 ET) to 03:00 ET
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d13_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 47
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.05 bps, 3.05) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 25.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D14
+  name: mnq_win_fades_mnq_win_all
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the MNQ window (09:30-16:00 ET)
+    traded against the previous day's MNQ window earned 6.15 bps a day beyond drift (t 2.74, n 1047, every day).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Every day: trade the plan's MNQ window (09:30-16:00 ET) bracket against the sign of the previous day's MNQ window
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d14_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 48
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      MNQ is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.07 bps, 3.07) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 26.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D15
+  name: nkd_win_fades_nkd_pre_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the Nikkei window (09:00-15:00 Tokyo)
+    traded against its own move from the previous Tokyo close (15:00) to the open (09:00) earned 8.44 bps a day beyond drift (t 2.51, n 906, only days with |predictor| above its 2010-17 median (52.2 bps)).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Only days with |predictor| above its 2010-17 median (52.2 bps): trade the plan's Nikkei window (09:00-15:00 Tokyo) bracket against the sign of its own move from the previous Tokyo close (15:00) to the open (09:00)
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d15_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 49
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      NKD is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+4.22 bps, 4.22) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 27.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D16
+  name: mgc_win_follows_mgc_pre_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of its own move from the previous window's close (11:30 ET) to 03:00 ET earned 8.20 bps a day beyond drift (t 2.46, n 674, only days with |predictor| above its 2010-17 median (35.8 bps)).
+    A continuation of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders slow to act on news priced outside the window. Carried by the scan, not predicted.
+  condition: >
+    Only days with |predictor| above its 2010-17 median (35.8 bps): trade the plan's gold window (03:00-11:30 ET) bracket in the direction of the sign of its own move from the previous window's close (11:30 ET) to 03:00 ET
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d16_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 50
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+4.10 bps, 4.10) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 28.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D17
+  name: mcl_fades_mgc_win_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the crude session
+    traded against the same day's gold window earned 17.88 bps a day beyond drift (t 2.31, n 653, only days with |predictor| above its 2010-17 median (38.3 bps)).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Only days with |predictor| above its 2010-17 median (38.3 bps): trade the plan's crude session bracket against the sign of the same day's gold window
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d17_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 51
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MCL]
+  mechanism_instruments:
+    primary: MCL
+    secondary: null
+    rationale: >
+      MCL is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+8.94 bps, 8.94) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 29.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D18
+  name: mcl_fades_mnq_win_all
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the crude session
+    traded against the same day's MNQ window earned 12.54 bps a day beyond drift (t 2.26, n 1234, every day).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Every day: trade the plan's crude session bracket against the sign of the same day's MNQ window
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d18_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 52
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MCL]
+  mechanism_instruments:
+    primary: MCL
+    secondary: null
+    rationale: >
+      MCL is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+6.27 bps, 6.27) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 30.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D19
+  name: mgc_win_fades_mgc_win_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded against the previous day's gold window earned 7.95 bps a day beyond drift (t 2.24, n 592, only days with |predictor| above its 2010-17 median (38.8 bps)).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Only days with |predictor| above its 2010-17 median (38.8 bps): trade the plan's gold window (03:00-11:30 ET) bracket against the sign of the previous day's gold window
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d19_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 53
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.97 bps, 3.97) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 31.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D20
+  name: mnq_win_fades_zs_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the MNQ window (09:30-16:00 ET)
+    traded against the previous day's soybean session earned 6.72 bps a day beyond drift (t 2.11, n 625, only days with |predictor| above its 2010-17 median (73.4 bps)).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Only days with |predictor| above its 2010-17 median (73.4 bps): trade the plan's MNQ window (09:30-16:00 ET) bracket against the sign of the previous day's soybean session
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d20_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 54
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      MNQ is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.36 bps, 3.36) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 32.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D21
+  name: zs_fades_mgc_win_all
+  mechanism: >
+    DATA-DERIVED (D-series family 3, the session relay, decisions.md 149-150): in 2010-2017 the soybean session
+    traded against the same day's gold window earned 6.97 bps a day beyond drift (t 2.01, n 1337, every day).
+    A reversal of information that arrived while this window was closed. THE COUNTERPARTY would be
+    traders over-reacting to the move before the window, whose positions unwind in it. Carried by the scan, not predicted.
+  condition: >
+    Every day: trade the plan's soybean session bracket against the sign of the same day's gold window
+    (long if the rule says up, short if down) instead of always long. Same bracket and size as the plan; no extra trade.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d21_injection.json (src/futuresres/signals/d_relay.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 55
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-3 scan (80 tests, |t| > 1.96, decisions.md 149); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      ZS is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.49 bps, 3.49) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 33.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.

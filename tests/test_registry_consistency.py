@@ -71,7 +71,8 @@ ROBUSTNESS_ONLY: Final[frozenset[str]] = frozenset({"ES", "YM", "RTY", "NQ"})
 #: 6E added for Z11 (decisions.md 127): CME euro futures, tradable in the user's account; tested on EUR/USD spot.
 #: D-series (decisions.md 129-130): hypotheses discovered on 2010-17 data; SI (COMEX silver) added for D01.
 #: D03-D11 (decisions.md 143): the corrected-clock re-scan's cells - 6S, 6B, FDXM (Eurex mini DAX), NKD.
-SINGLE_MARKET_INSTRUMENTS: Final[frozenset[str]] = frozenset({"MES", "MGC", "MCL", "6J", "6E", "SI", "6A", "6S", "6B", "FDXM", "NKD"})
+#: D12-D21 (decisions.md 150): session-relay direction rules on the plan's accounts - MNQ and ZS as single-market primaries.
+SINGLE_MARKET_INSTRUMENTS: Final[frozenset[str]] = frozenset({"MES", "MGC", "MCL", "6J", "6E", "SI", "6A", "6S", "6B", "FDXM", "NKD", "MNQ", "ZS"})
 
 REG: Final[dict[str, dict[str, Any]]] = {
     e["id"]: e for e in yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
