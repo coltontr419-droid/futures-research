@@ -9975,6 +9975,15 @@ design; carried at net > 0, t > 1.96; validation as §207, 3.
 
 **No trial spent; N 875.** `reports/d45_discovery.json`: all |t| < 0.5. Empty.
 
+## 265. D-series family 46 protocol: intraday breaks of the prior session's range (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** Family 34 tested breaks made overnight; this tests
+them inside the target session (MNQ day; MGC London), family-8 grids, prior session's high/low close on the same contract. The FIRST
+minute (after the first 5) whose close is beyond either side defines the event; one per session. **Break**: enter at that minute's
+close, with the break or against it (fixed by discovery), exit at the session close. **Sweep**: the price is back inside the range
+within 15 minutes of the break — enter at that minute's close against the break's side (or with it, fixed by discovery), exit at the
+close. **2 markets × 2 forms = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
