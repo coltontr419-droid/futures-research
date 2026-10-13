@@ -9764,6 +9764,21 @@ absorption, and of the overnight return for the thin push; the target window (MN
 direction or against it, fixed by discovery. **2 markets × 2 states = 4 tests.** Recent-period design (§180); carried at net > 0 with
 t > 1.96; validation as §207, 3 (placebo: the same rule on random other days). Z and D market-tests from 109.
 
+## 237. Family-33 discovery: effort versus result predicts nothing usable — 0 of 4 carried (S1)
+
+**No trial spent; N 872.** `reports/d33_discovery.json`: MNQ absorption nights (fade the close location) +24.6 bps, t +1.90, n 89 —
+below the bar; thin push and both gold states ~0. Empty.
+
+## 238. D-series family 34 protocol: failed and accepted breaks of the prior session's range (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** Family-8 minute grids (closes). For each target
+session (MNQ day 09:30–16:00; MGC London 03:00–11:30), the reference range is the previous target session's high/low close, and the
+excursion window is the session before the target (MNQ night 18:00–09:30; MGC Asia 18:00–03:00), same contract at both ends required.
+**Failed break**: the excursion traded beyond one side of the reference range but its last close is back inside (direction = the side
+broken). **Accepted break**: its last close is beyond the range (direction = that side). Days breaking both sides are excluded. The
+target session is traded open→close in the direction or against it, fixed by discovery. **2 markets × 2 states = 4 tests.**
+Recent-period design (§180), costs §180; carried at net > 0 with t > 1.96; validation as §207, 3. Z and D market-tests from 109.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
