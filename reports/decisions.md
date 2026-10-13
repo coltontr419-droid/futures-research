@@ -8803,6 +8803,32 @@ per day is large against its own daily swing — which, at ~one trade a day, mea
 has measured. Sharpe grows with the square root of the number of independent trades, so a standalone search should look for
 **many small, independent trades a day** (intraday, minute-level, owned trade data), each with a modest edge — not one daily hold.
 
+## 166. D-series family 8 protocol: short-horizon reactions to large intraday moves — many trades a day, for standalone use (S1)
+
+**No trial spent; N 812. Written and committed BEFORE any data is built.** §165: a standalone strategy needs many independent
+trades a day, each with an edge after costs. The programme's one robust finding is CONTINUATION after information arrives
+(gold and silver into London); this family asks the same at minutes: after an unusually large move, does the market continue or
+reverse over the next minutes, and does it depend on volume?
+
+1. **Data:** owned Databento 1-minute TRADES, MNQ (NQ/MNQ spliced) and MGC; a return is used only if its bars are of one contract
+   and consecutive in time. Discovery **2013-01 → 2017-12** (MNQ's day sessions are complete from 2013, §153); validation
+   **2018-01 → 2026-08**, sealed.
+2. **Sessions:** MNQ day 09:30–16:00 and night 18:00–09:30; MGC London 03:00–11:30 and Asia 18:00–03:00 (New York time).
+3. **Event at a minute's close t:** |r_k(t)| > 2 σ_k, where r_k is the k-minute return (k ∈ {5, 15, 30}) and σ_k the standard
+   deviation of k-minute returns in the same session over the previous 20 sessions. **Volume condition:** the k minutes' volume
+   relative to the mean k-minute volume of the same session over the previous 20 sessions — high (> 1) or low (≤ 1).
+4. **Trade:** enter at t's close in the direction of the move (follow) or against it (fade), exit after h ∈ {5, 15, 30} minutes or at
+   the session's end if sooner; **no overlap** (events during an open trade are ignored). Cost per round trip: MNQ $2.32 + one tick
+   ($0.50) = 1.41 points; MGC $3.32 + one tick ($1.00) = 0.432 points.
+5. **Tests:** 2 markets × 2 sessions × 3 k × 2 volume conditions × 3 h = **72**; ~3.6 pass by chance. Statistic: net points per
+   trade, follow direction (a fade is its negative before costs — computed separately, net of costs, so each test is follow OR fade
+   by the sign of the GROSS follow mean); t from day-clustered sums. **Carried:** |t| > 1.96 AND net mean > 0 after costs.
+6. **Validation (one trial each):** CONFIRM if (a) net mean per trade > 0 with day-clustered t > 1.645; (b) placebo: real net mean
+   at or above the 95th percentile of 1,000 draws of the same number of trades entered at random minutes of the same sessions, same
+   h and direction rule (direction = the random minute's own k-move sign); (c) posterior > 0, prior Normal(discovery/2,
+   |discovery|/2); (d) 2021–26 alone > 0. WATCHLIST if net > 0 otherwise; REJECT. Any CONFIRM is then replayed as its own 50K
+   Daily account (A27's engine) before it counts as usable.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
