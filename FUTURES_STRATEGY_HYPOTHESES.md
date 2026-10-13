@@ -1129,6 +1129,6 @@ Data-derived (D-series family 63). `hypotheses.yaml` (D103) · `decisions.md` §
 
 Data-derived (D-series family 66). `hypotheses.yaml` (D104) · `decisions.md` §311
 
-## D105 — Mnq Fades Bank Shock  *(registered)*
+## D105 — Mnq Fades Bank Shock  *(WATCHLIST — t00887)*
 
 Data-derived (D-series family 76). `hypotheses.yaml` (D105) · `decisions.md` §332

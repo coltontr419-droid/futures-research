@@ -10465,6 +10465,14 @@ column (§306). Costs §180; recent-period design; carried at net > 0, t > 1.96;
 semiconductor shock +35.3 (t +1.74; 2010–17 +23.2, t +2.18); MNQ follows a TLT shock +31.1 (t +1.64 — D68's direction). Z and D
 market-test 117.
 
+## 333. D105 validated (t00887): WATCHLIST — the bank-shock fade replicated in size; fails only on years (S1)
+
+**N 881.** Sealed 2023-01 → 2026-08, 57 events, injection recovered first (power 23%): net **+47.84 bps** (t
++1.85 ✓); placebo (non-shock days) **100th** pct ✓; years **2 of 4** ✗ (2023 +23.7, 2024 −7.9, 2025
++163.5, 2026 −22.6). The size matched discovery (+55.2) but the out-of-sample gain is concentrated in 2025 (the April sell-off and
+rebound), and 2010–17 was only weakly the same sign (+9.0, t +0.69). WATCHLIST under §207, 3 — forward-tracked, not deployed. The
+second result in a row (after D104) that fails only (c). Z and D market-test 117.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
