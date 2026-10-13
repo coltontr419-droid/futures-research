@@ -9899,6 +9899,15 @@ or the record, not to the bot.
 The one-direction-everywhere pattern of 2018–22 was a period effect (the fix's reform after 2015 and the post-2020 shift to
 algorithmic fix execution are both plausible), not a standing edge. Family 41 is closed. Z and D market-tests reach 111.
 
+## 255. D-series family 42 protocol: D68 below the shock threshold (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** D68 trades only beyond 2σ (~14 sessions a year). If
+equities absorb rate news slowly in general, moderate 10-year moves should carry the same sign, and the overlay could trade far more
+often. ZN (Yahoo daily open→settlement, family-24 SD of the previous 60) on the previous weekday, in two DISJOINT bands that exclude
+D68's own days: **1σ < |r| ≤ 2σ** and **0.5σ < |r| ≤ 1σ**. Targets: MNQ day 09:30–16:00 (family-8 grid), the DAX and NKD windows
+(A21 paths, as family 37). Follow or fade fixed by discovery. **2 bands × 3 targets = 6 tests.** Costs §180; recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3 (placebo: days with |r| ≤ 0.5σ).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
