@@ -1036,11 +1036,11 @@ Data-derived (D-series family 27). `hypotheses.yaml` (D80) · `decisions.md` §2
 
 Data-derived (D-series family 27). `hypotheses.yaml` (D81) · `decisions.md` §219
 
-## D82 — 6E Fades a Yield-Curve Shock
+## D82 — 6E Fades a Yield-Curve Shock  *(REJECT — t00864)*
 
 Data-derived (D-series family 28). `hypotheses.yaml` (D82) · `decisions.md` §222
 
-## D83 — HG Fades a Yield-Curve Shock
+## D83 — HG Fades a Yield-Curve Shock  *(REJECT — t00865)*
 
 Data-derived (D-series family 28). `hypotheses.yaml` (D83) · `decisions.md` §222
 

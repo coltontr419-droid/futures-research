@@ -9349,12 +9349,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00864 (decisions.md 223), REJECT on sealed 2023-2026: 48 trades; net -6.83 bps (t -1.20); placebo 15th pct.
   outcome_injection_required: Before the run - reports/d82_injection.json (src/futuresres/signals/d_curve.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_curve.py
+    injected_bps: 8.109
+    sought_bps: 8.109
+    n_injection: 48
+    n_run: 48
+    recovered: true
+    report: reports/d82_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 116
+  test_order: null
+  registered_test_order: 116
   grade: C
   tier: C
   param_cap: 0
@@ -9392,12 +9405,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00865 (decisions.md 223), REJECT on sealed 2023-2026: 48 trades; net -5.73 bps (t -0.31); placebo 45th pct.
   outcome_injection_required: Before the run - reports/d83_injection.json (src/futuresres/signals/d_curve.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_curve.py
+    injected_bps: 20.51
+    sought_bps: 20.51
+    n_injection: 48
+    n_run: 48
+    recovered: true
+    report: reports/d83_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 117
+  test_order: null
+  registered_test_order: 117
   grade: C
   tier: C
   param_cap: 0

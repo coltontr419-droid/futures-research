@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D82",
+ "n_events": 48,
+ "sought_bps": 8.10907088873627,
+ "mean_estimate": 8.257244236137987,
+ "sd_estimate_bps": 5.558074626658158,
+ "power_strict_t": 0.448,
+ "recovered": true
+}

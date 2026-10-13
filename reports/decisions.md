@@ -9609,6 +9609,22 @@ design (§180); carried at net > 0 with t > 1.96; validation as §207, 3. Z and 
 
 ES fades too (+30.1, t +1.18); every target faded. Z and D market-tests 94–95.
 
+## 223. D82–D83 validated: the curve-shock fade reversed — rejected (S6–S8)
+
+**Two trials spent: t00864–t00865. N 857 → 859.**
+
+| id, trial | rule | trades | net bps (t) | placebo pct | tier |
+|---|---|---|---|---|---|
+| D82 t00864 | 6E fades a yield-curve shock (next session) | 48 | -6.83 (t -1.20) | 15 | **REJECT** |
+| D83 t00865 | HG fades a yield-curve shock (next session) | 48 | -5.73 (t -0.31) | 45 | **REJECT** |
+
+## 224. D-series family 29 protocol: shocks from every other market, next session (S1)
+
+**No trial spent; N 859. Written and committed BEFORE any statistic is computed.** Family 24 (shocks in ES, CL, GC, ZN) was the
+programme's most productive scan (8 carried of 52; D68 confirmed, replicated, deployed). This extends it to the other ten markets of
+§171 as shock sources: NQ, RTY, SI, HG, NG, 6E, 6J, ZC, ZS, ZW — each into every other market's next session. **10 × 13 = 130
+tests**; ~6.5 by chance. Method, costs, carry rule and validation exactly as §207 (recent-period design). Z and D market-tests from 96.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

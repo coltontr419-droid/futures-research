@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D83",
+ "cell": "HG fades a yield-curve shock (next session)",
+ "trades": 48,
+ "net_bps": -5.726195285137494,
+ "t_net": -0.31319996108653875,
+ "placebo_pct": 45.4,
+ "by_year": {
+  "2023": 19.141029396411575,
+  "2024": -73.74205965139937,
+  "2025": -37.707598466225015,
+  "2026": 65.52927750215741
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "injection": {
+  "hypothesis": "D83",
+  "n_events": 48,
+  "sought_bps": 20.50996524431777,
+  "mean_estimate": 20.535453721081897,
+  "sd_estimate_bps": 18.39109926624281,
+  "power_strict_t": 0.3545,
+  "recovered": true
+ }
+}

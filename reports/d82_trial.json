@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D82",
+ "cell": "6E fades a yield-curve shock (next session)",
+ "trades": 48,
+ "net_bps": -6.833916470806976,
+ "t_net": -1.2033780298622714,
+ "placebo_pct": 15.1,
+ "by_year": {
+  "2023": -23.19490644986442,
+  "2024": 0.6766452781370925,
+  "2025": -14.499414990930525,
+  "2026": 14.840961957365938
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "injection": {
+  "hypothesis": "D82",
+  "n_events": 48,
+  "sought_bps": 8.10907088873627,
+  "mean_estimate": 8.257244236137987,
+  "sd_estimate_bps": 5.558074626658158,
+  "power_strict_t": 0.448,
+  "recovered": true
+ }
+}
