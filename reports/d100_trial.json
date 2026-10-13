@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D100",
+ "cell": "MNQ afternoon follows the morning unless recent sessions trended",
+ "trades": 928,
+ "net_bps": 1.725130672084874,
+ "t_net": 0.8556742852030659,
+ "placebo_pct": 54.400000000000006,
+ "by_year": {
+  "2023": -2.0358373732434902,
+  "2024": 1.342950013104607,
+  "2025": 5.798448747325792,
+  "2026": 1.8354989982650665
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 112,
+ "injection": {
+  "hypothesis": "D100",
+  "n_events": 928,
+  "sought_bps": 2.3135746407696582,
+  "mean_estimate": 2.303120185128333,
+  "sd_estimate_bps": 1.967859843210987,
+  "power_strict_t": 0.2805,
+  "recovered": true
+ }
+}

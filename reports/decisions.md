@@ -10035,6 +10035,13 @@ draws. Registry ids widened to three digits (tests/test_registry_consistency.py)
 **Scale, before validation.** +4.6 bps on MNQ (~$40,000 notional) is ~$18 a contract a session; at the plan's 4 contracts ~$75 a
 session, ~$6,000 over an 84-session account — the first discovery cell large enough to matter to an account if it held.
 
+## 273. D100 validated (t00882): WATCHLIST — the regime adds nothing; the afternoon edge shrank to noise (S1)
+
+**N 876.** Sealed 2023-01 → 2026-08, 928 sessions, injection recovered first (power 28%): net **+1.73 bps**
+(t +0.86); placebo (regime rolled) **54th** pct — the VR switch is no better than a random one; years 3 of 4
+(2023 −2.0, 2024 +1.3, 2025 +5.8, 2026 +1.8). Positive mean → WATCHLIST, but nothing here to trade: what remains is a small,
+insignificant "follow the morning" tilt. Not deployed. Z and D market-test 112.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

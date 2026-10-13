@@ -10365,12 +10365,25 @@
   horizon_minutes: [180]
   hold_hours: [3.0]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00882 (decisions.md 273), WATCHLIST on sealed 2023-2026: 928 sessions; net +1.73 bps (t +0.86); placebo 54th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_vr.py
+    injected_bps: 2.314
+    sought_bps: 2.314
+    n_injection: 928
+    n_run: 928
+    recovered: true
+    report: reports/d100_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 134
+  test_order: null
+  registered_test_order: 134
   grade: C
   tier: C
   param_cap: 0

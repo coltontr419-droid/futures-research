@@ -42,11 +42,16 @@ def vr_series(C, K) -> np.ndarray:
     return out
 
 
+_CACHE: dict = {}
+
+
 def rows(market: str, lo: dt.date, hi: dt.date, shift: int = 0):
     """(dates, signal = sign(morning) x sign(VR - 1), afternoon bps). `shift` rolls the regime series (the placebo)."""
     grid, (a, b, c, e), _ = MARKETS[market]
-    D, C, _, K = d8.load(market, grid)
-    vr = vr_series(C, K)
+    if market not in _CACHE:
+        D, C, _, K = d8.load(market, grid)
+        _CACHE[market] = (D, C, K, vr_series(C, K))
+    D, C, K, vr = _CACHE[market]
     if shift:
         vr = np.roll(vr, shift)
     out_d, X, Y = [], [], []
