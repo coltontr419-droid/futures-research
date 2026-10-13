@@ -75,5 +75,10 @@ def run() -> dict:
     return out
 
 
+def main(argv=None) -> int:
+    run()
+    return 0
+
+
 if __name__ == "__main__":
-    run(); sys.exit(0)
+    sys.exit(main())

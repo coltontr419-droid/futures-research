@@ -9875,6 +9875,19 @@ inverted to 6J, 6C, 6S). Pairs: EUR, GBP, JPY, AUD, CAD, CHF; forms **all** and 
 **6 × 2 = 12 tests.** Costs §177 where listed (6E 0.3, 6J 0.5), 0.5 bps otherwise. Recent-period design (§180); carried at net > 0,
 t > 1.96; validation as §207, 3 (placebo: the same rule at 15:00 → 15:30 / 15:30 → 16:00 on random days).
 
+## 253. Family-41 discovery: the move into the London fix unwinds — 3 of 12 carried, registered D97–D99 (S1)
+
+**No trial spent yet; N 872.** `reports/d41_discovery.json` (module `reporting/d41_fix.py`). All six pairs FADE the 15:30 → 16:00 move
+over 16:00 → 16:30 (gross +0.2 to +1.9 bps) — one direction everywhere, the documented fix reversal. Carried:
+- **D97** 6B all: fade, +0.68 bps net, t +2.37, n 1294; Z and D market-test 109.
+- **D98** 6B strong: fade, +1.43 bps net, t +3.36, n 647; Z and D market-test 110.
+- **D99** 6S strong: fade, +0.99 bps net, t +2.75, n 647; Z and D market-test 111.
+
+**Before validation, the scale.** About 1 bp a day on 6B ($62,500 notional) is ~$12 a contract a day before the account's own costs;
+§177's 0.5 bps is below 6B's one tick (~0.7 bps). Even confirmed, this is a D32-sized edge: it cannot carry or protect an account.
+Validated once each by `signals/d_fix.py` (outcome injection first) because the protocol says so; the answer goes to the watchlist
+or the record, not to the bot.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

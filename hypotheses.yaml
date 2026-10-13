@@ -10175,3 +10175,141 @@
       decisions.md 228, 3: CONFIRM if net > 0 week-clustered t > 1.645, >= 95th pct of shuffled weeks, positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 108.
   s6_control: By year; shuffled weekly signal.
+- id: D97
+  name: gbp_fades_move_into_fix
+  mechanism: >
+    DATA-DERIVED (D-series family 41, the London 16:00 FX fix, decisions.md 252-253): in 2018-2022, 6B traded 16:00 -> 16:30
+    London AGAINST the move into the fix (15:30 -> 16:00) earned
+    +0.68 bps a day net (t +2.37, n 1294). THE COUNTERPARTY is benchmark-fix flow (hedgers and rebalancers
+    executing at the fix) whose price pressure reverts once it has printed.
+  condition: >
+    Each London day: at 16:00 London
+    take 6B against the 15:30 -> 16:00 move, exit 16:30; net of 0.5 bps.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 131
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-41 scan (12 tests, decisions.md 252). ONE TRIAL.
+  session: Globex
+  symbols: [6B]
+  mechanism_instruments:
+    primary: 6B
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule one window earlier, 15:00 ->
+      15:30 predicting 15:30 -> 16:00, random days), positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D
+      market-test 109.
+  s6_control: By year; the window-shifted placebo.
+- id: D98
+  name: gbp_fades_strong_move_into_fix
+  mechanism: >
+    DATA-DERIVED (D-series family 41, the London 16:00 FX fix, decisions.md 252-253): in 2018-2022, 6B traded 16:00 -> 16:30
+    London AGAINST the move into the fix (15:30 -> 16:00, on days with |move| above its median) earned
+    +1.43 bps a day net (t +3.36, n 647). THE COUNTERPARTY is benchmark-fix flow (hedgers and rebalancers
+    executing at the fix) whose price pressure reverts once it has printed.
+  condition: >
+    Each London day with |15:30 -> 16:00 move| above 7.46 bps: at 16:00 London
+    take 6B against the 15:30 -> 16:00 move, exit 16:30; net of 0.5 bps.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 132
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-41 scan (12 tests, decisions.md 252). ONE TRIAL.
+  session: Globex
+  symbols: [6B]
+  mechanism_instruments:
+    primary: 6B
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule one window earlier, 15:00 ->
+      15:30 predicting 15:30 -> 16:00, random days), positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D
+      market-test 110.
+  s6_control: By year; the window-shifted placebo.
+- id: D99
+  name: chf_fades_strong_move_into_fix
+  mechanism: >
+    DATA-DERIVED (D-series family 41, the London 16:00 FX fix, decisions.md 252-253): in 2018-2022, 6S traded 16:00 -> 16:30
+    London AGAINST the move into the fix (15:30 -> 16:00, on days with |move| above its median) earned
+    +0.99 bps a day net (t +2.75, n 647). THE COUNTERPARTY is benchmark-fix flow (hedgers and rebalancers
+    executing at the fix) whose price pressure reverts once it has printed.
+  condition: >
+    Each London day with |15:30 -> 16:00 move| above 6.50 bps: at 16:00 London
+    take 6S against the 15:30 -> 16:00 move, exit 16:30; net of 0.5 bps.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 133
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-41 scan (12 tests, decisions.md 252). ONE TRIAL.
+  session: Globex
+  symbols: [6S]
+  mechanism_instruments:
+    primary: 6S
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule one window earlier, 15:00 ->
+      15:30 predicting 15:30 -> 16:00, random days), positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D
+      market-test 111.
+  s6_control: By year; the window-shifted placebo.

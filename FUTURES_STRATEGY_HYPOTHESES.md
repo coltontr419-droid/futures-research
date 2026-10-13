@@ -1096,3 +1096,15 @@ Data-derived (D-series family 31). `hypotheses.yaml` (D95) · `decisions.md` §2
 
 Data-derived (D-series family 31). `hypotheses.yaml` (D96) · `decisions.md` §231
 
+
+## D97 — Gbp Fades Move Into Fix  *(registered)*
+
+Data-derived (D-series family 41). `hypotheses.yaml` (D97) · `decisions.md` §253
+
+## D98 — Gbp Fades Strong Move Into Fix  *(registered)*
+
+Data-derived (D-series family 41). `hypotheses.yaml` (D98) · `decisions.md` §253
+
+## D99 — Chf Fades Strong Move Into Fix  *(registered)*
+
+Data-derived (D-series family 41). `hypotheses.yaml` (D99) · `decisions.md` §253
