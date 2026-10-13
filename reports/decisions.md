@@ -10169,6 +10169,12 @@ market-test 114.
 The same rule (HYG shock on the previous weekday, fade, 0.3 bps) on (i) A21's DAX window paths and (ii) the real index, Yahoo ^GDAXI
 daily open→close. Read: the same sign with mean > 0 on both supports forward-tracking; anything else drops it to the record.
 
+## 292. D102's untouched-period check: reversed in 2010–17 — dropped to the record, not forward-tracked (S8)
+
+**No trial; N 878.** Fixed in §291 before running. HYG shock → fade the DAX, 2010-01 → 2017-12: A21 paths **−19.6 bps** (t −1.54,
+n 111, 3 of 8 years); real index ^GDAXI **−25.0 bps (t −2.11)**, n 119, 3 of 8 years. Over 2010–26: +6.1 (t +0.69) and +0.6
+(t +0.07). The sign flips by era: no standing edge. D102 stays WATCHLIST by its trial but is not tracked.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
