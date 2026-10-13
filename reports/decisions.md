@@ -8596,6 +8596,29 @@ shifted placebos (D22, D24, D26; D24, every day, t +1.92). With D16 (§151) that
 SD of ~77 bps — about $10–15 a day on the plan's 8 MGC. **Not adopted** (the strict rule is not met); watchlisted. The
 watchlist now holds a coherent family (D13, D16, D22–D27); the bot could shadow-track it as a forward test (§133) at no cost.
 
+## 155. D-series family 5 protocol: the calendar — does the day's place in the week, month or year set a window's direction? (S1)
+
+**No trial spent; N 803. Written and committed BEFORE any calendar statistic is computed.** The user: continue. Families 3–4
+asked what the market did before a window; family 5 asks when the window falls. Calendar effects are documented for stock indices
+(close to close); not for the plan's six windows, which include Tokyo traded from New York, the London gold window, crude's and
+soybeans' sessions. Data: the family-3 window returns (§149; owned Databento for MNQ / MGC, corrected HistData for NKD / DAX,
+owned daily bars for MCL, Yahoo daily for ZS), bad-print rule as §149.
+
+1. **Targets:** the six windows, each dated by its New York trading date D as in §149 (NKD by its Tokyo date).
+2. **Calendar cells, from the dates alone** (US trading days = weekdays on which MNQ or MCL has a window; a weekday with
+   neither is a US holiday): (1)–(5) Monday … Friday; (6) the last trading day of the month; (7) the first three trading days
+   of the month; (8) the trading day before a US holiday; (9) the trading day after a US holiday (or after a long weekend);
+   (10) the third Friday of the month (equity options expiry); (11) the Monday–Thursday before it (expiry week);
+   (12) the last five trading days of a quarter. **12 cells × 6 windows = 72 tests**; ~3.6 pass |t| > 1.96 by chance.
+3. **Statistic:** on the cell's days, the target demeaned by its own mean over ALL days in the period (so the cell is measured
+   against the market's ordinary day); a rule trades the cell's days LONG if the mean is positive, SHORT if negative, and
+   leaves the plan unchanged (always long) on other days. Two-sided t; carried at |t| > 1.96 (§133). Discovery 2010-06 → 2017-12.
+4. **Validation exactly as §149, 5** — for a long-cell rule the comparison with always-long is trivially zero, so (a) is read as:
+   the cell's raw mean exceeds the market's raw mean on other days, Welch t > 1.645 (a short-cell rule: the direction rule's
+   daily difference against always-long, t > 1.645, as before); (b) placebo: the same statistic on the same number of randomly
+   drawn days of the same weekday mix, 2,000 draws, real ≥ 95th pct; (c) posterior with prior Normal(discovery/2,
+   |discovery|/2); (d) 2021–26 alone in the discovered direction > 0. Z and D market-tests from 40.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
