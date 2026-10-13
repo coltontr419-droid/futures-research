@@ -9004,6 +9004,27 @@ Both are the harvest-low pattern (grains bottom near harvest and recover). The o
 gas October: −118 to +98 by year; soybeans April and copper December lost their sign after 2021). Watchlist: D46, D47, D49,
 D50, D51. A month-long effect gives ~20 sessions a year — Octobers of 2026–27 are the forward test.
 
+## 177. D-series family 12 protocol: after an extreme session — follow-through or reversal over the next 1–5 sessions (S1)
+
+**No trial spent; N 828. Written and committed BEFORE any event is computed.** The user: continue; no deploy; **no strategy that
+works only part of the year** (seasonal cells §176 are not candidates for use). Large moves occur in every month; this family
+asks whether the session after an unusually large move — or the next three or five — continues or reverses it, as a
+standalone strategy.
+
+1. **Universe and data:** the 14 futures of §171 (Yahoo daily, open → settlement, one contract; daily round trips — the account
+   is flat 17:00–18:00); bad-print rule as §149.
+2. **Event:** a session whose return exceeds 2 σ in absolute value, σ the SD of the market's previous 60 session returns.
+   **Trade:** the next h sessions, h ∈ {1, 3, 5}, each open → settlement, in the event's direction (follow) or against it (fade);
+   events inside an open trade are ignored (no overlap). **Cost a session (bps, the account's tradable contract):** ES (MES) 0.9,
+   NQ (MNQ) 0.5, RTY (M2K) 2.0, GC (MGC) 0.8, SI (SIL) 0.5, HG (MHG) 2.0, CL 0.7, NG 1.4, ZN 0.4, 6E 0.3, 6J 0.5, ZC 1.9, ZS 0.7,
+   ZW 1.4. **Tests: 14 × 3 = 42**; ~2.1 pass by chance.
+3. **Discovery 2010-01 → 2017-12:** statistic = the trade's net return (sum over its h sessions, minus h costs), follow or fade by
+   the sign of the gross follow mean; t over events. **Carried:** |t| > 1.96 AND net mean > 0.
+4. **Validation (one trial each), sealed 2018-01 → 2026-08:** CONFIRM if (a) net mean per trade > 0, t > 1.645 (against not
+   trading); (b) placebo: real ≥ 95th percentile of 1,000 draws of the same number of trades started on random non-event
+   sessions, direction from that session's own sign; (c) posterior > 0, prior Normal(discovery/2, |discovery|/2); (d) 2021–26
+   > 0. A CONFIRM is replayed as its own 50K Daily account before it counts. Z and D market-tests from 65.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
