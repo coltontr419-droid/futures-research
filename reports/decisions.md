@@ -9803,6 +9803,20 @@ design (§180); costs §180; carried at net > 0, t > 1.96; validation as §207, 
 (MNQ day, MGC London), follow or fade fixed by discovery. Forms: **all**, **strong** (|distance| in bps above its discovery median).
 **2 × 2 = 4 tests.** Recent-period design (§180); costs §180; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 243. Family-36 discovery: the open against prior VWAP predicts nothing — 0 of 4 carried (S1)
+
+**No trial spent; N 872.** `reports/d36_discovery.json`: best +1.8 bps (t +0.32). Empty.
+
+## 244. D-series family 37 protocol: the plan's foreign windows after a US-session shock (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** Family 24's design (§207) never had the two
+foreign plan products as targets. Targets: the NKD Tokyo window 09:00–15:00 and the FDXM Xetra window 09:00–17:30 (A21's HistData
+window paths; their within-era drift removal is kept — it only centres the target). Both windows open after the US session of the
+previous weekday has closed, so the predictor (a shock on that weekday: |Yahoo daily return| > 2 × SD of the previous 60, the
+family-24 definition) is known before entry. **Predictors: all 14 family-10 markets; 14 × 2 = 28 tests.** Follow or fade fixed by
+discovery; costs §180 (NKD 0.2, DAX 0.3 bps). Recent-period design (§180); carried at net > 0, t > 1.96; validation as §207, 3. ~1.4
+carried expected by chance — the validation is the filter.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
