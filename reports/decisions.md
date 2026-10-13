@@ -9107,6 +9107,25 @@ cost). Fewer passes than chance — the hours of traded MNQ and gold carry no ex
 **One trial spent: t00838. N 831 → 832.** 932 nights, 2023-01 → 2026-08: net -1.28 bps (t -3.52), the worst of the
 night session's 16 hours, negative in every year. The 2018–22 drift was the scan's chance pass. Z and D market-test 68.
 
+## 185. D-series family 15 protocol: MNQ ↔ gold lead-lag over 15–60 minutes, recent-period design (S1)
+
+**No trial spent; N 832. Written and committed BEFORE any lead-lag statistic is computed.** The user approved this order
+(2026-10-13); recent-period design (§180): discovery 2018-01 → 2022-12; validation 2023-01 → 2026-08, sealed. Many trades a day
+— the standalone route of §165.
+
+1. **Data:** the family-8 minute grids (owned trades, contract-consistent). **Overlaps** (New York clock, same dated day):
+   A 18:00 → 03:00 (MNQ night × MGC Asia); B 03:00 → 09:30 (MNQ night × MGC London); C 09:30 → 11:30 (MNQ day × MGC London).
+2. **Trades:** at every k-minute mark t inside an overlap (t = start + j·k, j ≥ 1, t + k ≤ end), k ∈ {15, 30, 60}: leader's
+   return over (t − k, t]; the follower is traded over (t, t + k] in the leader's direction (follow) or against it (fade);
+   non-overlapping by construction. Leader → follower both ways (MNQ → MGC, MGC → MNQ). Forms: every mark; strong marks
+   (|leader return| above its 2018–22 median for that overlap and k). **3 overlaps × 2 directions × 3 k × 2 forms = 36 tests**;
+   ~1.8 by chance. Net of a round trip (bps): MNQ 0.56, MGC 1.0. Statistic: net bps a trade, follow or fade by the gross sign;
+   t clustered by day. **Carried:** |t| > 1.96 AND net > 0.
+3. **Validation (one trial each), sealed:** CONFIRM if (a) net > 0 against not trading, t > 1.645; (b) placebo: the same rule with
+   the leader's return taken from a random OTHER day at the same clock time, 1,000 draws, real ≥ 95th pct; (c) posterior > 0,
+   prior Normal(discovery/2, |discovery|/2); (d) positive in ≥ 3 of the 4 years 2023–2026. WATCHLIST if net > 0; REJECT.
+   Z and D market-tests from 69.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
