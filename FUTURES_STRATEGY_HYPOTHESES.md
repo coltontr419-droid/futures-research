@@ -864,31 +864,31 @@ Data-derived (D-series family 9). `hypotheses.yaml` (D37) · `decisions.md` §16
 
 Data-derived (D-series family 9). `hypotheses.yaml` (D38) · `decisions.md` §169
 
-## D39 — ZN Follows the Previous ES Session
+## D39 — ZN Follows the Previous ES Session  *(WATCHLIST — t00821)*
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D39) · `decisions.md` §172
 
-## D40 — HG Fades the Previous NG Session
+## D40 — HG Fades the Previous NG Session  *(REJECT — t00822)*
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D40) · `decisions.md` §172
 
-## D41 — ZN Fades the Previous 6J Session
+## D41 — ZN Fades the Previous 6J Session  *(WATCHLIST — t00823)*
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D41) · `decisions.md` §172
 
-## D42 — NG Follows the Previous SI Session
+## D42 — NG Follows the Previous SI Session  *(WATCHLIST — t00824)*
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D42) · `decisions.md` §172
 
-## D43 — ZS Follows the Previous ES Session
+## D43 — ZS Follows the Previous ES Session  *(WATCHLIST — t00825)*
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D43) · `decisions.md` §172
 
-## D44 — GC Follows the Previous ZN Session
+## D44 — GC Follows the Previous ZN Session  *(REJECT — t00826)*
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D44) · `decisions.md` §172
 
-## D45 — RTY Fades the Previous ES Session
+## D45 — RTY Fades the Previous ES Session  *(WATCHLIST — t00827)*
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D45) · `decisions.md` §172
 

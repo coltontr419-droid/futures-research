@@ -8925,6 +8925,26 @@ chance** — as a family the daily cross-market universe shows no excess signal.
 
 RTY's Yahoo history starts in 2017 (D45: 119 discovery days). Z and D market-tests 51–57.
 
+## 173. D39–D45 validated: no confirmation; the Russell fading the S&P (D45) is the one strong out-of-sample pattern (S6–S8)
+
+**Seven trials spent: t00821–t00827. N 814 → 821.** Z and D market-tests 51–57.
+
+| id, trial | rule | days | beyond drift, bps a day | vs always-long | placebo pct | 2018–20 / 2021–26 | tier |
+|---|---|---|---|---|---|---|---|
+| D39 t00821 | ZN follows the previous session of ES | 2098 | +0.93 (t +1.25) | +1.51 (t +1.40) | 75 | +1.25 / +0.76 | **WATCHLIST** |
+| D40 t00822 | HG fades the previous session of NG | 2096 | -1.11 (t -0.43) | -5.20 (t -1.40) | 45 | +1.49 / -2.50 | **REJECT** |
+| D41 t00823 | ZN fades the previous session of 6J | 2099 | +0.92 (t +1.24) | +1.46 (t +1.46) | 100 | +0.63 / +1.07 | **WATCHLIST** |
+| D42 t00824 | NG follows the previous session of SI | 2092 | +2.19 (t +0.31) | +7.64 (t +0.73) | 50 | -1.29 / +4.04 | **WATCHLIST** |
+| D43 t00825 | ZS follows the previous session of ES | 2096 | +1.29 (t +0.51) | +0.42 (t +0.12) | 85 | -1.67 / +2.86 | **WATCHLIST** |
+| D44 t00826 | GC follows the previous session of ZN | 2097 | -1.98 (t -0.92) | -3.44 (t -1.11) | 20 | +2.41 / -4.31 | **REJECT** |
+| D45 t00827 | RTY fades the previous session of ES | 2098 | +7.34 (t +2.26) | +0.14 (t +0.03) | 100 | +3.64 / +9.31 | **WATCHLIST** |
+
+As the discovery count predicted (fewer passes than chance), most did not hold. **D45** — RTY's session against the previous S&P
+session — is the exception: +7.34 bps a day beyond drift (t +2.26), placebo 100th percentile, stronger in 2021–26 (+9.31); it fails
+only against always-long (t +0.03), because shorting the Russell after S&P up-days costs its drift. Its discovery sample was 119
+days (RTY's Yahoo history from 2017), so the 2018–26 result is most of the evidence. D41 (10-year notes fading the yen) holds a
+100th-percentile placebo at +0.9 bps — too small to matter. Watchlist for D39, D41, D42, D43, D45.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

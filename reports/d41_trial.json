@@ -1,0 +1,42 @@
+{
+ "hypothesis": "D41",
+ "cell": "ZN fades the previous session of 6J",
+ "days": 2099,
+ "demeaned_bps": 0.916877648105212,
+ "t_demeaned": 1.2427527199344308,
+ "vs_always_long_bps": 1.458556744377397,
+ "t_vs_always_long": 1.456018297210641,
+ "placebo_pct": 100.0,
+ "posterior": 0.877290672038173,
+ "eras": {
+  "2018-20": {
+   "days": 728,
+   "demeaned_bps": 0.6314169461030341,
+   "t": 0.6288419724960302,
+   "vs_long_bps": -0.47884846564606315
+  },
+  "2021-26": {
+   "days": 1371,
+   "demeaned_bps": 1.0684570726548732,
+   "t": 1.0727325859335097,
+   "vs_long_bps": 2.487317497766951
+  }
+ },
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true,
+  "d": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 53,
+ "injection": {
+  "hypothesis": "D41",
+  "n_events": 2099,
+  "sought_bps": 0.8274910944213364,
+  "mean_estimate": 0.800945168389648,
+  "sd_estimate_bps": 0.7406008703723997,
+  "power_strict_t": 0.294,
+  "recovered": true
+ }
+}

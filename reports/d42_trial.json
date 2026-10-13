@@ -1,0 +1,42 @@
+{
+ "hypothesis": "D42",
+ "cell": "NG follows the previous session of SI",
+ "days": 2092,
+ "demeaned_bps": 2.1885337867569663,
+ "t_demeaned": 0.3131036146387955,
+ "vs_always_long_bps": 7.640654527297537,
+ "t_vs_always_long": 0.7304020369704671,
+ "placebo_pct": 50.0,
+ "posterior": 4.184394609564395,
+ "eras": {
+  "2018-20": {
+   "days": 726,
+   "demeaned_bps": -1.2881317011346098,
+   "t": -0.1444057732331311,
+   "vs_long_bps": 2.2083176766304216
+  },
+  "2021-26": {
+   "days": 1366,
+   "demeaned_bps": 4.036307684421159,
+   "t": 0.42046765782560963,
+   "vs_long_bps": 10.527826235631597
+  }
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 54,
+ "injection": {
+  "hypothesis": "D42",
+  "n_events": 2092,
+  "sought_bps": 5.356478212314266,
+  "mean_estimate": 5.134203194082822,
+  "sd_estimate_bps": 7.757953084475655,
+  "power_strict_t": 0.17,
+  "recovered": true
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "hypothesis": "D45",
+ "cell": "RTY fades the previous session of ES",
+ "days": 2098,
+ "demeaned_bps": 7.341496984550523,
+ "t_demeaned": 2.2567473771633657,
+ "vs_always_long_bps": 0.1382911974815085,
+ "t_vs_always_long": 0.03145943412502377,
+ "placebo_pct": 100.0,
+ "posterior": 6.992023127093396,
+ "eras": {
+  "2018-20": {
+   "days": 727,
+   "demeaned_bps": 3.637368371028452,
+   "t": 0.5879038507762857,
+   "vs_long_bps": -8.668560463941636
+  },
+  "2021-26": {
+   "days": 1371,
+   "demeaned_bps": 9.305684805141729,
+   "t": 2.4849448932715283,
+   "vs_long_bps": 4.808299335960447
+  }
+ },
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true,
+  "d": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 57,
+ "injection": {
+  "hypothesis": "D45",
+  "n_events": 2098,
+  "sought_bps": 5.858586900380405,
+  "mean_estimate": 5.814969130906979,
+  "sd_estimate_bps": 3.349108375167909,
+  "power_strict_t": 0.5635,
+  "recovered": true
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D45",
+ "n_events": 2098,
+ "sought_bps": 5.858586900380405,
+ "mean_estimate": 5.814969130906979,
+ "sd_estimate_bps": 3.349108375167909,
+ "power_strict_t": 0.5635,
+ "recovered": true
+}

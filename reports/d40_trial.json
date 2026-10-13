@@ -1,0 +1,42 @@
+{
+ "hypothesis": "D40",
+ "cell": "HG fades the previous session of NG",
+ "days": 2096,
+ "demeaned_bps": -1.1143455762213492,
+ "t_demeaned": -0.43369610078208204,
+ "vs_always_long_bps": -5.203500271170291,
+ "t_vs_always_long": -1.4030083173404586,
+ "placebo_pct": 45.0,
+ "posterior": 0.4576330348764152,
+ "eras": {
+  "2018-20": {
+   "days": 727,
+   "demeaned_bps": 1.48604558489277,
+   "t": 0.3912882615612936,
+   "vs_long_bps": -0.31848622170287944
+  },
+  "2021-26": {
+   "days": 1369,
+   "demeaned_bps": -2.495269151188452,
+   "t": -0.7386956747743123,
+   "vs_long_bps": -7.7976603982431945
+  }
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 52,
+ "injection": {
+  "hypothesis": "D40",
+  "n_events": 2096,
+  "sought_bps": 3.677052728613263,
+  "mean_estimate": 3.7317637829337844,
+  "sd_estimate_bps": 2.5318798363816586,
+  "power_strict_t": 0.414,
+  "recovered": true
+ }
+}

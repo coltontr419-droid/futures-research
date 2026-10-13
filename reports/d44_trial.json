@@ -1,0 +1,42 @@
+{
+ "hypothesis": "D44",
+ "cell": "GC follows the previous session of ZN",
+ "days": 2097,
+ "demeaned_bps": -1.9808142689786707,
+ "t_demeaned": -0.9208507353405195,
+ "vs_always_long_bps": -3.4433459827469597,
+ "t_vs_always_long": -1.1133438432672158,
+ "placebo_pct": 20.0,
+ "posterior": 0.15859834241633944,
+ "eras": {
+  "2018-20": {
+   "days": 727,
+   "demeaned_bps": 2.4067614032886455,
+   "t": 0.7286844888677426,
+   "vs_long_bps": 2.8646809063339687
+  },
+  "2021-26": {
+   "days": 1370,
+   "demeaned_bps": -4.30911172426213,
+   "t": -1.5466577808138215,
+   "vs_long_bps": -6.790744193230051
+  }
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 56,
+ "injection": {
+  "hypothesis": "D44",
+  "n_events": 2097,
+  "sought_bps": 1.9904612305922784,
+  "mean_estimate": 1.9848171821594394,
+  "sd_estimate_bps": 2.1513069324903635,
+  "power_strict_t": 0.23,
+  "recovered": true
+ }
+}

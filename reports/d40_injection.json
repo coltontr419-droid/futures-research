@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D40",
+ "n_events": 2096,
+ "sought_bps": 3.677052728613263,
+ "mean_estimate": 3.7317637829337844,
+ "sd_estimate_bps": 2.5318798363816586,
+ "power_strict_t": 0.414,
+ "recovered": true
+}
