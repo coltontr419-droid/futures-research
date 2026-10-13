@@ -1,0 +1,27 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "MNQ",
+   "n": 1224,
+   "share_above": 0.7336601307189542,
+   "rule": "with the regime",
+   "net_bps": -0.04179063066840172,
+   "t": -0.011735397391021252,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "n": 1220,
+   "share_above": 0.6188524590163934,
+   "rule": "against",
+   "net_bps": 1.8779542446136475,
+   "t": 0.9140322208404541,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

@@ -10210,6 +10210,10 @@ long or short the plan window on D (MNQ day; gold London; family-8 grids), JUDGE
 not carried; the sign of the rule fixed by discovery. **2 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96;
 validation as §207, 3.
 
+## 298. Family-60 discovery: the 200-day regime — 0 of 2 carried (S1)
+
+**No trial spent; N 878.** `reports/d60_discovery.json`: MNQ −0.0 bps (t −0.01), gold +1.9 (t +0.91), demeaned. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
