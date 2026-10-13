@@ -9163,6 +9163,22 @@ in the direction of 09:00 → 17:00: net +2.35 bps (t +2.24, n 639). MNQ shows t
 **One trial spent: t00839. N 832 → 833.** 369 strong days, 2023-01 → 2026-08: net +0.01 bps (t +0.01); placebo
 75th percentile; positive in 2 of 4 years. WATCHLIST only because the mean is a hair above zero. Family 16 holds nothing.
 
+## 190. D-series family 17 protocol: relative-value states — does a stretched pair set the next session's direction? (S1)
+
+**No trial spent; N 833. Written and committed BEFORE any statistic is computed.** The user: keep searching alongside the demo.
+Recent-period design (§180): discovery 2018-01 → 2022-12; validation 2023-01 → 2026-08, sealed. One leg traded at a time (no
+spread position — opposite positions across products count as hedging in this account, §90).
+
+1. **Pairs (Yahoo daily, §171):** GC/SI, HG/GC, ES/ZN, NQ/ES, CL/NG, ZS/ZC. Each market's ROLL-FREE log index = the cumulative sum
+   of its session returns (open → settlement); the pair's state z = (index_A − index_B − its mean over the previous 60 sessions) ÷
+   its SD over those sessions, known before the next session opens.
+2. **Trade:** the next session of leg A or leg B. On days with |z| > 1.5, A is traded in the direction of −sign(z) (reversion)
+   or +sign(z) (continuation) — and B the opposite way — the sign fixed by discovery. Forms: |z| > 1.5; |z| > 2.5.
+   **6 pairs × 2 legs × 2 thresholds = 24 tests**; ~1.2 by chance. Net of the leg's cost (§177's table). Statistic: net bps a
+   trade; **carried** at |t| > 1.96 AND net > 0.
+3. **Validation as §187, 4** (sealed; (a) net > 0 t > 1.645 against not trading; (b) placebo: the z state from a random other day,
+   1,000 draws, ≥ 95th pct; (c) posterior > 0; (d) positive in ≥ 3 of 4 years). Z and D market-tests from 70.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
