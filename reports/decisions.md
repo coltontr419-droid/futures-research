@@ -10287,6 +10287,14 @@ result, so a carried test's history is visible before a trial is spent. The carr
 
 **No trial spent; N 879.** `reports/d64_discovery.json`: gold fades +6.9 bps (t +0.75; 2010–17 −5.9), MNQ +0.3 (t +0.02). Empty.
 
+## 308. D-series family 65 protocol: the foreign windows' morning sets their afternoon (S1)
+
+**No trial spent; N 879. Written and committed BEFORE any statistic is computed.** Family 47 for the two foreign plan products. Tokyo's
+cash market breaks for lunch (11:30–12:30), so the Nikkei's day has two sessions. NKD: 09:00 → 11:30 Tokyo predicts 12:30 → 15:00;
+DAX: 09:00 → 12:00 Berlin predicts 13:00 → 17:30 (HistData via `d3.histdata`, corrected clock, local times). Follow or fade fixed by
+discovery; forms **all** and **strong** (above the discovery median). **2 × 2 = 4 tests**, with the descriptive 2010–17 column (§306).
+Costs §180 (NKD 0.2, DAX 0.3); recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
