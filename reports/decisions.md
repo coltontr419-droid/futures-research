@@ -9526,6 +9526,20 @@ Gold following a bond shock (D72) was positive only through one year (2026 +93);
 2. **Carried:** net > 0 with t > 1.96. **Validation (one trial each), sealed 2023-01 → 2026-08:** as §207, 3 (net t > 1.645;
    placebo after random non-shock days ≥ 95th pct; positive in ≥ 3 of 4 years). Z and D market-tests from 87.
 
+## 216. Family-26 discovery: 4 of 130 carried — fewer than chance (~6.5); D75–D78 registered per protocol (S1–S5)
+
+**No trial spent at registration; N 850. Committed BEFORE validation data is read.** `reporting/d26_shocklag.py`,
+`reports/d26_discovery.json`; `signals/d_shocklag.py`.
+
+| id | shock | target | span | rule | trades | discovery net |
+|---|---|---|---|---|---|---|
+| D75 | GC shock | ES | next3 | follow | 63 | +90.42, t +2.52 |
+| D76 | ZN shock | ZS | days2-3 | fade | 63 | +49.28, t +2.17 |
+| D77 | ES shock | GC | days2-3 | follow | 60 | +33.36, t +2.09 |
+| D78 | GC shock | ES | days2-3 | follow | 63 | +39.08, t +1.97 |
+
+As a family the multi-session response shows no excess signal. Z and D market-tests 87–90.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

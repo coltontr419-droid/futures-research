@@ -8946,3 +8946,175 @@
       decisions.md 212, 3: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 86.
   s6_control: By year; non-shock days.
+- id: D75
+  name: es_follows_gc_shock_next3
+  mechanism: >
+    DATA-DERIVED (D-series family 26, multi-session shock response, decisions.md 215-216): in 2018-2022, after a GC session
+    beyond 2 sigma, ES's sessions (next3) traded in the direction of the shock earned +90.42 bps net (t +2.52, n 63).
+    THE COUNTERPARTY would be slow repricing after a macro shock. Carried by a scan that found fewer passes than chance (4 of 130).
+  condition: >
+    After a GC session beyond 2 sigma: trade ES sessions next3 in the direction of the shock; daily round trips; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d75_injection.json (src/futuresres/signals/d_shocklag.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 109
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-26 scan (130 tests, decisions.md 215). ONE TRIAL.
+  session: Globex
+  symbols: [MES]
+  mechanism_instruments:
+    primary: MES
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+45.21 bps, 45.21) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 215, 2: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 87.
+  s6_control: By year; non-shock days.
+- id: D76
+  name: zs_fades_zn_shock_days2_3
+  mechanism: >
+    DATA-DERIVED (D-series family 26, multi-session shock response, decisions.md 215-216): in 2018-2022, after a ZN session
+    beyond 2 sigma, ZS's sessions (days2-3) traded against the shock earned +49.28 bps net (t +2.17, n 63).
+    THE COUNTERPARTY would be slow repricing after a macro shock. Carried by a scan that found fewer passes than chance (4 of 130).
+  condition: >
+    After a ZN session beyond 2 sigma: trade ZS sessions days2-3 against the shock; daily round trips; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d76_injection.json (src/futuresres/signals/d_shocklag.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 110
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-26 scan (130 tests, decisions.md 215). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+24.64 bps, 24.64) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 215, 2: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 88.
+  s6_control: By year; non-shock days.
+- id: D77
+  name: gc_follows_es_shock_days2_3
+  mechanism: >
+    DATA-DERIVED (D-series family 26, multi-session shock response, decisions.md 215-216): in 2018-2022, after a ES session
+    beyond 2 sigma, GC's sessions (days2-3) traded in the direction of the shock earned +33.36 bps net (t +2.09, n 60).
+    THE COUNTERPARTY would be slow repricing after a macro shock. Carried by a scan that found fewer passes than chance (4 of 130).
+  condition: >
+    After a ES session beyond 2 sigma: trade GC sessions days2-3 in the direction of the shock; daily round trips; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d77_injection.json (src/futuresres/signals/d_shocklag.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 111
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-26 scan (130 tests, decisions.md 215). ONE TRIAL.
+  session: Globex
+  symbols: [GC]
+  mechanism_instruments:
+    primary: GC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+16.68 bps, 16.68) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 215, 2: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 89.
+  s6_control: By year; non-shock days.
+- id: D78
+  name: es_follows_gc_shock_days2_3
+  mechanism: >
+    DATA-DERIVED (D-series family 26, multi-session shock response, decisions.md 215-216): in 2018-2022, after a GC session
+    beyond 2 sigma, ES's sessions (days2-3) traded in the direction of the shock earned +39.08 bps net (t +1.97, n 63).
+    THE COUNTERPARTY would be slow repricing after a macro shock. Carried by a scan that found fewer passes than chance (4 of 130).
+  condition: >
+    After a GC session beyond 2 sigma: trade ES sessions days2-3 in the direction of the shock; daily round trips; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d78_injection.json (src/futuresres/signals/d_shocklag.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 112
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-26 scan (130 tests, decisions.md 215). ONE TRIAL.
+  session: Globex
+  symbols: [MES]
+  mechanism_instruments:
+    primary: MES
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+19.54 bps, 19.54) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 215, 2: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 90.
+  s6_control: By year; non-shock days.
