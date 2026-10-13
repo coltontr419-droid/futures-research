@@ -9277,6 +9277,24 @@ Criterion fixed in advance: the largest t of the direction-signed, drift-removed
 - **Not blind:** 2018–26 already showed the gold and silver effects (§151, §154, §163, §196); only the entry hour and the day
   filter are new. The evaluation that follows is a replication with that caveat; the clean check is forward data.
 
+## 198. A28 evaluated on 2018–26: the 2010–17 design did not transfer; silver modest; no account carried (S8)
+
+**No trial spent; N 839.** `reports/a28_eval_trade.json`, `reports/a28_eval_account.json`.
+
+| frozen design, 2018-01 → 2026-08 | trades | net vs not trading (t) | vs always-long (t) | 2021–26 net |
+|---|---|---|---|---|
+| gold, enter 04:00, every day, exit 11:30 | 2095 | +0.34 (+0.21) | +0.48 (+0.21) | +2.66 |
+| silver, enter 05:00, stronger half, exit 11:30 | 1072 | +5.57 (+1.26) | +11.74 (+1.93) | +5.63 |
+
+Gold by year: 2018 -4.3, 2019 -8.9, 2020 +0.2, 2021 +2.2, 2022 -2.4, 2023 -0.4, 2024 +5.0, 2025 +5.4, 2026 +8.1. Silver: 2018 +16.7, 2019 -23.5, 2020 +13.6, 2021 +3.3, 2022 -5.3, 2023 -6.6, 2024 +5.1, 2025 +6.6, 2026 +26.6.
+
+**The intraday shape found on 2010–17 (a reversing first hour, the edge built after 04:00) did not hold on 2018–26:** gold's
+designed trade kept almost nothing (+0.3 bps net), though 2024–26 are positive. Silver's held better (+11.7 bps a day over
+always-long, t +1.93) but swings by year. **As its own account** (3–4 SIL risk-matched to the 05:00 → 11:30 swing, rule days
+only): holding to 11:30 passes 0–10% (mean net −$289 to −$902 per 84 days); the plan's brackets on rule days return +$393 (2018–20)
+and +$680 (2021–26) — the zero-edge staking on half the days, below the existing accounts. **The metals' London predictability
+is real but cannot be engineered into a trade that carries a Tradeify account with this data.** Watchlist, forward-tested by time.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

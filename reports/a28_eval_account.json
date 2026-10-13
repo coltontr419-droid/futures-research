@@ -1,0 +1,32 @@
+{
+ "pre|rule days, plan brackets": {
+  "p_payout": 0.35123367198838895,
+  "mean_net": 393.25660377358446,
+  "p_net_positive": 0.3381712626995646
+ },
+ "pre|rule days, hold to 11:30, stop $1,000": {
+  "p_payout": 0.05224963715529753,
+  "mean_net": -597.2638258345429,
+  "p_net_positive": 0.03193033381712627
+ },
+ "pre|rule days, hold to 11:30, stop $600": {
+  "p_payout": 0.09724238026124818,
+  "mean_net": -288.67420609579136,
+  "p_net_positive": 0.07111756168359942
+ },
+ "post|rule days, plan brackets": {
+  "p_payout": 0.5027279812938426,
+  "mean_net": 679.8351145752143,
+  "p_net_positive": 0.5011691348402182
+ },
+ "post|rule days, hold to 11:30, stop $1,000": {
+  "p_payout": 0.00857365549493375,
+  "mean_net": -901.514858924396,
+  "p_net_positive": 0.00857365549493375
+ },
+ "post|rule days, hold to 11:30, stop $600": {
+  "p_payout": 0.0,
+  "mean_net": -621.9173811379579,
+  "p_net_positive": 0.0
+ }
+}
