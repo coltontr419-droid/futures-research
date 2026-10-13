@@ -8876,6 +8876,18 @@ of 187 release days; contracts are now coded year × 12 + month in every grid (`
 MNQ shows nothing at 08:30 or 14:00 (best t +1.18). D37 and D38 are one effect. Economics are thin: ~0.5 points net a trade is
 ~$40 on 8 MGC, ~48 release days a year. Z and D market-tests 49–50.
 
+## 170. D37–D38 validated: gold's release-day fade did not recur — rejected (S6–S8)
+
+**Two trials spent: t00819–t00820. N 812 → 814.** Z and D market-tests 49–50.
+
+| id, trial | rule | release days | net pts a trade (t) | placebo pct | 2018–20 / 2021–26 | tier |
+|---|---|---|---|---|---|---|
+| D37 t00819 | MGC 08:30: MGC fades its first 15 minutes to the session end (every release day) | 278 | -0.27 (t -0.37) | 56 | -1.26 / +0.35 | **REJECT** |
+| D38 t00820 | MGC 08:30: MGC fades its first 5 minutes to the session end (every release day) | 278 | -0.76 (t -0.98) | 48 | -1.63 / -0.22 | **REJECT** |
+
+The discovery's fade (t −2.07 / −1.99, ~0.5 points net) was a chance pass; on 2018–26 the rule loses after costs and sits mid-pack
+among random non-release days. Family 9 is empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -6795,12 +6795,25 @@
   horizon_minutes: [165]
   hold_hours: [2.75]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00819 (decisions.md 170), REJECT on sealed 2018-2026: 278 release days; net -0.27 pts a trade (t -0.37); placebo 56th pct; 2018-20 -1.26, 2021-26 +0.35.
   outcome_injection_required: Before the run - reports/d37_injection.json (src/futuresres/signals/d_events.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_events.py
+    injected_bps: 0.465
+    sought_bps: 0.465
+    n_injection: 278
+    n_run: 278
+    recovered: true
+    report: reports/d37_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 71
+  test_order: null
+  registered_test_order: 71
   grade: C
   tier: C
   param_cap: 0
@@ -6839,12 +6852,25 @@
   horizon_minutes: [174]
   hold_hours: [2.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00820 (decisions.md 170), REJECT on sealed 2018-2026: 278 release days; net -0.76 pts a trade (t -0.98); placebo 48th pct; 2018-20 -1.63, 2021-26 -0.22.
   outcome_injection_required: Before the run - reports/d38_injection.json (src/futuresres/signals/d_events.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_events.py
+    injected_bps: 0.487
+    sought_bps: 0.487
+    n_injection: 278
+    n_run: 278
+    recovered: true
+    report: reports/d38_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 72
+  test_order: null
+  registered_test_order: 72
   grade: C
   tier: C
   param_cap: 0

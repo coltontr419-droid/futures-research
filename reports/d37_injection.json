@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D37",
+ "n_events": 278,
+ "sought_pts_net": 0.46495186859535287,
+ "mean_estimate": 0.45279272195579495,
+ "sd_estimate": 0.7085398721291991,
+ "power_strict_t": 0.157,
+ "recovered": true
+}

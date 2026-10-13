@@ -1,0 +1,39 @@
+{
+ "hypothesis": "D38",
+ "cell": "MGC 08:30: MGC fades its first 5 minutes to the session end (every release day)",
+ "events": 278,
+ "net_pts": -0.7622199548954588,
+ "t_net": -0.980554013037346,
+ "placebo_pct": 48.0,
+ "non_release_net_pts": -0.7471233938587457,
+ "posterior": 0.13480234653007656,
+ "eras": {
+  "2018-20": {
+   "events": 107,
+   "net_pts": -1.6329322977511682,
+   "t": -1.9534499448683575
+  },
+  "2021-26": {
+   "events": 171,
+   "net_pts": -0.21738825497989808,
+   "t": -0.18896295584908632
+  }
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 50,
+ "injection": {
+  "hypothesis": "D38",
+  "n_events": 278,
+  "sought_pts_net": 0.4872595808301949,
+  "mean_estimate": 0.5025350892497926,
+  "sd_estimate": 0.7451141692132149,
+  "power_strict_t": 0.149,
+  "recovered": true
+ }
+}
