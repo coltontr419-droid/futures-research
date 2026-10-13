@@ -10231,6 +10231,14 @@ as §207, 3 (placebo: |z| ≤ 1 auctions).
 regenerable from the public API). `reports/d61_discovery.json`: after a weak auction by dealer share, MNQ's afternoon falls the
 sensible way, +9.9 bps short (t +1.38, n 154); next day +7.2 (t +0.67); bid-to-cover weaker still. Empty.
 
+## 301. D-series family 62 protocol: Treasury auction demand into the other plan targets (S1)
+
+**No trial spent; N 878. Written and committed BEFORE any statistic is computed.** Family 61's events (both measures, |z| > 1) on
+auction day D. Targets, all opening after the 13:00 result: **gold's London window** on the next weekday (family-8 grid), **ZN's next
+session** (family-10 Yahoo bar), **NKD** and **DAX** windows on the next weekday (A21 paths). With or against the weak side, fixed by
+discovery. **2 measures × 4 targets = 8 tests.** Costs §177/§180 (MGC 0.8, ZN 0.4, NKD 0.2, DAX 0.3); recent-period design; carried at
+net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
