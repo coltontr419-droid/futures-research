@@ -10274,8 +10274,8 @@ Z and D market-test 115.
 
 ## 306. D-series family 64 protocol: platinum shocks; and a descriptive 2010–17 column from here on (S1)
 
-**No trial spent; N 879. Written and committed BEFORE any statistic is computed.** Platinum (Yahoo PL=F daily, open→settlement,
-family-10 outlier filter) has not been a predictor. Shock on the previous weekday as family 24 → gold's London window and MNQ's day
+**No trial spent; N 879. Written and committed BEFORE any statistic is computed.** Platinum (Yahoo PL=F daily, family-10 outlier filter) has not been a predictor. *Amended before any statistic
+existed: Yahoo's PL=F has no session open (open = close), so its return is settlement → settlement.* Shock on the previous weekday as family 24 → gold's London window and MNQ's day
 session (family-8 grids), follow or fade fixed by discovery. **2 tests.** Costs §180; recent-period design; carried at net > 0,
 t > 1.96; validation as §207, 3.
 
