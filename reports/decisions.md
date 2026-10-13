@@ -10283,6 +10283,10 @@ t > 1.96; validation as §207, 3.
 on 2010–17 were flat or reversed. From this family on, each scan also prints the same rule on 2010-01 → 2017-12 beside the discovery
 result, so a carried test's history is visible before a trial is spent. The carrying rule (§119, §133) is unchanged.
 
+## 307. Family-64 discovery: platinum shocks — 0 of 2 carried (S1)
+
+**No trial spent; N 879.** `reports/d64_discovery.json`: gold fades +6.9 bps (t +0.75; 2010–17 −5.9), MNQ +0.3 (t +0.02). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
