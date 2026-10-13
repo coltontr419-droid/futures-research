@@ -10253,6 +10253,17 @@ Targets on the next weekday: **gold's London window** and **MNQ's day session** 
 fixed by discovery. **2 × 2 = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 (Deployment note for later: a live version needs those closing values by 03:00 ET — a market proxy, not FRED's publication.)
 
+## 304. Family-63 discovery: 1 of 4 carried — gold moves against a real-yield shock; D103 registered (S1)
+
+**No trial spent yet; N 878.** `reports/d63_discovery.json` (module `reporting/d63_realyield.py`): **D103** gold's next London window
+against a DFII10 shock, **+31.56 bps**, t +2.22, n 71. The sign is the textbook one (gold falls when real
+yields jump). MNQ +13.7 (t +0.85); breakeven shocks ~0. Z and D market-test 115.
+
+**Fixed now, before the trial:** (i) the sealed validation as §207, 3; (ii) whatever its tier, the untouched-period check §291
+introduced — 2010-01 → 2017-12 (never used by family 63) on the owned MGC London grid and on Yahoo GC=F daily sessions — the same
+sign with mean > 0 on both is required before anything is forward-tracked or proposed. (iii) Scale if it held: ~14 events a year;
++30 bps on gold's ~$4,000 × 10 oz ≈ $40,000 MGC notional is ~$120 a contract per event, ~$950 at the plan's 8 contracts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

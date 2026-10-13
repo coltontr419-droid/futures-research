@@ -1,0 +1,56 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 4,
+ "all": [
+  {
+   "predictor": "DFII10",
+   "target": "MGC",
+   "n": 71,
+   "rule": "fade",
+   "net_bps": 31.563206514170457,
+   "t": 2.219044245071012,
+   "carried": true
+  },
+  {
+   "predictor": "DFII10",
+   "target": "MNQ",
+   "n": 71,
+   "rule": "fade",
+   "net_bps": 13.72610148577623,
+   "t": 0.8469290019309396,
+   "carried": false
+  },
+  {
+   "predictor": "T10YIE",
+   "target": "MGC",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 3.1442572709990673,
+   "t": 0.3016670760915653,
+   "carried": false
+  },
+  {
+   "predictor": "T10YIE",
+   "target": "MNQ",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 8.584568686601592,
+   "t": 0.45097592499689015,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "predictor": "DFII10",
+   "target": "MGC",
+   "n": 71,
+   "rule": "fade",
+   "net_bps": 31.563206514170457,
+   "t": 2.219044245071012,
+   "carried": true
+  }
+ ]
+}

@@ -10525,3 +10525,48 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days),
       positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 114.
   s6_control: By year; non-shock placebo.
+- id: D103
+  name: gold_fades_real_yield_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 63, real-yield shocks, decisions.md 303-304): in 2018-2022, gold's London window (03:00-11:30 ET)
+    on the weekday after a 10-year TIPS real-yield (FRED DFII10) change beyond 2 sigma, traded AGAINST the yield move (short gold
+    after real yields jump, long after they fall), earned +31.56 bps net (t +2.22, n 71). Gold pays no
+    coupon, so its price moves against real yields; THE COUNTERPARTY is the slower holders (ETF and Asian physical demand) whose
+    repositioning follows the US rates move into the next London session.
+  condition: >
+    After a DFII10 daily change beyond 2 x the SD of its previous 60, take gold's next London window against its sign; net of 0.8 bps.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 137
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-63 scan (4 tests, decisions.md 303). ONE TRIAL.
+  session: Europe/US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days),
+      positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 115.
+  s6_control: By year; non-shock placebo; the 2010-2017 untouched check (decisions.md 304).

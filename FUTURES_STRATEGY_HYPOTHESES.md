@@ -1120,3 +1120,7 @@ Data-derived (D-series family 52). `hypotheses.yaml` (D101) · `decisions.md` §
 ## D102 — Dax Fades Credit Shock  *(WATCHLIST — t00884)*
 
 Data-derived (D-series family 57). `hypotheses.yaml` (D102) · `decisions.md` §290
+
+## D103 — Gold Fades Real Yield Shock  *(registered)*
+
+Data-derived (D-series family 63). `hypotheses.yaml` (D103) · `decisions.md` §304
