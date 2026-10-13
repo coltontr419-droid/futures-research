@@ -10225,6 +10225,12 @@ Targets: **MNQ 13:01 → 16:00 the same day** (day grid) and **MNQ's next day se
 discovery. **2 measures × 2 targets = 4 tests.** Cost MNQ 0.5 bps; recent-period design; carried at net > 0, t > 1.96; validation
 as §207, 3 (placebo: |z| ≤ 1 auctions).
 
+## 300. Family-61 discovery: Treasury auction demand — 0 of 4 carried (S1)
+
+**No trial spent; N 878.** 1,357 note and bond auctions fetched (2009 → 2026; `data/cache/treasury_auctions.json`, not committed —
+regenerable from the public API). `reports/d61_discovery.json`: after a weak auction by dealer share, MNQ's afternoon falls the
+sensible way, +9.9 bps short (t +1.38, n 154); next day +7.2 (t +0.67); bid-to-cover weaker still. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

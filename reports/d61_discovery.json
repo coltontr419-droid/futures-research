@@ -1,0 +1,45 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "measure": "dealer share",
+   "target": "same day 13:01-16:00",
+   "n": 154,
+   "rule": "short after weak",
+   "net_bps": 9.915965619025293,
+   "t": 1.3768076200212038,
+   "carried": false
+  },
+  {
+   "measure": "dealer share",
+   "target": "next day",
+   "n": 151,
+   "rule": "short after weak",
+   "net_bps": 7.236083112805095,
+   "t": 0.6715051407801124,
+   "carried": false
+  },
+  {
+   "measure": "bid-to-cover",
+   "target": "same day 13:01-16:00",
+   "n": 142,
+   "rule": "long after weak",
+   "net_bps": 1.2800171005893761,
+   "t": 0.1686727219965301,
+   "carried": false
+  },
+  {
+   "measure": "bid-to-cover",
+   "target": "next day",
+   "n": 138,
+   "rule": "long after weak",
+   "net_bps": 6.989664561506631,
+   "t": 0.5534816259050721,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
