@@ -10363,6 +10363,11 @@ Monday–Thursday in discovery (so drift and time-of-day are not credited); long
 descriptive 2010–17 column (§306). Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the
 same window on other weekdays).
 
+## 318. Family-69 discovery: the Friday afternoon — 0 of 2 carried (S1)
+
+**No trial spent; N 880.** `reports/d69_discovery.json`: gold's Friday afternoon was strong in 2010–17 (+8.5 bps over other days,
+t +2.48) and is gone in 2018–22 (−0.5, t −0.20); MNQ +5.0 (t +1.11; 2010–17 −2.3). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
