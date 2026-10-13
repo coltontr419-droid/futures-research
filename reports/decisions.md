@@ -10077,6 +10077,15 @@ the window's close (16:00 / 11:30), follow or fade fixed by discovery, same cont
 above 2 × its previous-20 median). **2 × 2 = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation
 as §207, 3.
 
+## 279. Family-52 discovery: 1 of 4 carried — MNQ's day follows its opening minute; D101 registered (S1)
+
+**No trial spent yet; N 876.** `reports/d52_discovery.json` (module `reporting/d52_open.py`): MNQ, all sessions, follow the
+09:30 → 09:31 move to 16:00: **+9.59 bps** net, t +2.73, n 1257. Heavy-volume form n 29 only (t +1.34);
+gold's COMEX-open minute +1.1 / +4.3 (t +0.67 / +1.10). Entry at the 09:31 close, signal from the night grid's 09:30:00 close to
+it — no look-ahead. **Placebo (fixed now):** first-minute signs shuffled across the sealed sessions (keeps drift, breaks the
+link), 1000 draws. Scale: +9.6 bps on ~$40,000 notional ≈ $38 a contract a session; at 4 contracts ~$150 — account-sized if it held.
+Z and D market-test 113.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

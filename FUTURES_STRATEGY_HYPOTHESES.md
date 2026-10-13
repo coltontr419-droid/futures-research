@@ -1112,3 +1112,7 @@ Data-derived (D-series family 41). `hypotheses.yaml` (D99) · `decisions.md` §2
 ## D100 — Mnq Afternoon Follows Morning Unless Trending  *(WATCHLIST — t00882)*
 
 Data-derived (D-series family 49). `hypotheses.yaml` (D100) · `decisions.md` §272
+
+## D101 — Mnq Day Follows Opening Minute  *(registered)*
+
+Data-derived (D-series family 52). `hypotheses.yaml` (D101) · `decisions.md` §279
