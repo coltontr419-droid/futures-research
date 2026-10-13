@@ -10013,6 +10013,15 @@ carried at net > 0, t > 1.96; validation as §207, 3.
 MNQ: the volume detector found only **8** days in five years — 10:00 volume sits inside the opening half hour's, so 3 × the median is
 rarely reached. That half tests nothing; it is NOT re-tuned after the fact (a release calendar would be needed). Empty.
 
+## 271. D-series family 49 protocol: follow or fade the morning by the recent intraday regime (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** Family 47 asked one fixed direction of all days. Here
+the direction adapts: variance ratio VR = var(30-minute returns) / (6 × var(5-minute returns)) within each session, averaged over the
+previous 20 sessions (same contract within each return). Rule: trade the afternoon (family 47's windows) in sign(morning) × sign(VR − 1)
+— follow after trending weeks, fade after mean-reverting ones. Also **inverse** (the opposite sign) is not a separate test: the
+direction of the whole rule is fixed by discovery as usual. **2 markets = 2 tests.** Costs §180; recent-period design; carried at
+net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
