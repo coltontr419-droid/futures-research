@@ -9984,6 +9984,17 @@ close, with the break or against it (fixed by discovery), exit at the session cl
 within 15 minutes of the break — enter at that minute's close against the break's side (or with it, fixed by discovery), exit at the
 close. **2 markets × 2 forms = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 266. Family-46 discovery: intraday range breaks and sweeps — 0 of 4 carried (S1)
+
+**No trial spent; N 875.** `reports/d46_discovery.json`: MNQ with the break +2.6 bps (t +0.78); gold sweep fade +4.6 (t +1.48). Empty.
+
+## 267. D-series family 47 protocol: the morning sets the afternoon (S1)
+
+**No trial spent; N 875. Written and committed BEFORE any statistic is computed.** Family 16 tested only the last 30 minutes. Here the
+whole afternoon: MNQ 09:30 → 12:00 predicts 13:00 → 16:00; gold (London grid) 03:00 → 07:00 predicts 08:30 → 11:30 (after the
+08:30 releases). Prices at those minutes, same contract; follow or fade fixed by discovery; forms **all** and **strong** (|morning|
+above its discovery median). **2 × 2 = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
