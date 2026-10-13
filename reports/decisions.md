@@ -8498,6 +8498,33 @@ predictor ends at the price the Nikkei window starts from, so a noisy CFD quote 
 related — a fade could be partly measurement; D13/D16 (gold) runs the opposite way to that artefact. Validation per §149, 5;
 Z and D market-tests 24–33.
 
+## 151. D12–D21 validated: no confirmation; gold following its overnight move (D16) passes everything but always-long (S6–S8)
+
+**Ten trials spent: t00794–t00803. N 787 → 797.** Injections all recovered. Z and D market-tests 24–33.
+
+| id, trial | rule | days | beyond drift, bps a day | vs always-long | placebo pct | 2021–26 | tier |
+|---|---|---|---|---|---|---|---|
+| D12 t00794 | NKD_win fades NKD_pre (same, all) | 2153 | -2.24 (t -1.25) | -1.85 (t -0.72) | 5 | -0.02 | **REJECT** |
+| D13 t00795 | MGC_win follows MGC_pre (same, all) | 2139 | +1.17 (t +0.71) | +0.06 (t +0.02) | 85 | +3.15 | **WATCHLIST** |
+| D14 t00796 | MNQ_win fades MNQ_win (prev, all) | 2000 | +2.82 (t +1.09) | +0.51 (t +0.14) | 85 | -0.43 | **WATCHLIST** |
+| D15 t00797 | NKD_win fades NKD_pre (same, strong) | 1099 | -0.33 (t -0.12) | +0.96 (t +0.24) | 40 | +1.98 | **REJECT** |
+| D16 t00798 | MGC_win follows MGC_pre (same, strong) | 962 | +6.27 (t +2.34) | +5.18 (t +1.28) | 100 | +8.91 | **WATCHLIST** |
+| D17 t00799 | MCL fades MGC_win (prev, strong) | 1050 | -11.30 (t -1.27) | -26.91 (t -2.20) | 5 | -10.77 | **REJECT** |
+| D18 t00800 | MCL fades MNQ_win (prev, all) | 1999 | -4.37 (t -0.71) | -18.18 (t -1.98) | 30 | -7.06 | **REJECT** |
+| D19 t00801 | MGC_win fades MGC_win (prev, strong) | 1066 | +2.95 (t +1.18) | +0.87 (t +0.26) | 80 | +2.42 | **WATCHLIST** |
+| D20 t00802 | MNQ_win fades ZS (prev, strong) | 954 | -0.01 (t -0.00) | -3.76 (t -0.65) | 40 | +2.21 | **REJECT** |
+| D21 t00803 | ZS fades MGC_win (prev, all) | 2107 | -2.74 (t -1.09) | -2.86 (t -0.83) | 15 | -3.71 | **REJECT** |
+
+**D16 — gold, follow its own move since the last London window (11:30 → 03:00 ET), on strong days** — is the closest the programme
+has come: beyond drift +6.27 bps a day (t +2.34), placebo 100th percentile, posterior > 0, and **stronger in 2021–26** (+8.91,
+t +2.68). It fails only (a): against always-long it adds +5.18 bps a day (t +1.28), because shorting gold costs its 2018–26 drift
+(2018–20 against always-long −6.21; 2021–26 +10.19). Its every-day form D13 is weaker (+1.17, t 0.71; 2021–26 +3.15). The nearest
+variants of the Nikkei fade (D12, D15) failed outright — the 09:00 CFD-quote concern of §150 is moot.
+
+**Reading.** The relay holds nothing that beats always-long under the strict rule. One candidate is worth watching: D16 on the
+watchlist with D13, D14, D19. D16 is the only one with a placebo at the 100th percentile and a stronger second half; it is also the
+kind of rule (a bracket direction chosen by a move that has already happened) the plan could use at no cost.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

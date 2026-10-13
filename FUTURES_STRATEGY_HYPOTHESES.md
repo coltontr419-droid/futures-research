@@ -707,61 +707,61 @@ Data-derived (D-series re-scan on the corrected clock): the last weekday of each
 2010–2017. Long FDXM, net of cost; validated once on sealed 2018–2026 data (confirm / watchlist / reject).
 `hypotheses.yaml` (D11) · `decisions.md` §143
 
-## D12 — Nikkei window fades its move from the previous Tokyo close (15:00) to the open (09:00) (all)
+## D12 — Nikkei window fades its move from the previous Tokyo close (15:00) to the open (09:00) (all)  *(REJECT — t00794)*
 
 Data-derived (D-series family 3): the Nikkei window (09:00-15:00 Tokyo) traded against its own move from the previous Tokyo close (15:00) to the open (09:00) earned 6.52 bps a day beyond drift
 in 2010–2017 (t 3.10). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D12) · `decisions.md` §150
 
-## D13 — Gold window follows its move from the previous window's close (11:30 ET) to 03:00 ET (all)
+## D13 — Gold window follows its move from the previous window's close (11:30 ET) to 03:00 ET (all)  *(WATCHLIST — t00795)*
 
 Data-derived (D-series family 3): the gold window (03:00-11:30 ET) traded in the direction of its own move from the previous window's close (11:30 ET) to 03:00 ET earned 6.10 bps a day beyond drift
 in 2010–2017 (t 2.89). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D13) · `decisions.md` §150
 
-## D14 — MNQ window fades the previous day's MNQ window (all)
+## D14 — MNQ window fades the previous day's MNQ window (all)  *(WATCHLIST — t00796)*
 
 Data-derived (D-series family 3): the MNQ window (09:30-16:00 ET) traded against the previous day's MNQ window earned 6.15 bps a day beyond drift
 in 2010–2017 (t 2.74). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D14) · `decisions.md` §150
 
-## D15 — Nikkei window fades its move from the previous Tokyo close (15:00) to the open (09:00) (strong)
+## D15 — Nikkei window fades its move from the previous Tokyo close (15:00) to the open (09:00) (strong)  *(REJECT — t00797)*
 
 Data-derived (D-series family 3): the Nikkei window (09:00-15:00 Tokyo) traded against its own move from the previous Tokyo close (15:00) to the open (09:00) earned 8.44 bps a day beyond drift
 in 2010–2017 (t 2.51). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D15) · `decisions.md` §150
 
-## D16 — Gold window follows its move from the previous window's close (11:30 ET) to 03:00 ET (strong)
+## D16 — Gold window follows its move from the previous window's close (11:30 ET) to 03:00 ET (strong)  *(WATCHLIST — t00798)*
 
 Data-derived (D-series family 3): the gold window (03:00-11:30 ET) traded in the direction of its own move from the previous window's close (11:30 ET) to 03:00 ET earned 8.20 bps a day beyond drift
 in 2010–2017 (t 2.46). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D16) · `decisions.md` §150
 
-## D17 — Crude session fades the same day's gold window (strong)
+## D17 — Crude session fades the same day's gold window (strong)  *(REJECT — t00799)*
 
 Data-derived (D-series family 3): the crude session traded against the same day's gold window earned 17.88 bps a day beyond drift
 in 2010–2017 (t 2.31). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D17) · `decisions.md` §150
 
-## D18 — Crude session fades the same day's MNQ window (all)
+## D18 — Crude session fades the same day's MNQ window (all)  *(REJECT — t00800)*
 
 Data-derived (D-series family 3): the crude session traded against the same day's MNQ window earned 12.54 bps a day beyond drift
 in 2010–2017 (t 2.26). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D18) · `decisions.md` §150
 
-## D19 — Gold window fades the previous day's gold window (strong)
+## D19 — Gold window fades the previous day's gold window (strong)  *(WATCHLIST — t00801)*
 
 Data-derived (D-series family 3): the gold window (03:00-11:30 ET) traded against the previous day's gold window earned 7.95 bps a day beyond drift
 in 2010–2017 (t 2.24). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D19) · `decisions.md` §150
 
-## D20 — MNQ window fades the previous day's soybean session (strong)
+## D20 — MNQ window fades the previous day's soybean session (strong)  *(REJECT — t00802)*
 
 Data-derived (D-series family 3): the MNQ window (09:30-16:00 ET) traded against the previous day's soybean session earned 6.72 bps a day beyond drift
 in 2010–2017 (t 2.11). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D20) · `decisions.md` §150
 
-## D21 — Soybean session fades the same day's gold window (all)
+## D21 — Soybean session fades the same day's gold window (all)  *(REJECT — t00803)*
 
 Data-derived (D-series family 3): the soybean session traded against the same day's gold window earned 6.97 bps a day beyond drift
 in 2010–2017 (t 2.01). Sets the plan's bracket direction for that account; validated once on sealed 2018–2026 data.

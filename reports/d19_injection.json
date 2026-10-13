@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D19",
+ "n_events": 1066,
+ "sought_bps": 3.9745676637021514,
+ "mean_estimate": 4.034058863737153,
+ "sd_estimate_bps": 2.4814063760236835,
+ "power_strict_t": 0.4835,
+ "recovered": true
+}
