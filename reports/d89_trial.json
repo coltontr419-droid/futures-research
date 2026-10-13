@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D89",
+ "cell": "6E follows the previous session's SI shock",
+ "trades": 59,
+ "net_bps": 10.03763837460877,
+ "t_net": 2.243007897467067,
+ "placebo_pct": 98.8,
+ "by_year": {
+  "2023": 11.666544165085655,
+  "2024": -1.6541906659737649,
+  "2025": 16.161312081053545,
+  "2026": 18.841694031630354
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 101,
+ "injection": {
+  "hypothesis": "D89",
+  "n_events": 59,
+  "sought_bps": 6.197350700924086,
+  "mean_estimate": 6.0073283506489155,
+  "sd_estimate_bps": 4.4049738682410124,
+  "power_strict_t": 0.383,
+  "recovered": true
+ }
+}

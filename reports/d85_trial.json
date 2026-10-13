@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D85",
+ "cell": "6E follows the previous session's NQ shock",
+ "trades": 48,
+ "net_bps": 0.31019883169671897,
+ "t_net": 0.04213183847052632,
+ "placebo_pct": 54.50000000000001,
+ "by_year": {
+  "2023": 9.117618835345642,
+  "2024": -16.854335330955678,
+  "2025": 7.461281143684093,
+  "2026": 13.082357565063582
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 97,
+ "injection": {
+  "hypothesis": "D85",
+  "n_events": 48,
+  "sought_bps": 7.37097730800595,
+  "mean_estimate": 7.516350082647228,
+  "sd_estimate_bps": 7.438771157374308,
+  "power_strict_t": 0.2755,
+  "recovered": true
+ }
+}

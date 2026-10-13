@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D84",
+ "cell": "6J follows the previous session's NQ shock",
+ "trades": 48,
+ "net_bps": 16.32662639736934,
+ "t_net": 1.6749046993380303,
+ "placebo_pct": 98.2,
+ "by_year": {
+  "2023": 34.05480712279102,
+  "2024": 3.1066913816700037,
+  "2025": 30.538917666451542,
+  "2026": 9.318773906782722
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 96,
+ "injection": {
+  "hypothesis": "D84",
+  "n_events": 48,
+  "sought_bps": 11.12200803881751,
+  "mean_estimate": 11.105033794360018,
+  "sd_estimate_bps": 9.35097626916144,
+  "power_strict_t": 0.321,
+  "recovered": true
+ }
+}

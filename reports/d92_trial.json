@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D92",
+ "cell": "6J follows the previous session's RTY shock",
+ "trades": 46,
+ "net_bps": 1.2701839147219993,
+ "t_net": 0.10588546015551768,
+ "placebo_pct": 48.6,
+ "by_year": {
+  "2023": -23.80388236242254,
+  "2024": 0.8463905547765478,
+  "2025": 24.256672798773838,
+  "2026": 12.977093289564005
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 104,
+ "injection": {
+  "hypothesis": "D92",
+  "n_events": 46,
+  "sought_bps": 9.397406556889809,
+  "mean_estimate": 9.33562757257484,
+  "sd_estimate_bps": 11.970481360708261,
+  "power_strict_t": 0.196,
+  "recovered": true
+ }
+}

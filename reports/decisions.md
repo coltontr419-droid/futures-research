@@ -9647,6 +9647,27 @@ and equities following yen shocks (risk-on / risk-off transmission):
 
 Z and D market-tests 96–106.
 
+## 226. D84–D94 validated: three CONFIRM — the yen follows Nasdaq and corn shocks, the euro follows silver shocks (S6–S8)
+
+**Eleven trials spent: t00866–t00876. N 859 → 870.** Z and D market-tests 96–106.
+
+| id, trial | rule | trades | net bps a trade (t) | placebo pct | years positive | tier |
+|---|---|---|---|---|---|---|
+| D84 t00866 | 6J follows the previous session's NQ shock | 48 | +16.33 (t +1.67) | 98 | 4 of 4 | **CONFIRM** |
+| D85 t00867 | 6E follows the previous session's NQ shock | 48 | +0.31 (t +0.04) | 55 | 3 of 4 | **WATCHLIST** |
+| D86 t00868 | NQ follows the previous session's 6J shock | 44 | -16.14 (t -0.66) | 12 | 2 of 4 | **REJECT** |
+| D87 t00869 | 6J follows the previous session's ZC shock | 49 | +14.50 (t +1.83) | 98 | 3 of 4 | **CONFIRM** |
+| D88 t00870 | 6E follows the previous session's RTY shock | 46 | +3.17 (t +0.37) | 72 | 3 of 4 | **WATCHLIST** |
+| D89 t00871 | 6E follows the previous session's SI shock | 59 | +10.04 (t +2.24) | 99 | 3 of 4 | **CONFIRM** |
+| D90 t00872 | ES follows the previous session's 6J shock | 44 | -15.67 (t -0.78) | 3 | 1 of 4 | **REJECT** |
+| D91 t00873 | ZN follows the previous session's NQ shock | 48 | -2.97 (t -0.53) | 32 | 1 of 4 | **REJECT** |
+| D92 t00874 | 6J follows the previous session's RTY shock | 46 | +1.27 (t +0.11) | 49 | 3 of 4 | **WATCHLIST** |
+| D93 t00875 | 6E follows the previous session's HG shock | 60 | -2.18 (t -0.42) | 33 | 2 of 4 | **REJECT** |
+| D94 t00876 | RTY follows the previous session's 6J shock | 44 | -17.33 (t -0.74) | 10 | 2 of 4 | **REJECT** |
+
+Three of eleven confirm (≈0.4 false confirmations expected at these thresholds). **Before use:** independent-data replication
+(HistData spot FX for the euro and yen sessions; owned GLBX NQ for the Nasdaq shock) and an account test.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D90",
+ "cell": "ES follows the previous session's 6J shock",
+ "trades": 44,
+ "net_bps": -15.665160870405424,
+ "t_net": -0.77735834838487,
+ "placebo_pct": 3.3000000000000003,
+ "by_year": {
+  "2023": 3.497433969913879,
+  "2024": -40.595400371704216,
+  "2025": -0.7013931731209868,
+  "2026": -3.475884139989634
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 102,
+ "injection": {
+  "hypothesis": "D90",
+  "n_events": 44,
+  "sought_bps": 24.15235801341936,
+  "mean_estimate": 24.919234185179956,
+  "sd_estimate_bps": 19.815687494921203,
+  "power_strict_t": 0.415,
+  "recovered": true
+ }
+}

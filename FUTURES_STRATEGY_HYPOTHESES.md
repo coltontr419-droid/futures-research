@@ -1044,47 +1044,47 @@ Data-derived (D-series family 28). `hypotheses.yaml` (D82) · `decisions.md` §2
 
 Data-derived (D-series family 28). `hypotheses.yaml` (D83) · `decisions.md` §222
 
-## D84 — 6J Follows a NQ Shock (next session)
+## D84 — 6J Follows a NQ Shock (next session)  *(CONFIRM — t00866)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D84) · `decisions.md` §225
 
-## D85 — 6E Follows a NQ Shock (next session)
+## D85 — 6E Follows a NQ Shock (next session)  *(WATCHLIST — t00867)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D85) · `decisions.md` §225
 
-## D86 — NQ Follows a 6J Shock (next session)
+## D86 — NQ Follows a 6J Shock (next session)  *(REJECT — t00868)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D86) · `decisions.md` §225
 
-## D87 — 6J Follows a ZC Shock (next session)
+## D87 — 6J Follows a ZC Shock (next session)  *(CONFIRM — t00869)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D87) · `decisions.md` §225
 
-## D88 — 6E Follows a RTY Shock (next session)
+## D88 — 6E Follows a RTY Shock (next session)  *(WATCHLIST — t00870)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D88) · `decisions.md` §225
 
-## D89 — 6E Follows a SI Shock (next session)
+## D89 — 6E Follows a SI Shock (next session)  *(CONFIRM — t00871)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D89) · `decisions.md` §225
 
-## D90 — ES Follows a 6J Shock (next session)
+## D90 — ES Follows a 6J Shock (next session)  *(REJECT — t00872)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D90) · `decisions.md` §225
 
-## D91 — ZN Follows a NQ Shock (next session)
+## D91 — ZN Follows a NQ Shock (next session)  *(REJECT — t00873)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D91) · `decisions.md` §225
 
-## D92 — 6J Follows a RTY Shock (next session)
+## D92 — 6J Follows a RTY Shock (next session)  *(WATCHLIST — t00874)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D92) · `decisions.md` §225
 
-## D93 — 6E Follows a HG Shock (next session)
+## D93 — 6E Follows a HG Shock (next session)  *(REJECT — t00875)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D93) · `decisions.md` §225
 
-## D94 — RTY Follows a 6J Shock (next session)
+## D94 — RTY Follows a 6J Shock (next session)  *(REJECT — t00876)*
 
 Data-derived (D-series family 29). `hypotheses.yaml` (D94) · `decisions.md` §225
 

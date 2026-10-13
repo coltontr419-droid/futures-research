@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D93",
+ "cell": "6E follows the previous session's HG shock",
+ "trades": 60,
+ "net_bps": -2.175111848384458,
+ "t_net": -0.4231835174859807,
+ "placebo_pct": 33.0,
+ "by_year": {
+  "2023": 8.422588268913847,
+  "2024": -12.696041534958532,
+  "2025": -9.687856284832197,
+  "2026": 10.970231159049165
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 105,
+ "injection": {
+  "hypothesis": "D93",
+  "n_events": 60,
+  "sought_bps": 6.419260283342974,
+  "mean_estimate": 6.4769703410855435,
+  "sd_estimate_bps": 5.154433036777719,
+  "power_strict_t": 0.3535,
+  "recovered": true
+ }
+}

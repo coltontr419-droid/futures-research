@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D87",
+ "cell": "6J follows the previous session's ZC shock",
+ "trades": 49,
+ "net_bps": 14.500222172091883,
+ "t_net": 1.8332187565757017,
+ "placebo_pct": 97.5,
+ "by_year": {
+  "2023": 24.058616808765784,
+  "2024": 5.927534057317772,
+  "2025": -1.5643359238254397,
+  "2026": 16.99294766059945
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 99,
+ "injection": {
+  "hypothesis": "D87",
+  "n_events": 49,
+  "sought_bps": 8.096791935708552,
+  "mean_estimate": 8.158895691597154,
+  "sd_estimate_bps": 7.87094941020379,
+  "power_strict_t": 0.278,
+  "recovered": true
+ }
+}

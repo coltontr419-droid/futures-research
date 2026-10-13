@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D86",
+ "n_events": 44,
+ "sought_bps": 28.89937828758427,
+ "mean_estimate": 27.462428990344364,
+ "sd_estimate_bps": 24.619676965420705,
+ "power_strict_t": 0.344,
+ "recovered": true
+}

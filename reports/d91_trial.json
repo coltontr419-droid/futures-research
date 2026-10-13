@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D91",
+ "cell": "ZN follows the previous session's NQ shock",
+ "trades": 48,
+ "net_bps": -2.974991723814392,
+ "t_net": -0.5263525099869903,
+ "placebo_pct": 31.5,
+ "by_year": {
+  "2023": -11.053115410195648,
+  "2024": -5.988076662941254,
+  "2025": 12.56804528392796,
+  "2026": -15.84158197100278
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 103,
+ "injection": {
+  "hypothesis": "D91",
+  "n_events": 48,
+  "sought_bps": 5.005808858545043,
+  "mean_estimate": 4.990494638459688,
+  "sd_estimate_bps": 5.778578883113113,
+  "power_strict_t": 0.2465,
+  "recovered": true
+ }
+}
