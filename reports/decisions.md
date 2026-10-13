@@ -9134,6 +9134,23 @@ minutes on strong marks, +1.5 bps gross on 622 trades, t +0.43 net) against roun
 information between the plan's two traded-data markets is priced within minutes. Family 15 is empty; with families 13–14,
 the three recent-period families (§180–§186) found nothing.
 
+## 187. D-series family 16 protocol: intraday momentum into the window's close (S1)
+
+**No trial spent; N 832. Written and committed BEFORE any statistic is computed.** The user: keep searching while the demo runs.
+The published "market intraday momentum" (first half hour predicts the last, US index) was registered as F01 and blocked before it
+ran; it was never measured here, and not on gold, Tokyo or Xetra. Recent-period design (§180): discovery 2018-01 → 2022-12;
+validation 2023-01 → 2026-08, sealed.
+
+1. **Windows and data:** MNQ 09:30–16:00 and MGC 03:00–11:30 (owned trades, family-8 grids, contract-consistent); NKD 09:00–15:00
+   Tokyo and DAX 09:00–17:30 Frankfurt (corrected HistData CFD minute bars; prices at the window's start, +30 minutes, end − 30
+   minutes and end — the window's end is the only session-boundary price used, as §149).
+2. **Target:** the window's last 30 minutes. **Predictors:** (i) the first 30 minutes; (ii) the window from start to end − 30
+   minutes. Forms: every day; strong days (|predictor| above its 2018–22 median). **4 × 2 × 2 = 16 tests**; ~0.8 by chance.
+3. **Standalone, net of a round trip** (bps: MNQ 0.56, MGC 1.0, NKD 0.4, DAX 0.5). Statistic: sign(predictor) × target, follow /
+   fade by the gross sign, net of cost; t over days. **Carried:** |t| > 1.96 AND net > 0.
+4. **Validation as §185, 3** (sealed; (a) net > 0 against not trading t > 1.645; (b) placebo, the predictor from a random other
+   day, 1,000 draws, ≥ 95th pct; (c) posterior > 0; (d) positive in ≥ 3 of 4 years 2023–26). Z and D market-tests from 69.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
