@@ -10378,6 +10378,19 @@ discovery (not crediting drift); long or short fixed by discovery. **8 tests** (
 (§306). Costs §177; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: other business days).
 Business days = weekdays with a session in the market's own series.
 
+## 320. Family-70 discovery: the commodity index roll — 0 of 8 carried (S1)
+
+**No trial spent; N 880.** `reports/d70_discovery.json`: crude is weaker on roll days in both periods (short +15.4 bps, t +0.94;
+2010–17 +14.0, t +1.66) — the documented sign, but not significant; every other market ~0 or inconsistent. Empty.
+
+## 321. D-series family 71 protocol: the Nikkei on gotobi days (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** D104's gotobi dollar demand weakens the yen into the
+09:55 Tokyo fix; a weaker yen lifts Japanese exporters. NKD (HistData jpxjpy, Tokyo times): **pre** 09:00 → 09:55 and **post** 09:55 →
+12:00 on gotobi days (family-66 calendar), each minus the same window's mean on non-gotobi days in discovery; long or short fixed by
+discovery. **2 tests**, with the descriptive 2010–17 column (§306). Cost NKD 0.2 bps; recent-period design; carried at net > 0,
+t > 1.96; validation as §207, 3 (placebo: non-gotobi days).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

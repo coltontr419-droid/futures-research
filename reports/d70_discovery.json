@@ -1,0 +1,89 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "CL",
+   "n": 300,
+   "rule": "short roll days",
+   "net_bps": 15.365167268190007,
+   "t": 0.9362653407102266,
+   "early_net": 13.982864165870602,
+   "early_t": 1.6632788798222296,
+   "carried": false
+  },
+  {
+   "market": "NG",
+   "n": 300,
+   "rule": "short roll days",
+   "net_bps": 1.1088604072988946,
+   "t": 0.061877413000258834,
+   "early_net": -14.538525632572748,
+   "early_t": -1.347062850490102,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "n": 300,
+   "rule": "long roll days",
+   "net_bps": 4.755368970497303,
+   "t": 0.7231152979718927,
+   "early_net": -6.787817021265538,
+   "early_t": -1.2999735986450567,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "n": 300,
+   "rule": "long roll days",
+   "net_bps": 0.5315024027778589,
+   "t": 0.09352228419397596,
+   "early_net": -1.0952915559709198,
+   "early_t": -0.30144117493090516,
+   "carried": false
+  },
+  {
+   "market": "SI",
+   "n": 300,
+   "rule": "long roll days",
+   "net_bps": 5.447918832666612,
+   "t": 0.6545764951116405,
+   "early_net": -3.746521621807989,
+   "early_t": -0.6141986077953384,
+   "carried": false
+  },
+  {
+   "market": "ZC",
+   "n": 300,
+   "rule": "long roll days",
+   "net_bps": -1.0814726899764529,
+   "t": -0.11665386659789069,
+   "early_net": -0.7445622621337241,
+   "early_t": -0.09802093029505876,
+   "carried": false
+  },
+  {
+   "market": "ZS",
+   "n": 300,
+   "rule": "short roll days",
+   "net_bps": 1.236754153236008,
+   "t": 0.1770744272035652,
+   "early_net": -5.192263396044736,
+   "early_t": -0.8179907146628937,
+   "carried": false
+  },
+  {
+   "market": "ZW",
+   "n": 300,
+   "rule": "long roll days",
+   "net_bps": 0.6784318601206856,
+   "t": 0.06481039511089001,
+   "early_net": -11.159567193049751,
+   "early_t": -1.371173787312302,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
