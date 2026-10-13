@@ -9262,6 +9262,21 @@ independent route to the same finding (D16, D22–D27, D32/D36, now a model): **
 directional predictability into the London window, smaller than their own recent drift.** Combining signals did not lift the
 other windows (Nikkei, DAX: watchlist on noise; MNQ, soybeans: reject; crude: long 99% of days).
 
+## 197. A28 design, frozen on 2010–17 before any 2018–26 look: gold enters 04:00, silver 05:00 (S8)
+
+**No trial spent; N 839. Committed BEFORE the designed trades are evaluated on 2018–26.** The user asked whether the design
+questions can be answered with data: yes — on 2010–17 only, then frozen. `reporting/a28_metals_design.py`, `reports/a28_design.json`.
+Criterion fixed in advance: the largest t of the direction-signed, drift-removed return over entry hours 03:00 … 10:00 (exit
+11:30 New York) × day filters (every day; |overnight move| above its 2010–17 median; top fifth); follow the 11:30 → 03:00 move.
+
+- **Where the edge sits (gold, 2010–17):** the first hour REVERSES (03:00 → 04:00: −3.1 bps, t −1.81); the continuation builds
+  after 04:00 and most of all 08:00 → 11:30.
+- **Gold, chosen:** enter **04:00**, every day, follow; +11.49 bps beyond drift, t +3.70, 595 days (complete
+  minute days only). **Silver, chosen:** enter **05:00**, days with |overnight move| > 54.2 bps (the stronger half), follow;
+  +18.16 bps, t +4.22, 1024 days.
+- **Not blind:** 2018–26 already showed the gold and silver effects (§151, §154, §163, §196); only the entry hour and the day
+  filter are new. The evaluation that follows is a replication with that caveat; the clean check is forward data.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
