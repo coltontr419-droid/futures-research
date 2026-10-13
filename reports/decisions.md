@@ -9668,6 +9668,21 @@ Z and D market-tests 96–106.
 Three of eleven confirm (≈0.4 false confirmations expected at these thresholds). **Before use:** independent-data replication
 (HistData spot FX for the euro and yen sessions; owned GLBX NQ for the Nasdaq shock) and an account test.
 
+## 227. D84/D87/D89 on independent data; a macro-shock account cannot pass an evaluation (S8)
+
+**No trial spent; N 870.** `reports/a30_shock_account.json`.
+
+**Independent data** (HistData spot FX sessions 18:05 → 16:55 New York; owned GLBX NQ for the shock; HistData silver):
+- **D89 (euro follows a silver shock):** positive at every threshold (1.5 / 2 / 2.5 σ) in 2018–22 (t 1.5–2.5) and 2023–26 (t 0.6–2.3),
+  with either silver source; ~0 in 2010–17. Holds since 2018 — the same profile as D68.
+- **D84 (yen follows a Nasdaq shock):** strong in 2018–22 (t 2–3), positive but weak in 2023–26 (t 0.5–1.6), ~0 in 2010–17. Moderate.
+- **D87 (yen follows a corn shock):** mixed; at 2.5 σ strongly negative in 2010–17 (t −2.5). Fragile; set aside.
+
+**As a standalone account** (one 50K Daily account trading whichever rule fires — D68 → 8 MES, D89 → 30 M6E, D84 → 3 6J — sitting out
+other days; Yahoo daily bars, one-bar paths; the plan's solver brackets; 84-day replay): 13–44 trades a year; **P(payout) 0–9%, mean
+net −$25 to −$180** in both 2018–22 and 2023–26. Event rules this rare cannot reach a $3,000 target inside four months, whatever their
+per-trade edge. **The macro-shock edges are real enough to keep (D68 is in the demo) but are not a standalone strategy.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
