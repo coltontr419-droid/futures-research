@@ -9198,6 +9198,13 @@ carried** (best: copper after the copper/gold ratio is 2.5 SD stretched, reversi
 3. **Validation as §187, 4** (sealed; (a) net > 0 t > 1.645 against not trading; (b) placebo, the predictor from a random other
    date, 1,000 draws, ≥ 95th pct; (c) posterior > 0; (d) positive in ≥ 3 of 4 years). Z and D market-tests from 70.
 
+## 193. Family-18 discovery: no weekly or short-trend pattern — 0 of 42 carried (S1)
+
+**No trial spent; N 833.** `reporting/d18_weekly.py`, `reports/d18_discovery.json`. 42 tests on 2018-01 → 2022-12; **none carried**;
+nearest: crude following its 20-session trend, +15.9 bps net (t +1.91 — time-series momentum, published), natural gas the same
+(+13.6, t +1.41). Week-so-far and 5-session trends predict nothing net of cost. Family 18 is empty; families 16–18 (§187–§193)
+added one validation (D57, faded) and nothing usable.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

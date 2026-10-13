@@ -1,0 +1,430 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 42,
+ "carried": [],
+ "all": [
+  {
+   "market": "CL",
+   "kind": "trend20",
+   "n": 1257,
+   "rule": "follow",
+   "gross_bps": 16.600462053864923,
+   "net_bps": 15.90046205386493,
+   "t": 1.910789029321087,
+   "carried": false
+  },
+  {
+   "market": "NG",
+   "kind": "trend20",
+   "n": 1258,
+   "rule": "follow",
+   "gross_bps": 15.040589427667488,
+   "net_bps": 13.640589427667493,
+   "t": 1.4121004592623578,
+   "carried": false
+  },
+  {
+   "market": "CL",
+   "kind": "week_so_far",
+   "n": 505,
+   "rule": "fade",
+   "gross_bps": 17.58025849648607,
+   "net_bps": 16.88025849648607,
+   "t": 1.3260507646730637,
+   "carried": false
+  },
+  {
+   "market": "ZC",
+   "kind": "week_so_far",
+   "n": 505,
+   "rule": "follow",
+   "gross_bps": 9.157164264258707,
+   "net_bps": 7.257164264258708,
+   "t": 1.0792889082873123,
+   "carried": false
+  },
+  {
+   "market": "ZC",
+   "kind": "trend20",
+   "n": 1257,
+   "rule": "follow",
+   "gross_bps": 5.868145818020246,
+   "net_bps": 3.9681458180202465,
+   "t": 0.9537242598282293,
+   "carried": false
+  },
+  {
+   "market": "6E",
+   "kind": "trend5",
+   "n": 1259,
+   "rule": "fade",
+   "gross_bps": 1.5002842402610013,
+   "net_bps": 1.200284240261002,
+   "t": 0.9446912870887393,
+   "carried": false
+  },
+  {
+   "market": "ES",
+   "kind": "trend5",
+   "n": 1258,
+   "rule": "follow",
+   "gross_bps": 4.12714685728112,
+   "net_bps": 3.227146857281118,
+   "t": 0.882459732964695,
+   "carried": false
+  },
+  {
+   "market": "ZS",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "follow",
+   "gross_bps": 5.603621203439357,
+   "net_bps": 4.90362120343936,
+   "t": 0.8773557613065791,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "kind": "trend5",
+   "n": 1258,
+   "rule": "fade",
+   "gross_bps": 2.9522464355196876,
+   "net_bps": 2.1522464355196864,
+   "t": 0.8587448183513502,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "kind": "trend5",
+   "n": 1258,
+   "rule": "fade",
+   "gross_bps": 4.771619324118217,
+   "net_bps": 2.771619324118216,
+   "t": 0.8553017531619167,
+   "carried": false
+  },
+  {
+   "market": "ZN",
+   "kind": "trend20",
+   "n": 1259,
+   "rule": "follow",
+   "gross_bps": 1.1154163797649586,
+   "net_bps": 0.7154163797649589,
+   "t": 0.7901586903750734,
+   "carried": false
+  },
+  {
+   "market": "NQ",
+   "kind": "trend20",
+   "n": 1259,
+   "rule": "follow",
+   "gross_bps": 3.4733394479159254,
+   "net_bps": 2.973339447915926,
+   "t": 0.6509120790998745,
+   "carried": false
+  },
+  {
+   "market": "ZN",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "follow",
+   "gross_bps": 1.2926230482337842,
+   "net_bps": 0.8926230482337844,
+   "t": 0.62481520865691,
+   "carried": false
+  },
+  {
+   "market": "ZN",
+   "kind": "trend5",
+   "n": 1259,
+   "rule": "follow",
+   "gross_bps": 0.9384344240225841,
+   "net_bps": 0.5384344240225837,
+   "t": 0.5945819682279674,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "kind": "trend20",
+   "n": 1258,
+   "rule": "fade",
+   "gross_bps": 3.9087714445138233,
+   "net_bps": 1.9087714445138235,
+   "t": 0.5888660690827155,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "fade",
+   "gross_bps": 5.065572792610114,
+   "net_bps": 3.065572792610113,
+   "t": 0.5704605021447313,
+   "carried": false
+  },
+  {
+   "market": "CL",
+   "kind": "trend5",
+   "n": 1257,
+   "rule": "follow",
+   "gross_bps": 5.301185345568379,
+   "net_bps": 4.601185345568381,
+   "t": 0.5521482859635269,
+   "carried": false
+  },
+  {
+   "market": "ZW",
+   "kind": "trend5",
+   "n": 1259,
+   "rule": "fade",
+   "gross_bps": 3.527908529010483,
+   "net_bps": 2.1279085290104836,
+   "t": 0.3941037578050334,
+   "carried": false
+  },
+  {
+   "market": "6E",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "fade",
+   "gross_bps": 1.0636172112131779,
+   "net_bps": 0.7636172112131792,
+   "t": 0.349922956067989,
+   "carried": false
+  },
+  {
+   "market": "ZS",
+   "kind": "trend20",
+   "n": 1259,
+   "rule": "follow",
+   "gross_bps": 1.7772600389981383,
+   "net_bps": 1.0772600389981384,
+   "t": 0.31139151337102533,
+   "carried": false
+  },
+  {
+   "market": "ES",
+   "kind": "week_so_far",
+   "n": 506,
+   "rule": "follow",
+   "gross_bps": 2.5535729155546125,
+   "net_bps": 1.6535729155546095,
+   "t": 0.29900882537210854,
+   "carried": false
+  },
+  {
+   "market": "ES",
+   "kind": "trend20",
+   "n": 1258,
+   "rule": "follow",
+   "gross_bps": 1.943101455640082,
+   "net_bps": 1.0431014556400815,
+   "t": 0.2851225284486093,
+   "carried": false
+  },
+  {
+   "market": "SI",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "fade",
+   "gross_bps": 2.2617016714486367,
+   "net_bps": 1.7617016714486364,
+   "t": 0.2742091069489421,
+   "carried": false
+  },
+  {
+   "market": "ZS",
+   "kind": "trend5",
+   "n": 1259,
+   "rule": "fade",
+   "gross_bps": 1.5443781792409645,
+   "net_bps": 0.8443781792409666,
+   "t": 0.2440686884574591,
+   "carried": false
+  },
+  {
+   "market": "6J",
+   "kind": "trend20",
+   "n": 1259,
+   "rule": "fade",
+   "gross_bps": 0.760426334426941,
+   "net_bps": 0.26042633442694096,
+   "t": 0.1818926556895291,
+   "carried": false
+  },
+  {
+   "market": "NG",
+   "kind": "week_so_far",
+   "n": 506,
+   "rule": "fade",
+   "gross_bps": 3.927051005669828,
+   "net_bps": 2.5270510056698314,
+   "t": 0.17197744928867714,
+   "carried": false
+  },
+  {
+   "market": "ZW",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "follow",
+   "gross_bps": 2.7715981944883707,
+   "net_bps": 1.3715981944883684,
+   "t": 0.15932831577941842,
+   "carried": false
+  },
+  {
+   "market": "6E",
+   "kind": "trend20",
+   "n": 1259,
+   "rule": "fade",
+   "gross_bps": 0.4776086252544701,
+   "net_bps": 0.17760862525447144,
+   "t": 0.1397184250844219,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "kind": "trend20",
+   "n": 1258,
+   "rule": "fade",
+   "gross_bps": 1.092999538243541,
+   "net_bps": 0.2929995382435413,
+   "t": 0.11682542024868882,
+   "carried": false
+  },
+  {
+   "market": "RTY",
+   "kind": "trend20",
+   "n": 1259,
+   "rule": "follow",
+   "gross_bps": 2.547792838782276,
+   "net_bps": 0.5477928387822766,
+   "t": 0.11670604396765147,
+   "carried": false
+  },
+  {
+   "market": "NQ",
+   "kind": "trend5",
+   "n": 1259,
+   "rule": "follow",
+   "gross_bps": 0.5035474991811166,
+   "net_bps": 0.0035474991811166746,
+   "t": 0.0007764302781699259,
+   "carried": false
+  },
+  {
+   "market": "NQ",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "fade",
+   "gross_bps": 0.050638580644842855,
+   "net_bps": -0.44936141935515717,
+   "t": -0.06295401511653557,
+   "carried": false
+  },
+  {
+   "market": "6J",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "follow",
+   "gross_bps": 0.3359988129224005,
+   "net_bps": -0.1640011870775996,
+   "t": -0.06791390077362713,
+   "carried": false
+  },
+  {
+   "market": "SI",
+   "kind": "trend5",
+   "n": 1257,
+   "rule": "fade",
+   "gross_bps": 0.22740962470164272,
+   "net_bps": -0.2725903752983573,
+   "t": -0.06820498174299001,
+   "carried": false
+  },
+  {
+   "market": "NG",
+   "kind": "trend5",
+   "n": 1258,
+   "rule": "fade",
+   "gross_bps": 0.7232727494721706,
+   "net_bps": -0.6767272505278271,
+   "t": -0.06998882224833801,
+   "carried": false
+  },
+  {
+   "market": "ZW",
+   "kind": "trend20",
+   "n": 1259,
+   "rule": "fade",
+   "gross_bps": 0.8590686470355164,
+   "net_bps": -0.5409313529644832,
+   "t": -0.100168336875151,
+   "carried": false
+  },
+  {
+   "market": "SI",
+   "kind": "trend20",
+   "n": 1257,
+   "rule": "follow",
+   "gross_bps": 0.09675244388549152,
+   "net_bps": -0.4032475561145083,
+   "t": -0.10066339447839825,
+   "carried": false
+  },
+  {
+   "market": "6J",
+   "kind": "trend5",
+   "n": 1259,
+   "rule": "fade",
+   "gross_bps": 0.33004273740677814,
+   "net_bps": -0.16995726259322186,
+   "t": -0.11869446794639531,
+   "carried": false
+  },
+  {
+   "market": "RTY",
+   "kind": "trend5",
+   "n": 1259,
+   "rule": "follow",
+   "gross_bps": 1.3654957389286193,
+   "net_bps": -0.6345042610713807,
+   "t": -0.13516843776000054,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "follow",
+   "gross_bps": 0.1127461749497984,
+   "net_bps": -0.6872538250502023,
+   "t": -0.17392419070969645,
+   "carried": false
+  },
+  {
+   "market": "ZC",
+   "kind": "trend5",
+   "n": 1257,
+   "rule": "follow",
+   "gross_bps": 1.1689433678847154,
+   "net_bps": -0.7310566321152847,
+   "t": -0.17557239041647457,
+   "carried": false
+  },
+  {
+   "market": "RTY",
+   "kind": "week_so_far",
+   "n": 507,
+   "rule": "fade",
+   "gross_bps": 0.05606867700213381,
+   "net_bps": -1.9439313229978663,
+   "t": -0.26912064642080524,
+   "carried": false
+  }
+ ]
+}
