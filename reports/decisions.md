@@ -10436,6 +10436,15 @@ as §207, 3.
 
 **No trial spent; N 880.** `reports/d74_discovery.json`: every |net| < 0.5 bps; best 6E long after the fix +0.5 (t +1.36). Empty.
 
+## 329. D-series family 75 protocol: crude against its refining margin (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** The 3-2-1 crack (Yahoo settlements; $/bbl =
+(2 × RB × 42 + HO × 42 − 3 × CL) / 3) measures refiners' margin; a jump in it raises refiners' demand for crude. Days where any of the
+three front-continuous series moves more than 6 × its MAD (contract-roll jumps) are dropped. Signals on day D: **A shock** — the
+crack's daily change beyond 2 × SD of the previous 60; **B stretch** — the crack's level more than 2 SD from its previous-60 mean.
+Target CL's next session (family-10 open → settlement), with the signal's sign or against it, fixed by discovery. **2 tests**, with
+the descriptive 2010–17 column (§306). Cost CL 0.7 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
