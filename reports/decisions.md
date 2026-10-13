@@ -9971,6 +9971,10 @@ before both targets open). Targets on Monday: MNQ day 09:30–16:00 and MGC Lond
 by discovery; forms **all** and **strong** (|weekend| above its discovery median). **2 × 2 = 4 tests.** Costs §180; recent-period
 design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 264. Family-45 discovery: bitcoin's weekend predicts nothing on Monday — 0 of 4 carried (S1)
+
+**No trial spent; N 875.** `reports/d45_discovery.json`: all |t| < 0.5. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

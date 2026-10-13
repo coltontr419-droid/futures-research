@@ -1,0 +1,45 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "MNQ",
+   "form": "all",
+   "n": 251,
+   "rule": "follow",
+   "net_bps": 0.6316949152851484,
+   "t": 0.08583318792076922,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "form": "strong",
+   "n": 125,
+   "rule": "fade",
+   "net_bps": -0.43168795013427735,
+   "t": -0.04340842762459392,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "form": "all",
+   "n": 256,
+   "rule": "follow",
+   "net_bps": 2.2277412533760095,
+   "t": 0.4741030393741015,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "form": "strong",
+   "n": 128,
+   "rule": "fade",
+   "net_bps": 2.8122744381427744,
+   "t": 0.45073597654585423,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
