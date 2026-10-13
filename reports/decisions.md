@@ -8470,6 +8470,9 @@ history (rejected), F08 same-hour MNQ/gold divergence (premise failure), Z05 gol
    from 24). WATCHLIST if the validation mean (demeaned) > 0 but a condition fails; REJECT otherwise.
 6. **Use, if any confirms:** the direction rule is put into the plan's replay (A23 engine, the confirmed market only) and the
    effect on P(payout) and net per four months reported before anything changes in the bot.
+7. **Addendum before the scan (data checks, no outcome read):** values more than 15 robust SDs from a series' median are dropped
+   as bad prints (two DAX CFD overnight values, +27,100 and −7,423 bps); the owned NQ minute data is sparse before 2013 (33 days in
+   2010, 72 in 2011, 107 in 2012), so MNQ's discovery sample is ~1,300 days, not ~1,900.
 
 ## 10. Still outstanding, and blocking
 
