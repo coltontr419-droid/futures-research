@@ -7695,3 +7695,138 @@
       decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
       months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 64.
   s6_control: By period and by year; other months.
+- id: D53
+  name: nq_fades_extreme_session_next_5
+  mechanism: >
+    DATA-DERIVED (D-series family 12, after extreme sessions, decisions.md 177-178): in 2010-2017, after a NQ session beyond
+    2 sigma (SD of the previous 60), the next 5 session(s) traded to reverse it earned +68.04 bps a trade net of cost
+    (t +2.78, 86 trades). Overreaction that unwinds: THE COUNTERPARTY would be forced or momentum flow at the
+    extreme. Year-round (extreme sessions occur in every month). Carried by the scan.
+  condition: >
+    After a NQ session beyond 2 sigma: for each of the next 5 session(s), fade it from the open to settlement
+    (flat at 17:00 each day); net of cost; no overlapping trades.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d53_injection.json (src/futuresres/signals/d_extreme.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 87
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-12 scan (42 tests, |t| > 1.96 and net > 0, decisions.md 177). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      The account's tradable contract for NQ; Yahoo daily continuous sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the net return per trade Normal(+34.02 bps, 34.02) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 177, 4: CONFIRM if (a) net per trade > 0 against not trading t > 1.645, (b) >= 95th pct of random non-event
+      starts, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if > 0; else REJECT. Z and D market-test 65.
+  s6_control: By period; after up vs after down sessions; random non-event starts.
+- id: D54
+  name: es_fades_extreme_session_next_5
+  mechanism: >
+    DATA-DERIVED (D-series family 12, after extreme sessions, decisions.md 177-178): in 2010-2017, after a ES session beyond
+    2 sigma (SD of the previous 60), the next 5 session(s) traded to reverse it earned +60.78 bps a trade net of cost
+    (t +2.63, 72 trades). Overreaction that unwinds: THE COUNTERPARTY would be forced or momentum flow at the
+    extreme. Year-round (extreme sessions occur in every month). Carried by the scan.
+  condition: >
+    After a ES session beyond 2 sigma: for each of the next 5 session(s), fade it from the open to settlement
+    (flat at 17:00 each day); net of cost; no overlapping trades.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d54_injection.json (src/futuresres/signals/d_extreme.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 88
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-12 scan (42 tests, |t| > 1.96 and net > 0, decisions.md 177). ONE TRIAL.
+  session: Globex
+  symbols: [MES]
+  mechanism_instruments:
+    primary: MES
+    secondary: null
+    rationale: >
+      The account's tradable contract for ES; Yahoo daily continuous sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the net return per trade Normal(+30.39 bps, 30.39) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 177, 4: CONFIRM if (a) net per trade > 0 against not trading t > 1.645, (b) >= 95th pct of random non-event
+      starts, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if > 0; else REJECT. Z and D market-test 66.
+  s6_control: By period; after up vs after down sessions; random non-event starts.
+- id: D55
+  name: zn_fades_extreme_session_next_1
+  mechanism: >
+    DATA-DERIVED (D-series family 12, after extreme sessions, decisions.md 177-178): in 2010-2017, after a ZN session beyond
+    2 sigma (SD of the previous 60), the next 1 session(s) traded to reverse it earned +7.99 bps a trade net of cost
+    (t +2.21, 94 trades). Overreaction that unwinds: THE COUNTERPARTY would be forced or momentum flow at the
+    extreme. Year-round (extreme sessions occur in every month). Carried by the scan.
+  condition: >
+    After a ZN session beyond 2 sigma: for each of the next 1 session(s), fade it from the open to settlement
+    (flat at 17:00 each day); net of cost; no overlapping trades.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d55_injection.json (src/futuresres/signals/d_extreme.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 89
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-12 scan (42 tests, |t| > 1.96 and net > 0, decisions.md 177). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      The account's tradable contract for ZN; Yahoo daily continuous sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the net return per trade Normal(+3.99 bps, 3.99) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 177, 4: CONFIRM if (a) net per trade > 0 against not trading t > 1.645, (b) >= 95th pct of random non-event
+      starts, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if > 0; else REJECT. Z and D market-test 67.
+  s6_control: By period; after up vs after down sessions; random non-event starts.

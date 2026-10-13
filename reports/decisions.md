@@ -9025,6 +9025,20 @@ standalone strategy.
    sessions, direction from that session's own sign; (c) posterior > 0, prior Normal(discovery/2, |discovery|/2); (d) 2021–26
    > 0. A CONFIRM is replayed as its own 50K Daily account before it counts. Z and D market-tests from 65.
 
+## 178. Family-12 discovery: equity indices reverse extreme sessions over the next week — three carried (≈2.1 by chance); D53–D55 registered (S1–S5)
+
+**No trial spent at registration; N 828. Committed BEFORE validation data is read.** `reporting/d12_extreme.py`,
+`reports/d12_discovery.json`; `signals/d_extreme.py`. 42 tests, 2010-01 → 2017-12; 3 carried:
+
+| id | market | rule | horizon | trades | discovery | prior |
+|---|---|---|---|---|---|---|
+| D53 | NQ | fade | next 5 | 86 | +68.04 net, t +2.78 | N(+34.02, 34.02) |
+| D54 | ES | fade | next 5 | 72 | +60.78 net, t +2.63 | N(+30.39, 30.39) |
+| D55 | ZN | fade | next 1 | 94 | +7.99 net, t +2.21 | N(+3.99, 3.99) |
+
+D53 and D54 are one effect (Nasdaq and S&P correlate ~0.9). A multi-session trade is a run of daily round trips (flat each
+evening, as the account requires). Z and D market-tests 65–67.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

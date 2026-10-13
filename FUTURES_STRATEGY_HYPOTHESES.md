@@ -920,3 +920,15 @@ Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D51) · `deci
 
 Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D52) · `decisions.md` §175
 
+## D53 — NQ Fades an Extreme Session Over the Next 5
+
+Data-derived (D-series family 12). `hypotheses.yaml` (D53) · `decisions.md` §178
+
+## D54 — ES Fades an Extreme Session Over the Next 5
+
+Data-derived (D-series family 12). `hypotheses.yaml` (D54) · `decisions.md` §178
+
+## D55 — ZN Fades an Extreme Session Over the Next 1
+
+Data-derived (D-series family 12). `hypotheses.yaml` (D55) · `decisions.md` §178
+
