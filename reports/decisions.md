@@ -8707,6 +8707,23 @@ does not have to beat a rally.
    market-tests from 44. Note: families 1–2 (§130, §134) scanned these pairs' hours and fix windows on 2010–17 and validated
    single cells on 2018–26; the statistic here (a window's direction set by the preceding move) was not computed there.
 
+## 162. Family-7 discovery: silver continues its own and gold's overnight move — five carried (≈1.4 by chance); D32–D36 registered (S1–S5)
+
+**No trial spent at registration; N 807. Committed BEFORE validation data is read.** `reporting/d7_london.py`,
+`reports/d7_discovery.json`; `signals/d_london.py`. 28 tests, 2010-06 → 2017-12; **5 carried, 4 of them silver** — the gold finding
+reappears in silver at two to three times its size relative to the window (silver's window SD ~141 bps):
+
+| id | market | rule | form | discovery (bps beyond drift a day) | prior |
+|---|---|---|---|---|---|
+| D32 | xagusd (SI) | follow own overnight | strong | +17.40, t +3.60, n 977 | N(+8.70, 8.70) |
+| D33 | xagusd (SI) | follow gold overnight | all | +12.37, t +3.34, n 1364 | N(+6.18, 6.18) |
+| D34 | xagusd (SI) | follow gold overnight | strong | +18.47, t +3.19, n 682 | N(+9.23, 9.23) |
+| D35 | usdchf (6S) | fade gold overnight | all | -2.83, t -2.21, n 1363 | N(+1.41, 1.41) |
+| D36 | xagusd (SI) | follow own overnight | all | +6.67, t +2.20, n 1954 | N(+3.34, 3.34) |
+
+The currencies show nothing but USD/CHF fading gold's move (t −2.21). Silver's four tests are one phenomenon; correlated. USD/JPY data
+here start 2016. Z and D market-tests 44–48.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -6489,3 +6489,233 @@
       shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
       Z and D market-test number 43.
   s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.
+- id: D32
+  name: xagusd_london_follows_own_overnight_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 7, London continuation, decisions.md 161-162): a hypothesis generated from the programme's
+    gold finding (D16, D22-D27). In 2010-2017 XAGUSD's London window (03:00 -> 11:30 New York) traded in the direction of
+    its own overnight move (11:30 -> 03:00 New York) on days with |predictor| above its 2010-17 median (53.2 bps) earned 17.40 bps a day beyond drift (t 3.60, n 977). THE COUNTERPARTY would be
+    London participants absorbing Asian-session information slowly. Carried by the scan.
+  condition: >
+    On days with |predictor| above its 2010-17 median (53.2 bps): trade XAGUSD (SI) from 03:00 to 11:30 New York in the direction of its own overnight move (11:30 -> 03:00 New York); free HistData minute bars,
+    corrected clock.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d32_injection.json (src/futuresres/signals/d_london.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 66
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-7 scan (28 tests, |t| > 1.96, decisions.md 161); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [SI]
+  mechanism_instruments:
+    primary: SI
+    secondary: null
+    rationale: >
+      SI is a CME future the account can trade; the test uses the spot series it tracks. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+8.70 bps, 8.70) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 161): CONFIRM if (a) against always-long over the same window t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 44.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.
+- id: D33
+  name: xagusd_london_follows_gold_overnight_all
+  mechanism: >
+    DATA-DERIVED (D-series family 7, London continuation, decisions.md 161-162): a hypothesis generated from the programme's
+    gold finding (D16, D22-D27). In 2010-2017 XAGUSD's London window (03:00 -> 11:30 New York) traded in the direction of
+    gold's overnight move (MGC, 11:30 -> 03:00 New York) on every day earned 12.37 bps a day beyond drift (t 3.34, n 1364). THE COUNTERPARTY would be
+    London participants absorbing Asian-session information slowly. Carried by the scan.
+  condition: >
+    On every day: trade XAGUSD (SI) from 03:00 to 11:30 New York in the direction of gold's overnight move (MGC, 11:30 -> 03:00 New York); free HistData minute bars,
+    corrected clock.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d33_injection.json (src/futuresres/signals/d_london.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 67
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-7 scan (28 tests, |t| > 1.96, decisions.md 161); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [SI]
+  mechanism_instruments:
+    primary: SI
+    secondary: null
+    rationale: >
+      SI is a CME future the account can trade; the test uses the spot series it tracks. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+6.18 bps, 6.18) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 161): CONFIRM if (a) against always-long over the same window t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 45.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.
+- id: D34
+  name: xagusd_london_follows_gold_overnight_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 7, London continuation, decisions.md 161-162): a hypothesis generated from the programme's
+    gold finding (D16, D22-D27). In 2010-2017 XAGUSD's London window (03:00 -> 11:30 New York) traded in the direction of
+    gold's overnight move (MGC, 11:30 -> 03:00 New York) on days with |predictor| above its 2010-17 median (35.9 bps) earned 18.47 bps a day beyond drift (t 3.19, n 682). THE COUNTERPARTY would be
+    London participants absorbing Asian-session information slowly. Carried by the scan.
+  condition: >
+    On days with |predictor| above its 2010-17 median (35.9 bps): trade XAGUSD (SI) from 03:00 to 11:30 New York in the direction of gold's overnight move (MGC, 11:30 -> 03:00 New York); free HistData minute bars,
+    corrected clock.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d34_injection.json (src/futuresres/signals/d_london.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 68
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-7 scan (28 tests, |t| > 1.96, decisions.md 161); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [SI]
+  mechanism_instruments:
+    primary: SI
+    secondary: null
+    rationale: >
+      SI is a CME future the account can trade; the test uses the spot series it tracks. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+9.23 bps, 9.23) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 161): CONFIRM if (a) against always-long over the same window t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 46.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.
+- id: D35
+  name: usdchf_london_fades_gold_overnight_all
+  mechanism: >
+    DATA-DERIVED (D-series family 7, London continuation, decisions.md 161-162): a hypothesis generated from the programme's
+    gold finding (D16, D22-D27). In 2010-2017 USDCHF's London window (03:00 -> 11:30 New York) traded against
+    gold's overnight move (MGC, 11:30 -> 03:00 New York) on every day earned 2.83 bps a day beyond drift (t 2.21, n 1363). THE COUNTERPARTY would be
+    London participants absorbing Asian-session information slowly. Carried by the scan.
+  condition: >
+    On every day: trade USDCHF (6S) from 03:00 to 11:30 New York against gold's overnight move (MGC, 11:30 -> 03:00 New York); free HistData minute bars,
+    corrected clock.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d35_injection.json (src/futuresres/signals/d_london.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 69
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-7 scan (28 tests, |t| > 1.96, decisions.md 161); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [6S]
+  mechanism_instruments:
+    primary: 6S
+    secondary: null
+    rationale: >
+      6S is a CME future the account can trade; the test uses the spot series it tracks. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+1.41 bps, 1.41) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 161): CONFIRM if (a) against always-long over the same window t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 47.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.
+- id: D36
+  name: xagusd_london_follows_own_overnight_all
+  mechanism: >
+    DATA-DERIVED (D-series family 7, London continuation, decisions.md 161-162): a hypothesis generated from the programme's
+    gold finding (D16, D22-D27). In 2010-2017 XAGUSD's London window (03:00 -> 11:30 New York) traded in the direction of
+    its own overnight move (11:30 -> 03:00 New York) on every day earned 6.67 bps a day beyond drift (t 2.20, n 1954). THE COUNTERPARTY would be
+    London participants absorbing Asian-session information slowly. Carried by the scan.
+  condition: >
+    On every day: trade XAGUSD (SI) from 03:00 to 11:30 New York in the direction of its own overnight move (11:30 -> 03:00 New York); free HistData minute bars,
+    corrected clock.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d36_injection.json (src/futuresres/signals/d_london.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 70
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-7 scan (28 tests, |t| > 1.96, decisions.md 161); direction and threshold fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [SI]
+  mechanism_instruments:
+    primary: SI
+    secondary: null
+    rationale: >
+      SI is a CME future the account can trade; the test uses the spot series it tracks. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.34 bps, 3.34) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 161): CONFIRM if (a) against always-long over the same window t > 1.645, (b) placebo
+      shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT.
+      Z and D market-test number 48.
+  s6_control: Demeaned and against always-long; by period; the 20 shifted placebos.

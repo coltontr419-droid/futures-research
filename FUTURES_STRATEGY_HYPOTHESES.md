@@ -826,3 +826,33 @@ Data-derived (D-series family 6): the rest of the DAX window (09:00-17:30 Frankf
 7.67 bps a day beyond drift in 2010–2017 (t 2.11). Validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D31) · `decisions.md` §159
 
+## D32 — XAGUSD London Window Follows Its Own Overnight Move (strong days)
+
+Data-derived (D-series family 7, from the gold finding): XAGUSD from 03:00 to 11:30 New York traded in the direction of its own overnight move (11:30 -> 03:00 New York) earned
+17.40 bps a day beyond drift in 2010–2017 (t 3.60). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D32) · `decisions.md` §162
+
+## D33 — XAGUSD London Window Follows Gold's Overnight Move (every day)
+
+Data-derived (D-series family 7, from the gold finding): XAGUSD from 03:00 to 11:30 New York traded in the direction of gold's overnight move (MGC, 11:30 -> 03:00 New York) earned
+12.37 bps a day beyond drift in 2010–2017 (t 3.34). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D33) · `decisions.md` §162
+
+## D34 — XAGUSD London Window Follows Gold's Overnight Move (strong days)
+
+Data-derived (D-series family 7, from the gold finding): XAGUSD from 03:00 to 11:30 New York traded in the direction of gold's overnight move (MGC, 11:30 -> 03:00 New York) earned
+18.47 bps a day beyond drift in 2010–2017 (t 3.19). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D34) · `decisions.md` §162
+
+## D35 — USDCHF London Window Fades Gold's Overnight Move (every day)
+
+Data-derived (D-series family 7, from the gold finding): USDCHF from 03:00 to 11:30 New York traded against gold's overnight move (MGC, 11:30 -> 03:00 New York) earned
+2.83 bps a day beyond drift in 2010–2017 (t 2.21). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D35) · `decisions.md` §162
+
+## D36 — XAGUSD London Window Follows Its Own Overnight Move (every day)
+
+Data-derived (D-series family 7, from the gold finding): XAGUSD from 03:00 to 11:30 New York traded in the direction of its own overnight move (11:30 -> 03:00 New York) earned
+6.67 bps a day beyond drift in 2010–2017 (t 2.20). Validated once on sealed 2018–2026 data.
+`hypotheses.yaml` (D36) · `decisions.md` §162
+
