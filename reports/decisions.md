@@ -9205,6 +9205,27 @@ nearest: crude following its 20-session trend, +15.9 bps net (t +1.91 — time-s
 (+13.6, t +1.41). Week-so-far and 5-session trends predict nothing net of cost. Family 18 is empty; families 16–18 (§187–§193)
 added one validation (D57, faded) and nothing usable.
 
+## 194. D-series family 19 protocol: one combined model per window — many weak signals together (S1)
+
+**No trial spent; N 833. Written and committed BEFORE any model is fitted.** Families 3–18 tested one idea at a time; several were
+faintly positive but too weak alone (gold and silver London continuation, crude's 20-session trend, close momentum). This family
+combines them: for each of the plan's six windows, ONE ridge regression of the window's return on every feature already built,
+fitted on 2018-01 → 2022-12, scored ONCE on sealed 2023-01 → 2026-08. **6 trials** (one per window).
+
+1. **Targets:** NKD, DAX, MGC, MNQ windows; MCL and ZS sessions (family-3 series, §149).
+2. **Features, all known before the target's entry** (standardised with 2018–22 means and SDs only): the other five windows'
+   most recent completed returns (the §149 hand-off timing); the target's own previous window; its pre-window move where defined
+   (NKD, DAX, MGC, MNQ); its own 5- and 20-session trend; its volatility state (σ20 ÷ median σ20 of the previous 250, §180);
+   weekday dummies (Mon–Thu). Missing values → 0 (the standardised mean).
+3. **Model:** ridge regression (intercept free), penalty chosen from {1, 10, 100, 1,000, 10,000} by leave-one-year-out
+   cross-validation inside 2018–22 (maximise the out-of-fold Sharpe of trading the prediction's sign), then refitted on all of
+   2018–22. **Trade:** each day, the target window in the direction of the sign of the prediction.
+4. **Validation (one trial per window), sealed:** CONFIRM if (a) net of the account's cost (§180's table) > 0 against not
+   trading, t > 1.645; (b) placebo: the same frozen model scored on the features of a random other day, 1,000 draws, ≥ 95th pct;
+   (c) the sign-trade beats always-long (reported; required only if the window has positive drift in 2018–22); (d) positive in
+   ≥ 3 of the 4 years. WATCHLIST if net > 0; REJECT. Z and D market-tests 70–75. No discovery screen — every window's model is
+   validated, so the six are the whole family.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
