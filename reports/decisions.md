@@ -10202,6 +10202,14 @@ validation as §207, 3.
 **No trial spent; N 878.** `reports/d59_discovery.json`: best follows a strong post-close move into the next day +6.9 bps (t +1.21).
 Empty.
 
+## 297. D-series family 60 protocol: the 200-day average as the direction (S1)
+
+**No trial spent; N 878. Written and committed BEFORE any statistic is computed.** Family 18 used 5- and 20-session trends. Here the
+long regime: the previous weekday's Yahoo settlement (NQ=F, GC=F, family-10 universe bars) above or below its 200-session mean →
+long or short the plan window on D (MNQ day; gold London; family-8 grids), JUDGED DEMEANED (discovery-window mean removed) so drift is
+not carried; the sign of the rule fixed by discovery. **2 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96;
+validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
