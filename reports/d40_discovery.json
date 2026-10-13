@@ -1,0 +1,45 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "CL",
+   "form": "all",
+   "n": 251,
+   "rule": "follow",
+   "net_bps": 5.081383411808742,
+   "t": 0.2518324104353874,
+   "carried": false
+  },
+  {
+   "market": "CL",
+   "form": "strong",
+   "n": 125,
+   "rule": "follow",
+   "net_bps": 2.3736491412479626,
+   "t": 0.07501552886250294,
+   "carried": false
+  },
+  {
+   "market": "NG",
+   "form": "all",
+   "n": 245,
+   "rule": "fade",
+   "net_bps": 9.178795224328804,
+   "t": 0.5114821159397402,
+   "carried": false
+  },
+  {
+   "market": "NG",
+   "form": "strong",
+   "n": 122,
+   "rule": "fade",
+   "net_bps": 35.538960863600224,
+   "t": 1.2623432614644472,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

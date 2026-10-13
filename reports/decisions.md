@@ -9861,6 +9861,20 @@ follow or fade fixed by discovery. **CL: Wednesday → Thursday; NG: Thursday �
 discovery median) — 4 tests.** Costs §177 (CL 0.7, NG 1.4 bps); recent-period design (§180); carried at net > 0, t > 1.96; validation
 as §207, 3 (placebo: the same rule on the other weekdays).
 
+## 251. Family-40 discovery: energy inventory days — 0 of 4 carried (S1)
+
+**No trial spent; N 872.** `reports/d40_discovery.json`: best NG strong-Thursday fade +35.5 bps (t +1.26, n 122); CL ~0. Empty.
+
+## 252. D-series family 41 protocol: the London 16:00 FX fix (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** The WM/Reuters benchmark fix (16:00 London) concentrates
+hedging and rebalancing flow in a window around it; a move into the fix may unwind, or continue, afterwards. HistData minute bars
+(corrected New York clock, §140) converted to London time. Pre-fix move = close at 16:00 vs close at 15:30 London (last bar at or before
+each); target = 16:00 → 16:30, follow or fade fixed by discovery; dollar-quoted direction as the futures (USD/JPY, USD/CAD, USD/CHF
+inverted to 6J, 6C, 6S). Pairs: EUR, GBP, JPY, AUD, CAD, CHF; forms **all** and **strong** (|pre-fix| above its discovery median).
+**6 × 2 = 12 tests.** Costs §177 where listed (6E 0.3, 6J 0.5), 0.5 bps otherwise. Recent-period design (§180); carried at net > 0,
+t > 1.96; validation as §207, 3 (placebo: the same rule at 15:00 → 15:30 / 15:30 → 16:00 on random days).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
