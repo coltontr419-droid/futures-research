@@ -1124,3 +1124,7 @@ Data-derived (D-series family 57). `hypotheses.yaml` (D102) · `decisions.md` §
 ## D103 — Gold Fades Real Yield Shock  *(REJECT — t00885)*
 
 Data-derived (D-series family 63). `hypotheses.yaml` (D103) · `decisions.md` §304
+
+## D104 — Yen Recovers After Gotobi Fix  *(registered)*
+
+Data-derived (D-series family 66). `hypotheses.yaml` (D104) · `decisions.md` §311

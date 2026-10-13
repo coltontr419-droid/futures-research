@@ -10583,3 +10583,48 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days),
       positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 115.
   s6_control: By year; non-shock placebo; the 2010-2017 untouched check (decisions.md 304).
+- id: D104
+  name: yen_recovers_after_gotobi_fix
+  mechanism: >
+    DATA-DERIVED (D-series family 66, the Tokyo fix on gotobi days, decisions.md 310-311): in 2018-2022, long the yen (6J) from
+    the 09:55 Tokyo fix to 12:00 on gotobi days earned +1.70 bps net (t +2.69, n 359); non-gotobi days
+    +0.34; 2016-17 +5.01. THE COUNTERPARTY is Japanese importers' settlement demand for dollars
+    at the gotobi fix: the price pressure it leaves at 09:55 unwinds once the fix has printed.
+  condition: >
+    On the 5th, 10th, 15th, 20th, 25th and last day of each month (weekend dates to the previous weekday), long 6J from 09:55 to 12:00
+    Tokyo; net of 0.5 bps.
+  horizon_minutes: [125]
+  hold_hours: [2.0, 2.1]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 138
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-66 scan (2 tests, decisions.md 310). ONE TRIAL.
+  session: Asia
+  symbols: [6J]
+  mechanism_instruments:
+    primary: 6J
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same window on non-gotobi days),
+      positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 116.
+  s6_control: By year; non-gotobi placebo.

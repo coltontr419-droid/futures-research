@@ -10309,6 +10309,14 @@ gotobi days only, in 6J's direction (long 6J = short USD/JPY), side fixed by dis
 (descriptive) and are the validation placebo. Cost 6J 0.5 bps; recent-period design; carried at net > 0, t > 1.96; §306's
 descriptive early column covers 2016–17 only.
 
+## 311. Family-66 discovery: 1 of 2 carried — the yen recovers after the gotobi fix; D104 registered (S1)
+
+**No trial spent yet; N 879.** `reports/d66_discovery.json` (module `reporting/d66_gotobi.py`): **D104** long 6J 09:55 → 12:00 Tokyo
+on gotobi days, **+1.70 bps**, t +2.69, n 359; the same window on other days +0.34; 2016–17
++5.01 (t +1.65) — the mechanism's sign in both periods. The run-up (08:00 → 09:55) +0.8 (t +1.04). Scale,
+before validation: ~1.7 bps on 6J's ~$85,000 is ~$14 a contract, ~70 times a year — a D32-sized edge; it would not carry an account.
+Z and D market-test 116.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
