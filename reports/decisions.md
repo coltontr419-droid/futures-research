@@ -8688,6 +8688,25 @@ The opening-drive continuation held in 2018–20 (Nikkei strong days +8.1 bps, t
 +0.2, DAX −1.6). D30 keeps a 95th-percentile placebo on the pooled window but fails (a) and stands on its first three years.
 Watchlist for D30 and D31 in form; nothing to adopt.
 
+## 161. D-series family 7 protocol: London continuation beyond gold — silver and the major currencies (S1)
+
+**No trial spent; N 807. Written and committed BEFORE any data is built.** The user: continue. Six families found one
+phenomenon that held in every look and grew stronger after 2021 — gold continues its overnight move (11:30 → 03:00 New York)
+into the London window (03:00 → 11:30) (D16, D22–D27; §151, §154) — and failed only against gold's own drift. **A hypothesis
+generated from the programme's own data:** the same London continuation in markets without gold's drift, where a direction rule
+does not have to beat a rally.
+
+1. **Markets** (free HistData minute bars, corrected clock §140; prices at 11:30 and 03:00 New York only — neither is a session
+   close for these markets; the 17:00 rollover falls inside the predictor's span and is never used as a price): silver XAG/USD
+   (SI / SIL), EUR/USD (6E / M6E), GBP/USD (6B), AUD/USD (6A / M6A), USD/JPY (6J), USD/CHF (6S), USD/CAD (6C). All tradable as CME
+   futures in the account (decisions.md 115).
+2. **Target:** the window 03:00 → 11:30 New York (the plan's gold window). **Predictors:** (i) the market's own overnight move,
+   11:30 (previous day) → 03:00; (ii) gold's overnight move (MGC_pre, owned Databento trades, §149). Forms: every day; strong days
+   (|predictor| above its 2010–17 median). **7 markets × 2 predictors × 2 forms = 28 tests**; ~1.4 pass |t| > 1.96 by chance.
+3. **Discovery 2010-06 → 2017-12;** statistic and selection exactly as §149, 4. **Validation exactly as §149, 5;** Z and D
+   market-tests from 44. Note: families 1–2 (§130, §134) scanned these pairs' hours and fix windows on 2010–17 and validated
+   single cells on 2018–26; the statistic here (a window's direction set by the preceding move) was not computed there.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
