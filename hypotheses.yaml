@@ -7937,12 +7937,25 @@
   horizon_minutes: [30]
   hold_hours: [0.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00839 (decisions.md 189), WATCHLIST in form only on sealed 2023-2026: 369 days; net +0.01 bps (t +0.01); placebo 75th pct; positive in 2 of 4 years. The 2018-22 effect did not carry into 2023-26.
   outcome_injection_required: Before the run - reports/d57_injection.json (src/futuresres/signals/d_close.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_close.py
+    injected_bps: 1.176
+    sought_bps: 1.176
+    n_injection: 369
+    n_run: 369
+    recovered: true
+    report: reports/d57_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 91
+  test_order: null
+  registered_test_order: 91
   grade: B
   tier: B
   param_cap: 0

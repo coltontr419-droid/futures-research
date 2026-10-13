@@ -936,7 +936,7 @@ Data-derived (D-series family 12). `hypotheses.yaml` (D55) · `decisions.md` §1
 
 Data-derived (D-series family 14). `hypotheses.yaml` (D56) · `decisions.md` §183
 
-## D57 — DAX Last Half Hour Follows the Day (strong days)
+## D57 — DAX Last Half Hour Follows the Day (strong days)  *(WATCHLIST in form — t00839; faded)*
 
 Data-derived (D-series family 16). `hypotheses.yaml` (D57) · `decisions.md` §188
 

@@ -9158,6 +9158,11 @@ validation 2023-01 → 2026-08, sealed.
 in the direction of 09:00 → 17:00: net +2.35 bps (t +2.24, n 639). MNQ shows the same sign just below the bar
 (every day +2.04 net, t +1.84; strong +3.37, t +1.79); gold and Nikkei nothing; the first half hour predicts nothing anywhere. Z and D 69.
 
+## 189. D57 validated: DAX close momentum faded to zero in 2023–26 (S6–S8)
+
+**One trial spent: t00839. N 832 → 833.** 369 strong days, 2023-01 → 2026-08: net +0.01 bps (t +0.01); placebo
+75th percentile; positive in 2 of 4 years. WATCHLIST only because the mean is a hair above zero. Family 16 holds nothing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

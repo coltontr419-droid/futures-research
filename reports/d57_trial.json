@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D57",
+ "cell": "DAX last 30 minutes follow the window so far (strong days)",
+ "days": 369,
+ "net_bps": 0.011670961216843233,
+ "t_net": 0.011603018521494169,
+ "placebo_pct": 74.6,
+ "posterior": 0.5035896194291747,
+ "by_year": {
+  "2023": -1.64578616971045,
+  "2024": 1.6047492255919236,
+  "2025": -0.643646701974297,
+  "2026": 0.23580086355544444
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D57",
+  "n_events": 369,
+  "sought_bps": 1.1759757456099051,
+  "mean_estimate": 1.1842750473612036,
+  "sd_estimate_bps": 0.989704839686307,
+  "power_strict_t": 0.3545,
+  "recovered": true
+ }
+}
