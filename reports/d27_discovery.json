@@ -1,0 +1,272 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 26,
+ "carried": [
+  {
+   "market": "NQ",
+   "h": 3,
+   "n": 17,
+   "rule": "follow",
+   "net_bps": 180.67338120395655,
+   "t": 2.432628977930437,
+   "carried": true
+  },
+  {
+   "market": "ZS",
+   "h": 1,
+   "n": 103,
+   "rule": "fade",
+   "net_bps": 16.98156062263346,
+   "t": 1.9969314750425287,
+   "carried": true
+  },
+  {
+   "market": "ZW",
+   "h": 1,
+   "n": 67,
+   "rule": "fade",
+   "net_bps": 46.6650394037155,
+   "t": 1.996206740227044,
+   "carried": true
+  }
+ ],
+ "all": [
+  {
+   "market": "NQ",
+   "h": 3,
+   "n": 17,
+   "rule": "follow",
+   "net_bps": 180.67338120395655,
+   "t": 2.432628977930437,
+   "carried": true
+  },
+  {
+   "market": "ZS",
+   "h": 1,
+   "n": 103,
+   "rule": "fade",
+   "net_bps": 16.98156062263346,
+   "t": 1.9969314750425287,
+   "carried": true
+  },
+  {
+   "market": "ZW",
+   "h": 1,
+   "n": 67,
+   "rule": "fade",
+   "net_bps": 46.6650394037155,
+   "t": 1.996206740227044,
+   "carried": true
+  },
+  {
+   "market": "NG",
+   "h": 3,
+   "n": 10,
+   "rule": "follow",
+   "net_bps": 333.7203591478718,
+   "t": 1.7745684892543065,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "h": 3,
+   "n": 25,
+   "rule": "follow",
+   "net_bps": 78.7821746490538,
+   "t": 1.5583800679233384,
+   "carried": false
+  },
+  {
+   "market": "ZS",
+   "h": 3,
+   "n": 62,
+   "rule": "fade",
+   "net_bps": 29.010833134533353,
+   "t": 1.4967236276988234,
+   "carried": false
+  },
+  {
+   "market": "ZW",
+   "h": 3,
+   "n": 49,
+   "rule": "fade",
+   "net_bps": 61.80751417950861,
+   "t": 1.4928869793830288,
+   "carried": false
+  },
+  {
+   "market": "ES",
+   "h": 1,
+   "n": 22,
+   "rule": "follow",
+   "net_bps": 93.9840777368528,
+   "t": 1.3952961097136378,
+   "carried": false
+  },
+  {
+   "market": "6J",
+   "h": 3,
+   "n": 101,
+   "rule": "fade",
+   "net_bps": 13.080497942810545,
+   "t": 1.3582281207430058,
+   "carried": false
+  },
+  {
+   "market": "ZN",
+   "h": 1,
+   "n": 65,
+   "rule": "follow",
+   "net_bps": 4.354940551445284,
+   "t": 1.352289298238076,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "h": 1,
+   "n": 25,
+   "rule": "follow",
+   "net_bps": 21.884390216604515,
+   "t": 1.170982928335506,
+   "carried": false
+  },
+  {
+   "market": "6E",
+   "h": 1,
+   "n": 188,
+   "rule": "fade",
+   "net_bps": 3.539545427448045,
+   "t": 1.1171000685310633,
+   "carried": false
+  },
+  {
+   "market": "6E",
+   "h": 3,
+   "n": 102,
+   "rule": "follow",
+   "net_bps": 7.221479265707738,
+   "t": 1.056620598669974,
+   "carried": false
+  },
+  {
+   "market": "RTY",
+   "h": 1,
+   "n": 13,
+   "rule": "fade",
+   "net_bps": 102.00386832077737,
+   "t": 1.039120062680567,
+   "carried": false
+  },
+  {
+   "market": "ZN",
+   "h": 3,
+   "n": 48,
+   "rule": "follow",
+   "net_bps": 6.922217431674461,
+   "t": 0.9386058744201397,
+   "carried": false
+  },
+  {
+   "market": "ES",
+   "h": 3,
+   "n": 16,
+   "rule": "follow",
+   "net_bps": 84.9303423665154,
+   "t": 0.8016796125701491,
+   "carried": false
+  },
+  {
+   "market": "NQ",
+   "h": 1,
+   "n": 21,
+   "rule": "follow",
+   "net_bps": 39.28369786941238,
+   "t": 0.6767455731034219,
+   "carried": false
+  },
+  {
+   "market": "ZC",
+   "h": 3,
+   "n": 53,
+   "rule": "follow",
+   "net_bps": 15.773357521540685,
+   "t": 0.6100589580480702,
+   "carried": false
+  },
+  {
+   "market": "RTY",
+   "h": 3,
+   "n": 10,
+   "rule": "follow",
+   "net_bps": 52.372860741829,
+   "t": 0.46581689463322484,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "h": 3,
+   "n": 30,
+   "rule": "fade",
+   "net_bps": 9.118079845933968,
+   "t": 0.4334947440943031,
+   "carried": false
+  },
+  {
+   "market": "NG",
+   "h": 1,
+   "n": 12,
+   "rule": "fade",
+   "net_bps": 70.5421186280006,
+   "t": 0.3267826734700733,
+   "carried": false
+  },
+  {
+   "market": "ZC",
+   "h": 1,
+   "n": 65,
+   "rule": "fade",
+   "net_bps": 3.8903383063457073,
+   "t": 0.2094380758065223,
+   "carried": false
+  },
+  {
+   "market": "6J",
+   "h": 1,
+   "n": 186,
+   "rule": "follow",
+   "net_bps": 0.3905438261808716,
+   "t": 0.09131143203174134,
+   "carried": false
+  },
+  {
+   "market": "SI",
+   "h": 3,
+   "n": 25,
+   "rule": "follow",
+   "net_bps": 3.320748517066688,
+   "t": 0.07630960473107243,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "h": 1,
+   "n": 40,
+   "rule": "fade",
+   "net_bps": 0.2891985475932913,
+   "t": 0.020900519214582677,
+   "carried": false
+  },
+  {
+   "market": "SI",
+   "h": 1,
+   "n": 25,
+   "rule": "follow",
+   "net_bps": 0.15891769253076973,
+   "t": 0.011722289574232856,
+   "carried": false
+  }
+ ]
+}

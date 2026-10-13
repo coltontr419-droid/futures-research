@@ -9170,3 +9170,132 @@
       decisions.md 215, 2: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 90.
   s6_control: By year; non-shock days.
+- id: D79
+  name: nq_follows_volume_shock_next_3
+  mechanism: >
+    DATA-DERIVED (D-series family 27, volume shocks, decisions.md 218-219): in 2018-2022, after a NQ session with volume above
+    2x its previous 60-session mean, the next 3 session(s) traded in the direction of that session's move earned +180.67 bps net
+    (t +2.43, n 17). THE COUNTERPARTY would be the heavy-volume session's flow, overshooting or under-reacting. Carried by the scan.
+  condition: >
+    After a volume-shock session: trade NQ's next 3 session(s) in the direction of its move; daily round trips; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d79_injection.json (src/futuresres/signals/d_volume.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 113
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-27 scan (26 tests, decisions.md 218). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions and volume. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+90.34 bps, 90.34) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3 via 218: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock sessions, positive in >= 3 of 4
+      years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 91.
+  s6_control: By year; non-shock sessions.
+- id: D80
+  name: zs_fades_volume_shock_next_1
+  mechanism: >
+    DATA-DERIVED (D-series family 27, volume shocks, decisions.md 218-219): in 2018-2022, after a ZS session with volume above
+    2x its previous 60-session mean, the next 1 session(s) traded against that session's move earned +16.98 bps net
+    (t +2.00, n 103). THE COUNTERPARTY would be the heavy-volume session's flow, overshooting or under-reacting. Carried by the scan.
+  condition: >
+    After a volume-shock session: trade ZS's next 1 session(s) against its move; daily round trips; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d80_injection.json (src/futuresres/signals/d_volume.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 114
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-27 scan (26 tests, decisions.md 218). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions and volume. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+8.49 bps, 8.49) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3 via 218: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock sessions, positive in >= 3 of 4
+      years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 92.
+  s6_control: By year; non-shock sessions.
+- id: D81
+  name: zw_fades_volume_shock_next_1
+  mechanism: >
+    DATA-DERIVED (D-series family 27, volume shocks, decisions.md 218-219): in 2018-2022, after a ZW session with volume above
+    2x its previous 60-session mean, the next 1 session(s) traded against that session's move earned +46.67 bps net
+    (t +2.00, n 67). THE COUNTERPARTY would be the heavy-volume session's flow, overshooting or under-reacting. Carried by the scan.
+  condition: >
+    After a volume-shock session: trade ZW's next 1 session(s) against its move; daily round trips; net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d81_injection.json (src/futuresres/signals/d_volume.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 115
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-27 scan (26 tests, decisions.md 218). ONE TRIAL.
+  session: Globex
+  symbols: [ZW]
+  mechanism_instruments:
+    primary: ZW
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions and volume. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+23.33 bps, 23.33) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3 via 218: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock sessions, positive in >= 3 of 4
+      years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 93.
+  s6_control: By year; non-shock sessions.

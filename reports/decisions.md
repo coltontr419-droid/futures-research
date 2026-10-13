@@ -9565,6 +9565,19 @@ not known when the next session is entered — look-ahead. Replaced: a volume sh
 sessions, judged only on information known at the shock session's close; no roll filter (a roll-day spike in Yahoo's continuous
 volume may enter as a false event — it dilutes, it cannot bias the direction rule).
 
+## 219. Family-27 discovery: three volume-shock tests (≈1.3 by chance); D79–D81 registered (S1–S5)
+
+**No trial spent at registration; N 854. Committed BEFORE validation data is read.** `reporting/d27_volume.py`,
+`reports/d27_discovery.json`; `signals/d_volume.py`. 26 tests (two markets lacked enough shocks), 2018–22; 3 carried:
+
+| id | market | horizon | rule | events | discovery net |
+|---|---|---|---|---|---|
+| D79 | NQ | next 3 | follow | 17 | +180.67, t +2.43 |
+| D80 | ZS | next 1 | fade | 103 | +16.98, t +2.00 |
+| D81 | ZW | next 1 | fade | 67 | +46.67, t +2.00 |
+
+NQ rests on 17 events (2020 dominates). Z and D market-tests 91–93.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1024,3 +1024,15 @@ Data-derived (D-series family 26). `hypotheses.yaml` (D77) · `decisions.md` §2
 
 Data-derived (D-series family 26). `hypotheses.yaml` (D78) · `decisions.md` §216
 
+## D79 — NQ Follows a Volume Shock (next 3)
+
+Data-derived (D-series family 27). `hypotheses.yaml` (D79) · `decisions.md` §219
+
+## D80 — ZS Fades a Volume Shock (next 1)
+
+Data-derived (D-series family 27). `hypotheses.yaml` (D80) · `decisions.md` §219
+
+## D81 — ZW Fades a Volume Shock (next 1)
+
+Data-derived (D-series family 27). `hypotheses.yaml` (D81) · `decisions.md` §219
+
