@@ -6264,15 +6264,28 @@
     runs from Friday's close, so it includes the weekend gap the plan (entering Sunday 18:00) does not hold. Carried by the scan.
   condition: >
     On Mondays, trade the plan's crude (MCL) bracket SHORT instead of long; owned GLBX daily bars, roll-correct.
-  horizon_minutes: [1375]
+  horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00810 (decisions.md 157), WATCHLIST on sealed 2018-2026 (formally - net of an ordinary day > 0): 431 Mondays; short-Monday +4.10 bps vs an ordinary day (t +0.28); vs always-long t -0.40; does not beat the other weekdays; 2018-20 +21.42, 2021-26 -5.14. Fails (a), (b), (d); the discovery's -23.4 bps did not recur.
   outcome_injection_required: Before the run - reports/d28_injection.json (src/futuresres/signals/d_calendar.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_calendar.py
+    injected_bps: 11.716
+    sought_bps: 11.716
+    n_injection: 431
+    n_run: 431
+    recovered: true
+    report: reports/d28_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 62
+  test_order: null
+  registered_test_order: 62
   grade: C
   tier: C
   param_cap: 0

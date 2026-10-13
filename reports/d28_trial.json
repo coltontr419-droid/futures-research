@@ -1,0 +1,43 @@
+{
+ "hypothesis": "D28",
+ "cell": "MCL Mon short",
+ "days": 431,
+ "bps_vs_ordinary_day": 4.100029594551717,
+ "t": 0.28319586251551226,
+ "t_a": -0.39834642075638144,
+ "other_weekdays": {
+  "Tue": 15.849133751891213,
+  "Wed": -3.2846376439456906,
+  "Thu": -16.11043674694336,
+  "Fri": -1.134226488250758
+ },
+ "posterior": 8.70224218017658,
+ "eras": {
+  "2018-20": {
+   "days": 150,
+   "bps": 21.41719397622582,
+   "t": 0.7571769199677522
+  },
+  "2021-26": {
+   "days": 281,
+   "bps": -5.144008331608841,
+   "t": -0.3156526808052792
+  }
+ },
+ "conditions": {
+  "a": false,
+  "b_beats_other_weekdays": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "WATCHLIST",
+ "injection": {
+  "hypothesis": "D28",
+  "n_events": 431,
+  "sought_bps": 11.716241224237601,
+  "mean_estimate": 11.443764773685533,
+  "sd_estimate_bps": 12.94084953326491,
+  "power_strict_t": 0.222,
+  "recovered": true
+ }
+}

@@ -8632,6 +8632,14 @@ windows** (the scan found fewer passes than chance).
 crude bar dated Monday runs from Friday's close (`data/daily_bars.py`: Sunday bars dropped), so it includes the weekend gap that the
 plan, entering Sunday 18:00, does not hold — a Monday effect here may not be tradable even if real. D28 registered (Z and D test 40).
 
+## 157. D28 validated: crude's Monday weakness did not recur — the calendar family closes empty (S6–S8)
+
+**One trial spent: t00810. N 803 → 804.** 431 Mondays, 2018-01 → 2026-08: short-Monday +4.10 bps against an
+ordinary day (t +0.28); against always-long t -0.40; Monday does not beat the other weekdays (Tue +15.8, Wed −3.3,
+Thu −16.1, Fri −1.1); 2018–20 +21.42, **2021–26 -5.14**. Fails (a), (b) and (d); WATCHLIST only in
+form (the pooled mean is above zero). The discovery's −23.4 bps (t −2.33) was the scan's chance pass; family 5 found nothing.
+Z and D market-tests: 40.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
