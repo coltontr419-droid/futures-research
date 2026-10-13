@@ -10317,6 +10317,17 @@ on gotobi days, **+1.70 bps**, t +2.69, n 359; the same window on other days +0.
 before validation: ~1.7 bps on 6J's ~$85,000 is ~$14 a contract, ~70 times a year — a D32-sized edge; it would not carry an account.
 Z and D market-test 116.
 
+## 312. D104 validated (t00886): WATCHLIST — the gotobi reversal replicated in size, failing only on years (S1)
+
+**N 880.** Sealed 2023-01 → 2026-08, 249 gotobi days, injection recovered first (power 22%): net **+1.78 bps**
+(t +1.74 > 1.645 ✓); placebo (non-gotobi days, same window, -1.64) **100th** pct ✓;
+years **2 of 4** ✗ (2023 −1.08, 2024 +3.80, 2025 +3.41, 2026 −0.32, eight months). The size matched discovery (+1.70) and the
+gotobi-specific difference is ~3.4 bps — the most robust replication in the D-series since D68 — but under §119 it is WATCHLIST.
+
+**Usability, regardless of tier:** ~$15 a 6J contract per trade, ~70 trades a year (~$1,000 a contract a year); 6J is not one of the
+plan's products, and a standalone 50K evaluation ($3,000 target) would take years. Forward-tracked on the watchlist (§133): the next
+gotobi days' 09:55 → 12:00 6J moves can be logged at no cost. Not deployed. Z and D market-test 116.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

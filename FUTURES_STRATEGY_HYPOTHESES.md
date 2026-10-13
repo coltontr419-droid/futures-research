@@ -1125,6 +1125,6 @@ Data-derived (D-series family 57). `hypotheses.yaml` (D102) · `decisions.md` §
 
 Data-derived (D-series family 63). `hypotheses.yaml` (D103) · `decisions.md` §304
 
-## D104 — Yen Recovers After Gotobi Fix  *(registered)*
+## D104 — Yen Recovers After Gotobi Fix  *(WATCHLIST — t00886)*
 
 Data-derived (D-series family 66). `hypotheses.yaml` (D104) · `decisions.md` §311

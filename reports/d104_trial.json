@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D104",
+ "cell": "the yen recovers after the gotobi Tokyo fix",
+ "trades": 249,
+ "net_bps": 1.7762562608817722,
+ "t_net": 1.7442419218643122,
+ "placebo_pct": 100.0,
+ "non_gotobi_net": -1.6417158316593246,
+ "by_year": {
+  "2023": -1.0814133059056452,
+  "2024": 3.801531884186182,
+  "2025": 3.410976806408083,
+  "2026": -0.3202553818042504
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 116,
+ "injection": {
+  "hypothesis": "D104",
+  "n_events": 249,
+  "sought_bps": 0.8480036441569465,
+  "mean_estimate": 0.9135160383808738,
+  "sd_estimate_bps": 0.9797604201918592,
+  "power_strict_t": 0.224,
+  "recovered": true
+ }
+}

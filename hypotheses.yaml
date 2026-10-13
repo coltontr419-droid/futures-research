@@ -10596,12 +10596,25 @@
   horizon_minutes: [125]
   hold_hours: [2.0, 2.1]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00886 (decisions.md 312), WATCHLIST on sealed 2023-2026: 249 gotobi days; net +1.78 bps (t +1.74); placebo 100th pct; years 2 of 4 (fails c only).
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_gotobi.py
+    injected_bps: 0.848
+    sought_bps: 0.848
+    n_injection: 249
+    n_run: 249
+    recovered: true
+    report: reports/d104_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 138
+  test_order: null
+  registered_test_order: 138
   grade: C
   tier: C
   param_cap: 0
