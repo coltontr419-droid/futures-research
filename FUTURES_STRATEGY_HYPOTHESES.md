@@ -1108,3 +1108,7 @@ Data-derived (D-series family 41). `hypotheses.yaml` (D98) · `decisions.md` §2
 ## D99 — Chf Fades Strong Move Into Fix  *(WATCHLIST — t00881)*
 
 Data-derived (D-series family 41). `hypotheses.yaml` (D99) · `decisions.md` §253
+
+## D100 — Mnq Afternoon Follows Morning Unless Trending  *(registered)*
+
+Data-derived (D-series family 49). `hypotheses.yaml` (D100) · `decisions.md` §272

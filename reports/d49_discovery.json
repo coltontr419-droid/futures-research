@@ -1,0 +1,35 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 2,
+ "all": [
+  {
+   "market": "MNQ",
+   "n": 1270,
+   "rule": "inverse",
+   "net_bps": 4.6271492815393165,
+   "t": 2.10712935796066,
+   "carried": true
+  },
+  {
+   "market": "MGC",
+   "n": 1219,
+   "rule": "as stated",
+   "net_bps": -0.5860931579552299,
+   "t": -0.3724258703496303,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "market": "MNQ",
+   "n": 1270,
+   "rule": "inverse",
+   "net_bps": 4.6271492815393165,
+   "t": 2.10712935796066,
+   "carried": true
+  }
+ ]
+}

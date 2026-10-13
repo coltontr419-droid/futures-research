@@ -101,7 +101,8 @@ def test_ids_are_unique_and_well_formed() -> None:
     # deliberately when a letter is opened, not loosened to whatever happens to be present: an id
     # that matches nothing is a typo, and an id matching a letter nobody declared is worse.
     # W: the daily-horizon series, its first registration 2026-10-03 (decisions.md 72-73).
-    assert all(re.fullmatch(r"[DFLNPUVWZ]\d\d", i) for i in ids), ids
+    # Three digits allowed from D100 (2026-10-13, decisions.md 272): the D-series outgrew two.
+    assert all(re.fullmatch(r"[DFLNPUVWZ]\d\d\d?", i) for i in ids), ids
 
 
 @pytest.mark.integrity
@@ -351,7 +352,7 @@ def test_every_registry_entry_appears_in_the_catalog() -> None:
 
 @pytest.mark.integrity
 def test_every_catalog_entry_appears_in_the_registry() -> None:
-    found = set(re.findall(r"^#+ ([DFLNPUVWZ]\d\d) — ", CATALOG_TEXT, re.M))
+    found = set(re.findall(r"^#+ ([DFLNPUVWZ]\d\d\d?) — ", CATALOG_TEXT, re.M))
     assert found == set(REG), (
         f"catalog and registry disagree: only in catalog {sorted(found - set(REG))}, "
         f"only in registry {sorted(set(REG) - found)}"

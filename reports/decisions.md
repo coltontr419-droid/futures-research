@@ -10022,6 +10022,19 @@ previous 20 sessions (same contract within each return). Rule: trade the afterno
 direction of the whole rule is fixed by discovery as usual. **2 markets = 2 tests.** Costs §180; recent-period design; carried at
 net > 0, t > 1.96; validation as §207, 3.
 
+## 272. Family-49 discovery: 1 of 2 carried — MNQ's afternoon follows the morning unless the weeks have trended; D100 registered (S1)
+
+**No trial spent yet; N 875.** `reports/d49_discovery.json` (module `reporting/d49_vr.py`). MNQ: the rule's INVERSE carried —
+afternoon in sign(morning) × −sign(VR − 1): +4.63 bps a session net, t +2.11, n 1270. Gold −0.6 (t −0.37).
+
+**Read honestly.** VR < 1 on 90% of sessions, so the rule is mostly "follow the morning" — family 47's near-miss (+4.0, t +1.81) —
+with a fade after trending weeks. It shares its data with family 47; the validation reports always-follow beside it so the regime
+part's own contribution is visible. **Placebo (fixed now):** the same rule with the VR series rolled by a random 60+ sessions, 1000
+draws. Registry ids widened to three digits (tests/test_registry_consistency.py) — the D-series reached D100. Z and D market-test 112.
+
+**Scale, before validation.** +4.6 bps on MNQ (~$40,000 notional) is ~$18 a contract a session; at the plan's 4 contracts ~$75 a
+session, ~$6,000 over an 84-session account — the first discovery cell large enough to matter to an account if it held.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

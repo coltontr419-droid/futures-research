@@ -10352,3 +10352,48 @@
       15:30 predicting 15:30 -> 16:00, random days), positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D
       market-test 111.
   s6_control: By year; the window-shifted placebo.
+- id: D100
+  name: mnq_afternoon_follows_morning_unless_trending
+  mechanism: >
+    DATA-DERIVED (D-series family 49, the regime-adaptive morning rule, decisions.md 271-272): in 2018-2022, MNQ's afternoon
+    (13:00 -> 16:00) traded in sign(09:30 -> 12:00 move) x -sign(VR - 1) - follow the morning after mean-reverting weeks (VR < 1,
+    90% of sessions), fade it after trending weeks - earned +4.63 bps a session net (t +2.11, n 1270).
+    THE COUNTERPARTY would be afternoon liquidity providers leaning against a morning trend that institutional execution continues.
+  condition: >
+    Each MNQ day session: VR = the previous 20 sessions' mean of var(30-min) / (6 x var(5-min)) within-session log returns; at 13:00
+    take MNQ in sign(09:30 -> 12:00) x -sign(VR - 1); exit 16:00; net of 0.5 bps.
+  horizon_minutes: [180]
+  hold_hours: [3.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 134
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-49 scan (2 tests, decisions.md 271). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 272: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule with the VR series rolled by a
+      random 60+ sessions, 1000 draws), positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 112.
+  s6_control: By year; the rolled-regime placebo; always-follow (family 47) reported alongside.
