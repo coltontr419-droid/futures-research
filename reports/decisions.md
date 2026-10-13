@@ -10458,6 +10458,13 @@ close, 16:00 ET; family-10 outlier filter): **SMH** (semiconductors), **XLF** (b
 London window (family-8 grids), follow or fade fixed by discovery. **6 × 2 = 12 tests** (~0.6 by chance), with the descriptive 2010–17
 column (§306). Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 332. Family-76 discovery: 1 of 12 carried — MNQ fades a bank-stock shock; D105 registered (S1)
+
+**No trial spent yet; N 880.** `reports/d76_discovery.json` (module `reporting/d76_etf.py`): **D105** MNQ fades an XLF shock,
+**+55.20 bps**, t +2.33, n 69; 2010–17 +9.01 (t +0.69) — same sign, weak. Next: MNQ fades a
+semiconductor shock +35.3 (t +1.74; 2010–17 +23.2, t +2.18); MNQ follows a TLT shock +31.1 (t +1.64 — D68's direction). Z and D
+market-test 117.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

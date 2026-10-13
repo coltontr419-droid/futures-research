@@ -1,0 +1,154 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 12,
+ "all": [
+  {
+   "predictor": "XLF",
+   "target": "MNQ",
+   "n": 69,
+   "rule": "fade",
+   "net_bps": 55.20375475676163,
+   "t": 2.334204611900686,
+   "early_net": 9.007369029216278,
+   "early_t": 0.6884971811292334,
+   "carried": true
+  },
+  {
+   "predictor": "SMH",
+   "target": "MNQ",
+   "n": 71,
+   "rule": "fade",
+   "net_bps": 35.26204007108446,
+   "t": 1.7421654672400633,
+   "early_net": 23.185899904796056,
+   "early_t": 2.176543816103019,
+   "carried": false
+  },
+  {
+   "predictor": "TLT",
+   "target": "MNQ",
+   "n": 73,
+   "rule": "follow",
+   "net_bps": 31.076042580277953,
+   "t": 1.6440266254945954,
+   "early_net": 2.6946453564408896,
+   "early_t": 0.20018869243291623,
+   "carried": false
+  },
+  {
+   "predictor": "TLT",
+   "target": "MGC",
+   "n": 78,
+   "rule": "follow",
+   "net_bps": 16.39760638016921,
+   "t": 1.3852322864380637,
+   "early_net": 20.78970574409731,
+   "early_t": 2.094286811019991,
+   "carried": false
+  },
+  {
+   "predictor": "XLE",
+   "target": "MGC",
+   "n": 83,
+   "rule": "fade",
+   "net_bps": 9.846998462906805,
+   "t": 1.1741574335514657,
+   "early_net": 2.8601144960611173,
+   "early_t": 0.32577815401384186,
+   "carried": false
+  },
+  {
+   "predictor": "FXI",
+   "target": "MGC",
+   "n": 74,
+   "rule": "fade",
+   "net_bps": 11.828371522233294,
+   "t": 1.0940936461456208,
+   "early_net": 0.4201721739060752,
+   "early_t": 0.043937554148697724,
+   "carried": false
+  },
+  {
+   "predictor": "SMH",
+   "target": "MGC",
+   "n": 71,
+   "rule": "fade",
+   "net_bps": 10.697114477023273,
+   "t": 0.981646579184888,
+   "early_net": -4.439843555597158,
+   "early_t": -0.5311373614011402,
+   "carried": false
+  },
+  {
+   "predictor": "EEM",
+   "target": "MNQ",
+   "n": 72,
+   "rule": "fade",
+   "net_bps": 17.733913501103718,
+   "t": 0.8957570552706717,
+   "early_net": 21.66630426529915,
+   "early_t": 1.678628857051322,
+   "carried": false
+  },
+  {
+   "predictor": "XLF",
+   "target": "MGC",
+   "n": 73,
+   "rule": "fade",
+   "net_bps": 11.550858283369504,
+   "t": 0.8783845463319218,
+   "early_net": -1.6053398825905596,
+   "early_t": -0.1708283057335945,
+   "carried": false
+  },
+  {
+   "predictor": "FXI",
+   "target": "MNQ",
+   "n": 73,
+   "rule": "fade",
+   "net_bps": 16.818252223811736,
+   "t": 0.8714714654569019,
+   "early_net": 6.211085788787357,
+   "early_t": 0.48841233391520394,
+   "carried": false
+  },
+  {
+   "predictor": "XLE",
+   "target": "MNQ",
+   "n": 81,
+   "rule": "fade",
+   "net_bps": 14.723747559535651,
+   "t": 0.7585736193475754,
+   "early_net": 6.998509575338924,
+   "early_t": 0.6659537703798687,
+   "carried": false
+  },
+  {
+   "predictor": "EEM",
+   "target": "MGC",
+   "n": 75,
+   "rule": "fade",
+   "net_bps": 4.578349469502763,
+   "t": 0.3743311259656207,
+   "early_net": -22.272939163446427,
+   "early_t": -2.394213675135758,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "predictor": "XLF",
+   "target": "MNQ",
+   "n": 69,
+   "rule": "fade",
+   "net_bps": 55.20375475676163,
+   "t": 2.334204611900686,
+   "early_net": 9.007369029216278,
+   "early_t": 0.6884971811292334,
+   "carried": true
+  }
+ ]
+}

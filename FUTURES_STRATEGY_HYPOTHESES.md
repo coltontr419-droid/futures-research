@@ -1128,3 +1128,7 @@ Data-derived (D-series family 63). `hypotheses.yaml` (D103) · `decisions.md` §
 ## D104 — Yen Recovers After Gotobi Fix  *(WATCHLIST — t00886)*
 
 Data-derived (D-series family 66). `hypotheses.yaml` (D104) · `decisions.md` §311
+
+## D105 — Mnq Fades Bank Shock  *(registered)*
+
+Data-derived (D-series family 76). `hypotheses.yaml` (D105) · `decisions.md` §332
