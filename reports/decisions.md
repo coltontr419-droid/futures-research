@@ -9487,6 +9487,20 @@ windows. Recent-period design (§180): discovery 2018-01 → 2022-12; validation
    (b) placebo: the same rule after random non-shock days, 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years. CONFIRM if
    all; WATCHLIST if net > 0; REJECT. Z and D market-tests from 84.
 
+## 213. Family-25 discovery: three shock-into-window tests (≈1.2 by chance); D72–D74 registered (S1–S5)
+
+**No trial spent at registration; N 847. Committed BEFORE validation data is read.** `reporting/d25_shockwin.py`,
+`reports/d25_discovery.json`; `signals/d_shockwin.py`. 24 tests on 2018-01 → 2022-12; 3 carried:
+
+| id | shock | window | rule | trades | discovery net | prior |
+|---|---|---|---|---|---|---|
+| D72 | ZN shock | MGC_win | follow | 80 | +21.82, t +2.32 | N(+10.91, 10.91) |
+| D73 | 6E shock | MGC_win | follow | 64 | +23.25, t +2.24 | N(+11.62, 11.62) |
+| D74 | 6E shock | DAX_win | fade | 68 | +31.67, t +2.01 | N(+15.83, 15.83) |
+
+Next: DAX following a ZN shock (+25.7, t +1.93), Nikkei following a ZN shock (+14.9, t +1.57) — bond shocks lead most of the list,
+as in family 24. Z and D market-tests 84–86.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

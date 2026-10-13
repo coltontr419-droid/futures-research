@@ -1,0 +1,254 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 24,
+ "carried": [
+  {
+   "shock": "ZN",
+   "target": "MGC_win",
+   "n": 80,
+   "rule": "follow",
+   "net_bps": 21.822762959655094,
+   "t": 2.319412108357382,
+   "carried": true
+  },
+  {
+   "shock": "6E",
+   "target": "MGC_win",
+   "n": 64,
+   "rule": "follow",
+   "net_bps": 23.24651896325272,
+   "t": 2.241232019405416,
+   "carried": true
+  },
+  {
+   "shock": "6E",
+   "target": "DAX_win",
+   "n": 68,
+   "rule": "fade",
+   "net_bps": 31.668904989892226,
+   "t": 2.010106903026762,
+   "carried": true
+  }
+ ],
+ "all": [
+  {
+   "shock": "ZN",
+   "target": "MGC_win",
+   "n": 80,
+   "rule": "follow",
+   "net_bps": 21.822762959655094,
+   "t": 2.319412108357382,
+   "carried": true
+  },
+  {
+   "shock": "6E",
+   "target": "MGC_win",
+   "n": 64,
+   "rule": "follow",
+   "net_bps": 23.24651896325272,
+   "t": 2.241232019405416,
+   "carried": true
+  },
+  {
+   "shock": "6E",
+   "target": "DAX_win",
+   "n": 68,
+   "rule": "fade",
+   "net_bps": 31.668904989892226,
+   "t": 2.010106903026762,
+   "carried": true
+  },
+  {
+   "shock": "ZN",
+   "target": "DAX_win",
+   "n": 83,
+   "rule": "follow",
+   "net_bps": 25.687747819230797,
+   "t": 1.9294720927289402,
+   "carried": false
+  },
+  {
+   "shock": "ZN",
+   "target": "NKD_win",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 14.935805344464253,
+   "t": 1.565422972013979,
+   "carried": false
+  },
+  {
+   "shock": "GC",
+   "target": "DAX_win",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 16.518120975327303,
+   "t": 1.2268895487585085,
+   "carried": false
+  },
+  {
+   "shock": "ES",
+   "target": "MNQ_win",
+   "n": 87,
+   "rule": "fade",
+   "net_bps": 18.100401497539924,
+   "t": 1.0849243697854203,
+   "carried": false
+  },
+  {
+   "shock": "GC",
+   "target": "NKD_win",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 13.219760147439763,
+   "t": 1.0729358652958763,
+   "carried": false
+  },
+  {
+   "shock": "ES",
+   "target": "DAX_win",
+   "n": 90,
+   "rule": "fade",
+   "net_bps": 13.834273213259179,
+   "t": 1.0596607633737622,
+   "carried": false
+  },
+  {
+   "shock": "6E",
+   "target": "ZS",
+   "n": 66,
+   "rule": "follow",
+   "net_bps": 20.289830686972035,
+   "t": 1.0560241008127893,
+   "carried": false
+  },
+  {
+   "shock": "CL",
+   "target": "NKD_win",
+   "n": 76,
+   "rule": "fade",
+   "net_bps": 11.790751861935211,
+   "t": 0.9582762701335955,
+   "carried": false
+  },
+  {
+   "shock": "ES",
+   "target": "NKD_win",
+   "n": 90,
+   "rule": "fade",
+   "net_bps": 11.542836715487653,
+   "t": 0.9578285110579348,
+   "carried": false
+  },
+  {
+   "shock": "6E",
+   "target": "MNQ_win",
+   "n": 63,
+   "rule": "follow",
+   "net_bps": 19.92560521332857,
+   "t": 0.9418794986608054,
+   "carried": false
+  },
+  {
+   "shock": "CL",
+   "target": "MGC_win",
+   "n": 76,
+   "rule": "fade",
+   "net_bps": 7.924062951905732,
+   "t": 0.7910261865385227,
+   "carried": false
+  },
+  {
+   "shock": "GC",
+   "target": "MNQ_win",
+   "n": 84,
+   "rule": "follow",
+   "net_bps": 11.024383591337282,
+   "t": 0.7552333456863974,
+   "carried": false
+  },
+  {
+   "shock": "CL",
+   "target": "DAX_win",
+   "n": 77,
+   "rule": "follow",
+   "net_bps": 9.678995291171129,
+   "t": 0.6666504620555277,
+   "carried": false
+  },
+  {
+   "shock": "ZN",
+   "target": "ZS",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 9.377617330476617,
+   "t": 0.6007812539303972,
+   "carried": false
+  },
+  {
+   "shock": "GC",
+   "target": "ZS",
+   "n": 87,
+   "rule": "fade",
+   "net_bps": 7.906188711739873,
+   "t": 0.5952508377733797,
+   "carried": false
+  },
+  {
+   "shock": "CL",
+   "target": "ZS",
+   "n": 75,
+   "rule": "fade",
+   "net_bps": 6.902929783978305,
+   "t": 0.5161597548905841,
+   "carried": false
+  },
+  {
+   "shock": "6E",
+   "target": "NKD_win",
+   "n": 68,
+   "rule": "follow",
+   "net_bps": 6.80538042217709,
+   "t": 0.48586241412212533,
+   "carried": false
+  },
+  {
+   "shock": "ES",
+   "target": "ZS",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 4.743821995649655,
+   "t": 0.44432554368637817,
+   "carried": false
+  },
+  {
+   "shock": "ES",
+   "target": "MGC_win",
+   "n": 87,
+   "rule": "fade",
+   "net_bps": 4.085534456111018,
+   "t": 0.39060020328156936,
+   "carried": false
+  },
+  {
+   "shock": "GC",
+   "target": "MGC_win",
+   "n": 88,
+   "rule": "fade",
+   "net_bps": 1.1243149847075877,
+   "t": 0.12592252555746214,
+   "carried": false
+  },
+  {
+   "shock": "CL",
+   "target": "MNQ_win",
+   "n": 73,
+   "rule": "follow",
+   "net_bps": -0.1768602177219322,
+   "t": -0.008046647737127073,
+   "carried": false
+  }
+ ]
+}

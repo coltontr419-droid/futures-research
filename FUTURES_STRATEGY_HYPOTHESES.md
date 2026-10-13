@@ -996,3 +996,15 @@ Data-derived (D-series family 24). `hypotheses.yaml` (D70) · `decisions.md` §2
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D71) · `decisions.md` §208
 
+## D72 — MGC_win Follows a ZN Shock
+
+Data-derived (D-series family 25). `hypotheses.yaml` (D72) · `decisions.md` §213
+
+## D73 — MGC_win Follows a 6E Shock
+
+Data-derived (D-series family 25). `hypotheses.yaml` (D73) · `decisions.md` §213
+
+## D74 — DAX_win Fades a 6E Shock
+
+Data-derived (D-series family 25). `hypotheses.yaml` (D74) · `decisions.md` §213
+
