@@ -9334,6 +9334,28 @@ next contract) pay longs a hedging premium; the owned daily file measures each m
    sign from a random other day, 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years; CONFIRM if all; WATCHLIST if net >
    0; REJECT. Z and D market-tests from 76.
 
+## 202. Family-21 discovery: carry sets no direction on 2018–22 — 0 of 12 carried (S1)
+
+**No trial spent; N 839.** `reports/d21_discovery.json`: best 6E (strong carry, short euro) +1.79 bps net (t +0.95); gold and copper
+negative; crude +2.90 (t +0.31). Family 21 is empty.
+
+## 203. D-series family 22 protocol: gap-fill brackets at the window open (S1)
+
+**No trial spent; N 839. Written and committed BEFORE any gap statistic is computed.** A path effect in the plan's own terms. At a
+window's open, the gap g = the open minus the previous window's close. A bracket toward the fill — take at the previous close
+(distance |g|), stop at s·|g| beyond the open, else out at the window's end — has zero expected gross under a fair martingale; if
+gaps fill more often than the geometry implies, it earns. U01 (large opening gap NON-fill, blocked before running) is the mirror
+claim; the fill was never measured here. Recent-period design (§180).
+
+1. **Windows (family-8 grids, owned trades, minute closes, contract-consistent):** MNQ day 09:30–16:00 with the previous 16:00
+   close; MGC London 03:00–11:30 with the previous 11:30 close.
+2. **Tests:** gap threshold |g| > {0.25, 0.5, 1.0} × σ_g (σ_g = SD of the previous 60 gaps) × stop multiple s ∈ {0.5, 1, 2}:
+   **2 × 3 × 3 = 18 tests**; ~0.9 by chance. Net of a round trip (MNQ 0.56, MGC 1.0 bps). A stop touched and the take touched in the
+   same minute counts as the stop (as all replays). **Carried:** net > 0 with t > 1.96.
+3. **Validation (one trial each), sealed 2023-01 → 2026-08:** (a) net > 0 against not trading t > 1.645; (b) placebo: the same bracket
+   in the gap's OWN direction (a breakout of equal geometry) must do worse — real minus placebo > 0 with t > 1.645; (c) positive in
+   ≥ 3 of the 4 years. CONFIRM if all; WATCHLIST if net > 0; REJECT. Z and D market-tests from 76.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

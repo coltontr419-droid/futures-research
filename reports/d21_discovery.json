@@ -1,0 +1,129 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "NQ",
+   "form": "all",
+   "median_abs_carry": 0.010030061263738219,
+   "n": 1272,
+   "net_bps": 1.3761800770921324,
+   "t": 0.30829083453827855,
+   "long_share": 0.32547169811320753,
+   "carried": false
+  },
+  {
+   "market": "NQ",
+   "form": "strong",
+   "median_abs_carry": 0.010030061263738219,
+   "n": 636,
+   "net_bps": 1.047258116235597,
+   "t": 0.17154964353495317,
+   "long_share": 0.0330188679245283,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "form": "all",
+   "median_abs_carry": 0.024700598802395213,
+   "n": 1265,
+   "net_bps": -2.4231592638376465,
+   "t": -0.9052871460821361,
+   "long_share": 0.0071146245059288534,
+   "carried": false
+  },
+  {
+   "market": "GC",
+   "form": "strong",
+   "median_abs_carry": 0.024700598802395213,
+   "n": 632,
+   "net_bps": -1.7507878951454103,
+   "t": -0.5017153819977143,
+   "long_share": 0.0,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "form": "all",
+   "median_abs_carry": 0.013310580204778055,
+   "n": 1247,
+   "net_bps": -2.1740936033948564,
+   "t": -0.5395907568822483,
+   "long_share": 0.22133119486768243,
+   "carried": false
+  },
+  {
+   "market": "HG",
+   "form": "strong",
+   "median_abs_carry": 0.013310580204778055,
+   "n": 623,
+   "net_bps": -6.456268500278843,
+   "t": -1.1979628415704386,
+   "long_share": 0.12038523274478331,
+   "carried": false
+  },
+  {
+   "market": "CL",
+   "form": "all",
+   "median_abs_carry": 0.053293856402664194,
+   "n": 1221,
+   "net_bps": 2.8981549335116528,
+   "t": 0.31053242157495403,
+   "long_share": 0.5864045864045864,
+   "carried": false
+  },
+  {
+   "market": "CL",
+   "form": "strong",
+   "median_abs_carry": 0.053293856402664194,
+   "n": 610,
+   "net_bps": -5.535066595565994,
+   "t": -0.33101246507568555,
+   "long_share": 0.6213114754098361,
+   "carried": false
+  },
+  {
+   "market": "ZN",
+   "form": "all",
+   "median_abs_carry": 0.009915492957746479,
+   "n": 1039,
+   "net_bps": -0.5146656282613934,
+   "t": -0.5225989281134586,
+   "long_share": 0.7131857555341675,
+   "carried": false
+  },
+  {
+   "market": "ZN",
+   "form": "strong",
+   "median_abs_carry": 0.009915492957746479,
+   "n": 519,
+   "net_bps": -1.1284663189354807,
+   "t": -0.7716846061698288,
+   "long_share": 0.7649325626204239,
+   "carried": false
+  },
+  {
+   "market": "6E",
+   "form": "all",
+   "median_abs_carry": 0.023912261776339604,
+   "n": 1273,
+   "net_bps": 0.7057927416376486,
+   "t": 0.5533471679440689,
+   "long_share": 0.0,
+   "carried": false
+  },
+  {
+   "market": "6E",
+   "form": "strong",
+   "median_abs_carry": 0.023912261776339604,
+   "n": 636,
+   "net_bps": 1.789947406382919,
+   "t": 0.9544151760459776,
+   "long_share": 0.0,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
