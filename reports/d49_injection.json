@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D49",
+ "n_events": 168,
+ "sought_bps": 7.658952263546958,
+ "mean_estimate": 7.262910634287036,
+ "sd_estimate_bps": 9.385737791725937,
+ "power_strict_t": 0.211,
+ "recovered": true
+}

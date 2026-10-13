@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D51",
+ "n_events": 185,
+ "sought_bps": 13.785202908717029,
+ "mean_estimate": 13.902327533330153,
+ "sd_estimate_bps": 17.565082223619502,
+ "power_strict_t": 0.205,
+ "recovered": true
+}

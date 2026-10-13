@@ -8984,6 +8984,26 @@ times larger than any earlier family (standalone, drift counted, net of cost):
 Each cell rests on ~8 Octobers / Aprils (~20 sessions each); a cell can be one or two big years — the by-year breakdown is part
 of the validation report. Z and D market-tests 58–64.
 
+## 176. D46–D52 validated: no confirmation; long grains in October is the near-miss (S6–S8)
+
+**Seven trials spent: t00828–t00834. N 821 → 828.** Z and D market-tests 58–64. Standalone, net of cost, against not trading:
+
+| id, trial | rule | sessions | net bps a session (t) | placebo pct | 2018–20 / 2021–26 | years positive | tier |
+|---|---|---|---|---|---|---|---|
+| D46 t00828 | ZS long every session in Apr | 187 | +0.46 (t +0.06) | 58 | -13.46 / +7.53 | 5 of 9 | **WATCHLIST** |
+| D47 t00829 | ZS long every session in Oct | 178 | +9.35 (t +1.35) | 92 | +8.90 / +9.63 | 7 of 8 | **WATCHLIST** |
+| D48 t00830 | NG short every session in Oct | 178 | -0.46 (t -0.02) | 40 | -53.68 / +32.43 | 3 of 8 | **REJECT** |
+| D49 t00831 | HG long every session in Dec | 168 | +1.93 (t +0.22) | 52 | +3.10 / +1.25 | 4 of 8 | **WATCHLIST** |
+| D50 t00832 | ZC long every session in Oct | 178 | +13.51 (t +1.64) | 90 | +18.19 / +10.62 | 7 of 8 | **WATCHLIST** |
+| D51 t00833 | CL long every session in Apr | 185 | +0.13 (t +0.00) | 55 | +26.87 / -13.02 | 5 of 9 | **WATCHLIST** |
+| D52 t00834 | HG short every session in Mar | 196 | -6.85 (t -0.65) | 43 | +8.39 / -14.23 | 5 of 9 | **REJECT** |
+
+**D50 — corn long every October session** — is the near-miss: +13.5 bps a session net (t +1.64 against 1.645), positive in 7 of 8
+Octobers, both halves positive (+18.2, +10.6); placebo 90th percentile (needs 95). D47 (soybeans, October) +9.4, 6 of 8 years.
+Both are the harvest-low pattern (grains bottom near harvest and recover). The other cells were driven by a few years (natural
+gas October: −118 to +98 by year; soybeans April and copper December lost their sign after 2021). Watchlist: D46, D47, D49,
+D50, D51. A month-long effect gives ~20 sessions a year — Octobers of 2026–27 are the forward test.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
