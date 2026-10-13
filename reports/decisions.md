@@ -8409,6 +8409,28 @@ the user reads each ticket's take or stop after the fact and records it with `!e
 paper forward test of the plan's brackets: the review's "execution" section checks the user's reading against the shadow
 tracker (it agrees within commission and tick rounding), not real fills; slippage and commissions are untested until live.
 
+## 148. A25: holding payouts back does not help — the plan's "take everything allowed, every day" stays (S8)
+
+**No trial spent; N 787.** `reporting/a25_payout_timing.py`; `reports/a25_book.json`; A23's engine gains a `withdraw` option
+("all" reproduces the live engine: MNQ +$1,265.3 vs +$1,265.5). The funded game chooses, at each day's end, to withdraw none, half
+or all of what the rules allow (above $52,000; $1,250 a payout until the third). Variants fixed before any result, one rule for
+every market: the plan (all, funded horizon 21), choose at 21, 63 and 126 days. Six markets, both histories, 84-day replay.
+
+| five accounts, per four months (mean / P(net > 0) / 10th pct) | 2016–20, crude | 2016–20, soybeans | 2021–26, crude | 2021–26, soybeans |
+|---|---|---|---|---|
+| **plan (take all)** | **+$8,023 / 92% / +$259** | **+$8,907 / 88% / −$752** | **+$9,468 / 93% / +$1,748** | **+$12,499 / 98% / +$3,941** |
+| choose, 21 days | +$8,013 / 92% / +$253 | +$8,874 / 88% / −$673 | +$9,592 / 93% / +$1,719 | +$12,632 / 97% / +$3,970 |
+| choose, 63 days | +$8,540 / 94% / +$2,237 | +$8,398 / 94% / +$1,813 | +$8,151 / 93% / +$1,351 | +$9,869 / 96% / +$2,490 |
+| choose, 126 days | −$2,972 / 0% | −$2,751 / 0% | −$3,139 / 0% | −$2,936 / 0% |
+
+- **At the plan's 21-day horizon the choice changes nothing** (±$130): the solver would hold back only in states the replay rarely
+  reaches.
+- **At 63 days it holds back in ~60–85% of payable states** — better in 2016–20 (mean +$517 / −$509; 10th percentile up ~$2k),
+  worse in 2021–26 (−$1,317 / −$2,630). No consistent sign; adopting it would mean choosing a history.
+- **At 126 days it never withdraws before the cap lifts**, so nothing is paid within four months — the solver plays for
+  uncapped payouts later, which a four-month goal cannot use.
+- **Not adopted.** Taking everything allowed every day remains the plan; with no edge, money in the account is only exposed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

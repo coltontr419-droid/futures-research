@@ -798,6 +798,8 @@ Watchlist: Z12, D04, D05, D08, D09, D10 (none tradable; years to decide). Reject
 **§145 (A23): 100K/150K Daily and Flex lose to five 50K Daily accounts over four months (fees 2–3x, passes later). Stay at 50K.
 50% consistency add-on worth it below ~$12–27 per eval — costs more; not bought (user).**
 **§146 (A24): cost-aware solver (p = (L−c)/(W+L)) and longer horizons — no improvement, not adopted. A23 float bug fixed; §145 stands.**
+**§147: one-command demo review (`a18_demo_check --review`); bot `!eod` day-filing fixed and deployed. Demo is a paper test.**
+**§148 (A25): holding payouts back — no consistent gain at any horizon; take-all stays.**
 
 
 **Latest, 2026-09-13 (after P03):** N = **760**, SR\* **0.1368**. P03 retired at S7 (§58); the

@@ -63,6 +63,7 @@ class Spec:
     cost: float = 0.0                # A24: round trip $ per trade priced into the odds, p = (L - c) / (W + L); 0 = A01's fair coin
     he: int = 21                     # A24: evaluation horizon (days) the policy is solved for
     hf: int = 21                     # A24: funded horizon (days)
+    withdraw: str = "all"            # A25: "all" = take everything allowed each day (the plan); "choose" = none / half / all
 
     @property
     def w_set(self) -> tuple:
@@ -135,33 +136,43 @@ def solve_funded(s: Spec, days: int = 21) -> tuple[np.ndarray, dict, float]:
     floor = np.where(PK >= BUF, 0, PK - s.f_dd)
     valid = (B > floor) & (PK >= np.minimum(np.maximum(B, 0), BUF))
 
-    def settle(bb, won):
-        pk2 = np.minimum(np.maximum(PK, np.clip(bb, 0, None)), BUF)
-        wc2 = np.minimum(WC + won, WD) if WD else WC
-        elig = (wc2 >= WD) if WD else True
-        amt = np.where(elig, np.clip(bb - BUF, 0, None), 0)
-        amt = np.where(N >= L_, amt, np.minimum(amt, s.f_cap))
-        n2 = np.where(amt > 0, np.minimum(N + 1, L_), N)
-        wc3 = np.where(amt > 0, 0, wc2) if WD else WC
-        return bb - amt, pk2, n2, wc3, amt
+    CODES = (2,) if s.withdraw == "all" else (0, 1, 2)          # 0 none, 1 half, 2 all of what may be withdrawn today
 
-    V = np.zeros(shape); act = np.zeros(shape, np.int32)
+    def eod(bb, pkk, wcc, Vn):
+        """End of day after the trade: value of the best withdrawal (and its code) from balance bb, peak pkk (updated),
+        winning-day count wcc, with tomorrow's values Vn."""
+        elig = (wcc >= WD) if WD else True
+        ex = np.where(elig, np.clip(bb - BUF, 0, None), 0)
+        full = np.where(N >= L_, ex, np.minimum(ex, s.f_cap))
+        bestv = np.full(shape, -1.0); code = np.zeros(shape, np.int8)
+        for c_ in CODES:
+            amt = full if c_ == 2 else ((full + 1) // 2 if c_ == 1 else 0 * full)
+            n2 = np.where(amt > 0, np.minimum(N + 1, L_), N)
+            wc3 = np.where(amt > 0, 0, wcc) if WD else WC
+            v = amt * 90.0 + Vn[bb - amt - FMIN, pkk, n2, wc3]
+            better = v > bestv + 1e-12
+            bestv = np.where(better, v, bestv); code = np.where(better, c_, code)
+        return bestv, code
+
+    V = np.zeros(shape); act = np.zeros(shape, np.int32); wpol = np.full(shape, 2, np.int8)
     for t in range(1, days + 1):
         best = np.full(shape, -1.0); act = np.zeros(shape, np.int32)
+        if s.withdraw != "all":                       # today's end-of-day withdrawal rule, on the whole grid
+            _, wpol = eod(B, np.minimum(np.maximum(PK, np.clip(B, 0, None)), BUF), WC, V)
         for W in s.w_set:
             won = int(WD > 0 and W * 100 >= s.flex_thr)
-            bw, pkw, nw, ww, aw = settle(np.minimum(B + W, FMAX), won)
-            rw = aw * 90.0 + V[bw - FMIN, pkw, nw, ww]
+            bw = np.minimum(B + W, FMAX)
+            rw, _ = eod(bw, np.minimum(np.maximum(PK, np.clip(bw, 0, None)), BUF), np.minimum(WC + won, WD) if WD else WC, V)
             for L in s.l_funded:
                 Le = np.minimum(L, np.maximum(B - floor, 1)); p = np.clip(Le - s.cost / 100, 0, None) / (W + Le)
-                bl = B - Le; failL = bl <= floor
-                bl2, pkl, nl, wl, al = settle(np.clip(bl, FMIN, FMAX), 0)
-                rl = np.where(failL, 0.0, al * 90.0 + V[bl2 - FMIN, pkl, nl, wl])
+                bl = np.clip(B - Le, FMIN, FMAX); failL = (B - Le) <= floor
+                rl, _ = eod(bl, np.minimum(np.maximum(PK, np.clip(bl, 0, None)), BUF), WC, V)
+                rl = np.where(failL, 0.0, rl)
                 val = np.where(valid, p * rw + (1 - p) * rl, 0.0)
                 better = val > best + 1e-12
                 best = np.where(better, val, best); act = np.where(better, W * 100 + L, act)
         V = np.where(valid, np.maximum(best, 0.0), 0.0)
-    return act, {"FMIN": FMIN, "FMAX": FMAX, "BUF": BUF, "WD": WD}, float(V[0 - FMIN, 0, 0, 0])
+    return act, {"FMIN": FMIN, "FMAX": FMAX, "BUF": BUF, "WD": WD, "WPOL": wpol}, float(V[0 - FMIN, 0, 0, 0])
 
 
 _POL: dict = {}
@@ -226,6 +237,12 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON) -> d
             elig = np.ones(A, bool)
         amt = np.where(fu & ~br & elig, np.maximum(eq - (START + ddF), 0.0), 0.0)
         amt = np.where(npay >= s.live_after, amt, np.minimum(amt, s.cap_usd or s.f_cap * 100.0))
+        if s.withdraw != "all":                       # A25: the solver's end-of-day choice - none, half or all
+            bb = np.clip(np.rint((eq - START) / 100).astype(int), gf["FMIN"], gf["FMAX"])
+            pkk = np.minimum(np.clip(np.rint((pk - START) / 100).astype(int), 0, gf["BUF"]), gf["BUF"])
+            pkk = np.maximum(pkk, np.clip(bb, 0, gf["BUF"]))
+            code = gf["WPOL"][bb - gf["FMIN"], pkk, np.minimum(npay, s.live_after), np.minimum(wc, gf["WD"])]
+            amt = np.where(code == 2, amt, np.where(code == 1, np.round(amt / 2, 2), 0.0))
         got = amt > 0
         paid += 0.9 * amt; first = np.where(got & (first < 0), d + 1, first)
         eq -= amt; npay += got; wc = np.where(got, 0, wc)

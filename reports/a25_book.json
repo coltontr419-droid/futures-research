@@ -1,0 +1,162 @@
+{
+ "pre": {
+  "MNQ+MGC+MCL+NKD+FDXM": {
+   "common_starts": 689,
+   "plan": {
+    "mean_net": 8022.817082728593,
+    "median_net": 6520.6900000000005,
+    "p_net_positive": 0.9216255442670537,
+    "net_p10": 259.4000000000001,
+    "worst": -5005.6,
+    "mean_fees": 4989.027576197387,
+    "streams_paying": 3.5921625544267055
+   },
+   "choose 21": {
+    "mean_net": 8012.748301886792,
+    "median_net": 6466.34,
+    "p_net_positive": 0.9201741654571843,
+    "net_p10": 252.578,
+    "worst": -5005.6,
+    "mean_fees": 4988.0986937590715,
+    "streams_paying": 3.5283018867924527
+   },
+   "choose 63": {
+    "mean_net": 8539.652177068214,
+    "median_net": 7646.08,
+    "p_net_positive": 0.9390420899854862,
+    "net_p10": 2237.448,
+    "worst": -4925.6,
+    "mean_fees": 4744.034833091437,
+    "streams_paying": 3.5283018867924527
+   },
+   "choose 126": {
+    "mean_net": -2971.7706821480406,
+    "median_net": -2960.0,
+    "p_net_positive": 0.0,
+    "net_p10": -3696.0,
+    "worst": -4400.0,
+    "mean_fees": 2988.098693759071,
+    "streams_paying": 0.02902757619738752
+   }
+  },
+  "MNQ+MGC+ZS+NKD+FDXM": {
+   "common_starts": 724,
+   "plan": {
+    "mean_net": 8907.25455801105,
+    "median_net": 6719.75,
+    "p_net_positive": 0.8784530386740331,
+    "net_p10": -751.7439999999998,
+    "worst": -4595.969999999999,
+    "mean_fees": 4894.03314917127,
+    "streams_paying": 3.6408839779005526
+   },
+   "choose 21": {
+    "mean_net": 8874.210165745857,
+    "median_net": 6719.75,
+    "p_net_positive": 0.8784530386740331,
+    "net_p10": -672.9100000000003,
+    "worst": -4605.6,
+    "mean_fees": 4891.049723756906,
+    "streams_paying": 3.553867403314917
+   },
+   "choose 63": {
+    "mean_net": 8397.515953038674,
+    "median_net": 7777.04,
+    "p_net_positive": 0.93646408839779,
+    "net_p10": 1812.8059999999998,
+    "worst": -4445.6,
+    "mean_fees": 4637.1270718232045,
+    "streams_paying": 3.553867403314917
+   },
+   "choose 126": {
+    "mean_net": -2750.8632596685084,
+    "median_net": -2720.0,
+    "p_net_positive": 0.0,
+    "net_p10": -3440.0,
+    "worst": -4240.0,
+    "mean_fees": 2767.9558011049726,
+    "streams_paying": 0.03038674033149171
+   }
+  }
+ },
+ "post": {
+  "MNQ+MGC+MCL+NKD+FDXM": {
+   "common_starts": 1040,
+   "plan": {
+    "mean_net": 9468.020903846154,
+    "median_net": 8821.17,
+    "p_net_positive": 0.9326923076923077,
+    "net_p10": 1747.569,
+    "worst": -4380.0,
+    "mean_fees": 5394.384615384615,
+    "streams_paying": 3.8182692307692307
+   },
+   "choose 21": {
+    "mean_net": 9592.342307692308,
+    "median_net": 8832.17,
+    "p_net_positive": 0.9326923076923077,
+    "net_p10": 1718.67,
+    "worst": -4380.0,
+    "mean_fees": 5389.923076923077,
+    "streams_paying": 3.8173076923076925
+   },
+   "choose 63": {
+    "mean_net": 8151.424451923077,
+    "median_net": 8248.41,
+    "p_net_positive": 0.9307692307692308,
+    "net_p10": 1350.6300000000006,
+    "worst": -4234.3099999999995,
+    "mean_fees": 5134.692307692308,
+    "streams_paying": 3.8192307692307694
+   },
+   "choose 126": {
+    "mean_net": -3138.6826923076924,
+    "median_net": -3120.0,
+    "p_net_positive": 0.0,
+    "net_p10": -3920.0,
+    "worst": -5040.0,
+    "mean_fees": 3158.153846153846,
+    "streams_paying": 0.023076923076923078
+   }
+  },
+  "MNQ+MGC+ZS+NKD+FDXM": {
+   "common_starts": 1095,
+   "plan": {
+    "mean_net": 12498.591278538812,
+    "median_net": 11513.33,
+    "p_net_positive": 0.9753424657534246,
+    "net_p10": 3940.8320000000003,
+    "worst": -2919.08,
+    "mean_fees": 5175.37899543379,
+    "streams_paying": 4.0
+   },
+   "choose 21": {
+    "mean_net": 12631.575452054796,
+    "median_net": 11543.05,
+    "p_net_positive": 0.9744292237442922,
+    "net_p10": 3969.818,
+    "worst": -3009.08,
+    "mean_fees": 5170.703196347032,
+    "streams_paying": 3.9990867579908675
+   },
+   "choose 63": {
+    "mean_net": 9868.72076712329,
+    "median_net": 8475.05,
+    "p_net_positive": 0.958904109589041,
+    "net_p10": 2489.524,
+    "worst": -4629.23,
+    "mean_fees": 4923.543378995434,
+    "streams_paying": 4.0009132420091325
+   },
+   "choose 126": {
+    "mean_net": -2936.392694063927,
+    "median_net": -2880.0,
+    "p_net_positive": 0.0,
+    "net_p10": -3840.0,
+    "worst": -5440.0,
+    "mean_fees": 2954.8858447488583,
+    "streams_paying": 0.021917808219178082
+   }
+  }
+ }
+}
