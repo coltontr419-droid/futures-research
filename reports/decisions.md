@@ -10064,6 +10064,19 @@ return, and its last hour (15:00 → 16:00). Target open→close of the night, s
 by discovery; forms **all** and **strong** (above the discovery median). **2 × 2 = 4 tests.** Cost MNQ 0.5 bps; recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 277. Family-51 discovery: MNQ's night after the day — 0 of 4 carried (S1)
+
+**No trial spent; N 876.** `reports/d51_discovery.json`: fading a strong last hour +6.6 bps (t +1.67); the day's return predicts
+nothing. Empty.
+
+## 278. D-series family 52 protocol: the opening print (S1)
+
+**No trial spent; N 876. Written and committed BEFORE any statistic is computed.** The first minute after a pit-era open carries the
+opening imbalance. MNQ: 09:30 → 09:31 (day grid); gold: 08:20 → 08:21 (COMEX open, London grid). Target: the next minute's close →
+the window's close (16:00 / 11:30), follow or fade fixed by discovery, same contract. Forms **all** and **heavy** (that minute's volume
+above 2 × its previous-20 median). **2 × 2 = 4 tests.** Costs §180; recent-period design; carried at net > 0, t > 1.96; validation
+as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

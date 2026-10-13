@@ -1,0 +1,45 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "predictor": "day return",
+   "form": "all",
+   "n": 1237,
+   "rule": "follow",
+   "net_bps": 0.265638530254364,
+   "t": 0.11057873070240021,
+   "carried": false
+  },
+  {
+   "predictor": "day return",
+   "form": "strong",
+   "n": 618,
+   "rule": "follow",
+   "net_bps": 0.9792839884757996,
+   "t": 0.2537505626678467,
+   "carried": false
+  },
+  {
+   "predictor": "last hour",
+   "form": "all",
+   "n": 1237,
+   "rule": "fade",
+   "net_bps": 2.45548677444458,
+   "t": 1.0417852401733398,
+   "carried": false
+  },
+  {
+   "predictor": "last hour",
+   "form": "strong",
+   "n": 618,
+   "rule": "fade",
+   "net_bps": 6.608057498931885,
+   "t": 1.6711852550506592,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
