@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D106",
+ "cell": "MNQ fades the previous session's XLK shock",
+ "trades": 52,
+ "net_bps": 38.51297033750094,
+ "t_net": 1.3902438546649105,
+ "placebo_pct": 100.0,
+ "by_year": {
+  "2023": -12.732661565144857,
+  "2024": -8.258708136422294,
+  "2025": 151.84943276643753,
+  "2026": -19.676402939690483
+ },
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 118,
+ "injection": {
+  "hypothesis": "D106",
+  "n_events": 52,
+  "sought_bps": 21.84956575036049,
+  "mean_estimate": 20.968914579088864,
+  "sd_estimate_bps": 27.117420233915734,
+  "power_strict_t": 0.0975,
+  "recovered": true
+ }
+}

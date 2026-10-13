@@ -10487,6 +10487,17 @@ carried at net > 0, t > 1.96; validation as §207, 3.
 recent families whose earlier history is nearly significant the same way. Across families 76–77 MNQ FADES every equity-sector shock
 (XLF, XLK, SMH, KRE, XLY: +21 to +55 bps), while it FOLLOWS bond-side shocks (TLT, LQD, and D68's ZN). Z and D market-test 118.
 
+## 336. D106 validated (t00888): WATCHLIST — and what the equity-shock fades are: crisis rebounds (S1, S8)
+
+**N 882.** Sealed 2023-01 → 2026-08, 52 events (power 10%): net **+38.51 bps** (t +1.39); placebo
+**100th** pct; years **1 of 4** (2023 −12.7, 2024 −8.3, **2025 +151.8**, 2026 −19.7). WATCHLIST by the mean only.
+
+**Reading D105 and D106 together.** Both fade an equity-sector shock, both replicate their discovery size, and both owe it to one
+year: 2025 (the April crash and V-shaped rebound), as discovery owes much to 2020. These rules are "buy the crash" — paid in
+V-shaped crises, slightly negative in ordinary years. That is a crisis bet, not a standing edge, and for a prop account it is worse
+than it looks: the losing years are the normal ones, and the winning trades come in the weeks the daily loss limits bind hardest.
+Neither is forward-tracked for deployment; future sector-shock fades on MNQ are read in this light. Z and D market-test 118.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1133,6 +1133,6 @@ Data-derived (D-series family 66). `hypotheses.yaml` (D104) · `decisions.md` §
 
 Data-derived (D-series family 76). `hypotheses.yaml` (D105) · `decisions.md` §332
 
-## D106 — Mnq Fades Tech Shock  *(registered)*
+## D106 — Mnq Fades Tech Shock  *(WATCHLIST — t00888)*
 
 Data-derived (D-series family 77). `hypotheses.yaml` (D106) · `decisions.md` §335
