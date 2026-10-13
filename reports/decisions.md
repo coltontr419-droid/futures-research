@@ -9126,6 +9126,14 @@ night session's 16 hours, negative in every year. The 2018–22 drift was the sc
    prior Normal(discovery/2, |discovery|/2); (d) positive in ≥ 3 of the 4 years 2023–2026. WATCHLIST if net > 0; REJECT.
    Z and D market-tests from 69.
 
+## 186. Family-15 discovery: no MNQ ↔ gold lead-lag survives costs — 0 of 36 carried (S1)
+
+**No trial spent; N 832.** `reporting/d15_leadlag.py`, `reports/d15_discovery.json`. 36 tests on 2018-01 → 2022-12 (1–34 trades
+a day): **none carried.** Gross effects are within ±0.2 bps a trade almost everywhere (the largest, gold leading MNQ over 60
+minutes on strong marks, +1.5 bps gross on 622 trades, t +0.43 net) against round trips of 0.56–1.0 bps. Cross-market
+information between the plan's two traded-data markets is priced within minutes. Family 15 is empty; with families 13–14,
+the three recent-period families (§180–§186) found nothing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
