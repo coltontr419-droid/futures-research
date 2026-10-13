@@ -6897,3 +6897,311 @@
       decisions.md 168, 5: CONFIRM if (a) net mean per trade > 0 with t > 1.645, (b) >= 95th pct of the rule on random non-release
       days, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 50.
   s6_control: By period; the rule on non-release days.
+- id: D39
+  name: zn_follows_previous_es_session
+  mechanism: >
+    DATA-DERIVED (D-series family 10, cross-market daily universe, decisions.md 171-172): in 2010-2017 ZN's session
+    (open -> settlement) traded in the direction of the previous session of ES earned 2.09 bps a day beyond drift
+    (t 3.04, n 1935). Slow cross-market transmission: THE COUNTERPARTY would be ZN participants who react
+    to ES's information a day late. Carried by a scan that found fewer passes than chance (7 of 182; ~9 expected).
+  condition: >
+    Each day, trade ZN from the session open to settlement in the direction of the sign of ES's previous session.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d39_injection.json (src/futuresres/signals/d_universe.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 73
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-10 scan (182 tests, |t| > 1.96, decisions.md 171). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily continuous bars. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+1.04 bps, 1.04) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
+      else WATCHLIST if > 0; else REJECT. Z and D market-test 51.
+  s6_control: By period; the shifted placebos.
+- id: D40
+  name: hg_fades_previous_ng_session
+  mechanism: >
+    DATA-DERIVED (D-series family 10, cross-market daily universe, decisions.md 171-172): in 2010-2017 HG's session
+    (open -> settlement) traded against the previous session of NG earned 7.35 bps a day beyond drift
+    (t 2.84, n 1937). Slow cross-market transmission: THE COUNTERPARTY would be HG participants who react
+    to NG's information a day late. Carried by a scan that found fewer passes than chance (7 of 182; ~9 expected).
+  condition: >
+    Each day, trade HG from the session open to settlement against the sign of NG's previous session.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d40_injection.json (src/futuresres/signals/d_universe.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 74
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-10 scan (182 tests, |t| > 1.96, decisions.md 171). ONE TRIAL.
+  session: Globex
+  symbols: [HG]
+  mechanism_instruments:
+    primary: HG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily continuous bars. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.68 bps, 3.68) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
+      else WATCHLIST if > 0; else REJECT. Z and D market-test 52.
+  s6_control: By period; the shifted placebos.
+- id: D41
+  name: zn_fades_previous_6j_session
+  mechanism: >
+    DATA-DERIVED (D-series family 10, cross-market daily universe, decisions.md 171-172): in 2010-2017 ZN's session
+    (open -> settlement) traded against the previous session of 6J earned 1.65 bps a day beyond drift
+    (t 2.41, n 1935). Slow cross-market transmission: THE COUNTERPARTY would be ZN participants who react
+    to 6J's information a day late. Carried by a scan that found fewer passes than chance (7 of 182; ~9 expected).
+  condition: >
+    Each day, trade ZN from the session open to settlement against the sign of 6J's previous session.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d41_injection.json (src/futuresres/signals/d_universe.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 75
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-10 scan (182 tests, |t| > 1.96, decisions.md 171). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily continuous bars. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+0.83 bps, 0.83) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
+      else WATCHLIST if > 0; else REJECT. Z and D market-test 53.
+  s6_control: By period; the shifted placebos.
+- id: D42
+  name: ng_follows_previous_si_session
+  mechanism: >
+    DATA-DERIVED (D-series family 10, cross-market daily universe, decisions.md 171-172): in 2010-2017 NG's session
+    (open -> settlement) traded in the direction of the previous session of SI earned 10.71 bps a day beyond drift
+    (t 2.24, n 1936). Slow cross-market transmission: THE COUNTERPARTY would be NG participants who react
+    to SI's information a day late. Carried by a scan that found fewer passes than chance (7 of 182; ~9 expected).
+  condition: >
+    Each day, trade NG from the session open to settlement in the direction of the sign of SI's previous session.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d42_injection.json (src/futuresres/signals/d_universe.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 76
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-10 scan (182 tests, |t| > 1.96, decisions.md 171). ONE TRIAL.
+  session: Globex
+  symbols: [NG]
+  mechanism_instruments:
+    primary: NG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily continuous bars. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+5.36 bps, 5.36) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
+      else WATCHLIST if > 0; else REJECT. Z and D market-test 54.
+  s6_control: By period; the shifted placebos.
+- id: D43
+  name: zs_follows_previous_es_session
+  mechanism: >
+    DATA-DERIVED (D-series family 10, cross-market daily universe, decisions.md 171-172): in 2010-2017 ZS's session
+    (open -> settlement) traded in the direction of the previous session of ES earned 5.77 bps a day beyond drift
+    (t 2.01, n 1937). Slow cross-market transmission: THE COUNTERPARTY would be ZS participants who react
+    to ES's information a day late. Carried by a scan that found fewer passes than chance (7 of 182; ~9 expected).
+  condition: >
+    Each day, trade ZS from the session open to settlement in the direction of the sign of ES's previous session.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d43_injection.json (src/futuresres/signals/d_universe.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 77
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-10 scan (182 tests, |t| > 1.96, decisions.md 171). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily continuous bars. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+2.89 bps, 2.89) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
+      else WATCHLIST if > 0; else REJECT. Z and D market-test 55.
+  s6_control: By period; the shifted placebos.
+- id: D44
+  name: gc_follows_previous_zn_session
+  mechanism: >
+    DATA-DERIVED (D-series family 10, cross-market daily universe, decisions.md 171-172): in 2010-2017 GC's session
+    (open -> settlement) traded in the direction of the previous session of ZN earned 3.98 bps a day beyond drift
+    (t 1.99, n 1935). Slow cross-market transmission: THE COUNTERPARTY would be GC participants who react
+    to ZN's information a day late. Carried by a scan that found fewer passes than chance (7 of 182; ~9 expected).
+  condition: >
+    Each day, trade GC from the session open to settlement in the direction of the sign of ZN's previous session.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d44_injection.json (src/futuresres/signals/d_universe.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 78
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-10 scan (182 tests, |t| > 1.96, decisions.md 171). ONE TRIAL.
+  session: Globex
+  symbols: [GC]
+  mechanism_instruments:
+    primary: GC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily continuous bars. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+1.99 bps, 1.99) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
+      else WATCHLIST if > 0; else REJECT. Z and D market-test 56.
+  s6_control: By period; the shifted placebos.
+- id: D45
+  name: rty_fades_previous_es_session
+  mechanism: >
+    DATA-DERIVED (D-series family 10, cross-market daily universe, decisions.md 171-172): in 2010-2017 RTY's session
+    (open -> settlement) traded against the previous session of ES earned 11.72 bps a day beyond drift
+    (t 1.98, n 119). Slow cross-market transmission: THE COUNTERPARTY would be RTY participants who react
+    to ES's information a day late. Carried by a scan that found fewer passes than chance (7 of 182; ~9 expected).
+  condition: >
+    Each day, trade RTY from the session open to settlement against the sign of ES's previous session.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d45_injection.json (src/futuresres/signals/d_universe.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 79
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-10 scan (182 tests, |t| > 1.96, decisions.md 171). ONE TRIAL.
+  session: Globex
+  symbols: [M2K]
+  mechanism_instruments:
+    primary: M2K
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily continuous bars. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+5.86 bps, 5.86) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
+      else WATCHLIST if > 0; else REJECT. Z and D market-test 57.
+  s6_control: By period; the shifted placebos.

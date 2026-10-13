@@ -8907,6 +8907,24 @@ to 14 CME futures, every pair.
    ±2…±11 days ≥ 95th pct; posterior > 0; 2021–26 > 0). Any CONFIRM is replayed as its own 50K Daily account (one-bar paths,
    §116) before it counts. Z and D market-tests from 51.
 
+## 172. Family-10 discovery: 7 of 182 pairs carried — fewer than chance (~9); D39–D45 registered anyway, per protocol (S1–S5)
+
+**No trial spent at registration; N 814. Committed BEFORE validation data is read.** `reporting/d10_universe.py`,
+`reports/d10_discovery.json`; `signals/d_universe.py`. 182 ordered pairs, 2010-01 → 2017-12; **7 carried against ~9.1 expected by
+chance** — as a family the daily cross-market universe shows no excess signal. Validated per §171 regardless:
+
+| id | target | rule | previous session of | discovery (bps beyond drift a day) | prior |
+|---|---|---|---|---|---|
+| D39 | ZN | follow | ES | +2.09, t +3.04, n 1935 | N(+1.04, 1.04) |
+| D40 | HG | fade | NG | -7.35, t -2.84, n 1937 | N(+3.68, 3.68) |
+| D41 | ZN | fade | 6J | -1.65, t -2.41, n 1935 | N(+0.83, 0.83) |
+| D42 | NG | follow | SI | +10.71, t +2.24, n 1936 | N(+5.36, 5.36) |
+| D43 | ZS | follow | ES | +5.77, t +2.01, n 1937 | N(+2.89, 2.89) |
+| D44 | GC | follow | ZN | +3.98, t +1.99, n 1935 | N(+1.99, 1.99) |
+| D45 | RTY | fade | ES | -11.72, t -1.98, n 119 | N(+5.86, 5.86) |
+
+RTY's Yahoo history starts in 2017 (D45: 119 discovery days). Z and D market-tests 51–57.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
