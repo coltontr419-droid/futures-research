@@ -9378,6 +9378,25 @@ Recent-period design (§180).
    breakout on the days that are NOT narrow-range must do worse — difference t > 1.645; (c) positive in ≥ 3 of the 4 years.
    CONFIRM if all; WATCHLIST if net > 0; REJECT. Z and D market-tests from 76.
 
+## 206. Family-23 discovery: narrow-range breakouts do not follow through significantly — 0 of 8 carried (S1)
+
+**No trial spent; N 839.** `reporting/d23_breakout.py`, `reports/d23_discovery.json`. Best: gold after an NR7 window, breakout with a
+midpoint stop, +8.34 bps net (t +1.64; ordinary days −2.48); MNQ +2 to +5 bps on NR days, no better than ordinary days. Empty.
+
+## 207. D-series family 24 protocol: the next session across markets after a shock day (S1)
+
+**No trial spent; N 839. Written and committed BEFORE any statistic is computed.** Family 12 asked whether a market continues its
+OWN extreme session; family 10 used every day's sign. This asks how OTHER markets' next sessions respond after a shock in a major
+market (flight to safety, risk-on rebound). Recent-period design (§180).
+
+1. **Data:** the §171 universe (Yahoo daily sessions, roll-free; §177's costs). **Shock day** in predictor P: |P's session| > 2 σ
+   (SD of P's previous 60 sessions). Predictors: ES, CL, GC, ZN. **Target:** each other market's NEXT session, traded in the
+   direction of P's shock (follow) or against it (fade), the sign fixed by discovery. **4 × 13 = 52 tests**; ~2.6 by chance.
+2. **Discovery 2018-01 → 2022-12:** net bps a trade, t; **carried** if net > 0 with t > 1.96.
+3. **Validation (one trial each), sealed 2023-01 → 2026-08:** (a) net > 0 against not trading t > 1.645; (b) placebo: the same
+   rule after random non-shock days (direction from that day's sign), 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years.
+   CONFIRM if all; WATCHLIST if net > 0; REJECT. Z and D market-tests from 76.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

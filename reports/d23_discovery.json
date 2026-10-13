@@ -1,0 +1,90 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 8,
+ "carried": [],
+ "all": [
+  {
+   "market": "MNQ",
+   "N": 4,
+   "stop": "mid",
+   "n": 318,
+   "net_bps": 3.1885412647259352,
+   "t": 0.6111373732401552,
+   "non_nr_net_bps": 2.3427288213878863,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "N": 4,
+   "stop": "far",
+   "n": 318,
+   "net_bps": 4.729338580285936,
+   "t": 0.8495555852986318,
+   "non_nr_net_bps": 1.240515674920804,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "N": 7,
+   "stop": "mid",
+   "n": 194,
+   "net_bps": 2.2529515728444998,
+   "t": 0.36433475772490614,
+   "non_nr_net_bps": 2.650009017953248,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "N": 7,
+   "stop": "far",
+   "n": 194,
+   "net_bps": 2.077754401526508,
+   "t": 0.306639955765237,
+   "non_nr_net_bps": 2.2566330257197356,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "N": 4,
+   "stop": "mid",
+   "n": 306,
+   "net_bps": 2.27729117019206,
+   "t": 0.6198895008649227,
+   "non_nr_net_bps": -1.8872591764651345,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "N": 4,
+   "stop": "far",
+   "n": 306,
+   "net_bps": 2.153305109263815,
+   "t": 0.5380052824642638,
+   "non_nr_net_bps": -2.317018381468518,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "N": 7,
+   "stop": "mid",
+   "n": 175,
+   "net_bps": 8.34077414637385,
+   "t": 1.639214941398253,
+   "non_nr_net_bps": -2.483274697181574,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "N": 7,
+   "stop": "far",
+   "n": 175,
+   "net_bps": 7.291160912714121,
+   "t": 1.301619767859357,
+   "non_nr_net_bps": -2.679460448888019,
+   "carried": false
+  }
+ ]
+}
