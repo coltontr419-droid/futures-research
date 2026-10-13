@@ -1,0 +1,42 @@
+{
+ "pre|plan: MNQ always long": {
+  "p_payout": 0.7592116538131962,
+  "mean_net": 1960.1857489288773,
+  "p_net_pos": 0.610968294772922
+ },
+ "pre|overlay: shock direction on shock days": {
+  "p_payout": 0.7232219365895458,
+  "mean_net": 1971.4892639245936,
+  "p_net_pos": 0.5535561268209083
+ },
+ "pre|standalone: shock days only, plan brackets": {
+  "p_payout": 0.0676949443016281,
+  "mean_net": -2.3834215938302794,
+  "p_net_pos": 0.0676949443016281
+ },
+ "pre|standalone: shock days only, hold, stop $1,000": {
+  "p_payout": 0.0,
+  "mean_net": -123.25621251071122,
+  "p_net_pos": 0.0
+ },
+ "post|plan: MNQ always long": {
+  "p_payout": 0.8035303146584805,
+  "mean_net": 1265.345398311588,
+  "p_net_pos": 0.5932463545663853
+ },
+ "post|overlay: shock direction on shock days": {
+  "p_payout": 0.7682271680736761,
+  "mean_net": 1719.6474159631623,
+  "p_net_pos": 0.6408288564850345
+ },
+ "post|standalone: shock days only, plan brackets": {
+  "p_payout": 0.005372217958557176,
+  "mean_net": -107.39831158864159,
+  "p_net_pos": 0.005372217958557176
+ },
+ "post|standalone: shock days only, hold, stop $1,000": {
+  "p_payout": 0.0,
+  "mean_net": -125.31082118188795,
+  "p_net_pos": 0.0
+ }
+}

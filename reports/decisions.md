@@ -9437,6 +9437,32 @@ percentile, three of four years.** Per-trade effects of ~0.25–0.3 of a day's S
 trades each (~14 a year). **Before use:** an independent-data replication (owned GLBX bars for ZN, ES, NQ, CL), robustness
 (thresholds, the plan's MNQ instead of ES), and an account replay.
 
+## 210. D66 and D68 stress-tested: D68 replicates on independent data and adds to the MNQ account after 2021; D66 does not (S8)
+
+**No trial spent; N 847.** `reports/a29_d68_replay.json`.
+
+**Independent data (owned GLBX daily bars — roll-correct, different session boundaries from Yahoo).**
+- **D68 (S&P follows a 10-year-note shock):** positive in every variant since 2018 — ES and NQ, thresholds 1.5 / 2 / 2.5 σ, 2018–22 and
+  2023–26: +12.7 to +37.0 bps a trade (t +0.75 to +1.68 individually); 2010–17 faintly positive (+0.0 to +11.5). On the plan's MNQ
+  window (09:30–16:00, owned minute trades): 2018–22 +22.7 (t +1.34), **2023–26 +38.9 (t +2.15)**. Consistent sign, modest strength,
+  a plain mechanism (a bond rally lifts equities the next day; a bond sell-off weighs on them).
+- **D66 (corn fades a crude shock):** with the crude shock from the owned bars, 2023–26 reproduces (k = 2: +38.7, t +2.54) but
+  2018–22 vanishes (+2.9, t +0.16) and 2010–17 turns negative at 2.5 σ (−33.3). A recent pattern, not a stable one: **not used.**
+
+**D68 in the plan (A23 engine, MNQ 4 contracts, drift removed, 84-day replay):** an overlay — on the ~5–6% of sessions after a ZN
+shock, the MNQ ticket takes the shock's direction instead of long (about half are shorts):
+
+| | 2015–20 | 2021–26 |
+|---|---|---|
+| plan, always long | 76%, +$1,960, P(net > 0) 61% | 80%, +$1,265, 59% |
+| **overlay, the shock's direction on shock days** | 72%, +$1,971, 55% | **77%, +$1,720, 64%** |
+| standalone, shock days only (plan brackets / hold) | 0–7%, ≈ $0 | 0–1%, ≈ −$110 |
+
+**Reading.** D68 is the most robust directional finding of the programme — confirmed on sealed data under the strict rule,
+replicated in sign on an independent source, economically sensible — and it is modest: about +$455 per four months on one
+account in 2021–26, nothing in 2015–20. Too rare (≈ 14 days a year) to carry an account alone. **Candidate for the plan, not yet
+adopted:** the user decides; the clean forward test is the demo (the bot could set MNQ's direction on bond-shock days).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
