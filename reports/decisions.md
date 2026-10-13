@@ -8888,6 +8888,25 @@ MNQ shows nothing at 08:30 or 14:00 (best t +1.18). D37 and D38 are one effect. 
 The discovery's fade (t −2.07 / −1.99, ~0.5 points net) was a chance pass; on 2018–26 the rule loses after costs and sits mid-pack
 among random non-release days. Family 9 is empty.
 
+## 171. D-series family 10 protocol: the cross-market daily universe — does yesterday's session in one market set today's direction in another? (S1)
+
+**No trial spent; N 814. Written and committed BEFORE any data is fetched.** The user: continue; and a strategy that keeps an
+account for a few months and pays out before it fails is a win — the 84-day back-to-back replay (payouts minus every fee, failed
+accounts replaced) already measures exactly that. Family 3 tested hand-offs between the plan's six windows; this widens the net
+to 14 CME futures, every pair.
+
+1. **Universe** (Yahoo daily bars, 2010 → 2026; the session's open → settlement return within one bar, so a roll never enters):
+   ES, NQ (indices); GC, SI, HG (metals); CL, NG (energy); ZN (10-year notes); 6E, 6J (currencies); ZC, ZS, ZW (grains); and RTY.
+   Every Globex session closes before the next one opens, so the predictor (the previous trading day's session) has finished.
+   Bad prints: the §149 15-robust-SD rule per series. Yahoo daily bars for some metals are day-session bars (§140); a session is
+   whatever Yahoo's bar spans, used consistently as both predictor and target.
+2. **Tests:** every ordered pair (target ≠ predictor): **14 × 13 = 182**, every day (no strong form — the family is wide);
+   ~9 pass |t| > 1.96 by chance. Statistic as §149, 4 (sign of the predictor × the target demeaned within the period; follow or fade
+   by the sign); **carried at |t| > 1.96**. Discovery 2010-01 → 2017-12.
+3. **Validation exactly as §149, 5** (sealed 2018-01 → 2026-08; against always-long t > 1.645; placebo with the predictor shifted
+   ±2…±11 days ≥ 95th pct; posterior > 0; 2021–26 > 0). Any CONFIRM is replayed as its own 50K Daily account (one-bar paths,
+   §116) before it counts. Z and D market-tests from 51.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
