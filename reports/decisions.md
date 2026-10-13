@@ -10355,6 +10355,14 @@ Cost MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation
 **No trial spent; N 880.** `reports/d68_discovery.json`: a small settlement fade (strong +0.7 bps net, t +1.29; 2010–17 +0.8, t +1.73)
 and a London→afternoon follow (+1.4, t +0.87) — consistent in sign across periods but below the bar and below cost-worthiness. Empty.
 
+## 317. D-series family 69 protocol: the Friday afternoon before the weekend (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** Weekend risk is hedged on Friday afternoons. Gold:
+Friday 11:30 → 16:55 (family-68 grid); MNQ: Friday 13:00 → 16:00 (day grid). Each Friday's return minus the mean of the same window on
+Monday–Thursday in discovery (so drift and time-of-day are not credited); long or short fixed by discovery. **2 tests**, with the
+descriptive 2010–17 column (§306). Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the
+same window on other weekdays).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
