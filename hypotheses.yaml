@@ -10420,7 +10420,7 @@
   condition: >
     Each MNQ day session: at 09:31 take MNQ in the sign of (close 09:31 / close 09:30 - 1); exit 16:00; net of 0.5 bps.
   horizon_minutes: [389]
-  hold_hours: [6.5]
+  hold_hours: [6.45, 6.5]
   registered: 2026-10-13
   status: untested
   outcome_injection_required: true
