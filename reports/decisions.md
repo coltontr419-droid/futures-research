@@ -9749,6 +9749,21 @@ MGC — gap = Sunday 18:00 against Friday's London close (11:30); target = Monda
 and > 2 σ (σ = SD of the previous 52 weekend gaps). **2 markets × 2 thresholds = 4 tests.** Recent-period design (§180); carried at
 net > 0 with t > 1.96 (follow or fade by the sign); validation as §207, 3 (placebo: random non-gap Mondays). Z and D tests from 109.
 
+## 235. Family-32 discovery: weekend gaps predict nothing — 0 of 4 carried (S1)
+
+**No trial spent; N 872.** `reports/d32_discovery.json`: MNQ and gold Mondays after weekend gaps beyond 1 or 2 σ: best +13.9 bps
+(t +0.37). Empty.
+
+## 236. D-series family 33 protocol: effort versus result overnight (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** The family-4 segment table (owned trades, §152)
+has each night's volume ratio (to the previous 20) and return. Two states, defined in advance: **absorption** — volume ratio > 1.3
+with |overnight return| below its median (heavy trading, little movement); **thin push** — volume ratio < 0.8 with |return| above its
+median (a move on light trading). Direction = the sign of the overnight close location (where the night ended in its range) for
+absorption, and of the overnight return for the thin push; the target window (MNQ 09:30–16:00, MGC 03:00–11:30) is traded in that
+direction or against it, fixed by discovery. **2 markets × 2 states = 4 tests.** Recent-period design (§180); carried at net > 0 with
+t > 1.96; validation as §207, 3 (placebo: the same rule on random other days). Z and D market-tests from 109.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
