@@ -10405,6 +10405,19 @@ multiple of $10; trade 13:00 → 13:30 (into settlement, family-68 grid) toward 
 step (always true) — so all days. **2 tests**, with the descriptive 2010–17 column (§306). Costs §180; recent-period design; carried
 at net > 0, t > 1.96; validation as §207, 3 (placebo: a level grid shifted by half a step).
 
+## 324. Family-72 discovery: pinning to round strikes — 0 of 2 carried (S1)
+
+**No trial spent; N 880.** `reports/d72_discovery.json`: MNQ toward the 100-point level +1.1 bps (t +0.72); gold moves slightly
+AWAY from $10 levels into settlement but below cost (−0.7 net). Empty.
+
+## 325. D-series family 73 protocol: gold and silver catching up with each other in London (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** Divergence over 03:00 → 07:00 ET = silver's return
+(HistData xagusd, corrected clock) minus gold's (owned MGC London grid). Targets 07:00 → 11:30: **gold** in the sign of the divergence
+(catch-up) or against it, and **silver** (xagusd, the D32 instrument) against the divergence or with it; fixed by discovery. **2 tests**,
+with the descriptive 2010–17 column (§306). Costs §177/§180 (MGC 0.8, SI 0.5); recent-period design; carried at net > 0, t > 1.96;
+validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
