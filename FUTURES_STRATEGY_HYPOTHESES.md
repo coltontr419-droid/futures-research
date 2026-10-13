@@ -964,35 +964,35 @@ Data-derived (D-series family 19). `hypotheses.yaml` (D62) · `decisions.md` §1
 
 Data-derived (D-series family 19). `hypotheses.yaml` (D63) · `decisions.md` §195
 
-## D64 — 6E Follows a ZN Shock (next session)
+## D64 — 6E Follows a ZN Shock (next session)  *(WATCHLIST — t00846)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D64) · `decisions.md` §208
 
-## D65 — 6E Follows a GC Shock (next session)
+## D65 — 6E Follows a GC Shock (next session)  *(WATCHLIST — t00847)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D65) · `decisions.md` §208
 
-## D66 — ZC Fades a CL Shock (next session)
+## D66 — ZC Fades a CL Shock (next session)  *(CONFIRM — t00848)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D66) · `decisions.md` §208
 
-## D67 — GC Follows a ZN Shock (next session)
+## D67 — GC Follows a ZN Shock (next session)  *(REJECT — t00849)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D67) · `decisions.md` §208
 
-## D68 — ES Follows a ZN Shock (next session)
+## D68 — ES Follows a ZN Shock (next session)  *(CONFIRM — t00850)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D68) · `decisions.md` §208
 
-## D69 — ES Follows a GC Shock (next session)
+## D69 — ES Follows a GC Shock (next session)  *(WATCHLIST — t00851)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D69) · `decisions.md` §208
 
-## D70 — NG Follows a ES Shock (next session)
+## D70 — NG Follows a ES Shock (next session)  *(WATCHLIST — t00852)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D70) · `decisions.md` §208
 
-## D71 — HG Follows a ZN Shock (next session)
+## D71 — HG Follows a ZN Shock (next session)  *(WATCHLIST — t00853)*
 
 Data-derived (D-series family 24). `hypotheses.yaml` (D71) · `decisions.md` §208
 

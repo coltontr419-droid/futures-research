@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D65",
+ "cell": "6E follows the previous session's GC shock",
+ "trades": 55,
+ "net_bps": 6.505426840692924,
+ "t_net": 0.9694499179557104,
+ "placebo_pct": 91.10000000000001,
+ "by_year": {
+  "2023": 2.1555507104967897,
+  "2024": -3.8132875154632937,
+  "2025": 23.991757579830896,
+  "2026": -4.625319751169795
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 77,
+ "injection": {
+  "hypothesis": "D65",
+  "n_events": 55,
+  "sought_bps": 9.405126295008959,
+  "mean_estimate": 9.514413628293896,
+  "sd_estimate_bps": 6.717502949832716,
+  "power_strict_t": 0.4165,
+  "recovered": true
+ }
+}

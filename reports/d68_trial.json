@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D68",
+ "cell": "ES follows the previous session's ZN shock",
+ "trades": 48,
+ "net_bps": 33.38094959657057,
+ "t_net": 2.0059260412629443,
+ "placebo_pct": 99.9,
+ "by_year": {
+  "2023": 23.65772746289148,
+  "2024": -24.94614513510384,
+  "2025": 68.28390975503804,
+  "2026": 58.42766087045738
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 80,
+ "injection": {
+  "hypothesis": "D68",
+  "n_events": 48,
+  "sought_bps": 18.79910057462614,
+  "mean_estimate": 18.702697677169205,
+  "sd_estimate_bps": 16.50837919758744,
+  "power_strict_t": 0.2885,
+  "recovered": true
+ }
+}

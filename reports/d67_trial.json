@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D67",
+ "cell": "GC follows the previous session's ZN shock",
+ "trades": 48,
+ "net_bps": -1.005380140439592,
+ "t_net": -0.044254842956292915,
+ "placebo_pct": 66.60000000000001,
+ "by_year": {
+  "2023": -22.767722241000225,
+  "2024": -52.76358072186902,
+  "2025": 6.529801475742249,
+  "2026": 59.980671178557174
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 79,
+ "injection": {
+  "hypothesis": "D67",
+  "n_events": 48,
+  "sought_bps": 14.680923194135861,
+  "mean_estimate": 14.563299592452502,
+  "sd_estimate_bps": 22.799807004695634,
+  "power_strict_t": 0.1475,
+  "recovered": true
+ }
+}

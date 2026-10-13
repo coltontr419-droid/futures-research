@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D64",
+ "n_events": 48,
+ "sought_bps": 11.918346279258762,
+ "mean_estimate": 11.793540361831337,
+ "sd_estimate_bps": 7.803960034316402,
+ "power_strict_t": 0.504,
+ "recovered": true
+}

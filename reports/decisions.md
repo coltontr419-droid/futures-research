@@ -9416,6 +9416,27 @@ with per-trade effects of 11–80 bps. Bond (ZN) shocks lead four of them (euro,
 
 Correlated: the four ZN-led tests share their event days. Z and D market-tests 76–83.
 
+## 209. D66 and D68 CONFIRM: corn fades a crude shock; the S&P follows a bond shock (S6–S8)
+
+**Eight trials spent: t00846–t00853. N 839 → 847.** Z and D market-tests 76–83. Sealed 2023-01 → 2026-08, standalone, net:
+
+| id, trial | rule | trades | net bps a trade (t) | placebo pct | years positive | tier |
+|---|---|---|---|---|---|---|
+| D64 t00846 | 6E follows the previous session's ZN shock | 48 | +1.52 (t +0.20) | 60 | 2 of 4 | **WATCHLIST** |
+| D65 t00847 | 6E follows the previous session's GC shock | 55 | +6.51 (t +0.97) | 91 | 2 of 4 | **WATCHLIST** |
+| D66 t00848 | ZC fades the previous session's CL shock | 51 | +38.41 (t +2.47) | 99 | 4 of 4 | **CONFIRM** |
+| D67 t00849 | GC follows the previous session's ZN shock | 48 | -1.01 (t -0.04) | 67 | 2 of 4 | **REJECT** |
+| D68 t00850 | ES follows the previous session's ZN shock | 48 | +33.38 (t +2.01) | 100 | 3 of 4 | **CONFIRM** |
+| D69 t00851 | ES follows the previous session's GC shock | 55 | +4.18 (t +0.24) | 67 | 2 of 4 | **WATCHLIST** |
+| D70 t00852 | NG follows the previous session's ES shock | 52 | +16.12 (t +0.39) | 44 | 2 of 4 | **WATCHLIST** |
+| D71 t00853 | HG follows the previous session's ZN shock | 48 | +13.16 (t +0.66) | 85 | 3 of 4 | **WATCHLIST** |
+
+**D66 — after a crude session beyond 2 σ, corn's next session against the shock: +38.4 bps a trade (t +2.47), 99th percentile, all
+four years positive. D68 — after a 10-year-note session beyond 2 σ, the S&P's next session with the shock: +33.4 (t +2.01), 100th
+percentile, three of four years.** Per-trade effects of ~0.25–0.3 of a day's SD — about five times anything else found — on ~50
+trades each (~14 a year). **Before use:** an independent-data replication (owned GLBX bars for ZN, ES, NQ, CL), robustness
+(thresholds, the plan's MNQ instead of ES), and an account replay.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D66",
+ "cell": "ZC fades the previous session's CL shock",
+ "trades": 51,
+ "net_bps": 38.406020436690376,
+ "t_net": 2.4749187934911023,
+ "placebo_pct": 99.0,
+ "by_year": {
+  "2023": 29.62713592497043,
+  "2024": 83.51935399887789,
+  "2025": 15.995784339332708,
+  "2026": 18.83043823132901
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 78,
+ "injection": {
+  "hypothesis": "D66",
+  "n_events": 51,
+  "sought_bps": 22.352378115503036,
+  "mean_estimate": 22.69502842001099,
+  "sd_estimate_bps": 15.054605658498192,
+  "power_strict_t": 0.4275,
+  "recovered": true
+ }
+}
