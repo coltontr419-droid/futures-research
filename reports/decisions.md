@@ -10300,6 +10300,15 @@ Costs §180 (NKD 0.2, DAX 0.3); recent-period design; carried at net > 0, t > 1.
 **No trial spent; N 879.** `reports/d65_discovery.json`: NKD follows a strong morning +1.5 bps (t +0.78; 2010–17 +4.6, t +2.19 —
 an older effect that has faded); DAX +4.8 (t +1.47; 2010–17 0.0). Empty.
 
+## 310. D-series family 66 protocol: the Tokyo fix on gotobi days (S1)
+
+**No trial spent; N 879. Written and committed BEFORE any statistic is computed.** Japanese importers settle on "gotobi" days (the
+5th, 10th, 15th, 20th, 25th and the month's last day; a weekend date moves to the previous weekday) and buy dollars at the 09:55 Tokyo
+fix. HistData usdjpy (from 2016; corrected clock) at Tokyo times. **Pre**: 08:00 → 09:55; **post**: 09:55 → 12:00. Each traded on
+gotobi days only, in 6J's direction (long 6J = short USD/JPY), side fixed by discovery. **2 tests.** Non-gotobi days shown beside
+(descriptive) and are the validation placebo. Cost 6J 0.5 bps; recent-period design; carried at net > 0, t > 1.96; §306's
+descriptive early column covers 2016–17 only.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
