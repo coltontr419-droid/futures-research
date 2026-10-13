@@ -60,7 +60,7 @@ Check the droplet clock is right: `timedatectl` (the bot converts to New York ti
 Type the commands as messages in the bot's channel, starting with `!` or by mentioning the bot (`@Futures Demo eod MNQ 50850`).
 **The closing balance is the account balance after the 17:00 ET close**, with every position flat — every ticket is
 already out by then (gold 11:30, Nasdaq 16:00, crude 16:55); it is the figure Tradeify's end-of-day floor uses.
-In the channel: `!status`; after each close (17:00–17:30): `!eod MNQ 50850`, `!eod MGC ...`, `!eod MCL ...`.
+In the channel: `!status`; as each ticket closes (any time; filed under that ticket's trading day): `!eod MNQ 50850`, `!eod MGC ...`, and so on.
 `!ticket` repeats the open tickets; `!results` lists every finished ticket and its outcome.
 When a payout is approved: `!payout MNQ 1250`. When an evaluation fails and you buy another: `!new MGC`.
 To fix a mistake: `!set MNQ eval 50850 51200 400 0` (phase, balance, peak, best day, payouts). `!help` lists all.

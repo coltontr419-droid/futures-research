@@ -11,13 +11,16 @@ import json
 from pathlib import Path
 
 START, TARGET, TRAIL, LOCK_AT, CONSISTENCY, CAP, LIVE_AFTER, FEE = 50_000.0, 3_000.0, 2_000.0, 52_000.0, 0.40, 1_250.0, 3, 80.0
+from zoneinfo import ZoneInfo
+
+ET = ZoneInfo("America/New_York")
 PRODUCTS = ("MNQ", "MGC", "MCL", "NKD", "FDXM", "ZS")    # NKD, FDXM: accounts 4-5 (decisions.md 138); ZS: demo-only sixth (141)
 
 
 def fresh(product: str) -> dict:
     return {"product": product, "phase": "eval", "balance": START, "peak": START, "best": 0.0, "payouts": 0,
-            "evals_bought": 1, "fees": FEE, "paid": 0.0, "since": dt.date.today().isoformat(),
-            "eod_date": dt.date.today().isoformat()}
+            "evals_bought": 1, "fees": FEE, "paid": 0.0, "since": dt.datetime.now(ET).date().isoformat(),
+            "eod_date": dt.datetime.now(ET).date().isoformat()}
 
 
 class Book:
@@ -35,7 +38,8 @@ class Book:
     def log(self, product: str, event: str, **kw) -> None:
         new = not self.log_path.exists()
         a = self.s[product]
-        row = {"time": dt.datetime.now().isoformat(timespec="seconds"), "product": product, "event": event,
+        # New York time with its offset (the droplet runs on UTC; rows before 2026-10-13 are naive UTC)
+        row = {"time": dt.datetime.now(ET).isoformat(timespec="seconds"), "product": product, "event": event,
                "phase": a["phase"], "balance": a["balance"], "peak": a["peak"], "best_day": a["best"],
                "payouts": a["payouts"], **{k: kw.get(k, "") for k in ("amount", "pnl", "note")}}
         with self.log_path.open("a", newline="") as f:
@@ -51,7 +55,7 @@ class Book:
     def eod(self, product: str, balance: float, day: str | None = None) -> list[str]:
         """Record an end-of-day balance (for trading day `day`, ISO date); returns the messages to post."""
         a = self.s[product]; msgs = []
-        a["eod_date"] = day or dt.date.today().isoformat()
+        a["eod_date"] = day or dt.datetime.now(ET).date().isoformat()
         fl = self.floor(a)
         pnl = balance - a["balance"]
         a["balance"] = balance

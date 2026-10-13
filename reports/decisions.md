@@ -8382,6 +8382,28 @@ the mean in three of four. Picking the variant per market would be choosing afte
 solver stays.** With the ≥ $500 stop menu (§136) the commission is already small against the brackets (c / (W + L) ≈ 0.2–1.5%),
 so there was little left to fix — the cost-blind failure of §135 lived in the tiny stops that menu removed.
 
+## 147. The demo review in one command; the bot files `!eod` under the right trading day (S8)
+
+**No trial spent; N 787.** While the demo runs, so the ~2026-10-25 review takes minutes:
+
+- **`python -m futuresres.reporting.a18_demo_check --review`** pulls `shadow_log.csv`, `demo_log.csv`, `state.json` and `tickets.json`
+  from the droplet (read-only; copies in `data/cache/demo/`, gitignored) and prints, and saves as `review_<date>.md`: outcomes and
+  shadow P&L against the backtest for the same brackets (overall and per product, soybeans included); each recorded close against
+  the shadow P&L of the ticket that was running when it was sent (the latest started ticket from `tickets.json`; closes sent
+  while a ticket is still open are skipped until it is tracked; tickets marked skipped are excluded, unmarked ones counted and
+  flagged — `!took` is not always sent); and each account's phase, balance, evaluations bought, passes, payouts and fees.
+- **Bot defect found by the first run.** `!eod` filed a balance under today only after 17:00 New York, else the previous trading
+  day — but the user sends it as each bracket resolves (02:48, 11:21, 16:24), so every close of the first two days was filed a day
+  early (DAX under 2026-10-09) and the 17:30 alert would list balances as missing. Now `schedule.eod_day`: the New York date of
+  the exit of the product's latest started ticket (every ticket of one alert exits on the next alert's date); the old rule only
+  when no ticket has started. Test added. The bot's log now writes New York time with its offset (the droplet runs on UTC; earlier
+  rows are naive UTC, which the checker converts). Help text and README updated. **Not yet deployed — needs the user's OK.**
+
+**First reading (2026-10-13, 9 finished tickets):** take / stop / time exit 2 / 7 / 0 against 3.8 / 4.7 / 0.4 expected (chi-square
+2.4, p ≈ 0.30); shadow P&L −$4,601 against −$261 ± $3,147 (z −1.38) — within normal range at nine tickets. Recorded closes match
+the shadow within $4 (soybeans −$11.50), but are round ±$1,000 / ±$1,200: the demo appears to charge no commission (or balances are
+rounded) — live accounts will pay $2.56–$33 a ticket that the demo does not show.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

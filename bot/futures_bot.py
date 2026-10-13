@@ -8,8 +8,8 @@ The 17:30 alert (Sun-Thu): results of finished tickets, then crude (MCL) 18:00 t
 free 1-minute prices after its window closes, traded or not.
 
 Commands (in the configured channel; start with ! or mention the bot, e.g. "@Bot eod MNQ 50850"):
-  !eod <PRODUCT> <balance>       the account balance after the 17:00 ET close, all positions flat (send 17:00-17:30;
-                                 a ticket already issued is reissued)
+  !eod <PRODUCT> <balance>       the account balance once that product's ticket has closed (any time - filed under the
+                                 ticket's trading day); a ticket already issued is reissued
   !took <PRODUCT> / !skipped <PRODUCT>   mark whether you placed the latest ticket
   !results [n]                   finished tickets and how they played out (all, or the last n)
   !ticket                        the tickets issued at the last alert
@@ -34,7 +34,7 @@ import discord
 from discord.ext import commands, tasks
 
 from accounts import PRODUCTS, Book
-from schedule import ALERT, ET, Tickets, alert_text, last_trading_day, ticket_post
+from schedule import ALERT, ET, Tickets, alert_text, eod_day, last_trading_day, ticket_post
 
 HERE = Path(__file__).resolve().parent
 
@@ -117,7 +117,7 @@ async def eod_cmd(ctx, product: str, balance: float):
         return
     p = _product(product)
     now = dt.datetime.now(ET)
-    day = last_trading_day(now.date() if now.hour >= 17 else now.date() - dt.timedelta(days=1)).isoformat()
+    day = eod_day(tix, p, now)                      # the trading day of the ticket that just ended
     msgs = book.eod(p, balance, day)
     a = book.s[p]
     out = [f"{p}: closed ${balance:,.2f} ({day}) recorded. Peak ${a['peak']:,.2f}, best day ${a['best']:,.0f}." if a["phase"] != "dead" else ""]

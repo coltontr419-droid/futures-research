@@ -2,6 +2,7 @@
 
     python -m futuresres.reporting.a18_demo_check shadow_log.csv [demo_log.csv]
     python -m futuresres.reporting.a18_demo_check --export-expected      # bot/expected.json for the bot's weekly check
+    python -m futuresres.reporting.a18_demo_check --review               # pull the droplet's logs; the full review (147)
 
 For every finished ticket in the bot's shadow log (bot/schedule.py): the probability, on 2021-26 history (the same
 1-minute paths as A07/A08, drift removed, stops at the stop price, a minute touching both = stop), that THIS bracket -
@@ -23,11 +24,13 @@ import sys
 from pathlib import Path
 
 import numpy as np
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[3]
 WINDOWS = {"MNQ": ("rth_0930_1600", 2.0), "MGC": ("london_0300_1130", 10.0)}
 RT = {"MNQ": 2.32, "MGC": 3.32, "MCL": 3.32, "NKD": 4.0, "FDXM": 4.0, "ZS": 4.5}
 _PATHS: dict = {}
+ET = ZoneInfo("America/New_York")
 
 
 def _paths(product: str):
@@ -116,24 +119,102 @@ def check(shadow_csv: Path, demo_csv: Path | None = None) -> dict:
     return out
 
 
+def _log_time(t: str) -> dt.datetime:
+    """demo_log 'time': New York with offset from 2026-10-13; naive before that = the droplet's UTC clock."""
+    x = dt.datetime.fromisoformat(t)
+    return (x if x.tzinfo else x.replace(tzinfo=dt.timezone.utc)).astimezone(ET)
+
+
 def execution_gap(shadow_rows: list[dict], demo_csv: Path) -> dict:
-    """Traded tickets: the account's closing-balance change on the exit's trading day vs the shadow P&L."""
-    eod = {}
-    for r in csv.DictReader(open(demo_csv)):
-        if r["event"] == "EOD" and r["pnl"] not in ("", None):
-            eod.setdefault(r["product"], []).append((r["time"][:10], float(r["pnl"])))
+    """Each recorded close (EOD) against the shadow P&L of the ticket that had just ended for that product - the latest
+    ticket whose entry precedes the close. Tickets marked `skipped` are left out; unmarked ones count (the user does not
+    always send `!took`), and are flagged."""
+    eods = [r for r in csv.DictReader(open(demo_csv)) if r["event"] == "EOD" and r["pnl"] not in ("", None)]
+    shadow = {(r["product"], r["entry"]): r for r in shadow_rows}
+    # every issued ticket (bot's tickets.json, pulled beside the logs): a close belongs to the latest ticket that had started
+    tj = Path(demo_csv).with_name("tickets.json")
+    issued = json.loads(tj.read_text()) if tj.exists() else [{"product": r["product"], "entry": r["entry"]} for r in shadow_rows]
+    by_prod: dict = {}
+    for r in issued:
+        by_prod.setdefault(r["product"], set()).add(r["entry"])
     gaps = []
-    for r in shadow_rows:
-        if r.get("traded") != "yes":
+    for e in eods:
+        t = _log_time(e["time"])
+        started = [x for x in by_prod.get(e["product"], ()) if dt.datetime.fromisoformat(x) <= t]
+        if not started or (e["product"], max(started)) not in shadow:     # its ticket is not finished / tracked yet
             continue
-        day = dt.datetime.fromisoformat(r["exit"]).date().isoformat()
-        rec = [p for d, p in eod.get(r["product"], []) if d == day]
-        if rec:
-            gaps.append({"product": r["product"], "exit": r["exit"], "shadow": float(r["pnl"]), "actual": rec[-1],
-                         "gap": rec[-1] - float(r["pnl"])})
+        r = shadow[(e["product"], max(started))]
+        if r.get("traded") == "no":
+            continue
+        gaps.append({"product": r["product"], "exit": r["exit"], "shadow": float(r["pnl"]), "actual": float(e["pnl"]),
+                     "gap": float(e["pnl"]) - float(r["pnl"]), "marked": r.get("traded") == "yes"})
     g = np.array([x["gap"] for x in gaps]) if gaps else np.array([])
     return {"traded_tickets_matched": len(gaps), "mean_gap": float(g.mean()) if len(g) else None,
             "median_gap": float(np.median(g)) if len(g) else None, "rows": gaps}
+
+
+def per_product(r: dict) -> dict:
+    out = {}
+    for t in r.get("per_ticket", []):
+        p = out.setdefault(t["product"], {"tickets": 0, "TAKE": 0, "STOP": 0, "TIME EXIT": 0, "exp_take": 0.0, "exp_stop": 0.0,
+                                         "exp_time": 0.0, "pnl": 0.0, "exp_pnl": 0.0, "var": 0.0})
+        p["tickets"] += 1; p[t["outcome"]] += 1; p["pnl"] += t["pnl"]
+        p["exp_take"] += t["p_take"]; p["exp_stop"] += t["p_stop"]; p["exp_time"] += t["p_time"]
+        p["exp_pnl"] += t["mean_net"]; p["var"] += t["sd_net"] ** 2
+    return out
+
+
+def accounts(state_json: Path, demo_csv: Path) -> dict:
+    """Per product: phase, balance, evaluations bought, passes, payouts and fees, from the bot's state and log."""
+    st = json.loads(Path(state_json).read_text())
+    ev = list(csv.DictReader(open(demo_csv))) if Path(demo_csv).exists() else []
+    out = {}
+    for p, a in st.items():
+        rows = [r for r in ev if r["product"] == p]
+        out[p] = {"phase": a["phase"], "balance": a["balance"], "evals_bought": a.get("evals_bought"), "fees": a.get("fees"),
+                  "passes": sum(r["event"] == "PASSED" for r in rows),
+                  "payouts": sum(float(r["amount"] or 0) for r in rows if r["event"] == "PAYOUT"),
+                  "closes_recorded": sum(r["event"] == "EOD" for r in rows), "paid_out": a.get("paid", 0.0)}
+    return out
+
+
+DEMO_DIR = ROOT / "data" / "cache" / "demo"
+
+
+def pull() -> Path:
+    """Copy the bot's logs and state from the droplet (read-only on the droplet; ssh host `futures-droplet`)."""
+    import subprocess
+    DEMO_DIR.mkdir(parents=True, exist_ok=True)
+    for f in ("shadow_log.csv", "demo_log.csv", "state.json", "tickets.json"):
+        subprocess.run(["scp", "-q", f"futures-droplet:/opt/futures-bot/{f}", str(DEMO_DIR / f)], check=True)
+    return DEMO_DIR
+
+
+def review(pull_first: bool = True) -> str:
+    """The demo review in one call: pull, compare with the backtest overall and per product, execution, accounts."""
+    d = pull() if pull_first else DEMO_DIR
+    r = check(d / "shadow_log.csv", d / "demo_log.csv")
+    w = [render(r)]
+    pp = per_product(r)
+    if pp:
+        w += ["", "## By product (shadow-tracked; expected from the same brackets on 2021–26 history)", "",
+              "| product | tickets | take / stop / time | expected | P&L | expected ± SD |", "|---|---|---|---|---|---|"]
+        for p, x in sorted(pp.items()):
+            w.append(f"| {p} | {x['tickets']} | {x['TAKE']} / {x['STOP']} / {x['TIME EXIT']} | {x['exp_take']:.1f} / {x['exp_stop']:.1f} / "
+                     f"{x['exp_time']:.1f} | ${x['pnl']:+,.0f} | ${x['exp_pnl']:+,.0f} ± ${math.sqrt(x['var']):,.0f} |")
+    if "execution" in r and r["execution"]["rows"]:
+        w += ["", "## Execution: recorded close vs shadow P&L", "", "| product | ticket exit | shadow | recorded | gap | marked traded |",
+              "|---|---|---|---|---|---|"]
+        w += [f"| {x['product']} | {x['exit'][:16]} | ${x['shadow']:+,.2f} | ${x['actual']:+,.2f} | ${x['gap']:+,.2f} | "
+              f"{'yes' if x['marked'] else 'unmarked'} |" for x in r["execution"]["rows"]]
+    if (d / "state.json").exists():
+        a = accounts(d / "state.json", d / "demo_log.csv")
+        w += ["", "## Accounts", "", "| product | phase | balance | evaluations bought | passes | payouts | fees |", "|---|---|---|---|---|---|---|"]
+        w += [f"| {p} | {x['phase']} | ${x['balance']:,.2f} | {x['evals_bought']} | {x['passes']} | ${x['payouts']:,.0f} | ${x['fees'] or 0:,.0f} |"
+              for p, x in a.items()]
+    text = "\n".join(w)
+    (d / f"review_{dt.date.today().isoformat()}.md").write_text(text + "\n")
+    return text
 
 
 def render(r: dict) -> str:
@@ -157,9 +238,13 @@ def render(r: dict) -> str:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(); ap.add_argument("shadow", nargs="?"); ap.add_argument("demo", nargs="?")
     ap.add_argument("--export-expected", action="store_true")
+    ap.add_argument("--review", action="store_true", help="pull the droplet's logs and print the full demo review")
+    ap.add_argument("--no-pull", action="store_true", help="with --review: use the copies already in data/cache/demo")
     a = ap.parse_args(argv)
     if a.export_expected:
         export_expected(); return 0
+    if a.review:
+        print(review(not a.no_pull)); return 0
     print(render(check(Path(a.shadow), Path(a.demo) if a.demo else None)))
     return 0
 

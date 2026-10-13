@@ -37,6 +37,17 @@ def last_trading_day(d: dt.date) -> dt.date:
     return d
 
 
+def eod_day(tix: "Tickets", product: str, now: dt.datetime) -> str:
+    """The trading day a balance sent NOW belongs to: the New York date of the exit of the product's latest ticket that has
+    already started. The user sends `!eod` as soon as a bracket resolves - 02:48 for crude, 11:21 for Nikkei - not only after
+    the 17:00 close, so the clock alone mislabels it; every ticket of one alert exits on the next alert's date. With no
+    ticket, the old rule: today after 17:00, else the previous trading day."""
+    started = [r for r in tix.t if r["product"] == product and dt.datetime.fromisoformat(r["entry"]) <= now]
+    if started:
+        return dt.datetime.fromisoformat(max(started, key=lambda r: r["entry"])["exit"]).astimezone(ET).date().isoformat()
+    return last_trading_day(now.date() if now.hour >= 17 else now.date() - dt.timedelta(days=1)).isoformat()
+
+
 class Tickets:
     def __init__(self, path: Path, log_path: Path):
         self.path, self.log_path = Path(path), Path(log_path)

@@ -103,3 +103,24 @@ def test_existing_three_account_state_gains_the_new_accounts(tmp_path):
     (tmp_path / "s.json").write_text(json.dumps(old))
     bk = ac.Book(tmp_path / "s.json", tmp_path / "log.csv")
     assert bk.s["MNQ"]["balance"] == 51_234.0 and bk.s["NKD"]["phase"] == "eval" and bk.s["FDXM"]["balance"] == 50_000.0 and bk.s["ZS"]["phase"] == "eval"
+
+
+def test_eod_is_filed_under_the_ending_tickets_trading_day(tmp_path):
+    """`!eod` sent as soon as a bracket resolves (02:48 for crude, 11:21 for Nikkei, 16:24 for MNQ) belongs to the trading
+    day of the ticket that just ended - the date the next 17:30 alert checks - not the clock's previous trading day."""
+    import datetime as dt
+    import accounts as ac
+    import schedule as sc
+    bk = ac.Book(tmp_path / "s.json", tmp_path / "log.csv")
+    tx = sc.Tickets(tmp_path / "t.json", tmp_path / "shadow.csv")
+    sc.alert_text(bk, tx, dt.datetime(2026, 10, 12, 17, 30, tzinfo=sc.ET))                    # Monday's alert
+    for p, when in (("MCL", (10, 13, 2, 48)), ("NKD", (10, 13, 1, 15)), ("MGC", (10, 13, 11, 22)), ("MNQ", (10, 13, 16, 24)),
+                    ("ZS", (10, 13, 3, 50)), ("FDXM", (10, 13, 9, 40))):
+        now = dt.datetime(2026, *when, tzinfo=sc.ET)
+        assert sc.eod_day(tx, p, now) == "2026-10-13", (p, sc.eod_day(tx, p, now))
+        bk.eod(p, 50_000.0, sc.eod_day(tx, p, now))
+    text = sc.alert_text(bk, tx, dt.datetime(2026, 10, 13, 17, 30, tzinfo=sc.ET))
+    assert "not recorded" not in text
+    # before any ticket has started: the clock rule
+    tx2 = sc.Tickets(tmp_path / "t2.json", tmp_path / "s2.csv")
+    assert sc.eod_day(tx2, "MNQ", dt.datetime(2026, 10, 13, 16, 0, tzinfo=sc.ET)) == "2026-10-12"
