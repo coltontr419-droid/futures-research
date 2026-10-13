@@ -9295,6 +9295,24 @@ only): holding to 11:30 passes 0–10% (mean net −$289 to −$902 per 84 days)
 and +$680 (2021–26) — the zero-edge staking on half the days, below the existing accounts. **The metals' London predictability
 is real but cannot be engineered into a trade that carries a Tradeify account with this data.** Watchlist, forward-tested by time.
 
+## 199. D-series family 20 protocol: where a market's real drift accrues — night or day (S1)
+
+**No trial spent; N 839. Written and committed BEFORE any window statistic is computed.** The user: continue; report only genuine
+findings. The plan's replays remove drift (zero edge), but real accounts earn it; the windows were chosen under zero edge (§105,
+§106, §124). F13 (excluded) was the narrow 02:00–03:00 ET overnight-drift claim, decayed per its authors; the broad split of each
+market's day into night and day sessions was never measured. Recent-period design (§180): discovery 2018-01 → 2022-12;
+validation 2023-01 → 2026-08, sealed.
+
+1. **Windows (owned minute trades, family-8 grids, contract-consistent; daily round trips, flat 17:00–18:00):** MNQ night
+   18:00 → 09:30 and day 09:30 → 16:00; MGC Asia 18:00 → 03:00 and London 03:00 → 11:30. **Long only** (the question is drift).
+   **4 tests.** Net of a round trip (MNQ 0.56, MGC 1.0 bps).
+2. **Discovery:** each window's net mean and daily Sharpe on 2018–22; **carried** if net > 0 with t > 1.96.
+3. **Validation (one trial each), sealed:** CONFIRM if (a) net > 0 against not trading, t > 1.645; (b) its daily Sharpe exceeds the
+   plan's current window for that market (MNQ day / MGC London) over the same 2023–26 days — so a confirmed window is a better
+   use of the account, not just a premium already earned; (c) positive in ≥ 3 of the 4 years. WATCHLIST if net > 0; REJECT.
+   Z and D market-tests from 76. A CONFIRM is then replayed as the plan's account for that market (A23 engine, REAL drift) against
+   the current window before anything changes.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
