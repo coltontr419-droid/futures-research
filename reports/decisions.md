@@ -10342,6 +10342,14 @@ MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation as �
 **No trial spent; N 880.** `reports/d67_discovery.json`: gross moves around either auction are +0.1 to +0.3 bps against 0.8 bps of
 cost; every net is negative (2016–17 the same). Empty.
 
+## 315. D-series family 68 protocol: gold's New York afternoon (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** New family-8 grid ("MGC", "ny"), 11:30 → 16:55 ET.
+(i) **Settlement**: COMEX gold settles on 13:28–13:30 ET trades; pre = 13:00 → 13:30, target 13:30 → 14:00, follow or fade fixed by
+discovery; forms **all** and **strong**. (ii) **Relay**: the same day's London window (03:00 → 11:30) predicts the afternoon 11:30 →
+16:55, follow or fade; forms **all** and **strong**. Same contract throughout. **4 tests**, with the descriptive 2010–17 column (§306).
+Cost MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
