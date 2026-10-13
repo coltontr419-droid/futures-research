@@ -195,9 +195,13 @@ def _bracket(h, l, c, W, L):
     return out
 
 
-def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON) -> dict:
+def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip: np.ndarray | None = None,
+           fixed: tuple | None = None) -> dict:
     """Back-to-back attempts from every start date, real sessions in order (a02_real.sequential 'replay', per trader),
-    under spec s, with one-contract GROSS $ paths (h, l, c), n contracts, round trip rt each."""
+    under spec s, with one-contract GROSS $ paths (h, l, c), n contracts, round trip rt each.
+    A27 (standalone strategies): `skip` - per session, True = the strategy does not trade that day (the account sits; no
+    cost, no breach); `fixed` - (take $, stop $) net brackets used every traded day instead of the plan's policy (a take of
+    1e9 = hold to the window's end)."""
     pe, ge, _, pf, gf, _ = policy(s)
     h1, l1, c1 = paths
     h, l, c = h1 * np.float32(n), l1 * np.float32(n), c1 * np.float32(n)
@@ -216,16 +220,19 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON) -> d
         a_f = pf[b_f - gf["FMIN"], pk_f, np.minimum(npay, s.live_after), np.minimum(wc, gf["WD"])]
         a = np.where(ev, a_e, a_f)
         W = (a // 100) * 100.0; L = (a % 100) * 100.0
+        if fixed is not None:
+            a = np.ones(A, int); W = np.full(A, float(fixed[0])); L = np.full(A, float(fixed[1]))
         floor = np.where(ev, pk - ddE, np.where(pk >= START + ddF, START, pk - ddF))
         L = np.minimum(L, np.maximum(eq - floor - 1, 1))
         # the playbook (decisions.md 113): within one day's costs (+$10) of the floor the account is FINISHED - any trade
         # breaches it - and is replaced by a new evaluation. (a02_real reaches nearly the same end through its 2.32 engine cost.)
-        trade = (a > 0) & (eq - floor > cost + 10)
+        active = np.ones(A, bool) if skip is None else ~skip[idx]
+        trade = active & (a > 0) & (eq - floor > cost + 10)
         pnl = _bracket(h[idx], l[idx], c[idx], np.where(trade, W + cost, 1e12), np.where(trade, np.maximum(L - cost, 1.0), 1e12))
         # P&L to the cent: float32 paths made a +$600 take land at $599.99, so an account at exactly the target failed to
         # pass (found on crude, decisions.md 146); the live engine's 2.32 offsets happened to avoid it.
         pnl = np.round(np.where(trade, pnl.astype(np.float64) - cost, 0.0), 2)
-        ne = eq + pnl; br = (ne <= floor) | ~trade
+        ne = eq + pnl; br = (ne <= floor) | (active & ~trade)
         eq = ne; pk = np.maximum(pk, ne)
         best = np.where(ev, np.maximum(best, pnl), best)
         prof = eq - START

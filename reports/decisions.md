@@ -8778,6 +8778,31 @@ held). **D32 stands as a confirmed edge; it is not adopted into the plan.** Side
 crude as the fifth account in both histories (+$0.9–1.5k per four months), but its window correlates +0.77–0.81 with gold's, and
 soybeans in crude's place remains the better swap in 2021–26.
 
+## 165. A27: D32 as a standalone strategy cannot carry a Tradeify account — what "standalone" has to mean here (S8)
+
+**No trial spent; N 812.** `reporting/a27_standalone.py`, `reports/a27_standalone.json`; A23's replay gains `skip` (days the
+strategy sits out: no cost, no breach) and `fixed` (net brackets every traded day; defaults reproduce the live engine). The user:
+standalone strategies count too, not only overlays on the plan. D32 on its own 50K Daily account, 3 SIL, 84-day replay:
+
+| 2021–26 (out of sample), drift removed / real | P(payout) | mean net | P(net > 0) |
+|---|---|---|---|
+| S1 D32 days only, the plan's solver brackets | 53% / 53% | +$1,551 / +$1,625 | 53% |
+| S2 D32 days only, hold to 11:30, stop $1,000 | 1% / 1% | −$917 / −$921 | 1% |
+| S3 D32 days only, hold to 11:30, stop $600 | 5% / 4% | −$435 / −$462 | 4–5% |
+| B same days ALWAYS LONG, hold, stop $1,000 | 5% / 5% | −$697 / −$711 | 5% |
+| S4 every day, D36's direction, hold, $1,000 | 12% / 12% | −$1,283 / −$1,288 | 6% |
+
+(2010–20: the same pattern; S1 +$1,018 / +$871.) Holding the window to capture the drift fails the evaluation over and over —
+a position swinging ±$2,900 a day meets the $2,000 trailing floor long before a +$3,000 target; the rule improves the hold variants
+only marginally over the no-skill baseline (B). Only the staking brackets (S1) make the account pay, and they do so at the
+zero-edge plan's rate.
+
+**What "standalone" has to mean in this account.** §91: a payout within one to two months needs a strategy Sharpe of ~5 a year; D32
+is ~0.7–1 (about 0.06–0.09 standard deviations per traded day). A strategy carries a Tradeify account on its own only if its edge
+per day is large against its own daily swing — which, at ~one trade a day, means a Sharpe several times anything this programme
+has measured. Sharpe grows with the square root of the number of independent trades, so a standalone search should look for
+**many small, independent trades a day** (intraday, minute-level, owned trade data), each with a modest edge — not one daily hold.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

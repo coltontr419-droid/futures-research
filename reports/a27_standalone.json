@@ -1,0 +1,166 @@
+{
+ "pre": {
+  "drift removed | S1 D32 days, plan brackets": {
+   "p_payout": 0.5162468054034319,
+   "mean_net": 1018.2465195326761,
+   "median_net": -240.0,
+   "p_net_positive": 0.484118291347207,
+   "mean_fees": 518.2329317269076,
+   "starts": 2739
+  },
+  "drift removed | S2 D32 days, hold, stop $1,000": {
+   "p_payout": 0.055129609346476816,
+   "mean_net": -562.7417126688572,
+   "median_net": -640.0,
+   "p_net_positive": 0.05439941584519898,
+   "mean_fees": 731.2449799196787,
+   "starts": 2739
+  },
+  "drift removed | S3 D32 days, hold, stop $600": {
+   "p_payout": 0.03906535231836437,
+   "mean_net": -375.2314731653889,
+   "median_net": -480.0,
+   "p_net_positive": 0.03906535231836437,
+   "mean_fees": 495.7721796276013,
+   "starts": 2739
+  },
+  "drift removed | B  same days, always long, hold, $1,000": {
+   "p_payout": 0.02555677254472435,
+   "mean_net": -710.4112132165023,
+   "median_net": -720.0,
+   "p_net_positive": 0.02482657904344651,
+   "mean_fees": 746.1409273457466,
+   "starts": 2739
+  },
+  "drift removed | S4 every day, D36 direction, hold, $1,000": {
+   "p_payout": 0.1321650237312888,
+   "mean_net": -816.936125958379,
+   "median_net": -1360.0,
+   "p_net_positive": 0.10660825118656445,
+   "mean_fees": 1367.0974808324206,
+   "starts": 2739
+  },
+  "real | S1 D32 days, plan brackets": {
+   "p_payout": 0.5177071924059876,
+   "mean_net": 870.953890105878,
+   "median_net": -240.0,
+   "p_net_positive": 0.47937203358890107,
+   "mean_fees": 520.3650967506389,
+   "starts": 2739
+  },
+  "real | S2 D32 days, hold, stop $1,000": {
+   "p_payout": 0.030303030303030304,
+   "mean_net": -619.7175772179627,
+   "median_net": -640.0,
+   "p_net_positive": 0.029572836801752465,
+   "mean_fees": 735.7721796276013,
+   "starts": 2739
+  },
+  "real | S3 D32 days, hold, stop $600": {
+   "p_payout": 0.03906535231836437,
+   "mean_net": -375.1587780211756,
+   "median_net": -480.0,
+   "p_net_positive": 0.03906535231836437,
+   "mean_fees": 494.8667396860168,
+   "starts": 2739
+  },
+  "real | B  same days, always long, hold, $1,000": {
+   "p_payout": 0.02555677254472435,
+   "mean_net": -716.1119317269074,
+   "median_net": -720.0,
+   "p_net_positive": 0.02482657904344651,
+   "mean_fees": 750.9602044541804,
+   "starts": 2739
+  },
+  "real | S4 every day, D36 direction, hold, $1,000": {
+   "p_payout": 0.1321650237312888,
+   "mean_net": -816.1140474625777,
+   "median_net": -1360.0,
+   "p_net_positive": 0.10660825118656445,
+   "mean_fees": 1367.3311427528295,
+   "starts": 2739
+  }
+ },
+ "post": {
+  "drift removed | S1 D32 days, plan brackets": {
+   "p_payout": 0.534684333593141,
+   "mean_net": 1551.0639641465316,
+   "median_net": 355.1759999999995,
+   "p_net_positive": 0.534684333593141,
+   "mean_fees": 636.4458300857366,
+   "starts": 1283
+  },
+  "drift removed | S2 D32 days, hold, stop $1,000": {
+   "p_payout": 0.006235385814497272,
+   "mean_net": -917.0073967264225,
+   "median_net": -880.0,
+   "p_net_positive": 0.006235385814497272,
+   "mean_fees": 940.6079501169135,
+   "starts": 1283
+  },
+  "drift removed | S3 D32 days, hold, stop $600": {
+   "p_payout": 0.048324240062353856,
+   "mean_net": -435.47284411535446,
+   "median_net": -640.0,
+   "p_net_positive": 0.048324240062353856,
+   "mean_fees": 608.7607170693686,
+   "starts": 1283
+  },
+  "drift removed | B  same days, always long, hold, $1,000": {
+   "p_payout": 0.05455962587685113,
+   "mean_net": -697.4361730319563,
+   "median_net": -880.0,
+   "p_net_positive": 0.05455962587685113,
+   "mean_fees": 956.1964146531567,
+   "starts": 1283
+  },
+  "drift removed | S4 every day, D36 direction, hold, $1,000": {
+   "p_payout": 0.12081060015588464,
+   "mean_net": -1282.8362922837098,
+   "median_net": -1520.0,
+   "p_net_positive": 0.06313328137178488,
+   "mean_fees": 1479.095869056898,
+   "starts": 1283
+  },
+  "real | S1 D32 days, plan brackets": {
+   "p_payout": 0.5339049103663289,
+   "mean_net": 1624.9819142634453,
+   "median_net": 340.0,
+   "p_net_positive": 0.5339049103663289,
+   "mean_fees": 644.551831644583,
+   "starts": 1283
+  },
+  "real | S2 D32 days, hold, stop $1,000": {
+   "p_payout": 0.006235385814497272,
+   "mean_net": -921.3472010911926,
+   "median_net": -880.0,
+   "p_net_positive": 0.006235385814497272,
+   "mean_fees": 944.9727201870616,
+   "starts": 1283
+  },
+  "real | S3 D32 days, hold, stop $600": {
+   "p_payout": 0.04053000779423227,
+   "mean_net": -462.40856352299295,
+   "median_net": -640.0,
+   "p_net_positive": 0.04053000779423227,
+   "mean_fees": 613.0007794232268,
+   "starts": 1283
+  },
+  "real | B  same days, always long, hold, $1,000": {
+   "p_payout": 0.05455962587685113,
+   "mean_net": -711.4975892439594,
+   "median_net": -880.0,
+   "p_net_positive": 0.05455962587685113,
+   "mean_fees": 965.1753702260328,
+   "starts": 1283
+  },
+  "real | S4 every day, D36 direction, hold, $1,000": {
+   "p_payout": 0.12081060015588464,
+   "mean_net": -1288.3215666406857,
+   "median_net": -1520.0,
+   "p_net_positive": 0.06235385814497272,
+   "mean_fees": 1469.3686671862822,
+   "starts": 1283
+  }
+ }
+}
