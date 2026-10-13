@@ -196,7 +196,7 @@ def _bracket(h, l, c, W, L):
 
 
 def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip: np.ndarray | None = None,
-           fixed: tuple | None = None) -> dict:
+           fixed: tuple | None = None, nvec: np.ndarray | None = None) -> dict:
     """Back-to-back attempts from every start date, real sessions in order (a02_real.sequential 'replay', per trader),
     under spec s, with one-contract GROSS $ paths (h, l, c), n contracts, round trip rt each.
     A27 (standalone strategies): `skip` - per session, True = the strategy does not trade that day (the account sits; no
@@ -204,13 +204,19 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip
     1e9 = hold to the window's end)."""
     pe, ge, _, pf, gf, _ = policy(s)
     h1, l1, c1 = paths
-    h, l, c = h1 * np.float32(n), l1 * np.float32(n), c1 * np.float32(n)
-    cost = rt * n; S = len(c); starts = np.arange(0, S - window); A = len(starts)
+    if nvec is None:
+        h, l, c = h1 * np.float32(n), l1 * np.float32(n), c1 * np.float32(n)
+        cost_s = np.full(len(c1), rt * n)
+    else:                                             # A29: contracts per session (decisions.md 257)
+        k = nvec.astype(np.float32)[:, None]
+        h, l, c = h1 * k, l1 * k, c1 * k
+        cost_s = rt * nvec.astype(np.float64)
+    S = len(c); starts = np.arange(0, S - window); A = len(starts)
     START, ddE, ddF = s.start, s.dd * 100.0, s.f_dd * 100.0
     phase = np.zeros(A, int); eq = np.full(A, START); pk = eq.copy(); best = np.zeros(A); npay = np.zeros(A, int); wc = np.zeros(A, int)
     fees = np.full(A, s.fee); paid = np.zeros(A); first = np.full(A, -1)
     for d in range(window):
-        idx = starts + d; ev = phase == 0; fu = ~ev
+        idx = starts + d; ev = phase == 0; fu = ~ev; cost = cost_s[idx]
         b_e = np.clip(np.rint((eq - START) / 100).astype(int), ge["B_MIN"], ge["B_MAX"])
         pk_e = np.maximum(np.clip(np.rint((pk - START) / 100).astype(int), 0, ge["B_MAX"]), np.maximum(b_e, 0))
         bd_e = np.clip(np.rint(best / 100).astype(int), 0, ge["BD_MAX"])

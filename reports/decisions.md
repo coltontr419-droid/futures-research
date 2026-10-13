@@ -9913,6 +9913,17 @@ carried at net > 0, t > 1.96; validation as §207, 3 (placebo: days with |r| ≤
 **No trial spent; N 875.** `reports/d42_discovery.json`: MNQ after 1–2σ ZN moves +0.8 bps (t +0.11), after 0.5–1σ +3.0 (t +0.44);
 DAX even fades moderate moves (t +1.60 for the fade). The 10-year effect is a tail phenomenon only; D68 stays as deployed. Empty.
 
+## 257. A29 design: contracts sized to a volatility forecast (S8)
+
+**A COMPUTATION; zero edge; no trial; N 875. Variants fixed BEFORE any result.** The plan's brackets are dollars set by the account's
+state and its contract count never changes, so a quiet day ends at the window close with little decided and a wild one hits a
+bracket in minutes. Direction is not predictable; volatility is. Per session d: R = the window's per-contract range (max high −
+min low of its path), forecast F_d = mean R over the previous 20 sessions, reference = median F over the previous 250 (causal);
+n_d = round(n × reference / F_d) clipped. Variants: **plan** (n fixed); **V1** clip [1, 2n]; **V2** clip [1, n] (only ever smaller);
+**V3** the inverse, n × F_d / reference, clip [1, 2n] (direction check). A23 engine (it reproduces the live engine; `nvec` added,
+default path unchanged and re-checked), 50K Daily, live sizes, both histories, every start, 84 days; books of the five live markets.
+Adopt only if V1 or V2 beats the plan on the five-account book in BOTH histories on mean net and P(net > 0).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
