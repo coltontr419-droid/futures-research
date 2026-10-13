@@ -10328,6 +10328,15 @@ gotobi-specific difference is ~3.4 bps — the most robust replication in the D-
 plan's products, and a standalone 50K evaluation ($3,000 target) would take years. Forward-tracked on the watchlist (§133): the next
 gotobi days' 09:55 → 12:00 6J moves can be logged at no cost. Not deployed. Z and D market-test 116.
 
+## 313. D-series family 67 protocol: the Shanghai Gold Exchange benchmark auctions (S1)
+
+**No trial spent; N 880. Written and committed BEFORE any statistic is computed.** The one robust recent replication (D104) is a
+scheduled-flow effect at a fix. The Shanghai gold benchmark is set by auction at 10:15 and 14:15 Beijing (no DST; 22:15 / 02:15 ET in
+summer, 21:15 / 01:15 in winter) — inside gold's Asia session (owned MGC trades, family-8 grid). Pre = the 30 minutes into the auction,
+target = the 30 minutes after, follow or fade fixed by discovery, same contract; forms **all** and **strong** (|pre| above its discovery
+median). **2 × 2 = 4 tests**, with the descriptive 2010–17 column (§306; the SGE benchmark began April 2016, so 2016–17 only). Cost
+MGC 0.8 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the same rule one hour earlier).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
