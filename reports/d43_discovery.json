@@ -1,0 +1,45 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "predictor": "MGC london",
+   "form": "all",
+   "n": 1226,
+   "rule": "follow",
+   "net_bps": 0.44710931181907654,
+   "t": 0.40892261266708374,
+   "carried": false
+  },
+  {
+   "predictor": "MGC london",
+   "form": "strong",
+   "n": 613,
+   "rule": "follow",
+   "net_bps": 0.7504745125770569,
+   "t": 0.45725980401039124,
+   "carried": false
+  },
+  {
+   "predictor": "MNQ day",
+   "form": "all",
+   "n": 1230,
+   "rule": "follow",
+   "net_bps": 1.219480037689209,
+   "t": 1.118960976600647,
+   "carried": false
+  },
+  {
+   "predictor": "MNQ day",
+   "form": "strong",
+   "n": 615,
+   "rule": "follow",
+   "net_bps": 0.7702229022979736,
+   "t": 0.4736289381980896,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

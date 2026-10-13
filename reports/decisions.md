@@ -9947,6 +9947,10 @@ zero-edge reshuffle of variance looks like. The fixed-contract plan stays. `a23.
 fade fixed by discovery; forms **all** and **strong** (|predictor| above its discovery median). **2 × 2 = 4 tests.** Cost MGC 0.8 bps;
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 260. Family-43 discovery: gold's Asia session — 0 of 4 carried (S1)
+
+**No trial spent; N 875.** `reports/d43_discovery.json`: best follows MNQ's day, +1.2 bps (t +1.12). Asia gold barely moves. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
