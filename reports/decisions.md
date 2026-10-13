@@ -9226,6 +9226,23 @@ fitted on 2018-01 → 2022-12, scored ONCE on sealed 2023-01 → 2026-08. **6 tr
    ≥ 3 of the 4 years. WATCHLIST if net > 0; REJECT. Z and D market-tests 70–75. No discovery screen — every window's model is
    validated, so the six are the whole family.
 
+## 195. Family-19 models fitted and frozen on 2018–22; D58–D63 registered (S1–S5)
+
+**No trial spent at registration; N 833. Committed BEFORE the sealed window is read.** `reporting/d19_model.py`,
+`reports/d19_models.json` (coefficients, standardisation, penalty). Out-of-fold skill inside 2018–22 is small:
+
+| id | window | penalty | out-of-fold daily Sharpe (net) | in-sample net bps | long share |
+|---|---|---|---|---|---|
+| D58 | NKD_win | 100 | +0.067 | +10.16 | 47% |
+| D59 | DAX_win | 1 | -0.077 | +2.64 | 50% |
+| D60 | MGC_win | 1000 | +0.010 | +5.74 | 59% |
+| D61 | MNQ_win | 10000 | +0.029 | +8.61 | 79% |
+| D62 | MCL | 10000 | +0.009 | +9.76 | 99% |
+| D63 | ZS | 10 | +0.036 | +8.58 | 54% |
+
+The models lean on the relay hand-offs (yesterday's MNQ against Tokyo and Xetra), trends and volatility state; DAX's best penalty
+already loses out of fold. Z and D market-tests 70–75.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

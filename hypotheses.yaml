@@ -7982,3 +7982,267 @@
       decisions.md 187, 4: CONFIRM if net > 0 t > 1.645, >= 95th pct of the predictor drawn from random days, posterior > 0, positive
       in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 69.
   s6_control: By year; permuted predictor.
+- id: D58
+  name: combined_ridge_model_nkd_win
+  mechanism: >
+    DATA-DERIVED (D-series family 19, combined models, decisions.md 194-195): a ridge regression of the NKD_win window's return on
+    every feature built in families 3-18 (the other windows' latest returns, its own previous window and pre-window move, 5- and
+    20-session trends, volatility state, weekday), fitted on 2018-2022 with the penalty chosen by leave-one-year-out CV (lambda
+    100), frozen. THE COUNTERPARTY would be whatever slow flows the individual signals proxy; no single mechanism is claimed.
+  condition: >
+    Each day: trade the NKD window in the direction of the frozen model's prediction; net of the account's cost.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  schedulable: false
+  schedulable_note: >
+    Scored once on the sealed 2023-2026 window.
+  test_order: 92
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: All parameters fitted and frozen on 2018-2022 before the sealed window was read (decisions.md 194). ONE TRIAL.
+  session: Globex
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      One of the plan's accounts; the model sets that account's direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market model; scored once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 fit'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Out-of-fold daily Sharpe in 2018-2022 under the chosen penalty, as reported in decisions.md 195.
+  decision_rule:
+    rule: >
+      decisions.md 194, 4: CONFIRM if net > 0 t > 1.645, placebo >= 95th pct, beats always-long when the 2018-22 drift was
+      positive, positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 70.
+  s6_control: By year; features from random days.
+- id: D59
+  name: combined_ridge_model_dax_win
+  mechanism: >
+    DATA-DERIVED (D-series family 19, combined models, decisions.md 194-195): a ridge regression of the DAX_win window's return on
+    every feature built in families 3-18 (the other windows' latest returns, its own previous window and pre-window move, 5- and
+    20-session trends, volatility state, weekday), fitted on 2018-2022 with the penalty chosen by leave-one-year-out CV (lambda
+    1), frozen. THE COUNTERPARTY would be whatever slow flows the individual signals proxy; no single mechanism is claimed.
+  condition: >
+    Each day: trade the FDXM window in the direction of the frozen model's prediction; net of the account's cost.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  schedulable: false
+  schedulable_note: >
+    Scored once on the sealed 2023-2026 window.
+  test_order: 93
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: All parameters fitted and frozen on 2018-2022 before the sealed window was read (decisions.md 194). ONE TRIAL.
+  session: Globex
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      One of the plan's accounts; the model sets that account's direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market model; scored once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 fit'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Out-of-fold daily Sharpe in 2018-2022 under the chosen penalty, as reported in decisions.md 195.
+  decision_rule:
+    rule: >
+      decisions.md 194, 4: CONFIRM if net > 0 t > 1.645, placebo >= 95th pct, beats always-long when the 2018-22 drift was
+      positive, positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 71.
+  s6_control: By year; features from random days.
+- id: D60
+  name: combined_ridge_model_mgc_win
+  mechanism: >
+    DATA-DERIVED (D-series family 19, combined models, decisions.md 194-195): a ridge regression of the MGC_win window's return on
+    every feature built in families 3-18 (the other windows' latest returns, its own previous window and pre-window move, 5- and
+    20-session trends, volatility state, weekday), fitted on 2018-2022 with the penalty chosen by leave-one-year-out CV (lambda
+    1000), frozen. THE COUNTERPARTY would be whatever slow flows the individual signals proxy; no single mechanism is claimed.
+  condition: >
+    Each day: trade the MGC window in the direction of the frozen model's prediction; net of the account's cost.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  schedulable: false
+  schedulable_note: >
+    Scored once on the sealed 2023-2026 window.
+  test_order: 94
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: All parameters fitted and frozen on 2018-2022 before the sealed window was read (decisions.md 194). ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      One of the plan's accounts; the model sets that account's direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market model; scored once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 fit'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Out-of-fold daily Sharpe in 2018-2022 under the chosen penalty, as reported in decisions.md 195.
+  decision_rule:
+    rule: >
+      decisions.md 194, 4: CONFIRM if net > 0 t > 1.645, placebo >= 95th pct, beats always-long when the 2018-22 drift was
+      positive, positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 72.
+  s6_control: By year; features from random days.
+- id: D61
+  name: combined_ridge_model_mnq_win
+  mechanism: >
+    DATA-DERIVED (D-series family 19, combined models, decisions.md 194-195): a ridge regression of the MNQ_win window's return on
+    every feature built in families 3-18 (the other windows' latest returns, its own previous window and pre-window move, 5- and
+    20-session trends, volatility state, weekday), fitted on 2018-2022 with the penalty chosen by leave-one-year-out CV (lambda
+    10000), frozen. THE COUNTERPARTY would be whatever slow flows the individual signals proxy; no single mechanism is claimed.
+  condition: >
+    Each day: trade the MNQ window in the direction of the frozen model's prediction; net of the account's cost.
+  horizon_minutes: [390]
+  hold_hours: [6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  schedulable: false
+  schedulable_note: >
+    Scored once on the sealed 2023-2026 window.
+  test_order: 95
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: All parameters fitted and frozen on 2018-2022 before the sealed window was read (decisions.md 194). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      One of the plan's accounts; the model sets that account's direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market model; scored once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 fit'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Out-of-fold daily Sharpe in 2018-2022 under the chosen penalty, as reported in decisions.md 195.
+  decision_rule:
+    rule: >
+      decisions.md 194, 4: CONFIRM if net > 0 t > 1.645, placebo >= 95th pct, beats always-long when the 2018-22 drift was
+      positive, positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 73.
+  s6_control: By year; features from random days.
+- id: D62
+  name: combined_ridge_model_mcl
+  mechanism: >
+    DATA-DERIVED (D-series family 19, combined models, decisions.md 194-195): a ridge regression of the MCL window's return on
+    every feature built in families 3-18 (the other windows' latest returns, its own previous window and pre-window move, 5- and
+    20-session trends, volatility state, weekday), fitted on 2018-2022 with the penalty chosen by leave-one-year-out CV (lambda
+    10000), frozen. THE COUNTERPARTY would be whatever slow flows the individual signals proxy; no single mechanism is claimed.
+  condition: >
+    Each day: trade the MCL window in the direction of the frozen model's prediction; net of the account's cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  schedulable: false
+  schedulable_note: >
+    Scored once on the sealed 2023-2026 window.
+  test_order: 96
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: All parameters fitted and frozen on 2018-2022 before the sealed window was read (decisions.md 194). ONE TRIAL.
+  session: Globex
+  symbols: [MCL]
+  mechanism_instruments:
+    primary: MCL
+    secondary: null
+    rationale: >
+      One of the plan's accounts; the model sets that account's direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market model; scored once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 fit'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Out-of-fold daily Sharpe in 2018-2022 under the chosen penalty, as reported in decisions.md 195.
+  decision_rule:
+    rule: >
+      decisions.md 194, 4: CONFIRM if net > 0 t > 1.645, placebo >= 95th pct, beats always-long when the 2018-22 drift was
+      positive, positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 74.
+  s6_control: By year; features from random days.
+- id: D63
+  name: combined_ridge_model_zs
+  mechanism: >
+    DATA-DERIVED (D-series family 19, combined models, decisions.md 194-195): a ridge regression of the ZS window's return on
+    every feature built in families 3-18 (the other windows' latest returns, its own previous window and pre-window move, 5- and
+    20-session trends, volatility state, weekday), fitted on 2018-2022 with the penalty chosen by leave-one-year-out CV (lambda
+    10), frozen. THE COUNTERPARTY would be whatever slow flows the individual signals proxy; no single mechanism is claimed.
+  condition: >
+    Each day: trade the ZS window in the direction of the frozen model's prediction; net of the account's cost.
+  horizon_minutes: [1095]
+  hold_hours: [18.25]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Not applicable - a frozen model; the placebo (features from random days) is the control.
+  schedulable: false
+  schedulable_note: >
+    Scored once on the sealed 2023-2026 window.
+  test_order: 97
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: All parameters fitted and frozen on 2018-2022 before the sealed window was read (decisions.md 194). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      One of the plan's accounts; the model sets that account's direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market model; scored once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 fit'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Out-of-fold daily Sharpe in 2018-2022 under the chosen penalty, as reported in decisions.md 195.
+  decision_rule:
+    rule: >
+      decisions.md 194, 4: CONFIRM if net > 0 t > 1.645, placebo >= 95th pct, beats always-long when the 2018-22 drift was
+      positive, positive in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 75.
+  s6_control: By year; features from random days.

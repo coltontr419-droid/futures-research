@@ -940,3 +940,27 @@ Data-derived (D-series family 14). `hypotheses.yaml` (D56) · `decisions.md` §1
 
 Data-derived (D-series family 16). `hypotheses.yaml` (D57) · `decisions.md` §188
 
+## D58 — Combined Model for NKD_win
+
+Data-derived (D-series family 19). `hypotheses.yaml` (D58) · `decisions.md` §195
+
+## D59 — Combined Model for DAX_win
+
+Data-derived (D-series family 19). `hypotheses.yaml` (D59) · `decisions.md` §195
+
+## D60 — Combined Model for MGC_win
+
+Data-derived (D-series family 19). `hypotheses.yaml` (D60) · `decisions.md` §195
+
+## D61 — Combined Model for MNQ_win
+
+Data-derived (D-series family 19). `hypotheses.yaml` (D61) · `decisions.md` §195
+
+## D62 — Combined Model for MCL
+
+Data-derived (D-series family 19). `hypotheses.yaml` (D62) · `decisions.md` §195
+
+## D63 — Combined Model for ZS
+
+Data-derived (D-series family 19). `hypotheses.yaml` (D63) · `decisions.md` §195
+
