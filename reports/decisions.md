@@ -10239,6 +10239,11 @@ session** (family-10 Yahoo bar), **NKD** and **DAX** windows on the next weekday
 discovery. **2 measures × 4 targets = 8 tests.** Costs §177/§180 (MGC 0.8, ZN 0.4, NKD 0.2, DAX 0.3); recent-period design; carried at
 net > 0, t > 1.96; validation as §207, 3.
 
+## 302. Family-62 discovery: auction demand into gold, ZN, NKD, DAX — 0 of 8 carried (S1)
+
+**No trial spent; N 878.** `reports/d62_discovery.json`: best DAX short after a weak auction +14.6 bps (t +1.79); ZN itself does not
+move after its own auctions (t +0.30 / +0.05) — the result is priced by the close. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

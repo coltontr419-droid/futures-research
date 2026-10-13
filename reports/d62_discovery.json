@@ -1,0 +1,81 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "measure": "dealer share",
+   "target": "MGC",
+   "n": 148,
+   "rule": "short after weak",
+   "net_bps": 0.9077979268254466,
+   "t": 0.14296115506526783,
+   "carried": false
+  },
+  {
+   "measure": "dealer share",
+   "target": "ZN",
+   "n": 155,
+   "rule": "long after weak",
+   "net_bps": 0.8154325702126342,
+   "t": 0.2993473183963972,
+   "carried": false
+  },
+  {
+   "measure": "dealer share",
+   "target": "NKD",
+   "n": 142,
+   "rule": "short after weak",
+   "net_bps": 3.6967742130154617,
+   "t": 0.5413502755331863,
+   "carried": false
+  },
+  {
+   "measure": "dealer share",
+   "target": "DAX",
+   "n": 151,
+   "rule": "short after weak",
+   "net_bps": 14.611652389903774,
+   "t": 1.7915228721115624,
+   "carried": false
+  },
+  {
+   "measure": "bid-to-cover",
+   "target": "MGC",
+   "n": 135,
+   "rule": "long after weak",
+   "net_bps": 5.048645994398331,
+   "t": 0.7295484119034057,
+   "carried": false
+  },
+  {
+   "measure": "bid-to-cover",
+   "target": "ZN",
+   "n": 141,
+   "rule": "short after weak",
+   "net_bps": 0.14281799373022447,
+   "t": 0.046068117972529354,
+   "carried": false
+  },
+  {
+   "measure": "bid-to-cover",
+   "target": "NKD",
+   "n": 125,
+   "rule": "short after weak",
+   "net_bps": 4.92775136186974,
+   "t": 0.6728154037584968,
+   "carried": false
+  },
+  {
+   "measure": "bid-to-cover",
+   "target": "DAX",
+   "n": 132,
+   "rule": "short after weak",
+   "net_bps": 12.599225122523737,
+   "t": 1.3683231924427761,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
