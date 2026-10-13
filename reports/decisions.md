@@ -9779,6 +9779,19 @@ broken). **Accepted break**: its last close is beyond the range (direction = tha
 target session is traded open→close in the direction or against it, fixed by discovery. **2 markets × 2 states = 4 tests.**
 Recent-period design (§180), costs §180; carried at net > 0 with t > 1.96; validation as §207, 3. Z and D market-tests from 109.
 
+## 239. Family-34 discovery: prior-range breaks predict nothing — 0 of 4 carried (S1)
+
+**No trial spent; N 872.** `reports/d34_discovery.json`: failed breaks faded +7.4 bps (MNQ, t +1.07) and +6.2 bps (gold, t +1.48);
+accepted breaks ~0. Empty.
+
+## 240. D-series family 35 protocol: signed jump variation (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** From each target session's 1-minute close-to-close
+returns (family-8 grids, same contract only): SJ = (Σ r² over r > 0 − Σ r² over r < 0) / Σ r². Signal for session D = sign of SJ on
+session D−1 (same window: MNQ day 09:30–16:00, MGC London 03:00–11:30); session D traded open→close, follow or fade fixed by
+discovery. Forms: **all** days, and **strong** (|SJ| above its discovery median). **2 markets × 2 forms = 4 tests.** Recent-period
+design (§180); costs §180; carried at net > 0, t > 1.96; validation as §207, 3. Z and D market-tests from 109.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
