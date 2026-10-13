@@ -9683,6 +9683,23 @@ other days; Yahoo daily bars, one-bar paths; the plan's solver brackets; 84-day 
 net −$25 to −$180** in both 2018–22 and 2023–26. Event rules this rare cannot reach a $3,000 target inside four months, whatever their
 per-trade edge. **The macro-shock edges are real enough to keep (D68 is in the demo) but are not a standalone strategy.**
 
+## 228. D-series family 30 protocol: speculator positioning (CFTC COT) sets next week's direction (S1)
+
+**No trial spent; N 870. Written and committed BEFORE any positioning statistic is computed.** A daily-direction signal is what a
+standalone account needs (§227: event rules are too rare). The legacy COT report (owned, `data/cot/`, 2010–2026) carries
+non-commercial (speculator) long and short positions for every market of §171; Z08 (§117–§118, retired) used COMMERCIAL flow for
+gold and crude only. Positions are as of Tuesday, published Friday 15:30 New York; the signal applies to the five sessions of the
+following week (Monday … Friday), each a daily round trip (§177's costs). Recent-period design (§180).
+
+1. **Signals per market:** net = (non-commercial long − short) / open interest. (i) **flow** = net this week − net last week; (ii)
+   **crowding** = (net − its mean over the previous 52 weeks) / their SD, used only when |z| > 1.5. Direction: with the signal (follow)
+   or against it (fade), fixed by discovery. Codes: ES 13874A, NQ 209742, RTY 239742, ZN 043602, 6E 099741, 6J 097741, GC 088691,
+   SI 084691, HG 085692, CL 067651, NG 023651, ZC 002602, ZS 005602, ZW 001602.
+2. **Tests: 14 × 2 = 28**; ~1.4 by chance. Statistic: net bps per session, t clustered by week. **Carried:** net > 0 with t > 1.96.
+3. **Validation (one trial each), sealed 2023-01 → 2026-08:** (a) net > 0 against not trading, t > 1.645 (week-clustered); (b) placebo:
+   the signal from a random other week, 1,000 draws, ≥ 95th pct; (c) positive in ≥ 3 of the 4 years. CONFIRM if all; WATCHLIST if net
+   > 0; REJECT. A CONFIRM is replayed as a standalone account. Z and D market-tests from 107.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
