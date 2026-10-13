@@ -9852,6 +9852,15 @@ discovery. **5 × 2 = 10 tests.** Costs §180; recent-period design; carried at 
 **No trial spent; N 872.** `reports/d39_discovery.json`: best MNQ fades a bitcoin shock +31.0 bps (t +1.64, n 73); MNQ follows a
 2-year shock +21.9 (t +1.44). Empty.
 
+## 250. D-series family 40 protocol: the day after the weekly energy inventory reports (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** EIA crude stocks are released Wednesdays 10:30 ET
+and natural-gas storage Thursdays 10:30 ET (holiday-shifted weeks are not adjusted — they dilute, not bias). Release-day move = the
+Yahoo daily open→settlement bar of that weekday (family-10 series, which contains the release); target = the next weekday's bar,
+follow or fade fixed by discovery. **CL: Wednesday → Thursday; NG: Thursday → Friday; forms all and strong (|release-day| above its
+discovery median) — 4 tests.** Costs §177 (CL 0.7, NG 1.4 bps); recent-period design (§180); carried at net > 0, t > 1.96; validation
+as §207, 3 (placebo: the same rule on the other weekdays).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
