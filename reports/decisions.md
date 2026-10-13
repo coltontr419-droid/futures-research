@@ -10184,6 +10184,19 @@ and the last 10 minutes 15:50 → 16:00. Target 16:00 → 16:55 (open of the pos
 follow or fade fixed by discovery; forms **all** and **strong** (above the discovery median). **2 × 2 = 4 tests.** Cost MNQ 0.5 bps;
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 294. Family-58 discovery: MNQ's hour after the close — 0 of 4 carried (S1)
+
+**No trial spent; N 878.** `reports/d58_discovery.json`: following the last 10 minutes +1.3 / +1.7 bps (t +1.55 / +1.33); the day's
+move predicts nothing. Empty.
+
+## 295. D-series family 59 protocol: the post-close hour as a predictor (S1)
+
+**No trial spent; N 878. Written and committed BEFORE any statistic is computed.** After-hours earnings land in 16:00 → 16:55 (family-58
+grid). Its return (day close at 16:00 → 16:55) predicts **the night** (18:00 → 09:30, dated the next weekday) and **the next day
+session** (09:30 → 16:00); follow or fade fixed by discovery; forms **all** and **strong** (above the discovery median). Same contract
+at both ends of each target. **2 targets × 2 forms = 4 tests.** Cost MNQ 0.5 bps; recent-period design; carried at net > 0, t > 1.96;
+validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
