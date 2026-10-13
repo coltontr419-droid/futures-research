@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D54",
+ "n_events": 86,
+ "sought_bps": 30.389034792060436,
+ "mean_estimate": 31.09501806004423,
+ "sd_estimate_bps": 39.85594271009289,
+ "power_strict_t": 0.237,
+ "recovered": true
+}

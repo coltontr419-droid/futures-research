@@ -7708,12 +7708,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00835 (decisions.md 179), REJECT on sealed 2018-2026: 92 trades; net -23.25 bps a trade (t -0.72); placebo 30th pct; 2018-20 -50.77, 2021-26 -9.26.
   outcome_injection_required: Before the run - reports/d53_injection.json (src/futuresres/signals/d_extreme.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_extreme.py
+    injected_bps: 34.022
+    sought_bps: 34.022
+    n_injection: 92
+    n_run: 92
+    recovered: true
+    report: reports/d53_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 87
+  test_order: null
+  registered_test_order: 87
   grade: B
   tier: B
   param_cap: 0
@@ -7753,12 +7766,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00836 (decisions.md 179), REJECT on sealed 2018-2026: 86 trades; net -18.84 bps a trade (t -0.47); placebo 35th pct; 2018-20 -35.83, 2021-26 -9.26.
   outcome_injection_required: Before the run - reports/d54_injection.json (src/futuresres/signals/d_extreme.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_extreme.py
+    injected_bps: 30.389
+    sought_bps: 30.389
+    n_injection: 86
+    n_run: 86
+    recovered: true
+    report: reports/d54_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 88
+  test_order: null
+  registered_test_order: 88
   grade: B
   tier: B
   param_cap: 0
@@ -7798,12 +7824,25 @@
   horizon_minutes: [1374]
   hold_hours: [22.9]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00837 (decisions.md 179), REJECT on sealed 2018-2026: 118 trades; net -1.15 bps a trade (t -0.28); placebo 37th pct; 2018-20 +10.46, 2021-26 -7.34.
   outcome_injection_required: Before the run - reports/d55_injection.json (src/futuresres/signals/d_extreme.py).
+  outcome_injection:
+    test: src/futuresres/signals/d_extreme.py
+    injected_bps: 3.994
+    sought_bps: 3.994
+    n_injection: 118
+    n_run: 118
+    recovered: true
+    report: reports/d55_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
-  test_order: 89
+  test_order: null
+  registered_test_order: 89
   grade: B
   tier: B
   param_cap: 0

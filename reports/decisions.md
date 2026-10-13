@@ -9039,6 +9039,18 @@ standalone strategy.
 D53 and D54 are one effect (Nasdaq and S&P correlate ~0.9). A multi-session trade is a run of daily round trips (flat each
 evening, as the account requires). Z and D market-tests 65–67.
 
+## 179. D53–D55 validated: the reversal after extreme index sessions did not survive — family 12 empty (S6–S8)
+
+**Three trials spent: t00835–t00837. N 828 → 831.** Z and D market-tests 65–67.
+
+| id, trial | rule | trades | net bps a trade (t) | placebo pct | 2018–20 / 2021–26 | tier |
+|---|---|---|---|---|---|---|
+| D53 t00835 | NQ fades a 2-sigma session over the next 5 | 92 | -23.25 (t -0.72) | 30 | -50.77 / -9.26 | **REJECT** |
+| D54 t00836 | ES fades a 2-sigma session over the next 5 | 86 | -18.84 (t -0.47) | 35 | -35.83 / -9.26 | **REJECT** |
+| D55 t00837 | ZN fades a 2-sigma session over the next 1 | 118 | -1.15 (t -0.28) | 37 | +10.46 / -7.34 | **REJECT** |
+
+The 2010–17 "buy the extreme, sell the extreme" week (+68 / +61 bps net) reversed sign on 2018–26 in both halves. Nothing to adopt.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

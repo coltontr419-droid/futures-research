@@ -1,0 +1,44 @@
+{
+ "hypothesis": "D54",
+ "cell": "ES fades a 2-sigma session over the next 5",
+ "trades": 86,
+ "net_bps": -18.83583103290103,
+ "t_net": -0.4674636672547598,
+ "placebo_pct": 35.4,
+ "posterior": 12.54155954894254,
+ "eras": {
+  "2018-20": {
+   "trades": 31,
+   "net_bps": -35.833703513685634,
+   "t": -0.40727945922029707
+  },
+  "2021-26": {
+   "trades": 55,
+   "net_bps": -9.255211998276966,
+   "t": -0.2337731453751522
+  }
+ },
+ "sides": {
+  "after up sessions": -59.30499652556045,
+  "after down sessions": 3.9740622447797382,
+  "n_up": 31,
+  "n_down": 55
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 66,
+ "injection": {
+  "hypothesis": "D54",
+  "n_events": 86,
+  "sought_bps": 30.389034792060436,
+  "mean_estimate": 31.09501806004423,
+  "sd_estimate_bps": 39.85594271009289,
+  "power_strict_t": 0.237,
+  "recovered": true
+ }
+}

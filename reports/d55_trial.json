@@ -1,0 +1,44 @@
+{
+ "hypothesis": "D55",
+ "cell": "ZN fades a 2-sigma session over the next 1",
+ "trades": 118,
+ "net_bps": -1.1540633790023047,
+ "t_net": -0.28015570071665036,
+ "placebo_pct": 36.6,
+ "posterior": 1.4995125738094863,
+ "eras": {
+  "2018-20": {
+   "trades": 41,
+   "net_bps": 10.464442507464055,
+   "t": 1.2569002480053986
+  },
+  "2021-26": {
+   "trades": 77,
+   "net_bps": -7.340540539328548,
+   "t": -1.677042428057189
+  }
+ },
+ "sides": {
+  "after up sessions": 6.097527643974847,
+  "after down sessions": -6.867438124378241,
+  "n_up": 52,
+  "n_down": 66
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 67,
+ "injection": {
+  "hypothesis": "D55",
+  "n_events": 118,
+  "sought_bps": 3.9938632089563257,
+  "mean_estimate": 4.012612605118126,
+  "sd_estimate_bps": 4.140791471724843,
+  "power_strict_t": 0.241,
+  "recovered": true
+ }
+}

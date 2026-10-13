@@ -1,0 +1,44 @@
+{
+ "hypothesis": "D53",
+ "cell": "NQ fades a 2-sigma session over the next 5",
+ "trades": 92,
+ "net_bps": -23.245726595723696,
+ "t_net": -0.7211154232521005,
+ "placebo_pct": 29.599999999999998,
+ "posterior": 3.8455630655203175,
+ "eras": {
+  "2018-20": {
+   "trades": 31,
+   "net_bps": -50.77176199347229,
+   "t": -0.8302719955449228
+  },
+  "2021-26": {
+   "trades": 61,
+   "net_bps": -9.257085655884241,
+   "t": -0.2459072229767373
+  }
+ },
+ "sides": {
+  "after up sessions": -13.167579412161226,
+  "after down sessions": -30.661721693062116,
+  "n_up": 39,
+  "n_down": 53
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true,
+  "d": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 65,
+ "injection": {
+  "hypothesis": "D53",
+  "n_events": 92,
+  "sought_bps": 34.02157637358739,
+  "mean_estimate": 33.5913970681036,
+  "sd_estimate_bps": 32.00687666209621,
+  "power_strict_t": 0.2765,
+  "recovered": true
+ }
+}
