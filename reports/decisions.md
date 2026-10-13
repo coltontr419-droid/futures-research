@@ -10175,6 +10175,15 @@ daily open→close. Read: the same sign with mean > 0 on both supports forward-t
 n 111, 3 of 8 years); real index ^GDAXI **−25.0 bps (t −2.11)**, n 119, 3 of 8 years. Over 2010–26: +6.1 (t +0.69) and +0.6
 (t +0.07). The sign flips by era: no standing edge. D102 stays WATCHLIST by its trial but is not tracked.
 
+## 293. D-series family 58 protocol: MNQ's hour after the cash close (S1)
+
+**No trial spent; N 878. Written and committed BEFORE any statistic is computed.** Index futures trade on after the 16:00 cash close
+(after-hours earnings, MOC-imbalance unwinds), and the plan never trades it. New family-8 grid ("MNQ", "post"), 16:00 → 16:55 ET (ends
+before the 17:00 break; `d8_intraday.EXTRA_SESSIONS`). Predictors from the same day's session (day grid): the whole day 09:30 → 16:00,
+and the last 10 minutes 15:50 → 16:00. Target 16:00 → 16:55 (open of the post grid's first minute to its last close), same contract;
+follow or fade fixed by discovery; forms **all** and **strong** (above the discovery median). **2 × 2 = 4 tests.** Cost MNQ 0.5 bps;
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

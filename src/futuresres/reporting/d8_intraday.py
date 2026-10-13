@@ -25,6 +25,8 @@ VAL = (dt.date(2018, 1, 1), dt.date(2026, 8, 31))
 FILES = {"MNQ": "NQ_MNQ_spliced.parquet", "MGC": "MGC.parquet"}
 #: (market, session) -> (start minute, end minute) New York; start > end wraps (the session is dated by its END day)
 SESSIONS = {("MNQ", "day"): (570, 960), ("MNQ", "night"): (1080, 570), ("MGC", "london"): (180, 690), ("MGC", "asia"): (1080, 180)}
+#: grids built for later families, outside family 8's scan (decisions.md 293): MNQ after the cash close, 16:00 -> 16:55
+EXTRA_SESSIONS = {("MNQ", "post"): (960, 1015)}
 COST = {"MNQ": 1.41, "MGC": 0.432}            # points per round trip: commission + one tick
 KS, HS = (5, 15, 30), (5, 15, 30)
 FFILL = 5                                      # a missing minute takes the last close only within 5 minutes
@@ -35,7 +37,7 @@ def _grid_path(market, session):
 
 
 def build(market: str, session: str) -> None:
-    a, b = SESSIONS[(market, session)]
+    a, b = {**SESSIONS, **EXTRA_SESSIONS}[(market, session)]
     T = (b - a) % 1440
     lf = (pl.scan_parquet(ROOT / "data" / "continuous" / FILES[market])
           .select("ts_event", pl.col("close").cast(pl.Float32), pl.col("volume").cast(pl.Int32), "contract")
