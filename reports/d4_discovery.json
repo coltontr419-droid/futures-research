@@ -1,0 +1,584 @@
+{
+ "window": [
+  "2010-06-01",
+  "2017-12-31"
+ ],
+ "tests": 24,
+ "expected_chance_passes_5pct": 1.2,
+ "carried": [
+  {
+   "market": "MGC",
+   "test": "ON_loc",
+   "predictor": [
+    "ON",
+    "loc",
+    "same"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 0.26190492510795593
+   },
+   "n": 885,
+   "mean_bps": 7.892133845078728,
+   "sd_bps": 69.20027781513808,
+   "t": 3.3927998427314536,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_ret|vol",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "ON",
+    "vratio"
+   ],
+   "thresholds": {
+    "abs_pred": 31.803250312805176,
+    "gate": 0.88538738929025
+   },
+   "n": 882,
+   "mean_bps": 7.224799299044224,
+   "sd_bps": 77.99302680453258,
+   "t": 2.751086873119045,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_loc",
+   "predictor": [
+    "ON",
+    "loc",
+    "same"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 0.26190492510795593
+   },
+   "n": 1770,
+   "mean_bps": 4.60016394911391,
+   "sd_bps": 75.31448861409955,
+   "t": 2.569694007489002,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "PRE_ret",
+   "predictor": [
+    "PRE",
+    "ret",
+    "same"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 5.377531051635742
+   },
+   "n": 777,
+   "mean_bps": 6.68161301031072,
+   "sd_bps": 81.18755291478377,
+   "t": 2.2940473424430063,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_ret|outside",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": "outside",
+   "thresholds": {
+    "abs_pred": 31.803250312805176
+   },
+   "n": 757,
+   "mean_bps": 6.647935747468965,
+   "sd_bps": 80.16621880091616,
+   "t": 2.281620201071674,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_ret|rv",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "ON",
+    "rvratio"
+   ],
+   "thresholds": {
+    "abs_pred": 31.803250312805176,
+    "gate": 0.7540565729141235
+   },
+   "n": 882,
+   "mean_bps": 5.533110050103744,
+   "sd_bps": 80.4567958520758,
+   "t": 2.04240030980443,
+   "rule": "follow"
+  }
+ ],
+ "all": [
+  {
+   "market": "MGC",
+   "test": "ON_loc",
+   "predictor": [
+    "ON",
+    "loc",
+    "same"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 0.26190492510795593
+   },
+   "n": 885,
+   "mean_bps": 7.892133845078728,
+   "sd_bps": 69.20027781513808,
+   "t": 3.3927998427314536,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_ret|vol",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "ON",
+    "vratio"
+   ],
+   "thresholds": {
+    "abs_pred": 31.803250312805176,
+    "gate": 0.88538738929025
+   },
+   "n": 882,
+   "mean_bps": 7.224799299044224,
+   "sd_bps": 77.99302680453258,
+   "t": 2.751086873119045,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_loc",
+   "predictor": [
+    "ON",
+    "loc",
+    "same"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 0.26190492510795593
+   },
+   "n": 1770,
+   "mean_bps": 4.60016394911391,
+   "sd_bps": 75.31448861409955,
+   "t": 2.569694007489002,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "PRE_ret",
+   "predictor": [
+    "PRE",
+    "ret",
+    "same"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 5.377531051635742
+   },
+   "n": 777,
+   "mean_bps": 6.68161301031072,
+   "sd_bps": 81.18755291478377,
+   "t": 2.2940473424430063,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_ret|outside",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": "outside",
+   "thresholds": {
+    "abs_pred": 31.803250312805176
+   },
+   "n": 757,
+   "mean_bps": 6.647935747468965,
+   "sd_bps": 80.16621880091616,
+   "t": 2.281620201071674,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "ON_ret|rv",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "ON",
+    "rvratio"
+   ],
+   "thresholds": {
+    "abs_pred": 31.803250312805176,
+    "gate": 0.7540565729141235
+   },
+   "n": 882,
+   "mean_bps": 5.533110050103744,
+   "sd_bps": 80.4567958520758,
+   "t": 2.04240030980443,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "prevWIN_loc",
+   "predictor": [
+    "WIN",
+    "loc",
+    "prev"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 0.2701168656349182
+   },
+   "n": 851,
+   "mean_bps": -4.129669470674763,
+   "sd_bps": 78.71381634833565,
+   "t": -1.530485093258171,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "ON_loc",
+   "predictor": [
+    "ON",
+    "loc",
+    "same"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 0.26530611515045166
+   },
+   "n": 680,
+   "mean_bps": -4.17254477534117,
+   "sd_bps": 74.07178839733733,
+   "t": -1.4689351788999185,
+   "rule": "fade"
+  },
+  {
+   "market": "MGC",
+   "test": "PRE_ret|vol",
+   "predictor": [
+    "PRE",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "PRE",
+    "vratio"
+   ],
+   "thresholds": {
+    "abs_pred": 5.377531051635742,
+    "gate": 0.6944444444444444
+   },
+   "n": 767,
+   "mean_bps": 2.633488163896705,
+   "sd_bps": 77.38925806026383,
+   "t": 0.9424284100641077,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "prevWIN_loc",
+   "predictor": [
+    "WIN",
+    "loc",
+    "prev"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 0.2701168656349182
+   },
+   "n": 1703,
+   "mean_bps": -1.5866813944855223,
+   "sd_bps": 76.04827330181591,
+   "t": -0.8610090086769692,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "prevWIN_loc",
+   "predictor": [
+    "WIN",
+    "loc",
+    "prev"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 0.27559053897857666
+   },
+   "n": 1157,
+   "mean_bps": -1.813303872843152,
+   "sd_bps": 72.14568125132504,
+   "t": -0.8549228599117641,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "ON_loc",
+   "predictor": [
+    "ON",
+    "loc",
+    "same"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 0.26530611515045166
+   },
+   "n": 1361,
+   "mean_bps": -1.6595157738029243,
+   "sd_bps": 73.76632854235213,
+   "t": -0.8299506680307513,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "prevWIN_loc",
+   "predictor": [
+    "WIN",
+    "loc",
+    "prev"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 0.27559053897857666
+   },
+   "n": 578,
+   "mean_bps": -2.3905068139695373,
+   "sd_bps": 72.25889448482782,
+   "t": -0.7953578875401228,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "prevLH_ret",
+   "predictor": [
+    "LH",
+    "ret",
+    "prev"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 12.555718421936035
+   },
+   "n": 555,
+   "mean_bps": -2.5322663585590695,
+   "sd_bps": 82.32193641422492,
+   "t": -0.7246700278488014,
+   "rule": "fade"
+  },
+  {
+   "market": "MGC",
+   "test": "PRE_ret",
+   "predictor": [
+    "PRE",
+    "ret",
+    "same"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 5.377531051635742
+   },
+   "n": 1555,
+   "mean_bps": 1.0821050923934619,
+   "sd_bps": 72.27301911392063,
+   "t": 0.5904164379764201,
+   "rule": "follow"
+  },
+  {
+   "market": "MNQ",
+   "test": "PRE_ret",
+   "predictor": [
+    "PRE",
+    "ret",
+    "same"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 5.440115928649902
+   },
+   "n": 680,
+   "mean_bps": -1.8081771187811757,
+   "sd_bps": 80.0479340720769,
+   "t": -0.5890406921021387,
+   "rule": "fade"
+  },
+  {
+   "market": "MGC",
+   "test": "prevLH_ret",
+   "predictor": [
+    "LH",
+    "ret",
+    "prev"
+   ],
+   "gate": "strong",
+   "thresholds": {
+    "abs_pred": 12.720227241516113
+   },
+   "n": 829,
+   "mean_bps": -1.6466174112853436,
+   "sd_bps": 82.41443409067871,
+   "t": -0.5752633258008069,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "ON_ret|vol",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "ON",
+    "vratio"
+   ],
+   "thresholds": {
+    "abs_pred": 22.47333526611328,
+    "gate": 0.7763762616437928
+   },
+   "n": 678,
+   "mean_bps": -1.4020992794163654,
+   "sd_bps": 75.266127419732,
+   "t": -0.485058413178765,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "PRE_ret",
+   "predictor": [
+    "PRE",
+    "ret",
+    "same"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 5.440115928649902
+   },
+   "n": 1361,
+   "mean_bps": -0.4393813433416443,
+   "sd_bps": 72.5093523211871,
+   "t": -0.22355101653437304,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "ON_ret|outside",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": "outside",
+   "thresholds": {
+    "abs_pred": 22.47333526611328
+   },
+   "n": 431,
+   "mean_bps": -0.6719564508923022,
+   "sd_bps": 72.61256687070482,
+   "t": -0.19211796300372716,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "PRE_ret|vol",
+   "predictor": [
+    "PRE",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "PRE",
+    "vratio"
+   ],
+   "thresholds": {
+    "abs_pred": 5.440115928649902,
+    "gate": 0.8912986559609007
+   },
+   "n": 670,
+   "mean_bps": -0.5211972888560542,
+   "sd_bps": 81.01370946570958,
+   "t": -0.16652560921320436,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "ON_ret|rv",
+   "predictor": [
+    "ON",
+    "ret",
+    "same"
+   ],
+   "gate": [
+    "ON",
+    "rvratio"
+   ],
+   "thresholds": {
+    "abs_pred": 22.47333526611328,
+    "gate": 0.9757432043552399
+   },
+   "n": 678,
+   "mean_bps": -0.4943285070256859,
+   "sd_bps": 84.4822082345607,
+   "t": -0.15235799400485303,
+   "rule": "fade"
+  },
+  {
+   "market": "MNQ",
+   "test": "prevLH_ret",
+   "predictor": [
+    "LH",
+    "ret",
+    "prev"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 12.555718421936035
+   },
+   "n": 1110,
+   "mean_bps": 0.06920385765841659,
+   "sd_bps": 72.04552807323783,
+   "t": 0.032002563251607274,
+   "rule": "follow"
+  },
+  {
+   "market": "MGC",
+   "test": "prevLH_ret",
+   "predictor": [
+    "LH",
+    "ret",
+    "prev"
+   ],
+   "gate": null,
+   "thresholds": {
+    "abs_pred": 12.720227241516113
+   },
+   "n": 1659,
+   "mean_bps": -0.009089222532680359,
+   "sd_bps": 75.20342605717056,
+   "t": -0.00492280126104246,
+   "rule": "fade"
+  }
+ ]
+}

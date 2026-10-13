@@ -8555,6 +8555,26 @@ how busy and how volatile the night was, the last half hour, how the previous wi
    the predictor shifted ±2…±11 days ≥ 95th pct, (c) posterior > 0 with prior Normal(discovery/2, |discovery|/2), (d) 2021–26
    > 0; CONFIRM / WATCHLIST / REJECT); Z and D market-tests from 34. Bad-print rule of §149 addendum applies.
 
+## 153. Family-4 discovery: six gold tests carried (≈1.2 by chance), all "follow the overnight move"; D22–D27 registered (S1–S5)
+
+**No trial spent at registration; N 797. Committed BEFORE any validation data is read.** `reporting/d4_overnight.py`,
+`reports/d4_discovery.json`; `signals/d_overnight.py`; `hypotheses.yaml` D22–D27; catalog. 24 tests, 2010-06 → 2017-12; **all six
+carried tests are gold, all follow the overnight move** into the London window; MNQ none (best |t| 1.53).
+
+| id | test | gate | discovery (bps beyond drift a day) | prior |
+|---|---|---|---|---|
+| D22 | ON_loc | strong | +7.89, t +3.39, n 885 | N(+3.95, 3.95) |
+| D23 | ON_ret|vol | ['ON', 'vratio'] | +7.22, t +2.75, n 882 | N(+3.61, 3.61) |
+| D24 | ON_loc | None | +4.60, t +2.57, n 1770 | N(+2.30, 2.30) |
+| D25 | PRE_ret | strong | +6.68, t +2.29, n 777 | N(+3.34, 3.34) |
+| D26 | ON_ret|outside | outside | +6.65, t +2.28, n 757 | N(+3.32, 3.32) |
+| D27 | ON_ret|rv | ['ON', 'rvratio'] | +5.53, t +2.04, n 882 | N(+2.77, 2.77) |
+
+**Recorded before the run:** these six are one phenomenon measured six ways, so their validations are strongly correlated —
+six passes would be one finding, not six. And D16 (§151) already read gold's 11:30 → 03:00 move on 2018–2026; the sealed window is
+not independent of that look. Data: the owned NQ file has full day sessions on only ~72 days of 2011 (an artefact of the original
+pull; overnight complete). Z and D market-tests 34–39.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

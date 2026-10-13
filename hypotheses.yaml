@@ -5895,3 +5895,285 @@
       predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
       else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 33.
   s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D22
+  name: gold_follows_on_loc_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 4, the overnight state, decisions.md 152-153): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of where gold's overnight session (11:30 -> 03:00 ET) closed within its high-low range on days with |predictor| above its 2010-17 median earned 7.89 bps a day beyond drift (t 3.39,
+    n 885). Continuation of the Asian-session move into London: THE COUNTERPARTY would be London participants who absorb
+    overnight information slowly. Related to D16 (decisions.md 151), whose validation already read gold's overnight move in
+    2018-2026 - this validation is not independent of it. Carried by the scan, not predicted.
+  condition: >
+    On days with |predictor| above its 2010-17 median: trade the plan's gold (MGC) bracket in the direction of where gold's overnight session (11:30 -> 03:00 ET) closed within its high-low range (long if up, short if down) instead of
+    always long. Same bracket and size; no extra trade.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d22_injection.json (src/futuresres/signals/d_overnight.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 56
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-4 scan (24 tests, |t| > 1.96, decisions.md 152); direction and thresholds fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.95 bps, 3.95) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 152): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 34.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D23
+  name: gold_follows_on_ret_vratio
+  mechanism: >
+    DATA-DERIVED (D-series family 4, the overnight state, decisions.md 152-153): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of gold's overnight return (11:30 -> 03:00 ET) on days with overnight volume above its 2010-17 median (ratio to the previous 20 days) earned 7.22 bps a day beyond drift (t 2.75,
+    n 882). Continuation of the Asian-session move into London: THE COUNTERPARTY would be London participants who absorb
+    overnight information slowly. Related to D16 (decisions.md 151), whose validation already read gold's overnight move in
+    2018-2026 - this validation is not independent of it. Carried by the scan, not predicted.
+  condition: >
+    On days with overnight volume above its 2010-17 median (ratio to the previous 20 days): trade the plan's gold (MGC) bracket in the direction of gold's overnight return (11:30 -> 03:00 ET) (long if up, short if down) instead of
+    always long. Same bracket and size; no extra trade.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d23_injection.json (src/futuresres/signals/d_overnight.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 57
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-4 scan (24 tests, |t| > 1.96, decisions.md 152); direction and thresholds fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.61 bps, 3.61) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 152): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 35.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D24
+  name: gold_follows_on_loc_all
+  mechanism: >
+    DATA-DERIVED (D-series family 4, the overnight state, decisions.md 152-153): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of where gold's overnight session (11:30 -> 03:00 ET) closed within its high-low range on every day earned 4.60 bps a day beyond drift (t 2.57,
+    n 1770). Continuation of the Asian-session move into London: THE COUNTERPARTY would be London participants who absorb
+    overnight information slowly. Related to D16 (decisions.md 151), whose validation already read gold's overnight move in
+    2018-2026 - this validation is not independent of it. Carried by the scan, not predicted.
+  condition: >
+    On every day: trade the plan's gold (MGC) bracket in the direction of where gold's overnight session (11:30 -> 03:00 ET) closed within its high-low range (long if up, short if down) instead of
+    always long. Same bracket and size; no extra trade.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d24_injection.json (src/futuresres/signals/d_overnight.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 58
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-4 scan (24 tests, |t| > 1.96, decisions.md 152); direction and thresholds fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+2.30 bps, 2.30) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 152): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 36.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D25
+  name: gold_follows_pre_ret_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 4, the overnight state, decisions.md 152-153): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of gold's last half hour before the window (02:30 -> 03:00 ET) on days with |predictor| above its 2010-17 median earned 6.68 bps a day beyond drift (t 2.29,
+    n 777). Continuation of the Asian-session move into London: THE COUNTERPARTY would be London participants who absorb
+    overnight information slowly. Related to D16 (decisions.md 151), whose validation already read gold's overnight move in
+    2018-2026 - this validation is not independent of it. Carried by the scan, not predicted.
+  condition: >
+    On days with |predictor| above its 2010-17 median: trade the plan's gold (MGC) bracket in the direction of gold's last half hour before the window (02:30 -> 03:00 ET) (long if up, short if down) instead of
+    always long. Same bracket and size; no extra trade.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d25_injection.json (src/futuresres/signals/d_overnight.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 59
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-4 scan (24 tests, |t| > 1.96, decisions.md 152); direction and thresholds fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.34 bps, 3.34) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 152): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 37.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D26
+  name: gold_follows_on_ret_outside
+  mechanism: >
+    DATA-DERIVED (D-series family 4, the overnight state, decisions.md 152-153): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of gold's overnight return (11:30 -> 03:00 ET) on days the 03:00 price is outside the previous window's high-low range earned 6.65 bps a day beyond drift (t 2.28,
+    n 757). Continuation of the Asian-session move into London: THE COUNTERPARTY would be London participants who absorb
+    overnight information slowly. Related to D16 (decisions.md 151), whose validation already read gold's overnight move in
+    2018-2026 - this validation is not independent of it. Carried by the scan, not predicted.
+  condition: >
+    On days the 03:00 price is outside the previous window's high-low range: trade the plan's gold (MGC) bracket in the direction of gold's overnight return (11:30 -> 03:00 ET) (long if up, short if down) instead of
+    always long. Same bracket and size; no extra trade.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d26_injection.json (src/futuresres/signals/d_overnight.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 60
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-4 scan (24 tests, |t| > 1.96, decisions.md 152); direction and thresholds fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+3.32 bps, 3.32) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 152): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 38.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D27
+  name: gold_follows_on_ret_rvratio
+  mechanism: >
+    DATA-DERIVED (D-series family 4, the overnight state, decisions.md 152-153): in 2010-2017 the gold window (03:00-11:30 ET)
+    traded in the direction of gold's overnight return (11:30 -> 03:00 ET) on days with overnight realised variance above its 2010-17 median (ratio to the previous 20 days) earned 5.53 bps a day beyond drift (t 2.04,
+    n 882). Continuation of the Asian-session move into London: THE COUNTERPARTY would be London participants who absorb
+    overnight information slowly. Related to D16 (decisions.md 151), whose validation already read gold's overnight move in
+    2018-2026 - this validation is not independent of it. Carried by the scan, not predicted.
+  condition: >
+    On days with overnight realised variance above its 2010-17 median (ratio to the previous 20 days): trade the plan's gold (MGC) bracket in the direction of gold's overnight return (11:30 -> 03:00 ET) (long if up, short if down) instead of
+    always long. Same bracket and size; no extra trade.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d27_injection.json (src/futuresres/signals/d_overnight.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 61
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-4 scan (24 tests, |t| > 1.96, decisions.md 152); direction and thresholds fixed in discovery. ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      MGC is one of the plan's accounts; the rule only sets that account's bracket direction.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market direction rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the demeaned daily statistic Normal(+2.77 bps, 2.77) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      Strict rule (decisions.md 119, 149, 152): CONFIRM if (a) against always-long on raw returns t > 1.645, (b) placebo with the
+      predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
+      else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 39.
+  s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
