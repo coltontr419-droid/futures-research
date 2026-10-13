@@ -9151,6 +9151,13 @@ validation 2023-01 → 2026-08, sealed.
 4. **Validation as §185, 3** (sealed; (a) net > 0 against not trading t > 1.645; (b) placebo, the predictor from a random other
    day, 1,000 draws, ≥ 95th pct; (c) posterior > 0; (d) positive in ≥ 3 of 4 years 2023–26). Z and D market-tests from 69.
 
+## 188. Family-16 discovery: DAX's last half hour follows the day — one of 16 (≈0.8 by chance); D57 registered (S1–S5)
+
+**No trial spent at registration; N 832. Committed BEFORE validation data is read.** `reporting/d16_close.py`,
+`reports/d16_discovery.json`; `signals/d_close.py`. 16 tests on 2018-01 → 2022-12: **1 carried** — DAX, strong days, last 30 minutes
+in the direction of 09:00 → 17:00: net +2.35 bps (t +2.24, n 639). MNQ shows the same sign just below the bar
+(every day +2.04 net, t +1.84; strong +3.37, t +1.79); gold and Nikkei nothing; the first half hour predicts nothing anywhere. Z and D 69.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

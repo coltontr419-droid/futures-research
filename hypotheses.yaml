@@ -7925,3 +7925,47 @@
       decisions.md 182, 3: CONFIRM if net > 0 against not trading t > 1.645, >= 95th pct of the session's other hours, posterior > 0,
       positive in >= 3 of 4 years 2023-2026; else WATCHLIST if net > 0; else REJECT. Z and D market-test 68.
   s6_control: By year; the session's other hours.
+- id: D57
+  name: dax_last_half_hour_follows_the_day_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 16, intraday momentum into the close, decisions.md 187-188): in 2018-2022, on days DAX's move from
+    09:00 to 17:00 Frankfurt exceeded its median, the last 30 minutes (17:00 -> 17:30, into the closing auction) followed it: net
+    +2.35 bps (t +2.24, n 639). THE COUNTERPARTY would be end-of-day rebalancing and hedging flow that must trade
+    the close in the day's direction. Year-round. Carried by the scan (1 of 16; ~0.8 by chance).
+  condition: >
+    On strong days: at 17:00 Frankfurt, trade FDXM in the direction of the move since 09:00; exit at 17:30; net of 0.5 bps.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d57_injection.json (src/futuresres/signals/d_close.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 91
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-16 scan (16 tests, decisions.md 187). ONE TRIAL.
+  session: Globex
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      FDXM is one of the plan's accounts; a standalone 30-minute trade; tested on the corrected HistData DAX CFD.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the net return a trade Normal(+1.18 bps, 1.18) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 187, 4: CONFIRM if net > 0 t > 1.645, >= 95th pct of the predictor drawn from random days, posterior > 0, positive
+      in >= 3 of 4 years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 69.
+  s6_control: By year; permuted predictor.

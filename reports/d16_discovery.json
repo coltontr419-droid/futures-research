@@ -1,0 +1,215 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 16,
+ "carried": [
+  {
+   "market": "DAX",
+   "predictor": "sofar",
+   "form": "strong",
+   "median_abs_pred": 45.81152981172121,
+   "n": 639,
+   "rule": "follow",
+   "gross_bps": 2.8519514912198103,
+   "net_bps": 2.3519514912198103,
+   "t": 2.2391516819875172,
+   "carried": true
+  }
+ ],
+ "all": [
+  {
+   "market": "DAX",
+   "predictor": "sofar",
+   "form": "strong",
+   "median_abs_pred": 45.81152981172121,
+   "n": 639,
+   "rule": "follow",
+   "gross_bps": 2.8519514912198103,
+   "net_bps": 2.3519514912198103,
+   "t": 2.2391516819875172,
+   "carried": true
+  },
+  {
+   "market": "MNQ",
+   "predictor": "sofar",
+   "form": "all",
+   "median_abs_pred": 63.229458292210495,
+   "n": 1226,
+   "rule": "follow",
+   "gross_bps": 2.598423176133843,
+   "net_bps": 2.0384231761338434,
+   "t": 1.8352771527168183,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "predictor": "sofar",
+   "form": "strong",
+   "median_abs_pred": 63.229458292210495,
+   "n": 613,
+   "rule": "follow",
+   "gross_bps": 3.9338210218349667,
+   "net_bps": 3.3738210218349667,
+   "t": 1.7902059502145629,
+   "carried": false
+  },
+  {
+   "market": "DAX",
+   "predictor": "sofar",
+   "form": "all",
+   "median_abs_pred": 45.81152981172121,
+   "n": 1279,
+   "rule": "follow",
+   "gross_bps": 1.5190611368619678,
+   "net_bps": 1.0190611368619675,
+   "t": 1.565813445464356,
+   "carried": false
+  },
+  {
+   "market": "NKD",
+   "predictor": "sofar",
+   "form": "strong",
+   "median_abs_pred": 38.577591457035766,
+   "n": 638,
+   "rule": "fade",
+   "gross_bps": 1.1552655999596018,
+   "net_bps": 0.7552655999596014,
+   "t": 0.8120117888577085,
+   "carried": false
+  },
+  {
+   "market": "DAX",
+   "predictor": "first30",
+   "form": "all",
+   "median_abs_pred": 18.00616491561047,
+   "n": 1279,
+   "rule": "follow",
+   "gross_bps": 0.9151825929493121,
+   "net_bps": 0.4151825929493121,
+   "t": 0.6372301544589485,
+   "carried": false
+  },
+  {
+   "market": "DAX",
+   "predictor": "first30",
+   "form": "strong",
+   "median_abs_pred": 18.00616491561047,
+   "n": 639,
+   "rule": "follow",
+   "gross_bps": 1.0307009460361558,
+   "net_bps": 0.5307009460361559,
+   "t": 0.5095728437453231,
+   "carried": false
+  },
+  {
+   "market": "NKD",
+   "predictor": "first30",
+   "form": "all",
+   "median_abs_pred": 19.353919528716787,
+   "n": 1276,
+   "rule": "fade",
+   "gross_bps": 0.6374710812455937,
+   "net_bps": 0.237471081245594,
+   "t": 0.43676967614561557,
+   "carried": false
+  },
+  {
+   "market": "NKD",
+   "predictor": "first30",
+   "form": "strong",
+   "median_abs_pred": 19.353919528716787,
+   "n": 638,
+   "rule": "fade",
+   "gross_bps": 0.5436304121164135,
+   "net_bps": 0.14363041211641348,
+   "t": 0.16798270667804663,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "predictor": "first30",
+   "form": "strong",
+   "median_abs_pred": 8.170602173380725,
+   "n": 631,
+   "rule": "fade",
+   "gross_bps": 0.9561686667414354,
+   "net_bps": -0.0438313332585649,
+   "t": -0.06036078468243963,
+   "carried": false
+  },
+  {
+   "market": "NKD",
+   "predictor": "sofar",
+   "form": "all",
+   "median_abs_pred": 38.577591457035766,
+   "n": 1276,
+   "rule": "fade",
+   "gross_bps": 0.3489332759373336,
+   "net_bps": -0.05106672406266634,
+   "t": -0.09367290226208552,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "predictor": "first30",
+   "form": "strong",
+   "median_abs_pred": 27.829278793941036,
+   "n": 613,
+   "rule": "follow",
+   "gross_bps": 0.2581839258122429,
+   "net_bps": -0.30181607418775724,
+   "t": -0.15930057163909025,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "predictor": "sofar",
+   "form": "strong",
+   "median_abs_pred": 34.700845133486254,
+   "n": 631,
+   "rule": "follow",
+   "gross_bps": 0.8380699677003598,
+   "net_bps": -0.16193003229964026,
+   "t": -0.20266564319284402,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "predictor": "first30",
+   "form": "all",
+   "median_abs_pred": 27.829278793941036,
+   "n": 1226,
+   "rule": "follow",
+   "gross_bps": 0.24989367637480164,
+   "net_bps": -0.3101063236251986,
+   "t": -0.27833696854554246,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "predictor": "sofar",
+   "form": "all",
+   "median_abs_pred": 34.700845133486254,
+   "n": 1263,
+   "rule": "follow",
+   "gross_bps": 0.8152314389759626,
+   "net_bps": -0.1847685610240375,
+   "t": -0.38220367915082565,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "predictor": "first30",
+   "form": "all",
+   "median_abs_pred": 8.170602173380725,
+   "n": 1263,
+   "rule": "fade",
+   "gross_bps": 0.538343859085229,
+   "net_bps": -0.4616561409147712,
+   "t": -0.9633675709436634,
+   "carried": false
+  }
+ ]
+}
