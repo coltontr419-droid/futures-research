@@ -1,0 +1,74 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "target": "ES",
+   "n": 69,
+   "rule": "fade",
+   "net_bps": 30.10295073188048,
+   "t": 1.1828435119328042,
+   "carried": false
+  },
+  {
+   "target": "NQ",
+   "n": 70,
+   "rule": "fade",
+   "net_bps": 12.615234834585024,
+   "t": 0.3907896317482339,
+   "carried": false
+  },
+  {
+   "target": "GC",
+   "n": 70,
+   "rule": "fade",
+   "net_bps": 3.877034534442347,
+   "t": 0.24589492080397254,
+   "carried": false
+  },
+  {
+   "target": "6E",
+   "n": 70,
+   "rule": "fade",
+   "net_bps": 16.21814177747254,
+   "t": 2.4344588939529053,
+   "carried": true
+  },
+  {
+   "target": "6J",
+   "n": 70,
+   "rule": "fade",
+   "net_bps": 13.782307564433069,
+   "t": 1.5016882817207995,
+   "carried": false
+  },
+  {
+   "target": "HG",
+   "n": 70,
+   "rule": "fade",
+   "net_bps": 41.01993048863554,
+   "t": 2.4173524032444837,
+   "carried": true
+  }
+ ],
+ "carried": [
+  {
+   "target": "6E",
+   "n": 70,
+   "rule": "fade",
+   "net_bps": 16.21814177747254,
+   "t": 2.4344588939529053,
+   "carried": true
+  },
+  {
+   "target": "HG",
+   "n": 70,
+   "rule": "fade",
+   "net_bps": 41.01993048863554,
+   "t": 2.4173524032444837,
+   "carried": true
+  }
+ ]
+}

@@ -9597,6 +9597,18 @@ against the short); a shock day = |change| > 2 σ of its previous 60. **Targets:
 (Yahoo, §171), each in the shock's direction or against it, fixed by discovery. **6 tests**; ~0.3 by chance. Recent-period
 design (§180); carried at net > 0 with t > 1.96; validation as §207, 3. Z and D market-tests from 94.
 
+## 222. Family-28 discovery: euro and copper fade a yield-curve shock — two of 6 (≈0.3 by chance); D82–D83 registered (S1–S5)
+
+**No trial spent at registration; N 857. Committed BEFORE validation data is read.** `reporting/d28_curve.py`,
+`reports/d28_discovery.json`; `signals/d_curve.py`. 2018-01 → 2022-12, ~70 curve-shock days:
+
+| id | target | rule | events | discovery net |
+|---|---|---|---|---|
+| D82 | 6E | fade | 70 | +16.22, t +2.43 |
+| D83 | HG | fade | 70 | +41.02, t +2.42 |
+
+ES fades too (+30.1, t +1.18); every target faded. Z and D market-tests 94–95.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

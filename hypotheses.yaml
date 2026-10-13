@@ -9338,3 +9338,89 @@
       decisions.md 207, 3 via 218: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock sessions, positive in >= 3 of 4
       years; else WATCHLIST if net > 0; else REJECT. Z and D market-test 93.
   s6_control: By year; non-shock sessions.
+- id: D82
+  name: 6e_fades_curve_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 28, yield-curve shocks, decisions.md 221-222): in 2018-2022, after a day whose 2-year minus 30-year
+    Treasury session return was beyond 2 sigma, 6E's next session traded against the curve move
+    earned +16.22 bps net (t +2.43, n 70). THE COUNTERPARTY would be macro flow slow to price a curve repricing.
+  condition: >
+    After a curve-shock day: trade 6E's next session against the sign of (ZT - ZB); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d82_injection.json (src/futuresres/signals/d_curve.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 116
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-28 scan (6 tests, decisions.md 221). ONE TRIAL.
+  session: Globex
+  symbols: [6E]
+  mechanism_instruments:
+    primary: 6E
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+8.11 bps, 8.11) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3 via 221: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 94.
+  s6_control: By year; non-shock days.
+- id: D83
+  name: hg_fades_curve_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 28, yield-curve shocks, decisions.md 221-222): in 2018-2022, after a day whose 2-year minus 30-year
+    Treasury session return was beyond 2 sigma, HG's next session traded against the curve move
+    earned +41.02 bps net (t +2.42, n 70). THE COUNTERPARTY would be macro flow slow to price a curve repricing.
+  condition: >
+    After a curve-shock day: trade HG's next session against the sign of (ZT - ZB); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d83_injection.json (src/futuresres/signals/d_curve.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 117
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-28 scan (6 tests, decisions.md 221). ONE TRIAL.
+  session: Globex
+  symbols: [HG]
+  mechanism_instruments:
+    primary: HG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list; Yahoo daily sessions. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market event rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on net return a trade Normal(+20.51 bps, 20.51) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3 via 221: CONFIRM if net > 0 t > 1.645, >= 95th pct after random non-shock days, positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 95.
+  s6_control: By year; non-shock days.
