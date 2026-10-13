@@ -9625,6 +9625,28 @@ programme's most productive scan (8 carried of 52; D68 confirmed, replicated, de
 §171 as shock sources: NQ, RTY, SI, HG, NG, 6E, 6J, ZC, ZS, ZW — each into every other market's next session. **10 × 13 = 130
 tests**; ~6.5 by chance. Method, costs, carry rule and validation exactly as §207 (recent-period design). Z and D market-tests from 96.
 
+## 225. Family-29 discovery: eleven shock responses (≈6.5 by chance); D84–D94 registered (S1–S5)
+
+**No trial spent at registration; N 859. Committed BEFORE validation data is read.** `reports/d29_discovery.json`;
+`signals/d_shock29.py`. 130 tests, 2018–22; **11 carried** — a mild excess over chance, mostly currencies following equity shocks
+and equities following yen shocks (risk-on / risk-off transmission):
+
+| id | shock | target | rule | trades | discovery net |
+|---|---|---|---|---|---|
+| D84 | NQ shock | 6J | follow | 93 | +22.24, t +3.04 |
+| D85 | NQ shock | 6E | follow | 93 | +14.74, t +2.74 |
+| D86 | 6J shock | NQ | follow | 76 | +57.80, t +2.34 |
+| D87 | ZC shock | 6J | follow | 80 | +16.19, t +2.33 |
+| D88 | RTY shock | 6E | follow | 75 | +13.23, t +2.31 |
+| D89 | SI shock | 6E | follow | 86 | +12.39, t +2.22 |
+| D90 | 6J shock | ES | follow | 76 | +48.30, t +2.20 |
+| D91 | NQ shock | ZN | follow | 93 | +10.01, t +2.19 |
+| D92 | RTY shock | 6J | follow | 75 | +18.79, t +2.18 |
+| D93 | HG shock | 6E | follow | 77 | +12.84, t +2.17 |
+| D94 | 6J shock | RTY | follow | 76 | +51.84, t +1.97 |
+
+Z and D market-tests 96–106.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1044,3 +1044,47 @@ Data-derived (D-series family 28). `hypotheses.yaml` (D82) · `decisions.md` §2
 
 Data-derived (D-series family 28). `hypotheses.yaml` (D83) · `decisions.md` §222
 
+## D84 — 6J Follows a NQ Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D84) · `decisions.md` §225
+
+## D85 — 6E Follows a NQ Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D85) · `decisions.md` §225
+
+## D86 — NQ Follows a 6J Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D86) · `decisions.md` §225
+
+## D87 — 6J Follows a ZC Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D87) · `decisions.md` §225
+
+## D88 — 6E Follows a RTY Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D88) · `decisions.md` §225
+
+## D89 — 6E Follows a SI Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D89) · `decisions.md` §225
+
+## D90 — ES Follows a 6J Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D90) · `decisions.md` §225
+
+## D91 — ZN Follows a NQ Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D91) · `decisions.md` §225
+
+## D92 — 6J Follows a RTY Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D92) · `decisions.md` §225
+
+## D93 — 6E Follows a HG Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D93) · `decisions.md` §225
+
+## D94 — RTY Follows a 6J Shock (next session)
+
+Data-derived (D-series family 29). `hypotheses.yaml` (D94) · `decisions.md` §225
+
