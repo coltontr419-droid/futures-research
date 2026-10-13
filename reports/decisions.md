@@ -8965,6 +8965,25 @@ asks whether any market drifts reliably in a calendar month — **as a standalon
    (d) 2021–26 alone > 0. WATCHLIST if net > 0 otherwise; REJECT. A CONFIRM is replayed as its own 50K Daily account (one-bar
    paths, trading only that month, payouts before failure counted) before it counts as usable. Z and D market-tests from 58.
 
+## 175. Family-11 discovery: seven seasonal cells (≈4.8 by chance) with 15–35 bps a session net; D46–D52 registered (S1–S5)
+
+**No trial spent at registration; N 821. Committed BEFORE validation data is read.** `reporting/d11_season.py`,
+`reports/d11_discovery.json`; `signals/d_season.py`. 96 tests, 2010-01 → 2017-12; **7 carried** — per-session effects several
+times larger than any earlier family (standalone, drift counted, net of cost):
+
+| id | market | month | direction | discovery (bps a session) | prior |
+|---|---|---|---|---|---|
+| D46 | ZS | Apr | long | +23.12, t +2.85, n 165; net +22.42 | N(+11.56, 11.56) |
+| D47 | ZS | Oct | long | +24.01, t +2.34, n 173; net +23.31 | N(+12.01, 12.01) |
+| D48 | NG | Oct | short | -36.54, t -2.25, n 173; net +35.14 | N(+18.27, 18.27) |
+| D49 | HG | Dec | long | +19.32, t +2.23, n 169; net +17.32 | N(+9.66, 9.66) |
+| D50 | ZC | Oct | long | +26.47, t +2.14, n 173; net +24.57 | N(+13.23, 13.23) |
+| D51 | CL | Apr | long | +28.97, t +2.10, n 165; net +28.27 | N(+14.49, 14.49) |
+| D52 | HG | Mar | short | -17.44, t -1.98, n 176; net +15.44 | N(+8.72, 8.72) |
+
+Each cell rests on ~8 Octobers / Aprils (~20 sessions each); a cell can be one or two big years — the by-year breakdown is part
+of the validation report. Z and D market-tests 58–64.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

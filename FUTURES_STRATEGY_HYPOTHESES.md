@@ -892,3 +892,31 @@ Data-derived (D-series family 10). `hypotheses.yaml` (D44) · `decisions.md` §1
 
 Data-derived (D-series family 10). `hypotheses.yaml` (D45) · `decisions.md` §172
 
+## D46 — ZS Long in Apr
+
+Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D46) · `decisions.md` §175
+
+## D47 — ZS Long in Oct
+
+Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D47) · `decisions.md` §175
+
+## D48 — NG Short in Oct
+
+Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D48) · `decisions.md` §175
+
+## D49 — HG Long in Dec
+
+Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D49) · `decisions.md` §175
+
+## D50 — ZC Long in Oct
+
+Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D50) · `decisions.md` §175
+
+## D51 — CL Long in Apr
+
+Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D51) · `decisions.md` §175
+
+## D52 — HG Short in Mar
+
+Data-derived (D-series family 11, seasonality). `hypotheses.yaml` (D52) · `decisions.md` §175
+

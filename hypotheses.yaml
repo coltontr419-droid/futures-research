@@ -7296,3 +7296,311 @@
       decisions.md 149, 5 and 171: CONFIRM if against always-long t > 1.645, placebo >= 95th pct, posterior > 0, 2021-2026 > 0;
       else WATCHLIST if > 0; else REJECT. Z and D market-test 57.
   s6_control: By period; the shifted placebos.
+- id: D46
+  name: zs_long_in_apr
+  mechanism: >
+    DATA-DERIVED (D-series family 11, commodity seasonality, decisions.md 174-175): in 2010-2017 ZS's sessions in Apr
+    averaged +23.12 bps (t +2.85, n 165), +22.42 net of its 0.7 bps daily cost.
+    Seasonal supply and demand (planting, harvest, heating and driving seasons, year-end): THE COUNTERPARTY would be commercial
+    hedgers paying a premium to lay off seasonal risk. Carried by the scan.
+  condition: >
+    Every session in Apr: LONG ZS from the session open to settlement (flat at 17:00); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d46_injection.json (src/futuresres/signals/d_season.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 80
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-11 scan (96 tests, |t| > 1.96 and |mean| > cost, decisions.md 174). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME commodity future in the account's permitted list; Yahoo daily bars, open to settlement. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market seasonal rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the session return Normal(+11.56 bps, 11.56) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
+      months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 58.
+  s6_control: By period and by year; other months.
+- id: D47
+  name: zs_long_in_oct
+  mechanism: >
+    DATA-DERIVED (D-series family 11, commodity seasonality, decisions.md 174-175): in 2010-2017 ZS's sessions in Oct
+    averaged +24.01 bps (t +2.34, n 173), +23.31 net of its 0.7 bps daily cost.
+    Seasonal supply and demand (planting, harvest, heating and driving seasons, year-end): THE COUNTERPARTY would be commercial
+    hedgers paying a premium to lay off seasonal risk. Carried by the scan.
+  condition: >
+    Every session in Oct: LONG ZS from the session open to settlement (flat at 17:00); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d47_injection.json (src/futuresres/signals/d_season.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 81
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-11 scan (96 tests, |t| > 1.96 and |mean| > cost, decisions.md 174). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME commodity future in the account's permitted list; Yahoo daily bars, open to settlement. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market seasonal rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the session return Normal(+12.01 bps, 12.01) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
+      months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 59.
+  s6_control: By period and by year; other months.
+- id: D48
+  name: ng_short_in_oct
+  mechanism: >
+    DATA-DERIVED (D-series family 11, commodity seasonality, decisions.md 174-175): in 2010-2017 NG's sessions in Oct
+    averaged -36.54 bps (t -2.25, n 173), +35.14 net of its 1.4 bps daily cost.
+    Seasonal supply and demand (planting, harvest, heating and driving seasons, year-end): THE COUNTERPARTY would be commercial
+    hedgers paying a premium to lay off seasonal risk. Carried by the scan.
+  condition: >
+    Every session in Oct: SHORT NG from the session open to settlement (flat at 17:00); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d48_injection.json (src/futuresres/signals/d_season.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 82
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-11 scan (96 tests, |t| > 1.96 and |mean| > cost, decisions.md 174). ONE TRIAL.
+  session: Globex
+  symbols: [NG]
+  mechanism_instruments:
+    primary: NG
+    secondary: null
+    rationale: >
+      A CME commodity future in the account's permitted list; Yahoo daily bars, open to settlement. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market seasonal rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the session return Normal(+18.27 bps, 18.27) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
+      months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 60.
+  s6_control: By period and by year; other months.
+- id: D49
+  name: hg_long_in_dec
+  mechanism: >
+    DATA-DERIVED (D-series family 11, commodity seasonality, decisions.md 174-175): in 2010-2017 HG's sessions in Dec
+    averaged +19.32 bps (t +2.23, n 169), +17.32 net of its 2.0 bps daily cost.
+    Seasonal supply and demand (planting, harvest, heating and driving seasons, year-end): THE COUNTERPARTY would be commercial
+    hedgers paying a premium to lay off seasonal risk. Carried by the scan.
+  condition: >
+    Every session in Dec: LONG HG from the session open to settlement (flat at 17:00); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d49_injection.json (src/futuresres/signals/d_season.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 83
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-11 scan (96 tests, |t| > 1.96 and |mean| > cost, decisions.md 174). ONE TRIAL.
+  session: Globex
+  symbols: [HG]
+  mechanism_instruments:
+    primary: HG
+    secondary: null
+    rationale: >
+      A CME commodity future in the account's permitted list; Yahoo daily bars, open to settlement. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market seasonal rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the session return Normal(+9.66 bps, 9.66) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
+      months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 61.
+  s6_control: By period and by year; other months.
+- id: D50
+  name: zc_long_in_oct
+  mechanism: >
+    DATA-DERIVED (D-series family 11, commodity seasonality, decisions.md 174-175): in 2010-2017 ZC's sessions in Oct
+    averaged +26.47 bps (t +2.14, n 173), +24.57 net of its 1.9 bps daily cost.
+    Seasonal supply and demand (planting, harvest, heating and driving seasons, year-end): THE COUNTERPARTY would be commercial
+    hedgers paying a premium to lay off seasonal risk. Carried by the scan.
+  condition: >
+    Every session in Oct: LONG ZC from the session open to settlement (flat at 17:00); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d50_injection.json (src/futuresres/signals/d_season.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 84
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-11 scan (96 tests, |t| > 1.96 and |mean| > cost, decisions.md 174). ONE TRIAL.
+  session: Globex
+  symbols: [ZC]
+  mechanism_instruments:
+    primary: ZC
+    secondary: null
+    rationale: >
+      A CME commodity future in the account's permitted list; Yahoo daily bars, open to settlement. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market seasonal rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the session return Normal(+13.23 bps, 13.23) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
+      months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 62.
+  s6_control: By period and by year; other months.
+- id: D51
+  name: cl_long_in_apr
+  mechanism: >
+    DATA-DERIVED (D-series family 11, commodity seasonality, decisions.md 174-175): in 2010-2017 CL's sessions in Apr
+    averaged +28.97 bps (t +2.10, n 165), +28.27 net of its 0.7 bps daily cost.
+    Seasonal supply and demand (planting, harvest, heating and driving seasons, year-end): THE COUNTERPARTY would be commercial
+    hedgers paying a premium to lay off seasonal risk. Carried by the scan.
+  condition: >
+    Every session in Apr: LONG CL from the session open to settlement (flat at 17:00); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d51_injection.json (src/futuresres/signals/d_season.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 85
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-11 scan (96 tests, |t| > 1.96 and |mean| > cost, decisions.md 174). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME commodity future in the account's permitted list; Yahoo daily bars, open to settlement. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market seasonal rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the session return Normal(+14.49 bps, 14.49) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
+      months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 63.
+  s6_control: By period and by year; other months.
+- id: D52
+  name: hg_short_in_mar
+  mechanism: >
+    DATA-DERIVED (D-series family 11, commodity seasonality, decisions.md 174-175): in 2010-2017 HG's sessions in Mar
+    averaged -17.44 bps (t -1.98, n 176), +15.44 net of its 2.0 bps daily cost.
+    Seasonal supply and demand (planting, harvest, heating and driving seasons, year-end): THE COUNTERPARTY would be commercial
+    hedgers paying a premium to lay off seasonal risk. Carried by the scan.
+  condition: >
+    Every session in Mar: SHORT HG from the session open to settlement (flat at 17:00); net of cost.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d52_injection.json (src/futuresres/signals/d_season.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 86
+  grade: B
+  tier: B
+  param_cap: 0
+  param_note: Carried by the family-11 scan (96 tests, |t| > 1.96 and |mean| > cost, decisions.md 174). ONE TRIAL.
+  session: Globex
+  symbols: [HG]
+  mechanism_instruments:
+    primary: HG
+    secondary: null
+    rationale: >
+      A CME commodity future in the account's permitted list; Yahoo daily bars, open to settlement. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market seasonal rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the session return Normal(+8.72 bps, 8.72) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 174, 4: CONFIRM if (a) net of cost against not trading t > 1.645, (b) >= 95th pct of the same trade on other
+      months' days, (c) posterior > 0, (d) 2021-2026 > 0; else WATCHLIST if net > 0; else REJECT. Z and D market-test 64.
+  s6_control: By period and by year; other months.
