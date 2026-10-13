@@ -803,3 +803,8 @@ Data-derived (D-series family 4): gold's 03:00–11:30 ET window traded in that 
 drift in 2010–2017 (t 2.04). Sets the plan's gold bracket direction; validated once on sealed 2018–2026 data.
 `hypotheses.yaml` (D27) · `decisions.md` §153
 
+## D28 — Crude Weaker on Mondays
+
+Data-derived (D-series family 5): the only calendar cell of 72 carried (≈3.6 by chance). Short the plan's crude bracket on
+Mondays; validated once on sealed 2018–2026 data. `hypotheses.yaml` (D28) · `decisions.md` §156
+

@@ -8619,6 +8619,19 @@ owned daily bars for MCL, Yahoo daily for ZS), bad-print rule as §149.
    drawn days of the same weekday mix, 2,000 draws, real ≥ 95th pct; (c) posterior with prior Normal(discovery/2,
    |discovery|/2); (d) 2021–26 alone in the discovered direction > 0. Z and D market-tests from 40.
 
+## 156. Family-5 discovery: one cell of 72 (fewer than chance) — the calendar sets no direction; D28 registered (S1–S5)
+
+**No trial spent at registration; N 803. Committed BEFORE validation data is read.** `reporting/d5_calendar.py`,
+`reports/d5_discovery.json`. 72 tests (12 calendar cells × 6 windows), 2010-06 → 2017-12: **one carried against ~3.6 expected by
+chance** — crude's bar dated Monday −23.4 bps against an ordinary day (t −2.33, n 371). Next: MGC Wednesday −8.4 (t −1.82), MCL
+quarter's last 5 days +26.4 (t +1.75), ZS month's last day +28.2 (t +1.74). **As a family the calendar holds nothing for these
+windows** (the scan found fewer passes than chance).
+
+**Addendum to §155, 4 before validation:** for a WEEKDAY cell the "random days of the same weekday mix" placebo is the cell itself;
+(b) becomes: the cell's demeaned mean beats each of the other four weekdays' (D01's other-hours logic). **Flag recorded:** the owned
+crude bar dated Monday runs from Friday's close (`data/daily_bars.py`: Sunday bars dropped), so it includes the weekend gap that the
+plan, entering Sunday 18:00, does not hold — a Monday effect here may not be tradable even if real. D28 registered (Z and D test 40).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

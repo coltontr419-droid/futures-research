@@ -6255,3 +6255,47 @@
       predictor shifted +-2..+-11 days >= 95th pct, (c) posterior > 0, (d) the demeaned statistic > 0 on 2021-2026 alone;
       else WATCHLIST if the demeaned mean > 0; else REJECT. Z and D market-test number 39.
   s6_control: Demeaned and against always-long; by period (2018-20, 2021-26); the 20 shifted placebos.
+- id: D28
+  name: crude_weaker_on_mondays
+  mechanism: >
+    DATA-DERIVED (D-series family 5, the calendar, decisions.md 155-156): the only one of 72 calendar cells carried (about 3.6
+    expected by chance) - crude's daily bar dated Monday averaged 23.4 bps below an ordinary day in 2010-2017 (t 2.33, n 371).
+    THE COUNTERPARTY would be weekend-news repricing at the Sunday reopen. Recorded before validation: the owned bar dated Monday
+    runs from Friday's close, so it includes the weekend gap the plan (entering Sunday 18:00) does not hold. Carried by the scan.
+  condition: >
+    On Mondays, trade the plan's crude (MCL) bracket SHORT instead of long; owned GLBX daily bars, roll-correct.
+  horizon_minutes: [1375]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: Before the run - reports/d28_injection.json (src/futuresres/signals/d_calendar.py).
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2018-2026 window; the runner refuses to run without its outcome injection.
+  test_order: 62
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-5 scan (72 tests, |t| > 1.96, decisions.md 155); fewer passes than chance. ONE TRIAL.
+  session: Globex
+  symbols: [MCL]
+  mechanism_instruments:
+    primary: MCL
+    secondary: null
+    rationale: >
+      MCL is one of the plan's accounts; the rule only sets that account's bracket direction on Mondays.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market calendar cell; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2021-01-01', decisive: post}
+  test_window: {start: '2018-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2010-2017 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Prior on the Monday shortfall Normal(+11.7 bps, 11.7) - the discovery effect halved.
+  decision_rule:
+    rule: >
+      decisions.md 155, 4 with the 156 addendum: CONFIRM if (a) the short rule against always-long t > 1.645, (b) Monday beats
+      each other weekday, (c) posterior > 0, (d) 2021-2026 alone > 0; else WATCHLIST if > 0; else REJECT. Z and D test 40.
+  s6_control: By period; the other four weekdays.
