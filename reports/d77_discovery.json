@@ -1,0 +1,154 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 12,
+ "all": [
+  {
+   "predictor": "XLK",
+   "target": "MNQ",
+   "n": 80,
+   "rule": "fade",
+   "net_bps": 43.69913150072098,
+   "t": 2.2100832684078298,
+   "early_net": 23.062123950523667,
+   "early_t": 1.9699641139188075,
+   "carried": true
+  },
+  {
+   "predictor": "KRE",
+   "target": "MNQ",
+   "n": 77,
+   "rule": "fade",
+   "net_bps": 35.77983874779243,
+   "t": 1.7963633315882301,
+   "early_net": 8.08881724508185,
+   "early_t": 0.7781340379034859,
+   "carried": false
+  },
+  {
+   "predictor": "LQD",
+   "target": "MNQ",
+   "n": 70,
+   "rule": "follow",
+   "net_bps": 36.81834009715489,
+   "t": 1.7536704592705696,
+   "early_net": 5.218810163225446,
+   "early_t": 0.4469610617273349,
+   "carried": false
+  },
+  {
+   "predictor": "XLU",
+   "target": "MNQ",
+   "n": 79,
+   "rule": "fade",
+   "net_bps": 28.676737459400034,
+   "t": 1.3430997570374197,
+   "early_net": -8.079024591307709,
+   "early_t": -0.635998936060991,
+   "carried": false
+  },
+  {
+   "predictor": "XLK",
+   "target": "MGC",
+   "n": 79,
+   "rule": "fade",
+   "net_bps": 13.688040610204771,
+   "t": 1.3394591793744934,
+   "early_net": 3.445123928033034,
+   "early_t": 0.3891225551572526,
+   "carried": false
+  },
+  {
+   "predictor": "XLY",
+   "target": "MNQ",
+   "n": 94,
+   "rule": "fade",
+   "net_bps": 20.776265032747958,
+   "t": 1.2428005073633497,
+   "early_net": 22.979951445736102,
+   "early_t": 1.68552841092483,
+   "carried": false
+  },
+  {
+   "predictor": "KRE",
+   "target": "MGC",
+   "n": 79,
+   "rule": "fade",
+   "net_bps": 7.668778658516799,
+   "t": 0.6416496260578732,
+   "early_net": 1.0884017154423868,
+   "early_t": 0.12854622594579868,
+   "carried": false
+  },
+  {
+   "predictor": "XLY",
+   "target": "MGC",
+   "n": 92,
+   "rule": "fade",
+   "net_bps": 5.35491816271906,
+   "t": 0.5370028431285815,
+   "early_net": 2.6140174984931894,
+   "early_t": 0.2710534716245955,
+   "carried": false
+  },
+  {
+   "predictor": "GDX",
+   "target": "MGC",
+   "n": 62,
+   "rule": "fade",
+   "net_bps": 6.2988556031257845,
+   "t": 0.5207860253076073,
+   "early_net": -17.364263445990428,
+   "early_t": -1.9797889215484976,
+   "carried": false
+  },
+  {
+   "predictor": "GDX",
+   "target": "MNQ",
+   "n": 61,
+   "rule": "fade",
+   "net_bps": 8.759279126026591,
+   "t": 0.45311751195929245,
+   "early_net": 2.0949187523279433,
+   "early_t": 0.19690404575218748,
+   "carried": false
+  },
+  {
+   "predictor": "XLU",
+   "target": "MGC",
+   "n": 79,
+   "rule": "follow",
+   "net_bps": 2.0800887578650347,
+   "t": 0.16805491148312818,
+   "early_net": 11.094039154052734,
+   "early_t": 1.3391818980699208,
+   "carried": false
+  },
+  {
+   "predictor": "LQD",
+   "target": "MGC",
+   "n": 75,
+   "rule": "follow",
+   "net_bps": 0.6252824656168584,
+   "t": 0.05372009180780788,
+   "early_net": 24.98754954642436,
+   "early_t": 2.7962311866775686,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "predictor": "XLK",
+   "target": "MNQ",
+   "n": 80,
+   "rule": "fade",
+   "net_bps": 43.69913150072098,
+   "t": 2.2100832684078298,
+   "early_net": 23.062123950523667,
+   "early_t": 1.9699641139188075,
+   "carried": true
+  }
+ ]
+}

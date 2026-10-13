@@ -10480,6 +10480,13 @@ second result in a row (after D104) that fails only (c). Z and D market-test 117
 (consumer discretionary). Targets MNQ day and gold London; **12 tests**, descriptive 2010–17 column. Costs §180; recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 335. Family-77 discovery: 1 of 12 carried — MNQ fades a technology shock; D106 registered (S1)
+
+**No trial spent yet; N 881.** `reports/d77_discovery.json` (scan via `d76_etf.py --family77`): **D106** MNQ fades an XLK shock,
+**+43.70 bps**, t +2.21, n 80; **2010–17 +23.06 (t +1.97)** — the first carried test of
+recent families whose earlier history is nearly significant the same way. Across families 76–77 MNQ FADES every equity-sector shock
+(XLF, XLK, SMH, KRE, XLY: +21 to +55 bps), while it FOLLOWS bond-side shocks (TLT, LQD, and D68's ZN). Z and D market-test 118.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
