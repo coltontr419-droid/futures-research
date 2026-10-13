@@ -1,0 +1,49 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "MNQ",
+   "form": "all",
+   "trades": 7414,
+   "rule": "fade",
+   "gross_bps": 0.07111949923226928,
+   "net_bps": -0.4288805007677307,
+   "t_day": -2.4514175940524816,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "form": "strong",
+   "trades": 3809,
+   "rule": "fade",
+   "gross_bps": 0.0239887941099584,
+   "net_bps": -0.4760112058900416,
+   "t_day": -1.6095378294119793,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "form": "all",
+   "trades": 9441,
+   "rule": "fade",
+   "gross_bps": 0.2988073437689422,
+   "net_bps": -0.5011926562310579,
+   "t_day": -6.289905441141559,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "form": "strong",
+   "trades": 5063,
+   "rule": "fade",
+   "gross_bps": 0.4651205973405742,
+   "net_bps": -0.3348794026594259,
+   "t_day": -2.816794733254251,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

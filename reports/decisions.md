@@ -10114,6 +10114,19 @@ pre = :55 → :00, target = :00 → :05, follow or fade fixed by discovery, same
 Forms **all** and **strong** (|pre| above its discovery median). **2 markets × 2 forms = 4 tests.** Costs §180 per round trip;
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 284. Family-54 discovery: the top of the hour — 0 of 4 carried (S1)
+
+**No trial spent; N 877.** `reports/d54_discovery.json`: a fade exists in gross terms (gold +0.3 to +0.5 bps) but never covers the
+round trip; every net is negative. Empty.
+
+## 285. D-series family 55 protocol: the variance risk premium (S1)
+
+**No trial spent; N 877. Written and committed BEFORE any statistic is computed.** VRP on day D−1 = (VIX/100)² / 252 − the mean of
+squared MNQ day-session log returns over the previous 20 sessions (both per-day variances; VIX from family 38). Signal: VRP above its
+trailing 250-session median → one side, below → the other, fixed by discovery; the target (MNQ day; gold London on D) judged
+DEMEANED (discovery mean removed) so drift is not carried. **2 targets = 2 tests.** Costs §180; recent-period design; carried at net
+> 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
