@@ -8397,12 +8397,17 @@ so there was little left to fix — the cost-blind failure of §135 lived in the
   early (DAX under 2026-10-09) and the 17:30 alert would list balances as missing. Now `schedule.eod_day`: the New York date of
   the exit of the product's latest started ticket (every ticket of one alert exits on the next alert's date); the old rule only
   when no ticket has started. Test added. The bot's log now writes New York time with its offset (the droplet runs on UTC; earlier
-  rows are naive UTC, which the checker converts). Help text and README updated. **Not yet deployed — needs the user's OK.**
+  rows are naive UTC, which the checker converts). Help text and README updated. **Deployed 2026-10-13 with the user's go-ahead** (previous files in `/opt/futures-bot/backup-2026-10-13/`).
 
 **First reading (2026-10-13, 9 finished tickets):** take / stop / time exit 2 / 7 / 0 against 3.8 / 4.7 / 0.4 expected (chi-square
 2.4, p ≈ 0.30); shadow P&L −$4,601 against −$261 ± $3,147 (z −1.38) — within normal range at nine tickets. Recorded closes match
 the shadow within $4 (soybeans −$11.50), but are round ±$1,000 / ±$1,200: the demo appears to charge no commission (or balances are
 rounded) — live accounts will pay $2.56–$33 a ticket that the demo does not show.
+
+**How the demo is run (the user, 2026-10-13):** the tickets are NOT placed — the user cannot be at the screen at each entry time —
+the user reads each ticket's take or stop after the fact and records it with `!eod`, without commissions. So the demo is a
+paper forward test of the plan's brackets: the review's "execution" section checks the user's reading against the shadow
+tracker (it agrees within commission and tick rounding), not real fills; slippage and commissions are untested until live.
 
 ## 10. Still outstanding, and blocking
 
