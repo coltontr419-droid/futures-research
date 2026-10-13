@@ -9792,6 +9792,17 @@ session D−1 (same window: MNQ day 09:30–16:00, MGC London 03:00–11:30); se
 discovery. Forms: **all** days, and **strong** (|SJ| above its discovery median). **2 markets × 2 forms = 4 tests.** Recent-period
 design (§180); costs §180; carried at net > 0, t > 1.96; validation as §207, 3. Z and D market-tests from 109.
 
+## 241. Family-35 discovery: signed jump variation predicts nothing — 0 of 4 carried (S1)
+
+**No trial spent; N 872.** `reports/d35_discovery.json`: MNQ fade, all days +5.8 bps (t +1.66); strong +3.7 (t +0.76); gold ~0. Empty.
+
+## 242. D-series family 36 protocol: the open against the prior session's VWAP (S1)
+
+**No trial spent; N 872. Written and committed BEFORE any statistic is computed.** Prior target session's VWAP from the family-8 grids
+(closes × volume, same contract as the target's open required). Signal = sign(target open − prior VWAP); target session open→close
+(MNQ day, MGC London), follow or fade fixed by discovery. Forms: **all**, **strong** (|distance| in bps above its discovery median).
+**2 × 2 = 4 tests.** Recent-period design (§180); costs §180; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
