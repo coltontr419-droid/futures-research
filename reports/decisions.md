@@ -10042,6 +10042,15 @@ session, ~$6,000 over an 84-session account — the first discovery cell large e
 (2023 −2.0, 2024 +1.3, 2025 +5.8, 2026 +1.8). Positive mean → WATCHLIST, but nothing here to trade: what remains is a small,
 insignificant "follow the morning" tilt. Not deployed. Z and D market-test 112.
 
+## 274. D-series family 50 protocol: the LBMA gold auctions (S1)
+
+**No trial spent; N 876. Written and committed BEFORE any statistic is computed.** The LBMA gold price is set by auction at 10:30 and
+15:00 London; hedging and benchmark flow concentrates into it, as at the FX fix (family 41). Owned MGC trades (family-8 London grid,
+03:00–11:30 ET); auction times converted to New York per day (London/New York DST offsets differ for a few weeks a year). Pre-move =
+the 30 minutes into the auction; target = the 30 minutes after, follow or fade fixed by discovery, same contract. Forms **all** and
+**strong** (|pre-move| above its discovery median). **2 auctions × 2 forms = 4 tests.** Cost MGC 0.8 bps; recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the same rule one hour earlier).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
