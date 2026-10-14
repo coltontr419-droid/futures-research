@@ -11945,6 +11945,12 @@ starts from 2025-01): plan vs D246 vs D246 + D68 (D68 overriding on its shock da
 from 2025: plan +$633, D68 +$1,315, D246 +$1,110, D246 + D68 +$1,747. The rule's sessions do not translate into account gains beyond
 what random flips of the same share achieve. MNQ keeps D68 alone. Not proposed.
 
+## 487. The DAX–dollar rule's dollar measure: DX-Y.NYB, the euro or a seven-currency vote perform alike out of sample (S8)
+
+**No trial; N 1,104. Descriptive.** DAX window following the previous weekday's dollar, by measure (2010–20 | 2021–24 | 2025–26):
+DX-Y.NYB (deployed) +2.2 | +5.9 | **+6.9**; −6E +2.7 | +9.4 | **+6.8**; a seven-currency sign vote +2.0 | +8.2 | **+7.0**. The euro was
+stronger in-sample but the three are equal on the sealed period; the deployed measure stays.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
