@@ -10703,6 +10703,18 @@ minutes after 10:30 (k = 5, 15; from the 10:29 close) predict 10:30 + k → 14:3
 discovery. **2 tests**, descriptive 2010–17 column. Cost: the MCL account's **5.4 bps** (§180) — what the plan would pay. Recent-period
 design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the same rule on Tuesdays and Thursdays).
 
+## 362. Family-89 discovery: crude after the EIA release — 0 of 2 carried (S1)
+
+**No trial spent; N 896.** `reports/d89_discovery.json`: k = 15 follow +14.3 bps gross, +8.9 net of MCL's 5.4 (t +1.02); 2010–17 ~0.
+Empty.
+
+## 363. D-series family 90 protocol: crude's settlement and its London morning (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** Brent grid (§361). **(i) Settlement**: 14:00 → 14:30
+ET into NYMEX settlement predicts 14:30 → 15:30, follow or fade; forms all / strong. **(ii) Relay**: London morning 03:00 → 08:00 ET
+predicts New York 09:00 → 14:30, follow or fade; forms all / strong. **4 tests**, descriptive 2010–17 column. Cost MCL 5.4 bps;
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
