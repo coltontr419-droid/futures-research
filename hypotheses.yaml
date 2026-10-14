@@ -13284,3 +13284,89 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 163.
   s6_control: By year; the same rule after non-shock days.
+- id: D152
+  name: mnq_opening_minute_strong_follow_r
+  mechanism: >
+    DATA-DERIVED (D-series family 115, intraday structures on the current regime, decisions.md 433-434): MNQ opening_minute (strong),
+    follow: 2021-2024 +11.57 bps net (t +2.06, n 505); 2010-20 +11.55 (t +2.69, context).
+    THE COUNTERPARTY would be the liquidity takers of the predictor window whose order flow continues (or reverses) afterwards.
+  condition: >
+    Trade MNQ the day session from 09:31 to 16:00 in the direction of the 09:30 -> 09:31 move, on days that move exceeds its 2021-24 median; net of 0.5 bps.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 186
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-115 scan (36 tests, decisions.md 434). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (predictor signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 164.
+  s6_control: By year; predictor signs shuffled across the sealed sessions.
+- id: D153
+  name: mnq_last_hour_next_all_fade_r
+  mechanism: >
+    DATA-DERIVED (D-series family 115, intraday structures on the current regime, decisions.md 433-434): MNQ last_hour_next (all),
+    fade: 2021-2024 +4.90 bps net (t +2.03, n 954); 2010-20 +0.61 (t +0.43, context).
+    THE COUNTERPARTY would be the liquidity takers of the predictor window whose order flow continues (or reverses) afterwards.
+  condition: >
+    Trade MNQ the next night session (18:00 -> 09:30) against the day's 15:00 -> 16:00 move; net of 0.5 bps.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 187
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-115 scan (36 tests, decisions.md 434). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (predictor signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 165.
+  s6_control: By year; predictor signs shuffled across the sealed sessions.

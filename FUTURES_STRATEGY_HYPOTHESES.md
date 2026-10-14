@@ -1316,3 +1316,11 @@ Data-derived (D-series family 114). `hypotheses.yaml` (D150) · `decisions.md` �
 ## D151 — Zs Fades Zmf Shock R  *(CONFIRM — t00933)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D151) · `decisions.md` §428
+
+## D152 — Mnq Opening Minute Strong Follow R  *(registered)*
+
+Data-derived (D-series family 115). `hypotheses.yaml` (D152) · `decisions.md` §434
+
+## D153 — Mnq Last Hour Next All Fade R  *(registered)*
+
+Data-derived (D-series family 115). `hypotheses.yaml` (D153) · `decisions.md` §434

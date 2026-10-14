@@ -11346,6 +11346,15 @@ no cost: the account replay (§431) expects it roughly neutral to the account, t
 **9 rules × 2 markets × 2 forms = 36 tests** (~0.9 by chance at 2.5%). Costs §180; validation per §426, 2 (placebo: predictor signs
 shuffled across the sealed sessions).
 
+## 434. Family-115 discovery: 2 of 36 carried (≈ 0.9 by chance); D152–D153 registered (S1)
+
+**No trial spent yet; N 927.** `reports/d115_discovery.json` (module `reporting/d115_intraday.py`):
+- **D152** MNQ opening_minute (strong) follow: +11.57 bps, t +2.06, n 505; 2010–20 +11.55 (t +2.69); market-test 164.
+- **D153** MNQ last_hour_next (all) fade: +4.90 bps, t +2.03, n 954; 2010–20 +0.61 (t +0.43); market-test 165.
+
+D152 is the strong form of D101 (the all-days opening-minute rule, WATCHLIST in §280); the strong form was never validated, and its
+2010–20 context is the same sign and size. Validation per §426, 2 with shuffled predictor signs as the placebo.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
