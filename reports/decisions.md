@@ -11799,6 +11799,16 @@ the DAX–dollar stress test on ^GDAXI, §447, stands.) Validated (not tradable 
 The Euro Stoxx 50 (the Eurex candidate) does not carry the theme (t ≤ 1.42). The theme is specific to the DAX and the Nikkei among
 tradable products.
 
+## 468. The DAX–dollar rule's measurement time: the bot's 17:30 reading works; a 02:55 ET reading is steadier (S8)
+
+**No trial; N 1,095.** `reports/a37_daxdollar_timing.json`. Yahoo's DX-Y.NYB daily bar covers 00:00 → 24:00 ET (hourly bars checked), so
+the replay's rule used the whole day while the bot reads it at 17:30 ET; no look-ahead either way (the DAX opens 03:00 ET next day).
+With HistData EUR/USD (dollar = −EUR/USD) at three cut-offs, the DAX window's net (follow the dollar), 2021–24 | 2025–26:
+16:55 → 16:55 ET (≈ the bot) **+8.9 (t +2.96) | +4.4 (t +1.08)**; 23:55 → 23:55 +8.7 (t +2.28) | +1.4 (t +0.26); **02:55 → 02:55 ET (just
+before the DAX opens) +7.0 (t +2.36) | +7.0 (t +1.72)** — positive at every cut-off and steadiest when read just before the open. The
+deployed form stands; an optional improvement for the user: a second bot step at ~02:50 ET that re-reads the dollar and updates the
+FDXM ticket's side before its 03:00 entry.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
