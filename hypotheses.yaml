@@ -11996,3 +11996,175 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 140.
   s6_control: By year; the same rule after non-shock days.
+- id: D129
+  name: nkd_follows_vix3m_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 111, the two-period shock screen, decisions.md 414-415): NKD's next window after a
+    ^VIX3M shock (2 sigma), traded to follow it: 2018-2022 +29.25 bps net (t +2.49, n 73); 2010-17
+    +33.64 (t +1.48). THE COUNTERPARTY would be slow cross-asset repositioning after the predictor's move.
+  condition: >
+    After a ^VIX3M move beyond 2 x the SD of its previous 60, take NKD's next window to follow it.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 163
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-111 scan (359 tests, decisions.md 415). ONE TRIAL.
+  session: Asia
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 141.
+  s6_control: By year; the same rule after non-shock days.
+- id: D130
+  name: mgc_fades_clpx_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 111, the two-period shock screen, decisions.md 414-415): MGC's next window after a
+    CLP=X shock (2 sigma), traded to fade it: 2018-2022 +19.25 bps net (t +2.25, n 70); 2010-17
+    +14.26 (t +2.09). THE COUNTERPARTY would be slow cross-asset repositioning after the predictor's move.
+  condition: >
+    After a CLP=X move beyond 2 x the SD of its previous 60, take MGC's next window to fade it.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 164
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-111 scan (359 tests, decisions.md 415). ONE TRIAL.
+  session: Europe/US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 142.
+  s6_control: By year; the same rule after non-shock days.
+- id: D131
+  name: mgc_follows_6sf_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 111, the two-period shock screen, decisions.md 414-415): MGC's next window after a
+    6S=F shock (2 sigma), traded to follow it: 2018-2022 +19.87 bps net (t +2.22, n 71); 2010-17
+    +11.67 (t +1.39). THE COUNTERPARTY would be slow cross-asset repositioning after the predictor's move.
+  condition: >
+    After a 6S=F move beyond 2 x the SD of its previous 60, take MGC's next window to follow it.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 165
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-111 scan (359 tests, decisions.md 415). ONE TRIAL.
+  session: Europe/US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 143.
+  s6_control: By year; the same rule after non-shock days.
+- id: D132
+  name: nkd_follows_lqd_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 111, the two-period shock screen, decisions.md 414-415): NKD's next window after a
+    LQD shock (2 sigma), traded to follow it: 2018-2022 +35.58 bps net (t +2.08, n 72); 2010-17
+    +27.73 (t +1.25). THE COUNTERPARTY would be slow cross-asset repositioning after the predictor's move.
+  condition: >
+    After a LQD move beyond 2 x the SD of its previous 60, take NKD's next window to follow it.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 166
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-111 scan (359 tests, decisions.md 415). ONE TRIAL.
+  session: Asia
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 144.
+  s6_control: By year; the same rule after non-shock days.

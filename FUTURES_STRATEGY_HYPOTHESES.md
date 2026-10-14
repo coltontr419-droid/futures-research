@@ -1224,3 +1224,19 @@ Data-derived (D-series family 108). `hypotheses.yaml` (D127) · `decisions.md` �
 ## D128 — 6A Follows Two Year Shock  *(REJECT — t00910)*
 
 Data-derived (D-series family 108). `hypotheses.yaml` (D128) · `decisions.md` §408
+
+## D129 — Nkd Follows Vix3M Shock  *(registered)*
+
+Data-derived (D-series family 111). `hypotheses.yaml` (D129) · `decisions.md` §415
+
+## D130 — Mgc Fades Clpx Shock  *(registered)*
+
+Data-derived (D-series family 111). `hypotheses.yaml` (D130) · `decisions.md` §415
+
+## D131 — Mgc Follows 6Sf Shock  *(registered)*
+
+Data-derived (D-series family 111). `hypotheses.yaml` (D131) · `decisions.md` §415
+
+## D132 — Nkd Follows Lqd Shock  *(registered)*
+
+Data-derived (D-series family 111). `hypotheses.yaml` (D132) · `decisions.md` §415

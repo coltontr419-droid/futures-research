@@ -11113,6 +11113,17 @@ family-29 pairs (14-universe → CL/ZS). Follow or fade fixed by 2018–22. **Ca
 rule in 2010–17 net > 0 with t > 1.0 (≈ 0.4% of null tests pass both; the count is reported against it). Costs §177/§180; validation
 as §207, 3.
 
+## 415. Family-111 screen: 4 of 359 carried (≈ 1.4 by chance); D129–D132 registered (S1)
+
+**No trial spent yet; N 904.** `reports/d111_discovery.json` (module `reporting/d111_screen.py`); 12 pass 2018–22 alone (≈ 9 by chance).
+- **D129** NKD follows a ^VIX3M shock: +29.25 bps, t +2.49, n 73; 2010–17 +33.64 (t +1.48); market-test 141.
+- **D130** MGC fades a CLP=X shock: +19.25 bps, t +2.25, n 70; 2010–17 +14.26 (t +2.09); market-test 142.
+- **D131** MGC follows a 6S=F shock: +19.87 bps, t +2.22, n 71; 2010–17 +11.67 (t +1.39); market-test 143.
+- **D132** NKD follows a LQD shock: +35.58 bps, t +2.08, n 72; 2010–17 +27.73 (t +1.25); market-test 144.
+
+A modest excess over chance. NKD after an LQD shock follows bonds the way D68 does; NKD after a VIX3M shock follows a fear spike
+(a crisis-rebound reading, §336, is likely); gold fading a CLP shock carries the emerging-currency sign (§395).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
