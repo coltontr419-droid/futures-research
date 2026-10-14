@@ -11675,6 +11675,14 @@ strength — every session; missing data → long. `bot/schedule.py` now calls i
 unused; D139 remains a confirmed finding). Posts carry a "dollar-week:" note. First reading, 2026-10-14: euro −43 bps over 5 sessions
 → NKD short. The demo now runs three direction rules: MNQ D68 (ZN shocks), NKD dollar-week, FDXM DAX–dollar.
 
+## 455. D-series family 121 protocol: the last twenty days' direction across markets, every day, current regime (S1)
+
+**No trial spent; N 1,025. Written and committed BEFORE any statistic is computed.** Family 120 (§449) with a 20-weekday sum in place of
+5: the sign of each series' summed moves over the previous 20 weekdays (ending the previous weekday) → each plan window, every session;
+same predictor list, targets, exclusions and forms. Carried at net > 0, t > 1.96 (~2.5% by chance; counted against it). Validation per
+§426, 2 (placebo: signs shuffled across the sealed sessions). Monthly-horizon signals change slowly (few sign changes), so the
+effective sample is smaller than n suggests — the shuffled placebo is the guard.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
