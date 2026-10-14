@@ -11096,6 +11096,23 @@ carried at net > 0, t > 1.96; validation as §207, 3.
 **No trial spent; N 904.** `reports/d110_discovery.json`: PEN → HG +6.9 (t +0.67, "with"); MXN → SI +19.8 (t +0.69), PEN → SI +15.8 (t +1.04),
 both "against" and the same in 2010–17 (+17.1, +18.7), all weak. Empty.
 
+## 414. A timing caveat found, and D-series family 111 protocol: a two-period screen of the whole shock class (S1)
+
+**Caveat (recorded, no result changes).** Yahoo's currency bars are dated by UTC day and close at 19:00 (winter) / 20:00 (summer) New
+York time — after crude's Globex session opens (18:00 ET). Currency → CL tests (families 98's CAD → CL, 100, 102's INR/KRW → CL, 103's
+D126) could therefore see up to two hours of the target session. All were null or rejected, so no conclusion changes; D125 and D126's
+REJECTs stand (a look-ahead could only have helped them). Soybeans reopen at 20:00 ET, at or after the currency close, so **D122 is not
+affected**; nor are targets opening later (MGC 03:00, DAX 03:00, MNQ 09:30 ET).
+
+**Family 111 protocol (no trial spent; N 904; written and committed BEFORE any statistic is computed).** Predictors: every daily series
+fetched so far — futures and ETFs open → close; VIX-type indices, PL=F and currencies close → close (log); FRED DFII10/T10YIE changes;
+stale CNY/CNH excluded. Shock 2σ on the previous weekday (family 24). Targets: **MNQ day, MGC London** (family-8 grids), **NKD, DAX**
+(A21 paths), **CL, ZS** (family 10). Excluded before computing: a predictor on its own market; currency/BTC-USD predictors for CL and NKD
+(their sessions open before the currency close); pairs already validated (D68, D102, D103, D105, D106, D119, D120, D122, D123); and
+family-29 pairs (14-universe → CL/ZS). Follow or fade fixed by 2018–22. **Carried only if** 2018–22 net > 0 with t > 1.96 AND the same
+rule in 2010–17 net > 0 with t > 1.0 (≈ 0.4% of null tests pass both; the count is reported against it). Costs §177/§180; validation
+as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
