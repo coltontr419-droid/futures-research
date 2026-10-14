@@ -11037,6 +11037,13 @@ previous 60 on day D → the next-weekday ZS and ZC sessions (family 10; grains 
 **No trial spent; N 902.** `reports/d106_discovery.json`: grains fade an ADM/BG shock +17 to +26 bps (t +1.08 to +1.81), mixed in
 2010–17. Empty.
 
+## 405. D-series family 107 protocol: energy stocks into crude (S1)
+
+**No trial spent; N 902. Written and committed BEFORE any statistic is computed.** Family 106's design for crude: **XLE** (integrated
+energy) and **XOP** (exploration and production) shocks (Yahoo open → close, 2σ) → CL's next-weekday session (family 10), with or
+against, fixed by discovery. **2 tests**, descriptive 2010–17 column. Cost CL 0.7 (MCL 5.4 noted); recent-period design; carried at
+net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
