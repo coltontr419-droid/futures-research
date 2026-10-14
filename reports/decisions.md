@@ -11223,6 +11223,14 @@ validation **2025-01-01 → 2026-08-31** (20 months). Why: §349, §356 and §41
    low (20 months), so true effects will often land on WATCHLIST.
 5. A CONFIRM is stress-tested (independent data, account replay) before any proposal, and nothing reaches the bot without the user.
 
+## 427. D-series family 114 protocol: the shock screen on the current regime (S1)
+
+**No trial spent; N 908. Written and committed BEFORE any statistic is computed.** Family 111's screen (§414: ~45 predictors' 2σ shocks
+on the previous weekday → MNQ day, MGC London, NKD, DAX, CL, ZS; the same exclusions, including currency predictors for CL and NKD and
+pairs already validated) under §426's design: discovery 2021-01 → 2024-12, carried at net > 0 with t > 1.96 (~2.5% of nulls pass;
+the count is reported against it); 2010–20 printed for context only. Validation on 2025-01 → 2026-08 per §426, 2 (placebo: after
+non-shock days). Module `reporting/d114_screen.py` (family 111's functions with the new windows).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
