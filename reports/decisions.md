@@ -11822,6 +11822,15 @@ shuffled signs).
 **No trial spent; N 1,095.** `reports/d126_discovery.json`: best MNQ follows a strong London-morning dollar move, +8.3 bps (t +1.49);
 gold's NY afternoon ~0. The dollar theme is a foreign-index effect (DAX, Nikkei), not a US one. Empty.
 
+## 471. D-series family 127 protocol: slow regime states as every-day direction, current regime (S1)
+
+**No trial spent; N 1,095. Written and committed BEFORE any statistic is computed.** States on the previous weekday: (1) **VIX high** —
+^VIX close above its trailing-250 median; (2) **VIX inverted** — ^VIX > ^VIX3M; (3) **own trend** — the target market's Yahoo settlement
+above its 200-session mean (NQ=F, GC=F, NKD=F, ^GDAXI, CL=F, ZS=F); (4) **dollar trend** — DX-Y.NYB above its 50-session mean; (5) **rates
+rising** — ZN=F settlement below its 20-session mean (yields up). Each state → long one side / short the other, every session, side
+fixed by 2021–24, the target JUDGED DEMEANED (its 2021–24 mean removed). **5 × 6 = 30 tests.** Costs §177/§180; validation per §426, 2
+(placebo: the state series rolled by a random 60+ sessions).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
