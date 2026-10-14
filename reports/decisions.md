@@ -11777,6 +11777,15 @@ Costs §177/§180; validation per §426, 2 (placebo: shuffled signs).
 session (+7.5 bps, t +2.02), the same rule as D193 (family 119), already REJECTED on 2025–26; not re-tested (§426, 3). Nearest others:
 MNQ follows the same morning's gold London (+5.7, t +1.57); ZS follows a strong DAX (+10.6, t +1.61). Empty.
 
+## 466. D-series family 125 protocol: the dollar rules on other foreign indices, current regime (S1)
+
+**No trial spent; N 1,092. Written and committed BEFORE any statistic is computed.** The deployed dollar rules act on the DAX (previous
+day's dollar index) and the Nikkei (the euro's previous 5 days). Do they generalise? Targets (Yahoo daily open → close, local sessions):
+**^STOXX50E** (Euro Stoxx 50 — Eurex-listed like FDXM, so a candidate account), **^FCHI**, **^FTSE**, **^AXJO**, **^HSI**, **^KS11**. Rules:
+(a) the sign of DX-Y.NYB's previous weekday (follow or fade), (b) the sign of 6E=F's previous-5-weekday sum (follow or fade); forms
+all / strong. **6 × 2 × 2 = 24 tests.** Cost 0.3 bps (index-futures level); validation per §426, 2 (placebo: shuffled signs). Only
+^STOXX50E is a tradable candidate; the rest test the theme's generality.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
