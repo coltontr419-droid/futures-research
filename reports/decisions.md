@@ -10799,6 +10799,15 @@ unusable whatever the trial says. Z and D market-test 133.
 (second-last business day) **48th** pct — the same move happens a day earlier, so it is not the month-end flow;
 years 3 of 4. WATCHLIST by the mean; unusable at ~2 bps twelve times a year. Z and D market-test 133.
 
+## 376. D-series family 95 protocol: the 10-year's move into MNQ, by stock–bond correlation regime (S1)
+
+**No trial spent; N 897. Written and committed BEFORE any statistic is computed.** Family 10 found no all-days link from ZN to NQ, and
+D68 uses only ZN's tails. The sign of the stock–bond correlation changes what a bond move means for equities (inflation scare vs
+growth scare). Regime on day D−1: correlation of ES and ZN daily open→settlement returns (family-10 series) over the previous 60
+sessions, positive or negative. Signal: sign of ZN's session on D−1 (every day, not only shocks). Target: MNQ's day session on D
+(family-8 grid), with or against, fixed by discovery within each regime. **2 regimes = 2 tests**, descriptive 2010–17 column. Cost
+MNQ 0.5 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
