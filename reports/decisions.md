@@ -11732,6 +11732,13 @@ the opposite sign to the DAX–dollar rule's previous-day reading, at a differen
 **No trial spent; N 1,041. Written and committed BEFORE any statistic is computed.** Family 120 (§449) with a 2-weekday sum (the
 previous two weekdays). Same predictors, targets, exclusions, forms, carrying rule and validation (§426, 2; shuffled-sign placebo).
 
+## 461. Family-123 discovery: 51 of 718 carried (≈ 18 by chance); D266–D316 registered (S1)
+
+**No trial spent yet; N 1,041.** `reports/d123_discovery.json` (module `reporting/d123_twoday.py`). Themes: NKD follows two days of
+global risk (FXI, XLY, EEM, ES, RTY, 6B up; GVZ, VIX3M down → long); crude follows risk assets (failed in families 119–120); ZS follows
+the grain traders' stocks (ADM, BG) and fades the VIX; the DAX follows the dollar index (strong) — the deployed theme again. Each
+validated once per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
