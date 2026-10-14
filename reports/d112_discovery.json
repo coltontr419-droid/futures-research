@@ -1,0 +1,29 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "MNQ",
+   "n": 846,
+   "rule": "long after turbulent opens",
+   "net_bps": 0.6903230547904968,
+   "t": 0.1701829731464386,
+   "early_net": -3.6371188163757324,
+   "early_t": -1.4815753698349,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "n": 833,
+   "rule": "long after turbulent opens",
+   "net_bps": -0.37959396839141846,
+   "t": -0.15501153469085693,
+   "early_net": 3.0321907997131348,
+   "early_t": 1.273690104484558,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

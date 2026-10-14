@@ -11176,6 +11176,10 @@ signals selling pressure. Ratio = realized volatility of 1-minute returns in the
 middle not traded; target the rest of the window (10:00 → 16:00; 03:30 → 11:30), JUDGED DEMEANED; side fixed by discovery. **2 tests**,
 descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 421. Family-112 discovery: the opening half-hour's volatility — 0 of 2 carried (S1)
+
+**No trial spent; N 908.** `reports/d112_discovery.json`: MNQ +0.7 bps (t +0.17), gold −0.4 (t −0.16). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
