@@ -11851,6 +11851,14 @@ shuffled signs).
 **No trial spent; N 1,096.** `reports/d128_discovery.json`: every |t| ≤ 1.03 on 2021–24 (best: gold follows a strong 5-day silver
 outperformance, +3.3 bps). Gold's London window takes no direction from miners, silver, ETF volume or its own implied volatility. Empty.
 
+## 475. D-series family 129 protocol: refining spreads as every-day crude direction, current regime (S1)
+
+**No trial spent; N 1,096. Written and committed BEFORE any statistic is computed.** From Yahoo settlements (roll-jump days dropped as
+§329): the 3-2-1 **crack** change, **RB − CL** and **HO − CL** relative changes (log), each over the previous weekday (1-day) and the
+previous 5 weekdays. Sign → CL's next session (family 10; it opens 18:00 ET, after the 14:30 settlements), follow or fade fixed by
+2021–24; forms all / strong. **3 × 2 × 2 = 12 tests.** Cost CL 0.7 (MCL's 5.4 noted at validation); validation per §426, 2 (placebo:
+shuffled signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
