@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D265",
+ "cell": "DAX fades overnight USD/JPY (current regime)",
+ "trades": 341,
+ "net_bps": -1.8993440640340336,
+ "t_net": -0.42691922058038356,
+ "placebo_pct": 36.9,
+ "by_year": {
+  "2025": -2.1594867284352923,
+  "2026": -1.5072172537233124
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 277,
+ "injection": {
+  "hypothesis": "D265",
+  "n_events": 341,
+  "sought_bps": 3.4513739105572507,
+  "mean_estimate": 3.575640454680052,
+  "recovered": true
+ }
+}

@@ -1768,3 +1768,7 @@ Data-derived (D-series family 121). `hypotheses.yaml` (D263) · `decisions.md` �
 ## D264 — Nkd Fades Zcf Month All  *(CONFIRM — t01046)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D264) · `decisions.md` §456
+
+## D265 — Dax Fades Overnight Usdjpy R  *(REJECT — t01047)*
+
+Data-derived (D-series family 122). `hypotheses.yaml` (D265) · `decisions.md` §459

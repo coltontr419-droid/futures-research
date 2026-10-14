@@ -11720,6 +11720,13 @@ the pair's own sign). Targets opening after: **gold's London window** (03:00), *
 Follow or fade fixed by 2021–24; forms all / strong. **5 × 3 × 2 = 30 tests.** Costs §180; validation per §426, 2 (placebo: shuffled
 signs).
 
+## 459. Family-122 discovery and D265 (t01047): Asia overnight — 1 of 30 carried, REJECT (S1)
+
+**N 1,041.** `reports/d122_discovery.json` (module `reporting/d122_asia.py`): gold and MNQ take nothing from Asia's session; the one carry
+(**D265**, the DAX fades USD/JPY's overnight move, +6.9 bps, t +2.05, at chance level) on sealed 2025–26: -1.90 bps (t -0.43),
+placebo 37th, {2025: -2.1594867284352923, 2026: -1.5072172537233124} — **REJECT**. Of note, not tested: the DAX FOLLOWS EUR/USD overnight (+6.0, t +1.77; 2010–20 +4.0, t +1.78) —
+the opposite sign to the DAX–dollar rule's previous-day reading, at a different time.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
