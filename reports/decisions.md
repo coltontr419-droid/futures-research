@@ -11007,6 +11007,12 @@ exporter; its crawling peg makes shocks devaluation days), **AUD → ZW**, **CAD
 family 99; ZW: family 10), with or against, fixed by discovery. **5 tests**, descriptive 2010–17 column. Costs ZL/ZM 1.5, ZW 1.4;
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 400. Family-104 discovery: dominant-producer currencies in oilseeds and wheat — 0 of 5 carried (S1)
+
+**No trial spent; N 902.** `reports/d104_discovery.json`: IDR → ZL against +38.9 (t +1.92), AUD → ZW against +41.9 (t +1.79); MYR → ZL
+and ARS → ZM chose "with" (+6.2, +10.6; 2010–17 the mechanism's way, −28.2 t −2.40 and −21.5) — the first pairs off the universal
+sign, both weak. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
