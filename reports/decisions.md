@@ -11711,6 +11711,15 @@ Fewer passes than chance: the monthly horizon shows no cross-market structure be
 carried vs ~18 expected; ~0.3 chance confirmations), and NKD already runs the far stronger dollar-week rule — one direction per day.
 Recorded, not proposed.
 
+## 458. D-series family 122 protocol: Asia overnight into the European and US windows, current regime (S1)
+
+**No trial spent; N 1,040. Written and committed BEFORE any statistic is computed.** Predictors that finish before 03:00 ET on day D:
+the NKD Tokyo window (A21 path, Tokyo date D), the Hang Seng's morning 09:30 → 12:00 Hong Kong (HistData hkxhkd), and USD/JPY, AUD/USD,
+EUR/USD from 18:00 ET (D−1) to 02:55 ET (HistData grids, `reporting/hd_grid.py`; USD/JPY inverted so + = yen stronger... reported as
+the pair's own sign). Targets opening after: **gold's London window** (03:00), **the DAX window** (03:00 ET), **MNQ's day** (09:30).
+Follow or fade fixed by 2021–24; forms all / strong. **5 × 3 × 2 = 30 tests.** Costs §180; validation per §426, 2 (placebo: shuffled
+signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
