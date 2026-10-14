@@ -12012,6 +12012,14 @@ ES=F; **DAX** (^GDAXI) vs ES=F, ^STOXX50E. Targets as family 114 (MNQ day, MGC L
 reverses an extreme 20-day stretch against gasoline (+59.3 bps, t +3.35, n 142). Sealed 2025–26: +51.25 bps (t +1.92, n
 79), placebo 98th, {2025: 25.49813299088345, 2026: 95.64719150881298} — **CONFIRM**. Every other pair |t| < 2 on 2021–24.
 
+## 495. Stress tests for D329 (crude reverses an extreme stretch against gasoline), fixed before running (S8)
+
+**No trial; N 1,105.** (1) **Independent data**: the target from the owned GLBX daily bars (roll-correct front-contract close → close)
+as well as Yahoo's session; the stretch measured against RB=F (the trial's) and against HO=F; thresholds 1.5 / 2 / 2.5; periods 2010–20,
+2021–24, 2025–26. (2) **The MCL account** (10 MCL, A23, drift removed, both histories and starts from 2025): plan (always long) vs D329
+(short after crude's ratio to RB is > +2 SD, long otherwise — a long day already matches the plan), calibrated against 40 random flip
+masks of the same share (§453). Read as §446.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
