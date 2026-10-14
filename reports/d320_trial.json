@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D320",
+ "cell": "DAX short when rates rising (current regime)",
+ "trades": 412,
+ "net_bps": -1.0840814267939176,
+ "t_net": -0.26149756345367003,
+ "placebo_pct": 38.666666666666664,
+ "by_year": {
+  "2025": 2.2644045125630345,
+  "2026": -6.147645530211748
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 332,
+ "injection": {
+  "hypothesis": "D320",
+  "n_events": 412,
+  "sought_bps": 2.9299529219910583,
+  "mean_estimate": 2.7844288364766983,
+  "recovered": true
+ }
+}

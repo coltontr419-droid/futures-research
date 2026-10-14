@@ -1988,3 +1988,7 @@ Data-derived (D-series family 125). `hypotheses.yaml` (D318) · `decisions.md` �
 ## D319 — Ks11 Follows Euro Week Strong  *(WATCHLIST — t01101)*
 
 Data-derived (D-series family 125). `hypotheses.yaml` (D319) · `decisions.md` §467
+
+## D320 — Dax Short When Rates Rising R  *(REJECT — t01102)*
+
+Data-derived (D-series family 127). `hypotheses.yaml` (D320) · `decisions.md` §472

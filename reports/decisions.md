@@ -11831,6 +11831,12 @@ rising** — ZN=F settlement below its 20-session mean (yields up). Each state �
 fixed by 2021–24, the target JUDGED DEMEANED (its 2021–24 mean removed). **5 × 6 = 30 tests.** Costs §177/§180; validation per §426, 2
 (placebo: the state series rolled by a random 60+ sessions).
 
+## 472. Family-127 and D320 (t01102): slow regimes set no direction — 1 of 30 carried, REJECT (S1)
+
+**N 1,096.** `reports/d127_discovery.json` (module `reporting/d127_regime.py`): VIX level, VIX inversion, own 200-day trend, the dollar's
+50-day trend and rising yields give no direction to any plan window (all |t| < 1.6 but one). **D320** (DAX short while yields rise, t +1.97,
+at chance) on sealed 2025–26: -1.08 bps (t -0.26), placebo 39th, {2025: 2.2644045125630345, 2026: -6.147645530211748} — **REJECT**.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
