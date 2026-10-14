@@ -11727,6 +11727,11 @@ signs).
 placebo 37th, {2025: -2.1594867284352923, 2026: -1.5072172537233124} — **REJECT**. Of note, not tested: the DAX FOLLOWS EUR/USD overnight (+6.0, t +1.77; 2010–20 +4.0, t +1.78) —
 the opposite sign to the DAX–dollar rule's previous-day reading, at a different time.
 
+## 460. D-series family 123 protocol: the last two days' direction across markets, every day, current regime (S1)
+
+**No trial spent; N 1,041. Written and committed BEFORE any statistic is computed.** Family 120 (§449) with a 2-weekday sum (the
+previous two weekdays). Same predictors, targets, exclusions, forms, carrying rule and validation (§426, 2; shuffled-sign placebo).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
