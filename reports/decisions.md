@@ -10941,6 +10941,12 @@ validation as §207, 3.
 2010–17 +13.62 (t +0.73). MXN +80.8 (t +1.37; 2010–17 +50.9, t +1.89), RUB +44.6, NOK +28.2 — all four with the
 mechanism's sign, as every pair in families 97–99. Crude's 2020 swings inflate 2018–22 sizes. Z and D market-test 137.
 
+## 391. D125 validated (t00907): REJECT — crude after the peso was 2020 (S1)
+
+**N 901.** Sealed 2023-01 → 2026-08, 50 events (power 44%): **-21.93 bps** (t -0.73); placebo
+21th; years 1 of 4. The 2018–22 size came from crude's 2020 swings. The producer-currency mechanism holds out of sample
+only for soybeans (D122) so far; copper (D124) kept its sign weakly, crude did not. Z and D market-test 137.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

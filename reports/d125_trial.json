@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D125",
+ "cell": "CL falls after the producer currency (COP=X) weakens",
+ "trades": 50,
+ "net_bps": -21.925075933631078,
+ "t_net": -0.7298207363748909,
+ "placebo_pct": 20.599999999999998,
+ "by_year": {
+  "2023": -50.17214917167691,
+  "2024": -23.93949319686422,
+  "2025": -56.36387946562319,
+  "2026": 67.68787299928952
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 137,
+ "injection": {
+  "hypothesis": "D125",
+  "n_events": 50,
+  "sought_bps": 44.15903107762894,
+  "mean_estimate": 44.434392270250754,
+  "sd_estimate_bps": 29.092191126538328,
+  "power_strict_t": 0.442,
+  "recovered": true
+ }
+}

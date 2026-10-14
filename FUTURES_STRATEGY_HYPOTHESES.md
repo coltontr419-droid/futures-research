@@ -1209,6 +1209,6 @@ Data-derived (D-series family 97). `hypotheses.yaml` (D123) · `decisions.md` §
 
 Data-derived (D-series family 98). `hypotheses.yaml` (D124) · `decisions.md` §385
 
-## D125 — Crude Falls After Colombian Peso Weakens  *(registered)*
+## D125 — Crude Falls After Colombian Peso Weakens  *(REJECT — t00907)*
 
 Data-derived (D-series family 100). `hypotheses.yaml` (D125) · `decisions.md` §390
