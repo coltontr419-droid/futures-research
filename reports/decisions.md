@@ -11846,6 +11846,11 @@ when its volume exceeds 1.5 × the previous-20 median (other days not traded); (
 change. Follow or fade fixed by 2021–24; forms all / strong (except 5). **11 tests.** Cost MGC 0.8; validation per §426, 2 (placebo:
 shuffled signs).
 
+## 474. Family-128 discovery: gold-specific signals — 0 of 11 carried (S1)
+
+**No trial spent; N 1,096.** `reports/d128_discovery.json`: every |t| ≤ 1.03 on 2021–24 (best: gold follows a strong 5-day silver
+outperformance, +3.3 bps). Gold's London window takes no direction from miners, silver, ETF volume or its own implied volatility. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

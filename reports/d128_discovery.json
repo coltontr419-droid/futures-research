@@ -1,0 +1,142 @@
+{
+ "window": [
+  "2021-01-01",
+  "2024-12-31"
+ ],
+ "tests": 11,
+ "all": [
+  {
+   "predictor": "miners_vs_gold_1d",
+   "form": "all",
+   "median_abs": 77.65346132875717,
+   "n": 974,
+   "dir": "fade",
+   "net_bps": 0.6451293044511277,
+   "t": 0.2884087682543682,
+   "context_net": -2.826143856809016,
+   "context_t": -1.866905464468312,
+   "carried": false
+  },
+  {
+   "predictor": "miners_vs_gold_1d",
+   "form": "strong",
+   "median_abs": 77.65346132875717,
+   "n": 487,
+   "dir": "fade",
+   "net_bps": 2.526906167016624,
+   "t": 0.7409079454273954,
+   "context_net": -3.323196236368574,
+   "context_t": -1.4688862050149176,
+   "carried": false
+  },
+  {
+   "predictor": "miners_vs_gold_5d",
+   "form": "all",
+   "median_abs": 176.26504978613838,
+   "n": 974,
+   "dir": "follow",
+   "net_bps": -0.49888090255079637,
+   "t": -0.22298183376459677,
+   "context_net": 2.076973846347744,
+   "context_t": 1.372529512858097,
+   "carried": false
+  },
+  {
+   "predictor": "miners_vs_gold_5d",
+   "form": "strong",
+   "median_abs": 176.26504978613838,
+   "n": 487,
+   "dir": "follow",
+   "net_bps": 1.9631525650651038,
+   "t": 0.6245039472735344,
+   "context_net": 4.637536542174182,
+   "context_t": 2.1694640182611917,
+   "carried": false
+  },
+  {
+   "predictor": "silver_vs_gold_1d",
+   "form": "all",
+   "median_abs": 62.17693516599287,
+   "n": 974,
+   "dir": "follow",
+   "net_bps": -0.6702558717198955,
+   "t": -0.29957801490529096,
+   "context_net": -0.9515989991889483,
+   "context_t": -0.6250920667073707,
+   "carried": false
+  },
+  {
+   "predictor": "silver_vs_gold_1d",
+   "form": "strong",
+   "median_abs": 62.17693516599287,
+   "n": 488,
+   "dir": "fade",
+   "net_bps": 1.478778308727699,
+   "t": 0.4713779397565415,
+   "context_net": -0.10688661215962085,
+   "context_t": -0.042844855087926195,
+   "carried": false
+  },
+  {
+   "predictor": "silver_vs_gold_5d",
+   "form": "all",
+   "median_abs": 172.21246322290938,
+   "n": 974,
+   "dir": "follow",
+   "net_bps": 0.9676906644441247,
+   "t": 0.43265773239648697,
+   "context_net": 1.3852611000155215,
+   "context_t": 0.9188754735145459,
+   "carried": false
+  },
+  {
+   "predictor": "silver_vs_gold_5d",
+   "form": "strong",
+   "median_abs": 172.21246322290938,
+   "n": 485,
+   "dir": "follow",
+   "net_bps": 3.3426137373619436,
+   "t": 1.0346180671869538,
+   "context_net": 2.267306999687675,
+   "context_t": 0.8989663517350509,
+   "carried": false
+  },
+  {
+   "predictor": "gld_heavy_volume",
+   "form": "all",
+   "median_abs": 1.0,
+   "n": 149,
+   "dir": "follow",
+   "net_bps": 4.42477532713205,
+   "t": 0.6807303799608795,
+   "context_net": 3.500146765956491,
+   "context_t": 0.8761008526032468,
+   "carried": false
+  },
+  {
+   "predictor": "gvz_5d",
+   "form": "all",
+   "median_abs": 0.05021977674804834,
+   "n": 972,
+   "dir": "fade",
+   "net_bps": -0.09479677490736947,
+   "t": -0.042422507194549,
+   "context_net": -0.5873374077277256,
+   "context_t": -0.3859497230760267,
+   "carried": false
+  },
+  {
+   "predictor": "gvz_5d",
+   "form": "strong",
+   "median_abs": 0.05021977674804834,
+   "n": 484,
+   "dir": "fade",
+   "net_bps": 0.20497494453240725,
+   "t": 0.06275364168438806,
+   "context_net": -1.971247389042575,
+   "context_t": -0.9605923020945386,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
