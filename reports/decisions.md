@@ -11083,6 +11083,14 @@ would sharpen D68's overlay, not replace it.
 **No trial spent; N 904.** `reports/d109_discovery.json`: quiet-equity ZN shocks +15.8 bps (t +0.60, n 23) vs the rest +21.5 (t +1.02,
 n 56). No support for a slow-diffusion refinement; D68 stays as deployed. Empty.
 
+## 412. D-series family 110 protocol: dominant-producer currencies in copper and silver (S1)
+
+**No trial spent; N 904. Written and committed BEFORE any statistic is computed.** Family 98's construction for metals where one or two
+countries dominate supply: **PEN → HG** (Peru, copper), **MXN → SI** (Mexico, the largest silver producer), **PEN → SI**. Yahoo close →
+close, UTC day, 2σ, up = local currency weaker; targets next-weekday sessions (family 10), with or against, fixed by discovery; stale
+(> 30% unchanged) reported, not carried. **3 tests**, descriptive 2010–17 column. Costs §177 (HG 2.0, SI 0.5); recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
