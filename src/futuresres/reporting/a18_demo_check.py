@@ -99,6 +99,17 @@ def export_expected(path: Path | None = None) -> Path:
 
 def check(shadow_csv: Path, demo_csv: Path | None = None) -> dict:
     rows = [r for r in csv.DictReader(open(shadow_csv)) if r["outcome"] in ("TAKE", "STOP", "TIME EXIT")]
+    # decisions.md 492: where the user's !eod recorded the ticket's actual P&L (bot tickets.json, pulled beside the logs), that
+    # result replaces the shadow's - the shadow is a proxy for FDXM (the DAX index) and is only a model of fills elsewhere.
+    tj = Path(shadow_csv).with_name("tickets.json")
+    rec = {(t["product"], t["entry"]): t for t in (json.loads(tj.read_text()) if tj.exists() else []) if t.get("user_pnl") is not None}
+    for r in rows:
+        t = rec.get((r["product"], r["entry"]))
+        if t:
+            p = float(t["user_pnl"]); tk = t["ticket"]
+            r["shadow_outcome"], r["shadow_pnl"] = r["outcome"], r["pnl"]
+            r["outcome"] = "TAKE" if p >= 0.8 * tk.get("take_net", 0) else ("STOP" if p <= -0.8 * tk.get("stop_net", 0) else "TIME EXIT")
+            r["pnl"] = p; r["source"] = "recorded"
     if not rows:
         return {"tickets": 0}
     exp = {"TAKE": 0.0, "STOP": 0.0, "TIME EXIT": 0.0}; obs = {"TAKE": 0, "STOP": 0, "TIME EXIT": 0}

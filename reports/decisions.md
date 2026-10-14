@@ -11985,6 +11985,18 @@ clocks. Now every displayed time is Chicago, 12-hour: field headings ("Wed 7:00 
 "if neither filled" times), shadow results (`_res_time`), the alert title ("4:30 PM CT"), the weekend note and the FDXM re-check message.
 Scheduling is unchanged (the windows still follow each market's own clock; only the display changed). `schedule.clock()`, `CT`.
 
+## 492. Recorded results override the shadow; FDXM's shadow is labelled a proxy (2026-10-14, the user) (S8)
+
+**No trial; N 1,104.** The user saw stops on two tickets the shadow scored as takes. Checked against every recorded close (17 since
+2026-10-11): all agree except **FDXM on 10-13 and 10-14** (shadow TAKE; recorded −$650 and −$600). Cause: Yahoo has no Eurex futures, so
+`shadow.py` tracks FDXM on the cash DAX index (^GDAXI), which starts at 09:02 Frankfurt from its own auction price; both days were near
+misses (10-13: the index came within 2 points of an 89-point stop), so the proxy can flip the outcome. Deployed 19:35 ET (backup
+`/opt/futures-bot/backup-2026-10-14g`): `!eod` now stores the day's actual P&L on the latest started ticket (`user_pnl`); results lines,
+`!results` totals and the board show the recorded outcome (TAKE / STOP within 20% of the bracket, else TIME EXIT, with the exact P&L),
+noting the shadow only when it disagrees, and FDXM shadow lines carry "[DAX index proxy]". The 17 past closes were backfilled onto their
+tickets. `a18_demo_check` now scores recorded results wherever they exist (tickets.json pulled beside the logs). Tests:
+`test_recorded_result_overrides_shadow`.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

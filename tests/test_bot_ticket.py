@@ -216,3 +216,16 @@ def test_daxdollar_preopen_side() -> None:
     mon = _dt.datetime(2026, 10, 19, 2, 50, tzinfo=et)                                   # Monday compares with Friday
     assert daxdollar.preopen_side(mon, [(_dt.datetime(2026, 10, 16, 2, 50, tzinfo=et), 1.12), (mon, 1.11)])[0] == "long"
     assert daxdollar.preopen_side(now, []) is None
+
+
+def test_recorded_result_overrides_shadow() -> None:
+    """decisions.md 492: the user's !eod P&L sets the ticket's outcome; the shadow is noted only when it disagrees."""
+    import schedule as sch
+    assert sch.recorded_outcome(1200.0, 1200.0, 600.0) == "TAKE"
+    assert sch.recorded_outcome(-600.0, 1200.0, 600.0) == "STOP"
+    assert sch.recorded_outcome(150.0, 1200.0, 600.0) == "TIME EXIT"
+    assert sch.recorded_outcome(-650.0, 1200.0, 1000.0) == "TIME EXIT"
+    r = {"product": "FDXM", "entry": "2026-10-14T03:00:00-04:00", "traded": None, "user_pnl": -600.0,
+         "ticket": {"take_net": 1200.0, "stop_net": 600.0}, "result": {"outcome": "TAKE", "time": "07:19", "pnl": 1201.6, "entry": 25322.0}}
+    line = sch.result_line(r)
+    assert "**STOP**" in line and "DAX index proxy" in line and "said TAKE" in line

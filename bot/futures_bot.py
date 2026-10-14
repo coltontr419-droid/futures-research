@@ -89,7 +89,13 @@ def _field_name(r: dict) -> str:
 
 def _field_value(r: dict) -> str:
     body = ticket_post(r).split("\n", 1)[-1]            # drop the plain-text header; the field name carries it
-    tail = "\n**!eod recorded**" if r.get("eod") else ("\n*waiting for `!eod " + r["product"] + " <balance>`*" if needs_eod(r) else "")
+    from schedule import recorded_outcome
+    if r.get("user_pnl") is not None:
+        out = recorded_outcome(r["user_pnl"], r["ticket"].get("take_net", 0), r["ticket"].get("stop_net", 0))
+        tail = f"\n**!eod recorded: {out} ${r['user_pnl']:+,.0f}**"
+    else:
+        tail = None
+    tail = tail or ("\n**!eod recorded**" if r.get("eod") else ("\n*waiting for `!eod " + r["product"] + " <balance>`*" if needs_eod(r) else ""))
     v = f"[{r['phase']}, balance ${r['balance']:,.2f}]\n" + body + tail
     return v if len(v) <= 1024 else v[:1020] + "…"
 
@@ -218,12 +224,15 @@ async def eod_cmd(ctx, product: str, balance: float):
     p = _product(product)
     now = dt.datetime.now(ET)
     day = eod_day(tix, p, now)                      # the trading day of the ticket that just ended
+    pnl = round(balance - book.s[p]["balance"], 2)  # the day's actual P&L, before eod() may reset the account
     msgs = book.eod(p, balance, day)
     a = book.s[p]
     out = [f"{p}: closed ${balance:,.2f} ({day}) recorded. Peak ${a['peak']:,.2f}, best day ${a['best']:,.0f}." if a["phase"] != "dead" else ""]
     out += msgs
     # reissue this product's ticket if the alert already went out and its entry is still ahead
-    tix.mark_eod(p, now)                            # the board turns this ticket green
+    marked = tix.mark_eod(p, now)                   # the board turns this ticket green
+    if marked:                                      # the actual result belongs to the latest ticket that started (decisions.md 492)
+        max(marked, key=lambda r: r["entry"])["user_pnl"] = pnl; tix.save()
     pend = [r for r in tix.t if r["product"] == p and r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["entry"]) > now]
     if pend:
         alert_day = dt.datetime.fromisoformat(pend[-1]["issued"]).date()

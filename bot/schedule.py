@@ -157,10 +157,26 @@ class Tickets:
         if not done:
             return "No finished tickets yet."
         lines = [result_line(r) for r in done]
-        tot = sum((r["result"].get("pnl") or 0) for r in done)
-        n = {k: sum(1 for r in done if r["result"]["outcome"] == k) for k in ("TAKE", "STOP", "TIME EXIT")}
+        def _o(r):                                   # the recorded result where there is one (decisions.md 492)
+            if r.get("user_pnl") is not None:
+                return recorded_outcome(r["user_pnl"], r["ticket"].get("take_net", 0), r["ticket"].get("stop_net", 0)), r["user_pnl"]
+            return r["result"]["outcome"], (r["result"].get("pnl") or 0)
+        tot = sum(_o(r)[1] for r in done)
+        n = {k: sum(1 for r in done if _o(r)[0] == k) for k in ("TAKE", "STOP", "TIME EXIT")}
         lines.append(f"**{len(done)} tickets: {n['TAKE']} take, {n['STOP']} stop, {n['TIME EXIT']} time exit; total ${tot:+,.0f}**")
         return "\n".join(lines)
+
+
+def recorded_outcome(pnl: float, take_net: float, stop_net: float) -> str:
+    """The outcome implied by the user's `!eod` P&L for a ticket (decisions.md 492): the truth where the shadow is a proxy."""
+    if pnl >= 0.8 * take_net:
+        return "TAKE"
+    if pnl <= -0.8 * stop_net:
+        return "STOP"
+    return "TIME EXIT"
+
+
+PROXY = {"FDXM": "DAX index proxy"}                    # shadow tracked on a stand-in, not the traded future (shadow.YAHOO)
 
 
 def _res_time(txt, entry: dt.datetime) -> str:
@@ -178,10 +194,16 @@ def _res_time(txt, entry: dt.datetime) -> str:
 def result_line(r: dict) -> str:
     res = r["result"]; e = dt.datetime.fromisoformat(r["entry"])
     tr = {None: "", True: " (traded)", False: " (skipped)"}[r["traded"]]
+    if r.get("user_pnl") is not None:                 # the recorded result wins; the shadow is shown only if it disagrees
+        out = recorded_outcome(r["user_pnl"], r["ticket"].get("take_net", 0), r["ticket"].get("stop_net", 0))
+        sh = res.get("outcome") if res else None
+        note = f" — shadow{' (' + PROXY[r['product']] + ')' if r['product'] in PROXY else ''} said {sh}" if sh and sh != out else ""
+        return f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: **{out}** (your !eod: ${r['user_pnl']:+,.0f}){note}{tr}"
+    tag = f" [{PROXY[r['product']]}]" if r["product"] in PROXY else ""
     if res["outcome"] == "NO DATA":
-        return f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: no price data{tr}"
+        return f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: no price data{tag}{tr}"
     return (f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: **{res['outcome']}** at {_res_time(res['time'], e)} -> ${res['pnl']:+,.0f} "
-            f"(entry {res['entry']:.2f}){tr}")
+            f"(entry {res['entry']:.2f}){tag}{tr}")
 
 
 _EXPECTED: dict | None = None
