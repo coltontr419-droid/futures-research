@@ -11400,6 +11400,15 @@ about half the days — the scale an account notices (~$125 a session at 4 MNQ f
 DAX fades its own shock: **WATCHLIST**, +31.16 (t +1.37, n 30), placebo 88th, both years positive. Z and D market-tests
 reach 168.
 
+## 441. D-series family 118 protocol: currency fix flows on the current regime (S1)
+
+**No trial spent; N 932. Written and committed BEFORE any statistic is computed.** Families 41, 66 and 74 under §426's design (HistData,
+corrected clock). **London 16:00 fix** (family 41's `d41_fix.rows`): 15:30 → 16:00 predicts 16:00 → 16:30, follow or fade, forms all /
+strong, for 6E, 6B, 6J, 6A, 6C, 6S (12 tests). **Gotobi** (family 66's `d66_gotobi.rows`): pre and post windows, long or short 6J
+(2 tests; D104 and D116 were validated on 2023–26 with the same rules and are therefore NOT re-tested — the gotobi tests are skipped).
+**ECB fix** (family 74): pre / post 6E (2 tests; D118, the post-fix 6E rule, is excluded — pre only, 1 test). **13 tests**. Costs as the
+originals; validation per §426, 2 (placebos as the originals).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
