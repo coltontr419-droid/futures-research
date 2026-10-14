@@ -11361,6 +11361,15 @@ D152 is the strong form of D101 (the all-days opening-minute rule, WATCHLIST in 
 but always-long over the same sessions earned +7.08, so it adds ~1 bp over the plan (as D101). D153 MNQ night fades the last hour:
 +3.51 (t +0.92), placebo 87th, both years positive. Neither usable. Z and D market-tests reach 165.
 
+## 436. D-series family 116 protocol: the calendar on the current regime (S1)
+
+**No trial spent; N 929. Written and committed BEFORE any statistic is computed.** Family 5's question (§155) under §426's design. Cells
+from the dates alone: Monday … Friday; the first three trading days of the month; the last trading day; the first trading day on or
+after the 15th; the third Friday (expiry); its Monday–Thursday (expiry week). **10 cells × 6 plan windows** (MNQ day, MGC London —
+family-8 grids; NKD, DAX — A21 paths; CL, ZS — family 10) **= 60 tests** (~1.5 by chance). Statistic: the window on the cell's days
+minus its mean on all other days in the period; long or short fixed by 2021–24. Costs §177/§180; validation per §426, 2 (placebo: the
+same number of random other days, 1,000 draws).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
