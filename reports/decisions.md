@@ -11202,6 +11202,10 @@ close; the weeks when the clocks differ shift the close by an hour — kept, a d
 and **strong** (|first 15 min| above its discovery median — mostly release days). **2 tests**, descriptive 2010–17 column. Cost DAX 0.3;
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 425. Family-113 discovery: the DAX after US 08:30 data — 0 of 2 carried (S1)
+
+**No trial spent; N 908.** `reports/d113_discovery.json`: fade +0.3 / +3.0 bps (t +0.16 / +1.03). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
