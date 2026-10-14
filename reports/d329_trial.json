@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D329",
+ "cell": "CL reverses an extreme stretch vs RB (current regime)",
+ "trades": 79,
+ "net_bps": 51.24905320632593,
+ "net_bps_at_mcl_cost": 46.54905320632592,
+ "t_net": 1.9245870676581023,
+ "placebo_pct": 97.5,
+ "by_year": {
+  "2025": 25.49813299088345,
+  "2026": 95.64719150881298
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 341,
+ "injection": {
+  "hypothesis": "D329",
+  "n_events": 79,
+  "sought_bps": 29.6622822365163,
+  "mean_estimate": 30.238843386372647,
+  "recovered": true
+ }
+}

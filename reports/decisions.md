@@ -12006,6 +12006,12 @@ Pairs: **MNQ** (NQ=F) vs ES=F, RTY=F; **MGC** (GC=F) vs SI=F, HG=F; **CL** vs HO
 ES=F; **DAX** (^GDAXI) vs ES=F, ^STOXX50E. Targets as family 114 (MNQ day, MGC London, NKD and DAX windows, CL and ZS sessions).
 **13 pairs × 2 forms = 26 tests.** Costs §177/§180; validation per §426, 2 (placebo: signs shuffled).
 
+## 494. Family-134 and D329 (t01111): relative value on the current regime — 1 of 24 carried, CONFIRM (S1)
+
+**N 1,105.** `reports/d134_discovery.json` (module `reporting/d134_rv.py`; 24 tests had enough events): one carry — **D329**, crude
+reverses an extreme 20-day stretch against gasoline (+59.3 bps, t +3.35, n 142). Sealed 2025–26: +51.25 bps (t +1.92, n
+79), placebo 98th, {2025: 25.49813299088345, 2026: 95.64719150881298} — **CONFIRM**. Every other pair |t| < 2 on 2021–24.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

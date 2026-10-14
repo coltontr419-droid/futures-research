@@ -2024,3 +2024,7 @@ Data-derived (D-series family 133). `hypotheses.yaml` (D327) · `decisions.md` �
 ## D328 — Cot Commercial Es Crowding Fade R  *(REJECT — t01110)*
 
 Data-derived (D-series family 133). `hypotheses.yaml` (D328) · `decisions.md` §484
+
+## D329 — Cl Reverses Extreme Stretch Vs Rb R  *(CONFIRM — t01111)*
+
+Data-derived (D-series family 134). `hypotheses.yaml` (D329) · `decisions.md` §494
