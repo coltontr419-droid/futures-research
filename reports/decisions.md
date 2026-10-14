@@ -10734,6 +10734,14 @@ at net > 0, t > 1.96; validation as §207, 3.
 ET, so the ticket's 18:00 entry is usually missing); net −2.7 / −4.8 (t −0.23 / −0.29). Not re-defined after the fact. Closed as
 uninformative; crude at the ticket's scale was covered on daily bars by families 24–29.
 
+## 367. D-series family 92 protocol: the Hang Seng's day into gold and MNQ (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** New data: HistData Hang Seng (hkxhkd) minute bars,
+corrected clock. Predictor: the Hang Seng's session 09:30 → 16:00 Hong Kong (ends 03:00–04:00 ET). Targets the same ET day: gold
+04:00 → 11:30 ET (family-8 London grid, after Hong Kong has closed) and MNQ's day session; follow or fade fixed by discovery; forms
+**all** and **strong**. **2 × 2 = 4 tests**, descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0,
+t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
