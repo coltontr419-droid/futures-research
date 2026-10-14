@@ -11837,6 +11837,15 @@ fixed by 2021–24, the target JUDGED DEMEANED (its 2021–24 mean removed). **5
 50-day trend and rising yields give no direction to any plan window (all |t| < 1.6 but one). **D320** (DAX short while yields rise, t +1.97,
 at chance) on sealed 2025–26: -1.08 bps (t -0.26), placebo 39th, {2025: 2.2644045125630345, 2026: -6.147645530211748} — **REJECT**.
 
+## 473. D-series family 128 protocol: gold-specific every-day signals, current regime (S1)
+
+**No trial spent; N 1,096. Written and committed BEFORE any statistic is computed.** For gold's London window (the plan's MGC account):
+(1) **miners vs gold, 1 day** — sign of GDX's minus GLD's open → close on the previous weekday; (2) the same over **5 days**; (3) **silver vs
+gold, 1 day** — SI=F minus GC=F (Yahoo sessions); (4) the same over **5 days**; (5) **heavy-volume GLD days** — the sign of GLD's session
+when its volume exceeds 1.5 × the previous-20 median (other days not traded); (6) **gold implied vol, 5 days** — sign of ^GVZ's 5-day log
+change. Follow or fade fixed by 2021–24; forms all / strong (except 5). **11 tests.** Cost MGC 0.8; validation per §426, 2 (placebo:
+shuffled signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
