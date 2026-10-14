@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D290",
+ "cell": "DAX follows BTC-USD (all, 2-day, current regime)",
+ "trades": 428,
+ "net_bps": -1.5140333300762014,
+ "t_net": -0.37358997183545095,
+ "placebo_pct": 38.7,
+ "by_year": {
+  "2025": 5.330825757036668,
+  "2026": -11.801336168602559
+ },
+ "always_long_net_bps": -0.3789782998689573,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 302,
+ "injection": {
+  "hypothesis": "D290",
+  "n_events": 428,
+  "sought_bps": 3.4343384801199663,
+  "mean_estimate": 3.4972781201309946,
+  "recovered": true
+ }
+}

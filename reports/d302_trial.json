@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D302",
+ "cell": "DAX follows ^VIX3M (strong, 2-day, current regime)",
+ "trades": 171,
+ "net_bps": -1.6960672653842004,
+ "t_net": -0.2377133028193232,
+ "placebo_pct": 41.5,
+ "by_year": {
+  "2025": -3.7303073205823933,
+  "2026": 1.621308824631314
+ },
+ "always_long_net_bps": -3.0316183405535395,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 314,
+ "injection": {
+  "hypothesis": "D302",
+  "n_events": 171,
+  "sought_bps": 4.512697323026745,
+  "mean_estimate": 4.478004699025595,
+  "recovered": true
+ }
+}

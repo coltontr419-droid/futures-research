@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D280",
+ "cell": "NKD follows EEM (strong, 2-day, current regime)",
+ "trades": 194,
+ "net_bps": -7.583103019042349,
+ "t_net": -1.0361296759883003,
+ "placebo_pct": 15.4,
+ "by_year": {
+  "2025": -11.210920313765381,
+  "2026": -3.723722918273165
+ },
+ "always_long_net_bps": -1.3819236928691736,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 292,
+ "injection": {
+  "hypothesis": "D280",
+  "n_events": 194,
+  "sought_bps": 5.410379794276555,
+  "mean_estimate": 5.302888083013264,
+  "recovered": true
+ }
+}

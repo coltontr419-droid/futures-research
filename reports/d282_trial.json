@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D282",
+ "cell": "NKD follows RTY=F (strong, 2-day, current regime)",
+ "trades": 163,
+ "net_bps": -5.8711207509768935,
+ "t_net": -0.7946874689465215,
+ "placebo_pct": 15.9,
+ "by_year": {
+  "2025": -3.712633761646193,
+  "2026": -9.576523415994593
+ },
+ "always_long_net_bps": 10.406267736585306,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 294,
+ "injection": {
+  "hypothesis": "D282",
+  "n_events": 163,
+  "sought_bps": 5.262345719699743,
+  "mean_estimate": 5.31372829561725,
+  "recovered": true
+ }
+}

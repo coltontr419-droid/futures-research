@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D304",
+ "cell": "MNQ follows KRW=X (strong, 2-day, current regime)",
+ "trades": 196,
+ "net_bps": 5.756760130123216,
+ "t_net": 0.6163652024609555,
+ "placebo_pct": 73.4,
+ "by_year": {
+  "2025": 17.04323068395391,
+  "2026": -8.982042593114516
+ },
+ "always_long_net_bps": -1.7547872066497803,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 316,
+ "injection": {
+  "hypothesis": "D304",
+  "n_events": 196,
+  "sought_bps": 5.736324545020803,
+  "mean_estimate": 6.00185496706607,
+  "recovered": true
+ }
+}

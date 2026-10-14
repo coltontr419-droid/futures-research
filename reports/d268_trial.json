@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D268",
+ "cell": "CL fades ZM=F (strong, 2-day, current regime)",
+ "trades": 153,
+ "net_bps": -5.261837296346972,
+ "t_net": -0.23293879430804162,
+ "placebo_pct": 40.1,
+ "by_year": {
+  "2025": -12.946960637628125,
+  "2026": 5.142637381079823
+ },
+ "always_long_net_bps": 30.511989630889683,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 280,
+ "injection": {
+  "hypothesis": "D268",
+  "n_events": 153,
+  "sought_bps": 18.190328811772936,
+  "mean_estimate": 18.403953323155953,
+  "recovered": true
+ }
+}

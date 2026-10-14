@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D313",
+ "cell": "NKD follows XLF (all, 2-day, current regime)",
+ "trades": 406,
+ "net_bps": -5.457990362600858,
+ "t_net": -1.2135315955330697,
+ "placebo_pct": 12.6,
+ "by_year": {
+  "2025": -6.626859566504646,
+  "2026": -3.660853961598785
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 325,
+ "injection": {
+  "hypothesis": "D313",
+  "n_events": 406,
+  "sought_bps": 2.626684203641377,
+  "mean_estimate": 2.5192249148985404,
+  "recovered": true
+ }
+}

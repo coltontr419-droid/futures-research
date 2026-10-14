@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D295",
+ "cell": "NKD follows HYG (strong, 2-day, current regime)",
+ "trades": 118,
+ "net_bps": -1.7348787871778875,
+ "t_net": -0.20632338662163754,
+ "placebo_pct": 40.9,
+ "by_year": {
+  "2025": 4.069236913614804,
+  "2026": -13.95406973621513
+ },
+ "always_long_net_bps": -1.65250380644599,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 307,
+ "injection": {
+  "hypothesis": "D295",
+  "n_events": 118,
+  "sought_bps": 4.443676168610232,
+  "mean_estimate": 4.686485977745957,
+  "recovered": true
+ }
+}

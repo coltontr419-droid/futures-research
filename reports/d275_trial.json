@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D275",
+ "cell": "NKD follows EEM (all, 2-day, current regime)",
+ "trades": 406,
+ "net_bps": -0.1999842908759685,
+ "t_net": -0.04438974564033662,
+ "placebo_pct": 50.1,
+ "by_year": {
+  "2025": -0.6417685191006799,
+  "2026": 0.479258960019526
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 287,
+ "injection": {
+  "hypothesis": "D275",
+  "n_events": 406,
+  "sought_bps": 3.880765217939586,
+  "mean_estimate": 3.793568950419593,
+  "recovered": true
+ }
+}

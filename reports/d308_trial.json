@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D308",
+ "cell": "CL follows DFII10 (all, 2-day, current regime)",
+ "trades": 356,
+ "net_bps": -2.1881052794791227,
+ "t_net": -0.14305485178296645,
+ "placebo_pct": 46.300000000000004,
+ "by_year": {
+  "2025": -3.436759463153793,
+  "2026": -0.26161025323821635
+ },
+ "always_long_net_bps": -2.9170882684906467,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 320,
+ "injection": {
+  "hypothesis": "D308",
+  "n_events": 356,
+  "sought_bps": 7.677396742223965,
+  "mean_estimate": 7.298594551990739,
+  "recovered": true
+ }
+}

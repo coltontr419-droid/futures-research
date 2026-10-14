@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D284",
+ "cell": "DAX follows DX-Y.NYB (strong, 2-day, current regime)",
+ "trades": 199,
+ "net_bps": 8.350164695540863,
+ "t_net": 1.2878697507426298,
+ "placebo_pct": 90.5,
+ "by_year": {
+  "2025": -0.009456379706453103,
+  "2026": 25.983740401140672
+ },
+ "always_long_net_bps": 7.591357195857284,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 296,
+ "injection": {
+  "hypothesis": "D284",
+  "n_events": 199,
+  "sought_bps": 5.484847815581981,
+  "mean_estimate": 5.388561223717454,
+  "recovered": true
+ }
+}

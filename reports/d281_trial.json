@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D281",
+ "cell": "CL follows XLF (strong, 2-day, current regime)",
+ "trades": 174,
+ "net_bps": -11.444748218034645,
+ "t_net": -0.6360077336087977,
+ "placebo_pct": 31.3,
+ "by_year": {
+  "2025": -10.98508375163334,
+  "2026": -12.296257803335411
+ },
+ "always_long_net_bps": -14.327183443937017,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 293,
+ "injection": {
+  "hypothesis": "D281",
+  "n_events": 174,
+  "sought_bps": 14.36890859956165,
+  "mean_estimate": 14.3516344403312,
+  "recovered": true
+ }
+}

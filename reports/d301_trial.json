@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D301",
+ "cell": "NKD fades ^VIX3M (strong, 2-day, current regime)",
+ "trades": 168,
+ "net_bps": -9.302306427004286,
+ "t_net": -1.288744804974167,
+ "placebo_pct": 10.8,
+ "by_year": {
+  "2025": -5.635669322393534,
+  "2026": -15.571073089725894
+ },
+ "always_long_net_bps": -7.440722257262986,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 313,
+ "injection": {
+  "hypothesis": "D301",
+  "n_events": 168,
+  "sought_bps": 4.42117139704036,
+  "mean_estimate": 4.273955722322516,
+  "recovered": true
+ }
+}

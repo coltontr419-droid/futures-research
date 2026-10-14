@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D297",
+ "cell": "ZS follows BG (all, 2-day, current regime)",
+ "trades": 399,
+ "net_bps": 0.8412720001321927,
+ "t_net": 0.1699425500903906,
+ "placebo_pct": 61.9,
+ "by_year": {
+  "2025": 1.3886380683439468,
+  "2026": 0.015059066982375052
+ },
+ "always_long_net_bps": 2.2050864959138514,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 309,
+ "injection": {
+  "hypothesis": "D297",
+  "n_events": 399,
+  "sought_bps": 4.745626183034778,
+  "mean_estimate": 4.7777271181343615,
+  "recovered": true
+ }
+}

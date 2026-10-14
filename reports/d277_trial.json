@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D277",
+ "cell": "NKD fades ^GVZ (strong, 2-day, current regime)",
+ "trades": 260,
+ "net_bps": 1.728214405849687,
+ "t_net": 0.29230311131047043,
+ "placebo_pct": 61.0,
+ "by_year": {
+  "2025": 2.8890899923277273,
+  "2026": 0.19420023800371058
+ },
+ "always_long_net_bps": 1.8926081483244537,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 289,
+ "injection": {
+  "hypothesis": "D277",
+  "n_events": 260,
+  "sought_bps": 5.7596967263342895,
+  "mean_estimate": 5.511040365739269,
+  "recovered": true
+ }
+}

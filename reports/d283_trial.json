@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D283",
+ "cell": "ZS follows ADM (all, 2-day, current regime)",
+ "trades": 399,
+ "net_bps": -0.24591420296829106,
+ "t_net": -0.04967078415070368,
+ "placebo_pct": 51.2,
+ "by_year": {
+  "2025": -3.6966097196914935,
+  "2026": 4.962682803406348
+ },
+ "always_long_net_bps": 2.2050864959138514,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 295,
+ "injection": {
+  "hypothesis": "D283",
+  "n_events": 399,
+  "sought_bps": 5.399440372474925,
+  "mean_estimate": 5.407506836509005,
+  "recovered": true
+ }
+}

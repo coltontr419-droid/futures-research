@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D274",
+ "cell": "CL follows NKD=F (all, 2-day, current regime)",
+ "trades": 402,
+ "net_bps": 1.3926737058249177,
+ "t_net": 0.09967895093776988,
+ "placebo_pct": 55.7,
+ "by_year": {
+  "2025": -9.37077592461024,
+  "2026": 17.84247408441449
+ },
+ "always_long_net_bps": -4.911453776879202,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 286,
+ "injection": {
+  "hypothesis": "D274",
+  "n_events": 402,
+  "sought_bps": 10.838345365416892,
+  "mean_estimate": 10.222567395645594,
+  "recovered": true
+ }
+}

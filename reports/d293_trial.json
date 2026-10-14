@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D293",
+ "cell": "NKD follows ADM (strong, 2-day, current regime)",
+ "trades": 240,
+ "net_bps": 1.1694245992989356,
+ "t_net": 0.20225697322331232,
+ "placebo_pct": 53.1,
+ "by_year": {
+  "2025": -2.344231473788816,
+  "2026": 5.686982407554617
+ },
+ "always_long_net_bps": 8.527724282190745,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 305,
+ "injection": {
+  "hypothesis": "D293",
+  "n_events": 240,
+  "sought_bps": 4.482407744493953,
+  "mean_estimate": 4.666137784864853,
+  "recovered": true
+ }
+}

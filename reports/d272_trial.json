@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D272",
+ "cell": "CL follows XLF (all, 2-day, current regime)",
+ "trades": 400,
+ "net_bps": 3.6901101868447768,
+ "t_net": 0.26370344096400455,
+ "placebo_pct": 60.6,
+ "by_year": {
+  "2025": -4.6595962529006565,
+  "2026": 16.34595453891176
+ },
+ "always_long_net_bps": -6.548329402901036,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 284,
+ "injection": {
+  "hypothesis": "D272",
+  "n_events": 400,
+  "sought_bps": 11.642147877175185,
+  "mean_estimate": 11.73506495765607,
+  "recovered": true
+ }
+}

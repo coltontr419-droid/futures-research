@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D292",
+ "cell": "DAX follows ^VIX (strong, 2-day, current regime)",
+ "trades": 202,
+ "net_bps": 4.453210364346036,
+ "t_net": 0.6687375421218001,
+ "placebo_pct": 76.2,
+ "by_year": {
+  "2025": 0.594093980355512,
+  "2026": 10.338362849931581
+ },
+ "always_long_net_bps": 3.7366647339068173,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 304,
+ "injection": {
+  "hypothesis": "D292",
+  "n_events": 202,
+  "sought_bps": 4.787736372878169,
+  "mean_estimate": 4.492155994283787,
+  "recovered": true
+ }
+}

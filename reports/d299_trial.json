@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D299",
+ "cell": "CL follows XOP (all, 2-day, current regime)",
+ "trades": 400,
+ "net_bps": 1.8712072608195172,
+ "t_net": 0.13370977805162365,
+ "placebo_pct": 59.599999999999994,
+ "by_year": {
+  "2025": -1.8220772149715725,
+  "2026": 7.469204485131785
+ },
+ "always_long_net_bps": -6.548329402901036,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 311,
+ "injection": {
+  "hypothesis": "D299",
+  "n_events": 400,
+  "sought_bps": 7.747077062124849,
+  "mean_estimate": 7.918852919736141,
+  "recovered": true
+ }
+}

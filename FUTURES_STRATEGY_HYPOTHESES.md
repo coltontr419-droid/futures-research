@@ -1773,206 +1773,206 @@ Data-derived (D-series family 121). `hypotheses.yaml` (D264) · `decisions.md` �
 
 Data-derived (D-series family 122). `hypotheses.yaml` (D265) · `decisions.md` §459
 
-## D266 — Nkd Follows Fxi Twoday All  *(registered)*
+## D266 — Nkd Follows Fxi Twoday All  *(REJECT — t01048)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D266) · `decisions.md` §461
 
-## D267 — Cl Follows Kre Twoday Strong  *(registered)*
+## D267 — Cl Follows Kre Twoday Strong  *(REJECT — t01049)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D267) · `decisions.md` §461
 
-## D268 — Cl Fades Zmf Twoday Strong  *(registered)*
+## D268 — Cl Fades Zmf Twoday Strong  *(REJECT — t01050)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D268) · `decisions.md` §461
 
-## D269 — Cl Follows Kre Twoday All  *(registered)*
+## D269 — Cl Follows Kre Twoday All  *(REJECT — t01051)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D269) · `decisions.md` §461
 
-## D270 — Cl Fades Zmf Twoday All  *(registered)*
+## D270 — Cl Fades Zmf Twoday All  *(REJECT — t01052)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D270) · `decisions.md` §461
 
-## D271 — Nkd Follows Fxi Twoday Strong  *(registered)*
+## D271 — Nkd Follows Fxi Twoday Strong  *(WATCHLIST — t01053)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D271) · `decisions.md` §461
 
-## D272 — Cl Follows Xlf Twoday All  *(registered)*
+## D272 — Cl Follows Xlf Twoday All  *(WATCHLIST — t01054)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D272) · `decisions.md` §461
 
-## D273 — Nkd Follows Xly Twoday All  *(registered)*
+## D273 — Nkd Follows Xly Twoday All  *(REJECT — t01055)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D273) · `decisions.md` §461
 
-## D274 — Cl Follows Nkdf Twoday All  *(registered)*
+## D274 — Cl Follows Nkdf Twoday All  *(WATCHLIST — t01056)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D274) · `decisions.md` §461
 
-## D275 — Nkd Follows Eem Twoday All  *(registered)*
+## D275 — Nkd Follows Eem Twoday All  *(REJECT — t01057)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D275) · `decisions.md` §461
 
-## D276 — Nkd Follows Xly Twoday Strong  *(registered)*
+## D276 — Nkd Follows Xly Twoday Strong  *(REJECT — t01058)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D276) · `decisions.md` §461
 
-## D277 — Nkd Fades Gvz Twoday Strong  *(registered)*
+## D277 — Nkd Fades Gvz Twoday Strong  *(WATCHLIST — t01059)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D277) · `decisions.md` §461
 
-## D278 — Cl Follows Xop Twoday Strong  *(registered)*
+## D278 — Cl Follows Xop Twoday Strong  *(REJECT — t01060)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D278) · `decisions.md` §461
 
-## D279 — Nkd Follows 6Bf Twoday All  *(registered)*
+## D279 — Nkd Follows 6Bf Twoday All  *(CONFIRM — t01061)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D279) · `decisions.md` §461
 
-## D280 — Nkd Follows Eem Twoday Strong  *(registered)*
+## D280 — Nkd Follows Eem Twoday Strong  *(REJECT — t01062)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D280) · `decisions.md` §461
 
-## D281 — Cl Follows Xlf Twoday Strong  *(registered)*
+## D281 — Cl Follows Xlf Twoday Strong  *(REJECT — t01063)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D281) · `decisions.md` §461
 
-## D282 — Nkd Follows Rtyf Twoday Strong  *(registered)*
+## D282 — Nkd Follows Rtyf Twoday Strong  *(REJECT — t01064)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D282) · `decisions.md` §461
 
-## D283 — Zs Follows Adm Twoday All  *(registered)*
+## D283 — Zs Follows Adm Twoday All  *(REJECT — t01065)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D283) · `decisions.md` §461
 
-## D284 — Dax Follows Dxynyb Twoday Strong  *(registered)*
+## D284 — Dax Follows Dxynyb Twoday Strong  *(WATCHLIST — t01066)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D284) · `decisions.md` §461
 
-## D285 — Cl Follows Nkdf Twoday Strong  *(registered)*
+## D285 — Cl Follows Nkdf Twoday Strong  *(WATCHLIST — t01067)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D285) · `decisions.md` §461
 
-## D286 — Zs Fades Vix Twoday All  *(registered)*
+## D286 — Zs Fades Vix Twoday All  *(REJECT — t01068)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D286) · `decisions.md` §461
 
-## D287 — Mnq Fades Zlf Twoday All  *(registered)*
+## D287 — Mnq Fades Zlf Twoday All  *(REJECT — t01069)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D287) · `decisions.md` §461
 
-## D288 — Dax Follows Krwx Twoday Strong  *(registered)*
+## D288 — Dax Follows Krwx Twoday Strong  *(WATCHLIST — t01070)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D288) · `decisions.md` §461
 
-## D289 — Cl Fades Hef Twoday All  *(registered)*
+## D289 — Cl Fades Hef Twoday All  *(WATCHLIST — t01071)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D289) · `decisions.md` §461
 
-## D290 — Dax Follows Btcusd Twoday All  *(registered)*
+## D290 — Dax Follows Btcusd Twoday All  *(REJECT — t01072)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D290) · `decisions.md` §461
 
-## D291 — Nkd Fades Vix3M Twoday All  *(registered)*
+## D291 — Nkd Fades Vix3M Twoday All  *(REJECT — t01073)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D291) · `decisions.md` §461
 
-## D292 — Dax Follows Vix Twoday Strong  *(registered)*
+## D292 — Dax Follows Vix Twoday Strong  *(WATCHLIST — t01074)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D292) · `decisions.md` §461
 
-## D293 — Nkd Follows Adm Twoday Strong  *(registered)*
+## D293 — Nkd Follows Adm Twoday Strong  *(WATCHLIST — t01075)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D293) · `decisions.md` §461
 
-## D294 — Cl Follows Ovx Twoday All  *(registered)*
+## D294 — Cl Follows Ovx Twoday All  *(WATCHLIST — t01076)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D294) · `decisions.md` §461
 
-## D295 — Nkd Follows Hyg Twoday Strong  *(registered)*
+## D295 — Nkd Follows Hyg Twoday Strong  *(REJECT — t01077)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D295) · `decisions.md` §461
 
-## D296 — Nkd Follows Esf Twoday All  *(registered)*
+## D296 — Nkd Follows Esf Twoday All  *(REJECT — t01078)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D296) · `decisions.md` §461
 
-## D297 — Zs Follows Bg Twoday All  *(registered)*
+## D297 — Zs Follows Bg Twoday All  *(WATCHLIST — t01079)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D297) · `decisions.md` §461
 
-## D298 — Dax Fades 6Af Twoday All  *(registered)*
+## D298 — Dax Fades 6Af Twoday All  *(WATCHLIST — t01080)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D298) · `decisions.md` §461
 
-## D299 — Cl Follows Xop Twoday All  *(registered)*
+## D299 — Cl Follows Xop Twoday All  *(WATCHLIST — t01081)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D299) · `decisions.md` §461
 
-## D300 — Cl Fades Soyb Twoday Strong  *(registered)*
+## D300 — Cl Fades Soyb Twoday Strong  *(REJECT — t01082)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D300) · `decisions.md` §461
 
-## D301 — Nkd Fades Vix3M Twoday Strong  *(registered)*
+## D301 — Nkd Fades Vix3M Twoday Strong  *(REJECT — t01083)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D301) · `decisions.md` §461
 
-## D302 — Dax Follows Vix3M Twoday Strong  *(registered)*
+## D302 — Dax Follows Vix3M Twoday Strong  *(REJECT — t01084)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D302) · `decisions.md` §461
 
-## D303 — Zs Follows Adm Twoday Strong  *(registered)*
+## D303 — Zs Follows Adm Twoday Strong  *(WATCHLIST — t01085)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D303) · `decisions.md` §461
 
-## D304 — Mnq Follows Krwx Twoday Strong  *(registered)*
+## D304 — Mnq Follows Krwx Twoday Strong  *(WATCHLIST — t01086)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D304) · `decisions.md` §461
 
-## D305 — Nkd Fades Gvz Twoday All  *(registered)*
+## D305 — Nkd Fades Gvz Twoday All  *(REJECT — t01087)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D305) · `decisions.md` §461
 
-## D306 — Mnq Fades Xop Twoday All  *(registered)*
+## D306 — Mnq Fades Xop Twoday All  *(WATCHLIST — t01088)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D306) · `decisions.md` §461
 
-## D307 — Nkd Follows Gdaxi Twoday Strong  *(registered)*
+## D307 — Nkd Follows Gdaxi Twoday Strong  *(WATCHLIST — t01089)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D307) · `decisions.md` §461
 
-## D308 — Cl Follows Dfii10 Twoday All  *(registered)*
+## D308 — Cl Follows Dfii10 Twoday All  *(REJECT — t01090)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D308) · `decisions.md` §461
 
-## D309 — Dax Fades Nkdf Twoday Strong  *(registered)*
+## D309 — Dax Fades Nkdf Twoday Strong  *(CONFIRM — t01091)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D309) · `decisions.md` §461
 
-## D310 — Nkd Follows Hyg Twoday All  *(registered)*
+## D310 — Nkd Follows Hyg Twoday All  *(WATCHLIST — t01092)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D310) · `decisions.md` §461
 
-## D311 — Zs Follows Bg Twoday Strong  *(registered)*
+## D311 — Zs Follows Bg Twoday Strong  *(WATCHLIST — t01093)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D311) · `decisions.md` §461
 
-## D312 — Nkd Follows Xlk Twoday All  *(registered)*
+## D312 — Nkd Follows Xlk Twoday All  *(REJECT — t01094)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D312) · `decisions.md` §461
 
-## D313 — Nkd Follows Xlf Twoday All  *(registered)*
+## D313 — Nkd Follows Xlf Twoday All  *(REJECT — t01095)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D313) · `decisions.md` §461
 
-## D314 — Dax Fades Nqf Twoday All  *(registered)*
+## D314 — Dax Fades Nqf Twoday All  *(WATCHLIST — t01096)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D314) · `decisions.md` §461
 
-## D315 — Cl Fades Hef Twoday Strong  *(registered)*
+## D315 — Cl Fades Hef Twoday Strong  *(REJECT — t01097)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D315) · `decisions.md` §461
 
-## D316 — Dax Follows Krwx Twoday All  *(registered)*
+## D316 — Dax Follows Krwx Twoday All  *(WATCHLIST — t01098)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D316) · `decisions.md` §461

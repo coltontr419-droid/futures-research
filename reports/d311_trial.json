@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D311",
+ "cell": "ZS follows BG (strong, 2-day, current regime)",
+ "trades": 227,
+ "net_bps": 0.4622675278521505,
+ "t_net": 0.07262183882127363,
+ "placebo_pct": 57.49999999999999,
+ "by_year": {
+  "2025": -6.463348559400724,
+  "2026": 10.44111221271114
+ },
+ "always_long_net_bps": 3.187442273556438,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 323,
+ "injection": {
+  "hypothesis": "D311",
+  "n_events": 227,
+  "sought_bps": 6.310510592053573,
+  "mean_estimate": 6.250689704140692,
+  "recovered": true
+ }
+}

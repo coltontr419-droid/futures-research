@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D288",
+ "cell": "DAX follows KRW=X (strong, 2-day, current regime)",
+ "trades": 197,
+ "net_bps": 6.820102608667199,
+ "t_net": 1.0566232522141024,
+ "placebo_pct": 86.6,
+ "by_year": {
+  "2025": 6.555846469726848,
+  "2026": 7.161177392648351
+ },
+ "always_long_net_bps": -9.455277251883844,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 300,
+ "injection": {
+  "hypothesis": "D288",
+  "n_events": 197,
+  "sought_bps": 5.682671483324309,
+  "mean_estimate": 5.798117707628861,
+  "recovered": true
+ }
+}

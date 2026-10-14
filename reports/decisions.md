@@ -11739,6 +11739,14 @@ global risk (FXI, XLY, EEM, ES, RTY, 6B up; GVZ, VIX3M down → long); crude fol
 the grain traders' stocks (ADM, BG) and fades the VIX; the DAX follows the dollar index (strong) — the deployed theme again. Each
 validated once per §426, 2.
 
+## 462. D266–D316 validated (t01048–t01098): two CONFIRM, at chance; neither proposed (S1)
+
+**N 1,092.** 24 WATCHLIST, 25 REJECT. **D279** NKD follows the pound's 2-day move (+7.6 bps, t +1.70, placebo 95th; 2025 +4.5 / 2026 +12.5)
+— the deployed dollar-week theme at a shorter horizon, adding nothing new. **D309** the DAX fades a strong 2-day Nikkei move (+10.4, t +1.81,
+placebo 97th; +7.9 / +13.4) — on the FDXM ticket, which already follows the DAX–dollar rule. With 51 trials, ~1 confirmation was
+expected by chance; two arrived. Crude-follows-risk failed a third time (all WATCHLIST/REJECT). The every-day cross-market screens
+(families 119–121, 123) are complete; their durable product is the dollar theme on the DAX and the Nikkei.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

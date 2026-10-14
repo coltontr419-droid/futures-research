@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D269",
+ "cell": "CL follows KRE (all, 2-day, current regime)",
+ "trades": 400,
+ "net_bps": -18.316132250791167,
+ "t_net": -1.3113561906115072,
+ "placebo_pct": 11.200000000000001,
+ "by_year": {
+  "2025": -22.986825896891986,
+  "2026": -11.23665320229873
+ },
+ "always_long_net_bps": -6.548329402901036,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 281,
+ "injection": {
+  "hypothesis": "D269",
+  "n_events": 400,
+  "sought_bps": 12.293340154255858,
+  "mean_estimate": 12.5145838617947,
+  "recovered": true
+ }
+}

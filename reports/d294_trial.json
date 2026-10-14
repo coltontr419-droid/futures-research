@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D294",
+ "cell": "CL follows ^OVX (all, 2-day, current regime)",
+ "trades": 399,
+ "net_bps": 12.681131248366725,
+ "t_net": 0.9048913440117344,
+ "placebo_pct": 81.39999999999999,
+ "by_year": {
+  "2025": 2.526358496648287,
+  "2026": 28.009090118885116
+ },
+ "always_long_net_bps": -6.643277602498259,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 306,
+ "injection": {
+  "hypothesis": "D294",
+  "n_events": 399,
+  "sought_bps": 8.028701012226236,
+  "mean_estimate": 8.085905759518367,
+  "recovered": true
+ }
+}

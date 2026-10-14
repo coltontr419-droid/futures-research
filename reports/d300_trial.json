@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D300",
+ "cell": "CL fades SOYB (strong, 2-day, current regime)",
+ "trades": 152,
+ "net_bps": -27.417403163994656,
+ "t_net": -1.2422209876522852,
+ "placebo_pct": 13.3,
+ "by_year": {
+  "2025": -6.274977257645009,
+  "2026": -77.68939365242605
+ },
+ "always_long_net_bps": -8.89514648935116,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 312,
+ "injection": {
+  "hypothesis": "D300",
+  "n_events": 152,
+  "sought_bps": 11.654207981788723,
+  "mean_estimate": 10.952270821716771,
+  "recovered": true
+ }
+}

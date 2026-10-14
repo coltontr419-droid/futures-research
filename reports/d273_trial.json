@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D273",
+ "cell": "NKD follows XLY (all, 2-day, current regime)",
+ "trades": 406,
+ "net_bps": -1.2607485179261035,
+ "t_net": -0.27986266522400693,
+ "placebo_pct": 40.699999999999996,
+ "by_year": {
+  "2025": -0.9374264462824343,
+  "2026": -1.757856203078242
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 285,
+ "injection": {
+  "hypothesis": "D273",
+  "n_events": 406,
+  "sought_bps": 4.023069726494198,
+  "mean_estimate": 4.123491817559747,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D306",
+ "cell": "MNQ fades XOP (all, 2-day, current regime)",
+ "trades": 402,
+ "net_bps": 5.674597602578538,
+ "t_net": 0.984571777735097,
+ "placebo_pct": 86.5,
+ "by_year": {
+  "2025": 3.5023258816112173,
+  "2026": 8.960158580541611
+ },
+ "always_long_net_bps": 3.021571159362793,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 318,
+ "injection": {
+  "hypothesis": "D306",
+  "n_events": 402,
+  "sought_bps": 3.844425580252899,
+  "mean_estimate": 3.8844418231484505,
+  "recovered": true
+ }
+}

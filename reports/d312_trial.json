@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D312",
+ "cell": "NKD follows XLK (all, 2-day, current regime)",
+ "trades": 405,
+ "net_bps": -1.0548884781456194,
+ "t_net": -0.23376995671400413,
+ "placebo_pct": 44.0,
+ "by_year": {
+  "2025": 2.84749418794426,
+  "2026": -7.030411935595746
+ },
+ "always_long_net_bps": -0.6783446937285637,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 324,
+ "injection": {
+  "hypothesis": "D312",
+  "n_events": 405,
+  "sought_bps": 2.6436440368292824,
+  "mean_estimate": 2.5731830517326015,
+  "recovered": true
+ }
+}

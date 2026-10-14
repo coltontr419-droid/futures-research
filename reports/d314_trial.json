@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D314",
+ "cell": "DAX fades NQ=F (all, 2-day, current regime)",
+ "trades": 412,
+ "net_bps": 5.0187777611696,
+ "t_net": 1.2130233068979452,
+ "placebo_pct": 90.2,
+ "by_year": {
+  "2025": 2.5827852550571406,
+  "2026": 8.702473746022585
+ },
+ "always_long_net_bps": -0.37655458722797414,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 326,
+ "injection": {
+  "hypothesis": "D314",
+  "n_events": 412,
+  "sought_bps": 2.9765217597729845,
+  "mean_estimate": 2.759996530000959,
+  "recovered": true
+ }
+}
