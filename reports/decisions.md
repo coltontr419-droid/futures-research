@@ -12029,6 +12029,13 @@ ABOVE gasoline, 7–9% of sessions; the other side is long, as the plan): 2021�
 +$135 (55%); starts from 2025 +$2,953 → +$3,428 (beats 90%). Below §446's reading. **CONFIRMED finding, not proposed for the bot** —
 like D68's pre-2021 era and D122, an event rule on ~8% of days barely moves an account under brackets.
 
+## 497. D-series family 135 protocol: relative value as an every-day sign, current regime (S1)
+
+**No trial spent; N 1,105. Written and committed BEFORE any statistic is computed.** Family 134's twelve pairs with no threshold: every
+session, the target's next window goes with or against the SIGN of its previous-weekday 20-session z (fixed by 2021–24). Every-day rules
+are the ones that move an account (§453, §496). **12 tests.** Costs §177/§180; validation per §426, 2 (placebo: signs shuffled), then
+the §446 stress tests for any CONFIRM.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

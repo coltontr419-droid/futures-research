@@ -22,7 +22,7 @@ CONTEXT = (dt.date(2010, 1, 1), dt.date(2020, 12, 31))
 TSYM = {"MNQ": "NQ=F", "MGC": "GC=F", "CL": "CL=F", "ZS": "ZS=F", "NKD": "NKD=F", "DAX": "^GDAXI"}
 PAIRS = [("MNQ", "ES=F"), ("MNQ", "RTY=F"), ("MGC", "SI=F"), ("MGC", "HG=F"), ("CL", "HO=F"), ("CL", "RB=F"), ("ZS", "ZC=F"),
          ("ZS", "ZM=F"), ("ZS", "ZL=F"), ("NKD", "ES=F"), ("DAX", "ES=F"), ("DAX", "^STOXX50E")]
-FORMS = {"stretched": 1.5, "extreme": 2.0}
+FORMS = {"stretched": 1.5, "extreme": 2.0, "sign": 0.0}            # "sign": family 135 (decisions.md 497)
 _C: dict = {}
 
 
