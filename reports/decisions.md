@@ -11762,6 +11762,15 @@ falls (92 → 85%) — the rules did not work before 2021. That is the risk the 
 than the plan. A review trigger, set now: if the two dollar rules' forward record over the demo's first 40 sessions is negative in
 sum, propose reverting them.
 
+## 464. D-series family 124 protocol: the plan windows relay into each other, current regime (S1)
+
+**No trial spent; N 1,092. Written and committed BEFORE any statistic is computed.** Family 3's question (§149) under §426's design,
+with every predictor finished before its target opens (New York times): targets **MGC London** (03:00 D) ← NKD window (D), MNQ day,
+MGC NY afternoon, DAX window, CL session, ZS session (all D−1); **MNQ day** (09:30 D) ← NKD window (D), MGC London (D), MGC NY, DAX, CL,
+ZS (D−1); **CL session** (opens 18:00 D−1) ← MNQ day, MGC London, MGC NY, DAX, ZS (D−1); **ZS session** (opens 20:00 D−1) ← MNQ day,
+MGC London, MGC NY, DAX, CL (D−1). Follow or fade fixed by 2021–24; forms all / strong. **22 pairs × 2 = 44 tests** (~1.1 by chance).
+Costs §177/§180; validation per §426, 2 (placebo: shuffled signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
