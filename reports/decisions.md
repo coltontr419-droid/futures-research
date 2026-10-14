@@ -11771,6 +11771,12 @@ ZS (D−1); **CL session** (opens 18:00 D−1) ← MNQ day, MGC London, MGC NY, 
 MGC London, MGC NY, DAX, CL (D−1). Follow or fade fixed by 2021–24; forms all / strong. **22 pairs × 2 = 44 tests** (~1.1 by chance).
 Costs §177/§180; validation per §426, 2 (placebo: shuffled signs).
 
+## 465. Family-124 discovery: the plan windows do not relay — empty (S1)
+
+**No trial spent; N 1,092.** `reports/d124_discovery.json` (module `reporting/d124_relay.py`): 1 of 44 carried — MNQ fades ZS's previous
+session (+7.5 bps, t +2.02), the same rule as D193 (family 119), already REJECTED on 2025–26; not re-tested (§426, 3). Nearest others:
+MNQ follows the same morning's gold London (+5.7, t +1.57); ZS follows a strong DAX (+10.6, t +1.61). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
