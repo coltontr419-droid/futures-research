@@ -11136,6 +11136,16 @@ The two-period filter (2010–17 t > 1.0) did not rescue any of them. With famil
 the next-session shock class has now been searched across ~45 predictors and every plan product; its survivors out of sample are D68
 (ZN → MNQ), D84, D89, and D122 (BRL → ZS). The shock class is exhausted on the data in hand.
 
+## 417. D122's implementation caveat: the bot cannot see the close the rule was confirmed on (S8)
+
+**No trial; N 908.** The bot issues every ticket at its 17:30 ET alert; the ZS ticket enters 20:00 ET (19:00 CT). D122 was confirmed on
+Yahoo's USD/BRL bar dated by UTC day, which closes at 19:00 (winter) / 20:00 (summer) ET — after the alert. A live rule would read the
+real at ~17:30 ET (Brazil's onshore market has closed at ~16:00 ET; offshore trading is thin). The only other timing tested, FRED's
+noon rate, gave a far weaker 2023–26 result (+7.4 bps, t +0.48, vs +32.9 at the UTC close, §383): the effect is sensitive to when the
+real's move is measured, and the implementable reading lies between the two. No intraday USD/BRL source is in hand to test 17:30
+directly. **For the user's decision:** D122 as confirmed is not exactly implementable by the current bot; a live version would either
+move the ZS ticket's direction decision to just before 20:00 ET (a second, later bot step) or accept an untested 17:30 reading.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
