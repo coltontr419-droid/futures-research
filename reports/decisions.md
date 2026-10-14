@@ -11194,6 +11194,14 @@ both histories without lowering P(payout), propose it to the user as a change to
 (72%, 55%), skip +$1,767 (72%, 63%); 2021–26 plan +$1,265 (80%, 59%), **flip +$1,720 (77%, 64%)**, skip +$1,337 (79%, 63%). The flip
 reproduces §210 exactly and earns more than skipping in both histories; the bot's D68 is unchanged.
 
+## 424. D-series family 113 protocol: the DAX's reaction to US 08:30 data (S1)
+
+**No trial spent; N 908. Written and committed BEFORE any statistic is computed.** US releases at 08:30 ET land at 14:30 Frankfurt, inside
+the DAX window. HistData grxeur at New York times: the move 08:29 → 08:44 ET predicts 08:44 → 11:30 ET (17:30 Frankfurt, the window's
+close; the weeks when the clocks differ shift the close by an hour — kept, a dilution), follow or fade fixed by discovery; forms **all**
+and **strong** (|first 15 min| above its discovery median — mostly release days). **2 tests**, descriptive 2010–17 column. Cost DAX 0.3;
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
