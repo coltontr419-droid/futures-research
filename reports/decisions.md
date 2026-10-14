@@ -11912,6 +11912,14 @@ against it. **2 markets × 3 = 6 tests.** Costs §180; validation per §426, 2 (
 
 **No trial spent; N 1,102.** `reports/d132_discovery.json`: all |t| ≤ 1.36 (best: gold continues a strong gap, +4.6 bps). Empty.
 
+## 483. D-series family 133 protocol: positioning (COT) on the current regime (S1)
+
+**No trial spent; N 1,102. Written and committed BEFORE any statistic is computed.** Families 30–31 (§228, §230) under §426's design:
+speculators (non-commercial), commercials and small traders; **flow** (the week's change in net / open interest) and **crowding**
+(|52-week z| > 1.5); the five sessions of the week after the report (Yahoo family-10 sessions), follow or fade fixed by 2021–24;
+week-clustered t. **3 groups × 2 kinds × 14 markets = 84 tests** (~2.1 by chance); D95 and D96's exact rules excluded (§426, 3).
+Costs §177; validation per §426, 2 (placebo: weeks shuffled; both 2025 and 2026 positive).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
