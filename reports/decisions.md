@@ -11160,6 +11160,14 @@ Weaker than the confirmed Yahoo-close version (+32.9 in 2023–26) but the same 
 the confirmed version was flat — and computable at the alert. **If the user adopts D122 for the demo, this is the version the bot can
 run** (yesterday's 6L settle → settle move, 60-session SD, 2σ; ZS ticket short after a real weakening).
 
+## 419. D122's implementable overlay does not help the soybean account — recommendation: do not adopt (S8)
+
+**No trial; N 908.** `reports/a31_d122_6l_overlay.json` — the 6L (settle → settle) version as the ZS account's overlay (short days
+2.8–3.5%): 2010–20 P(payout) 70 → 69%, mean net +$3,061 → +$2,796, P(net > 0) 59 → 61%; 2021–26 86 → 87%, +$3,310 → +$2,815,
+81 → 82%. Mean net falls in both histories, as with the Yahoo-close version (§383). With brackets, a few flipped days per year change
+paths more than the rule's ~10–20 bps edge adds. **D122 stays CONFIRMED as a finding, but is not recommended for the bot** — unlike D68,
+whose overlay added ~$455 per four months in 2021–26 (§210). Recorded for the user and the 2026-10-25 review.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
