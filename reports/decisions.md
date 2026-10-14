@@ -10813,6 +10813,14 @@ MNQ 0.5 bps; recent-period design; carried at net > 0, t > 1.96; validation as �
 **No trial spent; N 897.** `reports/d95_discovery.json`: positive-correlation regime follow +5.4 bps (t +0.67; 2010–17 −6.4), negative
 +0.2 (t +0.04). D68's link lives only in ZN's tails. Empty.
 
+## 378. D-series family 96 protocol: D68's 10-year tail into the DAX and NKD accounts, pooled (S1)
+
+**No trial spent; N 897. Written and committed BEFORE any pooled statistic is computed.** D68 (MNQ follows a ZN shock) is confirmed and
+deployed; family 37 found the same sign for the DAX (+25.9 bps, t +1.87) and NKD (+15.5, t +1.61) windows on 2018–22. Rule as §354:
+the same rule (follow a ZN shock, family 24's definition; A21 window paths; costs DAX 0.3, NKD 0.2) on 2010-01 → 2022-12 pooled;
+**carried** if net > 0 in both 2010–17 and 2018–22 AND pooled t > 1.96. **2 tests.** Validation as §207, 3 on sealed 2023-01 → 2026-08
+(placebo: after non-shock days).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
