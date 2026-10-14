@@ -1,0 +1,70 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "currency": "NOK=X",
+   "target": "CL",
+   "stale_share": 0.0007668711656441718,
+   "n": 55,
+   "rule": "against local weakness",
+   "net_bps": 28.168691213766373,
+   "t": 0.6173020506603125,
+   "early_net": 6.177393473385568,
+   "early_t": 0.23258182599354882,
+   "carried": false
+  },
+  {
+   "currency": "MXN=X",
+   "target": "CL",
+   "stale_share": 0.0007668711656441718,
+   "n": 67,
+   "rule": "against local weakness",
+   "net_bps": 80.76917510349209,
+   "t": 1.3716691044691847,
+   "early_net": 50.90806743385418,
+   "early_t": 1.8928180476387368,
+   "carried": false
+  },
+  {
+   "currency": "RUB=X",
+   "target": "CL",
+   "stale_share": 0.004601226993865031,
+   "n": 75,
+   "rule": "against local weakness",
+   "net_bps": 44.61180062016414,
+   "t": 1.1276935055707822,
+   "early_net": 9.824417762620381,
+   "early_t": 0.516282190681797,
+   "carried": false
+  },
+  {
+   "currency": "COP=X",
+   "target": "CL",
+   "stale_share": 0.019938650306748466,
+   "n": 73,
+   "rule": "against local weakness",
+   "net_bps": 88.31806215525788,
+   "t": 2.0471609003117948,
+   "early_net": 13.622141730459816,
+   "early_t": 0.7342936197929353,
+   "carried": true
+  }
+ ],
+ "carried": [
+  {
+   "currency": "COP=X",
+   "target": "CL",
+   "stale_share": 0.019938650306748466,
+   "n": 73,
+   "rule": "against local weakness",
+   "net_bps": 88.31806215525788,
+   "t": 2.0471609003117948,
+   "early_net": 13.622141730459816,
+   "early_t": 0.7342936197929353,
+   "carried": true
+  }
+ ]
+}

@@ -15,7 +15,8 @@ import futuresres.reporting.d12_extreme as d12
 
 DISC = (dt.date(2018, 1, 1), dt.date(2022, 12, 30))
 VAL = (dt.date(2023, 1, 1), dt.date(2026, 8, 31))
-PAIRS = {"CLP=X": ("HG", 1), "ZAR=X": ("GC", 1), "RUB=X": ("ZW", 1), "CAD=X": ("CL", 1), "AUDUSD=X": ("GC", -1)}
+PAIRS = {"CLP=X": ("HG", 1), "ZAR=X": ("GC", 1), "RUB=X": ("ZW", 1), "CAD=X": ("CL", 1), "AUDUSD=X": ("GC", -1),
+         "COP=X": ("CL", 1)}                                   # COP -> CL: family 100 (decisions.md 389-390)
 COST = d12.COST
 _C: dict = {}
 

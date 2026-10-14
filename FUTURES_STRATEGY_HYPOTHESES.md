@@ -1208,3 +1208,7 @@ Data-derived (D-series family 97). `hypotheses.yaml` (D123) · `decisions.md` §
 ## D124 — Copper Falls After Peso Weakens  *(WATCHLIST — t00906)*
 
 Data-derived (D-series family 98). `hypotheses.yaml` (D124) · `decisions.md` §385
+
+## D125 — Crude Falls After Colombian Peso Weakens  *(registered)*
+
+Data-derived (D-series family 100). `hypotheses.yaml` (D125) · `decisions.md` §390

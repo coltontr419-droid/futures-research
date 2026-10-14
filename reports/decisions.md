@@ -10935,6 +10935,12 @@ against, fixed by discovery; currencies stale (> 30% unchanged closes) reported,
 Cost CL 0.7 bps (§177; the MCL account would pay 5.4, noted at validation); recent-period design; carried at net > 0, t > 1.96;
 validation as §207, 3.
 
+## 390. Family-100 discovery: 1 of 4 carried — crude falls after the Colombian peso weakens; D125 registered (S1)
+
+**No trial spent yet; N 900.** `reports/d100_discovery.json`: **D125** COP → CL against, **+88.32 bps**, t +2.05, n 73;
+2010–17 +13.62 (t +0.73). MXN +80.8 (t +1.37; 2010–17 +50.9, t +1.89), RUB +44.6, NOK +28.2 — all four with the
+mechanism's sign, as every pair in families 97–99. Crude's 2020 swings inflate 2018–22 sizes. Z and D market-test 137.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
