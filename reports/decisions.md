@@ -10547,6 +10547,14 @@ with the descriptive 2010–17 column. Costs §180; recent-period design; carrie
 **No trial spent; N 882.** `reports/d81_discovery.json`: MNQ long +10.5 bps (t +0.68; 2010–17 +10.4, t +1.22); gold short +13.3
 (t +1.62; 2010–17 +11.3, t +1.19). The same signs in both periods, ~12 events a year, neither significant. Empty.
 
+## 345. D-series family 82 protocol: VVIX and SKEW shocks (S1)
+
+**No trial spent; N 882. Written and committed BEFORE any statistic is computed.** Two option-market gauges new to the programme (Yahoo
+daily closes): **VVIX** (volatility of the VIX) and **SKEW** (CBOE tail-risk pricing). Daily log change on day D; shock = beyond 2 SD
+of the previous 60. Targets on the next weekday: MNQ's day session and gold's London window, with the shock's sign or against it,
+fixed by discovery. **2 × 2 = 4 tests**, with the descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0,
+t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
