@@ -11296,6 +11296,30 @@ Yahoo NKD=F's CME session (open → settlement) as an independent Nikkei price; 
 2017); (2) the NKD account (1 NKD): plan vs short the window after a bitcoin up-shock. Read, per §426, 5: propose to the user only if
 (1) keeps the sign in 2025–26 on the independent variants and (2) does not lower mean net or P(payout) in 2021–26.
 
+## 431. D139 replicates strongly on independent data; D151 holds in sign; neither moves its account much (S8)
+
+**No trial; N 927.** `reports/a33_stress.json`, module `reporting/a33_stress.py`.
+
+**D139 (NKD fades a bitcoin shock) — 2025–26, every independent variant positive:** spot BTC-USD → NKD window +38.7 bps (t +2.51, n 28),
+spot → NKD=F CME session +65.0 (t +2.28); BTC=F → NKD=F +128.8 (t +3.40); thresholds 1.5σ (+25 to +48, t +1.5 to +2.5) and 2.5σ the
+same sign. 2021–24 positive throughout (+3 to +47); 2018–20 mixed (≈ 0). The most consistent independent replication in the programme
+— a post-2021 phenomenon (bitcoin's spot ETFs and Japanese retail's crypto/equity overlap are the plausible channel: a crypto rally
+pulls Japanese risk money the next morning, then reverses). **D151 (ZS fades a meal shock):** SOYB 2025–26 +17.4 (t +1.51) at 2σ,
++8 to +11 at 1.5 / 2.5σ — the sign holds; but 2010–20 is negative on ZS (−19.1, t −1.79): a current-regime effect.
+
+**The accounts (A23, drift removed, 2021–26 | 2010–20):**
+
+| | 2021–26 P(payout), mean net, P(net > 0) | 2010–20 |
+|---|---|---|
+| ZS plan | 86%, +$3,310, 81% | 70%, +$3,061, 59% |
+| ZS + D151 (short 3.7% of days) | 88%, +$3,318, 81% | 71%, +$2,503, 58% |
+| NKD plan (1 contract) | 74%, +$2,763, 63% | 67%, +$1,189, 58% |
+| NKD + D139 (short 3.0% of days) | 75%, +$2,715, 65% | 67%, +$1,099, 55% |
+
+§430's reading: D151 meets it narrowly in 2021–26 (+$8, P(payout) +2 pts); D139 misses it by mean net (−$48) while raising P(payout)
+and P(net > 0). Both are real-looking and both are too rare (~3% of days) to change an account under brackets — the same lesson as
+D68 and D122. **Status: CONFIRMED and replicated findings; candidates for the user, not deployed.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
