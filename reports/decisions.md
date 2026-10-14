@@ -12063,6 +12063,13 @@ replay of the MGC account trading the new window before any proposal.
 Fewer carries than chance: no gold window — London, New York afternoon or the whole session — takes an every-day direction from the
 cross-market set. The MGC account stays on its London window, always long.
 
+## 501. The user: search on until something usable is found (2026-10-14). D-series family 137 protocol: the ten-day horizon (S1)
+
+**No trial spent; N 1,110. Written and committed BEFORE any statistic is computed.** The every-day cross-market screens found the
+account-sized rules at 1 day (DAX, §445) and 5 days (NKD, §451); 2 and 20 days gave chance-level results. Family 120's design (§449)
+with a 10-weekday sum. Same predictors, targets, exclusions, forms, carrying rule; validation per §426, 2 (shuffled signs); any CONFIRM
+then gets §446/§453's stress tests (independent data, account replay calibrated against random flips).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
