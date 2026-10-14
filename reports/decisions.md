@@ -11424,6 +11424,59 @@ validated pairs). Forms **all** and **strong** (|move| above its 2021–24 media
 is reported against it). Costs §177/§180; validation per §426, 2 (placebo: signs shuffled across the sealed sessions). These are
 every-day rules, so a survivor would be account-sized.
 
+## 444. Family-119 discovery: 44 of 718 carried (≈ 18 by chance); D157–D200 registered (S1)
+
+**No trial spent yet; N 932.** `reports/d119_discovery.json` (module `reporting/d119_alldays.py`):
+- **D157** CL follows KRE (all): +25.25, t +3.57; 2010–20 -6.17 (t -1.36).
+- **D158** DAX fades 6S=F (strong): +14.51, t +3.35; 2010–20 +6.19 (t +1.98).
+- **D159** CL follows KRE (strong): +33.46, t +3.28; 2010–20 -13.38 (t -1.51).
+- **D160** CL follows XOP (strong): +33.27, t +3.27; 2010–20 +3.89 (t +0.51).
+- **D161** CL follows XOP (all): +22.76, t +3.21; 2010–20 +0.56 (t +0.12).
+- **D162** DAX fades 6E=F (all): +9.43, t +3.18; 2010–20 +2.72 (t +1.31).
+- **D163** NKD follows XOP (all): +7.83, t +3.00; 2010–20 -3.28 (t -1.18).
+- **D164** MNQ follows ^SKEW (strong): +15.36, t +2.99; 2010–20 +4.14 (t +1.40).
+- **D165** CL follows XLF (all): +20.59, t +2.89; 2010–20 -11.46 (t -2.49).
+- **D166** NKD follows NG=F (all): +7.34, t +2.80; 2010–20 +3.71 (t +1.34).
+- **D167** DAX fades 6C=F (strong): +12.32, t +2.71; 2010–20 +1.47 (t +0.51).
+- **D168** MNQ fades ZL=F (strong): +13.83, t +2.69; 2010–20 -0.85 (t -0.20).
+- **D169** DAX fades 6E=F (strong): +12.41, t +2.61; 2010–20 +5.57 (t +1.84).
+- **D170** CL follows HYG (all): +18.62, t +2.59; 2010–20 +0.42 (t +0.09).
+- **D171** DAX fades 6B=F (all): +7.56, t +2.55; 2010–20 -1.59 (t -0.76).
+- **D172** CL follows NKD=F (all): +17.71, t +2.50; 2010–20 -2.18 (t -0.48).
+- **D173** CL follows XLF (strong): +26.08, t +2.44; 2010–20 -16.31 (t -2.21).
+- **D174** DAX follows DX-Y.NYB (strong): +10.94, t +2.42; 2010–20 +5.23 (t +1.63).
+- **D175** DAX fades 6A=F (strong): +11.27, t +2.41; 2010–20 -2.26 (t -0.68).
+- **D176** NKD fades ^GVZ (all): +6.22, t +2.36; 2010–20 -3.23 (t -1.16).
+- **D177** DAX fades 6S=F (all): +6.90, t +2.31; 2010–20 +3.89 (t +1.87).
+- **D178** NKD follows XOP (strong): +9.48, t +2.31; 2010–20 -3.12 (t -0.79).
+- **D179** CL follows EEM (all): +15.97, t +2.24; 2010–20 +1.00 (t +0.22).
+- **D180** ZS follows BG (strong): +14.06, t +2.23; 2010–20 +5.24 (t +1.44).
+- **D181** ZS fades ^VIX (strong): +13.48, t +2.20; 2010–20 +4.30 (t +1.32).
+- **D182** MNQ follows ^SKEW (all): +8.29, t +2.18; 2010–20 +1.10 (t +0.54).
+- **D183** DAX fades MXN=X (all): +6.96, t +2.17; 2010–20 +9.69 (t +4.49).
+- **D184** NKD follows ADM (strong): +8.42, t +2.16; 2010–20 -2.94 (t -0.68).
+- **D185** CL follows XLE (strong): +22.20, t +2.14; 2010–20 +6.58 (t +0.77).
+- **D186** CL follows HYG (strong): +23.75, t +2.12; 2010–20 -4.31 (t -0.53).
+- **D187** MNQ fades CLP=X (strong): +12.14, t +2.09; 2010–20 +2.18 (t +0.49).
+- **D188** DAX fades 6J=F (all): +6.18, t +2.06; 2010–20 -0.23 (t -0.11).
+- **D189** MNQ fades ZL=F (all): +7.84, t +2.06; 2010–20 -3.28 (t -1.59).
+- **D190** MNQ fades INR=X (all): +8.09, t +2.05; 2010–20 -2.43 (t -1.11).
+- **D191** NKD follows FXI (all): +5.35, t +2.03; 2010–20 -3.10 (t -1.12).
+- **D192** NKD follows HYG (strong): +6.83, t +2.02; 2010–20 -9.53 (t -1.97).
+- **D193** MNQ fades ZS=F (all): +7.51, t +2.02; 2010–20 +2.87 (t +1.42).
+- **D194** CL follows EEM (strong): +21.35, t +2.00; 2010–20 -0.71 (t -0.11).
+- **D195** ZS follows EEM (strong): +12.58, t +2.00; 2010–20 +1.89 (t +0.58).
+- **D196** NKD follows XLE (all): +5.19, t +1.98; 2010–20 -3.64 (t -1.32).
+- **D197** DAX fades 6J=F (strong): +9.14, t +1.97; 2010–20 +0.91 (t +0.28).
+- **D198** DAX follows KRW=X (all): +6.32, t +1.97; 2010–20 +0.78 (t +0.36).
+- **D199** NKD fades ^GVZ (strong): +7.98, t +1.97; 2010–20 -5.85 (t -1.50).
+- **D200** DAX follows DX-Y.NYB (all): +5.86, t +1.96; 2010–20 +2.18 (t +1.04).
+
+The clearest excess over chance in the search, in themes: **the DAX moves against the dollar crosses** (6S, 6E, 6C, 6A, 6B, 6J — fade;
+the dollar index — follow): a weaker euro lifts German exporters the next morning, partly visible in 2010–20 too; **crude follows the
+previous day's risk assets** (KRE, XLF, XOP, HYG, EEM) — opposite in 2010–20; **MNQ follows SKEW**. Many tests share days (correlated);
+each is validated once per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
