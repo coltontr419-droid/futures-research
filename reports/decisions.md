@@ -11056,6 +11056,14 @@ next sessions of **6E, 6J** (family 10) and **6B, 6A** (family 83's series), wit
 descriptive 2010–17 column. Costs: 6E 0.3, 6J 0.5, 6B/6A 0.5; recent-period design; carried at net > 0, t > 1.96; validation as
 §207, 3.
 
+## 408. Family-108 discovery: 2 of 4 carried, both negative in 2010–17; D127–D128 registered (S1)
+
+**No trial spent yet; N 902.** `reports/d108_discovery.json` (module `reporting/d108_zt.py`):
+- **D127** 6E follows a ZT shock: +12.38 bps, t +2.33, n 90; 2010–17 -3.45; market-test 139.
+- **D128** 6A follows a ZT shock: +15.23 bps, t +2.12, n 90; 2010–17 -5.04; market-test 140.
+
+The 2022 dollar-regime signature again (family 83, §348–349): expected to fail; validated once each per protocol.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
