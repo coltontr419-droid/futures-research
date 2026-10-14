@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D152",
+ "cell": "MNQ opening_minute (strong) follow (current regime)",
+ "trades": 224,
+ "net_bps": 8.258875957557134,
+ "t_net": 0.9419927228983626,
+ "placebo_pct": 85.5,
+ "always_long_net_bps": 7.079166991370065,
+ "by_year": {
+  "2025": 9.448964968323708,
+  "2026": 6.672090609868367
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 164,
+ "injection": {
+  "hypothesis": "D152",
+  "n_events": 224,
+  "sought_bps": 5.787334424198264,
+  "mean_estimate": 5.586575480606464,
+  "sd_estimate_bps": 8.658570575747454,
+  "power_strict_t": 0.129,
+  "recovered": true
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "hypothesis": "D153",
+ "cell": "MNQ last_hour_next (all) fade (current regime)",
+ "trades": 396,
+ "net_bps": 3.510397797883159,
+ "t_net": 0.916967948763991,
+ "placebo_pct": 87.4,
+ "always_long_net_bps": 5.102982720943412,
+ "by_year": {
+  "2025": 2.5012152639486023,
+  "2026": 4.99894203543663
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 165,
+ "injection": {
+  "hypothesis": "D153",
+  "n_events": 396,
+  "sought_bps": 2.450517439992173,
+  "mean_estimate": 2.434662680554305,
+  "sd_estimate_bps": 3.830307088436813,
+  "power_strict_t": 0.1515,
+  "recovered": true
+ }
+}

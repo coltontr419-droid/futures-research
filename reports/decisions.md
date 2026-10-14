@@ -11355,6 +11355,12 @@ shuffled across the sealed sessions).
 D152 is the strong form of D101 (the all-days opening-minute rule, WATCHLIST in §280); the strong form was never validated, and its
 2010–20 context is the same sign and size. Validation per §426, 2 with shuffled predictor signs as the placebo.
 
+## 435. D152–D153 validated (t00934–t00935): WATCHLIST both — positive in both years, below significance (S1)
+
+**N 929.** D152 MNQ strong opening minute, follow: +8.26 bps (t +0.94), placebo 86th, 2025 +9.4 / 2026 +6.7 —
+but always-long over the same sessions earned +7.08, so it adds ~1 bp over the plan (as D101). D153 MNQ night fades the last hour:
++3.51 (t +0.92), placebo 87th, both years positive. Neither usable. Z and D market-tests reach 165.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

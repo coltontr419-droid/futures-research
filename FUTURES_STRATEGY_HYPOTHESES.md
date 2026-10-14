@@ -1317,10 +1317,10 @@ Data-derived (D-series family 114). `hypotheses.yaml` (D150) · `decisions.md` �
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D151) · `decisions.md` §428
 
-## D152 — Mnq Opening Minute Strong Follow R  *(registered)*
+## D152 — Mnq Opening Minute Strong Follow R  *(WATCHLIST — t00934)*
 
 Data-derived (D-series family 115). `hypotheses.yaml` (D152) · `decisions.md` §434
 
-## D153 — Mnq Last Hour Next All Fade R  *(registered)*
+## D153 — Mnq Last Hour Next All Fade R  *(WATCHLIST — t00935)*
 
 Data-derived (D-series family 115). `hypotheses.yaml` (D153) · `decisions.md` §434
