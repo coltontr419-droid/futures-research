@@ -10666,6 +10666,16 @@ Two-period consistency (2010–17 and 2018–22) did not protect any of them. **
 every sealed year (−36 bps, t −2.05) — the same post-2022 break as D103 (§305): since central-bank buying took over, gold no longer
 moves with US rates the next day. The pooled re-read (§354) is closed. Z and D market-tests reach 132.
 
+## 357. D-series family 87 protocol: "net liquidity" week to week (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** New data: FRED weekly **WALCL** (Fed balance sheet),
+**WTREGEN** (Treasury General Account), daily **RRPONTSYD** (reverse repo, taken on the same Wednesday); net liquidity = WALCL − TGA −
+RRP ($bn, Wednesday levels), published Thursday 16:30 ET (H.4.1). Signal = sign of the week's change. Target: the five sessions from
+the next Friday through Thursday — MNQ day sessions and gold London windows — each traded in the signal's direction or against it
+(fixed by discovery), judged DEMEANED (discovery mean removed) with week-clustered t. Forms **all** and **strong** (|change| above its
+discovery median). **2 markets × 2 forms = 4 tests**, descriptive 2010–17 column. Costs §180 per session; recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3 (placebo: signs shuffled across weeks).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
