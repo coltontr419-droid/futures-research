@@ -11206,6 +11206,23 @@ recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
 **No trial spent; N 908.** `reports/d113_discovery.json`: fade +0.3 / +3.0 bps (t +0.16 / +1.03). Empty.
 
+## 426. The user's decisions (2026-10-14): D122 not adopted; a new search design — the current regime (S1, S8)
+
+**D122:** the user agrees with §419 — not adopted, not deployed; it stays a CONFIRMED finding on record.
+
+**New design, from family 114 on (user-approved), replacing §180's for new families:** discovery **2021-01-01 → 2024-12-31**; sealed
+validation **2025-01-01 → 2026-08-31** (20 months). Why: §349, §356 and §416 showed that rules found in 2018–22 rarely survived
+2023–26 — the market after 2022 behaves differently, and the plan trades now. Rules, fixed now:
+1. Discovery as before: carried at net > 0 with t > 1.96 (no multiple-testing cut, §133); the 2010–20 column is printed for context
+   only and does not gate carrying.
+2. Validation, once per carried test, on 2025-01 → 2026-08: CONFIRM if (a) net > 0 with t > 1.645, (b) ≥ 95th pct of the family's
+   placebo, (c) positive in BOTH 2025 and 2026 (Jan–Aug) — two periods replace §207's "3 of 4 years"; WATCHLIST if net > 0; REJECT.
+3. Not re-tested: any rule already validated (D01–D132). Rules scanned under older designs but never validated may be re-scanned.
+4. Honest caveats: 2023–24 sits inside the new discovery window and was the older design's validation data, so what failed or worked
+   there is known in general terms; 2025–26 has been read only through earlier trials' validations, never to choose a rule. Power is
+   low (20 months), so true effects will often land on WATCHLIST.
+5. A CONFIRM is stress-tested (independent data, account replay) before any proposal, and nothing reaches the bot without the user.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
