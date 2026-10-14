@@ -10808,6 +10808,11 @@ sessions, positive or negative. Signal: sign of ZN's session on D−1 (every day
 (family-8 grid), with or against, fixed by discovery within each regime. **2 regimes = 2 tests**, descriptive 2010–17 column. Cost
 MNQ 0.5 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 377. Family-95 discovery: ZN into MNQ by correlation regime — 0 of 2 carried (S1)
+
+**No trial spent; N 897.** `reports/d95_discovery.json`: positive-correlation regime follow +5.4 bps (t +0.67; 2010–17 −6.4), negative
++0.2 (t +0.04). D68's link lives only in ZN's tails. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
