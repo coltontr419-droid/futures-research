@@ -10728,6 +10728,12 @@ settlement to the close, 14:30 → 16:55 ET (Brent grid), predicts the next full
 by discovery; forms **all** and **strong**. **2 tests**, descriptive 2010–17 column. Cost MCL 5.4 bps; recent-period design; carried
 at net > 0, t > 1.96; validation as §207, 3.
 
+## 366. Family-91 discovery: uninformative — Brent has no 18:00 ET price (S1)
+
+**No trial spent; N 896.** `reports/d91_discovery.json`: only 201 of ~1,250 days matched in 2018–22 (ICE Brent pauses 18:00 → 20:00
+ET, so the ticket's 18:00 entry is usually missing); net −2.7 / −4.8 (t −0.23 / −0.29). Not re-defined after the fact. Closed as
+uninformative; crude at the ticket's scale was covered on daily bars by families 24–29.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
