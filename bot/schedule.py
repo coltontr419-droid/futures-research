@@ -17,6 +17,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import d68
+import d139
 import shadow
 from accounts import PRODUCTS, Book
 from ticket import describe, policy, ticket
@@ -67,7 +68,8 @@ class Tickets:
         if a["phase"] == "dead":
             tk = {"trade": False, "finished": True, "floor": 0.0}
         else:
-            side, why = (d68.mnq_side(alert_day) if product == "MNQ" else ("long", ""))   # D68 (decisions.md 211)
+            side, why = (d68.mnq_side(alert_day) if product == "MNQ"                      # D68 (decisions.md 211)
+                         else d139.nkd_side(alert_day) if product == "NKD" else ("long", ""))  # D139 (decisions.md 432)
             tk = ticket(a["phase"], a["balance"], a["peak"], a["best"], a["payouts"], product, side)
             tk["note"] = why
         rec = {"product": product, "issued": now.isoformat(timespec="seconds"), "entry": entry.isoformat(), "exit": exit_.isoformat(),
@@ -219,4 +221,4 @@ def ticket_post(rec: dict) -> str:
     if rec["phase"] == "dead":
         return head + f"\n**{rec['product']}: account failed** - buy a new evaluation and send `!new {rec['product']}`."
     note = rec["ticket"].get("note", "")
-    return head + "\n" + describe(rec["ticket"], rec["product"]) + (f"\n> {note}" if note.startswith("D68") else "")
+    return head + "\n" + describe(rec["ticket"], rec["product"]) + (f"\n> {note}" if note.startswith(("D68", "D139")) else "")

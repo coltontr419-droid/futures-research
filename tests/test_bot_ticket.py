@@ -124,3 +124,15 @@ def test_eod_is_filed_under_the_ending_tickets_trading_day(tmp_path):
     # before any ticket has started: the clock rule
     tx2 = sc.Tickets(tmp_path / "t2.json", tmp_path / "s2.csv")
     assert sc.eod_day(tx2, "MNQ", dt.datetime(2026, 10, 13, 16, 0, tzinfo=sc.ET)) == "2026-10-12"
+
+
+def test_d139_nkd_side_fades_a_bitcoin_shock() -> None:
+    """D139 (decisions.md 432): NKD fades a BTC=F session beyond 2 sigma; otherwise, or without data, long."""
+    import datetime as _dt
+    import d139
+    base = [(_dt.date(2026, 1, 1) + _dt.timedelta(days=i), 100.0 * (1 if i % 2 else -1)) for i in range(60)]
+    day = _dt.date(2026, 3, 2)
+    assert d139.nkd_side(day, base + [(day, 500.0)])[0] == "short"
+    assert d139.nkd_side(day, base + [(day, -500.0)])[0] == "long"
+    assert d139.nkd_side(day, base + [(day, 50.0)])[0] == "long"
+    assert d139.nkd_side(day, [])[0] == "long"

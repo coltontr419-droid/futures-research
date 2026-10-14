@@ -11320,6 +11320,15 @@ pulls Japanese risk money the next morning, then reverses). **D151 (ZS fades a m
 and P(net > 0). Both are real-looking and both are too rare (~3% of days) to change an account under brackets — the same lesson as
 D68 and D122. **Status: CONFIRMED and replicated findings; candidates for the user, not deployed.**
 
+## 432. The user's decisions (2026-10-14): D139 to the demo's NKD ticket; D151 not adopted; the search continues (S8)
+
+**D139 deployed** to the demo bot at 14:41 ET on 2026-10-14 (backup `/opt/futures-bot/backup-2026-10-14`): `bot/d139.py` reads Yahoo
+BTC=F's daily sessions at the 17:30 ET alert (CME's session has closed at 17:00); if today's open → close is beyond 2 × the SD of the
+previous 60 sessions, the next NKD ticket FADES it (short after a rally, long after a sell-off) and the post carries a "D139:" note;
+otherwise, or on any data error, long. Wired in `bot/schedule.py` beside D68; `tests/test_bot_ticket.py` covers it. A forward test at
+no cost: the account replay (§431) expects it roughly neutral to the account, the statistics expect the shock days to favour it.
+**D151 not adopted** (the user, per §431). The search continues under §426's design.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
