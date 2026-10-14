@@ -10567,6 +10567,24 @@ currencies. Targets: **6A, 6B, 6C, 6S** (Yahoo daily open → settlement, family
 follow or fade fixed by discovery. **6 × 4 = 24 tests** (~1.2 by chance), with the descriptive 2010–17 column. Cost 0.5 bps (§180's
 FX level); recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 348. Family-83 discovery: 8 of 24 carried (vs ~1.2 by chance) — all "follow", none in 2010–17; D107–D114 registered (S1)
+
+**No trial spent yet; N 882.** `reports/d83_discovery.json` (module `reporting/d83_fx.py`):
+- **D107** 6B follows a ZN shock: +33.5 bps, t +3.63, n 82; 2010–17 -5.1 (t -0.80); market-test 119.
+- **D108** 6A follows a ZN shock: +30.8 bps, t +3.44, n 82; 2010–17 -0.4 (t -0.05); market-test 120.
+- **D109** 6S follows a NQ shock: +19.6 bps, t +3.28, n 93; 2010–17 -2.5 (t -0.34); market-test 121.
+- **D110** 6S follows a GC shock: +15.9 bps, t +2.65, n 87; 2010–17 +0.9 (t +0.12); market-test 122.
+- **D111** 6B follows a GC shock: +22.6 bps, t +2.60, n 87; 2010–17 -4.1 (t -0.92); market-test 123.
+- **D112** 6S follows a ZN shock: +18.0 bps, t +2.56, n 82; 2010–17 +10.9 (t +1.28); market-test 124.
+- **D113** 6S follows a ES shock: +15.8 bps, t +2.37, n 88; 2010–17 -5.9 (t -0.75); market-test 125.
+- **D114** 6C follows a ZN shock: +12.1 bps, t +2.32, n 82; 2010–17 +3.5 (t +0.61); market-test 126.
+
+**Before the trials, the reading.** Eight passes against ~1.2 expected is a real 2018–22 pattern, but the descriptive 2010–17 column
+shows none of it, and every carried test FOLLOWS a rates, equity or gold shock into the dollar crosses — the signature of 2022's
+one-way dollar trend under repeated rate shocks. Checked first for an artifact: Yahoo's currency-future opens are not the previous
+settlement (2–9% of days equal, median gap 5–10 bps), and the target session opens at 18:00 ET after every predictor has settled, so
+there is no look-ahead. Registered and validated once each, per protocol; expectation: most fail.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

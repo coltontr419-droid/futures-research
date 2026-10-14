@@ -1136,3 +1136,35 @@ Data-derived (D-series family 76). `hypotheses.yaml` (D105) · `decisions.md` §
 ## D106 — Mnq Fades Tech Shock  *(WATCHLIST — t00888)*
 
 Data-derived (D-series family 77). `hypotheses.yaml` (D106) · `decisions.md` §335
+
+## D107 — 6B Follows Zn Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D107) · `decisions.md` §348
+
+## D108 — 6A Follows Zn Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D108) · `decisions.md` §348
+
+## D109 — 6S Follows Nq Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D109) · `decisions.md` §348
+
+## D110 — 6S Follows Gc Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D110) · `decisions.md` §348
+
+## D111 — 6B Follows Gc Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D111) · `decisions.md` §348
+
+## D112 — 6S Follows Zn Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D112) · `decisions.md` §348
+
+## D113 — 6S Follows Es Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D113) · `decisions.md` §348
+
+## D114 — 6C Follows Zn Shock  *(registered)*
+
+Data-derived (D-series family 83). `hypotheses.yaml` (D114) · `decisions.md` §348

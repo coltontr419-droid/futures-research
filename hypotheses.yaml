@@ -10755,3 +10755,355 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 118.
   s6_control: By year; the same rule after non-shock days.
+- id: D107
+  name: 6b_follows_zn_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6B's next session
+    after a ZN session beyond 2 sigma, traded WITH the shock, earned +33.47 bps net (t +3.63, n 82);
+    2010-17 -5.06 (t -0.80). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a ZN session beyond 2 x the SD of its previous 60, take 6B's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 141
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6B]
+  mechanism_instruments:
+    primary: 6B
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 119.
+  s6_control: By year; the same rule after non-shock days.
+- id: D108
+  name: 6a_follows_zn_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6A's next session
+    after a ZN session beyond 2 sigma, traded WITH the shock, earned +30.82 bps net (t +3.44, n 82);
+    2010-17 -0.43 (t -0.05). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a ZN session beyond 2 x the SD of its previous 60, take 6A's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 142
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6A]
+  mechanism_instruments:
+    primary: 6A
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 120.
+  s6_control: By year; the same rule after non-shock days.
+- id: D109
+  name: 6s_follows_nq_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6S's next session
+    after a NQ session beyond 2 sigma, traded WITH the shock, earned +19.56 bps net (t +3.28, n 93);
+    2010-17 -2.52 (t -0.34). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a NQ session beyond 2 x the SD of its previous 60, take 6S's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 143
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6S]
+  mechanism_instruments:
+    primary: 6S
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 121.
+  s6_control: By year; the same rule after non-shock days.
+- id: D110
+  name: 6s_follows_gc_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6S's next session
+    after a GC session beyond 2 sigma, traded WITH the shock, earned +15.86 bps net (t +2.65, n 87);
+    2010-17 +0.86 (t +0.12). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a GC session beyond 2 x the SD of its previous 60, take 6S's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 144
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6S]
+  mechanism_instruments:
+    primary: 6S
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 122.
+  s6_control: By year; the same rule after non-shock days.
+- id: D111
+  name: 6b_follows_gc_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6B's next session
+    after a GC session beyond 2 sigma, traded WITH the shock, earned +22.64 bps net (t +2.60, n 87);
+    2010-17 -4.07 (t -0.92). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a GC session beyond 2 x the SD of its previous 60, take 6B's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 145
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6B]
+  mechanism_instruments:
+    primary: 6B
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 123.
+  s6_control: By year; the same rule after non-shock days.
+- id: D112
+  name: 6s_follows_zn_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6S's next session
+    after a ZN session beyond 2 sigma, traded WITH the shock, earned +17.97 bps net (t +2.56, n 82);
+    2010-17 +10.85 (t +1.28). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a ZN session beyond 2 x the SD of its previous 60, take 6S's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 146
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6S]
+  mechanism_instruments:
+    primary: 6S
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 124.
+  s6_control: By year; the same rule after non-shock days.
+- id: D113
+  name: 6s_follows_es_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6S's next session
+    after a ES session beyond 2 sigma, traded WITH the shock, earned +15.77 bps net (t +2.37, n 88);
+    2010-17 -5.91 (t -0.75). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a ES session beyond 2 x the SD of its previous 60, take 6S's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 147
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6S]
+  mechanism_instruments:
+    primary: 6S
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 125.
+  s6_control: By year; the same rule after non-shock days.
+- id: D114
+  name: 6c_follows_zn_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 83, shocks into 6A/6B/6C/6S, decisions.md 347-348): in 2018-2022, 6C's next session
+    after a ZN session beyond 2 sigma, traded WITH the shock, earned +12.07 bps net (t +2.32, n 82);
+    2010-17 +3.52 (t +0.61). THE COUNTERPARTY would be slow currency hedgers adjusting to the
+    cross-asset move a session late.
+  condition: >
+    After a ZN session beyond 2 x the SD of its previous 60, take 6C's next session with its sign; net of 0.5 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 148
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-83 scan (24 tests, decisions.md 348). ONE TRIAL.
+  session: Globex
+  symbols: [6C]
+  mechanism_instruments:
+    primary: 6C
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 126.
+  s6_control: By year; the same rule after non-shock days.

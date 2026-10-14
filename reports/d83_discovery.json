@@ -1,0 +1,363 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "tests": 24,
+ "all": [
+  {
+   "predictor": "ZN",
+   "target": "6B",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 33.47229352245775,
+   "t": 3.6265390493955763,
+   "early_net": -5.063755907626787,
+   "early_t": -0.7981619018642754,
+   "carried": true
+  },
+  {
+   "predictor": "ZN",
+   "target": "6A",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 30.817422168630017,
+   "t": 3.443659376004165,
+   "early_net": -0.4268371317649957,
+   "early_t": -0.054717713596411165,
+   "carried": true
+  },
+  {
+   "predictor": "NQ",
+   "target": "6S",
+   "n": 93,
+   "rule": "follow",
+   "net_bps": 19.555009803640804,
+   "t": 3.277229496875935,
+   "early_net": -2.521282081085704,
+   "early_t": -0.3368227595871989,
+   "carried": true
+  },
+  {
+   "predictor": "GC",
+   "target": "6S",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 15.8562106323846,
+   "t": 2.6488000072669804,
+   "early_net": 0.8624870865749876,
+   "early_t": 0.11562108937364707,
+   "carried": true
+  },
+  {
+   "predictor": "GC",
+   "target": "6B",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 22.638998609966876,
+   "t": 2.6026349474331636,
+   "early_net": -4.069593815179841,
+   "early_t": -0.9226448848958978,
+   "carried": true
+  },
+  {
+   "predictor": "ZN",
+   "target": "6S",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 17.972821635577013,
+   "t": 2.5618700149153786,
+   "early_net": 10.850256752133852,
+   "early_t": 1.2753817191025638,
+   "carried": true
+  },
+  {
+   "predictor": "ES",
+   "target": "6S",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 15.76732243655074,
+   "t": 2.374702706704785,
+   "early_net": -5.91394223996206,
+   "early_t": -0.7522782267627478,
+   "carried": true
+  },
+  {
+   "predictor": "ZN",
+   "target": "6C",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 12.067651165932105,
+   "t": 2.3222550312049934,
+   "early_net": 3.523752841973116,
+   "early_t": 0.6061092613932181,
+   "carried": true
+  },
+  {
+   "predictor": "NQ",
+   "target": "6A",
+   "n": 93,
+   "rule": "follow",
+   "net_bps": 15.951390086187658,
+   "t": 1.9106155712438078,
+   "early_net": -7.315351751347321,
+   "early_t": -1.2858819277540432,
+   "carried": false
+  },
+  {
+   "predictor": "HG",
+   "target": "6B",
+   "n": 77,
+   "rule": "follow",
+   "net_bps": 15.587584116119553,
+   "t": 1.8373836259196672,
+   "early_net": -4.328591420105104,
+   "early_t": -1.0312429523471547,
+   "carried": false
+  },
+  {
+   "predictor": "CL",
+   "target": "6B",
+   "n": 75,
+   "rule": "follow",
+   "net_bps": 11.08822692995646,
+   "t": 1.815639095431464,
+   "early_net": 1.2288780605125436,
+   "early_t": 0.25016570987011916,
+   "carried": false
+  },
+  {
+   "predictor": "HG",
+   "target": "6S",
+   "n": 77,
+   "rule": "follow",
+   "net_bps": 10.33889390084584,
+   "t": 1.6942257729114611,
+   "early_net": -6.038868559072213,
+   "early_t": -0.8079007701406115,
+   "carried": false
+  },
+  {
+   "predictor": "NQ",
+   "target": "6B",
+   "n": 93,
+   "rule": "follow",
+   "net_bps": 10.156420550175255,
+   "t": 1.4837125829673115,
+   "early_net": -0.9784583494517641,
+   "early_t": -0.22312815867410532,
+   "carried": false
+  },
+  {
+   "predictor": "ES",
+   "target": "6B",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 10.339991449656425,
+   "t": 1.442897569589038,
+   "early_net": 0.5260197991801769,
+   "early_t": 0.11213562125347842,
+   "carried": false
+  },
+  {
+   "predictor": "GC",
+   "target": "6A",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 10.932609412950137,
+   "t": 1.3192503789869288,
+   "early_net": -12.053407612486158,
+   "early_t": -2.1110565068606006,
+   "carried": false
+  },
+  {
+   "predictor": "ES",
+   "target": "6A",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 10.416600384525108,
+   "t": 1.2698136685233332,
+   "early_net": -8.397215100021876,
+   "early_t": -1.3683282811253568,
+   "carried": false
+  },
+  {
+   "predictor": "CL",
+   "target": "6C",
+   "n": 75,
+   "rule": "fade",
+   "net_bps": 5.020885235145424,
+   "t": 1.1534669242836242,
+   "early_net": 2.4818324444069066,
+   "early_t": 0.48503426821959583,
+   "carried": false
+  },
+  {
+   "predictor": "GC",
+   "target": "6C",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 6.324762917737771,
+   "t": 1.1436915967948778,
+   "early_net": -4.030327303736821,
+   "early_t": -0.93002907266409,
+   "carried": false
+  },
+  {
+   "predictor": "HG",
+   "target": "6A",
+   "n": 77,
+   "rule": "follow",
+   "net_bps": 6.7520868657089705,
+   "t": 0.7946438997334809,
+   "early_net": -1.2463021683260826,
+   "early_t": -0.20961107039325025,
+   "carried": false
+  },
+  {
+   "predictor": "NQ",
+   "target": "6C",
+   "n": 93,
+   "rule": "follow",
+   "net_bps": 2.9536724370866105,
+   "t": 0.7113646931446727,
+   "early_net": -4.2865276082962,
+   "early_t": -1.0938847448647433,
+   "carried": false
+  },
+  {
+   "predictor": "HG",
+   "target": "6C",
+   "n": 77,
+   "rule": "follow",
+   "net_bps": 3.5996697084097145,
+   "t": 0.696039261496018,
+   "early_net": 0.25382550828579475,
+   "early_t": 0.05925460604575448,
+   "carried": false
+  },
+  {
+   "predictor": "ES",
+   "target": "6C",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 2.566689888046932,
+   "t": 0.625082751566237,
+   "early_net": -1.5456730714142453,
+   "early_t": -0.3901525126753703,
+   "carried": false
+  },
+  {
+   "predictor": "CL",
+   "target": "6S",
+   "n": 75,
+   "rule": "follow",
+   "net_bps": 3.8258385055422606,
+   "t": 0.590194388463512,
+   "early_net": -11.824585943245735,
+   "early_t": -1.5028025702187202,
+   "carried": false
+  },
+  {
+   "predictor": "CL",
+   "target": "6A",
+   "n": 75,
+   "rule": "follow",
+   "net_bps": 2.9205212333891852,
+   "t": 0.4066888989789081,
+   "early_net": -4.639086423480441,
+   "early_t": -0.7280352444211405,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "predictor": "ZN",
+   "target": "6B",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 33.47229352245775,
+   "t": 3.6265390493955763,
+   "early_net": -5.063755907626787,
+   "early_t": -0.7981619018642754,
+   "carried": true
+  },
+  {
+   "predictor": "ZN",
+   "target": "6A",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 30.817422168630017,
+   "t": 3.443659376004165,
+   "early_net": -0.4268371317649957,
+   "early_t": -0.054717713596411165,
+   "carried": true
+  },
+  {
+   "predictor": "NQ",
+   "target": "6S",
+   "n": 93,
+   "rule": "follow",
+   "net_bps": 19.555009803640804,
+   "t": 3.277229496875935,
+   "early_net": -2.521282081085704,
+   "early_t": -0.3368227595871989,
+   "carried": true
+  },
+  {
+   "predictor": "GC",
+   "target": "6S",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 15.8562106323846,
+   "t": 2.6488000072669804,
+   "early_net": 0.8624870865749876,
+   "early_t": 0.11562108937364707,
+   "carried": true
+  },
+  {
+   "predictor": "GC",
+   "target": "6B",
+   "n": 87,
+   "rule": "follow",
+   "net_bps": 22.638998609966876,
+   "t": 2.6026349474331636,
+   "early_net": -4.069593815179841,
+   "early_t": -0.9226448848958978,
+   "carried": true
+  },
+  {
+   "predictor": "ZN",
+   "target": "6S",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 17.972821635577013,
+   "t": 2.5618700149153786,
+   "early_net": 10.850256752133852,
+   "early_t": 1.2753817191025638,
+   "carried": true
+  },
+  {
+   "predictor": "ES",
+   "target": "6S",
+   "n": 88,
+   "rule": "follow",
+   "net_bps": 15.76732243655074,
+   "t": 2.374702706704785,
+   "early_net": -5.91394223996206,
+   "early_t": -0.7522782267627478,
+   "carried": true
+  },
+  {
+   "predictor": "ZN",
+   "target": "6C",
+   "n": 82,
+   "rule": "follow",
+   "net_bps": 12.067651165932105,
+   "t": 2.3222550312049934,
+   "early_net": 3.523752841973116,
+   "early_t": 0.6061092613932181,
+   "carried": true
+  }
+ ]
+}
