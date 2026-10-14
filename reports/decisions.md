@@ -11286,6 +11286,16 @@ were expected by chance from 19; two arrived. **D151** (ZS, a plan product): +30
 ZN shock — D68's mechanism on the DAX) held in both years with placebo 99th but t +1.30: WATCHLIST. Per §426, 5 both confirmations
 are stress-tested before anything is proposed (§430).
 
+## 430. Stress tests for D151 and D139, fixed before running (S8)
+
+**No trial; N 927.** As §210 / §382. **D151 (ZS fades a ZM shock):** (1) thresholds 1.5 / 2 / 2.5σ; periods 2010–20, 2021–24, 2025–26;
+target also the SOYB ETF (open → close, next weekday) as an independent soybean price; (2) the ZS account (3 ZS, A23, drift removed,
+both histories): plan vs the overlay (short ZS the session after a ZM up-shock; a down-shock already means long). **D139 (NKD fades a
+BTC=F shock):** (1) thresholds 1.5 / 2 / 2.5σ; predictor also BTC-USD spot (UTC day; closes at Tokyo's open, no overlap); target also
+Yahoo NKD=F's CME session (open → settlement) as an independent Nikkei price; periods 2018–20, 2021–24, 2025–26 (BTC=F starts Dec
+2017); (2) the NKD account (1 NKD): plan vs short the window after a bitcoin up-shock. Read, per §426, 5: propose to the user only if
+(1) keeps the sign in 2025–26 on the independent variants and (2) does not lower mean net or P(payout) in 2021–26.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
