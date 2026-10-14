@@ -11937,6 +11937,14 @@ and Yahoo NQ=F's session; periods 2010–20, 2021–24, 2025–26. (2) **The MNQ
 starts from 2025-01): plan vs D246 vs D246 + D68 (D68 overriding on its shock days), with the random-flip calibration of §453. Read as
 §446.
 
+## 486. D246 stress-tested: right sign everywhere, no account edge — not proposed (S8)
+
+**No trial; N 1,104.** `reports/a38_d246.json`, module `reporting/a38_d246.py`. (1) Independent data: positive in all 12 variants
+(SMH or ^SOX × MNQ grid or NQ=F × three periods), but weak on NQ=F's whole session (t ≤ 1.11) and on ^SOX in 2010–20 (+4.0, t +0.96).
+(2) MNQ account: 2021–26 D246 Δ mean net +$15 vs random flips +$849 ± $792 (beats 12%); 2010–20 +$185 vs −$185 ± $868 (78%); starts
+from 2025: plan +$633, D68 +$1,315, D246 +$1,110, D246 + D68 +$1,747. The rule's sessions do not translate into account gains beyond
+what random flips of the same share achieve. MNQ keeps D68 alone. Not proposed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
