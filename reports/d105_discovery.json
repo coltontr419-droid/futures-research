@@ -1,0 +1,31 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "predictor": "^GVZ",
+   "target": "MGC",
+   "n": 70,
+   "rule": "against vol move",
+   "net_bps": 10.184599699292868,
+   "t": 1.142640258368909,
+   "early_net": -6.194423207033024,
+   "early_t": -0.627304757945747,
+   "carried": false
+  },
+  {
+   "predictor": "^OVX",
+   "target": "CL",
+   "n": 64,
+   "rule": "with vol move",
+   "net_bps": 41.352164681869006,
+   "t": 0.9635758813673728,
+   "early_net": 17.469531738404662,
+   "early_t": 0.9395541491244273,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

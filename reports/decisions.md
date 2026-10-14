@@ -11021,6 +11021,10 @@ next-weekday: **GVZ → gold's London window** (family-8 grid), **OVX → CL's s
 it, fixed by discovery. **2 tests**, descriptive 2010–17 column. Costs §177/§180; recent-period design; carried at net > 0, t > 1.96;
 validation as §207, 3.
 
+## 402. Family-105 discovery: gold's and crude's implied-volatility shocks — 0 of 2 carried (S1)
+
+**No trial spent; N 902.** `reports/d105_discovery.json`: GVZ → gold +10.2 bps (t +1.14), OVX → crude +41.4 (t +0.96). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
