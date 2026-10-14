@@ -10998,6 +10998,15 @@ bar. MCL's 5.4 bps of cost is small against this size. Z and D market-test 138.
 emerging-currency stress was a pre-2023 regime. D122 (soybeans × the real) remains the one currency → commodity rule that held.
 Z and D market-test 138.
 
+## 399. D-series family 104 protocol: dominant-producer currencies in oilseeds and wheat (S1)
+
+**No trial spent; N 902. Written and committed BEFORE any statistic is computed.** D122 held where one producer dominates. Pairs:
+**MYR → ZL** and **IDR → ZL** (Malaysia/Indonesia, palm oil — soybean oil's substitute), **ARS → ZM** (Argentina, the largest meal
+exporter; its crawling peg makes shocks devaluation days), **AUD → ZW**, **CAD → ZW** (wheat exporters). Family 98's construction
+(Yahoo close → close, UTC day, 2σ, up = local currency weaker); targets next-weekday sessions (ZL, ZM: Yahoo open → settlement as
+family 99; ZW: family 10), with or against, fixed by discovery. **5 tests**, descriptive 2010–17 column. Costs ZL/ZM 1.5, ZW 1.4;
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
