@@ -11683,6 +11683,27 @@ same predictor list, targets, exclusions and forms. Carried at net > 0, t > 1.96
 §426, 2 (placebo: signs shuffled across the sealed sessions). Monthly-horizon signals change slowly (few sign changes), so the
 effective sample is smaller than n suggests — the shuffled placebo is the guard.
 
+## 456. Family-121 discovery: 15 of 718 carried (≈ 18 by chance — no excess); D250–D264 registered (S1)
+
+**No trial spent yet; N 1,025.** `reports/d121_discovery.json` (module `reporting/d121_month.py`):
+- **D250** DAX follows COP=X 20-day (all): +9.38, t +2.94.
+- **D251** MNQ fades ADM 20-day (strong): +15.22, t +2.66.
+- **D252** NKD follows EEM 20-day (strong): +10.25, t +2.54.
+- **D253** MGC follows COP=X 20-day (all): +5.59, t +2.34.
+- **D254** ZS fades CLP=X 20-day (all): +10.22, t +2.33.
+- **D255** MGC follows IDR=X 20-day (strong): +8.01, t +2.32.
+- **D256** DAX fades CL=F 20-day (all): +6.69, t +2.26.
+- **D257** MNQ fades CL=F 20-day (all): +8.30, t +2.25.
+- **D258** NKD follows XLF 20-day (strong): +7.70, t +2.23.
+- **D259** NKD follows FXI 20-day (all): +5.82, t +2.23.
+- **D260** ZS fades KRW=X 20-day (strong): +12.82, t +2.22.
+- **D261** DAX fades NG=F 20-day (strong): +9.53, t +2.22.
+- **D262** MNQ follows ^OVX 20-day (strong): +11.27, t +2.16.
+- **D263** ZS follows RUB=X 20-day (all): +9.01, t +2.04.
+- **D264** NKD fades ZC=F 20-day (all): +5.28, t +2.02.
+
+Fewer passes than chance: the monthly horizon shows no cross-market structure beyond noise. Validated anyway, once each, per §426.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
