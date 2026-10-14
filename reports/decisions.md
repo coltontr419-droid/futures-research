@@ -11639,6 +11639,34 @@ sign: dollar strength helps the DAX the next day; a week of dollar weakness help
 session; forms all and strong; periods 2010–20, 2021–24, 2025–26. (2) The NKD account (1 NKD, A23, drift removed, both histories): plan
 vs every-day (long after a weak-dollar week, short after a strong one) vs strong-only. Read as §446.
 
+## 453. The NKD dollar-week rule and the DAX–dollar rule, calibrated: both beat random flips; NKD's should replace D139 (S8)
+
+**No trial; N 1,025.** `reports/a35_nkddollar.json`, `a35_flip_null.json`, `a35_sealed_replay.json`; module `reporting/a35_nkddollar.py`.
+
+**(1) Independent data (NKD rule: long after a week of dollar weakness, short after a week of strength).** On the Tokyo window (A21)
+every dollar measure is strong in 2025–26 (6E +11.9, t +2.67; DX-Y.NYB +10.9, t +2.44; FRED broad +10.1, t +2.27; EUR/USD +13.7, t +3.13;
+strong forms +16 to +22, t +2.6 to +3.3). On NKD=F's whole CME session it is positive but weak (+0.9 to +17, t ≤ 1.3) — the effect lives
+in Tokyo hours, the window the plan trades. 2010–20: negative everywhere — a post-2021 regime.
+
+**(2) The replays are noisy, so they were calibrated** against 40 random flip masks (the same share of flipped days, random dates):
+NKD 2021–26 rule Δ +$3,373 vs random +$87 ± $996 (beats 100%); FDXM 2021–26 +$1,841 vs +$110 ± $622 (100%); FDXM 2010–20 +$1,073 vs
++$87 ± $579 (98%); NKD 2010–20 +$2,069 vs random +$1,700 ± $861 (72% — that era's gain is NOT the rule's; its own edge there is
+negative, −$71 a session). **Accounts starting in the sealed period (2025-01 →, ~360 starts):**
+
+| | mean net / 84 days | P(payout) | P(net > 0) | vs random flips |
+|---|---|---|---|---|
+| NKD plan | +$3,206 | 85% | 63% | |
+| **NKD + dollar-week** | **+$8,040** | **95%** | **95%** | beats 100% (random −$525 ± $1,466) |
+| NKD + D139 + dollar-week | +$4,630 | 92% | 87% | |
+| NKD + D139 only (deployed) | +$3,475 | 87% | 70% | |
+| FDXM plan | +$1,061 | 71% | 56% | |
+| **FDXM + DAX–dollar (deployed)** | **+$5,616** | **92%** | **87%** | beats 98% (random +$1,119 ± $1,564) |
+
+**Reading.** The DAX–dollar rule's account gain is real (not a replay artefact), out of sample. The NKD dollar-week rule is the largest
+account effect in the programme, and combining it with D139 HALVES its gain — D139 should be replaced by it on the NKD ticket.
+Caveats: regime-dependent (nothing before 2021); 20 sealed months; replay paths are HistData CFD prices, drift removed. **Proposed to
+the user; not deployed.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
