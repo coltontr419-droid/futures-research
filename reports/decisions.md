@@ -11069,6 +11069,15 @@ The 2022 dollar-regime signature again (family 83, §348–349): expected to fai
 **N 904.** D127 6E: WATCHLIST, +7.05 bps (t +0.83), placebo 94th; D128 6A: REJECT, -6.83 (t -0.52).
 Negative 2010–17 columns again preceded failure. Z and D market-tests reach 140.
 
+## 410. D-series family 109 protocol: D68 when equities have not yet moved (S1)
+
+**No trial spent; N 904. Written and committed BEFORE any statistic is computed.** If D68 is slow diffusion from bonds to equities, the
+next-day catch-up should be largest when the S&P barely moved on the ZN-shock day. D68's events (ZN beyond 2σ, family 24), split by the
+same day's ES session (family 10): **quiet** — |ES| below its own 60-session median absolute move — vs the rest. Target MNQ's next day
+session (family-8 grid), following the ZN shock (D68's direction, not re-chosen). **1 test (quiet)**; the other half reported beside.
+Descriptive 2010–17 column. Cost MNQ 0.5; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3. A carried test
+would sharpen D68's overlay, not replace it.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
