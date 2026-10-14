@@ -38,7 +38,7 @@ from accounts import PRODUCTS, Book
 import daxdollar
 import json
 
-from schedule import ALERT, ET, ORDER, Tickets, alert_parts, eod_day, last_trading_day, needs_eod, ticket_post
+from schedule import ALERT, CT, ET, ORDER, Tickets, alert_parts, clock, eod_day, last_trading_day, needs_eod, ticket_post
 
 HERE = Path(__file__).resolve().parent
 
@@ -84,7 +84,7 @@ def _field_name(r: dict) -> str:
     tk = r["ticket"]
     side = ("LONG" if tk.get("side") == "long" else "SHORT") if tk.get("trade") else ("FAILED" if r["phase"] == "dead" else "NO TRADE")
     mark = ("⏳" if needs_eod(r) else "✅") if tk.get("trade") and r["phase"] != "dead" else "▫️"
-    return f"{mark} {r['product']} · {side} · {e:%a %H:%M} → {x:%a %H:%M} ET"
+    return f"{mark} {r['product']} · {side} · {clock(e)} → {clock(x)} CT"
 
 
 def _field_value(r: dict) -> str:
@@ -162,7 +162,7 @@ async def on_ready():
         if ch and last and last not in _boards():
             recs = [r for r in tix.t if dt.datetime.fromisoformat(r["issued"]).astimezone(ET).date().isoformat() == last]
             if recs:
-                await post_board(ch, "", recs, last, f"{dt.date.fromisoformat(last):%A %d %B} · 17:30 ET")
+                await post_board(ch, "", recs, last, f"{dt.date.fromisoformat(last):%A %d %B} · 4:30 PM CT")
     except Exception as e:
         print("board on start failed:", e)
     if not loop.is_running():
@@ -187,7 +187,7 @@ async def loop():
     if now.weekday() != 5 and (now.hour, now.minute) >= ALERT and key != done and (now.hour, now.minute) < (ALERT[0] + 2, 0):
         LAST_ALERT.write_text(key)
         info, recs = alert_parts(book, tix, now)
-        await post_board(ch, info, recs, key, f"{now:%A %d %B} · 17:30 ET")
+        await post_board(ch, info, recs, key, f"{now:%A %d %B} · 4:30 PM CT")
 
 
 async def fdxm_recheck(ch, now: dt.datetime) -> None:
@@ -205,7 +205,7 @@ async def fdxm_recheck(ch, now: dt.datetime) -> None:
         alert_day = dt.datetime.fromisoformat(rec["issued"]).date()
         new = tix.issue(book, "FDXM", alert_day, now, side_override=(side, why))
         new["prechecked"] = True; tix.save()
-        await ch.send(f"**FDXM side changed to {side.upper()}** for the 03:00 ET entry - {why}. The board is updated.")
+        await ch.send(f"**FDXM side changed to {side.upper()}** for the 2:00 AM CT entry - {why}. The board is updated.")
     else:
         rec["prechecked"] = True; rec["ticket"]["note"] = (rec["ticket"].get("note", "") + f" | {why} (unchanged)").strip(" |"); tix.save()
     await refresh_boards(ch, {"FDXM"})

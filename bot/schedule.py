@@ -25,6 +25,13 @@ from accounts import PRODUCTS, Book
 from ticket import describe, policy, ticket
 
 ET = ZoneInfo("America/New_York")
+CT = ZoneInfo("America/Chicago")                       # every time the bot DISPLAYS is Chicago, 12-hour (decisions.md 491)
+
+
+def clock(t: dt.datetime, day: bool = True) -> str:
+    """'Wed 7:00 PM' in Chicago time (or '7:00 PM' with day=False)."""
+    c = t.astimezone(CT)
+    return (f"{c:%a} " if day else "") + c.strftime("%I:%M %p").lstrip("0")
 ALERT = (17, 30)
 #: product -> (time zone, entry day offset from the alert's New York date, entry hh:mm, exit day offset, exit hh:mm), local time.
 #: NKD and FDXM (decisions.md 138) follow Tokyo and Frankfurt clocks, so their New York times shift with daylight saving.
@@ -156,12 +163,24 @@ class Tickets:
         return "\n".join(lines)
 
 
+def _res_time(txt, entry: dt.datetime) -> str:
+    """The shadow result's time ('HH:MM' New York) shown as Chicago 12-hour."""
+    try:
+        h, m = (int(x) for x in str(txt)[:5].split(":"))
+        t = entry.astimezone(ET).replace(hour=h, minute=m)
+        if t < entry.astimezone(ET):
+            t += dt.timedelta(days=1)
+        return clock(t, False) + " CT"
+    except Exception:
+        return str(txt)
+
+
 def result_line(r: dict) -> str:
     res = r["result"]; e = dt.datetime.fromisoformat(r["entry"])
     tr = {None: "", True: " (traded)", False: " (skipped)"}[r["traded"]]
     if res["outcome"] == "NO DATA":
-        return f"{r['product']} {e:%a %d %b %H:%M}: no price data{tr}"
-    return (f"{r['product']} {e:%a %d %b %H:%M}: **{res['outcome']}** at {res['time']} -> ${res['pnl']:+,.0f} "
+        return f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: no price data{tr}"
+    return (f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: **{res['outcome']}** at {_res_time(res['time'], e)} -> ${res['pnl']:+,.0f} "
             f"(entry {res['entry']:.2f}){tr}")
 
 
@@ -233,7 +252,7 @@ def alert_parts(book: Book, tix: Tickets, now: dt.datetime) -> tuple[str, list[d
         if missing:
             parts.append("Closing balance not recorded for " + ", ".join(missing) + ". Send `!eod <PRODUCT> <balance>`.")
         parts.append(weekly_check(tix, now))
-        parts.append("No new tickets - next session opens Sunday 18:00 ET; tickets at Sunday 17:30.")
+        parts.append("No new tickets - next session opens Sunday 5:00 PM CT; tickets at Sunday 4:30 PM CT.")
     return "\n\n".join(parts), [r for r in recs if r]
 
 
@@ -245,8 +264,8 @@ def alert_text(book: Book, tix: Tickets, now: dt.datetime) -> str:
 
 def ticket_post(rec: dict) -> str:
     e = dt.datetime.fromisoformat(rec["entry"]); x = dt.datetime.fromisoformat(rec["exit"])
-    head = f"__{rec['product']} - {e:%a %d %b} {e:%H:%M} -> {x:%a} {x:%H:%M} ET__ [{rec['phase']}, balance ${rec['balance']:,.2f}]"
+    head = f"__{rec['product']} - {clock(e)} -> {clock(x)} CT__ [{rec['phase']}, balance ${rec['balance']:,.2f}]"
     if rec["phase"] == "dead":
         return head + f"\n**{rec['product']}: account failed** - buy a new evaluation and send `!new {rec['product']}`."
     note = rec["ticket"].get("note", "")
-    return head + "\n" + describe(rec["ticket"], rec["product"]) + (f"\n> {note}" if note.startswith(("D68", "D139", "DAX-dollar", "dollar-week")) else "")
+    return head + "\n" + describe(rec["ticket"], rec["product"], clock(e, False) + " CT", clock(x, False) + " CT") + (f"\n> {note}" if note.startswith(("D68", "D139", "DAX-dollar", "dollar-week")) else "")

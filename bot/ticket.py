@@ -60,7 +60,9 @@ def _ticks(points: float, product: str) -> int:
     return int(round(points / policy()["PRODUCTS"][product]["tick"]))
 
 
-def describe(t: dict, product: str) -> str:
+def describe(t: dict, product: str, entry_txt: str | None = None, exit_txt: str | None = None) -> str:
+    """The ticket's instructions. entry_txt / exit_txt: display times (Chicago, 12-hour, decisions.md 491); default the window's
+    local clock as stored in the ticket."""
     if t.get("finished"):
         return (f"**{product}: ACCOUNT FINISHED** - within one day's costs of the floor (${t['floor']:,.0f}); any trade "
                 f"breaches it. Start a new evaluation (`!new {product}`).")
@@ -69,7 +71,8 @@ def describe(t: dict, product: str) -> str:
     up, dn = ("+", "-") if t["side"] == "long" else ("-", "+")
     verb = "BUY" if t["side"] == "long" else "SELL"
     tz = policy()["PRODUCTS"][product].get("tz", "ET")
-    return (f"**{product}** - {t['entry']} {tz}: **{verb} {t['contracts']} {product}** at market, then one OCO bracket on the fill:\n"
+    ent = entry_txt or f"{t['entry']} {tz}"; ext = exit_txt or f"{t['exit']} {tz}"
+    return (f"**{product}** - {ent}: **{verb} {t['contracts']} {product}** at market, then one OCO bracket on the fill:\n"
             f"> take-profit: fill {up} **{t['take_points']:.2f}** pts = **{_ticks(t['take_points'], product)} ticks** (~ +${t['take_net']:,.0f} net)\n"
             f"> stop: fill {dn} **{t['stop_points']:.2f}** pts = **{_ticks(t['stop_points'], product)} ticks** (~ -${t['stop_net']:,.0f} net)\n"
-            f"> {t['exit']} {tz}: if neither filled, close at market. Floor today ${t['floor']:,.0f}.")
+            f"> {ext}: if neither filled, close at market. Floor today ${t['floor']:,.0f}.")

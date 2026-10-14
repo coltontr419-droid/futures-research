@@ -11977,6 +11977,14 @@ gives the 17:30 side, notes the check on the board; if it flips the side, reissu
 stands. Tests: `test_daxdollar_preopen_side`. (Illustration: 2026-10-14's 02:50 reading was dollar −28 bps → short, against the
 previous evening's +33 → long — flips happen.)
 
+## 491. Every time the bot shows is Chicago, 12-hour (2026-10-14, the user) (S8)
+
+**No trial; N 1,104.** Deployed 19:30 ET (backup `/opt/futures-bot/backup-2026-10-14f`). The board's headings showed New York time while
+each ticket's instruction line showed its market's own clock (Tokyo for NKD, Frankfurt for FDXM, Chicago for ZS) — one moment on two
+clocks. Now every displayed time is Chicago, 12-hour: field headings ("Wed 7:00 PM → Thu 1:00 AM CT"), the instruction lines (entry and
+"if neither filled" times), shadow results (`_res_time`), the alert title ("4:30 PM CT"), the weekend note and the FDXM re-check message.
+Scheduling is unchanged (the windows still follow each market's own clock; only the display changed). `schedule.clock()`, `CT`.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
