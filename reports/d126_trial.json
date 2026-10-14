@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D126",
+ "cell": "CL falls after emerging-currency stress",
+ "trades": 50,
+ "net_bps": -3.280385598415001,
+ "t_net": -0.09151223685531774,
+ "placebo_pct": 28.4,
+ "by_year": {
+  "2023": -60.075301905472394,
+  "2024": 66.2583794319964,
+  "2025": -5.563917395836929,
+  "2026": 14.325256448707462
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 138,
+ "injection": {
+  "hypothesis": "D126",
+  "n_events": 50,
+  "sought_bps": 60.111085717894575,
+  "mean_estimate": 59.88963200466883,
+  "sd_estimate_bps": 35.8049959526105,
+  "power_strict_t": 0.5135,
+  "recovered": true
+ }
+}

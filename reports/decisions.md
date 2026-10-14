@@ -10991,6 +10991,13 @@ net > 0, t > 1.96; validation as §207, 3.
 significant in the untouched earlier period. ZS +31.6 (t +1.82; 2010–17 +14.3), GC +30.4 (t +1.84; 2010–17 +1.4): same sign, below the
 bar. MCL's 5.4 bps of cost is small against this size. Z and D market-test 138.
 
+## 398. D126 validated (t00908): REJECT — the composite did not carry crude out of sample (S1)
+
+**N 902.** Sealed 2023-01 → 2026-08, 50 events (power 51%): **-3.28 bps** (t -0.09); placebo
+28th; years 2 of 4. Even a rule positive in both 2010–17 and 2018–22 fell to zero after 2022 — crude's response to
+emerging-currency stress was a pre-2023 regime. D122 (soybeans × the real) remains the one currency → commodity rule that held.
+Z and D market-test 138.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

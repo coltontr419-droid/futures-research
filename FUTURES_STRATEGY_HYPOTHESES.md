@@ -1213,6 +1213,6 @@ Data-derived (D-series family 98). `hypotheses.yaml` (D124) · `decisions.md` §
 
 Data-derived (D-series family 100). `hypotheses.yaml` (D125) · `decisions.md` §390
 
-## D126 — Crude Falls After Em Currency Stress  *(registered)*
+## D126 — Crude Falls After Em Currency Stress  *(REJECT — t00908)*
 
 Data-derived (D-series family 103). `hypotheses.yaml` (D126) · `decisions.md` §397
