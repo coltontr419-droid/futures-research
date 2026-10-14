@@ -12036,6 +12036,11 @@ session, the target's next window goes with or against the SIGN of its previous-
 are the ones that move an account (§453, §496). **12 tests.** Costs §177/§180; validation per §426, 2 (placebo: signs shuffled), then
 the §446 stress tests for any CONFIRM.
 
+## 498. Family-135 discovery: relative value every day — 0 of 12 carried (S1)
+
+**No trial spent; N 1,105.** `reports/d135_discovery.json`: all |t| ≤ 1.77 (best: crude against its stretch vs heating oil, +12.5 bps).
+The relative-value edge lives only in the extremes (D329), not as an every-day signal. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

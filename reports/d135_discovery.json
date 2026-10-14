@@ -1,0 +1,154 @@
+{
+ "window": [
+  "2021-01-01",
+  "2024-12-31"
+ ],
+ "tests": 12,
+ "all": [
+  {
+   "target": "MNQ",
+   "partner": "ES=F",
+   "form": "sign",
+   "n": 979,
+   "dir": "with stretch",
+   "net_bps": 2.361145414054333,
+   "t": 0.6394390740002904,
+   "context_net": -3.5207036758340005,
+   "context_t": -1.7279102739174517,
+   "carried": false
+  },
+  {
+   "target": "MNQ",
+   "partner": "RTY=F",
+   "form": "sign",
+   "n": 979,
+   "dir": "with stretch",
+   "net_bps": 3.930836981480163,
+   "t": 1.064995915867026,
+   "context_net": -9.520404221919867,
+   "context_t": -2.476238449675995,
+   "carried": false
+  },
+  {
+   "target": "MGC",
+   "partner": "SI=F",
+   "form": "sign",
+   "n": 974,
+   "dir": "with stretch",
+   "net_bps": 0.9722106733850857,
+   "t": 0.43467935796223167,
+   "context_net": -2.9474619092125653,
+   "context_t": -1.939460426608162,
+   "carried": false
+  },
+  {
+   "target": "MGC",
+   "partner": "HG=F",
+   "form": "sign",
+   "n": 975,
+   "dir": "against stretch",
+   "net_bps": 1.4440182201678924,
+   "t": 0.6463268970363003,
+   "context_net": -3.599719605790942,
+   "context_t": -2.369333689820511,
+   "carried": false
+  },
+  {
+   "target": "CL",
+   "partner": "HO=F",
+   "form": "sign",
+   "n": 967,
+   "dir": "against stretch",
+   "net_bps": 12.523132129831458,
+   "t": 1.7652734882888497,
+   "context_net": -4.300060354331874,
+   "context_t": -0.9521511811462182,
+   "carried": false
+  },
+  {
+   "target": "CL",
+   "partner": "RB=F",
+   "form": "sign",
+   "n": 967,
+   "dir": "against stretch",
+   "net_bps": 2.1238103934676227,
+   "t": 0.29886198940609604,
+   "context_net": -2.9225163008653987,
+   "context_t": -0.6470773706479992,
+   "carried": false
+  },
+  {
+   "target": "ZS",
+   "partner": "ZC=F",
+   "form": "sign",
+   "n": 967,
+   "dir": "with stretch",
+   "net_bps": -0.08873651684652593,
+   "t": -0.020614222386959896,
+   "context_net": -4.131946130950119,
+   "context_t": -1.7742056112715643,
+   "carried": false
+  },
+  {
+   "target": "ZS",
+   "partner": "ZM=F",
+   "form": "sign",
+   "n": 967,
+   "dir": "against stretch",
+   "net_bps": -0.5658740914408648,
+   "t": -0.13145589767333374,
+   "context_net": 0.2681726755639984,
+   "context_t": 0.11517972453614535,
+   "carried": false
+  },
+  {
+   "target": "ZS",
+   "partner": "ZL=F",
+   "form": "sign",
+   "n": 967,
+   "dir": "against stretch",
+   "net_bps": 3.0324507376651404,
+   "t": 0.7047301735069871,
+   "context_net": -3.719970462945175,
+   "context_t": -1.5981740607829984,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "partner": "ES=F",
+   "form": "sign",
+   "n": 968,
+   "dir": "against stretch",
+   "net_bps": 0.36910630094587704,
+   "t": 0.1409152337517355,
+   "context_net": 6.745893145945105,
+   "context_t": 2.450235011222553,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "partner": "ES=F",
+   "form": "sign",
+   "n": 813,
+   "dir": "against stretch",
+   "net_bps": 1.8112398753802335,
+   "t": 0.6051504252745045,
+   "context_net": -3.359927365238281,
+   "context_t": -1.6074763204079847,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "partner": "^STOXX50E",
+   "form": "sign",
+   "n": 823,
+   "dir": "against stretch",
+   "net_bps": 2.016252268996816,
+   "t": 0.6713618605787539,
+   "context_net": -0.8268322534489143,
+   "context_t": -0.3989461343261152,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
