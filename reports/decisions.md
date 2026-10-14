@@ -10763,6 +10763,14 @@ P(net > 0).
 84-day account, trading days are the scarce resource — the quiet days' small P&L still moves accounts toward targets and the payout
 clock. Trade every day, as the plan does.
 
+## 371. D-series family 93 protocol: nearness to the 52-week high (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** Anchoring: traders treat the 52-week high as a
+reference, under-reacting near it. Nearness on day D−1 = Yahoo settlement / max settlement of the previous 252 sessions (NQ=F,
+GC=F). Signal: nearness in the top third of its trailing 250-session distribution → one side; bottom third → the other; middle not
+traded; side fixed by discovery; the target (MNQ day; gold London on D, family-8 grids) judged DEMEANED. **2 tests**, descriptive
+2010–17 column. Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
