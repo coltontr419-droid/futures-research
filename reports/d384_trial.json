@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D384",
+ "cell": "HG fades ^GVZ 1d (all)",
+ "trades": 399,
+ "net_bps": 5.700572643468938,
+ "t_net": 0.8309513552536387,
+ "placebo_pct": 82.89999999999999,
+ "by_year": {
+  "2025": 7.025545628005236,
+  "2026": 3.700613421527353
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 396,
+ "injection": {
+  "hypothesis": "D384",
+  "n_events": 399,
+  "sought_bps": 3.965337822017565,
+  "mean_estimate": 3.983310686820351,
+  "recovered": true
+ }
+}

@@ -2216,3 +2216,43 @@ Data-derived (D-series family 137). `hypotheses.yaml` (D375) · `decisions.md` �
 ## D376 — Dax Fades Clf Tenday Strong  *(REJECT — t01158)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D376) · `decisions.md` §502
+
+## D377 — Hg Follows Nkdf 1D Strong New  *(REJECT — t01159)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D377) · `decisions.md` §507
+
+## D378 — Rty Follows Skew 1D Strong New  *(WATCHLIST — t01160)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D378) · `decisions.md` §507
+
+## D379 — Hg Follows Nkdf 1D All New  *(REJECT — t01161)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D379) · `decisions.md` §507
+
+## D380 — Rty Fades Adm 5D Strong New  *(WATCHLIST — t01162)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D380) · `decisions.md` §507
+
+## D381 — Hg Follows Xop 1D Strong New  *(WATCHLIST — t01163)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D381) · `decisions.md` §507
+
+## D382 — Rty Follows Zbf 5D All New  *(REJECT — t01164)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D382) · `decisions.md` §507
+
+## D383 — Hg Follows Smh 1D Strong New  *(REJECT — t01165)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D383) · `decisions.md` §507
+
+## D384 — Hg Fades Gvz 1D All New  *(WATCHLIST — t01166)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D384) · `decisions.md` §507
+
+## D385 — Hg Follows Esf 1D Strong New  *(REJECT — t01167)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D385) · `decisions.md` §507
+
+## D386 — Si Follows Xlu 5D Strong New  *(REJECT — t01168)*
+
+Data-derived (D-series family 138). `hypotheses.yaml` (D386) · `decisions.md` §507

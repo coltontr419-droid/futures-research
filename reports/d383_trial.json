@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D383",
+ "cell": "HG follows SMH 1d (strong)",
+ "trades": 184,
+ "net_bps": -1.7745402525261185,
+ "t_net": -0.1755271209125412,
+ "placebo_pct": 43.2,
+ "by_year": {
+  "2025": 5.871021384685564,
+  "2026": -10.486924443767341
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 395,
+ "injection": {
+  "hypothesis": "D383",
+  "n_events": 184,
+  "sought_bps": 5.549938910381149,
+  "mean_estimate": 5.7984645405676005,
+  "recovered": true
+ }
+}

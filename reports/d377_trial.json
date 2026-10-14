@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D377",
+ "cell": "HG follows NKD=F 1d (strong)",
+ "trades": 223,
+ "net_bps": -0.32126486119170505,
+ "t_net": -0.03425666115955681,
+ "placebo_pct": 51.1,
+ "by_year": {
+  "2025": -5.333344516950038,
+  "2026": 5.311357990041466
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 389,
+ "injection": {
+  "hypothesis": "D377",
+  "n_events": 223,
+  "sought_bps": 7.473568463998653,
+  "mean_estimate": 7.5190550820299125,
+  "recovered": true
+ }
+}

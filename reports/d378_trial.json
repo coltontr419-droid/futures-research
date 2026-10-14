@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D378",
+ "cell": "RTY follows ^SKEW 1d (strong)",
+ "trades": 215,
+ "net_bps": 2.9133331152010733,
+ "t_net": 0.3106949730388536,
+ "placebo_pct": 67.80000000000001,
+ "by_year": {
+  "2025": 7.38092363918799,
+  "2026": -4.625725894026849
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 390,
+ "injection": {
+  "hypothesis": "D378",
+  "n_events": 215,
+  "sought_bps": 8.77038210810471,
+  "mean_estimate": 8.781939749998227,
+  "recovered": true
+ }
+}

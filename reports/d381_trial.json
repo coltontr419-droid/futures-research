@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D381",
+ "cell": "HG follows XOP 1d (strong)",
+ "trades": 167,
+ "net_bps": 6.073941690050565,
+ "t_net": 0.5798435800865949,
+ "placebo_pct": 77.0,
+ "by_year": {
+  "2025": 7.694295796767992,
+  "2026": 3.655502724800675
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 393,
+ "injection": {
+  "hypothesis": "D381",
+  "n_events": 167,
+  "sought_bps": 6.195211394404634,
+  "mean_estimate": 6.103241691730061,
+  "recovered": true
+ }
+}

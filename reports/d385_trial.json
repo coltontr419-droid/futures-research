@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D385",
+ "cell": "HG follows ES=F 1d (strong)",
+ "trades": 182,
+ "net_bps": -7.729095499663823,
+ "t_net": -0.7034504929417063,
+ "placebo_pct": 24.4,
+ "by_year": {
+  "2025": -2.654843374209916,
+  "2026": -14.806341885165322
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 397,
+ "injection": {
+  "hypothesis": "D385",
+  "n_events": 182,
+  "sought_bps": 5.482510619366023,
+  "mean_estimate": 5.0743634326457245,
+  "recovered": true
+ }
+}

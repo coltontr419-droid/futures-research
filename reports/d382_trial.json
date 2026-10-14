@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D382",
+ "cell": "RTY follows ZB=F 5d (all)",
+ "trades": 402,
+ "net_bps": -2.0655687834569303,
+ "t_net": -0.3160200466758172,
+ "placebo_pct": 47.599999999999994,
+ "by_year": {
+  "2025": 1.4519427768617488,
+  "2026": -7.4413883379062336
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 394,
+ "injection": {
+  "hypothesis": "D382",
+  "n_events": 402,
+  "sought_bps": 4.677918146282682,
+  "mean_estimate": 4.720869506968343,
+  "recovered": true
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D386",
+ "cell": "SI follows XLU 5d (strong)",
+ "trades": 186,
+ "net_bps": -23.13783460761866,
+ "t_net": -1.3731730863976228,
+ "placebo_pct": 14.399999999999999,
+ "by_year": {
+  "2025": -22.143224130624695,
+  "2026": -24.643191005231152
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 398,
+ "injection": {
+  "hypothesis": "D386",
+  "n_events": 186,
+  "sought_bps": 6.205779659847831,
+  "mean_estimate": 5.609610292008603,
+  "recovered": true
+ }
+}

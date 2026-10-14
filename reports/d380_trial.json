@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D380",
+ "cell": "RTY fades ADM 5d (strong)",
+ "trades": 241,
+ "net_bps": 4.913037280307028,
+ "t_net": 0.5335329325111825,
+ "placebo_pct": 84.89999999999999,
+ "by_year": {
+  "2025": 0.23609391189769313,
+  "2026": 10.869521758941561
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 392,
+ "injection": {
+  "hypothesis": "D380",
+  "n_events": 241,
+  "sought_bps": 7.2235225263190195,
+  "mean_estimate": 7.318076217700941,
+  "recovered": true
+ }
+}

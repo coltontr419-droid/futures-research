@@ -12111,6 +12111,20 @@ the previous weekday's move (1-day) and of the previous 5 weekdays' sum (5-day);
 by chance; counted). Costs §177 (RTY 2.0, HG 2.0, SI 0.5); validation per §426, 2; a CONFIRM then needs §446/§453's stress tests and a
 new-account replay before any proposal.
 
+## 507. Family-138: new candidate markets — 10 of 660 carried (below chance ~16.5); validated (S1)
+
+**N 1,162.** `reports/d138_discovery.json` (module `reporting/d138_newmkts.py`):
+- **D377** HG follows NKD=F 1d (strong): **REJECT** -0.32 (t -0.03), placebo 51th, 2025 -5.3, 2026 +5.3
+- **D378** RTY follows ^SKEW 1d (strong): **WATCHLIST** +2.91 (t +0.31), placebo 68th, 2025 +7.4, 2026 -4.6
+- **D379** HG follows NKD=F 1d (all): **REJECT** -2.04 (t -0.30), placebo 47th, 2025 -5.2, 2026 +2.7
+- **D380** RTY fades ADM 5d (strong): **WATCHLIST** +4.91 (t +0.53), placebo 85th, 2025 +0.2, 2026 +10.9
+- **D381** HG follows XOP 1d (strong): **WATCHLIST** +6.07 (t +0.58), placebo 77th, 2025 +7.7, 2026 +3.7
+- **D382** RTY follows ZB=F 5d (all): **REJECT** -2.07 (t -0.32), placebo 48th, 2025 +1.5, 2026 -7.4
+- **D383** HG follows SMH 1d (strong): **REJECT** -1.77 (t -0.18), placebo 43th, 2025 +5.9, 2026 -10.5
+- **D384** HG fades ^GVZ 1d (all): **WATCHLIST** +5.70 (t +0.83), placebo 83th, 2025 +7.0, 2026 +3.7
+- **D385** HG follows ES=F 1d (strong): **REJECT** -7.73 (t -0.70), placebo 24th, 2025 -2.7, 2026 -14.8
+- **D386** SI follows XLU 5d (strong): **REJECT** -23.14 (t -1.37), placebo 14th, 2025 -22.1, 2026 -24.6
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
