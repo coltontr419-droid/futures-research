@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D121",
+ "cell": "the dollar recovers after the month-end London fix",
+ "trades": 40,
+ "net_bps": 1.5335259545700146,
+ "t_net": 1.4000122168566327,
+ "placebo_pct": 48.3,
+ "by_year": {
+  "2023": 0.18586701702783925,
+  "2024": 4.1645999267548115,
+  "2025": -0.23662176112594435,
+  "2026": 1.5897955073789312
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 133,
+ "injection": {
+  "hypothesis": "D121",
+  "n_events": 40,
+  "sought_bps": 1.1008633344063776,
+  "mean_estimate": 1.111756610929624,
+  "sd_estimate_bps": 1.0735687744616447,
+  "power_strict_t": 0.289,
+  "recovered": true
+ }
+}

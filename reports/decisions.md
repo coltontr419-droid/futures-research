@@ -10793,6 +10793,12 @@ stronger after a rising S&P month, **+2.20 bps**, t +1.98, n 60 months; 2010–1
 +5.7 bps, t +4.5): the published effect has gone; only its unwind remains. Scale: ~2 bps on a currency future 12 times a year —
 unusable whatever the trial says. Z and D market-test 133.
 
+## 375. D121 validated (t00903): WATCHLIST — the unwind persists in sign but is not month-end specific (S1)
+
+**N 897.** Sealed 2023-01 → 2026-08, 40 month-ends (power 29%): net **+1.53 bps** (t +1.40); placebo
+(second-last business day) **48th** pct — the same move happens a day earlier, so it is not the month-end flow;
+years 3 of 4. WATCHLIST by the mean; unusable at ~2 bps twelve times a year. Z and D market-test 133.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1193,6 +1193,6 @@ Data-derived (D-series family 86). `hypotheses.yaml` (D119) · `decisions.md` §
 
 Data-derived (D-series family 86). `hypotheses.yaml` (D120) · `decisions.md` §355
 
-## D121 — Dollar Recovers After Monthend Fix  *(registered)*
+## D121 — Dollar Recovers After Monthend Fix  *(WATCHLIST — t00903)*
 
 Data-derived (D-series family 94). `hypotheses.yaml` (D121) · `decisions.md` §374
