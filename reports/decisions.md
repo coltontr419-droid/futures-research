@@ -11561,6 +11561,62 @@ weekday), every session; same predictor list, targets and exclusions; forms **al
 median); pairs carried in family 119 are kept (a 5-day sum is a different rule). Carried at net > 0, t > 1.96; the count reported
 against ~2.5% by chance. Validation per §426, 2 (placebo: signs shuffled across the sealed sessions).
 
+## 450. Family-120 discovery: 49 of 718 carried (≈ 18 by chance); D201–D249 registered (S1)
+
+**No trial spent yet; N 976.** `reports/d120_discovery.json` (module `reporting/d120_week.py`):
+- **D201** NKD follows ^GDAXI 5-day (strong): +12.65, t +3.25.
+- **D202** NKD follows 6E=F 5-day (strong): +10.94, t +3.09.
+- **D203** NKD follows FXI 5-day (all): +8.00, t +3.07.
+- **D204** CL fades PL=F 5-day (strong): +30.05, t +3.01.
+- **D205** NKD follows 6B=F 5-day (all): +7.84, t +3.00.
+- **D206** NKD follows ^GDAXI 5-day (all): +7.32, t +2.84.
+- **D207** CL fades HE=F 5-day (strong): +28.51, t +2.79.
+- **D208** NKD follows FXI 5-day (strong): +10.98, t +2.75.
+- **D209** NKD follows EEM 5-day (strong): +11.46, t +2.74.
+- **D210** NKD follows EEM 5-day (all): +7.05, t +2.70.
+- **D211** DAX fades HO=F 5-day (strong): +11.76, t +2.62.
+- **D212** DAX fades CL=F 5-day (all): +7.77, t +2.62.
+- **D213** NKD fades ^VIX3M 5-day (all): +6.68, t +2.56.
+- **D214** NKD fades ^GVZ 5-day (strong): +10.31, t +2.56.
+- **D215** DAX follows ZB=F 5-day (strong): +10.23, t +2.54.
+- **D216** NKD fades ZC=F 5-day (strong): +8.69, t +2.51.
+- **D217** DAX fades CL=F 5-day (strong): +11.19, t +2.48.
+- **D218** MNQ fades KRE 5-day (strong): +12.86, t +2.42.
+- **D219** NKD fades ^VIX 5-day (all): +6.31, t +2.41.
+- **D220** MNQ fades RTY=F 5-day (strong): +13.06, t +2.39.
+- **D221** DAX follows ZN=F 5-day (all): +7.06, t +2.38.
+- **D222** NKD follows 6B=F 5-day (strong): +8.47, t +2.37.
+- **D223** ZS fades CLP=X 5-day (all): +10.37, t +2.36.
+- **D224** ZS follows ZB=F 5-day (all): +9.96, t +2.32.
+- **D225** NKD fades ^VVIX 5-day (all): +5.99, t +2.29.
+- **D226** MNQ fades ADM 5-day (strong): +12.31, t +2.28.
+- **D227** NKD follows 6E=F 5-day (all): +5.93, t +2.27.
+- **D228** NKD follows XLY 5-day (strong): +9.21, t +2.27.
+- **D229** ZS fades KRW=X 5-day (strong): +13.43, t +2.24.
+- **D230** NKD fades ^VIX3M 5-day (strong): +9.33, t +2.24.
+- **D231** NKD fades ZC=F 5-day (all): +5.84, t +2.23.
+- **D232** DAX follows ZN=F 5-day (strong): +9.21, t +2.22.
+- **D233** ZS follows XLF 5-day (strong): +13.90, t +2.21.
+- **D234** NKD fades ^VVIX 5-day (strong): +9.04, t +2.15.
+- **D235** MNQ fades EEM 5-day (all): +7.88, t +2.14.
+- **D236** CL fades SOYB 5-day (strong): +22.65, t +2.11.
+- **D237** DAX fades HO=F 5-day (all): +6.25, t +2.10.
+- **D238** NKD fades ^GVZ 5-day (all): +5.47, t +2.09.
+- **D239** ZS fades CLP=X 5-day (strong): +13.04, t +2.05.
+- **D240** CL follows XLF 5-day (all): +14.52, t +2.05.
+- **D241** NKD follows SMH 5-day (all): +5.34, t +2.04.
+- **D242** NKD fades DX-Y.NYB 5-day (strong): +8.09, t +2.04.
+- **D243** NKD follows SMH 5-day (strong): +8.48, t +2.03.
+- **D244** CL follows XLY 5-day (strong): +21.22, t +2.02.
+- **D245** NKD follows XLF 5-day (strong): +7.82, t +2.01.
+- **D246** MNQ fades SMH 5-day (strong): +11.09, t +2.00.
+- **D247** DAX fades DFII10 5-day (all): +6.12, t +2.00.
+- **D248** DAX fades DFII10 5-day (strong): +8.94, t +1.97.
+- **D249** NKD fades ^VIX 5-day (strong): +8.27, t +1.97.
+
+Themes: **NKD follows the past week's global risk** (DAX, FXI, EEM, SMH, XLF, XLY, 6E/6B up → long; VIX, VIX3M, VVIX, GVZ up → short) —
+every-day, a plan product; **the DAX fades the week's oil** (CL, HO) **and follows bonds** (ZB, ZN). Each validated once per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
