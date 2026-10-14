@@ -10555,6 +10555,18 @@ of the previous 60. Targets on the next weekday: MNQ's day session and gold's Lo
 fixed by discovery. **2 × 2 = 4 tests**, with the descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0,
 t > 1.96; validation as §207, 3.
 
+## 346. Family-82 discovery: VVIX and SKEW shocks — 0 of 4 carried (S1)
+
+**No trial spent; N 882.** `reports/d82_discovery.json`: every |t| < 0.5. Empty.
+
+## 347. D-series family 83 protocol: shocks into the currencies not yet targeted (S1)
+
+**No trial spent; N 882. Written and committed BEFORE any statistic is computed.** Families 24/29 targeted only 6E and 6J among
+currencies. Targets: **6A, 6B, 6C, 6S** (Yahoo daily open → settlement, family-10 cleaning). Predictors from the family-10 universe:
+**ES, NQ, CL, GC, HG, ZN** (commodity-currency links: copper/gold → AUD, crude → CAD), shock on the previous weekday as family 24;
+follow or fade fixed by discovery. **6 × 4 = 24 tests** (~1.2 by chance), with the descriptive 2010–17 column. Cost 0.5 bps (§180's
+FX level); recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
