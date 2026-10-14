@@ -10947,6 +10947,13 @@ mechanism's sign, as every pair in families 97–99. Crude's 2020 swings inflate
 21th; years 1 of 4. The 2018–22 size came from crude's 2020 swings. The producer-currency mechanism holds out of sample
 only for soybeans (D122) so far; copper (D124) kept its sign weakly, crude did not. Z and D market-test 137.
 
+## 392. D-series family 101 protocol: does D122 last beyond the next session? (S1)
+
+**No trial spent; N 901. Written and committed BEFORE any statistic is computed.** D122 trades only the session after a real shock.
+Lags: the **2nd** and **3rd** ZS sessions after the shock day (Yahoo, family 10), short after the real weakens / long after it
+strengthens (D122's direction, not re-chosen). **2 tests**, descriptive 2010–17 column. Cost ZS 0.7; recent-period design; carried at
+net > 0, t > 1.96; validation as §207, 3. A carried lag would extend D122's overlay; none changes D122 itself.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
