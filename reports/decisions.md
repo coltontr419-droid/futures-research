@@ -10742,6 +10742,20 @@ corrected clock. Predictor: the Hang Seng's session 09:30 → 16:00 Hong Kong (e
 **all** and **strong**. **2 × 2 = 4 tests**, descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0,
 t > 1.96; validation as §207, 3.
 
+## 368. Family-92 discovery: the Hang Seng into gold and MNQ — 0 of 4 carried (S1)
+
+**No trial spent; N 896.** `reports/d92_discovery.json`: every |t| ≤ 1.0 in 2018–22. Empty.
+
+## 369. A30 design: skip the quietest forecast days (S8)
+
+**A COMPUTATION; zero edge; no trial; N 896. Variants fixed BEFORE any result.** Under zero edge a trade's expectation is minus its
+cost. On days whose range is small against the brackets, the window usually ends between them with a small P&L — little progress
+toward the target, a full round trip paid. Forecast F_d = mean per-contract window range over the previous 20 sessions (A29's);
+reference = its previous-250 median. Variants: **plan** (trade every day); **S20** skip days with F_d below the 20th percentile of
+the previous 250 forecasts; **S40** below the 40th. A23 engine with `skip` (the account sits; no cost), 50K Daily, live sizes, both
+histories, every start, 84 days; five-account books. Adopt only if S20 or S40 beats the plan in BOTH histories on mean net AND
+P(net > 0).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
