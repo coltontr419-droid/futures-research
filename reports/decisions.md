@@ -12041,6 +12041,16 @@ the §446 stress tests for any CONFIRM.
 **No trial spent; N 1,105.** `reports/d135_discovery.json`: all |t| ≤ 1.77 (best: crude against its stretch vs heating oil, +12.5 bps).
 The relative-value edge lives only in the extremes (D329), not as an every-day signal. Empty.
 
+## 499. D-series family 136 protocol: gold's other windows as every-day targets, current regime (S1)
+
+**No trial spent; N 1,105. Written and committed BEFORE any statistic is computed.** Gold's London window (the MGC ticket) took no direction
+from anything in families 114–135. If another gold window does, the ticket could move there. Targets: **gold's NY afternoon** 11:30 →
+16:55 ET (family-68 grid) and **gold's whole Globex session** (GC=F Yahoo open → settlement). Predictors: family 111's list (excluding
+GC=F itself and gold-ETF duplicates GLD/GDX), the sign of the previous weekday's move (1-day) and of the previous 5 weekdays' sum (5-day);
+forms all / strong. Currency/BTC-USD predictors excluded for the whole session (it opens 18:00 ET, before their close). Carried at net >
+0, t > 1.96 (~2.5% by chance; counted). Cost 0.8; validation per §426, 2 (placebo: shuffled signs), then §446-style stress tests and a
+replay of the MGC account trading the new window before any proposal.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
