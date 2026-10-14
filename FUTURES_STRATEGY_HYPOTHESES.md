@@ -1513,198 +1513,198 @@ Data-derived (D-series family 119). `hypotheses.yaml` (D199) · `decisions.md` �
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D200) · `decisions.md` §444
 
-## D201 — Nkd Follows Gdaxi Week Strong  *(registered)*
+## D201 — Nkd Follows Gdaxi Week Strong  *(REJECT — t00983)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D201) · `decisions.md` §450
 
-## D202 — Nkd Follows 6Ef Week Strong  *(registered)*
+## D202 — Nkd Follows 6Ef Week Strong  *(CONFIRM — t00984)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D202) · `decisions.md` §450
 
-## D203 — Nkd Follows Fxi Week All  *(registered)*
+## D203 — Nkd Follows Fxi Week All  *(WATCHLIST — t00985)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D203) · `decisions.md` §450
 
-## D204 — Cl Fades Plf Week Strong  *(registered)*
+## D204 — Cl Fades Plf Week Strong  *(REJECT — t00986)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D204) · `decisions.md` §450
 
-## D205 — Nkd Follows 6Bf Week All  *(registered)*
+## D205 — Nkd Follows 6Bf Week All  *(WATCHLIST — t00987)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D205) · `decisions.md` §450
 
-## D206 — Nkd Follows Gdaxi Week All  *(registered)*
+## D206 — Nkd Follows Gdaxi Week All  *(REJECT — t00988)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D206) · `decisions.md` §450
 
-## D207 — Cl Fades Hef Week Strong  *(registered)*
+## D207 — Cl Fades Hef Week Strong  *(REJECT — t00989)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D207) · `decisions.md` §450
 
-## D208 — Nkd Follows Fxi Week Strong  *(registered)*
+## D208 — Nkd Follows Fxi Week Strong  *(WATCHLIST — t00990)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D208) · `decisions.md` §450
 
-## D209 — Nkd Follows Eem Week Strong  *(registered)*
+## D209 — Nkd Follows Eem Week Strong  *(WATCHLIST — t00991)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D209) · `decisions.md` §450
 
-## D210 — Nkd Follows Eem Week All  *(registered)*
+## D210 — Nkd Follows Eem Week All  *(WATCHLIST — t00992)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D210) · `decisions.md` §450
 
-## D211 — Dax Fades Hof Week Strong  *(registered)*
+## D211 — Dax Fades Hof Week Strong  *(REJECT — t00993)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D211) · `decisions.md` §450
 
-## D212 — Dax Fades Clf Week All  *(registered)*
+## D212 — Dax Fades Clf Week All  *(REJECT — t00994)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D212) · `decisions.md` §450
 
-## D213 — Nkd Fades Vix3M Week All  *(registered)*
+## D213 — Nkd Fades Vix3M Week All  *(REJECT — t00995)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D213) · `decisions.md` §450
 
-## D214 — Nkd Fades Gvz Week Strong  *(registered)*
+## D214 — Nkd Fades Gvz Week Strong  *(REJECT — t00996)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D214) · `decisions.md` §450
 
-## D215 — Dax Follows Zbf Week Strong  *(registered)*
+## D215 — Dax Follows Zbf Week Strong  *(REJECT — t00997)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D215) · `decisions.md` §450
 
-## D216 — Nkd Fades Zcf Week Strong  *(registered)*
+## D216 — Nkd Fades Zcf Week Strong  *(WATCHLIST — t00998)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D216) · `decisions.md` §450
 
-## D217 — Dax Fades Clf Week Strong  *(registered)*
+## D217 — Dax Fades Clf Week Strong  *(REJECT — t00999)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D217) · `decisions.md` §450
 
-## D218 — Mnq Fades Kre Week Strong  *(registered)*
+## D218 — Mnq Fades Kre Week Strong  *(REJECT — t01000)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D218) · `decisions.md` §450
 
-## D219 — Nkd Fades Vix Week All  *(registered)*
+## D219 — Nkd Fades Vix Week All  *(WATCHLIST — t01001)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D219) · `decisions.md` §450
 
-## D220 — Mnq Fades Rtyf Week Strong  *(registered)*
+## D220 — Mnq Fades Rtyf Week Strong  *(REJECT — t01002)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D220) · `decisions.md` §450
 
-## D221 — Dax Follows Znf Week All  *(registered)*
+## D221 — Dax Follows Znf Week All  *(REJECT — t01003)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D221) · `decisions.md` §450
 
-## D222 — Nkd Follows 6Bf Week Strong  *(registered)*
+## D222 — Nkd Follows 6Bf Week Strong  *(CONFIRM — t01004)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D222) · `decisions.md` §450
 
-## D223 — Zs Fades Clpx Week All  *(registered)*
+## D223 — Zs Fades Clpx Week All  *(REJECT — t01005)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D223) · `decisions.md` §450
 
-## D224 — Zs Follows Zbf Week All  *(registered)*
+## D224 — Zs Follows Zbf Week All  *(REJECT — t01006)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D224) · `decisions.md` §450
 
-## D225 — Nkd Fades Vvix Week All  *(registered)*
+## D225 — Nkd Fades Vvix Week All  *(REJECT — t01007)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D225) · `decisions.md` §450
 
-## D226 — Mnq Fades Adm Week Strong  *(registered)*
+## D226 — Mnq Fades Adm Week Strong  *(WATCHLIST — t01008)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D226) · `decisions.md` §450
 
-## D227 — Nkd Follows 6Ef Week All  *(registered)*
+## D227 — Nkd Follows 6Ef Week All  *(CONFIRM — t01009)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D227) · `decisions.md` §450
 
-## D228 — Nkd Follows Xly Week Strong  *(registered)*
+## D228 — Nkd Follows Xly Week Strong  *(WATCHLIST — t01010)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D228) · `decisions.md` §450
 
-## D229 — Zs Fades Krwx Week Strong  *(registered)*
+## D229 — Zs Fades Krwx Week Strong  *(WATCHLIST — t01011)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D229) · `decisions.md` §450
 
-## D230 — Nkd Fades Vix3M Week Strong  *(registered)*
+## D230 — Nkd Fades Vix3M Week Strong  *(WATCHLIST — t01012)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D230) · `decisions.md` §450
 
-## D231 — Nkd Fades Zcf Week All  *(registered)*
+## D231 — Nkd Fades Zcf Week All  *(CONFIRM — t01013)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D231) · `decisions.md` §450
 
-## D232 — Dax Follows Znf Week Strong  *(registered)*
+## D232 — Dax Follows Znf Week Strong  *(REJECT — t01014)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D232) · `decisions.md` §450
 
-## D233 — Zs Follows Xlf Week Strong  *(registered)*
+## D233 — Zs Follows Xlf Week Strong  *(REJECT — t01015)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D233) · `decisions.md` §450
 
-## D234 — Nkd Fades Vvix Week Strong  *(registered)*
+## D234 — Nkd Fades Vvix Week Strong  *(REJECT — t01016)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D234) · `decisions.md` §450
 
-## D235 — Mnq Fades Eem Week All  *(registered)*
+## D235 — Mnq Fades Eem Week All  *(WATCHLIST — t01017)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D235) · `decisions.md` §450
 
-## D236 — Cl Fades Soyb Week Strong  *(registered)*
+## D236 — Cl Fades Soyb Week Strong  *(REJECT — t01018)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D236) · `decisions.md` §450
 
-## D237 — Dax Fades Hof Week All  *(registered)*
+## D237 — Dax Fades Hof Week All  *(REJECT — t01019)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D237) · `decisions.md` §450
 
-## D238 — Nkd Fades Gvz Week All  *(registered)*
+## D238 — Nkd Fades Gvz Week All  *(REJECT — t01020)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D238) · `decisions.md` §450
 
-## D239 — Zs Fades Clpx Week Strong  *(registered)*
+## D239 — Zs Fades Clpx Week Strong  *(REJECT — t01021)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D239) · `decisions.md` §450
 
-## D240 — Cl Follows Xlf Week All  *(registered)*
+## D240 — Cl Follows Xlf Week All  *(WATCHLIST — t01022)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D240) · `decisions.md` §450
 
-## D241 — Nkd Follows Smh Week All  *(registered)*
+## D241 — Nkd Follows Smh Week All  *(WATCHLIST — t01023)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D241) · `decisions.md` §450
 
-## D242 — Nkd Fades Dxynyb Week Strong  *(registered)*
+## D242 — Nkd Fades Dxynyb Week Strong  *(CONFIRM — t01024)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D242) · `decisions.md` §450
 
-## D243 — Nkd Follows Smh Week Strong  *(registered)*
+## D243 — Nkd Follows Smh Week Strong  *(WATCHLIST — t01025)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D243) · `decisions.md` §450
 
-## D244 — Cl Follows Xly Week Strong  *(registered)*
+## D244 — Cl Follows Xly Week Strong  *(REJECT — t01026)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D244) · `decisions.md` §450
 
-## D245 — Nkd Follows Xlf Week Strong  *(registered)*
+## D245 — Nkd Follows Xlf Week Strong  *(WATCHLIST — t01027)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D245) · `decisions.md` §450
 
-## D246 — Mnq Fades Smh Week Strong  *(registered)*
+## D246 — Mnq Fades Smh Week Strong  *(CONFIRM — t01028)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D246) · `decisions.md` §450
 
-## D247 — Dax Fades Dfii10 Week All  *(registered)*
+## D247 — Dax Fades Dfii10 Week All  *(REJECT — t01029)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D247) · `decisions.md` §450
 
-## D248 — Dax Fades Dfii10 Week Strong  *(registered)*
+## D248 — Dax Fades Dfii10 Week Strong  *(REJECT — t01030)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D248) · `decisions.md` §450
 
-## D249 — Nkd Fades Vix Week Strong  *(registered)*
+## D249 — Nkd Fades Vix Week Strong  *(REJECT — t01031)*
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D249) · `decisions.md` §450

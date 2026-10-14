@@ -11617,6 +11617,28 @@ against ~2.5% by chance. Validation per §426, 2 (placebo: signs shuffled across
 Themes: **NKD follows the past week's global risk** (DAX, FXI, EEM, SMH, XLF, XLY, 6E/6B up → long; VIX, VIX3M, VVIX, GVZ up → short) —
 every-day, a plan product; **the DAX fades the week's oil** (CL, HO) **and follows bonds** (ZB, ZN). Each validated once per §426, 2.
 
+## 451. D201–D249 validated (t00983–t01031): six CONFIRM — NKD follows a weaker dollar over the week (S1)
+
+**N 1,025.** Sealed 2025-01 → 2026-08 under §426, 2; 16 WATCHLIST (mostly the same NKD risk theme), 27 REJECT (the crude rules again
+among them). Confirmed:
+- **D202** NKD follows 6E=F (strong): **CONFIRM** — n 200, +17.89 (t +2.83), placebo 100th, 2025 +16.8, 2026 +19.6
+- **D222** NKD follows 6B=F (strong): **CONFIRM** — n 188, +16.11 (t +2.49), placebo 100th, 2025 +7.9, 2026 +31.0
+- **D227** NKD follows 6E=F (all): **CONFIRM** — n 408, +11.85 (t +2.67), placebo 100th, 2025 +6.6, 2026 +20.0
+- **D231** NKD fades ZC=F (all): **CONFIRM** — n 407, +9.60 (t +2.15), placebo 99th, 2025 +4.6, 2026 +17.3
+- **D242** NKD fades DX-Y.NYB (strong): **CONFIRM** — n 183, +21.80 (t +3.27), placebo 100th, 2025 +19.0, 2026 +26.4
+- **D246** MNQ fades SMH (strong): **CONFIRM** — n 196, +15.99 (t +1.66), placebo 97th, 2025 +19.6, 2026 +11.2
+
+**The theme:** five of six confirmations are NKD moving with a WEAKER dollar over the previous week (euro and pound up, the dollar index
+down → NKD long), every-day in D227's form (+11.9 bps, t +2.67). It mirrors the DAX–dollar rule (§445–448) on a different horizon and
+sign: dollar strength helps the DAX the next day; a week of dollar weakness helps the Nikkei.
+
+## 452. Stress tests for the NKD–dollar-week theme, fixed before running (S8)
+
+**No trial; N 1,025.** (1) Independent data — the dollar's previous-5-weekday direction from Yahoo 6E=F (the trial's), DX-Y.NYB
+(inverted), FRED DTWEXBGS (inverted) and HistData EUR/USD (16:55 ET); the Nikkei from A21's window (the trial's) and Yahoo NKD=F's CME
+session; forms all and strong; periods 2010–20, 2021–24, 2025–26. (2) The NKD account (1 NKD, A23, drift removed, both histories): plan
+vs every-day (long after a weak-dollar week, short after a strong one) vs strong-only. Read as §446.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
