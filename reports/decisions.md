@@ -10715,6 +10715,19 @@ ET into NYMEX settlement predicts 14:30 → 15:30, follow or fade; forms all / s
 predicts New York 09:00 → 14:30, follow or fade; forms all / strong. **4 tests**, descriptive 2010–17 column. Cost MCL 5.4 bps;
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 364. Family-90 discovery: crude's settlement and London morning — 0 of 4 carried; MCL's cost rules out intraday crude (S1)
+
+**No trial spent; N 896.** `reports/d90_discovery.json`: gross moves of +0.7 to +2.3 bps against MCL's 5.4 bps of cost; every net is
+negative in 2018–22 (2010–17's relay +14.6 on strong mornings has gone). At MCL's cost, crude sub-windows of a few hours need a gross
+edge several times what any minute-level effect here has shown. Empty.
+
+## 365. D-series family 91 protocol: crude's post-settlement drift into the next MCL day (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** At the MCL ticket's own scale: crude's move from
+settlement to the close, 14:30 → 16:55 ET (Brent grid), predicts the next full window 18:00 → 16:55 (the ticket), follow or fade fixed
+by discovery; forms **all** and **strong**. **2 tests**, descriptive 2010–17 column. Cost MCL 5.4 bps; recent-period design; carried
+at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
