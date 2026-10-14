@@ -11048,6 +11048,14 @@ net > 0, t > 1.96; validation as §207, 3.
 
 **No trial spent; N 902.** `reports/d107_discovery.json`: XLE +10.1 (t +0.26), XOP +47.5 (t +1.20). Empty.
 
+## 407. D-series family 108 protocol: 2-year Treasury shocks into currencies (S1)
+
+**No trial spent; N 902. Written and committed BEFORE any statistic is computed.** The 2-year yield carries Fed expectations, the core of
+rate differentials; families 24/29 used only ZN for currencies. ZT=F shocks (family 39's series, 2σ) on the previous weekday → the
+next sessions of **6E, 6J** (family 10) and **6B, 6A** (family 83's series), with or against, fixed by discovery. **4 tests**,
+descriptive 2010–17 column. Costs: 6E 0.3, 6J 0.5, 6B/6A 0.5; recent-period design; carried at net > 0, t > 1.96; validation as
+§207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
