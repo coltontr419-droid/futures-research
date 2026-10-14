@@ -1,0 +1,40 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "window": "pre",
+   "n": 60,
+   "rule": "dollar stronger after equity gains",
+   "net_bps": -0.09941163178102834,
+   "t": -0.045709335995837465,
+   "early_net": -5.706916826090164,
+   "early_t": -4.498801849274134,
+   "carried": false
+  },
+  {
+   "window": "post",
+   "n": 60,
+   "rule": "dollar stronger after equity gains",
+   "net_bps": 2.2017266688127552,
+   "t": 1.9787726115601456,
+   "early_net": 1.673250726794426,
+   "early_t": 1.5702528144678365,
+   "carried": true
+  }
+ ],
+ "carried": [
+  {
+   "window": "post",
+   "n": 60,
+   "rule": "dollar stronger after equity gains",
+   "net_bps": 2.2017266688127552,
+   "t": 1.9787726115601456,
+   "early_net": 1.673250726794426,
+   "early_t": 1.5702528144678365,
+   "carried": true
+  }
+ ]
+}

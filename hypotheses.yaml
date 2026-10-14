@@ -11541,3 +11541,47 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 132.
   s6_control: By year; the same rule after non-shock days.
+- id: D121
+  name: dollar_recovers_after_monthend_fix
+  mechanism: >
+    DATA-DERIVED (D-series family 94, month-end fix, decisions.md 373-374): in 2018-2022, after the month-end London 16:00 fix,
+    6E/6B/6J (pooled) moved so that the dollar recovered the hedge-rebalancing pressure — dollar stronger 16:00 -> 16:30 after a rising
+    S&P month — +2.20 bps net (t +1.98, n 60 months); 2010-17 +1.67 (t +1.57).
+    THE COUNTERPARTY is the month-end hedge-rebalancing flow executed at the fix, whose price pressure reverts once printed.
+  condition: >
+    On the last London business day of each month, trade 6E/6B/6J 16:00 -> 16:30 London with the dollar if the S&P rose over the month (against it if it fell); net of 0.5 bps.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 155
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-94 scan (2 tests, decisions.md 374). ONE TRIAL.
+  session: Europe
+  symbols: [6E]
+  mechanism_instruments:
+    primary: 6E
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule on the second-last business day), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 133.
+  s6_control: By year; the same rule on the second-last business day.

@@ -10785,6 +10785,14 @@ in the direction "dollar weaker when equities rose" or the reverse, fixed by dis
 (day-clustered). **2 tests**, descriptive 2010–17 column. Cost 0.5 bps; recent-period design; carried at net > 0, t > 1.96;
 validation as §207, 3 (placebo: the same rule on the second-last business day).
 
+## 374. Family-94 discovery: 1 of 2 carried — the dollar recovers after the month-end fix; D121 registered (S1)
+
+**No trial spent yet; N 896.** `reports/d94_discovery.json` (module `reporting/d94_monthend.py`): **post** (16:00 → 16:30), dollar
+stronger after a rising S&P month, **+2.20 bps**, t +1.98, n 60 months; 2010–17 +1.67 (t +1.57).
+**pre** (into the fix) ~0 in 2018–22 — but in 2010–17 the documented run-up was strong (dollar weaker into the fix after equity gains,
++5.7 bps, t +4.5): the published effect has gone; only its unwind remains. Scale: ~2 bps on a currency future 12 times a year —
+unusable whatever the trial says. Z and D market-test 133.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
