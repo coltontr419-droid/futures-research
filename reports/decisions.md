@@ -11032,6 +11032,11 @@ soybean flow; their share prices react first to margin and demand news. Yahoo da
 previous 60 on day D → the next-weekday ZS and ZC sessions (family 10; grains reopen 20:00 ET), with or against, fixed by discovery.
 **2 × 2 = 4 tests**, descriptive 2010–17 column. Costs §177; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 404. Family-106 discovery: grain traders' stocks — 0 of 4 carried (S1)
+
+**No trial spent; N 902.** `reports/d106_discovery.json`: grains fade an ADM/BG shock +17 to +26 bps (t +1.08 to +1.81), mixed in
+2010–17. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

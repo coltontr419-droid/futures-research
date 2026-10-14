@@ -1,0 +1,53 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "predictor": "ADM",
+   "target": "ZS",
+   "n": 83,
+   "rule": "fade",
+   "net_bps": 25.951042676511072,
+   "t": 1.8097763409232899,
+   "early_net": 2.0594824991518617,
+   "early_t": 0.15366417547202485,
+   "carried": false
+  },
+  {
+   "predictor": "ADM",
+   "target": "ZC",
+   "n": 83,
+   "rule": "fade",
+   "net_bps": 17.42761825474579,
+   "t": 1.0788299099654248,
+   "early_net": 13.397149194030423,
+   "early_t": 0.8323508309601624,
+   "carried": false
+  },
+  {
+   "predictor": "BG",
+   "target": "ZS",
+   "n": 65,
+   "rule": "fade",
+   "net_bps": 24.22807500091002,
+   "t": 1.5047656996749552,
+   "early_net": -19.369968171353985,
+   "early_t": -1.3600372497332447,
+   "carried": false
+  },
+  {
+   "predictor": "BG",
+   "target": "ZC",
+   "n": 65,
+   "rule": "fade",
+   "net_bps": 23.61759406548697,
+   "t": 1.193903478261763,
+   "early_net": -1.331979256162496,
+   "early_t": -0.0781943462567176,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
