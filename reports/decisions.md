@@ -11188,6 +11188,12 @@ more in bracket paths than their edge adds. MNQ account (4 MNQ, 50K Daily, drift
 long otherwise); **flip-short-only** is identical to flip (a bond rally already means long). Read: if skip beats flip on mean net in
 both histories without lowering P(payout), propose it to the user as a change to the bot (not made without confirmation).
 
+## 423. A32 result: D68's flip beats a skip — the deployed form stays (S8)
+
+**No trial; N 908.** `reports/a32_d68_skip.json` (sell-off days 2.4% / 3.3% of sessions): 2015–20 plan +$1,960 (76%, 61%), flip +$1,971
+(72%, 55%), skip +$1,767 (72%, 63%); 2021–26 plan +$1,265 (80%, 59%), **flip +$1,720 (77%, 64%)**, skip +$1,337 (79%, 63%). The flip
+reproduces §210 exactly and earns more than skipping in both histories; the bot's D68 is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

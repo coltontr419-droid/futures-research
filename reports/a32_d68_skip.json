@@ -1,0 +1,38 @@
+{
+ "pre|plan": {
+  "p_payout": 0.7592116538131962,
+  "mean_net": 1960.1857489288773,
+  "p_net_positive": 0.610968294772922,
+  "adverse_share": 0.023980815347721823
+ },
+ "pre|flip (deployed)": {
+  "p_payout": 0.7232219365895458,
+  "mean_net": 1971.4892639245936,
+  "p_net_positive": 0.5535561268209083,
+  "adverse_share": 0.023980815347721823
+ },
+ "pre|skip": {
+  "p_payout": 0.7180805484147387,
+  "mean_net": 1767.2753513281923,
+  "p_net_positive": 0.6255355612682091,
+  "adverse_share": 0.023980815347721823
+ },
+ "post|plan": {
+  "p_payout": 0.8035303146584805,
+  "mean_net": 1265.345398311588,
+  "p_net_positive": 0.5932463545663853,
+  "adverse_share": 0.03316510454217736
+ },
+ "post|flip (deployed)": {
+  "p_payout": 0.7682271680736761,
+  "mean_net": 1719.6474159631623,
+  "p_net_positive": 0.6408288564850345,
+  "adverse_share": 0.03316510454217736
+ },
+ "post|skip": {
+  "p_payout": 0.7851112816577129,
+  "mean_net": 1336.8990061396773,
+  "p_net_positive": 0.6254796623177283,
+  "adverse_share": 0.03316510454217736
+ }
+}
