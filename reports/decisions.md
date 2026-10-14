@@ -10601,6 +10601,15 @@ Discovery t +2.3 to +3.6 became −1.2 to +1.05; two flipped sign. Family 83 was
 2010–17 column had already shown. Lesson recorded for the remaining search: a carried test whose 2010–17 column is flat (|t| < 1) has
 now failed out of sample every time (D97–D99, D102, D103, D107–D114). Z and D market-tests reach 126.
 
+## 350. D-series family 84 protocol: signed volume (a tick-rule order-flow proxy) overnight (S1)
+
+**No trial spent; N 890. Written and committed BEFORE any statistic is computed.** Earlier families used volume levels (27, 33), never
+its sign. Per minute, signed volume = sign(close − previous close) × volume (same contract; zero change → 0), from the family-8 grids.
+Imbalance = Σ signed / Σ volume over the session before the target: **MNQ** night (18:00 → 09:30) → day session; **gold** Asia
+(18:00 → 03:00) → London window. Signal sign(imbalance); follow or fade fixed by discovery; forms **all** and **strong** (|imbalance|
+above its discovery median). **2 × 2 = 4 tests**, with the descriptive 2010–17 column. Costs §180; recent-period design; carried at
+net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
