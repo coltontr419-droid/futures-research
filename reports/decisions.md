@@ -10827,6 +10827,15 @@ the same rule (follow a ZN shock, family 24's definition; A21 window paths; cost
 both periods positive, +23.5 and +15.5, but below the bar). NKD's sign matches D68 throughout and is the nearest thing to a second
 D68 — noted for the NKD account's demo review, not adopted. Empty.
 
+## 380. D-series family 97 protocol: the Brazilian real into soybeans and corn (S1)
+
+**No trial spent; N 897. Written and committed BEFORE any statistic is computed.** Brazil is the largest soy exporter; a sharply
+weaker real raises farmers' local-currency price and their selling. Yahoo BRL=X daily, close → close (its opens are stale on a third
+of days; CNY=X, stale on 71%, is not used), dated by its UTC day (closes 20:00 ET). Shock = |change| beyond 2 SD of the previous 60.
+Targets: ZS and ZC sessions (family-10 open → settlement) dated the next weekday (grains reopen 20:00 ET), with the shock (USD/BRL up)
+or against it, fixed by discovery. **2 tests**, descriptive 2010–17 column. Costs §177 (ZS 0.7, ZC 1.9); recent-period design;
+carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
