@@ -10954,6 +10954,11 @@ Lags: the **2nd** and **3rd** ZS sessions after the shock day (Yahoo, family 10)
 strengthens (D122's direction, not re-chosen). **2 tests**, descriptive 2010–17 column. Cost ZS 0.7; recent-period design; carried at
 net > 0, t > 1.96; validation as §207, 3. A carried lag would extend D122's overlay; none changes D122 itself.
 
+## 393. Family-101 discovery: D122 is a one-session effect — 0 of 2 carried (S1)
+
+**No trial spent; N 901.** `reports/d101_discovery.json`: lag 2 +19.4 bps (t +1.32; 2010–17 −19.0), lag 3 −13.8 (t −1.14). The
+response is the next session only; D122's overlay stays one day. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
