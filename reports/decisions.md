@@ -11168,6 +11168,14 @@ run** (yesterday's 6L settle → settle move, 60-session SD, 2σ; ZS ticket shor
 paths more than the rule's ~10–20 bps edge adds. **D122 stays CONFIRMED as a finding, but is not recommended for the bot** — unlike D68,
 whose overlay added ~$455 per four months in 2021–26 (§210). Recorded for the user and the 2026-10-25 review.
 
+## 420. D-series family 112 protocol: the opening half-hour's volatility sets the rest of the session (S1)
+
+**No trial spent; N 908. Written and committed BEFORE any statistic is computed.** The leverage effect intraday: a turbulent open
+signals selling pressure. Ratio = realized volatility of 1-minute returns in the window's first 30 minutes (MNQ 09:30–10:00; gold
+03:00–03:30) over its mean in the previous 20 sessions. Top third of its trailing-250 distribution → one side, bottom third → the other,
+middle not traded; target the rest of the window (10:00 → 16:00; 03:30 → 11:30), JUDGED DEMEANED; side fixed by discovery. **2 tests**,
+descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
