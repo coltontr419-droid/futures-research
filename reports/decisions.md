@@ -10918,6 +10918,15 @@ USD/BRL shock (2σ, close → close, UTC day) → the next-weekday session (Yaho
 fixed by discovery. **3 tests**, descriptive 2010–17 column. Costs: 1.5 bps each (between §177's ZS 0.7 and ZC 1.9; these are thinner);
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 388. Family-99 discovery and a D122 mechanism check: the real moves commodities, not equities (S1, S8)
+
+**No trial spent; N 900.** `reports/d99_discovery.json`: ZM +29.7 bps (t +1.83), ZL +15.5 (t +1.00), LE +18.7 (t +1.00) — none carried,
+all with the mechanism's sign (short after the real weakens). **Descriptive check of what a real shock moves next session** (short after
+weakening, gross, 2018–22 | 2023–26): ZS +40.1 (t +2.97) | **+33.6 (t +1.92)**; ZC +42.0 | +17.7; ZW +33.3 | +15.4; CL +135.8 | +29.6;
+HG +25.6 | −12.3; GC −0.1 | +4.8; ES −3.5 | −10.2; NQ −34.4 | −13.5. Equities do not fall after a real shock and gold is flat: D122 is a
+commodity-exporter effect, strongest and most persistent in soybeans — not a general emerging-market risk-off signal. It supports
+reading D122 as the producer-selling mechanism it was registered under.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
