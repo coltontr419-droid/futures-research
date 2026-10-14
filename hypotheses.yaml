@@ -11598,3 +11598,91 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule on the second-last business day), positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 133.
   s6_control: By year; the same rule on the second-last business day.
+- id: D122
+  name: zs_falls_after_real_weakens
+  mechanism: >
+    DATA-DERIVED (D-series family 97, the Brazilian real, decisions.md 380-381): in 2018-2022, ZS's next session after a
+    USD/BRL move beyond 2 sigma, traded AGAINST it (short after the real weakens), earned +39.37 bps net (t +2.92,
+    n 64); 2010-17 +2.36 (t +0.19). THE COUNTERPARTY is Brazilian farmers' and exporters' selling,
+    which rises when a weaker real lifts their local-currency price.
+  condition: >
+    After a USD/BRL close-to-close move beyond 2 x the SD of its previous 60, take ZS's next session against its sign; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 156
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-97 scan (2 tests, decisions.md 381). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 134.
+  s6_control: By year; the same rule after non-shock days.
+- id: D123
+  name: zc_falls_after_real_weakens
+  mechanism: >
+    DATA-DERIVED (D-series family 97, the Brazilian real, decisions.md 380-381): in 2018-2022, ZC's next session after a
+    USD/BRL move beyond 2 sigma, traded AGAINST it (short after the real weakens), earned +40.10 bps net (t +2.22,
+    n 64); 2010-17 +3.78 (t +0.21). THE COUNTERPARTY is Brazilian farmers' and exporters' selling,
+    which rises when a weaker real lifts their local-currency price.
+  condition: >
+    After a USD/BRL close-to-close move beyond 2 x the SD of its previous 60, take ZC's next session against its sign; net of 1.9 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 157
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-97 scan (2 tests, decisions.md 381). ONE TRIAL.
+  session: Globex
+  symbols: [ZC]
+  mechanism_instruments:
+    primary: ZC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 135.
+  s6_control: By year; the same rule after non-shock days.

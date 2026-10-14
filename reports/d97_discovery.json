@@ -1,0 +1,50 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "target": "ZS",
+   "n": 64,
+   "rule": "against USD/BRL",
+   "net_bps": 39.37365968701859,
+   "t": 2.9156406695202612,
+   "early_net": 2.355789574408652,
+   "early_t": 0.19159270737879744,
+   "carried": true
+  },
+  {
+   "target": "ZC",
+   "n": 64,
+   "rule": "against USD/BRL",
+   "net_bps": 40.0971695754103,
+   "t": 2.2155793908578465,
+   "early_net": 3.775666501180835,
+   "early_t": 0.21459507552914547,
+   "carried": true
+  }
+ ],
+ "carried": [
+  {
+   "target": "ZS",
+   "n": 64,
+   "rule": "against USD/BRL",
+   "net_bps": 39.37365968701859,
+   "t": 2.9156406695202612,
+   "early_net": 2.355789574408652,
+   "early_t": 0.19159270737879744,
+   "carried": true
+  },
+  {
+   "target": "ZC",
+   "n": 64,
+   "rule": "against USD/BRL",
+   "net_bps": 40.0971695754103,
+   "t": 2.2155793908578465,
+   "early_net": 3.775666501180835,
+   "early_t": 0.21459507552914547,
+   "carried": true
+  }
+ ]
+}

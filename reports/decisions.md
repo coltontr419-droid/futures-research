@@ -10836,6 +10836,16 @@ Targets: ZS and ZC sessions (family-10 open → settlement) dated the next weekd
 or against it, fixed by discovery. **2 tests**, descriptive 2010–17 column. Costs §177 (ZS 0.7, ZC 1.9); recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 381. Family-97 discovery: 2 of 2 carried — grains fall after the real weakens; D122–D123 registered (S1)
+
+**No trial spent yet; N 897.** `reports/d97_discovery.json` (module `reporting/d97_brl.py`):
+- **D122** ZS short after the real weakens (long after it strengthens): +39.37 bps, t +2.92, n 64; 2010–17 +2.36 (t +0.19); market-test 134.
+- **D123** ZC short after the real weakens (long after it strengthens): +40.10 bps, t +2.22, n 64; 2010–17 +3.78 (t +0.21); market-test 135.
+
+The sign is the mechanism's (a weaker real → more Brazilian selling → lower US grain prices). Caution recorded before the trials: the
+2010–17 column is flat (t ≈ 0.2), the pattern that has preceded every out-of-sample failure in this search (§349). ZS is the demo's
+sixth account; a confirmed D122 would be a D68-like overlay for it.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1196,3 +1196,11 @@ Data-derived (D-series family 86). `hypotheses.yaml` (D120) · `decisions.md` §
 ## D121 — Dollar Recovers After Monthend Fix  *(WATCHLIST — t00903)*
 
 Data-derived (D-series family 94). `hypotheses.yaml` (D121) · `decisions.md` §374
+
+## D122 — Zs Falls After Real Weakens  *(registered)*
+
+Data-derived (D-series family 97). `hypotheses.yaml` (D122) · `decisions.md` §381
+
+## D123 — Zc Falls After Real Weakens  *(registered)*
+
+Data-derived (D-series family 97). `hypotheses.yaml` (D123) · `decisions.md` §381
