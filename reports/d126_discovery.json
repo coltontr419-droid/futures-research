@@ -1,0 +1,114 @@
+{
+ "window": [
+  "2021-01-01",
+  "2024-12-31"
+ ],
+ "tests": 8,
+ "all": [
+  {
+   "predictor": "overnight",
+   "target": "MNQ",
+   "form": "all",
+   "median_abs": 20.85667504279909,
+   "n": 918,
+   "dir": "fade",
+   "net_bps": 1.0617911987055362,
+   "t": 0.2720604309312541,
+   "context_net": -1.8354881707842445,
+   "context_t": -0.9286580111951346,
+   "carried": false
+  },
+  {
+   "predictor": "overnight",
+   "target": "MNQ",
+   "form": "strong",
+   "median_abs": 20.85667504279909,
+   "n": 459,
+   "dir": "follow",
+   "net_bps": 5.068986219518325,
+   "t": 0.8457147430007041,
+   "context_net": -1.4904886505060029,
+   "context_t": -0.5292292082597462,
+   "carried": false
+  },
+  {
+   "predictor": "overnight",
+   "target": "MGC_NY",
+   "form": "all",
+   "median_abs": 21.009192621759265,
+   "n": 915,
+   "dir": "fade",
+   "net_bps": 0.9293307559737739,
+   "t": 0.7740699278325701,
+   "context_net": -1.6134012865216545,
+   "context_t": -1.780647827388054,
+   "carried": false
+  },
+  {
+   "predictor": "overnight",
+   "target": "MGC_NY",
+   "form": "strong",
+   "median_abs": 21.009192621759265,
+   "n": 457,
+   "dir": "fade",
+   "net_bps": -0.6388117909170612,
+   "t": -0.38923850750307565,
+   "context_net": -1.1998379908328838,
+   "context_t": -0.9988811769939412,
+   "carried": false
+  },
+  {
+   "predictor": "london_morning",
+   "target": "MNQ",
+   "form": "all",
+   "median_abs": 18.76813155811119,
+   "n": 961,
+   "dir": "follow",
+   "net_bps": 2.6834534775081957,
+   "t": 0.7150799320558359,
+   "context_net": 2.4911533280067335,
+   "context_t": 1.2486270335768428,
+   "carried": false
+  },
+  {
+   "predictor": "london_morning",
+   "target": "MNQ",
+   "form": "strong",
+   "median_abs": 18.76813155811119,
+   "n": 480,
+   "dir": "follow",
+   "net_bps": 8.316373471419016,
+   "t": 1.4909640089757794,
+   "context_net": -1.1740274578744914,
+   "context_t": -0.39401830477495786,
+   "carried": false
+  },
+  {
+   "predictor": "london_morning",
+   "target": "MGC_NY",
+   "form": "all",
+   "median_abs": 18.62412792942303,
+   "n": 957,
+   "dir": "fade",
+   "net_bps": 0.976636976682529,
+   "t": 0.8361182908672442,
+   "context_net": -1.373789939971342,
+   "context_t": -1.5284844278877172,
+   "carried": false
+  },
+  {
+   "predictor": "london_morning",
+   "target": "MGC_NY",
+   "form": "strong",
+   "median_abs": 18.62412792942303,
+   "n": 478,
+   "dir": "fade",
+   "net_bps": -0.7838443899753215,
+   "t": -0.4959448209959661,
+   "context_net": -2.042195769718715,
+   "context_t": -1.6939579802367453,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

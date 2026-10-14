@@ -11817,6 +11817,11 @@ Targets: **MNQ day** (09:30 → 16:00, D) and **gold NY afternoon** (11:30 → 1
 before it). Follow or fade fixed by 2021–24; forms all / strong. **2 × 2 × 2 = 8 tests.** Costs §180; validation per §426, 2 (placebo:
 shuffled signs).
 
+## 470. Family-126 discovery: the dollar before New York does not move the US windows — empty (S1)
+
+**No trial spent; N 1,095.** `reports/d126_discovery.json`: best MNQ follows a strong London-morning dollar move, +8.3 bps (t +1.49);
+gold's NY afternoon ~0. The dollar theme is a foreign-index effect (DAX, Nikkei), not a US one. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
