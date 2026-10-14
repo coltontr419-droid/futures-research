@@ -11553,6 +11553,14 @@ SHORT after a fall — every session; unchanged or unreadable → long. Wired in
 the FDXM account changes: the five-account book gains ~+$1,841 per four months, not five times it. Not modelled: extra slippage, and
 whether the 2021–26 strength persists — which is what the demo now tests.
 
+## 449. D-series family 120 protocol: the last five days' direction across markets, every day, current regime (S1)
+
+**No trial spent; N 976. Written and committed BEFORE any statistic is computed.** Family 119 (§443) found the DAX–dollar rule with
+one-day predictors. Here the predictor is the sign of each series' summed moves over the previous 5 weekdays (ending the previous
+weekday), every session; same predictor list, targets and exclusions; forms **all** and **strong** (|5-day sum| above its 2021–24
+median); pairs carried in family 119 are kept (a 5-day sum is a different rule). Carried at net > 0, t > 1.96; the count reported
+against ~2.5% by chance. Validation per §426, 2 (placebo: signs shuffled across the sealed sessions).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
