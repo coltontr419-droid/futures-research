@@ -10530,6 +10530,18 @@ dropped as §329. **A shock** — the crush's daily change beyond 2 SD of the pr
 the previous-60 mean. Target ZS's next session (family-10 open → settlement), with or against, fixed by discovery. **2 tests**, with
 the descriptive 2010–17 column. Cost ZS 0.7 bps; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 342. Family-80 discovery: soybeans against the crush margin — 0 of 2 carried (S1)
+
+**No trial spent; N 882.** `reports/d80_discovery.json`: +5.9 / +9.0 bps (t +0.46 / +0.96), opposite in 2010–17. Empty.
+
+## 343. D-series family 81 protocol: the mid-month Treasury settlement (S1)
+
+**No trial spent; N 882. Written and committed BEFORE any statistic is computed.** Coupon Treasuries settle and pay on the 15th and
+the month's end; the mid-month date (the 15th, or the next business day) moves cash between the Treasury's account and banks' reserves
+— a liquidity flow twice a month that the turn-of-month calendar (family 5) did not isolate at mid-month. Target on that day: MNQ's
+day session and gold's London window, each minus its mean on other days in discovery; long or short fixed by discovery. **2 tests**,
+with the descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
