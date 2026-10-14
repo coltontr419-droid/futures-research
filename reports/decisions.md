@@ -10542,6 +10542,11 @@ the month's end; the mid-month date (the 15th, or the next business day) moves c
 day session and gold's London window, each minus its mean on other days in discovery; long or short fixed by discovery. **2 tests**,
 with the descriptive 2010–17 column. Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 344. Family-81 discovery: the mid-month Treasury settlement — 0 of 2 carried (S1)
+
+**No trial spent; N 882.** `reports/d81_discovery.json`: MNQ long +10.5 bps (t +0.68; 2010–17 +10.4, t +1.22); gold short +13.3
+(t +1.62; 2010–17 +11.3, t +1.19). The same signs in both periods, ~12 events a year, neither significant. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
