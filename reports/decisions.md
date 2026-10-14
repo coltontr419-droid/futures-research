@@ -10585,6 +10585,22 @@ one-way dollar trend under repeated rate shocks. Checked first for an artifact: 
 settlement (2–9% of days equal, median gap 5–10 bps), and the target session opens at 18:00 ET after every predictor has settled, so
 there is no look-ahead. Registered and validated once each, per protocol; expectation: most fail.
 
+## 349. D107–D114 validated (t00889–t00896): none confirm — the 2022 dollar trend, as read in §348 (S1)
+
+**N 890.** Sealed 2023-01 → 2026-08, injection recovered first for each:
+- **D107** 6B follows the previous session's ZN shock: **WATCHLIST** — 48 events, +2.37 bps (t +0.37), placebo 70th.
+- **D108** 6A follows the previous session's ZN shock: **REJECT** — 48 events, -2.56 bps (t -0.29), placebo 39th.
+- **D109** 6S follows the previous session's NQ shock: **WATCHLIST** — 48 events, +9.05 bps (t +0.85), placebo 93th.
+- **D110** 6S follows the previous session's GC shock: **WATCHLIST** — 55 events, +3.20 bps (t +0.32), placebo 76th.
+- **D111** 6B follows the previous session's GC shock: **WATCHLIST** — 55 events, +5.79 bps (t +0.90), placebo 86th.
+- **D112** 6S follows the previous session's ZN shock: **REJECT** — 48 events, -13.89 bps (t -1.24), placebo 2th.
+- **D113** 6S follows the previous session's ES shock: **WATCHLIST** — 52 events, +10.80 bps (t +1.05), placebo 97th.
+- **D114** 6C follows the previous session's ZN shock: **WATCHLIST** — 48 events, +3.51 bps (t +0.70), placebo 84th.
+
+Discovery t +2.3 to +3.6 became −1.2 to +1.05; two flipped sign. Family 83 was a 2018–22 (mostly 2022) regime, which the descriptive
+2010–17 column had already shown. Lesson recorded for the remaining search: a carried test whose 2010–17 column is flat (|t| < 1) has
+now failed out of sample every time (D97–D99, D102, D103, D107–D114). Z and D market-tests reach 126.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

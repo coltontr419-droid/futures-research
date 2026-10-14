@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D107",
+ "cell": "6B follows the previous session's ZN shock",
+ "trades": 48,
+ "net_bps": 2.3654403088282607,
+ "t_net": 0.37450767124972606,
+ "placebo_pct": 69.69999999999999,
+ "by_year": {
+  "2023": 17.310531664738196,
+  "2024": -2.440343362410111,
+  "2025": -19.481933195709733,
+  "2026": 10.781693624169973
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 119,
+ "injection": {
+  "hypothesis": "D107",
+  "n_events": 48,
+  "sought_bps": 16.736146761228873,
+  "mean_estimate": 16.71802123968361,
+  "sd_estimate_bps": 6.351141631290908,
+  "power_strict_t": 0.8365,
+  "recovered": true
+ }
+}

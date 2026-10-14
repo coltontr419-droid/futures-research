@@ -1137,34 +1137,34 @@ Data-derived (D-series family 76). `hypotheses.yaml` (D105) · `decisions.md` §
 
 Data-derived (D-series family 77). `hypotheses.yaml` (D106) · `decisions.md` §335
 
-## D107 — 6B Follows Zn Shock  *(registered)*
+## D107 — 6B Follows Zn Shock  *(WATCHLIST — t00883)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D107) · `decisions.md` §348
 
-## D108 — 6A Follows Zn Shock  *(registered)*
+## D108 — 6A Follows Zn Shock  *(REJECT — t00884)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D108) · `decisions.md` §348
 
-## D109 — 6S Follows Nq Shock  *(registered)*
+## D109 — 6S Follows Nq Shock  *(WATCHLIST — t00885)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D109) · `decisions.md` §348
 
-## D110 — 6S Follows Gc Shock  *(registered)*
+## D110 — 6S Follows Gc Shock  *(WATCHLIST — t00886)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D110) · `decisions.md` §348
 
-## D111 — 6B Follows Gc Shock  *(registered)*
+## D111 — 6B Follows Gc Shock  *(WATCHLIST — t00887)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D111) · `decisions.md` §348
 
-## D112 — 6S Follows Zn Shock  *(registered)*
+## D112 — 6S Follows Zn Shock  *(REJECT — t00888)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D112) · `decisions.md` §348
 
-## D113 — 6S Follows Es Shock  *(registered)*
+## D113 — 6S Follows Es Shock  *(WATCHLIST — t00889)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D113) · `decisions.md` §348
 
-## D114 — 6C Follows Zn Shock  *(registered)*
+## D114 — 6C Follows Zn Shock  *(WATCHLIST — t00890)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D114) · `decisions.md` §348

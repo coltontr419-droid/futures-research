@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D113",
+ "cell": "6S follows the previous session's ES shock",
+ "trades": 52,
+ "net_bps": 10.799791399565112,
+ "t_net": 1.0522531308562009,
+ "placebo_pct": 96.7,
+ "by_year": {
+  "2023": 17.08054813211896,
+  "2024": -11.231925416803191,
+  "2025": 28.128334323566254,
+  "2026": 13.206367180334167
+ },
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 125,
+ "injection": {
+  "hypothesis": "D113",
+  "n_events": 52,
+  "sought_bps": 7.88366121827537,
+  "mean_estimate": 8.006772598438397,
+  "sd_estimate_bps": 10.241078919079168,
+  "power_strict_t": 0.1705,
+  "recovered": true
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D109",
+ "cell": "6S follows the previous session's NQ shock",
+ "trades": 48,
+ "net_bps": 9.054922762509294,
+ "t_net": 0.8515323403992543,
+ "placebo_pct": 92.80000000000001,
+ "by_year": {
+  "2023": 4.276753703925385,
+  "2024": -16.48101906948855,
+  "2025": 36.16741806200976,
+  "2026": 13.719870666543471
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 121,
+ "injection": {
+  "hypothesis": "D109",
+  "n_events": 48,
+  "sought_bps": 9.777504901820402,
+  "mean_estimate": 9.590261242258078,
+  "sd_estimate_bps": 10.76322651875033,
+  "power_strict_t": 0.1995,
+  "recovered": true
+ }
+}

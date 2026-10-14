@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D112",
+ "cell": "6S follows the previous session's ZN shock",
+ "trades": 48,
+ "net_bps": -13.891094893394374,
+ "t_net": -1.2439921082187615,
+ "placebo_pct": 1.7999999999999998,
+ "by_year": {
+  "2023": 6.1792911338718435,
+  "2024": -4.8673132201189615,
+  "2025": -68.72845793851913,
+  "2026": 10.010999725523623
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 124,
+ "injection": {
+  "hypothesis": "D112",
+  "n_events": 48,
+  "sought_bps": 8.986410817788506,
+  "mean_estimate": 9.01717832972628,
+  "sd_estimate_bps": 11.393773839724423,
+  "power_strict_t": 0.3175,
+  "recovered": true
+ }
+}

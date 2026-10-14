@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D111",
+ "n_events": 55,
+ "sought_bps": 11.319499304983438,
+ "mean_estimate": 11.188477199510693,
+ "sd_estimate_bps": 6.427510412144661,
+ "power_strict_t": 0.5355,
+ "recovered": true
+}

@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D110",
+ "cell": "6S follows the previous session's GC shock",
+ "trades": 55,
+ "net_bps": 3.199948447591612,
+ "t_net": 0.3230404971425391,
+ "placebo_pct": 76.1,
+ "by_year": {
+  "2023": 6.893857699447174,
+  "2024": -0.8150549141677828,
+  "2025": 16.158329722358133,
+  "2026": -15.03902434014425
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 122,
+ "injection": {
+  "hypothesis": "D110",
+  "n_events": 55,
+  "sought_bps": 7.9281053161923,
+  "mean_estimate": 8.543799287695842,
+  "sd_estimate_bps": 10.250772782496767,
+  "power_strict_t": 0.1665,
+  "recovered": true
+ }
+}
