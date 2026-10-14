@@ -10771,6 +10771,10 @@ GC=F). Signal: nearness in the top third of its trailing 250-session distributio
 traded; side fixed by discovery; the target (MNQ day; gold London on D, family-8 grids) judged DEMEANED. **2 tests**, descriptive
 2010–17 column. Costs §180; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 372. Family-93 discovery: nearness to the 52-week high — 0 of 2 carried (S1)
+
+**No trial spent; N 896.** `reports/d93_discovery.json`: MNQ +1.2 bps (t +0.26), gold +1.1 (t +0.50), both reversed in 2012–17. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
