@@ -11957,6 +11957,16 @@ stronger in-sample but the three are equal on the sealed period; the deployed me
 −2.3 | +5.9 | **+11.9 (t +2.67)**; −DX-Y.NYB week −2.9 | +4.3 | **+10.9 (t +2.44)**; seven-currency vote −1.6 | +2.5 | **+12.2 (t +2.74)**. All three
 hold on the sealed period; all are negative before 2021 (the regime caveat, §453). The deployed measure stays.
 
+## 489. The bot posts each alert as embeds; the ticket board turns green when every `!eod` is in (2026-10-14, the user) (S8)
+
+**No trial; N 1,104.** Deployed 19:23 ET (backup `/opt/futures-bot/backup-2026-10-14d`). Each 17:30 alert is ONE message with up to two
+embeds: "results & notes" (shadow results, missing-balance notes, the Friday weekly check) and "tickets" — one field per ticket (⏳ / ✅
+/ ▫️, side, window in ET, the bracket instructions, any rule note). The tickets embed's side bar is **red while at least one traded ticket
+lacks its `!eod`** and **green once all are recorded**. `!eod` marks every traded ticket of that product that has started
+(`Tickets.mark_eod`), reissues the product's next ticket as before, and edits every stored board holding it (`boards.json`: alert date →
+message id, keys); `!board` re-posts the latest board. On first start the bot posted a board for the 2026-10-14 tickets. Tests:
+`tests/test_bot_ticket.py` (marking / colour logic; embed limits checked on the droplet — discord.py is not installed locally).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

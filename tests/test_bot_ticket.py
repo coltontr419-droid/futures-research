@@ -157,3 +157,46 @@ def test_nkddollar_side_follows_the_euro_week() -> None:
     assert nkddollar.nkd_side(days[-1], [(d, 10.0) for d in days])[0] == "long"
     assert nkddollar.nkd_side(days[-1], [(d, -10.0) for d in days])[0] == "short"
     assert nkddollar.nkd_side(days[-1], [(d, 10.0) for d in days[:3]])[0] == "long"
+
+
+def test_board_red_until_every_traded_ticket_has_eod() -> None:
+    """decisions.md 489: needs_eod / mark_eod drive the board's colour; reissue keeps the board's key."""
+    import datetime as _dt
+    import tempfile
+    from pathlib import Path as _P
+    from zoneinfo import ZoneInfo
+    import schedule as sch
+    et = ZoneInfo("America/New_York")
+    with tempfile.TemporaryDirectory() as d:
+        t = sch.Tickets(_P(d) / "t.json", _P(d) / "s.csv")
+        mk = lambda p, entry, trade=True: {"product": p, "issued": "2026-10-14T17:30:00-04:00", "entry": entry, "exit": entry, "phase": "eval",
+                                           "balance": 50000.0, "ticket": {"trade": trade, "side": "long"}, "status": "pending", "traded": None, "result": None}
+        t.t = [mk("MCL", "2026-10-14T18:00:00-04:00"), mk("MNQ", "2026-10-15T09:30:00-04:00"), mk("ZS", "2026-10-14T20:00:00-04:00", trade=False)]
+        assert sum(sch.needs_eod(r) for r in t.t) == 2                         # the no-trade ticket never needs one
+        now = _dt.datetime(2026, 10, 15, 3, 0, tzinfo=et)
+        assert [r["product"] for r in t.mark_eod("MCL", now)] == ["MCL"]
+        assert t.mark_eod("MNQ", now) == []                                  # not started yet
+        assert sum(sch.needs_eod(r) for r in t.t) == 1
+        later = _dt.datetime(2026, 10, 15, 16, 30, tzinfo=et)
+        t.mark_eod("MNQ", later)
+        assert sum(sch.needs_eod(r) for r in t.t) == 0
+        keys = [[r["product"], r["entry"]] for r in t.t]
+        assert len(t.batch(keys)) == 3
+
+
+def test_board_embeds_fit_discord_limits() -> None:
+    """The board renders within Discord's limits (field value <= 1024, embed <= 6000)."""
+    import importlib, os, sys
+    os.environ.setdefault("DISCORD_TOKEN", "x"); os.environ.setdefault("DISCORD_CHANNEL_ID", "1")
+    try:
+        fb = importlib.import_module("futures_bot")
+    except ModuleNotFoundError:
+        import pytest; pytest.skip("discord.py not installed")
+    rec = {"product": "MNQ", "issued": "2026-10-14T17:30:00-04:00", "entry": "2026-10-15T09:30:00-04:00", "exit": "2026-10-15T16:00:00-04:00",
+           "phase": "eval", "balance": 49000.0, "status": "pending", "traded": None, "result": None,
+           "ticket": {"trade": True, "product": "MNQ", "side": "short", "contracts": 4, "entry": "09:30", "exit": "16:00", "take_net": 1000.0,
+                      "stop_net": 999.0, "floor": 48000.0, "take_points": 126.25, "stop_points": 123.75, "note": "D68: ZN shock today +60 bps"}}
+    em = fb.board_embeds("some results", [dict(rec, product=p) for p in ("MNQ", "MGC", "MCL", "NKD", "FDXM", "ZS")], "Wed 14 Oct")
+    board = em[-1].to_dict()
+    assert board["color"] == 0xe74c3c and all(len(f["value"]) <= 1024 for f in board["fields"])
+    assert sum(len(e.title or "") + len(e.description or "") + sum(len(f.name) + len(f.value) for f in e.fields) for e in em) <= 6000

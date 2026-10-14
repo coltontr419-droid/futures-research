@@ -13,6 +13,7 @@ Commands (in the configured channel; start with ! or mention the bot, e.g. "@Bot
   !took <PRODUCT> / !skipped <PRODUCT>   mark whether you placed the latest ticket
   !results [n]                   finished tickets and how they played out (all, or the last n)
   !ticket                        the tickets issued at the last alert
+  !board                         re-post the latest alert's board (red until every traded ticket has its !eod)
   !payout <PRODUCT> <amount>     a payout received (the amount withdrawn, before the 90% split)
   !new <PRODUCT>                 a new $50k evaluation bought
   !set <PRODUCT> <eval|funded> <balance> <peak> [best_day] [payouts]   correct the state by hand
@@ -34,7 +35,9 @@ import discord
 from discord.ext import commands, tasks
 
 from accounts import PRODUCTS, Book
-from schedule import ALERT, ET, Tickets, alert_text, eod_day, last_trading_day, ticket_post
+import json
+
+from schedule import ALERT, ET, ORDER, Tickets, alert_parts, eod_day, last_trading_day, needs_eod, ticket_post
 
 HERE = Path(__file__).resolve().parent
 
@@ -62,6 +65,68 @@ intents.message_content = True
 bot = commands.Bot(command_prefix=lambda b, m: commands.when_mentioned_or("!")(b, m) + [f"<@{b.user.id}> !", f"<@!{b.user.id}> !"],
                    intents=intents, help_command=None)
 LAST_ALERT = DATA / "last_alert.txt"          # survives restarts, so an alert is never posted twice
+BOARDS = DATA / "boards.json"                 # alert date -> {message_id, info, keys}: the posted boards, edited on !eod
+FOOTER = "Red = at least one traded ticket still needs !eod.  Green = every ticket recorded."
+
+
+def _boards() -> dict:
+    return json.loads(BOARDS.read_text()) if BOARDS.exists() else {}
+
+
+def _save_boards(b: dict) -> None:
+    keep = dict(sorted(b.items())[-14:])
+    tmp = BOARDS.with_suffix(".tmp"); tmp.write_text(json.dumps(keep, indent=1)); tmp.replace(BOARDS)
+
+
+def _field_name(r: dict) -> str:
+    e = dt.datetime.fromisoformat(r["entry"]).astimezone(ET); x = dt.datetime.fromisoformat(r["exit"]).astimezone(ET)
+    tk = r["ticket"]
+    side = ("LONG" if tk.get("side") == "long" else "SHORT") if tk.get("trade") else ("FAILED" if r["phase"] == "dead" else "NO TRADE")
+    mark = ("⏳" if needs_eod(r) else "✅") if tk.get("trade") and r["phase"] != "dead" else "▫️"
+    return f"{mark} {r['product']} · {side} · {e:%a %H:%M} → {x:%a %H:%M} ET"
+
+
+def _field_value(r: dict) -> str:
+    body = ticket_post(r).split("\n", 1)[-1]            # drop the plain-text header; the field name carries it
+    tail = "\n**!eod recorded**" if r.get("eod") else ("\n*waiting for `!eod " + r["product"] + " <balance>`*" if needs_eod(r) else "")
+    v = f"[{r['phase']}, balance ${r['balance']:,.2f}]\n" + body + tail
+    return v if len(v) <= 1024 else v[:1020] + "…"
+
+
+def board_embeds(info: str, recs: list, when: str) -> list:
+    embeds = []
+    if info:
+        embeds.append(discord.Embed(title=f"{when} — results & notes", description=info[:4000], color=discord.Color.blurple()))
+    if recs:
+        recs = sorted(recs, key=lambda r: ORDER.index(r["product"]) if r["product"] in ORDER else 99)
+        open_ = sum(needs_eod(r) for r in recs)
+        e = discord.Embed(title=f"{when} — tickets", color=discord.Color.red() if open_ else discord.Color.green(),
+                          description=(f"**{open_} ticket{'s' if open_ != 1 else ''} still need `!eod`.**" if open_ else "**All tickets recorded.**"))
+        for r in recs:
+            e.add_field(name=_field_name(r), value=_field_value(r), inline=False)
+        e.set_footer(text=FOOTER)
+        embeds.append(e)
+    return embeds
+
+
+async def post_board(ch, info: str, recs: list, key: str, when: str) -> None:
+    msg = await ch.send(embeds=board_embeds(info, recs, when))
+    if recs:
+        b = _boards(); b[key] = {"message_id": msg.id, "info": info, "when": when, "keys": [[r["product"], r["entry"]] for r in recs]}
+        _save_boards(b)
+
+
+async def refresh_boards(ch, products: set | None = None) -> None:
+    """Re-render every stored board that holds a ticket of `products` (all boards if None)."""
+    for key, b in _boards().items():
+        recs = tix.batch(b["keys"])
+        if products and not any(r["product"] in products for r in recs):
+            continue
+        try:
+            msg = await ch.fetch_message(b["message_id"])
+            await msg.edit(embeds=board_embeds(b["info"], recs, b["when"]))
+        except discord.HTTPException as e:
+            print("board edit failed:", key, e)
 
 
 async def send(ch, text: str) -> None:
@@ -89,6 +154,16 @@ def _product(p: str) -> str:
 @bot.event
 async def on_ready():
     print(f"logged in as {bot.user}; channel {CHANNEL_ID}")
+    # first start with boards: post one for the latest alert's tickets if none exists yet
+    try:
+        ch = bot.get_channel(CHANNEL_ID)
+        last = LAST_ALERT.read_text().strip() if LAST_ALERT.exists() else ""
+        if ch and last and last not in _boards():
+            recs = [r for r in tix.t if dt.datetime.fromisoformat(r["issued"]).astimezone(ET).date().isoformat() == last]
+            if recs:
+                await post_board(ch, "", recs, last, f"{dt.date.fromisoformat(last):%A %d %B} · 17:30 ET")
+    except Exception as e:
+        print("board on start failed:", e)
     if not loop.is_running():
         loop.start()
 
@@ -108,7 +183,8 @@ async def loop():
     done = LAST_ALERT.read_text().strip() if LAST_ALERT.exists() else ""
     if now.weekday() != 5 and (now.hour, now.minute) >= ALERT and key != done and (now.hour, now.minute) < (ALERT[0] + 2, 0):
         LAST_ALERT.write_text(key)
-        await send(ch, f"**{now:%A %d %B} - 17:30 ET**\n\n" + alert_text(book, tix, now))
+        info, recs = alert_parts(book, tix, now)
+        await post_board(ch, info, recs, key, f"{now:%A %d %B} · 17:30 ET")
 
 
 @bot.command(name="eod")
@@ -123,11 +199,14 @@ async def eod_cmd(ctx, product: str, balance: float):
     out = [f"{p}: closed ${balance:,.2f} ({day}) recorded. Peak ${a['peak']:,.2f}, best day ${a['best']:,.0f}." if a["phase"] != "dead" else ""]
     out += msgs
     # reissue this product's ticket if the alert already went out and its entry is still ahead
+    tix.mark_eod(p, now)                            # the board turns this ticket green
     pend = [r for r in tix.t if r["product"] == p and r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["entry"]) > now]
     if pend:
         alert_day = dt.datetime.fromisoformat(pend[-1]["issued"]).date()
-        out.append("Updated ticket:\n" + ticket_post(tix.issue(book, p, alert_day, now)))
+        tix.issue(book, p, alert_day, now)
+        out.append(f"{p}'s next ticket was reissued from the new balance - updated on the board above.")
     await send(ctx.channel, "\n".join(m for m in out if m))
+    await refresh_boards(ctx.channel, {p})
 
 
 @bot.command(name="took")
@@ -157,6 +236,19 @@ async def ticket_cmd(ctx):
     now = dt.datetime.now(ET)
     live = [r for r in tix.t if r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["exit"]) > now]
     await send(ctx.channel, "\n\n".join(ticket_post(r) for r in live) or "No open tickets - the next ones come with the 17:30 alert.")
+
+
+@bot.command(name="board")
+async def board_cmd(ctx):
+    """Re-post the latest alert's board (the old one stays as it was)."""
+    if not _allowed(ctx):
+        return
+    b = _boards()
+    if not b:
+        await ctx.send("No board yet - the next comes with the 17:30 alert.")
+        return
+    key = sorted(b)[-1]; recs = tix.batch(b[key]["keys"])
+    await post_board(ctx.channel, b[key]["info"], recs, key, b[key]["when"])
 
 
 @bot.command(name="payout")
