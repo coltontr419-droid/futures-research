@@ -11747,6 +11747,21 @@ placebo 97th; +7.9 / +13.4) — on the FDXM ticket, which already follows the DA
 expected by chance; two arrived. Crude-follows-risk failed a third time (all WATCHLIST/REJECT). The every-day cross-market screens
 (families 119–121, 123) are complete; their durable product is the dollar theme on the DAX and the Nikkei.
 
+## 463. A36: the five-account book with the deployed rules (no trial) (S8)
+
+**N 1,092.** `reports/a36_book.json` — MNQ (D68), NKD (dollar-week), FDXM (DAX–dollar), MGC and MCL always long; 50K Daily, drift removed,
+84 days, common starts:
+
+| book | starts 2025-01 → (298) | 2021–26 (1,040) | 2010–20 (689) |
+|---|---|---|---|
+| plan | +$8,994, P(net > 0) 99%, p10 +$1,855 | +$9,468, 93%, +$1,748 | +$8,023, 92%, +$259 |
+| deployed rules | **+$17,492, 100%, +$8,228** | **+$15,008, 96%, +$4,148** | +$10,494, 85%, −$826 |
+
+In the current regime the rules roughly double the book's mean and lift its bad cases; in 2010–20 the mean rises but P(net > 0)
+falls (92 → 85%) — the rules did not work before 2021. That is the risk the demo now watches: if the regime ends, the book is worse
+than the plan. A review trigger, set now: if the two dollar rules' forward record over the demo's first 40 sessions is negative in
+sum, propose reverting them.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
