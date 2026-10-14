@@ -1328,3 +1328,11 @@ Data-derived (D-series family 115). `hypotheses.yaml` (D153) · `decisions.md` �
 ## D154 — Zs Short In Expiry Week R  *(REJECT — t00936)*
 
 Data-derived (D-series family 116). `hypotheses.yaml` (D154) · `decisions.md` §437
+
+## D155 — Mnq Fades Trend5 R  *(registered)*
+
+Data-derived (D-series family 117). `hypotheses.yaml` (D155) · `decisions.md` §439
+
+## D156 — Dax Fades Own Shock R  *(registered)*
+
+Data-derived (D-series family 117). `hypotheses.yaml` (D156) · `decisions.md` §439

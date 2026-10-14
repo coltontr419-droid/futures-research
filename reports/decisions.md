@@ -11385,6 +11385,15 @@ CL, ZS; family 114's targets), from the window's own series: **(i) own shock** �
 2021–24. **3 × 6 = 18 tests** (~0.5 by chance). Costs §177/§180; validation per §426, 2 (placebo: signals shuffled across the sealed
 windows).
 
+## 439. Family-117 discovery: 2 of 18 carried; D155–D156 registered (S1)
+
+**No trial spent yet; N 930.** `reports/d117_discovery.json` (module `reporting/d117_own.py`):
+- **D155** MNQ fades its trend5: +7.87 bps, t +2.19, n 1016; 2010–20 +0.69 (t +0.34); market-test 167.
+- **D156** DAX fades its own_shock: +27.56 bps, t +1.98, n 53; 2010–20 -11.67 (t -1.33); market-test 168.
+
+D155 is an every-session rule (short-horizon mean reversion on MNQ's day window): if it held, it would change the plan's direction on
+about half the days — the scale an account notices (~$125 a session at 4 MNQ for +7.9 bps). Its 2010–20 context is flat.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

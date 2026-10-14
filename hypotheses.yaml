@@ -13452,3 +13452,89 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same number of random other days), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 166.
   s6_control: By year; the same number of random other days.
+- id: D155
+  name: mnq_fades_trend5_r
+  mechanism: >
+    DATA-DERIVED (D-series family 117, own past on the current regime, decisions.md 438-439): MNQ fades its trend5:
+    2021-2024 +7.87 bps net (t +2.19, n 1016); 2010-20 +0.69 (t +0.34, context).
+    THE COUNTERPARTY: short-horizon trend followers whose positions overshoot and unwind (liquidity provision earns the reversal).
+  condition: >
+    Trade MNQ's the window against the sign of the previous 5 windows' sum.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 189
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-117 scan (18 tests, decisions.md 439). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signals shuffled across the sealed windows), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 167.
+  s6_control: By year; signals shuffled across the sealed windows.
+- id: D156
+  name: dax_fades_own_shock_r
+  mechanism: >
+    DATA-DERIVED (D-series family 117, own past on the current regime, decisions.md 438-439): DAX fades its own_shock:
+    2021-2024 +27.56 bps net (t +1.98, n 53); 2010-20 -11.67 (t -1.33, context).
+    THE COUNTERPARTY: short-horizon trend followers whose positions overshoot and unwind (liquidity provision earns the reversal).
+  condition: >
+    Trade DAX's the window against the previous window when it moved beyond 2 x the SD of the 60 before it.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 190
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-117 scan (18 tests, decisions.md 439). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signals shuffled across the sealed windows), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 168.
+  s6_control: By year; signals shuffled across the sealed windows.
