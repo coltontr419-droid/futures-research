@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D128",
+ "cell": "6A follows the previous session's ZT shock",
+ "trades": 50,
+ "net_bps": -6.826259627697595,
+ "t_net": -0.5230654675120889,
+ "placebo_pct": 25.3,
+ "by_year": {
+  "2023": 25.885729509590238,
+  "2024": -9.315234031877408,
+  "2025": -61.346419961768405,
+  "2026": 16.354819944541468
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 140,
+ "injection": {
+  "hypothesis": "D128",
+  "n_events": 50,
+  "sought_bps": 7.616346041421069,
+  "mean_estimate": 7.631198012259796,
+  "sd_estimate_bps": 12.726384542464071,
+  "power_strict_t": 0.248,
+  "recovered": true
+ }
+}

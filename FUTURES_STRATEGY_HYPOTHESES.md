@@ -1217,10 +1217,10 @@ Data-derived (D-series family 100). `hypotheses.yaml` (D125) · `decisions.md` �
 
 Data-derived (D-series family 103). `hypotheses.yaml` (D126) · `decisions.md` §397
 
-## D127 — 6E Follows Two Year Shock  *(registered)*
+## D127 — 6E Follows Two Year Shock  *(WATCHLIST — t00909)*
 
 Data-derived (D-series family 108). `hypotheses.yaml` (D127) · `decisions.md` §408
 
-## D128 — 6A Follows Two Year Shock  *(registered)*
+## D128 — 6A Follows Two Year Shock  *(REJECT — t00910)*
 
 Data-derived (D-series family 108). `hypotheses.yaml` (D128) · `decisions.md` §408

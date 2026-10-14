@@ -11064,6 +11064,11 @@ descriptive 2010–17 column. Costs: 6E 0.3, 6J 0.5, 6B/6A 0.5; recent-period de
 
 The 2022 dollar-regime signature again (family 83, §348–349): expected to fail; validated once each per protocol.
 
+## 409. D127–D128 validated (t00909–t00910): none confirm, as expected (S1)
+
+**N 904.** D127 6E: WATCHLIST, +7.05 bps (t +0.83), placebo 94th; D128 6A: REJECT, -6.83 (t -0.52).
+Negative 2010–17 columns again preceded failure. Z and D market-tests reach 140.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D127",
+ "cell": "6E follows the previous session's ZT shock",
+ "trades": 50,
+ "net_bps": 7.054784454664286,
+ "t_net": 0.8342828481037858,
+ "placebo_pct": 93.8,
+ "by_year": {
+  "2023": 38.396661546069005,
+  "2024": 19.303573838388687,
+  "2025": -31.117340150511765,
+  "2026": 0.6143392352188121
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 139,
+ "injection": {
+  "hypothesis": "D127",
+  "n_events": 50,
+  "sought_bps": 6.190719949609065,
+  "mean_estimate": 6.3540447547612295,
+  "sd_estimate_bps": 8.273421212354876,
+  "power_strict_t": 0.2415,
+  "recovered": true
+ }
+}
