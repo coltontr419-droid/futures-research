@@ -136,3 +136,14 @@ def test_d139_nkd_side_fades_a_bitcoin_shock() -> None:
     assert d139.nkd_side(day, base + [(day, -500.0)])[0] == "long"
     assert d139.nkd_side(day, base + [(day, 50.0)])[0] == "long"
     assert d139.nkd_side(day, [])[0] == "long"
+
+
+def test_daxdollar_fdxm_side_follows_the_dollar() -> None:
+    """decisions.md 448: FDXM takes the sign of today's dollar move; unchanged or unreadable -> long."""
+    import datetime as _dt
+    import daxdollar
+    day = _dt.date(2026, 3, 2)
+    assert daxdollar.fdxm_side(day, 25.0)[0] == "long"
+    assert daxdollar.fdxm_side(day, -25.0)[0] == "short"
+    assert daxdollar.fdxm_side(day, 0.0)[0] == "long"
+    assert daxdollar.fdxm_side(day, None, fetch=False)[0] == "long"

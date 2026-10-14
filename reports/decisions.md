@@ -11541,6 +11541,18 @@ this acts every session. **Status: CONFIRMED (D171, D174, D175 and the theme), s
 Implementation note: the bot's 17:30 ET alert can read the day's dollar move (EUR/USD to 16:55 ET, or DX-Y.NYB's session) before
 the FDXM ticket's 03:00 ET entry.
 
+## 448. The DAX–dollar rule deployed to the demo's FDXM ticket (2026-10-14, the user) (S8)
+
+**No trial; N 976.** Deployed at ~15:00 ET (backup `/opt/futures-bot/backup-2026-10-14b`): `bot/daxdollar.py` reads Yahoo DX-Y.NYB's
+daily bar at the 17:30 ET alert (open → latest; the bar updates through the day) and sets the FDXM ticket LONG after a dollar rise,
+SHORT after a fall — every session; unchanged or unreadable → long. Wired in `bot/schedule.py` beside D68 and D139, posts carry a
+"DAX-dollar:" note; `tests/test_bot_ticket.py` covers it. First reading: 2026-10-14 dollar +36 bps → FDXM long.
+
+**What the replay's numbers mean (answered to the user):** §447's means are per FDXM account (2 contracts, 50K Daily) per 84 trading days
+(~4 months) from each start date — payouts after Tradeify's 10% minus evaluation/reset fees, commissions included, drift removed. Only
+the FDXM account changes: the five-account book gains ~+$1,841 per four months, not five times it. Not modelled: extra slippage, and
+whether the 2021–26 strength persists — which is what the demo now tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
