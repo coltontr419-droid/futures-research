@@ -10974,6 +10974,16 @@ all "against local weakness", as every one of the 12 pairs in families 97–102,
 "an emerging currency's sharp fall precedes weaker commodities next session" (a dollar-funding / risk channel), of which the soybean
 case (D122) is the strongest and the only one confirmed out of sample. Empty.
 
+## 396. D-series family 103 protocol: an emerging-currency stress composite into the plan's commodities (S1)
+
+**No trial spent; N 901. Written and committed BEFORE any composite statistic is computed.** Families 97–102 found one sign in all
+12 currency → commodity pairs. Composite on day D (UTC): the mean of z = change / SD(previous 60 changes) over **BRL, MXN, ZAR, CLP, COP,
+INR, KRW** (Yahoo close → close; RUB excluded — its 2022 sanctions break), each oriented so + = that currency weaker; requires ≥ 5 of 7.
+Shock: |composite| > 2 SD of its own previous 60. Targets the next-weekday session (family 10): **ZS, CL, GC** — the plan's commodity
+products — with or against, fixed by discovery. **3 tests**, descriptive 2010–17 column. Honest caveat: the composite is motivated
+by results already seen in 2018–22 and 2010–17; the sealed 2023–26 window is untouched by it and is the test. Costs §177; carried at
+net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
