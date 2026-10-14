@@ -11146,6 +11146,20 @@ real's move is measured, and the implementable reading lies between the two. No 
 directly. **For the user's decision:** D122 as confirmed is not exactly implementable by the current bot; a live version would either
 move the ZS ticket's direction decision to just before 20:00 ET (a second, later bot step) or accept an untested 17:30 reading.
 
+## 418. D122 on an implementable reading: CME's real future (6L) — positive in every period (S8)
+
+**No trial; N 908. Descriptive (the rule is unchanged; this is its implementable form).** CME's Brazilian real future (Yahoo 6L=F)
+settles before the bot's 17:30 ET alert. Shock = the 6L session beyond 2σ (oriented so + = real weaker), short ZS's next session:
+
+| 6L measure | 2010–17 | 2018–22 | 2023–26 |
+|---|---|---|---|
+| open → settle | +11.9 (t +1.19, n 128) | +7.6 (t +0.59, n 70) | +11.7 (t +0.75, n 44) |
+| **settle → settle** | **+10.3 (t +0.86, n 111)** | **+13.7 (t +1.18, n 75)** | **+22.4 (t +1.55, n 45)** |
+
+Weaker than the confirmed Yahoo-close version (+32.9 in 2023–26) but the same sign in all three periods — including 2010–17, where
+the confirmed version was flat — and computable at the alert. **If the user adopts D122 for the demo, this is the version the bot can
+run** (yesterday's 6L settle → settle move, 60-session SD, 2σ; ZS ticket short after a real weakening).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
