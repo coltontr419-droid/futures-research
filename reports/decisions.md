@@ -10959,6 +10959,14 @@ net > 0, t > 1.96; validation as §207, 3. A carried lag would extend D122's ove
 **No trial spent; N 901.** `reports/d101_discovery.json`: lag 2 +19.4 bps (t +1.32; 2010–17 −19.0), lag 3 −13.8 (t −1.14). The
 response is the next session only; D122's overlay stays one day. Empty.
 
+## 394. D-series family 102 protocol: importers' currencies into what they import (S1)
+
+**No trial spent; N 901. Written and committed BEFORE any statistic is computed.** The mirror of D122: when a large importer's currency
+weakens, its local price rises and demand falls. **INR → GC** (India, gold), **INR → CL** (India, crude), **KRW → CL** (Korea, crude).
+Yahoo close → close, UTC day, 2σ, up = the importer's currency weaker; target the next-weekday session (family 10), with or against,
+fixed by discovery; stale (> 30% unchanged) reported, not carried. **3 tests**, descriptive 2010–17 column. Costs §177; recent-period
+design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
