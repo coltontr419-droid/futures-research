@@ -10896,6 +10896,14 @@ commodity's next-weekday session (family-10), with or against the local-currency
 closes are unchanged on more than 30% of days in discovery is reported but not carried (stale quotes). **5 tests**, descriptive
 2010–17 column. Costs §177; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 385. Family-98 discovery: 1 of 5 carried — copper falls after the peso weakens; D124 registered (S1)
+
+**No trial spent yet; N 899.** `reports/d98_discovery.json` (module `reporting/d98_producer.py`): **D124** HG against a CLP weakening,
+**+34.81 bps**, t +2.16, n 75; 2010–17 +13.32 (t +1.23) — the same sign. All five pairs chose
+"against local weakness" (the mechanism's sign): ZAR → GC +24.9 (t +1.49), CAD → CL +49.9 (t +0.72), AUD → GC +6.1, RUB → ZW +1.1.
+D122's mechanism looks general in direction, strong only where the producer dominates (Brazil soy, Chile copper). HG is not a
+plan product (MHG was listed as a candidate market, §140s). Z and D market-test 136.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

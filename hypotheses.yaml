@@ -11712,3 +11712,47 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 135.
   s6_control: By year; the same rule after non-shock days.
+- id: D124
+  name: copper_falls_after_peso_weakens
+  mechanism: >
+    DATA-DERIVED (D-series family 98, producer currencies, decisions.md 384-385): in 2018-2022, copper's next session after a
+    USD/CLP move beyond 2 sigma, traded AGAINST the peso's weakening (short copper after the peso weakens), earned +34.81 bps
+    net (t +2.16, n 75); 2010-17 +13.32 (t +1.23). THE COUNTERPARTY is Chilean producers' copper
+    selling, which rises when a weaker peso lifts their local-currency price (D122's mechanism).
+  condition: >
+    After a USD/CLP close-to-close move beyond 2 x the SD of its previous 60, take HG's next session against the peso's weakening; net of 2.0 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 158
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-98 scan (5 tests, decisions.md 385). ONE TRIAL.
+  session: Globex
+  symbols: [HG]
+  mechanism_instruments:
+    primary: HG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 136.
+  s6_control: By year; the same rule after non-shock days.

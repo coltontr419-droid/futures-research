@@ -1,0 +1,82 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "currency": "CLP=X",
+   "target": "HG",
+   "stale_share": 0.014570552147239263,
+   "n": 75,
+   "rule": "against local weakness",
+   "net_bps": 34.80873022043012,
+   "t": 2.1629999045780908,
+   "early_net": 13.316511531238737,
+   "early_t": 1.2316580691591927,
+   "carried": true
+  },
+  {
+   "currency": "ZAR=X",
+   "target": "GC",
+   "stale_share": 0.0,
+   "n": 66,
+   "rule": "against local weakness",
+   "net_bps": 24.905263824976267,
+   "t": 1.4871852617968353,
+   "early_net": -10.12613038631241,
+   "early_t": -1.1035093619221668,
+   "carried": false
+  },
+  {
+   "currency": "RUB=X",
+   "target": "ZW",
+   "stale_share": 0.004601226993865031,
+   "n": 75,
+   "rule": "against local weakness",
+   "net_bps": 1.0701206458073917,
+   "t": 0.04143007360377179,
+   "early_net": 7.2247470575515775,
+   "early_t": 0.44749965074670706,
+   "carried": false
+  },
+  {
+   "currency": "CAD=X",
+   "target": "CL",
+   "stale_share": 0.0,
+   "n": 58,
+   "rule": "against local weakness",
+   "net_bps": 49.86720744461736,
+   "t": 0.722505788127392,
+   "early_net": 9.366600975851021,
+   "early_t": 0.42103320404563566,
+   "carried": false
+  },
+  {
+   "currency": "AUDUSD=X",
+   "target": "GC",
+   "stale_share": 0.0007668711656441718,
+   "n": 72,
+   "rule": "against local weakness",
+   "net_bps": 6.140558246630021,
+   "t": 0.37117501947141773,
+   "early_net": -8.619361616824442,
+   "early_t": -0.7050288416644248,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "currency": "CLP=X",
+   "target": "HG",
+   "stale_share": 0.014570552147239263,
+   "n": 75,
+   "rule": "against local weakness",
+   "net_bps": 34.80873022043012,
+   "t": 2.1629999045780908,
+   "early_net": 13.316511531238737,
+   "early_t": 1.2316580691591927,
+   "carried": true
+  }
+ ]
+}
