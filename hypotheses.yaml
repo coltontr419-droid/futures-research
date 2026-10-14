@@ -22524,3 +22524,171 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 328.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D317
+  name: fchi_follows_dxy_day_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 125, the dollar rules on other foreign indices, decisions.md 466-467): ^FCHI (Yahoo open -> close)
+    follows the dxy_day sign (strong): 2021-2024 +8.05 bps (t +2.17, n 498). A test of the deployed dollar
+    theme's generality; not tradable at Tradeify. THE COUNTERPARTY as the DAX/NKD dollar rules (decisions.md 445, 451).
+  condition: >
+    Take ^FCHI's session to follow the dxy_day sign on strong days.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01099 (decisions.md 467), WATCHLIST on sealed 2023-2026: 197 trades; net +5.87 bps (t +1.04); placebo 85th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d125_foreign.py
+    injected_bps: 4.024
+    sought_bps: 4.024
+    n_injection: 197
+    n_run: 197
+    recovered: true
+    report: reports/d317_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 351
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-125 scan (24 tests, decisions.md 467). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      The index itself is not tradable at Tradeify; recorded under the nearest plan product (a test of the dollar theme's generality).
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 329.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D318
+  name: ks11_follows_euro_week_all
+  mechanism: >
+    DATA-DERIVED (D-series family 125, the dollar rules on other foreign indices, decisions.md 466-467): ^KS11 (Yahoo open -> close)
+    follows the euro_week sign (all): 2021-2024 +6.67 bps (t +2.39, n 943). A test of the deployed dollar
+    theme's generality; not tradable at Tradeify. THE COUNTERPARTY as the DAX/NKD dollar rules (decisions.md 445, 451).
+  condition: >
+    Take ^KS11's session to follow the euro_week sign.
+  horizon_minutes: [420]
+  hold_hours: [7.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01100 (decisions.md 467), WATCHLIST on sealed 2023-2026: 388 trades; net +14.49 bps (t +1.57); placebo 94th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d125_foreign.py
+    injected_bps: 3.333
+    sought_bps: 3.333
+    n_injection: 388
+    n_run: 388
+    recovered: true
+    report: reports/d318_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 352
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-125 scan (24 tests, decisions.md 467). ONE TRIAL.
+  session: Asia
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      The index itself is not tradable at Tradeify; recorded under the nearest plan product (a test of the dollar theme's generality).
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 330.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D319
+  name: ks11_follows_euro_week_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 125, the dollar rules on other foreign indices, decisions.md 466-467): ^KS11 (Yahoo open -> close)
+    follows the euro_week sign (strong): 2021-2024 +11.26 bps (t +2.93, n 467). A test of the deployed dollar
+    theme's generality; not tradable at Tradeify. THE COUNTERPARTY as the DAX/NKD dollar rules (decisions.md 445, 451).
+  condition: >
+    Take ^KS11's session to follow the euro_week sign on strong days.
+  horizon_minutes: [420]
+  hold_hours: [7.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01101 (decisions.md 467), WATCHLIST on sealed 2023-2026: 192 trades; net +7.80 bps (t +0.57); placebo 73th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d125_foreign.py
+    injected_bps: 5.630
+    sought_bps: 5.630
+    n_injection: 192
+    n_run: 192
+    recovered: true
+    report: reports/d319_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 353
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-125 scan (24 tests, decisions.md 467). ONE TRIAL.
+  session: Asia
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      The index itself is not tradable at Tradeify; recorded under the nearest plan product (a test of the dollar theme's generality).
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 331.
+  s6_control: By year; signs shuffled across the sealed sessions.

@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D318",
+ "cell": "^KS11 follows euro_week (all)",
+ "trades": 388,
+ "net_bps": 14.48687962970338,
+ "t_net": 1.566767286841719,
+ "placebo_pct": 93.60000000000001,
+ "by_year": {
+  "2025": 8.224553284787701,
+  "2026": 23.900570199802438
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 330,
+ "injection": {
+  "hypothesis": "D318",
+  "n_events": 388,
+  "sought_bps": 3.3333136995749557,
+  "mean_estimate": 2.91613121671568,
+  "recovered": true
+ }
+}

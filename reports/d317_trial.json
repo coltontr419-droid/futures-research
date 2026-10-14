@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D317",
+ "cell": "^FCHI follows dxy_day (strong)",
+ "trades": 197,
+ "net_bps": 5.867150560359285,
+ "t_net": 1.04321613558783,
+ "placebo_pct": 84.89999999999999,
+ "by_year": {
+  "2025": 6.045908787804679,
+  "2026": 5.520306238450313
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 329,
+ "injection": {
+  "hypothesis": "D317",
+  "n_events": 197,
+  "sought_bps": 4.024430131353697,
+  "mean_estimate": 3.9824775231620393,
+  "recovered": true
+ }
+}

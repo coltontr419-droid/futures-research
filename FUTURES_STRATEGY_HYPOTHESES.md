@@ -1976,3 +1976,15 @@ Data-derived (D-series family 123). `hypotheses.yaml` (D315) · `decisions.md` �
 ## D316 — Dax Follows Krwx Twoday All  *(WATCHLIST — t01098)*
 
 Data-derived (D-series family 123). `hypotheses.yaml` (D316) · `decisions.md` §461
+
+## D317 — Fchi Follows Dxy Day Strong  *(WATCHLIST — t01099)*
+
+Data-derived (D-series family 125). `hypotheses.yaml` (D317) · `decisions.md` §467
+
+## D318 — Ks11 Follows Euro Week All  *(WATCHLIST — t01100)*
+
+Data-derived (D-series family 125). `hypotheses.yaml` (D318) · `decisions.md` §467
+
+## D319 — Ks11 Follows Euro Week Strong  *(WATCHLIST — t01101)*
+
+Data-derived (D-series family 125). `hypotheses.yaml` (D319) · `decisions.md` §467

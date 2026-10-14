@@ -11786,6 +11786,19 @@ day's dollar index) and the Nikkei (the euro's previous 5 days). Do they general
 all / strong. **6 × 2 × 2 = 24 tests.** Cost 0.3 bps (index-futures level); validation per §426, 2 (placebo: shuffled signs). Only
 ^STOXX50E is a tradable candidate; the rest test the theme's generality.
 
+## 467. Family-125: the dollar theme on other foreign indices — ASX excluded as an artefact; CAC and KOSPI validated (S1)
+
+**N 1,095.** `reports/d125_discovery.json`. **^AXJO's carries (t +3.8 to +5.6) are an artefact**: Yahoo's ASX open equals the previous
+close on 71% / 38% / 93% of days (2010–20 / 2021–24 / 2025–26), so its "open → close" is close → close and contains the overnight
+reaction to the predictor — excluded before validation. (^KS11, ^HSI, ^FCHI, ^GDAXI, ^STOXX50E opens are real: ≤ 4% equal the previous close;
+the DAX–dollar stress test on ^GDAXI, §447, stands.) Validated (not tradable at Tradeify; tests of the theme's generality):
+- **D317** ^FCHI follows dxy_day (strong): discovery +8.05 (t +2.17) → sealed **WATCHLIST** +5.87 (t +1.04), placebo 85th, 2025 +6.0, 2026 +5.5
+- **D318** ^KS11 follows euro_week (all): discovery +6.67 (t +2.39) → sealed **WATCHLIST** +14.49 (t +1.57), placebo 94th, 2025 +8.2, 2026 +23.9
+- **D319** ^KS11 follows euro_week (strong): discovery +11.26 (t +2.93) → sealed **WATCHLIST** +7.80 (t +0.57), placebo 73th, 2025 +8.9, 2026 +6.2
+
+The Euro Stoxx 50 (the Eurex candidate) does not carry the theme (t ≤ 1.42). The theme is specific to the DAX and the Nikkei among
+tradable products.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
