@@ -10886,6 +10886,16 @@ The pre-set reading (§382) is met — the sign holds on independent data in 202
 path than by the edge. **Status: a demo candidate for the soybean account, NOT deployed** — changes to the droplet need the user's
 confirmation (and the soybean ticket is itself still being evaluated by the demo). Recorded for the 2026-10-25 review.
 
+## 384. D-series family 98 protocol: producer currencies into their commodities (S1)
+
+**No trial spent; N 899. Written and committed BEFORE any statistic is computed.** D122's mechanism generalised: when an exporter's
+currency weakens, its producers' local-currency price rises and they sell more. Pairs (Yahoo daily, close → close, UTC day, shock
+beyond 2 SD of the previous 60, as family 97): **CLP → HG** (Chile, copper), **ZAR → GC** (South Africa, gold), **RUB → ZW** (Russia,
+wheat), **CAD → CL** (Canada, crude), **AUD → GC** (Australia, gold; AUDUSD inverted so "up" = the local currency weaker). Target the
+commodity's next-weekday session (family-10), with or against the local-currency weakening, fixed by discovery. A currency whose
+closes are unchanged on more than 30% of days in discovery is reported but not carried (stale quotes). **5 tests**, descriptive
+2010–17 column. Costs §177; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
