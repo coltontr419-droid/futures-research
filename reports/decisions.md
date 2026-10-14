@@ -12093,6 +12093,24 @@ plan / dollar-week (deployed) / corn (D343's form: short after a strong corn ris
 agreeing (take the dollar-week side; where corn is strong and disagrees, stand aside — flat), each calibrated against random flips.
 Read: propose only if a variant beats the DEPLOYED dollar-week rule in both 2021–26 and 2025-start accounts.
 
+## 505. NKD–corn stress-tested: consistent in statistics, no account gain, worse alongside the deployed rule — not adopted (S8)
+
+**No trial; N 1,152.** `reports/a40_nkdcorn.json`, module `reporting/a40_nkdcorn.py`. (1) On the Tokyo window (A21) NKD fades corn's 10-day
+move in every period (all: 2010–20 +10.6 t +3.87, 2021–24 +8.1, 2025–26 +5.4; strong +10.5 / +9.7 / +15.5); weaker on independent data
+(NKD=F's whole session: +4.8 to +21.9, t ≤ 2.1; the CORN ETF as predictor: +0.2 to +11.8). (2) Accounts: corn alone 2021–26 +$2,474 vs
+plan +$2,763 (beats 37% of random flips; 2025 starts 50%); the deployed dollar-week rule +$6,136 / +$8,040 (100%); dollar-week standing
+aside where strong corn disagrees +$5,051 / +$6,995 — worse than dollar-week alone. The signals agree on 54% of strong-corn days. NKD
+stays as deployed.
+
+## 506. D-series family 138 protocol: new candidate account markets, every day, current regime (S1)
+
+**No trial spent; N 1,152. Written and committed BEFORE any statistic is computed.** Tradeify offers CME micros the plan does not trade:
+**M2K** (Russell 2000), **MHG** (copper), **SIL** (silver). Targets (Yahoo sessions open → settlement): RTY=F, HG=F, SI=F. Predictors:
+family 111's list (each target's own series excluded; currency/BTC-USD predictors excluded — these sessions open 18:00 ET); the sign of
+the previous weekday's move (1-day) and of the previous 5 weekdays' sum (5-day); forms all / strong. Carried at net > 0, t > 1.96 (~2.5%
+by chance; counted). Costs §177 (RTY 2.0, HG 2.0, SI 0.5); validation per §426, 2; a CONFIRM then needs §446/§453's stress tests and a
+new-account replay before any proposal.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
