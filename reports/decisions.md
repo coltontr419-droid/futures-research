@@ -11180,6 +11180,14 @@ descriptive 2010–17 column. Costs §180; recent-period design; carried at net 
 
 **No trial spent; N 908.** `reports/d112_discovery.json`: MNQ +0.7 bps (t +0.17), gold −0.4 (t −0.16). Empty.
 
+## 422. A32 design: D68 as a flip (deployed) or as a skip (S8)
+
+**A COMPUTATION; no trial; N 908. Variants fixed BEFORE any result.** The overlay replays (§383, §419) suggest flipped days can cost
+more in bracket paths than their edge adds. MNQ account (4 MNQ, 50K Daily, drift removed, A23 engine, both histories, 84 days):
+**plan** (always long); **flip** (deployed: the ZN shock's direction on shock days); **skip** (sit out the day after a ZN sell-off,
+long otherwise); **flip-short-only** is identical to flip (a bond rally already means long). Read: if skip beats flip on mean net in
+both histories without lowering P(payout), propose it to the user as a change to the bot (not made without confirmation).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
