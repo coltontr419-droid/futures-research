@@ -10622,6 +10622,20 @@ window itself (MNQ day 09:30 → 16:00; gold London 03:00 → 11:30), predicting
 by discovery; forms **all** and **strong**. **4 tests**, descriptive 2010–17 column. Costs §180; recent-period design; carried at
 net > 0, t > 1.96; validation as §207, 3.
 
+## 353. Family-85 discovery: a session's signed volume — 0 of 4 carried (S1)
+
+**No trial spent; N 890.** `reports/d85_discovery.json`: fades of +2 to +3 bps, |t| ≤ 1.0. Empty.
+
+## 354. D-series family 86 protocol: near-misses that held in both periods (a pooled re-read) (S1)
+
+**No trial spent; N 890. Written and committed BEFORE any pooled statistic is computed.** In this search every carried test whose
+2010–17 column was flat failed out of sample (§349), and the few results that held in both periods were the most robust (D104).
+**Rule, fixed now:** over every test in families 64–85 that printed a 2010–17 column, recompute the same rule (direction fixed by
+2018–22) on 2010-01 → 2022-12 pooled; **carried** if net > 0 in 2018–22 AND in 2010–17 AND pooled t > 1.96. Honest caveat: the
+2010–17 columns were already printed, so this selection is informed by them; it spends no sealed data — 2023-01 → 2026-08 stays the
+only test, validation as §207, 3 (each family's own placebo). Tests already validated (D104, D105, D106) and the equity-sector-shock
+fades on MNQ (crisis-rebound class, §336) are excluded before computing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
