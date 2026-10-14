@@ -1,0 +1,88 @@
+{
+ "window": [
+  "2021-01-01",
+  "2024-12-31"
+ ],
+ "tests": 6,
+ "all": [
+  {
+   "market": "MNQ",
+   "kind": "gap",
+   "form": "all",
+   "median_abs": 40.57347869873047,
+   "n": 998,
+   "dir": "follow",
+   "net_bps": 0.3136240243911743,
+   "t": 0.08659017086029053,
+   "context_net": 0.5346456170082092,
+   "context_t": 0.2674129903316498,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "kind": "gap",
+   "form": "strong",
+   "median_abs": 40.57347869873047,
+   "n": 500,
+   "dir": "follow",
+   "net_bps": 3.627664804458618,
+   "t": 0.64696204662323,
+   "context_net": 2.392115592956543,
+   "context_t": 0.6461828351020813,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "kind": "nr7",
+   "form": "all",
+   "median_abs": 23.61833953857422,
+   "n": 151,
+   "dir": "follow",
+   "net_bps": 7.227568386406299,
+   "t": 0.7591871692654862,
+   "context_net": -0.9619559461420233,
+   "context_t": -0.23719982311494633,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "kind": "gap",
+   "form": "all",
+   "median_abs": 29.145479202270508,
+   "n": 986,
+   "dir": "follow",
+   "net_bps": 0.6375910043716431,
+   "t": 0.2849957346916199,
+   "context_net": 1.202816367149353,
+   "context_t": 0.7896227836608887,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "kind": "gap",
+   "form": "strong",
+   "median_abs": 29.145479202270508,
+   "n": 496,
+   "dir": "follow",
+   "net_bps": 4.604539394378662,
+   "t": 1.3640493154525757,
+   "context_net": 2.8950135707855225,
+   "context_t": 1.270664095878601,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "kind": "nr7",
+   "form": "all",
+   "median_abs": 17.383098602294922,
+   "n": 145,
+   "dir": "follow",
+   "net_bps": 1.9625398175469753,
+   "t": 0.32300780919442545,
+   "context_net": 3.6075311917630155,
+   "context_t": 0.8953169656480564,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

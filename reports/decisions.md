@@ -11908,6 +11908,10 @@ grids. **Gap**: the window's first close vs the previous window's last close (MN
 **NR7**: when the previous window's high–low range is the narrowest of the last 7, the window in the previous window's direction or
 against it. **2 markets × 3 = 6 tests.** Costs §180; validation per §426, 2 (placebo: shuffled signs).
 
+## 482. Family-132 discovery: gaps and narrow ranges — 0 of 6 carried (S1)
+
+**No trial spent; N 1,102.** `reports/d132_discovery.json`: all |t| ≤ 1.36 (best: gold continues a strong gap, +4.6 bps). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
