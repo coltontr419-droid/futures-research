@@ -10857,7 +10857,9 @@ sixth account; a confirmed D122 would be a D68-like overlay for it.
 
 **Before any use — stress tests fixed now (no trial), as D68's §210:** (1) **independent data on both sides** — USD/BRL from FRED
 DEXBZUS (the noon New York buying rate, close → close; a shock as before) and soybeans from the owned GLBX daily bars (roll-correct
-settle → settle, the next session); periods 2010–17, 2018–22, 2023–26; thresholds 1.5 / 2 / 2.5 σ. (2) **The ZS account overlay** —
+settle → settle, the next session) *[amended before computing: the owned bar file has no ZS (0 dates), and Stooq answers with a
+browser challenge, which is not circumvented; the independent soybean price is the SOYB ETF (NYSE Arca, holds soybean futures),
+Yahoo daily open → close; combinations FRED-BRL × Yahoo-ZS, Yahoo-BRL × SOYB, FRED-BRL × SOYB]*; periods 2010–17, 2018–22, 2023–26; thresholds 1.5 / 2 / 2.5 σ. (2) **The ZS account overlay** —
 A23 engine, 3 ZS, both histories, drift removed: the plan (always long) against the overlay (short the session after the real weakens
 beyond 2σ; long otherwise), as D68's table. Read: adopt for the demo only if (1) keeps the sign in 2023–26 on independent data and (2)
 does not lower the account's P(payout) in 2021–26.
