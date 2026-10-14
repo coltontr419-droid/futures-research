@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D123",
+ "cell": "ZC falls after the real weakens",
+ "trades": 51,
+ "net_bps": 15.806514695738304,
+ "t_net": 1.0038540666525555,
+ "placebo_pct": 77.60000000000001,
+ "by_year": {
+  "2023": 28.82897132980329,
+  "2024": -24.687634297792457,
+  "2025": 63.86277227931504,
+  "2026": 35.8100731697387
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 135,
+ "injection": {
+  "hypothesis": "D123",
+  "n_events": 51,
+  "sought_bps": 20.04858478770515,
+  "mean_estimate": 19.82221835565847,
+  "sd_estimate_bps": 15.442383271197139,
+  "power_strict_t": 0.3545,
+  "recovered": true
+ }
+}

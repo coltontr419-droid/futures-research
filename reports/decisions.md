@@ -10846,6 +10846,22 @@ The sign is the mechanism's (a weaker real → more Brazilian selling → lower 
 2010–17 column is flat (t ≈ 0.2), the pattern that has preceded every out-of-sample failure in this search (§349). ZS is the demo's
 sixth account; a confirmed D122 would be a D68-like overlay for it.
 
+## 382. D122 CONFIRMED (t00904): soybeans fall after the Brazilian real weakens; D123 (corn) WATCHLIST (t00905) (S1)
+
+**N 899.** Sealed 2023-01 → 2026-08, injection recovered first (power 30% / 35%):
+- **D122 ZS: CONFIRM** — 51 events, net **+32.86 bps** (t +1.88 > 1.645), placebo (non-shock days)
+  **97th** pct, years 3 of 4 (2023 +39.9, 2024 −3.3, 2025 +53.2, 2026 +86.5). The first confirmation since D89, on a
+  product the plan trades (the demo's soybean account), with the mechanism's sign (a weaker real → Brazilian farmer and exporter
+  selling → lower US soybeans next session; a stronger real → the reverse).
+- **D123 ZC: WATCHLIST** — 51 events, +15.81 bps (t +1.00), placebo 78th, years 3 of 4.
+
+**Before any use — stress tests fixed now (no trial), as D68's §210:** (1) **independent data on both sides** — USD/BRL from FRED
+DEXBZUS (the noon New York buying rate, close → close; a shock as before) and soybeans from the owned GLBX daily bars (roll-correct
+settle → settle, the next session); periods 2010–17, 2018–22, 2023–26; thresholds 1.5 / 2 / 2.5 σ. (2) **The ZS account overlay** —
+A23 engine, 3 ZS, both histories, drift removed: the plan (always long) against the overlay (short the session after the real weakens
+beyond 2σ; long otherwise), as D68's table. Read: adopt for the demo only if (1) keeps the sign in 2023–26 on independent data and (2)
+does not lower the account's P(payout) in 2021–26.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

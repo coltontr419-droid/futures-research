@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D122",
+ "cell": "ZS falls after the real weakens",
+ "trades": 51,
+ "net_bps": 32.86158388483847,
+ "t_net": 1.8751782048634367,
+ "placebo_pct": 97.3,
+ "by_year": {
+  "2023": 39.9179068737009,
+  "2024": -3.312343808906904,
+  "2025": 53.15483617711595,
+  "2026": 86.4633128969536
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 134,
+ "injection": {
+  "hypothesis": "D122",
+  "n_events": 51,
+  "sought_bps": 19.686829843509294,
+  "mean_estimate": 20.106735032178936,
+  "sd_estimate_bps": 17.532720474197344,
+  "power_strict_t": 0.297,
+  "recovered": true
+ }
+}
