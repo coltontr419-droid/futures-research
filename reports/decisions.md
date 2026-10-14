@@ -11517,6 +11517,30 @@ drift removed, both histories): plan (always long) vs **every-day** (the rule's 
 strong dollar fall; long otherwise). Read: propose to the user if (1) holds in 2025–26 on the independent variants and (2) raises mean net
 and P(net > 0) in 2021–26 without lowering P(payout).
 
+## 447. The DAX–dollar rule passes every stress test and nearly doubles the FDXM account's net — the first account-sized edge (S8)
+
+**No trial; N 976.** `reports/a34_daxdollar.json`, module `reporting/a34_daxdollar.py`. Rule: the DAX window takes the sign of the
+previous weekday's dollar move.
+
+**(1) Independent data, 2025–26 (sealed for this theme):** all 12 variants positive — DX-Y.NYB → ^GDAXI +7.0 (t +1.64); FRED broad dollar
+→ A21 +9.2 (t +2.22), → ^GDAXI +8.5 (t +2.00); EUR/USD (16:55 ET) → A21 +4.8 / strong +10.3, → ^GDAXI +4.6 / +10.5. 2021–24: all 12
+positive (t +0.94 to +2.91). 2010–20: weakly positive on DX-Y.NYB and EUR/USD (+1.1 to +5.2), negative on FRED's noon-fixed broad index —
+the effect is strongest in the current regime and on end-of-day dollar measures.
+
+**(2) The FDXM account (2 FDXM, 50K Daily, A23, drift removed, every start, 84 days):**
+
+| | 2021–26 P(payout), mean net, P(net > 0) | 2010–20 |
+|---|---|---|
+| plan, always long | 83%, +$1,879, 67% | 73%, +$2,071, 62% |
+| **every-day rule** (short after a dollar fall; 45% of sessions) | **85%, +$3,720, 81%** | **85%, +$3,144, 73%** |
+| strong-only (short after a strong fall; 23%) | 86%, +$3,241, 76% | 70%, +$2,174, 60% |
+
+The every-day rule raises mean net by **+$1,841** per four months in 2021–26 and +$1,073 in 2010–20, and P(net > 0) by 14 and 11 points,
+without lowering P(payout) — §446's reading is met in full. Unlike D68/D122/D139/D151 (event rules on ~3% of days, account-neutral),
+this acts every session. **Status: CONFIRMED (D171, D174, D175 and the theme), stress-tested, proposed to the user; NOT deployed.**
+Implementation note: the bot's 17:30 ET alert can read the day's dollar move (EUR/USD to 16:55 ET, or DX-Y.NYB's session) before
+the FDXM ticket's 03:00 ET entry.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
