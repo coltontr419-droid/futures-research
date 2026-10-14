@@ -10967,6 +10967,13 @@ Yahoo close → close, UTC day, 2σ, up = the importer's currency weaker; target
 fixed by discovery; stale (> 30% unchanged) reported, not carried. **3 tests**, descriptive 2010–17 column. Costs §177; recent-period
 design; carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 395. Family-102 discovery: importers' currencies — 0 of 3 carried; the sign is universal (S1)
+
+**No trial spent; N 901.** `reports/d102_discovery.json`: INR → GC +18.2 (t +1.37), INR → CL +70.3 (t +1.22), KRW → CL +97.6 (t +1.57) —
+all "against local weakness", as every one of the 12 pairs in families 97–102, producer and importer alike. So the broad pattern is
+"an emerging currency's sharp fall precedes weaker commodities next session" (a dollar-funding / risk channel), of which the soybean
+case (D122) is the strongest and the only one confirmed out of sample. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

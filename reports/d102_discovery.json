@@ -1,0 +1,45 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "currency": "INR=X",
+   "target": "GC",
+   "stale_share": 0.0023006134969325155,
+   "n": 76,
+   "rule": "against local weakness",
+   "net_bps": 18.23223379007542,
+   "t": 1.3692765400215396,
+   "early_net": 5.348362131462613,
+   "early_t": 0.5446822131457834,
+   "carried": false
+  },
+  {
+   "currency": "INR=X",
+   "target": "CL",
+   "stale_share": 0.0023006134969325155,
+   "n": 76,
+   "rule": "against local weakness",
+   "net_bps": 70.3424538846364,
+   "t": 1.2179724255069366,
+   "early_net": 6.551901468543997,
+   "early_t": 0.3740666137920348,
+   "carried": false
+  },
+  {
+   "currency": "KRW=X",
+   "target": "CL",
+   "stale_share": 0.0015337423312883436,
+   "n": 70,
+   "rule": "against local weakness",
+   "net_bps": 97.64334608024124,
+   "t": 1.5661557882297712,
+   "early_net": 23.306844212540984,
+   "early_t": 1.1787349298962666,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
