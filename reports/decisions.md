@@ -10610,6 +10610,18 @@ Imbalance = Σ signed / Σ volume over the session before the target: **MNQ** ni
 above its discovery median). **2 × 2 = 4 tests**, with the descriptive 2010–17 column. Costs §180; recent-period design; carried at
 net > 0, t > 1.96; validation as §207, 3.
 
+## 351. Family-84 discovery: overnight signed volume — 0 of 4 carried (S1)
+
+**No trial spent; N 890.** `reports/d84_discovery.json`: MNQ follow +3.2 bps (t +0.91; 2010–17 the opposite, −4.4, t −2.19); gold ~0.
+Empty.
+
+## 352. D-series family 85 protocol: a session's signed volume into the next session (S1)
+
+**No trial spent; N 890. Written and committed BEFORE any statistic is computed.** Family 84's imbalance measured over the target
+window itself (MNQ day 09:30 → 16:00; gold London 03:00 → 11:30), predicting the same window on the next weekday; follow or fade fixed
+by discovery; forms **all** and **strong**. **4 tests**, descriptive 2010–17 column. Costs §180; recent-period design; carried at
+net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
