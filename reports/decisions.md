@@ -10775,6 +10775,16 @@ traded; side fixed by discovery; the target (MNQ day; gold London on D, family-8
 
 **No trial spent; N 896.** `reports/d93_discovery.json`: MNQ +1.2 bps (t +0.26), gold +1.1 (t +0.50), both reversed in 2012–17. Empty.
 
+## 373. D-series family 94 protocol: the month-end London fix and equity-hedge rebalancing (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** Foreign holders of US equities re-hedge at the
+month-end WM/R 16:00 London fix: after a month in which US equities rose, they sell dollars into it. Last London business day of
+each month; signal = sign of the S&P's month (ES=F Yahoo settlements, last day of the prior month → the day before the fix).
+Windows (HistData via family 41's `d41_fix.rows`, futures' direction): **pre** 15:30 → 16:00 and **post** 16:00 → 16:30, each traded
+in the direction "dollar weaker when equities rose" or the reverse, fixed by discovery. Pairs pooled per window across 6E, 6B, 6J
+(day-clustered). **2 tests**, descriptive 2010–17 column. Cost 0.5 bps; recent-period design; carried at net > 0, t > 1.96;
+validation as §207, 3 (placebo: the same rule on the second-last business day).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
