@@ -10864,6 +10864,28 @@ A23 engine, 3 ZS, both histories, drift removed: the plan (always long) against 
 beyond 2σ; long otherwise), as D68's table. Read: adopt for the demo only if (1) keeps the sign in 2023–26 on independent data and (2)
 does not lower the account's P(payout) in 2021–26.
 
+## 383. D122 stress-tested: the sign survives on independent data, weakly; the overlay meets the pre-set reading but lowers mean net (S8)
+
+**No trial; N 899.** `reports/a31_d122.json`, module `reporting/a31_d122.py`.
+
+**(1) Independent data, 2σ, 2023–26** (short soybeans the session after the real weakens): Yahoo BRL × Yahoo ZS (the trial's own data)
++32.9 (t +1.88); **FRED BRL × Yahoo ZS +7.4 (t +0.48); Yahoo BRL × SOYB +6.6 (t +0.57); FRED BRL × SOYB +11.5 (t +1.12)**. 2018–22
++11 to +39 throughout; 2010–17 ≈ 0 (−10.9 to +4.9). The sign holds out of sample on every independent combination at 2σ, at a
+fraction of the trial's size — partly the FRED rate's noon timing (half a day earlier than the close the rule uses). At 2.5σ the
+2023–26 events are 13–15 and the FRED × Yahoo cell turns negative (−34, n 13). A real but modest effect, as D68 was.
+
+**(2) The ZS account (3 ZS, 50K Daily, drift removed, 84 days; short days 3.3% of sessions):**
+
+| | 2010–20 | 2021–26 |
+|---|---|---|
+| plan, always long | P(payout) 70%, +$3,061, P(net > 0) 59% | 86%, +$3,310, 81% |
+| overlay, D122 short days | 75%, +$2,990, 62% | 87%, +$2,792, 85% |
+
+The pre-set reading (§382) is met — the sign holds on independent data in 2023–26, and P(payout) in 2021–26 does not fall (86 → 87%)
+— but the mean net is LOWER in both histories (−$71, −$518): with brackets, a handful of flipped days moves outcomes more by
+path than by the edge. **Status: a demo candidate for the soybean account, NOT deployed** — changes to the droplet need the user's
+confirmation (and the soybean ticket is itself still being evaluated by the demo). Recorded for the 2026-10-25 review.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
