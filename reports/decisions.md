@@ -11928,6 +11928,15 @@ Costs §177; validation per §426, 2 (placebo: weeks shuffled; both 2025 and 202
 
 Positioning data sets no direction for the plan's products in the current regime either.
 
+## 485. Stress tests for D246 (MNQ fades a strong week in semiconductors), fixed before running (S8)
+
+**No trial; N 1,104.** D246 (§451) was confirmed but not followed up. Rule: when SMH's previous-5-weekday sum exceeds its 2021–24 median
+size, MNQ's day session goes against its sign; other days long (the plan). (1) **Independent data**: the semiconductor index from ^SOX
+(Yahoo) in place of SMH — predictors SMH (the trial's) and ^SOX; MNQ target from the owned grid (the trial's)
+and Yahoo NQ=F's session; periods 2010–20, 2021–24, 2025–26. (2) **The MNQ account** (4 MNQ, A23, drift removed, both histories, and
+starts from 2025-01): plan vs D246 vs D246 + D68 (D68 overriding on its shock days), with the random-flip calibration of §453. Read as
+§446.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
