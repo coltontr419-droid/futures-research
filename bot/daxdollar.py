@@ -34,3 +34,27 @@ def fdxm_side(alert_day: dt.date, move_bps: float | None = None, fetch: bool = T
         return side, f"DAX-dollar: dollar index today {r:+.0f} bps -> FDXM {side.upper()}"
     except Exception as e:                              # never block the alert
         return "long", f"DAX-dollar: dollar check failed ({type(e).__name__}) -> long"
+
+
+def eurusd_bars() -> list:
+    u = "https://query1.finance.yahoo.com/v8/finance/chart/EURUSD=X?interval=5m&range=5d"
+    d = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=20).read())["chart"]["result"][0]
+    return [(dt.datetime.fromtimestamp(t, ET), c) for t, c in zip(d["timestamp"], d["indicators"]["quote"][0]["close"]) if c]
+
+
+def preopen_side(now: dt.datetime, bars: list | None = None) -> tuple[str, str] | None:
+    """The 02:50 ET re-check (decisions.md 468, 490): the dollar over the last 24 hours (-EUR/USD from the previous weekday's same
+    time to now). None if the data cannot be read - the 17:30 side then stands."""
+    try:
+        b = bars if bars is not None else eurusd_bars()
+        prev = now - dt.timedelta(days=3 if now.weekday() == 0 else 1)
+        a = [c for t, c in b if t <= prev]; z = [c for t, c in b if t <= now]
+        if not a or not z:
+            return None
+        dollar = -(z[-1] / a[-1] - 1) * 1e4
+        if dollar == 0:
+            return None
+        side = "long" if dollar > 0 else "short"
+        return side, f"DAX-dollar 02:50 re-check: dollar {dollar:+.0f} bps over 24h -> FDXM {side.upper()}"
+    except Exception:
+        return None

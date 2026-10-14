@@ -11967,6 +11967,16 @@ lacks its `!eod`** and **green once all are recorded**. `!eod` marks every trade
 message id, keys); `!board` re-posts the latest board. On first start the bot posted a board for the 2026-10-14 tickets. Tests:
 `tests/test_bot_ticket.py` (marking / colour logic; embed limits checked on the droplet — discord.py is not installed locally).
 
+## 490. The FDXM ticket's dollar is re-read at 02:50 ET before its 03:00 entry (the user's option 3) (S8)
+
+**No trial; N 1,104.** Deployed 19:25 ET 2026-10-14 (backup `/opt/futures-bot/backup-2026-10-14e`). Per §468 the dollar measured just
+before the DAX opens is the steadiest form (+7.0 bps in both 2021–24 and 2025–26). Between 02:45 and 02:58 ET on weekdays the bot reads
+Yahoo's 5-minute EUR/USD, takes the dollar's move over the last 24 hours (−EUR/USD from the previous weekday's same time), and: if it
+gives the 17:30 side, notes the check on the board; if it flips the side, reissues the FDXM ticket with the new side
+(`Tickets.issue(..., side_override=...)`), edits the board and posts a one-line "FDXM side changed" message. No data → the 17:30 side
+stands. Tests: `test_daxdollar_preopen_side`. (Illustration: 2026-10-14's 02:50 reading was dollar −28 bps → short, against the
+previous evening's +33 → long — flips happen.)
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -200,3 +200,19 @@ def test_board_embeds_fit_discord_limits() -> None:
     board = em[-1].to_dict()
     assert board["color"] == 0xe74c3c and all(len(f["value"]) <= 1024 for f in board["fields"])
     assert sum(len(e.title or "") + len(e.description or "") + sum(len(f.name) + len(f.value) for f in e.fields) for e in em) <= 6000
+
+
+def test_daxdollar_preopen_side() -> None:
+    """decisions.md 490: the 02:50 re-check reads the dollar over 24h (-EUR/USD); no data -> None (the 17:30 side stands)."""
+    import datetime as _dt
+    from zoneinfo import ZoneInfo
+    import daxdollar
+    et = ZoneInfo("America/New_York")
+    now = _dt.datetime(2026, 10, 15, 2, 50, tzinfo=et)
+    bars = [(_dt.datetime(2026, 10, 14, 2, 50, tzinfo=et), 1.1200), (now, 1.1100)]      # euro down -> dollar up -> long
+    assert daxdollar.preopen_side(now, bars)[0] == "long"
+    bars = [(_dt.datetime(2026, 10, 14, 2, 50, tzinfo=et), 1.1100), (now, 1.1200)]
+    assert daxdollar.preopen_side(now, bars)[0] == "short"
+    mon = _dt.datetime(2026, 10, 19, 2, 50, tzinfo=et)                                   # Monday compares with Friday
+    assert daxdollar.preopen_side(mon, [(_dt.datetime(2026, 10, 16, 2, 50, tzinfo=et), 1.12), (mon, 1.11)])[0] == "long"
+    assert daxdollar.preopen_side(now, []) is None

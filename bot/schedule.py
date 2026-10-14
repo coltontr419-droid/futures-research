@@ -61,7 +61,7 @@ class Tickets:
         self.t = self.t[-500:]
         tmp = self.path.with_suffix(".tmp"); tmp.write_text(json.dumps(self.t, indent=1)); tmp.replace(self.path)
 
-    def issue(self, book: Book, product: str, alert_day: dt.date, now: dt.datetime) -> dict | None:
+    def issue(self, book: Book, product: str, alert_day: dt.date, now: dt.datetime, side_override: tuple | None = None) -> dict | None:
         """Record (or replace, if still pending) the ticket for `product` from the alert on `alert_day`."""
         a = book.s[product]
         tz, e_off, (eh, em), x_off, (xh, xm) = WINDOWS[product]
@@ -70,7 +70,7 @@ class Tickets:
         if a["phase"] == "dead":
             tk = {"trade": False, "finished": True, "floor": 0.0}
         else:
-            side, why = (d68.mnq_side(alert_day) if product == "MNQ"                      # D68 (decisions.md 211)
+            side, why = side_override if side_override else (d68.mnq_side(alert_day) if product == "MNQ"                      # D68 (decisions.md 211)
                          else nkddollar.nkd_side(alert_day) if product == "NKD"             # dollar-week, replaced D139 (decisions.md 454)
                          else daxdollar.fdxm_side(alert_day) if product == "FDXM" else ("long", ""))  # decisions.md 448
             tk = ticket(a["phase"], a["balance"], a["peak"], a["best"], a["payouts"], product, side)

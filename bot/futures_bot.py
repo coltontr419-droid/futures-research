@@ -35,6 +35,7 @@ import discord
 from discord.ext import commands, tasks
 
 from accounts import PRODUCTS, Book
+import daxdollar
 import json
 
 from schedule import ALERT, ET, ORDER, Tickets, alert_parts, eod_day, last_trading_day, needs_eod, ticket_post
@@ -179,12 +180,35 @@ async def loop():
     ch = bot.get_channel(CHANNEL_ID)
     if ch is None:
         return
+    if now.weekday() < 5 and (2, 45) <= (now.hour, now.minute) < (2, 58):
+        await fdxm_recheck(ch, now)
     key = now.date().isoformat()
     done = LAST_ALERT.read_text().strip() if LAST_ALERT.exists() else ""
     if now.weekday() != 5 and (now.hour, now.minute) >= ALERT and key != done and (now.hour, now.minute) < (ALERT[0] + 2, 0):
         LAST_ALERT.write_text(key)
         info, recs = alert_parts(book, tix, now)
         await post_board(ch, info, recs, key, f"{now:%A %d %B} · 17:30 ET")
+
+
+async def fdxm_recheck(ch, now: dt.datetime) -> None:
+    """02:45-02:58 ET: re-read the dollar for the FDXM ticket entering at 03:00 (decisions.md 490); flip and reissue if it changed."""
+    recs = [r for r in tix.t if r["product"] == "FDXM" and r["status"] == "pending" and not r.get("prechecked")
+            and dt.datetime.fromisoformat(r["entry"]).astimezone(ET).date() == now.date() and r["ticket"].get("trade")]
+    if not recs:
+        return
+    rec = recs[-1]
+    res = await asyncio.to_thread(daxdollar.preopen_side, now)
+    if res is None:
+        rec["prechecked"] = True; tix.save(); return
+    side, why = res
+    if side != rec["ticket"]["side"]:
+        alert_day = dt.datetime.fromisoformat(rec["issued"]).date()
+        new = tix.issue(book, "FDXM", alert_day, now, side_override=(side, why))
+        new["prechecked"] = True; tix.save()
+        await ch.send(f"**FDXM side changed to {side.upper()}** for the 03:00 ET entry - {why}. The board is updated.")
+    else:
+        rec["prechecked"] = True; rec["ticket"]["note"] = (rec["ticket"].get("note", "") + f" | {why} (unchanged)").strip(" |"); tix.save()
+    await refresh_boards(ch, {"FDXM"})
 
 
 @bot.command(name="eod")
