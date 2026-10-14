@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D228",
+ "cell": "NKD follows XLY (strong, 5-day, current regime)",
+ "trades": 193,
+ "net_bps": 10.606114686192107,
+ "t_net": 1.5157550081418716,
+ "placebo_pct": 95.89999999999999,
+ "by_year": {
+  "2025": 8.780724419176877,
+  "2026": 13.240222160112822
+ },
+ "always_long_net_bps": 2.1114158912606933,
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 240,
+ "injection": {
+  "hypothesis": "D228",
+  "n_events": 193,
+  "sought_bps": 4.606905209002671,
+  "mean_estimate": 4.56910206269393,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D233",
+ "cell": "ZS follows XLF (strong, 5-day, current regime)",
+ "trades": 169,
+ "net_bps": -7.30106913595452,
+ "t_net": -0.9960561308703944,
+ "placebo_pct": 10.100000000000001,
+ "by_year": {
+  "2025": -7.459488152520525,
+  "2026": -6.98978966480729
+ },
+ "always_long_net_bps": 8.993175198139093,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 245,
+ "injection": {
+  "hypothesis": "D233",
+  "n_events": 169,
+  "sought_bps": 6.947847065870519,
+  "mean_estimate": 6.8576308889530875,
+  "recovered": true
+ }
+}

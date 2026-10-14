@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D242",
+ "cell": "NKD fades DX-Y.NYB (strong, 5-day, current regime)",
+ "trades": 183,
+ "net_bps": 21.79707349873926,
+ "t_net": 3.272357755022307,
+ "placebo_pct": 99.9,
+ "by_year": {
+  "2025": 18.987630129093592,
+  "2026": 26.438762544240785
+ },
+ "always_long_net_bps": 0.23782074146312737,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 254,
+ "injection": {
+  "hypothesis": "D242",
+  "n_events": 183,
+  "sought_bps": 4.046214368759384,
+  "mean_estimate": 3.9207195018091205,
+  "recovered": true
+ }
+}

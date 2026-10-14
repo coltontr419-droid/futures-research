@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D215",
+ "cell": "DAX follows ZB=F (strong, 5-day, current regime)",
+ "trades": 135,
+ "net_bps": -10.491176165150224,
+ "t_net": -1.2550649964318696,
+ "placebo_pct": 12.1,
+ "by_year": {
+  "2025": -2.8769905210410784,
+  "2026": -27.94808959310779
+ },
+ "always_long_net_bps": 1.7928409187574808,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 227,
+ "injection": {
+  "hypothesis": "D215",
+  "n_events": 135,
+  "sought_bps": 5.1167322049194,
+  "mean_estimate": 5.1977720112949495,
+  "recovered": true
+ }
+}

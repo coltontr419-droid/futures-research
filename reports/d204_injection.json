@@ -1,0 +1,7 @@
+{
+ "hypothesis": "D204",
+ "n_events": 225,
+ "sought_bps": 15.023642547090413,
+ "mean_estimate": 14.646779226322662,
+ "recovered": true
+}

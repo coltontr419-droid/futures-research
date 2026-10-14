@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D203",
+ "cell": "NKD follows FXI (all, 5-day, current regime)",
+ "trades": 406,
+ "net_bps": 1.216692329584845,
+ "t_net": 0.2700975026934172,
+ "placebo_pct": 60.699999999999996,
+ "by_year": {
+  "2025": -0.4407097888389802,
+  "2026": 3.764948086661485
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 215,
+ "injection": {
+  "hypothesis": "D203",
+  "n_events": 406,
+  "sought_bps": 3.998539623375913,
+  "mean_estimate": 3.852957095706357,
+  "recovered": true
+ }
+}

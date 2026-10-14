@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D220",
+ "cell": "MNQ fades RTY=F (strong, 5-day, current regime)",
+ "trades": 168,
+ "net_bps": -5.660712134270441,
+ "t_net": -0.5186532416757014,
+ "placebo_pct": 43.1,
+ "by_year": {
+  "2025": -8.461791720959024,
+  "2026": -0.4858362876762778
+ },
+ "always_long_net_bps": 8.841646194458008,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 232,
+ "injection": {
+  "hypothesis": "D220",
+  "n_events": 168,
+  "sought_bps": 6.530897645446343,
+  "mean_estimate": 6.716552272951148,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D219",
+ "cell": "NKD fades ^VIX (all, 5-day, current regime)",
+ "trades": 407,
+ "net_bps": 1.2662093180557132,
+ "t_net": 0.28161338685287723,
+ "placebo_pct": 63.6,
+ "by_year": {
+  "2025": -1.4921291807480308,
+  "2026": 5.480813483929755
+ },
+ "always_long_net_bps": -1.0127308528386527,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 231,
+ "injection": {
+  "hypothesis": "D219",
+  "n_events": 407,
+  "sought_bps": 3.1553833316041238,
+  "mean_estimate": 3.0308374896985746,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D205",
+ "cell": "NKD follows 6B=F (all, 5-day, current regime)",
+ "trades": 408,
+ "net_bps": 6.068747262551831,
+ "t_net": 1.356618664506131,
+ "placebo_pct": 94.19999999999999,
+ "by_year": {
+  "2025": 5.972885352696307,
+  "2026": 6.217333222827892
+ },
+ "always_long_net_bps": -0.9773628837247648,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 217,
+ "injection": {
+  "hypothesis": "D205",
+  "n_events": 408,
+  "sought_bps": 3.9193402357842198,
+  "mean_estimate": 3.9508620668282637,
+  "recovered": true
+ }
+}

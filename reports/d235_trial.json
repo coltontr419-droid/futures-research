@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D235",
+ "cell": "MNQ fades EEM (all, 5-day, current regime)",
+ "trades": 402,
+ "net_bps": 5.536531652384136,
+ "t_net": 0.9605558417940896,
+ "placebo_pct": 88.6,
+ "by_year": {
+  "2025": 9.701677176577986,
+  "2026": -0.7632509529590606
+ },
+ "always_long_net_bps": 3.021571159362793,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 247,
+ "injection": {
+  "hypothesis": "D235",
+  "n_events": 402,
+  "sought_bps": 3.9385302476356365,
+  "mean_estimate": 3.9287272088179024,
+  "recovered": true
+ }
+}

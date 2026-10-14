@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D202",
+ "cell": "NKD follows 6E=F (strong, 5-day, current regime)",
+ "trades": 200,
+ "net_bps": 17.89398220498224,
+ "t_net": 2.8349562597634166,
+ "placebo_pct": 99.7,
+ "by_year": {
+  "2025": 16.80903751997964,
+  "2026": 19.55573292504952
+ },
+ "always_long_net_bps": 1.6189773462381722,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 214,
+ "injection": {
+  "hypothesis": "D202",
+  "n_events": 200,
+  "sought_bps": 5.468124643339858,
+  "mean_estimate": 5.51387917966594,
+  "recovered": true
+ }
+}

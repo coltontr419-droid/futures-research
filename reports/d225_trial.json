@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D225",
+ "cell": "NKD fades ^VVIX (all, 5-day, current regime)",
+ "trades": 406,
+ "net_bps": -2.2213051890731985,
+ "t_net": -0.49317716601388667,
+ "placebo_pct": 31.3,
+ "by_year": {
+  "2025": 0.10770377342252695,
+  "2026": -5.802156468910377
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 237,
+ "injection": {
+  "hypothesis": "D225",
+  "n_events": 406,
+  "sought_bps": 2.9939884916820794,
+  "mean_estimate": 3.0353811247948057,
+  "recovered": true
+ }
+}

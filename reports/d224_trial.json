@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D224",
+ "cell": "ZS follows ZB=F (all, 5-day, current regime)",
+ "trades": 401,
+ "net_bps": -3.2043342250382274,
+ "t_net": -0.6461697828008857,
+ "placebo_pct": 31.0,
+ "by_year": {
+  "2025": -4.47641170522116,
+  "2026": -1.2682162992252122
+ },
+ "always_long_net_bps": 2.5154296355867283,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 236,
+ "injection": {
+  "hypothesis": "D224",
+  "n_events": 401,
+  "sought_bps": 4.980440125598694,
+  "mean_estimate": 5.14712205410175,
+  "recovered": true
+ }
+}

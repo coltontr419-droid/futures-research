@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D244",
+ "cell": "CL follows XLY (strong, 5-day, current regime)",
+ "trades": 190,
+ "net_bps": -8.78005744949845,
+ "t_net": -0.39785136116230335,
+ "placebo_pct": 31.900000000000002,
+ "by_year": {
+  "2025": -18.321768381211367,
+  "2026": 5.2227131385997225
+ },
+ "always_long_net_bps": -27.842150907619477,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 256,
+ "injection": {
+  "hypothesis": "D244",
+  "n_events": 190,
+  "sought_bps": 10.609712605729623,
+  "mean_estimate": 11.080694340999692,
+  "recovered": true
+ }
+}

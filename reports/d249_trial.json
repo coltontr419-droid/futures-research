@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D249",
+ "cell": "NKD fades ^VIX (strong, 5-day, current regime)",
+ "trades": 216,
+ "net_bps": -1.1704355365421923,
+ "t_net": -0.20041464795170194,
+ "placebo_pct": 44.800000000000004,
+ "by_year": {
+  "2025": -2.1989964785976976,
+  "2026": 0.6493261301713941
+ },
+ "always_long_net_bps": 9.73272828985162,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 261,
+ "injection": {
+  "hypothesis": "D249",
+  "n_events": 216,
+  "sought_bps": 4.13536051310609,
+  "mean_estimate": 3.93574378515522,
+  "recovered": true
+ }
+}

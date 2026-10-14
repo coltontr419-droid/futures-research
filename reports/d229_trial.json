@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D229",
+ "cell": "ZS fades KRW=X (strong, 5-day, current regime)",
+ "trades": 202,
+ "net_bps": 5.66180192727937,
+ "t_net": 0.7760650626843102,
+ "placebo_pct": 79.2,
+ "by_year": {
+  "2025": 5.159399129501138,
+  "2026": 6.250639614997943
+ },
+ "always_long_net_bps": 12.326150027175954,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 241,
+ "injection": {
+  "hypothesis": "D229",
+  "n_events": 202,
+  "sought_bps": 6.716489115298482,
+  "mean_estimate": 6.722896855358031,
+  "recovered": true
+ }
+}

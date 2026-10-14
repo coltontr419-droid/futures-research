@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D204",
+ "cell": "CL fades PL=F (strong, 5-day, current regime)",
+ "trades": 225,
+ "net_bps": -10.021440320223084,
+ "t_net": -0.5456400648184637,
+ "placebo_pct": 27.700000000000003,
+ "by_year": {
+  "2025": -17.532910683980294,
+  "2026": -0.46138712998663267
+ },
+ "always_long_net_bps": -4.092945341700599,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 216,
+ "injection": {
+  "hypothesis": "D204",
+  "n_events": 225,
+  "sought_bps": 15.023642547090413,
+  "mean_estimate": 14.646779226322662,
+  "recovered": true
+ }
+}

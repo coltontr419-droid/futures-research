@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D241",
+ "cell": "NKD follows SMH (all, 5-day, current regime)",
+ "trades": 406,
+ "net_bps": 4.973085441971224,
+ "t_net": 1.10565789451092,
+ "placebo_pct": 87.4,
+ "by_year": {
+  "2025": 3.7594566596417467,
+  "2026": 6.839039694802798
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 253,
+ "injection": {
+  "hypothesis": "D241",
+  "n_events": 406,
+  "sought_bps": 2.6697139332412894,
+  "mean_estimate": 2.573427169454568,
+  "recovered": true
+ }
+}

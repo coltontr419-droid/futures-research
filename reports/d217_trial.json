@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D217",
+ "cell": "DAX fades CL=F (strong, 5-day, current regime)",
+ "trades": 203,
+ "net_bps": -9.743712784210006,
+ "t_net": -1.513773970887693,
+ "placebo_pct": 5.3,
+ "by_year": {
+  "2025": -8.043982096511938,
+  "2026": -11.361725650384127
+ },
+ "always_long_net_bps": 7.137972026309582,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 229,
+ "injection": {
+  "hypothesis": "D217",
+  "n_events": 203,
+  "sought_bps": 5.597037041255408,
+  "mean_estimate": 5.411798636165557,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D246",
+ "cell": "MNQ fades SMH (strong, 5-day, current regime)",
+ "trades": 196,
+ "net_bps": 15.985029892045624,
+ "t_net": 1.6635978791435544,
+ "placebo_pct": 97.39999999999999,
+ "by_year": {
+  "2025": 19.616696151527197,
+  "2026": 11.242501012016746
+ },
+ "always_long_net_bps": 15.191947937011719,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 258,
+ "injection": {
+  "hypothesis": "D246",
+  "n_events": 196,
+  "sought_bps": 5.545023951171129,
+  "mean_estimate": 5.448287745853599,
+  "recovered": true
+ }
+}

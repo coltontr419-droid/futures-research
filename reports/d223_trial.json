@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D223",
+ "cell": "ZS fades CLP=X (all, 5-day, current regime)",
+ "trades": 365,
+ "net_bps": -2.1494358243810767,
+ "t_net": -0.41141565084426507,
+ "placebo_pct": 36.6,
+ "by_year": {
+  "2025": -3.530451108946489,
+  "2026": -0.02996097792999682
+ },
+ "always_long_net_bps": 3.566319479308547,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 235,
+ "injection": {
+  "hypothesis": "D223",
+  "n_events": 365,
+  "sought_bps": 5.1870457700394175,
+  "mean_estimate": 5.368905583369502,
+  "recovered": true
+ }
+}

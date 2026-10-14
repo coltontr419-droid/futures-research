@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D206",
+ "cell": "NKD follows ^GDAXI (all, 5-day, current regime)",
+ "trades": 413,
+ "net_bps": -5.5569921158737134,
+ "t_net": -1.2491715256363534,
+ "placebo_pct": 12.3,
+ "by_year": {
+  "2025": -4.77495809332613,
+  "2026": -6.756430800762644
+ },
+ "always_long_net_bps": -1.3657639463789675,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 218,
+ "injection": {
+  "hypothesis": "D206",
+  "n_events": 413,
+  "sought_bps": 3.6590659749490175,
+  "mean_estimate": 3.6899815800393174,
+  "recovered": true
+ }
+}
