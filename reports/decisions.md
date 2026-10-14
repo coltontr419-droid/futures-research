@@ -10694,6 +10694,15 @@ recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (plac
 **No trial spent; N 896.** `reports/d88_discovery.json`: 2018–22 ~0 (+0.5 / +0.0 bps); in 2010–17 the move into the European close
 reversed significantly (fade +1.7 / +2.8 gross, t −3.33 / −2.68 for "follow") — an effect that has disappeared. Empty.
 
+## 361. D-series family 89 protocol: crude after the EIA release, intraday (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** New data: HistData Brent (bcousd) minute bars, 2010 →
+2026-09, corrected clock, grid `reporting/hd_grid.py` (WTI has a 2024–26 gap there, so Brent stands in for crude intraday). The EIA
+weekly petroleum report (Wednesdays 10:30 ET; holiday-shifted weeks not adjusted) is crude's largest scheduled flow. The first k
+minutes after 10:30 (k = 5, 15; from the 10:29 close) predict 10:30 + k → 14:30 (NYMEX settlement), follow or fade fixed by
+discovery. **2 tests**, descriptive 2010–17 column. Cost: the MCL account's **5.4 bps** (§180) — what the plan would pay. Recent-period
+design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: the same rule on Tuesdays and Thursdays).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
