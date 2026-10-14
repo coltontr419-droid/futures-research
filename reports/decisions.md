@@ -12125,6 +12125,14 @@ new-account replay before any proposal.
 - **D385** HG follows ES=F 1d (strong): **REJECT** -7.73 (t -0.70), placebo 24th, 2025 -2.7, 2026 -14.8
 - **D386** SI follows XLU 5d (strong): **REJECT** -23.14 (t -1.37), placebo 14th, 2025 -22.1, 2026 -24.6
 
+## 508. D-series family 139 protocol: overnight cross-asset moves into MNQ's day, current regime (S1)
+
+**No trial spent; N 1,162. Written and committed BEFORE any statistic is computed.** MNQ's day session (09:30 → 16:00) is the plan's only
+US window without an every-day rule. Predictors measured to 09:25 ET the same day (minute data): **Brent** (HistData grid, 16:00 D−1 →
+09:25), **gold** (owned MGC: Asia + London grids, 18:00 D−1 → 09:25), **DAX** (HistData grxeur 03:00 → 09:25), **EUR/USD, USD/JPY,
+AUD/USD** (HistData grids, 16:00 D−1 → 09:25). Sign → MNQ day, follow or fade fixed by 2021–24; forms all / strong. **6 × 2 = 12 tests.**
+Cost 0.5; validation per §426, 2 (shuffled signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
