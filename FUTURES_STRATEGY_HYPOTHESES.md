@@ -2256,3 +2256,7 @@ Data-derived (D-series family 138). `hypotheses.yaml` (D385) · `decisions.md` �
 ## D386 — Si Follows Xlu 5D Strong New  *(REJECT — t01168)*
 
 Data-derived (D-series family 138). `hypotheses.yaml` (D386) · `decisions.md` §507
+
+## D387 — Mnq Follows Overnight Usdjpy R  *(REJECT — t01169)*
+
+Data-derived (D-series family 139). `hypotheses.yaml` (D387) · `decisions.md` §509

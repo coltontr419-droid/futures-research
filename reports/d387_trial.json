@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D387",
+ "cell": "MNQ follows overnight USD/JPY (current regime)",
+ "trades": 416,
+ "net_bps": -4.782281293318822,
+ "t_net": -0.852537412781489,
+ "placebo_pct": 21.6,
+ "always_long_net_bps": 2.8123016357421875,
+ "by_year": {
+  "2025": -10.778906381462674,
+  "2026": 4.339857477130312
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 399,
+ "injection": {
+  "hypothesis": "D387",
+  "n_events": 416,
+  "sought_bps": 4.601041849445816,
+  "mean_estimate": 4.660643590062838,
+  "recovered": true
+ }
+}

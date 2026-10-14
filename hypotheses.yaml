@@ -26445,3 +26445,59 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 398.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D387
+  name: mnq_follows_overnight_usdjpy_r
+  mechanism: >
+    DATA-DERIVED (D-series family 139, overnight cross-asset into MNQ on the current regime, decisions.md 508-509): MNQ's day session
+    follows the sign of USD/JPY's 16:00 (D-1) -> 09:25 move: 2021-2024 +9.20 bps net (t +2.43, n 943); 2010-20 +1.48.
+    THE COUNTERPARTY: carry-trade and risk-appetite flows - a weakening yen overnight signals risk-on positioning that US cash hours extend.
+  condition: >
+    Every session, take MNQ's 09:30 -> 16:00 session in the sign of USD/JPY's move from 16:00 the previous weekday to 09:25; net of 0.5 bps.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01169 (decisions.md 509), REJECT on sealed 2023-2026: 416 trades; net -4.78 bps (t -0.85); placebo 22th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d139_overnight.py
+    injected_bps: 4.601
+    sought_bps: 4.601
+    n_injection: 416
+    n_run: 416
+    recovered: true
+    report: reports/d387_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 421
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-139 scan (12 tests, decisions.md 509). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 399.
+  s6_control: By year; signs shuffled across the sealed sessions.

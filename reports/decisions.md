@@ -12133,6 +12133,12 @@ US window without an every-day rule. Predictors measured to 09:25 ET the same da
 AUD/USD** (HistData grids, 16:00 D−1 → 09:25). Sign → MNQ day, follow or fade fixed by 2021–24; forms all / strong. **6 × 2 = 12 tests.**
 Cost 0.5; validation per §426, 2 (shuffled signs).
 
+## 509. Family-139 and D387 (t01169): overnight cross-asset into MNQ — 1 of 12 carried, REJECT (S1)
+
+**N 1,163.** `reports/d139_discovery.json` (module `reporting/d139_overnight.py`): Brent, gold, the DAX's morning, EUR/USD and AUD/USD give
+MNQ's day nothing (|t| ≤ 1.40); **D387** MNQ follows USD/JPY's overnight move (+9.2 bps, t +2.43, n 943) on sealed 2025–26: -4.78 bps
+(t -0.85, n 416), placebo 22th, {2025: -10.778906381462674, 2026: 4.339857477130312}; always long over the same sessions +2.81 — **REJECT**.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
