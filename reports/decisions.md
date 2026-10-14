@@ -10821,6 +10821,12 @@ the same rule (follow a ZN shock, family 24's definition; A21 window paths; cost
 **carried** if net > 0 in both 2010–17 and 2018–22 AND pooled t > 1.96. **2 tests.** Validation as §207, 3 on sealed 2023-01 → 2026-08
 (placebo: after non-shock days).
 
+## 379. Family-96: D68's 10-year tail does not carry to the DAX or NKD — 0 of 2 (S1)
+
+**No trial spent; N 897.** `reports/d96_discovery.json`: DAX pooled +6.6 bps (t +0.74; 2010–17 −10.9); NKD pooled +18.4 (t +1.74;
+both periods positive, +23.5 and +15.5, but below the bar). NKD's sign matches D68 throughout and is the nearest thing to a second
+D68 — noted for the NKD account's demo review, not adopted. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
