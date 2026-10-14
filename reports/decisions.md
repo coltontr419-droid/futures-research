@@ -10652,6 +10652,20 @@ strong-Asia fade (t +1.96, not above), gold mid-month short (t +1.86).
 D104-sized. **D119** (+18.8 bps a gold London window, ~14 events a year; ~$600 an event at the plan's 8 MGC) would be a D68-like overlay
 for the gold account; **D115** (+3.3 bps on NKD's ~$200,000 notional, ~$66 a contract on half the sessions) is NKD-account-sized.
 
+## 356. D115–D120 validated (t00897–t00902): none confirm; gold's rates link reversed after 2022 (S1)
+
+**N 896.** Sealed 2023-01 → 2026-08, injection recovered first for each:
+- **D115** nkd_morning: **REJECT** — 515 trades, -0.56 bps (t -0.28), placebo 28th.
+- **D116** gotobi_pre: **WATCHLIST** — 249 trades, +0.68 bps (t +0.66), placebo 69th.
+- **D117** gold_settlement: **REJECT** — 508 trades, -0.16 bps (t -0.19), placebo 28th.
+- **D118** ecb_fix_6e: **WATCHLIST** — 873 trades, +0.15 bps (t +0.32), placebo 100th.
+- **D119** gold_tlt: **REJECT** — 48 trades, -36.03 bps (t -2.05), placebo 0th.
+- **D120** gold_lqd: **REJECT** — 50 trades, -18.37 bps (t -1.15), placebo 5th.
+
+Two-period consistency (2010–17 and 2018–22) did not protect any of them. **D119** reversed hard — gold FADED long-bond shocks in
+every sealed year (−36 bps, t −2.05) — the same post-2022 break as D103 (§305): since central-bank buying took over, gold no longer
+moves with US rates the next day. The pooled re-read (§354) is closed. Z and D market-tests reach 132.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

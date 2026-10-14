@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D117",
+ "cell": "family-86 gold_settlement",
+ "trades": 508,
+ "net_bps": -0.16498403251171112,
+ "t_net": -0.18716931343078613,
+ "placebo_pct": 27.6,
+ "placebo": "the same rule one hour earlier (12:00 -> 12:30 predicting 12:30 -> 13:00)",
+ "by_year": {
+  "2023": -1.373429298400879,
+  "2024": 0.7411639094352722,
+  "2025": 1.3632733821868896,
+  "2026": -1.6804285049438477
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 129,
+ "injection": {
+  "hypothesis": "D117",
+  "n_events": 508,
+  "sought_bps": 0.3882547616958618,
+  "mean_estimate": 0.3929569441845524,
+  "sd_estimate_bps": 0.8852096588720496,
+  "power_strict_t": 0.0895,
+  "recovered": true
+ }
+}

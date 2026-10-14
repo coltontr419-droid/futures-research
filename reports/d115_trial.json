@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D115",
+ "cell": "family-86 nkd_morning",
+ "trades": 515,
+ "net_bps": -0.5557529775713386,
+ "t_net": -0.2766211776187212,
+ "placebo_pct": 27.6,
+ "placebo": "morning signs shuffled across the sealed sessions",
+ "by_year": {
+  "2023": 2.12288426170353,
+  "2024": 1.452647140706972,
+  "2025": -3.0419866937696307,
+  "2026": -2.149507870736635
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 127,
+ "injection": {
+  "hypothesis": "D115",
+  "n_events": 515,
+  "sought_bps": 1.6497635365676653,
+  "mean_estimate": 1.6837759895686935,
+  "sd_estimate_bps": 2.0648470130894285,
+  "power_strict_t": 0.215,
+  "recovered": true
+ }
+}

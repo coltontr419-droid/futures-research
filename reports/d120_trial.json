@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D120",
+ "cell": "family-86 gold_lqd",
+ "trades": 50,
+ "net_bps": -18.372451286315922,
+ "t_net": -1.1545338808716044,
+ "placebo_pct": 4.7,
+ "placebo": "the same rule after non-shock days",
+ "by_year": {
+  "2023": -42.96113226754325,
+  "2024": 8.75813026428223,
+  "2025": 17.47344258626302,
+  "2026": -96.53374829973492
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 132,
+ "injection": {
+  "hypothesis": "D120",
+  "n_events": 50,
+  "sought_bps": 7.087946278950164,
+  "mean_estimate": 7.416288517481283,
+  "sd_estimate_bps": 15.525371050350184,
+  "power_strict_t": 0.2035,
+  "recovered": true
+ }
+}

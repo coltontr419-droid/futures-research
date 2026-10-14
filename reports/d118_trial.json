@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D118",
+ "cell": "family-86 ecb_fix_6e",
+ "trades": 873,
+ "net_bps": 0.14775745233558532,
+ "t_net": 0.3152076583072253,
+ "placebo_pct": 100.0,
+ "placebo": "the same measure one hour later (15:15 -> 15:45 Frankfurt)",
+ "by_year": {
+  "2023": -0.6940661974028294,
+  "2024": -0.9753070777185556,
+  "2025": 1.531525559044288,
+  "2026": 0.6683244507378847
+ },
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 130,
+ "injection": {
+  "hypothesis": "D118",
+  "n_events": 873,
+  "sought_bps": 0.33931239252379924,
+  "mean_estimate": 0.32164369133616744,
+  "sd_estimate_bps": 0.4677009421828658,
+  "power_strict_t": 0.1815,
+  "recovered": true
+ }
+}

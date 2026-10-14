@@ -1169,26 +1169,26 @@ Data-derived (D-series family 83). `hypotheses.yaml` (D113) · `decisions.md` §
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D114) · `decisions.md` §348
 
-## D115 — Nkd Follows Strong Tokyo Morning  *(registered)*
+## D115 — Nkd Follows Strong Tokyo Morning  *(REJECT — t00897)*
 
 Data-derived (D-series family 86). `hypotheses.yaml` (D115) · `decisions.md` §355
 
-## D116 — Dollar Bid Into Gotobi Fix  *(registered)*
+## D116 — Dollar Bid Into Gotobi Fix  *(WATCHLIST — t00898)*
 
 Data-derived (D-series family 86). `hypotheses.yaml` (D116) · `decisions.md` §355
 
-## D117 — Gold Fades Strong Move Into Settlement  *(registered)*
+## D117 — Gold Fades Strong Move Into Settlement  *(REJECT — t00899)*
 
 Data-derived (D-series family 86). `hypotheses.yaml` (D117) · `decisions.md` §355
 
-## D118 — Euro Firms After Ecb Fix  *(registered)*
+## D118 — Euro Firms After Ecb Fix  *(WATCHLIST — t00900)*
 
 Data-derived (D-series family 86). `hypotheses.yaml` (D118) · `decisions.md` §355
 
-## D119 — Gold Follows Long Bond Shock  *(registered)*
+## D119 — Gold Follows Long Bond Shock  *(REJECT — t00901)*
 
 Data-derived (D-series family 86). `hypotheses.yaml` (D119) · `decisions.md` §355
 
-## D120 — Gold Follows Credit Bond Shock  *(registered)*
+## D120 — Gold Follows Credit Bond Shock  *(REJECT — t00902)*
 
 Data-derived (D-series family 86). `hypotheses.yaml` (D120) · `decisions.md` §355

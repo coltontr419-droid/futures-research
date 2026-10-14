@@ -1,0 +1,31 @@
+{
+ "hypothesis": "D116",
+ "cell": "family-86 gotobi_pre",
+ "trades": 249,
+ "net_bps": 0.6798696269505674,
+ "t_net": 0.6584855192525466,
+ "placebo_pct": 68.89999999999999,
+ "placebo": "the same window on non-gotobi days",
+ "by_year": {
+  "2023": 0.010887221069262048,
+  "2024": 0.8110019147948633,
+  "2025": -0.3911693948050154,
+  "2026": 2.8841463348015473
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 128,
+ "injection": {
+  "hypothesis": "D116",
+  "n_events": 249,
+  "sought_bps": 0.7099970293416251,
+  "mean_estimate": 0.7346533494955532,
+  "sd_estimate_bps": 1.044059872566996,
+  "power_strict_t": 0.1935,
+  "recovered": true
+ }
+}
