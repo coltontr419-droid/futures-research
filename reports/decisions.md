@@ -10927,6 +10927,14 @@ HG +25.6 | −12.3; GC −0.1 | +4.8; ES −3.5 | −10.2; NQ −34.4 | −13.5.
 commodity-exporter effect, strongest and most persistent in soybeans — not a general emerging-market risk-off signal. It supports
 reading D122 as the producer-selling mechanism it was registered under.
 
+## 389. D-series family 100 protocol: oil exporters' currencies into crude (S1)
+
+**No trial spent; N 900. Written and committed BEFORE any statistic is computed.** Family 98's design (§384) for crude: **NOK, MXN,
+RUB, COP** (Yahoo, close → close, UTC day; up = the producer's currency weaker; 2σ) → CL's next-weekday session (family 10), with or
+against, fixed by discovery; currencies stale (> 30% unchanged closes) reported, not carried. **4 tests**, descriptive 2010–17 column.
+Cost CL 0.7 bps (§177; the MCL account would pay 5.4, noted at validation); recent-period design; carried at net > 0, t > 1.96;
+validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
