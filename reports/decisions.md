@@ -10910,6 +10910,14 @@ plan product (MHG was listed as a candidate market, §140s). Z and D market-test
 77th; years 2 of 4 (2023 +19.5, 2024 −8.6, 2025 +47.1, 2026 −21.9). Positive across all three periods (2010–17
 +13.3, 2018–22 +34.8, 2023–26 +14.6), never significant out of sample. WATCHLIST; HG is not a plan product. Z and D market-test 136.
 
+## 387. D-series family 99 protocol: the real into Brazil's other CME exports (S1)
+
+**No trial spent; N 900. Written and committed BEFORE any statistic is computed.** D122's mechanism for the other CME products Brazil
+exports in volume: **ZM** (soybean meal), **ZL** (soybean oil), **LE** (live cattle — Brazil is the largest beef exporter). Family 97's
+USD/BRL shock (2σ, close → close, UTC day) → the next-weekday session (Yahoo open → settlement, family-10 cleaning), with or against,
+fixed by discovery. **3 tests**, descriptive 2010–17 column. Costs: 1.5 bps each (between §177's ZS 0.7 and ZC 1.9; these are thinner);
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
