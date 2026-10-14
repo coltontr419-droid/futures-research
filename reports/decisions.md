@@ -10984,6 +10984,13 @@ products — with or against, fixed by discovery. **3 tests**, descriptive 2010�
 by results already seen in 2018–22 and 2010–17; the sealed 2023–26 window is untouched by it and is the test. Costs §177; carried at
 net > 0, t > 1.96; validation as §207, 3.
 
+## 397. Family-103 discovery: 1 of 3 carried — crude falls after emerging-currency stress; D126 registered (S1)
+
+**No trial spent yet; N 901.** `reports/d103_discovery.json` (module `reporting/d103_emfx.py`): **D126** CL against the composite,
+**+120.22 bps**, t +2.08, n 67; **2010–17 +37.13 (t +1.89)** — the same sign and nearly
+significant in the untouched earlier period. ZS +31.6 (t +1.82; 2010–17 +14.3), GC +30.4 (t +1.84; 2010–17 +1.4): same sign, below the
+bar. MCL's 5.4 bps of cost is small against this size. Z and D market-test 138.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

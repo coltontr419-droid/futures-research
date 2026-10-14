@@ -1,0 +1,50 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "target": "ZS",
+   "n": 67,
+   "rule": "against EM weakness",
+   "net_bps": 31.54893206608349,
+   "t": 1.8242158476123522,
+   "early_net": 14.274518757255,
+   "early_t": 0.8855357292001408,
+   "carried": false
+  },
+  {
+   "target": "CL",
+   "n": 67,
+   "rule": "against EM weakness",
+   "net_bps": 120.22217143578915,
+   "t": 2.080618770643119,
+   "early_net": 37.12515965683219,
+   "early_t": 1.8908621064297966,
+   "carried": true
+  },
+  {
+   "target": "GC",
+   "n": 67,
+   "rule": "against EM weakness",
+   "net_bps": 30.39366241121292,
+   "t": 1.8387226658822506,
+   "early_net": 1.3736271623307976,
+   "early_t": 0.1426238188893177,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "target": "CL",
+   "n": 67,
+   "rule": "against EM weakness",
+   "net_bps": 120.22217143578915,
+   "t": 2.080618770643119,
+   "early_net": 37.12515965683219,
+   "early_t": 1.8908621064297966,
+   "carried": true
+  }
+ ]
+}

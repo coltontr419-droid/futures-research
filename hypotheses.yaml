@@ -11826,3 +11826,48 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 137.
   s6_control: By year; the same rule after non-shock days.
+- id: D126
+  name: crude_falls_after_em_currency_stress
+  mechanism: >
+    DATA-DERIVED (D-series family 103, EM currency stress composite, decisions.md 396-397): in 2018-2022, crude's next session after
+    the seven-currency stress composite moved beyond 2 sigma, traded AGAINST emerging-currency weakness (short after the composite
+    weakens), earned +120.22 bps net (t +2.08, n 67); 2010-17 +37.13 (t +1.89).
+    THE COUNTERPARTY is commodity demand and exporter supply that respond a session late to a dollar-funding squeeze on emerging
+    economies (producer selling and importer demand loss both point down).
+  condition: >
+    After the EM currency composite (BRL, MXN, ZAR, CLP, COP, INR, KRW; mean 60-day z of daily changes) moves beyond 2 x its SD of the previous 60, take CL's next session against it; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 160
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-103 scan (3 tests, decisions.md 397). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 138.
+  s6_control: By year; the same rule after non-shock days.
