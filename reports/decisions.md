@@ -10756,6 +10756,13 @@ the previous 250 forecasts; **S40** below the 40th. A23 engine with `skip` (the 
 histories, every start, 84 days; five-account books. Adopt only if S20 or S40 beats the plan in BOTH histories on mean net AND
 P(net > 0).
 
+## 370. A30 result: skipping quiet days loses — not adopted (S8)
+
+**No trial; N 896.** `reports/a30_book.json`, five live markets: plan +8,023 / 92% (2016–20) and +9,468 / 93% (2021–26); S20
++5,132 / 89% and +7,139 / 84%; S40 +4,935 / 84% and +5,523 / 81%. Skipping 16–40% of days saves fees but costs far more: within an
+84-day account, trading days are the scarce resource — the quiet days' small P&L still moves accounts toward targets and the payout
+clock. Trade every day, as the plan does.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
