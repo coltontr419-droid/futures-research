@@ -10636,6 +10636,22 @@ net > 0, t > 1.96; validation as §207, 3.
 only test, validation as §207, 3 (each family's own placebo). Tests already validated (D104, D105, D106) and the equity-sector-shock
 fades on MNQ (crisis-rebound class, §336) are excluded before computing.
 
+## 355. Family-86: 6 of 9 two-period near-misses clear pooled t > 1.96; D115–D120 registered (S1)
+
+**No trial spent yet; N 890.** `reports/d86_discovery.json`, module `reporting/d86_pooled.py` (each rule's direction and strong
+threshold fixed by its 2018–22 discovery; placebos fixed per rule in the registry). Not carried: CL roll-day short (t +1.78), MNQ
+strong-Asia fade (t +1.96, not above), gold mid-month short (t +1.86).
+- **D115** (nkd_morning) NKD strong morning follow: pooled +3.30 bps, t +2.24, n 1484 (2010–17 +4.64, 2018–22 +1.52); market-test 127.
+- **D116** (gotobi_pre) gotobi pre short 6J: pooled +1.42 bps, t +2.01, n 502 (2010–17 +2.95, 2018–22 +0.81); market-test 128.
+- **D117** (gold_settlement) gold settlement strong fade: pooled +0.78 bps, t +2.16, n 1645 (2010–17 +0.80, 2018–22 +0.74); market-test 129.
+- **D118** (ecb_fix_6e) 6E long after ECB fix: pooled +0.68 bps, t +2.65, n 3365 (2010–17 +0.81, 2018–22 +0.47); market-test 130.
+- **D119** (gold_tlt) 77 MGC follows TLT shock: pooled +18.79 bps, t +2.47, n 171 (2010–17 +20.79, 2018–22 +16.40); market-test 131.
+- **D120** (gold_lqd) 77 MGC follows LQD shock: pooled +14.18 bps, t +1.97, n 169 (2010–17 +24.99, 2018–22 +0.63); market-test 132.
+
+**Scale, before validation.** D117 (+0.8 bps) and D118 (+0.7) are below anything an account would notice; D116 (+1.4 on 6J) is
+D104-sized. **D119** (+18.8 bps a gold London window, ~14 events a year; ~$600 an event at the plan's 8 MGC) would be a D68-like overlay
+for the gold account; **D115** (+3.3 bps on NKD's ~$200,000 notional, ~$66 a contract on half the sessions) is NKD-account-sized.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

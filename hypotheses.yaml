@@ -11211,3 +11211,255 @@
       decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 126.
   s6_control: By year; the same rule after non-shock days.
+- id: D115
+  name: nkd_follows_strong_tokyo_morning
+  mechanism: >
+    DATA-DERIVED (D-series family 86, two-period near-misses pooled 2010-2022, decisions.md 354-355): pooled net +3.30 bps,
+    t +2.24, n 1484; 2010-17 +4.64, 2018-22 +1.52. Tokyo's lunch break splits the day; afternoon participants (domestic funds) extend the morning's order flow. THE COUNTERPARTY is the morning's liquidity takers' slower followers.
+  condition: >
+    On sessions whose 09:00 -> 11:30 Tokyo move exceeds its 2018-22 median, take NKD 12:30 -> 15:00 in its direction; net of 0.2 bps.
+  horizon_minutes: [150]
+  hold_hours: [2.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 149
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-86 scan (9 tests, decisions.md 355). ONE TRIAL.
+  session: Asia
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (morning signs shuffled across the sealed sessions), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 127.
+  s6_control: By year; morning signs shuffled across the sealed sessions.
+- id: D116
+  name: dollar_bid_into_gotobi_fix
+  mechanism: >
+    DATA-DERIVED (D-series family 86, two-period near-misses pooled 2010-2022, decisions.md 354-355): pooled net +1.42 bps,
+    t +2.01, n 502; 2010-17 +2.95, 2018-22 +0.81. Japanese importers' gotobi dollar purchases into the 09:55 fix (D104's run-up). THE COUNTERPARTY is that settlement demand itself.
+  condition: >
+    On gotobi days, short 6J (long USD/JPY) 08:00 -> 09:55 Tokyo; net of 0.5 bps.
+  horizon_minutes: [115]
+  hold_hours: [1.9, 2.0]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 150
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-86 scan (9 tests, decisions.md 355). ONE TRIAL.
+  session: Asia
+  symbols: [6J]
+  mechanism_instruments:
+    primary: 6J
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same window on non-gotobi days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 128.
+  s6_control: By year; the same window on non-gotobi days.
+- id: D117
+  name: gold_fades_strong_move_into_settlement
+  mechanism: >
+    DATA-DERIVED (D-series family 86, two-period near-misses pooled 2010-2022, decisions.md 354-355): pooled net +0.78 bps,
+    t +2.16, n 1645; 2010-17 +0.80, 2018-22 +0.74. Settlement-window flow (13:28-13:30) pushes the price; it reverts once settlement prints. THE COUNTERPARTY is settlement-benchmarked execution.
+  condition: >
+    When gold's 13:00 -> 13:30 ET move exceeds its 2018-22 median, take MGC 13:30 -> 14:00 against it; net of 0.8 bps.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 151
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-86 scan (9 tests, decisions.md 355). ONE TRIAL.
+  session: US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule one hour earlier (12:00 -> 12:30 predicting 12:30 -> 13:00)), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 129.
+  s6_control: By year; the same rule one hour earlier (12:00 -> 12:30 predicting 12:30 -> 13:00).
+- id: D118
+  name: euro_firms_after_ecb_fix
+  mechanism: >
+    DATA-DERIVED (D-series family 86, two-period near-misses pooled 2010-2022, decisions.md 354-355): pooled net +0.68 bps,
+    t +2.65, n 3365; 2010-17 +0.81, 2018-22 +0.47. Flows executed at the ECB reference rate unwind after it. THE COUNTERPARTY is reference-rate-benchmarked execution.
+  condition: >
+    Every day, long 6E 14:15 -> 14:45 Frankfurt (judged against the 10:00-13:00 mean 30-minute drift); net of 0.3 bps.
+  horizon_minutes: [30]
+  hold_hours: [0.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 152
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-86 scan (9 tests, decisions.md 355). ONE TRIAL.
+  session: Europe
+  symbols: [6E]
+  mechanism_instruments:
+    primary: 6E
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same measure one hour later (15:15 -> 15:45 Frankfurt)), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 130.
+  s6_control: By year; the same measure one hour later (15:15 -> 15:45 Frankfurt).
+- id: D119
+  name: gold_follows_long_bond_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 86, two-period near-misses pooled 2010-2022, decisions.md 354-355): pooled net +18.79 bps,
+    t +2.47, n 171; 2010-17 +20.79, 2018-22 +16.40. Gold, a zero-coupon asset, reprices to a long-rate move a session late. THE COUNTERPARTY is slower gold holders (ETFs, Asian physical) repositioning.
+  condition: >
+    After a TLT session (open -> close) beyond 2 x the SD of its previous 60, take gold's next London window with its sign; net of 0.8 bps.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 153
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-86 scan (9 tests, decisions.md 355). ONE TRIAL.
+  session: Europe/US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 131.
+  s6_control: By year; the same rule after non-shock days.
+- id: D120
+  name: gold_follows_credit_bond_shock
+  mechanism: >
+    DATA-DERIVED (D-series family 86, two-period near-misses pooled 2010-2022, decisions.md 354-355): pooled net +14.18 bps,
+    t +1.97, n 169; 2010-17 +24.99, 2018-22 +0.63. As D119, through investment-grade bond prices (mostly rate-driven). THE COUNTERPARTY as D119.
+  condition: >
+    After an LQD session beyond 2 x the SD of its previous 60, take gold's next London window with its sign; net of 0.8 bps.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: untested
+  outcome_injection_required: true
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: 154
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-86 scan (9 tests, decisions.md 355). ONE TRIAL.
+  session: Europe/US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2023-01-01', decisive: post}
+  test_window: {start: '2023-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2018-2022 discovery'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 207, 3: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same rule after non-shock days), positive in >= 3 of 4 years;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 132.
+  s6_control: By year; the same rule after non-shock days.

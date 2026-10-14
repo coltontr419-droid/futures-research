@@ -1,0 +1,88 @@
+{
+ "pooled_window": [
+  "2010-01-01",
+  "2022-12-31"
+ ],
+ "all": {
+  "65 NKD strong morning follow": {
+   "n": 1484,
+   "net_pooled": 3.2995270731353306,
+   "t_pooled": 2.2434643014236686,
+   "net_2010_17": 4.638004650511339,
+   "net_2018_22": 1.51979315156943,
+   "carried": true
+  },
+  "66 gotobi pre short 6J": {
+   "n": 502,
+   "net_pooled": 1.4199940586832502,
+   "t_pooled": 2.00582687764658,
+   "net_2010_17": 2.9490082807893563,
+   "net_2018_22": 0.8109438253652191,
+   "carried": true
+  },
+  "68 gold settlement strong fade": {
+   "n": 1645,
+   "net_pooled": 0.7765095233917236,
+   "t_pooled": 2.155363082885742,
+   "net_2010_17": 0.8001335263252258,
+   "net_2018_22": 0.7386439442634583,
+   "carried": true
+  },
+  "70 CL roll days short": {
+   "n": 780,
+   "net_pooled": 14.514760625755153,
+   "t_pooled": 1.7797202332826874,
+   "net_2010_17": 16.986376991256286,
+   "net_2018_22": 10.560174440953345,
+   "carried": false
+  },
+  "74 6E long after ECB fix": {
+   "n": 3365,
+   "net_pooled": 0.6786247850475985,
+   "t_pooled": 2.650792550124194,
+   "net_2010_17": 0.8092998290620803,
+   "net_2018_22": 0.46948412341391077,
+   "carried": true
+  },
+  "76/77 MGC follows TLT shock": {
+   "n": 171,
+   "net_pooled": 18.786291999147647,
+   "t_pooled": 2.467141175835353,
+   "net_2010_17": 20.78970574409731,
+   "net_2018_22": 16.39760638016921,
+   "carried": true
+  },
+  "76/77 MGC follows LQD shock": {
+   "n": 169,
+   "net_pooled": 14.175892557900328,
+   "t_pooled": 1.9669174843051151,
+   "net_2010_17": 24.98754954642436,
+   "net_2018_22": 0.6252824656168584,
+   "carried": true
+  },
+  "79 MNQ strong Asia fade": {
+   "n": 1027,
+   "net_pooled": 3.8185935020446777,
+   "t_pooled": 1.9560261964797974,
+   "net_2010_17": 1.6935880184173584,
+   "net_2018_22": 5.125003814697266,
+   "carried": false
+  },
+  "81 gold mid-month short": {
+   "n": 147,
+   "net_pooled": 12.17199420928955,
+   "t_pooled": 1.8634202480316162,
+   "net_2010_17": 13.212111473083496,
+   "net_2018_22": 10.663822174072266,
+   "carried": false
+  }
+ },
+ "carried": [
+  "65 NKD strong morning follow",
+  "66 gotobi pre short 6J",
+  "68 gold settlement strong fade",
+  "74 6E long after ECB fix",
+  "76/77 MGC follows TLT shock",
+  "76/77 MGC follows LQD shock"
+ ]
+}

@@ -1168,3 +1168,27 @@ Data-derived (D-series family 83). `hypotheses.yaml` (D113) · `decisions.md` §
 ## D114 — 6C Follows Zn Shock  *(WATCHLIST — t00890)*
 
 Data-derived (D-series family 83). `hypotheses.yaml` (D114) · `decisions.md` §348
+
+## D115 — Nkd Follows Strong Tokyo Morning  *(registered)*
+
+Data-derived (D-series family 86). `hypotheses.yaml` (D115) · `decisions.md` §355
+
+## D116 — Dollar Bid Into Gotobi Fix  *(registered)*
+
+Data-derived (D-series family 86). `hypotheses.yaml` (D116) · `decisions.md` §355
+
+## D117 — Gold Fades Strong Move Into Settlement  *(registered)*
+
+Data-derived (D-series family 86). `hypotheses.yaml` (D117) · `decisions.md` §355
+
+## D118 — Euro Firms After Ecb Fix  *(registered)*
+
+Data-derived (D-series family 86). `hypotheses.yaml` (D118) · `decisions.md` §355
+
+## D119 — Gold Follows Long Bond Shock  *(registered)*
+
+Data-derived (D-series family 86). `hypotheses.yaml` (D119) · `decisions.md` §355
+
+## D120 — Gold Follows Credit Bond Shock  *(registered)*
+
+Data-derived (D-series family 86). `hypotheses.yaml` (D120) · `decisions.md` §355
