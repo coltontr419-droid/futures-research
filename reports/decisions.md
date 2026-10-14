@@ -10689,6 +10689,11 @@ discovery; forms **all** and **strong** (above the discovery median). **2 tests*
 European clocks differ shift the close to 10:30 or 12:30 ET; those days are kept at 11:30 — a dilution, not a bias.) Cost MNQ 0.5 bps;
 recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: one hour earlier).
 
+## 360. Family-88 discovery: MNQ around the European close — 0 of 2 carried (S1)
+
+**No trial spent; N 896.** `reports/d88_discovery.json`: 2018–22 ~0 (+0.5 / +0.0 bps); in 2010–17 the move into the European close
+reversed significantly (fade +1.7 / +2.8 gross, t −3.33 / −2.68 for "follow") — an effect that has disappeared. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
