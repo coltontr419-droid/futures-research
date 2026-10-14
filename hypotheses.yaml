@@ -23262,7 +23262,7 @@
   condition: >
     Every session, take gold_ny to fade the sign of CLP=X's previous 1-day move.
   horizon_minutes: [325]
-  hold_hours: [5.4]
+  hold_hours: [5.4, 5.5]
   registered: 2026-10-13
   status: retired
   retired: 2026-10-13
@@ -23486,7 +23486,7 @@
   condition: >
     Every session, take gold_ny to follow the sign of PL=F's previous 5-day move.
   horizon_minutes: [325]
-  hold_hours: [5.4]
+  hold_hours: [5.4, 5.5]
   registered: 2026-10-13
   status: retired
   retired: 2026-10-13
