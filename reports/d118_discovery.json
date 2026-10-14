@@ -1,0 +1,164 @@
+{
+ "window": [
+  "2021-01-01",
+  "2024-12-31"
+ ],
+ "tests": 13,
+ "all": [
+  {
+   "family": "london_fix",
+   "pair": "6E",
+   "form": "all",
+   "median_abs": 5.8247509707920475,
+   "n": 921,
+   "dir": "fade",
+   "net_bps": 0.086440987953643,
+   "t": 0.29799724379374604,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6E",
+   "form": "strong",
+   "median_abs": 5.8247509707920475,
+   "n": 462,
+   "dir": "fade",
+   "net_bps": 0.5470880162097949,
+   "t": 1.179374418637937,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6B",
+   "form": "all",
+   "median_abs": 6.183537797645466,
+   "n": 924,
+   "dir": "fade",
+   "net_bps": 0.3012424318455806,
+   "t": 0.938604336702279,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6B",
+   "form": "strong",
+   "median_abs": 6.183537797645466,
+   "n": 463,
+   "dir": "fade",
+   "net_bps": 0.9844936253997619,
+   "t": 1.9790355592508189,
+   "carried": true
+  },
+  {
+   "family": "london_fix",
+   "pair": "6J",
+   "form": "all",
+   "median_abs": 5.5291280183777936,
+   "n": 921,
+   "dir": "fade",
+   "net_bps": -0.42907118276516637,
+   "t": -1.4206566727618393,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6J",
+   "form": "strong",
+   "median_abs": 5.5291280183777936,
+   "n": 462,
+   "dir": "follow",
+   "net_bps": -0.3882614940747673,
+   "t": -0.7514720571459023,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6A",
+   "form": "all",
+   "median_abs": 7.515704987308691,
+   "n": 918,
+   "dir": "fade",
+   "net_bps": -0.011296875616468518,
+   "t": -0.03049988477947103,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6A",
+   "form": "strong",
+   "median_abs": 7.515704987308691,
+   "n": 460,
+   "dir": "fade",
+   "net_bps": -0.32954376478130043,
+   "t": -0.5730417251331468,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6C",
+   "form": "all",
+   "median_abs": 5.723734418721094,
+   "n": 920,
+   "dir": "follow",
+   "net_bps": -0.46214385072709635,
+   "t": -1.6290319680912277,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6C",
+   "form": "strong",
+   "median_abs": 5.723734418721094,
+   "n": 461,
+   "dir": "fade",
+   "net_bps": -0.42082086392866375,
+   "t": -0.9480298899821203,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6S",
+   "form": "all",
+   "median_abs": 6.383772102716012,
+   "n": 922,
+   "dir": "fade",
+   "net_bps": 0.4063165754481779,
+   "t": 1.3517643439089617,
+   "carried": false
+  },
+  {
+   "family": "london_fix",
+   "pair": "6S",
+   "form": "strong",
+   "median_abs": 6.383772102716012,
+   "n": 462,
+   "dir": "fade",
+   "net_bps": 0.5475772035353327,
+   "t": 1.1909908759345842,
+   "carried": false
+  },
+  {
+   "family": "ecb_fix_pre",
+   "pair": "6E",
+   "form": "all",
+   "n": 922,
+   "dir": "short",
+   "net_bps": -0.0641476164078953,
+   "t": -0.22451445302672918,
+   "carried": false
+  }
+ ],
+ "carried": [
+  {
+   "family": "london_fix",
+   "pair": "6B",
+   "form": "strong",
+   "median_abs": 6.183537797645466,
+   "n": 463,
+   "dir": "fade",
+   "net_bps": 0.9844936253997619,
+   "t": 1.9790355592508189,
+   "carried": true
+  }
+ ]
+}

@@ -11409,6 +11409,12 @@ strong, for 6E, 6B, 6J, 6A, 6C, 6S (12 tests). **Gotobi** (family 66's `d66_goto
 **ECB fix** (family 74): pre / post 6E (2 tests; D118, the post-fix 6E rule, is excluded — pre only, 1 test). **13 tests**. Costs as the
 originals; validation per §426, 2 (placebos as the originals).
 
+## 442. Family-118 discovery: fix flows on the current regime — the only carry is an already-validated rule; empty (S1)
+
+**No trial spent; N 932.** `reports/d118_discovery.json`: 6B fades a strong move into the London fix, +0.98 bps (t +1.98) — the same
+rule as D98, REJECTED on 2023–26 (§254), so not re-tested (§426, 3; §441 should have listed D97–D99 among the exclusions — it omitted
+them, and the global rule governs). Everything else |t| < 1.7, all below 1 bp. The fixes are not where the current regime pays.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
