@@ -12070,6 +12070,13 @@ account-sized rules at 1 day (DAX, §445) and 5 days (NKD, §451); 2 and 20 days
 with a 10-weekday sum. Same predictors, targets, exclusions, forms, carrying rule; validation per §426, 2 (shuffled signs); any CONFIRM
 then gets §446/§453's stress tests (independent data, account replay calibrated against random flips).
 
+## 502. Family-137 discovery: 42 of 718 carried (≈ 18 by chance); D335–D376 registered (S1)
+
+**No trial spent yet; N 1,110.** `reports/d137_discovery.json` (module `reporting/d137_tenday.py`). A new every-day theme on the demo's
+soybean account: **ZS rises after two weeks of calm and risk appetite** — it fades the VIX family (VIX, VIX3M, VVIX), follows bonds and
+credit (LQD, TLT, ZB, HYG), moves against the dollar (DX-Y.NYB, 6B, 6A, AUD; weaker KRW/ZAR/CLP → ZS down). NKD repeats its themes (fades
+corn — also strong in 2010–20, +10.6, t +3.87; follows global risk). Each validated once per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

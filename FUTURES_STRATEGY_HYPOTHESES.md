@@ -2048,3 +2048,171 @@ Data-derived (D-series family 136). `hypotheses.yaml` (D333) · `decisions.md` �
 ## D334 — Gold Ny Follows Plf 5D All  *(REJECT — t01116)*
 
 Data-derived (D-series family 136). `hypotheses.yaml` (D334) · `decisions.md` §500
+
+## D335 — Zs Fades Vix3M Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D335) · `decisions.md` §502
+
+## D336 — Zs Fades Vvix Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D336) · `decisions.md` §502
+
+## D337 — Zs Follows Lqd Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D337) · `decisions.md` §502
+
+## D338 — Nkd Fades Zcf Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D338) · `decisions.md` §502
+
+## D339 — Nkd Follows Fxi Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D339) · `decisions.md` §502
+
+## D340 — Nkd Follows Eem Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D340) · `decisions.md` §502
+
+## D341 — Cl Fades Plf Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D341) · `decisions.md` §502
+
+## D342 — Zs Fades Vix Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D342) · `decisions.md` §502
+
+## D343 — Nkd Fades Zcf Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D343) · `decisions.md` §502
+
+## D344 — Zs Fades Krwx Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D344) · `decisions.md` §502
+
+## D345 — Zs Fades Vix Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D345) · `decisions.md` §502
+
+## D346 — Zs Fades Vvix Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D346) · `decisions.md` §502
+
+## D347 — Zs Fades Zarx Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D347) · `decisions.md` §502
+
+## D348 — Mnq Fades Kre Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D348) · `decisions.md` §502
+
+## D349 — Zs Follows Tlt Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D349) · `decisions.md` §502
+
+## D350 — Mnq Fades Xle Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D350) · `decisions.md` §502
+
+## D351 — Dax Fades Hof Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D351) · `decisions.md` §502
+
+## D352 — Nkd Follows Gdaxi Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D352) · `decisions.md` §502
+
+## D353 — Zs Fades Dxynyb Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D353) · `decisions.md` §502
+
+## D354 — Mnq Follows Zbf Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D354) · `decisions.md` §502
+
+## D355 — Nkd Follows Eem Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D355) · `decisions.md` §502
+
+## D356 — Zs Follows 6Bf Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D356) · `decisions.md` §502
+
+## D357 — Zs Fades Dxynyb Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D357) · `decisions.md` §502
+
+## D358 — Nkd Follows Fxi Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D358) · `decisions.md` §502
+
+## D359 — Zs Follows Audusdx Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D359) · `decisions.md` §502
+
+## D360 — Nkd Follows Nqf Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D360) · `decisions.md` §502
+
+## D361 — Mnq Fades Zlf Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D361) · `decisions.md` §502
+
+## D362 — Zs Follows Zbf Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D362) · `decisions.md` §502
+
+## D363 — Zs Follows Hyg Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D363) · `decisions.md` §502
+
+## D364 — Mnq Follows Zbf Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D364) · `decisions.md` §502
+
+## D365 — Dax Fades Clf Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D365) · `decisions.md` §502
+
+## D366 — Nkd Follows Gdaxi Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D366) · `decisions.md` §502
+
+## D367 — Zs Follows Lqd Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D367) · `decisions.md` §502
+
+## D368 — Zs Follows 6Af Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D368) · `decisions.md` §502
+
+## D369 — Nkd Fades Vix Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D369) · `decisions.md` §502
+
+## D370 — Zs Follows 6Bf Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D370) · `decisions.md` §502
+
+## D371 — Dax Follows Ovx Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D371) · `decisions.md` §502
+
+## D372 — Nkd Follows Smh Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D372) · `decisions.md` §502
+
+## D373 — Dax Fades Hof Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D373) · `decisions.md` §502
+
+## D374 — Zs Fades Clpx Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D374) · `decisions.md` §502
+
+## D375 — Zs Follows Adm Tenday All  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D375) · `decisions.md` §502
+
+## D376 — Dax Fades Clf Tenday Strong  *(registered)*
+
+Data-derived (D-series family 137). `hypotheses.yaml` (D376) · `decisions.md` §502
