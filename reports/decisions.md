@@ -11809,6 +11809,14 @@ before the DAX opens) +7.0 (t +2.36) | +7.0 (t +1.72)** — positive at every cu
 deployed form stands; an optional improvement for the user: a second bot step at ~02:50 ET that re-reads the dollar and updates the
 FDXM ticket's side before its 03:00 entry.
 
+## 469. D-series family 126 protocol: the dollar before New York into the US windows, current regime (S1)
+
+**No trial spent; N 1,095. Written and committed BEFORE any statistic is computed.** The dollar theme moved the DAX and the Nikkei. For the
+US windows: dollar = −EUR/USD (HistData grid). Predictors: **overnight** 16:55 (D−1) → 09:25 (D) and **London morning** 02:55 → 09:25 (D).
+Targets: **MNQ day** (09:30 → 16:00, D) and **gold NY afternoon** (11:30 → 16:55, D; family-68 grid — the dollar measured to 09:25,
+before it). Follow or fade fixed by 2021–24; forms all / strong. **2 × 2 × 2 = 8 tests.** Costs §180; validation per §426, 2 (placebo:
+shuffled signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
