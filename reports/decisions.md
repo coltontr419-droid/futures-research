@@ -11900,6 +11900,14 @@ Cost 0.3; validation per §426, 2.
 **No trial spent; N 1,102.** `reports/d131_discovery.json` (opens real: 1% stale): following the dollar +1.9 / 0.0 bps (t ≤ 0.89),
 the euro's week +0.7 / +4.2 (t ≤ 1.31). No SMI account is indicated. Empty.
 
+## 481. D-series family 132 protocol: gaps and narrow ranges on the current regime (S1)
+
+**No trial spent; N 1,102. Written and committed BEFORE any statistic is computed.** Families 22–23 under §426's design, on the owned
+grids. **Gap**: the window's first close vs the previous window's last close (MNQ day vs the previous 16:00; gold London vs the previous
+11:30), same contract; the rest of the window (open → close) with the gap or against it (fill), fixed by 2021–24; forms all / strong.
+**NR7**: when the previous window's high–low range is the narrowest of the last 7, the window in the previous window's direction or
+against it. **2 markets × 3 = 6 tests.** Costs §180; validation per §426, 2 (placebo: shuffled signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
