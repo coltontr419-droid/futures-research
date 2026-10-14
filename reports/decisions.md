@@ -11013,6 +11013,14 @@ recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
 and ARS → ZM chose "with" (+6.2, +10.6; 2010–17 the mechanism's way, −28.2 t −2.40 and −21.5) — the first pairs off the universal
 sign, both weak. Empty.
 
+## 401. D-series family 105 protocol: gold's and crude's own implied-volatility shocks (S1)
+
+**No trial spent; N 902. Written and committed BEFORE any statistic is computed.** CBOE's GVZ (gold) and OVX (crude) implied-volatility
+indices (Yahoo daily closes), new to the programme. Daily log change; shock beyond 2 SD of the previous 60 on day D. Targets the
+next-weekday: **GVZ → gold's London window** (family-8 grid), **OVX → CL's session** (family 10), with the volatility move or against
+it, fixed by discovery. **2 tests**, descriptive 2010–17 column. Costs §177/§180; recent-period design; carried at net > 0, t > 1.96;
+validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
