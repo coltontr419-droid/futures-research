@@ -11025,6 +11025,13 @@ validation as §207, 3.
 
 **No trial spent; N 902.** `reports/d105_discovery.json`: GVZ → gold +10.2 bps (t +1.14), OVX → crude +41.4 (t +0.96). Empty.
 
+## 403. D-series family 106 protocol: grain traders' stocks into grains (S1)
+
+**No trial spent; N 902. Written and committed BEFORE any statistic is computed.** ADM and Bunge (BG) crush and ship most of the US
+soybean flow; their share prices react first to margin and demand news. Yahoo daily open → close (16:00 ET), shock beyond 2 SD of the
+previous 60 on day D → the next-weekday ZS and ZC sessions (family 10; grains reopen 20:00 ET), with or against, fixed by discovery.
+**2 × 2 = 4 tests**, descriptive 2010–17 column. Costs §177; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
