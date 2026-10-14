@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D156",
+ "cell": "DAX fades its own_shock (current regime)",
+ "trades": 30,
+ "net_bps": 31.158836349581065,
+ "t_net": 1.3651142661534872,
+ "placebo_pct": 88.1,
+ "always_long_net_bps": 15.068977823527526,
+ "by_year": {
+  "2025": 19.31039514486294,
+  "2026": 46.65295177113553
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 168,
+ "injection": {
+  "hypothesis": "D156",
+  "n_events": 30,
+  "sought_bps": 13.778241049761025,
+  "mean_estimate": 14.52019600837548,
+  "recovered": true
+ }
+}

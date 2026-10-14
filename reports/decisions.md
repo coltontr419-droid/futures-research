@@ -11394,6 +11394,12 @@ windows).
 D155 is an every-session rule (short-horizon mean reversion on MNQ's day window): if it held, it would change the plan's direction on
 about half the days — the scale an account notices (~$125 a session at 4 MNQ for +7.9 bps). Its 2010–20 context is flat.
 
+## 440. D155–D156 validated (t00937–t00938): MNQ's weekly reversal fails; the DAX's own-shock fade is WATCHLIST (S1)
+
+**N 932.** D155 MNQ fades its 5-day trend: **REJECT**, -0.72 bps (t -0.13), placebo 50th, 2025 +5.4 / 2026 −10.0. D156 the
+DAX fades its own shock: **WATCHLIST**, +31.16 (t +1.37, n 30), placebo 88th, both years positive. Z and D market-tests
+reach 168.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

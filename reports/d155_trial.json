@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D155",
+ "cell": "MNQ fades its trend5 (current regime)",
+ "trades": 420,
+ "net_bps": -0.7216317057609558,
+ "t_net": -0.1294945478439331,
+ "placebo_pct": 49.5,
+ "always_long_net_bps": 2.1772210597991943,
+ "by_year": {
+  "2025": 5.374380588531494,
+  "2026": -9.956908226013184
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 167,
+ "injection": {
+  "hypothesis": "D155",
+  "n_events": 420,
+  "sought_bps": 3.935302495956421,
+  "mean_estimate": 3.7634146213531494,
+  "recovered": true
+ }
+}
