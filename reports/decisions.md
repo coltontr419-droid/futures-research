@@ -11951,6 +11951,12 @@ what random flips of the same share achieve. MNQ keeps D68 alone. Not proposed.
 DX-Y.NYB (deployed) +2.2 | +5.9 | **+6.9**; −6E +2.7 | +9.4 | **+6.8**; a seven-currency sign vote +2.0 | +8.2 | **+7.0**. The euro was
 stronger in-sample but the three are equal on the sealed period; the deployed measure stays.
 
+## 488. The NKD dollar-week rule's measure: euro, dollar index or a currency vote all hold out of sample (S8)
+
+**No trial; N 1,104. Descriptive.** NKD window following a weaker dollar over the week (2010–20 | 2021–24 | 2025–26): euro week (deployed)
+−2.3 | +5.9 | **+11.9 (t +2.67)**; −DX-Y.NYB week −2.9 | +4.3 | **+10.9 (t +2.44)**; seven-currency vote −1.6 | +2.5 | **+12.2 (t +2.74)**. All three
+hold on the sealed period; all are negative before 2021 (the regime caveat, §453). The deployed measure stays.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
