@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D197",
+ "cell": "DAX fades 6J=F (strong, every day, current regime)",
+ "trades": 200,
+ "net_bps": 7.267028651726556,
+ "t_net": 1.0673731688145809,
+ "placebo_pct": 86.3,
+ "by_year": {
+  "2025": 3.6097245499201223,
+  "2026": 16.442370521170783
+ },
+ "always_long_net_bps": -4.587429610587882,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 209,
+ "injection": {
+  "hypothesis": "D197",
+  "n_events": 200,
+  "sought_bps": 4.567695951770974,
+  "mean_estimate": 4.753605103249463,
+  "recovered": true
+ }
+}

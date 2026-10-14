@@ -11477,6 +11477,36 @@ the dollar index — follow): a weaker euro lifts German exporters the next morn
 previous day's risk assets** (KRE, XLF, XOP, HYG, EEM) — opposite in 2010–20; **MNQ follows SKEW**. Many tests share days (correlated);
 each is validated once per §426, 2.
 
+## 445. D157–D200 validated (t00939–t00982): three CONFIRM, all one theme — the DAX moves with the dollar the next day (S1)
+
+**N 976.** Sealed 2025-01 → 2026-08 under §426, 2. Non-rejected (the other 23 REJECT — every crude-follows-risk rule among them):
+- **D158** DAX fades 6S=F (strong): **WATCHLIST** — n 215, +7.86 (t +1.27), placebo 89th, 2025 +3.2, 2026 +15.2
+- **D159** CL follows KRE (strong): **WATCHLIST** — n 149, +3.24 (t +0.16), placebo 66th, 2025 -16.4, 2026 +31.6
+- **D160** CL follows XOP (strong): **WATCHLIST** — n 167, +0.16 (t +0.01), placebo 51th, 2025 -15.9, 2026 +24.2
+- **D162** DAX fades 6E=F (all): **WATCHLIST** — n 409, +6.84 (t +1.65), placebo 96th, 2025 -1.1, 2026 +18.9
+- **D163** NKD follows XOP (all): **WATCHLIST** — n 405, +0.27 (t +0.06), placebo 57th, 2025 -3.4, 2026 +5.8
+- **D164** MNQ follows ^SKEW (strong): **WATCHLIST** — n 215, +8.47 (t +0.92), placebo 85th, 2025 +15.8, 2026 -3.6
+- **D167** DAX fades 6C=F (strong): **WATCHLIST** — n 153, +4.10 (t +0.56), placebo 74th, 2025 +5.1, 2026 +2.3
+- **D169** DAX fades 6E=F (strong): **WATCHLIST** — n 187, +10.36 (t +1.51), placebo 94th, 2025 +3.7, 2026 +24.1
+- **D171** DAX fades 6B=F (all): **CONFIRM** — n 409, +7.05 (t +1.70), placebo 97th, 2025 +2.6, 2026 +13.7
+- **D174** DAX follows DX-Y.NYB (strong): **CONFIRM** — n 198, +10.93 (t +1.66), placebo 96th, 2025 +7.0, 2026 +18.4
+- **D175** DAX fades 6A=F (strong): **CONFIRM** — n 173, +19.01 (t +2.54), placebo 100th, 2025 +7.1, 2026 +36.9
+- **D177** DAX fades 6S=F (all): **WATCHLIST** — n 411, +5.03 (t +1.22), placebo 92th, 2025 +2.5, 2026 +8.8
+- **D182** MNQ follows ^SKEW (all): **WATCHLIST** — n 402, +6.75 (t +1.17), placebo 89th, 2025 +10.6, 2026 +0.9
+- **D184** NKD follows ADM (strong): **WATCHLIST** — n 242, +9.24 (t +1.55), placebo 93th, 2025 +7.7, 2026 +11.1
+- **D185** CL follows XLE (strong): **WATCHLIST** — n 175, +2.40 (t +0.12), placebo 56th, 2025 -16.0, 2026 +28.1
+- **D188** DAX fades 6J=F (all): **WATCHLIST** — n 405, +5.10 (t +1.21), placebo 90th, 2025 +2.5, 2026 +9.2
+- **D195** ZS follows EEM (strong): **WATCHLIST** — n 208, +0.58 (t +0.08), placebo 53th, 2025 +6.4, 2026 -4.8
+- **D197** DAX fades 6J=F (strong): **WATCHLIST** — n 200, +7.27 (t +1.07), placebo 86th, 2025 +3.6, 2026 +16.4
+- **D198** DAX follows KRW=X (all): **WATCHLIST** — n 373, +3.27 (t +0.75), placebo 76th, 2025 -1.9, 2026 +11.1
+- **D200** DAX follows DX-Y.NYB (all): **WATCHLIST** — n 408, +6.94 (t +1.68), placebo 95th, 2025 -2.4, 2026 +21.2
+
+**The theme.** Every DAX × dollar rule (6B, 6A, 6E, 6S, 6C, 6J faded; the dollar index followed) is positive out of sample; three
+pass every condition (**D171** 6B all, **D174** DXY strong, **D175** 6A strong) and the rest sit just below. The DAX rises the session
+after the dollar strengthens and falls after it weakens — a weaker euro lifting exporters, read a session late. Unlike every earlier
+confirmation this is an EVERY-DAY rule on a plan product (FDXM): at 2 FDXM (~$260,000 notional) +7 bps a session is ~$180. Crude
+following risk assets — the largest discovery cluster — failed completely (2025–26 negative). Stress tests fixed in §446.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

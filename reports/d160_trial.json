@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D160",
+ "cell": "CL follows XOP (strong, every day, current regime)",
+ "trades": 167,
+ "net_bps": 0.16362511580173358,
+ "t_net": 0.007565695437543937,
+ "placebo_pct": 50.7,
+ "by_year": {
+  "2025": -15.921066327186947,
+  "2026": 24.170627269516174
+ },
+ "always_long_net_bps": -13.137736319974046,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 172,
+ "injection": {
+  "hypothesis": "D160",
+  "n_events": 167,
+  "sought_bps": 16.636271169283816,
+  "mean_estimate": 16.820449164203733,
+  "recovered": true
+ }
+}

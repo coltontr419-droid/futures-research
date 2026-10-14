@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D183",
+ "cell": "DAX fades MXN=X (all, every day, current regime)",
+ "trades": 372,
+ "net_bps": -7.002602443453387,
+ "t_net": -1.5995831420629891,
+ "placebo_pct": 6.3,
+ "by_year": {
+  "2025": -2.963501844825888,
+  "2026": -13.184899278087315
+ },
+ "always_long_net_bps": -2.1477164772709707,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 195,
+ "injection": {
+  "hypothesis": "D183",
+  "n_events": 372,
+  "sought_bps": 3.4794810762913575,
+  "mean_estimate": 3.784115816631181,
+  "recovered": true
+ }
+}

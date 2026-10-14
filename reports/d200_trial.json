@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D200",
+ "cell": "DAX follows DX-Y.NYB (all, every day, current regime)",
+ "trades": 408,
+ "net_bps": 6.944372432888428,
+ "t_net": 1.6804795603196945,
+ "placebo_pct": 94.69999999999999,
+ "by_year": {
+  "2025": -2.3559250363748663,
+  "2026": 21.212530662130867
+ },
+ "always_long_net_bps": 0.15592813449957002,
+ "conditions": {
+  "a": true,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 212,
+ "injection": {
+  "hypothesis": "D200",
+  "n_events": 408,
+  "sought_bps": 2.928768753845378,
+  "mean_estimate": 2.927092414494551,
+  "recovered": true
+ }
+}

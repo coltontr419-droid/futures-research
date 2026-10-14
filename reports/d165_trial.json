@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D165",
+ "cell": "CL follows XLF (all, every day, current regime)",
+ "trades": 398,
+ "net_bps": -5.864746219650561,
+ "t_net": -0.41709037359882434,
+ "placebo_pct": 37.6,
+ "by_year": {
+  "2025": 16.073600861924383,
+  "2026": -38.84125535484812
+ },
+ "always_long_net_bps": -6.644251662731747,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 177,
+ "injection": {
+  "hypothesis": "D165",
+  "n_events": 398,
+  "sought_bps": 10.294339283481685,
+  "mean_estimate": 9.83040992987706,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D191",
+ "cell": "NKD follows FXI (all, every day, current regime)",
+ "trades": 395,
+ "net_bps": -3.9645651550231866,
+ "t_net": -0.8720024260255853,
+ "placebo_pct": 20.1,
+ "by_year": {
+  "2025": -12.198756345103982,
+  "2026": 8.650638014395469
+ },
+ "always_long_net_bps": -0.1999730673521339,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 203,
+ "injection": {
+  "hypothesis": "D191",
+  "n_events": 395,
+  "sought_bps": 2.6771499120327857,
+  "mean_estimate": 2.610736906520307,
+  "recovered": true
+ }
+}

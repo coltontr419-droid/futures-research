@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D181",
+ "cell": "ZS fades ^VIX (strong, every day, current regime)",
+ "trades": 214,
+ "net_bps": -6.276902529895261,
+ "t_net": -0.9882671215231207,
+ "placebo_pct": 17.0,
+ "by_year": {
+  "2025": -13.96716390492032,
+  "2026": 4.734153529799716
+ },
+ "always_long_net_bps": 5.832212411597035,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 193,
+ "injection": {
+  "hypothesis": "D181",
+  "n_events": 214,
+  "sought_bps": 6.742488305418104,
+  "mean_estimate": 6.8073638338240015,
+  "recovered": true
+ }
+}

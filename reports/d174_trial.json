@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D174",
+ "cell": "DAX follows DX-Y.NYB (strong, every day, current regime)",
+ "trades": 198,
+ "net_bps": 10.93116384185392,
+ "t_net": 1.661909647437752,
+ "placebo_pct": 95.8,
+ "by_year": {
+  "2025": 7.001366441914489,
+  "2026": 18.444011812326366
+ },
+ "always_long_net_bps": -0.0926505121274264,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 186,
+ "injection": {
+  "hypothesis": "D174",
+  "n_events": 198,
+  "sought_bps": 5.472089929647699,
+  "mean_estimate": 5.538851721858068,
+  "recovered": true
+ }
+}

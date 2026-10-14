@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D193",
+ "cell": "MNQ fades ZS=F (all, every day, current regime)",
+ "trades": 391,
+ "net_bps": -4.068594003272484,
+ "t_net": -0.6894739023457808,
+ "placebo_pct": 27.200000000000003,
+ "by_year": {
+  "2025": -6.101119510128966,
+  "2026": -1.0392247764927567
+ },
+ "always_long_net_bps": 2.342310667037964,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 205,
+ "injection": {
+  "hypothesis": "D193",
+  "n_events": 391,
+  "sought_bps": 3.7548336963023035,
+  "mean_estimate": 3.806525035725587,
+  "recovered": true
+ }
+}

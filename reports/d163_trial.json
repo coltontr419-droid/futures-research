@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D163",
+ "cell": "NKD follows XOP (all, every day, current regime)",
+ "trades": 405,
+ "net_bps": 0.26984258293423025,
+ "t_net": 0.05993812926824967,
+ "placebo_pct": 56.8,
+ "by_year": {
+  "2025": -3.3515357785959763,
+  "2026": 5.815078199027358
+ },
+ "always_long_net_bps": -0.5009208905698154,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 175,
+ "injection": {
+  "hypothesis": "D163",
+  "n_events": 405,
+  "sought_bps": 3.9169172830317374,
+  "mean_estimate": 4.0063272817555,
+  "recovered": true
+ }
+}

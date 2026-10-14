@@ -1337,178 +1337,178 @@ Data-derived (D-series family 117). `hypotheses.yaml` (D155) · `decisions.md` �
 
 Data-derived (D-series family 117). `hypotheses.yaml` (D156) · `decisions.md` §439
 
-## D157 — Cl Follows Kre All Alldays  *(registered)*
+## D157 — Cl Follows Kre All Alldays  *(REJECT — t00939)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D157) · `decisions.md` §444
 
-## D158 — Dax Fades 6Sf Strong Alldays  *(registered)*
+## D158 — Dax Fades 6Sf Strong Alldays  *(WATCHLIST — t00940)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D158) · `decisions.md` §444
 
-## D159 — Cl Follows Kre Strong Alldays  *(registered)*
+## D159 — Cl Follows Kre Strong Alldays  *(WATCHLIST — t00941)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D159) · `decisions.md` §444
 
-## D160 — Cl Follows Xop Strong Alldays  *(registered)*
+## D160 — Cl Follows Xop Strong Alldays  *(WATCHLIST — t00942)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D160) · `decisions.md` §444
 
-## D161 — Cl Follows Xop All Alldays  *(registered)*
+## D161 — Cl Follows Xop All Alldays  *(REJECT — t00943)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D161) · `decisions.md` §444
 
-## D162 — Dax Fades 6Ef All Alldays  *(registered)*
+## D162 — Dax Fades 6Ef All Alldays  *(WATCHLIST — t00944)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D162) · `decisions.md` §444
 
-## D163 — Nkd Follows Xop All Alldays  *(registered)*
+## D163 — Nkd Follows Xop All Alldays  *(WATCHLIST — t00945)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D163) · `decisions.md` §444
 
-## D164 — Mnq Follows Skew Strong Alldays  *(registered)*
+## D164 — Mnq Follows Skew Strong Alldays  *(WATCHLIST — t00946)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D164) · `decisions.md` §444
 
-## D165 — Cl Follows Xlf All Alldays  *(registered)*
+## D165 — Cl Follows Xlf All Alldays  *(REJECT — t00947)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D165) · `decisions.md` §444
 
-## D166 — Nkd Follows Ngf All Alldays  *(registered)*
+## D166 — Nkd Follows Ngf All Alldays  *(REJECT — t00948)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D166) · `decisions.md` §444
 
-## D167 — Dax Fades 6Cf Strong Alldays  *(registered)*
+## D167 — Dax Fades 6Cf Strong Alldays  *(WATCHLIST — t00949)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D167) · `decisions.md` §444
 
-## D168 — Mnq Fades Zlf Strong Alldays  *(registered)*
+## D168 — Mnq Fades Zlf Strong Alldays  *(REJECT — t00950)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D168) · `decisions.md` §444
 
-## D169 — Dax Fades 6Ef Strong Alldays  *(registered)*
+## D169 — Dax Fades 6Ef Strong Alldays  *(WATCHLIST — t00951)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D169) · `decisions.md` §444
 
-## D170 — Cl Follows Hyg All Alldays  *(registered)*
+## D170 — Cl Follows Hyg All Alldays  *(REJECT — t00952)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D170) · `decisions.md` §444
 
-## D171 — Dax Fades 6Bf All Alldays  *(registered)*
+## D171 — Dax Fades 6Bf All Alldays  *(CONFIRM — t00953)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D171) · `decisions.md` §444
 
-## D172 — Cl Follows Nkdf All Alldays  *(registered)*
+## D172 — Cl Follows Nkdf All Alldays  *(REJECT — t00954)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D172) · `decisions.md` §444
 
-## D173 — Cl Follows Xlf Strong Alldays  *(registered)*
+## D173 — Cl Follows Xlf Strong Alldays  *(REJECT — t00955)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D173) · `decisions.md` §444
 
-## D174 — Dax Follows Dxynyb Strong Alldays  *(registered)*
+## D174 — Dax Follows Dxynyb Strong Alldays  *(CONFIRM — t00956)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D174) · `decisions.md` §444
 
-## D175 — Dax Fades 6Af Strong Alldays  *(registered)*
+## D175 — Dax Fades 6Af Strong Alldays  *(CONFIRM — t00957)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D175) · `decisions.md` §444
 
-## D176 — Nkd Fades Gvz All Alldays  *(registered)*
+## D176 — Nkd Fades Gvz All Alldays  *(REJECT — t00958)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D176) · `decisions.md` §444
 
-## D177 — Dax Fades 6Sf All Alldays  *(registered)*
+## D177 — Dax Fades 6Sf All Alldays  *(WATCHLIST — t00959)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D177) · `decisions.md` §444
 
-## D178 — Nkd Follows Xop Strong Alldays  *(registered)*
+## D178 — Nkd Follows Xop Strong Alldays  *(REJECT — t00960)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D178) · `decisions.md` §444
 
-## D179 — Cl Follows Eem All Alldays  *(registered)*
+## D179 — Cl Follows Eem All Alldays  *(REJECT — t00961)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D179) · `decisions.md` §444
 
-## D180 — Zs Follows Bg Strong Alldays  *(registered)*
+## D180 — Zs Follows Bg Strong Alldays  *(REJECT — t00962)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D180) · `decisions.md` §444
 
-## D181 — Zs Fades Vix Strong Alldays  *(registered)*
+## D181 — Zs Fades Vix Strong Alldays  *(REJECT — t00963)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D181) · `decisions.md` §444
 
-## D182 — Mnq Follows Skew All Alldays  *(registered)*
+## D182 — Mnq Follows Skew All Alldays  *(WATCHLIST — t00964)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D182) · `decisions.md` §444
 
-## D183 — Dax Fades Mxnx All Alldays  *(registered)*
+## D183 — Dax Fades Mxnx All Alldays  *(REJECT — t00965)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D183) · `decisions.md` §444
 
-## D184 — Nkd Follows Adm Strong Alldays  *(registered)*
+## D184 — Nkd Follows Adm Strong Alldays  *(WATCHLIST — t00966)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D184) · `decisions.md` §444
 
-## D185 — Cl Follows Xle Strong Alldays  *(registered)*
+## D185 — Cl Follows Xle Strong Alldays  *(WATCHLIST — t00967)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D185) · `decisions.md` §444
 
-## D186 — Cl Follows Hyg Strong Alldays  *(registered)*
+## D186 — Cl Follows Hyg Strong Alldays  *(REJECT — t00968)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D186) · `decisions.md` §444
 
-## D187 — Mnq Fades Clpx Strong Alldays  *(registered)*
+## D187 — Mnq Fades Clpx Strong Alldays  *(REJECT — t00969)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D187) · `decisions.md` §444
 
-## D188 — Dax Fades 6Jf All Alldays  *(registered)*
+## D188 — Dax Fades 6Jf All Alldays  *(WATCHLIST — t00970)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D188) · `decisions.md` §444
 
-## D189 — Mnq Fades Zlf All Alldays  *(registered)*
+## D189 — Mnq Fades Zlf All Alldays  *(REJECT — t00971)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D189) · `decisions.md` §444
 
-## D190 — Mnq Fades Inrx All Alldays  *(registered)*
+## D190 — Mnq Fades Inrx All Alldays  *(REJECT — t00972)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D190) · `decisions.md` §444
 
-## D191 — Nkd Follows Fxi All Alldays  *(registered)*
+## D191 — Nkd Follows Fxi All Alldays  *(REJECT — t00973)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D191) · `decisions.md` §444
 
-## D192 — Nkd Follows Hyg Strong Alldays  *(registered)*
+## D192 — Nkd Follows Hyg Strong Alldays  *(REJECT — t00974)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D192) · `decisions.md` §444
 
-## D193 — Mnq Fades Zsf All Alldays  *(registered)*
+## D193 — Mnq Fades Zsf All Alldays  *(REJECT — t00975)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D193) · `decisions.md` §444
 
-## D194 — Cl Follows Eem Strong Alldays  *(registered)*
+## D194 — Cl Follows Eem Strong Alldays  *(REJECT — t00976)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D194) · `decisions.md` §444
 
-## D195 — Zs Follows Eem Strong Alldays  *(registered)*
+## D195 — Zs Follows Eem Strong Alldays  *(WATCHLIST — t00977)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D195) · `decisions.md` §444
 
-## D196 — Nkd Follows Xle All Alldays  *(registered)*
+## D196 — Nkd Follows Xle All Alldays  *(REJECT — t00978)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D196) · `decisions.md` §444
 
-## D197 — Dax Fades 6Jf Strong Alldays  *(registered)*
+## D197 — Dax Fades 6Jf Strong Alldays  *(WATCHLIST — t00979)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D197) · `decisions.md` §444
 
-## D198 — Dax Follows Krwx All Alldays  *(registered)*
+## D198 — Dax Follows Krwx All Alldays  *(WATCHLIST — t00980)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D198) · `decisions.md` §444
 
-## D199 — Nkd Fades Gvz Strong Alldays  *(registered)*
+## D199 — Nkd Fades Gvz Strong Alldays  *(REJECT — t00981)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D199) · `decisions.md` §444
 
-## D200 — Dax Follows Dxynyb All Alldays  *(registered)*
+## D200 — Dax Follows Dxynyb All Alldays  *(WATCHLIST — t00982)*
 
 Data-derived (D-series family 119). `hypotheses.yaml` (D200) · `decisions.md` §444

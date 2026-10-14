@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D180",
+ "cell": "ZS follows BG (strong, every day, current regime)",
+ "trades": 218,
+ "net_bps": -1.9981735999366423,
+ "t_net": -0.2761162301405878,
+ "placebo_pct": 43.4,
+ "by_year": {
+  "2025": -4.553378408039534,
+  "2026": 1.01696807362477
+ },
+ "always_long_net_bps": 4.539073965667844,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 192,
+ "injection": {
+  "hypothesis": "D180",
+  "n_events": 218,
+  "sought_bps": 7.027684556419687,
+  "mean_estimate": 6.8702832253958785,
+  "recovered": true
+ }
+}

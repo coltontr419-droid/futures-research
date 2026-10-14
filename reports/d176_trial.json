@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D176",
+ "cell": "NKD fades ^GVZ (all, every day, current regime)",
+ "trades": 406,
+ "net_bps": -0.3292549831273844,
+ "t_net": -0.073083539413484,
+ "placebo_pct": 51.1,
+ "by_year": {
+  "2025": 2.5133368651381565,
+  "2026": -4.699739949835653
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 188,
+ "injection": {
+  "hypothesis": "D176",
+  "n_events": 406,
+  "sought_bps": 3.1122334140560075,
+  "mean_estimate": 3.167617056627915,
+  "recovered": true
+ }
+}

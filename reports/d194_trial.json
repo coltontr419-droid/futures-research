@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D194",
+ "cell": "CL follows EEM (strong, every day, current regime)",
+ "trades": 208,
+ "net_bps": -5.305291194129737,
+ "t_net": -0.2613505914742071,
+ "placebo_pct": 48.699999999999996,
+ "by_year": {
+  "2025": -30.548610583472204,
+  "2026": 18.06815268489107
+ },
+ "always_long_net_bps": -31.638490181009466,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 206,
+ "injection": {
+  "hypothesis": "D194",
+  "n_events": 208,
+  "sought_bps": 10.677166091432946,
+  "mean_estimate": 10.955585120862844,
+  "recovered": true
+ }
+}

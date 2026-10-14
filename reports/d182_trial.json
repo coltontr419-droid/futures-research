@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D182",
+ "cell": "MNQ follows ^SKEW (all, every day, current regime)",
+ "trades": 402,
+ "net_bps": 6.748469025341432,
+ "t_net": 1.1715280267935464,
+ "placebo_pct": 89.0,
+ "by_year": {
+  "2025": 10.605874845804262,
+  "2026": 0.9141427218914032
+ },
+ "always_long_net_bps": 3.021571159362793,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 194,
+ "injection": {
+  "hypothesis": "D182",
+  "n_events": 402,
+  "sought_bps": 4.144030092610197,
+  "mean_estimate": 4.062539726507156,
+  "recovered": true
+ }
+}

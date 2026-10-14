@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D187",
+ "cell": "MNQ fades CLP=X (strong, every day, current regime)",
+ "trades": 120,
+ "net_bps": -2.7112924257914224,
+ "t_net": -0.19157183551238435,
+ "placebo_pct": 45.0,
+ "by_year": {
+  "2025": -5.135702919315648,
+  "2026": 1.1888461942258088
+ },
+ "always_long_net_bps": -1.3654886484146118,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 199,
+ "injection": {
+  "hypothesis": "D187",
+  "n_events": 120,
+  "sought_bps": 6.069989560970238,
+  "mean_estimate": 6.333277686469328,
+  "recovered": true
+ }
+}

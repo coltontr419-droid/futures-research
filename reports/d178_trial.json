@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D178",
+ "cell": "NKD follows XOP (strong, every day, current regime)",
+ "trades": 167,
+ "net_bps": -3.991101733517125,
+ "t_net": -0.5257238542336697,
+ "placebo_pct": 29.7,
+ "by_year": {
+  "2025": -6.924948741248223,
+  "2026": 0.3877743974248143
+ },
+ "always_long_net_bps": 4.325225136429424,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 190,
+ "injection": {
+  "hypothesis": "D178",
+  "n_events": 167,
+  "sought_bps": 4.7423883260333355,
+  "mean_estimate": 4.79344717430872,
+  "recovered": true
+ }
+}

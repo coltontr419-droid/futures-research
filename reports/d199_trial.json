@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D199",
+ "cell": "NKD fades ^GVZ (strong, every day, current regime)",
+ "trades": 254,
+ "net_bps": -3.9159137876037335,
+ "t_net": -0.64947650713161,
+ "placebo_pct": 25.7,
+ "by_year": {
+  "2025": 2.4158911405713526,
+  "2026": -12.614748595470443
+ },
+ "always_long_net_bps": 0.8713007502742182,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 211,
+ "injection": {
+  "hypothesis": "D199",
+  "n_events": 254,
+  "sought_bps": 3.9910265001356726,
+  "mean_estimate": 4.016399794078639,
+  "recovered": true
+ }
+}

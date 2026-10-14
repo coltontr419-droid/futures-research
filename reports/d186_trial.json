@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D186",
+ "cell": "CL follows HYG (strong, every day, current regime)",
+ "trades": 96,
+ "net_bps": -49.26350821802105,
+ "t_net": -1.3284809955169912,
+ "placebo_pct": 11.0,
+ "by_year": {
+  "2025": -87.87779621850821,
+  "2026": 21.15078166522023
+ },
+ "always_long_net_bps": -68.91332837403108,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 198,
+ "injection": {
+  "hypothesis": "D186",
+  "n_events": 96,
+  "sought_bps": 11.876596889475195,
+  "mean_estimate": 12.164936897780015,
+  "recovered": true
+ }
+}

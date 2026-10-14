@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D195",
+ "cell": "ZS follows EEM (strong, every day, current regime)",
+ "trades": 208,
+ "net_bps": 0.5812038994117115,
+ "t_net": 0.07871214835634,
+ "placebo_pct": 52.900000000000006,
+ "by_year": {
+  "2025": 6.352630412672783,
+  "2026": -4.762709538792983
+ },
+ "always_long_net_bps": 2.8257244553726926,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 207,
+ "injection": {
+  "hypothesis": "D195",
+  "n_events": 208,
+  "sought_bps": 6.2923750685640645,
+  "mean_estimate": 5.8753774570093515,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D171",
+ "cell": "DAX fades 6B=F (all, every day, current regime)",
+ "trades": 409,
+ "net_bps": 7.0477428466777114,
+ "t_net": 1.699666715434314,
+ "placebo_pct": 97.0,
+ "by_year": {
+  "2025": 2.5915881464910138,
+  "2026": 13.704803221956622
+ },
+ "always_long_net_bps": -0.0050325233566735185,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 183,
+ "injection": {
+  "hypothesis": "D171",
+  "n_events": 409,
+  "sought_bps": 3.777771578389357,
+  "mean_estimate": 3.9558275625244494,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D168",
+ "cell": "MNQ fades ZL=F (strong, every day, current regime)",
+ "trades": 140,
+ "net_bps": -3.382391166687012,
+ "t_net": -0.37716034542000115,
+ "placebo_pct": 37.3,
+ "by_year": {
+  "2025": -3.2477209236048443,
+  "2026": -3.556800170022933
+ },
+ "always_long_net_bps": -0.9202930927276611,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 180,
+ "injection": {
+  "hypothesis": "D168",
+  "n_events": 140,
+  "sought_bps": 6.917448802692134,
+  "mean_estimate": 7.073362177443088,
+  "recovered": true
+ }
+}

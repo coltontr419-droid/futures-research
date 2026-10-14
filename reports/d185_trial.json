@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D185",
+ "cell": "CL follows XLE (strong, every day, current regime)",
+ "trades": 175,
+ "net_bps": 2.4047232473930387,
+ "t_net": 0.12243306289355142,
+ "placebo_pct": 56.10000000000001,
+ "by_year": {
+  "2025": -15.952766991911833,
+  "2026": 28.05491508861356
+ },
+ "always_long_net_bps": -8.201473562701864,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 197,
+ "injection": {
+  "hypothesis": "D185",
+  "n_events": 175,
+  "sought_bps": 11.098000936855112,
+  "mean_estimate": 10.471204966537922,
+  "recovered": true
+ }
+}

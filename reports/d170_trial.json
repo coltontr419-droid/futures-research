@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D170",
+ "cell": "CL follows HYG (all, every day, current regime)",
+ "trades": 385,
+ "net_bps": -23.071244186273496,
+ "t_net": -1.6179896750894338,
+ "placebo_pct": 6.5,
+ "by_year": {
+  "2025": -36.61320848037193,
+  "2026": -2.085683624558039
+ },
+ "always_long_net_bps": -8.398775230697325,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 182,
+ "injection": {
+  "hypothesis": "D170",
+  "n_events": 385,
+  "sought_bps": 9.308745854211246,
+  "mean_estimate": 9.691429766466241,
+  "recovered": true
+ }
+}

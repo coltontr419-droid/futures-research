@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D166",
+ "cell": "NKD follows NG=F (all, every day, current regime)",
+ "trades": 406,
+ "net_bps": -3.9177918384796713,
+ "t_net": -0.8712693234840804,
+ "placebo_pct": 20.5,
+ "by_year": {
+  "2025": -2.453848654872263,
+  "2026": -6.191967727479857
+ },
+ "always_long_net_bps": -0.7498947942622438,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 178,
+ "injection": {
+  "hypothesis": "D166",
+  "n_events": 406,
+  "sought_bps": 3.6702923216204373,
+  "mean_estimate": 3.8029527100832072,
+  "recovered": true
+ }
+}

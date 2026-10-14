@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D184",
+ "cell": "NKD follows ADM (strong, every day, current regime)",
+ "trades": 242,
+ "net_bps": 9.236732935600132,
+ "t_net": 1.5485058792807933,
+ "placebo_pct": 93.10000000000001,
+ "by_year": {
+  "2025": 7.680915590474723,
+  "2026": 11.135115567725627
+ },
+ "always_long_net_bps": -1.0731898295322413,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 196,
+ "injection": {
+  "hypothesis": "D184",
+  "n_events": 242,
+  "sought_bps": 4.210350960002577,
+  "mean_estimate": 4.056141916153038,
+  "recovered": true
+ }
+}

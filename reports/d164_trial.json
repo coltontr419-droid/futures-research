@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D164",
+ "cell": "MNQ follows ^SKEW (strong, every day, current regime)",
+ "trades": 215,
+ "net_bps": 8.469101710652197,
+ "t_net": 0.9185246080878368,
+ "placebo_pct": 85.3,
+ "by_year": {
+  "2025": 15.763118188772628,
+  "2026": -3.5975428333988897
+ },
+ "always_long_net_bps": 0.9193607568740845,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 176,
+ "injection": {
+  "hypothesis": "D164",
+  "n_events": 215,
+  "sought_bps": 7.678687669480383,
+  "mean_estimate": 7.446147965698728,
+  "recovered": true
+ }
+}

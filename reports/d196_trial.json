@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D196",
+ "cell": "NKD follows XLE (all, every day, current regime)",
+ "trades": 405,
+ "net_bps": -1.572825334216525,
+ "t_net": -0.34968659386745576,
+ "placebo_pct": 37.1,
+ "by_year": {
+  "2025": -1.3608990975056392,
+  "2026": -1.9007112098824246
+ },
+ "always_long_net_bps": -0.4566781472130873,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 208,
+ "injection": {
+  "hypothesis": "D196",
+  "n_events": 405,
+  "sought_bps": 2.5955724893613836,
+  "mean_estimate": 2.7377980254724044,
+  "recovered": true
+ }
+}
