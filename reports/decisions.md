@@ -11888,6 +11888,13 @@ level); validation per §426, 2 (placebo: shuffled signs).
 S&P's week (+2.7 bps, t +2.11): sealed -0.04 (t -0.02), placebo 47th, {2025: 0.2144817179585634, 2026: -0.42511774754722115} — **REJECT**. No micro-FX account is
 indicated: the dollar's moves predict foreign equity indices (DAX, Nikkei), not the currencies themselves.
 
+## 479. D-series family 131 protocol: the dollar rules on the Swiss SMI (S1)
+
+**No trial spent; N 1,102. Written and committed BEFORE any statistic is computed.** Family 125's design (§466) for ^SSMI (Yahoo daily
+open → close; Eurex lists SMI futures, so a candidate account if the theme holds): (a) DX-Y.NYB's previous weekday, (b) 6E=F's
+previous-5-weekday sum; follow or fade; forms all / strong. **4 tests.** Opens checked for staleness before computing (as §467).
+Cost 0.3; validation per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
