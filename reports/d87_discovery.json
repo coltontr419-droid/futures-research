@@ -1,0 +1,53 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "market": "MNQ",
+   "form": "all",
+   "weeks": 262,
+   "rule": "with liquidity",
+   "net_bps_per_session": 1.985660861233088,
+   "t_week": 0.6731812891866394,
+   "early_net_per_session": 0.9369540677011057,
+   "early_t": 0.5039803472248114,
+   "carried": false
+  },
+  {
+   "market": "MNQ",
+   "form": "strong",
+   "weeks": 131,
+   "rule": "with liquidity",
+   "net_bps_per_session": 3.879238380139609,
+   "t_week": 0.963223121971989,
+   "early_net_per_session": 0.1344563676012535,
+   "early_t": 0.04225798290172838,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "form": "all",
+   "weeks": 262,
+   "rule": "against",
+   "net_bps_per_session": 2.0033131897731975,
+   "t_week": 1.0354541773524746,
+   "early_net_per_session": -1.22433239447031,
+   "early_t": -0.7061247043033926,
+   "carried": false
+  },
+  {
+   "market": "MGC",
+   "form": "strong",
+   "weeks": 131,
+   "rule": "against",
+   "net_bps_per_session": 3.8952863323290514,
+   "t_week": 1.2561336331767778,
+   "early_net_per_session": -1.2228221256987961,
+   "early_t": -0.4355539635991284,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

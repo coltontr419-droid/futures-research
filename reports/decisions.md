@@ -10676,6 +10676,19 @@ the next Friday through Thursday — MNQ day sessions and gold London windows �
 discovery median). **2 markets × 2 forms = 4 tests**, descriptive 2010–17 column. Costs §180 per session; recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3 (placebo: signs shuffled across weeks).
 
+## 358. Family-87 discovery: "net liquidity" week to week — 0 of 4 carried (S1)
+
+**No trial spent; N 896.** `reports/d87_discovery.json`: MNQ with liquidity +2.0 / +3.9 bps a session (t +0.67 / +0.96; 2010–17 ~0);
+gold against it +2.0 / +3.9 (t +1.04 / +1.26; 2010–17 the opposite). The popular weekly liquidity signal predicts nothing. Empty.
+
+## 359. D-series family 88 protocol: MNQ around the European close (S1)
+
+**No trial spent; N 896. Written and committed BEFORE any statistic is computed.** European cash markets close at 11:30 ET (17:30 CET);
+their closing flows land in US index futures. MNQ day grid: pre 11:00 → 11:30, target 11:30 → 12:00, follow or fade fixed by
+discovery; forms **all** and **strong** (above the discovery median). **2 tests**, descriptive 2010–17 column. (The weeks when US and
+European clocks differ shift the close to 10:30 or 12:30 ET; those days are kept at 11:30 — a dilution, not a bias.) Cost MNQ 0.5 bps;
+recent-period design; carried at net > 0, t > 1.96; validation as §207, 3 (placebo: one hour earlier).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
