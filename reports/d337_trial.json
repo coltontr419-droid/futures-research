@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D337",
+ "cell": "ZS follows LQD (all, 10-day, current regime)",
+ "trades": 399,
+ "net_bps": -5.802805532478728,
+ "t_net": -1.173629959887102,
+ "placebo_pct": 17.599999999999998,
+ "by_year": {
+  "2025": -5.6892669197777925,
+  "2026": -5.974184570517873
+ },
+ "always_long_net_bps": 2.2050864959138514,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 349,
+ "injection": {
+  "hypothesis": "D337",
+  "n_events": 399,
+  "sought_bps": 6.770046296682316,
+  "mean_estimate": 6.761038733341702,
+  "recovered": true
+ }
+}

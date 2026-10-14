@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D374",
+ "cell": "ZS fades CLP=X (all, 10-day, current regime)",
+ "trades": 364,
+ "net_bps": 4.812682436984293,
+ "t_net": 0.9201870886670634,
+ "placebo_pct": 80.60000000000001,
+ "by_year": {
+  "2025": -0.25723852544723846,
+  "2026": 12.648014833469391
+ },
+ "always_long_net_bps": 3.6947458614010964,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 386,
+ "injection": {
+  "hypothesis": "D374",
+  "n_events": 364,
+  "sought_bps": 4.385031971403105,
+  "mean_estimate": 4.36897896070304,
+  "recovered": true
+ }
+}

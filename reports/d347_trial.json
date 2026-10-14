@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D347",
+ "cell": "ZS fades ZAR=X (strong, 10-day, current regime)",
+ "trades": 105,
+ "net_bps": 4.176245321261217,
+ "t_net": 0.39141910827960164,
+ "placebo_pct": 63.3,
+ "by_year": {
+  "2025": -18.878136902064963,
+  "2026": 29.536065766920018
+ },
+ "always_long_net_bps": 4.722705251810692,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 359,
+ "injection": {
+  "hypothesis": "D347",
+  "n_events": 105,
+  "sought_bps": 8.704805175404573,
+  "mean_estimate": 8.744650998770002,
+  "recovered": true
+ }
+}

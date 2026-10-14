@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D364",
+ "cell": "MNQ follows ZB=F (all, 10-day, current regime)",
+ "trades": 404,
+ "net_bps": 1.8640589950108293,
+ "t_net": 0.32445691397281096,
+ "placebo_pct": 67.4,
+ "by_year": {
+  "2025": 2.664899337487143,
+  "2026": 0.6427774727344513
+ },
+ "always_long_net_bps": 2.742791175842285,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 376,
+ "injection": {
+  "hypothesis": "D364",
+  "n_events": 404,
+  "sought_bps": 3.914356389985752,
+  "mean_estimate": 3.90360102775834,
+  "recovered": true
+ }
+}

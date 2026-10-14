@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D348",
+ "cell": "MNQ fades KRE (strong, 10-day, current regime)",
+ "trades": 170,
+ "net_bps": 3.765946466782514,
+ "t_net": 0.35189310150416514,
+ "placebo_pct": 70.19999999999999,
+ "by_year": {
+  "2025": -3.186196231040634,
+  "2026": 19.987612761703193
+ },
+ "always_long_net_bps": 1.7333025932312012,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 360,
+ "injection": {
+  "hypothesis": "D348",
+  "n_events": 170,
+  "sought_bps": 6.828790337586206,
+  "mean_estimate": 6.582753836955553,
+  "recovered": true
+ }
+}

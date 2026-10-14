@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D373",
+ "cell": "DAX fades HO=F (all, 10-day, current regime)",
+ "trades": 412,
+ "net_bps": -0.855863513972485,
+ "t_net": -0.20644948936834603,
+ "placebo_pct": 44.9,
+ "by_year": {
+  "2025": 1.256449143243578,
+  "2026": -4.050092410250435
+ },
+ "always_long_net_bps": -0.37655458722797414,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 385,
+ "injection": {
+  "hypothesis": "D373",
+  "n_events": 412,
+  "sought_bps": 2.967701030338434,
+  "mean_estimate": 2.9293536268853257,
+  "recovered": true
+ }
+}

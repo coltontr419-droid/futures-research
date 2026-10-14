@@ -12077,6 +12077,22 @@ soybean account: **ZS rises after two weeks of calm and risk appetite** — it f
 credit (LQD, TLT, ZB, HYG), moves against the dollar (DX-Y.NYB, 6B, 6A, AUD; weaker KRW/ZAR/CLP → ZS down). NKD repeats its themes (fades
 corn — also strong in 2010–20, +10.6, t +3.87; follows global risk). Each validated once per §426, 2.
 
+## 503. D335–D376 validated (t01117–t01158): two CONFIRM, both NKD — the soybean theme failed (S1)
+
+**N 1,152.** 13 WATCHLIST, 27 REJECT. **D343** NKD fades corn's 10-day move (strong): +15.54 bps (t +2.50), placebo 100th, 2025 +11.4 / 2026
++21.5. **D372** NKD follows semiconductors' 10-day move (every day): +7.54 (t +1.68), placebo 96th, +5.1 / +11.4. Every ZS rule (the
+family's main new theme) is WATCHLIST or REJECT. **NKD–corn now confirms at three horizons** (D231 5-day, D343 10-day, D264 20-day) and,
+unlike the dollar rules, is strong before 2021 too (10-day all: 2010–20 +10.6, t +3.87).
+
+## 504. Stress tests for the NKD–corn theme, fixed before running (S8)
+
+**No trial; N 1,152.** (1) Independent data: corn's 10-day direction from Yahoo ZC=F (the trial's) and the CORN ETF; the Nikkei from A21's
+window (the trial's) and Yahoo NKD=F's CME session; forms all / strong; periods 2010–20, 2021–24, 2025–26. (2) Overlap with the deployed
+NKD dollar-week rule (§454): their agreement rate, and the NKD account (1 NKD, A23, drift removed, starts from 2025 and 2021–26) for
+plan / dollar-week (deployed) / corn (D343's form: short after a strong corn rise, long after a strong fall, plan otherwise) / both
+agreeing (take the dollar-week side; where corn is strong and disagrees, stand aside — flat), each calibrated against random flips.
+Read: propose only if a variant beats the DEPLOYED dollar-week rule in both 2021–26 and 2025-start accounts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

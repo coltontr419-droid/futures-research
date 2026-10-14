@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D370",
+ "cell": "ZS follows 6B=F (strong, 10-day, current regime)",
+ "trades": 184,
+ "net_bps": -5.028585704302879,
+ "t_net": -0.6432201562791561,
+ "placebo_pct": 21.5,
+ "by_year": {
+  "2025": -15.7036848601454,
+  "2026": 17.58814979536347
+ },
+ "always_long_net_bps": 6.633095511883897,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 382,
+ "injection": {
+  "hypothesis": "D370",
+  "n_events": 184,
+  "sought_bps": 6.474870218730971,
+  "mean_estimate": 6.521054505518204,
+  "recovered": true
+ }
+}

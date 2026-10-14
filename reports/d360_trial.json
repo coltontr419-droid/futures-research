@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D360",
+ "cell": "NKD follows NQ=F (strong, 10-day, current regime)",
+ "trades": 176,
+ "net_bps": 0.6453420543281225,
+ "t_net": 0.08951959024842476,
+ "placebo_pct": 54.400000000000006,
+ "by_year": {
+  "2025": 6.390915773830163,
+  "2026": -8.479980911939832
+ },
+ "always_long_net_bps": -2.1052609034340306,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 372,
+ "injection": {
+  "hypothesis": "D360",
+  "n_events": 176,
+  "sought_bps": 4.467431334049316,
+  "mean_estimate": 4.649928084241579,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D336",
+ "cell": "ZS fades ^VVIX (strong, 10-day, current regime)",
+ "trades": 187,
+ "net_bps": -0.5448896217075389,
+ "t_net": -0.07489484049521433,
+ "placebo_pct": 52.1,
+ "by_year": {
+  "2025": 1.279090460987078,
+  "2026": -3.66415990805485
+ },
+ "always_long_net_bps": 1.0545910425764111,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 348,
+ "injection": {
+  "hypothesis": "D336",
+  "n_events": 187,
+  "sought_bps": 9.799100384385742,
+  "mean_estimate": 9.958746466087346,
+  "recovered": true
+ }
+}

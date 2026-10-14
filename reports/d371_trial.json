@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D371",
+ "cell": "DAX follows ^OVX (all, 10-day, current regime)",
+ "trades": 410,
+ "net_bps": -0.2420324390606918,
+ "t_net": -0.058189297084209154,
+ "placebo_pct": 49.4,
+ "by_year": {
+  "2025": 0.27246989675933725,
+  "2026": -1.013785942790734
+ },
+ "always_long_net_bps": -0.4788507174695991,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 383,
+ "injection": {
+  "hypothesis": "D371",
+  "n_events": 410,
+  "sought_bps": 2.9796737379551756,
+  "mean_estimate": 2.9963831405269667,
+  "recovered": true
+ }
+}

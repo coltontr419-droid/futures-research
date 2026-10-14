@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D340",
+ "cell": "NKD follows EEM (all, 10-day, current regime)",
+ "trades": 406,
+ "net_bps": 0.39729256427628007,
+ "t_net": 0.08818741965140017,
+ "placebo_pct": 57.99999999999999,
+ "by_year": {
+  "2025": -2.3669182868992507,
+  "2026": 4.64726674795866
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 352,
+ "injection": {
+  "hypothesis": "D340",
+  "n_events": 406,
+  "sought_bps": 3.835448436648646,
+  "mean_estimate": 3.689061995655651,
+  "recovered": true
+ }
+}

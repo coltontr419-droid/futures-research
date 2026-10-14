@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D335",
+ "cell": "ZS fades ^VIX3M (strong, 10-day, current regime)",
+ "trades": 169,
+ "net_bps": -0.8196017643419086,
+ "t_net": -0.10717520003190438,
+ "placebo_pct": 50.3,
+ "by_year": {
+  "2025": 3.480959463633078,
+  "2026": -9.733492309599155
+ },
+ "always_long_net_bps": -1.1705333386356742,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 347,
+ "injection": {
+  "hypothesis": "D335",
+  "n_events": 169,
+  "sought_bps": 9.719973779676257,
+  "mean_estimate": 9.820699993509999,
+  "recovered": true
+ }
+}

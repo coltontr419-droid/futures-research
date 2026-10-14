@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D338",
+ "cell": "NKD fades ZC=F (all, 10-day, current regime)",
+ "trades": 407,
+ "net_bps": 5.40292836492451,
+ "t_net": 1.2045125773481176,
+ "placebo_pct": 89.3,
+ "by_year": {
+  "2025": 6.491737475274813,
+  "2026": 3.722079300821227
+ },
+ "always_long_net_bps": -0.8816208682882385,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 350,
+ "injection": {
+  "hypothesis": "D338",
+  "n_events": 407,
+  "sought_bps": 4.03259397559001,
+  "mean_estimate": 4.0535867281402975,
+  "recovered": true
+ }
+}

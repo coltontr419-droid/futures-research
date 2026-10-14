@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D365",
+ "cell": "DAX fades CL=F (all, 10-day, current regime)",
+ "trades": 412,
+ "net_bps": -0.2889170162234526,
+ "t_net": -0.06969039511414975,
+ "placebo_pct": 50.3,
+ "by_year": {
+  "2025": -4.395422082695767,
+  "2026": 5.920919913563945
+ },
+ "always_long_net_bps": -0.37655458722797414,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 377,
+ "injection": {
+  "hypothesis": "D365",
+  "n_events": 412,
+  "sought_bps": 3.0814900217276078,
+  "mean_estimate": 3.245432136609025,
+  "recovered": true
+ }
+}

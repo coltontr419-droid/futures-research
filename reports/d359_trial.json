@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D359",
+ "cell": "ZS follows AUDUSD=X (all, 10-day, current regime)",
+ "trades": 365,
+ "net_bps": 1.1321881450908808,
+ "t_net": 0.2167216920162534,
+ "placebo_pct": 59.9,
+ "by_year": {
+  "2025": -8.815060501113061,
+  "2026": 16.398451692389983
+ },
+ "always_long_net_bps": 3.566319479308547,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 371,
+ "injection": {
+  "hypothesis": "D359",
+  "n_events": 365,
+  "sought_bps": 4.828165701736502,
+  "mean_estimate": 4.966424768652126,
+  "recovered": true
+ }
+}

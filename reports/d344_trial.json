@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D344",
+ "cell": "ZS fades KRW=X (strong, 10-day, current regime)",
+ "trades": 206,
+ "net_bps": 7.932397541454988,
+ "t_net": 1.111214219050696,
+ "placebo_pct": 88.1,
+ "by_year": {
+  "2025": -2.629897082409089,
+  "2026": 18.29157111486014
+ },
+ "always_long_net_bps": 4.091699562401381,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 356,
+ "injection": {
+  "hypothesis": "D344",
+  "n_events": 206,
+  "sought_bps": 8.715625556378145,
+  "mean_estimate": 8.73478167774761,
+  "recovered": true
+ }
+}

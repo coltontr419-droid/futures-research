@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D363",
+ "cell": "ZS follows HYG (strong, 10-day, current regime)",
+ "trades": 95,
+ "net_bps": -0.6703561471502656,
+ "t_net": -0.0705395613572846,
+ "placebo_pct": 59.4,
+ "by_year": {
+  "2025": 1.9343839814965211,
+  "2026": -6.313959759218301
+ },
+ "always_long_net_bps": -5.75968132852502,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 375,
+ "injection": {
+  "hypothesis": "D363",
+  "n_events": 95,
+  "sought_bps": 6.683677373828531,
+  "mean_estimate": 6.752027743060271,
+  "recovered": true
+ }
+}

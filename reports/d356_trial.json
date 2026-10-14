@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D356",
+ "cell": "ZS follows 6B=F (all, 10-day, current regime)",
+ "trades": 401,
+ "net_bps": -4.879445937628047,
+ "t_net": -0.9845247712371568,
+ "placebo_pct": 18.3,
+ "by_year": {
+  "2025": -14.803078135308303,
+  "2026": 10.224447092803539
+ },
+ "always_long_net_bps": 2.5154296355867283,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 368,
+ "injection": {
+  "hypothesis": "D356",
+  "n_events": 401,
+  "sought_bps": 4.875746602115623,
+  "mean_estimate": 4.78964178946691,
+  "recovered": true
+ }
+}

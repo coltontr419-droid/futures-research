@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D350",
+ "cell": "MNQ fades XLE (all, 10-day, current regime)",
+ "trades": 402,
+ "net_bps": -2.3261073335486264,
+ "t_net": -0.4030655197284013,
+ "placebo_pct": 40.8,
+ "by_year": {
+  "2025": -1.8137975763683476,
+  "2026": -3.100975841283798
+ },
+ "always_long_net_bps": 3.021571159362793,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 362,
+ "injection": {
+  "hypothesis": "D350",
+  "n_events": 402,
+  "sought_bps": 4.635325574679852,
+  "mean_estimate": 4.524182894535425,
+  "recovered": true
+ }
+}

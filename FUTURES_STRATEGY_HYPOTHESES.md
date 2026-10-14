@@ -2049,170 +2049,170 @@ Data-derived (D-series family 136). `hypotheses.yaml` (D333) · `decisions.md` �
 
 Data-derived (D-series family 136). `hypotheses.yaml` (D334) · `decisions.md` §500
 
-## D335 — Zs Fades Vix3M Tenday Strong  *(registered)*
+## D335 — Zs Fades Vix3M Tenday Strong  *(REJECT — t01117)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D335) · `decisions.md` §502
 
-## D336 — Zs Fades Vvix Tenday Strong  *(registered)*
+## D336 — Zs Fades Vvix Tenday Strong  *(REJECT — t01118)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D336) · `decisions.md` §502
 
-## D337 — Zs Follows Lqd Tenday All  *(registered)*
+## D337 — Zs Follows Lqd Tenday All  *(REJECT — t01119)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D337) · `decisions.md` §502
 
-## D338 — Nkd Fades Zcf Tenday All  *(registered)*
+## D338 — Nkd Fades Zcf Tenday All  *(WATCHLIST — t01120)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D338) · `decisions.md` §502
 
-## D339 — Nkd Follows Fxi Tenday All  *(registered)*
+## D339 — Nkd Follows Fxi Tenday All  *(REJECT — t01121)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D339) · `decisions.md` §502
 
-## D340 — Nkd Follows Eem Tenday All  *(registered)*
+## D340 — Nkd Follows Eem Tenday All  *(WATCHLIST — t01122)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D340) · `decisions.md` §502
 
-## D341 — Cl Fades Plf Tenday Strong  *(registered)*
+## D341 — Cl Fades Plf Tenday Strong  *(REJECT — t01123)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D341) · `decisions.md` §502
 
-## D342 — Zs Fades Vix Tenday All  *(registered)*
+## D342 — Zs Fades Vix Tenday All  *(REJECT — t01124)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D342) · `decisions.md` §502
 
-## D343 — Nkd Fades Zcf Tenday Strong  *(registered)*
+## D343 — Nkd Fades Zcf Tenday Strong  *(CONFIRM — t01125)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D343) · `decisions.md` §502
 
-## D344 — Zs Fades Krwx Tenday Strong  *(registered)*
+## D344 — Zs Fades Krwx Tenday Strong  *(WATCHLIST — t01126)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D344) · `decisions.md` §502
 
-## D345 — Zs Fades Vix Tenday Strong  *(registered)*
+## D345 — Zs Fades Vix Tenday Strong  *(WATCHLIST — t01127)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D345) · `decisions.md` §502
 
-## D346 — Zs Fades Vvix Tenday All  *(registered)*
+## D346 — Zs Fades Vvix Tenday All  *(WATCHLIST — t01128)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D346) · `decisions.md` §502
 
-## D347 — Zs Fades Zarx Tenday Strong  *(registered)*
+## D347 — Zs Fades Zarx Tenday Strong  *(WATCHLIST — t01129)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D347) · `decisions.md` §502
 
-## D348 — Mnq Fades Kre Tenday Strong  *(registered)*
+## D348 — Mnq Fades Kre Tenday Strong  *(WATCHLIST — t01130)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D348) · `decisions.md` §502
 
-## D349 — Zs Follows Tlt Tenday Strong  *(registered)*
+## D349 — Zs Follows Tlt Tenday Strong  *(WATCHLIST — t01131)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D349) · `decisions.md` §502
 
-## D350 — Mnq Fades Xle Tenday All  *(registered)*
+## D350 — Mnq Fades Xle Tenday All  *(REJECT — t01132)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D350) · `decisions.md` §502
 
-## D351 — Dax Fades Hof Tenday Strong  *(registered)*
+## D351 — Dax Fades Hof Tenday Strong  *(REJECT — t01133)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D351) · `decisions.md` §502
 
-## D352 — Nkd Follows Gdaxi Tenday Strong  *(registered)*
+## D352 — Nkd Follows Gdaxi Tenday Strong  *(REJECT — t01134)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D352) · `decisions.md` §502
 
-## D353 — Zs Fades Dxynyb Tenday All  *(registered)*
+## D353 — Zs Fades Dxynyb Tenday All  *(REJECT — t01135)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D353) · `decisions.md` §502
 
-## D354 — Mnq Follows Zbf Tenday Strong  *(registered)*
+## D354 — Mnq Follows Zbf Tenday Strong  *(REJECT — t01136)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D354) · `decisions.md` §502
 
-## D355 — Nkd Follows Eem Tenday Strong  *(registered)*
+## D355 — Nkd Follows Eem Tenday Strong  *(REJECT — t01137)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D355) · `decisions.md` §502
 
-## D356 — Zs Follows 6Bf Tenday All  *(registered)*
+## D356 — Zs Follows 6Bf Tenday All  *(REJECT — t01138)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D356) · `decisions.md` §502
 
-## D357 — Zs Fades Dxynyb Tenday Strong  *(registered)*
+## D357 — Zs Fades Dxynyb Tenday Strong  *(REJECT — t01139)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D357) · `decisions.md` §502
 
-## D358 — Nkd Follows Fxi Tenday Strong  *(registered)*
+## D358 — Nkd Follows Fxi Tenday Strong  *(REJECT — t01140)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D358) · `decisions.md` §502
 
-## D359 — Zs Follows Audusdx Tenday All  *(registered)*
+## D359 — Zs Follows Audusdx Tenday All  *(WATCHLIST — t01141)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D359) · `decisions.md` §502
 
-## D360 — Nkd Follows Nqf Tenday Strong  *(registered)*
+## D360 — Nkd Follows Nqf Tenday Strong  *(WATCHLIST — t01142)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D360) · `decisions.md` §502
 
-## D361 — Mnq Fades Zlf Tenday All  *(registered)*
+## D361 — Mnq Fades Zlf Tenday All  *(REJECT — t01143)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D361) · `decisions.md` §502
 
-## D362 — Zs Follows Zbf Tenday Strong  *(registered)*
+## D362 — Zs Follows Zbf Tenday Strong  *(WATCHLIST — t01144)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D362) · `decisions.md` §502
 
-## D363 — Zs Follows Hyg Tenday Strong  *(registered)*
+## D363 — Zs Follows Hyg Tenday Strong  *(REJECT — t01145)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D363) · `decisions.md` §502
 
-## D364 — Mnq Follows Zbf Tenday All  *(registered)*
+## D364 — Mnq Follows Zbf Tenday All  *(WATCHLIST — t01146)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D364) · `decisions.md` §502
 
-## D365 — Dax Fades Clf Tenday All  *(registered)*
+## D365 — Dax Fades Clf Tenday All  *(REJECT — t01147)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D365) · `decisions.md` §502
 
-## D366 — Nkd Follows Gdaxi Tenday All  *(registered)*
+## D366 — Nkd Follows Gdaxi Tenday All  *(REJECT — t01148)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D366) · `decisions.md` §502
 
-## D367 — Zs Follows Lqd Tenday Strong  *(registered)*
+## D367 — Zs Follows Lqd Tenday Strong  *(REJECT — t01149)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D367) · `decisions.md` §502
 
-## D368 — Zs Follows 6Af Tenday All  *(registered)*
+## D368 — Zs Follows 6Af Tenday All  *(REJECT — t01150)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D368) · `decisions.md` §502
 
-## D369 — Nkd Fades Vix Tenday All  *(registered)*
+## D369 — Nkd Fades Vix Tenday All  *(REJECT — t01151)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D369) · `decisions.md` §502
 
-## D370 — Zs Follows 6Bf Tenday Strong  *(registered)*
+## D370 — Zs Follows 6Bf Tenday Strong  *(REJECT — t01152)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D370) · `decisions.md` §502
 
-## D371 — Dax Follows Ovx Tenday All  *(registered)*
+## D371 — Dax Follows Ovx Tenday All  *(REJECT — t01153)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D371) · `decisions.md` §502
 
-## D372 — Nkd Follows Smh Tenday All  *(registered)*
+## D372 — Nkd Follows Smh Tenday All  *(CONFIRM — t01154)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D372) · `decisions.md` §502
 
-## D373 — Dax Fades Hof Tenday All  *(registered)*
+## D373 — Dax Fades Hof Tenday All  *(REJECT — t01155)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D373) · `decisions.md` §502
 
-## D374 — Zs Fades Clpx Tenday All  *(registered)*
+## D374 — Zs Fades Clpx Tenday All  *(WATCHLIST — t01156)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D374) · `decisions.md` §502
 
-## D375 — Zs Follows Adm Tenday All  *(registered)*
+## D375 — Zs Follows Adm Tenday All  *(REJECT — t01157)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D375) · `decisions.md` §502
 
-## D376 — Dax Fades Clf Tenday Strong  *(registered)*
+## D376 — Dax Fades Clf Tenday Strong  *(REJECT — t01158)*
 
 Data-derived (D-series family 137). `hypotheses.yaml` (D376) · `decisions.md` §502

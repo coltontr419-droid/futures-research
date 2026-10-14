@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D343",
+ "cell": "NKD fades ZC=F (strong, 10-day, current regime)",
+ "trades": 180,
+ "net_bps": 15.539503159946051,
+ "t_net": 2.495691105855717,
+ "placebo_pct": 99.5,
+ "by_year": {
+  "2025": 11.387771528986267,
+  "2026": 21.48657819888845
+ },
+ "always_long_net_bps": 1.7104531175899997,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 355,
+ "injection": {
+  "hypothesis": "D343",
+  "n_events": 180,
+  "sought_bps": 4.8407204874850445,
+  "mean_estimate": 4.673889695115204,
+  "recovered": true
+ }
+}

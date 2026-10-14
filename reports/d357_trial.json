@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D357",
+ "cell": "ZS fades DX-Y.NYB (strong, 10-day, current regime)",
+ "trades": 167,
+ "net_bps": -4.248017577573,
+ "t_net": -0.5378588497379662,
+ "placebo_pct": 33.1,
+ "by_year": {
+  "2025": -12.006002109497292,
+  "2026": 10.723531519123
+ },
+ "always_long_net_bps": 0.9801655206964602,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 369,
+ "injection": {
+  "hypothesis": "D357",
+  "n_events": 167,
+  "sought_bps": 7.176909698500984,
+  "mean_estimate": 7.286343562174197,
+  "recovered": true
+ }
+}
