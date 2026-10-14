@@ -10904,6 +10904,12 @@ closes are unchanged on more than 30% of days in discovery is reported but not c
 D122's mechanism looks general in direction, strong only where the producer dominates (Brazil soy, Chile copper). HG is not a
 plan product (MHG was listed as a candidate market, §140s). Z and D market-test 136.
 
+## 386. D124 validated (t00906): WATCHLIST — copper after the peso keeps its sign, not its strength (S1)
+
+**N 900.** Sealed 2023-01 → 2026-08, 52 events (power 20%): net **+14.62 bps** (t +0.73); placebo
+77th; years 2 of 4 (2023 +19.5, 2024 −8.6, 2025 +47.1, 2026 −21.9). Positive across all three periods (2010–17
++13.3, 2018–22 +34.8, 2023–26 +14.6), never significant out of sample. WATCHLIST; HG is not a plan product. Z and D market-test 136.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

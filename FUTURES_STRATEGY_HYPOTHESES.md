@@ -1205,6 +1205,6 @@ Data-derived (D-series family 97). `hypotheses.yaml` (D122) · `decisions.md` §
 
 Data-derived (D-series family 97). `hypotheses.yaml` (D123) · `decisions.md` §381
 
-## D124 — Copper Falls After Peso Weakens  *(registered)*
+## D124 — Copper Falls After Peso Weakens  *(WATCHLIST — t00906)*
 
 Data-derived (D-series family 98). `hypotheses.yaml` (D124) · `decisions.md` §385

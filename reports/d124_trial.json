@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D124",
+ "cell": "HG falls after the producer currency (CLP=X) weakens",
+ "trades": 52,
+ "net_bps": 14.624894422593208,
+ "t_net": 0.7322717816214525,
+ "placebo_pct": 76.6,
+ "by_year": {
+  "2023": 19.544758447423693,
+  "2024": -8.557633174745144,
+  "2025": 47.12786622672551,
+  "2026": -21.882400801084128
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 136,
+ "injection": {
+  "hypothesis": "D124",
+  "n_events": 52,
+  "sought_bps": 17.40436511021506,
+  "mean_estimate": 17.654523120006903,
+  "sd_estimate_bps": 19.520827627638177,
+  "power_strict_t": 0.1965,
+  "recovered": true
+ }
+}
