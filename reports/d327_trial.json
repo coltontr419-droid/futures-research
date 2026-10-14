@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D327",
+ "cell": "ZN follows speculators crowding (COT, current regime)",
+ "trades": 38,
+ "net_bps": -7.1951045957703155,
+ "t_week": -1.924997027797129,
+ "t_net": -1.924997027797129,
+ "placebo_pct": 0.6,
+ "by_year": {
+  "2025": -10.885357240029858,
+  "2026": -5.276173220755352
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 339,
+ "injection": {
+  "hypothesis": "D327",
+  "n_events": 38,
+  "sought_bps": 0.0,
+  "recovered": true,
+  "note": "not applicable (decisions.md 231)"
+ }
+}

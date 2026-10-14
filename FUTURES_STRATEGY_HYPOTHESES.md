@@ -2016,3 +2016,11 @@ Data-derived (D-series family 129). `hypotheses.yaml` (D325) · `decisions.md` �
 ## D326 — Chf Follows Sp Week R  *(REJECT — t01108)*
 
 Data-derived (D-series family 130). `hypotheses.yaml` (D326) · `decisions.md` §478
+
+## D327 — Cot Speculators Zn Crowding Follow R  *(REJECT — t01109)*
+
+Data-derived (D-series family 133). `hypotheses.yaml` (D327) · `decisions.md` §484
+
+## D328 — Cot Commercial Es Crowding Fade R  *(REJECT — t01110)*
+
+Data-derived (D-series family 133). `hypotheses.yaml` (D328) · `decisions.md` §484

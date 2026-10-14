@@ -23084,3 +23084,115 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 338.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D327
+  name: cot_speculators_zn_crowding_follow_r
+  mechanism: >
+    DATA-DERIVED (D-series family 133, COT on the current regime, decisions.md 483-484): ZN's sessions in the week after
+    a report, following the speculators' crowding: 2021-2024 +6.39 bps net (week-clustered t +2.93, 64 weeks).
+    THE COUNTERPARTY would be the positioning group itself. Carried at chance (2 of 82).
+  condition: >
+    Each week, trade ZN's five sessions after the Friday COT release to follow the speculators' crowding signal.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-14
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01109 (decisions.md 484), REJECT on sealed 2025-2026: 38 sessions; net -7.20 bps (week-clustered t -1.92); placebo 1th pct.
+  outcome_injection_required: Not applicable - the shuffled-week placebo is the control (decisions.md 231).
+  outcome_injection:
+    test: src/futuresres/reporting/d30_cot.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 38
+    recovered: true
+    report: reports/d327_trial.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 361
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-133 scan (82 tests, decisions.md 484). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (weeks shuffled), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 339.
+  s6_control: By year; weeks shuffled.
+- id: D328
+  name: cot_commercial_es_crowding_fade_r
+  mechanism: >
+    DATA-DERIVED (D-series family 133, COT on the current regime, decisions.md 483-484): ES's sessions in the week after
+    a report, fadeing the commercial' crowding: 2021-2024 +11.56 bps net (week-clustered t +2.02, 70 weeks).
+    THE COUNTERPARTY would be the positioning group itself. Carried at chance (2 of 82).
+  condition: >
+    Each week, trade ES's five sessions after the Friday COT release to fade the commercial' crowding signal.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-14
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01110 (decisions.md 484), REJECT on sealed 2025-2026: 131 sessions; net -8.78 bps (week-clustered t -1.10); placebo 22th pct.
+  outcome_injection_required: Not applicable - the shuffled-week placebo is the control (decisions.md 231).
+  outcome_injection:
+    test: src/futuresres/reporting/d30_cot.py
+    injected_bps: 0.0
+    sought_bps: 0.0
+    n_injection: 0
+    n_run: 131
+    recovered: true
+    report: reports/d328_trial.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 362
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-133 scan (82 tests, decisions.md 484). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (weeks shuffled), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 340.
+  s6_control: By year; weeks shuffled.

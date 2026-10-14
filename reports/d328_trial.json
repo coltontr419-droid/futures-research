@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D328",
+ "cell": "ES fades commercial crowding (COT, current regime)",
+ "trades": 131,
+ "net_bps": -8.779455431483187,
+ "t_week": -1.0963327647427479,
+ "t_net": -1.0963327647427479,
+ "placebo_pct": 21.6,
+ "by_year": {
+  "2025": -21.798236895272474,
+  "2026": 13.007076814041733
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 340,
+ "injection": {
+  "hypothesis": "D328",
+  "n_events": 131,
+  "sought_bps": 0.0,
+  "recovered": true,
+  "note": "not applicable (decisions.md 231)"
+ }
+}

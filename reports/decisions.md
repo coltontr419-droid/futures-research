@@ -11920,6 +11920,14 @@ speculators (non-commercial), commercials and small traders; **flow** (the week'
 week-clustered t. **3 groups × 2 kinds × 14 markets = 84 tests** (~2.1 by chance); D95 and D96's exact rules excluded (§426, 3).
 Costs §177; validation per §426, 2 (placebo: weeks shuffled; both 2025 and 2026 positive).
 
+## 484. Family-133: positioning on the current regime — 2 of 82 carried (at chance); validated (S1)
+
+**N 1,104.** `reports/d133_discovery.json`:
+- **D327** ZN follows speculators crowding: discovery +6.39 (t +2.93) → **REJECT** -7.20 (t -1.92), placebo 1th, {2025: -10.885357240029858, 2026: -5.276173220755352} (t01109)
+- **D328** ES fades commercial crowding: discovery +11.56 (t +2.02) → **REJECT** -8.78 (t -1.10), placebo 22th, {2025: -21.798236895272474, 2026: 13.007076814041733} (t01110)
+
+Positioning data sets no direction for the plan's products in the current regime either.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
