@@ -2028,3 +2028,23 @@ Data-derived (D-series family 133). `hypotheses.yaml` (D328) · `decisions.md` �
 ## D329 — Cl Reverses Extreme Stretch Vs Rb R  *(CONFIRM — t01111)*
 
 Data-derived (D-series family 134). `hypotheses.yaml` (D329) · `decisions.md` §494
+
+## D330 — Gold Ny Fades Clpx 1D Strong  *(WATCHLIST — t01112)*
+
+Data-derived (D-series family 136). `hypotheses.yaml` (D330) · `decisions.md` §500
+
+## D331 — Gold Session Fades Zwf 5D Strong  *(WATCHLIST — t01113)*
+
+Data-derived (D-series family 136). `hypotheses.yaml` (D331) · `decisions.md` §500
+
+## D332 — Gold Session Fades Zsf 1D All  *(REJECT — t01114)*
+
+Data-derived (D-series family 136). `hypotheses.yaml` (D332) · `decisions.md` §500
+
+## D333 — Gold Session Fades Zwf 5D All  *(REJECT — t01115)*
+
+Data-derived (D-series family 136). `hypotheses.yaml` (D333) · `decisions.md` §500
+
+## D334 — Gold Ny Follows Plf 5D All  *(REJECT — t01116)*
+
+Data-derived (D-series family 136). `hypotheses.yaml` (D334) · `decisions.md` §500

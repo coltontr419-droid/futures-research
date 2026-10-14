@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D332",
+ "cell": "gold_session fades ZS=F 1d (all)",
+ "trades": 388,
+ "net_bps": -3.201086487667928,
+ "t_net": -0.45493262906422005,
+ "placebo_pct": 36.7,
+ "by_year": {
+  "2025": -3.57848563049331,
+  "2026": -2.633770356840097
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 344,
+ "injection": {
+  "hypothesis": "D332",
+  "n_events": 388,
+  "sought_bps": 2.9879787302621357,
+  "mean_estimate": 2.808898876821976,
+  "recovered": true
+ }
+}

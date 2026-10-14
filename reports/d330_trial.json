@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D330",
+ "cell": "gold_ny fades CLP=X 1d (strong)",
+ "trades": 118,
+ "net_bps": 2.556377924902963,
+ "t_net": 0.49484606943622955,
+ "placebo_pct": 74.4,
+ "by_year": {
+  "2025": 7.082151153352524,
+  "2026": -4.527441041365914
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 342,
+ "injection": {
+  "hypothesis": "D330",
+  "n_events": 118,
+  "sought_bps": 2.942521275869861,
+  "mean_estimate": 3.1062823642249753,
+  "recovered": true
+ }
+}

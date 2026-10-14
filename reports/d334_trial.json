@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D334",
+ "cell": "gold_ny follows PL=F 5d (all)",
+ "trades": 401,
+ "net_bps": -2.387478261933362,
+ "t_net": -0.8350037263106771,
+ "placebo_pct": 31.7,
+ "by_year": {
+  "2025": -4.050414703713089,
+  "2026": 0.19695799153321664
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 346,
+ "injection": {
+  "hypothesis": "D334",
+  "n_events": 401,
+  "sought_bps": 1.2192219624529141,
+  "mean_estimate": 1.1867922120330041,
+  "recovered": true
+ }
+}

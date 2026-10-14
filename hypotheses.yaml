@@ -23253,3 +23253,283 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 341.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D330
+  name: gold_ny_fades_clpx_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 136, gold's other windows on the current regime, decisions.md 499-500): gold_ny fades the
+    sign of CLP=X's 1-day move (strong): 2021-2024 +5.89 bps (t +3.10, n 442). Carried below chance
+    (5 of 488). THE COUNTERPARTY: none offered.
+  condition: >
+    Every session, take gold_ny to fade the sign of CLP=X's previous 1-day move.
+  horizon_minutes: [325]
+  hold_hours: [5.4]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01112 (decisions.md 500), WATCHLIST on sealed 2023-2026: 118 trades; net +2.56 bps (t +0.49); placebo 74th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d136_goldwin.py
+    injected_bps: 2.943
+    sought_bps: 2.943
+    n_injection: 118
+    n_run: 118
+    recovered: true
+    report: reports/d330_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 364
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-136 scan (488 tests, decisions.md 500). ONE TRIAL.
+  session: US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 342.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D331
+  name: gold_session_fades_zwf_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 136, gold's other windows on the current regime, decisions.md 499-500): gold_session fades the
+    sign of ZW=F's 5-day move (strong): 2021-2024 +8.28 bps (t +2.19, n 482). Carried below chance
+    (5 of 488). THE COUNTERPARTY: none offered.
+  condition: >
+    Every session, take gold_session to fade the sign of ZW=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01113 (decisions.md 500), WATCHLIST on sealed 2023-2026: 166 trades; net +3.85 bps (t +0.38); placebo 57th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d136_goldwin.py
+    injected_bps: 4.139
+    sought_bps: 4.139
+    n_injection: 166
+    n_run: 166
+    recovered: true
+    report: reports/d331_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 365
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-136 scan (488 tests, decisions.md 500). ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 343.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D332
+  name: gold_session_fades_zsf_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 136, gold's other windows on the current regime, decisions.md 499-500): gold_session fades the
+    sign of ZS=F's 1-day move (all): 2021-2024 +5.98 bps (t +2.14, n 958). Carried below chance
+    (5 of 488). THE COUNTERPARTY: none offered.
+  condition: >
+    Every session, take gold_session to fade the sign of ZS=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01114 (decisions.md 500), REJECT on sealed 2023-2026: 388 trades; net -3.20 bps (t -0.45); placebo 37th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d136_goldwin.py
+    injected_bps: 2.988
+    sought_bps: 2.988
+    n_injection: 388
+    n_run: 388
+    recovered: true
+    report: reports/d332_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 366
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-136 scan (488 tests, decisions.md 500). ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 344.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D333
+  name: gold_session_fades_zwf_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 136, gold's other windows on the current regime, decisions.md 499-500): gold_session fades the
+    sign of ZW=F's 5-day move (all): 2021-2024 +5.94 bps (t +2.14, n 968). Carried below chance
+    (5 of 488). THE COUNTERPARTY: none offered.
+  condition: >
+    Every session, take gold_session to fade the sign of ZW=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01115 (decisions.md 500), REJECT on sealed 2023-2026: 400 trades; net -1.34 bps (t -0.19); placebo 46th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d136_goldwin.py
+    injected_bps: 2.969
+    sought_bps: 2.969
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d333_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 367
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-136 scan (488 tests, decisions.md 500). ONE TRIAL.
+  session: Globex
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 345.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D334
+  name: gold_ny_follows_plf_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 136, gold's other windows on the current regime, decisions.md 499-500): gold_ny follows the
+    sign of PL=F's 5-day move (all): 2021-2024 +2.44 bps (t +2.10, n 974). Carried below chance
+    (5 of 488). THE COUNTERPARTY: none offered.
+  condition: >
+    Every session, take gold_ny to follow the sign of PL=F's previous 5-day move.
+  horizon_minutes: [325]
+  hold_hours: [5.4]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01116 (decisions.md 500), REJECT on sealed 2023-2026: 401 trades; net -2.39 bps (t -0.84); placebo 32th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d136_goldwin.py
+    injected_bps: 1.219
+    sought_bps: 1.219
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d334_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 368
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-136 scan (488 tests, decisions.md 500). ONE TRIAL.
+  session: US
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 346.
+  s6_control: By year; signs shuffled across the sealed sessions.

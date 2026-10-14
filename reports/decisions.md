@@ -12051,6 +12051,18 @@ forms all / strong. Currency/BTC-USD predictors excluded for the whole session (
 0, t > 1.96 (~2.5% by chance; counted). Cost 0.8; validation per §426, 2 (placebo: shuffled signs), then §446-style stress tests and a
 replay of the MGC account trading the new window before any proposal.
 
+## 500. Family-136: gold's other windows — 5 of 488 carried (below chance); validated (S1)
+
+**N 1,110.** `reports/d136_discovery.json` (module `reporting/d136_goldwin.py`):
+- **D330** gold_ny fades CLP=X 1d (strong): **WATCHLIST** +2.56 (t +0.49), placebo 74th, 2025 +7.1, 2026 -4.5
+- **D331** gold_session fades ZW=F 5d (strong): **WATCHLIST** +3.85 (t +0.38), placebo 57th, 2025 +9.0, 2026 -1.3
+- **D332** gold_session fades ZS=F 1d (all): **REJECT** -3.20 (t -0.45), placebo 37th, 2025 -3.6, 2026 -2.6
+- **D333** gold_session fades ZW=F 5d (all): **REJECT** -1.34 (t -0.19), placebo 46th, 2025 +4.3, 2026 -10.0
+- **D334** gold_ny follows PL=F 5d (all): **REJECT** -2.39 (t -0.84), placebo 32th, 2025 -4.1, 2026 +0.2
+
+Fewer carries than chance: no gold window — London, New York afternoon or the whole session — takes an every-day direction from the
+cross-market set. The MGC account stays on its London window, always long.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

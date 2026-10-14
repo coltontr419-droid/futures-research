@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D331",
+ "cell": "gold_session fades ZW=F 5d (strong)",
+ "trades": 166,
+ "net_bps": 3.850726236857414,
+ "t_net": 0.3789732965693046,
+ "placebo_pct": 56.8,
+ "by_year": {
+  "2025": 9.014299284287539,
+  "2026": -1.3128468105727091
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 343,
+ "injection": {
+  "hypothesis": "D331",
+  "n_events": 166,
+  "sought_bps": 4.139458157649767,
+  "mean_estimate": 4.193004595843375,
+  "recovered": true
+ }
+}
