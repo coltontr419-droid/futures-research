@@ -11329,6 +11329,23 @@ otherwise, or on any data error, long. Wired in `bot/schedule.py` beside D68; `t
 no cost: the account replay (§431) expects it roughly neutral to the account, the statistics expect the shock days to favour it.
 **D151 not adopted** (the user, per §431). The search continues under §426's design.
 
+## 433. D-series family 115 protocol: the intraday structures on the current regime (S1)
+
+**No trial spent; N 927. Written and committed BEFORE any statistic is computed.** Earlier intraday families re-run under §426's design
+(owned minute grids, family 8; each predictor → target same contract; follow or fade fixed by 2021–24; forms **all** and **strong**
+(|predictor| above its discovery median)). MNQ (day/night/post grids) and gold (London/Asia/NY grids):
+1. the session before → the window (MNQ night → day; gold Asia → London);
+2. morning → afternoon (MNQ 09:30–12:00 → 13:00–16:00; gold 03:00–07:00 → 08:30–11:30);
+3. first 30 minutes → the rest (MNQ 10:00 → 16:00; gold 03:30 → 11:30);
+4. the opening minute → the rest (MNQ 09:30 → 09:31 vs night close; gold 08:20 → 08:21);
+5. the previous window → the window (day → next day; London → next London);
+6. the previous window's close location → the window (sign of CLV − 0.5);
+7. the window's last hour → the next session (MNQ 15:00–16:00 → night; gold 10:30–11:30 → NY afternoon 11:30–16:55);
+8. overnight signed volume → the window (family 84's imbalance);
+9. into a fix → after it (MNQ 11:00–11:30 → 11:30–12:00, the European close; gold 13:00–13:30 → 13:30–14:00, COMEX settlement).
+**9 rules × 2 markets × 2 forms = 36 tests** (~0.9 by chance at 2.5%). Costs §180; validation per §426, 2 (placebo: predictor signs
+shuffled across the sealed sessions).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
