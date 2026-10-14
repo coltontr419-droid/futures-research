@@ -11091,6 +11091,11 @@ close, UTC day, 2σ, up = local currency weaker; targets next-weekday sessions (
 (> 30% unchanged) reported, not carried. **3 tests**, descriptive 2010–17 column. Costs §177 (HG 2.0, SI 0.5); recent-period design;
 carried at net > 0, t > 1.96; validation as §207, 3.
 
+## 413. Family-110 discovery: copper and silver producer currencies — 0 of 3 carried (S1)
+
+**No trial spent; N 904.** `reports/d110_discovery.json`: PEN → HG +6.9 (t +0.67, "with"); MXN → SI +19.8 (t +0.69), PEN → SI +15.8 (t +1.04),
+both "against" and the same in 2010–17 (+17.1, +18.7), all weak. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
