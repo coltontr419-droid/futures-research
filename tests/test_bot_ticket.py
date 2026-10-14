@@ -147,3 +147,13 @@ def test_daxdollar_fdxm_side_follows_the_dollar() -> None:
     assert daxdollar.fdxm_side(day, -25.0)[0] == "short"
     assert daxdollar.fdxm_side(day, 0.0)[0] == "long"
     assert daxdollar.fdxm_side(day, None, fetch=False)[0] == "long"
+
+
+def test_nkddollar_side_follows_the_euro_week() -> None:
+    """decisions.md 454: NKD follows the euro's 5-session move (dollar weaker -> long); missing data -> long."""
+    import datetime as _dt
+    import nkddollar
+    days = [_dt.date(2026, 3, 2) + _dt.timedelta(days=i) for i in range(5)]
+    assert nkddollar.nkd_side(days[-1], [(d, 10.0) for d in days])[0] == "long"
+    assert nkddollar.nkd_side(days[-1], [(d, -10.0) for d in days])[0] == "short"
+    assert nkddollar.nkd_side(days[-1], [(d, 10.0) for d in days[:3]])[0] == "long"

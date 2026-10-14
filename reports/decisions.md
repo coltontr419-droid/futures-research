@@ -11667,6 +11667,14 @@ account effect in the programme, and combining it with D139 HALVES its gain — 
 Caveats: regime-dependent (nothing before 2021); 20 sealed months; replay paths are HistData CFD prices, drift removed. **Proposed to
 the user; not deployed.**
 
+## 454. The NKD dollar-week rule replaces D139 on the demo's NKD ticket (2026-10-14, the user) (S8)
+
+**No trial; N 1,025.** Deployed 15:27 ET (backup `/opt/futures-bot/backup-2026-10-14c`): `bot/nkddollar.py` sums Yahoo 6E=F's open →
+close over the last 5 sessions through the alert day and sets NKD LONG after a week of dollar weakness (euro up), SHORT after a week of
+strength — every session; missing data → long. `bot/schedule.py` now calls it for NKD in place of D139 (`d139.py` stays on disk,
+unused; D139 remains a confirmed finding). Posts carry a "dollar-week:" note. First reading, 2026-10-14: euro −43 bps over 5 sessions
+→ NKD short. The demo now runs three direction rules: MNQ D68 (ZN shocks), NKD dollar-week, FDXM DAX–dollar.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

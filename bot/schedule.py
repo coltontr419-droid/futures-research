@@ -19,6 +19,7 @@ from zoneinfo import ZoneInfo
 import d68
 import d139
 import daxdollar
+import nkddollar
 import shadow
 from accounts import PRODUCTS, Book
 from ticket import describe, policy, ticket
@@ -70,7 +71,7 @@ class Tickets:
             tk = {"trade": False, "finished": True, "floor": 0.0}
         else:
             side, why = (d68.mnq_side(alert_day) if product == "MNQ"                      # D68 (decisions.md 211)
-                         else d139.nkd_side(alert_day) if product == "NKD"                  # D139 (decisions.md 432)
+                         else nkddollar.nkd_side(alert_day) if product == "NKD"             # dollar-week, replaced D139 (decisions.md 454)
                          else daxdollar.fdxm_side(alert_day) if product == "FDXM" else ("long", ""))  # decisions.md 448
             tk = ticket(a["phase"], a["balance"], a["peak"], a["best"], a["payouts"], product, side)
             tk["note"] = why
@@ -223,4 +224,4 @@ def ticket_post(rec: dict) -> str:
     if rec["phase"] == "dead":
         return head + f"\n**{rec['product']}: account failed** - buy a new evaluation and send `!new {rec['product']}`."
     note = rec["ticket"].get("note", "")
-    return head + "\n" + describe(rec["ticket"], rec["product"]) + (f"\n> {note}" if note.startswith(("D68", "D139", "DAX-dollar")) else "")
+    return head + "\n" + describe(rec["ticket"], rec["product"]) + (f"\n> {note}" if note.startswith(("D68", "D139", "DAX-dollar", "dollar-week")) else "")
