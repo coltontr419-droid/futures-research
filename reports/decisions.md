@@ -11377,6 +11377,14 @@ equity-option expiry week (+21.7 bps, t +2.16, n 187; no mechanism). Sealed 2025
 47th, 2025 −7.6 / 2026 +7.4: **REJECT**. The calendar sets no direction in the current regime either. Z and D
 market-test 166.
 
+## 438. D-series family 117 protocol: each plan market's own past on the current regime (S1)
+
+**No trial spent; N 930. Written and committed BEFORE any statistic is computed.** For each plan window (MNQ day, MGC London, NKD, DAX,
+CL, ZS; family 114's targets), from the window's own series: **(i) own shock** — the previous window beyond 2 × the SD of the previous
+60; **(ii) trend5** — the sign of the sum of the previous 5 windows; **(iii) trend20** — of the previous 20. Follow or fade fixed by
+2021–24. **3 × 6 = 18 tests** (~0.5 by chance). Costs §177/§180; validation per §426, 2 (placebo: signals shuffled across the sealed
+windows).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
