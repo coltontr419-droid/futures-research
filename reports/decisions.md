@@ -11078,6 +11078,11 @@ session (family-8 grid), following the ZN shock (D68's direction, not re-chosen)
 Descriptive 2010–17 column. Cost MNQ 0.5; recent-period design; carried at net > 0, t > 1.96; validation as §207, 3. A carried test
 would sharpen D68's overlay, not replace it.
 
+## 411. Family-109 discovery: D68 is not sharper when equities were quiet — 0 of 1 carried (S1)
+
+**No trial spent; N 904.** `reports/d109_discovery.json`: quiet-equity ZN shocks +15.8 bps (t +0.60, n 23) vs the rest +21.5 (t +1.02,
+n 56). No support for a slow-diffusion refinement; D68 stays as deployed. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
