@@ -11415,6 +11415,15 @@ originals; validation per §426, 2 (placebos as the originals).
 rule as D98, REJECTED on 2023–26 (§254), so not re-tested (§426, 3; §441 should have listed D97–D99 among the exclusions — it omitted
 them, and the global rule governs). Everything else |t| < 1.7, all below 1 bp. The fixes are not where the current regime pays.
 
+## 443. D-series family 119 protocol: yesterday's direction across markets, every day, on the current regime (S1)
+
+**No trial spent; N 932. Written and committed BEFORE any statistic is computed.** Family 10's question under §426's design with family
+111's predictor list: the sign of each predictor's previous-weekday move (every day, not only shocks) → each plan window (MNQ, MGC,
+NKD, DAX, CL, ZS), with or against, fixed by 2021–24; family 111's exclusions (own market, currency → CL/NKD timing, family-29 pairs,
+validated pairs). Forms **all** and **strong** (|move| above its 2021–24 median). Carried at net > 0, t > 1.96 (~2.5% of nulls; the count
+is reported against it). Costs §177/§180; validation per §426, 2 (placebo: signs shuffled across the sealed sessions). These are
+every-day rules, so a survivor would be account-sized.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
