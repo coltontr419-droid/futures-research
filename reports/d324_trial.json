@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D324",
+ "cell": "CL follows ho_cl_5d (all)",
+ "trades": 366,
+ "net_bps": -8.860333727065289,
+ "net_bps_at_mcl_cost": -13.560333727065284,
+ "t_net": -0.6517043779100814,
+ "placebo_pct": 32.800000000000004,
+ "by_year": {
+  "2025": -13.314610275137724,
+  "2026": -0.06042152233680246
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 336,
+ "injection": {
+  "hypothesis": "D324",
+  "n_events": 366,
+  "sought_bps": 11.608066767792977,
+  "mean_estimate": 11.773766483365227,
+  "recovered": true
+ }
+}

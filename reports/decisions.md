@@ -11859,6 +11859,20 @@ previous 5 weekdays. Sign → CL's next session (family 10; it opens 18:00 ET, a
 2021–24; forms all / strong. **3 × 2 × 2 = 12 tests.** Cost CL 0.7 (MCL's 5.4 noted at validation); validation per §426, 2 (placebo:
 shuffled signs).
 
+## 476. Family-129: crude follows its refining margin over the week — 5 of 12 carried (≈ 0.3 by chance); validated (S1)
+
+**N 1,101.** `reports/d129_discovery.json` (module `reporting/d129_crack.py`). Every carry is the 5-day form: when refined products have
+outpaced crude over the previous week, crude rises next session (refiners' demand catching up); 2010–20 the opposite sign — a current-
+regime effect, as the dollar rules. Sealed 2025–26:
+- **D321** CL follows crack_5d (all): discovery +14.2 (t +2.05) → **REJECT** -10.64 (t -0.78), at MCL's cost -15.3; placebo 30th; 2025 -12.8, 2026 -6.3 (t01103)
+- **D322** CL follows crack_5d (strong): discovery +28.5 (t +2.83) → **REJECT** -8.04 (t -0.36), at MCL's cost -12.7; placebo 50th; 2025 -22.9, 2026 +6.3 (t01104)
+- **D323** CL follows rb_cl_5d (all): discovery +15.0 (t +2.16) → **WATCHLIST** +4.84 (t +0.36), at MCL's cost +0.1; placebo 68th; 2025 -3.0, 2026 +20.3 (t01105)
+- **D324** CL follows ho_cl_5d (all): discovery +23.2 (t +3.37) → **REJECT** -8.86 (t -0.65), at MCL's cost -13.6; placebo 33th; 2025 -13.3, 2026 -0.1 (t01106)
+- **D325** CL follows ho_cl_5d (strong): discovery +26.6 (t +2.58) → **REJECT** -7.50 (t -0.39), at MCL's cost -12.2; placebo 44th; 2025 -19.3, 2026 +9.9 (t01107)
+
+**Reading (added after the trials):** none survived — the refining-margin effect was 2021–24 (the 2022 energy shock), negative in 2025–26.
+Crude has now failed four themes on the current regime (risk assets ×3, refining margin); the MCL account stays always long.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

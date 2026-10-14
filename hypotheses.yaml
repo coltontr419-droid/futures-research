@@ -22748,3 +22748,283 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the state series rolled by a random 60+ sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 332.
   s6_control: By year; the state series rolled by a random 60+ sessions.
+- id: D321
+  name: cl_follows_crack_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 129, refining spreads into crude on the current regime, decisions.md 475-476): CL's next session
+    follows the sign of the crack_5d change (all): 2021-2024 +14.20 bps net (t +2.05, n 922); 2010-20
+    -1.97 (context). THE COUNTERPARTY: refiners' crude demand responds to their margin with a lag.
+  condition: >
+    Every session, take CL's next session in the sign of the previous crack_5d change; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01103 (decisions.md 476), REJECT on sealed 2023-2026: 366 trades; net -10.64 bps (t -0.78); placebo 30th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d129_crack.py
+    injected_bps: 7.100
+    sought_bps: 7.100
+    n_injection: 366
+    n_run: 366
+    recovered: true
+    report: reports/d321_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 355
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-129 scan (12 tests, decisions.md 476). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 333.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D322
+  name: cl_follows_crack_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 129, refining spreads into crude on the current regime, decisions.md 475-476): CL's next session
+    follows the sign of the crack_5d change (strong): 2021-2024 +28.52 bps net (t +2.83, n 460); 2010-20
+    -10.57 (context). THE COUNTERPARTY: refiners' crude demand responds to their margin with a lag.
+  condition: >
+    Every session, take CL's next session in the sign of the previous crack_5d change when it exceeds its 2021-24 median size; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01104 (decisions.md 476), REJECT on sealed 2023-2026: 181 trades; net -8.04 bps (t -0.36); placebo 50th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d129_crack.py
+    injected_bps: 14.259
+    sought_bps: 14.259
+    n_injection: 181
+    n_run: 181
+    recovered: true
+    report: reports/d322_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 356
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-129 scan (12 tests, decisions.md 476). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 334.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D323
+  name: cl_follows_rb_cl_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 129, refining spreads into crude on the current regime, decisions.md 475-476): CL's next session
+    follows the sign of the rb_cl_5d change (all): 2021-2024 +14.96 bps net (t +2.16, n 922); 2010-20
+    -5.40 (context). THE COUNTERPARTY: refiners' crude demand responds to their margin with a lag.
+  condition: >
+    Every session, take CL's next session in the sign of the previous rb_cl_5d change; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01105 (decisions.md 476), WATCHLIST on sealed 2023-2026: 366 trades; net +4.84 bps (t +0.36); placebo 68th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d129_crack.py
+    injected_bps: 7.482
+    sought_bps: 7.482
+    n_injection: 366
+    n_run: 366
+    recovered: true
+    report: reports/d323_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 357
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-129 scan (12 tests, decisions.md 476). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 335.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D324
+  name: cl_follows_ho_cl_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 129, refining spreads into crude on the current regime, decisions.md 475-476): CL's next session
+    follows the sign of the ho_cl_5d change (all): 2021-2024 +23.22 bps net (t +3.37, n 922); 2010-20
+    -4.78 (context). THE COUNTERPARTY: refiners' crude demand responds to their margin with a lag.
+  condition: >
+    Every session, take CL's next session in the sign of the previous ho_cl_5d change; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01106 (decisions.md 476), REJECT on sealed 2023-2026: 366 trades; net -8.86 bps (t -0.65); placebo 33th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d129_crack.py
+    injected_bps: 11.608
+    sought_bps: 11.608
+    n_injection: 366
+    n_run: 366
+    recovered: true
+    report: reports/d324_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 358
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-129 scan (12 tests, decisions.md 476). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 336.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D325
+  name: cl_follows_ho_cl_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 129, refining spreads into crude on the current regime, decisions.md 475-476): CL's next session
+    follows the sign of the ho_cl_5d change (strong): 2021-2024 +26.55 bps net (t +2.58, n 463); 2010-20
+    -6.72 (context). THE COUNTERPARTY: refiners' crude demand responds to their margin with a lag.
+  condition: >
+    Every session, take CL's next session in the sign of the previous ho_cl_5d change when it exceeds its 2021-24 median size; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01107 (decisions.md 476), REJECT on sealed 2023-2026: 221 trades; net -7.50 bps (t -0.39); placebo 44th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d129_crack.py
+    injected_bps: 13.276
+    sought_bps: 13.276
+    n_injection: 221
+    n_run: 221
+    recovered: true
+    report: reports/d325_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 359
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-129 scan (12 tests, decisions.md 476). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 337.
+  s6_control: By year; signs shuffled across the sealed sessions.

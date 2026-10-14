@@ -1992,3 +1992,23 @@ Data-derived (D-series family 125). `hypotheses.yaml` (D319) · `decisions.md` �
 ## D320 — Dax Short When Rates Rising R  *(REJECT — t01102)*
 
 Data-derived (D-series family 127). `hypotheses.yaml` (D320) · `decisions.md` §472
+
+## D321 — Cl Follows Crack 5D All  *(REJECT — t01103)*
+
+Data-derived (D-series family 129). `hypotheses.yaml` (D321) · `decisions.md` §476
+
+## D322 — Cl Follows Crack 5D Strong  *(REJECT — t01104)*
+
+Data-derived (D-series family 129). `hypotheses.yaml` (D322) · `decisions.md` §476
+
+## D323 — Cl Follows Rb Cl 5D All  *(WATCHLIST — t01105)*
+
+Data-derived (D-series family 129). `hypotheses.yaml` (D323) · `decisions.md` §476
+
+## D324 — Cl Follows Ho Cl 5D All  *(REJECT — t01106)*
+
+Data-derived (D-series family 129). `hypotheses.yaml` (D324) · `decisions.md` §476
+
+## D325 — Cl Follows Ho Cl 5D Strong  *(REJECT — t01107)*
+
+Data-derived (D-series family 129). `hypotheses.yaml` (D325) · `decisions.md` §476

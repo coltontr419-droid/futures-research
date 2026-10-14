@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D321",
+ "cell": "CL follows crack_5d (all)",
+ "trades": 366,
+ "net_bps": -10.644298268240094,
+ "net_bps_at_mcl_cost": -15.344298268240099,
+ "t_net": -0.7831078406551141,
+ "placebo_pct": 29.7,
+ "by_year": {
+  "2025": -12.835716632027847,
+  "2026": -6.314910769049649
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 333,
+ "injection": {
+  "hypothesis": "D321",
+  "n_events": 366,
+  "sought_bps": 7.099581186391179,
+  "mean_estimate": 6.952247690244603,
+  "recovered": true
+ }
+}

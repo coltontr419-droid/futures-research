@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D322",
+ "cell": "CL follows crack_5d (strong)",
+ "trades": 181,
+ "net_bps": -8.039921805952325,
+ "net_bps_at_mcl_cost": -12.739921805952344,
+ "t_net": -0.356142324205085,
+ "placebo_pct": 49.6,
+ "by_year": {
+  "2025": -22.891661639340626,
+  "2026": 6.3275221633037555
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 334,
+ "injection": {
+  "hypothesis": "D322",
+  "n_events": 181,
+  "sought_bps": 14.259034185854722,
+  "mean_estimate": 14.384439649133038,
+  "recovered": true
+ }
+}
