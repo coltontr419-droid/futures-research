@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D250",
+ "cell": "DAX follows COP=X (all, 20-day, current regime)",
+ "trades": 373,
+ "net_bps": -3.0598729949160552,
+ "t_net": -0.6985696147000494,
+ "placebo_pct": 19.900000000000002,
+ "by_year": {
+  "2025": -0.5478763473340658,
+  "2026": -6.878786817253544
+ },
+ "always_long_net_bps": -2.2977349151774824,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 262,
+ "injection": {
+  "hypothesis": "D250",
+  "n_events": 373,
+  "sought_bps": 4.687566802817161,
+  "mean_estimate": 4.7137522622760155,
+  "recovered": true
+ }
+}

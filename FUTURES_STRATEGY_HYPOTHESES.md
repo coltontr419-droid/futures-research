@@ -1709,62 +1709,62 @@ Data-derived (D-series family 120). `hypotheses.yaml` (D248) · `decisions.md` �
 
 Data-derived (D-series family 120). `hypotheses.yaml` (D249) · `decisions.md` §450
 
-## D250 — Dax Follows Copx Month All  *(registered)*
+## D250 — Dax Follows Copx Month All  *(REJECT — t01032)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D250) · `decisions.md` §456
 
-## D251 — Mnq Fades Adm Month Strong  *(registered)*
+## D251 — Mnq Fades Adm Month Strong  *(REJECT — t01033)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D251) · `decisions.md` §456
 
-## D252 — Nkd Follows Eem Month Strong  *(registered)*
+## D252 — Nkd Follows Eem Month Strong  *(WATCHLIST — t01034)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D252) · `decisions.md` §456
 
-## D253 — Mgc Follows Copx Month All  *(registered)*
+## D253 — Mgc Follows Copx Month All  *(REJECT — t01035)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D253) · `decisions.md` §456
 
-## D254 — Zs Fades Clpx Month All  *(registered)*
+## D254 — Zs Fades Clpx Month All  *(REJECT — t01036)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D254) · `decisions.md` §456
 
-## D255 — Mgc Follows Idrx Month Strong  *(registered)*
+## D255 — Mgc Follows Idrx Month Strong  *(REJECT — t01037)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D255) · `decisions.md` §456
 
-## D256 — Dax Fades Clf Month All  *(registered)*
+## D256 — Dax Fades Clf Month All  *(WATCHLIST — t01038)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D256) · `decisions.md` §456
 
-## D257 — Mnq Fades Clf Month All  *(registered)*
+## D257 — Mnq Fades Clf Month All  *(WATCHLIST — t01039)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D257) · `decisions.md` §456
 
-## D258 — Nkd Follows Xlf Month Strong  *(registered)*
+## D258 — Nkd Follows Xlf Month Strong  *(WATCHLIST — t01040)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D258) · `decisions.md` §456
 
-## D259 — Nkd Follows Fxi Month All  *(registered)*
+## D259 — Nkd Follows Fxi Month All  *(WATCHLIST — t01041)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D259) · `decisions.md` §456
 
-## D260 — Zs Fades Krwx Month Strong  *(registered)*
+## D260 — Zs Fades Krwx Month Strong  *(WATCHLIST — t01042)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D260) · `decisions.md` §456
 
-## D261 — Dax Fades Ngf Month Strong  *(registered)*
+## D261 — Dax Fades Ngf Month Strong  *(WATCHLIST — t01043)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D261) · `decisions.md` §456
 
-## D262 — Mnq Follows Ovx Month Strong  *(registered)*
+## D262 — Mnq Follows Ovx Month Strong  *(WATCHLIST — t01044)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D262) · `decisions.md` §456
 
-## D263 — Zs Follows Rubx Month All  *(registered)*
+## D263 — Zs Follows Rubx Month All  *(WATCHLIST — t01045)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D263) · `decisions.md` §456
 
-## D264 — Nkd Fades Zcf Month All  *(registered)*
+## D264 — Nkd Fades Zcf Month All  *(CONFIRM — t01046)*
 
 Data-derived (D-series family 121). `hypotheses.yaml` (D264) · `decisions.md` §456

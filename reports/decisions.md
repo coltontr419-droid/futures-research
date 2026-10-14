@@ -11704,6 +11704,13 @@ effective sample is smaller than n suggests — the shuffled placebo is the guar
 
 Fewer passes than chance: the monthly horizon shows no cross-market structure beyond noise. Validated anyway, once each, per §426.
 
+## 457. D250–D264 validated (t01032–t01046): one CONFIRM — NKD fades corn's month (D264); not proposed (S1)
+
+**N 1,040.** 14 of 15 WATCHLIST or REJECT; **D264** NKD fades corn's 20-day move: +9.00 bps (t +2.01), placebo 98th, 2025 +5.4 / 2026
++14.6 — CONFIRM. With D231 (the 5-day form, §451) it makes NKD–corn a second NKD theme, but the family as a whole was at chance (15
+carried vs ~18 expected; ~0.3 chance confirmations), and NKD already runs the far stronger dollar-week rule — one direction per day.
+Recorded, not proposed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

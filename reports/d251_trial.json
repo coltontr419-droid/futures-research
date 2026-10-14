@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D251",
+ "cell": "MNQ fades ADM (strong, 20-day, current regime)",
+ "trades": 201,
+ "net_bps": -5.112759106194795,
+ "t_net": -0.5836583308733551,
+ "placebo_pct": 71.89999999999999,
+ "by_year": {
+  "2025": -3.9493563529288416,
+  "2026": -6.2877958869934085
+ },
+ "always_long_net_bps": 12.758359909057617,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 263,
+ "injection": {
+  "hypothesis": "D251",
+  "n_events": 201,
+  "sought_bps": 7.612446783034782,
+  "mean_estimate": 7.917876337091549,
+  "recovered": true
+ }
+}

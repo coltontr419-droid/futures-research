@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D257",
+ "cell": "MNQ fades CL=F (all, 20-day, current regime)",
+ "trades": 404,
+ "net_bps": 2.7537702050539528,
+ "t_net": 0.4794095562241855,
+ "placebo_pct": 66.4,
+ "by_year": {
+  "2025": 2.77648184338554,
+  "2026": 2.719134956598282
+ },
+ "always_long_net_bps": 2.742791175842285,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 269,
+ "injection": {
+  "hypothesis": "D257",
+  "n_events": 404,
+  "sought_bps": 4.150169390598445,
+  "mean_estimate": 4.142597604495766,
+  "recovered": true
+ }
+}

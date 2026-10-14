@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D256",
+ "cell": "DAX fades CL=F (all, 20-day, current regime)",
+ "trades": 412,
+ "net_bps": 3.037515798704673,
+ "t_net": 0.7332651376499099,
+ "placebo_pct": 81.2,
+ "by_year": {
+  "2025": 6.204996427241299,
+  "2026": -1.752332956643397
+ },
+ "always_long_net_bps": -0.37655458722797414,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 268,
+ "injection": {
+  "hypothesis": "D256",
+  "n_events": 412,
+  "sought_bps": 3.3467956060014132,
+  "mean_estimate": 3.380067753792835,
+  "recovered": true
+ }
+}

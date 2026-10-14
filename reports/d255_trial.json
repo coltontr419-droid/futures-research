@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D255",
+ "cell": "MGC follows IDR=X (strong, 20-day, current regime)",
+ "trades": 148,
+ "net_bps": -7.905953326096406,
+ "t_net": -0.9460719758229212,
+ "placebo_pct": 14.399999999999999,
+ "by_year": {
+  "2025": -12.933684320883316,
+  "2026": -0.5319478670756036
+ },
+ "always_long_net_bps": 6.47097635269165,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 267,
+ "injection": {
+  "hypothesis": "D255",
+  "n_events": 148,
+  "sought_bps": 4.003523130438204,
+  "mean_estimate": 4.206802890438071,
+  "recovered": true
+ }
+}

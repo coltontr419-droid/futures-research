@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D264",
+ "cell": "NKD fades ZC=F (all, 20-day, current regime)",
+ "trades": 407,
+ "net_bps": 9.000643204252054,
+ "t_net": 2.013149644039243,
+ "placebo_pct": 98.1,
+ "by_year": {
+  "2025": 5.3856739077778935,
+  "2026": 14.581252055684041
+ },
+ "always_long_net_bps": -0.8816208682882385,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 276,
+ "injection": {
+  "hypothesis": "D264",
+  "n_events": 407,
+  "sought_bps": 2.638662683192121,
+  "mean_estimate": 2.5159172887190424,
+  "recovered": true
+ }
+}

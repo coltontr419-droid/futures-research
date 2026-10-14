@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D258",
+ "cell": "NKD follows XLF (strong, 20-day, current regime)",
+ "trades": 144,
+ "net_bps": 3.5528259202367236,
+ "t_net": 0.5323500129241927,
+ "placebo_pct": 89.4,
+ "by_year": {
+  "2025": 0.3164473686737918,
+  "2026": 15.349947737224186
+ },
+ "always_long_net_bps": -7.362078106388332,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 270,
+ "injection": {
+  "hypothesis": "D258",
+  "n_events": 144,
+  "sought_bps": 3.847615309186859,
+  "mean_estimate": 4.03596812727759,
+  "recovered": true
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D253",
+ "cell": "MGC follows COP=X (all, 20-day, current regime)",
+ "trades": 363,
+ "net_bps": -12.28331299563742,
+ "t_net": -2.183446348577165,
+ "placebo_pct": 2.0,
+ "by_year": {
+  "2025": -6.8861791393973615,
+  "2026": -20.586595851391344
+ },
+ "always_long_net_bps": 2.491575241088867,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 265,
+ "injection": {
+  "hypothesis": "D253",
+  "n_events": 363,
+  "sought_bps": 2.7945675565955335,
+  "mean_estimate": 2.7481421650515414,
+  "recovered": true
+ }
+}

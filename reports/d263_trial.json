@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D263",
+ "cell": "ZS follows RUB=X (all, 20-day, current regime)",
+ "trades": 365,
+ "net_bps": 0.2707491073370996,
+ "t_net": 0.05182007541906499,
+ "placebo_pct": 65.9,
+ "by_year": {
+  "2025": -1.4834709847404852,
+  "2026": 2.962989665317284
+ },
+ "always_long_net_bps": 3.566319479308547,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 275,
+ "injection": {
+  "hypothesis": "D263",
+  "n_events": 365,
+  "sought_bps": 4.5026567505345385,
+  "mean_estimate": 4.67177521833342,
+  "recovered": true
+ }
+}

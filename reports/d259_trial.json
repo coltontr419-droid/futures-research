@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D259",
+ "cell": "NKD follows FXI (all, 20-day, current regime)",
+ "trades": 406,
+ "net_bps": 3.9626648736682983,
+ "t_net": 0.8805060392790025,
+ "placebo_pct": 83.6,
+ "by_year": {
+  "2025": 3.549581729326617,
+  "2026": 4.597780208093631
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 271,
+ "injection": {
+  "hypothesis": "D259",
+  "n_events": 406,
+  "sought_bps": 2.9114531774964143,
+  "mean_estimate": 2.9172600275651837,
+  "recovered": true
+ }
+}

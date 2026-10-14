@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D262",
+ "cell": "MNQ follows ^OVX (strong, 20-day, current regime)",
+ "trades": 252,
+ "net_bps": 6.404183395325192,
+ "t_net": 0.7896012807126902,
+ "placebo_pct": 79.9,
+ "by_year": {
+  "2025": 20.904531265127247,
+  "2026": -5.9637603759765625
+ },
+ "always_long_net_bps": 7.051953315734863,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 274,
+ "injection": {
+  "hypothesis": "D262",
+  "n_events": 252,
+  "sought_bps": 5.635396841859915,
+  "mean_estimate": 5.508272496563011,
+  "recovered": true
+ }
+}
