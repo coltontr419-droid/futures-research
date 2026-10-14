@@ -11873,6 +11873,15 @@ regime effect, as the dollar rules. Sealed 2025–26:
 **Reading (added after the trials):** none survived — the refining-margin effect was 2021–24 (the 2022 energy shock), negative in 2025–26.
 Crude has now failed four themes on the current regime (risk assets ×3, refining margin); the MCL account stays always long.
 
+## 477. D-series family 130 protocol: currency windows as candidate new markets, current regime (S1)
+
+**No trial spent; N 1,101. Written and committed BEFORE any statistic is computed.** Targets new to the plan (CME micro FX exists for
+each): the London session 08:00 → 16:00 London of **6E, 6J, 6B, 6A, 6C, 6S** (HistData via `d3.histdata`, the futures' direction, family
+41's orientation). Predictors on the previous weekday (all known before 08:00 London): the target's own 1-day and 5-day sums (Yahoo
+futures sessions, family 83's series / 6E=F, 6J=F), **DX-Y.NYB** 1-day and 5-day, **ES=F** 1-day and 5-day, **ZN=F** 1-day and 5-day,
+**GC=F** 1-day. Follow or fade fixed by 2021–24; forms all / strong. **9 × 6 × 2 = 108 tests** (~2.7 by chance). Cost 0.5 bps (§180's FX
+level); validation per §426, 2 (placebo: shuffled signs).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
