@@ -11507,6 +11507,16 @@ after the dollar strengthens and falls after it weakens — a weaker euro liftin
 confirmation this is an EVERY-DAY rule on a plan product (FDXM): at 2 FDXM (~$260,000 notional) +7 bps a session is ~$180. Crude
 following risk assets — the largest discovery cluster — failed completely (2025–26 negative). Stress tests fixed in §446.
 
+## 446. Stress tests for the DAX–dollar theme, fixed before running (S8)
+
+**No trial; N 976.** The theme's rule in one form: **the DAX window takes the sign of the previous weekday's dollar move** (dollar up →
+long DAX; dollar down → short). (1) **Independent data** — dollar: Yahoo DX-Y.NYB (the trial's), FRED **DTWEXBGS** (broad trade-weighted,
+daily change), and **EUR/USD** from HistData (16:55 → 16:55 ET, inverted); DAX: A21's window (the trial's) and the real index **^GDAXI**
+(Yahoo open → close); forms all and strong (2021–24 medians); periods 2010–20, 2021–24, 2025–26. (2) **The FDXM account** (2 FDXM, A23,
+drift removed, both histories): plan (always long) vs **every-day** (the rule's sign every session) vs **strong-only** (short only after a
+strong dollar fall; long otherwise). Read: propose to the user if (1) holds in 2025–26 on the independent variants and (2) raises mean net
+and P(net > 0) in 2021–26 without lowering P(payout).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
