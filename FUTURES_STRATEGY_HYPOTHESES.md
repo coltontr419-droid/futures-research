@@ -2012,3 +2012,7 @@ Data-derived (D-series family 129). `hypotheses.yaml` (D324) · `decisions.md` �
 ## D325 — Cl Follows Ho Cl 5D Strong  *(REJECT — t01107)*
 
 Data-derived (D-series family 129). `hypotheses.yaml` (D325) · `decisions.md` §476
+
+## D326 — Chf Follows Sp Week R  *(REJECT — t01108)*
+
+Data-derived (D-series family 130). `hypotheses.yaml` (D326) · `decisions.md` §478

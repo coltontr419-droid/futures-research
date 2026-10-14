@@ -11882,6 +11882,12 @@ futures sessions, family 83's series / 6E=F, 6J=F), **DX-Y.NYB** 1-day and 5-day
 **GC=F** 1-day. Follow or fade fixed by 2021–24; forms all / strong. **9 × 6 × 2 = 108 tests** (~2.7 by chance). Cost 0.5 bps (§180's FX
 level); validation per §426, 2 (placebo: shuffled signs).
 
+## 478. Family-130 and D326 (t01108): currency sessions are not predictable from these inputs — 1 of 108, REJECT (S1)
+
+**N 1,102.** `reports/d130_discovery.json` (module `reporting/d130_fx.py`): one carry, fewer than chance (~2.7) — **D326** 6S follows the
+S&P's week (+2.7 bps, t +2.11): sealed -0.04 (t -0.02), placebo 47th, {2025: 0.2144817179585634, 2026: -0.42511774754722115} — **REJECT**. No micro-FX account is
+indicated: the dollar's moves predict foreign equity indices (DAX, Nikkei), not the currencies themselves.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
