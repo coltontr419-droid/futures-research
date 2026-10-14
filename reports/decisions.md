@@ -11257,6 +11257,35 @@ non-shock days). Module `reporting/d114_screen.py` (family 111's functions with 
 About twice the chance count: some of these should be real, most are not; the sealed 2025–26 window decides. The strongest by far is
 NKD following a DAX shock (t +4.58, n 60).
 
+## 429. D133–D151 validated (t00915–t00933): two CONFIRM — soybeans fade a meal shock (D151), NKD fades a bitcoin-futures shock (D139) (S1)
+
+**N 927.** Sealed 2025-01 → 2026-08 under §426, 2:
+- **D133** NKD follows the previous session's ^GDAXI shock: **REJECT** — n 28, -13.7 bps (t -0.74), placebo 31th, 2025 -26.7, 2026 +6.3
+- **D134** ZS follows the previous session's 6A=F shock: **REJECT** — n 21, -2.2 bps (t -0.08), placebo 44th, 2025 -25.1, 2026 +18.7
+- **D135** NKD follows the previous session's XLF shock: **WATCHLIST** — n 27, +4.6 bps (t +0.24), placebo 79th, 2025 +14.8, 2026 -12.7
+- **D136** CL follows the previous session's 6A=F shock: **REJECT** — n 21, -15.4 bps (t -0.17), placebo 31th, 2025 -62.2, 2026 +27.2
+- **D137** DAX follows the previous session's PL=F shock: **REJECT** — n 30, -19.3 bps (t -0.84), placebo 10th, 2025 -6.8, 2026 -81.8
+- **D138** ZS fades the previous session's KRW=X shock: **WATCHLIST** — n 19, +9.7 bps (t +0.47), placebo 58th, 2025 +18.7, 2026 -2.6
+- **D139** NKD fades the previous session's BTC=F shock: **CONFIRM** — n 20, +53.9 bps (t +2.80), placebo 100th, 2025 +1.7, 2026 +96.7
+- **D140** DAX follows the previous session's GC=F shock: **REJECT** — n 32, -31.1 bps (t -1.16), placebo 2th, 2025 -39.8, 2026 -18.2
+- **D141** ZS fades the previous session's COP=X shock: **WATCHLIST** — n 19, +18.2 bps (t +0.79), placebo 74th, 2025 +21.2, 2026 +13.0
+- **D142** ZS follows the previous session's AUDUSD=X shock: **WATCHLIST** — n 15, +16.5 bps (t +0.63), placebo 75th, 2025 -12.8, 2026 +36.0
+- **D143** MNQ fades the previous session's HG=F shock: **REJECT** — n 29, -5.7 bps (t -0.21), placebo 19th, 2025 -5.4, 2026 -6.3
+- **D144** ZS fades the previous session's CLP=X shock: **WATCHLIST** — n 19, +15.4 bps (t +0.43), placebo 68th, 2025 -3.3, 2026 +47.6
+- **D145** ZS follows the previous session's FXI shock: **REJECT** — n 24, -7.8 bps (t -0.31), placebo 42th, 2025 +6.6, 2026 -51.0
+- **D146** DAX follows the previous session's ZN=F shock: **WATCHLIST** — n 24, +28.4 bps (t +1.30), placebo 99th, 2025 +28.9, 2026 +28.0
+- **D147** DAX fades the previous session's 6B=F shock: **WATCHLIST** — n 30, +20.0 bps (t +1.02), placebo 83th, 2025 +8.7, 2026 +36.9
+- **D148** DAX follows the previous session's 6C=F shock: **REJECT** — n 24, -9.2 bps (t -0.38), placebo 28th, 2025 -30.8, 2026 +12.5
+- **D149** NKD fades the previous session's ZS=F shock: **WATCHLIST** — n 26, +18.7 bps (t +0.76), placebo 88th, 2025 +41.1, 2026 -23.7
+- **D150** DAX follows the previous session's RUB=X shock: **WATCHLIST** — n 20, +36.1 bps (t +1.47), placebo 94th, 2025 +20.8, 2026 +54.8
+- **D151** ZS fades the previous session's ZM=F shock: **CONFIRM** — n 27, +30.3 bps (t +2.32), placebo 99th, 2025 +40.4, 2026 +10.1
+
+**Reading.** Under a null, each trial confirms with probability ~2% (t, placebo and both years together), so ~0.4 confirmations
+were expected by chance from 19; two arrived. **D151** (ZS, a plan product): +30.3 bps, t +2.32, placebo 99th, both years positive.
+**D139** (NKD, a plan product): +53.9, t +2.80, placebo 100th — but 20 events and 2025 barely positive (+1.7). D146 (the DAX follows a
+ZN shock — D68's mechanism on the DAX) held in both years with placebo 99th but t +1.30: WATCHLIST. Per §426, 5 both confirmations
+are stress-tested before anything is proposed (§430).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

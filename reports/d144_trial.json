@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D144",
+ "cell": "ZS fades the previous session's CLP=X shock (current regime)",
+ "trades": 19,
+ "net_bps": 15.43398843275785,
+ "t_net": 0.4318722257035812,
+ "placebo_pct": 68.30000000000001,
+ "by_year": {
+  "2025": -3.308679783659418,
+  "2026": 47.56427680375888
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 156,
+ "injection": {
+  "hypothesis": "D144",
+  "n_events": 19,
+  "sought_bps": 20.1677167928214,
+  "mean_estimate": 21.73677520097651,
+  "sd_estimate_bps": 35.08689477880834,
+  "power_strict_t": 0.152,
+  "recovered": true
+ }
+}

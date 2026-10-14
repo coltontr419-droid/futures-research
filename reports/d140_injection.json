@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D140",
+ "n_events": 32,
+ "sought_bps": 17.892417164410425,
+ "mean_estimate": 17.581127929493643,
+ "sd_estimate_bps": 26.31556853729331,
+ "power_strict_t": 0.1555,
+ "recovered": true
+}

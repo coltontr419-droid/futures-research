@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D148",
+ "cell": "DAX follows the previous session's 6C=F shock (current regime)",
+ "trades": 24,
+ "net_bps": -9.169695114602414,
+ "t_net": -0.3771070312213988,
+ "placebo_pct": 28.199999999999996,
+ "by_year": {
+  "2025": -30.831947789616738,
+  "2026": 12.492557560411901
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 160,
+ "injection": {
+  "hypothesis": "D148",
+  "n_events": 24,
+  "sought_bps": 13.861215625184073,
+  "mean_estimate": 13.244199241714275,
+  "sd_estimate_bps": 24.402020922623322,
+  "power_strict_t": 0.2475,
+  "recovered": true
+ }
+}

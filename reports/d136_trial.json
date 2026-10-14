@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D136",
+ "cell": "CL follows the previous session's 6A=F shock (current regime)",
+ "trades": 21,
+ "net_bps": -15.35583583285461,
+ "t_net": -0.16766294112055904,
+ "placebo_pct": 30.599999999999998,
+ "by_year": {
+  "2025": -62.157386828902794,
+  "2026": 27.191028709007387
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 148,
+ "injection": {
+  "hypothesis": "D136",
+  "n_events": 21,
+  "sought_bps": 37.98847722886375,
+  "mean_estimate": 38.70030245778353,
+  "sd_estimate_bps": 92.06977375732356,
+  "power_strict_t": 0.2455,
+  "recovered": true
+ }
+}

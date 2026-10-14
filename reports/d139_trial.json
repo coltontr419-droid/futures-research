@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D139",
+ "cell": "NKD fades the previous session's BTC=F shock (current regime)",
+ "trades": 20,
+ "net_bps": 53.91524386363453,
+ "t_net": 2.801039778643833,
+ "placebo_pct": 99.7,
+ "by_year": {
+  "2025": 1.6656615268102746,
+  "2026": 96.66490213921801
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 151,
+ "injection": {
+  "hypothesis": "D139",
+  "n_events": 20,
+  "sought_bps": 11.115665247048383,
+  "mean_estimate": 11.210013981236697,
+  "sd_estimate_bps": 19.302803376905526,
+  "power_strict_t": 0.1755,
+  "recovered": true
+ }
+}

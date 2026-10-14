@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D134",
+ "cell": "ZS follows the previous session's 6A=F shock (current regime)",
+ "trades": 21,
+ "net_bps": -2.173626931304952,
+ "t_net": -0.08378299296197494,
+ "placebo_pct": 43.8,
+ "by_year": {
+  "2025": -25.12433390999011,
+  "2026": 18.69065214022701
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 146,
+ "injection": {
+  "hypothesis": "D134",
+  "n_events": 21,
+  "sought_bps": 25.33545944371451,
+  "mean_estimate": 24.98960835536672,
+  "sd_estimate_bps": 25.01991646188267,
+  "power_strict_t": 0.3115,
+  "recovered": true
+ }
+}

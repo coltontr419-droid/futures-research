@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D143",
+ "cell": "MNQ fades the previous session's HG=F shock (current regime)",
+ "trades": 29,
+ "net_bps": -5.743747974264211,
+ "t_net": -0.20601631799152545,
+ "placebo_pct": 19.400000000000002,
+ "by_year": {
+  "2025": -5.393870247734918,
+  "2026": -6.316275163130327
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 155,
+ "injection": {
+  "hypothesis": "D143",
+  "n_events": 29,
+  "sought_bps": 17.3660154796782,
+  "mean_estimate": 17.395455644671745,
+  "sd_estimate_bps": 27.783901910666803,
+  "power_strict_t": 0.216,
+  "recovered": true
+ }
+}

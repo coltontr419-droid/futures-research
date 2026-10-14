@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D139",
+ "n_events": 20,
+ "sought_bps": 11.115665247048383,
+ "mean_estimate": 11.210013981236697,
+ "sd_estimate_bps": 19.302803376905526,
+ "power_strict_t": 0.1755,
+ "recovered": true
+}

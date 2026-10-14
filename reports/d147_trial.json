@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D147",
+ "cell": "DAX fades the previous session's 6B=F shock (current regime)",
+ "trades": 30,
+ "net_bps": 19.992019025267414,
+ "t_net": 1.0156042471189366,
+ "placebo_pct": 83.1,
+ "by_year": {
+  "2025": 8.733781987252748,
+  "2026": 36.8793745822894
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 159,
+ "injection": {
+  "hypothesis": "D147",
+  "n_events": 30,
+  "sought_bps": 13.516120678233431,
+  "mean_estimate": 13.5486828922415,
+  "sd_estimate_bps": 19.195516709146894,
+  "power_strict_t": 0.133,
+  "recovered": true
+ }
+}

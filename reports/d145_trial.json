@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D145",
+ "cell": "ZS follows the previous session's FXI shock (current regime)",
+ "trades": 24,
+ "net_bps": -7.795677041427564,
+ "t_net": -0.31072654075384,
+ "placebo_pct": 42.4,
+ "by_year": {
+  "2025": 6.608481657817716,
+  "2026": -51.008153139163404
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 157,
+ "injection": {
+  "hypothesis": "D145",
+  "n_events": 24,
+  "sought_bps": 19.171197316038334,
+  "mean_estimate": 19.425658972958686,
+  "sd_estimate_bps": 24.613160647655366,
+  "power_strict_t": 0.2395,
+  "recovered": true
+ }
+}

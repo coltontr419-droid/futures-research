@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D135",
+ "n_events": 27,
+ "sought_bps": 15.259650848309953,
+ "mean_estimate": 15.467586886520941,
+ "sd_estimate_bps": 19.077396041213103,
+ "power_strict_t": 0.203,
+ "recovered": true
+}

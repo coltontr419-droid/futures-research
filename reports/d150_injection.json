@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D150",
+ "n_events": 20,
+ "sought_bps": 15.444053717601735,
+ "mean_estimate": 15.579500701951714,
+ "sd_estimate_bps": 23.818515806155318,
+ "power_strict_t": 0.1155,
+ "recovered": true
+}

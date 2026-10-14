@@ -1,0 +1,9 @@
+{
+ "hypothesis": "D145",
+ "n_events": 24,
+ "sought_bps": 19.171197316038334,
+ "mean_estimate": 19.425658972958686,
+ "sd_estimate_bps": 24.613160647655366,
+ "power_strict_t": 0.2395,
+ "recovered": true
+}

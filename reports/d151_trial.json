@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D151",
+ "cell": "ZS fades the previous session's ZM=F shock (current regime)",
+ "trades": 27,
+ "net_bps": 30.30693528194165,
+ "t_net": 2.3222180596420245,
+ "placebo_pct": 99.0,
+ "by_year": {
+  "2025": 40.406532936689175,
+  "2026": 10.107739972446614
+ },
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 163,
+ "injection": {
+  "hypothesis": "D151",
+  "n_events": 27,
+  "sought_bps": 19.23652197177909,
+  "mean_estimate": 18.52621287402296,
+  "sd_estimate_bps": 12.899917594234521,
+  "power_strict_t": 0.4065,
+  "recovered": true
+ }
+}

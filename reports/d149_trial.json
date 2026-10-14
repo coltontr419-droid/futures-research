@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D149",
+ "cell": "NKD fades the previous session's ZS=F shock (current regime)",
+ "trades": 26,
+ "net_bps": 18.658167873426844,
+ "t_net": 0.7566217218344196,
+ "placebo_pct": 88.4,
+ "by_year": {
+  "2025": 41.101307586870874,
+  "2026": -23.73442936307853
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 161,
+ "injection": {
+  "hypothesis": "D149",
+  "n_events": 26,
+  "sought_bps": 12.975953027929734,
+  "mean_estimate": 11.80751885779788,
+  "sd_estimate_bps": 24.548420131009546,
+  "power_strict_t": 0.1665,
+  "recovered": true
+ }
+}

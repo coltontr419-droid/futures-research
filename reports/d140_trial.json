@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D140",
+ "cell": "DAX follows the previous session's GC=F shock (current regime)",
+ "trades": 32,
+ "net_bps": -31.052770221624822,
+ "t_net": -1.1570467708379533,
+ "placebo_pct": 2.1999999999999997,
+ "by_year": {
+  "2025": -39.82230966349721,
+  "2026": -18.235751037349782
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 152,
+ "injection": {
+  "hypothesis": "D140",
+  "n_events": 32,
+  "sought_bps": 17.892417164410425,
+  "mean_estimate": 17.581127929493643,
+  "sd_estimate_bps": 26.31556853729331,
+  "power_strict_t": 0.1555,
+  "recovered": true
+ }
+}

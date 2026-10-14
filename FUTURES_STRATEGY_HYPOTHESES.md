@@ -1241,78 +1241,78 @@ Data-derived (D-series family 111). `hypotheses.yaml` (D131) · `decisions.md` �
 
 Data-derived (D-series family 111). `hypotheses.yaml` (D132) · `decisions.md` §415
 
-## D133 — Nkd Follows Gdaxi Shock R  *(registered)*
+## D133 — Nkd Follows Gdaxi Shock R  *(REJECT — t00915)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D133) · `decisions.md` §428
 
-## D134 — Zs Follows 6Af Shock R  *(registered)*
+## D134 — Zs Follows 6Af Shock R  *(REJECT — t00916)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D134) · `decisions.md` §428
 
-## D135 — Nkd Follows Xlf Shock R  *(registered)*
+## D135 — Nkd Follows Xlf Shock R  *(WATCHLIST — t00917)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D135) · `decisions.md` §428
 
-## D136 — Cl Follows 6Af Shock R  *(registered)*
+## D136 — Cl Follows 6Af Shock R  *(REJECT — t00918)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D136) · `decisions.md` §428
 
-## D137 — Dax Follows Plf Shock R  *(registered)*
+## D137 — Dax Follows Plf Shock R  *(REJECT — t00919)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D137) · `decisions.md` §428
 
-## D138 — Zs Fades Krwx Shock R  *(registered)*
+## D138 — Zs Fades Krwx Shock R  *(WATCHLIST — t00920)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D138) · `decisions.md` §428
 
-## D139 — Nkd Fades Btcf Shock R  *(registered)*
+## D139 — Nkd Fades Btcf Shock R  *(CONFIRM — t00921)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D139) · `decisions.md` §428
 
-## D140 — Dax Follows Gcf Shock R  *(registered)*
+## D140 — Dax Follows Gcf Shock R  *(REJECT — t00922)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D140) · `decisions.md` §428
 
-## D141 — Zs Fades Copx Shock R  *(registered)*
+## D141 — Zs Fades Copx Shock R  *(WATCHLIST — t00923)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D141) · `decisions.md` §428
 
-## D142 — Zs Follows Audusdx Shock R  *(registered)*
+## D142 — Zs Follows Audusdx Shock R  *(WATCHLIST — t00924)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D142) · `decisions.md` §428
 
-## D143 — Mnq Fades Hgf Shock R  *(registered)*
+## D143 — Mnq Fades Hgf Shock R  *(REJECT — t00925)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D143) · `decisions.md` §428
 
-## D144 — Zs Fades Clpx Shock R  *(registered)*
+## D144 — Zs Fades Clpx Shock R  *(WATCHLIST — t00926)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D144) · `decisions.md` §428
 
-## D145 — Zs Follows Fxi Shock R  *(registered)*
+## D145 — Zs Follows Fxi Shock R  *(REJECT — t00927)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D145) · `decisions.md` §428
 
-## D146 — Dax Follows Znf Shock R  *(registered)*
+## D146 — Dax Follows Znf Shock R  *(WATCHLIST — t00928)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D146) · `decisions.md` §428
 
-## D147 — Dax Fades 6Bf Shock R  *(registered)*
+## D147 — Dax Fades 6Bf Shock R  *(WATCHLIST — t00929)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D147) · `decisions.md` §428
 
-## D148 — Dax Follows 6Cf Shock R  *(registered)*
+## D148 — Dax Follows 6Cf Shock R  *(REJECT — t00930)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D148) · `decisions.md` §428
 
-## D149 — Nkd Fades Zsf Shock R  *(registered)*
+## D149 — Nkd Fades Zsf Shock R  *(WATCHLIST — t00931)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D149) · `decisions.md` §428
 
-## D150 — Dax Follows Rubx Shock R  *(registered)*
+## D150 — Dax Follows Rubx Shock R  *(WATCHLIST — t00932)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D150) · `decisions.md` §428
 
-## D151 — Zs Fades Zmf Shock R  *(registered)*
+## D151 — Zs Fades Zmf Shock R  *(CONFIRM — t00933)*
 
 Data-derived (D-series family 114). `hypotheses.yaml` (D151) · `decisions.md` §428

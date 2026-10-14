@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D142",
+ "cell": "ZS follows the previous session's AUDUSD=X shock (current regime)",
+ "trades": 15,
+ "net_bps": 16.493536253499396,
+ "t_net": 0.6250628768847385,
+ "placebo_pct": 75.4,
+ "by_year": {
+  "2025": -12.837606970662646,
+  "2026": 36.0476317362741
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 154,
+ "injection": {
+  "hypothesis": "D142",
+  "n_events": 15,
+  "sought_bps": 16.08521583084776,
+  "mean_estimate": 15.82503800366574,
+  "sd_estimate_bps": 25.618361169978296,
+  "power_strict_t": 0.1585,
+  "recovered": true
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D150",
+ "cell": "DAX follows the previous session's RUB=X shock (current regime)",
+ "trades": 20,
+ "net_bps": 36.07201531091705,
+ "t_net": 1.4692725296723315,
+ "placebo_pct": 93.60000000000001,
+ "by_year": {
+  "2025": 20.771037150580767,
+  "2026": 54.77321084021693
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 162,
+ "injection": {
+  "hypothesis": "D150",
+  "n_events": 20,
+  "sought_bps": 15.444053717601735,
+  "mean_estimate": 15.579500701951714,
+  "sd_estimate_bps": 23.818515806155318,
+  "power_strict_t": 0.1155,
+  "recovered": true
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D146",
+ "cell": "DAX follows the previous session's ZN=F shock (current regime)",
+ "trades": 24,
+ "net_bps": 28.411485489717837,
+ "t_net": 1.304421275682066,
+ "placebo_pct": 99.3,
+ "by_year": {
+  "2025": 28.861793136154294,
+  "2026": 27.961177843281373
+ },
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 158,
+ "injection": {
+  "hypothesis": "D146",
+  "n_events": 24,
+  "sought_bps": 16.12875490194871,
+  "mean_estimate": 16.218876464840925,
+  "sd_estimate_bps": 20.85155069483515,
+  "power_strict_t": 0.1625,
+  "recovered": true
+ }
+}

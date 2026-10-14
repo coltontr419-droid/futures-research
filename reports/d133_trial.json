@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D133",
+ "cell": "NKD follows the previous session's ^GDAXI shock (current regime)",
+ "trades": 28,
+ "net_bps": -13.74720327331701,
+ "t_net": -0.7362265538531156,
+ "placebo_pct": 31.0,
+ "by_year": {
+  "2025": -26.70825615359388,
+  "2026": 6.283514814383613
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 145,
+ "injection": {
+  "hypothesis": "D133",
+  "n_events": 28,
+  "sought_bps": 20.65834062960288,
+  "mean_estimate": 20.30339116915199,
+  "sd_estimate_bps": 18.843196089576562,
+  "power_strict_t": 0.2975,
+  "recovered": true
+ }
+}

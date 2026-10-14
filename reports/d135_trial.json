@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D135",
+ "cell": "NKD follows the previous session's XLF shock (current regime)",
+ "trades": 27,
+ "net_bps": 4.625970618522089,
+ "t_net": 0.24046299683398104,
+ "placebo_pct": 79.2,
+ "by_year": {
+  "2025": 14.843627936393023,
+  "2026": -12.744046821858499
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 147,
+ "injection": {
+  "hypothesis": "D135",
+  "n_events": 27,
+  "sought_bps": 15.259650848309953,
+  "mean_estimate": 15.467586886520941,
+  "sd_estimate_bps": 19.077396041213103,
+  "power_strict_t": 0.203,
+  "recovered": true
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D138",
+ "cell": "ZS fades the previous session's KRW=X shock (current regime)",
+ "trades": 19,
+ "net_bps": 9.747815002462398,
+ "t_net": 0.4704005106700083,
+ "placebo_pct": 58.3,
+ "by_year": {
+  "2025": 18.722619568179642,
+  "2026": -2.5925412753988155
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 150,
+ "injection": {
+  "hypothesis": "D138",
+  "n_events": 19,
+  "sought_bps": 24.92504926699836,
+  "mean_estimate": 24.966704450370553,
+  "sd_estimate_bps": 19.801077501552356,
+  "power_strict_t": 0.3185,
+  "recovered": true
+ }
+}
