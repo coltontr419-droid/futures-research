@@ -1,0 +1,62 @@
+{
+ "window": [
+  "2021-01-01",
+  "2024-12-31"
+ ],
+ "tests": 4,
+ "all": [
+  {
+   "target": "^SSMI",
+   "rule": "dxy_day",
+   "form": "all",
+   "median_abs": 25.213550165376077,
+   "n": 958,
+   "dir": "follow",
+   "net_bps": 1.8685883137283754,
+   "t": 0.8903457658834435,
+   "context_net": 2.564474949335833,
+   "context_t": 1.6396788544875214,
+   "carried": false
+  },
+  {
+   "target": "^SSMI",
+   "rule": "dxy_day",
+   "form": "strong",
+   "median_abs": 25.213550165376077,
+   "n": 486,
+   "dir": "follow",
+   "net_bps": 0.0009323214596690598,
+   "t": 0.00030554701100086106,
+   "context_net": 5.530032269255452,
+   "context_t": 2.2717816106400406,
+   "carried": false
+  },
+  {
+   "target": "^SSMI",
+   "rule": "euro_week",
+   "form": "all",
+   "median_abs": 60.38162358006696,
+   "n": 967,
+   "dir": "follow",
+   "net_bps": 0.6932225401596573,
+   "t": 0.3309690295590168,
+   "context_net": -1.5417861014107055,
+   "context_t": -0.9937953471058486,
+   "carried": false
+  },
+  {
+   "target": "^SSMI",
+   "rule": "euro_week",
+   "form": "strong",
+   "median_abs": 60.38162358006696,
+   "n": 486,
+   "dir": "follow",
+   "net_bps": 4.1689291605052015,
+   "t": 1.3107233162614562,
+   "context_net": -7.565075081282057,
+   "context_t": -3.5100678797421025,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

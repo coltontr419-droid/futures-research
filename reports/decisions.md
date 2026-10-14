@@ -11895,6 +11895,11 @@ open → close; Eurex lists SMI futures, so a candidate account if the theme hol
 previous-5-weekday sum; follow or fade; forms all / strong. **4 tests.** Opens checked for staleness before computing (as §467).
 Cost 0.3; validation per §426, 2.
 
+## 480. Family-131 discovery: the SMI does not carry the dollar rules — 0 of 4 (S1)
+
+**No trial spent; N 1,102.** `reports/d131_discovery.json` (opens real: 1% stale): following the dollar +1.9 / 0.0 bps (t ≤ 0.89),
+the euro's week +0.7 / +4.2 (t ≤ 1.31). No SMI account is indicated. Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
