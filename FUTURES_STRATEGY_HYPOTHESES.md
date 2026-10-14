@@ -1324,3 +1324,7 @@ Data-derived (D-series family 115). `hypotheses.yaml` (D152) · `decisions.md` �
 ## D153 — Mnq Last Hour Next All Fade R  *(WATCHLIST — t00935)*
 
 Data-derived (D-series family 115). `hypotheses.yaml` (D153) · `decisions.md` §434
+
+## D154 — Zs Short In Expiry Week R  *(REJECT — t00936)*
+
+Data-derived (D-series family 116). `hypotheses.yaml` (D154) · `decisions.md` §437

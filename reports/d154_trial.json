@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D154",
+ "cell": "ZS short in equity expiry week (current regime)",
+ "trades": 77,
+ "net_bps": -1.5546084407351772,
+ "t_net": -0.1152423779122356,
+ "placebo_pct": 47.4,
+ "by_year": {
+  "2025": -7.581165232045299,
+  "2026": 7.388024217337897
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 166,
+ "injection": {
+  "hypothesis": "D154",
+  "n_events": 77,
+  "sought_bps": 10.853575372384276,
+  "recovered": true,
+  "note": "placebo-controlled calendar test; injection as decisions.md 231 (not applicable)"
+ }
+}

@@ -11370,6 +11370,13 @@ family-8 grids; NKD, DAX — A21 paths; CL, ZS — family 10) **= 60 tests** (~1
 minus its mean on all other days in the period; long or short fixed by 2021–24. Costs §177/§180; validation per §426, 2 (placebo: the
 same number of random other days, 1,000 draws).
 
+## 437. Family-116 discovery and D154 (t00936): the calendar on the current regime — 1 of 60 carried, rejected (S1)
+
+**N 930.** `reports/d116_discovery.json` (module `reporting/d116_calendar.py`): one carried, at chance level — **D154** ZS short in
+equity-option expiry week (+21.7 bps, t +2.16, n 187; no mechanism). Sealed 2025–26: -1.55 bps (t -0.12), placebo
+47th, 2025 −7.6 / 2026 +7.4: **REJECT**. The calendar sets no direction in the current regime either. Z and D
+market-test 166.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

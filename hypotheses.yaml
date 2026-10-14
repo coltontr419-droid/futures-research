@@ -13396,3 +13396,59 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (predictor signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 165.
   s6_control: By year; predictor signs shuffled across the sealed sessions.
+- id: D154
+  name: zs_short_in_expiry_week_r
+  mechanism: >
+    DATA-DERIVED (D-series family 116, the calendar on the current regime, decisions.md 436-437): ZS sessions in equity-option
+    expiry week (Monday-Thursday before the third Friday), short against ZS's other days: 2021-2024 +21.71 bps (t +2.16,
+    n 187); 2010-20 +2.09 (context). THE COUNTERPARTY: no mechanism is offered; carried at chance level.
+  condition: >
+    In the Monday-Thursday before each month's third Friday, short ZS's session; net of 0.7 bps.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00936 (decisions.md 437), REJECT on sealed 2023-2026: 77 trades; net -1.55 bps (t -0.12); placebo 47th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d116_calendar.py
+    injected_bps: 10.854
+    sought_bps: 10.854
+    n_injection: 77
+    n_run: 77
+    recovered: true
+    report: reports/d154_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 188
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-116 scan (60 tests, decisions.md 437). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (the same number of random other days), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 166.
+  s6_control: By year; the same number of random other days.
