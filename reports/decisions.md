@@ -11997,6 +11997,15 @@ noting the shadow only when it disagrees, and FDXM shadow lines carry "[DAX inde
 tickets. `a18_demo_check` now scores recorded results wherever they exist (tickets.json pulled beside the logs). Tests:
 `test_recorded_result_overrides_shadow`.
 
+## 493. D-series family 134 protocol: relative value against a sibling market, current regime (S1)
+
+**No trial spent; N 1,104. Written and committed BEFORE any statistic is computed.** Family 17 (§190) under §426's design, from Yahoo
+settlements: the log ratio of target to partner, its z-score against the previous 20 sessions on the previous weekday. When |z| > 1.5
+(form "stretched") or > 2 ("extreme"), the target's next window goes against its relative stretch (or with it — fixed by 2021–24).
+Pairs: **MNQ** (NQ=F) vs ES=F, RTY=F; **MGC** (GC=F) vs SI=F, HG=F; **CL** vs HO=F, RB=F; **ZS** vs ZC=F, ZM=F, ZL=F; **NKD** (NKD=F) vs
+ES=F; **DAX** (^GDAXI) vs ES=F, ^STOXX50E. Targets as family 114 (MNQ day, MGC London, NKD and DAX windows, CL and ZS sessions).
+**13 pairs × 2 forms = 26 tests.** Costs §177/§180; validation per §426, 2 (placebo: signs shuffled).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
