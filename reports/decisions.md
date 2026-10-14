@@ -11231,6 +11231,32 @@ pairs already validated) under §426's design: discovery 2021-01 → 2024-12, ca
 the count is reported against it); 2010–20 printed for context only. Validation on 2025-01 → 2026-08 per §426, 2 (placebo: after
 non-shock days). Module `reporting/d114_screen.py` (family 111's functions with the new windows).
 
+## 428. Family-114 screen: 19 of 359 carried (≈ 9 by chance); D133–D151 registered (S1)
+
+**No trial spent yet; N 908.** `reports/d114_discovery.json` (2021–24 discovery, §426):
+- **D133** NKD follows a ^GDAXI shock: +41.32 bps, t +4.58, n 60; market-test 145.
+- **D134** ZS follows a 6A=F shock: +50.67 bps, t +2.92, n 54; market-test 146.
+- **D135** NKD follows a XLF shock: +30.52 bps, t +2.71, n 54; market-test 147.
+- **D136** CL follows a 6A=F shock: +75.98 bps, t +2.38, n 54; market-test 148.
+- **D137** DAX follows a PL=F shock: +33.92 bps, t +2.30, n 41; market-test 149.
+- **D138** ZS fades a KRW=X shock: +49.85 bps, t +2.21, n 50; market-test 150.
+- **D139** NKD fades a BTC=F shock: +22.23 bps, t +2.18, n 59; market-test 151.
+- **D140** DAX follows a GC=F shock: +35.78 bps, t +2.15, n 44; market-test 152.
+- **D141** ZS fades a COP=X shock: +30.94 bps, t +2.13, n 59; market-test 153.
+- **D142** ZS follows a AUDUSD=X shock: +32.17 bps, t +2.13, n 54; market-test 154.
+- **D143** MNQ fades a HG=F shock: +34.73 bps, t +2.09, n 63; market-test 155.
+- **D144** ZS fades a CLP=X shock: +40.34 bps, t +2.08, n 54; market-test 156.
+- **D145** ZS follows a FXI shock: +38.34 bps, t +2.07, n 49; market-test 157.
+- **D146** DAX follows a ZN=F shock: +32.26 bps, t +2.03, n 49; market-test 158.
+- **D147** DAX fades a 6B=F shock: +27.03 bps, t +2.02, n 52; market-test 159.
+- **D148** DAX follows a 6C=F shock: +27.72 bps, t +2.01, n 48; market-test 160.
+- **D149** NKD fades a ZS=F shock: +25.95 bps, t +2.01, n 52; market-test 161.
+- **D150** DAX follows a RUB=X shock: +30.89 bps, t +2.01, n 54; market-test 162.
+- **D151** ZS fades a ZM=F shock: +38.47 bps, t +1.96, n 56; market-test 163.
+
+About twice the chance count: some of these should be real, most are not; the sealed 2025–26 window decides. The strongest by far is
+NKD following a DAX shock (t +4.58, n 60).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
