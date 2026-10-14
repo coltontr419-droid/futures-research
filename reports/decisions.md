@@ -12020,6 +12020,15 @@ as well as Yahoo's session; the stretch measured against RB=F (the trial's) and 
 (short after crude's ratio to RB is > +2 SD, long otherwise — a long day already matches the plan), calibrated against 40 random flip
 masks of the same share (§453). Read as §446.
 
+## 496. D329 stress-tested: robust on independent data, too rare to move the MCL account — confirmed, not proposed (S8)
+
+**No trial; N 1,105.** `reports/a39_d329.json`, module `reporting/a39_d329.py`. (1) Independent data: all 36 variants positive in 2025–26
+(vs RB=F at 2σ on the owned CME bars +75.5 bps, t +2.10; at 1.5σ +40.7; vs HO=F +1.5 to +43.8); 2010–20 weakly positive throughout
+(+5 to +30) — among the programme's more robust statistical results. (2) The MCL account: the rule only adds shorts (crude stretched
+ABOVE gasoline, 7–9% of sessions; the other side is long, as the plan): 2021–26 Δ +$3 vs random flips −$240 ± $420 (beats 60%); 2010–20
++$135 (55%); starts from 2025 +$2,953 → +$3,428 (beats 90%). Below §446's reading. **CONFIRMED finding, not proposed for the bot** —
+like D68's pre-2021 era and D122, an event rule on ~8% of days barely moves an account under brackets.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
