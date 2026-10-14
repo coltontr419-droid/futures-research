@@ -11044,6 +11044,10 @@ energy) and **XOP** (exploration and production) shocks (Yahoo open → close, 2
 against, fixed by discovery. **2 tests**, descriptive 2010–17 column. Cost CL 0.7 (MCL 5.4 noted); recent-period design; carried at
 net > 0, t > 1.96; validation as §207, 3.
 
+## 406. Family-107 discovery: energy stocks into crude — 0 of 2 carried (S1)
+
+**No trial spent; N 902.** `reports/d107_discovery.json`: XLE +10.1 (t +0.26), XOP +47.5 (t +1.20). Empty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

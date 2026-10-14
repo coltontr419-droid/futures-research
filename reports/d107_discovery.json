@@ -1,0 +1,31 @@
+{
+ "window": [
+  "2018-01-01",
+  "2022-12-31"
+ ],
+ "all": [
+  {
+   "predictor": "XLE",
+   "target": "CL",
+   "n": 80,
+   "rule": "follow",
+   "net_bps": 10.095581771477342,
+   "t": 0.2600018550357289,
+   "early_net": -4.630641688109659,
+   "early_t": -0.245062053587596,
+   "carried": false
+  },
+  {
+   "predictor": "XOP",
+   "target": "CL",
+   "n": 63,
+   "rule": "follow",
+   "net_bps": 47.48450774422399,
+   "t": 1.196195323203111,
+   "early_net": 17.65780297549115,
+   "early_t": 0.8592160234680581,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
