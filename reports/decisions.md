@@ -11124,6 +11124,18 @@ as §207, 3.
 A modest excess over chance. NKD after an LQD shock follows bonds the way D68 does; NKD after a VIX3M shock follows a fear spike
 (a crisis-rebound reading, §336, is likely); gold fading a CLP shock carries the emerging-currency sign (§395).
 
+## 416. D129–D132 validated (t00911–t00914): none confirm — the screen's excess was chance (S1)
+
+**N 908.**
+- **D129** NKD follows the previous session's ^VIX3M shock: **REJECT** — 57 events, -10.91 bps (t -0.51), placebo 9th.
+- **D130** MGC fades the previous session's CLP=X shock: **WATCHLIST** — 43 events, +8.10 bps (t +0.74), placebo 80th.
+- **D131** MGC follows the previous session's 6S=F shock: **WATCHLIST** — 47 events, +6.66 bps (t +0.35), placebo 82th.
+- **D132** NKD follows the previous session's LQD shock: **REJECT** — 51 events, -1.98 bps (t -0.19), placebo 43th.
+
+The two-period filter (2010–17 t > 1.0) did not rescue any of them. With families 24, 29, 37, 39, 57, 76–77, 83, 108 and this screen,
+the next-session shock class has now been searched across ~45 predictors and every plan product; its survivors out of sample are D68
+(ZN → MNQ), D84, D89, and D122 (BRL → ZS). The shock class is exhausted on the data in hand.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

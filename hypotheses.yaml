@@ -12007,12 +12007,25 @@
   horizon_minutes: [360]
   hold_hours: [6.0]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00911 (decisions.md 416), REJECT on sealed 2023-2026: 57 trades; net -10.91 bps (t -0.51); placebo 9th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_screen111.py
+    injected_bps: 14.623
+    sought_bps: 14.623
+    n_injection: 57
+    n_run: 57
+    recovered: true
+    report: reports/d129_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 163
+  test_order: null
+  registered_test_order: 163
   grade: C
   tier: C
   param_cap: 0
@@ -12050,12 +12063,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00912 (decisions.md 416), WATCHLIST on sealed 2023-2026: 43 trades; net +8.10 bps (t +0.74); placebo 80th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_screen111.py
+    injected_bps: 9.623
+    sought_bps: 9.623
+    n_injection: 43
+    n_run: 43
+    recovered: true
+    report: reports/d130_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 164
+  test_order: null
+  registered_test_order: 164
   grade: C
   tier: C
   param_cap: 0
@@ -12093,12 +12119,25 @@
   horizon_minutes: [510]
   hold_hours: [8.5]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t00913 (decisions.md 416), WATCHLIST on sealed 2023-2026: 47 trades; net +6.66 bps (t +0.35); placebo 82th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_screen111.py
+    injected_bps: 9.934
+    sought_bps: 9.934
+    n_injection: 47
+    n_run: 47
+    recovered: true
+    report: reports/d131_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 165
+  test_order: null
+  registered_test_order: 165
   grade: C
   tier: C
   param_cap: 0
@@ -12136,12 +12175,25 @@
   horizon_minutes: [360]
   hold_hours: [6.0]
   registered: 2026-10-13
-  status: untested
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t00914 (decisions.md 416), REJECT on sealed 2023-2026: 51 trades; net -1.98 bps (t -0.19); placebo 43th pct.
   outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/signals/d_screen111.py
+    injected_bps: 17.791
+    sought_bps: 17.791
+    n_injection: 51
+    n_run: 51
+    recovered: true
+    report: reports/d132_injection.json
   schedulable: false
   schedulable_note: >
     Validated once on the sealed 2023-2026 window.
-  test_order: 166
+  test_order: null
+  registered_test_order: 166
   grade: C
   tier: C
   param_cap: 0

@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D132",
+ "cell": "NKD follows the previous session's LQD shock",
+ "trades": 51,
+ "net_bps": -1.984131197971018,
+ "t_net": -0.18778710966392592,
+ "placebo_pct": 43.4,
+ "by_year": {
+  "2023": -4.124778662621977,
+  "2024": 4.721021926052428,
+  "2025": 2.858245347347111,
+  "2026": -21.98218972403555
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 144,
+ "injection": {
+  "hypothesis": "D132",
+  "n_events": 51,
+  "sought_bps": 17.79074937429783,
+  "mean_estimate": 17.981716917042608,
+  "sd_estimate_bps": 10.39692759541766,
+  "power_strict_t": 0.5265,
+  "recovered": true
+ }
+}

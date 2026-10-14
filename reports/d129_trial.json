@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D129",
+ "cell": "NKD follows the previous session's ^VIX3M shock",
+ "trades": 57,
+ "net_bps": -10.905766037158594,
+ "t_net": -0.5073164342617987,
+ "placebo_pct": 9.2,
+ "by_year": {
+  "2023": -33.85505328734538,
+  "2024": -75.0972441004681,
+  "2025": 50.14960716819534,
+  "2026": 57.02225696610456
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 141,
+ "injection": {
+  "hypothesis": "D129",
+  "n_events": 57,
+  "sought_bps": 14.623175433685617,
+  "mean_estimate": 14.285686956033164,
+  "sd_estimate_bps": 21.221480762150865,
+  "power_strict_t": 0.2725,
+  "recovered": true
+ }
+}

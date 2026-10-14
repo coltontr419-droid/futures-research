@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D131",
+ "cell": "MGC follows the previous session's 6S=F shock",
+ "trades": 47,
+ "net_bps": 6.6590904560494915,
+ "t_net": 0.35065674364543553,
+ "placebo_pct": 81.8,
+ "by_year": {
+  "2023": -4.880683410167693,
+  "2024": -6.963716683020959,
+  "2025": -18.811197725931812,
+  "2026": 72.32192026774088
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 143,
+ "injection": {
+  "hypothesis": "D131",
+  "n_events": 47,
+  "sought_bps": 9.934114894061022,
+  "mean_estimate": 11.303019837243136,
+  "sd_estimate_bps": 18.079704140280203,
+  "power_strict_t": 0.1125,
+  "recovered": true
+ }
+}

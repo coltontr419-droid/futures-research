@@ -1,0 +1,30 @@
+{
+ "hypothesis": "D130",
+ "cell": "MGC fades the previous session's CLP=X shock",
+ "trades": 43,
+ "net_bps": 8.101579368946163,
+ "t_net": 0.7395939998430692,
+ "placebo_pct": 79.60000000000001,
+ "by_year": {
+  "2023": -15.579567591349287,
+  "2024": -7.373068300882974,
+  "2025": 18.728169790903724,
+  "2026": 60.52585770743234
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 142,
+ "injection": {
+  "hypothesis": "D130",
+  "n_events": 43,
+  "sought_bps": 9.622631645202638,
+  "mean_estimate": 9.428038784104723,
+  "sd_estimate_bps": 10.843963564850101,
+  "power_strict_t": 0.2095,
+  "recovered": true
+ }
+}

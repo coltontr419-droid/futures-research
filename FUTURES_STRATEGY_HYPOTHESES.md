@@ -1225,18 +1225,18 @@ Data-derived (D-series family 108). `hypotheses.yaml` (D127) · `decisions.md` �
 
 Data-derived (D-series family 108). `hypotheses.yaml` (D128) · `decisions.md` §408
 
-## D129 — Nkd Follows Vix3M Shock  *(registered)*
+## D129 — Nkd Follows Vix3M Shock  *(REJECT — t00911)*
 
 Data-derived (D-series family 111). `hypotheses.yaml` (D129) · `decisions.md` §415
 
-## D130 — Mgc Fades Clpx Shock  *(registered)*
+## D130 — Mgc Fades Clpx Shock  *(WATCHLIST — t00912)*
 
 Data-derived (D-series family 111). `hypotheses.yaml` (D130) · `decisions.md` §415
 
-## D131 — Mgc Follows 6Sf Shock  *(registered)*
+## D131 — Mgc Follows 6Sf Shock  *(WATCHLIST — t00913)*
 
 Data-derived (D-series family 111). `hypotheses.yaml` (D131) · `decisions.md` §415
 
-## D132 — Nkd Follows Lqd Shock  *(registered)*
+## D132 — Nkd Follows Lqd Shock  *(REJECT — t00914)*
 
 Data-derived (D-series family 111). `hypotheses.yaml` (D132) · `decisions.md` §415
