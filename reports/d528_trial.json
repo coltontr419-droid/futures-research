@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D528",
+ "cell": "MGC follows a wide ridge model (current regime)",
+ "trades": 417,
+ "net_bps": -3.917007090891009,
+ "t_net": -0.7600803153620205,
+ "placebo_pct": 34.4,
+ "by_year": {
+  "2025": -2.1392002847459595,
+  "2026": -6.632202940276176
+ },
+ "always_long_net_bps": 3.2692461013793945,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 540,
+ "injection": {
+  "hypothesis": "D528",
+  "n_events": 417,
+  "sought_bps": -0.12817074451522054,
+  "mean_estimate": -0.10139061179727916,
+  "recovered": true
+ },
+ "trial_id": "t01310"
+}

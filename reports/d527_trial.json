@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D527",
+ "cell": "MNQ follows a wide ridge model (current regime)",
+ "trades": 420,
+ "net_bps": -0.08871809868585495,
+ "t_net": -0.015920258298193275,
+ "placebo_pct": 53.400000000000006,
+ "by_year": {
+  "2025": 1.1962844185207202,
+  "2026": -2.0354584391245587
+ },
+ "always_long_net_bps": 2.1772210597991943,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 539,
+ "injection": {
+  "hypothesis": "D527",
+  "n_events": 420,
+  "sought_bps": -0.8288679226176945,
+  "mean_estimate": -0.9997389021458923,
+  "recovered": true
+ },
+ "trial_id": "t01309"
+}

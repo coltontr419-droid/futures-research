@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D529",
+ "cell": "NKD follows a wide ridge model (current regime)",
+ "trades": 423,
+ "net_bps": 0.15235630087216165,
+ "t_net": 0.03485643745704564,
+ "placebo_pct": 53.6,
+ "by_year": {
+  "2025": -0.4137418872294423,
+  "2026": 1.020147535327318
+ },
+ "always_long_net_bps": -0.8332146952726965,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 541,
+ "injection": {
+  "hypothesis": "D529",
+  "n_events": 423,
+  "sought_bps": 4.475487439637756,
+  "mean_estimate": 4.624945733311759,
+  "recovered": true
+ },
+ "trial_id": "t01311"
+}

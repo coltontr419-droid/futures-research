@@ -2816,3 +2816,27 @@ Data-derived (D-series family 144). `hypotheses.yaml` (D525) · `decisions.md` �
 ## D526 — Le F Follows He F 1D Strong  *(WATCHLIST — t01308)*
 
 Data-derived (D-series family 144). `hypotheses.yaml` (D526) · `decisions.md` §520
+
+## D527 — Mnq Follows A Wide Ridge Model Current Regime  *(REJECT — t01309)*
+
+Data-derived (D-series family 145). `hypotheses.yaml` (D527) · `decisions.md` §522
+
+## D528 — Mgc Follows A Wide Ridge Model Current Regime  *(REJECT — t01310)*
+
+Data-derived (D-series family 145). `hypotheses.yaml` (D528) · `decisions.md` §522
+
+## D529 — Nkd Follows A Wide Ridge Model Current Regime  *(WATCHLIST — t01311)*
+
+Data-derived (D-series family 145). `hypotheses.yaml` (D529) · `decisions.md` §522
+
+## D530 — Dax Follows A Wide Ridge Model Current Regime  *(WATCHLIST — t01312)*
+
+Data-derived (D-series family 145). `hypotheses.yaml` (D530) · `decisions.md` §522
+
+## D531 — Cl Follows A Wide Ridge Model Current Regime  *(REJECT — t01313)*
+
+Data-derived (D-series family 145). `hypotheses.yaml` (D531) · `decisions.md` §522
+
+## D532 — Zs Follows A Wide Ridge Model Current Regime  *(REJECT — t01314)*
+
+Data-derived (D-series family 145). `hypotheses.yaml` (D532) · `decisions.md` §522

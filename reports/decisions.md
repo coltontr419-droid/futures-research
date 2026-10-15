@@ -12391,6 +12391,19 @@ from {1, 10, 100, 1000, 10000} by leave-one-year-out CV on 2021–24 (Sharpe of 
 (placebo: the predicted signs shuffled across the sealed sessions). A CONFIRM then needs the §446/§453 account replay against random flips.
 No discovery carry gate: all six are validated (one trial each).
 
+## 522. Family-145: wide ridge models — none hold (S1)
+
+**N 1,308.** `reports/d145_discovery.json` (module `reporting/d145_ridge.py`):
+- **D527** MNQ follows a wide ridge model (current regime): **REJECT** -0.09 (t -0.02), placebo 53th, 2025 +1.2, 2026 -2.0
+- **D528** MGC follows a wide ridge model (current regime): **REJECT** -3.92 (t -0.76), placebo 34th, 2025 -2.1, 2026 -6.6
+- **D529** NKD follows a wide ridge model (current regime): **WATCHLIST** +0.15 (t +0.03), placebo 54th, 2025 -0.4, 2026 +1.0
+- **D530** DAX follows a wide ridge model (current regime): **WATCHLIST** +0.11 (t +0.03), placebo 55th, 2025 -3.1, 2026 +4.9
+- **D531** CL follows a wide ridge model (current regime): **REJECT** -20.14 (t -1.49), placebo 8th, 2025 -31.1, 2026 -3.4
+- **D532** ZS follows a wide ridge model (current regime): **REJECT** -0.13 (t -0.03), placebo 61th, 2025 -1.1, 2026 +1.3
+
+Pooling ~100 scaled predictor moves gives nothing out of sample; the NKD and DAX models (CV t 3.5 / 1.95) lose to the single dollar
+signals they dilute. Pooled models are closed as a route.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D532",
+ "cell": "ZS follows a wide ridge model (current regime)",
+ "trades": 417,
+ "net_bps": -0.13350473078898273,
+ "t_net": -0.027203468071692764,
+ "placebo_pct": 61.3,
+ "by_year": {
+  "2025": -1.0967541008711958,
+  "2026": 1.3229747384317148
+ },
+ "always_long_net_bps": 3.146800731106992,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 544,
+ "injection": {
+  "hypothesis": "D532",
+  "n_events": 417,
+  "sought_bps": -0.16989471518081473,
+  "mean_estimate": -0.1617769322077151,
+  "recovered": true
+ },
+ "trial_id": "t01314"
+}

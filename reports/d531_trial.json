@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D531",
+ "cell": "CL follows a wide ridge model (current regime)",
+ "trades": 418,
+ "net_bps": -20.13960296532683,
+ "t_net": -1.4863518870956183,
+ "placebo_pct": 7.6,
+ "by_year": {
+  "2025": -31.135038579599957,
+  "2026": -3.4477368520929317
+ },
+ "always_long_net_bps": -6.629474673697624,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 543,
+ "injection": {
+  "hypothesis": "D531",
+  "n_events": 418,
+  "sought_bps": 6.341102808226353,
+  "mean_estimate": 6.605945701881042,
+  "recovered": true
+ },
+ "trial_id": "t01313"
+}

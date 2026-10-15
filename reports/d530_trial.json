@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D530",
+ "cell": "DAX follows a wide ridge model (current regime)",
+ "trades": 428,
+ "net_bps": 0.11093885209715909,
+ "t_net": 0.027371779869255684,
+ "placebo_pct": 54.6,
+ "by_year": {
+  "2025": -3.0952422665860073,
+  "2026": 4.929585328714548
+ },
+ "always_long_net_bps": -0.3789782998689573,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 542,
+ "injection": {
+  "hypothesis": "D530",
+  "n_events": 428,
+  "sought_bps": 2.865316794679416,
+  "mean_estimate": 2.8925145631993248,
+  "recovered": true
+ },
+ "trial_id": "t01312"
+}

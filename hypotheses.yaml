@@ -34285,3 +34285,339 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 538.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D527
+  name: mnq_follows_a_wide_ridge_model_current_regime
+  mechanism: >
+    DATA-DERIVED (D-series family 145, one ridge model per window, decisions.md 521-522): MNQ's plan window takes the sign of a
+    ridge prediction from 104 scaled 1-day / 5-day predictor moves, fit on 2021-2024 (lambda 100);
+    leave-one-year-out net -1.66 bps (t -0.46). THE COUNTERPARTY: slow cross-asset repositioning, pooled.
+  condition: >
+    Every session, take MNQ's plan window in the sign of the frozen 2021-2024 ridge model's prediction.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01309 (decisions.md 522), REJECT on sealed 2023-2026: 420 trades; net -0.09 bps (t -0.02); placebo 53th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d145_ridge.py
+    injected_bps: -0.829
+    sought_bps: -0.829
+    n_injection: 420
+    n_run: 420
+    recovered: true
+    report: reports/d527_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 561
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-145 scan (6 tests, decisions.md 522). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 539.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D528
+  name: mgc_follows_a_wide_ridge_model_current_regime
+  mechanism: >
+    DATA-DERIVED (D-series family 145, one ridge model per window, decisions.md 521-522): gold's London window takes the sign of a
+    ridge prediction from 104 scaled 1-day / 5-day predictor moves, fit on 2021-2024 (lambda 100);
+    leave-one-year-out net -0.26 bps (t -0.12). THE COUNTERPARTY: slow cross-asset repositioning, pooled.
+  condition: >
+    Every session, take gold's London window in the sign of the frozen 2021-2024 ridge model's prediction.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01310 (decisions.md 522), REJECT on sealed 2023-2026: 417 trades; net -3.92 bps (t -0.76); placebo 34th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d145_ridge.py
+    injected_bps: -0.128
+    sought_bps: -0.128
+    n_injection: 417
+    n_run: 417
+    recovered: true
+    report: reports/d528_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 562
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-145 scan (6 tests, decisions.md 522). ONE TRIAL.
+  session: Europe
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 540.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D529
+  name: nkd_follows_a_wide_ridge_model_current_regime
+  mechanism: >
+    DATA-DERIVED (D-series family 145, one ridge model per window, decisions.md 521-522): NKD's plan window takes the sign of a
+    ridge prediction from 110 scaled 1-day / 5-day predictor moves, fit on 2021-2024 (lambda 100);
+    leave-one-year-out net +8.95 bps (t +3.51). THE COUNTERPARTY: slow cross-asset repositioning, pooled.
+  condition: >
+    Every session, take NKD's plan window in the sign of the frozen 2021-2024 ridge model's prediction.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01311 (decisions.md 522), WATCHLIST on sealed 2023-2026: 423 trades; net +0.15 bps (t +0.03); placebo 54th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d145_ridge.py
+    injected_bps: 4.475
+    sought_bps: 4.475
+    n_injection: 423
+    n_run: 423
+    recovered: true
+    report: reports/d529_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 563
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-145 scan (6 tests, decisions.md 522). ONE TRIAL.
+  session: Asia
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 541.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D530
+  name: dax_follows_a_wide_ridge_model_current_regime
+  mechanism: >
+    DATA-DERIVED (D-series family 145, one ridge model per window, decisions.md 521-522): the DAX window takes the sign of a
+    ridge prediction from 108 scaled 1-day / 5-day predictor moves, fit on 2021-2024 (lambda 100);
+    leave-one-year-out net +5.73 bps (t +1.95). THE COUNTERPARTY: slow cross-asset repositioning, pooled.
+  condition: >
+    Every session, take the DAX window in the sign of the frozen 2021-2024 ridge model's prediction.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01312 (decisions.md 522), WATCHLIST on sealed 2023-2026: 428 trades; net +0.11 bps (t +0.03); placebo 55th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d145_ridge.py
+    injected_bps: 2.865
+    sought_bps: 2.865
+    n_injection: 428
+    n_run: 428
+    recovered: true
+    report: reports/d530_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 564
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-145 scan (6 tests, decisions.md 522). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 542.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D531
+  name: cl_follows_a_wide_ridge_model_current_regime
+  mechanism: >
+    DATA-DERIVED (D-series family 145, one ridge model per window, decisions.md 521-522): CL's session takes the sign of a
+    ridge prediction from 84 scaled 1-day / 5-day predictor moves, fit on 2021-2024 (lambda 1000);
+    leave-one-year-out net +12.68 bps (t +1.78). THE COUNTERPARTY: slow cross-asset repositioning, pooled.
+  condition: >
+    Every session, take CL's session in the sign of the frozen 2021-2024 ridge model's prediction.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01313 (decisions.md 522), REJECT on sealed 2023-2026: 418 trades; net -20.14 bps (t -1.49); placebo 8th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d145_ridge.py
+    injected_bps: 6.341
+    sought_bps: 6.341
+    n_injection: 418
+    n_run: 418
+    recovered: true
+    report: reports/d531_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 565
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-145 scan (6 tests, decisions.md 522). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 543.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D532
+  name: zs_follows_a_wide_ridge_model_current_regime
+  mechanism: >
+    DATA-DERIVED (D-series family 145, one ridge model per window, decisions.md 521-522): ZS's session takes the sign of a
+    ridge prediction from 82 scaled 1-day / 5-day predictor moves, fit on 2021-2024 (lambda 10);
+    leave-one-year-out net -0.34 bps (t -0.08). THE COUNTERPARTY: slow cross-asset repositioning, pooled.
+  condition: >
+    Every session, take ZS's session in the sign of the frozen 2021-2024 ridge model's prediction.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01314 (decisions.md 522), REJECT on sealed 2023-2026: 417 trades; net -0.13 bps (t -0.03); placebo 61th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d145_ridge.py
+    injected_bps: -0.170
+    sought_bps: -0.170
+    n_injection: 417
+    n_run: 417
+    recovered: true
+    report: reports/d532_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 566
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-145 scan (6 tests, decisions.md 522). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 544.
+  s6_control: By year; signs shuffled across the sealed sessions.
