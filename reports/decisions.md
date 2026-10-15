@@ -13075,6 +13075,16 @@ result replaces the shadow; it now uses the raw replay P&L); (b) **the dollar ru
 Trading three days of five roughly halves the chance of a payout inside four months (fewer bracket days to reach the target and
 to qualify for payouts) and cuts FDXM's mean by ~70%. A hand-placed Mon–Wed schedule is still positive but much weaker than the plan.
 
+## 581. Scheduled bracket orders: every window is placeable; the FDXM re-check now always posts (S8)
+
+**No trial.** The user (2026-10-15) can use **scheduled bracket orders** with a release time to close manually — so every ticket can be
+staged at the 4:30 PM CT alert and the every-day replays apply (not §580's Mon–Wed subset). The alert embed already carries what is staged
+(side, contracts, entry/exit time CT, take/stop): no separate staging card. The one thing a staged order cannot follow is the 1:45–1:58 AM CT
+FDXM re-check (§490); the account estimates (§447: 2025 starts +$5,616) already use the 4:30 PM reading, so a missed flip costs nothing
+against them. **Bot change (the user asked for it; deployed 2026-10-15, backup-2026-10-15c, checksum verified):** the re-check now posts its
+own message every time — a side flip as an orange embed that @mentions the user with the full new ticket ("change your staged FDXM order
+before the 2:00 AM CT entry"); an unchanged side or missing data as a one-line note (before, only a flip posted, as plain text).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

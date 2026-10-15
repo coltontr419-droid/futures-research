@@ -206,16 +206,23 @@ async def fdxm_recheck(ch, now: dt.datetime) -> None:
         return
     rec = recs[-1]
     res = await asyncio.to_thread(daxdollar.preopen_side, now)
-    if res is None:
-        rec["prechecked"] = True; tix.save(); return
+    old = rec["ticket"]["side"]
+    if res is None:                                   # every re-check posts its own message (decisions.md 581)
+        rec["prechecked"] = True; tix.save()
+        await ch.send(f"FDXM re-check ({clock(now, False)} CT): no EUR/USD data - the 4:30 PM side ({old.upper()}) stands; staged order unchanged.")
+        return
     side, why = res
-    if side != rec["ticket"]["side"]:
+    if side != old:
         alert_day = dt.datetime.fromisoformat(rec["issued"]).date()
         new = tix.issue(book, "FDXM", alert_day, now, side_override=(side, why))
         new["prechecked"] = True; tix.save()
-        await ch.send(f"**FDXM side changed to {side.upper()}** for the 2:00 AM CT entry - {why}. The board is updated.")
+        em = discord.Embed(title=f"FDXM re-check: side changed {old.upper()} → {side.upper()}",
+                           description="**Change your staged FDXM order before the 2:00 AM CT entry.**\n\n" + ticket_post(new)[:3800],
+                           color=0xE67E22)
+        await ch.send(content=f"<@{USER_ID}>" if USER_ID else None, embed=em)
     else:
         rec["prechecked"] = True; rec["ticket"]["note"] = (rec["ticket"].get("note", "") + f" | {why} (unchanged)").strip(" |"); tix.save()
+        await ch.send(f"FDXM re-check ({clock(now, False)} CT): side unchanged - {old.upper()}; staged order stands. ({why})")
     await refresh_boards(ch, {"FDXM"})
 
 
