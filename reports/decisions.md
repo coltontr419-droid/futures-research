@@ -13305,6 +13305,17 @@ morning → NKD afternoon; NQ over the Frankfurt morning → MGC 08:30 → 11:30
 owned MGC grids). Best: the DAX afternoon follows NQ's Frankfurt-morning move, +3.6 bps (t 1.91; 2010–20 −1.1). Within-session leads from
 US futures carry nothing.
 
+## 604. D-series family 174 protocol: finer positioning — CFTC TFF and disaggregated reports, current regime (S1)
+
+**No trial spent; N 1,525. Written and committed BEFORE any statistic is computed.** Family 133 used only the legacy report. New: **Traders in
+Financial Futures** (leveraged funds; asset managers) for NASDAQ mini (209742) → MNQ, E-mini S&P (13874A) → MNQ, Nikkei USD (240741) →
+NKD, Euro FX (099741) → the DAX and NKD (the dollar link), Japanese yen (097741) → NKD; **Disaggregated** managed money for gold (088691) →
+MGC London, WTI (067651) → CL, soybeans (005602) → ZS (data/cot/tff, data/cot/disagg; gitignored). Net = (long − short) / open interest.
+Kinds: **flow** (the week's change) and **crowding** (52-week z of the net beyond ±1.5; inside = no trade). A report (Tuesday positions)
+applies to the sessions after its Friday 15:30 ET release through the next release. Follow/fade fixed on 2021–24; **(6 × 2 + 3) × 2 = 30
+tests** (~0.75 by chance at t > 1.96; carried also needs week-clustered t > 1.96). Costs §177/§180. Validation per §426, 2 (placebo: circular
+shifts of the weekly sign series).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
