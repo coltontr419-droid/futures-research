@@ -3560,3 +3560,19 @@ Data-derived (D-series family 164). `hypotheses.yaml` (D711) · `decisions.md` �
 ## D712 — Cl Follows 6E On Low Volume Days  *(REJECT — t01494)*
 
 Data-derived (D-series family 164). `hypotheses.yaml` (D712) · `decisions.md` §570
+
+## D713 — Dax Fades Oil Gold 5D Strong  *(REJECT — t01495)*
+
+Data-derived (D-series family 165). `hypotheses.yaml` (D713) · `decisions.md` §572
+
+## D714 — Mnq Fades Oil Gold 5D Strong  *(WATCHLIST — t01496)*
+
+Data-derived (D-series family 165). `hypotheses.yaml` (D714) · `decisions.md` §572
+
+## D715 — Mnq Follows Copper Oil 5D All  *(WATCHLIST — t01497)*
+
+Data-derived (D-series family 165). `hypotheses.yaml` (D715) · `decisions.md` §572
+
+## D716 — Dax Fades Oil Gold 5D All  *(REJECT — t01498)*
+
+Data-derived (D-series family 165). `hypotheses.yaml` (D716) · `decisions.md` §572

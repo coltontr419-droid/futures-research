@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D714",
+ "cell": "MNQ fades oil_gold 5d (strong)",
+ "trades": 207,
+ "net_bps": 13.190559023244369,
+ "t_net": 1.4475376927717334,
+ "placebo_pct": 91.3,
+ "by_year": {
+  "2025": 17.851745149009247,
+  "2026": 7.131017059750027
+ },
+ "always_long_net_bps": 5.992356777191162,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 727,
+ "injection": {
+  "hypothesis": "D714",
+  "n_events": 207,
+  "sought_bps": 6.752044693336408,
+  "mean_estimate": 6.782349518792086,
+  "recovered": true
+ },
+ "trial_id": "t01496"
+}

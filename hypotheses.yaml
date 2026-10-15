@@ -44701,3 +44701,227 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 725.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D713
+  name: dax_fades_oil_gold_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 165, commodity ratios on the current regime, decisions.md 571-572): the DAX window
+    fades the sign of the oil_gold ratio's previous 5-day move (strong): 2021-2024 +12.15 bps (t +2.70, n 404);
+    2010-20 -3.44 (context). THE COUNTERPARTY: growth-expectation repositioning.
+  condition: >
+    Every session, take the DAX window to fade the sign of the oil_gold ratio's previous 5-day move.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01495 (decisions.md 572), REJECT on sealed 2023-2026: 210 trades; net -9.99 bps (t -1.73); placebo 3th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d165_ratios.py
+    injected_bps: 6.076
+    sought_bps: 6.076
+    n_injection: 210
+    n_run: 210
+    recovered: true
+    report: reports/d713_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 747
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-165 scan (76 tests, decisions.md 572). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 726.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D714
+  name: mnq_fades_oil_gold_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 165, commodity ratios on the current regime, decisions.md 571-572): MNQ's plan window
+    fades the sign of the oil_gold ratio's previous 5-day move (strong): 2021-2024 +13.50 bps (t +2.63, n 489);
+    2010-20 -2.36 (context). THE COUNTERPARTY: growth-expectation repositioning.
+  condition: >
+    Every session, take MNQ's plan window to fade the sign of the oil_gold ratio's previous 5-day move.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01496 (decisions.md 572), WATCHLIST on sealed 2023-2026: 207 trades; net +13.19 bps (t +1.45); placebo 91th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d165_ratios.py
+    injected_bps: 6.752
+    sought_bps: 6.752
+    n_injection: 207
+    n_run: 207
+    recovered: true
+    report: reports/d714_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 748
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-165 scan (76 tests, decisions.md 572). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 727.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D715
+  name: mnq_follows_copper_oil_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 165, commodity ratios on the current regime, decisions.md 571-572): MNQ's plan window
+    follows the sign of the copper_oil ratio's previous 5-day move (all): 2021-2024 +8.86 bps (t +2.40, n 978);
+    2010-20 -0.58 (context). THE COUNTERPARTY: growth-expectation repositioning.
+  condition: >
+    Every session, take MNQ's plan window to follow the sign of the copper_oil ratio's previous 5-day move.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01497 (decisions.md 572), WATCHLIST on sealed 2023-2026: 403 trades; net +8.65 bps (t +1.51); placebo 94th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d165_ratios.py
+    injected_bps: 4.431
+    sought_bps: 4.431
+    n_injection: 403
+    n_run: 403
+    recovered: true
+    report: reports/d715_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 749
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-165 scan (76 tests, decisions.md 572). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 728.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D716
+  name: dax_fades_oil_gold_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 165, commodity ratios on the current regime, decisions.md 571-572): the DAX window
+    fades the sign of the oil_gold ratio's previous 5-day move (all): 2021-2024 +6.25 bps (t +2.10, n 819);
+    2010-20 -1.86 (context). THE COUNTERPARTY: growth-expectation repositioning.
+  condition: >
+    Every session, take the DAX window to fade the sign of the oil_gold ratio's previous 5-day move.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01498 (decisions.md 572), REJECT on sealed 2023-2026: 411 trades; net -6.49 bps (t -1.57); placebo 6th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d165_ratios.py
+    injected_bps: 3.124
+    sought_bps: 3.124
+    n_injection: 411
+    n_run: 411
+    recovered: true
+    report: reports/d716_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 750
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-165 scan (76 tests, decisions.md 572). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 729.
+  s6_control: By year; signs shuffled across the sealed sessions.

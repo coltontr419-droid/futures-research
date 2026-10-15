@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D715",
+ "cell": "MNQ follows copper_oil 5d (all)",
+ "trades": 403,
+ "net_bps": 8.646810157719084,
+ "t_net": 1.505801427052675,
+ "placebo_pct": 94.1,
+ "by_year": {
+  "2025": 14.49766149246153,
+  "2026": -0.23917030692100524
+ },
+ "always_long_net_bps": 2.6998703479766846,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 728,
+ "injection": {
+  "hypothesis": "D715",
+  "n_events": 403,
+  "sought_bps": 4.431439284166675,
+  "mean_estimate": 4.552300479058879,
+  "recovered": true
+ },
+ "trial_id": "t01497"
+}

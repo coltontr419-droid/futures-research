@@ -12979,6 +12979,17 @@ then needs an account replay against the deployed rule of its market (or the pla
 GC ratios not into MGC); forms all / strong; follow/fade fixed on 2021–24. **≈ 4 × 2 × 6 × 2 − excluded = 80 tests** (~2 by chance at
 t > 1.96). Costs §177/§180. Validation per §426, 2.
 
+## 572. Family-165: commodity ratios — 4 of 76 carried (≈ 1.9 by chance); validated (S1)
+
+**N 1,498.** `reports/d165_discovery.json` (module `reporting/d165_ratios.py`):
+- **D713** DAX fades oil_gold 5d (strong): **REJECT** -9.99 (t -1.73), placebo 3th, 2025 -6.5, 2026 -14.6
+- **D714** MNQ fades oil_gold 5d (strong): **WATCHLIST** +13.19 (t +1.45), placebo 91th, 2025 +17.9, 2026 +7.1
+- **D715** MNQ follows copper_oil 5d (all): **WATCHLIST** +8.65 (t +1.51), placebo 94th, 2025 +14.5, 2026 -0.2
+- **D716** DAX fades oil_gold 5d (all): **REJECT** -6.49 (t -1.57), placebo 6th, 2025 -6.7, 2026 -6.2
+
+No CONFIRM. D714 (MNQ fades a strong week of oil outrunning gold) is a near miss — positive both years (+17.9 / +7.1), t 1.45, placebo 91st
+— watchlist only.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

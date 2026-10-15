@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D713",
+ "cell": "DAX fades oil_gold 5d (strong)",
+ "trades": 210,
+ "net_bps": -9.985482189838912,
+ "t_net": -1.729200668243492,
+ "placebo_pct": 2.6,
+ "by_year": {
+  "2025": -6.466976220853227,
+  "2026": -14.586605380050958
+ },
+ "always_long_net_bps": 8.280190153170837,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 726,
+ "injection": {
+  "hypothesis": "D713",
+  "n_events": 210,
+  "sought_bps": 6.076031972359897,
+  "mean_estimate": 6.148532219161985,
+  "recovered": true
+ },
+ "trial_id": "t01495"
+}
