@@ -12719,6 +12719,17 @@ previous-5-weekday sum). Statistic: per-trade Sharpe (mean / SD of the signed mo
 only** (highest per-trade Sharpe); read once on 2025–26 and 2010–20. A shorter window is proposed only if it also beats the whole window in
 2025–26 AND an account replay on its paths beats the deployed window's replay on 2025 starts.
 
+## 546. A44: the dollar rules by sub-window — the edge sits in the Tokyo morning, but the whole window stays (S1)
+
+**No trial; N 1,435.** `reports/a44_subwin.json`, `reports/a44_replay.json` (module `reporting/a44_subwin.py`). Per-trade Sharpe (net bps):
+- **DAX** (follow DX-Y.NYB): 09:00–11:30 0.052 (+2.55) chosen on 2021–24 vs whole 0.050 (+4.15); 2025–26 0.040 (+2.20) vs whole **0.085 (+7.04)**
+  → fails; the DAX rule earns across the day.
+- **NKD** (dollar-week): Tokyo morning 0.085 (+5.38) chosen on 2021–24 vs whole 0.072 (+5.93); **2025–26 morning 0.163 (+12.44, t 3.31) vs
+  whole 0.134 (+12.02)**; afternoon ≈ 0 in both periods — **the whole edge is in the morning session**. Account (1 NKD, plan brackets):
+  morning-only 2025 starts +$6,740 (P(payout) 97%, beats 99% of random flips) vs the deployed whole window **+$8,040 (95%, beats 100%)**;
+  post-2021 all starts +$4,337 vs +$6,136; pre-2021 +$2,264 vs +$3,258. The brackets need the afternoon's swing even though it carries no edge.
+  **Not adopted.** Kept as an understanding of the rule: if the forward record weakens, check the morning first.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

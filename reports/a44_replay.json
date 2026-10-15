@@ -1,0 +1,36 @@
+{
+ "NKD pre whole": {
+  "plan_mean": 1188.770786428572,
+  "rule_mean": 3258.0969499999997,
+  "rule_p_payout": 0.7928571428571428,
+  "beats_random_pct": 64.0
+ },
+ "NKD pre morning": {
+  "plan_mean": 448.24057999999945,
+  "rule_mean": 2263.571467857143,
+  "rule_p_payout": 0.8907142857142857,
+  "beats_random_pct": 42.0
+ },
+ "NKD post whole": {
+  "plan_mean": 2763.184848640705,
+  "rule_mean": 6136.018421748715,
+  "rule_p_payout": 0.9243203526818515,
+  "beats_random_pct": 99.0,
+  "plan_2025": 3205.726969359331,
+  "rule_2025": 8039.956356545962,
+  "rule_p_payout_2025": 0.9498607242339833,
+  "plan_p_payout_2025": 0.8495821727019499,
+  "beats_random_2025_pct": 100.0
+ },
+ "NKD post morning": {
+  "plan_mean": 2105.205105804556,
+  "rule_mean": 4336.720629684057,
+  "rule_p_payout": 0.8648052902277737,
+  "beats_random_pct": 99.0,
+  "plan_2025": 4012.172409470753,
+  "rule_2025": 6739.981208913649,
+  "rule_p_payout_2025": 0.9749303621169917,
+  "plan_p_payout_2025": 0.8328690807799443,
+  "beats_random_2025_pct": 99.0
+ }
+}
