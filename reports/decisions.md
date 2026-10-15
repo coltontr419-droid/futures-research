@@ -13335,6 +13335,14 @@ vary). Replay (84 sessions, the deployed rules' side, A21/A23 minute paths, drif
 market (NKD 1, FDXM 2 contracts), read once on 2025 starts** against the 50K Daily accounts (§447/§454: +$5,616 / +$8,040). Reported to the
 user only if Lightning beats the Daily account on 2025 starts per dollar of fees AND in mean net.
 
+## 607. A53: the 50K Lightning is much worse than the 50K Daily for the rule accounts (S1)
+
+**No trial; N 1,525.** `reports/a53_lightning.json` (module `reporting/a53_lightning.py`). Chosen on 2021–24 starts: NKD take $500 / stop
+$800 → 2025 starts **+$2,248** (P(payout) 94%) vs the Daily account's **+$8,040**; FDXM take $400 / stop $800 → **+$666** (92%) vs **+$5,616**.
+The 20–30% consistency rule caps a day's win near $500–600, the $492 price is six evaluations, and a breach costs a full account. The
+Daily 50K stays the account for every market. (Sources: Tradeify help centre — Lightning Funded Accounts, Lightning payout policy, pricing
+reference — read 2026-10-15.)
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
