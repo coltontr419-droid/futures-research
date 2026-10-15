@@ -44,7 +44,8 @@ RULES = {h: m for m, hs in {
     ("d153_asia", 648, "predictor"): ("D652",),
     ("d156_asiafx", 657, "predictor"): ("D659",),
     ("d161_remaining", 684, "predictor"): ("D686",),
-    ("d165_ratios", 713, "spread"): ("D714",)}.items() for h in hs}
+    ("d165_ratios", 713, "spread"): ("D714",),
+    ("d171_tsmom", 727, "predictor"): ("D727", "D728")}.items() for h in hs}
 #: Yahoo 5-minute windows: name -> (symbol, tz, start hh:mm, end hh:mm, starts the previous evening)
 WIN = {"MNQ": ("NQ=F", "America/New_York", (9, 30), (16, 0), False), "MGC": ("GC=F", "America/New_York", (3, 0), (11, 30), False),
        "NKD": ("NKD=F", "Asia/Tokyo", (9, 0), (15, 0), False), "DAX": ("^GDAXI", "Europe/Berlin", (9, 0), (17, 30), False),

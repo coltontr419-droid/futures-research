@@ -13432,6 +13432,14 @@ MCL. Every dollar estimate here (the book's +$17.5k per four months on 2025 star
 the comparisons between markets that use the same costs stand, and crude's real cost makes §614's case for replacing it weaker still.
 Not re-run (no decision turns on it); the user can confirm the live schedule on their platform.
 
+## 616. A49 watchlist: D727–D728 added; their early forward lead is one position, not 27 trades (S8)
+
+**No trial.** The forward tracker now includes gold's London window fading its own 60-day trend (D727 all days, D728 strong days). First
+forward reading (2026-09-01 → 10-14, unseen): D728 +33.67 bps a session (t 2.77, n 27), D727 +24.63 (t 1.68, n 30). The 60-day trend sign
+did not change in that span, so this is one short-gold stance through a pullback — a single block, not 27 independent trades; the t is not
+meaningful until the trend has flipped several times forward. D718 (MNQ volatility breakout) is not tracked (needs minute data beyond
+Yahoo's 5-minute bars). 16 of 23 watchlist rules positive forward so far.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
