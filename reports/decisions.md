@@ -13224,6 +13224,14 @@ in each exchange's local clock and converted to New York: **DAX** (grxeur) 10:00
 the rest of the DAX, gold or Nikkei window (best: NKD's afternoon fades the euro's Tokyo morning, +2.1 bps, t 1.84). The deployed rules'
 dollar effect works across sessions (the previous day / week), not within one.
 
+## 596. A52 protocol: contract count for the two rule accounts (S1)
+
+**No trial; N 1,508. Written and committed BEFORE any replay is run.** The plan's sizes (1 NKD, 2 FDXM; §137–138) were set for a zero-edge
+market against the $2,000 drawdown; with a rule, more contracts put more of the edge behind the same dollar brackets. A23 replay with the
+deployed rules: NKD n ∈ {1, 2, 3}, FDXM n ∈ {1, 2, 3, 4}; the plan's bracket policy; read on 2021–24 starts (choice) and once on 2025 starts
+and 2010–20, with 60 random-flip draws at each n. Adopt only if the 2021–24 choice also beats the deployed size on 2025 starts and does
+not lower 2025-start P(payout) by more than 3 points.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
