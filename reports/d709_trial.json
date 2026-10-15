@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D709",
+ "cell": "DAX fades 6E on high-volume days",
+ "trades": 189,
+ "net_bps": 14.022776739328416,
+ "t_net": 2.0380502090548513,
+ "placebo_pct": 97.8,
+ "by_year": {
+  "2025": 8.398617986045917,
+  "2026": 22.385012780393186
+ },
+ "always_long_net_bps": 0.18879649993159658,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 722,
+ "injection": {
+  "hypothesis": "D709",
+  "n_events": 189,
+  "sought_bps": 6.478399168805121,
+  "mean_estimate": 6.7364341905297405,
+  "recovered": true
+ },
+ "trial_id": "t01491"
+}

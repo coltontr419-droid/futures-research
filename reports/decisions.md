@@ -12937,6 +12937,16 @@ window**, **CL → CL's session**, **6E → the DAX and NKD windows** (the dolla
 00:00 → 24:00 UTC (≈ 20:00 ET d−1 → 20:00 ET d), so it ends before every next-day window except CL's (opens 18:00 ET) — **CL uses the
 bar before** (lag 2). Follow/fade fixed on 2021–24. **5 × 2 = 10 tests** (~0.25 by chance at t > 1.96). Costs §180. Validation per §426, 2.
 
+## 567. Family-163: volume-conditioned moves — 2 of 10 carried; D709 CONFIRMED (the DAX–dollar theme on heavy euro volume) (S1)
+
+**N 1,491.** `reports/d163_discovery.json` (module `reporting/d163_volume.py`):
+- **D708** CL fades CL on low-volume days: **WATCHLIST** +26.58 (t +1.49), placebo 92th, 2025 +14.9, 2026 +43.6
+- **D709** DAX fades 6E on high-volume days: **CONFIRM** +14.02 (t +2.04), placebo 98th, 2025 +8.4, 2026 +22.4
+
+**D709** is the deployed DAX–dollar theme restricted to sessions after a high-volume 6E bar: +14.02 bps in 2025–26 (2025 +8.4, 2026 +22.4),
+about double the every-day rule's sealed edge; 2010–20 context +4.38. Next: FDXM account replay of volume-conditioned variants against the
+deployed rule (A46). D708 (crude fades its own low-volume days) WATCHLIST, positive both years.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

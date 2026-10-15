@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D708",
+ "cell": "CL fades CL on low-volume days",
+ "trades": 228,
+ "net_bps": 26.57838089864454,
+ "t_net": 1.4932602509635402,
+ "placebo_pct": 92.4,
+ "by_year": {
+  "2025": 14.878344536241013,
+  "2026": 43.562304650520616
+ },
+ "always_long_net_bps": -3.4272565260894967,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 721,
+ "injection": {
+  "hypothesis": "D708",
+  "n_events": 228,
+  "sought_bps": 10.723355961777647,
+  "mean_estimate": 10.752102154408636,
+  "recovered": true
+ },
+ "trial_id": "t01490"
+}
