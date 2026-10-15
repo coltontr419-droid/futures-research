@@ -12947,6 +12947,15 @@ bar before** (lag 2). Follow/fade fixed on 2021–24. **5 × 2 = 10 tests** (~0.
 about double the every-day rule's sealed edge; 2010–20 context +4.38. Next: FDXM account replay of volume-conditioned variants against the
 deployed rule (A46). D708 (crude fades its own low-volume days) WATCHLIST, positive both years.
 
+## 568. A46: D709 in the FDXM account — no reliable gain over the deployed rule; not proposed (S1)
+
+**No trial; N 1,491.** `reports/a46_daxvol.json` (module `reporting/a46_daxvol.py`), 60 random-flip draws each:
+- deployed (DX every day): post-2021 +$3,720 (beats 95%); 2025 starts **+$5,616** (P(payout) 92%, beats 98%); pre-2021 +$3,144 (93%).
+- heavy-6E-volume days follow the euro's bar, else DX: post-2021 +$3,779 (97%); 2025 starts **+$6,521** (93%, beats 100%); **pre-2021 +$2,417** (63%).
+- heavy-volume days only, else long: 2025 starts +$2,325 (69%) — trading half the days loses the account value.
+The variant's +$905 on 2025 starts is from ~400 sessions, it is equal on all post-2021 starts, worse before 2021, and its form was chosen
+after seeing 2025–26. **Not proposed**; the deployed rule stays. D709 stands as confirmation that the theme strengthens on heavy euro volume.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
