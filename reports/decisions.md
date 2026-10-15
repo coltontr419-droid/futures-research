@@ -12876,6 +12876,14 @@ Validation per §426, 2; a CONFIRM then needs §446/§453.
 
 NKD-follows-risk fails a third time (families 142, 143, 160): it was a 2021–24 pattern only.
 
+## 562. D-series family 161 protocol: the remaining Yahoo series (softs, other commodities, Americas indices, US sectors), current regime (S1)
+
+**No trial spent; N 1,465. Written and committed BEFORE any statistic is computed.** Open → close: **KC=F, SB=F, CC=F, CT=F** (ICE softs,
+close ~13:30–14:00 ET), **PA=F**, **BZ=F** (ICE Brent; trades to ~18:00 ET, so NOT used for CL and ZS, whose sessions open 18:00–20:00 ET),
+**KE=F**, **GF=F**, **XLB, XLI, XLP, XLV, XLRE**; close → close: **^BVSP, ^MXX, ^GSPTSE**. Previous weekday 1-day and 5-day; six plan windows;
+forms all / strong; follow/fade fixed on 2021–24. **≈ 16 × 2 × 6 × 2 = 380 tests** (~9.5 by chance at t > 1.96). Costs §177/§180.
+Validation per §426, 2; a CONFIRM then needs §446/§453.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
