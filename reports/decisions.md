@@ -12663,6 +12663,15 @@ Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests.
 
 At chance; the last hour carries nothing the whole day does not.
 
+## 540. D-series family 153 protocol: Asian local indices into the plan windows, timing-aware, current regime (S1)
+
+**No trial spent; N 1,429. Written and committed BEFORE any statistic is computed.** Yahoo local indices, **close → close** (opens are
+unreliable, §467): ^KS11 (closes ~01:30–02:30 ET), ^TWII (~00:30–01:30), ^AXJO (~01:00–02:00), ^HSI (~03:00–04:00), 000001.SS (~02:00–03:00),
+^STI (~04:00–05:00), ^BSESN (~05:00–06:00). Same-date sessions are used only where they close before the target opens: **DAX and MGC**
+(03:00 ET) same date for ^KS11, ^TWII, ^AXJO, previous weekday for the rest; **MNQ** (09:30) same date for all; **NKD** (20:00 ET the evening
+before its Tokyo date) previous weekday for all. 1-day and 5-day (the 5 sessions ending at that date); forms all / strong; follow/fade fixed on
+2021–24. **7 × 4 × 2 × 2 = 112 tests** (~2.8 by chance at t > 1.96). Costs §180. Validation per §426, 2; a CONFIRM then needs §446/§453.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
