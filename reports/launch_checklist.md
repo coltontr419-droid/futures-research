@@ -13,6 +13,8 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
   - **Now:** MNQ, MGC, MCL, NKD, FDXM: +$17,500 a 4-month run
   - **B:** 2×NKD + 2×FDXM + MNQ: +$26,100, but the duplicate accounts win and lose together
   - **C:** 3×NKD + 2×FDXM: +$32,000, the most concentrated
+- [ ] Fifth market: MCL or **ZB** (30-year bonds, 4 contracts)? ZB made the book steadier over 2010–26 (P(net > 0) 85 → 92% and
+  96 → 99%) but $484 less on 2025 starts (decisions.md 611). Needs Tradeify to permit ZB and a bot ticket.
 - [ ] Buying order if not all at once: **NKD and FDXM first** (they carry the rules and pay out most often: NKD 95%, FDXM 92% of 2025
   starts), then MNQ, then MGC and MCL. ZS stays demo-only.
 - [ ] Tradeify 50K Daily rules still as modelled (you confirmed 2026-10-15): $80 evaluation, target +$3,000, end-of-day trailing
