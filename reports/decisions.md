@@ -12774,6 +12774,14 @@ carry must also hold on weekly sums). Costs §180. Validation per §426, 2 (plac
 
 Gold fading foreign JGB buying (2021–24 t 3.3, weekly t 3.25, same sign in 2010–20) disappears on 2025–26 (−0.31). Weekly flows add nothing.
 
+## 552. D-series family 156 protocol: Asian currencies not yet screened, current regime (S1)
+
+**No trial spent; N 1,438. Written and committed BEFORE any statistic is computed.** Yahoo spot USD/CNY, USD/TWD, USD/SGD, USD/THB, USD/PHP
+(close → close, UTC-dated as family 111's currencies; bars close ~18:00–20:00 ET, so only windows opening after are targets): the **DAX**
+and **gold's London** windows (03:00 ET next day) and **MNQ** (09:30). Previous weekday's sign (1-day) and previous 5 weekdays' sum (5-day);
+forms all / strong; follow/fade fixed on 2021–24. **5 × 3 × 2 × 2 = 60 tests** (~1.5 by chance at t > 1.96). Costs §180. Validation per
+§426, 2; a CONFIRM then needs §446/§453.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
