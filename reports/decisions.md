@@ -12612,6 +12612,15 @@ leg on the same lagged date). Targets: NKD, DAX, MGC, MNQ plan windows. Follow/f
 
 Foreign yields carry nothing into the plan windows out of sample.
 
+## 536. D-series family 151 protocol: crude's other windows (Brent minute proxy) as every-day targets, current regime (S1)
+
+**No trial spent; N 1,407. Written and committed BEFORE any statistic is computed.** As families 136 (gold) and 141 (MNQ) did: the MCL
+account could trade a shorter window. Owned/HistData WTI minute data has a 2024–26 gap, so the target is **HistData Brent (bcousd, corrected
+clock)**: **London morning 03:00 → 09:00 ET** and **New York 09:00 → 14:30 ET** (the NYMEX pit hours), each minute-grid close → close,
+rows ≥ 80% filled. Predictors: family 111's list incl. spot currencies (all close before 03:00 ET), minus CL=F; previous weekday's sign
+(1-day) and previous 5 weekdays' sum (5-day); forms all / strong; follow/fade fixed on 2021–24; cost 0.7. Carried at net > 0, t > 1.96.
+Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests (incl. whether WTI follows where data exist) and an MCL replay on the window.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
