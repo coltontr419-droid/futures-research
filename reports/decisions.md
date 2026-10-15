@@ -13258,6 +13258,15 @@ blocks of unequal length cannot be swapped*); a CONFIRM then needs an account re
 
 No market's window follows its own long trend in 2021–24 (time-series momentum is absent at the window level).
 
+## 600. D-series family 172 protocol: pooled foreign-index signals (DAX + NKD windows together), current regime (S1)
+
+**No trial spent; N 1,511. Written and committed BEFORE any statistic is computed.** Both rules that hold act on the non-US index windows.
+A predictor that drives foreign equities should move both: each family-111 predictor (eligible for both targets; spot currencies excluded
+— NKD opens before they close; the deployed dollar series 6E=F and DX-Y.NYB excluded as already validated) → **the DAX and NKD windows
+pooled** (each window's sessions scaled by its own 2021–24 SD so neither dominates), one direction for both, previous weekday's sign 1-day /
+5-day, forms all / strong, follow/fade fixed on 2021–24. Carried at net > 0, t > 1.96 pooled AND the same sign in each window separately.
+Costs DAX 0.3, NKD 0.2. Validation per §426, 2 (pooled; placebo shuffled signs); a CONFIRM then needs account replays on both.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
