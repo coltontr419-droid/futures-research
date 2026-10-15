@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D657",
+ "cell": "MGC follows CNY=X 1d (strong)",
+ "trades": 110,
+ "net_bps": 3.8318010676990855,
+ "t_net": 0.34747295189761496,
+ "placebo_pct": 66.5,
+ "by_year": {
+  "2025": 5.452912213252139,
+  "2026": 1.4901960796780016
+ },
+ "always_long_net_bps": -3.186396360397339,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 670,
+ "injection": {
+  "hypothesis": "D657",
+  "n_events": 110,
+  "sought_bps": 4.618494766749693,
+  "mean_estimate": 4.328679230580125,
+  "recovered": true
+ },
+ "trial_id": "t01439"
+}

@@ -12782,6 +12782,17 @@ and **gold's London** windows (03:00 ET next day) and **MNQ** (09:30). Previous 
 forms all / strong; follow/fade fixed on 2021–24. **5 × 3 × 2 × 2 = 60 tests** (~1.5 by chance at t > 1.96). Costs §180. Validation per
 §426, 2; a CONFIRM then needs §446/§453.
 
+## 553. Family-156: Asian currencies — 3 of 60 carried (≈ 1.5 by chance); no CONFIRM, one near miss (S1)
+
+**N 1,441.** `reports/d156_discovery.json` (module `reporting/d156_asiafx.py`):
+- **D657** MGC follows CNY=X 1d (strong): **WATCHLIST** +3.83 (t +0.35), placebo 66th, 2025 +5.5, 2026 +1.5
+- **D658** MGC follows PHP=X 1d (strong): **REJECT** -0.71 (t -0.10), placebo 49th, 2025 +0.6, 2026 -2.8
+- **D659** MGC follows CNY=X 1d (all): **WATCHLIST** +8.72 (t +1.43), placebo 94th, 2025 +8.1, 2026 +9.6
+
+**D659 (gold's London window follows USD/CNY's previous day, all days) is a near miss:** +8.72 bps in 2025–26, positive in both years
+(+8.1 / +9.6), placebo 94th, t 1.43 — fails only the t and placebo thresholds narrowly. Mechanism: Chinese buyers hedge yuan weakness
+with gold (strong since 2022); 2010–20 negative (−1.6), a current-regime effect. **Watchlist** (§133): forward-tested, not traded.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

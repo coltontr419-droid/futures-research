@@ -3336,3 +3336,15 @@ Data-derived (D-series family 155). `hypotheses.yaml` (D655) · `decisions.md` �
 ## D656 — Mnq Follows Mof Weekly Resident Foreign Equity Strong  *(WATCHLIST — t01438)*
 
 Data-derived (D-series family 155). `hypotheses.yaml` (D656) · `decisions.md` §551
+
+## D657 — Mgc Follows Cny X 1D Strong  *(WATCHLIST — t01439)*
+
+Data-derived (D-series family 156). `hypotheses.yaml` (D657) · `decisions.md` §553
+
+## D658 — Mgc Follows Php X 1D Strong  *(REJECT — t01440)*
+
+Data-derived (D-series family 156). `hypotheses.yaml` (D658) · `decisions.md` §553
+
+## D659 — Mgc Follows Cny X 1D All  *(WATCHLIST — t01441)*
+
+Data-derived (D-series family 156). `hypotheses.yaml` (D659) · `decisions.md` §553

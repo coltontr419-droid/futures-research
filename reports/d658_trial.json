@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D658",
+ "cell": "MGC follows PHP=X 1d (strong)",
+ "trades": 209,
+ "net_bps": -0.7121673072924467,
+ "t_net": -0.10232522399732272,
+ "placebo_pct": 49.2,
+ "by_year": {
+  "2025": 0.577252644758959,
+  "2026": -2.8339976081365257
+ },
+ "always_long_net_bps": 9.637788772583008,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 671,
+ "injection": {
+  "hypothesis": "D658",
+  "n_events": 209,
+  "sought_bps": 4.3250725435406965,
+  "mean_estimate": 4.310327704700614,
+  "recovered": true
+ },
+ "trial_id": "t01440"
+}
