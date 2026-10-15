@@ -12404,6 +12404,15 @@ No discovery carry gate: all six are validated (one trial each).
 Pooling ~100 scaled predictor moves gives nothing out of sample; the NKD and DAX models (CV t 3.5 / 1.95) lose to the single dollar
 signals they dilute. Pooled models are closed as a route.
 
+## 523. D-series family 146 protocol: never-screened Yahoo series as every-day predictors, current regime (S1)
+
+**No trial spent; N 1,308. Written and committed BEFORE any statistic is computed.** Series not in family 111's list: **close → close**
+(indices, settle after the US close): ^MOVE (Treasury implied vol), ^VXN, ^TNX, ^IRX, ^TYX; **open → close** (US-hours ETFs / futures):
+ZQ=F (fed funds), UUP (dollar ETF, US hours), EWJ, EWG, EWZ, EWY, EWT, INDA, KWEB, IBB, XHB, ITB, XRT, JETS, ARKK, TAN, URA, COPX, XME,
+OIH. Six plan windows; EWJ is not used for NKD nor EWG for the DAX (same market in US hours). Previous weekday's sign (1-day) and previous
+5 weekdays' sum (5-day); forms all / strong; follow/fade fixed on 2021–24; carried at net > 0, t > 1.96 (~2.5% by chance). Costs §177/§180.
+Validation per §426, 2; a CONFIRM then needs the §446/§453 stress tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
