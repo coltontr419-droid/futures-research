@@ -12747,6 +12747,13 @@ per-day rules (consistency, payout-day counts) per WINDOW, which flatters cadenc
 on 2025 starts (sealed) and 2010–20 with NKD-only and FDXM-only accounts. Reported to the user as an option only if the combined account
 beats BOTH single accounts' mean net AND beats ≥ 95% of random flips on 2025 starts.
 
+## 549. A45: NKD then DAX in one account — worse than NKD alone; not offered (S1)
+
+**No trial; N 1,435.** `reports/a45_twowin.json` (module `reporting/a45_twowin.py`). Interleaved windows, 168 steps: post-2021 the rules make
++$7,457 (P(payout) 100%, beats 92% of random flips) vs plan +$3,983; **2025 starts +$6,348 vs random +$5,799 (beats 59%)** — below the NKD-only
+account (+$8,040) and barely above random. Pre-2021 the rules lose to the plan (+$4,603 vs +$5,813, beats 20%). Two edges in one account do
+not add: the account caps out (target reached, consistency/payout cadence) and the second window adds swing more than edge. Fails §548.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
