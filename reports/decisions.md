@@ -12266,6 +12266,20 @@ tests (beat ≥ 95% of random flips in the account replay).
 weakness). They add confirmation of the deployed theme, nothing new to trade; no stress test (the 5-day rule already passed A35). The
 NKD-follows-risk cluster (FXI, EEM, DAX, HYG, RTY, SMH) that dominated discovery failed out of sample.
 
+## 517. D-series family 143 protocol: composite predictors (dollar, risk, rates, commodities, grains), current regime (S1)
+
+**No trial spent; N 1,231. Written and committed BEFORE any statistic is computed.** Single predictors are exhausted; averages of many
+noisy series may carry a common factor more cleanly. Each member's 1-day move is scaled by its 2021–24 median absolute move; a composite is
+the mean of its members' scaled moves (sign-adjusted), summed over h = 1, 3, 5 weekdays ending the weekday before the session.
+- **dollar** (+ = dollar up): DX-Y.NYB, −6E, −6B, −6A, −6C, −6S, −6J
+- **risk** (+ = risk on): ES, NQ, RTY, EEM, FXI, HYG, KRE, SMH, XLF, XLY, ^GDAXI, −^VIX
+- **rates** (+ = bond prices up): ZT, ZN, ZB, TLT
+- **commodities**: CL, NG, RB, HO, HG, SI, GC, ZC, ZS, ZW
+- **grains**: ZC, ZS, ZM, ZL, ZW, SOYB
+A target's own market is dropped from every composite; for CL and ZS the members excluded by family 111's timing rule (UNIV14) are dropped.
+Six plan windows; forms all / strong; follow/fade fixed on 2021–24. **5 × 3 × 6 × 2 = 180 tests** (~4.5 by chance at t > 1.96). Validation
+per §426, 2; a CONFIRM that is not the deployed dollar theme then needs the §446/§453 stress tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
