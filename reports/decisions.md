@@ -12589,6 +12589,16 @@ the account replay on top of the deployed dollar-week rule.
 to 19:55 ET, +4.97 bps (t 1.59). Of note (context only, not a test): before 2021 NKD followed USD/JPY's evening move strongly (+11.5,
 t 3.7; strong days +17.1, t 3.5) — gone since 2021 (+1.3, t 0.5). No pre-entry re-check for NKD.
 
+## 534. D-series family 150 protocol: Japanese and euro-area government yields as every-day predictors, current regime (S1)
+
+**No trial spent; N 1,400. Written and committed BEFORE any statistic is computed.** New official data (cached under data/cache/yields,
+gitignored): **Japan MOF JGB constant-maturity yields** (jgbcme_all.csv + current month; Tokyo close, known by ~02:00 ET the same day) and
+**ECB euro-area AAA yield curve** 2Y / 10Y (published ~12:00 CET the next day, so **lagged two weekdays**: the value for the weekday before
+the previous weekday). US 10Y = ^TNX close. Predictors (daily change in bps; 1-day = the last available day, 5-day = the 5 days ending
+there): **jgb10**, **jgb2**, **jp_curve** (10Y − 2Y), **us_jp10** (US 10Y − JGB 10Y), **ea10**, **ea_curve**, **us_ea10** (US 10Y − EA 10Y; US
+leg on the same lagged date). Targets: NKD, DAX, MGC, MNQ plan windows. Follow/fade fixed on 2021–24; forms all / strong.
+**7 × 2 × 4 × 2 = 112 tests** (~2.8 by chance at t > 1.96). Costs §180. Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
