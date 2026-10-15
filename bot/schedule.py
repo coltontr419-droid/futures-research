@@ -179,6 +179,42 @@ def recorded_outcome(pnl: float, take_net: float, stop_net: float) -> str:
 PROXY = {"FDXM": "DAX index proxy"}                    # shadow tracked on a stand-in, not the traded future (shadow.YAHOO)
 
 
+def eod_check(tix: "Tickets", product: str, pnl: float, now: dt.datetime, fetch=shadow.bars) -> str | None:
+    """Before an `!eod` is booked: replay the ticket being documented on 1-minute bars from its exact entry minute to now (or its
+    exit) and return a warning if the replay hit the OTHER bracket than the one the sent P&L implies (a take read as a stop, or the
+    reverse). None when they agree, the replay has no answer yet, or anything fails - the check never blocks a result."""
+    try:
+        cands = [r for r in tix.t if r["product"] == product and r["ticket"].get("trade") and not r.get("eod")
+                 and dt.datetime.fromisoformat(r["entry"]) <= now]
+        if not cands:
+            return None
+        r = max(cands, key=lambda x: x["entry"]); tk = r["ticket"]; pp = policy()["PRODUCTS"][product]
+        sent = recorded_outcome(pnl, tk.get("take_net", 0), tk.get("stop_net", 0))
+        if sent not in ("TAKE", "STOP"):
+            return None
+        e = dt.datetime.fromisoformat(r["entry"]); x = min(dt.datetime.fromisoformat(r["exit"]), now)
+        res = shadow.simulate(fetch(product, e, x), tk["side"], tk["take_points"], tk["stop_points"], tk["contracts"], pp["mult"], pp["rt"])
+        prox = f" ({PROXY[product]} — it can differ from the future)" if product in PROXY else ""
+        word = {"TAKE": "a take", "STOP": "a stop"}
+        if res.get("outcome") == "TIME EXIT" and now < dt.datetime.fromisoformat(r["exit"]):    # still open: neither bracket touched yet
+            sg = 1.0 if tk["side"] == "long" else -1.0
+            tp, sp = res["entry"] + sg * tk["take_points"], res["entry"] - sg * tk["stop_points"]
+            return (f"⚠️ **{product} not recorded yet.** You sent {pnl:+,.0f} ({word[sent]}), but the 1-minute replay from the exact "
+                    f"{clock(e, False)} CT entry has **not hit either bracket yet**{prox}: entry {res['entry']:,.2f}, last {res['exit']:,.2f}, "
+                    f"take {tp:,.2f}, stop {sp:,.2f}.\n"
+                    f"• If your chart really shows {word[sent]}, resend with `confirm` at the end, e.g. `!eod {product} <balance> confirm`.\n"
+                    f"• Otherwise wait for the bracket and send the balance then.")
+        if res.get("outcome") not in ("TAKE", "STOP") or res["outcome"] == sent:
+            return None
+        return (f"⚠️ **{product} not recorded yet.** You sent {pnl:+,.0f} ({word[sent]}), but the 1-minute replay from the exact "
+                f"{clock(e, False)} CT entry hit **the {res['outcome'].lower()}** at {_res_time(res.get('time'), e)}{prox} "
+                f"(entry {res['entry']:,.2f} → {res['exit']:,.2f}).\n"
+                f"• If your chart really shows {word[sent]}, resend with `confirm` at the end, e.g. `!eod {product} <balance> confirm`.\n"
+                f"• If it was {word[res['outcome']]}, send the balance that matches it.")
+    except Exception:
+        return None
+
+
 def _res_time(txt, entry: dt.datetime) -> str:
     """The shadow result's time ('HH:MM' New York) shown as Chicago 12-hour."""
     try:

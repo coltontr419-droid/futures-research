@@ -229,3 +229,34 @@ def test_recorded_result_overrides_shadow() -> None:
          "ticket": {"take_net": 1200.0, "stop_net": 600.0}, "result": {"outcome": "TAKE", "time": "07:19", "pnl": 1201.6, "entry": 25322.0}}
     line = sch.result_line(r)
     assert "**STOP**" in line and "DAX index proxy" in line and "said TAKE" in line
+
+
+def test_eod_check_flags_a_take_read_as_a_stop() -> None:
+    """decisions.md 577: !eod is checked against the exact-entry 1-minute replay; a take sent as a stop (or the reverse) is held
+    back with a warning; agreement, no replay answer, or an error never block."""
+    import datetime as _dt
+    import tempfile
+    from pathlib import Path as _P
+    from zoneinfo import ZoneInfo
+    import schedule as sch
+    et = ZoneInfo("America/New_York")
+    entry = _dt.datetime(2026, 10, 15, 9, 30, tzinfo=et)
+    rec = {"product": "MNQ", "issued": "2026-10-14T17:30:00-04:00", "entry": entry.isoformat(), "exit": "2026-10-15T16:00:00-04:00",
+           "phase": "eval", "balance": 49000.0, "status": "pending", "traded": None, "result": None,
+           "ticket": {"trade": True, "side": "long", "contracts": 4, "take_net": 1000.0, "stop_net": 999.0, "take_points": 126.25, "stop_points": 123.75}}
+    up = lambda p, s, e: [(entry + _dt.timedelta(minutes=k), 25000.0 + k, 25000.0 + 30 * k, 24990.0, 25000.0 + 30 * k) for k in range(10)]
+    flat = lambda p, s, e: [(entry + _dt.timedelta(minutes=k), 25000.0, 25001.0, 24999.0, 25000.0) for k in range(10)]
+    def boom(p, s, e):
+        raise OSError("no network")
+    now = _dt.datetime(2026, 10, 15, 10, 10, tzinfo=et)
+    with tempfile.TemporaryDirectory() as d:
+        t = sch.Tickets(_P(d) / "t.json", _P(d) / "s.csv"); t.t = [rec]
+        w = sch.eod_check(t, "MNQ", -1000.0, now, fetch=up)
+        assert w and "take" in w and "confirm" in w                      # the replay took profit; a stop was sent
+        assert sch.eod_check(t, "MNQ", 1000.0, now, fetch=up) is None     # agrees
+        w2 = sch.eod_check(t, "MNQ", -1000.0, now, fetch=flat)            # window still open, neither bracket touched
+        assert w2 and "not hit either bracket" in w2
+        late = _dt.datetime(2026, 10, 15, 16, 5, tzinfo=et)
+        assert sch.eod_check(t, "MNQ", -1000.0, late, fetch=flat) is None # closed as a time exit - no opinion on a stop
+        assert sch.eod_check(t, "MNQ", -1000.0, now, fetch=boom) is None  # data failure never blocks
+        assert sch.eod_check(t, "MNQ", 150.0, now, fetch=up) is None      # a time exit is not second-guessed

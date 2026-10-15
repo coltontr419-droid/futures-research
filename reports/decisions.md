@@ -13027,6 +13027,20 @@ Concentrating raises the mean in every period (+$8.6k on 2025 starts for B) but 
 96 → 94% (2021–26) and 85 → 82% (2010–20); the 2021–26 p5 goes from +$1,673 to about −$200. Duplicates are perfectly correlated, so B's
 two NKD accounts breach together. For the user's decision; no change made.
 
+## 577. The 2026-10-15 MNQ misread, corrected; `!eod` now cross-checks against an exact-entry replay (S8)
+
+**No trial.** The user recorded the 10-15 MNQ ticket as a stop (−$1,000, breaching the eval) at 10:10 ET; re-read with take/stop set from
+the exact 09:30:00 entry it was the take (+$1,000). At the user's request the droplet state was corrected (backup-2026-10-15-mnqfix):
+MNQ back to its first eval, balance $50,000, evals bought 1, the ticket's `user_pnl` +1,000, and the demo log's breach + NEW_EVAL rows
+replaced by one corrected EOD row (noted as the user's correction). Yahoo 1-minute bars agree: from entry 29,745.50 the take
+(29,871.75) was hit at 10:41 ET; at 10:10 neither bracket had been touched (last 29,861).
+
+**Bot change (built and tested locally; deployed only on the user's OK):** `schedule.eod_check` replays the ticket being documented on
+1-minute bars from its exact entry to now. If the sent P&L implies a take but the replay hit the stop (or the reverse), or the window is
+still open and the replay has touched neither bracket, the bot books nothing and says so; `!eod <P> <balance> confirm` books it anyway.
+Agreement, a time exit, missing data or any error never block. FDXM's replay is the DAX index proxy (§492), named in the warning.
+Tests: tests/test_bot_ticket.py::test_eod_check_flags_a_take_read_as_a_stop.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
