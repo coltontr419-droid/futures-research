@@ -13104,6 +13104,26 @@ do on a breach / pass / payout / missed ticket / missing alert, and the stop-and
 the replay by > ~$50 a ticket over 20+, monthly review + A49 watchlist, any rule change). Slippage stress left for later at the user's
 call (only ZS's 20–40-tick brackets would be hurt badly by a few ticks, and ZS is not planned for live).
 
+## 584. The user widens the search to any strategy; A50 strategy library batch 1 protocol (MNQ intraday) (S1)
+
+**No trial spent; N 1,499. Written and committed BEFORE any statistic is computed.** The user (2026-10-15): the search need not stay with
+direction rules for the plan's windows — any strategy that holds up in a prop-firm setting is worth as much as the demo. Constraints kept:
+no position through the 17:00–18:00 ET break, one direction per product, no cross-product hedges, every entry placeable by scheduled order.
+
+**Evaluation (the A50 simulator).** A strategy = per session: entry minute, direction (or none). Paths run from the entry minute to the
+window's end on owned 1-minute closes (one contract, roll-safe), REAL (drift kept — a strategy may live on drift). Read in three ways:
+(i) per-trade net bps and t (cost §180); (ii) **the account with the plan's solver brackets** from the strategy's entry (A23 replay,
+non-trade days skipped) — §165: a strategy's own exits cannot carry an evaluation unless its Sharpe is extreme; (iii) the same with
+**random directions on the same entries** (100 draws) — the calibration. Discovery 2021–24 picks each strategy's variant; validation
+2025–26 once (§426, 2; placebo = random directions on the same entries); account replay on 2025 starts.
+
+**Batch 1 — MNQ, RTH 09:30 → 16:00 and night 18:00 → 09:30 (owned NQ/MNQ minutes):**
+- **ORB:** opening range of the first 15 / 30 minutes; the first close beyond it after the range enters in that direction (one a day).
+- **Volatility breakout:** first touch of open ± k × the previous RTH range, k ∈ {0.3, 0.5}.
+- **First-hour momentum:** at 10:30, the sign of 09:30 → 10:30.
+- **Overnight long:** every night 18:00 → 09:30, long.
+Variants: ORB15, ORB30, VB0.3, VB0.5, FH, ON = **6 tests**; carried at net > 0, t > 1.96 on 2021–24.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
