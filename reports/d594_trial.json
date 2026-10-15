@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D594",
+ "cell": "^GDAXI follows TAN 1d (all)",
+ "trades": 402,
+ "net_bps": -10.0634611704488,
+ "t_net": -2.356499874273439,
+ "placebo_pct": 0.8999999999999999,
+ "by_year": {
+  "2025": -12.011339260942194,
+  "2026": -7.147693345548751
+ },
+ "always_long_net_bps": -0.23163041361205514,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 606,
+ "injection": {
+  "hypothesis": "D594",
+  "n_events": 402,
+  "sought_bps": 3.457228693679355,
+  "mean_estimate": 3.4571006700716618,
+  "recovered": true
+ },
+ "trial_id": "t01376"
+}

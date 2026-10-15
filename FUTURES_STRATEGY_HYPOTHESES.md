@@ -3060,3 +3060,79 @@ Data-derived (D-series family 146). `hypotheses.yaml` (D586) · `decisions.md` �
 ## D587 — Nkd Follows Inda 5D All  *(WATCHLIST — t01369)*
 
 Data-derived (D-series family 146). `hypotheses.yaml` (D587) · `decisions.md` §524
+
+## D588 — Nkd F Fades 6S F 1D Strong  *(REJECT — t01370)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D588) · `decisions.md` §527
+
+## D589 — Nkd F Fades 6B F 1D All  *(WATCHLIST — t01371)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D589) · `decisions.md` §527
+
+## D590 — Nkd F Fades 6B F 1D Strong  *(WATCHLIST — t01372)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D590) · `decisions.md` §527
+
+## D591 — Nkd F Fades 6A F 1D Strong  *(CONFIRM — t01373)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D591) · `decisions.md` §527
+
+## D592 — Gdaxi Fades 6S F 1D Strong  *(WATCHLIST — t01374)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D592) · `decisions.md` §527
+
+## D593 — Nkd F Fades 6A F 1D All  *(WATCHLIST — t01375)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D593) · `decisions.md` §527
+
+## D594 — Gdaxi Follows Tan 1D All  *(REJECT — t01376)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D594) · `decisions.md` §527
+
+## D595 — Nkd F Fades Zc F 5D Strong  *(WATCHLIST — t01377)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D595) · `decisions.md` §527
+
+## D596 — Nkd F Follows Skew 1D Strong  *(WATCHLIST — t01378)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D596) · `decisions.md` §527
+
+## D597 — Nkd F Fades 6S F 1D All  *(WATCHLIST — t01379)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D597) · `decisions.md` §527
+
+## D598 — Gdaxi Fades 6E F 1D All  *(WATCHLIST — t01380)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D598) · `decisions.md` §527
+
+## D599 — Nkd F Follows Skew 1D All  *(WATCHLIST — t01381)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D599) · `decisions.md` §527
+
+## D600 — Gdaxi Follows Oih 1D All  *(REJECT — t01382)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D600) · `decisions.md` §527
+
+## D601 — Nkd F Fades Gvz 1D All  *(REJECT — t01383)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D601) · `decisions.md` §527
+
+## D602 — Nkd F Fades Pl F 1D All  *(WATCHLIST — t01384)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D602) · `decisions.md` §527
+
+## D603 — Gdaxi Fades Cl F 5D All  *(REJECT — t01385)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D603) · `decisions.md` §527
+
+## D604 — Gdaxi Fades Mxn X 1D All  *(REJECT — t01386)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D604) · `decisions.md` §527
+
+## D605 — Nkd F Follows Kweb 5D All  *(WATCHLIST — t01387)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D605) · `decisions.md` §527
+
+## D606 — Nkd F Fades 6C F 1D Strong  *(WATCHLIST — t01388)*
+
+Data-derived (D-series family 147). `hypotheses.yaml` (D606) · `decisions.md` §527

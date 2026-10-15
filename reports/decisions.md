@@ -12504,6 +12504,33 @@ spot currencies/BTC-USD excluded (they close after 18:00 ET). Previous weekday's
 all / strong; follow/fade fixed on 2021–24; carried at net > 0, t > 1.96. Costs NKD 0.2, DAX 0.3. Validation per §426, 2; a CONFIRM that is
 not the deployed dollar theme then needs the §446/§453 stress tests.
 
+## 527. Family-147: whole NKD / DAX sessions — 19 of 696 carried (≈ 17.4 by chance); validated (S1)
+
+**N 1,388.** `reports/d147_discovery.json` (module `reporting/d147_wholesess.py`):
+- **D588** NKD=F fades 6S=F 1d (strong): **REJECT** -0.28 (t -0.02), placebo 48th, 2025 -19.4, 2026 +30.3
+- **D589** NKD=F fades 6B=F 1d (all): **WATCHLIST** +9.94 (t +1.24), placebo 91th, 2025 -2.4, 2026 +28.6
+- **D590** NKD=F fades 6B=F 1d (strong): **WATCHLIST** +0.04 (t +0.00), placebo 50th, 2025 -22.1, 2026 +37.5
+- **D591** NKD=F fades 6A=F 1d (strong): **CONFIRM** +25.86 (t +1.87), placebo 97th, 2025 +8.4, 2026 +51.3
+- **D592** ^GDAXI fades 6S=F 1d (strong): **WATCHLIST** +6.34 (t +1.03), placebo 86th, 2025 +2.9, 2026 +11.8
+- **D593** NKD=F fades 6A=F 1d (all): **WATCHLIST** +9.96 (t +1.24), placebo 91th, 2025 -3.8, 2026 +30.8
+- **D594** ^GDAXI follows TAN 1d (all): **REJECT** -10.06 (t -2.36), placebo 1th, 2025 -12.0, 2026 -7.1
+- **D595** NKD=F fades ZC=F 5d (strong): **WATCHLIST** +14.62 (t +1.19), placebo 89th, 2025 -6.2, 2026 +45.4
+- **D596** NKD=F follows ^SKEW 1d (strong): **WATCHLIST** +3.39 (t +0.30), placebo 63th, 2025 +8.3, 2026 -4.8
+- **D597** NKD=F fades 6S=F 1d (all): **WATCHLIST** +1.73 (t +0.22), placebo 55th, 2025 -10.1, 2026 +19.8
+- **D598** ^GDAXI fades 6E=F 1d (all): **WATCHLIST** +6.33 (t +1.49), placebo 93th, 2025 -0.7, 2026 +16.9
+- **D599** NKD=F follows ^SKEW 1d (all): **WATCHLIST** +4.06 (t +0.51), placebo 64th, 2025 +3.1, 2026 +5.6
+- **D600** ^GDAXI follows OIH 1d (all): **REJECT** -2.66 (t -0.62), placebo 30th, 2025 +4.5, 2026 -13.4
+- **D601** NKD=F fades ^GVZ 1d (all): **REJECT** -11.34 (t -1.42), placebo 5th, 2025 -4.7, 2026 -21.5
+- **D602** NKD=F fades PL=F 1d (all): **WATCHLIST** +3.27 (t +0.41), placebo 69th, 2025 -6.6, 2026 +18.5
+- **D603** ^GDAXI fades CL=F 5d (all): **REJECT** -2.52 (t -0.59), placebo 30th, 2025 -4.2, 2026 +0.0
+- **D604** ^GDAXI fades MXN=X 1d (all): **REJECT** -6.56 (t -1.52), placebo 9th, 2025 -2.7, 2026 -12.5
+- **D605** NKD=F follows KWEB 5d (all): **WATCHLIST** +1.17 (t +0.15), placebo 54th, 2025 -7.0, 2026 +13.6
+- **D606** NKD=F fades 6C=F 1d (strong): **WATCHLIST** +3.95 (t +0.32), placebo 60th, 2025 -5.2, 2026 +21.1
+
+One CONFIRM (D591, NKD's whole session fades the Australian dollar's strong days), a 1-day dollar-theme variant; its siblings (6B, 6S,
+6A all-days) are negative in 2025 and the cell is 2026-driven. Not stress-tested further: the plan windows already carry the dollar theme
+more steadily (§466–§468). At chance overall.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

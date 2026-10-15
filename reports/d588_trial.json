@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D588",
+ "cell": "NKD=F fades 6S=F 1d (strong)",
+ "trades": 210,
+ "net_bps": -0.27500249916558156,
+ "t_net": -0.024626499107778626,
+ "placebo_pct": 48.5,
+ "by_year": {
+  "2025": -19.448439116988542,
+  "2026": 30.260470632922843
+ },
+ "always_long_net_bps": 1.018328647679285,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 600,
+ "injection": {
+  "hypothesis": "D588",
+  "n_events": 210,
+  "sought_bps": 9.970067939967365,
+  "mean_estimate": 9.382783013072917,
+  "recovered": true
+ },
+ "trial_id": "t01370"
+}

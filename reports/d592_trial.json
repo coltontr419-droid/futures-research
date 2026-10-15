@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D592",
+ "cell": "^GDAXI fades 6S=F 1d (strong)",
+ "trades": 213,
+ "net_bps": 6.3351168489410075,
+ "t_net": 1.0333451089833416,
+ "placebo_pct": 86.0,
+ "by_year": {
+  "2025": 2.9368639209552967,
+  "2026": 11.764033111942569
+ },
+ "always_long_net_bps": -4.677892576665889,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 604,
+ "injection": {
+  "hypothesis": "D592",
+  "n_events": 213,
+  "sought_bps": 5.213666845986072,
+  "mean_estimate": 4.829646471340182,
+  "recovered": true
+ },
+ "trial_id": "t01374"
+}

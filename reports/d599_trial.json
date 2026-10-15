@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D599",
+ "cell": "NKD=F follows ^SKEW 1d (all)",
+ "trades": 400,
+ "net_bps": 4.059777494760897,
+ "t_net": 0.5058648724126529,
+ "placebo_pct": 63.800000000000004,
+ "by_year": {
+  "2025": 3.0651604015868665,
+  "2026": 5.567341768062418
+ },
+ "always_long_net_bps": 11.48717114607538,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 611,
+ "injection": {
+  "hypothesis": "D599",
+  "n_events": 400,
+  "sought_bps": 4.341875550527987,
+  "mean_estimate": 4.468950283845376,
+  "recovered": true
+ },
+ "trial_id": "t01381"
+}

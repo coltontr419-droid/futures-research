@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D595",
+ "cell": "NKD=F fades ZC=F 5d (strong)",
+ "trades": 171,
+ "net_bps": 14.616422694419906,
+ "t_net": 1.1908570385077624,
+ "placebo_pct": 89.3,
+ "by_year": {
+  "2025": -6.202314635886214,
+  "2026": 45.39194744356809
+ },
+ "always_long_net_bps": 0.1618229299921271,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 607,
+ "injection": {
+  "hypothesis": "D595",
+  "n_events": 171,
+  "sought_bps": 7.235141433878605,
+  "mean_estimate": 7.164930179120003,
+  "recovered": true
+ },
+ "trial_id": "t01377"
+}

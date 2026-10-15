@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D591",
+ "cell": "NKD=F fades 6A=F 1d (strong)",
+ "trades": 170,
+ "net_bps": 25.856174256761385,
+ "t_net": 1.8669754426077088,
+ "placebo_pct": 97.2,
+ "by_year": {
+  "2025": 8.445199905329174,
+  "2026": 51.34180337987231
+ },
+ "always_long_net_bps": 9.026864576998234,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 603,
+ "injection": {
+  "hypothesis": "D591",
+  "n_events": 170,
+  "sought_bps": 7.634784741187349,
+  "mean_estimate": 7.455878460961454,
+  "recovered": true
+ },
+ "trial_id": "t01373"
+}

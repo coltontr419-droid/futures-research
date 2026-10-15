@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D600",
+ "cell": "^GDAXI follows OIH 1d (all)",
+ "trades": 406,
+ "net_bps": -2.656082329113581,
+ "t_net": -0.6237446437919932,
+ "placebo_pct": 30.3,
+ "by_year": {
+  "2025": 4.54910639579884,
+  "2026": -13.397559998768296
+ },
+ "always_long_net_bps": -0.5333412623290303,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 612,
+ "injection": {
+  "hypothesis": "D600",
+  "n_events": 406,
+  "sought_bps": 2.9246936203605673,
+  "mean_estimate": 3.049144548790825,
+  "recovered": true
+ },
+ "trial_id": "t01382"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D601",
+ "cell": "NKD=F fades ^GVZ 1d (all)",
+ "trades": 400,
+ "net_bps": -11.343435608256138,
+ "t_net": -1.4163633805247344,
+ "placebo_pct": 5.4,
+ "by_year": {
+  "2025": -4.65344223671388,
+  "2026": -21.48361424059377
+ },
+ "always_long_net_bps": 11.48717114607538,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 613,
+ "injection": {
+  "hypothesis": "D601",
+  "n_events": 400,
+  "sought_bps": 3.969189806808564,
+  "mean_estimate": 4.017171054086676,
+  "recovered": true
+ },
+ "trial_id": "t01383"
+}

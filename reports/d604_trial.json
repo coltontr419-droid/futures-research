@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D604",
+ "cell": "^GDAXI fades MXN=X 1d (all)",
+ "trades": 369,
+ "net_bps": -6.555108725883464,
+ "t_net": -1.5216195424492251,
+ "placebo_pct": 8.7,
+ "by_year": {
+  "2025": -2.67141485631412,
+  "2026": -12.487052102006501
+ },
+ "always_long_net_bps": -2.6610854740735923,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 616,
+ "injection": {
+  "hypothesis": "D604",
+  "n_events": 369,
+  "sought_bps": 2.896608297195724,
+  "mean_estimate": 2.973183123022649,
+  "recovered": true
+ },
+ "trial_id": "t01386"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D602",
+ "cell": "NKD=F fades PL=F 1d (all)",
+ "trades": 399,
+ "net_bps": 3.270880838555163,
+ "t_net": 0.40735667183674595,
+ "placebo_pct": 69.19999999999999,
+ "by_year": {
+  "2025": -6.588337857106764,
+  "2026": 18.467893095562722
+ },
+ "always_long_net_bps": 11.021815594719275,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 614,
+ "injection": {
+  "hypothesis": "D602",
+  "n_events": 399,
+  "sought_bps": 3.9057782446758567,
+  "mean_estimate": 3.8534429299656843,
+  "recovered": true
+ },
+ "trial_id": "t01384"
+}
