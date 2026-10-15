@@ -196,12 +196,13 @@ def _bracket(h, l, c, W, L):
 
 
 def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip: np.ndarray | None = None,
-           fixed: tuple | None = None, nvec: np.ndarray | None = None) -> dict:
+           fixed: tuple | None = None, nvec: np.ndarray | None = None, scale: tuple | None = None) -> dict:
     """Back-to-back attempts from every start date, real sessions in order (a02_real.sequential 'replay', per trader),
     under spec s, with one-contract GROSS $ paths (h, l, c), n contracts, round trip rt each.
     A27 (standalone strategies): `skip` - per session, True = the strategy does not trade that day (the account sits; no
     cost, no breach); `fixed` - (take $, stop $) net brackets used every traded day instead of the plan's policy (a take of
-    1e9 = hold to the window's end)."""
+    1e9 = hold to the window's end).
+    A43 (decisions.md 530): `scale` - (take factor, stop factor) applied to the policy's brackets every day."""
     pe, ge, _, pf, gf, _ = policy(s)
     h1, l1, c1 = paths
     if nvec is None:
@@ -226,6 +227,8 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip
         a_f = pf[b_f - gf["FMIN"], pk_f, np.minimum(npay, s.live_after), np.minimum(wc, gf["WD"])]
         a = np.where(ev, a_e, a_f)
         W = (a // 100) * 100.0; L = (a % 100) * 100.0
+        if scale is not None:
+            W = W * scale[0]; L = L * scale[1]
         if fixed is not None:
             a = np.ones(A, int); W = np.full(A, float(fixed[0])); L = np.full(A, float(fixed[1]))
         floor = np.where(ev, pk - ddE, np.where(pk >= START + ddF, START, pk - ddF))

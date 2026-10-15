@@ -12557,6 +12557,15 @@ t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs the 
 
 No CONFIRM. Crude following the carry cross (AUD/CHF) is positive but 2026-only — the crude-follows-risk theme again (sixth time).
 
+## 530. A43 protocol: bracket scaling for the accounts that now trade with a rule (S1)
+
+**No trial; N 1,400. Written and committed BEFORE any replay is run.** The plan's bracket policy was solved for a zero-edge market; the NKD
+and FDXM accounts now trade the dollar rules every day. Question: do wider or tighter brackets capture more of a known edge? `a23.replay`
+gains `scale = (take factor, stop factor)` applied to the policy's brackets (stops still capped by the drawdown floor). Grid: take and stop
+factors each in {0.5, 0.75, 1, 1.5, 2} (25 pairs). **Chosen on 2021–24 starts only** (mean net per attempt sequence), per account
+(NKD + dollar-week; FDXM + DAX-dollar); then read ONCE on 2025 starts against (1, 1), and on 2010–20 as a robustness check. Adopt only if the
+chosen pair improves the 2025-start mean net AND does not lower 2025-start P(payout) by more than 3 points AND does not hurt 2010–20.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
