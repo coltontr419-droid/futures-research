@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D440",
+ "cell": "NKD follows SMH 3d (all)",
+ "trades": 406,
+ "net_bps": -5.713984050339069,
+ "t_net": -1.2706631934435264,
+ "placebo_pct": 10.8,
+ "by_year": {
+  "2025": 0.7102546426042751,
+  "2026": -15.591251040739456
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 452,
+ "injection": {
+  "hypothesis": "D440",
+  "n_events": 406,
+  "sought_bps": 3.158535054768539,
+  "mean_estimate": 3.236515717590315,
+  "recovered": true
+ },
+ "trial_id": "t01222"
+}

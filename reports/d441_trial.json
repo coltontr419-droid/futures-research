@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D441",
+ "cell": "NKD fades ^VIX 3d (strong)",
+ "trades": 198,
+ "net_bps": 3.21559627738914,
+ "t_net": 0.5080753427814931,
+ "placebo_pct": 69.6,
+ "by_year": {
+  "2025": -1.9206536760770372,
+  "2026": 14.2218461776738
+ },
+ "always_long_net_bps": 2.461387922689942,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 453,
+ "injection": {
+  "hypothesis": "D441",
+  "n_events": 198,
+  "sought_bps": 4.984076245201844,
+  "mean_estimate": 4.939947618023638,
+  "recovered": true
+ },
+ "trial_id": "t01223"
+}

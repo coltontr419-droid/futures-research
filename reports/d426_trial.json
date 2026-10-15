@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D426",
+ "cell": "NKD follows ^GDAXI 3d (strong)",
+ "trades": 198,
+ "net_bps": -2.237886448958643,
+ "t_net": -0.3573608373362288,
+ "placebo_pct": 39.300000000000004,
+ "by_year": {
+  "2025": -3.1256355227399513,
+  "2026": -0.7503069199196869
+ },
+ "always_long_net_bps": 5.302194873283453,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 438,
+ "injection": {
+  "hypothesis": "D426",
+  "n_events": 198,
+  "sought_bps": 5.982074572340822,
+  "mean_estimate": 6.1139763505100895,
+  "recovered": true
+ },
+ "trial_id": "t01208"
+}

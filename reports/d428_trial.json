@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D428",
+ "cell": "ZS follows XLF 3d (strong)",
+ "trades": 177,
+ "net_bps": -0.21974728826992343,
+ "t_net": -0.02954782587618534,
+ "placebo_pct": 49.5,
+ "by_year": {
+  "2025": -6.060058444120246,
+  "2026": 9.84355808796448
+ },
+ "always_long_net_bps": 0.24023411217194124,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 440,
+ "injection": {
+  "hypothesis": "D428",
+  "n_events": 177,
+  "sought_bps": 8.611383728622265,
+  "mean_estimate": 8.81265319618199,
+  "recovered": true
+ },
+ "trial_id": "t01210"
+}

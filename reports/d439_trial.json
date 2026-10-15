@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D439",
+ "cell": "MNQ fades XLY 3d (all)",
+ "trades": 402,
+ "net_bps": -0.14184005224882668,
+ "t_net": -0.024574950553757104,
+ "placebo_pct": 52.400000000000006,
+ "by_year": {
+  "2025": 5.768824660088405,
+  "2026": -9.08172042965889
+ },
+ "always_long_net_bps": 3.021571159362793,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 451,
+ "injection": {
+  "hypothesis": "D439",
+  "n_events": 402,
+  "sought_bps": 4.459559007168791,
+  "mean_estimate": 4.538321540794355,
+  "recovered": true
+ },
+ "trial_id": "t01221"
+}

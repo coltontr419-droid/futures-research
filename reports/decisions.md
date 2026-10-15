@@ -12221,6 +12221,51 @@ previous 3 weekdays' moves ending the weekday before the session; sign follow/fa
 windows; costs §177/§180. Carried at net > 0, t > 1.96 (~2.5% by chance). Validation per §426, 2; a CONFIRM then needs §446/§453 stress
 tests (beat ≥ 95% of random flips in the account replay).
 
+## 516. Family-142: 3-day predictors — 37 of 592 carried (≈ 14.8 by chance); validated (S1)
+
+**N 1,231.** `reports/d142_discovery.json` (module `reporting/d142_threeday.py`):
+- **D419** NKD follows FXI 3d (all): **WATCHLIST** +0.60 (t +0.13), placebo 59th, 2025 -2.1, 2026 +4.7
+- **D420** NKD follows FXI 3d (strong): **WATCHLIST** +0.62 (t +0.08), placebo 60th, 2025 -1.0, 2026 +2.9
+- **D421** NKD follows EEM 3d (strong): **REJECT** -2.43 (t -0.36), placebo 45th, 2025 -5.1, 2026 +0.7
+- **D422** CL fades ZM=F 3d (all): **REJECT** -10.02 (t -0.72), placebo 24th, 2025 -10.0, 2026 -10.0
+- **D423** CL follows XLF 3d (all): **WATCHLIST** +7.69 (t +0.55), placebo 75th, 2025 +3.5, 2026 +14.0
+- **D424** NKD follows 6B=F 3d (all): **WATCHLIST** +6.14 (t +1.37), placebo 91th, 2025 +4.5, 2026 +8.7
+- **D425** NKD follows 6B=F 3d (strong): **CONFIRM** +11.24 (t +1.70), placebo 96th, 2025 +8.8, 2026 +15.3
+- **D426** NKD follows ^GDAXI 3d (strong): **REJECT** -2.24 (t -0.36), placebo 39th, 2025 -3.1, 2026 -0.8
+- **D427** NKD follows HYG 3d (all): **WATCHLIST** +2.70 (t +0.60), placebo 76th, 2025 +9.3, 2026 -7.5
+- **D428** ZS follows XLF 3d (strong): **REJECT** -0.22 (t -0.03), placebo 50th, 2025 -6.1, 2026 +9.8
+- **D429** NKD follows EEM 3d (all): **WATCHLIST** +1.99 (t +0.44), placebo 70th, 2025 +2.6, 2026 +1.0
+- **D430** NKD follows ^GDAXI 3d (all): **REJECT** -3.13 (t -0.70), placebo 25th, 2025 -1.1, 2026 -6.2
+- **D431** NKD follows RTY=F 3d (strong): **WATCHLIST** +1.33 (t +0.20), placebo 57th, 2025 -0.9, 2026 +5.2
+- **D432** CL fades SOYB 3d (strong): **REJECT** -7.03 (t -0.34), placebo 39th, 2025 +12.9, 2026 -51.7
+- **D433** NKD follows XLY 3d (all): **WATCHLIST** +3.54 (t +0.79), placebo 80th, 2025 +3.8, 2026 +3.1
+- **D434** CL fades ZM=F 3d (strong): **REJECT** -4.83 (t -0.21), placebo 42th, 2025 +2.5, 2026 -13.4
+- **D435** ZS fades ^SKEW 3d (all): **REJECT** -2.54 (t -0.51), placebo 39th, 2025 +9.1, 2026 -20.1
+- **D436** NKD fades ^VIX3M 3d (strong): **REJECT** -4.99 (t -0.77), placebo 24th, 2025 -5.8, 2026 -3.2
+- **D437** NKD fades DX-Y.NYB 3d (strong): **WATCHLIST** +6.41 (t +0.93), placebo 85th, 2025 +7.7, 2026 +4.1
+- **D438** CL fades HE=F 3d (strong): **REJECT** -57.02 (t -2.49), placebo 0th, 2025 -36.8, 2026 -100.2
+- **D439** MNQ fades XLY 3d (all): **REJECT** -0.14 (t -0.02), placebo 52th, 2025 +5.8, 2026 -9.1
+- **D440** NKD follows SMH 3d (all): **REJECT** -5.71 (t -1.27), placebo 11th, 2025 +0.7, 2026 -15.6
+- **D441** NKD fades ^VIX 3d (strong): **WATCHLIST** +3.22 (t +0.51), placebo 70th, 2025 -1.9, 2026 +14.2
+- **D442** NKD fades ^VIX3M 3d (all): **REJECT** -1.12 (t -0.25), placebo 41th, 2025 +0.2, 2026 -3.1
+- **D443** NKD follows 6C=F 3d (all): **WATCHLIST** +7.28 (t +1.63), placebo 96th, 2025 +10.0, 2026 +3.1
+- **D444** NKD follows 6E=F 3d (strong): **CONFIRM** +15.26 (t +2.21), placebo 99th, 2025 +14.8, 2026 +16.2
+- **D445** NKD follows XLK 3d (strong): **WATCHLIST** +8.22 (t +1.22), placebo 89th, 2025 +6.4, 2026 +10.4
+- **D446** NKD fades ^GVZ 3d (strong): **REJECT** -2.76 (t -0.47), placebo 31th, 2025 -3.5, 2026 -1.8
+- **D447** NKD fades ^VIX 3d (all): **WATCHLIST** +2.01 (t +0.45), placebo 67th, 2025 +2.9, 2026 +0.6
+- **D448** CL follows KRE 3d (all): **REJECT** -0.09 (t -0.01), placebo 54th, 2025 -9.1, 2026 +13.6
+- **D449** CL follows KRE 3d (strong): **REJECT** -21.97 (t -1.12), placebo 18th, 2025 -10.4, 2026 -44.3
+- **D450** NKD follows ^SKEW 3d (strong): **REJECT** -4.32 (t -0.73), placebo 26th, 2025 +3.0, 2026 -16.4
+- **D451** NKD follows RTY=F 3d (all): **WATCHLIST** +0.47 (t +0.11), placebo 57th, 2025 +2.2, 2026 -2.2
+- **D452** NKD follows SMH 3d (strong): **WATCHLIST** +9.69 (t +1.43), placebo 92th, 2025 +12.9, 2026 +5.8
+- **D453** NKD fades ZC=F 3d (strong): **REJECT** -0.62 (t -0.09), placebo 49th, 2025 +1.0, 2026 -3.2
+- **D454** NKD follows 6E=F 3d (all): **CONFIRM** +11.05 (t +2.48), placebo 100th, 2025 +10.0, 2026 +12.7
+- **D455** NKD follows 6A=F 3d (all): **REJECT** -0.70 (t -0.16), placebo 46th, 2025 +1.5, 2026 -4.2
+
+**Three CONFIRMs (D425, D444, D454), all the deployed NKD dollar-week rule at a 3-day horizon** (NKD follows the euro / sterling, i.e. dollar
+weakness). They add confirmation of the deployed theme, nothing new to trade; no stress test (the 5-day rule already passed A35). The
+NKD-follows-risk cluster (FXI, EEM, DAX, HYG, RTY, SMH) that dominated discovery failed out of sample.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

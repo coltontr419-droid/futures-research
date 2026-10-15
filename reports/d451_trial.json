@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D451",
+ "cell": "NKD follows RTY=F 3d (all)",
+ "trades": 408,
+ "net_bps": 0.4722515503693739,
+ "t_net": 0.10531711038380726,
+ "placebo_pct": 57.099999999999994,
+ "by_year": {
+  "2025": 2.2067055220888077,
+  "2026": -2.2161521057957487
+ },
+ "always_long_net_bps": -0.9773628837247648,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 463,
+ "injection": {
+  "hypothesis": "D451",
+  "n_events": 408,
+  "sought_bps": 2.7142266687572087,
+  "mean_estimate": 2.865122801851202,
+  "recovered": true
+ },
+ "trial_id": "t01233"
+}

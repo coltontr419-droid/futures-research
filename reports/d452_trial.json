@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D452",
+ "cell": "NKD follows SMH 3d (strong)",
+ "trades": 192,
+ "net_bps": 9.690961763450911,
+ "t_net": 1.4280803836335205,
+ "placebo_pct": 92.30000000000001,
+ "by_year": {
+  "2025": 12.92408081979638,
+  "2026": 5.788921523033965
+ },
+ "always_long_net_bps": 4.7236235950900225,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 464,
+ "injection": {
+  "hypothesis": "D452",
+  "n_events": 192,
+  "sought_bps": 4.165234981020987,
+  "mean_estimate": 4.138513826112623,
+  "recovered": true
+ },
+ "trial_id": "t01234"
+}

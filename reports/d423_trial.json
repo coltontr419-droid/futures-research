@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D423",
+ "cell": "CL follows XLF 3d (all)",
+ "trades": 400,
+ "net_bps": 7.6890153806394945,
+ "t_net": 0.549653841192022,
+ "placebo_pct": 74.8,
+ "by_year": {
+  "2025": 3.52502228108422,
+  "2026": 14.000476619588056
+ },
+ "always_long_net_bps": -6.548329402901036,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 435,
+ "injection": {
+  "hypothesis": "D423",
+  "n_events": 400,
+  "sought_bps": 10.890668276373399,
+  "mean_estimate": 11.13409137597523,
+  "recovered": true
+ },
+ "trial_id": "t01205"
+}

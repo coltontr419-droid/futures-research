@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D445",
+ "cell": "NKD follows XLK 3d (strong)",
+ "trades": 199,
+ "net_bps": 8.220125333402244,
+ "t_net": 1.2155571681624049,
+ "placebo_pct": 88.7,
+ "by_year": {
+  "2025": 6.408887242691709,
+  "2026": 10.413735909929452
+ },
+ "always_long_net_bps": 3.1579709685713127,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 457,
+ "injection": {
+  "hypothesis": "D445",
+  "n_events": 199,
+  "sought_bps": 4.565785428875786,
+  "mean_estimate": 4.628527266219563,
+  "recovered": true
+ },
+ "trial_id": "t01227"
+}

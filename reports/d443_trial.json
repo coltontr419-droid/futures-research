@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D443",
+ "cell": "NKD follows 6C=F 3d (all)",
+ "trades": 408,
+ "net_bps": 7.284186152904681,
+ "t_net": 1.6299935755485053,
+ "placebo_pct": 96.1,
+ "by_year": {
+  "2025": 10.01494833524582,
+  "2026": 3.051504770275917
+ },
+ "always_long_net_bps": -0.9773628837247648,
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 455,
+ "injection": {
+  "hypothesis": "D443",
+  "n_events": 408,
+  "sought_bps": 3.0557533089755182,
+  "mean_estimate": 3.027965425340045,
+  "recovered": true
+ },
+ "trial_id": "t01225"
+}

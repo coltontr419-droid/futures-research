@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D437",
+ "cell": "NKD fades DX-Y.NYB 3d (strong)",
+ "trades": 197,
+ "net_bps": 6.41242141846779,
+ "t_net": 0.9347625494071969,
+ "placebo_pct": 84.8,
+ "by_year": {
+  "2025": 7.66509901850252,
+  "2026": 4.088613696664238
+ },
+ "always_long_net_bps": -10.95012434093278,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 449,
+ "injection": {
+  "hypothesis": "D437",
+  "n_events": 197,
+  "sought_bps": 4.796219035956286,
+  "mean_estimate": 4.810215264412011,
+  "recovered": true
+ },
+ "trial_id": "t01219"
+}

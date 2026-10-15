@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D432",
+ "cell": "CL fades SOYB 3d (strong)",
+ "trades": 146,
+ "net_bps": -7.028134150677746,
+ "t_net": -0.3366471269519757,
+ "placebo_pct": 39.0,
+ "by_year": {
+  "2025": 12.860540621035986,
+  "2026": -51.667159749413024
+ },
+ "always_long_net_bps": -14.668684170726689,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 444,
+ "injection": {
+  "hypothesis": "D432",
+  "n_events": 146,
+  "sought_bps": 13.49607312964126,
+  "mean_estimate": 14.053165255088782,
+  "recovered": true
+ },
+ "trial_id": "t01214"
+}

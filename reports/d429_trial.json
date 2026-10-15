@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D429",
+ "cell": "NKD follows EEM 3d (all)",
+ "trades": 406,
+ "net_bps": 1.9928525299067992,
+ "t_net": 0.4424752662716247,
+ "placebo_pct": 69.69999999999999,
+ "by_year": {
+  "2025": 2.6417945381212458,
+  "2026": 0.9951041922770884
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 441,
+ "injection": {
+  "hypothesis": "D429",
+  "n_events": 406,
+  "sought_bps": 3.770974921916726,
+  "mean_estimate": 3.662158652839822,
+  "recovered": true
+ },
+ "trial_id": "t01211"
+}

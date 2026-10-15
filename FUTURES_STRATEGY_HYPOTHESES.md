@@ -2384,3 +2384,151 @@ Data-derived (D-series family 141). `hypotheses.yaml` (D417) · `decisions.md` �
 ## D418 — Mnq Night Fades 6S F 1D All  *(WATCHLIST — t01200)*
 
 Data-derived (D-series family 141). `hypotheses.yaml` (D418) · `decisions.md` §513
+
+## D419 — Nkd Follows Fxi 3D All  *(WATCHLIST — t01201)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D419) · `decisions.md` §516
+
+## D420 — Nkd Follows Fxi 3D Strong  *(WATCHLIST — t01202)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D420) · `decisions.md` §516
+
+## D421 — Nkd Follows Eem 3D Strong  *(REJECT — t01203)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D421) · `decisions.md` §516
+
+## D422 — Cl Fades Zm F 3D All  *(REJECT — t01204)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D422) · `decisions.md` §516
+
+## D423 — Cl Follows Xlf 3D All  *(WATCHLIST — t01205)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D423) · `decisions.md` §516
+
+## D424 — Nkd Follows 6B F 3D All  *(WATCHLIST — t01206)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D424) · `decisions.md` §516
+
+## D425 — Nkd Follows 6B F 3D Strong  *(CONFIRM — t01207)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D425) · `decisions.md` §516
+
+## D426 — Nkd Follows Gdaxi 3D Strong  *(REJECT — t01208)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D426) · `decisions.md` §516
+
+## D427 — Nkd Follows Hyg 3D All  *(WATCHLIST — t01209)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D427) · `decisions.md` §516
+
+## D428 — Zs Follows Xlf 3D Strong  *(REJECT — t01210)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D428) · `decisions.md` §516
+
+## D429 — Nkd Follows Eem 3D All  *(WATCHLIST — t01211)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D429) · `decisions.md` §516
+
+## D430 — Nkd Follows Gdaxi 3D All  *(REJECT — t01212)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D430) · `decisions.md` §516
+
+## D431 — Nkd Follows Rty F 3D Strong  *(WATCHLIST — t01213)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D431) · `decisions.md` §516
+
+## D432 — Cl Fades Soyb 3D Strong  *(REJECT — t01214)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D432) · `decisions.md` §516
+
+## D433 — Nkd Follows Xly 3D All  *(WATCHLIST — t01215)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D433) · `decisions.md` §516
+
+## D434 — Cl Fades Zm F 3D Strong  *(REJECT — t01216)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D434) · `decisions.md` §516
+
+## D435 — Zs Fades Skew 3D All  *(REJECT — t01217)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D435) · `decisions.md` §516
+
+## D436 — Nkd Fades Vix3M 3D Strong  *(REJECT — t01218)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D436) · `decisions.md` §516
+
+## D437 — Nkd Fades Dx Y Nyb 3D Strong  *(WATCHLIST — t01219)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D437) · `decisions.md` §516
+
+## D438 — Cl Fades He F 3D Strong  *(REJECT — t01220)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D438) · `decisions.md` §516
+
+## D439 — Mnq Fades Xly 3D All  *(REJECT — t01221)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D439) · `decisions.md` §516
+
+## D440 — Nkd Follows Smh 3D All  *(REJECT — t01222)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D440) · `decisions.md` §516
+
+## D441 — Nkd Fades Vix 3D Strong  *(WATCHLIST — t01223)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D441) · `decisions.md` §516
+
+## D442 — Nkd Fades Vix3M 3D All  *(REJECT — t01224)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D442) · `decisions.md` §516
+
+## D443 — Nkd Follows 6C F 3D All  *(WATCHLIST — t01225)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D443) · `decisions.md` §516
+
+## D444 — Nkd Follows 6E F 3D Strong  *(CONFIRM — t01226)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D444) · `decisions.md` §516
+
+## D445 — Nkd Follows Xlk 3D Strong  *(WATCHLIST — t01227)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D445) · `decisions.md` §516
+
+## D446 — Nkd Fades Gvz 3D Strong  *(REJECT — t01228)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D446) · `decisions.md` §516
+
+## D447 — Nkd Fades Vix 3D All  *(WATCHLIST — t01229)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D447) · `decisions.md` §516
+
+## D448 — Cl Follows Kre 3D All  *(REJECT — t01230)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D448) · `decisions.md` §516
+
+## D449 — Cl Follows Kre 3D Strong  *(REJECT — t01231)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D449) · `decisions.md` §516
+
+## D450 — Nkd Follows Skew 3D Strong  *(REJECT — t01232)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D450) · `decisions.md` §516
+
+## D451 — Nkd Follows Rty F 3D All  *(WATCHLIST — t01233)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D451) · `decisions.md` §516
+
+## D452 — Nkd Follows Smh 3D Strong  *(WATCHLIST — t01234)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D452) · `decisions.md` §516
+
+## D453 — Nkd Fades Zc F 3D Strong  *(REJECT — t01235)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D453) · `decisions.md` §516
+
+## D454 — Nkd Follows 6E F 3D All  *(CONFIRM — t01236)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D454) · `decisions.md` §516
+
+## D455 — Nkd Follows 6A F 3D All  *(REJECT — t01237)*
+
+Data-derived (D-series family 142). `hypotheses.yaml` (D455) · `decisions.md` §516

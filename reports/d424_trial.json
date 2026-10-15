@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D424",
+ "cell": "NKD follows 6B=F 3d (all)",
+ "trades": 408,
+ "net_bps": 6.1385232282616595,
+ "t_net": 1.3722906193923385,
+ "placebo_pct": 91.3,
+ "by_year": {
+  "2025": 4.459884902865442,
+  "2026": 8.7404126326258
+ },
+ "always_long_net_bps": -0.9773628837247648,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 436,
+ "injection": {
+  "hypothesis": "D424",
+  "n_events": 408,
+  "sought_bps": 3.9904048597485278,
+  "mean_estimate": 4.080086761816184,
+  "recovered": true
+ },
+ "trial_id": "t01206"
+}

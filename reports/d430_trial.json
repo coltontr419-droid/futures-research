@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D430",
+ "cell": "NKD follows ^GDAXI 3d (all)",
+ "trades": 413,
+ "net_bps": -3.1342855342880727,
+ "t_net": -0.7036983355606403,
+ "placebo_pct": 25.4,
+ "by_year": {
+  "2025": -1.1286204135059952,
+  "2026": -6.2104590324200935
+ },
+ "always_long_net_bps": -1.3657639463789675,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 442,
+ "injection": {
+  "hypothesis": "D430",
+  "n_events": 413,
+  "sought_bps": 3.6304664710269994,
+  "mean_estimate": 3.70380759305758,
+  "recovered": true
+ },
+ "trial_id": "t01212"
+}

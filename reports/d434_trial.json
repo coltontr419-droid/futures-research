@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D434",
+ "cell": "CL fades ZM=F 3d (strong)",
+ "trades": 150,
+ "net_bps": -4.832013935806534,
+ "t_net": -0.21306578132696866,
+ "placebo_pct": 42.4,
+ "by_year": {
+  "2025": 2.472052109857345,
+  "2026": -13.406352337238053
+ },
+ "always_long_net_bps": 9.014276356715078,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 446,
+ "injection": {
+  "hypothesis": "D434",
+  "n_events": 150,
+  "sought_bps": 13.26823232773646,
+  "mean_estimate": 13.007450976400342,
+  "recovered": true
+ },
+ "trial_id": "t01216"
+}

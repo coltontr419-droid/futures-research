@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D431",
+ "cell": "NKD follows RTY=F 3d (strong)",
+ "trades": 181,
+ "net_bps": 1.3327724084282704,
+ "t_net": 0.2030536923998608,
+ "placebo_pct": 57.49999999999999,
+ "by_year": {
+  "2025": -0.9365022831532078,
+  "2026": 5.193926361268396
+ },
+ "always_long_net_bps": 0.17602541394551477,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 443,
+ "injection": {
+  "hypothesis": "D431",
+  "n_events": 181,
+  "sought_bps": 5.623904970699584,
+  "mean_estimate": 5.636508589770341,
+  "recovered": true
+ },
+ "trial_id": "t01213"
+}

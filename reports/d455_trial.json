@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D455",
+ "cell": "NKD follows 6A=F 3d (all)",
+ "trades": 408,
+ "net_bps": -0.7032050145981711,
+ "t_net": -0.15682028143175414,
+ "placebo_pct": 46.400000000000006,
+ "by_year": {
+  "2025": 1.538558438693228,
+  "2026": -4.177938367199838
+ },
+ "always_long_net_bps": -0.9773628837247648,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 467,
+ "injection": {
+  "hypothesis": "D455",
+  "n_events": 408,
+  "sought_bps": 2.5674918920092726,
+  "mean_estimate": 2.3083415292706224,
+  "recovered": true
+ },
+ "trial_id": "t01237"
+}

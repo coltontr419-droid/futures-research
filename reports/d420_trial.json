@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D420",
+ "cell": "NKD follows FXI 3d (strong)",
+ "trades": 175,
+ "net_bps": 0.6201316778078279,
+ "t_net": 0.08348238852873861,
+ "placebo_pct": 59.599999999999994,
+ "by_year": {
+  "2025": -1.0372944065580223,
+  "2026": 2.9359873025381926
+ },
+ "always_long_net_bps": -7.869172666802687,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 432,
+ "injection": {
+  "hypothesis": "D420",
+  "n_events": 175,
+  "sought_bps": 8.494657487789343,
+  "mean_estimate": 8.621772964868889,
+  "recovered": true
+ },
+ "trial_id": "t01202"
+}

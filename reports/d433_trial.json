@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D433",
+ "cell": "NKD follows XLY 3d (all)",
+ "trades": 406,
+ "net_bps": 3.5390726838163276,
+ "t_net": 0.7862232611935237,
+ "placebo_pct": 80.30000000000001,
+ "by_year": {
+  "2025": 3.7964288557379553,
+  "2026": 3.1433875694868236
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 445,
+ "injection": {
+  "hypothesis": "D433",
+  "n_events": 406,
+  "sought_bps": 3.346897517983958,
+  "mean_estimate": 3.3647051584158345,
+  "recovered": true
+ },
+ "trial_id": "t01215"
+}

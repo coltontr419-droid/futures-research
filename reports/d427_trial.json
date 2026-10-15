@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D427",
+ "cell": "NKD follows HYG 3d (all)",
+ "trades": 406,
+ "net_bps": 2.7033396208993294,
+ "t_net": 0.6003578192649495,
+ "placebo_pct": 75.9,
+ "by_year": {
+  "2025": 9.343232773407872,
+  "2026": -7.505496101082554
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 439,
+ "injection": {
+  "hypothesis": "D427",
+  "n_events": 406,
+  "sought_bps": 3.8631820048511374,
+  "mean_estimate": 3.71303977176591,
+  "recovered": true
+ },
+ "trial_id": "t01209"
+}

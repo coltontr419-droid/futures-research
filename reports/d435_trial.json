@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D435",
+ "cell": "ZS fades ^SKEW 3d (all)",
+ "trades": 399,
+ "net_bps": -2.5445534396567906,
+ "t_net": -0.5140438119703717,
+ "placebo_pct": 38.6,
+ "by_year": {
+  "2025": 9.118969730614044,
+  "2026": -20.14987143251843
+ },
+ "always_long_net_bps": 2.2050864959138514,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 447,
+ "injection": {
+  "hypothesis": "D435",
+  "n_events": 399,
+  "sought_bps": 5.431455074757961,
+  "mean_estimate": 5.410249896038033,
+  "recovered": true
+ },
+ "trial_id": "t01217"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D425",
+ "cell": "NKD follows 6B=F 3d (strong)",
+ "trades": 195,
+ "net_bps": 11.237333294918809,
+ "t_net": 1.699834156290832,
+ "placebo_pct": 96.5,
+ "by_year": {
+  "2025": 8.762630966658056,
+  "2026": 15.28380602085869
+ },
+ "always_long_net_bps": -5.16197329275907,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 437,
+ "injection": {
+  "hypothesis": "D425",
+  "n_events": 195,
+  "sought_bps": 5.361635147554782,
+  "mean_estimate": 5.302604643310883,
+  "recovered": true
+ },
+ "trial_id": "t01207"
+}

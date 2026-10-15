@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D448",
+ "cell": "CL follows KRE 3d (all)",
+ "trades": 400,
+ "net_bps": -0.09152417067972579,
+ "t_net": -0.00653972873813661,
+ "placebo_pct": 54.2,
+ "by_year": {
+  "2025": -9.13725337805208,
+  "2026": 13.619298087035583
+ },
+ "always_long_net_bps": -6.548329402901036,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 460,
+ "injection": {
+  "hypothesis": "D448",
+  "n_events": 400,
+  "sought_bps": 7.730204493261419,
+  "mean_estimate": 7.845173897875538,
+  "recovered": true
+ },
+ "trial_id": "t01230"
+}

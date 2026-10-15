@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D446",
+ "cell": "NKD fades ^GVZ 3d (strong)",
+ "trades": 242,
+ "net_bps": -2.7638430105956506,
+ "t_net": -0.4726263831459542,
+ "placebo_pct": 30.8,
+ "by_year": {
+  "2025": -3.4808993946023943,
+  "2026": -1.779647973723656
+ },
+ "always_long_net_bps": 3.873762353441417,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 458,
+ "injection": {
+  "hypothesis": "D446",
+  "n_events": 242,
+  "sought_bps": 4.708307405923087,
+  "mean_estimate": 4.760685121427972,
+  "recovered": true
+ },
+ "trial_id": "t01228"
+}

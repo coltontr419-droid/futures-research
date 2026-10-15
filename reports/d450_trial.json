@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D450",
+ "cell": "NKD follows ^SKEW 3d (strong)",
+ "trades": 226,
+ "net_bps": -4.318775555312356,
+ "t_net": -0.733134642958634,
+ "placebo_pct": 26.400000000000002,
+ "by_year": {
+  "2025": 2.9845963935375797,
+  "2026": -16.433780788110486
+ },
+ "always_long_net_bps": -2.8451846784299692,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 462,
+ "injection": {
+  "hypothesis": "D450",
+  "n_events": 226,
+  "sought_bps": 4.300851473924201,
+  "mean_estimate": 4.526619273645784,
+  "recovered": true
+ },
+ "trial_id": "t01232"
+}

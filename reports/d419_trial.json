@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D419",
+ "cell": "NKD follows FXI 3d (all)",
+ "trades": 406,
+ "net_bps": 0.5983493896031675,
+ "t_net": 0.13281846716661683,
+ "placebo_pct": 58.599999999999994,
+ "by_year": {
+  "2025": -2.096485524685714,
+  "2026": 4.7416580703223214
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 431,
+ "injection": {
+  "hypothesis": "D419",
+  "n_events": 406,
+  "sought_bps": 5.858216723675084,
+  "mean_estimate": 5.871082055181465,
+  "recovered": true
+ },
+ "trial_id": "t01201"
+}

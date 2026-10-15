@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D453",
+ "cell": "NKD fades ZC=F 3d (strong)",
+ "trades": 168,
+ "net_bps": -0.6215443752963459,
+ "t_net": -0.09375367863571027,
+ "placebo_pct": 49.0,
+ "by_year": {
+  "2025": 1.0410130741901584,
+  "2026": -3.1909513426845817
+ },
+ "always_long_net_bps": 0.7271729219931133,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 465,
+ "injection": {
+  "hypothesis": "D453",
+  "n_events": 168,
+  "sought_bps": 3.6566849312960885,
+  "mean_estimate": 3.7232802742894284,
+  "recovered": true
+ },
+ "trial_id": "t01235"
+}

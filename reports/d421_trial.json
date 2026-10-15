@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D421",
+ "cell": "NKD follows EEM 3d (strong)",
+ "trades": 203,
+ "net_bps": -2.433488926254819,
+ "t_net": -0.3554235631172953,
+ "placebo_pct": 45.0,
+ "by_year": {
+  "2025": -5.1037148485447,
+  "2026": 0.724842809786979
+ },
+ "always_long_net_bps": -5.660559647867806,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 433,
+ "injection": {
+  "hypothesis": "D421",
+  "n_events": 203,
+  "sought_bps": 7.722960060873676,
+  "mean_estimate": 7.556372814673255,
+  "recovered": true
+ },
+ "trial_id": "t01203"
+}
