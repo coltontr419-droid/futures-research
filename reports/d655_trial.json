@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D655",
+ "cell": "MGC fades MOF weekly foreign_bonds (strong)",
+ "trades": 193,
+ "net_bps": 1.2835155625417443,
+ "t_net": 0.17634488276508262,
+ "placebo_pct": 71.6,
+ "by_year": {
+  "2025": -7.7414743857808626,
+  "2026": 11.191384962330698
+ },
+ "always_long_net_bps": 3.279388666152954,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 668,
+ "injection": {
+  "hypothesis": "D655",
+  "n_events": 193,
+  "sought_bps": 4.470320487641049,
+  "mean_estimate": 4.399771368904801,
+  "recovered": true
+ },
+ "trial_id": "t01437"
+}

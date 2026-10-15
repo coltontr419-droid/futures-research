@@ -41397,3 +41397,171 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 665.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D654
+  name: mgc_fades_mof_weekly_foreign_bonds_all
+  mechanism: >
+    DATA-DERIVED (D-series family 155, Japan MOF weekly flows on the current regime, decisions.md 550-551): gold's London window
+    fades the sign of the latest weekly foreign_bonds figure, held Thursday to Wednesday (all): 2021-2024 +7.20 bps
+    (t +3.30, weekly t +3.25); 2010-20 +1.93 (context). THE COUNTERPARTY: slow cross-border allocation.
+  condition: >
+    Every session from the MOF release Thursday to the next Wednesday, take gold's London window to fade the latest weekly foreign_bonds sign.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01436 (decisions.md 551), REJECT on sealed 2023-2026: 417 trades; net -0.31 bps (t -0.06); placebo 58th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d155_mof.py
+    injected_bps: 3.602
+    sought_bps: 3.602
+    n_injection: 417
+    n_run: 417
+    recovered: true
+    report: reports/d654_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 688
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-155 scan (24 tests, decisions.md 551). ONE TRIAL.
+  session: Europe
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 667.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D655
+  name: mgc_fades_mof_weekly_foreign_bonds_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 155, Japan MOF weekly flows on the current regime, decisions.md 550-551): gold's London window
+    fades the sign of the latest weekly foreign_bonds figure, held Thursday to Wednesday (strong): 2021-2024 +8.94 bps
+    (t +2.91, weekly t +2.85); 2010-20 +1.38 (context). THE COUNTERPARTY: slow cross-border allocation.
+  condition: >
+    Every session from the MOF release Thursday to the next Wednesday, take gold's London window to fade the latest weekly foreign_bonds sign.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01437 (decisions.md 551), WATCHLIST on sealed 2023-2026: 193 trades; net +1.28 bps (t +0.18); placebo 72th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d155_mof.py
+    injected_bps: 4.470
+    sought_bps: 4.470
+    n_injection: 193
+    n_run: 193
+    recovered: true
+    report: reports/d655_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 689
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-155 scan (24 tests, decisions.md 551). ONE TRIAL.
+  session: Europe
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 668.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D656
+  name: mnq_follows_mof_weekly_resident_foreign_equity_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 155, Japan MOF weekly flows on the current regime, decisions.md 550-551): MNQ's plan window
+    follows the sign of the latest weekly resident_foreign_equity figure, held Thursday to Wednesday (strong): 2021-2024 +10.81 bps
+    (t +2.02, weekly t +2.10); 2010-20 -0.37 (context). THE COUNTERPARTY: slow cross-border allocation.
+  condition: >
+    Every session from the MOF release Thursday to the next Wednesday, take MNQ's plan window to follow the latest weekly resident_foreign_equity sign.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01438 (decisions.md 551), WATCHLIST on sealed 2023-2026: 255 trades; net +8.41 bps (t +1.09); placebo 89th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d155_mof.py
+    injected_bps: 5.405
+    sought_bps: 5.405
+    n_injection: 255
+    n_run: 255
+    recovered: true
+    report: reports/d656_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 690
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-155 scan (24 tests, decisions.md 551). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 669.
+  s6_control: By year; signs shuffled across the sealed sessions.

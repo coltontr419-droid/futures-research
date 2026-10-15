@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D656",
+ "cell": "MNQ follows MOF weekly resident_foreign_equity (strong)",
+ "trades": 255,
+ "net_bps": 8.409061925551471,
+ "t_net": 1.089249086068584,
+ "placebo_pct": 89.2,
+ "by_year": {
+  "2025": 3.5566383669453283,
+  "2026": 15.930318441390991
+ },
+ "always_long_net_bps": 8.382152557373047,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 669,
+ "injection": {
+  "hypothesis": "D656",
+  "n_events": 255,
+  "sought_bps": 5.404881914298373,
+  "mean_estimate": 5.4894129969173155,
+  "recovered": true
+ },
+ "trial_id": "t01438"
+}

@@ -3324,3 +3324,15 @@ Data-derived (D-series family 153). `hypotheses.yaml` (D652) · `decisions.md` �
 ## D653 — Nkd Follows Axjo 1D All  *(CONFIRM — t01435)*
 
 Data-derived (D-series family 153). `hypotheses.yaml` (D653) · `decisions.md` §541
+
+## D654 — Mgc Fades Mof Weekly Foreign Bonds All  *(REJECT — t01436)*
+
+Data-derived (D-series family 155). `hypotheses.yaml` (D654) · `decisions.md` §551
+
+## D655 — Mgc Fades Mof Weekly Foreign Bonds Strong  *(WATCHLIST — t01437)*
+
+Data-derived (D-series family 155). `hypotheses.yaml` (D655) · `decisions.md` §551
+
+## D656 — Mnq Follows Mof Weekly Resident Foreign Equity Strong  *(WATCHLIST — t01438)*
+
+Data-derived (D-series family 155). `hypotheses.yaml` (D656) · `decisions.md` §551

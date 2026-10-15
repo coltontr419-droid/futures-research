@@ -12765,6 +12765,15 @@ that date, all opening after the release) through the next Wednesday, take each 
 **3 × 4 × 2 = 24 tests** (~0.6 by chance at t > 1.96; t over sessions, disclosed: one weekly sign spans 5 sessions, so t overstates — a
 carry must also hold on weekly sums). Costs §180. Validation per §426, 2 (placebo: weekly signs shuffled across the sealed weeks).
 
+## 551. Family-155: MOF weekly flows — 3 of 24 carried; none confirmed (S1)
+
+**N 1,438.** `reports/d155_discovery.json` (module `reporting/d155_mof.py`; placebo shuffles the weekly signs across sealed weeks):
+- **D654** MGC fades MOF weekly foreign_bonds (all): **REJECT** -0.31 (t -0.06), placebo 58th, 2025 -3.9, 2026 +5.2
+- **D655** MGC fades MOF weekly foreign_bonds (strong): **WATCHLIST** +1.28 (t +0.18), placebo 72th, 2025 -7.7, 2026 +11.2
+- **D656** MNQ follows MOF weekly resident_foreign_equity (strong): **WATCHLIST** +8.41 (t +1.09), placebo 89th, 2025 +3.6, 2026 +15.9
+
+Gold fading foreign JGB buying (2021–24 t 3.3, weekly t 3.25, same sign in 2010–20) disappears on 2025–26 (−0.31). Weekly flows add nothing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

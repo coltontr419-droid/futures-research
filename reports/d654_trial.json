@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D654",
+ "cell": "MGC fades MOF weekly foreign_bonds (all)",
+ "trades": 417,
+ "net_bps": -0.30699529716437063,
+ "t_net": -0.059545746633157044,
+ "placebo_pct": 58.199999999999996,
+ "by_year": {
+  "2025": -3.9048035621643082,
+  "2026": 5.187839143926451
+ },
+ "always_long_net_bps": 3.2692461013793945,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 667,
+ "injection": {
+  "hypothesis": "D654",
+  "n_events": 417,
+  "sought_bps": 3.601780710672672,
+  "mean_estimate": 3.7511598420446988,
+  "recovered": true
+ },
+ "trial_id": "t01436"
+}
