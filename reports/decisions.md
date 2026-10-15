@@ -13290,6 +13290,15 @@ validation, ≈ the windows' 0.2–0.3 bps):
 already confirmed (D343, §505) and shown to add nothing to the NKD account over dollar-week; **the DAX alone is weak** (+3.1 / +2.0, t ≤ 1.0;
 on the CORN ETF +3.7 / +5.9, t ≤ 1.4; joint with the DAX–dollar sign: corn t 0.5 in 2025–26 vs DX t 1.8). Nothing new for FDXM; not proposed.
 
+## 602. D-series family 173 protocol: US index futures lead the foreign afternoon, within the session (S1)
+
+**No trial spent; N 1,525. Written and committed BEFORE any statistic is computed.** NQ trades round the clock; does its move while Tokyo or
+Frankfurt trade the morning lead their afternoon? Predictors from the owned NQ/MNQ night grid (roll-safe minute closes): **NQ over the Tokyo
+morning** (09:00 → 11:30 JST) → **NKD Tokyo afternoon** (12:30 → 15:00 JST, jpxjpy); **NQ over the Frankfurt morning** (09:00 → 13:00
+Berlin, before the US pre-market) → **DAX afternoon** (13:00 → 17:30 Berlin, grxeur); and gold (HistData xau-free: MGC owned Asia grid) over the Tokyo
+morning → NKD afternoon; NQ over the Frankfurt morning → MGC 08:30 → 11:30 ET. Follow/fade fixed on 2021–24; forms all / strong.
+**4 × 2 = 8 tests** (~0.2 by chance). Costs DAX 0.3, NKD 0.2, MGC 0.8. Validation per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
