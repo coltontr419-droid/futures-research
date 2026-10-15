@@ -13440,6 +13440,14 @@ did not change in that span, so this is one short-gold stance through a pullback
 meaningful until the trend has flipped several times forward. D718 (MNQ volatility breakout) is not tracked (needs minute data beyond
 Yahoo's 5-minute bars). 16 of 23 watchlist rules positive forward so far.
 
+## 617. D-series family 175 protocol: gold's other sessions against its own long trend, current regime (S1)
+
+**No trial spent; N 1,525. Written and committed BEFORE any statistic is computed.** Family 171: gold's London window fades its 60-day trend
+(D727–D728, watchlist). Do gold's **Asia session** (18:00 → 03:00 ET) and **New York afternoon** (11:30 → 16:55 ET) — owned MGC minute grids,
+roll-safe — follow or fade the same trend (GC=F's Yahoo session moves summed over the previous 60 / 120 / 250 weekdays)? Follow/fade fixed
+on 2021–24; forms all / strong. **2 × 3 × 2 = 12 tests** (~0.3 by chance; carried also needs monthly t > 1.96). Cost 0.8. Validation per
+§426, 2 (placebo: circular shifts); a CONFIRM then needs an MGC account replay on that session.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
