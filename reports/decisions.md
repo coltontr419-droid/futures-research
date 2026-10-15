@@ -12803,6 +12803,11 @@ release: MNQ from the release Thursday itself (09:30); the DAX and MGC from Frid
 Six plan windows; follow/fade fixed on 2021–24; forms all / strong. **2 × 2 × 6 × 2 = 48 tests** (~1.2 by chance at t > 1.96; carried
 also needs weekly-sum t > 1.96). Costs §177/§180. Validation per §426, 2 (placebo: weekly signs shuffled across sealed weeks).
 
+## 555. Family-157: weekly jobless claims — 0 of 48 carried (S1)
+
+**N 1,441 (no trial).** `reports/d157_discovery.json` (module `reporting/d157_claims.py`). Best: ZS follows the 1-week change in initial
+claims, +8.12 bps (t 1.83). Weekly macro releases held for a week carry nothing into the plan windows.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
