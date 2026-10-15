@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D535",
+ "cell": "CL follows EWJ 1d (all)",
+ "trades": 393,
+ "net_bps": 0.23761531318618245,
+ "t_net": 0.016742713342990188,
+ "placebo_pct": 54.400000000000006,
+ "by_year": {
+  "2025": -6.616189558236171,
+  "2026": 10.324347010751158
+ },
+ "always_long_net_bps": -5.615087915311521,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 547,
+ "injection": {
+  "hypothesis": "D535",
+  "n_events": 393,
+  "sought_bps": 13.530672938487823,
+  "mean_estimate": 13.939188679480601,
+  "recovered": true
+ },
+ "trial_id": "t01317"
+}

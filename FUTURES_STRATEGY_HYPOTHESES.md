@@ -2840,3 +2840,223 @@ Data-derived (D-series family 145). `hypotheses.yaml` (D531) · `decisions.md` �
 ## D532 — Zs Follows A Wide Ridge Model Current Regime  *(REJECT — t01314)*
 
 Data-derived (D-series family 145). `hypotheses.yaml` (D532) · `decisions.md` §522
+
+## D533 — Nkd Follows Kweb 5D All  *(WATCHLIST — t01315)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D533) · `decisions.md` §524
+
+## D534 — Cl Follows Copx 1D Strong  *(WATCHLIST — t01316)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D534) · `decisions.md` §524
+
+## D535 — Cl Follows Ewj 1D All  *(WATCHLIST — t01317)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D535) · `decisions.md` §524
+
+## D536 — Cl Follows Copx 1D All  *(WATCHLIST — t01318)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D536) · `decisions.md` §524
+
+## D537 — Nkd Follows Tan 5D Strong  *(WATCHLIST — t01319)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D537) · `decisions.md` §524
+
+## D538 — Nkd Follows Kweb 5D Strong  *(WATCHLIST — t01320)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D538) · `decisions.md` §524
+
+## D539 — Nkd Follows Ewz 1D All  *(REJECT — t01321)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D539) · `decisions.md` §524
+
+## D540 — Nkd Follows Ewg 5D Strong  *(WATCHLIST — t01322)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D540) · `decisions.md` §524
+
+## D541 — Cl Follows Xme 1D Strong  *(WATCHLIST — t01323)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D541) · `decisions.md` §524
+
+## D542 — Nkd Follows Arkk 5D All  *(WATCHLIST — t01324)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D542) · `decisions.md` §524
+
+## D543 — Cl Follows Jets 1D Strong  *(WATCHLIST — t01325)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D543) · `decisions.md` §524
+
+## D544 — Cl Follows Ewj 1D Strong  *(REJECT — t01326)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D544) · `decisions.md` §524
+
+## D545 — Nkd Follows Ewt 5D Strong  *(WATCHLIST — t01327)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D545) · `decisions.md` §524
+
+## D546 — Cl Follows Tan 1D Strong  *(WATCHLIST — t01328)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D546) · `decisions.md` §524
+
+## D547 — Cl Follows Xme 1D All  *(WATCHLIST — t01329)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D547) · `decisions.md` §524
+
+## D548 — Zs Follows Ibb 1D Strong  *(CONFIRM — t01330)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D548) · `decisions.md` §524
+
+## D549 — Nkd Follows Ewy 5D Strong  *(WATCHLIST — t01331)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D549) · `decisions.md` §524
+
+## D550 — Cl Follows Arkk 1D All  *(WATCHLIST — t01332)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D550) · `decisions.md` §524
+
+## D551 — Nkd Follows Itb 5D All  *(CONFIRM — t01333)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D551) · `decisions.md` §524
+
+## D552 — Zs Follows Ibb 1D All  *(CONFIRM — t01334)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D552) · `decisions.md` §524
+
+## D553 — Mnq Fades Oih 5D Strong  *(WATCHLIST — t01335)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D553) · `decisions.md` §524
+
+## D554 — Nkd Follows Ibb 5D All  *(REJECT — t01336)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D554) · `decisions.md` §524
+
+## D555 — Cl Follows Tan 1D All  *(WATCHLIST — t01337)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D555) · `decisions.md` §524
+
+## D556 — Cl Follows Inda 1D All  *(REJECT — t01338)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D556) · `decisions.md` §524
+
+## D557 — Nkd Follows Ewg 5D All  *(REJECT — t01339)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D557) · `decisions.md` §524
+
+## D558 — Cl Follows Arkk 1D Strong  *(REJECT — t01340)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D558) · `decisions.md` §524
+
+## D559 — Cl Follows Xrt 1D All  *(REJECT — t01341)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D559) · `decisions.md` §524
+
+## D560 — Mnq Fades Ewz 5D Strong  *(WATCHLIST — t01342)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D560) · `decisions.md` §524
+
+## D561 — Cl Follows Jets 5D Strong  *(WATCHLIST — t01343)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D561) · `decisions.md` §524
+
+## D562 — Mnq Fades Xrt 5D All  *(REJECT — t01344)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D562) · `decisions.md` §524
+
+## D563 — Nkd Follows Jets 1D All  *(REJECT — t01345)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D563) · `decisions.md` §524
+
+## D564 — Nkd Follows Jets 1D Strong  *(REJECT — t01346)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D564) · `decisions.md` §524
+
+## D565 — Zs Follows Copx 1D Strong  *(REJECT — t01347)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D565) · `decisions.md` §524
+
+## D566 — Zs Fades Tyx 5D All  *(REJECT — t01348)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D566) · `decisions.md` §524
+
+## D567 — Mgc Fades Zq F 1D Strong  *(REJECT — t01349)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D567) · `decisions.md` §524
+
+## D568 — Nkd Follows Kweb 1D Strong  *(REJECT — t01350)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D568) · `decisions.md` §524
+
+## D569 — Nkd Follows Xhb 5D All  *(WATCHLIST — t01351)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D569) · `decisions.md` §524
+
+## D570 — Nkd Follows Ewy 5D All  *(WATCHLIST — t01352)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D570) · `decisions.md` §524
+
+## D571 — Nkd Follows Jets 5D Strong  *(WATCHLIST — t01353)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D571) · `decisions.md` §524
+
+## D572 — Nkd Fades Move 5D Strong  *(WATCHLIST — t01354)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D572) · `decisions.md` §524
+
+## D573 — Mgc Fades Zq F 1D All  *(REJECT — t01355)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D573) · `decisions.md` §524
+
+## D574 — Zs Follows Zq F 1D Strong  *(REJECT — t01356)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D574) · `decisions.md` §524
+
+## D575 — Mnq Fades Ewz 5D All  *(WATCHLIST — t01357)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D575) · `decisions.md` §524
+
+## D576 — Cl Follows Ewt 1D All  *(WATCHLIST — t01358)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D576) · `decisions.md` §524
+
+## D577 — Cl Follows Jets 1D All  *(WATCHLIST — t01359)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D577) · `decisions.md` §524
+
+## D578 — Nkd Fades Vxn 5D All  *(WATCHLIST — t01360)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D578) · `decisions.md` §524
+
+## D579 — Dax Fades Xrt 5D All  *(WATCHLIST — t01361)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D579) · `decisions.md` §524
+
+## D580 — Zs Follows Ewj 1D All  *(REJECT — t01362)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D580) · `decisions.md` §524
+
+## D581 — Cl Follows Ewg 1D Strong  *(REJECT — t01363)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D581) · `decisions.md` §524
+
+## D582 — Zs Follows Kweb 1D All  *(REJECT — t01364)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D582) · `decisions.md` §524
+
+## D583 — Zs Follows Ewj 1D Strong  *(REJECT — t01365)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D583) · `decisions.md` §524
+
+## D584 — Nkd Follows Inda 5D Strong  *(WATCHLIST — t01366)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D584) · `decisions.md` §524
+
+## D585 — Nkd Follows Copx 5D All  *(WATCHLIST — t01367)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D585) · `decisions.md` §524
+
+## D586 — Cl Follows Oih 1D Strong  *(REJECT — t01368)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D586) · `decisions.md` §524
+
+## D587 — Nkd Follows Inda 5D All  *(WATCHLIST — t01369)*
+
+Data-derived (D-series family 146). `hypotheses.yaml` (D587) · `decisions.md` §524

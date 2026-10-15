@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D551",
+ "cell": "NKD follows ITB 5d (all)",
+ "trades": 406,
+ "net_bps": 10.969008489940753,
+ "t_net": 2.453436156582227,
+ "placebo_pct": 99.8,
+ "by_year": {
+  "2025": 9.36957569634711,
+  "2026": 13.42813641009098
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 563,
+ "injection": {
+  "hypothesis": "D551",
+  "n_events": 406,
+  "sought_bps": 3.3670983907979006,
+  "mean_estimate": 3.076097231837851,
+  "recovered": true
+ },
+ "trial_id": "t01333"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D546",
+ "cell": "CL follows TAN 1d (strong)",
+ "trades": 184,
+ "net_bps": 8.834551268279103,
+ "t_net": 0.43941055444196037,
+ "placebo_pct": 70.19999999999999,
+ "by_year": {
+  "2025": -23.434341167243435,
+  "2026": 51.72358551802424
+ },
+ "always_long_net_bps": -33.687438802709146,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 558,
+ "injection": {
+  "hypothesis": "D546",
+  "n_events": 184,
+  "sought_bps": 15.81995295422151,
+  "mean_estimate": 15.362326302610066,
+  "recovered": true
+ },
+ "trial_id": "t01328"
+}

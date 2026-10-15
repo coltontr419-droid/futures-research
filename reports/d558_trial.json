@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D558",
+ "cell": "CL follows ARKK 1d (strong)",
+ "trades": 170,
+ "net_bps": -12.769733005494473,
+ "t_net": -0.6354117220275802,
+ "placebo_pct": 27.0,
+ "by_year": {
+  "2025": -38.52145956335832,
+  "2026": 23.137604025893147
+ },
+ "always_long_net_bps": -27.610285213681586,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 570,
+ "injection": {
+  "hypothesis": "D558",
+  "n_events": 170,
+  "sought_bps": 12.71117185920205,
+  "mean_estimate": 12.549146586930851,
+  "recovered": true
+ },
+ "trial_id": "t01340"
+}

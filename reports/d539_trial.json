@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D539",
+ "cell": "NKD follows EWZ 1d (all)",
+ "trades": 401,
+ "net_bps": -1.766678341003083,
+ "t_net": -0.3886321706083722,
+ "placebo_pct": 34.9,
+ "by_year": {
+  "2025": -0.23549204791633338,
+  "2026": -4.073027694965001
+ },
+ "always_long_net_bps": -1.3376169990888807,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 551,
+ "injection": {
+  "hypothesis": "D539",
+  "n_events": 401,
+  "sought_bps": 4.04556815844273,
+  "mean_estimate": 4.028956826489614,
+  "recovered": true
+ },
+ "trial_id": "t01321"
+}

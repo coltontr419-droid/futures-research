@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D573",
+ "cell": "MGC fades ZQ=F 1d (all)",
+ "trades": 219,
+ "net_bps": -2.0069832527474194,
+ "t_net": -0.27605105246908435,
+ "placebo_pct": 35.099999999999994,
+ "by_year": {
+  "2025": 4.549044499030477,
+  "2026": -11.583203564333115
+ },
+ "always_long_net_bps": 6.515354156494141,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 585,
+ "injection": {
+  "hypothesis": "D573",
+  "n_events": 219,
+  "sought_bps": 3.2836906468426736,
+  "mean_estimate": 3.316029273675941,
+  "recovered": true
+ },
+ "trial_id": "t01355"
+}

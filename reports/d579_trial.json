@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D579",
+ "cell": "DAX fades XRT 5d (all)",
+ "trades": 410,
+ "net_bps": 2.0753798646161945,
+ "t_net": 0.4991605491913629,
+ "placebo_pct": 71.89999999999999,
+ "by_year": {
+  "2025": 4.9443179595969005,
+  "2026": -2.2280272778548658
+ },
+ "always_long_net_bps": -0.4788507174695991,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 591,
+ "injection": {
+  "hypothesis": "D579",
+  "n_events": 410,
+  "sought_bps": 3.0399599245608795,
+  "mean_estimate": 3.1634736631500604,
+  "recovered": true
+ },
+ "trial_id": "t01361"
+}

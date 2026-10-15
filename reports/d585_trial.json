@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D585",
+ "cell": "NKD follows COPX 5d (all)",
+ "trades": 406,
+ "net_bps": 2.2745697496184927,
+ "t_net": 0.5050656744508307,
+ "placebo_pct": 70.3,
+ "by_year": {
+  "2025": 6.281252944024342,
+  "2026": -3.885705661780503
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 597,
+ "injection": {
+  "hypothesis": "D585",
+  "n_events": 406,
+  "sought_bps": 2.576983173485558,
+  "mean_estimate": 2.726822462252676,
+  "recovered": true
+ },
+ "trial_id": "t01367"
+}

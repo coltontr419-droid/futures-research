@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D582",
+ "cell": "ZS follows KWEB 1d (all)",
+ "trades": 394,
+ "net_bps": -4.942960149170307,
+ "t_net": -1.0052336237033006,
+ "placebo_pct": 21.4,
+ "by_year": {
+  "2025": -7.281804250040694,
+  "2026": -1.412348353588894
+ },
+ "always_long_net_bps": 2.3745163549316644,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 594,
+ "injection": {
+  "hypothesis": "D582",
+  "n_events": 394,
+  "sought_bps": 4.30274540988854,
+  "mean_estimate": 4.278861040043525,
+  "recovered": true
+ },
+ "trial_id": "t01364"
+}

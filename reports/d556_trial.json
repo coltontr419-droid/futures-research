@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D556",
+ "cell": "CL follows INDA 1d (all)",
+ "trades": 395,
+ "net_bps": -22.648052211226144,
+ "t_net": -1.6108687624540994,
+ "placebo_pct": 6.7,
+ "by_year": {
+  "2025": -22.400149745858297,
+  "2026": -23.027851501116636
+ },
+ "always_long_net_bps": -5.260829138323662,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 568,
+ "injection": {
+  "hypothesis": "D556",
+  "n_events": 395,
+  "sought_bps": 8.30618283096407,
+  "mean_estimate": 8.286404116868834,
+  "recovered": true
+ },
+ "trial_id": "t01338"
+}

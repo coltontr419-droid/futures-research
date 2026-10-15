@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D572",
+ "cell": "NKD fades ^MOVE 5d (strong)",
+ "trades": 194,
+ "net_bps": 1.4012998272701054,
+ "t_net": 0.21023893508164984,
+ "placebo_pct": 56.2,
+ "by_year": {
+  "2025": -2.3967854368372414,
+  "2026": 6.48066686722089
+ },
+ "always_long_net_bps": 3.060870383519905,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 584,
+ "injection": {
+  "hypothesis": "D572",
+  "n_events": 194,
+  "sought_bps": 4.414652341753828,
+  "mean_estimate": 4.506973655064412,
+  "recovered": true
+ },
+ "trial_id": "t01354"
+}

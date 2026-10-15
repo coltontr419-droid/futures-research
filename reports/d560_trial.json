@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D560",
+ "cell": "MNQ fades EWZ 5d (strong)",
+ "trades": 206,
+ "net_bps": 2.184691586540741,
+ "t_net": 0.2573379071904601,
+ "placebo_pct": 72.3,
+ "by_year": {
+  "2025": 1.277635139331483,
+  "2026": 3.3086528363435166
+ },
+ "always_long_net_bps": 13.498961448669434,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 572,
+ "injection": {
+  "hypothesis": "D560",
+  "n_events": 206,
+  "sought_bps": 6.403687816456052,
+  "mean_estimate": 6.343011471165568,
+  "recovered": true
+ },
+ "trial_id": "t01342"
+}

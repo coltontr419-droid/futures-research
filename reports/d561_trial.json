@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D561",
+ "cell": "CL follows JETS 5d (strong)",
+ "trades": 211,
+ "net_bps": 4.4052610686961655,
+ "t_net": 0.25344279317748364,
+ "placebo_pct": 60.099999999999994,
+ "by_year": {
+  "2025": 20.25863883776077,
+  "2026": -17.326335423729464
+ },
+ "always_long_net_bps": -5.802935926010923,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 573,
+ "injection": {
+  "hypothesis": "D561",
+  "n_events": 211,
+  "sought_bps": 12.186572215426379,
+  "mean_estimate": 11.930659932230864,
+  "recovered": true
+ },
+ "trial_id": "t01343"
+}

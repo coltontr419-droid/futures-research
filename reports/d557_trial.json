@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D557",
+ "cell": "NKD follows EWG 5d (all)",
+ "trades": 406,
+ "net_bps": -0.8613624249027254,
+ "t_net": -0.19119839907658873,
+ "placebo_pct": 48.3,
+ "by_year": {
+  "2025": 0.792005388795179,
+  "2026": -3.4034154384632487
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 569,
+ "injection": {
+  "hypothesis": "D557",
+  "n_events": 406,
+  "sought_bps": 3.0874341288169886,
+  "mean_estimate": 3.0796752600555966,
+  "recovered": true
+ },
+ "trial_id": "t01339"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D584",
+ "cell": "NKD follows INDA 5d (strong)",
+ "trades": 193,
+ "net_bps": 11.009085552076,
+ "t_net": 1.5811005105167555,
+ "placebo_pct": 93.10000000000001,
+ "by_year": {
+  "2025": 7.072062181708889,
+  "2026": 15.514790075940585
+ },
+ "always_long_net_bps": 4.644158481125819,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 596,
+ "injection": {
+  "hypothesis": "D584",
+  "n_events": 193,
+  "sought_bps": 3.7456159869297476,
+  "mean_estimate": 3.659332522797912,
+  "recovered": true
+ },
+ "trial_id": "t01366"
+}

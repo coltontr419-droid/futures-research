@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D542",
+ "cell": "NKD follows ARKK 5d (all)",
+ "trades": 406,
+ "net_bps": 5.050245832778695,
+ "t_net": 1.1228679489477977,
+ "placebo_pct": 88.7,
+ "by_year": {
+  "2025": 3.71418143796572,
+  "2026": 7.104444839803639
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 554,
+ "injection": {
+  "hypothesis": "D542",
+  "n_events": 406,
+  "sought_bps": 3.9014879588792444,
+  "mean_estimate": 3.9054204286957592,
+  "recovered": true
+ },
+ "trial_id": "t01324"
+}

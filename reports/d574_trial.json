@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D574",
+ "cell": "ZS follows ZQ=F 1d (strong)",
+ "trades": 217,
+ "net_bps": -1.6699225625306742,
+ "t_net": -0.23243033211889144,
+ "placebo_pct": 45.800000000000004,
+ "by_year": {
+  "2025": 7.387867518701553,
+  "2026": -14.696856611943314
+ },
+ "always_long_net_bps": 1.446530294344517,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 586,
+ "injection": {
+  "hypothesis": "D574",
+  "n_events": 217,
+  "sought_bps": 6.436937361386908,
+  "mean_estimate": 6.233510216121825,
+  "recovered": true
+ },
+ "trial_id": "t01356"
+}

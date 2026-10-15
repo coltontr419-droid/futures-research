@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D576",
+ "cell": "CL follows EWT 1d (all)",
+ "trades": 396,
+ "net_bps": 1.6061617776547257,
+ "t_net": 0.114155945106424,
+ "placebo_pct": 56.10000000000001,
+ "by_year": {
+  "2025": -9.62835146784757,
+  "2026": 18.529036160120206
+ },
+ "always_long_net_bps": -4.575018149018377,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 588,
+ "injection": {
+  "hypothesis": "D576",
+  "n_events": 396,
+  "sought_bps": 7.391504647035777,
+  "mean_estimate": 7.619017074128931,
+  "recovered": true
+ },
+ "trial_id": "t01358"
+}

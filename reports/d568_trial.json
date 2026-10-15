@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D568",
+ "cell": "NKD follows KWEB 1d (strong)",
+ "trades": 117,
+ "net_bps": -1.453818803437996,
+ "t_net": -0.1708223889619721,
+ "placebo_pct": 44.9,
+ "by_year": {
+  "2025": -10.546010983440743,
+  "2026": 11.616207455315939
+ },
+ "always_long_net_bps": -2.9111156140384447,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 580,
+ "injection": {
+  "hypothesis": "D568",
+  "n_events": 117,
+  "sought_bps": 3.8783146987217045,
+  "mean_estimate": 3.719823011584837,
+  "recovered": true
+ },
+ "trial_id": "t01350"
+}

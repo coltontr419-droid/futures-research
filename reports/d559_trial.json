@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D559",
+ "cell": "CL follows XRT 1d (all)",
+ "trades": 398,
+ "net_bps": -25.968468965821206,
+ "t_net": -1.8542275373260793,
+ "placebo_pct": 3.6999999999999997,
+ "by_year": {
+  "2025": -17.917872893238968,
+  "2026": -38.06967941454546
+ },
+ "always_long_net_bps": -7.001991115995147,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 571,
+ "injection": {
+  "hypothesis": "D559",
+  "n_events": 398,
+  "sought_bps": 8.194560709562493,
+  "mean_estimate": 8.17678765557775,
+  "recovered": true
+ },
+ "trial_id": "t01341"
+}

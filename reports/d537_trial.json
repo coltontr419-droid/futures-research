@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D537",
+ "cell": "NKD follows TAN 5d (strong)",
+ "trades": 202,
+ "net_bps": 0.550250262649164,
+ "t_net": 0.08554784172665936,
+ "placebo_pct": 55.50000000000001,
+ "by_year": {
+  "2025": -8.682959132792332,
+  "2026": 13.788225179005044
+ },
+ "always_long_net_bps": -1.31541708020463,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 549,
+ "injection": {
+  "hypothesis": "D537",
+  "n_events": 202,
+  "sought_bps": 6.687302895210659,
+  "mean_estimate": 6.573348897990452,
+  "recovered": true
+ },
+ "trial_id": "t01319"
+}

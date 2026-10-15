@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D566",
+ "cell": "ZS fades ^TYX 5d (all)",
+ "trades": 398,
+ "net_bps": -1.5295829703823132,
+ "t_net": -0.3081838952450524,
+ "placebo_pct": 45.300000000000004,
+ "by_year": {
+  "2025": -3.502178902783928,
+  "2026": 1.4667652813669747
+ },
+ "always_long_net_bps": 2.2123857082151424,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 578,
+ "injection": {
+  "hypothesis": "D566",
+  "n_events": 398,
+  "sought_bps": 4.715744042269887,
+  "mean_estimate": 4.771483527583168,
+  "recovered": true
+ },
+ "trial_id": "t01348"
+}

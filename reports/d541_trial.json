@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D541",
+ "cell": "CL follows XME 1d (strong)",
+ "trades": 208,
+ "net_bps": 16.619414965678967,
+ "t_net": 0.7943454980976838,
+ "placebo_pct": 80.5,
+ "by_year": {
+  "2025": -12.691675776991913,
+  "2026": 48.89122194498326
+ },
+ "always_long_net_bps": -14.779975077605068,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 553,
+ "injection": {
+  "hypothesis": "D541",
+  "n_events": 208,
+  "sought_bps": 15.440697201780445,
+  "mean_estimate": 15.401279720938119,
+  "recovered": true
+ },
+ "trial_id": "t01323"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D544",
+ "cell": "CL follows EWJ 1d (strong)",
+ "trades": 203,
+ "net_bps": -9.323618559712925,
+ "t_net": -0.43392746424013273,
+ "placebo_pct": 39.0,
+ "by_year": {
+  "2025": -9.937999732730065,
+  "2026": -8.56745711599953
+ },
+ "always_long_net_bps": -21.696773945831154,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 556,
+ "injection": {
+  "hypothesis": "D544",
+  "n_events": 203,
+  "sought_bps": 15.660134035560683,
+  "mean_estimate": 15.14121403372725,
+  "recovered": true
+ },
+ "trial_id": "t01326"
+}

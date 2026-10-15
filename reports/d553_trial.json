@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D553",
+ "cell": "MNQ fades OIH 5d (strong)",
+ "trades": 181,
+ "net_bps": 14.33953098697557,
+ "t_net": 1.4099433027654131,
+ "placebo_pct": 94.19999999999999,
+ "by_year": {
+  "2025": 16.642225041108972,
+  "2026": 11.366432334803328
+ },
+ "always_long_net_bps": 4.2024078369140625,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 565,
+ "injection": {
+  "hypothesis": "D553",
+  "n_events": 181,
+  "sought_bps": 6.6483545517872695,
+  "mean_estimate": 6.6931263114290305,
+  "recovered": true
+ },
+ "trial_id": "t01335"
+}

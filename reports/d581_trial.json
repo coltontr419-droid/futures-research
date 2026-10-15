@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D581",
+ "cell": "CL follows EWG 1d (strong)",
+ "trades": 193,
+ "net_bps": -18.099799325686323,
+ "t_net": -0.832546968322874,
+ "placebo_pct": 25.8,
+ "by_year": {
+  "2025": -34.15809524099709,
+  "2026": 4.582543654690136
+ },
+ "always_long_net_bps": -35.11789898146195,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 593,
+ "injection": {
+  "hypothesis": "D581",
+  "n_events": 193,
+  "sought_bps": 11.08432016906656,
+  "mean_estimate": 11.142530856891481,
+  "recovered": true
+ },
+ "trial_id": "t01363"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D583",
+ "cell": "ZS follows EWJ 1d (strong)",
+ "trades": 203,
+ "net_bps": -1.0526981216800992,
+ "t_net": -0.1431593283190889,
+ "placebo_pct": 50.2,
+ "by_year": {
+  "2025": 0.03484325792016258,
+  "2026": -2.3912105888804276
+ },
+ "always_long_net_bps": -3.967895128952508,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 595,
+ "injection": {
+  "hypothesis": "D583",
+  "n_events": 203,
+  "sought_bps": 5.680796831924907,
+  "mean_estimate": 5.57972875055691,
+  "recovered": true
+ },
+ "trial_id": "t01365"
+}

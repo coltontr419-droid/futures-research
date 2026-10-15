@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D545",
+ "cell": "NKD follows EWT 5d (strong)",
+ "trades": 240,
+ "net_bps": 7.329199346360355,
+ "t_net": 1.1861714048009808,
+ "placebo_pct": 90.60000000000001,
+ "by_year": {
+  "2025": 8.29951617308559,
+  "2026": 6.2567439062956165
+ },
+ "always_long_net_bps": -1.9490634638003606,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 557,
+ "injection": {
+  "hypothesis": "D545",
+  "n_events": 240,
+  "sought_bps": 6.0876929026581905,
+  "mean_estimate": 6.068559077187466,
+  "recovered": true
+ },
+ "trial_id": "t01327"
+}

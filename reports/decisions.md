@@ -12413,6 +12413,76 @@ OIH. Six plan windows; EWJ is not used for NKD nor EWG for the DAX (same market 
 5 weekdays' sum (5-day); forms all / strong; follow/fade fixed on 2021–24; carried at net > 0, t > 1.96 (~2.5% by chance). Costs §177/§180.
 Validation per §426, 2; a CONFIRM then needs the §446/§453 stress tests.
 
+## 524. Family-146: never-screened Yahoo series — 55 of 592 carried (≈ 14.8 by chance); validated (S1)
+
+**N 1,369.** `reports/d146_discovery.json` (module `reporting/d146_newseries.py`):
+- **D533** NKD follows KWEB 5d (all): **WATCHLIST** +3.78 (t +0.84), placebo 80th, 2025 +3.9, 2026 +3.6
+- **D534** CL follows COPX 1d (strong): **WATCHLIST** +0.80 (t +0.04), placebo 59th, 2025 -3.4, 2026 +5.2
+- **D535** CL follows EWJ 1d (all): **WATCHLIST** +0.24 (t +0.02), placebo 54th, 2025 -6.6, 2026 +10.3
+- **D536** CL follows COPX 1d (all): **WATCHLIST** +21.74 (t +1.55), placebo 95th, 2025 +11.5, 2026 +37.2
+- **D537** NKD follows TAN 5d (strong): **WATCHLIST** +0.55 (t +0.09), placebo 56th, 2025 -8.7, 2026 +13.8
+- **D538** NKD follows KWEB 5d (strong): **WATCHLIST** +4.63 (t +0.57), placebo 72th, 2025 -5.6, 2026 +17.8
+- **D539** NKD follows EWZ 1d (all): **REJECT** -1.77 (t -0.39), placebo 35th, 2025 -0.2, 2026 -4.1
+- **D540** NKD follows EWG 5d (strong): **WATCHLIST** +7.63 (t +1.18), placebo 86th, 2025 +5.4, 2026 +10.9
+- **D541** CL follows XME 1d (strong): **WATCHLIST** +16.62 (t +0.79), placebo 80th, 2025 -12.7, 2026 +48.9
+- **D542** NKD follows ARKK 5d (all): **WATCHLIST** +5.05 (t +1.12), placebo 89th, 2025 +3.7, 2026 +7.1
+- **D543** CL follows JETS 1d (strong): **WATCHLIST** +4.19 (t +0.21), placebo 60th, 2025 +12.3, 2026 -7.8
+- **D544** CL follows EWJ 1d (strong): **REJECT** -9.32 (t -0.43), placebo 39th, 2025 -9.9, 2026 -8.6
+- **D545** NKD follows EWT 5d (strong): **WATCHLIST** +7.33 (t +1.19), placebo 91th, 2025 +8.3, 2026 +6.3
+- **D546** CL follows TAN 1d (strong): **WATCHLIST** +8.83 (t +0.44), placebo 70th, 2025 -23.4, 2026 +51.7
+- **D547** CL follows XME 1d (all): **WATCHLIST** +8.04 (t +0.57), placebo 75th, 2025 -3.1, 2026 +24.8
+- **D548** ZS follows IBB 1d (strong): **CONFIRM** +13.41 (t +2.05), placebo 98th, 2025 +12.8, 2026 +14.3
+- **D549** NKD follows EWY 5d (strong): **WATCHLIST** +7.97 (t +1.34), placebo 93th, 2025 +10.0, 2026 +5.8
+- **D550** CL follows ARKK 1d (all): **WATCHLIST** +0.07 (t +0.00), placebo 55th, 2025 -8.8, 2026 +13.3
+- **D551** NKD follows ITB 5d (all): **CONFIRM** +10.97 (t +2.45), placebo 100th, 2025 +9.4, 2026 +13.4
+- **D552** ZS follows IBB 1d (all): **CONFIRM** +11.30 (t +2.30), placebo 99th, 2025 +16.7, 2026 +3.2
+- **D553** MNQ fades OIH 5d (strong): **WATCHLIST** +14.34 (t +1.41), placebo 94th, 2025 +16.6, 2026 +11.4
+- **D554** NKD follows IBB 5d (all): **REJECT** -8.15 (t -1.82), placebo 4th, 2025 -5.6, 2026 -12.1
+- **D555** CL follows TAN 1d (all): **WATCHLIST** +15.28 (t +1.08), placebo 85th, 2025 -19.0, 2026 +67.2
+- **D556** CL follows INDA 1d (all): **REJECT** -22.65 (t -1.61), placebo 7th, 2025 -22.4, 2026 -23.0
+- **D557** NKD follows EWG 5d (all): **REJECT** -0.86 (t -0.19), placebo 48th, 2025 +0.8, 2026 -3.4
+- **D558** CL follows ARKK 1d (strong): **REJECT** -12.77 (t -0.64), placebo 27th, 2025 -38.5, 2026 +23.1
+- **D559** CL follows XRT 1d (all): **REJECT** -25.97 (t -1.85), placebo 4th, 2025 -17.9, 2026 -38.1
+- **D560** MNQ fades EWZ 5d (strong): **WATCHLIST** +2.18 (t +0.26), placebo 72th, 2025 +1.3, 2026 +3.3
+- **D561** CL follows JETS 5d (strong): **WATCHLIST** +4.41 (t +0.25), placebo 60th, 2025 +20.3, 2026 -17.3
+- **D562** MNQ fades XRT 5d (all): **REJECT** -8.91 (t -1.55), placebo 8th, 2025 -6.6, 2026 -12.4
+- **D563** NKD follows JETS 1d (all): **REJECT** -6.80 (t -1.51), placebo 8th, 2025 +1.0, 2026 -18.8
+- **D564** NKD follows JETS 1d (strong): **REJECT** -4.82 (t -0.79), placebo 21th, 2025 +5.7, 2026 -20.6
+- **D565** ZS follows COPX 1d (strong): **REJECT** -0.61 (t -0.08), placebo 48th, 2025 -6.7, 2026 +5.8
+- **D566** ZS fades ^TYX 5d (all): **REJECT** -1.53 (t -0.31), placebo 45th, 2025 -3.5, 2026 +1.5
+- **D567** MGC fades ZQ=F 1d (strong): **REJECT** -2.01 (t -0.28), placebo 37th, 2025 +4.5, 2026 -11.6
+- **D568** NKD follows KWEB 1d (strong): **REJECT** -1.45 (t -0.17), placebo 45th, 2025 -10.5, 2026 +11.6
+- **D569** NKD follows XHB 5d (all): **WATCHLIST** +7.20 (t +1.60), placebo 95th, 2025 +11.0, 2026 +1.3
+- **D570** NKD follows EWY 5d (all): **WATCHLIST** +4.11 (t +0.91), placebo 85th, 2025 +5.4, 2026 +2.1
+- **D571** NKD follows JETS 5d (strong): **WATCHLIST** +0.31 (t +0.05), placebo 56th, 2025 +2.5, 2026 -2.7
+- **D572** NKD fades ^MOVE 5d (strong): **WATCHLIST** +1.40 (t +0.21), placebo 56th, 2025 -2.4, 2026 +6.5
+- **D573** MGC fades ZQ=F 1d (all): **REJECT** -2.01 (t -0.28), placebo 35th, 2025 +4.5, 2026 -11.6
+- **D574** ZS follows ZQ=F 1d (strong): **REJECT** -1.67 (t -0.23), placebo 46th, 2025 +7.4, 2026 -14.7
+- **D575** MNQ fades EWZ 5d (all): **WATCHLIST** +4.75 (t +0.82), placebo 84th, 2025 +5.4, 2026 +3.8
+- **D576** CL follows EWT 1d (all): **WATCHLIST** +1.61 (t +0.11), placebo 56th, 2025 -9.6, 2026 +18.5
+- **D577** CL follows JETS 1d (all): **WATCHLIST** +3.70 (t +0.26), placebo 60th, 2025 +13.0, 2026 -10.3
+- **D578** NKD fades ^VXN 5d (all): **WATCHLIST** +1.75 (t +0.39), placebo 68th, 2025 -2.1, 2026 +7.7
+- **D579** DAX fades XRT 5d (all): **WATCHLIST** +2.08 (t +0.50), placebo 72th, 2025 +4.9, 2026 -2.2
+- **D580** ZS follows EWJ 1d (all): **REJECT** -2.11 (t -0.42), placebo 34th, 2025 -3.0, 2026 -0.9
+- **D581** CL follows EWG 1d (strong): **REJECT** -18.10 (t -0.83), placebo 26th, 2025 -34.2, 2026 +4.6
+- **D582** ZS follows KWEB 1d (all): **REJECT** -4.94 (t -1.01), placebo 21th, 2025 -7.3, 2026 -1.4
+- **D583** ZS follows EWJ 1d (strong): **REJECT** -1.05 (t -0.14), placebo 50th, 2025 +0.0, 2026 -2.4
+- **D584** NKD follows INDA 5d (strong): **WATCHLIST** +11.01 (t +1.58), placebo 93th, 2025 +7.1, 2026 +15.5
+- **D585** NKD follows COPX 5d (all): **WATCHLIST** +2.27 (t +0.51), placebo 70th, 2025 +6.3, 2026 -3.9
+- **D586** CL follows OIH 1d (strong): **REJECT** -10.98 (t -0.57), placebo 32th, 2025 -25.4, 2026 +10.1
+- **D587** NKD follows INDA 5d (all): **WATCHLIST** +3.23 (t +0.72), placebo 80th, 2025 +0.6, 2026 +7.3
+
+**Three CONFIRMs: ZS follows IBB's 1-day sign (D548, D552); NKD follows ITB's (homebuilders) 5-day sign (D551).** Stress (descriptive):
+- **ZS ← IBB:** by period 2010–14 +0.6, 2015–20 −5.3 (t −1.9), 2021 +22.5, 2022 +19.5, 2023 +3.3, 2024 −0.9, 2025–26 +11.3; XBI (the other
+  biotech ETF) and ZM show it weaker; ZC/ZW not. No mechanism; a risk-on proxy at best.
+- **NKD ← ITB 5-day: positive in every period** — 2010–14 +5.5 (t 0.8), 2015–20 +5.8 (t 1.9), 2021 +8.0, 2022 +8.3, 2023 +3.1, 2024 +7.4,
+  2025–26 +11.0 (t 2.5) — the first NKD signal that does not reverse before 2021 (the dollar-week rule does: 2010–20 negative). Joint with
+  the deployed dollar-week sign: agreement 57% / 53%; regression ITB t 2.3 / 2.3, 6E t 2.0 / 2.6 in 2021–24 / 2025–26 — two partly
+  independent signals. XHB (the broader homebuilder ETF) is weaker (2015–20 −3.9). Mechanism candidate: homebuilders are the purest
+  rates/financial-conditions equity; five days of easing conditions carry into Japan's next session.
+Next: A42 account replay (NKD: ITB alone and ITB + dollar-week; ZS: IBB) against random flips. The combination's equal weights are fixed
+in advance (scaled 5-day moves summed, no fitting), but it is chosen after seeing 2025–26 — disclosed; it is judged mainly on 2010–20.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

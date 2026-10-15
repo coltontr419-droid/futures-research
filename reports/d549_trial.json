@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D549",
+ "cell": "NKD follows EWY 5d (strong)",
+ "trades": 252,
+ "net_bps": 7.974631485121249,
+ "t_net": 1.342738617429807,
+ "placebo_pct": 92.80000000000001,
+ "by_year": {
+  "2025": 10.030870240154973,
+  "2026": 5.818088400573683
+ },
+ "always_long_net_bps": 0.2583585292306169,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 561,
+ "injection": {
+  "hypothesis": "D549",
+  "n_events": 252,
+  "sought_bps": 5.5248172031644955,
+  "mean_estimate": 5.4835100734801205,
+  "recovered": true
+ },
+ "trial_id": "t01331"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D562",
+ "cell": "MNQ fades XRT 5d (all)",
+ "trades": 402,
+ "net_bps": -8.908132206741257,
+ "t_net": -1.5474997296246757,
+ "placebo_pct": 7.8,
+ "by_year": {
+  "2025": -6.613296418150594,
+  "2026": -12.379071336984634
+ },
+ "always_long_net_bps": 3.021571159362793,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 574,
+ "injection": {
+  "hypothesis": "D562",
+  "n_events": 402,
+  "sought_bps": 4.13124462675707,
+  "mean_estimate": 4.106383621981037,
+  "recovered": true
+ },
+ "trial_id": "t01344"
+}

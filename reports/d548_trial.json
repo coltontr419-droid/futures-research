@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D548",
+ "cell": "ZS follows IBB 1d (strong)",
+ "trades": 221,
+ "net_bps": 13.407995883025638,
+ "t_net": 2.0532541767910133,
+ "placebo_pct": 98.3,
+ "by_year": {
+  "2025": 12.771857872584423,
+  "2026": 14.283540671589892
+ },
+ "always_long_net_bps": 0.4767087478242421,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 560,
+ "injection": {
+  "hypothesis": "D548",
+  "n_events": 221,
+  "sought_bps": 7.956505108994519,
+  "mean_estimate": 8.089861853450687,
+  "recovered": true
+ },
+ "trial_id": "t01330"
+}

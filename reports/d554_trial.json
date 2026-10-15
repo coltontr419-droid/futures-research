@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D554",
+ "cell": "NKD follows IBB 5d (all)",
+ "trades": 406,
+ "net_bps": -8.148454153332473,
+ "t_net": -1.8156719203465796,
+ "placebo_pct": 3.5999999999999996,
+ "by_year": {
+  "2025": -5.594165372885388,
+  "2026": -12.075673153269868
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 566,
+ "injection": {
+  "hypothesis": "D554",
+  "n_events": 406,
+  "sought_bps": 3.195249830570908,
+  "mean_estimate": 3.169315503288901,
+  "recovered": true
+ },
+ "trial_id": "t01336"
+}

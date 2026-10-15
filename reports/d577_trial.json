@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D577",
+ "cell": "CL follows JETS 1d (all)",
+ "trades": 395,
+ "net_bps": 3.700383437004686,
+ "t_net": 0.26203563149342957,
+ "placebo_pct": 60.0,
+ "by_year": {
+  "2025": 12.95676087307672,
+  "2026": -10.331577262263751
+ },
+ "always_long_net_bps": -5.707589573059798,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 589,
+ "injection": {
+  "hypothesis": "D577",
+  "n_events": 395,
+  "sought_bps": 7.3627301039898505,
+  "mean_estimate": 7.125275043327661,
+  "recovered": true
+ },
+ "trial_id": "t01359"
+}

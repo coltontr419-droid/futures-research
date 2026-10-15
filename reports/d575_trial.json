@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D575",
+ "cell": "MNQ fades EWZ 5d (all)",
+ "trades": 402,
+ "net_bps": 4.753572606328708,
+ "t_net": 0.8244435519527206,
+ "placebo_pct": 84.39999999999999,
+ "by_year": {
+  "2025": 5.406354537680129,
+  "2026": 3.766239935159683
+ },
+ "always_long_net_bps": 3.021571159362793,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 587,
+ "injection": {
+  "hypothesis": "D575",
+  "n_events": 402,
+  "sought_bps": 3.8913736709056455,
+  "mean_estimate": 3.9724479503171577,
+  "recovered": true
+ },
+ "trial_id": "t01357"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D533",
+ "cell": "NKD follows KWEB 5d (all)",
+ "trades": 406,
+ "net_bps": 3.77739907160662,
+ "t_net": 0.8392627443383229,
+ "placebo_pct": 79.5,
+ "by_year": {
+  "2025": 3.8722792168227502,
+  "2026": 3.6315208483368266
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 545,
+ "injection": {
+  "hypothesis": "D533",
+  "n_events": 406,
+  "sought_bps": 5.638998680078791,
+  "mean_estimate": 5.646864471137256,
+  "recovered": true
+ },
+ "trial_id": "t01315"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D586",
+ "cell": "CL follows OIH 1d (strong)",
+ "trades": 180,
+ "net_bps": -10.98144978157437,
+ "t_net": -0.571971900113105,
+ "placebo_pct": 31.5,
+ "by_year": {
+  "2025": -25.370341665107787,
+  "2026": 10.10911777374174
+ },
+ "always_long_net_bps": -11.052241009062552,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 598,
+ "injection": {
+  "hypothesis": "D586",
+  "n_events": 180,
+  "sought_bps": 10.005739224503671,
+  "mean_estimate": 9.908135553476598,
+  "recovered": true
+ },
+ "trial_id": "t01368"
+}

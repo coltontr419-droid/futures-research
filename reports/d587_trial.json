@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D587",
+ "cell": "NKD follows INDA 5d (all)",
+ "trades": 406,
+ "net_bps": 3.2331431775597577,
+ "t_net": 0.7181634368882225,
+ "placebo_pct": 79.5,
+ "by_year": {
+  "2025": 0.6034333803714526,
+  "2026": 7.276321990736781
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 599,
+ "injection": {
+  "hypothesis": "D587",
+  "n_events": 406,
+  "sought_bps": 2.57609172266959,
+  "mean_estimate": 2.537413729521823,
+  "recovered": true
+ },
+ "trial_id": "t01369"
+}

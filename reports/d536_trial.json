@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D536",
+ "cell": "CL follows COPX 1d (all)",
+ "trades": 398,
+ "net_bps": 21.7358762164751,
+ "t_net": 1.5516770253278154,
+ "placebo_pct": 95.0,
+ "by_year": {
+  "2025": 11.460314375602037,
+  "2026": 37.1815320653346
+ },
+ "always_long_net_bps": -6.948920264111817,
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 548,
+ "injection": {
+  "hypothesis": "D536",
+  "n_events": 398,
+  "sought_bps": 12.63337117008581,
+  "mean_estimate": 12.788250251106904,
+  "recovered": true
+ },
+ "trial_id": "t01318"
+}

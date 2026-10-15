@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D534",
+ "cell": "CL follows COPX 1d (strong)",
+ "trades": 193,
+ "net_bps": 0.7987368442746915,
+ "t_net": 0.038692381474708236,
+ "placebo_pct": 58.9,
+ "by_year": {
+  "2025": -3.3762751980257195,
+  "2026": 5.195823995208103
+ },
+ "always_long_net_bps": -30.1800571749281,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 546,
+ "injection": {
+  "hypothesis": "D534",
+  "n_events": 193,
+  "sought_bps": 19.86051306923354,
+  "mean_estimate": 20.44221061864814,
+  "recovered": true
+ },
+ "trial_id": "t01316"
+}
