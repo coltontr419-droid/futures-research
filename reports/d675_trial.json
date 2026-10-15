@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D675",
+ "cell": "NKD follows ^FCHI 1d (strong)",
+ "trades": 190,
+ "net_bps": -4.363779029879243,
+ "t_net": -0.6287485393881804,
+ "placebo_pct": 26.700000000000003,
+ "by_year": {
+  "2025": -5.021416108746271,
+  "2026": -3.3554021756164683
+ },
+ "always_long_net_bps": 0.9391361617585846,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 688,
+ "injection": {
+  "hypothesis": "D675",
+  "n_events": 190,
+  "sought_bps": 4.535781372062082,
+  "mean_estimate": 4.555453447396163,
+  "recovered": true
+ },
+ "trial_id": "t01457"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D682",
+ "cell": "NKD follows ^STOXX50E 1d (strong)",
+ "trades": 198,
+ "net_bps": -10.088004083544305,
+ "t_net": -1.5269626626896786,
+ "placebo_pct": 7.000000000000001,
+ "by_year": {
+  "2025": -7.354808444409293,
+  "2026": -13.954475963296279
+ },
+ "always_long_net_bps": 1.8555101037653134,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 695,
+ "injection": {
+  "hypothesis": "D682",
+  "n_events": 198,
+  "sought_bps": 4.048848045685551,
+  "mean_estimate": 3.866617709122929,
+  "recovered": true
+ },
+ "trial_id": "t01464"
+}

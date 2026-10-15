@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D680",
+ "cell": "NKD follows ^IBEX 1d (strong)",
+ "trades": 207,
+ "net_bps": -8.740071629211059,
+ "t_net": -1.2858831956676198,
+ "placebo_pct": 13.900000000000002,
+ "by_year": {
+  "2025": -3.9249254856156863,
+  "2026": -15.251462437027522
+ },
+ "always_long_net_bps": -6.199954833448325,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 693,
+ "injection": {
+  "hypothesis": "D680",
+  "n_events": 207,
+  "sought_bps": 4.290773572279105,
+  "mean_estimate": 4.283645381103393,
+  "recovered": true
+ },
+ "trial_id": "t01462"
+}

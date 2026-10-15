@@ -3392,3 +3392,55 @@ Data-derived (D-series family 159). `hypotheses.yaml` (D669) · `decisions.md` �
 ## D670 — Cl Fades Usmv Spy 1D All  *(REJECT — t01452)*
 
 Data-derived (D-series family 159). `hypotheses.yaml` (D670) · `decisions.md` §559
+
+## D671 — Nkd Follows Stoxx50E 5D Strong  *(WATCHLIST — t01453)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D671) · `decisions.md` §561
+
+## D672 — Nkd Follows Aex 5D Strong  *(REJECT — t01454)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D672) · `decisions.md` §561
+
+## D673 — Nkd Follows Ssmi 5D Strong  *(REJECT — t01455)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D673) · `decisions.md` §561
+
+## D674 — Nkd Follows Ftsemib Mi 5D Strong  *(REJECT — t01456)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D674) · `decisions.md` §561
+
+## D675 — Nkd Follows Fchi 1D Strong  *(REJECT — t01457)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D675) · `decisions.md` §561
+
+## D676 — Nkd Follows Ftsemib Mi 5D All  *(REJECT — t01458)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D676) · `decisions.md` §561
+
+## D677 — Cl Follows Ibex 1D Strong  *(WATCHLIST — t01459)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D677) · `decisions.md` §561
+
+## D678 — Nkd Follows Ssmi 5D All  *(REJECT — t01460)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D678) · `decisions.md` §561
+
+## D679 — Nkd Follows Fchi 5D Strong  *(WATCHLIST — t01461)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D679) · `decisions.md` §561
+
+## D680 — Nkd Follows Ibex 1D Strong  *(REJECT — t01462)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D680) · `decisions.md` §561
+
+## D681 — Nkd Follows Aex 1D Strong  *(REJECT — t01463)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D681) · `decisions.md` §561
+
+## D682 — Nkd Follows Stoxx50E 1D Strong  *(REJECT — t01464)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D682) · `decisions.md` §561
+
+## D683 — Nkd Follows Ftsemib Mi 1D All  *(REJECT — t01465)*
+
+Data-derived (D-series family 160). `hypotheses.yaml` (D683) · `decisions.md` §561

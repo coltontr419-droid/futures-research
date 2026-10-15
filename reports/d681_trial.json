@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D681",
+ "cell": "NKD follows ^AEX 1d (strong)",
+ "trades": 201,
+ "net_bps": -8.23979537441089,
+ "t_net": -1.2318671146396796,
+ "placebo_pct": 16.0,
+ "by_year": {
+  "2025": -7.014813710055505,
+  "2026": -10.05458302530776
+ },
+ "always_long_net_bps": -10.292851243373377,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 694,
+ "injection": {
+  "hypothesis": "D681",
+  "n_events": 201,
+  "sought_bps": 4.294438382264144,
+  "mean_estimate": 4.266162082645936,
+  "recovered": true
+ },
+ "trial_id": "t01463"
+}

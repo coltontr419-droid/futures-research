@@ -12857,6 +12857,25 @@ ET — checked), previous weekday (all close ≤ 11:35 ET, before every plan win
 forms all / strong; follow/fade fixed on 2021–24. **7 × 2 × 6 × 2 = 168 tests** (~4.2 by chance at t > 1.96). Costs §177/§180.
 Validation per §426, 2; a CONFIRM then needs §446/§453.
 
+## 561. Family-160: European indices — 13 of 168 carried (≈ 4.2 by chance); none confirmed (S1)
+
+**N 1,465.** `reports/d160_discovery.json` (module `reporting/d160_europe.py`):
+- **D671** NKD follows ^STOXX50E 5d (strong): **WATCHLIST** +1.15 (t +0.18), placebo 47th, 2025 -8.4, 2026 +16.0
+- **D672** NKD follows ^AEX 5d (strong): **REJECT** -1.38 (t -0.22), placebo 41th, 2025 -6.1, 2026 +7.3
+- **D673** NKD follows ^SSMI 5d (strong): **REJECT** -4.45 (t -0.72), placebo 29th, 2025 -11.3, 2026 +6.4
+- **D674** NKD follows FTSEMIB.MI 5d (strong): **REJECT** -8.34 (t -1.23), placebo 8th, 2025 -10.8, 2026 -4.7
+- **D675** NKD follows ^FCHI 1d (strong): **REJECT** -4.36 (t -0.63), placebo 27th, 2025 -5.0, 2026 -3.4
+- **D676** NKD follows FTSEMIB.MI 5d (all): **REJECT** -0.28 (t -0.06), placebo 52th, 2025 -6.7, 2026 +9.5
+- **D677** CL follows ^IBEX 1d (strong): **WATCHLIST** +6.87 (t +0.31), placebo 74th, 2025 +0.6, 2026 +15.1
+- **D678** NKD follows ^SSMI 5d (all): **REJECT** -5.66 (t -1.28), placebo 12th, 2025 -11.2, 2026 +2.8
+- **D679** NKD follows ^FCHI 5d (strong): **WATCHLIST** +0.24 (t +0.04), placebo 58th, 2025 -9.0, 2026 +14.4
+- **D680** NKD follows ^IBEX 1d (strong): **REJECT** -8.74 (t -1.29), placebo 14th, 2025 -3.9, 2026 -15.3
+- **D681** NKD follows ^AEX 1d (strong): **REJECT** -8.24 (t -1.23), placebo 16th, 2025 -7.0, 2026 -10.1
+- **D682** NKD follows ^STOXX50E 1d (strong): **REJECT** -10.09 (t -1.53), placebo 7th, 2025 -7.4, 2026 -14.0
+- **D683** NKD follows FTSEMIB.MI 1d (all): **REJECT** -3.32 (t -0.74), placebo 28th, 2025 -4.7, 2026 -1.3
+
+NKD-follows-risk fails a third time (families 142, 143, 160): it was a 2021–24 pattern only.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

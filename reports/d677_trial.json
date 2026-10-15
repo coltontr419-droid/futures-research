@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D677",
+ "cell": "CL follows ^IBEX 1d (strong)",
+ "trades": 202,
+ "net_bps": 6.871049133992267,
+ "t_net": 0.306469623299193,
+ "placebo_pct": 73.9,
+ "by_year": {
+  "2025": 0.6414747045257416,
+  "2026": 15.105544069494005
+ },
+ "always_long_net_bps": -22.57457328227536,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 690,
+ "injection": {
+  "hypothesis": "D677",
+  "n_events": 202,
+  "sought_bps": 11.954679177048794,
+  "mean_estimate": 11.522337335851503,
+  "recovered": true
+ },
+ "trial_id": "t01459"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D683",
+ "cell": "NKD follows FTSEMIB.MI 1d (all)",
+ "trades": 411,
+ "net_bps": -3.321758353657943,
+ "t_net": -0.7428123631112494,
+ "placebo_pct": 27.500000000000004,
+ "by_year": {
+  "2025": -4.65816645831274,
+  "2026": -1.2884503171279413
+ },
+ "always_long_net_bps": -1.5755445920020577,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 696,
+ "injection": {
+  "hypothesis": "D683",
+  "n_events": 411,
+  "sought_bps": 2.597775865992344,
+  "mean_estimate": 2.4562775314395933,
+  "recovered": true
+ },
+ "trial_id": "t01465"
+}

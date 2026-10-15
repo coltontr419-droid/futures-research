@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D671",
+ "cell": "NKD follows ^STOXX50E 5d (strong)",
+ "trades": 195,
+ "net_bps": 1.1482206981839589,
+ "t_net": 0.18012780974944384,
+ "placebo_pct": 46.9,
+ "by_year": {
+  "2025": -8.357163799885038,
+  "2026": 16.031651688581466
+ },
+ "always_long_net_bps": 7.1391875353431375,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 684,
+ "injection": {
+  "hypothesis": "D671",
+  "n_events": 195,
+  "sought_bps": 5.786710209704412,
+  "mean_estimate": 5.638321608839402,
+  "recovered": true
+ },
+ "trial_id": "t01453"
+}
