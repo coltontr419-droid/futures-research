@@ -13393,6 +13393,27 @@ daily history since 2010: **ZB, ZN, 6E, 6J, 6A, 6B** (CME FX), **SI**, **PL**, *
 candidate qualifies only if the five-account book with it in MCL's place has a higher mean in **all three** periods (2010–20, 2021–26,
 2025 starts). Qualifiers are reported with P(net > 0) and the 10th percentile.
 
+## 613. A56: two markets beat crude for the fifth account — live cattle (robust on the checks) and silver (fragile) (S1)
+
+**No trial; N 1,525.** `reports/a56_fifth.json` (module `reporting/a56_fifth.py`). Five-account book, MCL's slot replaced (mean; P(net > 0); 10th pct):
+
+| fifth market | 2010–20 | 2021–26 | 2025 starts |
+|---|---|---|---|
+| MCL (now) | +$10,479; 85%; −$828 | +$15,008; 96%; +$4,148 | +$17,492; 100%; +$8,228 |
+| **LE, 4 live cattle** | **+$13,630; 94%; +$1,642** | **+$16,703; 99%; +$6,904** | **+$18,105; 100%; +$9,160** |
+| SI, 1 silver (daily bars) | +$14,537; 91%; +$463 | +$19,161; 98%; +$6,813 | +$22,640; 100%; +$15,585 |
+| SIL, 3 micro silver (daily bars, sized) | +$13,214; 89%; −$394 | +$17,587; 100%; +$6,509 | +$18,998; 100%; +$10,303 |
+| SI on minute paths (COMEX 08:25–13:25) | +$10,172; 90%; −$92 | +$16,494; 98%; +$6,036 | +$16,598; 100%; +$6,096 |
+| ZB (A55) | +$13,117; 92%; +$558 | +$16,274; 99%; +$6,245 | +$17,008; 100%; +$7,705 |
+
+Every other candidate fails at least one period (ZN, 6E, 6J, 6A, 6B, PL, MNG, MHG, ZC, ZW, HE). **Silver is fragile**: its daily-bar advantage
+disappears on minute paths (worse than MCL in 2010–20 and on 2025 starts) and it shares losing runs with MGC (both negative on 11–35% of
+starts). **Live cattle holds on the checks available**: Yahoo LE=F session SD 50–132 bps by year with no regime break, 56 of 4,240 opens
+gap > 3% and one session > 5% (no roll artefacts of note); alone P(payout) 85% / 80%, mean +$4,142 / +$2,768 (MCL +$652 / +$1,088); book
+gain over MCL positive in every start year 2016–2025 (+$0.9k to +$7.4k), negative for 2026 starts (−$7.9k, few starts); per-start
+correlation with MNQ / MGC / NKD / FDXM −0.25 to +0.28. Caveats: daily-bar paths (no minute data to cross-check, as MCL); a zero-edge
+market substitution, not a new edge; Tradeify must list LE (CME livestock, 8:30 AM – 1:05 PM CT) and the bot needs an LE ticket.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
