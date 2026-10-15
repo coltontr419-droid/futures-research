@@ -12808,6 +12808,16 @@ also needs weekly-sum t > 1.96). Costs §177/§180. Validation per §426, 2 (pla
 **N 1,441 (no trial).** `reports/d157_discovery.json` (module `reporting/d157_claims.py`). Best: ZS follows the 1-week change in initial
 claims, +8.12 bps (t 1.83). Weekly macro releases held for a week carry nothing into the plan windows.
 
+## 556. D-series family 158 protocol: own-curve carry as an every-day sign for crude and gold, current regime (S1)
+
+**No trial spent; N 1,441. Written and committed BEFORE any statistic is computed.** W04 (decisions.md 76) tested trend + carry as a
+six-market portfolio and failed post-2021; carry as a single-market direction for the plan's own windows was never tested. From the owned
+GLBX daily bars (`daily_bars.load_market`, W04's carry C = (F1 − F2)/F2/years, measured at the 00:00 UTC bar): **CL** → CL's session, **GC** →
+gold's London window. Predictors on the previous weekday's bar: (a) **carry level** (+ = backwardation), (b) **carry change over 5 bars**.
+Follow/fade fixed on 2021–24; forms all / strong (|value| above its 2021–24 median). **2 × 2 × 2 = 8 tests** (~0.2 by chance at t > 1.96).
+Costs §180. Validation per §426, 2; a CONFIRM then needs §446/§453. Note: a carry-level sign changes rarely, so t over sessions overstates;
+a carry must also hold on monthly sums (t > 1.96).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
