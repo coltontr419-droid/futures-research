@@ -12793,6 +12793,16 @@ forms all / strong; follow/fade fixed on 2021–24. **5 × 3 × 2 × 2 = 60 test
 (+8.1 / +9.6), placebo 94th, t 1.43 — fails only the t and placebo thresholds narrowly. Mechanism: Chinese buyers hedge yuan weakness
 with gold (strong since 2022); 2010–20 negative (−1.6), a current-regime effect. **Watchlist** (§133): forward-tested, not traded.
 
+## 554. D-series family 157 protocol: weekly US jobless claims as a week-long sign, current regime (S1)
+
+**No trial spent; N 1,441. Written and committed BEFORE any statistic is computed.** FRED **ICSA** (initial claims, week ending Saturday,
+released the next Thursday 08:30 ET) and **CCSA** (continuing claims, released the same Thursday a week later: observation + 12 days).
+Current FRED values carry small revisions (disclosed; claims revisions are typically < 1%). Predictor: the change over **1 week** and over
+**4 weeks** (+ = claims rising). A value applies from the first plan session opening after its release to the session before the next
+release: MNQ from the release Thursday itself (09:30); the DAX and MGC from Friday (03:00); NKD, CL and ZS from the Thursday-evening session.
+Six plan windows; follow/fade fixed on 2021–24; forms all / strong. **2 × 2 × 6 × 2 = 48 tests** (~1.2 by chance at t > 1.96; carried
+also needs weekly-sum t > 1.96). Costs §177/§180. Validation per §426, 2 (placebo: weekly signs shuffled across sealed weeks).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
