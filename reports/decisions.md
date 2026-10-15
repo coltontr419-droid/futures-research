@@ -13343,6 +13343,17 @@ The 20–30% consistency rule caps a day's win near $500–600, the $492 price i
 Daily 50K stays the account for every market. (Sources: Tradeify help centre — Lightning Funded Accounts, Lightning payout policy, pricing
 reference — read 2026-10-15.)
 
+## 608. A54 protocol: Tradeify's Growth 50K for the two rule accounts (S1)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** Rules (Tradeify help centre, read 2026-10-15): **$145** one-time;
+evaluation target +$3,000, $2,000 EOD trailing drawdown, $1,250 soft daily loss limit, **no evaluation consistency**; funded: payouts need the
+balance ≥ $53,000, **5 profitable days ≥ $150** per cycle, a 35% consistency rule, first payout cap $1,500. Modelled with A23's Flex machinery
+(winning-day count, threshold $150): Spec(start 50,000, fee 145, target 30, dd 20, cons 1.0, f_cap 15, f_daily 12, flex_thr 150, e_daily 12)
+with two bounds for the engine's single funded-drawdown/payout-buffer parameter — f_dd = 20 (drawdown right, buffer too small) and 30
+(buffer right, drawdown too loose); both flatter Growth, and the 35% funded consistency rule is not modelled (also flattering). Replay with
+the deployed rules (NKD 1, FDXM 2 contracts), its own solved bracket policy, 2025 starts and all post-2021 starts, vs the 50K Daily.
+Reported only if even the flattering bound fails to beat the Daily account? — no: reported only if Growth beats the Daily account.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
