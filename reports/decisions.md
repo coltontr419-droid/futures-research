@@ -13239,6 +13239,15 @@ not lower 2025-start P(payout) by more than 3 points.
 2 +$2,903, 3 +$2,239, **4 +$3,586** (95%) → chosen 4, but on 2025 starts +$4,908 (90%) vs the deployed 2's **+$5,616 (92%)** — fails §596.
 Before 2021 FDXM preferred 3 (+$5,093 vs +$3,144). No size is better across periods; the plan's sizes stay.
 
+## 598. D-series family 171 protocol: long-horizon time-series momentum on each plan market, current regime (S1)
+
+**No trial spent; N 1,508. Written and committed BEFORE any statistic is computed.** Own-past families stopped at 20 days (117, 121);
+W04 tested trend only inside a six-market portfolio. Here each plan window follows (or fades — fixed on 2021–24) the sign of its own
+market's trend over the previous **60, 120 or 250 weekdays** (sum of Yahoo session moves: NQ=F, GC=F, NKD=F, ^GDAXI, CL=F, ZS=F, ending the
+previous weekday); forms all / strong (|trend| above its 2021–24 median). **6 × 3 × 2 = 36 tests** (~0.9 by chance at t > 1.96). A trend sign
+changes rarely, so a carry must also hold on monthly sums (t > 1.96). Costs §177/§180. Validation per §426, 2 (placebo: monthly blocks of
+signs shuffled); a CONFIRM then needs an account replay.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
