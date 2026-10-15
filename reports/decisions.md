@@ -13453,6 +13453,15 @@ on 2021–24; forms all / strong. **2 × 3 × 2 = 12 tests** (~0.3 by chance; ca
 **N 1,525 (no trial).** `reports/d175_discovery.json` (module `reporting/d175_goldsess.py`). Every cell |t| < 1.2 in 2021–24. The London fade
 (D727–D728) is London-specific; the other sessions neither follow nor fade the trend. No session switch for the MGC account.
 
+## 619. A57 protocol: conviction sizing on the NKD account (S1)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** Direction stays the deployed dollar-week sign. Agreement signals (each
+NKD-confirmed or near-confirmed; their signs are known before the 20:00 ET entry): corn fade 5-day (D343/D738), ASX follow 1-day (D653), ITB
+follow 5-day (D551). Rule: **2 NKD when at least k of the 3 agree with dollar-week, else 1**, k ∈ {1, 2, 3}; plus the variant "3 NKD when all
+3 agree". A23 replay (nvec), 50K Daily. **Chosen on 2021–24 starts** (mean net, P(payout) within 3 points of the deployed 1-NKD); read once on
+2025 starts and 2010–20. Disclosed: the agreement signals were validated on 2025–26, so 2025 starts favour them; 2010–20 is the honest
+check. Adopt only if the choice beats the deployed account on 2021–24 AND 2010–20 starts AND 2025 starts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
