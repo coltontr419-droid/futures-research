@@ -12824,6 +12824,14 @@ a carry must also hold on monthly sums (t > 1.96).
 not a test): crude following the 5-bar change in its own carry is positive in both periods — 2010–20 +8.0 (t 1.74; strong days +17.8, t 1.97),
 2021–24 +8.0 (t 1.12; strong +11.3, t 1.06) — consistent but below every threshold.
 
+## 558. D-series family 159 protocol: US equity factor spreads as every-day predictors, current regime (S1)
+
+**No trial spent; N 1,441. Written and committed BEFORE any statistic is computed.** Breadth and factor rotation were never screened.
+Spreads of Yahoo open → close moves (US hours, all close 16:00 ET) minus SPY: **RSP** (equal weight = breadth), **MTUM** (momentum), **USMV**
+(minimum vol), **VLUE** (value), **QUAL** (quality), **SPHB** (high beta), **SPLV** (low vol). Previous weekday's sign (1-day) and previous
+5 weekdays' sum (5-day) into the six plan windows; forms all / strong; follow/fade fixed on 2021–24. **7 × 2 × 6 × 2 = 168 tests** (~4.2 by
+chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs §446/§453.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
