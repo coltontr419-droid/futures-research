@@ -1,0 +1,8 @@
+{
+ "hypothesis": "D726",
+ "n_events": 12114,
+ "sought_bps": 1.226016273131279,
+ "mean_estimate": 1.226016273131279,
+ "recovered": true,
+ "note": "meta-rule; injection not applicable beyond the pooled mean"
+}

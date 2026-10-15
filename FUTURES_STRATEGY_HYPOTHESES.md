@@ -3612,3 +3612,7 @@ Data-derived (D-series family 167). `hypotheses.yaml` (D724) · `decisions.md` �
 ## D725 — Nkd Fades Attention To Recession 1D Strong  *(REJECT — t01507)*
 
 Data-derived (D-series family 167). `hypotheses.yaml` (D725) · `decisions.md` §589
+
+## D726 — Walk Forward Yearly Rule Reselection  *(WATCHLIST — t01508)*
+
+Data-derived (D-series family 169). `hypotheses.yaml` (D726) · `decisions.md` §593

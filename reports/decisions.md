@@ -13199,6 +13199,17 @@ year Y.** Statistic: the pooled out-of-sample net bps over all windows and years
 over 2025–26; placebo: the same selection with each training year's target returns shuffled (500 draws) — real ≥ 95th percentile.
 A CONFIRM then needs the account replay (each year's rule as the window's direction).
 
+## 593. Family-169 / D726 (t01508): walk-forward re-selection — WATCHLIST: works for a decade, not in 2025–26 (S1)
+
+**N 1,508.** `reports/d169_walkforward.json` (module `reporting/d169_walkforward.py`). Each year, each window trades its best trailing-
+three-year rule. **Pooled out of sample 2014–2026: +2.45 bps a trade (t +1.88, n 12,114), positive in 10 of 13
+years, placebo 100th** (random selections on shuffled training returns) — but **2025–26 -1.11** (2025 −1.99, 2026 +0.04),
+so the §592 rule's last condition fails. By year: 2014 +12.0, 2015 +2.6, 2016 +5.2, 2017 +0.7, 2018 +10.1, 2019 +3.8, **2020 −4.7, 2021 −2.8**,
+2022 +1.3, 2023 +3.4, 2024 +7.2. Per window OOS: MNQ +1.7, MGC +0.5, NKD +3.1, DAX +1.8, CL +4.7, ZS +3.0 (all t < 1.3).
+Read: recently strong cross-market relations do persist a year on average — a real, placebo-beating effect — but at ~2.5 bps a trade
+it is far below what moves a bracket account (§164: an edge must be large against the window's swing), and it broke at both regime turns
+(2020–21) and again in 2025. Not proposed; recorded as the programme's evidence that the regime, not the rule, is what persists.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
