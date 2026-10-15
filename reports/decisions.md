@@ -13035,7 +13035,7 @@ MNQ back to its first eval, balance $50,000, evals bought 1, the ticket's `user_
 replaced by one corrected EOD row (noted as the user's correction). Yahoo 1-minute bars agree: from entry 29,745.50 the take
 (29,871.75) was hit at 10:41 ET; at 10:10 neither bracket had been touched (last 29,861).
 
-**Bot change (built and tested locally; deployed only on the user's OK):** `schedule.eod_check` replays the ticket being documented on
+**Bot change (deployed 2026-10-15 ~11:50 ET on the user's OK; backup-2026-10-15b; files verified by checksum):** `schedule.eod_check` replays the ticket being documented on
 1-minute bars from its exact entry to now. If the sent P&L implies a take but the replay hit the stop (or the reverse), or the window is
 still open and the replay has touched neither bracket, the bot books nothing and says so; `!eod <P> <balance> confirm` books it anyway.
 Agreement, a time exit, missing data or any error never block. FDXM's replay is the DAX index proxy (§492), named in the warning.
