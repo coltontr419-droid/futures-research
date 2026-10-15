@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D743",
+ "cell": "DAX+NKD follow XLF 5d (all)",
+ "trades": 816,
+ "net_bps": -3.3241031646874672,
+ "t_net": -0.9037466596441619,
+ "placebo_pct": 19.7,
+ "by_year": {
+  "2025": -5.848927073368902,
+  "2026": 0.5098886966435984
+ },
+ "always_long_net_bps": -0.8076902428335477,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 756,
+ "injection": {
+  "hypothesis": "D743",
+  "n_events": 816,
+  "sought_bps": 2.344409812424108,
+  "mean_estimate": 2.4346043570760947,
+  "recovered": true
+ },
+ "trial_id": "t01525"
+}

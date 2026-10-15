@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D734",
+ "cell": "DAX+NKD fade 6S=F 1d (strong)",
+ "trades": 429,
+ "net_bps": -1.9639462617827572,
+ "t_net": -0.3723146358325711,
+ "placebo_pct": 39.7,
+ "by_year": {
+  "2025": -5.958919190639396,
+  "2026": 4.491345361064858
+ },
+ "always_long_net_bps": -4.836657601434845,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 747,
+ "injection": {
+  "hypothesis": "D734",
+  "n_events": 429,
+  "sought_bps": 4.9960707670134115,
+  "mean_estimate": 4.784061875993988,
+  "recovered": true
+ },
+ "trial_id": "t01516"
+}

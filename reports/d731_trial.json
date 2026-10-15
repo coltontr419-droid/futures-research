@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D731",
+ "cell": "DAX+NKD follow XOP 1d (all)",
+ "trades": 814,
+ "net_bps": 3.391552557693215,
+ "t_net": 0.9223369171093858,
+ "placebo_pct": 83.6,
+ "by_year": {
+  "2025": 4.877579808657872,
+  "2026": 1.1441656658022192
+ },
+ "always_long_net_bps": -0.7317426583049598,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 744,
+ "injection": {
+  "hypothesis": "D731",
+  "n_events": 814,
+  "sought_bps": 3.6029823308335915,
+  "mean_estimate": 3.5913909613754904,
+  "recovered": true
+ },
+ "trial_id": "t01513"
+}

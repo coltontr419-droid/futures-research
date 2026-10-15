@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D735",
+ "cell": "DAX+NKD fade 6B=F 1d (all)",
+ "trades": 814,
+ "net_bps": 2.0974186589398474,
+ "t_net": 0.5695194788928084,
+ "placebo_pct": 73.6,
+ "by_year": {
+  "2025": 0.5177882335374975,
+  "2026": 4.486365907233527
+ },
+ "always_long_net_bps": -0.4565318266250047,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 748,
+ "injection": {
+  "hypothesis": "D735",
+  "n_events": 814,
+  "sought_bps": 2.985804549092692,
+  "mean_estimate": 2.9345697873184564,
+  "recovered": true
+ },
+ "trial_id": "t01517"
+}

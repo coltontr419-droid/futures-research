@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D732",
+ "cell": "DAX+NKD follow FXI 5d (all)",
+ "trades": 816,
+ "net_bps": -1.0902377362384776,
+ "t_net": -0.29629592343089706,
+ "placebo_pct": 42.699999999999996,
+ "by_year": {
+  "2025": -4.655549723810251,
+  "2026": 4.323754541185329
+ },
+ "always_long_net_bps": -0.8076902428335477,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 745,
+ "injection": {
+  "hypothesis": "D732",
+  "n_events": 816,
+  "sought_bps": 3.4728691155359614,
+  "mean_estimate": 3.3883481409876883,
+  "recovered": true
+ },
+ "trial_id": "t01514"
+}

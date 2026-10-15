@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D737",
+ "cell": "DAX+NKD follow EEM 5d (strong)",
+ "trades": 424,
+ "net_bps": 2.3360197372982423,
+ "t_net": 0.44346480397360033,
+ "placebo_pct": 62.5,
+ "by_year": {
+  "2025": -0.49672693339681845,
+  "2026": 5.250089278922349
+ },
+ "always_long_net_bps": 4.03115679330525,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 750,
+ "injection": {
+  "hypothesis": "D737",
+  "n_events": 424,
+  "sought_bps": 4.429163177067363,
+  "mean_estimate": 4.522263184836615,
+  "recovered": true
+ },
+ "trial_id": "t01519"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D742",
+ "cell": "DAX+NKD fade ^VIX3M 5d (all)",
+ "trades": 816,
+ "net_bps": -1.986991653443342,
+ "t_net": -0.5400627579085291,
+ "placebo_pct": 31.4,
+ "by_year": {
+  "2025": 0.3774221003677355,
+  "2026": -5.577397724045349
+ },
+ "always_long_net_bps": -0.8076902428335477,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 755,
+ "injection": {
+  "hypothesis": "D742",
+  "n_events": 816,
+  "sought_bps": 2.349866881932822,
+  "mean_estimate": 2.446483905566858,
+  "recovered": true
+ },
+ "trial_id": "t01524"
+}

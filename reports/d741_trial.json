@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D741",
+ "cell": "DAX+NKD follow ZN=F 5d (all)",
+ "trades": 820,
+ "net_bps": 1.586123425831407,
+ "t_net": 0.4328750434213263,
+ "placebo_pct": 70.39999999999999,
+ "by_year": {
+  "2025": 4.880944859730123,
+  "2026": -3.457800744581445
+ },
+ "always_long_net_bps": -0.821410871597691,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 754,
+ "injection": {
+  "hypothesis": "D741",
+  "n_events": 820,
+  "sought_bps": 2.414760355239966,
+  "mean_estimate": 2.3182175029559473,
+  "recovered": true
+ },
+ "trial_id": "t01523"
+}

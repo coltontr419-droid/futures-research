@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D730",
+ "cell": "DAX+NKD fade ZC=F 5d (strong)",
+ "trades": 351,
+ "net_bps": 5.780590311325761,
+ "t_net": 0.9767221355491292,
+ "placebo_pct": 85.0,
+ "by_year": {
+  "2025": 5.31663710334399,
+  "2026": 6.479834074783999
+ },
+ "always_long_net_bps": -4.284623287955259,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 743,
+ "injection": {
+  "hypothesis": "D730",
+  "n_events": 351,
+  "sought_bps": 5.195011001544415,
+  "mean_estimate": 5.1819466890198065,
+  "recovered": true
+ },
+ "trial_id": "t01512"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D736",
+ "cell": "DAX+NKD follow 6B=F 5d (all)",
+ "trades": 820,
+ "net_bps": -0.07200595005604571,
+ "t_net": -0.019648289059291807,
+ "placebo_pct": 52.2,
+ "by_year": {
+  "2025": -1.210072772842233,
+  "2026": 1.670219803345033
+ },
+ "always_long_net_bps": -0.821410871597691,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 749,
+ "injection": {
+  "hypothesis": "D736",
+  "n_events": 820,
+  "sought_bps": 2.930591397373902,
+  "mean_estimate": 2.950775706358984,
+  "recovered": true
+ },
+ "trial_id": "t01518"
+}

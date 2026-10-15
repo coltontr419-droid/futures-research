@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D738",
+ "cell": "DAX+NKD fade ZC=F 5d (all)",
+ "trades": 818,
+ "net_bps": 7.030798169275712,
+ "t_net": 1.9198040606403373,
+ "placebo_pct": 98.2,
+ "by_year": {
+  "2025": 4.343011329553826,
+  "2026": 11.128843536012173
+ },
+ "always_long_net_bps": -0.8843214468262497,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 751,
+ "injection": {
+  "hypothesis": "D738",
+  "n_events": 818,
+  "sought_bps": 2.7638336186035617,
+  "mean_estimate": 2.8106074740070643,
+  "recovered": true
+ },
+ "trial_id": "t01520"
+}

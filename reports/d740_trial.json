@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D740",
+ "cell": "DAX+NKD follow ZN=F 5d (strong)",
+ "trades": 276,
+ "net_bps": -0.19336958727369438,
+ "t_net": -0.029151982699377837,
+ "placebo_pct": 48.6,
+ "by_year": {
+  "2025": 11.422914748690413,
+  "2026": -26.295843801028333
+ },
+ "always_long_net_bps": 7.09197118798234,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 753,
+ "injection": {
+  "hypothesis": "D740",
+  "n_events": 276,
+  "sought_bps": 3.605128053348111,
+  "mean_estimate": 3.5899831545227627,
+  "recovered": true
+ },
+ "trial_id": "t01522"
+}

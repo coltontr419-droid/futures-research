@@ -13267,6 +13267,29 @@ pooled** (each window's sessions scaled by its own 2021–24 SD so neither domin
 5-day, forms all / strong, follow/fade fixed on 2021–24. Carried at net > 0, t > 1.96 pooled AND the same sign in each window separately.
 Costs DAX 0.3, NKD 0.2. Validation per §426, 2 (pooled; placebo shuffled signs); a CONFIRM then needs account replays on both.
 
+## 601. Family-172: pooled foreign-index signals — 14 of 204 carried (≈ 5.1 by chance); D738 CONFIRMED but it is the known NKD–corn link (S1)
+
+**N 1,525.** `reports/d172_discovery.json` (module `reporting/d172_foreign.py`; units 1/100 of each window's SD; cost 0.3 in those units for the pooled
+validation, ≈ the windows' 0.2–0.3 bps):
+- **D730** DAX+NKD fade ZC=F 5d (strong): **WATCHLIST** +5.78 (t +0.98), placebo 85th, 2025 +5.3, 2026 +6.5
+- **D731** DAX+NKD follow XOP 1d (all): **WATCHLIST** +3.39 (t +0.92), placebo 84th, 2025 +4.9, 2026 +1.1
+- **D732** DAX+NKD follow FXI 5d (all): **REJECT** -1.09 (t -0.30), placebo 43th, 2025 -4.7, 2026 +4.3
+- **D733** DAX+NKD follow EEM 5d (all): **REJECT** -1.91 (t -0.52), placebo 31th, 2025 -5.9, 2026 +4.1
+- **D734** DAX+NKD fade 6S=F 1d (strong): **REJECT** -1.96 (t -0.37), placebo 40th, 2025 -6.0, 2026 +4.5
+- **D735** DAX+NKD fade 6B=F 1d (all): **WATCHLIST** +2.10 (t +0.57), placebo 74th, 2025 +0.5, 2026 +4.5
+- **D736** DAX+NKD follow 6B=F 5d (all): **REJECT** -0.07 (t -0.02), placebo 52th, 2025 -1.2, 2026 +1.7
+- **D737** DAX+NKD follow EEM 5d (strong): **WATCHLIST** +2.34 (t +0.44), placebo 62th, 2025 -0.5, 2026 +5.3
+- **D738** DAX+NKD fade ZC=F 5d (all): **CONFIRM** +7.03 (t +1.92), placebo 98th, 2025 +4.3, 2026 +11.1
+- **D739** DAX+NKD follow ZB=F 5d (strong): **WATCHLIST** +6.43 (t +1.01), placebo 85th, 2025 +12.9, 2026 -8.4
+- **D740** DAX+NKD follow ZN=F 5d (strong): **REJECT** -0.19 (t -0.03), placebo 49th, 2025 +11.4, 2026 -26.3
+- **D741** DAX+NKD follow ZN=F 5d (all): **WATCHLIST** +1.59 (t +0.43), placebo 70th, 2025 +4.9, 2026 -3.5
+- **D742** DAX+NKD fade ^VIX3M 5d (all): **REJECT** -1.99 (t -0.54), placebo 31th, 2025 +0.4, 2026 -5.6
+- **D743** DAX+NKD follow XLF 5d (all): **REJECT** -3.32 (t -0.90), placebo 20th, 2025 -5.8, 2026 +0.5
+
+**D738 (both windows fade corn's 5-day move) stress:** NKD fades ZC=F 5d +5.8 (t 2.2) 2021–24 / +9.6 (t 2.1) 2025–26 — the NKD–corn theme
+already confirmed (D343, §505) and shown to add nothing to the NKD account over dollar-week; **the DAX alone is weak** (+3.1 / +2.0, t ≤ 1.0;
+on the CORN ETF +3.7 / +5.9, t ≤ 1.4; joint with the DAX–dollar sign: corn t 0.5 in 2025–26 vs DX t 1.8). Nothing new for FDXM; not proposed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
