@@ -12583,6 +12583,12 @@ calendar day before the Tokyo session (Sunday's evening for Monday; Friday 16:55
 2021–24; forms all / strong. **3 × 2 × 2 = 12 tests** (~0.3 by chance at t > 1.96). Cost 0.2. Validation per §426, 2; a CONFIRM then needs
 the account replay on top of the deployed dollar-week rule.
 
+## 533. Family-149: currency moves before NKD's entry — 0 of 12 carried (S1)
+
+**N 1,400 (no trial).** `reports/d149_discovery.json` (module `reporting/d149_nkdeve.py`). Best 2021–24 cell: NKD follows USD/JPY's 24 hours
+to 19:55 ET, +4.97 bps (t 1.59). Of note (context only, not a test): before 2021 NKD followed USD/JPY's evening move strongly (+11.5,
+t 3.7; strong days +17.1, t 3.5) — gone since 2021 (+1.3, t 0.5). No pre-entry re-check for NKD.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
