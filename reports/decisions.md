@@ -12574,6 +12574,15 @@ the current (1, 1) — +$5,454 (P(payout) 92%); every other pair is lower. FDXM 
 92%) — fails §530's rule (mean net must improve). Not adopted. Note for the user only if they prefer payout probability to mean net:
 doubling FDXM's stop raised P(payout) in every period at a cost in mean net on the sealed starts.
 
+## 532. D-series family 149 protocol: currency moves just before NKD's entry, current regime (S1)
+
+**No trial spent; N 1,400. Written and committed BEFORE any statistic is computed.** The FDXM re-check (§490) reads the dollar just before
+the DAX opens. The NKD analogue: HistData EUR/USD, USD/JPY, AUD/USD (corrected clock) over (a) the **evening**, 16:55 → 19:55 ET on the
+calendar day before the Tokyo session (Sunday's evening for Monday; Friday 16:55 as its start), and (b) the **24 hours** to 19:55 ET
+(start: the previous weekday's 19:55, or Friday 16:55 for a Sunday). Target: NKD's plan window (20:00 → 02:00 ET). Follow/fade fixed on
+2021–24; forms all / strong. **3 × 2 × 2 = 12 tests** (~0.3 by chance at t > 1.96). Cost 0.2. Validation per §426, 2; a CONFIRM then needs
+the account replay on top of the deployed dollar-week rule.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
