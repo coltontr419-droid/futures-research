@@ -12301,6 +12301,16 @@ composite +9.21 (3.11) / +9.55 (2.32) in 2021–24 / 2025–26; DX alone +5.86 (
 The composite is ~2 bps better than the DX-only signal the bot uses at 17:30, within noise and already partly captured by the 02:50 EUR/USD
 re-check (§490). Not worth a bot change now; noted as an option if the forward record holds. Risk, rates, grains composites add nothing.
 
+## 519. D-series family 144 protocol: more candidate account markets, every day, current regime (S1)
+
+**No trial spent; N 1,243. Written and committed BEFORE any statistic is computed.** Family 138 covered M2K/MHG/SIL; family 130 the
+currencies. Remaining CME markets a Tradeify account could trade: **YM (MYM)**, **ZN**, **ZB**, **NG (QG/MNG)**, **ZC**, **ZW**, **HE**,
+**LE**, **BTC (MBT)**. Targets: Yahoo session open → settlement (bad-print rule §149). Predictors: family 111's list minus the target's own
+series and the spot currencies/BTC-USD (closing after 18:00 ET); signs of the previous weekday (1-day) and the previous 5 weekdays (5-day);
+forms all / strong; follow/fade fixed on 2021–24. Costs per session (bps): YM 1.0, ZN 0.4, ZB 0.8, NG 1.4, ZC 1.9, ZW 1.4, HE 2.0, LE 1.0,
+BTC 3.0 (§177 where listed). Carried at net > 0, t > 1.96 (~2.5% by chance). Validation per §426, 2; a CONFIRM then needs §446/§453 stress
+tests and a new-account replay before any proposal.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
