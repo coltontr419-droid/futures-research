@@ -13181,6 +13181,12 @@ the mean of the six scaled moves = its **relative strength**; summed over h = 1,
 window follows or fades its own relative strength (fixed on 2021–24); forms all / strong. **6 × 3 × 2 = 36 tests** (~0.9 by chance at
 t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs §446/§453 and an account replay.
 
+## 591. Family-168: cross-sectional relative strength — 0 of 36 carried (S1)
+
+**N 1,507 (no trial).** `reports/d168_discovery.json` (module `reporting/d168_xsec.py`). Best 2021–24: CL fades a strong 5-day relative
+week +18.8 (t 1.69); every |t| < 1.96. Of note: before 2021 NKD reversed its own relative strength strongly (1-day strong −13.7, t −3.3) —
+gone since. Relative strength among the plan's markets carries nothing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
