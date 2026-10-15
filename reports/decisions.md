@@ -12849,6 +12849,14 @@ chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then 
 
 No CONFIRM; crude-follows-risk fails a seventh time (2026-only gains).
 
+## 560. D-series family 160 protocol: European indices other than the DAX as every-day predictors, current regime (S1)
+
+**No trial spent; N 1,452. Written and committed BEFORE any statistic is computed.** Only ^GDAXI was in family 111's list. Yahoo **^FTSE,
+^FCHI, ^STOXX50E, ^IBEX, FTSEMIB.MI, ^AEX, ^SSMI**, close → close (some Yahoo opens are stale; bars dated by local session, stamped 03:00
+ET — checked), previous weekday (all close ≤ 11:35 ET, before every plan window of the next weekday). 1-day and 5-day; six plan windows;
+forms all / strong; follow/fade fixed on 2021–24. **7 × 2 × 6 × 2 = 168 tests** (~4.2 by chance at t > 1.96). Costs §177/§180.
+Validation per §426, 2; a CONFIRM then needs §446/§453.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
