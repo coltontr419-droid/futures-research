@@ -12704,6 +12704,11 @@ European session. Predictors, 11:30 → 16:00 ET on the previous weekday: **MNQ*
 **Brent** (11:30 → 14:30). Targets: the next weekday's **DAX**, **MGC London** and **NKD** windows. Follow/fade fixed on 2021–24; forms
 all / strong. **4 × 3 × 2 = 24 tests** (~0.6 by chance at t > 1.96). Costs §180. Validation per §426, 2.
 
+## 544. Family-154: the US afternoon after Europe closes — 0 of 24 carried (S1)
+
+**N 1,435 (no trial).** `reports/d154_discovery.json` (module `reporting/d154_afternoon.py`). Best: NKD fades gold's 11:30 → 16:00 move,
++4.81 bps (t 1.87). Nothing carries.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
