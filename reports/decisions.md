@@ -12200,6 +12200,19 @@ Australian dollar (6A).** All predictors close before 18:00 ET (no look-ahead). 
 pre-2021 regime risk seen with the dollar rules). The whole-session version (NQ to 16:00) does not hold: the effect lives in the night.
 Next: §446/§453 stress tests (independent data, then an MNQ-night account replay against random flips).
 
+## 514. A41: the MNQ-night fade theme (D397-D401) stress-tested — real signal, not an account edge; not proposed (S1)
+
+**No trial; N 1,194.** `reports/a41_mnqnight.json` (module `reporting/a41_mnqnight.py`).
+- **Independent data:** fade SOYB → QQQ's 16:00 → 09:30 gap: +5.75 (t 2.20) 2021–24, +11.18 (t 2.43) 2025–26; 6A replicates (+5.45 / +6.72).
+  ZS=F, ZM=F, ZL=F and DBA are weaker (t < 1.9). SOYB is independent of MNQ's own previous day (agreement 50–52%; joint regression
+  SOYB t −3.4 / −2.6 with QQQ's day included). **Before 2021 every predictor reverses (t −1.2 to −2.8)**: a current-regime effect only.
+- **Account replay** (50K Daily, 4 MNQ on the night session 18:00 → 09:30, drift removed, the plan's brackets): post-2021, the plan on the night
+  window makes +$736 (P(payout) 70%); D397 every day makes +$2,116 (74%), but **random flips at the same short share make +$1,339, and the rule
+  beats only 87% of them** (below §453's 95%). D398 strong-only beats 82%; the SOYB+ZM+6A vote beats 24%. 2025 starts: plan +$2,986 (87%) →
+  D397 +$3,252 (66%). Pre-2021: D397 +$465 vs random +$679 (29%). For comparison, the plan's RTH window: +$1,265 post-2021, +$633 for 2025 starts.
+- **Verdict:** the bps signal is genuine in 2021–26 and replicates on QQQ, but its account value is no better than random direction changes
+  on this window and it lowers P(payout) for 2025 starts. Not proposed; D397/D398 stay CONFIRMED in the record.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
