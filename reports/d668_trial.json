@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D668",
+ "cell": "CL fades qual_spy 5d (all)",
+ "trades": 399,
+ "net_bps": -6.811115390594123,
+ "t_net": -0.48695791859170945,
+ "placebo_pct": 31.900000000000002,
+ "by_year": {
+  "2025": -22.49087281264822,
+  "2026": 16.85644298231771
+ },
+ "always_long_net_bps": -5.507885623021899,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 681,
+ "injection": {
+  "hypothesis": "D668",
+  "n_events": 399,
+  "sought_bps": 7.736813003080318,
+  "mean_estimate": 7.70227637750661,
+  "recovered": true
+ },
+ "trial_id": "t01450"
+}

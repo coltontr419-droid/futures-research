@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D664",
+ "cell": "ZS follows qual_spy 1d (strong)",
+ "trades": 221,
+ "net_bps": -4.396068734329174,
+ "t_net": -0.6610502894427095,
+ "placebo_pct": 30.0,
+ "by_year": {
+  "2025": -3.1962605578044987,
+  "2026": -5.929844135247311
+ },
+ "always_long_net_bps": 2.4875391446663038,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 677,
+ "injection": {
+  "hypothesis": "D664",
+  "n_events": 221,
+  "sought_bps": 7.518998942825989,
+  "mean_estimate": 7.654839559500755,
+  "recovered": true
+ },
+ "trial_id": "t01446"
+}

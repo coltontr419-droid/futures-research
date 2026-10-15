@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D661",
+ "cell": "CL follows sphb_spy 1d (strong)",
+ "trades": 198,
+ "net_bps": -4.679592801175971,
+ "t_net": -0.2770552295094355,
+ "placebo_pct": 38.800000000000004,
+ "by_year": {
+  "2025": 2.5111767268329213,
+  "2026": -13.66805471118708
+ },
+ "always_long_net_bps": -23.745229566329414,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 674,
+ "injection": {
+  "hypothesis": "D661",
+  "n_events": 198,
+  "sought_bps": 17.13824165026017,
+  "mean_estimate": 17.5226045520549,
+  "recovered": true
+ },
+ "trial_id": "t01443"
+}

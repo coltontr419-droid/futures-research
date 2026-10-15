@@ -3348,3 +3348,47 @@ Data-derived (D-series family 156). `hypotheses.yaml` (D658) · `decisions.md` �
 ## D659 — Mgc Follows Cny X 1D All  *(WATCHLIST — t01441)*
 
 Data-derived (D-series family 156). `hypotheses.yaml` (D659) · `decisions.md` §553
+
+## D660 — Mnq Follows Qual Spy 1D All  *(WATCHLIST — t01442)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D660) · `decisions.md` §559
+
+## D661 — Cl Follows Sphb Spy 1D Strong  *(REJECT — t01443)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D661) · `decisions.md` §559
+
+## D662 — Mnq Follows Qual Spy 1D Strong  *(WATCHLIST — t01444)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D662) · `decisions.md` §559
+
+## D663 — Cl Fades Usmv Spy 1D Strong  *(WATCHLIST — t01445)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D663) · `decisions.md` §559
+
+## D664 — Zs Follows Qual Spy 1D Strong  *(REJECT — t01446)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D664) · `decisions.md` §559
+
+## D665 — Cl Fades Splv Spy 1D Strong  *(WATCHLIST — t01447)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D665) · `decisions.md` §559
+
+## D666 — Cl Follows Mtum Spy 1D Strong  *(REJECT — t01448)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D666) · `decisions.md` §559
+
+## D667 — Cl Fades Splv Spy 1D All  *(WATCHLIST — t01449)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D667) · `decisions.md` §559
+
+## D668 — Cl Fades Qual Spy 5D All  *(REJECT — t01450)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D668) · `decisions.md` §559
+
+## D669 — Nkd Follows Sphb Spy 1D Strong  *(REJECT — t01451)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D669) · `decisions.md` §559
+
+## D670 — Cl Fades Usmv Spy 1D All  *(REJECT — t01452)*
+
+Data-derived (D-series family 159). `hypotheses.yaml` (D670) · `decisions.md` §559

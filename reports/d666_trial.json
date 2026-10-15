@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D666",
+ "cell": "CL follows mtum_spy 1d (strong)",
+ "trades": 209,
+ "net_bps": -27.037950001030676,
+ "t_net": -1.2917980369136368,
+ "placebo_pct": 11.200000000000001,
+ "by_year": {
+  "2025": -19.900429059993467,
+  "2026": -34.81784782676124
+ },
+ "always_long_net_bps": -14.135093051826901,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 679,
+ "injection": {
+  "hypothesis": "D666",
+  "n_events": 209,
+  "sought_bps": 11.757444808787294,
+  "mean_estimate": 10.691779341920789,
+  "recovered": true
+ },
+ "trial_id": "t01448"
+}

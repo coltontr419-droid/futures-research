@@ -12832,6 +12832,23 @@ Spreads of Yahoo open → close moves (US hours, all close 16:00 ET) minus SPY: 
 5 weekdays' sum (5-day) into the six plan windows; forms all / strong; follow/fade fixed on 2021–24. **7 × 2 × 6 × 2 = 168 tests** (~4.2 by
 chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs §446/§453.
 
+## 559. Family-159: US factor spreads — 11 of 168 carried (≈ 4.2 by chance); none confirmed (S1)
+
+**N 1,452.** `reports/d159_discovery.json` (module `reporting/d159_factors.py`):
+- **D660** MNQ follows qual_spy 1d (all): **WATCHLIST** +3.51 (t +0.61), placebo 75th, 2025 +6.7, 2026 -1.2
+- **D661** CL follows sphb_spy 1d (strong): **REJECT** -4.68 (t -0.28), placebo 39th, 2025 +2.5, 2026 -13.7
+- **D662** MNQ follows qual_spy 1d (strong): **WATCHLIST** +9.37 (t +1.08), placebo 84th, 2025 +20.1, 2026 -4.6
+- **D663** CL fades usmv_spy 1d (strong): **WATCHLIST** +17.46 (t +0.97), placebo 83th, 2025 -1.2, 2026 +44.5
+- **D664** ZS follows qual_spy 1d (strong): **REJECT** -4.40 (t -0.66), placebo 30th, 2025 -3.2, 2026 -5.9
+- **D665** CL fades splv_spy 1d (strong): **WATCHLIST** +13.50 (t +0.81), placebo 86th, 2025 -12.1, 2026 +46.8
+- **D666** CL follows mtum_spy 1d (strong): **REJECT** -27.04 (t -1.29), placebo 11th, 2025 -19.9, 2026 -34.8
+- **D667** CL fades splv_spy 1d (all): **WATCHLIST** +14.12 (t +1.01), placebo 88th, 2025 -7.4, 2026 +46.6
+- **D668** CL fades qual_spy 5d (all): **REJECT** -6.81 (t -0.49), placebo 32th, 2025 -22.5, 2026 +16.9
+- **D669** NKD follows sphb_spy 1d (strong): **REJECT** -2.00 (t -0.31), placebo 39th, 2025 +6.8, 2026 -13.3
+- **D670** CL fades usmv_spy 1d (all): **REJECT** -1.96 (t -0.14), placebo 45th, 2025 -16.9, 2026 +20.6
+
+No CONFIRM; crude-follows-risk fails a seventh time (2026-only gains).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

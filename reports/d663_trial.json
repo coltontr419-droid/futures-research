@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D663",
+ "cell": "CL fades usmv_spy 1d (strong)",
+ "trades": 252,
+ "net_bps": 17.458448176913922,
+ "t_net": 0.9683537529534322,
+ "placebo_pct": 83.1,
+ "by_year": {
+  "2025": -1.2321241338475244,
+  "2026": 44.49626637403483
+ },
+ "always_long_net_bps": -14.570303384857398,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 676,
+ "injection": {
+  "hypothesis": "D663",
+  "n_events": 252,
+  "sought_bps": 13.222161889196306,
+  "mean_estimate": 12.769621981976185,
+  "recovered": true
+ },
+ "trial_id": "t01445"
+}

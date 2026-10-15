@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D670",
+ "cell": "CL fades usmv_spy 1d (all)",
+ "trades": 399,
+ "net_bps": -1.9597270914736553,
+ "t_net": -0.14007772814864136,
+ "placebo_pct": 44.6,
+ "by_year": {
+  "2025": -16.90846296998557,
+  "2026": 20.604402536468857
+ },
+ "always_long_net_bps": -5.507885623021899,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 683,
+ "injection": {
+  "hypothesis": "D670",
+  "n_events": 399,
+  "sought_bps": 7.0526013131514125,
+  "mean_estimate": 6.660557331828257,
+  "recovered": true
+ },
+ "trial_id": "t01452"
+}

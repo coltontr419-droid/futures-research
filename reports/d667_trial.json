@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D667",
+ "cell": "CL fades splv_spy 1d (all)",
+ "trades": 399,
+ "net_bps": 14.121312889892392,
+ "t_net": 1.0107816209749527,
+ "placebo_pct": 88.2,
+ "by_year": {
+  "2025": -7.398939181212169,
+  "2026": 46.60471224250304
+ },
+ "always_long_net_bps": -5.507885623021899,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 680,
+ "injection": {
+  "hypothesis": "D667",
+  "n_events": 399,
+  "sought_bps": 8.056325840426767,
+  "mean_estimate": 7.835054019760652,
+  "recovered": true
+ },
+ "trial_id": "t01449"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D660",
+ "cell": "MNQ follows qual_spy 1d (all)",
+ "trades": 401,
+ "net_bps": 3.511014985919296,
+ "t_net": 0.6091676673124673,
+ "placebo_pct": 75.3,
+ "by_year": {
+  "2025": 6.668465242346293,
+  "2026": -1.2448944628238678
+ },
+ "always_long_net_bps": 3.4989960193634033,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 673,
+ "injection": {
+  "hypothesis": "D660",
+  "n_events": 401,
+  "sought_bps": 6.318992811234207,
+  "mean_estimate": 6.535004208506774,
+  "recovered": true
+ },
+ "trial_id": "t01442"
+}

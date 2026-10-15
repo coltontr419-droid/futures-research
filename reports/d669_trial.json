@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D669",
+ "cell": "NKD follows sphb_spy 1d (strong)",
+ "trades": 203,
+ "net_bps": -2.001428031773816,
+ "t_net": -0.305747478973795,
+ "placebo_pct": 38.9,
+ "by_year": {
+  "2025": 6.792105219117214,
+  "2026": -13.265054892465695
+ },
+ "always_long_net_bps": 4.821337850526217,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 682,
+ "injection": {
+  "hypothesis": "D669",
+  "n_events": 203,
+  "sought_bps": 4.08420723451712,
+  "mean_estimate": 3.927848878612252,
+  "recovered": true
+ },
+ "trial_id": "t01451"
+}
