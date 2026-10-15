@@ -12495,6 +12495,15 @@ in advance (scaled 5-day moves summed, no fitting), but it is chosen after seein
   (beats 24%), 2024 is negative and no mechanism links biotech to soybeans. One ETF of 25 new series, chosen from 55 carries: read as
   chance. **Not proposed**; kept on the watchlist record as D552 CONFIRMED (forward-test only if the user wants a ZS rule).
 
+## 526. D-series family 147 protocol: NKD's and the DAX's whole sessions as every-day targets, current regime (S1)
+
+**No trial spent; N 1,369. Written and committed BEFORE any statistic is computed.** As family 141 did for MNQ: targets **NKD=F's whole
+Globex session** (Yahoo open 18:00 ET → settlement) and the **DAX cash session** (^GDAXI open → close, 03:00 → 11:30 ET). Predictors:
+family 111's list + family 146's series; own-market series excluded (NKD=F and EWJ for NKD; ^GDAXI and EWG for the DAX); for NKD=F the
+spot currencies/BTC-USD excluded (they close after 18:00 ET). Previous weekday's sign (1-day) and previous 5 weekdays' sum (5-day); forms
+all / strong; follow/fade fixed on 2021–24; carried at net > 0, t > 1.96. Costs NKD 0.2, DAX 0.3. Validation per §426, 2; a CONFIRM that is
+not the deployed dollar theme then needs the §446/§453 stress tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
