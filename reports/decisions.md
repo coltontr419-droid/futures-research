@@ -13050,6 +13050,19 @@ signed window move, rule-side minus other-side bracket P&L, the recorded results
 sessions' signed window moves sum negative). First run (2 rule sessions): NKD 10-14 short, window +225.5 bps the rule's way but both sides
 stopped; FDXM 10-15 long, take +$1,202 vs −$747 the other way. Trigger: pending (2 of 40).
 
+## 579. The 10-25 review in one command; the user's execution constraint (S8)
+
+**No trial.** The user (2026-10-15): Tradeify gives no API access before a live account, so no automated orders during evaluations; the user
+can be awake to place the **FDXM and MGC** entries (03:00 ET) **Monday–Wednesday** only; a bot health check is not wanted now; Tradeify's
+rules are unchanged; paid data waits until after a first payout.
+
+`python -m futuresres.reporting.a18_demo_check --review` now also reports: (a) **reading vs replay** — tickets whose recorded outcome
+differs from the 1-minute replay (the execution-gap table previously compared the recorded result with itself, since §492 the recorded
+result replaces the shadow; it now uses the raw replay P&L); (b) **the dollar rules' forward record** (A48, §578) with the §463 trigger;
+(c) **the executable subset** — FDXM and MGC tickets entered Monday–Wednesday; (d) the review's four decisions. First run (2026-10-15):
+20 recorded tickets, 2 disagreements (both FDXM, the DAX-index proxy); dollar rules 2 sessions, trigger pending; executable subset
+6 tickets, −$3,050.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

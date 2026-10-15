@@ -2,7 +2,7 @@
 
     python -m futuresres.reporting.a18_demo_check shadow_log.csv [demo_log.csv]
     python -m futuresres.reporting.a18_demo_check --export-expected      # bot/expected.json for the bot's weekly check
-    python -m futuresres.reporting.a18_demo_check --review               # pull the droplet's logs; the full review (147)
+    python -m futuresres.reporting.a18_demo_check --review               # pull the droplet's logs; the full review (147, 579)
 
 For every finished ticket in the bot's shadow log (bot/schedule.py): the probability, on 2021-26 history (the same
 1-minute paths as A07/A08, drift removed, stops at the stop price, a minute touching both = stop), that THIS bracket -
@@ -157,8 +157,10 @@ def execution_gap(shadow_rows: list[dict], demo_csv: Path) -> dict:
         r = shadow[(e["product"], max(started))]
         if r.get("traded") == "no":
             continue
-        gaps.append({"product": r["product"], "exit": r["exit"], "shadow": float(r["pnl"]), "actual": float(e["pnl"]),
-                     "gap": float(e["pnl"]) - float(r["pnl"]), "marked": r.get("traded") == "yes"})
+        raw = float(r.get("shadow_pnl", r["pnl"]))          # the replay's own P&L, not the recorded result that replaced it
+        gaps.append({"product": r["product"], "exit": r["exit"], "entry": r["entry"], "shadow": raw, "actual": float(e["pnl"]),
+                     "gap": float(e["pnl"]) - raw, "marked": r.get("traded") == "yes",
+                     "shadow_outcome": r.get("shadow_outcome", r["outcome"]), "recorded_outcome": r["outcome"]})
     g = np.array([x["gap"] for x in gaps]) if gaps else np.array([])
     return {"traded_tickets_matched": len(gaps), "mean_gap": float(g.mean()) if len(g) else None,
             "median_gap": float(np.median(g)) if len(g) else None, "rows": gaps}
@@ -223,9 +225,54 @@ def review(pull_first: bool = True) -> str:
         w += ["", "## Accounts", "", "| product | phase | balance | evaluations bought | passes | payouts | fees |", "|---|---|---|---|---|---|---|"]
         w += [f"| {p} | {x['phase']} | ${x['balance']:,.2f} | {x['evals_bought']} | {x['passes']} | ${x['payouts']:,.0f} | ${x['fees'] or 0:,.0f} |"
               for p, x in a.items()]
+    w += extra_sections(r, d)
     text = "\n".join(w)
     (d / f"review_{dt.date.today().isoformat()}.md").write_text(text + "\n")
     return text
+
+
+EXECUTABLE = {"FDXM", "MGC"}                 # the user can place these entries (03:00 ET) Monday-Wednesday only (2026-10-15)
+
+
+def extra_sections(r: dict, d: Path) -> list:
+    """decisions.md 579: reading vs replay, the dollar rules' forward record, the executable subset, and the decision checklist."""
+    w = []
+    rows = (r.get("execution") or {}).get("rows") or []
+    dis = [x for x in rows if x["shadow_outcome"] != x["recorded_outcome"]]
+    w += ["", "## Your reading vs the 1-minute replay", "",
+          f"{len(rows)} recorded tickets; **{len(dis)} disagree** with the replay's outcome"
+          + (" (FDXM's replay is the DAX cash index, a proxy — disagreements there can be the proxy, not the reading)." if dis else ".")]
+    if dis:
+        w += ["", "| product | entry | replay | recorded | replay P&L | recorded P&L |", "|---|---|---|---|---|---|"]
+        w += [f"| {x['product']} | {x['entry'][:16]} | {x['shadow_outcome']} | {x['recorded_outcome']} | ${x['shadow']:+,.0f} | ${x['actual']:+,.0f} |" for x in dis]
+    try:
+        import futuresres.reporting.a48_forward as a48
+        s = None
+        if (d / "tickets.json").exists():                    # the tracker reads the same pulled tickets
+            a48.CACHE.mkdir(parents=True, exist_ok=True); a48.TICKETS.write_text((d / "tickets.json").read_text())
+            s = a48.run(do_pull=False)
+    except Exception as e:                                    # never fail the review over the tracker
+        s = None; w += ["", f"(dollar-rule tracker unavailable: {type(e).__name__})"]
+    if s:
+        w += ["", "## The dollar rules, forward (A48; decisions.md 463 trigger)", "",
+              "| product | rule sessions | signed window move | rule side − other side (bracket P&L) |", "|---|---|---|---|"]
+        w += [f"| {p} | {x['sessions']} | {x['signed_bps_sum']:+.1f} bps | ${x['rule_minus_other_pnl']:+,.0f} |" for p, x in s["by_product"].items()]
+        w += ["", f"Total {s['sessions']} sessions, signed {s['signed_bps_sum']:+.1f} bps; recorded ${s['recorded_pnl_sum']:+,.0f}. "
+              f"**Trigger (first 40 sessions negative → propose reverting): {s['trigger']}.**"]
+    tj = d / "tickets.json"
+    if tj.exists():
+        T = [t for t in json.loads(tj.read_text()) if t.get("user_pnl") is not None and t["product"] in EXECUTABLE
+             and dt.datetime.fromisoformat(t["entry"]).astimezone(ET).weekday() in (0, 1, 2)]
+        tot = sum(float(t["user_pnl"]) for t in T)
+        w += ["", "## What you can actually place: FDXM and MGC, Monday–Wednesday entries", "",
+              f"{len(T)} recorded tickets, ${tot:+,.0f} in total"
+              + (": " + ", ".join(f"{t['product']} {dt.datetime.fromisoformat(t['entry']).astimezone(ET):%a %m-%d} ${float(t['user_pnl']):+,.0f}" for t in T) if T else ".")]
+    w += ["", "## Decisions for this review", "",
+          "1. Keep the demo running as is, or change it? (the chi-square and P&L z above: is the live mix like history?)",
+          "2. The dollar rules: keep, or revert (the trigger above)?",
+          "3. More accounts on the dollar rules (A47, decisions.md 576: 2×NKD + 2×FDXM + MNQ = +$26.1k vs +$17.5k per 4 months on 2025 starts, wider tail)?",
+          "4. Real money: which accounts can be placed by hand (FDXM / MGC Mon–Wed) and is that subset worth starting with?"]
+    return w
 
 
 def render(r: dict) -> str:
