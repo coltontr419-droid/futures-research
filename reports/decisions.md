@@ -13316,6 +13316,12 @@ applies to the sessions after its Friday 15:30 ET release through the next relea
 tests** (~0.75 by chance at t > 1.96; carried also needs week-clustered t > 1.96). Costs §177/§180. Validation per §426, 2 (placebo: circular
 shifts of the weekly sign series).
 
+## 605. Family-174: finer positioning (TFF, disaggregated) — 0 of 30 carried (S1)
+
+**N 1,525 (no trial).** `reports/d174_discovery.json` (module `reporting/d174_cotfine.py`). No cell reaches the week-clustered bar (best: crude
+fades managed-money crowding +26.6, t 2.00, weekly 1.76 — and the opposite sign, −30.2, t −2.4, in 2011–20). Leveraged-fund, asset-manager and
+managed-money positioning set no direction for the plan's windows; with family 133, the CFTC data is exhausted.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
