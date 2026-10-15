@@ -12956,6 +12956,14 @@ deployed rule (A46). D708 (crude fades its own low-volume days) WATCHLIST, posit
 The variant's +$905 on 2025 starts is from ~400 sessions, it is equal on all post-2021 starts, worse before 2021, and its form was chosen
 after seeing 2025–26. **Not proposed**; the deployed rule stays. D709 stands as confirmation that the theme strengthens on heavy euro volume.
 
+## 569. D-series family 164 protocol: volume-conditioned moves, every owned market into every plan window (S1)
+
+**No trial spent; N 1,491. Written and committed BEFORE any statistic is computed.** Family 163's construction (owned GLBX daily bars;
+high- / low-volume bars by the 20-bar volume ratio vs its 2021–24 median; sign of the held return) for all six owned roots **NQ, GC, HG, CL,
+ZN, 6E** into all six plan windows, excluding family 163's ten cells and same-market pairs already there; CL target uses the bar before (lag 2).
+Follow/fade fixed on 2021–24. **6 × 6 × 2 − 10 = 62 tests** (~1.6 by chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM
+then needs an account replay against the deployed rule of its market (or the plan where none).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
