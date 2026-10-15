@@ -13361,6 +13361,14 @@ NKD Daily **+$8,040** (95%) / +$6,136 (92%) vs Growth +$2,861–5,067 / +$1,617�
 +$3,270–3,563 / +$1,827–1,853. The five-winning-day payout cycle and the $1,500 cap slow payouts more than the missing evaluation consistency
 helps. With A53 (Lightning) and §145 (100K/150K Daily and Flex): **the 50K Daily (Select Daily) remains the best Tradeify account** for the plan.
 
+## 610. A55 protocol: Treasury futures (ZB, ZN) as the fifth account instead of MCL (S1)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** §140's candidate list had no rates. Zero-edge plan accounts on **ZB**
+(30-year, $1,000 a point) and **ZN** (10-year, $1,000 a point): Yahoo daily session bars (ZB=F, ZN=F) as 3-point paths (A22's rule, drift
+removed per era), contracts by the $2,900 daily-swing rule within Tradeify's 50K cap of 4 minis, round trip $4.5. Read: alone (P(payout),
+mean net, both eras), daily correlation with MNQ / MGC / NKD / FDXM / MCL, and **the five-account book with ZB or ZN in MCL's place** (A47's
+construction, common starts; 2025 starts, 2021–26, 2010–20). Reported to the user only if the book improves in every period.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
