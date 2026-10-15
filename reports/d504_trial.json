@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D504",
+ "cell": "YM=F fades DFII10 5d (all)",
+ "trades": 379,
+ "net_bps": 2.568027693546037,
+ "t_net": 0.5189256608832085,
+ "placebo_pct": 78.5,
+ "by_year": {
+  "2025": 2.411264739414892,
+  "2026": 2.8073524701862507
+ },
+ "always_long_net_bps": 6.78805721408842,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 516,
+ "injection": {
+  "hypothesis": "D504",
+  "n_events": 379,
+  "sought_bps": 3.0964979119637746,
+  "mean_estimate": 3.04514857327857,
+  "recovered": true
+ },
+ "trial_id": "t01286"
+}

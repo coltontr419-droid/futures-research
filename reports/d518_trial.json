@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D518",
+ "cell": "ZB=F follows ES=F 1d (strong)",
+ "trades": 182,
+ "net_bps": -2.7345050997086426,
+ "t_net": -0.6721797063987448,
+ "placebo_pct": 32.300000000000004,
+ "by_year": {
+  "2025": 6.174927334204614,
+  "2026": -15.160818757535031
+ },
+ "always_long_net_bps": -0.4430487950672787,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 530,
+ "injection": {
+  "hypothesis": "D518",
+  "n_events": 182,
+  "sought_bps": 3.3386191274736903,
+  "mean_estimate": 3.2583665040135092,
+  "recovered": true
+ },
+ "trial_id": "t01300"
+}

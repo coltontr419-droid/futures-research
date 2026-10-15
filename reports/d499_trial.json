@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D499",
+ "cell": "HE=F follows GC=F 1d (strong)",
+ "trades": 258,
+ "net_bps": -3.6647856274003243,
+ "t_net": -0.7045821926641371,
+ "placebo_pct": 40.400000000000006,
+ "by_year": {
+  "2025": -0.022735298385423604,
+  "2026": -8.338213040738031
+ },
+ "always_long_net_bps": -3.484629075010226,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 511,
+ "injection": {
+  "hypothesis": "D499",
+  "n_events": 258,
+  "sought_bps": 6.922686931174965,
+  "mean_estimate": 7.00281995851435,
+  "recovered": true
+ },
+ "trial_id": "t01281"
+}

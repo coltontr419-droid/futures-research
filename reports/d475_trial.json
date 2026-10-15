@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D475",
+ "cell": "BTC=F follows TLT 5d (strong)",
+ "trades": 123,
+ "net_bps": 5.39351558195674,
+ "t_net": 0.23322929938541614,
+ "placebo_pct": 63.5,
+ "by_year": {
+  "2025": 17.676621304936525,
+  "2026": -24.29065658191108
+ },
+ "always_long_net_bps": -46.00609526416855,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 487,
+ "injection": {
+  "hypothesis": "D475",
+  "n_events": 123,
+  "sought_bps": 20.600338984656513,
+  "mean_estimate": 20.89046993273693,
+  "recovered": true
+ },
+ "trial_id": "t01257"
+}

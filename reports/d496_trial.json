@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D496",
+ "cell": "BTC=F fades PL=F 5d (strong)",
+ "trades": 225,
+ "net_bps": -3.4616091973935306,
+ "t_net": -0.19124019991952979,
+ "placebo_pct": 34.699999999999996,
+ "by_year": {
+  "2025": 0.601014456938123,
+  "2026": -8.632221121088357
+ },
+ "always_long_net_bps": -34.76971983108005,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 508,
+ "injection": {
+  "hypothesis": "D496",
+  "n_events": 225,
+  "sought_bps": 19.60055885101757,
+  "mean_estimate": 19.664555654044115,
+  "recovered": true
+ },
+ "trial_id": "t01278"
+}

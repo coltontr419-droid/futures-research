@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D511",
+ "cell": "ZC=F fades SOYB 5d (strong)",
+ "trades": 161,
+ "net_bps": -3.9309619913789473,
+ "t_net": -0.4162779637622055,
+ "placebo_pct": 40.6,
+ "by_year": {
+  "2025": 1.7522887316876745,
+  "2026": -16.92124935838837
+ },
+ "always_long_net_bps": 4.905371049826132,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 523,
+ "injection": {
+  "hypothesis": "D511",
+  "n_events": 161,
+  "sought_bps": 7.7986560484397875,
+  "mean_estimate": 7.8884626064411645,
+  "recovered": true
+ },
+ "trial_id": "t01293"
+}

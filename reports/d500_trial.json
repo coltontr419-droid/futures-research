@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D500",
+ "cell": "HE=F follows 6C=F 1d (all)",
+ "trades": 391,
+ "net_bps": 2.535428242603005,
+ "t_net": 0.5827860725120382,
+ "placebo_pct": 85.9,
+ "by_year": {
+  "2025": 4.780490742196954,
+  "2026": -0.8465569330673657
+ },
+ "always_long_net_bps": -0.0030411702971668724,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 512,
+ "injection": {
+  "hypothesis": "D500",
+  "n_events": 391,
+  "sought_bps": 4.690120430775907,
+  "mean_estimate": 4.676031786259551,
+  "recovered": true
+ },
+ "trial_id": "t01282"
+}

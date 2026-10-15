@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D512",
+ "cell": "LE=F follows KRE 1d (strong)",
+ "trades": 149,
+ "net_bps": 1.3120383716290092,
+ "t_net": 0.16741465354372534,
+ "placebo_pct": 52.6,
+ "by_year": {
+  "2025": 7.214774053382993,
+  "2026": -7.2033835954914895
+ },
+ "always_long_net_bps": 13.878230697259598,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 524,
+ "injection": {
+  "hypothesis": "D512",
+  "n_events": 149,
+  "sought_bps": 3.5778857935498127,
+  "mean_estimate": 3.3430559227890053,
+  "recovered": true
+ },
+ "trial_id": "t01294"
+}

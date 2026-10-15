@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D523",
+ "cell": "ZN=F fades XLE 5d (all)",
+ "trades": 400,
+ "net_bps": -0.5749480646210272,
+ "t_net": -0.389330050137425,
+ "placebo_pct": 48.0,
+ "by_year": {
+  "2025": -1.1690043554355865,
+  "2026": 0.32547687931802116
+ },
+ "always_long_net_bps": 0.18873874188308293,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 535,
+ "injection": {
+  "hypothesis": "D523",
+  "n_events": 400,
+  "sought_bps": 1.266682039915777,
+  "mean_estimate": 1.1870025587812427,
+  "recovered": true
+ },
+ "trial_id": "t01305"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D507",
+ "cell": "HE=F follows ^SKEW 1d (strong)",
+ "trades": 214,
+ "net_bps": 8.390900424315697,
+ "t_net": 1.349508267784542,
+ "placebo_pct": 94.5,
+ "by_year": {
+  "2025": 11.460286271995253,
+  "2026": 3.249679129452442
+ },
+ "always_long_net_bps": -7.768632875549456,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 519,
+ "injection": {
+  "hypothesis": "D507",
+  "n_events": 214,
+  "sought_bps": 6.437271752247435,
+  "mean_estimate": 6.348618422068108,
+  "recovered": true
+ },
+ "trial_id": "t01289"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D487",
+ "cell": "BTC=F follows ZN=F 5d (strong)",
+ "trades": 136,
+ "net_bps": -33.930723407505916,
+ "t_net": -1.5181092751037772,
+ "placebo_pct": 9.2,
+ "by_year": {
+  "2025": -44.582213972086564,
+  "2026": -10.091673096301598
+ },
+ "always_long_net_bps": -15.016839419757183,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 499,
+ "injection": {
+  "hypothesis": "D487",
+  "n_events": 136,
+  "sought_bps": 18.31278500451825,
+  "mean_estimate": 17.824986940066317,
+  "recovered": true
+ },
+ "trial_id": "t01269"
+}

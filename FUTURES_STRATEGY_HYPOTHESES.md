@@ -2580,3 +2580,239 @@ Data-derived (D-series family 143). `hypotheses.yaml` (D466) · `decisions.md` �
 ## D467 — Nkd Follows The Risk Composite 3D All  *(WATCHLIST — t01249)*
 
 Data-derived (D-series family 143). `hypotheses.yaml` (D467) · `decisions.md` §518
+
+## D468 — Btc F Fades Zm F 1D Strong  *(WATCHLIST — t01250)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D468) · `decisions.md` §520
+
+## D469 — Ym F Follows Zn F 5D Strong  *(REJECT — t01251)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D469) · `decisions.md` §520
+
+## D470 — Ym F Fades Dfii10 5D Strong  *(REJECT — t01252)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D470) · `decisions.md` §520
+
+## D471 — Ng F Follows Lqd 1D Strong  *(REJECT — t01253)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D471) · `decisions.md` §520
+
+## D472 — Zb F Follows Xlu 5D All  *(WATCHLIST — t01254)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D472) · `decisions.md` §520
+
+## D473 — Zb F Fades Le F 1D Strong  *(REJECT — t01255)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D473) · `decisions.md` §520
+
+## D474 — He F Follows Gdx 1D Strong  *(REJECT — t01256)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D474) · `decisions.md` §520
+
+## D475 — Btc F Follows Tlt 5D Strong  *(WATCHLIST — t01257)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D475) · `decisions.md` §520
+
+## D476 — Ym F Follows Skew 1D Strong  *(REJECT — t01258)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D476) · `decisions.md` §520
+
+## D477 — Ym F Follows Zb F 5D All  *(REJECT — t01259)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D477) · `decisions.md` §520
+
+## D478 — He F Follows Zt F 1D Strong  *(REJECT — t01260)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D478) · `decisions.md` §520
+
+## D479 — He F Follows Ng F 1D All  *(REJECT — t01261)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D479) · `decisions.md` §520
+
+## D480 — Zn F Fades Le F 1D Strong  *(REJECT — t01262)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D480) · `decisions.md` §520
+
+## D481 — He F Follows Gc F 5D All  *(CONFIRM — t01263)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D481) · `decisions.md` §520
+
+## D482 — Ng F Fades Kre 5D All  *(REJECT — t01264)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D482) · `decisions.md` §520
+
+## D483 — He F Follows Pl F 5D Strong  *(CONFIRM — t01265)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D483) · `decisions.md` §520
+
+## D484 — Zb F Follows 6E F 5D Strong  *(REJECT — t01266)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D484) · `decisions.md` §520
+
+## D485 — Ym F Follows Hyg 1D All  *(REJECT — t01267)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D485) · `decisions.md` §520
+
+## D486 — Zb F Follows Es F 1D All  *(REJECT — t01268)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D486) · `decisions.md` §520
+
+## D487 — Btc F Follows Zn F 5D Strong  *(REJECT — t01269)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D487) · `decisions.md` §520
+
+## D488 — Ng F Follows Kre 1D Strong  *(REJECT — t01270)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D488) · `decisions.md` §520
+
+## D489 — Btc F Fades Dfii10 5D All  *(WATCHLIST — t01271)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D489) · `decisions.md` §520
+
+## D490 — Zb F Follows Nq F 5D Strong  *(REJECT — t01272)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D490) · `decisions.md` §520
+
+## D491 — Zb F Follows Gdaxi 5D Strong  *(REJECT — t01273)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D491) · `decisions.md` §520
+
+## D492 — Zn F Fades Ho F 5D All  *(REJECT — t01274)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D492) · `decisions.md` §520
+
+## D493 — Btc F Follows Zb F 5D All  *(REJECT — t01275)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D493) · `decisions.md` §520
+
+## D494 — Le F Follows Bg 1D Strong  *(REJECT — t01276)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D494) · `decisions.md` §520
+
+## D495 — Zn F Fades Xop 5D All  *(REJECT — t01277)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D495) · `decisions.md` §520
+
+## D496 — Btc F Fades Pl F 5D Strong  *(REJECT — t01278)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D496) · `decisions.md` §520
+
+## D497 — Ym F Follows Zb F 5D Strong  *(REJECT — t01279)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D497) · `decisions.md` §520
+
+## D498 — He F Follows Ng F 1D Strong  *(REJECT — t01280)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D498) · `decisions.md` §520
+
+## D499 — He F Follows Gc F 1D Strong  *(REJECT — t01281)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D499) · `decisions.md` §520
+
+## D500 — He F Follows 6C F 1D All  *(WATCHLIST — t01282)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D500) · `decisions.md` §520
+
+## D501 — Zn F Fades Xop 5D Strong  *(REJECT — t01283)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D501) · `decisions.md` §520
+
+## D502 — Ng F Follows Lqd 1D All  *(WATCHLIST — t01284)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D502) · `decisions.md` §520
+
+## D503 — Zb F Follows Zt F 5D Strong  *(REJECT — t01285)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D503) · `decisions.md` §520
+
+## D504 — Ym F Fades Dfii10 5D All  *(WATCHLIST — t01286)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D504) · `decisions.md` §520
+
+## D505 — Btc F Fades Nkd F 5D Strong  *(WATCHLIST — t01287)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D505) · `decisions.md` §520
+
+## D506 — He F Follows 6S F 1D Strong  *(REJECT — t01288)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D506) · `decisions.md` §520
+
+## D507 — He F Follows Skew 1D Strong  *(WATCHLIST — t01289)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D507) · `decisions.md` §520
+
+## D508 — Zb F Fades Ovx 5D Strong  *(REJECT — t01290)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D508) · `decisions.md` §520
+
+## D509 — Ng F Fades Zm F 5D Strong  *(WATCHLIST — t01291)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D509) · `decisions.md` §520
+
+## D510 — Ym F Follows Hyg 1D Strong  *(REJECT — t01292)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D510) · `decisions.md` §520
+
+## D511 — Zc F Fades Soyb 5D Strong  *(REJECT — t01293)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D511) · `decisions.md` §520
+
+## D512 — Le F Follows Kre 1D Strong  *(WATCHLIST — t01294)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D512) · `decisions.md` §520
+
+## D513 — Le F Follows Adm 1D All  *(REJECT — t01295)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D513) · `decisions.md` §520
+
+## D514 — Le F Follows Xlu 1D Strong  *(WATCHLIST — t01296)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D514) · `decisions.md` §520
+
+## D515 — Btc F Follows Zn F 5D All  *(REJECT — t01297)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D515) · `decisions.md` §520
+
+## D516 — He F Follows 6C F 1D Strong  *(WATCHLIST — t01298)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D516) · `decisions.md` §520
+
+## D517 — Btc F Fades Zs F 1D All  *(WATCHLIST — t01299)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D517) · `decisions.md` §520
+
+## D518 — Zb F Follows Es F 1D Strong  *(REJECT — t01300)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D518) · `decisions.md` §520
+
+## D519 — Zb F Follows 6S F 1D Strong  *(REJECT — t01301)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D519) · `decisions.md` §520
+
+## D520 — Ym F Fades 6S F 1D Strong  *(REJECT — t01302)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D520) · `decisions.md` §520
+
+## D521 — He F Follows 6S F 5D All  *(REJECT — t01303)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D521) · `decisions.md` §520
+
+## D522 — Zb F Follows 6J F 5D Strong  *(REJECT — t01304)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D522) · `decisions.md` §520
+
+## D523 — Zn F Fades Xle 5D All  *(REJECT — t01305)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D523) · `decisions.md` §520
+
+## D524 — He F Follows Pl F 5D All  *(CONFIRM — t01306)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D524) · `decisions.md` §520
+
+## D525 — He F Follows Rty F 1D Strong  *(WATCHLIST — t01307)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D525) · `decisions.md` §520
+
+## D526 — Le F Follows He F 1D Strong  *(WATCHLIST — t01308)*
+
+Data-derived (D-series family 144). `hypotheses.yaml` (D526) · `decisions.md` §520

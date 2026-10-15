@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D513",
+ "cell": "LE=F follows ADM 1d (all)",
+ "trades": 397,
+ "net_bps": -6.41372575985612,
+ "t_net": -1.4242080524901441,
+ "placebo_pct": 9.9,
+ "by_year": {
+  "2025": -13.256437079519545,
+  "2026": 3.8288232595142895
+ },
+ "always_long_net_bps": 4.112614001209805,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 525,
+ "injection": {
+  "hypothesis": "D513",
+  "n_events": 397,
+  "sought_bps": 2.385430158738185,
+  "mean_estimate": 2.3282539697023164,
+  "recovered": true
+ },
+ "trial_id": "t01295"
+}

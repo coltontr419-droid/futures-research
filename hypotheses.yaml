@@ -30981,3 +30981,3307 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 479.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D468
+  name: btc_f_fades_zm_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    fades the sign of ZM=F's previous 1-day move (strong): 2021-2024 +53.27 bps (t +3.37, n 485);
+    2010-20 +5.14 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to fade the sign of ZM=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01250 (decisions.md 520), WATCHLIST on sealed 2023-2026: 156 trades; net +4.52 bps (t +0.20); placebo 60th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 26.635
+    sought_bps: 26.635
+    n_injection: 156
+    n_run: 156
+    recovered: true
+    report: reports/d468_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 502
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 480.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D469
+  name: ym_f_follows_zn_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    follows the sign of ZN=F's previous 5-day move (strong): 2021-2024 +11.83 bps (t +2.92, n 486);
+    2010-20 -2.21 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to follow the sign of ZN=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01251 (decisions.md 520), REJECT on sealed 2023-2026: 136 trades; net -14.14 bps (t -1.35); placebo 9th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 5.915
+    sought_bps: 5.915
+    n_injection: 136
+    n_run: 136
+    recovered: true
+    report: reports/d469_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 503
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 481.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D470
+  name: ym_f_fades_dfii10_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    fades the sign of DFII10's previous 5-day move (strong): 2021-2024 +11.17 bps (t +2.70, n 484);
+    2010-20 +6.49 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to fade the sign of DFII10's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01252 (decisions.md 520), REJECT on sealed 2023-2026: 122 trades; net -2.79 bps (t -0.25); placebo 44th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 5.584
+    sought_bps: 5.584
+    n_injection: 122
+    n_run: 122
+    recovered: true
+    report: reports/d470_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 504
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 482.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D471
+  name: ng_f_follows_lqd_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): NG=F's session
+    follows the sign of LQD's previous 1-day move (strong): 2021-2024 +48.74 bps (t +2.68, n 482);
+    2010-20 +12.36 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take NG=F's session to follow the sign of LQD's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01253 (decisions.md 520), REJECT on sealed 2023-2026: 142 trades; net -4.73 bps (t -0.17); placebo 44th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 24.372
+    sought_bps: 24.372
+    n_injection: 142
+    n_run: 142
+    recovered: true
+    report: reports/d471_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 505
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [NG]
+  mechanism_instruments:
+    primary: NG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 483.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D472
+  name: zb_f_follows_xlu_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of XLU's previous 5-day move (all): 2021-2024 +5.85 bps (t +2.63, n 968);
+    2010-20 +1.38 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of XLU's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01254 (decisions.md 520), WATCHLIST on sealed 2023-2026: 400 trades; net +1.58 bps (t +0.58); placebo 80th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 2.927
+    sought_bps: 2.927
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d472_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 506
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 484.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D473
+  name: zb_f_fades_le_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    fades the sign of LE=F's previous 1-day move (strong): 2021-2024 +8.33 bps (t +2.62, n 483);
+    2010-20 +0.82 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to fade the sign of LE=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01255 (decisions.md 520), REJECT on sealed 2023-2026: 239 trades; net -7.41 bps (t -2.04); placebo 3th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 4.166
+    sought_bps: 4.166
+    n_injection: 239
+    n_run: 239
+    recovered: true
+    report: reports/d473_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 507
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 485.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D474
+  name: he_f_follows_gdx_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of GDX's previous 1-day move (strong): 2021-2024 +15.91 bps (t +2.60, n 488);
+    2010-20 -2.02 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of GDX's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01256 (decisions.md 520), REJECT on sealed 2023-2026: 227 trades; net -4.15 bps (t -0.73); placebo 40th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 7.956
+    sought_bps: 7.956
+    n_injection: 227
+    n_run: 227
+    recovered: true
+    report: reports/d474_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 508
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 486.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D475
+  name: btc_f_follows_tlt_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    follows the sign of TLT's previous 5-day move (strong): 2021-2024 +41.20 bps (t +2.58, n 489);
+    2010-20 +9.92 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to follow the sign of TLT's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01257 (decisions.md 520), WATCHLIST on sealed 2023-2026: 123 trades; net +5.39 bps (t +0.23); placebo 64th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 20.600
+    sought_bps: 20.600
+    n_injection: 123
+    n_run: 123
+    recovered: true
+    report: reports/d475_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 509
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 487.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D476
+  name: ym_f_follows_skew_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    follows the sign of ^SKEW's previous 1-day move (strong): 2021-2024 +10.02 bps (t +2.58, n 465);
+    2010-20 -5.90 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to follow the sign of ^SKEW's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01258 (decisions.md 520), REJECT on sealed 2023-2026: 215 trades; net -1.48 bps (t -0.20); placebo 49th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 5.011
+    sought_bps: 5.011
+    n_injection: 215
+    n_run: 215
+    recovered: true
+    report: reports/d476_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 510
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 488.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D477
+  name: ym_f_follows_zb_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    follows the sign of ZB=F's previous 5-day move (all): 2021-2024 +7.16 bps (t +2.57, n 969);
+    2010-20 +0.92 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to follow the sign of ZB=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01259 (decisions.md 520), REJECT on sealed 2023-2026: 402 trades; net -1.51 bps (t -0.31); placebo 43th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.581
+    sought_bps: 3.581
+    n_injection: 402
+    n_run: 402
+    recovered: true
+    report: reports/d477_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 511
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 489.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D478
+  name: he_f_follows_zt_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of ZT=F's previous 1-day move (strong): 2021-2024 +15.35 bps (t +2.55, n 484);
+    2010-20 +12.62 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of ZT=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01260 (decisions.md 520), REJECT on sealed 2023-2026: 194 trades; net -0.95 bps (t -0.16); placebo 58th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 7.675
+    sought_bps: 7.675
+    n_injection: 194
+    n_run: 194
+    recovered: true
+    report: reports/d478_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 512
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 490.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D479
+  name: he_f_follows_ng_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of NG=F's previous 1-day move (all): 2021-2024 +10.45 bps (t +2.47, n 964);
+    2010-20 +2.92 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of NG=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01261 (decisions.md 520), REJECT on sealed 2023-2026: 399 trades; net -8.27 bps (t -1.93); placebo 7th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 5.224
+    sought_bps: 5.224
+    n_injection: 399
+    n_run: 399
+    recovered: true
+    report: reports/d479_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 513
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 491.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D480
+  name: zn_f_fades_le_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZN=F's session
+    fades the sign of LE=F's previous 1-day move (strong): 2021-2024 +4.42 bps (t +2.45, n 483);
+    2010-20 +0.10 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZN=F's session to fade the sign of LE=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01262 (decisions.md 520), REJECT on sealed 2023-2026: 239 trades; net -4.94 bps (t -2.42); placebo 2th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 2.209
+    sought_bps: 2.209
+    n_injection: 239
+    n_run: 239
+    recovered: true
+    report: reports/d480_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 514
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 492.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D481
+  name: he_f_follows_gc_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of GC=F's previous 5-day move (all): 2021-2024 +10.27 bps (t +2.44, n 968);
+    2010-20 -5.48 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of GC=F's previous 5-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: CONFIRM
+  retired_reason: >
+    Trial t01263 (decisions.md 520), CONFIRM on sealed 2023-2026: 400 trades; net +11.07 bps (t +2.62); placebo 100th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 5.135
+    sought_bps: 5.135
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d481_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 515
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 493.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D482
+  name: ng_f_fades_kre_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): NG=F's session
+    fades the sign of KRE's previous 5-day move (all): 2021-2024 +29.94 bps (t +2.41, n 967);
+    2010-20 -6.47 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take NG=F's session to fade the sign of KRE's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01264 (decisions.md 520), REJECT on sealed 2023-2026: 400 trades; net -10.66 bps (t -0.56); placebo 34th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 14.971
+    sought_bps: 14.971
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d482_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 516
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [NG]
+  mechanism_instruments:
+    primary: NG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 494.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D483
+  name: he_f_follows_pl_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of PL=F's previous 5-day move (strong): 2021-2024 +14.11 bps (t +2.40, n 480);
+    2010-20 -6.85 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of PL=F's previous 5-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: CONFIRM
+  retired_reason: >
+    Trial t01265 (decisions.md 520), CONFIRM on sealed 2023-2026: 225 trades; net +10.86 bps (t +1.99); placebo 99th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 7.053
+    sought_bps: 7.053
+    n_injection: 225
+    n_run: 225
+    recovered: true
+    report: reports/d483_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 517
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 495.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D484
+  name: zb_f_follows_6e_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of 6E=F's previous 5-day move (strong): 2021-2024 +7.85 bps (t +2.38, n 485);
+    2010-20 +0.72 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of 6E=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01266 (decisions.md 520), REJECT on sealed 2023-2026: 195 trades; net -8.05 bps (t -1.95); placebo 4th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.926
+    sought_bps: 3.926
+    n_injection: 195
+    n_run: 195
+    recovered: true
+    report: reports/d484_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 518
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 496.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D485
+  name: ym_f_follows_hyg_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    follows the sign of HYG's previous 1-day move (all): 2021-2024 +6.73 bps (t +2.37, n 949);
+    2010-20 -1.04 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to follow the sign of HYG's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01267 (decisions.md 520), REJECT on sealed 2023-2026: 385 trades; net -8.05 bps (t -1.63); placebo 7th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.363
+    sought_bps: 3.363
+    n_injection: 385
+    n_run: 385
+    recovered: true
+    report: reports/d485_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 519
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 497.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D486
+  name: zb_f_follows_es_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of ES=F's previous 1-day move (all): 2021-2024 +5.28 bps (t +2.37, n 965);
+    2010-20 +2.59 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of ES=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01268 (decisions.md 520), REJECT on sealed 2023-2026: 401 trades; net -3.07 bps (t -1.13); placebo 18th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 2.641
+    sought_bps: 2.641
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d486_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 520
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 498.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D487
+  name: btc_f_follows_zn_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    follows the sign of ZN=F's previous 5-day move (strong): 2021-2024 +36.63 bps (t +2.36, n 486);
+    2010-20 -41.98 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to follow the sign of ZN=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01269 (decisions.md 520), REJECT on sealed 2023-2026: 136 trades; net -33.93 bps (t -1.52); placebo 9th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 18.313
+    sought_bps: 18.313
+    n_injection: 136
+    n_run: 136
+    recovered: true
+    report: reports/d487_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 521
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 499.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D488
+  name: ng_f_follows_kre_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): NG=F's session
+    follows the sign of KRE's previous 1-day move (strong): 2021-2024 +40.31 bps (t +2.34, n 484);
+    2010-20 -1.81 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take NG=F's session to follow the sign of KRE's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01270 (decisions.md 520), REJECT on sealed 2023-2026: 149 trades; net -10.81 bps (t -0.36); placebo 37th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 20.155
+    sought_bps: 20.155
+    n_injection: 149
+    n_run: 149
+    recovered: true
+    report: reports/d488_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 522
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [NG]
+  mechanism_instruments:
+    primary: NG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 500.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D489
+  name: btc_f_fades_dfii10_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    fades the sign of DFII10's previous 5-day move (all): 2021-2024 +27.77 bps (t +2.32, n 931);
+    2010-20 -20.54 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to fade the sign of DFII10's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01271 (decisions.md 520), WATCHLIST on sealed 2023-2026: 379 trades; net +17.96 bps (t +1.38); placebo 94th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 13.887
+    sought_bps: 13.887
+    n_injection: 379
+    n_run: 379
+    recovered: true
+    report: reports/d489_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 523
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 501.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D490
+  name: zb_f_follows_nq_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of NQ=F's previous 5-day move (strong): 2021-2024 +7.35 bps (t +2.30, n 484);
+    2010-20 +0.55 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of NQ=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01272 (decisions.md 520), REJECT on sealed 2023-2026: 190 trades; net -7.03 bps (t -1.67); placebo 9th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.675
+    sought_bps: 3.675
+    n_injection: 190
+    n_run: 190
+    recovered: true
+    report: reports/d490_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 524
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 502.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D491
+  name: zb_f_follows_gdaxi_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of ^GDAXI's previous 5-day move (strong): 2021-2024 +7.53 bps (t +2.29, n 494);
+    2010-20 -0.71 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of ^GDAXI's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01273 (decisions.md 520), REJECT on sealed 2023-2026: 219 trades; net -3.08 bps (t -0.77); placebo 27th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.765
+    sought_bps: 3.765
+    n_injection: 219
+    n_run: 219
+    recovered: true
+    report: reports/d491_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 525
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 503.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D492
+  name: zn_f_fades_ho_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZN=F's session
+    fades the sign of HO=F's previous 5-day move (all): 2021-2024 +2.91 bps (t +2.28, n 969);
+    2010-20 +0.07 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZN=F's session to fade the sign of HO=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01274 (decisions.md 520), REJECT on sealed 2023-2026: 402 trades; net -2.27 bps (t -1.54); placebo 11th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 1.457
+    sought_bps: 1.457
+    n_injection: 402
+    n_run: 402
+    recovered: true
+    report: reports/d492_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 526
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 504.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D493
+  name: btc_f_follows_zb_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    follows the sign of ZB=F's previous 5-day move (all): 2021-2024 +26.65 bps (t +2.27, n 969);
+    2010-20 -20.70 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to follow the sign of ZB=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01275 (decisions.md 520), REJECT on sealed 2023-2026: 402 trades; net -11.34 bps (t -0.88); placebo 26th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 13.325
+    sought_bps: 13.325
+    n_injection: 402
+    n_run: 402
+    recovered: true
+    report: reports/d493_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 527
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 505.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D494
+  name: le_f_follows_bg_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): LE=F's session
+    follows the sign of BG's previous 1-day move (strong): 2021-2024 +7.67 bps (t +2.25, n 488);
+    2010-20 +0.19 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take LE=F's session to follow the sign of BG's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01276 (decisions.md 520), REJECT on sealed 2023-2026: 218 trades; net -5.08 bps (t -0.85); placebo 25th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.837
+    sought_bps: 3.837
+    n_injection: 218
+    n_run: 218
+    recovered: true
+    report: reports/d494_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 528
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [LE]
+  mechanism_instruments:
+    primary: LE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 506.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D495
+  name: zn_f_fades_xop_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZN=F's session
+    fades the sign of XOP's previous 5-day move (all): 2021-2024 +2.87 bps (t +2.25, n 968);
+    2010-20 +1.06 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZN=F's session to fade the sign of XOP's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01277 (decisions.md 520), REJECT on sealed 2023-2026: 400 trades; net -0.21 bps (t -0.14); placebo 57th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 1.437
+    sought_bps: 1.437
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d495_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 529
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 507.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D496
+  name: btc_f_fades_pl_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    fades the sign of PL=F's previous 5-day move (strong): 2021-2024 +39.20 bps (t +2.25, n 481);
+    2010-20 +9.23 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to fade the sign of PL=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01278 (decisions.md 520), REJECT on sealed 2023-2026: 225 trades; net -3.46 bps (t -0.19); placebo 35th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 19.601
+    sought_bps: 19.601
+    n_injection: 225
+    n_run: 225
+    recovered: true
+    report: reports/d496_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 530
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 508.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D497
+  name: ym_f_follows_zb_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    follows the sign of ZB=F's previous 5-day move (strong): 2021-2024 +8.86 bps (t +2.23, n 487);
+    2010-20 +1.25 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to follow the sign of ZB=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01279 (decisions.md 520), REJECT on sealed 2023-2026: 132 trades; net -13.05 bps (t -1.26); placebo 13th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 4.432
+    sought_bps: 4.432
+    n_injection: 132
+    n_run: 132
+    recovered: true
+    report: reports/d497_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 531
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 509.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D498
+  name: he_f_follows_ng_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of NG=F's previous 1-day move (strong): 2021-2024 +13.69 bps (t +2.23, n 485);
+    2010-20 +0.74 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of NG=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01280 (decisions.md 520), REJECT on sealed 2023-2026: 175 trades; net -0.66 bps (t -0.10); placebo 59th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 6.845
+    sought_bps: 6.845
+    n_injection: 175
+    n_run: 175
+    recovered: true
+    report: reports/d498_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 532
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 510.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D499
+  name: he_f_follows_gc_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of GC=F's previous 1-day move (strong): 2021-2024 +13.85 bps (t +2.22, n 490);
+    2010-20 -1.76 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of GC=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01281 (decisions.md 520), REJECT on sealed 2023-2026: 258 trades; net -3.66 bps (t -0.70); placebo 40th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 6.923
+    sought_bps: 6.923
+    n_injection: 258
+    n_run: 258
+    recovered: true
+    report: reports/d499_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 533
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 511.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D500
+  name: he_f_follows_6c_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of 6C=F's previous 1-day move (all): 2021-2024 +9.38 bps (t +2.22, n 938);
+    2010-20 +1.11 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of 6C=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01282 (decisions.md 520), WATCHLIST on sealed 2023-2026: 391 trades; net +2.54 bps (t +0.58); placebo 86th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 4.690
+    sought_bps: 4.690
+    n_injection: 391
+    n_run: 391
+    recovered: true
+    report: reports/d500_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 534
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 512.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D501
+  name: zn_f_fades_xop_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZN=F's session
+    fades the sign of XOP's previous 5-day move (strong): 2021-2024 +4.10 bps (t +2.20, n 481);
+    2010-20 +1.14 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZN=F's session to fade the sign of XOP's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01283 (decisions.md 520), REJECT on sealed 2023-2026: 185 trades; net -0.93 bps (t -0.40); placebo 49th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 2.048
+    sought_bps: 2.048
+    n_injection: 185
+    n_run: 185
+    recovered: true
+    report: reports/d501_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 535
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 513.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D502
+  name: ng_f_follows_lqd_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): NG=F's session
+    follows the sign of LQD's previous 1-day move (all): 2021-2024 +27.32 bps (t +2.18, n 952);
+    2010-20 +8.77 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take NG=F's session to follow the sign of LQD's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01284 (decisions.md 520), WATCHLIST on sealed 2023-2026: 392 trades; net +17.97 bps (t +0.94); placebo 84th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 13.661
+    sought_bps: 13.661
+    n_injection: 392
+    n_run: 392
+    recovered: true
+    report: reports/d502_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 536
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [NG]
+  mechanism_instruments:
+    primary: NG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 514.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D503
+  name: zb_f_follows_zt_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of ZT=F's previous 5-day move (strong): 2021-2024 +7.20 bps (t +2.18, n 485);
+    2010-20 +5.54 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of ZT=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01285 (decisions.md 520), REJECT on sealed 2023-2026: 181 trades; net -7.45 bps (t -1.78); placebo 8th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.602
+    sought_bps: 3.602
+    n_injection: 181
+    n_run: 181
+    recovered: true
+    report: reports/d503_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 537
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 515.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D504
+  name: ym_f_fades_dfii10_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    fades the sign of DFII10's previous 5-day move (all): 2021-2024 +6.19 bps (t +2.16, n 931);
+    2010-20 +2.83 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to fade the sign of DFII10's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01286 (decisions.md 520), WATCHLIST on sealed 2023-2026: 379 trades; net +2.57 bps (t +0.52); placebo 78th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.096
+    sought_bps: 3.096
+    n_injection: 379
+    n_run: 379
+    recovered: true
+    report: reports/d504_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 538
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 516.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D505
+  name: btc_f_fades_nkd_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    fades the sign of NKD=F's previous 5-day move (strong): 2021-2024 +34.70 bps (t +2.16, n 484);
+    2010-20 -32.20 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to fade the sign of NKD=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01287 (decisions.md 520), WATCHLIST on sealed 2023-2026: 244 trades; net +23.91 bps (t +1.44); placebo 90th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 17.350
+    sought_bps: 17.350
+    n_injection: 244
+    n_run: 244
+    recovered: true
+    report: reports/d505_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 539
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 517.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D506
+  name: he_f_follows_6s_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of 6S=F's previous 1-day move (strong): 2021-2024 +13.12 bps (t +2.16, n 489);
+    2010-20 +5.64 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of 6S=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01288 (decisions.md 520), REJECT on sealed 2023-2026: 209 trades; net -9.99 bps (t -1.78); placebo 8th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 6.561
+    sought_bps: 6.561
+    n_injection: 209
+    n_run: 209
+    recovered: true
+    report: reports/d506_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 540
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 518.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D507
+  name: he_f_follows_skew_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of ^SKEW's previous 1-day move (strong): 2021-2024 +12.87 bps (t +2.14, n 465);
+    2010-20 -0.20 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of ^SKEW's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01289 (decisions.md 520), WATCHLIST on sealed 2023-2026: 214 trades; net +8.39 bps (t +1.35); placebo 94th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 6.437
+    sought_bps: 6.437
+    n_injection: 214
+    n_run: 214
+    recovered: true
+    report: reports/d507_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 541
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 519.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D508
+  name: zb_f_fades_ovx_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    fades the sign of ^OVX's previous 5-day move (strong): 2021-2024 +6.58 bps (t +2.14, n 486);
+    2010-20 +2.24 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to fade the sign of ^OVX's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01290 (decisions.md 520), REJECT on sealed 2023-2026: 261 trades; net -1.79 bps (t -0.52); placebo 42th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.290
+    sought_bps: 3.290
+    n_injection: 261
+    n_run: 261
+    recovered: true
+    report: reports/d508_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 542
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 520.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D509
+  name: ng_f_fades_zm_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): NG=F's session
+    fades the sign of ZM=F's previous 5-day move (strong): 2021-2024 +37.06 bps (t +2.13, n 487);
+    2010-20 -8.46 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take NG=F's session to fade the sign of ZM=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01291 (decisions.md 520), WATCHLIST on sealed 2023-2026: 161 trades; net +19.97 bps (t +0.63); placebo 72th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 18.530
+    sought_bps: 18.530
+    n_injection: 161
+    n_run: 161
+    recovered: true
+    report: reports/d509_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 543
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [NG]
+  mechanism_instruments:
+    primary: NG
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 521.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D510
+  name: ym_f_follows_hyg_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    follows the sign of HYG's previous 1-day move (strong): 2021-2024 +9.49 bps (t +2.12, n 480);
+    2010-20 -2.09 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to follow the sign of HYG's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01292 (decisions.md 520), REJECT on sealed 2023-2026: 96 trades; net -23.08 bps (t -1.58); placebo 6th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 4.747
+    sought_bps: 4.747
+    n_injection: 96
+    n_run: 96
+    recovered: true
+    report: reports/d510_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 544
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 522.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D511
+  name: zc_f_fades_soyb_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZC=F's session
+    fades the sign of SOYB's previous 5-day move (strong): 2021-2024 +15.60 bps (t +2.10, n 481);
+    2010-20 +1.22 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZC=F's session to fade the sign of SOYB's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01293 (decisions.md 520), REJECT on sealed 2023-2026: 161 trades; net -3.93 bps (t -0.42); placebo 41th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 7.799
+    sought_bps: 7.799
+    n_injection: 161
+    n_run: 161
+    recovered: true
+    report: reports/d511_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 545
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZC]
+  mechanism_instruments:
+    primary: ZC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 523.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D512
+  name: le_f_follows_kre_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): LE=F's session
+    follows the sign of KRE's previous 1-day move (strong): 2021-2024 +7.16 bps (t +2.08, n 485);
+    2010-20 -3.21 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take LE=F's session to follow the sign of KRE's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01294 (decisions.md 520), WATCHLIST on sealed 2023-2026: 149 trades; net +1.31 bps (t +0.17); placebo 53th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.578
+    sought_bps: 3.578
+    n_injection: 149
+    n_run: 149
+    recovered: true
+    report: reports/d512_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 546
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [LE]
+  mechanism_instruments:
+    primary: LE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 524.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D513
+  name: le_f_follows_adm_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): LE=F's session
+    follows the sign of ADM's previous 1-day move (all): 2021-2024 +4.77 bps (t +2.08, n 962);
+    2010-20 -0.30 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take LE=F's session to follow the sign of ADM's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01295 (decisions.md 520), REJECT on sealed 2023-2026: 397 trades; net -6.41 bps (t -1.42); placebo 10th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 2.385
+    sought_bps: 2.385
+    n_injection: 397
+    n_run: 397
+    recovered: true
+    report: reports/d513_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 547
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [LE]
+  mechanism_instruments:
+    primary: LE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 525.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D514
+  name: le_f_follows_xlu_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): LE=F's session
+    follows the sign of XLU's previous 1-day move (strong): 2021-2024 +6.96 bps (t +2.05, n 487);
+    2010-20 +0.43 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take LE=F's session to follow the sign of XLU's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01296 (decisions.md 520), WATCHLIST on sealed 2023-2026: 193 trades; net +4.22 bps (t +0.64); placebo 78th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.481
+    sought_bps: 3.481
+    n_injection: 193
+    n_run: 193
+    recovered: true
+    report: reports/d514_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 548
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [LE]
+  mechanism_instruments:
+    primary: LE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 526.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D515
+  name: btc_f_follows_zn_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    follows the sign of ZN=F's previous 5-day move (all): 2021-2024 +24.05 bps (t +2.05, n 969);
+    2010-20 -16.08 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to follow the sign of ZN=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01297 (decisions.md 520), REJECT on sealed 2023-2026: 402 trades; net -0.84 bps (t -0.07); placebo 54th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 12.026
+    sought_bps: 12.026
+    n_injection: 402
+    n_run: 402
+    recovered: true
+    report: reports/d515_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 549
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 527.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D516
+  name: he_f_follows_6c_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of 6C=F's previous 1-day move (strong): 2021-2024 +12.92 bps (t +2.04, n 484);
+    2010-20 +5.36 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of 6C=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01298 (decisions.md 520), WATCHLIST on sealed 2023-2026: 146 trades; net +1.96 bps (t +0.27); placebo 72th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 6.461
+    sought_bps: 6.461
+    n_injection: 146
+    n_run: 146
+    recovered: true
+    report: reports/d516_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 550
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 528.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D517
+  name: btc_f_fades_zs_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): BTC=F's session
+    fades the sign of ZS=F's previous 1-day move (all): 2021-2024 +24.13 bps (t +2.04, n 958);
+    2010-20 -12.32 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take BTC=F's session to fade the sign of ZS=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01299 (decisions.md 520), WATCHLIST on sealed 2023-2026: 389 trades; net +0.46 bps (t +0.04); placebo 61th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 12.063
+    sought_bps: 12.063
+    n_injection: 389
+    n_run: 389
+    recovered: true
+    report: reports/d517_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 551
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MBT]
+  mechanism_instruments:
+    primary: MBT
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 529.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D518
+  name: zb_f_follows_es_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of ES=F's previous 1-day move (strong): 2021-2024 +6.68 bps (t +2.03, n 486);
+    2010-20 +3.75 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of ES=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01300 (decisions.md 520), REJECT on sealed 2023-2026: 182 trades; net -2.73 bps (t -0.67); placebo 32th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.339
+    sought_bps: 3.339
+    n_injection: 182
+    n_run: 182
+    recovered: true
+    report: reports/d518_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 552
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 530.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D519
+  name: zb_f_follows_6s_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of 6S=F's previous 1-day move (strong): 2021-2024 +6.37 bps (t +2.03, n 489);
+    2010-20 -3.21 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of 6S=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01301 (decisions.md 520), REJECT on sealed 2023-2026: 210 trades; net -1.44 bps (t -0.39); placebo 43th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.184
+    sought_bps: 3.184
+    n_injection: 210
+    n_run: 210
+    recovered: true
+    report: reports/d519_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 553
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 531.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D520
+  name: ym_f_fades_6s_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): YM=F's session
+    fades the sign of 6S=F's previous 1-day move (strong): 2021-2024 +8.12 bps (t +2.03, n 489);
+    2010-20 -1.44 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take YM=F's session to fade the sign of 6S=F's previous 1-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01302 (decisions.md 520), REJECT on sealed 2023-2026: 210 trades; net -1.76 bps (t -0.24); placebo 47th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 4.062
+    sought_bps: 4.062
+    n_injection: 210
+    n_run: 210
+    recovered: true
+    report: reports/d520_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 554
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [MYM]
+  mechanism_instruments:
+    primary: MYM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 532.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D521
+  name: he_f_follows_6s_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of 6S=F's previous 5-day move (all): 2021-2024 +8.52 bps (t +2.02, n 968);
+    2010-20 -0.76 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of 6S=F's previous 5-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01303 (decisions.md 520), REJECT on sealed 2023-2026: 401 trades; net -2.53 bps (t -0.59); placebo 45th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 4.261
+    sought_bps: 4.261
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d521_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 555
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 533.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D522
+  name: zb_f_follows_6j_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZB=F's session
+    follows the sign of 6J=F's previous 5-day move (strong): 2021-2024 +6.33 bps (t +2.00, n 484);
+    2010-20 -0.69 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZB=F's session to follow the sign of 6J=F's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01304 (decisions.md 520), REJECT on sealed 2023-2026: 170 trades; net -6.50 bps (t -1.58); placebo 9th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.165
+    sought_bps: 3.165
+    n_injection: 170
+    n_run: 170
+    recovered: true
+    report: reports/d522_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 556
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZB]
+  mechanism_instruments:
+    primary: ZB
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 534.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D523
+  name: zn_f_fades_xle_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): ZN=F's session
+    fades the sign of XLE's previous 5-day move (all): 2021-2024 +2.53 bps (t +1.98, n 968);
+    2010-20 +0.79 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take ZN=F's session to fade the sign of XLE's previous 5-day move.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01305 (decisions.md 520), REJECT on sealed 2023-2026: 400 trades; net -0.57 bps (t -0.39); placebo 48th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 1.267
+    sought_bps: 1.267
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d523_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 557
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: Globex
+  symbols: [ZN]
+  mechanism_instruments:
+    primary: ZN
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 535.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D524
+  name: he_f_follows_pl_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of PL=F's previous 5-day move (all): 2021-2024 +8.34 bps (t +1.98, n 967);
+    2010-20 +0.72 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of PL=F's previous 5-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: CONFIRM
+  retired_reason: >
+    Trial t01306 (decisions.md 520), CONFIRM on sealed 2023-2026: 400 trades; net +10.70 bps (t +2.53); placebo 100th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 4.171
+    sought_bps: 4.171
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d524_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 558
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 536.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D525
+  name: he_f_follows_rty_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): HE=F's session
+    follows the sign of RTY=F's previous 1-day move (strong): 2021-2024 +12.17 bps (t +1.97, n 491);
+    2010-20 -5.63 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take HE=F's session to follow the sign of RTY=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01307 (decisions.md 520), WATCHLIST on sealed 2023-2026: 162 trades; net +0.16 bps (t +0.03); placebo 60th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 6.086
+    sought_bps: 6.086
+    n_injection: 162
+    n_run: 162
+    recovered: true
+    report: reports/d525_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 559
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [HE]
+  mechanism_instruments:
+    primary: HE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 537.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D526
+  name: le_f_follows_he_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 144, candidate account markets on the current regime, decisions.md 519-520): LE=F's session
+    follows the sign of HE=F's previous 1-day move (strong): 2021-2024 +6.84 bps (t +1.97, n 484);
+    2010-20 +0.83 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take LE=F's session to follow the sign of HE=F's previous 1-day move.
+  horizon_minutes: [275]
+  hold_hours: [4.5, 4.6]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01308 (decisions.md 520), WATCHLIST on sealed 2023-2026: 146 trades; net +1.29 bps (t +0.17); placebo 61th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d144_moremkts.py
+    injected_bps: 3.419
+    sought_bps: 3.419
+    n_injection: 146
+    n_run: 146
+    recovered: true
+    report: reports/d526_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 560
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-144 scan (1984 tests, decisions.md 520). ONE TRIAL.
+  session: RTH
+  symbols: [LE]
+  mechanism_instruments:
+    primary: LE
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 538.
+  s6_control: By year; signs shuffled across the sealed sessions.

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D473",
+ "cell": "ZB=F fades LE=F 1d (strong)",
+ "trades": 239,
+ "net_bps": -7.41295803544521,
+ "t_net": -2.0410861113346184,
+ "placebo_pct": 2.6,
+ "by_year": {
+  "2025": -8.27963488847091,
+  "2026": -6.003417659095718
+ },
+ "always_long_net_bps": -4.211912607834738,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 485,
+ "injection": {
+  "hypothesis": "D473",
+  "n_events": 239,
+  "sought_bps": 4.16591862835776,
+  "mean_estimate": 4.060535413274145,
+  "recovered": true
+ },
+ "trial_id": "t01255"
+}

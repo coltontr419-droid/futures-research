@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D488",
+ "cell": "NG=F follows KRE 1d (strong)",
+ "trades": 149,
+ "net_bps": -10.809623932781985,
+ "t_net": -0.3581624443330167,
+ "placebo_pct": 37.4,
+ "by_year": {
+  "2025": 2.9989928367912015,
+  "2026": -30.730251403641663
+ },
+ "always_long_net_bps": 13.403369588972916,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 500,
+ "injection": {
+  "hypothesis": "D488",
+  "n_events": 149,
+  "sought_bps": 20.15518386729011,
+  "mean_estimate": 20.349383103423758,
+  "recovered": true
+ },
+ "trial_id": "t01270"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D524",
+ "cell": "HE=F follows PL=F 5d (all)",
+ "trades": 400,
+ "net_bps": 10.701295308530641,
+ "t_net": 2.530092970270098,
+ "placebo_pct": 100.0,
+ "by_year": {
+  "2025": 13.334984404123508,
+  "2026": 6.667417073508656
+ },
+ "always_long_net_bps": -0.40019113272895906,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 536,
+ "injection": {
+  "hypothesis": "D524",
+  "n_events": 400,
+  "sought_bps": 4.170892857027913,
+  "mean_estimate": 4.050835852861,
+  "recovered": true
+ },
+ "trial_id": "t01306"
+}

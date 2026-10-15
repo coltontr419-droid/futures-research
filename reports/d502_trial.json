@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D502",
+ "cell": "NG=F follows LQD 1d (all)",
+ "trades": 392,
+ "net_bps": 17.97154600312777,
+ "t_net": 0.939015867335342,
+ "placebo_pct": 83.8,
+ "by_year": {
+  "2025": -3.432967032747845,
+  "2026": 50.01014831797343
+ },
+ "always_long_net_bps": -1.2548665370832597,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 514,
+ "injection": {
+  "hypothesis": "D502",
+  "n_events": 392,
+  "sought_bps": 13.661005852014645,
+  "mean_estimate": 13.928514771227718,
+  "recovered": true
+ },
+ "trial_id": "t01284"
+}

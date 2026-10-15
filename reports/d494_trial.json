@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D494",
+ "cell": "LE=F follows BG 1d (strong)",
+ "trades": 218,
+ "net_bps": -5.07789007293495,
+ "t_net": -0.8478589459247777,
+ "placebo_pct": 25.3,
+ "by_year": {
+  "2025": -19.934939629012153,
+  "2026": 12.453428403236146
+ },
+ "always_long_net_bps": -1.542874073454693,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 506,
+ "injection": {
+  "hypothesis": "D494",
+  "n_events": 218,
+  "sought_bps": 3.836850256875595,
+  "mean_estimate": 3.6933588115824003,
+  "recovered": true
+ },
+ "trial_id": "t01276"
+}

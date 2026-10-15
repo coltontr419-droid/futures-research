@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D505",
+ "cell": "BTC=F fades NKD=F 5d (strong)",
+ "trades": 244,
+ "net_bps": 23.90945830340001,
+ "t_net": 1.4386478352210932,
+ "placebo_pct": 90.0,
+ "by_year": {
+  "2025": -2.0895583473183614,
+  "2026": 57.197918874880536
+ },
+ "always_long_net_bps": -29.961288359700927,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 517,
+ "injection": {
+  "hypothesis": "D505",
+  "n_events": 244,
+  "sought_bps": 17.349644623729752,
+  "mean_estimate": 17.05547292374931,
+  "recovered": true
+ },
+ "trial_id": "t01287"
+}

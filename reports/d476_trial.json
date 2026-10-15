@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D476",
+ "cell": "YM=F follows ^SKEW 1d (strong)",
+ "trades": 215,
+ "net_bps": -1.480504176116391,
+ "t_net": -0.19914678312966286,
+ "placebo_pct": 49.0,
+ "by_year": {
+  "2025": 2.0391551946292297,
+  "2026": -7.419929364249621
+ },
+ "always_long_net_bps": 1.3491367212080272,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 488,
+ "injection": {
+  "hypothesis": "D476",
+  "n_events": 215,
+  "sought_bps": 5.010954411957606,
+  "mean_estimate": 5.010098456815528,
+  "recovered": true
+ },
+ "trial_id": "t01258"
+}

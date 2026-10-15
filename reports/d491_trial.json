@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D491",
+ "cell": "ZB=F follows ^GDAXI 5d (strong)",
+ "trades": 219,
+ "net_bps": -3.0792576955358966,
+ "t_net": -0.7691007258205272,
+ "placebo_pct": 27.3,
+ "by_year": {
+  "2025": -5.8772629446438565,
+  "2026": 2.6333363547261874
+ },
+ "always_long_net_bps": -0.8106909931559242,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 503,
+ "injection": {
+  "hypothesis": "D491",
+  "n_events": 219,
+  "sought_bps": 3.76537402759573,
+  "mean_estimate": 3.696873265712411,
+  "recovered": true
+ },
+ "trial_id": "t01273"
+}

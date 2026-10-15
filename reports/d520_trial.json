@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D520",
+ "cell": "YM=F fades 6S=F 1d (strong)",
+ "trades": 210,
+ "net_bps": -1.7636749244197445,
+ "t_net": -0.23640610777453858,
+ "placebo_pct": 46.800000000000004,
+ "by_year": {
+  "2025": -6.396845458238864,
+  "2026": 5.615078147958853
+ },
+ "always_long_net_bps": 0.9691762949210984,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 532,
+ "injection": {
+  "hypothesis": "D520",
+  "n_events": 210,
+  "sought_bps": 4.061807725924248,
+  "mean_estimate": 3.892793167825259,
+  "recovered": true
+ },
+ "trial_id": "t01302"
+}

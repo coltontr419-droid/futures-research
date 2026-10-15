@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D470",
+ "cell": "YM=F fades DFII10 5d (strong)",
+ "trades": 122,
+ "net_bps": -2.790632264169974,
+ "t_net": -0.2511387704904924,
+ "placebo_pct": 44.4,
+ "by_year": {
+  "2025": -0.971310343781466,
+  "2026": -6.662522504996803
+ },
+ "always_long_net_bps": 1.55996519239049,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 482,
+ "injection": {
+  "hypothesis": "D470",
+  "n_events": 122,
+  "sought_bps": 5.584437749013455,
+  "mean_estimate": 5.532688447728873,
+  "recovered": true
+ },
+ "trial_id": "t01252"
+}

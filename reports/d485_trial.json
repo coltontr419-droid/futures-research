@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D485",
+ "cell": "YM=F follows HYG 1d (all)",
+ "trades": 385,
+ "net_bps": -8.04853467743933,
+ "t_net": -1.6280811017920194,
+ "placebo_pct": 7.1,
+ "by_year": {
+  "2025": -8.155601724360684,
+  "2026": -7.882616207375774
+ },
+ "always_long_net_bps": 6.406820891096407,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 497,
+ "injection": {
+  "hypothesis": "D485",
+  "n_events": 385,
+  "sought_bps": 3.3632525538711655,
+  "mean_estimate": 3.336702725893213,
+  "recovered": true
+ },
+ "trial_id": "t01267"
+}

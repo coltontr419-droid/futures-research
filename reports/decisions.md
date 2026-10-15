@@ -12311,6 +12311,76 @@ forms all / strong; follow/fade fixed on 2021–24. Costs per session (bps): YM 
 BTC 3.0 (§177 where listed). Carried at net > 0, t > 1.96 (~2.5% by chance). Validation per §426, 2; a CONFIRM then needs §446/§453 stress
 tests and a new-account replay before any proposal.
 
+## 520. Family-144: more candidate markets — 59 of 1,984 carried (≈ 49.6 by chance); validated (S1)
+
+**N 1,302.** `reports/d144_discovery.json` (module `reporting/d144_moremkts.py`; the registry test now admits MYM, ZB, HE, LE, MBT as single-market
+instruments):
+- **D468** BTC=F fades ZM=F 1d (strong): **WATCHLIST** +4.52 (t +0.20), placebo 60th, 2025 -11.4, 2026 +25.7
+- **D469** YM=F follows ZN=F 5d (strong): **REJECT** -14.14 (t -1.35), placebo 9th, 2025 -12.4, 2026 -18.1
+- **D470** YM=F fades DFII10 5d (strong): **REJECT** -2.79 (t -0.25), placebo 44th, 2025 -1.0, 2026 -6.7
+- **D471** NG=F follows LQD 1d (strong): **REJECT** -4.73 (t -0.17), placebo 44th, 2025 -0.7, 2026 -11.5
+- **D472** ZB=F follows XLU 5d (all): **WATCHLIST** +1.58 (t +0.58), placebo 80th, 2025 -1.5, 2026 +6.3
+- **D473** ZB=F fades LE=F 1d (strong): **REJECT** -7.41 (t -2.04), placebo 3th, 2025 -8.3, 2026 -6.0
+- **D474** HE=F follows GDX 1d (strong): **REJECT** -4.15 (t -0.73), placebo 40th, 2025 -5.9, 2026 -1.8
+- **D475** BTC=F follows TLT 5d (strong): **WATCHLIST** +5.39 (t +0.23), placebo 64th, 2025 +17.7, 2026 -24.3
+- **D476** YM=F follows ^SKEW 1d (strong): **REJECT** -1.48 (t -0.20), placebo 49th, 2025 +2.0, 2026 -7.4
+- **D477** YM=F follows ZB=F 5d (all): **REJECT** -1.51 (t -0.31), placebo 43th, 2025 +1.3, 2026 -5.8
+- **D478** HE=F follows ZT=F 1d (strong): **REJECT** -0.95 (t -0.16), placebo 58th, 2025 -4.5, 2026 +4.5
+- **D479** HE=F follows NG=F 1d (all): **REJECT** -8.27 (t -1.93), placebo 7th, 2025 -4.7, 2026 -13.7
+- **D480** ZN=F fades LE=F 1d (strong): **REJECT** -4.94 (t -2.42), placebo 2th, 2025 -5.1, 2026 -4.7
+- **D481** HE=F follows GC=F 5d (all): **CONFIRM** +11.07 (t +2.62), placebo 100th, 2025 +10.5, 2026 +12.0
+- **D482** NG=F fades KRE 5d (all): **REJECT** -10.66 (t -0.56), placebo 34th, 2025 -1.4, 2026 -24.7
+- **D483** HE=F follows PL=F 5d (strong): **CONFIRM** +10.86 (t +1.99), placebo 99th, 2025 +9.0, 2026 +13.2
+- **D484** ZB=F follows 6E=F 5d (strong): **REJECT** -8.05 (t -1.95), placebo 4th, 2025 -11.6, 2026 -2.6
+- **D485** YM=F follows HYG 1d (all): **REJECT** -8.05 (t -1.63), placebo 7th, 2025 -8.2, 2026 -7.9
+- **D486** ZB=F follows ES=F 1d (all): **REJECT** -3.07 (t -1.13), placebo 18th, 2025 +1.0, 2026 -9.3
+- **D487** BTC=F follows ZN=F 5d (strong): **REJECT** -33.93 (t -1.52), placebo 9th, 2025 -44.6, 2026 -10.1
+- **D488** NG=F follows KRE 1d (strong): **REJECT** -10.81 (t -0.36), placebo 37th, 2025 +3.0, 2026 -30.7
+- **D489** BTC=F fades DFII10 5d (all): **WATCHLIST** +17.96 (t +1.38), placebo 94th, 2025 +8.2, 2026 +32.8
+- **D490** ZB=F follows NQ=F 5d (strong): **REJECT** -7.03 (t -1.67), placebo 9th, 2025 -4.4, 2026 -10.6
+- **D491** ZB=F follows ^GDAXI 5d (strong): **REJECT** -3.08 (t -0.77), placebo 27th, 2025 -5.9, 2026 +2.6
+- **D492** ZN=F fades HO=F 5d (all): **REJECT** -2.27 (t -1.54), placebo 11th, 2025 -3.4, 2026 -0.6
+- **D493** BTC=F follows ZB=F 5d (all): **REJECT** -11.34 (t -0.88), placebo 26th, 2025 -9.5, 2026 -14.2
+- **D494** LE=F follows BG 1d (strong): **REJECT** -5.08 (t -0.85), placebo 25th, 2025 -19.9, 2026 +12.5
+- **D495** ZN=F fades XOP 5d (all): **REJECT** -0.21 (t -0.14), placebo 57th, 2025 -0.3, 2026 -0.1
+- **D496** BTC=F fades PL=F 5d (strong): **REJECT** -3.46 (t -0.19), placebo 35th, 2025 +0.6, 2026 -8.6
+- **D497** YM=F follows ZB=F 5d (strong): **REJECT** -13.05 (t -1.26), placebo 13th, 2025 -11.5, 2026 -16.5
+- **D498** HE=F follows NG=F 1d (strong): **REJECT** -0.66 (t -0.10), placebo 59th, 2025 -0.8, 2026 -0.4
+- **D499** HE=F follows GC=F 1d (strong): **REJECT** -3.66 (t -0.70), placebo 40th, 2025 -0.0, 2026 -8.3
+- **D500** HE=F follows 6C=F 1d (all): **WATCHLIST** +2.54 (t +0.58), placebo 86th, 2025 +4.8, 2026 -0.8
+- **D501** ZN=F fades XOP 5d (strong): **REJECT** -0.93 (t -0.40), placebo 49th, 2025 -1.6, 2026 +0.2
+- **D502** NG=F follows LQD 1d (all): **WATCHLIST** +17.97 (t +0.94), placebo 84th, 2025 -3.4, 2026 +50.0
+- **D503** ZB=F follows ZT=F 5d (strong): **REJECT** -7.45 (t -1.78), placebo 8th, 2025 -3.7, 2026 -14.2
+- **D504** YM=F fades DFII10 5d (all): **WATCHLIST** +2.57 (t +0.52), placebo 78th, 2025 +2.4, 2026 +2.8
+- **D505** BTC=F fades NKD=F 5d (strong): **WATCHLIST** +23.91 (t +1.44), placebo 90th, 2025 -2.1, 2026 +57.2
+- **D506** HE=F follows 6S=F 1d (strong): **REJECT** -9.99 (t -1.78), placebo 8th, 2025 -7.4, 2026 -14.0
+- **D507** HE=F follows ^SKEW 1d (strong): **WATCHLIST** +8.39 (t +1.35), placebo 94th, 2025 +11.5, 2026 +3.2
+- **D508** ZB=F fades ^OVX 5d (strong): **REJECT** -1.79 (t -0.52), placebo 42th, 2025 -0.8, 2026 -3.2
+- **D509** NG=F fades ZM=F 5d (strong): **WATCHLIST** +19.97 (t +0.63), placebo 72th, 2025 +13.8, 2026 +28.6
+- **D510** YM=F follows HYG 1d (strong): **REJECT** -23.08 (t -1.58), placebo 6th, 2025 -18.2, 2026 -31.9
+- **D511** ZC=F fades SOYB 5d (strong): **REJECT** -3.93 (t -0.42), placebo 41th, 2025 +1.8, 2026 -16.9
+- **D512** LE=F follows KRE 1d (strong): **WATCHLIST** +1.31 (t +0.17), placebo 53th, 2025 +7.2, 2026 -7.2
+- **D513** LE=F follows ADM 1d (all): **REJECT** -6.41 (t -1.42), placebo 10th, 2025 -13.3, 2026 +3.8
+- **D514** LE=F follows XLU 1d (strong): **WATCHLIST** +4.22 (t +0.64), placebo 78th, 2025 -3.5, 2026 +14.9
+- **D515** BTC=F follows ZN=F 5d (all): **REJECT** -0.84 (t -0.07), placebo 54th, 2025 -2.5, 2026 +1.7
+- **D516** HE=F follows 6C=F 1d (strong): **WATCHLIST** +1.96 (t +0.27), placebo 72th, 2025 +10.6, 2026 -14.1
+- **D517** BTC=F fades ZS=F 1d (all): **WATCHLIST** +0.46 (t +0.04), placebo 61th, 2025 +14.4, 2026 -20.4
+- **D518** ZB=F follows ES=F 1d (strong): **REJECT** -2.73 (t -0.67), placebo 32th, 2025 +6.2, 2026 -15.2
+- **D519** ZB=F follows 6S=F 1d (strong): **REJECT** -1.44 (t -0.39), placebo 43th, 2025 +2.7, 2026 -8.0
+- **D520** YM=F fades 6S=F 1d (strong): **REJECT** -1.76 (t -0.24), placebo 47th, 2025 -6.4, 2026 +5.6
+- **D521** HE=F follows 6S=F 5d (all): **REJECT** -2.53 (t -0.59), placebo 45th, 2025 -3.3, 2026 -1.4
+- **D522** ZB=F follows 6J=F 5d (strong): **REJECT** -6.50 (t -1.58), placebo 9th, 2025 -7.6, 2026 -4.3
+- **D523** ZN=F fades XLE 5d (all): **REJECT** -0.57 (t -0.39), placebo 48th, 2025 -1.2, 2026 +0.3
+- **D524** HE=F follows PL=F 5d (all): **CONFIRM** +10.70 (t +2.53), placebo 100th, 2025 +13.3, 2026 +6.7
+- **D525** HE=F follows RTY=F 1d (strong): **WATCHLIST** +0.16 (t +0.03), placebo 60th, 2025 +0.1, 2026 +0.2
+- **D526** LE=F follows HE=F 1d (strong): **WATCHLIST** +1.29 (t +0.17), placebo 61th, 2025 +8.0, 2026 -9.9
+
+**Three CONFIRMs, one theme: lean hogs (HE) follow the 5-day sign of gold or platinum (D481, D483, D524).** Stress (descriptive, no trial),
+at a realistic 4 bps cost (1 tick + commission on HE): following GC's 5-day sign makes 2010–14 −5.7 (t −2.0), 2015–20 −8.9 (t −2.0),
+2021 +24.7, 2022 +16.7, **2023 −7.7, 2024 −0.7**, 2025–26 +9.1 (t 2.1). Silver, gold miners (GDX) and copper show nothing; the sibling LE
+nothing; no mechanism ties hog prices to precious metals. Two good years either side of two flat ones, reversed before 2021, no
+replication across metals: **noise, not proposed.** The rest of family 144 is at chance (59 vs 49.6 carried).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

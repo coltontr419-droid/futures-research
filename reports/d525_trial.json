@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D525",
+ "cell": "HE=F follows RTY=F 1d (strong)",
+ "trades": 162,
+ "net_bps": 0.15931694924786777,
+ "t_net": 0.02645823404677111,
+ "placebo_pct": 60.4,
+ "by_year": {
+  "2025": 0.14624597675444462,
+  "2026": 0.18039916294693714
+ },
+ "always_long_net_bps": 2.158386022142877,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 537,
+ "injection": {
+  "hypothesis": "D525",
+  "n_events": 162,
+  "sought_bps": 6.0857938352084435,
+  "mean_estimate": 6.108357276435503,
+  "recovered": true
+ },
+ "trial_id": "t01307"
+}

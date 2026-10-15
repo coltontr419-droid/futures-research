@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D489",
+ "cell": "BTC=F fades DFII10 5d (all)",
+ "trades": 379,
+ "net_bps": 17.96043639836005,
+ "t_net": 1.378202561651866,
+ "placebo_pct": 93.7,
+ "by_year": {
+  "2025": 8.230087077502398,
+  "2026": 32.81543636153606
+ },
+ "always_long_net_bps": -14.691625697763659,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 501,
+ "injection": {
+  "hypothesis": "D489",
+  "n_events": 379,
+  "sought_bps": 13.887422869924103,
+  "mean_estimate": 13.571434884556117,
+  "recovered": true
+ },
+ "trial_id": "t01271"
+}

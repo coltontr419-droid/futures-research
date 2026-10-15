@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D474",
+ "cell": "HE=F follows GDX 1d (strong)",
+ "trades": 227,
+ "net_bps": -4.148560582770872,
+ "t_net": -0.732452992932873,
+ "placebo_pct": 40.400000000000006,
+ "by_year": {
+  "2025": -5.948958083595104,
+  "2026": -1.8207739150385356
+ },
+ "always_long_net_bps": -5.639689144146629,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 486,
+ "injection": {
+  "hypothesis": "D474",
+  "n_events": 227,
+  "sought_bps": 7.955587043874013,
+  "mean_estimate": 7.83145517877101,
+  "recovered": true
+ },
+ "trial_id": "t01256"
+}

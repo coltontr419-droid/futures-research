@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D514",
+ "cell": "LE=F follows XLU 1d (strong)",
+ "trades": 193,
+ "net_bps": 4.224636029673915,
+ "t_net": 0.6361182179260586,
+ "placebo_pct": 78.10000000000001,
+ "by_year": {
+  "2025": -3.460075502519813,
+  "2026": 14.850410000114621
+ },
+ "always_long_net_bps": 3.4482682011430605,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 526,
+ "injection": {
+  "hypothesis": "D514",
+  "n_events": 193,
+  "sought_bps": 3.4806053094697766,
+  "mean_estimate": 3.1998631336271846,
+  "recovered": true
+ },
+ "trial_id": "t01296"
+}

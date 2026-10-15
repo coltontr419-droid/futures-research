@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D493",
+ "cell": "BTC=F follows ZB=F 5d (all)",
+ "trades": 402,
+ "net_bps": -11.343639245606276,
+ "t_net": -0.8835600812438077,
+ "placebo_pct": 26.3,
+ "by_year": {
+  "2025": -9.474580192234292,
+  "2026": -14.200125723401202
+ },
+ "always_long_net_bps": -19.1342984401996,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 505,
+ "injection": {
+  "hypothesis": "D493",
+  "n_events": 402,
+  "sought_bps": 13.324926793454297,
+  "mean_estimate": 13.367803179179726,
+  "recovered": true
+ },
+ "trial_id": "t01275"
+}

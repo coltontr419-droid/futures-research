@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D486",
+ "cell": "ZB=F follows ES=F 1d (all)",
+ "trades": 401,
+ "net_bps": -3.0698871635334934,
+ "t_net": -1.1313153612074374,
+ "placebo_pct": 18.5,
+ "by_year": {
+  "2025": 0.9983717551123172,
+  "2026": -9.326766386514073
+ },
+ "always_long_net_bps": -0.5294994216804247,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 498,
+ "injection": {
+  "hypothesis": "D486",
+  "n_events": 401,
+  "sought_bps": 2.641011724756265,
+  "mean_estimate": 2.6917596777939163,
+  "recovered": true
+ },
+ "trial_id": "t01268"
+}

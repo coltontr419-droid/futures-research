@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D510",
+ "cell": "YM=F follows HYG 1d (strong)",
+ "trades": 96,
+ "net_bps": -23.07563844485485,
+ "t_net": -1.5816008260490408,
+ "placebo_pct": 6.2,
+ "by_year": {
+  "2025": -18.21679762549906,
+  "2026": -31.93587758603306
+ },
+ "always_long_net_bps": 21.957797360376603,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 522,
+ "injection": {
+  "hypothesis": "D510",
+  "n_events": 96,
+  "sought_bps": 4.7468623765110545,
+  "mean_estimate": 4.8033850762104615,
+  "recovered": true
+ },
+ "trial_id": "t01292"
+}

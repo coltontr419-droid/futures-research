@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D508",
+ "cell": "ZB=F fades ^OVX 5d (strong)",
+ "trades": 261,
+ "net_bps": -1.7946127593970256,
+ "t_net": -0.5154993359859934,
+ "placebo_pct": 42.0,
+ "by_year": {
+  "2025": -0.763037382951617,
+  "2026": -3.233139889853005
+ },
+ "always_long_net_bps": -2.0192824135596035,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 520,
+ "injection": {
+  "hypothesis": "D508",
+  "n_events": 261,
+  "sought_bps": 3.2902385550056077,
+  "mean_estimate": 3.1877574716895483,
+  "recovered": true
+ },
+ "trial_id": "t01290"
+}

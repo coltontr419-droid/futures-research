@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D482",
+ "cell": "NG=F fades KRE 5d (all)",
+ "trades": 400,
+ "net_bps": -10.660380595235374,
+ "t_net": -0.5644337317952259,
+ "placebo_pct": 33.6,
+ "by_year": {
+  "2025": -1.4073423682652306,
+  "2026": -24.685425958127226
+ },
+ "always_long_net_bps": -2.902859406487521,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 494,
+ "injection": {
+  "hypothesis": "D482",
+  "n_events": 400,
+  "sought_bps": 14.970618973557212,
+  "mean_estimate": 14.595800811227477,
+  "recovered": true
+ },
+ "trial_id": "t01264"
+}

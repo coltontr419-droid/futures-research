@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D471",
+ "cell": "NG=F follows LQD 1d (strong)",
+ "trades": 142,
+ "net_bps": -4.733358502954907,
+ "t_net": -0.16595565684949726,
+ "placebo_pct": 44.1,
+ "by_year": {
+  "2025": -0.6845253341886773,
+  "2026": -11.532342503335931
+ },
+ "always_long_net_bps": -24.232945071776438,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 483,
+ "injection": {
+  "hypothesis": "D471",
+  "n_events": 142,
+  "sought_bps": 24.371639676948625,
+  "mean_estimate": 25.224042162241815,
+  "recovered": true
+ },
+ "trial_id": "t01253"
+}

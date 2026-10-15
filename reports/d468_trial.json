@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D468",
+ "cell": "BTC=F fades ZM=F 1d (strong)",
+ "trades": 156,
+ "net_bps": 4.522221308921628,
+ "t_net": 0.195316115904536,
+ "placebo_pct": 59.9,
+ "by_year": {
+  "2025": -11.400784456868013,
+  "2026": 25.67367672914967
+ },
+ "always_long_net_bps": -7.088353992672707,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 480,
+ "injection": {
+  "hypothesis": "D468",
+  "n_events": 156,
+  "sought_bps": 26.63460615261308,
+  "mean_estimate": 26.539433545131946,
+  "recovered": true
+ },
+ "trial_id": "t01250"
+}

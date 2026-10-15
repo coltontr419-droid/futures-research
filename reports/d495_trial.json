@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D495",
+ "cell": "ZN=F fades XOP 5d (all)",
+ "trades": 400,
+ "net_bps": -0.2087045914751555,
+ "t_net": -0.14132624075733644,
+ "placebo_pct": 56.699999999999996,
+ "by_year": {
+  "2025": -0.31305969025704466,
+  "2026": -0.050531139862354
+ },
+ "always_long_net_bps": 0.18873874188308293,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 507,
+ "injection": {
+  "hypothesis": "D495",
+  "n_events": 400,
+  "sought_bps": 1.4369265952614223,
+  "mean_estimate": 1.431055755027967,
+  "recovered": true
+ },
+ "trial_id": "t01277"
+}

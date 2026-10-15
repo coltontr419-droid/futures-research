@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D516",
+ "cell": "HE=F follows 6C=F 1d (strong)",
+ "trades": 146,
+ "net_bps": 1.9643016608373531,
+ "t_net": 0.26917357987110246,
+ "placebo_pct": 71.7,
+ "by_year": {
+  "2025": 10.595116273173472,
+  "2026": -14.112705950376984
+ },
+ "always_long_net_bps": 4.396297460096825,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 528,
+ "injection": {
+  "hypothesis": "D516",
+  "n_events": 146,
+  "sought_bps": 6.460666683931738,
+  "mean_estimate": 6.572204795579767,
+  "recovered": true
+ },
+ "trial_id": "t01298"
+}

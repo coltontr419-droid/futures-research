@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D472",
+ "cell": "ZB=F follows XLU 5d (all)",
+ "trades": 400,
+ "net_bps": 1.578378974542318,
+ "t_net": 0.5832562426487444,
+ "placebo_pct": 80.5,
+ "by_year": {
+  "2025": -1.5270347615993136,
+  "2026": 6.285326838756989
+ },
+ "always_long_net_bps": -0.05681546015335755,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 484,
+ "injection": {
+  "hypothesis": "D472",
+  "n_events": 400,
+  "sought_bps": 2.927231508407239,
+  "mean_estimate": 2.939155201431022,
+  "recovered": true
+ },
+ "trial_id": "t01254"
+}
