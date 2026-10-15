@@ -12818,6 +12818,12 @@ Follow/fade fixed on 2021–24; forms all / strong (|value| above its 2021–24 
 Costs §180. Validation per §426, 2; a CONFIRM then needs §446/§453. Note: a carry-level sign changes rarely, so t over sessions overstates;
 a carry must also hold on monthly sums (t > 1.96).
 
+## 557. Family-158: own-curve carry — 0 of 8 carried (S1)
+
+**N 1,441 (no trial).** `reports/d158_discovery.json` (module `reporting/d158_carry.py`). Gold's carry says nothing. Of note (not carried,
+not a test): crude following the 5-bar change in its own carry is positive in both periods — 2010–20 +8.0 (t 1.74; strong days +17.8, t 1.97),
+2021–24 +8.0 (t 1.12; strong +11.3, t 1.06) — consistent but below every threshold.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
