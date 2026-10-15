@@ -13187,6 +13187,18 @@ t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs §44
 week +18.8 (t 1.69); every |t| < 1.96. Of note: before 2021 NKD reversed its own relative strength strongly (1-day strong −13.7, t −3.3) —
 gone since. Relative strength among the plan's markets carries nothing.
 
+## 592. D-series family 169 protocol: walk-forward re-selection — do recently strong cross-market rules persist one more year? (S1)
+
+**No trial spent yet; N 1,507. Written and committed BEFORE any statistic is computed.** Many edges here are regime-bound (strong before
+2021 and gone, or born after). One meta-hypothesis instead of fixed rules: **each calendar year Y (2013 → 2026), for each plan window,
+select the single best rule on the trailing three years Y−3 … Y−1** from the family-119/120 universe (family 111's predictors with its
+eligibility and timing rules; sign of the previous weekday's move, h = 1 or 5 days; forms all / strong; follow or fade fixed in training);
+best = highest training t, required t > 2 and net > 0 (else that window keeps the plan — no rule that year). **Trade it out of sample in
+year Y.** Statistic: the pooled out-of-sample net bps over all windows and years (costs §177/§180), t over sessions; by year, by window.
+**One trial (D726):** CONFIRM if the pooled out-of-sample 2014–2026 net > 0 with t > 1.645, positive in ≥ 9 of the 13 years, and positive
+over 2025–26; placebo: the same selection with each training year's target returns shuffled (500 draws) — real ≥ 95th percentile.
+A CONFIRM then needs the account replay (each year's rule as the window's direction).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
