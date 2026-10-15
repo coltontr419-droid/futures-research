@@ -12928,6 +12928,15 @@ date; Sunday evening for Monday, from Friday 16:00); for the **DAX** and **gold'
 **N 1,489 (no trial).** `reports/d162_discovery.json` (module `reporting/d162_spxafter.py`). Of note (not carried): NKD following the S&P's
 16:00 → 19:55 ET move on strong evenings, 2010–20 +11.7 (t 2.8), 2021–24 +8.3 (t 1.8) — consistent, below threshold.
 
+## 566. D-series family 163 protocol: yesterday's move on unusual volume (owned CME daily bars), current regime (S1)
+
+**No trial spent; N 1,489. Written and committed BEFORE any statistic is computed.** Owned GLBX ohlcv-1d bars (`daily_bars`): total volume
+across a root's outrights per bar; volume ratio = that bar's volume / mean of the previous 20 bars. Predictor: the sign of the held return
+on that bar, on **high-volume bars** (ratio above its 2021–24 median) or **low-volume bars** (below). Pairs: **NQ → MNQ**, **GC → gold's London
+window**, **CL → CL's session**, **6E → the DAX and NKD windows** (the dollar theme, volume-conditioned). Timing: a bar dated d runs
+00:00 → 24:00 UTC (≈ 20:00 ET d−1 → 20:00 ET d), so it ends before every next-day window except CL's (opens 18:00 ET) — **CL uses the
+bar before** (lag 2). Follow/fade fixed on 2021–24. **5 × 2 = 10 tests** (~0.25 by chance at t > 1.96). Costs §180. Validation per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
