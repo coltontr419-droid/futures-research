@@ -12213,6 +12213,14 @@ Next: §446/§453 stress tests (independent data, then an MNQ-night account repl
 - **Verdict:** the bps signal is genuine in 2021–26 and replicates on QQQ, but its account value is no better than random direction changes
   on this window and it lowers P(payout) for 2025 starts. Not proposed; D397/D398 stay CONFIRMED in the record.
 
+## 515. D-series family 142 protocol: 3-day predictor moves into every plan window, current regime (S1)
+
+**No trial spent; N 1,194. Written and committed BEFORE any statistic is computed.** Families 119–123 and 137 covered 1-, 2-, 5-, 10-, 20-day
+signs; 3 days was never tried. Family 111's predictor list, eligibility (no same market; timing exclusions for CL/NKD/ZS), the sum of the
+previous 3 weekdays' moves ending the weekday before the session; sign follow/fade fixed on 2021–24; forms all / strong; the six plan
+windows; costs §177/§180. Carried at net > 0, t > 1.96 (~2.5% by chance). Validation per §426, 2; a CONFIRM then needs §446/§453 stress
+tests (beat ≥ 95% of random flips in the account replay).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
