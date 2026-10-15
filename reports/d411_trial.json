@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D411",
+ "cell": "mnq_night fades 6B=F 1d (all)",
+ "trades": 404,
+ "net_bps": 4.772458643016249,
+ "t_net": 1.2676006840118204,
+ "placebo_pct": 91.2,
+ "by_year": {
+  "2025": 4.8147021916287,
+  "2026": 4.709354082743327
+ },
+ "always_long_net_bps": 4.432160523858401,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 423,
+ "injection": {
+  "hypothesis": "D411",
+  "n_events": 404,
+  "sought_bps": 2.696371031396183,
+  "mean_estimate": 2.843014746175854,
+  "recovered": true
+ },
+ "trial_id": "t01193"
+}

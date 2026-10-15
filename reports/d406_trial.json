@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D406",
+ "cell": "nq_session fades 6S=F 1d (strong)",
+ "trades": 210,
+ "net_bps": -3.6607509386771926,
+ "t_net": -0.34224821297375246,
+ "placebo_pct": 37.6,
+ "by_year": {
+  "2025": -9.044980290323787,
+  "2026": 4.914132843574788
+ },
+ "always_long_net_bps": 5.843770482049665,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 418,
+ "injection": {
+  "hypothesis": "D406",
+  "n_events": 210,
+  "sought_bps": 7.898027356343266,
+  "mean_estimate": 8.37119798513452,
+  "recovered": true
+ },
+ "trial_id": "t01188"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D416",
+ "cell": "nq_session fades ADM 5d (strong)",
+ "trades": 241,
+ "net_bps": 2.0521538660886383,
+ "t_net": 0.20039256375908546,
+ "placebo_pct": 66.9,
+ "by_year": {
+  "2025": 2.9172893375117153,
+  "2026": 0.9503303883328362
+ },
+ "always_long_net_bps": 7.091159858232657,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 428,
+ "injection": {
+  "hypothesis": "D416",
+  "n_events": 241,
+  "sought_bps": 6.745363585576782,
+  "mean_estimate": 6.587800082049669,
+  "recovered": true
+ },
+ "trial_id": "t01198"
+}

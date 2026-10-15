@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D402",
+ "cell": "nq_session follows ZB=F 5d (all)",
+ "trades": 402,
+ "net_bps": 2.218476712924464,
+ "t_net": 0.3182174676810819,
+ "placebo_pct": 67.2,
+ "by_year": {
+  "2025": 4.69582066260819,
+  "2026": -1.5676527196110484
+ },
+ "always_long_net_bps": 7.448059480702111,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 414,
+ "injection": {
+  "hypothesis": "D402",
+  "n_events": 402,
+  "sought_bps": 5.868358264133976,
+  "mean_estimate": 5.938187134253063,
+  "recovered": true
+ },
+ "trial_id": "t01184"
+}

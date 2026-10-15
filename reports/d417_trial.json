@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D417",
+ "cell": "nq_session follows ZN=F 5d (strong)",
+ "trades": 136,
+ "net_bps": -13.282390659155132,
+ "t_net": -0.9145048642660779,
+ "placebo_pct": 16.8,
+ "by_year": {
+  "2025": -14.317071403796428,
+  "2026": -10.966676611624619
+ },
+ "always_long_net_bps": 20.500934747513405,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 429,
+ "injection": {
+  "hypothesis": "D417",
+  "n_events": 136,
+  "sought_bps": 6.562282931606654,
+  "mean_estimate": 6.525499096905113,
+  "recovered": true
+ },
+ "trial_id": "t01199"
+}

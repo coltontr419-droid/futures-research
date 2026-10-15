@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D398",
+ "cell": "mnq_night fades SOYB 1d (strong)",
+ "trades": 148,
+ "net_bps": 18.85181995340296,
+ "t_net": 2.917951006896177,
+ "placebo_pct": 100.0,
+ "by_year": {
+  "2025": 16.48069693995457,
+  "2026": 24.109527504962422
+ },
+ "always_long_net_bps": 6.228708383199331,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 410,
+ "injection": {
+  "hypothesis": "D398",
+  "n_events": 148,
+  "sought_bps": 5.169644532633609,
+  "mean_estimate": 5.063673219443797,
+  "recovered": true
+ },
+ "trial_id": "t01180"
+}

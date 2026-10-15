@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D400",
+ "cell": "nq_session follows ^SKEW 1d (all)",
+ "trades": 400,
+ "net_bps": 11.26331385957592,
+ "t_net": 1.6149825153075683,
+ "placebo_pct": 94.6,
+ "by_year": {
+  "2025": 12.834831052854698,
+  "2026": 8.881328679826328
+ },
+ "always_long_net_bps": 7.917101430036596,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 412,
+ "injection": {
+  "hypothesis": "D400",
+  "n_events": 400,
+  "sought_bps": 6.234346816815895,
+  "mean_estimate": 6.2132391626033625,
+  "recovered": true
+ },
+ "trial_id": "t01182"
+}

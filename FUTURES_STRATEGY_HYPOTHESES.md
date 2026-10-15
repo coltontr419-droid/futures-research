@@ -2292,3 +2292,95 @@ Data-derived (D-series family 140). `hypotheses.yaml` (D394) · `decisions.md` �
 ## D395 — Cl Follows Hyg Tlt 1D All  *(REJECT — t01177)*
 
 Data-derived (D-series family 140). `hypotheses.yaml` (D395) · `decisions.md` §511
+
+## D396 — Mnq Night Fades 6S F 1D Strong  *(WATCHLIST — t01178)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D396) · `decisions.md` §513
+
+## D397 — Mnq Night Fades Soyb 1D All  *(CONFIRM — t01179)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D397) · `decisions.md` §513
+
+## D398 — Mnq Night Fades Soyb 1D Strong  *(CONFIRM — t01180)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D398) · `decisions.md` §513
+
+## D399 — Mnq Night Fades 6A F 1D Strong  *(CONFIRM — t01181)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D399) · `decisions.md` §513
+
+## D400 — Nq Session Follows Skew 1D All  *(WATCHLIST — t01182)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D400) · `decisions.md` §513
+
+## D401 — Mnq Night Fades Zm F 1D Strong  *(CONFIRM — t01183)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D401) · `decisions.md` §513
+
+## D402 — Nq Session Follows Zb F 5D All  *(WATCHLIST — t01184)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D402) · `decisions.md` §513
+
+## D403 — Nq Session Follows Skew 1D Strong  *(WATCHLIST — t01185)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D403) · `decisions.md` §513
+
+## D404 — Nq Session Fades Soyb 1D All  *(WATCHLIST — t01186)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D404) · `decisions.md` §513
+
+## D405 — Nq Session Fades Zl F 1D Strong  *(WATCHLIST — t01187)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D405) · `decisions.md` §513
+
+## D406 — Nq Session Fades 6S F 1D Strong  *(REJECT — t01188)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D406) · `decisions.md` §513
+
+## D407 — Mnq Night Fades 6B F 1D Strong  *(WATCHLIST — t01189)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D407) · `decisions.md` §513
+
+## D408 — Nq Session Fades Soyb 1D Strong  *(WATCHLIST — t01190)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D408) · `decisions.md` §513
+
+## D409 — Nq Session Fades Zs F 1D All  *(WATCHLIST — t01191)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D409) · `decisions.md` §513
+
+## D410 — Mnq Night Fades 6A F 1D All  *(WATCHLIST — t01192)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D410) · `decisions.md` §513
+
+## D411 — Mnq Night Fades 6B F 1D All  *(WATCHLIST — t01193)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D411) · `decisions.md` §513
+
+## D412 — Nq Session Follows Zb F 5D Strong  *(REJECT — t01194)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D412) · `decisions.md` §513
+
+## D413 — Mnq Night Fades 6E F 1D Strong  *(REJECT — t01195)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D413) · `decisions.md` §513
+
+## D414 — Nq Session Fades Dfii10 5D Strong  *(WATCHLIST — t01196)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D414) · `decisions.md` §513
+
+## D415 — Mnq Night Fades Dfii10 5D All  *(WATCHLIST — t01197)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D415) · `decisions.md` §513
+
+## D416 — Nq Session Fades Adm 5D Strong  *(WATCHLIST — t01198)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D416) · `decisions.md` §513
+
+## D417 — Nq Session Follows Zn F 5D Strong  *(REJECT — t01199)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D417) · `decisions.md` §513
+
+## D418 — Mnq Night Fades 6S F 1D All  *(WATCHLIST — t01200)*
+
+Data-derived (D-series family 141). `hypotheses.yaml` (D418) · `decisions.md` §513

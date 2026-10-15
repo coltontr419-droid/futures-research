@@ -26949,3 +26949,1291 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 407.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D396
+  name: mnq_night_fades_6s_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of 6S=F's previous 1-day move (strong): 2021-2024 +12.41 bps (t +3.58, n 488);
+    2010-20 -0.55 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of 6S=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01178 (decisions.md 513), WATCHLIST on sealed 2023-2026: 213 trades; net +1.52 bps (t +0.30); placebo 66th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 6.203
+    sought_bps: 6.203
+    n_injection: 213
+    n_run: 213
+    recovered: true
+    report: reports/d396_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 430
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 408.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D397
+  name: mnq_night_fades_soyb_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of SOYB's previous 1-day move (all): 2021-2024 +7.69 bps (t +3.17, n 959);
+    2010-20 -2.28 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of SOYB's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: CONFIRM
+  retired_reason: >
+    Trial t01179 (decisions.md 513), CONFIRM on sealed 2023-2026: 390 trades; net +9.60 bps (t +2.56); placebo 99th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 3.846
+    sought_bps: 3.846
+    n_injection: 390
+    n_run: 390
+    recovered: true
+    report: reports/d397_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 431
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 409.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D398
+  name: mnq_night_fades_soyb_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of SOYB's previous 1-day move (strong): 2021-2024 +10.34 bps (t +3.04, n 488);
+    2010-20 -2.69 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of SOYB's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: CONFIRM
+  retired_reason: >
+    Trial t01180 (decisions.md 513), CONFIRM on sealed 2023-2026: 148 trades; net +18.85 bps (t +2.92); placebo 100th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 5.170
+    sought_bps: 5.170
+    n_injection: 148
+    n_run: 148
+    recovered: true
+    report: reports/d398_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 432
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 410.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D399
+  name: mnq_night_fades_6a_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of 6A=F's previous 1-day move (strong): 2021-2024 +10.33 bps (t +2.93, n 495);
+    2010-20 -2.26 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of 6A=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: CONFIRM
+  retired_reason: >
+    Trial t01181 (decisions.md 513), CONFIRM on sealed 2023-2026: 169 trades; net +12.40 bps (t +1.97); placebo 99th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 5.163
+    sought_bps: 5.163
+    n_injection: 169
+    n_run: 169
+    recovered: true
+    report: reports/d399_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 433
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 411.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D400
+  name: nq_session_follows_skew_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    follows the sign of ^SKEW's previous 1-day move (all): 2021-2024 +12.47 bps (t +2.72, n 923);
+    2010-20 -2.72 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to follow the sign of ^SKEW's previous 1-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01182 (decisions.md 513), WATCHLIST on sealed 2023-2026: 400 trades; net +11.26 bps (t +1.61); placebo 95th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 6.234
+    sought_bps: 6.234
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d400_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 434
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 412.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D401
+  name: mnq_night_fades_zm_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of ZM=F's previous 1-day move (strong): 2021-2024 +9.44 bps (t +2.67, n 491);
+    2010-20 -3.20 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of ZM=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: CONFIRM
+  retired_reason: >
+    Trial t01183 (decisions.md 513), CONFIRM on sealed 2023-2026: 158 trades; net +14.87 bps (t +2.19); placebo 98th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 4.718
+    sought_bps: 4.718
+    n_injection: 158
+    n_run: 158
+    recovered: true
+    report: reports/d401_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 435
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 413.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D402
+  name: nq_session_follows_zb_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    follows the sign of ZB=F's previous 5-day move (all): 2021-2024 +11.74 bps (t +2.64, n 969);
+    2010-20 -0.62 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to follow the sign of ZB=F's previous 5-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01184 (decisions.md 513), WATCHLIST on sealed 2023-2026: 402 trades; net +2.22 bps (t +0.32); placebo 67th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 5.868
+    sought_bps: 5.868
+    n_injection: 402
+    n_run: 402
+    recovered: true
+    report: reports/d402_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 436
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 414.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D403
+  name: nq_session_follows_skew_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    follows the sign of ^SKEW's previous 1-day move (strong): 2021-2024 +16.13 bps (t +2.64, n 465);
+    2010-20 -1.65 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to follow the sign of ^SKEW's previous 1-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01185 (decisions.md 513), WATCHLIST on sealed 2023-2026: 215 trades; net +7.52 bps (t +0.69); placebo 75th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 8.067
+    sought_bps: 8.067
+    n_injection: 215
+    n_run: 215
+    recovered: true
+    report: reports/d403_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 437
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 415.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D404
+  name: nq_session_fades_soyb_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    fades the sign of SOYB's previous 1-day move (all): 2021-2024 +11.59 bps (t +2.59, n 949);
+    2010-20 -2.83 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to fade the sign of SOYB's previous 1-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01186 (decisions.md 513), WATCHLIST on sealed 2023-2026: 385 trades; net +7.43 bps (t +1.04); placebo 84th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 5.796
+    sought_bps: 5.796
+    n_injection: 385
+    n_run: 385
+    recovered: true
+    report: reports/d404_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 438
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 416.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D405
+  name: nq_session_fades_zl_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    fades the sign of ZL=F's previous 1-day move (strong): 2021-2024 +16.17 bps (t +2.57, n 484);
+    2010-20 -3.77 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to fade the sign of ZL=F's previous 1-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01187 (decisions.md 513), WATCHLIST on sealed 2023-2026: 142 trades; net +8.95 bps (t +0.78); placebo 81th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 8.086
+    sought_bps: 8.086
+    n_injection: 142
+    n_run: 142
+    recovered: true
+    report: reports/d405_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 439
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 417.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D406
+  name: nq_session_fades_6s_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    fades the sign of 6S=F's previous 1-day move (strong): 2021-2024 +15.80 bps (t +2.55, n 489);
+    2010-20 -3.80 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to fade the sign of 6S=F's previous 1-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01188 (decisions.md 513), REJECT on sealed 2023-2026: 210 trades; net -3.66 bps (t -0.34); placebo 38th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 7.898
+    sought_bps: 7.898
+    n_injection: 210
+    n_run: 210
+    recovered: true
+    report: reports/d406_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 440
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 418.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D407
+  name: mnq_night_fades_6b_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of 6B=F's previous 1-day move (strong): 2021-2024 +9.42 bps (t +2.50, n 488);
+    2010-20 -1.79 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of 6B=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01189 (decisions.md 513), WATCHLIST on sealed 2023-2026: 175 trades; net +4.35 bps (t +0.69); placebo 76th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 4.711
+    sought_bps: 4.711
+    n_injection: 175
+    n_run: 175
+    recovered: true
+    report: reports/d407_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 441
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 419.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D408
+  name: nq_session_fades_soyb_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    fades the sign of SOYB's previous 1-day move (strong): 2021-2024 +15.00 bps (t +2.43, n 487);
+    2010-20 -0.20 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to fade the sign of SOYB's previous 1-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01190 (decisions.md 513), WATCHLIST on sealed 2023-2026: 150 trades; net +18.09 bps (t +1.33); placebo 91th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 7.500
+    sought_bps: 7.500
+    n_injection: 150
+    n_run: 150
+    recovered: true
+    report: reports/d408_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 442
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 420.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D409
+  name: nq_session_fades_zs_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    fades the sign of ZS=F's previous 1-day move (all): 2021-2024 +10.59 bps (t +2.36, n 958);
+    2010-20 -2.66 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to fade the sign of ZS=F's previous 1-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01191 (decisions.md 513), WATCHLIST on sealed 2023-2026: 389 trades; net +2.67 bps (t +0.37); placebo 68th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 5.297
+    sought_bps: 5.297
+    n_injection: 389
+    n_run: 389
+    recovered: true
+    report: reports/d409_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 443
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 421.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D410
+  name: mnq_night_fades_6a_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of 6A=F's previous 1-day move (all): 2021-2024 +5.52 bps (t +2.28, n 973);
+    2010-20 -2.38 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of 6A=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01192 (decisions.md 513), WATCHLIST on sealed 2023-2026: 403 trades; net +4.24 bps (t +1.14); placebo 90th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 2.760
+    sought_bps: 2.760
+    n_injection: 403
+    n_run: 403
+    recovered: true
+    report: reports/d410_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 444
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 422.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D411
+  name: mnq_night_fades_6b_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of 6B=F's previous 1-day move (all): 2021-2024 +5.39 bps (t +2.24, n 972);
+    2010-20 -0.92 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of 6B=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01193 (decisions.md 513), WATCHLIST on sealed 2023-2026: 404 trades; net +4.77 bps (t +1.27); placebo 91th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 2.696
+    sought_bps: 2.696
+    n_injection: 404
+    n_run: 404
+    recovered: true
+    report: reports/d411_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 445
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 423.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D412
+  name: nq_session_follows_zb_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    follows the sign of ZB=F's previous 5-day move (strong): 2021-2024 +13.96 bps (t +2.19, n 487);
+    2010-20 -0.23 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to follow the sign of ZB=F's previous 5-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01194 (decisions.md 513), REJECT on sealed 2023-2026: 132 trades; net -4.17 bps (t -0.28); placebo 41th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 6.980
+    sought_bps: 6.980
+    n_injection: 132
+    n_run: 132
+    recovered: true
+    report: reports/d412_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 446
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 424.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D413
+  name: mnq_night_fades_6e_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of 6E=F's previous 1-day move (strong): 2021-2024 +7.49 bps (t +2.16, n 490);
+    2010-20 -1.14 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of 6E=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01195 (decisions.md 513), REJECT on sealed 2023-2026: 185 trades; net -0.26 bps (t -0.04); placebo 52th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 3.746
+    sought_bps: 3.746
+    n_injection: 185
+    n_run: 185
+    recovered: true
+    report: reports/d413_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 447
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 425.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D414
+  name: nq_session_fades_dfii10_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    fades the sign of DFII10's previous 5-day move (strong): 2021-2024 +13.79 bps (t +2.11, n 484);
+    2010-20 +6.90 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to fade the sign of DFII10's previous 5-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01196 (decisions.md 513), WATCHLIST on sealed 2023-2026: 122 trades; net +7.09 bps (t +0.44); placebo 65th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 6.895
+    sought_bps: 6.895
+    n_injection: 122
+    n_run: 122
+    recovered: true
+    report: reports/d414_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 448
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 426.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D415
+  name: mnq_night_fades_dfii10_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of DFII10's previous 5-day move (all): 2021-2024 +5.20 bps (t +2.09, n 942);
+    2010-20 +1.48 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of DFII10's previous 5-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01197 (decisions.md 513), WATCHLIST on sealed 2023-2026: 384 trades; net +4.71 bps (t +1.22); placebo 91th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 2.602
+    sought_bps: 2.602
+    n_injection: 384
+    n_run: 384
+    recovered: true
+    report: reports/d415_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 449
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 427.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D416
+  name: nq_session_fades_adm_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    fades the sign of ADM's previous 5-day move (strong): 2021-2024 +13.49 bps (t +2.00, n 488);
+    2010-20 +6.24 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to fade the sign of ADM's previous 5-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01198 (decisions.md 513), WATCHLIST on sealed 2023-2026: 241 trades; net +2.05 bps (t +0.20); placebo 67th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 6.745
+    sought_bps: 6.745
+    n_injection: 241
+    n_run: 241
+    recovered: true
+    report: reports/d416_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 450
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 428.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D417
+  name: nq_session_follows_zn_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): NQ's whole Globex session (18:00 -> 16:00 ET)
+    follows the sign of ZN=F's previous 5-day move (strong): 2021-2024 +13.12 bps (t +1.98, n 486);
+    2010-20 -2.24 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take NQ's whole Globex session (18:00 -> 16:00 ET) to follow the sign of ZN=F's previous 5-day move.
+  horizon_minutes: [1320]
+  hold_hours: [22.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01199 (decisions.md 513), REJECT on sealed 2023-2026: 136 trades; net -13.28 bps (t -0.91); placebo 17th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 6.562
+    sought_bps: 6.562
+    n_injection: 136
+    n_run: 136
+    recovered: true
+    report: reports/d417_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 451
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 429.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D418
+  name: mnq_night_fades_6s_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 141, MNQ's other windows on the current regime, decisions.md 512-513): MNQ's night session (18:00 -> 09:30 ET)
+    fades the sign of 6S=F's previous 1-day move (all): 2021-2024 +4.81 bps (t +1.98, n 973);
+    2010-20 +0.19 (context). THE COUNTERPARTY: slow cross-asset repositioning by index holders.
+  condition: >
+    Every session, take MNQ's night session (18:00 -> 09:30 ET) to fade the sign of 6S=F's previous 1-day move.
+  horizon_minutes: [930]
+  hold_hours: [15.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01200 (decisions.md 513), WATCHLIST on sealed 2023-2026: 406 trades; net +1.36 bps (t +0.36); placebo 64th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d141_mnqwin.py
+    injected_bps: 2.407
+    sought_bps: 2.407
+    n_injection: 406
+    n_run: 406
+    recovered: true
+    report: reports/d418_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 452
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-141 scan (424 tests, decisions.md 513). ONE TRIAL.
+  session: Globex
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 430.
+  s6_control: By year; signs shuffled across the sealed sessions.

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D414",
+ "cell": "nq_session fades DFII10 5d (strong)",
+ "trades": 122,
+ "net_bps": 7.087629812968563,
+ "t_net": 0.43991520303735177,
+ "placebo_pct": 65.4,
+ "by_year": {
+  "2025": 3.2204187135398366,
+  "2026": 15.317848306624565
+ },
+ "always_long_net_bps": -2.1945677977895044,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 426,
+ "injection": {
+  "hypothesis": "D414",
+  "n_events": 122,
+  "sought_bps": 6.895413772285927,
+  "mean_estimate": 7.0962980944731635,
+  "recovered": true
+ },
+ "trial_id": "t01196"
+}

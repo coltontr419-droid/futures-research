@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D408",
+ "cell": "nq_session fades SOYB 1d (strong)",
+ "trades": 150,
+ "net_bps": 18.087080610423115,
+ "t_net": 1.333496056848991,
+ "placebo_pct": 91.2,
+ "by_year": {
+  "2025": 13.719643144664806,
+  "2026": 27.367885225159522
+ },
+ "always_long_net_bps": 9.883061686031123,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 420,
+ "injection": {
+  "hypothesis": "D408",
+  "n_events": 150,
+  "sought_bps": 7.5000956431164685,
+  "mean_estimate": 7.864325638291553,
+  "recovered": true
+ },
+ "trial_id": "t01190"
+}

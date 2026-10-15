@@ -12168,6 +12168,38 @@ family 111's list, NQ=F / ES=F / SMH excluded (the same market), currency/BTC-US
 5-day signs on the previous weekday; forms all / strong. Carried at net > 0, t > 1.96 (~2.5% by chance). Cost 0.5; validation per §426,
 2; a CONFIRM then needs stress tests and an MNQ-account replay on the new window.
 
+## 513. Family-141: MNQ's other windows — 23 of 424 carried (≈ 10.6 by chance); validated (S1)
+
+**N 1,194.** `reports/d141_discovery.json` (module `reporting/d141_mnqwin.py`):
+- **D396** mnq_night fades 6S=F 1d (strong): **WATCHLIST** +1.52 (t +0.30), placebo 66th, 2025 +0.5, 2026 +3.1
+- **D397** mnq_night fades SOYB 1d (all): **CONFIRM** +9.60 (t +2.56), placebo 99th, 2025 +10.1, 2026 +8.9
+- **D398** mnq_night fades SOYB 1d (strong): **CONFIRM** +18.85 (t +2.92), placebo 100th, 2025 +16.5, 2026 +24.1
+- **D399** mnq_night fades 6A=F 1d (strong): **CONFIRM** +12.40 (t +1.97), placebo 99th, 2025 +16.8, 2026 +5.8
+- **D400** nq_session follows ^SKEW 1d (all): **WATCHLIST** +11.26 (t +1.61), placebo 95th, 2025 +12.8, 2026 +8.9
+- **D401** mnq_night fades ZM=F 1d (strong): **CONFIRM** +14.87 (t +2.19), placebo 98th, 2025 +6.6, 2026 +26.1
+- **D402** nq_session follows ZB=F 5d (all): **WATCHLIST** +2.22 (t +0.32), placebo 67th, 2025 +4.7, 2026 -1.6
+- **D403** nq_session follows ^SKEW 1d (strong): **WATCHLIST** +7.52 (t +0.69), placebo 75th, 2025 +13.6, 2026 -2.7
+- **D404** nq_session fades SOYB 1d (all): **WATCHLIST** +7.43 (t +1.04), placebo 84th, 2025 +9.1, 2026 +4.9
+- **D405** nq_session fades ZL=F 1d (strong): **WATCHLIST** +8.95 (t +0.78), placebo 81th, 2025 +8.5, 2026 +9.5
+- **D406** nq_session fades 6S=F 1d (strong): **REJECT** -3.66 (t -0.34), placebo 38th, 2025 -9.0, 2026 +4.9
+- **D407** mnq_night fades 6B=F 1d (strong): **WATCHLIST** +4.35 (t +0.69), placebo 76th, 2025 +3.3, 2026 +6.1
+- **D408** nq_session fades SOYB 1d (strong): **WATCHLIST** +18.09 (t +1.33), placebo 91th, 2025 +13.7, 2026 +27.4
+- **D409** nq_session fades ZS=F 1d (all): **WATCHLIST** +2.67 (t +0.37), placebo 68th, 2025 +0.8, 2026 +5.5
+- **D410** mnq_night fades 6A=F 1d (all): **WATCHLIST** +4.24 (t +1.14), placebo 90th, 2025 +4.6, 2026 +3.7
+- **D411** mnq_night fades 6B=F 1d (all): **WATCHLIST** +4.77 (t +1.27), placebo 91th, 2025 +4.8, 2026 +4.7
+- **D412** nq_session follows ZB=F 5d (strong): **REJECT** -4.17 (t -0.28), placebo 41th, 2025 -5.1, 2026 -2.1
+- **D413** mnq_night fades 6E=F 1d (strong): **REJECT** -0.26 (t -0.04), placebo 52th, 2025 +5.3, 2026 -11.9
+- **D414** nq_session fades DFII10 5d (strong): **WATCHLIST** +7.09 (t +0.44), placebo 65th, 2025 +3.2, 2026 +15.3
+- **D415** mnq_night fades DFII10 5d (all): **WATCHLIST** +4.71 (t +1.22), placebo 91th, 2025 +5.0, 2026 +4.2
+- **D416** nq_session fades ADM 5d (strong): **WATCHLIST** +2.05 (t +0.20), placebo 67th, 2025 +2.9, 2026 +1.0
+- **D417** nq_session follows ZN=F 5d (strong): **REJECT** -13.28 (t -0.91), placebo 17th, 2025 -14.3, 2026 -11.0
+- **D418** mnq_night fades 6S=F 1d (all): **WATCHLIST** +1.36 (t +0.36), placebo 64th, 2025 +1.8, 2026 +0.7
+
+**Four CONFIRMs, one theme: MNQ's night session (18:00 → 09:30 ET) fades the previous day's move in the soy complex (SOYB, ZM) or the
+Australian dollar (6A).** All predictors close before 18:00 ET (no look-ahead). 2010–20 context is negative for every one (the
+pre-2021 regime risk seen with the dollar rules). The whole-session version (NQ to 16:00) does not hold: the effect lives in the night.
+Next: §446/§453 stress tests (independent data, then an MNQ-night account replay against random flips).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D401",
+ "cell": "mnq_night fades ZM=F 1d (strong)",
+ "trades": 158,
+ "net_bps": 14.873441599592377,
+ "t_net": 2.1865256125284103,
+ "placebo_pct": 98.5,
+ "by_year": {
+  "2025": 6.60568602006514,
+  "2026": 26.102781267308476
+ },
+ "always_long_net_bps": 3.2678737881817397,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 413,
+ "injection": {
+  "hypothesis": "D401",
+  "n_events": 158,
+  "sought_bps": 4.717570101899188,
+  "mean_estimate": 4.815131789266061,
+  "recovered": true
+ },
+ "trial_id": "t01183"
+}
