@@ -13322,6 +13322,19 @@ shifts of the weekly sign series).
 fades managed-money crowding +26.6, t 2.00, weekly 1.76 — and the opposite sign, −30.2, t −2.4, in 2011–20). Leveraged-fund, asset-manager and
 managed-money positioning set no direction for the plan's windows; with family 133, the CFTC data is exhausted.
 
+## 606. A53 protocol: Tradeify's 50K Lightning (instant funded) for the two rule accounts (S1)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** Rules from Tradeify's help centre (fetched 2026-10-15; post-2025-09-12
+accounts): no evaluation; **$2,000 EOD trailing drawdown, enforced intraday** (modelled: breach when the intraday low reaches the floor;
+assumed to stop trailing at the $50,000 start once the peak is $52,000, as the 50K Daily funded account — not stated, disclosed);
+**daily loss limit $1,250 soft** (the day's loss capped at $1,250); 4 minis / 40 micros; **payout goals +$3,000, then +$2,000** of profit per
+cycle; **consistency 20% / 25% / 30%** of the goal for payouts 1 / 2 / 3+ (best day in the cycle ≤ that share); minimum $1,000, maximum
+**$2,000 a request (payouts 1–3), $2,500 after**; 90% split; the goal resets after each payout. **Price $492** (pricing reference; promotions
+vary). Replay (84 sessions, the deployed rules' side, A21/A23 minute paths, drift removed): fixed brackets take ∈ {400, 500, 600} × stop ∈
+{300, 400, 600, 800} (take ≤ $600 keeps day one inside the 20% rule); a breach buys a new account ($492). **Chosen on 2021–24 starts per
+market (NKD 1, FDXM 2 contracts), read once on 2025 starts** against the 50K Daily accounts (§447/§454: +$5,616 / +$8,040). Reported to the
+user only if Lightning beats the Daily account on 2025 starts per dollar of fees AND in mean net.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
