@@ -13232,6 +13232,13 @@ deployed rules: NKD n ∈ {1, 2, 3}, FDXM n ∈ {1, 2, 3, 4}; the plan's bracket
 and 2010–20, with 60 random-flip draws at each n. Adopt only if the 2021–24 choice also beats the deployed size on 2025 starts and does
 not lower 2025-start P(payout) by more than 3 points.
 
+## 597. A52: contract count for the rule accounts — the deployed sizes stay (S1)
+
+**No trial; N 1,508.** `reports/a52_size.json` (module `reporting/a52_size.py`). NKD on 2021–24 starts: n=1 +$5,454 (P(payout) 92%), n=2
++$3,687, n=3 +$3,964 → the deployed 1 is the choice (2025 starts: 1 → +$8,040, 2 → +$9,575, 3 → +$5,872). FDXM on 2021–24 starts: n=1 +$645,
+2 +$2,903, 3 +$2,239, **4 +$3,586** (95%) → chosen 4, but on 2025 starts +$4,908 (90%) vs the deployed 2's **+$5,616 (92%)** — fails §596.
+Before 2021 FDXM preferred 3 (+$5,093 vs +$3,144). No size is better across periods; the plan's sizes stay.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
