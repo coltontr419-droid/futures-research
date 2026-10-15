@@ -12139,6 +12139,15 @@ Cost 0.5; validation per §426, 2 (shuffled signs).
 MNQ's day nothing (|t| ≤ 1.40); **D387** MNQ follows USD/JPY's overnight move (+9.2 bps, t +2.43, n 943) on sealed 2025–26: -4.78 bps
 (t -0.85, n 416), placebo 22th, {2025: -10.778906381462674, 2026: 4.339857477130312}; always long over the same sessions +2.81 — **REJECT**.
 
+## 510. D-series family 140 protocol: spreads between markets as every-day predictors, current regime (S1)
+
+**No trial spent; N 1,163. Written and committed BEFORE any statistic is computed.** Single-market predictors are exhausted at every
+horizon (families 119–123, 137). Spread predictors (difference of Yahoo open → close moves, family 111's series): **curve** ZN=F − ZT=F
+(long end vs short end), **credit vs duration** HYG − TLT and LQD − TLT, **growth vs broad** NQ=F − ES=F, **small vs large** RTY=F −
+ES=F, **semis vs Nasdaq** SMH − NQ=F. Sign of the previous weekday (1-day) and of the previous 5 weekdays' sum (5-day) → each plan window
+(family 114's targets), follow or fade fixed by 2021–24; forms all / strong. **6 × 2 × 6 × 2 = 144 tests** (~3.6 by chance). Costs
+§177/§180; validation per §426, 2 (shuffled signs); any CONFIRM then the §446/§453 stress tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
