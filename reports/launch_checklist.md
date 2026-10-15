@@ -3,9 +3,11 @@
 For use after the 10-25 demo review. Everything here is what the demo and the replays already assume; if any of it can't be
 followed, the dollar estimates don't apply. (decisions.md 583)
 
+Commands below run from the repo folder: `cd ~/futures-research` first (Claude runs them during reviews; you don't have to).
+
 ## 1. Before buying anything — decide at the 10-25 review
 
-- [ ] Demo review run: `python -m futuresres.reporting.a18_demo_check --review`
+- [ ] Demo review run: `.venv/bin/python -m futuresres.reporting.a18_demo_check --review`
 - [ ] Dollar rules: keep or revert? (review section "The dollar rules, forward"; revert if the first 40 rule sessions are negative)
 - [ ] Which accounts (up to 5 at once). The options and their 4-month replays on 2025 starts:
   - **Now:** MNQ, MGC, MCL, NKD, FDXM: +$17,500 a 4-month run
@@ -62,8 +64,8 @@ bot answers ⚠️ (its replay disagrees), check the fill; resend with `confirm`
 
 ## 4. Stop / review triggers
 
-- [ ] **Dollar rules** — `python -m futuresres.reporting.a48_forward` (at least every few weeks): first 40 rule sessions negative → propose reverting.
+- [ ] **Dollar rules** — `.venv/bin/python -m futuresres.reporting.a48_forward` (at least every few weeks): first 40 rule sessions negative → propose reverting.
 - [ ] **Fills** — the review's execution table: if real results trail the replay by more than ~$50 a ticket over 20+ tickets, costs are
   worse than modelled; re-run the replays with them (ZS first — its brackets are only 20–40 ticks).
-- [ ] **Monthly** — the review plus the watchlist forward test (`python -m futuresres.reporting.a49_watchlist`).
+- [ ] **Monthly** — the review plus the watchlist forward test (`.venv/bin/python -m futuresres.reporting.a49_watchlist`).
 - [ ] **Any Tradeify rule or fee change** — stop and re-run before the next ticket.
