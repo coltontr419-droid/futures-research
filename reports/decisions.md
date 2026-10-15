@@ -13085,6 +13085,16 @@ against them. **Bot change (the user asked for it; deployed 2026-10-15, backup-2
 own message every time — a side flip as an orange embed that @mentions the user with the full new ticket ("change your staged FDXM order
 before the 2:00 AM CT entry"); an unchanged side or missing data as a one-line note (before, only a flip posted, as plain text).
 
+## 582. A49: the watchlist forward-tested on data after the sealed window (S8)
+
+**No trial.** `reporting/a49_watchlist.py`: the 22 near misses of families 141–166 positive in both sealed years with placebo ≥ 90th
+(D708 left out: owned volume data does not update) re-scored from **2026-09-01** — data no test has seen — with each family's own rows().
+Targets whose research caches end in August (MNQ, MGC London, NKD Tokyo, DAX, MNQ night) are rebuilt from Yahoo 5-minute bars (kept
+~60 days; accumulated in data/cache/forward/targets.json — run at least every six weeks). Overlap check (August): correlation with the
+research targets 0.94–1.00, sign agreement 85–100%. First reading (2026-09-01 → 10-14, 8–31 sessions each): 14 of 21 positive (≈ half
+expected by chance); best D411 (MNQ night fades sterling, +20.3, t 1.45), D408, D545; worst D659 (gold follows USD/CNY, −43.2, t −2.44),
+D569, D489, D536. Nothing is near a forward confirmation yet; the record accumulates. Run with the 10-25 review and monthly after.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
