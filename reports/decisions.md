@@ -12990,6 +12990,13 @@ t > 1.96). Costs §177/§180. Validation per §426, 2.
 No CONFIRM. D714 (MNQ fades a strong week of oil outrunning gold) is a near miss — positive both years (+17.9 / +7.1), t 1.45, placebo 91st
 — watchlist only.
 
+## 573. D-series family 166 protocol: the Brazilian real (6L) every day into soybeans and the plan windows, current regime (S1)
+
+**No trial spent; N 1,498. Written and committed BEFORE any statistic is computed.** D122 used only 2σ real shocks (§418: 6L positive in
+every period but small). Every-day form: **6L=F** (CME, open → close, closes before 18:00 ET) previous weekday's sign (1-day) and previous
+5 weekdays' sum (5-day) into the six plan windows; forms all / strong; follow/fade fixed on 2021–24. **2 × 6 × 2 = 24 tests** (~0.6 by
+chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a ZS CONFIRM then needs the ZS account replay.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
