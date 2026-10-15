@@ -12964,6 +12964,13 @@ ZN, 6E** into all six plan windows, excluding family 163's ten cells and same-ma
 Follow/fade fixed on 2021–24. **6 × 6 × 2 − 10 = 62 tests** (~1.6 by chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM
 then needs an account replay against the deployed rule of its market (or the plan where none).
 
+## 570. Family-164: volume-conditioned, all pairs — 3 of 62 carried (≈ 1.6 by chance); validated (S1)
+
+**N 1,494.** `reports/d164_discovery.json` (module `reporting/d164_volall.py`):
+- **D710** CL fades GC on high-volume days: **REJECT** -7.06 (t -0.41), placebo 36th, 2025 +6.9, 2026 -32.9
+- **D711** CL fades HG on low-volume days: **REJECT** -29.02 (t -1.48), placebo 8th, 2025 -3.5, 2026 -69.3
+- **D712** CL follows 6E on low-volume days: **REJECT** -1.70 (t -0.10), placebo 49th, 2025 +8.4, 2026 -16.7
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

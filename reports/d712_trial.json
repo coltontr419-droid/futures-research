@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D712",
+ "cell": "CL follows 6E on low-volume days",
+ "trades": 227,
+ "net_bps": -1.6984110388564255,
+ "t_net": -0.0976849943201038,
+ "placebo_pct": 49.0,
+ "by_year": {
+  "2025": 8.364940626498411,
+  "2026": -16.738145395870244
+ },
+ "always_long_net_bps": 1.1748806487107095,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 725,
+ "injection": {
+  "hypothesis": "D712",
+  "n_events": 227,
+  "sought_bps": 9.168802041260522,
+  "mean_estimate": 8.812264292312394,
+  "recovered": true
+ },
+ "trial_id": "t01494"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D710",
+ "cell": "CL fades GC on high-volume days",
+ "trades": 225,
+ "net_bps": -7.057014503404589,
+ "t_net": -0.4133529014871485,
+ "placebo_pct": 35.9,
+ "by_year": {
+  "2025": 6.923168284192043,
+  "2026": -32.89380800959581
+ },
+ "always_long_net_bps": -7.546495060917825,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 723,
+ "injection": {
+  "hypothesis": "D710",
+  "n_events": 225,
+  "sought_bps": 13.107501600265103,
+  "mean_estimate": 13.33030464996774,
+  "recovered": true
+ },
+ "trial_id": "t01492"
+}

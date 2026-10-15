@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D711",
+ "cell": "CL fades HG on low-volume days",
+ "trades": 214,
+ "net_bps": -29.024195616886985,
+ "t_net": -1.4832880158675128,
+ "placebo_pct": 7.7,
+ "by_year": {
+  "2025": -3.519665925326128,
+  "2026": -69.27833284091678
+ },
+ "always_long_net_bps": -4.611563308838697,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 724,
+ "injection": {
+  "hypothesis": "D711",
+  "n_events": 214,
+  "sought_bps": 11.07859020664246,
+  "mean_estimate": 11.464418416114812,
+  "recovered": true
+ },
+ "trial_id": "t01493"
+}

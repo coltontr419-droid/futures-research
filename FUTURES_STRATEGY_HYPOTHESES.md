@@ -3548,3 +3548,15 @@ Data-derived (D-series family 163). `hypotheses.yaml` (D708) · `decisions.md` �
 ## D709 — Dax Fades 6E On High Volume Days  *(CONFIRM — t01491)*
 
 Data-derived (D-series family 163). `hypotheses.yaml` (D709) · `decisions.md` §567
+
+## D710 — Cl Fades Gc On High Volume Days  *(REJECT — t01492)*
+
+Data-derived (D-series family 164). `hypotheses.yaml` (D710) · `decisions.md` §570
+
+## D711 — Cl Fades Hg On Low Volume Days  *(REJECT — t01493)*
+
+Data-derived (D-series family 164). `hypotheses.yaml` (D711) · `decisions.md` §570
+
+## D712 — Cl Follows 6E On Low Volume Days  *(REJECT — t01494)*
+
+Data-derived (D-series family 164). `hypotheses.yaml` (D712) · `decisions.md` §570
