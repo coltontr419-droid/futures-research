@@ -13414,6 +13414,15 @@ gain over MCL positive in every start year 2016–2025 (+$0.9k to +$7.4k), negat
 correlation with MNQ / MGC / NKD / FDXM −0.25 to +0.28. Caveats: daily-bar paths (no minute data to cross-check, as MCL); a zero-edge
 market substitution, not a new edge; Tradeify must list LE (CME livestock, 8:30 AM – 1:05 PM CT) and the bot needs an LE ticket.
 
+## 614. Correction to §613: at Tradeify's real LE commission live cattle no longer qualifies (S1)
+
+**No trial; N 1,525.** Tradeify lists LE (CME livestock) as permitted, with a **round trip of $11.20** (help centre: Supported Trading Products;
+Trading Commission Fees, read 2026-10-15) — A56 assumed $4.50. Re-run at $11.20 (4 LE): alone P(payout) 81% / 82%, mean +$3,346 / +$2,194;
+book with LE for MCL: 2010–20 +$10,479 → **+$13,084** (P 85 → 92%, p10 −$828 → +$279); 2021–26 +$15,008 → **+$16,121** (96 → 99%, +$4,148 →
++$6,519); **2025 starts +$17,492 → +$17,211** (100%, p10 unchanged). Fails §612 on the 2025 starts, like ZB (§611): both are steadier long-run
+fifth markets that do not beat crude on the recent starts. The ZB and every other candidate's round trips were also assumed ($4.50 /
+$3.32) and should be checked against Tradeify's fee list before any switch. Recorded as options for the 10-25 review, not a finding.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
