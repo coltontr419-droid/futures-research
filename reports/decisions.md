@@ -13448,6 +13448,11 @@ roll-safe — follow or fade the same trend (GC=F's Yahoo session moves summed o
 on 2021–24; forms all / strong. **2 × 3 × 2 = 12 tests** (~0.3 by chance; carried also needs monthly t > 1.96). Cost 0.8. Validation per
 §426, 2 (placebo: circular shifts); a CONFIRM then needs an MGC account replay on that session.
 
+## 618. Family-175: gold's Asia and New York sessions take nothing from its long trend — 0 of 12 (S1)
+
+**N 1,525 (no trial).** `reports/d175_discovery.json` (module `reporting/d175_goldsess.py`). Every cell |t| < 1.2 in 2021–24. The London fade
+(D727–D728) is London-specific; the other sessions neither follow nor fade the trend. No session switch for the MGC account.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
