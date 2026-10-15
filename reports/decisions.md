@@ -13462,6 +13462,14 @@ follow 5-day (D551). Rule: **2 NKD when at least k of the 3 agree with dollar-we
 2025 starts and 2010–20. Disclosed: the agreement signals were validated on 2025–26, so 2025 starts favour them; 2010–20 is the honest
 check. Adopt only if the choice beats the deployed account on 2021–24 AND 2010–20 starts AND 2025 starts.
 
+## 620. A57: conviction sizing on NKD — the best variant is steadier but not better on 2025 starts; not adopted (S1)
+
+**No trial; N 1,525.** `reports/a57_conviction.json` (module `reporting/a57_conviction.py`). On 2021–24 starts: deployed 1 NKD +$5,454 (92%);
+**2 NKD when corn, ASX and ITB all agree with dollar-week** (16% of days) **+$5,607 (94%)** — the choice; 2 when ≥ 2 agree +$5,149; 3/2/1 ladder
++$5,393 (98%); 2 when ≥ 1 agrees +$2,868. The choice before 2021: +$3,801 (88%) vs +$3,258 (79%); **2025 starts +$7,837 (94%) vs +$8,040 (95%)** —
+fails §619 by $203. (The ≥ 2 rule reaches +$10,169 on 2025 starts but P(payout) 84% and is worse on 2021–24.) Not adopted; the agreement
+signals add little once the dollar-week side is fixed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
