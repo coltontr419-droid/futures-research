@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D389",
+ "cell": "CL follows rty_es 1d (strong)",
+ "trades": 183,
+ "net_bps": -20.27039387393221,
+ "t_net": -1.0152588571978192,
+ "placebo_pct": 18.0,
+ "by_year": {
+  "2025": -5.1592726416558365,
+  "2026": -43.040576552704835
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 401,
+ "injection": {
+  "hypothesis": "D389",
+  "n_events": 183,
+  "sought_bps": 18.946957240306258,
+  "mean_estimate": 18.320896488305493,
+  "recovered": true
+ }
+}

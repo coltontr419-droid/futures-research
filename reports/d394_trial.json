@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D394",
+ "cell": "MNQ fades rty_es 5d (strong)",
+ "trades": 160,
+ "net_bps": -7.147937226295471,
+ "t_net": -0.6634974603343187,
+ "placebo_pct": 28.999999999999996,
+ "by_year": {
+  "2025": -17.097291247049967,
+  "2026": 5.6440893718174525
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 406,
+ "injection": {
+  "hypothesis": "D394",
+  "n_events": 160,
+  "sought_bps": 5.134716608285417,
+  "mean_estimate": 5.048356703385225,
+  "recovered": true
+ }
+}

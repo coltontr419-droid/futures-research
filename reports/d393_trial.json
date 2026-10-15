@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D393",
+ "cell": "DAX fades rty_es 5d (strong)",
+ "trades": 161,
+ "net_bps": 1.9545113802858753,
+ "t_net": 0.29817160785784186,
+ "placebo_pct": 67.9,
+ "by_year": {
+  "2025": -0.264121088033721,
+  "2026": 4.696987625847598
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 405,
+ "injection": {
+  "hypothesis": "D393",
+  "n_events": 161,
+  "sought_bps": 3.975233283304217,
+  "mean_estimate": 4.1866265297337115,
+  "recovered": true
+ }
+}

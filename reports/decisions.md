@@ -12148,6 +12148,18 @@ ES=F, **semis vs Nasdaq** SMH − NQ=F. Sign of the previous weekday (1-day) and
 (family 114's targets), follow or fade fixed by 2021–24; forms all / strong. **6 × 2 × 6 × 2 = 144 tests** (~3.6 by chance). Costs
 §177/§180; validation per §426, 2 (shuffled signs); any CONFIRM then the §446/§453 stress tests.
 
+## 511. Family-140: spread predictors — 8 of 144 carried (≈ 3.6 by chance); validated (S1)
+
+**N 1,171.** `reports/d140_discovery.json` (module `reporting/d140_spreads.py`):
+- **D388** CL follows rty_es 1d (all): **REJECT** -26.11 (t -1.88), placebo 4th, 2025 -18.3, 2026 -38.0
+- **D389** CL follows rty_es 1d (strong): **REJECT** -20.27 (t -1.02), placebo 18th, 2025 -5.2, 2026 -43.0
+- **D390** CL follows hyg_tlt 1d (strong): **REJECT** -44.25 (t -1.84), placebo 4th, 2025 -42.6, 2026 -48.7
+- **D391** DAX follows curve 5d (strong): **REJECT** -12.27 (t -1.48), placebo 7th, 2025 -6.1, 2026 -27.8
+- **D392** DAX follows curve 5d (all): **REJECT** -3.20 (t -0.77), placebo 26th, 2025 -4.3, 2026 -1.6
+- **D393** DAX fades rty_es 5d (strong): **WATCHLIST** +1.95 (t +0.30), placebo 68th, 2025 -0.3, 2026 +4.7
+- **D394** MNQ fades rty_es 5d (strong): **REJECT** -7.15 (t -0.66), placebo 29th, 2025 -17.1, 2026 +5.6
+- **D395** CL follows hyg_tlt 1d (all): **REJECT** -20.49 (t -1.47), placebo 8th, 2025 -27.9, 2026 -9.2
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

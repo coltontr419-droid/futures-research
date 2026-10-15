@@ -2260,3 +2260,35 @@ Data-derived (D-series family 138). `hypotheses.yaml` (D386) · `decisions.md` �
 ## D387 — Mnq Follows Overnight Usdjpy R  *(REJECT — t01169)*
 
 Data-derived (D-series family 139). `hypotheses.yaml` (D387) · `decisions.md` §509
+
+## D388 — Cl Follows Rty Es 1D All  *(REJECT — t01170)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D388) · `decisions.md` §511
+
+## D389 — Cl Follows Rty Es 1D Strong  *(REJECT — t01171)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D389) · `decisions.md` §511
+
+## D390 — Cl Follows Hyg Tlt 1D Strong  *(REJECT — t01172)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D390) · `decisions.md` §511
+
+## D391 — Dax Follows Curve 5D Strong  *(REJECT — t01173)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D391) · `decisions.md` §511
+
+## D392 — Dax Follows Curve 5D All  *(REJECT — t01174)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D392) · `decisions.md` §511
+
+## D393 — Dax Fades Rty Es 5D Strong  *(WATCHLIST — t01175)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D393) · `decisions.md` §511
+
+## D394 — Mnq Fades Rty Es 5D Strong  *(REJECT — t01176)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D394) · `decisions.md` §511
+
+## D395 — Cl Follows Hyg Tlt 1D All  *(REJECT — t01177)*
+
+Data-derived (D-series family 140). `hypotheses.yaml` (D395) · `decisions.md` §511

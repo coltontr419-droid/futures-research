@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D390",
+ "cell": "CL follows hyg_tlt 1d (strong)",
+ "trades": 124,
+ "net_bps": -44.2499159953876,
+ "t_net": -1.8366830663768534,
+ "placebo_pct": 3.5000000000000004,
+ "by_year": {
+  "2025": -42.624879781366815,
+  "2026": -48.73107646435404
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 402,
+ "injection": {
+  "hypothesis": "D390",
+  "n_events": 124,
+  "sought_bps": 12.747347593200786,
+  "mean_estimate": 12.72234150971317,
+  "recovered": true
+ }
+}

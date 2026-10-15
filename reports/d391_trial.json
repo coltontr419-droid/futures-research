@@ -1,0 +1,26 @@
+{
+ "hypothesis": "D391",
+ "cell": "DAX follows curve 5d (strong)",
+ "trades": 140,
+ "net_bps": -12.274898675556946,
+ "t_net": -1.4798190461459013,
+ "placebo_pct": 6.800000000000001,
+ "by_year": {
+  "2025": -6.071724924125004,
+  "2026": -27.782833054136795
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 403,
+ "injection": {
+  "hypothesis": "D391",
+  "n_events": 140,
+  "sought_bps": 4.63091022122887,
+  "mean_estimate": 4.596515124477695,
+  "recovered": true
+ }
+}
