@@ -13210,6 +13210,14 @@ Read: recently strong cross-market relations do persist a year on average — a 
 it is far below what moves a bracket account (§164: an edge must be large against the window's swing), and it broke at both regime turns
 (2020–21) and again in 2025. Not proposed; recorded as the programme's evidence that the regime, not the rule, is what persists.
 
+## 594. D-series family 170 protocol: the dollar theme intraday — the dollar's first hour into the rest of the window (S1)
+
+**No trial spent; N 1,508. Written and committed BEFORE any statistic is computed.** HistData minute grids (corrected clock), times taken
+in each exchange's local clock and converted to New York: **DAX** (grxeur) 10:00 → 17:30 Berlin, predictor EUR/USD 09:00 → 10:00 Berlin;
+**MGC** London window (owned trades) 04:00 → 11:30 ET, predictor EUR/USD 03:00 → 04:00 ET; **NKD** (jpxjpy) Tokyo afternoon 12:30 →
+15:00 JST, predictors EUR/USD and USD/JPY over the Tokyo morning 09:00 → 11:30 JST. Follow/fade fixed on 2021–24; forms all / strong.
+**4 × 2 = 8 tests** (~0.2 by chance at t > 1.96). Costs: DAX 0.3, MGC 0.8, NKD 0.2. Validation per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
