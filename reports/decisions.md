@@ -12692,6 +12692,18 @@ beats 73%); ASX + dollar-week (equal scaled weights) +$4,647 (100%, beats 83%). 
 **Not proposed**; the deployed rule stays alone. Second time (after ITB, §525) that a partly independent NKD signal dilutes the dollar-week
 rule when combined: the account rewards the single strongest every-day sign, not an average.
 
+## 543. Timestamp check after §541; D-series family 154 protocol: the US afternoon after Europe closes, current regime (S1)
+
+**Check (no trial):** Yahoo daily bars for CME futures (ES=F, 6E=F, CL=F, ZS=F, NKD=F, BTC=F) and DX-Y.NYB are stamped 00:00 ET of their trade
+date; ^GDAXI and ^VIX at their local open; US ETFs at 09:30 ET — every family-111 predictor is dated by the session that ENDS that date, so
+'previous weekday' has no look-ahead. The §541 artefact was specific to Asian exchanges (sessions opening the previous evening ET).
+
+**Family 154 — no trial spent; N 1,435. Written and committed BEFORE any statistic is computed.** The DAX window (03:00 → 11:30 ET) and gold's
+London window (03:00 → 11:30) end as New York's afternoon begins; what happens after Europe closes is the market's last word before the next
+European session. Predictors, 11:30 → 16:00 ET on the previous weekday: **MNQ** (owned trades), **EUR/USD**, **gold** (MGC NY-afternoon grid),
+**Brent** (11:30 → 14:30). Targets: the next weekday's **DAX**, **MGC London** and **NKD** windows. Follow/fade fixed on 2021–24; forms
+all / strong. **4 × 3 × 2 = 24 tests** (~0.6 by chance at t > 1.96). Costs §180. Validation per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
