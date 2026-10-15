@@ -13095,6 +13095,15 @@ research targets 0.94–1.00, sign agreement 85–100%. First reading (2026-09-0
 expected by chance); best D411 (MNQ night fades sterling, +20.3, t 1.45), D408, D545; worst D659 (gold follows USD/CNY, −43.2, t −2.44),
 D569, D489, D536. Nothing is near a forward confirmation yet; the record accumulates. Run with the 10-25 review and monthly after.
 
+## 583. The real-money launch checklist (S8)
+
+**No trial.** `reports/launch_checklist.md`: the decisions for the 10-25 review (dollar rules, which accounts — A47's options — and the
+buying order: NKD and FDXM first), the 50K Daily rules as modelled (stop and re-run if Tradeify changes them), the daily routine with
+scheduled bracket orders (§581: stage at the 4:30 PM CT alert; release times; every close before 4:00 PM CT; the FDXM re-check), what to
+do on a breach / pass / payout / missed ticket / missing alert, and the stop-and-review triggers (A48 dollar-rule trigger, fills worse than
+the replay by > ~$50 a ticket over 20+, monthly review + A49 watchlist, any rule change). Slippage stress left for later at the user's
+call (only ZS's 20–40-tick brackets would be hurt badly by a few ticks, and ZS is not planned for live).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
