@@ -12915,6 +12915,14 @@ Validation per §426, 2; a CONFIRM then needs §446/§453.
 No CONFIRM. The DAX fading coffee's week (2010–20 t 4.2, 2021–24 t 2.5) reversed in 2025–26 (−9.4, t −2.0): a long-lived pattern that
 ended, the sharpest example yet of why 2025–26 decides. The Yahoo daily universe is now screened end to end (families 111–161).
 
+## 564. D-series family 162 protocol: the US index's move after the cash close, just before the NKD, DAX and gold entries (S1)
+
+**No trial spent; N 1,489. Written and committed BEFORE any statistic is computed.** HistData S&P 500 CFD (spxusd, corrected clock, grid
+`hd_spxusd`), measured to 5 minutes before each entry: for **NKD** (20:00 ET) the **16:00 → 19:55 ET** move (calendar day before the Tokyo
+date; Sunday evening for Monday, from Friday 16:00); for the **DAX** and **gold's London** window (03:00 ET) the **16:00 → 02:55** move
+(the previous weekday's 16:00) and the **20:00 → 02:55** move (the Asian session only). Follow/fade fixed on 2021–24; forms all / strong.
+**(1 + 2 + 2) × 2 = 10 tests** (~0.25 by chance at t > 1.96). Costs §180. Validation per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
