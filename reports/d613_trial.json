@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D613",
+ "cell": "DAX follows mxnjpy 1d (all)",
+ "trades": 147,
+ "net_bps": -2.0982980477959283,
+ "t_net": -0.36548890745467366,
+ "placebo_pct": 35.6,
+ "by_year": {
+  "2025": -3.716403539430832,
+  "2026": 2.8908605514116887
+ },
+ "always_long_net_bps": 5.610430858912893,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 625,
+ "injection": {
+  "hypothesis": "D613",
+  "n_events": 147,
+  "sought_bps": 6.0957905453546415,
+  "mean_estimate": 6.090512997430143,
+  "recovered": true
+ },
+ "trial_id": "t01395"
+}

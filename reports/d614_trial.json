@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D614",
+ "cell": "CL fades eurgbp 1d (strong)",
+ "trades": 173,
+ "net_bps": 16.279303692630336,
+ "t_net": 0.8273561989958785,
+ "placebo_pct": 79.80000000000001,
+ "by_year": {
+  "2025": 4.326260641746878,
+  "2026": 48.32363187159448
+ },
+ "always_long_net_bps": 25.93051597827223,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 626,
+ "injection": {
+  "hypothesis": "D614",
+  "n_events": 173,
+  "sought_bps": 11.961005359321998,
+  "mean_estimate": 11.936940266688609,
+  "recovered": true
+ },
+ "trial_id": "t01396"
+}

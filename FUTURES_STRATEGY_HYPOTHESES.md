@@ -3136,3 +3136,51 @@ Data-derived (D-series family 147). `hypotheses.yaml` (D605) · `decisions.md` �
 ## D606 — Nkd F Fades 6C F 1D Strong  *(WATCHLIST — t01388)*
 
 Data-derived (D-series family 147). `hypotheses.yaml` (D606) · `decisions.md` §527
+
+## D607 — Zs Follows Audchf 1D Strong  *(WATCHLIST — t01389)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D607) · `decisions.md` §529
+
+## D608 — Cl Follows Audchf 1D All  *(WATCHLIST — t01390)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D608) · `decisions.md` §529
+
+## D609 — Cl Follows Audchf 1D Strong  *(WATCHLIST — t01391)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D609) · `decisions.md` §529
+
+## D610 — Nkd Follows Eurjpy 5D Strong  *(WATCHLIST — t01392)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D610) · `decisions.md` §529
+
+## D611 — Mgc Follows Mxnjpy 5D All  *(WATCHLIST — t01393)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D611) · `decisions.md` §529
+
+## D612 — Cl Follows Eurchf 5D Strong  *(REJECT — t01394)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D612) · `decisions.md` §529
+
+## D613 — Dax Follows Mxnjpy 1D All  *(REJECT — t01395)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D613) · `decisions.md` §529
+
+## D614 — Cl Fades Eurgbp 1D Strong  *(WATCHLIST — t01396)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D614) · `decisions.md` §529
+
+## D615 — Nkd Follows Eurjpy 5D All  *(WATCHLIST — t01397)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D615) · `decisions.md` §529
+
+## D616 — Nkd Follows Eurchf 5D Strong  *(REJECT — t01398)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D616) · `decisions.md` §529
+
+## D617 — Cl Fades Eurjpy 1D Strong  *(WATCHLIST — t01399)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D617) · `decisions.md` §529
+
+## D618 — Zs Follows Eurchf 5D Strong  *(REJECT — t01400)*
+
+Data-derived (D-series family 148). `hypotheses.yaml` (D618) · `decisions.md` §529

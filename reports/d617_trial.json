@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D617",
+ "cell": "CL fades eurjpy 1d (strong)",
+ "trades": 164,
+ "net_bps": 20.697409639995413,
+ "t_net": 0.966977778398202,
+ "placebo_pct": 80.60000000000001,
+ "by_year": {
+  "2025": 30.298735595996305,
+  "2026": 0.017630657839642246
+ },
+ "always_long_net_bps": -48.66886788527731,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 629,
+ "injection": {
+  "hypothesis": "D617",
+  "n_events": 164,
+  "sought_bps": 11.084239318130496,
+  "mean_estimate": 10.705855966061893,
+  "recovered": true
+ },
+ "trial_id": "t01399"
+}

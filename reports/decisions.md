@@ -12539,6 +12539,24 @@ moves (all close before 18:00 ET): **carry** AUD/JPY (6A − 6J), NZD/JPY (6N �
 (5-day) into the six plan windows; forms all / strong; follow/fade fixed on 2021–24. **8 × 2 × 6 × 2 = 192 tests** (~4.8 by chance at
 t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs the §446/§453 stress tests.
 
+## 529. Family-148: currency crosses — 12 of 192 carried (≈ 4.8 by chance); validated, none confirmed (S1)
+
+**N 1,400.** `reports/d148_discovery.json` (module `reporting/d148_crosses.py`):
+- **D607** ZS follows audchf 1d (strong): **WATCHLIST** +2.00 (t +0.24), placebo 67th, 2025 -3.6, 2026 +10.7
+- **D608** CL follows audchf 1d (all): **WATCHLIST** +22.85 (t +1.64), placebo 97th, 2025 -0.6, 2026 +58.8
+- **D609** CL follows audchf 1d (strong): **WATCHLIST** +25.14 (t +0.93), placebo 82th, 2025 +1.6, 2026 +61.7
+- **D610** NKD follows eurjpy 5d (strong): **WATCHLIST** +0.89 (t +0.14), placebo 43th, 2025 +0.4, 2026 +1.9
+- **D611** MGC follows mxnjpy 5d (all): **WATCHLIST** +4.39 (t +0.55), placebo 75th, 2025 +6.1, 2026 -0.8
+- **D612** CL follows eurchf 5d (strong): **REJECT** -15.42 (t -0.58), placebo 37th, 2025 -38.4, 2026 +29.2
+- **D613** DAX follows mxnjpy 1d (all): **REJECT** -2.10 (t -0.37), placebo 36th, 2025 -3.7, 2026 +2.9
+- **D614** CL fades eurgbp 1d (strong): **WATCHLIST** +16.28 (t +0.83), placebo 80th, 2025 +4.3, 2026 +48.3
+- **D615** NKD follows eurjpy 5d (all): **WATCHLIST** +0.30 (t +0.07), placebo 55th, 2025 +1.5, 2026 -1.6
+- **D616** NKD follows eurchf 5d (strong): **REJECT** -5.86 (t -0.76), placebo 23th, 2025 +1.8, 2026 -20.9
+- **D617** CL fades eurjpy 1d (strong): **WATCHLIST** +20.70 (t +0.97), placebo 81th, 2025 +30.3, 2026 +0.0
+- **D618** ZS follows eurchf 5d (strong): **REJECT** -7.45 (t -0.90), placebo 15th, 2025 -12.9, 2026 +3.2
+
+No CONFIRM. Crude following the carry cross (AUD/CHF) is positive but 2026-only — the crude-follows-risk theme again (sixth time).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

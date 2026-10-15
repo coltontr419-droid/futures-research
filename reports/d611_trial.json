@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D611",
+ "cell": "MGC follows mxnjpy 5d (all)",
+ "trades": 144,
+ "net_bps": 4.394991562101575,
+ "t_net": 0.546331764381415,
+ "placebo_pct": 75.4,
+ "by_year": {
+  "2025": 6.066022862425638,
+  "2026": -0.8090773446219348
+ },
+ "always_long_net_bps": -1.2236649990081787,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 623,
+ "injection": {
+  "hypothesis": "D611",
+  "n_events": 144,
+  "sought_bps": 4.537361460246012,
+  "mean_estimate": 4.524159293066164,
+  "recovered": true
+ },
+ "trial_id": "t01393"
+}

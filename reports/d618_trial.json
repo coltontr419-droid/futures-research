@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D618",
+ "cell": "ZS follows eurchf 5d (strong)",
+ "trades": 141,
+ "net_bps": -7.450906939878304,
+ "t_net": -0.9012025594362691,
+ "placebo_pct": 15.0,
+ "by_year": {
+  "2025": -12.923095622066251,
+  "2026": 3.1514586318608386
+ },
+ "always_long_net_bps": 10.06229480629108,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 630,
+ "injection": {
+  "hypothesis": "D618",
+  "n_events": 141,
+  "sought_bps": 5.736745364168178,
+  "mean_estimate": 5.319135616041661,
+  "recovered": true
+ },
+ "trial_id": "t01400"
+}

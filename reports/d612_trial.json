@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D612",
+ "cell": "CL follows eurchf 5d (strong)",
+ "trades": 141,
+ "net_bps": -15.417261941568817,
+ "t_net": -0.5827747899105554,
+ "placebo_pct": 37.0,
+ "by_year": {
+  "2025": -38.43437110549882,
+  "2026": 29.178387063545568
+ },
+ "always_long_net_bps": -38.53964122126736,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 624,
+ "injection": {
+  "hypothesis": "D612",
+  "n_events": 141,
+  "sought_bps": 12.526344476107935,
+  "mean_estimate": 11.995692831374338,
+  "recovered": true
+ },
+ "trial_id": "t01394"
+}

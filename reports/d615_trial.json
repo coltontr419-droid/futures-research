@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D615",
+ "cell": "NKD follows eurjpy 5d (all)",
+ "trades": 408,
+ "net_bps": 0.2965180247542316,
+ "t_net": 0.06612583831719447,
+ "placebo_pct": 54.900000000000006,
+ "by_year": {
+  "2025": 1.515066583976238,
+  "2026": -1.59223224203988
+ },
+ "always_long_net_bps": -0.9773628837247648,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 627,
+ "injection": {
+  "hypothesis": "D615",
+  "n_events": 408,
+  "sought_bps": 2.76834808747207,
+  "mean_estimate": 2.7520352607093472,
+  "recovered": true
+ },
+ "trial_id": "t01397"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D616",
+ "cell": "NKD follows eurchf 5d (strong)",
+ "trades": 142,
+ "net_bps": -5.862176957255878,
+ "t_net": -0.7594574919134525,
+ "placebo_pct": 23.200000000000003,
+ "by_year": {
+  "2025": 1.8359700923283075,
+  "2026": -20.937714929358233
+ },
+ "always_long_net_bps": -2.2303911278588946,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 628,
+ "injection": {
+  "hypothesis": "D616",
+  "n_events": 142,
+  "sought_bps": 4.281644654597355,
+  "mean_estimate": 4.046932533166915,
+  "recovered": true
+ },
+ "trial_id": "t01398"
+}
