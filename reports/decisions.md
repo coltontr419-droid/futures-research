@@ -13163,6 +13163,16 @@ publish within hours of 00:00 UTC, so **MNQ** (opens 13:30 UTC) uses the previou
 follow/fade fixed on 2021–24; context 2016–20. **20 × 2 × 6 × 2 = 480 tests** (~12 by chance at t > 1.96). Costs §177/§180. Validation
 per §426, 2; a CONFIRM then needs §446/§453 stress tests and an account replay.
 
+## 589. Family-167: Wikipedia attention — 6 of 480 carried (below the ≈ 12 expected by chance); validated (S1)
+
+**N 1,507.** `reports/d167_discovery.json` (module `reporting/d167_attention.py`):
+- **D720** CL follows attention to Nikkei_225 5d (strong): **WATCHLIST** +22.83 (t +1.18), placebo 83th, 2025 +12.5, 2026 +35.1
+- **D721** DAX fades attention to Nasdaq 5d (strong): **WATCHLIST** +3.77 (t +0.64), placebo 74th, 2025 +2.1, 2026 +6.3
+- **D722** ZS fades attention to Bank_run 1d (all): **REJECT** -0.11 (t -0.02), placebo 52th, 2025 +7.4, 2026 -11.4
+- **D723** MNQ fades attention to Gold_as_an_investment 5d (all): **WATCHLIST** +3.18 (t +0.57), placebo 76th, 2025 -2.6, 2026 +11.9
+- **D724** DAX fades attention to Nasdaq 1d (all): **REJECT** -0.22 (t -0.06), placebo 50th, 2025 +2.9, 2026 -4.9
+- **D725** NKD fades attention to Recession 1d (strong): **REJECT** -8.20 (t -1.21), placebo 12th, 2025 -13.3, 2026 -0.7
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -45093,3 +45093,339 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (random directions on the same entries), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 732.
   s6_control: By year; random directions on the same entries.
+- id: D720
+  name: cl_follows_attention_to_nikkei_225_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 167, Wikipedia attention on the current regime, decisions.md 588-589): CL's session
+    follows the sign of the Nikkei_225 pageview shock (5-day, strong): 2021-2024 +24.05 bps (t +2.35, n 502);
+    2016-20 -12.57 (context). THE COUNTERPARTY: attention-driven retail flow.
+  condition: >
+    Every session, take CL's session to follow the sign of the lagged Nikkei_225 attention shock.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01502 (decisions.md 589), WATCHLIST on sealed 2023-2026: 232 trades; net +22.83 bps (t +1.18); placebo 83th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d167_attention.py
+    injected_bps: 12.024
+    sought_bps: 12.024
+    n_injection: 232
+    n_run: 232
+    recovered: true
+    report: reports/d720_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 754
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-167 scan (480 tests, decisions.md 589). ONE TRIAL.
+  session: Globex
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 733.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D721
+  name: dax_fades_attention_to_nasdaq_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 167, Wikipedia attention on the current regime, decisions.md 588-589): the DAX window
+    fades the sign of the Nasdaq pageview shock (5-day, strong): 2021-2024 +9.84 bps (t +2.27, n 435);
+    2016-20 -4.01 (context). THE COUNTERPARTY: attention-driven retail flow.
+  condition: >
+    Every session, take the DAX window to fade the sign of the lagged Nasdaq attention shock.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01503 (decisions.md 589), WATCHLIST on sealed 2023-2026: 233 trades; net +3.77 bps (t +0.64); placebo 74th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d167_attention.py
+    injected_bps: 4.921
+    sought_bps: 4.921
+    n_injection: 233
+    n_run: 233
+    recovered: true
+    report: reports/d721_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 755
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-167 scan (480 tests, decisions.md 589). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 734.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D722
+  name: zs_fades_attention_to_bank_run_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 167, Wikipedia attention on the current regime, decisions.md 588-589): ZS's session
+    fades the sign of the Bank_run pageview shock (1-day, all): 2021-2024 +8.90 bps (t +2.10, n 1005);
+    2016-20 -1.26 (context). THE COUNTERPARTY: attention-driven retail flow.
+  condition: >
+    Every session, take ZS's session to fade the sign of the lagged Bank_run attention shock.
+  horizon_minutes: [1374]
+  hold_hours: [22.9]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01504 (decisions.md 589), REJECT on sealed 2023-2026: 417 trades; net -0.11 bps (t -0.02); placebo 52th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d167_attention.py
+    injected_bps: 4.451
+    sought_bps: 4.451
+    n_injection: 417
+    n_run: 417
+    recovered: true
+    report: reports/d722_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 756
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-167 scan (480 tests, decisions.md 589). ONE TRIAL.
+  session: Globex
+  symbols: [ZS]
+  mechanism_instruments:
+    primary: ZS
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 735.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D723
+  name: mnq_fades_attention_to_gold_as_an_investment_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 167, Wikipedia attention on the current regime, decisions.md 588-589): MNQ's plan window
+    fades the sign of the Gold_as_an_investment pageview shock (5-day, all): 2021-2024 +7.37 bps (t +2.05, n 1016);
+    2016-20 -1.12 (context). THE COUNTERPARTY: attention-driven retail flow.
+  condition: >
+    Every session, take MNQ's plan window to fade the sign of the lagged Gold_as_an_investment attention shock.
+  horizon_minutes: [389]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01505 (decisions.md 589), WATCHLIST on sealed 2023-2026: 420 trades; net +3.18 bps (t +0.57); placebo 76th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d167_attention.py
+    injected_bps: 3.684
+    sought_bps: 3.684
+    n_injection: 420
+    n_run: 420
+    recovered: true
+    report: reports/d723_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 757
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-167 scan (480 tests, decisions.md 589). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 736.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D724
+  name: dax_fades_attention_to_nasdaq_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 167, Wikipedia attention on the current regime, decisions.md 588-589): the DAX window
+    fades the sign of the Nasdaq pageview shock (1-day, all): 2021-2024 +6.01 bps (t +2.04, n 847);
+    2016-20 +0.34 (context). THE COUNTERPARTY: attention-driven retail flow.
+  condition: >
+    Every session, take the DAX window to fade the sign of the lagged Nasdaq attention shock.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01506 (decisions.md 589), REJECT on sealed 2023-2026: 428 trades; net -0.22 bps (t -0.06); placebo 50th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d167_attention.py
+    injected_bps: 3.004
+    sought_bps: 3.004
+    n_injection: 428
+    n_run: 428
+    recovered: true
+    report: reports/d724_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 758
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-167 scan (480 tests, decisions.md 589). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 737.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D725
+  name: nkd_fades_attention_to_recession_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 167, Wikipedia attention on the current regime, decisions.md 588-589): NKD's plan window
+    fades the sign of the Recession pageview shock (1-day, strong): 2021-2024 +9.02 bps (t +2.03, n 430);
+    2016-20 +8.59 (context). THE COUNTERPARTY: attention-driven retail flow.
+  condition: >
+    Every session, take NKD's plan window to fade the sign of the lagged Recession attention shock.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01507 (decisions.md 589), REJECT on sealed 2023-2026: 175 trades; net -8.20 bps (t -1.21); placebo 12th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d167_attention.py
+    injected_bps: 4.512
+    sought_bps: 4.512
+    n_injection: 175
+    n_run: 175
+    recovered: true
+    report: reports/d725_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 759
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-167 scan (480 tests, decisions.md 589). ONE TRIAL.
+  session: Asia
+  symbols: [NKD]
+  mechanism_instruments:
+    primary: NKD
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 738.
+  s6_control: By year; signs shuffled across the sealed sessions.

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D723",
+ "cell": "MNQ fades attention to Gold_as_an_investment 5d (all)",
+ "trades": 420,
+ "net_bps": 3.1763081391652426,
+ "t_net": 0.5702737104233234,
+ "placebo_pct": 75.9,
+ "by_year": {
+  "2025": -2.6146478615259463,
+  "2026": 11.949433098296206
+ },
+ "always_long_net_bps": 2.1772210597991943,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 736,
+ "injection": {
+  "hypothesis": "D723",
+  "n_events": 420,
+  "sought_bps": 3.684233445820846,
+  "mean_estimate": 3.7528630920801045,
+  "recovered": true
+ },
+ "trial_id": "t01505"
+}

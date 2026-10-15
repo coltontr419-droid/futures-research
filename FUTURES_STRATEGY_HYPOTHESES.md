@@ -3588,3 +3588,27 @@ Data-derived (D-series family A50). `hypotheses.yaml` (D718) · `decisions.md` �
 ## D719 — Mnq Fh Intraday Strategy  *(WATCHLIST — t01501)*
 
 Data-derived (D-series family A50). `hypotheses.yaml` (D719) · `decisions.md` §585
+
+## D720 — Cl Follows Attention To Nikkei 225 5D Strong  *(WATCHLIST — t01502)*
+
+Data-derived (D-series family 167). `hypotheses.yaml` (D720) · `decisions.md` §589
+
+## D721 — Dax Fades Attention To Nasdaq 5D Strong  *(WATCHLIST — t01503)*
+
+Data-derived (D-series family 167). `hypotheses.yaml` (D721) · `decisions.md` §589
+
+## D722 — Zs Fades Attention To Bank Run 1D All  *(REJECT — t01504)*
+
+Data-derived (D-series family 167). `hypotheses.yaml` (D722) · `decisions.md` §589
+
+## D723 — Mnq Fades Attention To Gold As An Investment 5D All  *(WATCHLIST — t01505)*
+
+Data-derived (D-series family 167). `hypotheses.yaml` (D723) · `decisions.md` §589
+
+## D724 — Dax Fades Attention To Nasdaq 1D All  *(REJECT — t01506)*
+
+Data-derived (D-series family 167). `hypotheses.yaml` (D724) · `decisions.md` §589
+
+## D725 — Nkd Fades Attention To Recession 1D Strong  *(REJECT — t01507)*
+
+Data-derived (D-series family 167). `hypotheses.yaml` (D725) · `decisions.md` §589

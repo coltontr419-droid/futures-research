@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D720",
+ "cell": "CL follows attention to Nikkei_225 5d (strong)",
+ "trades": 232,
+ "net_bps": 22.83163308678972,
+ "t_net": 1.1828973397422093,
+ "placebo_pct": 82.8,
+ "by_year": {
+  "2025": 12.518783908463648,
+  "2026": 35.09030286479995
+ },
+ "always_long_net_bps": 13.27141728513158,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 733,
+ "injection": {
+  "hypothesis": "D720",
+  "n_events": 232,
+  "sought_bps": 12.024120529826225,
+  "mean_estimate": 11.635547125440196,
+  "recovered": true
+ },
+ "trial_id": "t01502"
+}

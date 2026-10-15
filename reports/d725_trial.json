@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D725",
+ "cell": "NKD fades attention to Recession 1d (strong)",
+ "trades": 175,
+ "net_bps": -8.204122724430219,
+ "t_net": -1.2110835648228748,
+ "placebo_pct": 11.899999999999999,
+ "by_year": {
+  "2025": -13.328766661426336,
+  "2026": -0.6976020279851985
+ },
+ "always_long_net_bps": -3.9216520325143502,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 738,
+ "injection": {
+  "hypothesis": "D725",
+  "n_events": 175,
+  "sought_bps": 4.511523596913475,
+  "mean_estimate": 4.6093318810817925,
+  "recovered": true
+ },
+ "trial_id": "t01507"
+}

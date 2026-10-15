@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D724",
+ "cell": "DAX fades attention to Nasdaq 1d (all)",
+ "trades": 428,
+ "net_bps": -0.22425095507914103,
+ "t_net": -0.055328465058905804,
+ "placebo_pct": 50.3,
+ "by_year": {
+  "2025": 2.885698299643943,
+  "2026": -4.898268256037226
+ },
+ "always_long_net_bps": -0.3789782998689573,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 737,
+ "injection": {
+  "hypothesis": "D724",
+  "n_events": 428,
+  "sought_bps": 3.004359893654401,
+  "mean_estimate": 2.929781076339814,
+  "recovered": true
+ },
+ "trial_id": "t01506"
+}

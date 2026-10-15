@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D721",
+ "cell": "DAX fades attention to Nasdaq 5d (strong)",
+ "trades": 233,
+ "net_bps": 3.770570269596699,
+ "t_net": 0.6412144220009738,
+ "placebo_pct": 74.1,
+ "by_year": {
+  "2025": 2.116146323948201,
+  "2026": 6.261100940465408
+ },
+ "always_long_net_bps": -2.0553731326161127,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 734,
+ "injection": {
+  "hypothesis": "D721",
+  "n_events": 233,
+  "sought_bps": 4.921108991698522,
+  "mean_estimate": 4.987146211628315,
+  "recovered": true
+ },
+ "trial_id": "t01503"
+}
