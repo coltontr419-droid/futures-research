@@ -12160,6 +12160,14 @@ ES=F, **semis vs Nasdaq** SMH − NQ=F. Sign of the previous weekday (1-day) and
 - **D394** MNQ fades rty_es 5d (strong): **REJECT** -7.15 (t -0.66), placebo 29th, 2025 -17.1, 2026 +5.6
 - **D395** CL follows hyg_tlt 1d (all): **REJECT** -20.49 (t -1.47), placebo 8th, 2025 -27.9, 2026 -9.2
 
+## 512. D-series family 141 protocol: MNQ's other windows as every-day targets, current regime (S1)
+
+**No trial spent; N 1,171. Written and committed BEFORE any statistic is computed.** Family 136's design (§499) for MNQ: targets **MNQ's
+night session** (18:00 D−1 → 09:30 D, family-8 grid) and **NQ's whole Globex session** (NQ=F Yahoo open → settlement). Predictors:
+family 111's list, NQ=F / ES=F / SMH excluded (the same market), currency/BTC-USD excluded (their close is after 18:00 ET); 1-day and
+5-day signs on the previous weekday; forms all / strong. Carried at net > 0, t > 1.96 (~2.5% by chance). Cost 0.5; validation per §426,
+2; a CONFIRM then needs stress tests and an MNQ-account replay on the new window.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
