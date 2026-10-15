@@ -13423,6 +13423,15 @@ book with LE for MCL: 2010–20 +$10,479 → **+$13,084** (P 85 → 92%, p10 −
 fifth markets that do not beat crude on the recent starts. The ZB and every other candidate's round trips were also assumed ($4.50 /
 $3.32) and should be checked against Tradeify's fee list before any switch. Recorded as options for the 10-25 review, not a finding.
 
+## 615. Tradeify's commission schedule is cheaper than the models assume — the estimates are conservative (S8)
+
+**No trial.** Tradeify's help centre (Trading Commission Fees, via search 2026-10-15; the page itself refused a direct fetch): **MNQ $1.82,
+MGC $2.12, MCL $2.12** a round trip (exchange, NFA, clearing and commission; free membership); NKD not listed; LE $11.20 (§614). The models
+use MNQ $2.32, MGC / MCL $3.32 (A23 `MARKETS`) — $0.50–1.20 a contract too high, about $2 / $10 / $12 a traded day for 4 MNQ / 8 MGC / 10
+MCL. Every dollar estimate here (the book's +$17.5k per four months on 2025 starts, the A47 options) is therefore somewhat conservative;
+the comparisons between markets that use the same costs stand, and crude's real cost makes §614's case for replacing it weaker still.
+Not re-run (no decision turns on it); the user can confirm the live schedule on their platform.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
