@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D705",
+ "cell": "MNQ fades XLP 5d (strong)",
+ "trades": 206,
+ "net_bps": -0.23780027408044316,
+ "t_net": -0.024817128599955163,
+ "placebo_pct": 49.7,
+ "by_year": {
+  "2025": 13.383309128010168,
+  "2026": -16.788180515330325
+ },
+ "always_long_net_bps": -0.2865203619003296,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 718,
+ "injection": {
+  "hypothesis": "D705",
+  "n_events": 206,
+  "sought_bps": 5.390103419783645,
+  "mean_estimate": 5.410210245008049,
+  "recovered": true
+ },
+ "trial_id": "t01487"
+}

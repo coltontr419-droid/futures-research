@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D688",
+ "cell": "CL follows ^BVSP 1d (strong)",
+ "trades": 166,
+ "net_bps": 0.323131734360634,
+ "t_net": 0.014033302684433415,
+ "placebo_pct": 51.5,
+ "by_year": {
+  "2025": -19.034090266302638,
+  "2026": 22.16204886331408
+ },
+ "always_long_net_bps": -0.4814996413337053,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 701,
+ "injection": {
+  "hypothesis": "D688",
+  "n_events": 166,
+  "sought_bps": 12.800505150134908,
+  "mean_estimate": 12.906920406969572,
+  "recovered": true
+ },
+ "trial_id": "t01470"
+}

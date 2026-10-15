@@ -12884,6 +12884,37 @@ close ~13:30–14:00 ET), **PA=F**, **BZ=F** (ICE Brent; trades to ~18:00 ET, so
 forms all / strong; follow/fade fixed on 2021–24. **≈ 16 × 2 × 6 × 2 = 380 tests** (~9.5 by chance at t > 1.96). Costs §177/§180.
 Validation per §426, 2; a CONFIRM then needs §446/§453.
 
+## 563. Family-161: the remaining Yahoo series — 24 of 352 carried (≈ 8.8 by chance); none confirmed (S1)
+
+**N 1,489.** `reports/d161_discovery.json` (module `reporting/d161_remaining.py`):
+- **D684** DAX fades BZ=F 5d (strong): **REJECT** -11.35 (t -1.78), placebo 5th, 2025 -12.8, 2026 -10.0
+- **D685** NKD follows CC=F 5d (strong): **REJECT** -4.10 (t -0.71), placebo 18th, 2025 +2.2, 2026 -14.8
+- **D686** ZS follows XLI 1d (all): **WATCHLIST** +5.70 (t +1.15), placebo 90th, 2025 +5.9, 2026 +5.4
+- **D687** DAX fades KC=F 5d (strong): **REJECT** -9.44 (t -1.97), placebo 3th, 2025 -13.2, 2026 -3.6
+- **D688** CL follows ^BVSP 1d (strong): **WATCHLIST** +0.32 (t +0.01), placebo 52th, 2025 -19.0, 2026 +22.2
+- **D689** CL follows GF=F 1d (all): **WATCHLIST** +5.91 (t +0.42), placebo 68th, 2025 +14.7, 2026 -7.4
+- **D690** NKD follows CC=F 5d (all): **REJECT** -0.57 (t -0.13), placebo 45th, 2025 +3.6, 2026 -7.0
+- **D691** NKD follows ^GSPTSE 5d (all): **REJECT** -0.91 (t -0.20), placebo 47th, 2025 +2.3, 2026 -5.8
+- **D692** ZS follows XLV 1d (all): **REJECT** -1.91 (t -0.39), placebo 39th, 2025 -1.4, 2026 -2.7
+- **D693** ZS follows XLP 5d (all): **REJECT** -1.16 (t -0.23), placebo 43th, 2025 -2.8, 2026 +1.2
+- **D694** NKD follows XLB 5d (strong): **WATCHLIST** +5.90 (t +0.96), placebo 87th, 2025 +1.1, 2026 +12.2
+- **D695** ZS follows ^BVSP 1d (strong): **WATCHLIST** +8.21 (t +1.01), placebo 85th, 2025 -12.8, 2026 +31.6
+- **D696** DAX follows CC=F 5d (strong): **REJECT** -4.84 (t -0.95), placebo 21th, 2025 -5.7, 2026 -3.4
+- **D697** ZS follows ^BVSP 5d (strong): **WATCHLIST** +4.92 (t +0.67), placebo 62th, 2025 +1.7, 2026 +9.2
+- **D698** DAX follows CC=F 5d (all): **REJECT** -2.73 (t -0.65), placebo 30th, 2025 -6.3, 2026 +2.7
+- **D699** ZS follows XLV 5d (strong): **WATCHLIST** +6.84 (t +1.02), placebo 75th, 2025 +2.7, 2026 +14.3
+- **D700** NKD follows ^BVSP 1d (all): **REJECT** -3.16 (t -0.70), placebo 26th, 2025 -1.0, 2026 -6.5
+- **D701** DAX fades BZ=F 5d (all): **REJECT** -5.04 (t -1.22), placebo 11th, 2025 -8.0, 2026 -0.5
+- **D702** CL follows XLB 1d (strong): **REJECT** -2.34 (t -0.11), placebo 46th, 2025 -3.3, 2026 -1.2
+- **D703** ZS follows XLB 5d (strong): **REJECT** -9.65 (t -1.50), placebo 8th, 2025 -10.7, 2026 -8.3
+- **D704** CL fades KC=F 1d (strong): **WATCHLIST** +1.76 (t +0.09), placebo 56th, 2025 -4.0, 2026 +10.8
+- **D705** MNQ fades XLP 5d (strong): **REJECT** -0.24 (t -0.02), placebo 50th, 2025 +13.4, 2026 -16.8
+- **D706** CL fades KC=F 5d (strong): **REJECT** -0.54 (t -0.03), placebo 51th, 2025 +15.8, 2026 -26.2
+- **D707** DAX fades KC=F 5d (all): **REJECT** -5.24 (t -1.26), placebo 14th, 2025 -1.3, 2026 -11.1
+
+No CONFIRM. The DAX fading coffee's week (2010–20 t 4.2, 2021–24 t 2.5) reversed in 2025–26 (−9.4, t −2.0): a long-lived pattern that
+ended, the sharpest example yet of why 2025–26 decides. The Yahoo daily universe is now screened end to end (families 111–161).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

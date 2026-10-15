@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D696",
+ "cell": "DAX follows CC=F 5d (strong)",
+ "trades": 267,
+ "net_bps": -4.84387017338349,
+ "t_net": -0.9471822666731672,
+ "placebo_pct": 20.8,
+ "by_year": {
+  "2025": -5.740547272207891,
+  "2026": -3.393363101755792
+ },
+ "always_long_net_bps": 2.146593274894797,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 709,
+ "injection": {
+  "hypothesis": "D696",
+  "n_events": 267,
+  "sought_bps": 4.08237914977771,
+  "mean_estimate": 4.437564986328838,
+  "recovered": true
+ },
+ "trial_id": "t01478"
+}

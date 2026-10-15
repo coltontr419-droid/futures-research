@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D699",
+ "cell": "ZS follows XLV 5d (strong)",
+ "trades": 218,
+ "net_bps": 6.844003859543023,
+ "t_net": 1.023307491024562,
+ "placebo_pct": 75.0,
+ "by_year": {
+  "2025": 2.6990122147478326,
+  "2026": 14.283732452765157
+ },
+ "always_long_net_bps": 9.313939907461984,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 712,
+ "injection": {
+  "hypothesis": "D699",
+  "n_events": 218,
+  "sought_bps": 5.853842294052453,
+  "mean_estimate": 5.9501325437282615,
+  "recovered": true
+ },
+ "trial_id": "t01481"
+}

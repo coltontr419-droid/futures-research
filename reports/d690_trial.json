@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D690",
+ "cell": "NKD follows CC=F 5d (all)",
+ "trades": 387,
+ "net_bps": -0.5731277835800066,
+ "t_net": -0.12509229443922287,
+ "placebo_pct": 45.4,
+ "by_year": {
+  "2025": 3.5648338910665944,
+  "2026": -7.040405632696549
+ },
+ "always_long_net_bps": -2.057348860720746,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 703,
+ "injection": {
+  "hypothesis": "D690",
+  "n_events": 387,
+  "sought_bps": 3.144373968418267,
+  "mean_estimate": 3.184449159907023,
+  "recovered": true
+ },
+ "trial_id": "t01472"
+}

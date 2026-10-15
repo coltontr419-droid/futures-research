@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D693",
+ "cell": "ZS follows XLP 5d (all)",
+ "trades": 399,
+ "net_bps": -1.1627714611590207,
+ "t_net": -0.23486156204109476,
+ "placebo_pct": 43.0,
+ "by_year": {
+  "2025": -2.7606681678062652,
+  "2026": 1.249148096044365
+ },
+ "always_long_net_bps": 2.2050864959138514,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 706,
+ "injection": {
+  "hypothesis": "D693",
+  "n_events": 399,
+  "sought_bps": 4.73561503813217,
+  "mean_estimate": 4.774700313652791,
+  "recovered": true
+ },
+ "trial_id": "t01475"
+}

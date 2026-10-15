@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D704",
+ "cell": "CL fades KC=F 1d (strong)",
+ "trades": 214,
+ "net_bps": 1.7582107514240595,
+ "t_net": 0.0930761638251419,
+ "placebo_pct": 56.49999999999999,
+ "by_year": {
+  "2025": -3.957362005898879,
+  "2026": 10.77917498286147
+ },
+ "always_long_net_bps": -32.63427709210636,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 717,
+ "injection": {
+  "hypothesis": "D704",
+  "n_events": 214,
+  "sought_bps": 10.433613475196617,
+  "mean_estimate": 10.147293097735707,
+  "recovered": true
+ },
+ "trial_id": "t01486"
+}

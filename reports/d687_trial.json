@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D687",
+ "cell": "DAX fades KC=F 5d (strong)",
+ "trades": 232,
+ "net_bps": -9.438200122984881,
+ "t_net": -1.970478189488635,
+ "placebo_pct": 3.4000000000000004,
+ "by_year": {
+  "2025": -13.16685788793132,
+  "2026": -3.555206760513831
+ },
+ "always_long_net_bps": -0.29391285491622765,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 700,
+ "injection": {
+  "hypothesis": "D687",
+  "n_events": 232,
+  "sought_bps": 5.383487491237313,
+  "mean_estimate": 5.416240582003258,
+  "recovered": true
+ },
+ "trial_id": "t01469"
+}

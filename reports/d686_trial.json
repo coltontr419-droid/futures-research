@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D686",
+ "cell": "ZS follows XLI 1d (all)",
+ "trades": 397,
+ "net_bps": 5.704851185799493,
+ "t_net": 1.1490714739802488,
+ "placebo_pct": 90.5,
+ "by_year": {
+  "2025": 5.895277763391931,
+  "2026": 5.416800856403338
+ },
+ "always_long_net_bps": 2.216610481365014,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 699,
+ "injection": {
+  "hypothesis": "D686",
+  "n_events": 397,
+  "sought_bps": 5.559358655492281,
+  "mean_estimate": 5.300119570968104,
+  "recovered": true
+ },
+ "trial_id": "t01468"
+}

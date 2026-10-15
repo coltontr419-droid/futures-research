@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D689",
+ "cell": "CL follows GF=F 1d (all)",
+ "trades": 399,
+ "net_bps": 5.907354589392051,
+ "t_net": 0.4208456212094329,
+ "placebo_pct": 68.30000000000001,
+ "by_year": {
+  "2025": 14.697410417520008,
+  "2026": -7.360654207782235
+ },
+ "always_long_net_bps": -5.023574974290014,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 702,
+ "injection": {
+  "hypothesis": "D689",
+  "n_events": 399,
+  "sought_bps": 8.595836142751754,
+  "mean_estimate": 8.159105087914238,
+  "recovered": true
+ },
+ "trial_id": "t01471"
+}

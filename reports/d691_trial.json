@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D691",
+ "cell": "NKD follows ^GSPTSE 5d (all)",
+ "trades": 407,
+ "net_bps": -0.9052048097690796,
+ "t_net": -0.2012808123127896,
+ "placebo_pct": 46.800000000000004,
+ "by_year": {
+  "2025": 2.3260624223795356,
+  "2026": -5.842420580629699
+ },
+ "always_long_net_bps": -0.28862501396478524,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 704,
+ "injection": {
+  "hypothesis": "D691",
+  "n_events": 407,
+  "sought_bps": 3.0401568148181863,
+  "mean_estimate": 3.1047587061975617,
+  "recovered": true
+ },
+ "trial_id": "t01473"
+}

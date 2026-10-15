@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D694",
+ "cell": "NKD follows XLB 5d (strong)",
+ "trades": 220,
+ "net_bps": 5.902957539910265,
+ "t_net": 0.9642418098542439,
+ "placebo_pct": 86.6,
+ "by_year": {
+  "2025": 1.1366666753427148,
+  "2026": 12.174392888025459
+ },
+ "always_long_net_bps": -4.173378747229036,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 707,
+ "injection": {
+  "hypothesis": "D694",
+  "n_events": 220,
+  "sought_bps": 4.1700263961836255,
+  "mean_estimate": 4.138444652345094,
+  "recovered": true
+ },
+ "trial_id": "t01476"
+}

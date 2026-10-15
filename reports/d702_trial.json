@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D702",
+ "cell": "CL follows XLB 1d (strong)",
+ "trades": 206,
+ "net_bps": -2.343593102619239,
+ "t_net": -0.10902485803034798,
+ "placebo_pct": 46.300000000000004,
+ "by_year": {
+  "2025": -3.257403169024558,
+  "2026": -1.2332647423633147
+ },
+ "always_long_net_bps": -15.488957114185586,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 715,
+ "injection": {
+  "hypothesis": "D702",
+  "n_events": 206,
+  "sought_bps": 10.477077445924172,
+  "mean_estimate": 10.171719061491608,
+  "recovered": true
+ },
+ "trial_id": "t01484"
+}

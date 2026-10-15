@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D706",
+ "cell": "CL fades KC=F 5d (strong)",
+ "trades": 226,
+ "net_bps": -0.5367693396986908,
+ "t_net": -0.03077959200588621,
+ "placebo_pct": 51.4,
+ "by_year": {
+  "2025": 15.835090186876766,
+  "2026": -26.210821779101106
+ },
+ "always_long_net_bps": -10.721067212526352,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 719,
+ "injection": {
+  "hypothesis": "D706",
+  "n_events": 226,
+  "sought_bps": 9.691220327297755,
+  "mean_estimate": 9.423408814019151,
+  "recovered": true
+ },
+ "trial_id": "t01488"
+}

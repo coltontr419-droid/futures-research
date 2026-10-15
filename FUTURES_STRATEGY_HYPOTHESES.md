@@ -3444,3 +3444,99 @@ Data-derived (D-series family 160). `hypotheses.yaml` (D682) · `decisions.md` �
 ## D683 — Nkd Follows Ftsemib Mi 1D All  *(REJECT — t01465)*
 
 Data-derived (D-series family 160). `hypotheses.yaml` (D683) · `decisions.md` §561
+
+## D684 — Dax Fades Bz F 5D Strong  *(REJECT — t01466)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D684) · `decisions.md` §563
+
+## D685 — Nkd Follows Cc F 5D Strong  *(REJECT — t01467)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D685) · `decisions.md` §563
+
+## D686 — Zs Follows Xli 1D All  *(WATCHLIST — t01468)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D686) · `decisions.md` §563
+
+## D687 — Dax Fades Kc F 5D Strong  *(REJECT — t01469)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D687) · `decisions.md` §563
+
+## D688 — Cl Follows Bvsp 1D Strong  *(WATCHLIST — t01470)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D688) · `decisions.md` §563
+
+## D689 — Cl Follows Gf F 1D All  *(WATCHLIST — t01471)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D689) · `decisions.md` §563
+
+## D690 — Nkd Follows Cc F 5D All  *(REJECT — t01472)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D690) · `decisions.md` §563
+
+## D691 — Nkd Follows Gsptse 5D All  *(REJECT — t01473)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D691) · `decisions.md` §563
+
+## D692 — Zs Follows Xlv 1D All  *(REJECT — t01474)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D692) · `decisions.md` §563
+
+## D693 — Zs Follows Xlp 5D All  *(REJECT — t01475)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D693) · `decisions.md` §563
+
+## D694 — Nkd Follows Xlb 5D Strong  *(WATCHLIST — t01476)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D694) · `decisions.md` §563
+
+## D695 — Zs Follows Bvsp 1D Strong  *(WATCHLIST — t01477)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D695) · `decisions.md` §563
+
+## D696 — Dax Follows Cc F 5D Strong  *(REJECT — t01478)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D696) · `decisions.md` §563
+
+## D697 — Zs Follows Bvsp 5D Strong  *(WATCHLIST — t01479)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D697) · `decisions.md` §563
+
+## D698 — Dax Follows Cc F 5D All  *(REJECT — t01480)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D698) · `decisions.md` §563
+
+## D699 — Zs Follows Xlv 5D Strong  *(WATCHLIST — t01481)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D699) · `decisions.md` §563
+
+## D700 — Nkd Follows Bvsp 1D All  *(REJECT — t01482)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D700) · `decisions.md` §563
+
+## D701 — Dax Fades Bz F 5D All  *(REJECT — t01483)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D701) · `decisions.md` §563
+
+## D702 — Cl Follows Xlb 1D Strong  *(REJECT — t01484)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D702) · `decisions.md` §563
+
+## D703 — Zs Follows Xlb 5D Strong  *(REJECT — t01485)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D703) · `decisions.md` §563
+
+## D704 — Cl Fades Kc F 1D Strong  *(WATCHLIST — t01486)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D704) · `decisions.md` §563
+
+## D705 — Mnq Fades Xlp 5D Strong  *(REJECT — t01487)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D705) · `decisions.md` §563
+
+## D706 — Cl Fades Kc F 5D Strong  *(REJECT — t01488)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D706) · `decisions.md` §563
+
+## D707 — Dax Fades Kc F 5D All  *(REJECT — t01489)*
+
+Data-derived (D-series family 161). `hypotheses.yaml` (D707) · `decisions.md` §563

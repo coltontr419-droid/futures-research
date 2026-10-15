@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D703",
+ "cell": "ZS follows XLB 5d (strong)",
+ "trades": 214,
+ "net_bps": -9.651459232928234,
+ "t_net": -1.5006045918907398,
+ "placebo_pct": 7.9,
+ "by_year": {
+  "2025": -10.674118462389616,
+  "2026": -8.320902601048369
+ },
+ "always_long_net_bps": -5.116158087631241,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 716,
+ "injection": {
+  "hypothesis": "D703",
+  "n_events": 214,
+  "sought_bps": 6.296433180459386,
+  "mean_estimate": 6.162967631833668,
+  "recovered": true
+ },
+ "trial_id": "t01485"
+}
