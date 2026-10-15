@@ -12754,6 +12754,17 @@ beats BOTH single accounts' mean net AND beats ≥ 95% of random flips on 2025 s
 account (+$8,040) and barely above random. Pre-2021 the rules lose to the plan (+$4,603 vs +$5,813, beats 20%). Two edges in one account do
 not add: the account caps out (target reached, consistency/payout cadence) and the second window adds swing more than edge. Fails §548.
 
+## 550. D-series family 155 protocol: Japan MOF weekly cross-border flows as a week-long sign, current regime (S1)
+
+**No trial spent; N 1,435. Written and committed BEFORE any statistic is computed.** New official data: MOF "International Transactions in
+Securities (weekly)" (week.csv, from 2005; cached data/cache/mof_week.csv, gitignored), released Thursday 08:50 JST for the week ending the
+previous Saturday. Predictors (¥100m, net): **foreign net buying of Japanese equities**, **foreign net buying of Japanese long-term bonds**,
+**residents' net buying of foreign equities**. Rule: from the release Thursday (the NKD session of that Tokyo date; the DAX/MGC/MNQ sessions of
+that date, all opening after the release) through the next Wednesday, take each target's window in the sign of the latest week's figure
+(follow or fade fixed on 2021–24); forms all / strong (|figure| above its 2021–24 median). Targets: **NKD, DAX, MGC, MNQ**.
+**3 × 4 × 2 = 24 tests** (~0.6 by chance at t > 1.96; t over sessions, disclosed: one weekly sign spans 5 sessions, so t overstates — a
+carry must also hold on weekly sums). Costs §180. Validation per §426, 2 (placebo: weekly signs shuffled across the sealed weeks).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
