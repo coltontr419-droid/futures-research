@@ -13352,7 +13352,14 @@ balance ≥ $53,000, **5 profitable days ≥ $150** per cycle, a 35% consistency
 with two bounds for the engine's single funded-drawdown/payout-buffer parameter — f_dd = 20 (drawdown right, buffer too small) and 30
 (buffer right, drawdown too loose); both flatter Growth, and the 35% funded consistency rule is not modelled (also flattering). Replay with
 the deployed rules (NKD 1, FDXM 2 contracts), its own solved bracket policy, 2025 starts and all post-2021 starts, vs the 50K Daily.
-Reported only if even the flattering bound fails to beat the Daily account? — no: reported only if Growth beats the Daily account.
+Reported to the user only if Growth beats the Daily account.
+
+## 609. A54: Growth 50K is worse than the Daily 50K even on flattering bounds (S1)
+
+**No trial; N 1,525.** `reports/a54_growth.json` (module `reporting/a54_growth.py`). 2025 starts / all post-2021 starts (P(payout)):
+NKD Daily **+$8,040** (95%) / +$6,136 (92%) vs Growth +$2,861–5,067 / +$1,617–2,757; FDXM Daily **+$5,616** (92%) / +$3,720 (85%) vs Growth
++$3,270–3,563 / +$1,827–1,853. The five-winning-day payout cycle and the $1,500 cap slow payouts more than the missing evaluation consistency
+helps. With A53 (Lightning) and §145 (100K/150K Daily and Flex): **the 50K Daily (Select Daily) remains the best Tradeify account** for the plan.
 
 ## 10. Still outstanding, and blocking
 
