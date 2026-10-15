@@ -12923,6 +12923,11 @@ date; Sunday evening for Monday, from Friday 16:00); for the **DAX** and **gold'
 (the previous weekday's 16:00) and the **20:00 → 02:55** move (the Asian session only). Follow/fade fixed on 2021–24; forms all / strong.
 **(1 + 2 + 2) × 2 = 10 tests** (~0.25 by chance at t > 1.96). Costs §180. Validation per §426, 2.
 
+## 565. Family-162: the US index after the cash close — 0 of 10 carried (S1)
+
+**N 1,489 (no trial).** `reports/d162_discovery.json` (module `reporting/d162_spxafter.py`). Of note (not carried): NKD following the S&P's
+16:00 → 19:55 ET move on strong evenings, 2010–20 +11.7 (t 2.8), 2021–24 +8.3 (t 1.8) — consistent, below threshold.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
