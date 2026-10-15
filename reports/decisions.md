@@ -13299,6 +13299,12 @@ Berlin, before the US pre-market) → **DAX afternoon** (13:00 → 17:30 Berlin,
 morning → NKD afternoon; NQ over the Frankfurt morning → MGC 08:30 → 11:30 ET. Follow/fade fixed on 2021–24; forms all / strong.
 **4 × 2 = 8 tests** (~0.2 by chance). Costs DAX 0.3, NKD 0.2, MGC 0.8. Validation per §426, 2.
 
+## 603. Family-173: US futures lead the foreign afternoon — 0 of 8 carried (S1)
+
+**N 1,525 (no trial).** `reports/d173_discovery.json` (module `reporting/d173_usleads.py`; the plan text's "xau-free" means gold from the
+owned MGC grids). Best: the DAX afternoon follows NQ's Frankfurt-morning move, +3.6 bps (t 1.91; 2010–20 −1.1). Within-session leads from
+US futures carry nothing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

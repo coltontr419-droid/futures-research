@@ -1,0 +1,122 @@
+{
+ "window": [
+  "2021-01-01",
+  "2024-12-31"
+ ],
+ "tests": 8,
+ "all": [
+  {
+   "target": "NKD",
+   "predictor": "NKD<-NQ_tokyo_am",
+   "h": 1,
+   "form": "all",
+   "median_abs": 12.081563429863218,
+   "n": 1009,
+   "dir": "fade",
+   "net_bps": 0.9890524728211367,
+   "t": 0.8397243239664481,
+   "context_net": -1.024534781096274,
+   "context_t": -0.9387548276533196,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "NKD<-NQ_tokyo_am",
+   "h": 1,
+   "form": "strong",
+   "median_abs": 12.081563429863218,
+   "n": 506,
+   "dir": "fade",
+   "net_bps": 2.1454005647366947,
+   "t": 1.2074997900732556,
+   "context_net": -2.077073961153902,
+   "context_t": -1.0407537897967754,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "DAX<-NQ_frankfurt_am",
+   "h": 1,
+   "form": "all",
+   "median_abs": 19.118427459904886,
+   "n": 939,
+   "dir": "follow",
+   "net_bps": 3.641307545117157,
+   "t": 1.9100484408205909,
+   "context_net": -1.0859818354423822,
+   "context_t": -0.7290219698011744,
+   "carried": false
+  },
+  {
+   "target": "DAX",
+   "predictor": "DAX<-NQ_frankfurt_am",
+   "h": 1,
+   "form": "strong",
+   "median_abs": 19.118427459904886,
+   "n": 471,
+   "dir": "follow",
+   "net_bps": 4.43107009413569,
+   "t": 1.4547976045219366,
+   "context_net": -3.1666867091874438,
+   "context_t": -1.2020655182027458,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "NKD<-gold_tokyo_am",
+   "h": 1,
+   "form": "all",
+   "median_abs": 14.250456541285427,
+   "n": 999,
+   "dir": "fade",
+   "net_bps": 0.16807278469516407,
+   "t": 0.1425653466778728,
+   "context_net": -0.3979320964072018,
+   "context_t": -0.34879259672130547,
+   "carried": false
+  },
+  {
+   "target": "NKD",
+   "predictor": "NKD<-gold_tokyo_am",
+   "h": 1,
+   "form": "strong",
+   "median_abs": 14.250456541285427,
+   "n": 503,
+   "dir": "follow",
+   "net_bps": 0.050076794915714914,
+   "t": 0.031102124195354255,
+   "context_net": 0.0006698190291196406,
+   "context_t": 0.0003559217345853082,
+   "carried": false
+  },
+  {
+   "target": "MGC",
+   "predictor": "MGC<-NQ_frankfurt_am",
+   "h": 1,
+   "form": "all",
+   "median_abs": 18.440809989200282,
+   "n": 992,
+   "dir": "follow",
+   "net_bps": 0.02749232025376553,
+   "t": 0.015357554916557882,
+   "context_net": -1.0979329839470544,
+   "context_t": -0.9541259796383945,
+   "carried": false
+  },
+  {
+   "target": "MGC",
+   "predictor": "MGC<-NQ_frankfurt_am",
+   "h": 1,
+   "form": "strong",
+   "median_abs": 18.440809989200282,
+   "n": 498,
+   "dir": "follow",
+   "net_bps": 0.5343046007524098,
+   "t": 0.20271508633191024,
+   "context_net": -1.3222894245526602,
+   "context_t": -0.7087713759938185,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
