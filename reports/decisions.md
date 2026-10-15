@@ -12971,6 +12971,14 @@ then needs an account replay against the deployed rule of its market (or the pla
 - **D711** CL fades HG on low-volume days: **REJECT** -29.02 (t -1.48), placebo 8th, 2025 -3.5, 2026 -69.3
 - **D712** CL follows 6E on low-volume days: **REJECT** -1.70 (t -0.10), placebo 49th, 2025 +8.4, 2026 -16.7
 
+## 571. D-series family 165 protocol: commodity ratios as growth signals, current regime (S1)
+
+**No trial spent; N 1,494. Written and committed BEFORE any statistic is computed.** Spreads of Yahoo open → close moves: **copper/gold**
+(HG − GC, the classic growth gauge), **oil/gold** (CL − GC), **silver/gold** (SI − GC), **copper/oil** (HG − CL). Previous weekday's sign
+(1-day) and previous 5 weekdays' sum (5-day) into the six plan windows (a target's own market's ratios excluded: CL ratios not into CL,
+GC ratios not into MGC); forms all / strong; follow/fade fixed on 2021–24. **≈ 4 × 2 × 6 × 2 − excluded = 80 tests** (~2 by chance at
+t > 1.96). Costs §177/§180. Validation per §426, 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
