@@ -13151,6 +13151,18 @@ lean positive in both periods** — VB0.5 +3.75 (t 1.57) 2021–24, +8.60 (t 3.4
 Nikkei's intraday trend persistence, weaker since 2021. With batch 1 (§585): classic mechanical intraday rules (opening-range and
 volatility breakouts, first-hour momentum, overnight drift) carry nothing tradable on the plan's markets in the current regime.
 
+## 588. D-series family 167 protocol: public attention (Wikipedia pageviews) as every-day predictors, current regime (S1)
+
+**No trial spent; N 1,501. Written and committed BEFORE any statistic is computed.** New data class: daily English-Wikipedia pageviews
+(Wikimedia REST API, user agents, from 2015-07; cached data/cache/wiki, gitignored) for 20 articles: Recession, Stock market crash,
+Inflation, Bitcoin, Gold as an investment, Federal Reserve, Stagflation, Unemployment, Nasdaq, Nikkei 225, Price of oil, Market trend,
+Short (finance), VIX, Bank run, Tariff, Yield curve, Hyperinflation, Gold, Cryptocurrency. **Attention shock** on UTC day d =
+log(views_d) − log(mean of the previous 20 days); **5-day form** = the mean shock over the 5 weekdays ending d. Timing: a UTC day's views
+publish within hours of 00:00 UTC, so **MNQ** (opens 13:30 UTC) uses the previous weekday; every window opening before ~08:00 UTC —
+**DAX, MGC, NKD, CL, ZS** — uses the weekday before that (lag 2). Six plan windows; forms all / strong (|shock| above its 2021–24 median);
+follow/fade fixed on 2021–24; context 2016–20. **20 × 2 × 6 × 2 = 480 tests** (~12 by chance at t > 1.96). Costs §177/§180. Validation
+per §426, 2; a CONFIRM then needs §446/§453 stress tests and an account replay.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
