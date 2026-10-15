@@ -13173,6 +13173,14 @@ per §426, 2; a CONFIRM then needs §446/§453 stress tests and an account repla
 - **D724** DAX fades attention to Nasdaq 1d (all): **REJECT** -0.22 (t -0.06), placebo 50th, 2025 +2.9, 2026 -4.9
 - **D725** NKD fades attention to Recession 1d (strong): **REJECT** -8.20 (t -1.21), placebo 12th, 2025 -13.3, 2026 -0.7
 
+## 590. D-series family 168 protocol: cross-sectional relative strength among the six plan markets, current regime (S1)
+
+**No trial spent; N 1,507. Written and committed BEFORE any statistic is computed.** Families 134–135 used fixed sibling pairs. Here each
+plan market's Yahoo session move (NQ=F, GC=F, NKD=F, ^GDAXI, CL=F, ZS=F; open → close), scaled by its 2021–24 median absolute move, minus
+the mean of the six scaled moves = its **relative strength**; summed over h = 1, 5, 20 weekdays ending the previous weekday. The target
+window follows or fades its own relative strength (fixed on 2021–24); forms all / strong. **6 × 3 × 2 = 36 tests** (~0.9 by chance at
+t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs §446/§453 and an account replay.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
