@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D647",
+ "cell": "DAX fades usdjpy's US last hour (strong)",
+ "trades": 248,
+ "net_bps": -2.625887195512122,
+ "t_net": -0.4436430428122705,
+ "placebo_pct": 30.0,
+ "by_year": {
+  "2025": 1.7123066542365226,
+  "2026": -10.110463397825717
+ },
+ "always_long_net_bps": -2.856074760298822,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 659,
+ "injection": {
+  "hypothesis": "D647",
+  "n_events": 248,
+  "sought_bps": 4.4855669498583195,
+  "mean_estimate": 4.428377960173567,
+  "recovered": true
+ },
+ "trial_id": "t01429"
+}

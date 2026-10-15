@@ -3296,3 +3296,7 @@ Data-derived (D-series family 151). `hypotheses.yaml` (D645) · `decisions.md` �
 ## D646 — Brent Ny Follows Ng F 5D Strong  *(REJECT — t01428)*
 
 Data-derived (D-series family 151). `hypotheses.yaml` (D646) · `decisions.md` §537
+
+## D647 — Dax Fades Usdjpy S Us Last Hour Strong  *(REJECT — t01429)*
+
+Data-derived (D-series family 152). `hypotheses.yaml` (D647) · `decisions.md` §539

@@ -12656,6 +12656,13 @@ carries most institutional rebalancing flow. Predictors: the 15:00 → 15:59 ET 
 and MNQ** plan windows. Follow/fade fixed on 2021–24; forms all / strong. **5 × 4 × 2 = 40 tests** (~1 by chance at t > 1.96). Costs §180.
 Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests.
 
+## 539. Family-152: the US last hour — 1 of 40 carried (≈ 1 by chance) (S1)
+
+**N 1,429.** `reports/d152_discovery.json` (module `reporting/d152_lasthour.py`):
+- **D647** DAX fades usdjpy's US last hour (strong): **REJECT** -2.63 (t -0.44), placebo 30th, 2025 +1.7, 2026 -10.1
+
+At chance; the last hour carries nothing the whole day does not.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

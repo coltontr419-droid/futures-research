@@ -41005,3 +41005,59 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 658.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D647
+  name: dax_fades_usdjpy_s_us_last_hour_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 152, the US last hour on the current regime, decisions.md 538-539): the DAX window
+    fades the sign of usdjpy's 15:00-16:00 ET move the day before (strong): 2021-2024 +8.97 bps (t +2.14, n 418);
+    2010-20 -1.09 (context). THE COUNTERPARTY: end-of-day rebalancing flow.
+  condition: >
+    Every session, take the DAX window to fade the sign of usdjpy's previous US last-hour move.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01429 (decisions.md 539), REJECT on sealed 2023-2026: 248 trades; net -2.63 bps (t -0.44); placebo 30th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d152_lasthour.py
+    injected_bps: 4.486
+    sought_bps: 4.486
+    n_injection: 248
+    n_run: 248
+    recovered: true
+    report: reports/d647_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 681
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-152 scan (40 tests, decisions.md 539). ONE TRIAL.
+  session: Europe
+  symbols: [FDXM]
+  mechanism_instruments:
+    primary: FDXM
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 659.
+  s6_control: By year; signs shuffled across the sealed sessions.
