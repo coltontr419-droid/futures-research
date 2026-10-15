@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D459",
+ "cell": "CL fades the grains composite 3d (all)",
+ "trades": 401,
+ "net_bps": -18.40555578183045,
+ "t_net": -1.3190966715060066,
+ "placebo_pct": 9.5,
+ "by_year": {
+  "2025": -1.5617259948456266,
+  "2026": -44.04207658969415
+ },
+ "always_long_net_bps": -5.768395407517638,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 471,
+ "injection": {
+  "hypothesis": "D459",
+  "n_events": 401,
+  "sought_bps": 10.138271494922906,
+  "mean_estimate": 10.14878533718499,
+  "recovered": true
+ },
+ "trial_id": "t01241"
+}

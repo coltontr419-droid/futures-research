@@ -2532,3 +2532,51 @@ Data-derived (D-series family 142). `hypotheses.yaml` (D454) · `decisions.md` �
 ## D455 — Nkd Follows 6A F 3D All  *(REJECT — t01237)*
 
 Data-derived (D-series family 142). `hypotheses.yaml` (D455) · `decisions.md` §516
+
+## D456 — Dax Follows The Dollar Composite 1D All  *(CONFIRM — t01238)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D456) · `decisions.md` §518
+
+## D457 — Nkd Follows The Risk Composite 3D Strong  *(WATCHLIST — t01239)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D457) · `decisions.md` §518
+
+## D458 — Cl Follows The Risk Composite 1D Strong  *(REJECT — t01240)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D458) · `decisions.md` §518
+
+## D459 — Cl Fades The Grains Composite 3D All  *(REJECT — t01241)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D459) · `decisions.md` §518
+
+## D460 — Cl Follows The Risk Composite 3D All  *(WATCHLIST — t01242)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D460) · `decisions.md` §518
+
+## D461 — Dax Follows The Dollar Composite 1D Strong  *(CONFIRM — t01243)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D461) · `decisions.md` §518
+
+## D462 — Cl Fades The Grains Composite 3D Strong  *(REJECT — t01244)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D462) · `decisions.md` §518
+
+## D463 — Dax Follows The Rates Composite 5D Strong  *(REJECT — t01245)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D463) · `decisions.md` §518
+
+## D464 — Nkd Follows The Risk Composite 5D Strong  *(WATCHLIST — t01246)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D464) · `decisions.md` §518
+
+## D465 — Zs Follows The Risk Composite 1D Strong  *(REJECT — t01247)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D465) · `decisions.md` §518
+
+## D466 — Nkd Follows The Risk Composite 5D All  *(WATCHLIST — t01248)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D466) · `decisions.md` §518
+
+## D467 — Nkd Follows The Risk Composite 3D All  *(WATCHLIST — t01249)*
+
+Data-derived (D-series family 143). `hypotheses.yaml` (D467) · `decisions.md` §518

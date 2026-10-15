@@ -12280,6 +12280,27 @@ A target's own market is dropped from every composite; for CL and ZS the members
 Six plan windows; forms all / strong; follow/fade fixed on 2021–24. **5 × 3 × 6 × 2 = 180 tests** (~4.5 by chance at t > 1.96). Validation
 per §426, 2; a CONFIRM that is not the deployed dollar theme then needs the §446/§453 stress tests.
 
+## 518. Family-143: composite predictors — 12 of 180 carried (≈ 4.5 by chance); validated (S1)
+
+**N 1,243.** `reports/d143_discovery.json` (module `reporting/d143_composite.py`):
+- **D456** DAX follows the dollar composite 1d (all): **CONFIRM** +9.31 (t +2.26), placebo 99th, 2025 +5.4, 2026 +15.3
+- **D457** NKD follows the risk composite 3d (strong): **WATCHLIST** +3.37 (t +0.50), placebo 69th, 2025 +2.1, 2026 +5.5
+- **D458** CL follows the risk composite 1d (strong): **REJECT** -30.26 (t -1.42), placebo 11th, 2025 -45.8, 2026 -7.9
+- **D459** CL fades the grains composite 3d (all): **REJECT** -18.41 (t -1.32), placebo 10th, 2025 -1.6, 2026 -44.0
+- **D460** CL follows the risk composite 3d (all): **WATCHLIST** +13.93 (t +1.00), placebo 85th, 2025 +3.0, 2026 +30.5
+- **D461** DAX follows the dollar composite 1d (strong): **CONFIRM** +13.02 (t +1.88), placebo 98th, 2025 +5.3, 2026 +25.6
+- **D462** CL fades the grains composite 3d (strong): **REJECT** -3.86 (t -0.21), placebo 43th, 2025 +2.8, 2026 -17.2
+- **D463** DAX follows the rates composite 5d (strong): **REJECT** -13.85 (t -1.74), placebo 4th, 2025 -8.3, 2026 -28.9
+- **D464** NKD follows the risk composite 5d (strong): **WATCHLIST** +1.11 (t +0.16), placebo 56th, 2025 +1.8, 2026 -0.2
+- **D465** ZS follows the risk composite 1d (strong): **REJECT** -6.31 (t -0.78), placebo 24th, 2025 -5.8, 2026 -7.1
+- **D466** NKD follows the risk composite 5d (all): **WATCHLIST** +6.13 (t +1.36), placebo 92th, 2025 +0.3, 2026 +15.0
+- **D467** NKD follows the risk composite 3d (all): **WATCHLIST** +3.21 (t +0.71), placebo 78th, 2025 -0.2, 2026 +8.5
+
+**Only the deployed DAX–dollar theme confirms (D456, D461).** Descriptive comparison, DAX window following yesterday's sign (net bps, t):
+composite +9.21 (3.11) / +9.55 (2.32) in 2021–24 / 2025–26; DX alone +5.86 (1.96) / +7.20 (1.74); 6E alone +9.43 (3.18) / +7.06 (1.70).
+The composite is ~2 bps better than the DX-only signal the bot uses at 17:30, within noise and already partly captured by the 02:50 EUR/USD
+re-check (§490). Not worth a bot change now; noted as an option if the forward record holds. Risk, rates, grains composites add nothing.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

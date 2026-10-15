@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D458",
+ "cell": "CL follows the risk composite 1d (strong)",
+ "trades": 173,
+ "net_bps": -30.256611257469174,
+ "t_net": -1.422384519598282,
+ "placebo_pct": 11.200000000000001,
+ "by_year": {
+  "2025": -45.78971123081324,
+  "2026": -7.941453549284749
+ },
+ "always_long_net_bps": -36.36824503144273,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 470,
+ "injection": {
+  "hypothesis": "D458",
+  "n_events": 173,
+  "sought_bps": 16.001385404947055,
+  "mean_estimate": 16.497419181610457,
+  "recovered": true
+ },
+ "trial_id": "t01240"
+}

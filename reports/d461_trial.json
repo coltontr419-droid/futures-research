@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D461",
+ "cell": "DAX follows the dollar composite 1d (strong)",
+ "trades": 189,
+ "net_bps": 13.016851435914432,
+ "t_net": 1.8812389686697566,
+ "placebo_pct": 97.8,
+ "by_year": {
+  "2025": 5.265197886744887,
+  "2026": 25.613288453314944
+ },
+ "always_long_net_bps": -1.8713864341566104,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 473,
+ "injection": {
+  "hypothesis": "D461",
+  "n_events": 189,
+  "sought_bps": 6.20735545915127,
+  "mean_estimate": 6.124274968615614,
+  "recovered": true
+ },
+ "trial_id": "t01243"
+}

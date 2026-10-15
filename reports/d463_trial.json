@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D463",
+ "cell": "DAX follows the rates composite 5d (strong)",
+ "trades": 138,
+ "net_bps": -13.846539917247112,
+ "t_net": -1.7395162574265401,
+ "placebo_pct": 4.2,
+ "by_year": {
+  "2025": -8.332485847171204,
+  "2026": -28.898417243670522
+ },
+ "always_long_net_bps": 4.949317926071575,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 475,
+ "injection": {
+  "hypothesis": "D463",
+  "n_events": 138,
+  "sought_bps": 5.017416892589995,
+  "mean_estimate": 4.80495475066721,
+  "recovered": true
+ },
+ "trial_id": "t01245"
+}

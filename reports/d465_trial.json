@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D465",
+ "cell": "ZS follows the risk composite 1d (strong)",
+ "trades": 173,
+ "net_bps": -6.309299125543386,
+ "t_net": -0.7758200318342862,
+ "placebo_pct": 24.0,
+ "by_year": {
+  "2025": -5.78150997732192,
+  "2026": -7.06753142298831
+ },
+ "always_long_net_bps": 0.4773064744163376,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 477,
+ "injection": {
+  "hypothesis": "D465",
+  "n_events": 173,
+  "sought_bps": 7.029127567687255,
+  "mean_estimate": 7.115937919414106,
+  "recovered": true
+ },
+ "trial_id": "t01247"
+}

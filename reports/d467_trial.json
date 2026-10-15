@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D467",
+ "cell": "NKD follows the risk composite 3d (all)",
+ "trades": 406,
+ "net_bps": 3.206601962000101,
+ "t_net": 0.7122600809451884,
+ "placebo_pct": 78.0,
+ "by_year": {
+  "2025": -0.2166848161736585,
+  "2026": 8.469905383442256
+ },
+ "always_long_net_bps": -0.8573339765883549,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 479,
+ "injection": {
+  "hypothesis": "D467",
+  "n_events": 406,
+  "sought_bps": 2.574727451206486,
+  "mean_estimate": 2.5811509134859336,
+  "recovered": true
+ },
+ "trial_id": "t01249"
+}
