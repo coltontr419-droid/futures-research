@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D727",
+ "cell": "MGC fades its own 60d trend (all)",
+ "trades": 401,
+ "net_bps": 5.208342807132405,
+ "t_net": 0.98549422129935,
+ "placebo_pct": 91.9,
+ "by_year": {
+  "2025": 0.12684235338304797,
+  "2026": 13.105706569647337
+ },
+ "always_long_net_bps": 2.2868831157684326,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 740,
+ "injection": {
+  "hypothesis": "D727",
+  "n_events": 401,
+  "sought_bps": 2.406446210421047,
+  "mean_estimate": 2.535015653000028,
+  "recovered": true
+ },
+ "trial_id": "t01509"
+}

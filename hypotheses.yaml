@@ -45485,3 +45485,171 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (each training year's target returns shuffled), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 739.
   s6_control: By year; each training year's target returns shuffled.
+- id: D727
+  name: mgc_fades_its_own_60d_trend_all
+  mechanism: >
+    DATA-DERIVED (D-series family 171, long-horizon own trend on the current regime, decisions.md 598-599): gold's London window
+    fades the sign of gold's own 60-day trend (all): 2021-2024 +4.81 bps (t +2.16, monthly t +2.17);
+    2010-20 -2.11 (context). THE COUNTERPARTY: London-hours profit taking against an extended trend.
+  condition: >
+    Every session, take gold's London window to fade the sign of gold's own 60-day trend.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01509 (decisions.md 599), WATCHLIST on sealed 2023-2026: 401 trades; net +5.21 bps (t +0.99); placebo 92th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d171_tsmom.py
+    injected_bps: 2.406
+    sought_bps: 2.406
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d727_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 761
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-171 scan (36 tests, decisions.md 599). ONE TRIAL.
+  session: Europe
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 740.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D728
+  name: mgc_fades_its_own_60d_trend_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 171, long-horizon own trend on the current regime, decisions.md 598-599): gold's London window
+    fades the sign of gold's own 60-day trend (strong): 2021-2024 +8.07 bps (t +2.43, monthly t +2.97);
+    2010-20 -0.19 (context). THE COUNTERPARTY: London-hours profit taking against an extended trend.
+  condition: >
+    Every session, take gold's London window to fade the sign of gold's own 60-day trend.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01510 (decisions.md 599), WATCHLIST on sealed 2023-2026: 283 trades; net +7.60 bps (t +1.11); placebo 100th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d171_tsmom.py
+    injected_bps: 4.033
+    sought_bps: 4.033
+    n_injection: 283
+    n_run: 283
+    recovered: true
+    report: reports/d728_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 762
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-171 scan (36 tests, decisions.md 599). ONE TRIAL.
+  session: Europe
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 741.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D729
+  name: mgc_fades_its_own_250d_trend_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 171, long-horizon own trend on the current regime, decisions.md 598-599): gold's London window
+    fades the sign of gold's own 250-day trend (strong): 2021-2024 +6.93 bps (t +2.12, monthly t +2.76);
+    2010-20 +3.41 (context). THE COUNTERPARTY: London-hours profit taking against an extended trend.
+  condition: >
+    Every session, take gold's London window to fade the sign of gold's own 250-day trend.
+  horizon_minutes: [510]
+  hold_hours: [8.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01511 (decisions.md 599), REJECT on sealed 2023-2026: 401 trades; net -3.89 bps (t -0.73); placebo 0th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d171_tsmom.py
+    injected_bps: 3.464
+    sought_bps: 3.464
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d729_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 763
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-171 scan (36 tests, decisions.md 599). ONE TRIAL.
+  session: Europe
+  symbols: [MGC]
+  mechanism_instruments:
+    primary: MGC
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 742.
+  s6_control: By year; signs shuffled across the sealed sessions.

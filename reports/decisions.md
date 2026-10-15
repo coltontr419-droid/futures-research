@@ -13246,7 +13246,17 @@ W04 tested trend only inside a six-market portfolio. Here each plan window follo
 market's trend over the previous **60, 120 or 250 weekdays** (sum of Yahoo session moves: NQ=F, GC=F, NKD=F, ^GDAXI, CL=F, ZS=F, ending the
 previous weekday); forms all / strong (|trend| above its 2021–24 median). **6 × 3 × 2 = 36 tests** (~0.9 by chance at t > 1.96). A trend sign
 changes rarely, so a carry must also hold on monthly sums (t > 1.96). Costs §177/§180. Validation per §426, 2 (placebo: monthly blocks of
-signs shuffled); a CONFIRM then needs an account replay.
+signs shuffled; *amended before any validation ran: circular shifts of the sign series — a trend sign spans months unevenly, so
+blocks of unequal length cannot be swapped*); a CONFIRM then needs an account replay.
+
+## 599. Family-171: long-horizon own trend — 3 of 36 carried (≈ 0.9 by chance), all gold fading its trend; validated (S1)
+
+**N 1,511.** `reports/d171_discovery.json` (module `reporting/d171_tsmom.py`; placebo: circular shifts of the sign series):
+- **D727** MGC fades its own 60d trend (all): **WATCHLIST** +5.21 (t +0.99), placebo 92th, 2025 +0.1, 2026 +13.1
+- **D728** MGC fades its own 60d trend (strong): **WATCHLIST** +7.60 (t +1.11), placebo 100th, 2025 +2.4, 2026 +13.9
+- **D729** MGC fades its own 250d trend (strong): **REJECT** -3.89 (t -0.73), placebo 0th, 2025 -6.0, 2026 -0.5
+
+No market's window follows its own long trend in 2021–24 (time-series momentum is absent at the window level).
 
 ## 10. Still outstanding, and blocking
 

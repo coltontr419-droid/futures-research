@@ -3616,3 +3616,15 @@ Data-derived (D-series family 167). `hypotheses.yaml` (D725) · `decisions.md` �
 ## D726 — Walk Forward Yearly Rule Reselection  *(WATCHLIST — t01508)*
 
 Data-derived (D-series family 169). `hypotheses.yaml` (D726) · `decisions.md` §593
+
+## D727 — Mgc Fades Its Own 60D Trend All  *(WATCHLIST — t01509)*
+
+Data-derived (D-series family 171). `hypotheses.yaml` (D727) · `decisions.md` §599
+
+## D728 — Mgc Fades Its Own 60D Trend Strong  *(WATCHLIST — t01510)*
+
+Data-derived (D-series family 171). `hypotheses.yaml` (D728) · `decisions.md` §599
+
+## D729 — Mgc Fades Its Own 250D Trend Strong  *(REJECT — t01511)*
+
+Data-derived (D-series family 171). `hypotheses.yaml` (D729) · `decisions.md` §599
