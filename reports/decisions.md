@@ -13369,6 +13369,22 @@ removed per era), contracts by the $2,900 daily-swing rule within Tradeify's 50K
 mean net, both eras), daily correlation with MNQ / MGC / NKD / FDXM / MCL, and **the five-account book with ZB or ZN in MCL's place** (A47's
 construction, common starts; 2025 starts, 2021–26, 2010–20). Reported to the user only if the book improves in every period.
 
+## 611. A55: ZB in MCL's slot steadies the book over 2010–26 but trails slightly on 2025 starts — an option, not a finding (S1)
+
+**No trial; N 1,525.** `reports/a55_rates.json` (module `reporting/a55_rates.py`). Alone (4 contracts, daily swing ≈ $2.5–2.8k): **ZB** P(payout)
+80% / 83%, mean +$3,039 / +$2,585 (2010–20 / 2021–26); ZN +$1,196 / +$1,797. Five-account book, common starts (mean, P(net > 0), 10th pct):
+
+| period | now (MCL) | ZB for MCL | ZN for MCL |
+|---|---|---|---|
+| 2010–20 (687) | +$10,462, 85%, −$829 | **+$13,117, 92%, +$558** | +$11,740, 93%, +$1,023 |
+| 2021–26 (1,040) | +$15,008, 96%, +$4,148 | **+$16,274, 99%, +$6,245** | +$15,602, 98%, +$5,702 |
+| 2025 starts (298) | **+$17,492**, 100%, +$8,228 | +$17,008, 100%, +$7,705 | +$15,836, 100%, +$8,194 |
+
+MCL averaged only +$652 / +$1,088 in the first two periods but +$2,994 on 2025 starts; ZB +$3,307 / +$2,354 / +$2,511. §610's rule
+(improve in every period) is not met — by $484 on the 2025 starts — so this is not reported as a finding; it is recorded for the 10-25 review's
+account decision as the steadier long-run fifth market (bonds are uncorrelated with the other four). Note: needs Tradeify to permit ZB
+(CBOT, likely) and a ZB ticket in the bot.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
