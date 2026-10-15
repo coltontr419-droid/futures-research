@@ -12566,6 +12566,14 @@ factors each in {0.5, 0.75, 1, 1.5, 2} (25 pairs). **Chosen on 2021–24 starts 
 (NKD + dollar-week; FDXM + DAX-dollar); then read ONCE on 2025 starts against (1, 1), and on 2010–20 as a robustness check. Adopt only if the
 chosen pair improves the 2025-start mean net AND does not lower 2025-start P(payout) by more than 3 points AND does not hurt 2010–20.
 
+## 531. A43: bracket scaling with the rules — the plan's brackets stay (S1)
+
+**No trial; N 1,400.** `reports/a43_scale.json` (module `reporting/a43_scale.py`). NKD + dollar-week: the chosen pair on 2021–24 starts is
+the current (1, 1) — +$5,454 (P(payout) 92%); every other pair is lower. FDXM + DAX-dollar: chosen (take ×1, stop ×2) +$3,482 (98%) vs (1, 1)
++$2,903 (82%) on 2021–24 starts, and better before 2021 (+$4,293 vs +$3,144), **but on 2025 starts +$3,770 vs +$5,616** (P(payout) 100% vs
+92%) — fails §530's rule (mean net must improve). Not adopted. Note for the user only if they prefer payout probability to mean net:
+doubling FDXM's stop raised P(payout) in every period at a cost in mean net on the sealed starts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
