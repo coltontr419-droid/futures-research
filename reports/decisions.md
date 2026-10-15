@@ -13063,6 +13063,18 @@ result replaces the shadow; it now uses the raw replay P&L); (b) **the dollar ru
 20 recorded tickets, 2 disagreements (both FDXM, the DAX-index proxy); dollar rules 2 sessions, trigger pending; executable subset
 6 tickets, −$3,050.
 
+## 580. The executable subset in the account: FDXM and MGC placed Monday–Wednesday only (S8)
+
+**No trial.** A23 replay (50K Daily, 84 sessions, drift removed); Thursday/Friday entries skipped (`skip`: the account sits, no cost):
+
+| account | every day: all post-2021 / 2025 starts | Mon–Wed only: all post-2021 / 2025 starts | 2010–20 every day → Mon–Wed |
+|---|---|---|---|
+| FDXM + DAX-dollar | +$3,720 (P(payout) 85%) / **+$5,616 (92%)** | +$1,134 (48%) / **+$1,659 (64%)** | +$3,144 (85%) → +$1,130 (53%) |
+| MGC (plan) | +$2,248 (77%) / +$800 (66%) | +$1,716 (49%) / +$2,014 (47%) | +$2,075 (81%) → +$1,045 (46%) |
+
+Trading three days of five roughly halves the chance of a payout inside four months (fewer bracket days to reach the target and
+to qualify for payouts) and cuts FDXM's mean by ~70%. A hand-placed Mon–Wed schedule is still positive but much weaker than the plan.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
