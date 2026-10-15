@@ -12648,6 +12648,14 @@ Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests (incl. wh
 
 Crude is unpredictable from yesterday's cross-asset moves in every window tried (whole session, London morning, New York).
 
+## 538. D-series family 152 protocol: the US last hour across markets into the next plan windows, current regime (S1)
+
+**No trial spent; N 1,428. Written and committed BEFORE any statistic is computed.** Whole-day predictor moves are exhausted; the last hour
+carries most institutional rebalancing flow. Predictors: the 15:00 → 15:59 ET move of **MNQ** (owned trades, family-8 day grid, one contract),
+**gold** (MGC NY-afternoon grid), **EUR/USD**, **USD/JPY**, **Brent** (HistData, corrected clock). Targets: the next weekday's **NKD, DAX, MGC
+and MNQ** plan windows. Follow/fade fixed on 2021–24; forms all / strong. **5 × 4 × 2 = 40 tests** (~1 by chance at t > 1.96). Costs §180.
+Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
