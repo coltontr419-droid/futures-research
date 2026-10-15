@@ -3576,3 +3576,7 @@ Data-derived (D-series family 165). `hypotheses.yaml` (D715) · `decisions.md` �
 ## D716 — Dax Fades Oil Gold 5D All  *(REJECT — t01498)*
 
 Data-derived (D-series family 165). `hypotheses.yaml` (D716) · `decisions.md` §572
+
+## D717 — Cl Follows 6L F 1D Strong  *(WATCHLIST — t01499)*
+
+Data-derived (D-series family 166). `hypotheses.yaml` (D717) · `decisions.md` §574

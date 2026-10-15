@@ -12997,6 +12997,13 @@ every period but small). Every-day form: **6L=F** (CME, open → close, closes b
 5 weekdays' sum (5-day) into the six plan windows; forms all / strong; follow/fade fixed on 2021–24. **2 × 6 × 2 = 24 tests** (~0.6 by
 chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a ZS CONFIRM then needs the ZS account replay.
 
+## 574. Family-166: the real every day — 1 of 24 carried (≈ 0.6 by chance) (S1)
+
+**N 1,499.** `reports/d166_discovery.json` (module `reporting/d166_real.py`):
+- **D717** CL follows 6L=F 1d (strong): **WATCHLIST** +4.64 (t +0.19), placebo 60th, 2025 -17.0, 2026 +42.1
+
+Soybeans take nothing from the real's everyday moves (best ZS cell +7.0, t 1.15); only its shocks mattered (D122).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
