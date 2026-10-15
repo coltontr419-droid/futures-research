@@ -12672,6 +12672,26 @@ unreliable, §467): ^KS11 (closes ~01:30–02:30 ET), ^TWII (~00:30–01:30), ^A
 before its Tokyo date) previous weekday for all. 1-day and 5-day (the 5 sessions ending at that date); forms all / strong; follow/fade fixed on
 2021–24. **7 × 4 × 2 × 2 = 112 tests** (~2.8 by chance at t > 1.96). Costs §180. Validation per §426, 2; a CONFIRM then needs §446/§453.
 
+## 541. Family-153: Asian local indices — first run discarded (date artefact), 6 of 112 carried (≈ 2.8 by chance); validated (S1)
+
+**N 1,435.** `reports/d153_discovery.json` (module `reporting/d153_asia.py`). **The first run was wrong and is not counted:** `a22.load` stamps Yahoo bars in New York time, which puts an Asian session (opening 19:00–23:00 ET) on the previous date, so 'previous weekday' was the same session and t-values reached 10. Fixed before any registration by dating each bar in its exchange's time zone. Earlier uses of Asian indices only as targets of US-dated predictors (family 125) were thereby lagged one extra day — conservative, not look-ahead. Corrected run:
+- **D648** MGC follows ^STI 1d (strong): **REJECT** -19.00 (t -2.25), placebo 1th, 2025 -17.1, 2026 -20.9
+- **D649** NKD follows ^HSI 5d (all): **WATCHLIST** +1.46 (t +0.32), placebo 67th, 2025 +4.1, 2026 -2.7
+- **D650** DAX fades ^HSI 5d (strong): **REJECT** -9.57 (t -1.35), placebo 8th, 2025 -5.7, 2026 -16.4
+- **D651** DAX fades ^HSI 5d (all): **WATCHLIST** +0.28 (t +0.07), placebo 55th, 2025 -0.2, 2026 +1.0
+- **D652** DAX fades ^KS11 1d (all): **WATCHLIST** +6.66 (t +1.58), placebo 95th, 2025 +1.5, 2026 +14.4
+- **D653** NKD follows ^AXJO 1d (all): **CONFIRM** +8.40 (t +1.87), placebo 97th, 2025 +3.4, 2026 +16.1
+
+## 542. D653 (NKD follows the ASX) stress-tested — independent of the dollar rule, but adds nothing in the account (S1)
+
+**No trial; N 1,435.** Descriptive: NKD following ^AXJO's last close → close: 2010–14 +3.2, 2015–20 −0.5, 2021–24 +5.1 (t 2.0), 2025–26 +8.4
+(t 1.9). Siblings do not replicate (KOSPI −4.9, Taiex +2.7, Hang Seng +2.4 in 2025–26). Joint regression with NKD's own previous window and
+the deployed dollar-week sign: ASX t 2.1 / 2.1, dollar-week t 2.1 / 3.1 (2021–24 / 2025–26); agreement with dollar-week 52–53%.
+Account (NKD 50K, random flips at the same short share): 2025 starts — dollar-week +$8,040 (P(payout) 95%, beats 98%); ASX alone +$4,248 (93%,
+beats 73%); ASX + dollar-week (equal scaled weights) +$4,647 (100%, beats 83%). Before 2021 the combination is worst (+$1,597, beats 3%).
+**Not proposed**; the deployed rule stays alone. Second time (after ITB, §525) that a partly independent NKD signal dilutes the dollar-week
+rule when combined: the account rewards the single strongest every-day sign, not an average.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

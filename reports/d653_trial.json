@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D653",
+ "cell": "NKD follows ^AXJO 1d (all)",
+ "trades": 409,
+ "net_bps": 8.397838378549157,
+ "t_net": 1.874954331043986,
+ "placebo_pct": 96.6,
+ "by_year": {
+  "2025": 3.3825014513633427,
+  "2026": 16.123326316077613
+ },
+ "always_long_net_bps": -1.192708097230588,
+ "conditions": {
+  "a": true,
+  "b": true,
+  "c": true
+ },
+ "decision": "CONFIRM",
+ "z_d_market_test_number": 665,
+ "injection": {
+  "hypothesis": "D653",
+  "n_events": 409,
+  "sought_bps": 2.5531335315854626,
+  "mean_estimate": 2.5639089225004463,
+  "recovered": true
+ },
+ "trial_id": "t01435"
+}

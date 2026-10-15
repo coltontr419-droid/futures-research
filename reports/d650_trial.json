@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D650",
+ "cell": "DAX fades ^HSI 5d (strong)",
+ "trades": 166,
+ "net_bps": -9.565538967857616,
+ "t_net": -1.3507817797533483,
+ "placebo_pct": 7.5,
+ "by_year": {
+  "2025": -5.696782953367913,
+  "2026": -16.400341260122758
+ },
+ "always_long_net_bps": -3.134373339151555,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 662,
+ "injection": {
+  "hypothesis": "D650",
+  "n_events": 166,
+  "sought_bps": 4.949434363494509,
+  "mean_estimate": 4.81773572045274,
+  "recovered": true
+ },
+ "trial_id": "t01432"
+}

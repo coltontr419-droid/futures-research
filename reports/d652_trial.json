@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D652",
+ "cell": "DAX fades ^KS11 1d (all)",
+ "trades": 399,
+ "net_bps": 6.655558517803413,
+ "t_net": 1.5841390219358693,
+ "placebo_pct": 95.1,
+ "by_year": {
+  "2025": 1.5337551427312794,
+  "2026": 14.38658248017644
+ },
+ "always_long_net_bps": -2.5989732016860674,
+ "conditions": {
+  "a": false,
+  "b": true,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 664,
+ "injection": {
+  "hypothesis": "D652",
+  "n_events": 399,
+  "sought_bps": 3.0726408331491477,
+  "mean_estimate": 3.115687033017013,
+  "recovered": true
+ },
+ "trial_id": "t01434"
+}

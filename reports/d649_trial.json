@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D649",
+ "cell": "NKD follows ^HSI 5d (all)",
+ "trades": 397,
+ "net_bps": 1.4598656798272485,
+ "t_net": 0.31874619520835074,
+ "placebo_pct": 67.2,
+ "by_year": {
+  "2025": 4.149314723257377,
+  "2026": -2.694988291112882
+ },
+ "always_long_net_bps": -2.761942841227578,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 661,
+ "injection": {
+  "hypothesis": "D649",
+  "n_events": 397,
+  "sought_bps": 2.891241648794333,
+  "mean_estimate": 2.790989043435006,
+  "recovered": true
+ },
+ "trial_id": "t01431"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D648",
+ "cell": "MGC follows ^STI 1d (strong)",
+ "trades": 180,
+ "net_bps": -18.998533132341176,
+ "t_net": -2.2518164065806987,
+ "placebo_pct": 0.8999999999999999,
+ "by_year": {
+  "2025": -17.09701707651327,
+  "2026": -20.94277988605285
+ },
+ "always_long_net_bps": -4.994281768798828,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 660,
+ "injection": {
+  "hypothesis": "D648",
+  "n_events": 180,
+  "sought_bps": 4.046402253437434,
+  "mean_estimate": 3.8820141693437034,
+  "recovered": true
+ },
+ "trial_id": "t01430"
+}

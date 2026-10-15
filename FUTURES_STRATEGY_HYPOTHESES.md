@@ -3300,3 +3300,27 @@ Data-derived (D-series family 151). `hypotheses.yaml` (D646) · `decisions.md` �
 ## D647 — Dax Fades Usdjpy S Us Last Hour Strong  *(REJECT — t01429)*
 
 Data-derived (D-series family 152). `hypotheses.yaml` (D647) · `decisions.md` §539
+
+## D648 — Mgc Follows Sti 1D Strong  *(REJECT — t01430)*
+
+Data-derived (D-series family 153). `hypotheses.yaml` (D648) · `decisions.md` §541
+
+## D649 — Nkd Follows Hsi 5D All  *(WATCHLIST — t01431)*
+
+Data-derived (D-series family 153). `hypotheses.yaml` (D649) · `decisions.md` §541
+
+## D650 — Dax Fades Hsi 5D Strong  *(REJECT — t01432)*
+
+Data-derived (D-series family 153). `hypotheses.yaml` (D650) · `decisions.md` §541
+
+## D651 — Dax Fades Hsi 5D All  *(WATCHLIST — t01433)*
+
+Data-derived (D-series family 153). `hypotheses.yaml` (D651) · `decisions.md` §541
+
+## D652 — Dax Fades Ks11 1D All  *(WATCHLIST — t01434)*
+
+Data-derived (D-series family 153). `hypotheses.yaml` (D652) · `decisions.md` §541
+
+## D653 — Nkd Follows Axjo 1D All  *(CONFIRM — t01435)*
+
+Data-derived (D-series family 153). `hypotheses.yaml` (D653) · `decisions.md` §541
