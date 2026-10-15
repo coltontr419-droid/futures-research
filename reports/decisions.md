@@ -13124,6 +13124,16 @@ non-trade days skipped) — §165: a strategy's own exits cannot carry an evalua
 - **Overnight long:** every night 18:00 → 09:30, long.
 Variants: ORB15, ORB30, VB0.3, VB0.5, FH, ON = **6 tests**; carried at net > 0, t > 1.96 on 2021–24.
 
+## 585. A50 batch 1 (MNQ intraday): 2 of 6 carried; both WATCHLIST (S1)
+
+**N 1,501.** `reports/a50_discovery.json` (module `reporting/a50_stratlib.py`). Discovery, net bps a trade 2021–24 (2010–20): ORB15 +1.08
+(−1.57); ORB30 +3.55 (−5.72, t −3.1); VB0.3 +3.41 (+0.55); **VB0.5 +7.08, t 2.04** (+2.22); **FH +7.25, t 2.47** (−2.88); **overnight
+long +0.26, t 0.11 (2010–20 +4.01, t 3.47) — the 'night effect' in NQ, strong before 2021, has gone.** Validated once:
+- **D718** MNQ VB0.5: **WATCHLIST** +5.87 (t +1.25), placebo 91th, 2025 +9.5, 2026 +0.2
+- **D719** MNQ FH: **WATCHLIST** +2.53 (t +0.55), placebo 77th, 2025 +3.0, 2026 +1.9
+
+No account replay (neither confirmed). Classic MNQ intraday breakout / momentum rules carry nothing tradable in the current regime.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

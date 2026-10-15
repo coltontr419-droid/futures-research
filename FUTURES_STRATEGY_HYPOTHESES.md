@@ -3580,3 +3580,11 @@ Data-derived (D-series family 165). `hypotheses.yaml` (D716) · `decisions.md` �
 ## D717 — Cl Follows 6L F 1D Strong  *(WATCHLIST — t01499)*
 
 Data-derived (D-series family 166). `hypotheses.yaml` (D717) · `decisions.md` §574
+
+## D718 — Mnq Vb05 Intraday Strategy  *(WATCHLIST — t01500)*
+
+Data-derived (D-series family A50). `hypotheses.yaml` (D718) · `decisions.md` §585
+
+## D719 — Mnq Fh Intraday Strategy  *(WATCHLIST — t01501)*
+
+Data-derived (D-series family A50). `hypotheses.yaml` (D719) · `decisions.md` §585

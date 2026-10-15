@@ -1,0 +1,27 @@
+{
+ "hypothesis": "D719",
+ "cell": "MNQ FH intraday strategy",
+ "trades": 420,
+ "net_bps": 2.5275678634643555,
+ "t_net": 0.5483495593070984,
+ "placebo_pct": 77.0,
+ "by_year": {
+  "2025": 2.954380989074707,
+  "2026": 1.8809608221054077
+ },
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 732,
+ "injection": {
+  "hypothesis": "D719",
+  "n_events": 420,
+  "sought_bps": 3.6229190826416016,
+  "mean_estimate": 3.642486572265625,
+  "recovered": true
+ },
+ "trial_id": "t01501"
+}

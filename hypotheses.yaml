@@ -44981,3 +44981,115 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 730.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D718
+  name: mnq_vb05_intraday_strategy
+  mechanism: >
+    DATA-DERIVED (A50 strategy library, decisions.md 584-585): MNQ enters on the first touch of the RTH open +/- 0.5 x the previous RTH range, in the touch's direction, holding to 16:00.
+    2021-2024 +7.08 bps a trade (t +2.04, n 758); 2010-20 +2.22 (context).
+    THE COUNTERPARTY: late-reacting intraday flow that extends an early move.
+  condition: >
+    Each RTH session: MNQ enters on the first touch of the RTH open +/- 0.5 x the previous RTH range, in the touch's direction, holding to 16:00.
+  horizon_minutes: [390]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01500 (decisions.md 585), WATCHLIST on sealed 2023-2026: 325 trades; net +5.87 bps (t +1.25); placebo 91th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/a50_stratlib.py
+    injected_bps: 3.541
+    sought_bps: 3.541
+    n_injection: 325
+    n_run: 325
+    recovered: true
+    report: reports/d718_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 752
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-A50 scan (6 tests, decisions.md 585). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (random directions on the same entries), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 731.
+  s6_control: By year; random directions on the same entries.
+- id: D719
+  name: mnq_fh_intraday_strategy
+  mechanism: >
+    DATA-DERIVED (A50 strategy library, decisions.md 584-585): MNQ takes the sign of its 09:30 -> 10:30 move at 10:30, holding to 16:00.
+    2021-2024 +7.25 bps a trade (t +2.47, n 1016); 2010-20 -2.88 (context).
+    THE COUNTERPARTY: late-reacting intraday flow that extends an early move.
+  condition: >
+    Each RTH session: MNQ takes the sign of its 09:30 -> 10:30 move at 10:30, holding to 16:00.
+  horizon_minutes: [390]
+  hold_hours: [6.45, 6.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01501 (decisions.md 585), WATCHLIST on sealed 2023-2026: 420 trades; net +2.53 bps (t +0.55); placebo 77th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/a50_stratlib.py
+    injected_bps: 3.623
+    sought_bps: 3.623
+    n_injection: 420
+    n_run: 420
+    recovered: true
+    report: reports/d719_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 753
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-A50 scan (6 tests, decisions.md 585). ONE TRIAL.
+  session: RTH
+  symbols: [MNQ]
+  mechanism_instruments:
+    primary: MNQ
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (random directions on the same entries), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 732.
+  s6_control: By year; random directions on the same entries.
