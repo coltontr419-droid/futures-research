@@ -12381,6 +12381,16 @@ at a realistic 4 bps cost (1 tick + commission on HE): following GC's 5-day sign
 nothing; no mechanism ties hog prices to precious metals. Two good years either side of two flat ones, reversed before 2021, no
 replication across metals: **noise, not proposed.** The rest of family 144 is at chance (59 vs 49.6 carried).
 
+## 521. D-series family 145 protocol: one wide ridge model per plan window, current regime (S1)
+
+**No trial spent; N 1,302. Written and committed BEFORE any model is fitted.** Single predictors are exhausted; a model may pool many
+weak ones. Per plan window: features = each eligible family-111 predictor's previous-weekday 1-day move and previous-5-weekday sum, each
+scaled by its 2021–24 median absolute value and clipped at ±5 (missing = 0); ridge regression of the window's bps on the features, penalty
+from {1, 10, 100, 1000, 10000} by leave-one-year-out CV on 2021–24 (Sharpe of sign(prediction) × y − cost), refit on all of 2021–24, frozen.
+**Six tests (one per window)**, each validated ONCE on sealed 2025-01 → 2026-08: trade sign(prediction) every session; §426, 2 rule
+(placebo: the predicted signs shuffled across the sealed sessions). A CONFIRM then needs the §446/§453 account replay against random flips.
+No discovery carry gate: all six are validated (one trial each).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
