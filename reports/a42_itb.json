@@ -1,0 +1,88 @@
+{
+ "overlay": {
+  "NKD pre | plan": {
+   "p_payout": 0.6692857142857143,
+   "mean_net": 1188.770786428572
+  },
+  "NKD pre | dollar-week (deployed)": {
+   "p_payout": 0.7928571428571428,
+   "mean_net": 3258.0969499999997,
+   "short_share": 0.49326145552560646,
+   "random_mean": 3021.49015655,
+   "beats_random_pct": 62.0
+  },
+  "NKD pre | ITB 5d (D551)": {
+   "p_payout": 0.7114285714285714,
+   "mean_net": 2656.6413978571427,
+   "short_share": 0.45754716981132076,
+   "random_mean": 2972.007635128572,
+   "beats_random_pct": 44.0
+  },
+  "NKD pre | ITB + dollar-week": {
+   "p_payout": 0.7271428571428571,
+   "mean_net": 2719.0175378571425,
+   "short_share": 0.4858490566037736,
+   "random_mean": 3074.831273657143,
+   "beats_random_pct": 40.0
+  },
+  "NKD post | plan": {
+   "p_payout": 0.7384276267450404,
+   "mean_net": 2763.184848640705,
+   "mean_net_2025_starts": 3205.726969359331,
+   "p_payout_2025_starts": 0.8495821727019499
+  },
+  "NKD post | dollar-week (deployed)": {
+   "p_payout": 0.9243203526818515,
+   "mean_net": 6136.018421748715,
+   "short_share": 0.5141868512110727,
+   "random_mean": 2794.938527531227,
+   "beats_random_pct": 100.0,
+   "mean_net_2025_starts": 8039.956356545962,
+   "p_payout_2025_starts": 0.9498607242339833
+  },
+  "NKD post | ITB 5d (D551)": {
+   "p_payout": 0.8111682586333578,
+   "mean_net": 3572.5806958119033,
+   "short_share": 0.4865051903114187,
+   "random_mean": 2962.9668592578987,
+   "beats_random_pct": 71.0,
+   "mean_net_2025_starts": 2934.0419220055705,
+   "p_payout_2025_starts": 0.9415041782729805
+  },
+  "NKD post | ITB + dollar-week": {
+   "p_payout": 0.9125642909625276,
+   "mean_net": 4658.755361498898,
+   "short_share": 0.49273356401384083,
+   "random_mean": 2711.9499534900806,
+   "beats_random_pct": 97.0,
+   "mean_net_2025_starts": 3494.599448467966,
+   "p_payout_2025_starts": 0.924791086350975
+  },
+  "ZS pre | plan": {
+   "p_payout": 0.6966082743197913,
+   "mean_net": 3061.4710436079013
+  },
+  "ZS pre | IBB 1d (D552)": {
+   "p_payout": 0.6589638464405516,
+   "mean_net": 1592.839800969064,
+   "short_share": 0.4748825442717745,
+   "random_mean": 1958.0166437495336,
+   "beats_random_pct": 24.0
+  },
+  "ZS post | plan": {
+   "p_payout": 0.8565121412803532,
+   "mean_net": 3309.9907505518768,
+   "mean_net_2025_starts": 1703.1076553672322,
+   "p_payout_2025_starts": 0.9293785310734464
+  },
+  "ZS post | IBB 1d (D552)": {
+   "p_payout": 0.8285504047093452,
+   "mean_net": 4146.324238410598,
+   "short_share": 0.4663894663894664,
+   "random_mean": 1938.327758211921,
+   "beats_random_pct": 100.0,
+   "mean_net_2025_starts": 5129.067861581922,
+   "p_payout_2025_starts": 0.7909604519774012
+  }
+ }
+}

@@ -12483,6 +12483,18 @@ Validation per §426, 2; a CONFIRM then needs the §446/§453 stress tests.
 Next: A42 account replay (NKD: ITB alone and ITB + dollar-week; ZS: IBB) against random flips. The combination's equal weights are fixed
 in advance (scaled 5-day moves summed, no fitting), but it is chosen after seeing 2025–26 — disclosed; it is judged mainly on 2010–20.
 
+## 525. A42: family 146's CONFIRMs in the account — neither proposed (S1)
+
+**No trial; N 1,369.** `reports/a42_itb.json` (module `reporting/a42_itb.py`); 50K Daily replays vs random flips at the same short share.
+- **NKD ← ITB 5-day (D551):** pre-2021 +$2,657 vs random +$2,972 (beats 44%); post-2021 +$3,573 vs +$2,963 (71%); 2025 starts +$2,934 —
+  below the plan's +$3,206. **ITB + dollar-week** (equal scaled weights): post-2021 +$4,659 (97%), 2025 starts +$3,495 — **worse than the
+  deployed dollar-week rule alone** (+$6,136; 2025 starts +$8,040, P(payout) 95%, beats 100% of random flips on 2025 starts, re-checked).
+  ITB's every-period bps consistency does not survive the brackets. Not proposed; the deployed rule stays.
+- **ZS ← IBB 1-day (D552):** 2025 starts +$5,129 (P(payout) 79%) vs plan +$1,703 (93%) and random +$1,288 — beats 100% (200 draws).
+  But the **sibling XBI fails on 2025 starts (+$1,006, beats 46%)**, broad risk proxies (ES, RTY, XLY) beat 34–77%, pre-2021 it loses
+  (beats 24%), 2024 is negative and no mechanism links biotech to soybeans. One ETF of 25 new series, chosen from 55 carries: read as
+  chance. **Not proposed**; kept on the watchlist record as D552 CONFIRMED (forward-test only if the user wants a ZS rule).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
