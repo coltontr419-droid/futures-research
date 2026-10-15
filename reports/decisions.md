@@ -13143,6 +13143,14 @@ HistData window paths; their within-era linear drift adjustment is a few bps ove
 Costs (bps a round trip): MGC 0.8, DAX 0.3, NKD 0.2, 6E 0.3, 6B 0.5, 6A 0.6, 6J 0.5, SI 0.5. **8 × 5 = 40 tests** (~1 by chance at
 t > 1.96); validation and account replay as §584.
 
+## 587. A51 batch 2: intraday breakout / momentum rules on eight markets — 0 of 40 carried (S1)
+
+**N 1,501 (no trial).** `reports/a51_discovery.json` (module `reporting/a51_stratlib2.py`). No cell reaches t 1.96 on 2021–24. Gold, silver
+and the currencies are flat or negative under every rule (silver VB0.5 −8.9, t −2.1). Of note (not carried, not a test): **NKD breakouts
+lean positive in both periods** — VB0.5 +3.75 (t 1.57) 2021–24, +8.60 (t 3.48) 2010–20; VB0.3 +2.99 / +8.47; ORB15 +3.85 / +2.94 — the
+Nikkei's intraday trend persistence, weaker since 2021. With batch 1 (§585): classic mechanical intraday rules (opening-range and
+volatility breakouts, first-hour momentum, overnight drift) carry nothing tradable on the plan's markets in the current regime.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
