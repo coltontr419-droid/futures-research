@@ -13218,6 +13218,12 @@ in each exchange's local clock and converted to New York: **DAX** (grxeur) 10:00
 15:00 JST, predictors EUR/USD and USD/JPY over the Tokyo morning 09:00 → 11:30 JST. Follow/fade fixed on 2021–24; forms all / strong.
 **4 × 2 = 8 tests** (~0.2 by chance at t > 1.96). Costs: DAX 0.3, MGC 0.8, NKD 0.2. Validation per §426, 2.
 
+## 595. Family-170: the dollar theme intraday — 0 of 8 carried (S1)
+
+**N 1,508 (no trial).** `reports/d170_discovery.json` (module `reporting/d170_intradollar.py`). The dollar's first-hour move says nothing about
+the rest of the DAX, gold or Nikkei window (best: NKD's afternoon fades the euro's Tokyo morning, +2.1 bps, t 1.84). The deployed rules'
+dollar effect works across sessions (the previous day / week), not within one.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
