@@ -12531,6 +12531,14 @@ One CONFIRM (D591, NKD's whole session fades the Australian dollar's strong days
 6A all-days) are negative in 2025 and the cell is 2026-driven. Not stress-tested further: the plan windows already carry the dollar theme
 more steadily (§466–§468). At chance overall.
 
+## 528. D-series family 148 protocol: currency crosses (carry and euro crosses) as every-day predictors, current regime (S1)
+
+**No trial spent; N 1,388. Written and committed BEFORE any statistic is computed.** Crosses from CME currency futures' open → close
+moves (all close before 18:00 ET): **carry** AUD/JPY (6A − 6J), NZD/JPY (6N − 6J), MXN/JPY (6M − 6J), AUD/CHF (6A − 6S), CAD/JPY (6C − 6J);
+**euro crosses** EUR/JPY (6E − 6J), EUR/CHF (6E − 6S), EUR/GBP (6E − 6B). Previous weekday's sign (1-day) and previous 5 weekdays' sum
+(5-day) into the six plan windows; forms all / strong; follow/fade fixed on 2021–24. **8 × 2 × 6 × 2 = 192 tests** (~4.8 by chance at
+t > 1.96). Costs §177/§180. Validation per §426, 2; a CONFIRM then needs the §446/§453 stress tests.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
