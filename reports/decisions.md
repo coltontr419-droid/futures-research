@@ -12730,6 +12730,13 @@ only** (highest per-trade Sharpe); read once on 2025–26 and 2010–20. A short
   post-2021 all starts +$4,337 vs +$6,136; pre-2021 +$2,264 vs +$3,258. The brackets need the afternoon's swing even though it carries no edge.
   **Not adopted.** Kept as an understanding of the rule: if the forward record weakens, check the morning first.
 
+## 547. The dollar-week rule on NKD's whole Globex session — worse than the deployed Tokyo window (S1)
+
+**No trial; N 1,435.** Descriptive replay (Yahoo NKD=F session bars → 3-point paths, drift removed, 1 NKD, plan brackets): post-2021 the rule
+makes +$2,496 (beats 41% of random flips); 2025 starts +$4,210 (P(payout) 90%, beats 78%) vs the deployed Tokyo window's +$8,040. With §546:
+the deployed 09:00–15:00 Tokyo window is the best of the three lengths tried (morning, Tokyo day, whole Globex) — enough swing for the
+brackets, and the edge concentrated in it.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
