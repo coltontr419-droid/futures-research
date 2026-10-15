@@ -13134,6 +13134,15 @@ long +0.26, t 0.11 (2010–20 +4.01, t 3.47) — the 'night effect' in NQ, stron
 
 No account replay (neither confirmed). Classic MNQ intraday breakout / momentum rules carry nothing tradable in the current regime.
 
+## 586. A51 protocol: strategy library batch 2 — the same intraday rules on eight more markets (S1)
+
+**No trial spent; N 1,501. Written and committed BEFORE any statistic is computed.** Batch 1's rules (ORB15, ORB30, VB0.3, VB0.5, FH;
+the overnight rule is MNQ-specific) on each market's main session, minute closes: **MGC** London 03:00 → 11:30 ET (owned trades);
+**DAX** 09:00 → 17:30 Berlin, **NKD** 09:00 → 15:00 Tokyo, **6E / 6B / 6A / 6J** 08:00 → 16:00 London, **SI** 08:25 → 13:25 ET (A21's
+HistData window paths; their within-era linear drift adjustment is a few bps over a window — negligible for these signals, disclosed).
+Costs (bps a round trip): MGC 0.8, DAX 0.3, NKD 0.2, 6E 0.3, 6B 0.5, 6A 0.6, 6J 0.5, SI 0.5. **8 × 5 = 40 tests** (~1 by chance at
+t > 1.96); validation and account replay as §584.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
