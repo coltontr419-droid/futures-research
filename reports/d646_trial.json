@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D646",
+ "cell": "brent_ny follows NG=F 5d (strong)",
+ "trades": 165,
+ "net_bps": -5.563419656160719,
+ "t_net": -0.4093396474733196,
+ "placebo_pct": 38.0,
+ "by_year": {
+  "2025": -11.986377224577563,
+  "2026": 7.282495480672972
+ },
+ "always_long_net_bps": 4.312678642787434,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 658,
+ "injection": {
+  "hypothesis": "D646",
+  "n_events": 165,
+  "sought_bps": 7.329999768999082,
+  "mean_estimate": 7.642456371796089,
+  "recovered": true
+ },
+ "trial_id": "t01428"
+}

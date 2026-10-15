@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D627",
+ "cell": "brent_ny fades CLP=X 1d (all)",
+ "trades": 365,
+ "net_bps": -3.7163249814088974,
+ "t_net": -0.46970154778386486,
+ "placebo_pct": 35.9,
+ "by_year": {
+  "2025": -5.130485006302544,
+  "2026": -1.5707028746737142
+ },
+ "always_long_net_bps": 4.094759170861377,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 639,
+ "injection": {
+  "hypothesis": "D627",
+  "n_events": 365,
+  "sought_bps": 7.304256728335866,
+  "mean_estimate": 7.72963763289351,
+  "recovered": true
+ },
+ "trial_id": "t01409"
+}

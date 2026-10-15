@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D641",
+ "cell": "brent_ny follows XLF 1d (all)",
+ "trades": 399,
+ "net_bps": -10.700119390686261,
+ "t_net": -1.345664953372881,
+ "placebo_pct": 9.8,
+ "by_year": {
+  "2025": 5.025371397835221,
+  "2026": -33.946497078065846
+ },
+ "always_long_net_bps": 4.14315266382366,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 653,
+ "injection": {
+  "hypothesis": "D641",
+  "n_events": 399,
+  "sought_bps": 5.214612319073083,
+  "mean_estimate": 5.120129935355281,
+  "recovered": true
+ },
+ "trial_id": "t01423"
+}

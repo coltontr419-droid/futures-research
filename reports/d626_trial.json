@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D626",
+ "cell": "brent_ny follows COP=X 1d (strong)",
+ "trades": 220,
+ "net_bps": -1.9136549661533861,
+ "t_net": -0.1602335705695282,
+ "placebo_pct": 43.2,
+ "by_year": {
+  "2025": -1.1821893647001769,
+  "2026": -2.6451205676065968
+ },
+ "always_long_net_bps": 6.525101874037533,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 638,
+ "injection": {
+  "hypothesis": "D626",
+  "n_events": 220,
+  "sought_bps": 9.822188103812593,
+  "mean_estimate": 9.844412866771213,
+  "recovered": true
+ },
+ "trial_id": "t01408"
+}

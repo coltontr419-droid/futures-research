@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D642",
+ "cell": "brent_ny follows COP=X 1d (all)",
+ "trades": 400,
+ "net_bps": -2.4690267948831712,
+ "t_net": -0.3111737215294877,
+ "placebo_pct": 38.1,
+ "by_year": {
+  "2025": -2.0642132613043875,
+  "2026": -3.069961170816894
+ },
+ "always_long_net_bps": 3.8763330927164557,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 654,
+ "injection": {
+  "hypothesis": "D642",
+  "n_events": 400,
+  "sought_bps": 5.154948506987471,
+  "mean_estimate": 5.341286985575336,
+  "recovered": true
+ },
+ "trial_id": "t01424"
+}

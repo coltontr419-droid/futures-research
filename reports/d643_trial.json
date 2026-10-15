@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D643",
+ "cell": "brent_ny follows NKD=F 1d (all)",
+ "trades": 401,
+ "net_bps": -9.024727558574396,
+ "t_net": -1.1397198517707703,
+ "placebo_pct": 13.900000000000002,
+ "by_year": {
+  "2025": -11.200464129011998,
+  "2026": -5.74752434935275
+ },
+ "always_long_net_bps": 4.408732588399304,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 655,
+ "injection": {
+  "hypothesis": "D643",
+  "n_events": 401,
+  "sought_bps": 5.106295712689008,
+  "mean_estimate": 4.9560934875002,
+  "recovered": true
+ },
+ "trial_id": "t01425"
+}

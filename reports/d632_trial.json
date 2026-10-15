@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D632",
+ "cell": "brent_ny follows BG 5d (all)",
+ "trades": 401,
+ "net_bps": -0.20670590574533557,
+ "t_net": -0.0260697811357614,
+ "placebo_pct": 53.800000000000004,
+ "by_year": {
+  "2025": -13.015399220243507,
+  "2026": 18.886998414003497
+ },
+ "always_long_net_bps": 4.330972785742111,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 644,
+ "injection": {
+  "hypothesis": "D632",
+  "n_events": 401,
+  "sought_bps": 5.6519946646697585,
+  "mean_estimate": 5.4329558206437065,
+  "recovered": true
+ },
+ "trial_id": "t01414"
+}

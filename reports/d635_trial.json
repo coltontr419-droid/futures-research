@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D635",
+ "cell": "brent_london fades CLP=X 1d (all)",
+ "trades": 372,
+ "net_bps": 11.402312823521079,
+ "t_net": 1.4165013211686408,
+ "placebo_pct": 94.19999999999999,
+ "by_year": {
+  "2025": -0.7206347156255287,
+  "2026": 29.95784477119446
+ },
+ "always_long_net_bps": -2.854292936371543,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 647,
+ "injection": {
+  "hypothesis": "D635",
+  "n_events": 372,
+  "sought_bps": 4.195616608460859,
+  "mean_estimate": 4.370755782919308,
+  "recovered": true
+ },
+ "trial_id": "t01417"
+}

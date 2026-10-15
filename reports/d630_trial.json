@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D630",
+ "cell": "brent_london follows XLF 5d (all)",
+ "trades": 411,
+ "net_bps": 4.0305795297169595,
+ "t_net": 0.5345744845093018,
+ "placebo_pct": 76.2,
+ "by_year": {
+  "2025": 4.04342710464488,
+  "2026": 4.011229828453568
+ },
+ "always_long_net_bps": -2.97760506100331,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 642,
+ "injection": {
+  "hypothesis": "D630",
+  "n_events": 411,
+  "sought_bps": 4.250353241068178,
+  "mean_estimate": 3.945200360274071,
+  "recovered": true
+ },
+ "trial_id": "t01412"
+}

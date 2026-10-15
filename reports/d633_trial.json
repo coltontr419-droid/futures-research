@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D633",
+ "cell": "brent_ny fades ZAR=X 1d (all)",
+ "trades": 364,
+ "net_bps": -6.555715839165604,
+ "t_net": -0.8276718797029874,
+ "placebo_pct": 24.099999999999998,
+ "by_year": {
+  "2025": -12.5839585982264,
+  "2026": 2.4453589654594223
+ },
+ "always_long_net_bps": 3.93079705343792,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 645,
+ "injection": {
+  "hypothesis": "D633",
+  "n_events": 364,
+  "sought_bps": 6.008305170487822,
+  "mean_estimate": 6.042945433704424,
+  "recovered": true
+ },
+ "trial_id": "t01415"
+}

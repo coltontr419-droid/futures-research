@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D636",
+ "cell": "brent_ny follows DFII10 1d (strong)",
+ "trades": 147,
+ "net_bps": 14.405472904795678,
+ "t_net": 1.0710663716014603,
+ "placebo_pct": 86.1,
+ "by_year": {
+  "2025": 9.04181445778658,
+  "2026": 24.810970291993332
+ },
+ "always_long_net_bps": 17.901560018325135,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": true
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 648,
+ "injection": {
+  "hypothesis": "D636",
+  "n_events": 147,
+  "sought_bps": 8.153129356032201,
+  "mean_estimate": 8.020160964386461,
+  "recovered": true
+ },
+ "trial_id": "t01418"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D634",
+ "cell": "brent_london fades T10YIE 5d (strong)",
+ "trades": 83,
+ "net_bps": -0.9926484566318426,
+ "t_net": -0.04920854071271735,
+ "placebo_pct": 48.8,
+ "by_year": {
+  "2025": -36.333203623285705,
+  "2026": 52.553647250419466
+ },
+ "always_long_net_bps": -34.49835856532477,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 646,
+ "injection": {
+  "hypothesis": "D634",
+  "n_events": 83,
+  "sought_bps": 6.346558943091447,
+  "mean_estimate": 6.051477635752466,
+  "recovered": true
+ },
+ "trial_id": "t01416"
+}

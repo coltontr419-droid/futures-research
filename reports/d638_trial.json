@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D638",
+ "cell": "brent_ny follows AUDUSD=X 1d (strong)",
+ "trades": 153,
+ "net_bps": 1.6684371761606764,
+ "t_net": 0.11507085951300948,
+ "placebo_pct": 56.49999999999999,
+ "by_year": {
+  "2025": 3.8563001030758035,
+  "2026": -1.06639148248324
+ },
+ "always_long_net_bps": -2.2375428889692968,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "WATCHLIST",
+ "z_d_market_test_number": 650,
+ "injection": {
+  "hypothesis": "D638",
+  "n_events": 153,
+  "sought_bps": 8.468750269587847,
+  "mean_estimate": 7.989505740641251,
+  "recovered": true
+ },
+ "trial_id": "t01420"
+}

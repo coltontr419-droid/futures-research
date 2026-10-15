@@ -3212,3 +3212,87 @@ Data-derived (D-series family 150). `hypotheses.yaml` (D624) · `decisions.md` �
 ## D625 — Mnq Follows Jp Curve 1D Strong  *(REJECT — t01407)*
 
 Data-derived (D-series family 150). `hypotheses.yaml` (D625) · `decisions.md` §535
+
+## D626 — Brent Ny Follows Cop X 1D Strong  *(REJECT — t01408)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D626) · `decisions.md` §537
+
+## D627 — Brent Ny Fades Clp X 1D All  *(REJECT — t01409)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D627) · `decisions.md` §537
+
+## D628 — Brent Ny Fades Krw X 1D Strong  *(REJECT — t01410)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D628) · `decisions.md` §537
+
+## D629 — Brent Ny Follows Gc F 1D All  *(REJECT — t01411)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D629) · `decisions.md` §537
+
+## D630 — Brent London Follows Xlf 5D All  *(WATCHLIST — t01412)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D630) · `decisions.md` §537
+
+## D631 — Brent Ny Fades Krw X 1D All  *(REJECT — t01413)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D631) · `decisions.md` §537
+
+## D632 — Brent Ny Follows Bg 5D All  *(REJECT — t01414)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D632) · `decisions.md` §537
+
+## D633 — Brent Ny Fades Zar X 1D All  *(REJECT — t01415)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D633) · `decisions.md` §537
+
+## D634 — Brent London Fades T10Yie 5D Strong  *(REJECT — t01416)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D634) · `decisions.md` §537
+
+## D635 — Brent London Fades Clp X 1D All  *(WATCHLIST — t01417)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D635) · `decisions.md` §537
+
+## D636 — Brent Ny Follows Dfii10 1D Strong  *(WATCHLIST — t01418)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D636) · `decisions.md` §537
+
+## D637 — Brent Ny Fades Clp X 1D Strong  *(REJECT — t01419)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D637) · `decisions.md` §537
+
+## D638 — Brent Ny Follows Audusd X 1D Strong  *(WATCHLIST — t01420)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D638) · `decisions.md` §537
+
+## D639 — Brent Ny Follows Ng F 5D All  *(REJECT — t01421)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D639) · `decisions.md` §537
+
+## D640 — Brent Ny Fades Brl X 1D Strong  *(REJECT — t01422)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D640) · `decisions.md` §537
+
+## D641 — Brent Ny Follows Xlf 1D All  *(REJECT — t01423)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D641) · `decisions.md` §537
+
+## D642 — Brent Ny Follows Cop X 1D All  *(REJECT — t01424)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D642) · `decisions.md` §537
+
+## D643 — Brent Ny Follows Nkd F 1D All  *(REJECT — t01425)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D643) · `decisions.md` §537
+
+## D644 — Brent London Follows Kre 1D All  *(REJECT — t01426)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D644) · `decisions.md` §537
+
+## D645 — Brent Ny Follows Pl F 1D Strong  *(REJECT — t01427)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D645) · `decisions.md` §537
+
+## D646 — Brent Ny Follows Ng F 5D Strong  *(REJECT — t01428)*
+
+Data-derived (D-series family 151). `hypotheses.yaml` (D646) · `decisions.md` §537

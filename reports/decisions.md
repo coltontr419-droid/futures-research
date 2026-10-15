@@ -12621,6 +12621,33 @@ rows ≥ 80% filled. Predictors: family 111's list incl. spot currencies (all cl
 (1-day) and previous 5 weekdays' sum (5-day); forms all / strong; follow/fade fixed on 2021–24; cost 0.7. Carried at net > 0, t > 1.96.
 Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests (incl. whether WTI follows where data exist) and an MCL replay on the window.
 
+## 537. Family-151: crude's other windows — 21 of 568 carried (≈ 14.2 by chance); none confirmed (S1)
+
+**N 1,428.** `reports/d151_discovery.json` (module `reporting/d151_crudewin.py`):
+- **D626** brent_ny follows COP=X 1d (strong): **REJECT** -1.91 (t -0.16), placebo 43th, 2025 -1.2, 2026 -2.6
+- **D627** brent_ny fades CLP=X 1d (all): **REJECT** -3.72 (t -0.47), placebo 36th, 2025 -5.1, 2026 -1.6
+- **D628** brent_ny fades KRW=X 1d (strong): **REJECT** -14.88 (t -1.13), placebo 12th, 2025 -25.7, 2026 +0.8
+- **D629** brent_ny follows GC=F 1d (all): **REJECT** -4.92 (t -0.62), placebo 27th, 2025 +1.4, 2026 -14.4
+- **D630** brent_london follows XLF 5d (all): **WATCHLIST** +4.03 (t +0.53), placebo 76th, 2025 +4.0, 2026 +4.0
+- **D631** brent_ny fades KRW=X 1d (all): **REJECT** -15.48 (t -1.98), placebo 3th, 2025 -10.4, 2026 -23.2
+- **D632** brent_ny follows BG 5d (all): **REJECT** -0.21 (t -0.03), placebo 54th, 2025 -13.0, 2026 +18.9
+- **D633** brent_ny fades ZAR=X 1d (all): **REJECT** -6.56 (t -0.83), placebo 24th, 2025 -12.6, 2026 +2.4
+- **D634** brent_london fades T10YIE 5d (strong): **REJECT** -0.99 (t -0.05), placebo 49th, 2025 -36.3, 2026 +52.6
+- **D635** brent_london fades CLP=X 1d (all): **WATCHLIST** +11.40 (t +1.42), placebo 94th, 2025 -0.7, 2026 +30.0
+- **D636** brent_ny follows DFII10 1d (strong): **WATCHLIST** +14.41 (t +1.07), placebo 86th, 2025 +9.0, 2026 +24.8
+- **D637** brent_ny fades CLP=X 1d (strong): **REJECT** -10.78 (t -0.66), placebo 25th, 2025 -12.2, 2026 -8.4
+- **D638** brent_ny follows AUDUSD=X 1d (strong): **WATCHLIST** +1.67 (t +0.12), placebo 56th, 2025 +3.9, 2026 -1.1
+- **D639** brent_ny follows NG=F 5d (all): **REJECT** -5.00 (t -0.63), placebo 34th, 2025 -6.6, 2026 -2.5
+- **D640** brent_ny fades BRL=X 1d (strong): **REJECT** -20.37 (t -1.38), placebo 12th, 2025 -20.8, 2026 -19.6
+- **D641** brent_ny follows XLF 1d (all): **REJECT** -10.70 (t -1.35), placebo 10th, 2025 +5.0, 2026 -33.9
+- **D642** brent_ny follows COP=X 1d (all): **REJECT** -2.47 (t -0.31), placebo 38th, 2025 -2.1, 2026 -3.1
+- **D643** brent_ny follows NKD=F 1d (all): **REJECT** -9.02 (t -1.14), placebo 14th, 2025 -11.2, 2026 -5.7
+- **D644** brent_london follows KRE 1d (all): **REJECT** -1.37 (t -0.18), placebo 47th, 2025 -0.7, 2026 -2.4
+- **D645** brent_ny follows PL=F 1d (strong): **REJECT** -2.35 (t -0.23), placebo 41th, 2025 -0.7, 2026 -4.3
+- **D646** brent_ny follows NG=F 5d (strong): **REJECT** -5.56 (t -0.41), placebo 38th, 2025 -12.0, 2026 +7.3
+
+Crude is unpredictable from yesterday's cross-asset moves in every window tried (whole session, London morning, New York).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

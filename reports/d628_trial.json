@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D628",
+ "cell": "brent_ny fades KRW=X 1d (strong)",
+ "trades": 181,
+ "net_bps": -14.878737243412523,
+ "t_net": -1.1316973609746441,
+ "placebo_pct": 12.1,
+ "by_year": {
+  "2025": -25.732067060637743,
+  "2026": 0.8145910058185368
+ },
+ "always_long_net_bps": 22.15824525527649,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 640,
+ "injection": {
+  "hypothesis": "D628",
+  "n_events": 181,
+  "sought_bps": 11.266180658162925,
+  "mean_estimate": 11.247272817608707,
+  "recovered": true
+ },
+ "trial_id": "t01410"
+}

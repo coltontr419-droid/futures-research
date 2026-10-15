@@ -39829,3 +39829,1179 @@
       decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
       else WATCHLIST if net > 0; else REJECT. Z and D market-test 637.
   s6_control: By year; signs shuffled across the sealed sessions.
+- id: D626
+  name: brent_ny_follows_cop_x_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of COP=X's previous 1-day move (strong): 2021-2024 +19.64 bps (t +2.78, n 439);
+    2010-20 -1.84 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of COP=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01408 (decisions.md 537), REJECT on sealed 2023-2026: 220 trades; net -1.91 bps (t -0.16); placebo 43th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 9.822
+    sought_bps: 9.822
+    n_injection: 220
+    n_run: 220
+    recovered: true
+    report: reports/d626_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 660
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 638.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D627
+  name: brent_ny_fades_clp_x_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    fades the sign of CLP=X's previous 1-day move (all): 2021-2024 +14.61 bps (t +2.68, n 794);
+    2010-20 +7.35 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to fade the sign of CLP=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01409 (decisions.md 537), REJECT on sealed 2023-2026: 365 trades; net -3.72 bps (t -0.47); placebo 36th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 7.304
+    sought_bps: 7.304
+    n_injection: 365
+    n_run: 365
+    recovered: true
+    report: reports/d627_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 661
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 639.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D628
+  name: brent_ny_fades_krw_x_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    fades the sign of KRW=X's previous 1-day move (strong): 2021-2024 +22.53 bps (t +2.66, n 389);
+    2010-20 +4.12 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to fade the sign of KRW=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01410 (decisions.md 537), REJECT on sealed 2023-2026: 181 trades; net -14.88 bps (t -1.13); placebo 12th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 11.266
+    sought_bps: 11.266
+    n_injection: 181
+    n_run: 181
+    recovered: true
+    report: reports/d628_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 662
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 640.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D629
+  name: brent_ny_follows_gc_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of GC=F's previous 1-day move (all): 2021-2024 +12.24 bps (t +2.39, n 867);
+    2010-20 +2.90 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of GC=F's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01411 (decisions.md 537), REJECT on sealed 2023-2026: 402 trades; net -4.92 bps (t -0.62); placebo 27th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 6.119
+    sought_bps: 6.119
+    n_injection: 402
+    n_run: 402
+    recovered: true
+    report: reports/d629_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 663
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 641.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D630
+  name: brent_london_follows_xlf_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's London morning (Brent proxy, 03:00-09:00 ET)
+    follows the sign of XLF's previous 5-day move (all): 2021-2024 +8.50 bps (t +2.27, n 926);
+    2010-20 +0.83 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's London morning (Brent proxy, 03:00-09:00 ET) to follow the sign of XLF's previous 5-day move.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01412 (decisions.md 537), WATCHLIST on sealed 2023-2026: 411 trades; net +4.03 bps (t +0.53); placebo 76th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 4.250
+    sought_bps: 4.250
+    n_injection: 411
+    n_run: 411
+    recovered: true
+    report: reports/d630_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 664
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: Europe
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 642.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D631
+  name: brent_ny_fades_krw_x_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    fades the sign of KRW=X's previous 1-day move (all): 2021-2024 +12.10 bps (t +2.22, n 799);
+    2010-20 +2.31 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to fade the sign of KRW=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01413 (decisions.md 537), REJECT on sealed 2023-2026: 367 trades; net -15.48 bps (t -1.98); placebo 3th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 6.050
+    sought_bps: 6.050
+    n_injection: 367
+    n_run: 367
+    recovered: true
+    report: reports/d631_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 665
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 643.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D632
+  name: brent_ny_follows_bg_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of BG's previous 5-day move (all): 2021-2024 +11.30 bps (t +2.21, n 867);
+    2010-20 +1.64 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of BG's previous 5-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01414 (decisions.md 537), REJECT on sealed 2023-2026: 401 trades; net -0.21 bps (t -0.03); placebo 54th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 5.652
+    sought_bps: 5.652
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d632_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 666
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 644.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D633
+  name: brent_ny_fades_zar_x_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    fades the sign of ZAR=X's previous 1-day move (all): 2021-2024 +12.02 bps (t +2.20, n 799);
+    2010-20 +5.58 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to fade the sign of ZAR=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01415 (decisions.md 537), REJECT on sealed 2023-2026: 364 trades; net -6.56 bps (t -0.83); placebo 24th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 6.008
+    sought_bps: 6.008
+    n_injection: 364
+    n_run: 364
+    recovered: true
+    report: reports/d633_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 667
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 645.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D634
+  name: brent_london_fades_t10yie_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's London morning (Brent proxy, 03:00-09:00 ET)
+    fades the sign of T10YIE's previous 5-day move (strong): 2021-2024 +12.69 bps (t +2.14, n 419);
+    2010-20 -6.34 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's London morning (Brent proxy, 03:00-09:00 ET) to fade the sign of T10YIE's previous 5-day move.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01416 (decisions.md 537), REJECT on sealed 2023-2026: 83 trades; net -0.99 bps (t -0.05); placebo 49th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 6.347
+    sought_bps: 6.347
+    n_injection: 83
+    n_run: 83
+    recovered: true
+    report: reports/d634_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 668
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: Europe
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 646.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D635
+  name: brent_london_fades_clp_x_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's London morning (Brent proxy, 03:00-09:00 ET)
+    fades the sign of CLP=X's previous 1-day move (all): 2021-2024 +8.39 bps (t +2.12, n 841);
+    2010-20 -3.90 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's London morning (Brent proxy, 03:00-09:00 ET) to fade the sign of CLP=X's previous 1-day move.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01417 (decisions.md 537), WATCHLIST on sealed 2023-2026: 372 trades; net +11.40 bps (t +1.42); placebo 94th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 4.196
+    sought_bps: 4.196
+    n_injection: 372
+    n_run: 372
+    recovered: true
+    report: reports/d635_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 669
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: Europe
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 647.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D636
+  name: brent_ny_follows_dfii10_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of DFII10's previous 1-day move (strong): 2021-2024 +16.31 bps (t +2.10, n 425);
+    2010-20 -6.15 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of DFII10's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01418 (decisions.md 537), WATCHLIST on sealed 2023-2026: 147 trades; net +14.41 bps (t +1.07); placebo 86th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 8.153
+    sought_bps: 8.153
+    n_injection: 147
+    n_run: 147
+    recovered: true
+    report: reports/d636_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 670
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 648.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D637
+  name: brent_ny_fades_clp_x_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    fades the sign of CLP=X's previous 1-day move (strong): 2021-2024 +17.07 bps (t +2.10, n 405);
+    2010-20 +9.25 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to fade the sign of CLP=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01419 (decisions.md 537), REJECT on sealed 2023-2026: 120 trades; net -10.78 bps (t -0.66); placebo 25th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 8.535
+    sought_bps: 8.535
+    n_injection: 120
+    n_run: 120
+    recovered: true
+    report: reports/d637_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 671
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 649.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D638
+  name: brent_ny_follows_audusd_x_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of AUDUSD=X's previous 1-day move (strong): 2021-2024 +16.94 bps (t +2.07, n 394);
+    2010-20 +2.74 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of AUDUSD=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: WATCHLIST
+  retired_reason: >
+    Trial t01420 (decisions.md 537), WATCHLIST on sealed 2023-2026: 153 trades; net +1.67 bps (t +0.12); placebo 56th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 8.469
+    sought_bps: 8.469
+    n_injection: 153
+    n_run: 153
+    recovered: true
+    report: reports/d638_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 672
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 650.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D639
+  name: brent_ny_follows_ng_f_5d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of NG=F's previous 5-day move (all): 2021-2024 +10.50 bps (t +2.05, n 866);
+    2010-20 -4.88 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of NG=F's previous 5-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01421 (decisions.md 537), REJECT on sealed 2023-2026: 403 trades; net -5.00 bps (t -0.63); placebo 34th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 5.250
+    sought_bps: 5.250
+    n_injection: 403
+    n_run: 403
+    recovered: true
+    report: reports/d639_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 673
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 651.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D640
+  name: brent_ny_fades_brl_x_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    fades the sign of BRL=X's previous 1-day move (strong): 2021-2024 +16.76 bps (t +2.02, n 405);
+    2010-20 +1.68 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to fade the sign of BRL=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01422 (decisions.md 537), REJECT on sealed 2023-2026: 147 trades; net -20.37 bps (t -1.38); placebo 12th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 8.379
+    sought_bps: 8.379
+    n_injection: 147
+    n_run: 147
+    recovered: true
+    report: reports/d640_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 674
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 652.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D641
+  name: brent_ny_follows_xlf_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of XLF's previous 1-day move (all): 2021-2024 +10.43 bps (t +2.02, n 857);
+    2010-20 -4.43 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of XLF's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01423 (decisions.md 537), REJECT on sealed 2023-2026: 399 trades; net -10.70 bps (t -1.35); placebo 10th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 5.215
+    sought_bps: 5.215
+    n_injection: 399
+    n_run: 399
+    recovered: true
+    report: reports/d641_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 675
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 653.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D642
+  name: brent_ny_follows_cop_x_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of COP=X's previous 1-day move (all): 2021-2024 +10.31 bps (t +1.99, n 858);
+    2010-20 -0.67 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of COP=X's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01424 (decisions.md 537), REJECT on sealed 2023-2026: 400 trades; net -2.47 bps (t -0.31); placebo 38th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 5.155
+    sought_bps: 5.155
+    n_injection: 400
+    n_run: 400
+    recovered: true
+    report: reports/d642_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 676
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 654.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D643
+  name: brent_ny_follows_nkd_f_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of NKD=F's previous 1-day move (all): 2021-2024 +10.21 bps (t +1.99, n 860);
+    2010-20 +0.92 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of NKD=F's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01425 (decisions.md 537), REJECT on sealed 2023-2026: 401 trades; net -9.02 bps (t -1.14); placebo 14th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 5.106
+    sought_bps: 5.106
+    n_injection: 401
+    n_run: 401
+    recovered: true
+    report: reports/d643_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 677
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 655.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D644
+  name: brent_london_follows_kre_1d_all
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's London morning (Brent proxy, 03:00-09:00 ET)
+    follows the sign of KRE's previous 1-day move (all): 2021-2024 +7.46 bps (t +1.98, n 922);
+    2010-20 -0.55 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's London morning (Brent proxy, 03:00-09:00 ET) to follow the sign of KRE's previous 1-day move.
+  horizon_minutes: [360]
+  hold_hours: [6.0]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01426 (decisions.md 537), REJECT on sealed 2023-2026: 410 trades; net -1.37 bps (t -0.18); placebo 47th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 3.729
+    sought_bps: 3.729
+    n_injection: 410
+    n_run: 410
+    recovered: true
+    report: reports/d644_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 678
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: Europe
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 656.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D645
+  name: brent_ny_follows_pl_f_1d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of PL=F's previous 1-day move (strong): 2021-2024 +15.34 bps (t +1.97, n 442);
+    2010-20 -8.62 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of PL=F's previous 1-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01427 (decisions.md 537), REJECT on sealed 2023-2026: 224 trades; net -2.35 bps (t -0.23); placebo 41th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 7.669
+    sought_bps: 7.669
+    n_injection: 224
+    n_run: 224
+    recovered: true
+    report: reports/d645_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 679
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 657.
+  s6_control: By year; signs shuffled across the sealed sessions.
+- id: D646
+  name: brent_ny_follows_ng_f_5d_strong
+  mechanism: >
+    DATA-DERIVED (D-series family 151, crude's other windows on the current regime, decisions.md 536-537): crude's New York window (Brent proxy, 09:00-14:30 ET)
+    follows the sign of NG=F's previous 5-day move (strong): 2021-2024 +14.66 bps (t +1.97, n 435);
+    2010-20 -9.49 (context). THE COUNTERPARTY: slow cross-asset repositioning.
+  condition: >
+    Every session, take crude's New York window (Brent proxy, 09:00-14:30 ET) to follow the sign of NG=F's previous 5-day move.
+  horizon_minutes: [330]
+  hold_hours: [5.5]
+  registered: 2026-10-13
+  status: retired
+  retired: 2026-10-13
+  outcome_tier: REJECT
+  retired_reason: >
+    Trial t01428 (decisions.md 537), REJECT on sealed 2023-2026: 165 trades; net -5.56 bps (t -0.41); placebo 38th pct.
+  outcome_injection_required: true
+  outcome_injection:
+    test: src/futuresres/reporting/d151_crudewin.py
+    injected_bps: 7.330
+    sought_bps: 7.330
+    n_injection: 165
+    n_run: 165
+    recovered: true
+    report: reports/d646_injection.json
+  schedulable: false
+  schedulable_note: >
+    Validated once on the sealed 2023-2026 window.
+  test_order: null
+  registered_test_order: 680
+  grade: C
+  tier: C
+  param_cap: 0
+  param_note: Carried by the family-151 scan (568 tests, decisions.md 537). ONE TRIAL.
+  session: US
+  symbols: [CL]
+  mechanism_instruments:
+    primary: CL
+    secondary: null
+    rationale: >
+      A CME future in the account's permitted list. One market.
+  stage4_reachable: false
+  stage4_reason: A data-derived single-market rule; validated once on sealed data.
+  threshold_units: volatility
+  price_range_stated: true
+  era_split_preregistered: true
+  era_split: {break: '2025-01-01', decisive: post}
+  test_window: {start: '2025-01-01', end: '2026-08-31', reason: 'sealed validation window after the 2021-2024 discovery (decisions.md 426)'}
+  prediction:
+    sharpe_prior: [0.0, 0.6]
+    basis: Discovery net halved, as decisions.md 228.
+  decision_rule:
+    rule: >
+      decisions.md 426, 2: CONFIRM if net > 0 with t > 1.645, >= 95th pct of the placebo (signs shuffled across the sealed sessions), positive in both 2025 and 2026;
+      else WATCHLIST if net > 0; else REJECT. Z and D market-test 658.
+  s6_control: By year; signs shuffled across the sealed sessions.
