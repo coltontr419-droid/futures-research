@@ -13385,6 +13385,14 @@ MCL averaged only +$652 / +$1,088 in the first two periods but +$2,994 on 2025 s
 account decision as the steadier long-run fifth market (bonds are uncorrelated with the other four). Note: needs Tradeify to permit ZB
 (CBOT, likely) and a ZB ticket in the bot.
 
+## 612. A56 protocol: the best zero-edge fifth market — every feasible candidate in MCL's slot (S1)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** A55's construction for every Tradeify-permitted candidate with Yahoo
+daily history since 2010: **ZB, ZN, 6E, 6J, 6A, 6B** (CME FX), **SI**, **PL**, **MNG** (micro natural gas), **MHG** (micro copper, owned bars),
+**ZC, ZW, LE, HE**; contracts by the $2,900 daily-swing rule within 4 minis / 40 micros; round trip $4.5 (minis) / $3.32 (micros). A
+candidate qualifies only if the five-account book with it in MCL's place has a higher mean in **all three** periods (2010–20, 2021–26,
+2025 starts). Qualifiers are reported with P(net > 0) and the 10th percentile.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
