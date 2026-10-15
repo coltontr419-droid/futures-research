@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D624",
+ "cell": "MGC follows jgb2 5d (strong)",
+ "trades": 318,
+ "net_bps": -5.694129846081045,
+ "t_net": -0.9131751797726579,
+ "placebo_pct": 8.6,
+ "by_year": {
+  "2025": -5.2800335582673865,
+  "2026": -6.3334945144653245
+ },
+ "always_long_net_bps": 4.922689914703369,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 636,
+ "injection": {
+  "hypothesis": "D624",
+  "n_events": 318,
+  "sought_bps": 3.089239902723402,
+  "mean_estimate": 3.6103504097153194,
+  "recovered": true
+ },
+ "trial_id": "t01406"
+}

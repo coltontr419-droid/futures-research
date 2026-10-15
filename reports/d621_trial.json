@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D621",
+ "cell": "DAX fades ea10 5d (all)",
+ "trades": 428,
+ "net_bps": -2.104518682962933,
+ "t_net": -0.5193591124323438,
+ "placebo_pct": 31.900000000000002,
+ "by_year": {
+  "2025": -0.21619605137836267,
+  "2026": -4.942524041543251
+ },
+ "always_long_net_bps": -0.3789782998689573,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 633,
+ "injection": {
+  "hypothesis": "D621",
+  "n_events": 428,
+  "sought_bps": 3.1708049077921103,
+  "mean_estimate": 3.26733814567634,
+  "recovered": true
+ },
+ "trial_id": "t01403"
+}

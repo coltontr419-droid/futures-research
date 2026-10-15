@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D622",
+ "cell": "DAX fades jp_curve 5d (strong)",
+ "trades": 296,
+ "net_bps": -4.318420003387132,
+ "t_net": -0.8204929365603474,
+ "placebo_pct": 22.0,
+ "by_year": {
+  "2025": 1.2582722823150978,
+  "2026": -10.617273880043609
+ },
+ "always_long_net_bps": -0.531319713356479,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 634,
+ "injection": {
+  "hypothesis": "D622",
+  "n_events": 296,
+  "sought_bps": 4.326890049035026,
+  "mean_estimate": 4.005056908475325,
+  "recovered": true
+ },
+ "trial_id": "t01404"
+}

@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D620",
+ "cell": "MNQ fades jgb2 1d (strong)",
+ "trades": 307,
+ "net_bps": -0.8702164069060783,
+ "t_net": -0.12662382923063545,
+ "placebo_pct": 51.300000000000004,
+ "by_year": {
+  "2025": -12.25393345969064,
+  "2026": 14.221832716103757
+ },
+ "always_long_net_bps": 3.4741156101226807,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 632,
+ "injection": {
+  "hypothesis": "D620",
+  "n_events": 307,
+  "sought_bps": 6.549031271723104,
+  "mean_estimate": 6.870743395929448,
+  "recovered": true
+ },
+ "trial_id": "t01402"
+}

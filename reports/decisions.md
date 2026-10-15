@@ -12599,6 +12599,19 @@ there): **jgb10**, **jgb2**, **jp_curve** (10Y − 2Y), **us_jp10** (US 10Y − 
 leg on the same lagged date). Targets: NKD, DAX, MGC, MNQ plan windows. Follow/fade fixed on 2021–24; forms all / strong.
 **7 × 2 × 4 × 2 = 112 tests** (~2.8 by chance at t > 1.96). Costs §180. Validation per §426, 2; a CONFIRM then needs §446/§453 stress tests.
 
+## 535. Family-150: JGB and euro-area yields — 7 of 112 carried (≈ 2.8 by chance); all REJECT (S1)
+
+**N 1,407.** `reports/d150_discovery.json` (module `reporting/d150_yields.py`):
+- **D619** MNQ follows jp_curve 1d (all): **REJECT** -0.84 (t -0.15), placebo 46th, 2025 +2.8, 2026 -6.3
+- **D620** MNQ fades jgb2 1d (strong): **REJECT** -0.87 (t -0.13), placebo 51th, 2025 -12.3, 2026 +14.2
+- **D621** DAX fades ea10 5d (all): **REJECT** -2.10 (t -0.52), placebo 32th, 2025 -0.2, 2026 -4.9
+- **D622** DAX fades jp_curve 5d (strong): **REJECT** -4.32 (t -0.82), placebo 22th, 2025 +1.3, 2026 -10.6
+- **D623** NKD follows jgb10 1d (strong): **REJECT** -7.13 (t -1.34), placebo 9th, 2025 -12.7, 2026 -0.1
+- **D624** MGC follows jgb2 5d (strong): **REJECT** -5.69 (t -0.91), placebo 9th, 2025 -5.3, 2026 -6.3
+- **D625** MNQ follows jp_curve 1d (strong): **REJECT** -2.00 (t -0.27), placebo 41th, 2025 +4.6, 2026 -10.1
+
+Foreign yields carry nothing into the plan windows out of sample.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

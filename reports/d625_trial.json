@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D625",
+ "cell": "MNQ follows jp_curve 1d (strong)",
+ "trades": 286,
+ "net_bps": -1.9985152658049044,
+ "t_net": -0.271060310504593,
+ "placebo_pct": 41.4,
+ "by_year": {
+  "2025": 4.631374899748784,
+  "2026": -10.067451358765595
+ },
+ "always_long_net_bps": 4.564301013946533,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 637,
+ "injection": {
+  "hypothesis": "D625",
+  "n_events": 286,
+  "sought_bps": 5.021923676995207,
+  "mean_estimate": 4.985037844213648,
+  "recovered": true
+ },
+ "trial_id": "t01407"
+}

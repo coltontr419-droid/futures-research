@@ -3184,3 +3184,31 @@ Data-derived (D-series family 148). `hypotheses.yaml` (D617) · `decisions.md` �
 ## D618 — Zs Follows Eurchf 5D Strong  *(REJECT — t01400)*
 
 Data-derived (D-series family 148). `hypotheses.yaml` (D618) · `decisions.md` §529
+
+## D619 — Mnq Follows Jp Curve 1D All  *(REJECT — t01401)*
+
+Data-derived (D-series family 150). `hypotheses.yaml` (D619) · `decisions.md` §535
+
+## D620 — Mnq Fades Jgb2 1D Strong  *(REJECT — t01402)*
+
+Data-derived (D-series family 150). `hypotheses.yaml` (D620) · `decisions.md` §535
+
+## D621 — Dax Fades Ea10 5D All  *(REJECT — t01403)*
+
+Data-derived (D-series family 150). `hypotheses.yaml` (D621) · `decisions.md` §535
+
+## D622 — Dax Fades Jp Curve 5D Strong  *(REJECT — t01404)*
+
+Data-derived (D-series family 150). `hypotheses.yaml` (D622) · `decisions.md` §535
+
+## D623 — Nkd Follows Jgb10 1D Strong  *(REJECT — t01405)*
+
+Data-derived (D-series family 150). `hypotheses.yaml` (D623) · `decisions.md` §535
+
+## D624 — Mgc Follows Jgb2 5D Strong  *(REJECT — t01406)*
+
+Data-derived (D-series family 150). `hypotheses.yaml` (D624) · `decisions.md` §535
+
+## D625 — Mnq Follows Jp Curve 1D Strong  *(REJECT — t01407)*
+
+Data-derived (D-series family 150). `hypotheses.yaml` (D625) · `decisions.md` §535

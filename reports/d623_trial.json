@@ -1,0 +1,28 @@
+{
+ "hypothesis": "D623",
+ "cell": "NKD follows jgb10 1d (strong)",
+ "trades": 308,
+ "net_bps": -7.130331894282413,
+ "t_net": -1.3408641809948585,
+ "placebo_pct": 8.6,
+ "by_year": {
+  "2025": -12.665649113987321,
+  "2026": -0.1297836458320924
+ },
+ "always_long_net_bps": 0.642237556086034,
+ "conditions": {
+  "a": false,
+  "b": false,
+  "c": false
+ },
+ "decision": "REJECT",
+ "z_d_market_test_number": 635,
+ "injection": {
+  "hypothesis": "D623",
+  "n_events": 308,
+  "sought_bps": 4.056209772311291,
+  "mean_estimate": 3.8941748976514936,
+  "recovered": true
+ },
+ "trial_id": "t01405"
+}
