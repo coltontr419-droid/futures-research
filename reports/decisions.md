@@ -13041,6 +13041,15 @@ still open and the replay has touched neither bracket, the bot books nothing and
 Agreement, a time exit, missing data or any error never block. FDXM's replay is the DAX index proxy (§492), named in the warning.
 Tests: tests/test_bot_ticket.py::test_eod_check_flags_a_take_read_as_a_stop.
 
+## 578. A48: a forward tracker for the deployed dollar rules (the §463 review trigger, made runnable) (S8)
+
+**No trial.** `reporting/a48_forward.py` pulls the bot's tickets.json (read-only), and for every NKD dollar-week / FDXM DAX-dollar ticket
+replays its window on Yahoo 1-minute bars for the rule's side and the opposite side with the ticket's brackets (FDXM on the DAX proxy),
+caching window bars under data/cache/forward (Yahoo keeps ~30 days of 1-minute history: run it at least every few weeks). It reports the
+signed window move, rule-side minus other-side bracket P&L, the recorded results, and the §463 trigger (revert if the first 40 rule
+sessions' signed window moves sum negative). First run (2 rule sessions): NKD 10-14 short, window +225.5 bps the rule's way but both sides
+stopped; FDXM 10-15 long, take +$1,202 vs −$747 the other way. Trigger: pending (2 of 40).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
