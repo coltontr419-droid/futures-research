@@ -13004,6 +13004,29 @@ chance at t > 1.96). Costs §177/§180. Validation per §426, 2; a ZS CONFIRM th
 
 Soybeans take nothing from the real's everyday moves (best ZS cell +7.0, t 1.15); only its shocks mattered (D122).
 
+## 575. A47 protocol (user request 2026-10-15): the book with more accounts on the dollar rules (S8)
+
+**No trial; N 1,499.** The user asked for exact numbers on moving the MGC and MCL accounts onto the working rules. A36's construction (§463:
+50K Daily, drift removed, 84-day attempts, common start dates) for: **A** the deployed book (MNQ D68, NKD dollar-week, FDXM DAX-dollar, MGC
+and MCL plan); **B** 2 × NKD + 2 × FDXM + MNQ (D68); also **C** 3 × NKD + 2 × FDXM (no MNQ), as the extreme. Duplicate accounts take the same
+tickets, so their results are identical per start — the book counts them twice. Read per period (2010–20, 2021–26, 2025 starts): mean,
+P(book net > 0), p10, p5, and P(an account of each market ends a start negative). Descriptive; no new rule.
+
+## 576. A47 results: more accounts on the dollar rules (S8)
+
+**No trial; N 1,499.** `reports/a47_book.json` (module `reporting/a47_book.py`). Book net per 84-day attempt sequence (common starts):
+
+| book | 2025 starts (298) | 2021–26 (1,040) | 2010–20 (689) |
+|---|---|---|---|
+| A deployed (MNQ, MGC, MCL, NKD, FDXM) | +$17,492, P>0 100%, p5 +$6,115 | +$15,008, 96%, p5 +$1,673 | +$10,494, 85%, p5 −$2,232 |
+| B 2×NKD + 2×FDXM + MNQ | **+$26,119**, 100%, p5 +$7,981 | **+$21,324**, 94%, p5 −$212 | +$13,088, **82%**, p5 −$3,072 |
+| C 3×NKD + 2×FDXM | +$32,043, 100%, p5 +$8,972 | +$25,663, 93%, p5 −$334 | +$14,452, 83%, p5 −$3,528 |
+
+Per account (2021–26): NKD +$6,197 (negative 11% of starts), FDXM +$3,537 (19%), MGC +$2,329 (33%), MNQ +$1,857 (38%), MCL +$1,088 (60%).
+Concentrating raises the mean in every period (+$8.6k on 2025 starts for B) but widens the bad tail outside 2025–26: P(book net > 0) falls
+96 → 94% (2021–26) and 85 → 82% (2010–20); the 2021–26 p5 goes from +$1,673 to about −$200. Duplicates are perfectly correlated, so B's
+two NKD accounts breach together. For the user's decision; no change made.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
