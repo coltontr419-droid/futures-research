@@ -12737,6 +12737,16 @@ makes +$2,496 (beats 41% of random flips); 2025 starts +$4,210 (P(payout) 90%, b
 the deployed 09:00–15:00 Tokyo window is the best of the three lengths tried (morning, Tokyo day, whole Globex) — enough swing for the
 brackets, and the edge concentrated in it.
 
+## 548. A45 protocol: one account trading both dollar rules in sequence (NKD then the DAX) (S1)
+
+**No trial; N 1,435. Written and committed BEFORE any replay is run.** The NKD window (20:00 → 02:00 ET) and the DAX window (03:00 → 11:30 ET)
+never overlap, so one account can trade both every day without two open positions (no hedge question). Replay: the two windows interleaved
+by date (NKD Tokyo date d, then the DAX on d), each a step of the A23 engine with its own contracts (1 NKD / 2 FDXM, $4 round trip each) and
+the deployed rule's side; horizon 168 steps (≈ 84 trading days, as the single-market replays). Approximation disclosed: the engine applies its
+per-day rules (consistency, payout-day counts) per WINDOW, which flatters cadence; read relative to the same engine's random flips. Compared
+on 2025 starts (sealed) and 2010–20 with NKD-only and FDXM-only accounts. Reported to the user as an option only if the combined account
+beats BOTH single accounts' mean net AND beats ≥ 95% of random flips on 2025 starts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
