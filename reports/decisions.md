@@ -12709,6 +12709,16 @@ all / strong. **4 × 3 × 2 = 24 tests** (~0.6 by chance at t > 1.96). Costs §1
 **N 1,435 (no trial).** `reports/d154_discovery.json` (module `reporting/d154_afternoon.py`). Best: NKD fades gold's 11:30 → 16:00 move,
 +4.81 bps (t 1.87). Nothing carries.
 
+## 545. A44 protocol: where inside the window do the deployed dollar rules earn? (S1)
+
+**No trial; N 1,435. Written and committed BEFORE any statistic is computed.** Under brackets an edge counts relative to the window's swing;
+if the dollar rules earn early, a shorter window holds the same edge with less noise. HistData minute closes (local time): the **DAX**
+(grxeur) 09:00 → 11:30, 11:30 → 14:00, 14:00 → 17:30 Berlin and the whole 09:00 → 17:30; the **Nikkei** (jpxjpy) Tokyo morning 09:00 → 11:30,
+afternoon 12:30 → 15:00 and the whole 09:00 → 15:00. Signs: the deployed rules (DAX follows DX-Y.NYB's previous weekday; NKD follows 6E's
+previous-5-weekday sum). Statistic: per-trade Sharpe (mean / SD of the signed move, cost 0.3 / 0.2) and t, by period. **Choice on 2021–24
+only** (highest per-trade Sharpe); read once on 2025–26 and 2010–20. A shorter window is proposed only if it also beats the whole window in
+2025–26 AND an account replay on its paths beats the deployed window's replay on 2025 starts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
