@@ -61,6 +61,7 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
     mode = np.zeros(A, int); cool = np.zeros(A, int); bookpay = np.zeros(A, int)
     fees = np.full(A, NA * F["fee"]); paid_sim = np.zeros(A); paid_live = np.zeros(A); moves = np.zeros(A, int); cool_days = np.zeros(A, int)
     kind, buf, pmin, cap = F["payout"]
+    min_cash = np.full(A, -NA * F["fee"]); first_pay = np.full(A, -1)        # A67: the trader's cash path
     for d in range(window):
         idx = starts + d
         cl = mode == 2; cool_days += cl; cool = np.where(cl, cool - 1, cool); restart = cl & (cool <= 0)
@@ -162,8 +163,10 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 alive |= st[m]["lalive"]
             endl = (mode == 1) & ~alive
             mode = np.where(endl, 2, mode); cool = np.where(endl, F["cool"], cool)
+        cash = paid_sim + paid_live - fees - F.get("data_month", 0.0) * (d + 1) / 21.0
+        min_cash = np.minimum(min_cash, cash); first_pay = np.where((first_pay < 0) & (paid_sim + paid_live > 0), d + 1, first_pay)
     net = paid_sim + paid_live - fees
-    return {"start": starts, "net": net, "paid_sim": paid_sim, "paid_live": paid_live, "fees": fees, "moves": moves, "first_live": np.full(A, -1),
+    return {"start": starts, "net": net, "min_cash": min_cash, "first_pay": first_pay, "paid_sim": paid_sim, "paid_live": paid_live, "fees": fees, "moves": moves, "first_live": np.full(A, -1),
             "cool_days": cool_days, "closed": np.zeros(A, int), "live_at_move": np.array([]), "evals": fees / F["fee"]}
 
 

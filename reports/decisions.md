@@ -13746,6 +13746,19 @@ days, so a slight flattering), and −$14 a month for Eurex data. Read per start
 84 sessions (the capital at risk), the day of the first payout, the share of starts whose low point is worse than −$500 / −$1,000 / −$1,500
 / −$2,000 / −$3,000, and the cash at day 84. The minimum safe starting capital is reported as the 95th / 99th percentile of the capital at risk.
 
+## 643. A67: the launch needs about $4,000–5,000 of capital for evaluations to be safe (S8)
+
+**No trial.** `reports/a67_cashpath.json` (module `reporting/a67_cashpath.py`; A63's simulation now also returns the cash path).
+Launch plan (5 × 50K, 3 NKD + 2 FDXM, live rules, 1 tick a side, Tradovate Free fees, Eurex data $14 a month), the trader's cash low point
+in the first 84 sessions (capital at risk):
+- **2025 starts (369):** median $1,268; **95th pct $3,288; 99th $3,680; worst $3,907**. Low point below −$1,000 on 61% of starts, −$2,000 on
+  27%, −$3,000 on 9%. First payout: median day 16, 90% by day 38. Cash at day 84: mean +$11,162, median +$10,388.
+- **All 2021–26 starts (1,407):** median $1,510; **95th $3,759; 99th $4,456; worst $4,776**; below −$2,000 on 34%, −$3,000 on 13%. First payout
+  median day 20, 90% by day 52; no payout within 84 sessions on 3% of starts. Cash at day 84: mean +$7,741.
+Read: $400 buys the first five evaluations, but a normal start dips about $1.3–1.5k before payouts outrun fees, and one in ten dips past
+$3,000. Starting capital of **$4,000** covers 95–99% of history; **$5,000** covers every start seen. With less, the plan has to pause
+re-buying in a bad stretch (which the replays do not model). Payouts are counted the day they are earned (a few days' delay in reality).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
