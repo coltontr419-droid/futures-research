@@ -13527,6 +13527,27 @@ as A23; live accounts trade fixed brackets (take, stop) ∈ {(600, 600), (800, 8
 cushion C ∈ {$2,000, $4,000} (withdraw everything above C once locked), chosen on 2021–24 starts; horizons 84 sessions (the plan's four
 months) and 252 (a year). Read on 2025 starts, all 2021–26 starts, 2010–20; against A47/A59's book without live rules.
 
+## 625. A60: Tradeify's live-account rules cut the plan's book by about 70% (S8)
+
+**No trial.** `reports/a60_live.json` (module `reporting/a60_live.py`; joint simulation on the union calendar — a market without a session
+sits — validated: with the live rules off it equals the sum of A23 replays on the same calendar to the dollar, +$13,683 on 2021–26 starts;
+the shared-calendar version was rejected after the check, §624's design otherwise unchanged). Live brackets chosen on 2021–24 starts:
+take $1,200 / stop $1,000, cushion $2,000 (84 sessions) or $4,000 (252). Book per run (mean; P(net > 0); 10th pct):
+
+| | without live rules | **with live rules** |
+|---|---|---|
+| 84 sessions, 2025 starts | +$17,925; 100%; +$7,687 | **+$5,491; 100%; +$2,615** |
+| 84 sessions, 2021–26 | +$13,683; 95%; +$2,462 | **+$4,327; 91%; +$218** |
+| 84 sessions, 2010–20 | +$6,692; 87%; −$599 | **+$3,306; 85%; −$813** |
+| 252 sessions, 2025 starts | +$50,733; 100% | **+$14,166; 100%; +$9,059** |
+| 252 sessions, 2021–26 | +$44,273; 100% | **+$13,342; 100%; +$6,951** |
+
+Mechanism: the five accounts reach 10 payouts in ~16–30 sessions; at the move **62% of the time only one account goes live** (34% two,
+2% three) and the rest are closed (≈ 5–6 accounts closed per four months); the live account, starting with only $2,000 of room, is usually
+lost soon; then the 20-session cool-off (≈ 27 of 84 sessions on 2025 starts). Live accounts pay little (≈ $1.1–4.3k per run); most money
+is still the simulated payouts before each move. Every live bracket / cushion choice gives a similar result (2021–24 grid +$3.0–3.9k
+per 84 sessions). The plan's dollar estimates elsewhere in this file ignore these rules and overstate what the user would receive.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
