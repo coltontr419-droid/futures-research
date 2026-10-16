@@ -13937,6 +13937,18 @@ with the latest restart date, 28 days); `!new` is refused while a live account i
 (live tickets, the full move → golive → withdrawals → cool-off → restart path, the 10-payout trigger); 16 pass + the Discord tests.
 **Deployed 2026-10-16 ~19:20 ET** on the user's word (backup `backup-2026-10-16b`; droplet files matched the previous commit; dry run on a copy of the demo state first).
 
+## 659. A free 1-minute data collector runs on the droplet (S8)
+
+**No trial.** On the user's word (2026-10-16), with a hard size cap. `bot/collector/collect.py` (plain Python, no packages, separate from
+the trading bot): once a day (systemd `futures-collector.timer`, 22:30 UTC, after the 5 PM ET close; `MemoryMax=150M`, nice 10) it fetches
+Yahoo Finance 1-minute bars (Yahoo serves ~7 days) for 27 symbols — NKD=F, ^N225, ^GDAXI, NQ, ES, YM, RTY, GC, SI, HG, CL, NG, ZN, ZB, 6E,
+6J, 6B, DX-Y.NYB, ^VIX, ZS, ZC, ZW, BTC-USD, ETH-USD, ^STOXX50E, ^FTSE, ^HSI — and writes one gzip CSV per symbol per complete UTC day
+(`/opt/futures-data/1m/<symbol>/<date>.csv.gz`; utc_epoch, OHLC, volume), rewriting a day only if the new copy has more bars. **Cap 2 GB**:
+past it nothing is written and the report says so; nothing is deleted. Each run is appended to `runs.jsonl`. **Sundays**: a short
+Discord report (rows per symbol, missing weekdays, download failures, disk used) via the bot's channel (token read from the bot's .env,
+never printed). Size: a week's backfill is ~2 MB → ~100 MB a year. First run 2026-10-16 23:45 UTC: 2.1 MB, 7 days of 27 symbols, no
+failures. The record builds the minute-level history Yahoo does not keep, for research once it is long enough.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

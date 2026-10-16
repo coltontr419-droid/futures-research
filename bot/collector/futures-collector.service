@@ -1,0 +1,12 @@
+[Unit]
+Description=Free 1-minute data collector (futures-research decisions.md 659)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/futures-bot/collector/collect.py
+Environment=PYTHONUNBUFFERED=1
+MemoryMax=150M
+Nice=10
+TimeoutStartSec=900
