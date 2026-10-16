@@ -13935,7 +13935,7 @@ live `!eod` asks for withdrawals above $2,000 (80%); a live breach ends that acc
 with the latest restart date, 28 days); `!new` is refused while a live account is open and, during cool-off, until resent with
 `confirm`; the first new evaluation restarts the cycle. `!set` accepts live / closed. a18 skips the book-level record. Tests: 3 new
 (live tickets, the full move → golive → withdrawals → cool-off → restart path, the 10-payout trigger); 16 pass + the Discord tests.
-Deploy only on the user's word (backup first).
+**Deployed 2026-10-16 ~19:20 ET** on the user's word (backup `backup-2026-10-16b`; droplet files matched the previous commit; dry run on a copy of the demo state first).
 
 ## 10. Still outstanding, and blocking
 
