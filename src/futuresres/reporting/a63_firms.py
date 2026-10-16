@@ -113,11 +113,18 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 la = la_[lb - lg_["LMIN"], lp]; Wl = (la // 100) * 100.0; Ll = (la % 100) * 100.0
             else:
                 Wl = np.full(A, 1_200.0 * F.get("k", 1.0)); Ll = np.full(A, 1_000.0 * F.get("k", 1.0))
+            # A74: live accounts may trade lm x the plan's contracts (from the live start, or once locked); "price" keeps the price distances
+            lm = np.where(lact & (locked if F.get("live_k_when") == "locked" else True), (F.get("live_k") or {}).get(MK[m], 1.0), 1.0)
+            if F.get("live_k_price"):
+                Wl = Wl * lm; Ll = Ll * lm
+            lcost = cost * lm
             Ll = np.minimum(Ll, np.maximum(a_["leq"] - lfloor - 1, 1))
-            ltrade = lact & act & (a_["leq"] - lfloor > cost + 10)
-            WW = np.where(trade, W + cost, np.where(ltrade, Wl + cost, 1e12)); LL = np.where(trade, np.maximum(L - cost, 1.0), np.where(ltrade, np.maximum(Ll - cost, 1.0), 1e12))
+            ltrade = lact & act & (a_["leq"] - lfloor > lcost + 10)
+            WW = np.where(trade, W + cost, np.where(ltrade, (Wl + lcost) / lm, 1e12))
+            LL = np.where(trade, np.maximum(L - cost, 1.0), np.where(ltrade, np.maximum(Ll - lcost, 1.0) / lm, 1e12))
             raw, mfe = bracket_mfe(h[idx], l[idx], c[idx], WW, LL)
-            pnl = np.round(np.where(trade | ltrade, raw - cost, 0.0), 2)
+            raw = np.where(ltrade, raw * lm, raw)
+            pnl = np.round(np.where(trade, raw - cost, np.where(ltrade, raw - lcost, 0.0)), 2)
             # ---- sim accounts
             ne = eq + np.where(trade, pnl, 0.0)
             if F["fdd"] == "intraday":                    # funded floor trails the intraday high (the day's best point before the exit)
@@ -161,7 +168,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             lfloor2 = np.where(lpk >= LLK, 0.0, lpk - a_["lroom"])
             dead = lact & act & ((leq <= lfloor2) | ~ltrade)
             a_["lalive"] = a_["lalive"] & ~dead
-            wd = np.where(a_["lalive"] & (lpk >= LLK) & (leq > 2_000.0), leq - 2_000.0, 0.0)
+            CU = F.get("live_cushion", 2_000.0)                # A73: withdraw above this once locked (100K: its $3,000 lock)
+            wd = np.where(a_["lalive"] & (lpk >= LLK) & (leq > CU), leq - CU, 0.0)
             paid_live += F["live_split"] * wd; leq -= wd
             a_["leq"], a_["lpk"] = leq, lpk
         # ---- move to live

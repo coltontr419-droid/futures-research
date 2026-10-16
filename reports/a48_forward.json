@@ -1,20 +1,20 @@
 {
  "summary": {
-  "sessions": 2,
-  "signed_bps_sum": 316.5,
-  "rule_minus_other_pnl": 1948.8,
-  "recorded_pnl_sum": 200.0,
+  "sessions": 4,
+  "signed_bps_sum": 315.8,
+  "rule_minus_other_pnl": -2257.6,
+  "recorded_pnl_sum": -1800.0,
   "trigger": "pending",
   "by_product": {
    "NKD": {
-    "sessions": 1,
-    "signed_bps_sum": 225.5,
-    "rule_minus_other_pnl": 0.0
+    "sessions": 2,
+    "signed_bps_sum": 275.2,
+    "rule_minus_other_pnl": -2000.0
    },
    "FDXM": {
-    "sessions": 1,
-    "signed_bps_sum": 91.0,
-    "rule_minus_other_pnl": 1948.8
+    "sessions": 2,
+    "signed_bps_sum": 40.6,
+    "rule_minus_other_pnl": -257.6
    }
   }
  },
@@ -40,6 +40,28 @@
    "other_side": "STOP",
    "other_pnl": -747.2,
    "recorded_pnl": 1200.0
+  },
+  {
+   "product": "NKD",
+   "entry": "2026-10-15T20:00:00-04:00",
+   "side": "long",
+   "signed_window_bps": 49.7,
+   "rule_side": "STOP",
+   "rule_pnl": -1004.0,
+   "other_side": "TAKE",
+   "other_pnl": 996.0,
+   "recorded_pnl": -1000.0
+  },
+  {
+   "product": "FDXM",
+   "entry": "2026-10-16T03:00:00-04:00",
+   "side": "short",
+   "signed_window_bps": -50.4,
+   "rule_side": "STOP",
+   "rule_pnl": -1004.8,
+   "other_side": "TAKE",
+   "other_pnl": 1201.6,
+   "recorded_pnl": -1000.0
   }
  ]
 }

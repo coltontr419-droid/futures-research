@@ -13891,6 +13891,37 @@ starts and 2010–20, and with random sides (6 seeds per era). **Adopt only if**
 on 2010–20 (§653's precedent, fixed now in advance), is not worse on the zero-edge mean in either era, and its 2025 p10 is no more than
 $1,000 below.
 
+## 656. A73: 5 × 100K with the solved live policy earns a little more on average with a far worse tail — stay at 50K (S8)
+
+**No trial.** `reports/a73_100k_live.json` (module `reporting/a73_100k_live.py`; A63 gained `live_cushion`, still reproduces +$12,041).
+1 tick a side, Tradovate Free fees, both sizes with their solved live policy. Mean (median; P > 0; p10; worst):
+
+| | 2025 starts | 2021–26 | 2010–20 | zero edge (2021–26 / 2010–20) |
+|---|---|---|---|---|
+| **5 × 50K** | +$17,059 (+$11,113; 100%; +$3,167; +$701) | +$10,741 (+$7,684; 84%; −$873) | +$5,251 (80%; −$2,760) | **+$5,561 / +$3,812** |
+| 5 × 100K | +$20,759 (+$10,445; 78%; −$9,127; −$12,428) | +$11,030 (+$6,458; 68%; −$9,625) | +$5,968 (66%; −$6,492) | +$2,680 / +$1,499 |
+
+100K's fees are ~2.4× ($8.8k a run) and its typical run is no better; the gain is all in the mean, from a few large live runs, while one run
+in five loses $9k or more and the zero-edge case halves. With costs and slippage (A64 had neither) **100K is not worth moving up to.**
+
+## 657. A74: live accounts trade 3× the contracts at the same price distances — adopted (S8)
+
+**No trial.** `reports/a74_live_contracts.json` (module `reporting/a74_live_contracts.py`; A63 gained `live_k`, `live_k_when`,
+`live_k_price`). 12 candidates on 2021–24 starts: +$6,966 … +$10,385 vs k = 1 +$8,495; both "from the start, same price distances" with
+k 3 and 4 lead (+$10,385, +$10,290); chosen **k 3, from the live start, same price distances**: NKD 3 contracts, FDXM 4 (the assumed
+4-contract limit). Read once — mean (median; P > 0; p10):
+
+| | 2025 starts | 2021–26 | 2010–20 | zero edge (2021–26 / 2010–20) |
+|---|---|---|---|---|
+| k = 1 (§653) | +$17,059 (+$11,113; 100%; +$3,167) | +$10,741 (+$7,684; 84%; −$873) | +$5,251 (+$4,719; 80%; −$2,760) | +$5,561 / +$3,812 |
+| **k = 3** | **+$23,020** (+$15,267; 100%; +$3,175) | **+$13,699** (+$8,724; 85%; −$612) | **+$6,336** (+$4,719; 79%; −$2,760) | **+$6,506 / +$4,291** |
+
+Passes every part of §655's rule, including with zero edge. Why: a live account costs the trader nothing to lose (no fee; its end only
+starts the cool-off), so its value is option-like — more variance per trade is worth more, edge or not. In practice, at k 3 the solved
+take × 3 is rarely reached (≈ hold to the window's close) and the stop is capped at the room left (≈ just inside the drawdown): a live
+account's first trade largely decides it. Caveats: the 4-contract limit is assumed (to confirm with Tradeify); evaluation and funded play
+unchanged; live tickets are given by hand until the bot models live accounts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

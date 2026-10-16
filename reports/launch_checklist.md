@@ -80,8 +80,9 @@ fill; resend with `confirm` only if the platform really shows it (it stays quiet
 - **Evaluation passed:** nothing to do — the bot sees it from `!eod`.
 - **Payout received:** `!payout <ACCOUNT> <amount>`.
 - **Moved to live:** tell Claude the same day — the bot does not model live accounts yet; the live-account plan (withdraw above $2k, or
-  build to a larger cushion first, decisions.md 629) is decided then. Live accounts use the **solved live brackets** (decisions.md 653): from $0 take
-  $3,000 / stop $1,000; near the $2,000 lock a smaller take that reaches it (Claude gives the exact bracket); once locked, $3,000 / $1,000.
+  build to a larger cushion first, decisions.md 629) is decided then. Live accounts trade **3 NKD / 4 FDXM** (decisions.md 653, 657) with the solved
+  live brackets at three times their price distance — in practice the stop sits just inside the drawdown left and the take is rarely
+  reached (Claude gives each bracket). Confirm the live account's contract limit (assumed 4) first.
 - **Missed a ticket:** `!skipped <ACCOUNT>`; don't trade it late. **No 4:30 PM alert:** don't guess tickets; skip the day and tell Claude.
 
 ## 6. Stop / review triggers
