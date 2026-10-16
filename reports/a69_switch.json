@@ -143,6 +143,42 @@
    "closed_accounts": 0.0
   }
  },
+ "84 | #1 idle (no trades) until the move": {
+  "all": {
+   "runs": 1407,
+   "net_mean": 6386.081651741293,
+   "net_median": 5224.685999999994,
+   "p_pos": 0.8869936034115139,
+   "p10": -120.0,
+   "worst": -3840.0,
+   "paid_sim": 7297.686063965884,
+   "paid_live": 1965.3252253020612,
+   "fees": 2876.9296375266526,
+   "evals": 35.96162046908316,
+   "p_reach_live": 0.8116560056858564,
+   "moves": 1.0383795309168444,
+   "first_live_day_median": null,
+   "cool_days": 16.259417199715706,
+   "closed_accounts": 0.0
+  },
+  "2025 starts": {
+   "runs": 369,
+   "net_mean": 8712.784726287264,
+   "net_median": 8960.0,
+   "p_pos": 1.0,
+   "p10": 2416.017999999991,
+   "worst": 1556.5819999999967,
+   "paid_sim": 8934.164975609756,
+   "paid_live": 2615.259317073171,
+   "fees": 2836.639566395664,
+   "evals": 35.4579945799458,
+   "p_reach_live": 1.0,
+   "moves": 1.4065040650406504,
+   "first_live_day_median": null,
+   "cool_days": 22.531165311653115,
+   "closed_accounts": 0.0
+  }
+ },
  "252 | accept": {
   "all": {
    "runs": 1239,
@@ -284,6 +320,42 @@
    "moves": 4.2835820895522385,
    "first_live_day_median": null,
    "cool_days": 79.38308457711443,
+   "closed_accounts": 0.0
+  }
+ },
+ "252 | #1 idle (no trades) until the move": {
+  "all": {
+   "runs": 1239,
+   "net_mean": 19028.076786117836,
+   "net_median": 17878.668000000005,
+   "p_pos": 1.0,
+   "p10": 4853.0324,
+   "worst": 252.04999999999927,
+   "paid_sim": 22352.59492009685,
+   "paid_live": 4551.058944309928,
+   "fees": 7875.577078288943,
+   "evals": 98.44471347861179,
+   "p_reach_live": 1.0,
+   "moves": 3.3857949959644875,
+   "first_live_day_median": null,
+   "cool_days": 62.70056497175141,
+   "closed_accounts": 0.0
+  },
+  "2025 starts": {
+   "runs": 201,
+   "net_mean": 23344.05144278607,
+   "net_median": 23181.301999999985,
+   "p_pos": 1.0,
+   "p10": 20109.07800000001,
+   "worst": 11198.701999999997,
+   "paid_sim": 26961.610208955226,
+   "paid_live": 4791.595462686567,
+   "fees": 8409.154228855721,
+   "evals": 105.11442786069652,
+   "p_reach_live": 1.0,
+   "moves": 4.08457711442786,
+   "first_live_day_median": null,
+   "cool_days": 75.40298507462687,
    "closed_accounts": 0.0
   }
  }

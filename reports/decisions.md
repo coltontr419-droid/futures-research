@@ -13801,6 +13801,14 @@ payout when the trigger comes (one of them reaching three payouts, or the book r
 stage (it trades again once live). Not modelled: an inactivity rule (to be confirmed with Tradeify; a small occasional trade would satisfy
 most).
 
+## 648. A70: parking account #1 at the switch also earns less than taking its third payout (S8)
+
+**No trial.** `reports/a69_switch.json` (re-run with the new option). Mean net (P(net > 0)): 84 sessions all starts — accept **+$7,206 (89%)**,
+#1 idle until the move +$6,386 (89%, p10 −$120 vs −$231); 2025 starts +$9,762 (98%) vs +$8,713 (100%); 252 sessions all starts **+$22,556** vs
++$19,028; 2025 starts **+$27,457** vs +$23,344. Parking cuts moves to live (1.04 vs 1.55 per 84 sessions) and cool-off days (16 vs 26) but
+gives up #1's third payout (~$1,100, usually within days) and delays the move until several new accounts are paid — the plan earns more by
+cycling sooner. Slightly steadier, ~$1k a four-month run poorer. Advice unchanged: take #1's third payout.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
