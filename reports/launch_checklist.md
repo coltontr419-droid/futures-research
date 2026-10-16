@@ -85,7 +85,7 @@ fill; resend with `confirm` only if the platform really shows it (it stays quiet
 ## 6. Stop / review triggers
 
 - [ ] **Dollar rules** — `.venv/bin/python -m futuresres.reporting.a48_forward` every few weeks: first 40 rule sessions negative → propose
-  reverting (a faster health monitor is being tested, decisions.md 638).
+  reverting. (An automatic switch-off was tested and is not needed: the rules helped these accounts even before 2021, decisions.md 639.)
 - [ ] **Fills** — if real fills trail the tickets by more than ~1 tick a trade over 20+ trades, costs are worse than modelled; re-run.
 - [ ] **Monthly** — the review plus the watchlist forward test (`.venv/bin/python -m futuresres.reporting.a49_watchlist`).
 - [ ] **Any Tradeify rule or fee change** — stop and re-run before the next ticket.

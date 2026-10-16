@@ -13708,6 +13708,16 @@ plan's default long side). N ∈ {20, 40, 60, 120} sessions. A23 single-account 
 monitored rule, plan. **N chosen on all starts 2010–24 (both eras pooled, mean net of the two accounts)**; read once on 2025 starts. Adopt
 only if it keeps ≥ 90% of the always-on rule's 2025-start result and improves 2010–20.
 
+## 639. A66: the dollar rules need no automatic switch-off — they did not hurt the NKD / FDXM accounts even before 2021 (S8)
+
+**No trial.** `reports/a66_monitor.json` (module `reporting/a66_monitor.py`). NKD + FDXM single accounts, mean net per four-month run
+(2010–20 | 2021–24 | 2025 starts): plan +$3,260 | +$4,837 | +$4,266; **rules always on +$6,403 | +$8,357 | +$13,656**; monitored N = 20
++$6,973 | +$7,151 | +$9,901; **N = 40 (chosen on 2010–24) +$5,999 | +$8,844 | +$14,056**; N = 60 +$6,775 | +$6,128 | +$13,786; N = 120
++$4,216 | +$9,527 | +$14,026. The chosen monitor keeps 103% of the 2025-start result but lowers 2010–20 (+$5,999 vs +$6,403) — fails §638's
+rule; not adopted. Reading: on these two accounts the rules roughly double the plan's mean in every period, including 2010–20 (+$6.4k vs
++$3.3k) — the "pre-2021 risk" seen in the five-account book (§463: its P(net > 0) fell) came from the book's tails, not from NKD/FDXM means.
+The 40-session forward trigger (§463) stays as the safeguard.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
