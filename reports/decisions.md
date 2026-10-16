@@ -13587,6 +13587,22 @@ locked) ∈ {$2k, $5k, $10k, $20k}. Chosen on 2021–24 starts at **252 sessions
 2010–20; the chosen and the A61 configuration also at **504 sessions** (2021–24 starts only — the data end there). Cash received and
 equity left in live accounts at the end are reported separately; the choice is on cash.
 
+## 629. A62: building live accounts up works over two years — with the normal size and a $20k cushion, not with smaller risk (S8)
+
+**No trial.** `reports/a62_buildlive.json`, `reports/a62b_twoyear.json` (modules `reporting/a62_buildlive.py`, `a62b_twoyear.py`); 3 NKD + 2 FDXM.
+- **All five live together (gate 5) hurts**: one year, 2021–24 starts, cash +$19,992 vs +$26,219 (no gate). Not adopted.
+- **Smaller live risk earns less** at every cushion (one year, cash + equity left in live accounts): (300, 300) $16.8k + $0.5k … $9.9k + $12.3k;
+  (500, 500) $20.4k + $0.5k … $12.5k + $13.1k; (800, 800) $21.7k + $0.2k … $13.8k + $14.6k; **(1,200, 1,000)** $26.2k + $0.1k (C $2k),
+  $26.6k + $1.3k (C $5k), $23.0k + $2.8k (C $10k), **$18.3k + $14.5k (C $20k)**. Smaller sizes do not reach the +$2,000 lock more often
+  enough to pay for the slower growth.
+- **Two years (504 sessions, 2021–24 starts), (1,200, 1,000)**: cushion $2k cash **+$51,802** (p10 +$40,729) + $92 left live; $10k +$48,441 +
+  $2,831; **$20k: cash +$46,610 (p10 +$32,035) + $24,966 left in live accounts** (live payouts $17,920 vs $12,588; 5.0 moves vs 6.6; cool-off 88
+  days vs 128); $40k: +$32,968 + $42,057. (800, 800) with $20k: +$35,084 + $22,319.
+Read: the user's idea pays if the money left in live accounts counts — it is withdrawable profit (80%): $20k cushion ≈ $46.6k + 0.8 ×
+$25.0k ≈ **$66.6k over two years vs $51.8k** (one year ≈ $29.9k vs $26.3k). It trades cash now for larger, longer-lived live accounts (fewer
+moves and freezes); the equity is at risk until withdrawn (a $20k fall from the peak, ~20 net losing days at this size). Choice for the
+user: withdraw above $2–5k (more cash sooner, steadier) or build to $20k (more total over two years).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
