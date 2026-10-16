@@ -13871,6 +13871,26 @@ less, so pays less cost), so the downside the rule guarded against is absent. **
 $1,000; within reach of the $2,000 lock, the policy's smaller take to reach it; locked, $3,000 / $1,000 (per-state table:
 `a71_realgame.solve_live`, H 84). §651's rule is overridden here explicitly, not quietly; the evaluation and funded policy are unchanged.
 
+## 654. A73 protocol: 5 × 100K with the solved live policy (S8)
+
+**No trial; N 1,525. Written and committed BEFORE it is replayed.** A64 (§633) found 5 × 100K (3 NKD + 2 FDXM; 2 NKD / 3 FDXM contracts
+each) out-earning 5 × 50K under the live rules with a wider tail, both with the fixed live brackets. Now both with their live game solved
+(§649's live game, H 84, costs priced: 1 tick a side + Tradovate Free fees). 100K live: $0 start, $3,000 trailing drawdown locking at $0
+after +$3,000, withdrawals above $3,000 (50K: $2,000 / $2,000, as adopted in §653); A23's 100K evaluation / funded policy; fee $185.50.
+No choice is made; read on 2025 starts, 2021–26 and 2010–20 (mean, median, P > 0, p10, worst, fees) and with random sides (6 seeds per
+era). Purpose: whether to move up to 100K after the first payouts (launch stays 50K).
+
+## 655. A74 protocol: more contracts on live accounts (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** The user: live accounts have the same contract limit as the
+others (assumed 4 mini contracts on a 50K account — to confirm). Live accounts (5 × 50K launch plan, solved live policy §653) trade
+k × the plan's contracts, capped at 4: NKD k, FDXM min(2k, 4); k ∈ {2, 3, 4}; **when**: from the live start or only once the account has
+locked; **brackets**: the same $ take / stop (a closer price target) or the same price distances (take and stop × k, the stop still capped
+by the room left) — 12 candidates. 1 tick a side and Tradovate Free fees per contract. **Chosen on 2021–24 starts**; read once on 2025
+starts and 2010–20, and with random sides (6 seeds per era). **Adopt only if** it beats k = 1 on the 2025 mean, is no more than $250 worse
+on 2010–20 (§653's precedent, fixed now in advance), is not worse on the zero-edge mean in either era, and its 2025 p10 is no more than
+$1,000 below.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
