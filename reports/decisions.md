@@ -13548,6 +13548,19 @@ lost soon; then the 20-session cool-off (≈ 27 of 84 sessions on 2025 starts). 
 is still the simulated payouts before each move. Every live bracket / cushion choice gives a similar result (2021–24 grid +$3.0–3.9k
 per 84 sessions). The plan's dollar estimates elsewhere in this file ignore these rules and overstate what the user would receive.
 
+## 626. A61 protocol: playing to Tradeify's live rules — payout timing, account mix, live play (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** A60's joint simulation with three levers, chosen in stages on
+2021–24 starts at 84 sessions (the plan's horizon), each stage keeping the previous choice; read once on 2025 starts and 2010–20, and at
+252 sessions for the final configuration.
+1. **Payout gating** k ∈ {none, 2, 3, 4, 5}: an account may always take its FIRST payout (to qualify for live), but further payouts are held
+   (profit stays in the account) until at least k accounts of the book hold a payout on their current funded account — so the 10-payout
+   move takes several accounts live instead of one.
+2. **Account mix** (five slots): now (MNQ, MGC, MCL, NKD, FDXM); 2 × NKD + 2 × FDXM + MNQ; 3 × NKD + 2 × FDXM.
+3. **Live play before the +$2,000 lock**: (take, stop) ∈ {(500, 500), (800, 800), (1,200, 1,000)}, after the lock A60's chosen (1,200,
+   1,000) with the $2,000 cushion.
+Adopt only levers that improve the 2021–24 mean and do not lower 2025 starts or 2010–20; report all.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
