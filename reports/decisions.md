@@ -13500,6 +13500,19 @@ Apex's cheap evaluations ($25) help before 2021, when the rules lose and failure
 Tradeify's daily payouts realise it faster than Apex's five-winning-day ($250) cycles — Tradeify +$5.2k a four-month run better on all
 2021–26 starts and +$6.3k on 2025 starts, even against Apex's flattering bound. Biggest gap: NKD (+$6.2–7.3k Tradeify vs +$3.1–3.8k Apex).
 
+## 623. A59: what a four-month run looks like on Tradeify's 50K Daily, account by account (user request) (S8)
+
+**No trial.** `reports/a59_detail.json` (module `reporting/a59_detail.py`; `a23.replay` now also returns payouts, evaluation failures, funded
+failures and the pass day). The plan with the deployed rules, 84 sessions per run, common start dates. **2025 starts (298 runs)** per account
+(evaluations bought; funded accounts reached / lost; payouts; median day of first payout; net): MNQ 12.6; 3.8 / 3.5; 2.2; day 28; +$1,333 —
+MGC 14.4; 3.8 / 3.6; 2.1; day 26; +$771 — MCL 12.9; 3.1 / 2.8; 3.2; day 32; +$2,994 — **NKD 12.8; 4.0 / 3.6; 6.6; day 27; +$7,257** — **FDXM
+11.7; 3.5 / 3.2; 6.0; day 21; +$5,135**. Book: **64 evaluations bought (~$5,150), ~20 payouts (~$22,600 after the 90% split), net +$17,492**;
+every run positive; worst +$3,568. 2021–26: 64 evaluations, 18.6 payouts, net +$15,008 (P(net > 0) 96%); 2010–20: 62 evaluations, 15.8 payouts,
++$10,494 (85%). The plan is a fast-churn staking game: ~13 evaluations per account per four months (a new one every ~6–7 sessions), an account
+passes in ~10–18 sessions, almost every funded account is eventually lost, and each funded account pays 0.6–1.7 times (average payout
+~$900–1,300 after the split, against the $1,250 cap). Operational implication for live trading: about 16 evaluation purchases a month across
+five accounts at $80 each — the user should confirm Tradeify allows re-buying at that pace and price.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

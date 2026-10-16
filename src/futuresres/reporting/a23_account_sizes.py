@@ -216,6 +216,7 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip
     START, ddE, ddF = s.start, s.dd * 100.0, s.f_dd * 100.0
     phase = np.zeros(A, int); eq = np.full(A, START); pk = eq.copy(); best = np.zeros(A); npay = np.zeros(A, int); wc = np.zeros(A, int)
     fees = np.full(A, s.fee); paid = np.zeros(A); first = np.full(A, -1); passes = np.zeros(A, int)
+    pay_n = np.zeros(A, int); eval_fail = np.zeros(A, int); fund_fail = np.zeros(A, int); pass_day = np.full(A, -1)   # A59 detail
     for d in range(window):
         idx = starts + d; ev = phase == 0; fu = ~ev; cost = cost_s[idx]
         b_e = np.clip(np.rint((eq - START) / 100).astype(int), ge["B_MIN"], ge["B_MAX"])
@@ -263,13 +264,15 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip
         got = amt > 0
         paid += 0.9 * amt; first = np.where(got & (first < 0), d + 1, first)
         eq -= amt; npay += got; wc = np.where(got, 0, wc)
+        pay_n += got; eval_fail += br & ev & (d + 1 < window); fund_fail += br & fu; pass_day = np.where(ok & (pass_day < 0), d + 1, pass_day)
         reset = br | ok
         new_phase = np.where(ok, 1, np.where(br, 0, phase))
         eq = np.where(reset, START, eq); pk = np.where(reset, START, pk)
         best = np.where(reset, 0.0, best); npay = np.where(reset, 0, npay); wc = np.where(reset, 0, wc)
         fees += np.where(br & (d + 1 < window), s.fee, 0.0)
         phase = new_phase
-    return {"start": starts, "net": paid - fees, "first": first, "fees": fees, "paid": paid, "passes": passes}
+    return {"start": starts, "net": paid - fees, "first": first, "fees": fees, "paid": paid, "passes": passes,
+            "payouts": pay_n, "eval_fails": eval_fail, "funded_fails": fund_fail, "pass_day": pass_day}
 
 
 # ------------------------------------------------------------------ markets
