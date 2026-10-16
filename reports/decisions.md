@@ -13577,6 +13577,16 @@ mean net (P(net > 0)):
 account is a zero-edge account (2010–20 above is that case, still positive); identical trades in several accounts (copy-trading) must be
 allowed by Tradeify — to confirm; still a simulation of rules the user described, not Tradeify's published text.
 
+## 628. A62 protocol: all five edge accounts live together, then build the live accounts up with smaller risk (user idea) (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** The user: with only edge accounts (3 NKD + 2 FDXM), move all five to live
+together, build the live accounts up with the edge (smaller risk, no early withdrawals), then withdraw normally. A61's simulation:
+(A) **gate** none vs 5 (later payouts held until all five accounts hold one, so the move takes all five); (B) **live risk** (take, stop) the
+same before and after the lock ∈ {(300, 300), (500, 500), (800, 800), (1,200, 1,000)} × **withdrawal cushion** (withdraw only above it, once
+locked) ∈ {$2k, $5k, $10k, $20k}. Chosen on 2021–24 starts at **252 sessions** (A first, then B with A's choice); read on 2025 starts and
+2010–20; the chosen and the A61 configuration also at **504 sessions** (2021–24 starts only — the data end there). Cash received and
+equity left in live accounts at the end are reported separately; the choice is on cash.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

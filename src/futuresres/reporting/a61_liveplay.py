@@ -119,7 +119,10 @@ def simulate(common, P, window: int, accounts: tuple, gate=None, live_pre=(1_200
         endl = (mode == 1) & ~alive
         mode = np.where(endl, 2, mode); cool = np.where(endl, COOL, cool)
     net = paid_sim + paid_live - fees
-    return {"start": starts, "net": net, "paid_sim": paid_sim, "paid_live": paid_live, "fees": fees, "moves": moves, "first_live": first_live,
+    live_eq_end = np.zeros(A)
+    for m in ACC:
+        live_eq_end += np.where(st[m]["lalive"], st[m]["leq"], 0.0)     # A62: equity still in live accounts at the end (not cash)
+    return {"start": starts, "net": net, "live_eq_end": live_eq_end, "paid_sim": paid_sim, "paid_live": paid_live, "fees": fees, "moves": moves, "first_live": first_live,
             "cool_days": cool_days, "closed": closed_n, "live_at_move": np.array(live_n_at_move), "evals": fees / s.fee}
 
 
