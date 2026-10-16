@@ -9,10 +9,10 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 
 - [ ] Demo review run: `.venv/bin/python -m futuresres.reporting.a18_demo_check --review`
 - [ ] Dollar rules: keep or revert? (review section "The dollar rules, forward"; revert if the first 40 rule sessions are negative)
-- [ ] Which accounts (up to 5 at once). The options and their 4-month replays on 2025 starts:
-  - **Now:** MNQ, MGC, MCL, NKD, FDXM: +$17,500 a 4-month run
-  - **B:** 2×NKD + 2×FDXM + MNQ: +$26,100, but the duplicate accounts win and lose together
-  - **C:** 3×NKD + 2×FDXM: +$32,000, the most concentrated
+- [ ] Which accounts (up to 5 at once). Four-month replays **with Tradeify's live rules** (decisions.md 625, 627; the earlier
+  +$17.5k–$32k figures ignored them):
+  - **Now** (MNQ, MGC, MCL, NKD, FDXM): about **+$5,500** a 4-month run on 2025 starts (+$4,300 across 2021–26; 91% positive)
+  - **3×NKD + 2×FDXM**: about **+$12,000** on 2025 starts (+$9,400 across 2021–26; 90% positive) — needs copy-trading allowed
 - [ ] Fifth market: MCL or **ZB** (30-year bonds, 4 contracts)? ZB made the book steadier over 2010–26 (P(net > 0) 85 → 92% and
   96 → 99%) but $484 less on 2025 starts (decisions.md 611). Needs Tradeify to permit ZB and a bot ticket. Live cattle (4 LE) is the other steadier option (decisions.md 614:
   2010–20 P(net > 0) 85 → 92%; −$281 on 2025 starts at Tradeify's $11.20 round trip).
