@@ -80,7 +80,8 @@ fill; resend with `confirm` only if the platform really shows it (it stays quiet
 - **Evaluation passed:** nothing to do — the bot sees it from `!eod`.
 - **Payout received:** `!payout <ACCOUNT> <amount>`.
 - **Moved to live:** tell Claude the same day — the bot does not model live accounts yet; the live-account plan (withdraw above $2k, or
-  build to a larger cushion first, decisions.md 629) is decided then.
+  build to a larger cushion first, decisions.md 629) is decided then — including A72's wider live bracket (take $3,000 / stop $1,000;
+  +$5.8k a run on 2025 starts but no better before 2021, decisions.md 652), weighed against the forward dollar-rule record.
 - **Missed a ticket:** `!skipped <ACCOUNT>`; don't trade it late. **No 4:30 PM alert:** don't guess tickets; skip the day and tell Claude.
 
 ## 6. Stop / review triggers

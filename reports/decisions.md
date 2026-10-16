@@ -13845,6 +13845,22 @@ take $1,200 / stop $1,000. Fixed in advance: H = 84 (no choice is made; the H 21
 starts, 2021–26 and 2010–20; **adopt only if it beats the current mean on 2025 starts and on 2010–20, with the 2025 p10 no worse than $1,000
 below.** The 2021–24 figure is reported but is not out-of-sample.
 
+## 652. A72: the solved live policy is a near-miss — +$5.8k on 2025 starts, −$74 on 2010–20; not adopted, revisit at the first move to live (S8)
+
+**No trial.** `reports/a72_livepol.json` (module `reporting/a72_livepol.py`). The live game's policy is the same at H 21, 42 and 84: from
+$0, **take $3,000 / stop $1,000** (one trade clears the $2,000 lock and leaves ~$1,000 to withdraw); near the lock, a take sized to reach it
+($400–1,800, stop $500–1,000); once locked, $3,000 / $1,000 again. Mean (P > 0, p10; live payouts):
+
+| | 2025 starts | 2021–26 | 2010–20 | 2021–24 (not out-of-sample) |
+|---|---|---|---|---|
+| current (take $1,200 / stop $1,000) | +$11,218 (100%, +$3,175; $2,537) | +$7,797 (84%) | **+$5,325** (80%; $1,568) | +$6,581 |
+| **solved live policy** | **+$17,059** (100%, +$3,167; $8,671) | **+$10,741** (84%) | +$5,251 (80%; $1,458) | +$8,495 |
+
+Evaluation and funded play are untouched, so only live payouts change; the tail is identical. It **fails §651 by $74 on 2010–20** — the
+rule stands: not adopted. Read: the wide live take turns the dollar rules' 2021–26 drift into much more live money and is neutral where
+that drift is weaker (2010–20); its whole gain rides on the edge holding while live. Since the live-account plan is decided at the first
+move to live anyway (launch checklist §5), **this is the candidate to bring then**, with the forward dollar-rule record (a48) in hand.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
