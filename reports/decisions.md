@@ -13778,6 +13778,21 @@ payout moves the book to live); **hold** #1's payouts until k ∈ {1, 2, 4} of t
 stays in the account, still exposed to its drawdown). A63's simulation (live rules, 1 tick, Tradovate fees), every start date, horizons
 84 and 252 sessions; read mean net, P(net > 0), accounts live at the first move, days to the first move.
 
+## 646. A69: at the switch, take account #1's third payout — holding it does not pay (S8)
+
+**No trial.** `reports/a69_switch.json` (module `reporting/a69_switch.py`; A63 still reproduces A61 after the changes). From the switch
+(NKD #1 funded with two payouts + four new evaluations), mean net (P(net > 0)):
+
+| | 84 sessions, all starts | 84, 2025 starts | 252 sessions, all starts | 252, 2025 starts |
+|---|---|---|---|---|
+| **accept** | **+$7,206 (89%)** | **+$9,762 (98%)** | **+$22,556 (100%)** | **+$27,457** |
+| hold until 1 (= 2) new accounts paid | +$6,933 (82%) | +$9,400 | +$22,041 | +$26,413 |
+| hold until all 4 new accounts paid | +$5,806 (82%) | +$8,530 | +$17,920 (97%) | +$22,642 |
+
+Holding #1's third payout means fewer moves to live and freezes (1.18 vs 1.55 in 84 sessions) and more live payouts, but #1's unpaid
+profit is lost with it often enough to cost more (as A61's gating). Holding until one and until two new accounts are paid are the same
+(the duplicates are paid together). **Advice: take #1's third payout normally**; going live with one account early is the better bet.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
