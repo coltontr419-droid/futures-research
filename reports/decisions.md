@@ -13622,6 +13622,18 @@ Live triggers that are discretionary are swept: never, after 10, after 20 payout
 Same plan policy (A23) for brackets; intraday trailing modelled from each day's path maximum before the exit. Horizon 84 sessions;
 2025 starts, 2021–26, 2010–20.
 
+## 631. A63: no other prop firm beats Tradeify for this plan, even after Tradeify's live rules (S8)
+
+**No trial.** `reports/a63_firms.md` (survey and sources), `reports/a63_firms.json`, `reports/a63_phidias.json` (modules `reporting/a63_firms.py`,
+`a63b_phidias.py`; the generic simulation reproduces A61 exactly under Tradeify's rules). Four-month book, 2025 starts (P(net > 0)):
+Tradeify 3 NKD + 2 FDXM **+$12,041 (100%)**, NKD×3 + MNQ + MGC +$11,405 (98%), current mix +$5,491 (100%); Take Profit Trader PRO +$6,886 (62%)
+or +$13,464 with NKD×5 (65%; 2021–26 +$10,575 at 56%, p10 −$10,500); Lucid Daily +$9,003 (63%) with no live move, +$3,231 if live after 10
+payouts; MyFundedFutures Rapid EOD −$3,304 (3%: its 30% evaluation consistency rarely lets the plan pass); Phidias Fundamental / Premium
+−$3,319 / −$3,892 (5 accounts) and worse with 15 (30% funded consistency blocks payouts); Apex below Tradeify (§622). The plan needs
+frequent payouts and no consistency cap on the best day; Tradeify Select Daily is the only firm with both, the lowest evaluation price,
+and Eurex. Caveat: other firms ran with Tradeify's solved bracket policy — a policy solved for each firm's rules could narrow the gap for
+TPT and Lucid, but their losing-run share (35–45%) comes from the fee load and intraday trailing, not the policy alone.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
