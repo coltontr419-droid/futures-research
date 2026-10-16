@@ -57,7 +57,7 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
     live_kind, live_n = live_override or F["live"]
     ACC = [f"{m}#{i}" for i, m in enumerate(accounts[: F["max_acc"]])]; MK = {a: a.split("#")[0] for a in ACC}; NA = len(ACC)
     st = {m: {"phase": np.zeros(A, int), "eq": np.full(A, START), "pk": np.full(A, START), "best": np.zeros(A), "days": np.zeros(A, int),
-              "npay": np.zeros(A, int), "cyc": np.zeros(A, int), "cprof": np.zeros(A), "cbest": np.zeros(A), "leq": np.zeros(A), "lpk": np.zeros(A), "lroom": np.full(A, LIVE_DD), "lalive": np.zeros(A, bool)} for m in ACC}
+              "npay": np.zeros(A, int), "cyc": np.zeros(A, int), "cprof": np.zeros(A), "cbest": np.zeros(A), "leq": np.zeros(A), "lpk": np.zeros(A), "lroom": np.full(A, F.get("live_dd", LIVE_DD)), "lalive": np.zeros(A, bool)} for m in ACC}
     mode = np.zeros(A, int); cool = np.zeros(A, int); bookpay = np.zeros(A, int)
     fees = np.full(A, NA * F["fee"]); paid_sim = np.zeros(A); paid_live = np.zeros(A); moves = np.zeros(A, int); cool_days = np.zeros(A, int)
     kind, buf, pmin, cap = F["payout"]
@@ -85,9 +85,10 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             floor = np.where(ev, pk - ddE, np.where(pk >= F["lock"] + ddF, F["lock"], pk - ddF))
             L = np.minimum(L, np.maximum(eq - floor - 1, 1))
             trade = sim & act & (a > 0) & (eq - floor > cost + 10)
-            lfloor = np.where(a_["lpk"] >= LIVE_LOCK, 0.0, a_["lpk"] - a_["lroom"])
-            lact = liv & a_["lalive"]; locked = a_["lpk"] >= LIVE_LOCK
-            Wl = np.full(A, 1_200.0); Ll = np.minimum(np.full(A, 1_000.0), np.maximum(a_["leq"] - lfloor - 1, 1))
+            LLK = F.get("live_dd", LIVE_LOCK)
+            lfloor = np.where(a_["lpk"] >= LLK, 0.0, a_["lpk"] - a_["lroom"])
+            lact = liv & a_["lalive"]; locked = a_["lpk"] >= LLK
+            Wl = np.full(A, 1_200.0 * F.get("k", 1.0)); Ll = np.minimum(np.full(A, 1_000.0 * F.get("k", 1.0)), np.maximum(a_["leq"] - lfloor - 1, 1))
             ltrade = lact & act & (a_["leq"] - lfloor > cost + 10)
             WW = np.where(trade, W + cost, np.where(ltrade, Wl + cost, 1e12)); LL = np.where(trade, np.maximum(L - cost, 1.0), np.where(ltrade, np.maximum(Ll - cost, 1.0), 1e12))
             raw, mfe = bracket_mfe(h[idx], l[idx], c[idx], WW, LL)
@@ -130,10 +131,10 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             fees += np.where(br & (d + 1 < window), F["fee"], 0.0)
             # ---- live accounts
             leq = a_["leq"] + np.where(ltrade, pnl, 0.0); lpk = np.maximum(a_["lpk"], leq)
-            lfloor2 = np.where(lpk >= LIVE_LOCK, 0.0, lpk - a_["lroom"])
+            lfloor2 = np.where(lpk >= LLK, 0.0, lpk - a_["lroom"])
             dead = lact & act & ((leq <= lfloor2) | ~ltrade)
             a_["lalive"] = a_["lalive"] & ~dead
-            wd = np.where(a_["lalive"] & (lpk >= LIVE_LOCK) & (leq > 2_000.0), leq - 2_000.0, 0.0)
+            wd = np.where(a_["lalive"] & (lpk >= LLK) & (leq > 2_000.0), leq - 2_000.0, 0.0)
             paid_live += F["live_split"] * wd; leq -= wd
             a_["leq"], a_["lpk"] = leq, lpk
         # ---- move to live
@@ -150,7 +151,7 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 go = trig & anyone
                 for m in ACC:
                     e = elig[m] & go
-                    room = LIVE_DD + (np.maximum(st[m]["eq"] - START, 0.0) if F["live_room_bonus"] else 0.0)
+                    room = F.get("live_dd", LIVE_DD) + (np.maximum(st[m]["eq"] - START, 0.0) if F["live_room_bonus"] else 0.0)
                     st[m]["lalive"] = np.where(go, e, st[m]["lalive"]); st[m]["leq"] = np.where(go, 0.0, st[m]["leq"])
                     st[m]["lpk"] = np.where(go, 0.0, st[m]["lpk"]); st[m]["lroom"] = np.where(go, room, st[m]["lroom"])
                 mode = np.where(go, 1, mode); moves += go

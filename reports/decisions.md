@@ -13634,6 +13634,15 @@ frequent payouts and no consistency cap on the best day; Tradeify Select Daily i
 and Eurex. Caveat: other firms ran with Tradeify's solved bracket policy — a policy solved for each firm's rules could narrow the gap for
 TPT and Lucid, but their losing-run share (35–45%) comes from the fee load and intraday trailing, not the policy alone.
 
+## 632. A64 protocol: Tradeify 100K / 150K Select Daily under the live rules (user request) (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** §145 chose 50K before the live rules were known. A63's simulation
+(reproduces A61) with A23's 100K / 150K Daily specs (§145: target $6k / $9k, drawdown $3k / $4.5k, funded payout cap $1,750 / $2,500, fee
+$185.50 / $258.30, contracts × 1.5 / × 2.25 rounded half up, each size's own solved bracket policy) and the user's live rules scaled by size:
+live room and lock at the size's drawdown ($3k / $4.5k), live brackets × the contract factor, 10-payout / 3-on-one trigger, 4-week
+cool-off, at most 5 accounts of any size. Books: 5 × 50K, 5 × 100K, 5 × 150K, each as 3 NKD + 2 FDXM and as the current mix. Read on 2025
+starts, 2021–26 and 2010–20 at 84 sessions.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
