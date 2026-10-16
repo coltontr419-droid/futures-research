@@ -13,7 +13,7 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 - [x] Staged orders survive overnight but **may not survive the 5–6 PM ET close** → stage them **after 5:00 PM CT** (see section 4).
 - [x] Commissions (Tradovate's published all-in rates): NKD $5.88–7.28 and FDXM $2.04–3.56 a round trip per contract — checked against
   the models: no change to the estimate (decisions.md 641).
-- [ ] Real-time data: the NKD (CME) and FDXM (Eurex, $14 a month) packages on your platform.
+- [x] Real-time data: NKD already real-time; Eurex (FDXM) $14 a month (user, 2026-10-16).
 
 ## 2. Before buying — decide at the 10-25 review
 
