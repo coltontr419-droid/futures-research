@@ -13809,6 +13809,23 @@ most).
 gives up #1's third payout (~$1,100, usually within days) and delays the move until several new accounts are paid — the plan earns more by
 cycling sooner. Slightly steadier, ~$1k a four-month run poorer. Advice unchanged: take #1's third payout.
 
+## 649. A71 protocol: re-solve the bracket policy for the real game — renewal, the move to live, and the live account (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any policy is solved or replayed.** A23's policy (A01's game) maximises P(pass within
+21 days) in the evaluation and E[$ paid within 21 days] in an endless funded stage whose payout cap lifts after the 3rd payout; the live
+plan's live accounts use fixed brackets (take $1,200, stop $1,000, A60). The real game differs: a failed account is re-bought for $80 and
+starts again; an account's 3rd payout moves the book to live (its funded stage ends); live is $0 start, $2,000 trailing drawdown locking at
+$0, withdrawals above $2,000 at 80%. **The renewal game**, one account slot, per market (costs priced into the odds: p = (L − c)/(W + L)
+with c the market's round trip at 1 tick a side and Tradovate Free fees), all values in the trader's $, horizon H days, solved by backward
+induction: evaluation pass → the funded start's value; any breach → re-buy (−$80 + the evaluation start's value); each funded payout pays
+90%; the 3rd payout ends the slot with a terminal value R. **The live game**: max E[80% of withdrawals] within H days from $0 (state:
+balance, peak), costs priced, its stationary policy replacing the fixed live brackets. Candidates (each replayed with its H-day policy used
+as a stationary rule, as A23): H ∈ {21, 42, 84}; R ∈ {0, $1,000, $2,000, V_live (the live game's value at its start)}; live brackets
+fixed or solved — 24 candidates, plus the current policy. A63's joint simulation (5 × 50K, 3 NKD + 2 FDXM, live rules, 1 tick a side,
+Tradovate Free fees, Eurex data), 84 sessions; **chosen on 2021–24 starts by mean net**, read once on 2025 starts, 2021–26 and 2010–20;
+**adopt only if it beats the current policy's mean on 2025 starts and on 2010–20, with the 2025 10th percentile no worse than $1,000
+below the current one's** (A65's failure was a widened tail).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
