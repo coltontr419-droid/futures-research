@@ -5,21 +5,14 @@ don't apply. (decisions.md 583; rewritten 2026-10-16 for the chosen plan, decisi
 
 Commands below run from the repo folder: `cd ~/futures-research` first (Claude runs them during reviews; you don't have to).
 
-## 1. Ask Tradeify first (send to support — the plan depends on the answers)
+## 1. Tradeify's answers (2026-10-16, decisions.md 640)
 
-1. **Copy-trading across your own accounts:** "May I place the same trade (same instrument, same direction, same time) in several of my
-   own 50K Select Daily accounts — for example three NKD accounts with identical orders?" *(the plan's three NKD and two FDXM accounts
-   take identical trades; if not allowed, the mix falls back to one account per market — about +$5.5k a four-month run instead of +$11k)*
-2. **Moving to live — please confirm:** live after 3 payouts on one account or 10 payouts in total; at the move, accounts that have
-   requested a payout go live (up to 5) and every other account is closed; the 50K live account starts at $0 with a $2,000 trailing
-   drawdown that locks at $0 once it is up $2,000; no daily loss limit; daily withdrawals of profit above trading capital at 80/20; no new
-   evaluations while any live account is open; after the last live account is lost, a cool-off of up to 4 weeks. *(the models use exactly
-   these; also ask what a 100K live account starts with, for later)*
-3. **Evaluation re-buys:** "Is there any limit on how often I can buy a new 50K Select Daily evaluation after failing one (about one
-   every 6–7 trading days per account), and is $80 the price that will apply?" *(the plan buys about 39 evaluations per four months)*
-4. **Products and data:** NKD (CME Nikkei, USD) and FDXM (Eurex Mini-DAX) on your platform, the real-time data each needs (you found
-   Eurex is $14 a month), and the round-trip commission for NKD and FDXM.
-5. **Scheduled orders:** your platform keeps a staged bracket order with a release time and a close time overnight.
+- [x] Copy-trading across your own accounts — **allowed** (3 NKD + 2 FDXM with identical trades is fine).
+- [x] Live-account rules — **as modelled** (verbatim from Tradeify's FAQ); a 100K live account starts at $0 with the evaluation's drawdown.
+- [x] Evaluation re-buys — **no limit** on how many or how often.
+- [x] Staged orders survive overnight but **may not survive the 5–6 PM ET close** → stage them **after 5:00 PM CT** (see section 4).
+- [ ] Still to confirm: the NKD and FDXM real-time data packages on your platform (Eurex was $14 a month) and their round-trip
+  commissions (the models assume $4.00 a round trip each — tell Claude if it's higher).
 
 ## 2. Before buying — decide at the 10-25 review
 
@@ -46,7 +39,9 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 
 ## 4. Every day
 
-**4:30 PM CT — the alert.** For each ticket, stage one **scheduled bracket order** in that account:
+**4:30 PM CT — the alert; stage after 5:00 PM CT.** The alert comes during the 4–5 PM CT close, and orders placed then may not survive
+it — wait for the 5:00 PM CT reopen, then for each ticket stage one **scheduled bracket order** in that account (NKD enters at 7:00 PM, so
+there are two hours):
 
 | field | from the embed |
 |---|---|

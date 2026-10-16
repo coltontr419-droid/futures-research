@@ -13718,6 +13718,15 @@ rule; not adopted. Reading: on these two accounts the rules roughly double the p
 +$3.3k) — the "pre-2021 risk" seen in the five-account book (§463: its P(net > 0) fell) came from the book's tails, not from NKD/FDXM means.
 The 40-session forward trigger (§463) stays as the safeguard.
 
+## 640. Tradeify's answers (via the user, 2026-10-16): the launch plan's assumptions hold (S8)
+
+**No trial.** (1) **Copy-trading across one's own accounts is allowed** — 3 NKD + 2 FDXM with identical trades is permitted. (2) The live
+rules modelled since §624 are **verbatim from Tradeify's FAQ**. (3) A **100K live account starts at $0 with the evaluation's drawdown**
+($3,000) — A64's assumption (§633) holds. (4) **No limit** on how many evaluations, or how often, one buys. (5) Staged orders **survive
+overnight but may not survive the 5–6 PM ET close** — the alert posts at 4:30 PM CT (5:30 PM ET), inside that break, so orders are to be
+staged **after the 5:00 PM CT reopen** (NKD enters 7:00 PM CT, FDXM 2:00 AM CT). (6) Open: NKD / FDXM data packages and round-trip
+commissions (the models assume $4.00 a round trip for both; Tradeify's MNQ/MGC/MCL fees are below the models', §615).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
