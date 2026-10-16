@@ -13603,6 +13603,25 @@ $25.0k ≈ **$66.6k over two years vs $51.8k** (one year ≈ $29.9k vs $26.3k). 
 moves and freezes); the equity is at risk until withdrawn (a $20k fall from the peak, ~20 net losing days at this size). Choice for the
 user: withdraw above $2–5k (more cash sooner, steadier) or build to $20k (more total over two years).
 
+## 630. A63 protocol: other prop firms' 50K rules against Tradeify, in the same joint simulation (user request) (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** Rules read 2026-10-15 from the firms' help centres (sources in
+`reports/a63_firms.md`); comparison sites only to find firms. Modelled (the others have tighter caps, forced live after few payouts, or
+mandatory consistency that the plan's brackets cannot meet, per the survey table):
+- **Tradeify Select Daily** (baseline, A61's live rules).
+- **MyFundedFutures Rapid EOD 50K**: $157 one-time, target $3,000, $2,000 EOD trailing, eval consistency 30%, 4 days minimum, no DLL; funded
+  EOD trailing locking at +$100; payouts daily: first once profit ≥ $2,600 (down to the $2,100 buffer), then each +$500; no cap; 90%; **3
+  funded accounts max**; live only after a $10,000 day or at the risk team's discretion.
+- **Take Profit Trader PRO**: test ~$150 per attempt (price unconfirmed; tested at $100 and $200), target $3,000, $2,000 EOD trailing, 50%
+  eval consistency (not failing: trading continues until met), 3 days minimum; **PRO intraday trailing** $2,000 locking at the start;
+  withdraw anything above +$2,000 daily, no cap, **80%**; 5 accounts; PRO+ live by invitation.
+- **Lucid Daily**: eval as MFF's with 50% consistency (price ~$150, unconfirmed); funded **intraday trailing**, payouts daily above
+  +$2,100, no cap, 90%; live at the risk team's discretion; all sim accounts close on a move; live keeps the buffer as room; 2-week cooldown.
+Live triggers that are discretionary are swept: never, after 10, after 20 payouts. Products: FDXM (Eurex) is not offered by MFF or TPT
+(US exchanges only); NKD is listed by MFF, unconfirmed at TPT and Lucid — so non-Tradeify mixes use NKD, MNQ (D68), MGC, MCL only.
+Same plan policy (A23) for brackets; intraday trailing modelled from each day's path maximum before the exit. Horizon 84 sessions;
+2025 starts, 2021–26, 2010–20.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
