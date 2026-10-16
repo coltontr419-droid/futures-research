@@ -13727,6 +13727,16 @@ overnight but may not survive the 5–6 PM ET close** — the alert posts at 4:3
 staged **after the 5:00 PM CT reopen** (NKD enters 7:00 PM CT, FDXM 2:00 AM CT). (6) Open: NKD / FDXM data packages and round-trip
 commissions (the models assume $4.00 a round trip for both; Tradeify's MNQ/MGC/MCL fees are below the models', §615).
 
+## 641. Tradovate's real NKD / FDXM costs leave the launch estimate unchanged (S8)
+
+**No trial.** The user trades Tradeify accounts on Tradovate. Tradovate's published all-in rates (commission + exchange + clearing + NFA,
+info.tradovate.com/pricing/commissions, read 2026-10-16), per contract per side (round trip) — Free / Monthly / Lifetime plan: **NKD $3.64
+($7.28) / $3.34 ($6.68) / $2.94 ($5.88); FDXM $1.78 ($3.56) / $1.08 ($2.16) / $1.02 ($2.04)**; for reference MNQ $0.94 / $0.84 / $0.64, MGC $1.29 /
+$1.19 / $0.99, MCL $1.09 / $0.99 / $0.79 (Tradeify's own published MNQ $1.82 and MGC/MCL $2.12 round trips sit between Tradovate's Free and
+Monthly, so prop accounts likely carry a negotiated rate). The models assumed $4.00 a round trip for NKD and FDXM. Re-run of the launch book
+(5 × 50K, 3 NKD + 2 FDXM, live rules, 1 tick a side) at the conservative Free rates: **2025 starts +$11,218** (100%, p10 +$3,175) vs +$11,162;
+2021–26 +$7,797 (84%) vs +$7,991; 2010–20 +$5,325 vs +$5,346 — NKD's higher fee and FDXM's lower one roughly cancel.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

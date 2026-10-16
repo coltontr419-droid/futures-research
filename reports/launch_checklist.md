@@ -11,8 +11,9 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 - [x] Live-account rules — **as modelled** (verbatim from Tradeify's FAQ); a 100K live account starts at $0 with the evaluation's drawdown.
 - [x] Evaluation re-buys — **no limit** on how many or how often.
 - [x] Staged orders survive overnight but **may not survive the 5–6 PM ET close** → stage them **after 5:00 PM CT** (see section 4).
-- [ ] Still to confirm: the NKD and FDXM real-time data packages on your platform (Eurex was $14 a month) and their round-trip
-  commissions (the models assume $4.00 a round trip each — tell Claude if it's higher).
+- [x] Commissions (Tradovate's published all-in rates): NKD $5.88–7.28 and FDXM $2.04–3.56 a round trip per contract — checked against
+  the models: no change to the estimate (decisions.md 641).
+- [ ] Real-time data: the NKD (CME) and FDXM (Eurex, $14 a month) packages on your platform.
 
 ## 2. Before buying — decide at the 10-25 review
 
