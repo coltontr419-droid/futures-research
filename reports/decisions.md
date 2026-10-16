@@ -13689,6 +13689,16 @@ fails §634's rule; the solved policy stays.
 runs the demo's six products exactly as before. Tests: tests/test_bot_ticket.py (13 pass; the Discord-embed test also passes in a scratch
 environment with discord.py). Deploy only on the user's word, with the live accounts' starting balances set via `!set`.
 
+## 637. Mid-demo review (2026-10-16) and a near-miss tolerance for the `!eod` check (S8)
+
+**No trial.** Review after 26 tickets: outcomes 9 / 16 / 1 against an expected 11.1 / 13.7 / 1.2 (chi-square 0.81, p ≈ 0.67); replay P&L
+−$6,250 vs −$628 ± $5,244 (z −1.07) — an unlucky week inside the noise; no account has passed yet. Dollar rules: 4 sessions, signed window
++316 bps, bracket P&L −$2,258 vs the opposite side, recorded −$1,800; the 40-session trigger is pending. Watchlist 13 of 23 positive.
+The MGC 10-16 ticket: the user's chart reached the 153-tick take (154 too; 155 would have missed); the Yahoo GC=F replay (entry 4198.10)
+fell short by exactly one tick (high 4213.30 vs take 4213.40) and recorded a stop. The user's reading stands (recorded results override
+the replay, §492). **Change (built and tested locally; deploy on the user's word):** `schedule.eod_check` no longer warns when the replay
+came within `NEAR_TICKS = 3` of the bracket the user reported — at that distance the replay's data source cannot settle it. Tests extended.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

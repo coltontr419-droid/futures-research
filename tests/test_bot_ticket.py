@@ -260,6 +260,10 @@ def test_eod_check_flags_a_take_read_as_a_stop() -> None:
         assert sch.eod_check(t, "MNQ", -1000.0, late, fetch=flat) is None # closed as a time exit - no opinion on a stop
         assert sch.eod_check(t, "MNQ", -1000.0, now, fetch=boom) is None  # data failure never blocks
         assert sch.eod_check(t, "MNQ", 150.0, now, fetch=up) is None      # a time exit is not second-guessed
+        # within 3 ticks of the reported take: no warning (decisions.md 637)
+        tick = sch.policy()["PRODUCTS"]["MNQ"]["tick"]; reach = 126.25 - 2 * tick
+        nearly = lambda p, s, e: [(entry, 25000.0, 25000.0 + reach, 25000.0 - 130.0, 24880.0)]
+        assert sch.eod_check(t, "MNQ", 1000.0, late, fetch=nearly) is None
 
 
 def test_multi_account_names_share_their_product() -> None:

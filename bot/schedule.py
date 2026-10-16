@@ -181,6 +181,9 @@ def recorded_outcome(pnl: float, take_net: float, stop_net: float) -> str:
 PROXY = {"FDXM": "DAX index proxy"}                    # shadow tracked on a stand-in, not the traded future (shadow.YAHOO)
 
 
+NEAR_TICKS = 3      # replay data (Yahoo GC=F, NQ=F, ...) can differ from the traded contract by a tick or two (2026-10-16, MGC 153-tick take)
+
+
 def eod_check(tix: "Tickets", product: str, pnl: float, now: dt.datetime, fetch=shadow.bars) -> str | None:
     """Before an `!eod` is booked: replay the ticket being documented on 1-minute bars from its exact entry minute to now (or its
     exit) and return a warning if the replay hit the OTHER bracket than the one the sent P&L implies (a take read as a stop, or the
@@ -195,7 +198,15 @@ def eod_check(tix: "Tickets", product: str, pnl: float, now: dt.datetime, fetch=
         if sent not in ("TAKE", "STOP"):
             return None
         e = dt.datetime.fromisoformat(r["entry"]); x = min(dt.datetime.fromisoformat(r["exit"]), now)
-        res = shadow.simulate(fetch(product, e, x), tk["side"], tk["take_points"], tk["stop_points"], tk["contracts"], pp["mult"], pp["rt"])
+        bars = fetch(product, e, x)
+        res = shadow.simulate(bars, tk["side"], tk["take_points"], tk["stop_points"], tk["contracts"], pp["mult"], pp["rt"])
+        if bars:                                       # too close to call: the replay came within NEAR ticks of the bracket you reported
+            sg = 1.0 if tk["side"] == "long" else -1.0; e0 = bars[0][1]
+            fav = max((sg * (h - e0) if sg > 0 else sg * (lo - e0)) for _, _, h, lo, _ in bars)
+            adv = max((-sg * (lo - e0) if sg > 0 else -sg * (h - e0)) for _, _, h, lo, _ in bars)
+            near = NEAR_TICKS * pp["tick"]
+            if (sent == "TAKE" and tk["take_points"] - fav <= near) or (sent == "STOP" and tk["stop_points"] - adv <= near):
+                return None
         prox = f" ({PROXY[base(product)]} — it can differ from the future)" if base(product) in PROXY else ""
         word = {"TAKE": "a take", "STOP": "a stop"}
         if res.get("outcome") == "TIME EXIT" and now < dt.datetime.fromisoformat(r["exit"]):    # still open: neither bracket touched yet
