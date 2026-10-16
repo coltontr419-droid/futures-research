@@ -259,19 +259,12 @@ def extra_sections(r: dict, d: Path) -> list:
         w += [f"| {p} | {x['sessions']} | {x['signed_bps_sum']:+.1f} bps | ${x['rule_minus_other_pnl']:+,.0f} |" for p, x in s["by_product"].items()]
         w += ["", f"Total {s['sessions']} sessions, signed {s['signed_bps_sum']:+.1f} bps; recorded ${s['recorded_pnl_sum']:+,.0f}. "
               f"**Trigger (first 40 sessions negative → propose reverting): {s['trigger']}.**"]
-    tj = d / "tickets.json"
-    if tj.exists():
-        T = [t for t in json.loads(tj.read_text()) if t.get("user_pnl") is not None and t["product"] in EXECUTABLE
-             and dt.datetime.fromisoformat(t["entry"]).astimezone(ET).weekday() in (0, 1, 2)]
-        tot = sum(float(t["user_pnl"]) for t in T)
-        w += ["", "## What you can actually place: FDXM and MGC, Monday–Wednesday entries", "",
-              f"{len(T)} recorded tickets, ${tot:+,.0f} in total"
-              + (": " + ", ".join(f"{t['product']} {dt.datetime.fromisoformat(t['entry']).astimezone(ET):%a %m-%d} ${float(t['user_pnl']):+,.0f}" for t in T) if T else ".")]
     w += ["", "## Decisions for this review", "",
-          "1. Keep the demo running as is, or change it? (the chi-square and P&L z above: is the live mix like history?)",
-          "2. The dollar rules: keep, or revert (the trigger above)?",
-          "3. More accounts on the dollar rules (A47, decisions.md 576: 2×NKD + 2×FDXM + MNQ = +$26.1k vs +$17.5k per 4 months on 2025 starts, wider tail)?",
-          "4. Real money: which accounts can be placed by hand (FDXM / MGC Mon–Wed) and is that subset worth starting with?"]
+          "1. The dollar rules: keep, or revert (the trigger above)?",
+          "2. Launch: 5 × 50K Tradeify on 3 NKD + 2 FDXM (decisions.md 627, 635: ≈ +$11k a four-month run on 2025 starts with the live rules and one",
+          "   tick of slippage; 100K raises the mean with a wider tail, §633) — or the current mix (≈ +$5.5k)?",
+          "3. Fills: is the execution table near zero (≈ 1 tick)? Two ticks a side costs the book ~38% (§635).",
+          "4. Deploy the bot's multi-account mode (BOT_ACCOUNTS, §636) for the live accounts?"]
     return w
 
 
