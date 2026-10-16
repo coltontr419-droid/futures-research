@@ -77,6 +77,8 @@ class Tickets:
         exit_ = dt.datetime.combine(alert_day + dt.timedelta(days=x_off), dt.time(xh, xm), tz).astimezone(ET)
         if a["phase"] == "dead":
             tk = {"trade": False, "finished": True, "floor": 0.0}
+        elif a["phase"] == "closed":                       # closed at the move to live, or a live account that ended
+            tk = {"trade": False, "closed": True, "floor": 0.0}
         else:
             bp = base(product)
             side, why = side_override if side_override else (d68.mnq_side(alert_day) if bp == "MNQ"                           # D68 (decisions.md 211)
@@ -302,7 +304,7 @@ def weekly_check(tix: Tickets, now: dt.datetime) -> str:
 
 def needs_eod(rec: dict) -> bool:
     """A traded ticket still waiting for its `!eod` (the board's red/green, decisions.md 489)."""
-    return bool(rec["ticket"].get("trade")) and rec["phase"] != "dead" and not rec.get("eod")
+    return bool(rec["ticket"].get("trade")) and rec["phase"] not in ("dead", "closed") and not rec.get("eod")
 
 
 def alert_parts(book: Book, tix: Tickets, now: dt.datetime) -> tuple[str, list[dict]]:
@@ -312,7 +314,7 @@ def alert_parts(book: Book, tix: Tickets, now: dt.datetime) -> tuple[str, list[d
     if res:
         parts.append("**Results** (shadow-tracked; how each ticket played out):\n" + "\n".join(result_line(r) for r in res))
     want = last_trading_day(now.date())
-    missing = [p for p in PRODUCTS if book.s[p].get("eod_date") != want.isoformat() and book.s[p]["phase"] != "dead"]
+    missing = [p for p in PRODUCTS if book.s[p].get("eod_date") != want.isoformat() and book.s[p]["phase"] not in ("dead", "closed")]
     recs = []
     if now.weekday() in (6, 0, 1, 2, 3):
         if missing:
@@ -338,5 +340,7 @@ def ticket_post(rec: dict) -> str:
     head = f"__{rec['product']} - {clock(e)} -> {clock(x)} CT__ [{rec['phase']}, balance ${rec['balance']:,.2f}]"
     if rec["phase"] == "dead":
         return head + f"\n**{rec['product']}: account failed** - buy a new evaluation and send `!new {rec['product']}`."
+    if rec["phase"] == "closed":
+        return head + f"\n**{rec['product']}: closed** (moved to live, or its live account ended) - no trade. `!status` shows the book."
     note = rec["ticket"].get("note", "")
     return head + "\n" + describe(rec["ticket"], rec["product"], clock(e, False) + " CT", clock(x, False) + " CT") + (f"\n> {note}" if note.startswith(("D68", "D139", "DAX-dollar", "dollar-week")) else "")

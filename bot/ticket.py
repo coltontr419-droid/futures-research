@@ -32,7 +32,14 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
     P = policy()
     p = P["PRODUCTS"][base(product)]; n = p["n"]; START = P["START"]
     peak = max(peak, balance)
-    if phase == "eval":
+    k = 1
+    if phase == "live":                           # decisions.md 653, 657: $0 start, $2,000 trailing locking at $0, k x contracts
+        b = _clip(int(round(balance / 100)), P["L_MIN"], P["L_MAX"])
+        pk = max(_clip(int(round(peak / 100)), 0, P["L_LOCK"]), _clip(b, 0, P["L_LOCK"]))
+        a = P["LIVE"][base(product)][b - P["L_MIN"]][pk]
+        floor = 0.0 if peak >= 100 * P["L_LOCK"] else peak - 100 * P["L_LOCK"]
+        k = P["LIVE_K"].get(base(product), 1)
+    elif phase == "eval":
         b = _clip(int(round((balance - START) / 100)), P["B_MIN"], P["B_MAX"])
         pk = max(_clip(int(round((peak - START) / 100)), 0, P["B_MAX"]), max(b, 0))
         bd = _clip(int(round(best / 100)), 0, P["BD_MAX"])
@@ -43,17 +50,22 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
         pk = max(_clip(int(round((peak - START) / 100)), 0, P["BUFFER"]), _clip(b, 0, P["BUFFER"]))
         a = P["funded"][b - P["F_BMIN"]][pk][min(payouts, P["LIVE_AFTER"])]
         floor = START if peak >= START + 2000 else peak - 2000
+    n = n * k
     room = balance - floor
     if room <= p["rt"] * n + 10:
-        return {"trade": False, "finished": True, "floor": floor}
+        return {"trade": False, "finished": True, "floor": floor, "live": phase == "live"}
     if a <= 0:
         return {"trade": False, "floor": floor}
-    W = (a // 100) * 100.0
-    L = min((a % 100) * 100.0, max(balance - floor - 1, 1))
+    W = (a // 100) * 100.0 * k
+    L = min((a % 100) * 100.0 * k, max(balance - floor - 1, 1))
     cost = p["rt"] * n
     return {"trade": True, "product": product, "side": side, "contracts": n, "entry": p["entry"], "exit": p["exit"],
             "take_net": W, "stop_net": L, "floor": floor,
             "take_points": _pts(W + cost, n, p), "stop_points": _pts(max(L - cost, 1.0), n, p)}
+
+
+def _usd(x: float) -> str:
+    return f"-${-x:,.0f}" if x < 0 else f"${x:,.0f}"
 
 
 def _ticks(points: float, product: str) -> int:
@@ -65,11 +77,13 @@ def _ticks(points: float, product: str) -> int:
 def describe(t: dict, product: str, entry_txt: str | None = None, exit_txt: str | None = None) -> str:
     """The ticket's instructions. entry_txt / exit_txt: display times (Chicago, 12-hour, decisions.md 491); default the window's
     local clock as stored in the ticket."""
+    if t.get("finished") and t.get("live"):
+        return (f"**{product}: LIVE ACCOUNT FINISHED** - within one day's costs of its floor ({_usd(t['floor'])}). No trade; it ends here.")
     if t.get("finished"):
-        return (f"**{product}: ACCOUNT FINISHED** - within one day's costs of the floor (${t['floor']:,.0f}); any trade "
+        return (f"**{product}: ACCOUNT FINISHED** - within one day's costs of the floor ({_usd(t['floor'])}); any trade "
                 f"breaches it. Start a new evaluation (`!new {product}`).")
     if not t["trade"]:
-        return f"**{product}: no trade today.** Floor ${t['floor']:,.0f}."
+        return f"**{product}: no trade today.** Floor {_usd(t['floor'])}."
     up, dn = ("+", "-") if t["side"] == "long" else ("-", "+")
     verb = "BUY" if t["side"] == "long" else "SELL"
     from accounts import base
@@ -78,4 +92,4 @@ def describe(t: dict, product: str, entry_txt: str | None = None, exit_txt: str 
     return (f"**{product}** - {ent}: **{verb} {t['contracts']} {base(product)}** at market, then one OCO bracket on the fill:\n"
             f"> take-profit: fill {up} **{t['take_points']:.2f}** pts = **{_ticks(t['take_points'], product)} ticks** (~ +${t['take_net']:,.0f} net)\n"
             f"> stop: fill {dn} **{t['stop_points']:.2f}** pts = **{_ticks(t['stop_points'], product)} ticks** (~ -${t['stop_net']:,.0f} net)\n"
-            f"> {ext}: if neither filled, close at market. Floor today ${t['floor']:,.0f}.")
+            f"> {ext}: if neither filled, close at market. Floor today {_usd(t['floor'])}.")

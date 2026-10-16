@@ -13922,6 +13922,21 @@ take × 3 is rarely reached (≈ hold to the window's close) and the stop is cap
 account's first trade largely decides it. Caveats: the 4-contract limit is assumed (to confirm with Tradeify); evaluation and funded play
 unchanged; live tickets are given by hand until the bot models live accounts.
 
+## 658. The bot models live accounts (built and tested locally; not yet deployed) (S8)
+
+**No trial.** The user confirmed the 4-contract limit holds for live accounts (§657's assumption). So that a real account reaching live
+finds the bot ready: `bot/policy.json` gains the solved live tables per product (`a06_playbook.live_export`: A71's live game, H 84, the
+launch costs) and `LIVE_K` (NKD 3, FDXM 2 → 3 NKD / 4 FDXM); its evaluation and funded tables are unchanged. `bot/ticket.py`: phase
+"live" — $0 start, floor peak − $2,000 until the peak reaches $2,000, then $0; the solved bracket × k at the same price distance, the stop
+capped by the room left (from $0: 3 NKD, take ≈ $9,000 / stop $1,999). `bot/accounts.py`: the book's payout count since the cycle began;
+the **move-to-live notice** on the payout that meets Tradeify's trigger (3 on one account or 10 on the book), naming who goes live and
+who closes; **`!golive [ACCOUNT ...]`** once Tradeify confirms (live accounts start at $0, the rest "closed", pending tickets reissued);
+live `!eod` asks for withdrawals above $2,000 (80%); a live breach ends that account, and the last one starts the **cool-off** (notice
+with the latest restart date, 28 days); `!new` is refused while a live account is open and, during cool-off, until resent with
+`confirm`; the first new evaluation restarts the cycle. `!set` accepts live / closed. a18 skips the book-level record. Tests: 3 new
+(live tickets, the full move → golive → withdrawals → cool-off → restart path, the 10-payout trigger); 16 pass + the Discord tests.
+Deploy only on the user's word (backup first).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

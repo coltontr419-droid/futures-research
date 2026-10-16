@@ -183,6 +183,8 @@ def accounts(state_json: Path, demo_csv: Path) -> dict:
     ev = list(csv.DictReader(open(demo_csv))) if Path(demo_csv).exists() else []
     out = {}
     for p, a in st.items():
+        if p.startswith("_"):                          # "_book": the book-level record (live mode, cool-off)
+            continue
         rows = [r for r in ev if r["product"] == p]
         out[p] = {"phase": a["phase"], "balance": a["balance"], "evals_bought": a.get("evals_bought"), "fees": a.get("fees"),
                   "passes": sum(r["event"] == "PASSED" for r in rows),

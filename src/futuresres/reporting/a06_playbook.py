@@ -111,6 +111,25 @@ def _print(t: dict) -> None:
           f"{t['exit']} {tz}: if neither filled, close at market.   Floor today ${t['floor']:,.0f}.")
 
 
+#: decisions.md 657: live accounts trade this many times the plan's contracts (the 4-contract limit), at the same price distances
+LIVE_K = {"NKD": 3, "FDXM": 2}
+
+
+def live_export() -> dict:
+    """The solved live-account policy per product (decisions.md 653, A71's live game, H 84), its costs priced as the launch replays
+    (1 tick a side + Tradovate Free fees), and the live contract multiplier (657)."""
+    import futuresres.reporting.a23_account_sizes as a23
+    from futuresres.reporting.a65_slip_fund import TICK
+    from futuresres.reporting.a67_cashpath import RT
+    from futuresres.reporting.a71_realgame import solve_live
+    s = a23.specs()["50K Daily"]; tabs = {}; grid = None
+    for m, p in PRODUCTS.items():
+        n = p["n"]; c = n * RT.get(m, p["rt"]) + 2 * n * TICK.get(m, p["tick"] * p["mult"])
+        act, grid, _ = solve_live(s, c, 84)
+        tabs[m] = np.asarray(act).astype(int).tolist()
+    return {"LIVE": tabs, "L_MIN": grid["LMIN"], "L_MAX": grid["LMAX"], "L_LOCK": grid["LOCK"], "LIVE_K": {m: LIVE_K.get(m, 1) for m in PRODUCTS}}
+
+
 def export(path: Path | None = None) -> Path:
     """The solved policy and every constant `ticket` uses, as JSON, for the Discord bot (bot/, decisions.md 123): it
     reproduces `ticket` in plain Python on the droplet without numpy or the solver."""
@@ -119,6 +138,7 @@ def export(path: Path | None = None) -> Path:
     out = {"START": START, "B_MIN": g.B_MIN, "B_MAX": g.B_MAX, "BD_MAX": g.BD_MAX, "F_BMIN": g.F_BMIN, "F_BMAX": g.F_BMAX,
            "BUFFER": g.BUFFER, "LIVE_AFTER": g.LIVE_AFTER, "PRODUCTS": PRODUCTS,
            "eval": np.asarray(pe).astype(int).tolist(), "funded": np.asarray(pf).astype(int).tolist()}
+    out.update(live_export())
     path = path or (ROOT / "bot" / "policy.json")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, separators=(",", ":")))

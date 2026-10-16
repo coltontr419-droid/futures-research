@@ -17,8 +17,9 @@ Commands (in the configured channel; start with ! or mention the bot, e.g. "@Bot
   !ticket                        the tickets issued at the last alert
   !board                         re-post the latest alert's board (red until every traded ticket has its !eod)
   !payout <PRODUCT> <amount>     a payout received (the amount withdrawn, before the 90% split)
-  !new <PRODUCT>                 a new $50k evaluation bought
-  !set <PRODUCT> <eval|funded> <balance> <peak> [best_day] [payouts]   correct the state by hand
+  !new <PRODUCT> [confirm]       a new $50k evaluation bought (refused while a live account is open or in cool-off)
+  !golive [ACCOUNT ...]          Tradeify moved you to live: the accounts holding a payout (or those named) go live at $0, the rest close
+  !set <PRODUCT> <eval|funded|live|closed> <balance> <peak> [best_day] [payouts]   correct the state by hand
   !status                        all accounts
   !help                          this list
 
@@ -84,8 +85,8 @@ def _save_boards(b: dict) -> None:
 def _field_name(r: dict) -> str:
     e = dt.datetime.fromisoformat(r["entry"]).astimezone(ET); x = dt.datetime.fromisoformat(r["exit"]).astimezone(ET)
     tk = r["ticket"]
-    side = ("LONG" if tk.get("side") == "long" else "SHORT") if tk.get("trade") else ("FAILED" if r["phase"] == "dead" else "NO TRADE")
-    mark = ("⏳" if needs_eod(r) else "✅") if tk.get("trade") and r["phase"] != "dead" else "▫️"
+    side = ("LONG" if tk.get("side") == "long" else "SHORT") if tk.get("trade") else ("FAILED" if r["phase"] == "dead" else "CLOSED" if r["phase"] == "closed" else "NO TRADE")
+    mark = ("⏳" if needs_eod(r) else "✅") if tk.get("trade") and r["phase"] not in ("dead", "closed") else "▫️"
     return f"{mark} {r['product']} · {side} · {clock(e)} → {clock(x)} CT"
 
 
@@ -252,7 +253,7 @@ async def eod_cmd(ctx, product: str, balance: float, confirm: str = ""):
             return
     msgs = book.eod(p, balance, day)
     a = book.s[p]
-    out = [f"{p}: closed ${balance:,.2f} ({day}) recorded. Peak ${a['peak']:,.2f}, best day ${a['best']:,.0f}." if a["phase"] != "dead" else ""]
+    out = [f"{p}: closed ${balance:,.2f} ({day}) recorded. Peak ${a['peak']:,.2f}, best day ${a['best']:,.0f}." if a["phase"] not in ("dead", "closed") else ""]
     out += msgs
     # reissue this product's ticket if the alert already went out and its entry is still ahead
     marked = tix.mark_eod(p, now)                   # the board turns this ticket green
@@ -316,16 +317,31 @@ async def payout_cmd(ctx, product: str, amount: float):
 
 
 @bot.command(name="new")
-async def new_cmd(ctx, product: str):
+async def new_cmd(ctx, product: str, confirm: str = ""):
     if _allowed(ctx):
+        why = book.can_buy()
+        if why and not (confirm.lower() in ("confirm", "yes", "force") and "cool-off" in why):
+            await ctx.send(why); return
         await ctx.send(book.new(_product(product)))
+
+
+@bot.command(name="golive")
+async def golive_cmd(ctx, *names: str):
+    if _allowed(ctx):
+        await ctx.send(book.golive([_product(n) for n in names] or None))
+        now = dt.datetime.now(ET)                         # reissue any pending ticket under the live plan
+        for p in PRODUCTS:
+            pend = [r for r in tix.t if r["product"] == p and r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["entry"]) > now]
+            if pend:
+                tix.issue(book, p, dt.datetime.fromisoformat(pend[-1]["issued"]).date(), now)
+        await refresh_boards(ctx.channel)
 
 
 @bot.command(name="set")
 async def set_cmd(ctx, product: str, phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0):
     if _allowed(ctx):
-        if phase not in ("eval", "funded"):
-            raise commands.BadArgument("phase must be eval or funded")
+        if phase not in ("eval", "funded", "live", "closed"):
+            raise commands.BadArgument("phase must be eval, funded, live or closed")
         await ctx.send(book.set(_product(product), phase, balance, peak, best, payouts))
 
 
