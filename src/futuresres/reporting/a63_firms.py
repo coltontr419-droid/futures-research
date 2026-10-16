@@ -99,7 +99,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 W = np.where(fu, W * F["fscale"][0], W); L = np.where(fu, L * F["fscale"][1], L)
             floor = np.where(ev, pk - ddE, np.where(pk >= F["lock"] + ddF, F["lock"], pk - ddF))
             L = np.minimum(L, np.maximum(eq - floor - 1, 1))
-            trade = sim & act & (a > 0) & (eq - floor > cost + 10)
+            idle = (m == ACC[0]) & bool(F.get("idle_first"))            # A70: account 0 sits out the simulated stage (no trades, no breach)
+            trade = sim & act & (a > 0) & (eq - floor > cost + 10) & (not idle)
             LLK = F.get("live_dd", LIVE_LOCK)
             lfloor = np.where(a_["lpk"] >= LLK, 0.0, a_["lpk"] - a_["lroom"])
             lact = liv & a_["lalive"]; locked = a_["lpk"] >= LLK
@@ -116,7 +117,7 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 floor_chk = np.where(fu, np.maximum(floor, ifloor), floor)
             else:
                 ipk = pk; floor_chk = floor
-            br = sim & act & ((ne <= floor_chk) | ~trade)
+            br = sim & act & ((ne <= floor_chk) | ~trade) & (not idle)
             eq = np.where(sim, ne, eq); pk = np.where(sim, np.maximum(np.maximum(pk, ne), np.where(fu, ipk, pk)), pk)
             best = np.where(sim & ev, np.maximum(best, pnl), best); a_["days"] = a_["days"] + (sim & act & ev & trade)
             prof = eq - START

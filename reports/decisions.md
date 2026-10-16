@@ -13793,6 +13793,14 @@ Holding #1's third payout means fewer moves to live and freezes (1.18 vs 1.55 in
 profit is lost with it often enough to cost more (as A61's gating). Holding until one and until two new accounts are paid are the same
 (the duplicates are paid together). **Advice: take #1's third payout normally**; going live with one account early is the better bet.
 
+## 647. A70 protocol: at the switch, park account #1 (no trades) until the others trigger the move to live (user idea) (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** The user: after its second payout, simply stop trading NKD #1 —
+it cannot lose its standing, it already qualifies for live (it holds a payout), and it goes live with whichever new accounts hold a
+payout when the trigger comes (one of them reaching three payouts, or the book reaching ten). A69's setup with #1 idle in the simulated
+stage (it trades again once live). Not modelled: an inactivity rule (to be confirmed with Tradeify; a small occasional trade would satisfy
+most).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

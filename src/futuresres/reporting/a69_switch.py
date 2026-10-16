@@ -26,7 +26,8 @@ def main() -> int:
     for window in (84, 252):
         st = np.array(cp[: len(cp) - window]); m25 = np.array([x >= dt.date(2025, 1, 1) for x in st]); mall = np.ones(len(st), bool)
         for lab, extra in (("accept", {}), ("hold until 1 new account paid", {"hold_first_until": 1}),
-                           ("hold until 2 new accounts paid", {"hold_first_until": 2}), ("hold until all 4 paid", {"hold_first_until": 4})):
+                           ("hold until 2 new accounts paid", {"hold_first_until": 2}), ("hold until all 4 paid", {"hold_first_until": 4}),
+                           ("#1 idle (no trades) until the move", {"idle_first": True})):
             r = f.simulate(cp, P, window, MIX, dict(base, **extra))
             fm = r["moves"]
             row = {"all": summary(r, mall), "2025 starts": summary(r, m25) if m25.any() else None}
