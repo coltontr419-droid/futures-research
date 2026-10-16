@@ -13861,6 +13861,16 @@ rule stands: not adopted. Read: the wide live take turns the dollar rules' 2021�
 that drift is weaker (2010–20); its whole gain rides on the edge holding while live. Since the live-account plan is decided at the first
 move to live anyway (launch checklist §5), **this is the candidate to bring then**, with the forward dollar-rule record (a48) in hand.
 
+## 653. The solved live policy is adopted for live accounts, on the user's call after a zero-edge check (S8)
+
+**No trial.** The user: the −$74 on 2010–20 (§652) is negligible against +$5.8k on 2025 starts. The rule's purpose was to stop a change
+that only pays if the edge holds; that was checked directly. Sides randomised per session (zero edge), 6 seeds, A63 launch setup, mean net
+current → solved live policy: 2021–26 sessions **+$5,151 → +$5,561**, 2010–20 **+$3,514 → +$3,812**; 10th percentile identical; the solved
+policy ahead on 10 of 12 seeds. With no edge it is still slightly better (it is the coin-flip game's optimum for a live account and trades
+less, so pays less cost), so the downside the rule guarded against is absent. **Adopted for live accounts:** from $0, take $3,000 / stop
+$1,000; within reach of the $2,000 lock, the policy's smaller take to reach it; locked, $3,000 / $1,000 (per-state table:
+`a71_realgame.solve_live`, H 84). §651's rule is overridden here explicitly, not quietly; the evaluation and funded policy are unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
