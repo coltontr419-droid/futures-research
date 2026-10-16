@@ -13737,6 +13737,15 @@ Monthly, so prop accounts likely carry a negotiated rate). The models assumed $4
 (5 × 50K, 3 NKD + 2 FDXM, live rules, 1 tick a side) at the conservative Free rates: **2025 starts +$11,218** (100%, p10 +$3,175) vs +$11,162;
 2021–26 +$7,797 (84%) vs +$7,991; 2010–20 +$5,325 vs +$5,346 — NKD's higher fee and FDXM's lower one roughly cancel.
 
+## 642. A67 protocol: the launch's cash path — how much starting capital the plan needs (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** The launch plan (5 × 50K Tradeify, 3 NKD + 2 FDXM, live rules, 1 tick
+a side, Tradovate fees) spends on evaluations before payouts arrive. A63's joint simulation, day by day, records the trader's **cash**:
+−$80 at each evaluation bought (five at the start), + each payout when made (funded 90%, live 80%; paid the same day — Tradeify pays within
+days, so a slight flattering), and −$14 a month for Eurex data. Read per start date (2025 starts and all 2021–26): the lowest cash point in
+84 sessions (the capital at risk), the day of the first payout, the share of starts whose low point is worse than −$500 / −$1,000 / −$1,500
+/ −$2,000 / −$3,000, and the cash at day 84. The minimum safe starting capital is reported as the 95th / 99th percentile of the capital at risk.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
