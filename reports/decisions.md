@@ -13561,6 +13561,22 @@ per 84 sessions). The plan's dollar estimates elsewhere in this file ignore thes
    1,000) with the $2,000 cushion.
 Adopt only levers that improve the 2021–24 mean and do not lower 2025 starts or 2010–20; report all.
 
+## 627. A61: under the live rules, put all five slots on NKD and FDXM; hold no payouts; keep the live brackets (S8)
+
+**No trial.** `reports/a61_liveplay.json` (module `reporting/a61_liveplay.py`; reproduces A60 exactly with the same settings). 84 sessions,
+mean net (P(net > 0)):
+- **Payout gating hurts** — holding later payouts until k accounts hold one: none +$3,914 (2021–24) / +$5,491 (2025 starts) / +$3,306 (2010–20);
+  k = 2 +$3,823 / +$5,796 / +$2,447 (68%); k = 3 +$3,260 / +$4,048 / +$2,014; k = 4–5 near zero. Profit left in a simulated account is lost
+  with it more often than it buys a bigger move to live. **Not adopted.**
+- **Account mix — adopted on §626's rule**: now (MNQ, MGC, MCL, NKD, FDXM) +$3,914 / +$5,491 / +$3,306; 2×NKD + 2×FDXM + MNQ +$6,503 / +$8,728 / +$6,005;
+  **3×NKD + 2×FDXM +$8,431 / +$12,041 / +$6,734** (P(net > 0) 90% / 100% / 83%). Duplicates trade together, so they also reach live together:
+  2–5 accounts go live at a move (59% three) instead of one (62% one, now).
+- **Live play before the lock**: (500, 500) +$6,749 and (800, 800) +$7,758 vs the default (1,200, 1,000) +$8,431 on 2021–24 — the default stays.
+**One year (252 sessions)**: chosen +$31,734 (2025 starts), +$27,113 (2021–26, p10 +$16,480), +$19,049 (2010–20, 98%) vs the current mix
++$18,128 / +$13,349 / +$10,035. Caveats: five accounts on two products and one theme (the dollar rules) — if the dollar effect ends, every
+account is a zero-edge account (2010–20 above is that case, still positive); identical trades in several accounts (copy-trading) must be
+allowed by Tradeify — to confirm; still a simulation of rules the user described, not Tradeify's published text.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
