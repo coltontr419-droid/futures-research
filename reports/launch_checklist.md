@@ -33,6 +33,11 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 
 ## 3. Launch day — set up the bot (Claude does this with you)
 
+**Your start (2026-10-16):** one NKD account until it has two payouts (typically ~2 months; ~7 evaluations; cash at risk ~$500, worst
+~$1,800), then the five-account run. At the switch, **take account #1's third payout normally** even though it moves you to live — holding
+it costs more than it saves (decisions.md 644–646).
+
+
 1. Claude backs up the demo's state, moves the demo files aside, adds `BOT_ACCOUNTS=NKD,NKD2,NKD3,FDXM,FDXM2` to the bot's `.env` on the
    droplet and restarts it.
 2. For each account send `!set <ACCOUNT> eval 50000 50000` (e.g. `!set NKD2 eval 50000 50000`) so every account starts clean.
