@@ -13513,6 +13513,20 @@ passes in ~10–18 sessions, almost every funded account is eventually lost, and
 ~$900–1,300 after the split, against the $1,250 cap). Operational implication for live trading: about 16 evaluation purchases a month across
 five accounts at $80 each — the user should confirm Tradeify allows re-buying at that pace and price.
 
+## 624. A60 protocol: the five-account book under Tradeify's live-account rules (user, 2026-10-15) (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** The user's rules (Tradeify does not publish them; the only official
+article found is an expired pre-November version): **move to live** when one funded account has 3 payouts or the book has 10 payouts since
+the start (or since the last live failure); at that moment every funded account with ≥ 1 payout on its current funded account moves to
+live (≤ 5) and every other account (evaluations, funded without a payout) is **closed**. **Live**: starts at $0 trading capital; trailing
+drawdown $2,000 until the peak reaches +$2,000, then locked at $0; no daily loss limit; 4 minis / 40 micros; withdrawals daily, any amount
+above trading capital, **80% split**, no cap; **no new evaluations while any live account is open**; when the last live account fails, a
+**cool-off of up to four weeks** (modelled as 20 sessions) with no trading, then five new evaluations. A joint simulation of the five
+accounts (MNQ D68, MGC, MCL, NKD dollar-week, FDXM DAX-dollar) on their common sessions, each sim account under the plan's solved policy
+as A23; live accounts trade fixed brackets (take, stop) ∈ {(600, 600), (800, 800), (1,000, 1,000), (1,200, 1,000)} with a withdrawal
+cushion C ∈ {$2,000, $4,000} (withdraw everything above C once locked), chosen on 2021–24 starts; horizons 84 sessions (the plan's four
+months) and 252 (a year). Read on 2025 starts, all 2021–26 starts, 2010–20; against A47/A59's book without live rules.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
