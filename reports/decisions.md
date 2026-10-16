@@ -13643,6 +13643,23 @@ live room and lock at the size's drawdown ($3k / $4.5k), live brackets × the co
 cool-off, at most 5 accounts of any size. Books: 5 × 50K, 5 × 100K, 5 × 150K, each as 3 NKD + 2 FDXM and as the current mix. Read on 2025
 starts, 2021–26 and 2010–20 at 84 sessions.
 
+## 633. A64: under the live rules 5 × 100K (3 NKD + 2 FDXM) earns more than 5 × 50K, with more risk; 150K is worse (S8)
+
+**No trial.** `reports/a64_sizes_live.json` (module `reporting/a64_sizes_live.py`; the 50K row reproduces A61 exactly). Four-month book
+(mean; P(net > 0); 10th pct):
+
+| | 2025 starts | 2021–26 | 2010–20 |
+|---|---|---|---|
+| 5 × 50K, 3 NKD + 2 FDXM | +$12,041; 100%; +$6,135 | +$9,378; 90%; −$60 | +$6,734; 83% |
+| **5 × 100K, 3 NKD + 2 FDXM** (2 NKD / 3 FDXM each) | **+$17,582; 94%; +$3,897** | **+$12,206; 82%; −$6,690** | +$5,294; 68% |
+| 5 × 150K, 3 NKD + 2 FDXM | +$7,997; 67%; −$11,365 | +$9,767; 68% | +$4,059; 54% |
+| 5 × 50K / 100K / 150K, current mix | +$5,491 / +$4,917 / +$835 | +$4,327 / +$1,700 / +$1,810 | +$3,306 / +$1,550 / +$980 |
+
+The 100K adds ~+$5.5k (2025 starts) and ~+$2.8k (2021–26) a four-month run on the edge mix — larger payout caps and live room let the
+edge show — but its fees are 2.4× (≈ $8.2k), the losing-run share doubles (2021–26 18% vs 10%), the bad case is ~$6.6k worse, and it is worse
+than 50K before 2021 and worse on the zero-edge mix. Assumptions: live room / lock scaled to the size's drawdown (the user gave 50K's
+only); 100K fee $185.50 is §145's sale price. For the user's "faster profit" aim: 100K raises the mean at the cost of a wider tail.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
