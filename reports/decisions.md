@@ -13949,6 +13949,17 @@ Discord report (rows per symbol, missing weekdays, download failures, disk used)
 never printed). Size: a week's backfill is ~2 MB → ~100 MB a year. First run 2026-10-16 23:45 UTC: 2.1 MB, 7 days of 27 symbols, no
 failures. The record builds the minute-level history Yahoo does not keep, for research once it is long enough.
 
+## 660. A75 protocol: more contracts before live, and the account mix, under the adopted live plan (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** Base: the launch plan as now adopted (5 × 50K, 3 NKD + 2 FDXM,
+solved live policy at 3 NKD / 4 FDXM, §657; 1 tick a side, Tradovate Free fees). An evaluation, like a live account, costs little to lose
+($80), so more variance per trade may pay there too. **Part 1, contracts before live:** the plan's contracts × k, capped at 4 (NKD k,
+FDXM min(2k, 4)), k ∈ {2, 3, 4}; **where**: evaluation only, funded only, both; **brackets**: the same $ (closer prices) or the same price
+distances ($ × k, the stop still capped at the $1,000 daily loss limit and the room left) — 18 candidates. **Part 2, the mix** (with Part
+1's choice only if it is adopted): 5 NKD, 4 NKD + 1 FDXM, 3 + 2, 2 + 3. Each part **chosen on 2021–24 starts**, read once on 2025 starts
+and 2010–20 and with random sides (6 seeds per era); **adopt only if** it beats the base on the 2025 mean, is no more than $250 worse on
+2010–20, is not worse on the zero-edge mean in either era, and its 2025 p10 is no more than $1,000 below (§655's rule).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
