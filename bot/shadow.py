@@ -18,7 +18,8 @@ YAHOO = {"MNQ": "NQ=F", "MGC": "GC=F", "MCL": "CL=F", "NKD": "NKD=F", "FDXM": "^
 
 def bars(product: str, start: dt.datetime, end: dt.datetime) -> list[tuple[dt.datetime, float, float, float, float]]:
     """1-minute (time ET, open, high, low, close) from Yahoo between start and end (ET-aware datetimes)."""
-    url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{YAHOO[product]}?interval=1m"
+    from accounts import base
+    url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{YAHOO[base(product)]}?interval=1m"
            f"&period1={int(start.timestamp()) - 60}&period2={int(end.timestamp()) + 60}")
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     d = json.loads(urllib.request.urlopen(req, timeout=30).read())

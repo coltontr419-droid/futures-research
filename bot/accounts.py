@@ -8,13 +8,37 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import json
+import os
+import re
 from pathlib import Path
 
 START, TARGET, TRAIL, LOCK_AT, CONSISTENCY, CAP, LIVE_AFTER, FEE = 50_000.0, 3_000.0, 2_000.0, 52_000.0, 0.40, 1_250.0, 3, 80.0
 from zoneinfo import ZoneInfo
 
 ET = ZoneInfo("America/New_York")
-PRODUCTS = ("MNQ", "MGC", "MCL", "NKD", "FDXM", "ZS")    # NKD, FDXM: accounts 4-5 (decisions.md 138); ZS: demo-only sixth (141)
+DEFAULT_ACCOUNTS = ("MNQ", "MGC", "MCL", "NKD", "FDXM", "ZS")    # NKD, FDXM: accounts 4-5 (decisions.md 138); ZS: demo-only sixth (141)
+
+
+def _accounts() -> tuple:
+    """The accounts the bot runs: BOT_ACCOUNTS (environment, or the .env beside this file), e.g. "NKD,NKD2,NKD3,FDXM,FDXM2" for the
+    live plan (decisions.md 635) - an account is its product's name plus an optional number. Default: the demo's six products."""
+    v = os.environ.get("BOT_ACCOUNTS", "")
+    if not v:
+        env = Path(__file__).with_name(".env")
+        if env.exists():
+            for line in env.read_text().splitlines():
+                if line.strip().startswith("BOT_ACCOUNTS="):
+                    v = line.split("=", 1)[1].strip()
+    acc = tuple(x.strip().upper() for x in v.split(",") if x.strip())
+    return acc or DEFAULT_ACCOUNTS
+
+
+def base(account: str) -> str:
+    """The traded product of an account name: "NKD2" -> "NKD", "FDXM" -> "FDXM"."""
+    return re.sub(r"\d+$", "", account.upper())
+
+
+PRODUCTS = _accounts()
 
 
 def fresh(product: str) -> dict:

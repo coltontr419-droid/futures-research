@@ -21,7 +21,7 @@ import d139
 import daxdollar
 import nkddollar
 import shadow
-from accounts import PRODUCTS, Book
+from accounts import PRODUCTS, Book, base
 from ticket import describe, policy, ticket
 
 ET = ZoneInfo("America/New_York")
@@ -39,6 +39,7 @@ WINDOWS = {"MCL": (ET, 0, (18, 0), 1, (16, 55)), "MGC": (ET, 1, (3, 0), 1, (11, 
            "NKD": (ZoneInfo("Asia/Tokyo"), 1, (9, 0), 1, (15, 0)), "FDXM": (ZoneInfo("Europe/Berlin"), 1, (9, 0), 1, (17, 30)),
            "ZS": (ZoneInfo("America/Chicago"), 0, (19, 0), 1, (13, 15))}    # soybeans, decisions.md 141
 ORDER = ("MCL", "ZS", "NKD", "MGC", "FDXM", "MNQ")   # by entry time after the 17:30 alert
+ACC_ORDER = tuple(sorted(PRODUCTS, key=lambda a: (ORDER.index(base(a)) if base(a) in ORDER else 99, a)))   # the configured accounts, same order
 SHADOW_DELAY = dt.timedelta(minutes=5)
 
 
@@ -71,15 +72,16 @@ class Tickets:
     def issue(self, book: Book, product: str, alert_day: dt.date, now: dt.datetime, side_override: tuple | None = None) -> dict | None:
         """Record (or replace, if still pending) the ticket for `product` from the alert on `alert_day`."""
         a = book.s[product]
-        tz, e_off, (eh, em), x_off, (xh, xm) = WINDOWS[product]
+        tz, e_off, (eh, em), x_off, (xh, xm) = WINDOWS[base(product)]
         entry = dt.datetime.combine(alert_day + dt.timedelta(days=e_off), dt.time(eh, em), tz).astimezone(ET)
         exit_ = dt.datetime.combine(alert_day + dt.timedelta(days=x_off), dt.time(xh, xm), tz).astimezone(ET)
         if a["phase"] == "dead":
             tk = {"trade": False, "finished": True, "floor": 0.0}
         else:
-            side, why = side_override if side_override else (d68.mnq_side(alert_day) if product == "MNQ"                      # D68 (decisions.md 211)
-                         else nkddollar.nkd_side(alert_day) if product == "NKD"             # dollar-week, replaced D139 (decisions.md 454)
-                         else daxdollar.fdxm_side(alert_day) if product == "FDXM" else ("long", ""))  # decisions.md 448
+            bp = base(product)
+            side, why = side_override if side_override else (d68.mnq_side(alert_day) if bp == "MNQ"                           # D68 (decisions.md 211)
+                         else nkddollar.nkd_side(alert_day) if bp == "NKD"                  # dollar-week, replaced D139 (decisions.md 454)
+                         else daxdollar.fdxm_side(alert_day) if bp == "FDXM" else ("long", ""))  # decisions.md 448
             tk = ticket(a["phase"], a["balance"], a["peak"], a["best"], a["payouts"], product, side)
             tk["note"] = why
         rec = {"product": product, "issued": now.isoformat(timespec="seconds"), "entry": entry.isoformat(), "exit": exit_.isoformat(),
@@ -96,7 +98,7 @@ class Tickets:
         """Shadow-track every ticket whose window has closed; returns the newly finished records."""
         done = []
         for r in self.pending_due(now):
-            tk = r["ticket"]; p = policy()["PRODUCTS"][r["product"]]
+            tk = r["ticket"]; p = policy()["PRODUCTS"][base(r["product"])]
             try:
                 b = fetch(r["product"], dt.datetime.fromisoformat(r["entry"]), dt.datetime.fromisoformat(r["exit"]))
             except Exception as e:                         # Yahoo down: try again next pass
@@ -188,13 +190,13 @@ def eod_check(tix: "Tickets", product: str, pnl: float, now: dt.datetime, fetch=
                  and dt.datetime.fromisoformat(r["entry"]) <= now]
         if not cands:
             return None
-        r = max(cands, key=lambda x: x["entry"]); tk = r["ticket"]; pp = policy()["PRODUCTS"][product]
+        r = max(cands, key=lambda x: x["entry"]); tk = r["ticket"]; pp = policy()["PRODUCTS"][base(product)]
         sent = recorded_outcome(pnl, tk.get("take_net", 0), tk.get("stop_net", 0))
         if sent not in ("TAKE", "STOP"):
             return None
         e = dt.datetime.fromisoformat(r["entry"]); x = min(dt.datetime.fromisoformat(r["exit"]), now)
         res = shadow.simulate(fetch(product, e, x), tk["side"], tk["take_points"], tk["stop_points"], tk["contracts"], pp["mult"], pp["rt"])
-        prox = f" ({PROXY[product]} — it can differ from the future)" if product in PROXY else ""
+        prox = f" ({PROXY[base(product)]} — it can differ from the future)" if base(product) in PROXY else ""
         word = {"TAKE": "a take", "STOP": "a stop"}
         if res.get("outcome") == "TIME EXIT" and now < dt.datetime.fromisoformat(r["exit"]):    # still open: neither bracket touched yet
             sg = 1.0 if tk["side"] == "long" else -1.0
@@ -233,9 +235,9 @@ def result_line(r: dict) -> str:
     if r.get("user_pnl") is not None:                 # the recorded result wins; the shadow is shown only if it disagrees
         out = recorded_outcome(r["user_pnl"], r["ticket"].get("take_net", 0), r["ticket"].get("stop_net", 0))
         sh = res.get("outcome") if res else None
-        note = f" — shadow{' (' + PROXY[r['product']] + ')' if r['product'] in PROXY else ''} said {sh}" if sh and sh != out else ""
+        note = f" — shadow{' (' + PROXY[base(r['product'])] + ')' if base(r['product']) in PROXY else ''} said {sh}" if sh and sh != out else ""
         return f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: **{out}** (your !eod: ${r['user_pnl']:+,.0f}){note}{tr}"
-    tag = f" [{PROXY[r['product']]}]" if r["product"] in PROXY else ""
+    tag = f" [{PROXY[base(r['product'])]}]" if base(r["product"]) in PROXY else ""
     if res["outcome"] == "NO DATA":
         return f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: no price data{tag}{tr}"
     return (f"{r['product']} {e.astimezone(CT):%a %d %b} {clock(e, False)} CT: **{res['outcome']}** at {_res_time(res['time'], e)} -> ${res['pnl']:+,.0f} "
@@ -305,7 +307,7 @@ def alert_parts(book: Book, tix: Tickets, now: dt.datetime) -> tuple[str, list[d
         if missing:
             parts.append("Closing balance not recorded for " + ", ".join(missing) + f" ({want:%a %d %b}) - tickets use the last "
                          "recorded balance. Send `!eod <PRODUCT> <balance>` and I'll reissue that ticket.")
-        recs = [tix.issue(book, p, now.date(), now) for p in ORDER]
+        recs = [tix.issue(book, p, now.date(), now) for p in ACC_ORDER]
     else:
         if missing:
             parts.append("Closing balance not recorded for " + ", ".join(missing) + ". Send `!eod <PRODUCT> <balance>`.")

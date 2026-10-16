@@ -260,3 +260,38 @@ def test_eod_check_flags_a_take_read_as_a_stop() -> None:
         assert sch.eod_check(t, "MNQ", -1000.0, late, fetch=flat) is None # closed as a time exit - no opinion on a stop
         assert sch.eod_check(t, "MNQ", -1000.0, now, fetch=boom) is None  # data failure never blocks
         assert sch.eod_check(t, "MNQ", 150.0, now, fetch=up) is None      # a time exit is not second-guessed
+
+
+def test_multi_account_names_share_their_product() -> None:
+    """decisions.md 635: accounts NKD, NKD2, NKD3, FDXM, FDXM2 - each its own state; product rules from the base name."""
+    import datetime as _dt
+    import os
+    import tempfile
+    from pathlib import Path as _P
+    from zoneinfo import ZoneInfo
+    import accounts as acc
+    import schedule as sch
+    import ticket as bt
+    assert acc.base("NKD2") == "NKD" and acc.base("FDXM") == "FDXM" and acc.base("mnq") == "MNQ"
+    old = os.environ.get("BOT_ACCOUNTS")
+    os.environ["BOT_ACCOUNTS"] = "nkd, NKD2,NKD3 ,FDXM,FDXM2"
+    try:
+        assert acc._accounts() == ("NKD", "NKD2", "NKD3", "FDXM", "FDXM2")
+    finally:
+        if old is None:
+            os.environ.pop("BOT_ACCOUNTS")
+        else:
+            os.environ["BOT_ACCOUNTS"] = old
+    a = bt.ticket("eval", 50_000.0, 50_000.0, 0.0, 0, "NKD2", "short"); b = bt.ticket("eval", 50_000.0, 50_000.0, 0.0, 0, "NKD", "short")
+    assert {k: v for k, v in a.items() if k != "product"} == {k: v for k, v in b.items() if k != "product"} and a["product"] == "NKD2"
+    text = bt.describe(a, "NKD2")
+    assert text.startswith("**NKD2**") and "SELL 1 NKD**" in text
+    et = ZoneInfo("America/New_York")
+    with tempfile.TemporaryDirectory() as d:
+        book = acc.Book(_P(d) / "s.json", _P(d) / "l.csv"); book.s["NKD2"] = acc.fresh("NKD2")
+        t = sch.Tickets(_P(d) / "t.json", _P(d) / "x.csv")
+        now = _dt.datetime(2026, 10, 14, 17, 30, tzinfo=et)
+        r2 = t.issue(book, "NKD2", now.date(), now, side_override=("short", "test"))
+        r1 = t.issue(book, "NKD", now.date(), now, side_override=("short", "test"))
+        assert r2["entry"] == r1["entry"] and r2["ticket"]["contracts"] == r1["ticket"]["contracts"] and r2["product"] == "NKD2"
+        assert len([r for r in t.t if r["product"] in ("NKD", "NKD2")]) == 2      # separate records

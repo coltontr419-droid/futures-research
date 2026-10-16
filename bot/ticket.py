@@ -28,8 +28,9 @@ def _pts(usd: float, n: int, p: dict) -> float:
 
 def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0, product: str = "MNQ",
            side: str = "long") -> dict:
+    from accounts import base
     P = policy()
-    p = P["PRODUCTS"][product]; n = p["n"]; START = P["START"]
+    p = P["PRODUCTS"][base(product)]; n = p["n"]; START = P["START"]
     peak = max(peak, balance)
     if phase == "eval":
         b = _clip(int(round((balance - START) / 100)), P["B_MIN"], P["B_MAX"])
@@ -57,7 +58,8 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
 
 def _ticks(points: float, product: str) -> int:
     """Points as a whole number of the instrument's ticks - what TradingView's bracket fields take."""
-    return int(round(points / policy()["PRODUCTS"][product]["tick"]))
+    from accounts import base
+    return int(round(points / policy()["PRODUCTS"][base(product)]["tick"]))
 
 
 def describe(t: dict, product: str, entry_txt: str | None = None, exit_txt: str | None = None) -> str:
@@ -70,9 +72,10 @@ def describe(t: dict, product: str, entry_txt: str | None = None, exit_txt: str 
         return f"**{product}: no trade today.** Floor ${t['floor']:,.0f}."
     up, dn = ("+", "-") if t["side"] == "long" else ("-", "+")
     verb = "BUY" if t["side"] == "long" else "SELL"
-    tz = policy()["PRODUCTS"][product].get("tz", "ET")
+    from accounts import base
+    tz = policy()["PRODUCTS"][base(product)].get("tz", "ET")
     ent = entry_txt or f"{t['entry']} {tz}"; ext = exit_txt or f"{t['exit']} {tz}"
-    return (f"**{product}** - {ent}: **{verb} {t['contracts']} {product}** at market, then one OCO bracket on the fill:\n"
+    return (f"**{product}** - {ent}: **{verb} {t['contracts']} {base(product)}** at market, then one OCO bracket on the fill:\n"
             f"> take-profit: fill {up} **{t['take_points']:.2f}** pts = **{_ticks(t['take_points'], product)} ticks** (~ +${t['take_net']:,.0f} net)\n"
             f"> stop: fill {dn} **{t['stop_points']:.2f}** pts = **{_ticks(t['stop_points'], product)} ticks** (~ -${t['stop_net']:,.0f} net)\n"
             f"> {ext}: if neither filled, close at market. Floor today ${t['floor']:,.0f}.")

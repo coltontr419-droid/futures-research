@@ -13669,6 +13669,26 @@ only); 100K fee $185.50 is §145's sale price. For the user's "faster profit" ai
 cycle. Take and stop scaled in the funded stage only, factors ∈ {0.75, 1.0, 1.25, 1.5} each (16 pairs), at 1 tick of slippage; **chosen
 on 2021–24 starts**, read once on 2025 starts and 2010–20; adopt only if it improves all three means.
 
+## 635. A65: slippage costs the launch book 7% at one tick and 38% at two; no funded-bracket change (S8)
+
+**No trial.** `reports/a65_slip_fund.json` (module `reporting/a65_slip_fund.py`). 5 × 50K Tradeify, 3 NKD + 2 FDXM, live rules; four-month
+book (2025 starts; 2021–26; 2010–20): **0 ticks** +$12,041 (100%, p10 +$6,135); +$9,378; +$6,734 — **1 tick a side** +$11,162 (100%, p10
++$3,184); +$7,991 (86%); +$5,346 — **2 ticks** +$7,479 (98%, p10 +$647); +$5,795 (81%); +$3,374. NKD's $25 tick dominates: two ticks a side
+is $100 a round trip on a ~$1,000 bracket. Staged entries are market orders at liquid opens (Tokyo 09:00 for NKD, Xetra 09:00 for
+FDXM), so ~1 tick is the working assumption; the demo's real fills (the review's execution table) will tell.
+**Funded brackets** (1 tick): grid on 2021–24 starts +$3,981 … +$9,064 (noisy; chosen take × 1.25, stop × 0.75); the choice gives 2025 starts
++$11,940 vs +$11,162 and 2021–26 +$9,818 vs +$7,991, but **2010–20 +$3,354 vs +$5,346** and the tail widens (2025 p10 +$1,726 vs +$3,184) —
+fails §634's rule; the solved policy stays.
+
+## 636. The bot can run several accounts per product (built and tested locally; not deployed) (S8)
+
+**No trial.** For the launch plan (3 NKD + 2 FDXM at 50K): `bot/accounts.py` reads **BOT_ACCOUNTS** (environment or the bot's `.env`), e.g.
+`NKD,NKD2,NKD3,FDXM,FDXM2`; an account name is its product plus an optional number (`base()`), each with its own state, tickets, `!eod`,
+`!new`, `!payout`; windows, policy, sides (dollar rules), shadow data and the proxy note come from the base product; tickets read
+"**NKD2** … SELL 1 NKD"; the 1:45 AM FDXM re-check now covers every FDXM account with one dollar reading and one message. Unset, the bot
+runs the demo's six products exactly as before. Tests: tests/test_bot_ticket.py (13 pass; the Discord-embed test also passes in a scratch
+environment with discord.py). Deploy only on the user's word, with the live accounts' starting balances set via `!set`.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
