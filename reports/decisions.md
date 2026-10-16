@@ -13696,7 +13696,7 @@ environment with discord.py). Deploy only on the user's word, with the live acco
 +316 bps, bracket P&L −$2,258 vs the opposite side, recorded −$1,800; the 40-session trigger is pending. Watchlist 13 of 23 positive.
 The MGC 10-16 ticket: the user's chart reached the 153-tick take (154 too; 155 would have missed); the Yahoo GC=F replay (entry 4198.10)
 fell short by exactly one tick (high 4213.30 vs take 4213.40) and recorded a stop. The user's reading stands (recorded results override
-the replay, §492). **Change (built and tested locally; deploy on the user's word):** `schedule.eod_check` no longer warns when the replay
+the replay, §492). **Change (deployed 2026-10-16 ~1:28 PM CT on the user's OK, with §636's multi-account code inactive — BOT_ACCOUNTS unset, the six demo products; backup-2026-10-16; checksums verified):** `schedule.eod_check` no longer warns when the replay
 came within `NEAR_TICKS = 3` of the bracket the user reported — at that distance the replay's data source cannot settle it. Tests extended.
 
 ## 10. Still outstanding, and blocking
