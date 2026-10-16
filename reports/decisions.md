@@ -13759,6 +13759,17 @@ Read: $400 buys the first five evaluations, but a normal start dips about $1.3�
 $3,000. Starting capital of **$4,000** covers 95–99% of history; **$5,000** covers every start seen. With less, the plan has to pause
 re-buying in a bad stretch (which the replays do not model). Payouts are counted the day they are earned (a few days' delay in reality).
 
+## 644. A68: the user's cautious start — one NKD account until two payouts (S8)
+
+**No trial.** `reports/a68_single_start.json` (A63 simulation, one NKD account, dollar-week, 1 tick a side, Tradovate fees; 252-session
+horizon; starts 2021-01 → 2025-09, 1,239). The user will trade one 50K NKD account until it has two payouts, then start the five-account
+run. Time to the second payout: **median 42 sessions (~2 months)**, quartiles 22 / 84, 90th pct 127 (~6 months); every start reached it
+within a year. Evaluations bought by then: median 7, 90th pct 19. Cash low point before it: **median −$480, 95th pct −$1,360, worst −$1,760**.
+Interaction with the live rules (the 10-payout count runs from the first account bought): those two payouts count toward the 10, and
+**that NKD account's next payout is its third — which moves the trader to live at once**, closing every account that has not yet had a
+payout. If it is still funded when the five-account run starts, its third payout will most likely land before the four new accounts
+have passed and been paid.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

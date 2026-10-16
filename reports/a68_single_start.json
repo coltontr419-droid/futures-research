@@ -1,0 +1,15 @@
+{
+ "2021-24 starts (2025 starts do not have a year of data)": {
+  "starts": 1239,
+  "reach_2_payouts_in_252": 1.0,
+  "day_median": 42.0,
+  "day_p25": 22.0,
+  "day_p75": 83.5,
+  "day_p90": 127.0,
+  "evals_bought_median": 7.0,
+  "evals_p90": 19.0,
+  "low_cash_median": 480.0,
+  "low_cash_p95": 1360.0,
+  "low_cash_worst": 1760.0
+ }
+}
