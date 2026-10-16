@@ -13660,6 +13660,15 @@ edge show — but its fees are 2.4× (≈ $8.2k), the losing-run share doubles (
 than 50K before 2021 and worse on the zero-edge mix. Assumptions: live room / lock scaled to the size's drawdown (the user gave 50K's
 only); 100K fee $185.50 is §145's sale price. For the user's "faster profit" aim: 100K raises the mean at the cost of a wider tail.
 
+## 634. A65 protocol: slippage on the NKD / FDXM book, and funded-stage brackets under the live rules (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** The launch plan: 5 × 50K Tradeify, 3 NKD + 2 FDXM, live rules (A61).
+(1) **Slippage**: 0, 1, 2 ticks a side on entry and on every exit, added to each day's cost (NKD tick $25 a contract; FDXM tick 1 point × €5
+≈ $5.80 at EUR/USD 1.16) — a stop already fills at its price, so this charges entries and exits uniformly (takes too: conservative).
+(2) **Funded brackets**: the A23 policy was solved for an endless funded stage; under the live rules funded money stops at ~10 payouts a
+cycle. Take and stop scaled in the funded stage only, factors ∈ {0.75, 1.0, 1.25, 1.5} each (16 pairs), at 1 tick of slippage; **chosen
+on 2021–24 starts**, read once on 2025 starts and 2010–20; adopt only if it improves all three means.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

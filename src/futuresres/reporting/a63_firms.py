@@ -82,6 +82,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             pk_f = np.maximum(np.clip(np.rint((pk - START) / 100).astype(int), 0, gf["BUF"]), np.clip(b_f, 0, gf["BUF"]))
             a_f = pf[b_f - gf["FMIN"], pk_f, np.minimum(npay, s.live_after), np.zeros(A, int)]
             a = np.where(ev, a_e, a_f); W = (a // 100) * 100.0; L = (a % 100) * 100.0
+            if F.get("fscale"):                               # A65: funded-stage bracket scaling (take, stop factors)
+                W = np.where(fu, W * F["fscale"][0], W); L = np.where(fu, L * F["fscale"][1], L)
             floor = np.where(ev, pk - ddE, np.where(pk >= F["lock"] + ddF, F["lock"], pk - ddF))
             L = np.minimum(L, np.maximum(eq - floor - 1, 1))
             trade = sim & act & (a > 0) & (eq - floor > cost + 10)
