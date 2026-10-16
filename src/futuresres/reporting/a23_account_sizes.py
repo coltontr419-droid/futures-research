@@ -215,7 +215,7 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip
     S = len(c); starts = np.arange(0, S - window); A = len(starts)
     START, ddE, ddF = s.start, s.dd * 100.0, s.f_dd * 100.0
     phase = np.zeros(A, int); eq = np.full(A, START); pk = eq.copy(); best = np.zeros(A); npay = np.zeros(A, int); wc = np.zeros(A, int)
-    fees = np.full(A, s.fee); paid = np.zeros(A); first = np.full(A, -1)
+    fees = np.full(A, s.fee); paid = np.zeros(A); first = np.full(A, -1); passes = np.zeros(A, int)
     for d in range(window):
         idx = starts + d; ev = phase == 0; fu = ~ev; cost = cost_s[idx]
         b_e = np.clip(np.rint((eq - START) / 100).astype(int), ge["B_MIN"], ge["B_MAX"])
@@ -246,6 +246,7 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip
         best = np.where(ev, np.maximum(best, pnl), best)
         prof = eq - START
         ok = ev & ~br & (prof >= s.target * 100 - 0.005) & (best <= s.cons * prof + 0.005)
+        passes += ok                                     # A58: evaluations passed (activation fees, decisions.md 622)
         if s.flex_thr:
             wc = np.where(fu & (pnl >= s.flex_thr), wc + 1, wc)
             elig = wc >= 5
@@ -268,7 +269,7 @@ def replay(s: Spec, paths: tuple, n: int, rt: float, window: int = HORIZON, skip
         best = np.where(reset, 0.0, best); npay = np.where(reset, 0, npay); wc = np.where(reset, 0, wc)
         fees += np.where(br & (d + 1 < window), s.fee, 0.0)
         phase = new_phase
-    return {"start": starts, "net": paid - fees, "first": first, "fees": fees, "paid": paid}
+    return {"start": starts, "net": paid - fees, "first": first, "fees": fees, "paid": paid, "passes": passes}
 
 
 # ------------------------------------------------------------------ markets

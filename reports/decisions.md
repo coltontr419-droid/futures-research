@@ -13482,6 +13482,24 @@ $52,100 and then locks at $50,100, and payouts may only draw the balance down to
 {600, 800, 1,000, 1,200} × stop ∈ {500, 600, 800, 1,000}) chosen per market on 2021–24 starts, plus Tradeify's solved policy as the
 reference. Read once on 2025 starts and 2010–20; per account and as the five-account book.
 
+## 622. A58: Apex 50K loses to Tradeify's 50K Daily wherever the rules work — stay with Tradeify (S8)
+
+**No trial; N 1,525.** `reports/a58_apex.json`, modules `reporting/a58_apex.py` (fixed brackets, both firms) and `a58b_apex_policy.py` (Apex
+with its own solved A23 policy — an UPPER bound: the engine cannot model Apex's rising caps and closure after six payouts or its 50%
+funded consistency; 100% split and $120 activation per pass applied; `a23.replay` now also returns evaluations passed). Five-account book
+with the deployed rules, per four months (mean; P(net > 0); 10th pct):
+
+| | 2010–20 | 2021–26 | 2025 starts |
+|---|---|---|---|
+| Apex, fixed brackets (best on 2021–24) | +$5,298; 81%; −$1,415 | +$4,610; 80%; −$1,750 | +$2,559; 65%; −$2,060 |
+| Tradeify Daily, fixed brackets | +$5,567; 84%; −$260 | +$6,350; 86%; −$720 | +$6,047; 82%; −$1,046 |
+| **Apex, solved policy (upper bound)** | **+$11,254; 97%; +$3,039** | +$9,801; 97%; +$1,395 | +$11,213; 95%; +$1,616 |
+| **Tradeify Daily, solved policy (the plan)** | +$10,494; 85%; −$826 | **+$15,008; 96%; +$4,148** | **+$17,492; 100%; +$8,228** |
+
+Apex's cheap evaluations ($25) help before 2021, when the rules lose and failures are frequent; once the rules carry an edge (2021–26),
+Tradeify's daily payouts realise it faster than Apex's five-winning-day ($250) cycles — Tradeify +$5.2k a four-month run better on all
+2021–26 starts and +$6.3k on 2025 starts, even against Apex's flattering bound. Biggest gap: NKD (+$6.2–7.3k Tradeify vs +$3.1–3.8k Apex).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
