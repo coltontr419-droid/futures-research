@@ -13770,6 +13770,14 @@ Interaction with the live rules (the 10-payout count runs from the first account
 payout. If it is still funded when the five-account run starts, its third payout will most likely land before the four new accounts
 have passed and been paid.
 
+## 645. A69 protocol: the switch from one NKD account to five — take account #1's third payout, or hold it (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** State at the switch: NKD #1 funded with two payouts (balance at the
+$2,000 buffer), the book's payout count 2, four new $80 evaluations (NKD2, NKD3, FDXM, FDXM2). Options: **accept** (normal play: #1's third
+payout moves the book to live); **hold** #1's payouts until k ∈ {1, 2, 4} of the new accounts hold a payout (#1 keeps trading; its profit
+stays in the account, still exposed to its drawdown). A63's simulation (live rules, 1 tick, Tradovate fees), every start date, horizons
+84 and 252 sessions; read mean net, P(net > 0), accounts live at the first move, days to the first move.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

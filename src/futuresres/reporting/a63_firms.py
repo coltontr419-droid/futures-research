@@ -59,7 +59,12 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
     st = {m: {"phase": np.zeros(A, int), "eq": np.full(A, START), "pk": np.full(A, START), "best": np.zeros(A), "days": np.zeros(A, int),
               "npay": np.zeros(A, int), "cyc": np.zeros(A, int), "cprof": np.zeros(A), "cbest": np.zeros(A), "leq": np.zeros(A), "lpk": np.zeros(A), "lroom": np.full(A, F.get("live_dd", LIVE_DD)), "lalive": np.zeros(A, bool)} for m in ACC}
     mode = np.zeros(A, int); cool = np.zeros(A, int); bookpay = np.zeros(A, int)
-    fees = np.full(A, NA * F["fee"]); paid_sim = np.zeros(A); paid_live = np.zeros(A); moves = np.zeros(A, int); cool_days = np.zeros(A, int)
+    for i, ini in enumerate(F.get("init") or []):                      # A69: an account's starting state (the switch-over)
+        if ini:
+            for k_, v_ in ini.items():
+                st[ACC[i]][k_] = np.full(A, v_, dtype=st[ACC[i]][k_].dtype)
+    bookpay = bookpay + int(F.get("init_bookpay", 0))
+    fees = np.full(A, NA * F["fee"]) - F["fee"] * sum(1 for x in (F.get("init") or []) if x); paid_sim = np.zeros(A); paid_live = np.zeros(A); moves = np.zeros(A, int); cool_days = np.zeros(A, int)
     kind, buf, pmin, cap = F["payout"]
     min_cash = np.full(A, -NA * F["fee"]); first_pay = np.full(A, -1)        # A67: the trader's cash path
     pay2_day = np.full(A, -1); fees_pay2 = np.zeros(A); low_pay2 = np.zeros(A)   # A68: when the book's 2nd payout lands
@@ -73,6 +78,12 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 for k, v in (("phase", 0), ("eq", START), ("pk", START), ("best", 0.0), ("npay", 0), ("days", 0)):
                     st[m][k] = np.where(restart, v, st[m][k])
         sim = mode == 0; liv = mode == 1
+        hold_k = F.get("hold_first_until")
+        if hold_k is not None:                                          # A69: hold account 0's payouts until k others hold one
+            others = np.zeros(A, int)
+            for m in ACC[1:]:
+                others += (st[m]["phase"] == 1) & (st[m]["npay"] >= 1)
+            release0 = others >= hold_k
         for m in ACC:
             h, l, c, cost, has = P[MK[m]]; a_ = st[m]; act = has[idx]
             ev = a_["phase"] == 0; fu = ~ev; eq, pk, best, npay = a_["eq"], a_["pk"], a_["best"], a_["npay"]
@@ -121,6 +132,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 amt = np.where(amt >= pmin, amt, 0.0)
             else:
                 amt = np.where(sim & fu & ~br, np.maximum(eq - (START + buf), 0.0), 0.0); amt = np.where(amt >= pmin, amt, 0.0)
+            if hold_k is not None and m == ACC[0]:
+                amt = np.where(release0, amt, 0.0)
             got = amt > 0
             spl = F["split"] if not isinstance(F["split"], tuple) else np.array(F["split"])[np.minimum(npay, len(F["split"]) - 1)]
             paid_sim += spl * amt; eq -= amt; npay = npay + got; bookpay = bookpay + got
