@@ -13470,6 +13470,18 @@ check. Adopt only if the choice beats the deployed account on 2021–24 AND 2010
 fails §619 by $203. (The ≥ 2 rule reaches +$10,169 on 2025 starts but P(payout) 84% and is worse on 2021–24.) Not adopted; the agreement
 signals add little once the dollar-week side is fixed.
 
+## 621. A58 protocol: Apex Trader Funding 50K against Tradeify's 50K Daily (user request, 2026-10-15) (S1)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** Rules as the user gave them: **$25 evaluation, $120 activation on
+passing**; 4 minis / 40 micros; target +$3,000; $2,000 trailing drawdown (taken as Tradeify's: end-of-day trailing, breached if touched
+intraday); **no evaluation consistency** (no evaluation daily loss limit assumed); funded: **5 winning days (≥ $250) per payout, 50% consistency**
+(best day in the cycle ≤ 50% of the cycle's profit), **100% split**, minimum $500, **payout caps $1,500 / 1,500 / 2,000 / 2,500 / 2,500 / 3,000,
+then the account closes** (a new evaluation is bought). Assumed (Apex's usual design, not stated): the funded drawdown trails to a peak of
+$52,100 and then locks at $50,100, and payouts may only draw the balance down to $52,100. Replay: all five accounts with the deployed rules
+(MNQ D68, NKD dollar-week, FDXM DAX-dollar; MGC, MCL plan), 84 sessions, A23 paths; **the same fixed-bracket grid for both firms** (take ∈
+{600, 800, 1,000, 1,200} × stop ∈ {500, 600, 800, 1,000}) chosen per market on 2021–24 starts, plus Tradeify's solved policy as the
+reference. Read once on 2025 starts and 2010–20; per account and as the five-account book.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
