@@ -13699,6 +13699,15 @@ fell short by exactly one tick (high 4213.30 vs take 4213.40) and recorded a sto
 the replay, §492). **Change (deployed 2026-10-16 ~1:28 PM CT on the user's OK, with §636's multi-account code inactive — BOT_ACCOUNTS unset, the six demo products; backup-2026-10-16; checksums verified):** `schedule.eod_check` no longer warns when the replay
 came within `NEAR_TICKS = 3` of the bracket the user reported — at that distance the replay's data source cannot settle it. Tests extended.
 
+## 638. A66 protocol: a health monitor for the dollar rules — switch each off when its own recent record turns negative (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any replay is run.** The book now rests on two rules that did not work before 2021.
+For each rule (NKD dollar-week, FDXM DAX–dollar): its signed window result each session = the rule's side × the window's move (known
+after the session); the rule is ON for a session if the mean of its previous N signed results is > 0, else OFF (the account takes the
+plan's default long side). N ∈ {20, 40, 60, 120} sessions. A23 single-account replays (50K Daily, plan policy): always-on rule,
+monitored rule, plan. **N chosen on all starts 2010–24 (both eras pooled, mean net of the two accounts)**; read once on 2025 starts. Adopt
+only if it keeps ≥ 90% of the always-on rule's 2025-start result and improves 2010–20.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
