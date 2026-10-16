@@ -13826,6 +13826,25 @@ Tradovate Free fees, Eurex data), 84 sessions; **chosen on 2021–24 starts by m
 **adopt only if it beats the current policy's mean on 2025 starts and on 2010–20, with the 2025 10th percentile no worse than $1,000
 below the current one's** (A65's failure was a widened tail).
 
+## 650. A71: re-solving the whole policy for the real game does not pass — the current policy stays (S8)
+
+**No trial.** `reports/a71_realgame.json` (module `reporting/a71_realgame.py`; A63 gained per-market and live-policy hooks and still
+reproduces +$12,041). 1 tick a side, Tradovate Free fees. The 24 candidates on 2021–24 starts: +$5,152 … +$8,655 against the current
+policy's +$6,581 — only 3 beat it, and the best (H 84, R $0, live solved) stands alone (its neighbours +$5,639 … +$6,683): noise-like.
+Read once — mean (P > 0, p10): 2025 starts **+$11,234** (100%, p10 +$1,624) vs current **+$11,218** (100%, p10 +$3,175); 2021–26 +$9,331 vs
++$7,797; **2010–20 +$5,098 vs +$5,325**. Fails §649 on 2010–20 and on the 2025 tail (−$1,551). The policy solved for the real game is not
+better than A01's on the real data — the coin-flip game's optimum is flat, and the live rules' structure does not move it enough to show.
+One regularity, seen only in the selection data: the **solved live policy beat the fixed live brackets in all 12 matched pairs** (mean
++$730 on 2021–24) — a narrower change, tested on its own under §651.
+
+## 651. A72 protocol: the solved live-account policy alone (S8)
+
+**No trial; N 1,525. Written and committed BEFORE it is replayed.** Prompted by §650's 12-of-12 pattern (2021–24 data). The current
+evaluation and funded policy unchanged; live accounts use the live game's stationary policy (§649, costs priced, per market) instead of
+take $1,200 / stop $1,000. Fixed in advance: H = 84 (no choice is made; the H 21 / 42 versions are reported for context only). Read on 2025
+starts, 2021–26 and 2010–20; **adopt only if it beats the current mean on 2025 starts and on 2010–20, with the 2025 p10 no worse than $1,000
+below.** The 2021–24 figure is reported but is not out-of-sample.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

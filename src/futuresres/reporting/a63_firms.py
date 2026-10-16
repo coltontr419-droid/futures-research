@@ -86,6 +86,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             release0 = others >= hold_k
         for m in ACC:
             h, l, c, cost, has = P[MK[m]]; a_ = st[m]; act = has[idx]
+            if F.get("pol"):                                  # A71: per-market policies (eval, funded) from the real-game solve
+                pe, ge, pf, gf = F["pol"][MK[m]]
             ev = a_["phase"] == 0; fu = ~ev; eq, pk, best, npay = a_["eq"], a_["pk"], a_["best"], a_["npay"]
             b_e = np.clip(np.rint((eq - START) / 100).astype(int), ge["B_MIN"], ge["B_MAX"])
             pk_e = np.maximum(np.clip(np.rint((pk - START) / 100).astype(int), 0, ge["B_MAX"]), np.maximum(b_e, 0))
@@ -104,7 +106,14 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             LLK = F.get("live_dd", LIVE_LOCK)
             lfloor = np.where(a_["lpk"] >= LLK, 0.0, a_["lpk"] - a_["lroom"])
             lact = liv & a_["lalive"]; locked = a_["lpk"] >= LLK
-            Wl = np.full(A, 1_200.0 * F.get("k", 1.0)); Ll = np.minimum(np.full(A, 1_000.0 * F.get("k", 1.0)), np.maximum(a_["leq"] - lfloor - 1, 1))
+            if F.get("live_pol"):                             # A71: the solved live-account policy
+                la_, lg_ = F["live_pol"][MK[m]]
+                lb = np.clip(np.rint(a_["leq"] / 100).astype(int), lg_["LMIN"], lg_["LMAX"])
+                lp = np.maximum(np.clip(np.rint(a_["lpk"] / 100).astype(int), 0, lg_["LOCK"]), np.clip(lb, 0, lg_["LOCK"]))
+                la = la_[lb - lg_["LMIN"], lp]; Wl = (la // 100) * 100.0; Ll = (la % 100) * 100.0
+            else:
+                Wl = np.full(A, 1_200.0 * F.get("k", 1.0)); Ll = np.full(A, 1_000.0 * F.get("k", 1.0))
+            Ll = np.minimum(Ll, np.maximum(a_["leq"] - lfloor - 1, 1))
             ltrade = lact & act & (a_["leq"] - lfloor > cost + 10)
             WW = np.where(trade, W + cost, np.where(ltrade, Wl + cost, 1e12)); LL = np.where(trade, np.maximum(L - cost, 1.0), np.where(ltrade, np.maximum(Ll - cost, 1.0), 1e12))
             raw, mfe = bracket_mfe(h[idx], l[idx], c[idx], WW, LL)
