@@ -14309,6 +14309,23 @@ a live quote by more than θ on only 0–51 days per cell before 2025-07 (the bo
 cell |t| < 1, means −10.6¢ … +6.0¢. Uninformative-to-null. **WTI (KXWTI) is not run:** the same model on oil has only 18 months of free minute
 data (HistData wtiusd), and FX shows the approach rarely finds a tradable disagreement; recorded as skipped, not tested.
 
+## 692. A new structural arena: Kalshi's Liquidity Incentive Program. A79 protocol — completing thin order books (S10)
+
+**No trial; N 1,535. Written and committed BEFORE the forward sampler runs.** Kalshi pays each incentivised market's pool ($1–1,000 a market a
+day; ~6,800 active programmes, ≈ $235,000 a day in total on 2026-10-17, from the public `incentive_programs` API) to resting orders: snapshots
+every second; a snapshot counts only if resting size reaches the **target (usually 1,000 contracts) on both the yes and the no side**; on each
+side an order's weight is its size × (discount factor ^ ticks below the reference price, the level where cumulative size reaches target/5),
+shares are normalised per side, a snapshot is worth at most 2.0, payout = period score × reward × (counted snapshots / all snapshots). US
+members eligible. A first snapshot of 300 active markets (`reports/lip_probe.json`): 87% of books already meet the target on both sides; in
+the rest one side is nearly empty — often the long-shot side of a contract far from the money (state daily gas, Rotten Tomatoes, mentions).
+**Strategy (fixed now):** for each active programme (≥ 12 h long) whose yes or no side is below target, post the missing side's target size at
+**1¢** (the lowest price: loss if filled and wrong ≤ 1¢ a contract; filled only if someone sells near-certain outcomes below 1¢'s odds). **Forward
+measurement (no money):** sample every active programme's book every 15 minutes for 3 hours (local machine only); for each, the share this order
+would earn per side and whether the snapshot would then count; estimated $ a day per market and per $ of collateral; persistence of the thin side
+across samples. **Read:** it is a candidate income stream if the estimated earnings stay large across samples; the live check (a few markets,
+real orders, small size, the user's go-ahead) comes after. Risks named now: other quoters doing the same (shares fall), programme changes or
+end (sources say January 2027), Kalshi treating it as abusive (its rules score size × distance and say nothing against far orders).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
