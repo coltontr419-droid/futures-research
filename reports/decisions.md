@@ -14272,6 +14272,19 @@ over weeks; season t. **Discovery seasons 1999–2014; sealed 2015–2025.** Car
 t −1.75); rest edge ≥ 3 days 49.8% (−4.9%); Thursday home 51.9% (−0.9%); divisional underdogs 52.0% (−0.8%); 10+ point underdogs 53.5%
 (+2.1%, t 0.55); prime-time under 49.4% (−5.6%). None near the bar.
 
+## 688. K-family 5 protocol: Kalshi weekly TSA screenings priced by a nowcast from the days already published (S10)
+
+**No trial spent; N 1,535. Written and committed BEFORE any market is downloaded or any nowcast compared with a quote.** KXTSAW (since
+2021-07): "weekly average TSA screenings above X for the week ending Sunday"; opens Monday 10:00 New York, trades to Sunday 23:59. TSA publishes
+each day's count the next morning (data: tsa.gov's yearly tables via the Internet Archive, 2019-01-01 → 2026-10-15, complete). Mechanism: by
+mid-week several of the seven days are public; the question is whether quotes fully use them.
+1. **Nowcast at 12:00 New York on day t** (days through t−1 known, k = number known this week): each unknown day = the same weekday 364 days
+   earlier × r, r = (sum of the known days) / (sum of their 364-day-earlier days); with k = 0, r from the previous complete week. Weekly
+   average μ = (known + forecast)/7. Error: Normal with SD = σ_k × μ, σ_k = SD of (actual − nowcast)/actual over discovery weeks for each k.
+2. **Trade:** P(average > X) = 1 − Φ((X − μ)/(σ_k μ)); buy YES / NO when the edge over the ask after fee > θ, θ ∈ {5¢, 10¢}; quote filter as §664.
+3. **Decision days:** Tuesday (k = 1), Thursday (k = 3), Saturday (k = 5) — **6 tests**. Statistic: weekly mean net per contract; t over weeks;
+   monthly t. **Discovery: weeks ending before 2025-07-01; sealed: 2025-07-01 → 2026-10-11.** Carried / validation as §664.4.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
