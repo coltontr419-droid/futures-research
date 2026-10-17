@@ -14109,6 +14109,23 @@ markets without a strike encoding are skipped). Fees quadratic, multiplier 1.
    net P&L per contract over all cities. **Discovery before 2025-07-01; sealed 2025-07-01 → 2026-10-16.** Carried / validation as §664.
 5. **Year-round** (the user's rule): every day of the year trades; a result carried by one season will be reported as such.
 
+## 673. K-family 3: the NBM edge on Kalshi weather is a near miss — day-of raw θ 10¢ +1.60¢ a contract, t 1.81; nothing carried (S9)
+
+**N 1,529 (no trial).** `reports/k3_discovery.json` (module `kalshi/k3_weather.py`; data: 7 weather series, ~8,000 settled events after a
+re-fetch of 566 transient failures; NBM 07Z runs for 7 stations, ~39k rows each). Calibration (discovery days): biases within ±0.6°F; the
+NBM's XND spread is too narrow by a factor 1.2–1.6 at every station. **T1 (10:00 the day before) is void** — the markets open at 10:00 New
+York the day before, so no quote exists then (a protocol error, not a result). T2 (10:00 on the day), discovery 2022-12 → 2025-06, ~880 days:
+raw θ 5¢ +0.34¢ (t 0.46); **raw θ 10¢ +1.60¢ (t 1.81, monthly 1.91)** — positive in 6 of 7 cities (MIA +4.5¢, LAX +5.5¢, PHIL +1.8¢, AUS +1.5¢,
+CHI +1.3¢, NY +1.1¢; DEN −4.9¢); calibrated θ 5¢ +0.24¢, θ 10¢ +1.28¢ (t 1.41). Below the carry bar (t > 1.96): **not validated**. Read: the
+NBM does know something the weather quotes miss when the disagreement is large, but not reliably enough in 2½ years to clear the bar.
+
+## 674. K-family 3b protocol: the day-before decision done right (S9)
+
+**No trial spent; N 1,529. Written and committed BEFORE it is run.** §673's T1 had no quotes. Day before at the candle ending **14:00 New
+York**, using that day's **13Z** NBM run (out by ~14:30Z), forecast valid D+1 00Z; raw and calibrated (§672's discovery calibration
+re-estimated for the 13Z run, discovery days only); θ 5¢ / 10¢ — **4 tests**. Disclosed: the same days' outcomes were read in §673 at a
+different decision time. Everything else as §672 (discovery before 2025-07-01, sealed after; carried / validation as §664).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

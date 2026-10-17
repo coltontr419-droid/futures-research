@@ -1,0 +1,399 @@
+{
+ "discovery_end": "2025-07-01",
+ "tests": 8,
+ "calibration": {
+  "KXHIGHNY|T1": [
+   0.4222065063649222,
+   1.4987384133608173,
+   1414
+  ],
+  "KXHIGHNY|T2": [
+   0.41796322489391796,
+   1.4179942127948653,
+   1414
+  ],
+  "KXHIGHCHI|T1": [
+   0.6113879003558719,
+   1.511331644645839,
+   1405
+  ],
+  "KXHIGHCHI|T2": [
+   0.5430604982206406,
+   1.5172379881620988,
+   1405
+  ],
+  "KXHIGHMIA|T1": [
+   -0.007722007722007722,
+   1.2580974699628744,
+   777
+  ],
+  "KXHIGHMIA|T2": [
+   0.011583011583011582,
+   1.161025608927145,
+   777
+  ],
+  "KXHIGHAUS|T1": [
+   0.08020698576972833,
+   1.3456637845257593,
+   773
+  ],
+  "KXHIGHAUS|T2": [
+   0.016817593790426907,
+   1.3389343343795315,
+   773
+  ],
+  "KXHIGHLAX|T1": [
+   0.056818181818181816,
+   1.3754720922120862,
+   176
+  ],
+  "KXHIGHLAX|T2": [
+   -0.028409090909090908,
+   1.3268194665406228,
+   176
+  ],
+  "KXHIGHDEN|T1": [
+   -0.07692307692307693,
+   1.6438022427785217,
+   221
+  ],
+  "KXHIGHDEN|T2": [
+   -0.09502262443438914,
+   1.5927751069899196,
+   221
+  ],
+  "KXHIGHPHIL|T1": [
+   -0.013513513513513514,
+   1.5407870098894065,
+   222
+  ],
+  "KXHIGHPHIL|T2": [
+   0.08558558558558559,
+   1.5525799609512523,
+   222
+  ]
+ },
+ "all": [
+  {
+   "time": "T1",
+   "variant": "raw",
+   "theta": 0.05,
+   "days": 0,
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHCHI": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHMIA": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHAUS": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHLAX": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHDEN": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHPHIL": {
+     "n": 0,
+     "mean_net": null
+    }
+   },
+   "carried": false
+  },
+  {
+   "time": "T1",
+   "variant": "raw",
+   "theta": 0.1,
+   "days": 0,
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHCHI": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHMIA": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHAUS": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHLAX": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHDEN": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHPHIL": {
+     "n": 0,
+     "mean_net": null
+    }
+   },
+   "carried": false
+  },
+  {
+   "time": "T1",
+   "variant": "calibrated",
+   "theta": 0.05,
+   "days": 0,
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHCHI": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHMIA": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHAUS": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHLAX": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHDEN": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHPHIL": {
+     "n": 0,
+     "mean_net": null
+    }
+   },
+   "carried": false
+  },
+  {
+   "time": "T1",
+   "variant": "calibrated",
+   "theta": 0.1,
+   "days": 0,
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHCHI": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHMIA": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHAUS": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHLAX": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHDEN": {
+     "n": 0,
+     "mean_net": null
+    },
+    "KXHIGHPHIL": {
+     "n": 0,
+     "mean_net": null
+    }
+   },
+   "carried": false
+  },
+  {
+   "time": "T2",
+   "variant": "raw",
+   "theta": 0.05,
+   "days": 898,
+   "contracts": 6494,
+   "mean_net": 0.0033524239240465856,
+   "t": 0.46349823851407584,
+   "t_monthly": 0.5466146964543883,
+   "first": "2022-12-22",
+   "last": "2025-06-30",
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 1504,
+     "mean_net": -0.008506848404255316
+    },
+    "KXHIGHCHI": {
+     "n": 1535,
+     "mean_net": 0.0016145276872964174
+    },
+    "KXHIGHMIA": {
+     "n": 667,
+     "mean_net": 0.033138380809595205
+    },
+    "KXHIGHAUS": {
+     "n": 1407,
+     "mean_net": 0.013910376687988633
+    },
+    "KXHIGHLAX": {
+     "n": 382,
+     "mean_net": 0.030076439790575917
+    },
+    "KXHIGHDEN": {
+     "n": 558,
+     "mean_net": -0.053517741935483865
+    },
+    "KXHIGHPHIL": {
+     "n": 441,
+     "mean_net": 0.02567052154195011
+    }
+   },
+   "carried": false
+  },
+  {
+   "time": "T2",
+   "variant": "raw",
+   "theta": 0.1,
+   "days": 879,
+   "contracts": 4433,
+   "mean_net": 0.016041254127651575,
+   "t": 1.8138284617441036,
+   "t_monthly": 1.913111874742499,
+   "first": "2022-12-22",
+   "last": "2025-06-30",
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 1046,
+     "mean_net": 0.01071051625239006
+    },
+    "KXHIGHCHI": {
+     "n": 1112,
+     "mean_net": 0.012506294964028776
+    },
+    "KXHIGHMIA": {
+     "n": 446,
+     "mean_net": 0.0450103139013453
+    },
+    "KXHIGHAUS": {
+     "n": 912,
+     "mean_net": 0.015222587719298249
+    },
+    "KXHIGHLAX": {
+     "n": 248,
+     "mean_net": 0.054848387096774184
+    },
+    "KXHIGHDEN": {
+     "n": 349,
+     "mean_net": -0.049046418338108876
+    },
+    "KXHIGHPHIL": {
+     "n": 320,
+     "mean_net": 0.018419999999999995
+    }
+   },
+   "carried": false
+  },
+  {
+   "time": "T2",
+   "variant": "calibrated",
+   "theta": 0.05,
+   "days": 900,
+   "contracts": 6513,
+   "mean_net": 0.0024310980610272527,
+   "t": 0.348808896516951,
+   "t_monthly": 0.3443435705571703,
+   "first": "2022-12-22",
+   "last": "2025-06-30",
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 1487,
+     "mean_net": -0.014112306657700064
+    },
+    "KXHIGHCHI": {
+     "n": 1516,
+     "mean_net": 0.003906332453825858
+    },
+    "KXHIGHMIA": {
+     "n": 670,
+     "mean_net": 0.027709850746268663
+    },
+    "KXHIGHAUS": {
+     "n": 1389,
+     "mean_net": 0.00798754499640029
+    },
+    "KXHIGHLAX": {
+     "n": 380,
+     "mean_net": 0.023206052631578943
+    },
+    "KXHIGHDEN": {
+     "n": 603,
+     "mean_net": -0.03141558872305141
+    },
+    "KXHIGHPHIL": {
+     "n": 468,
+     "mean_net": 0.03278760683760683
+    }
+   },
+   "carried": false
+  },
+  {
+   "time": "T2",
+   "variant": "calibrated",
+   "theta": 0.1,
+   "days": 885,
+   "contracts": 4393,
+   "mean_net": 0.012766676660213184,
+   "t": 1.4144379720325295,
+   "t_monthly": 1.455437235338463,
+   "first": "2022-12-22",
+   "last": "2025-06-30",
+   "by_city": {
+    "KXHIGHNY": {
+     "n": 1038,
+     "mean_net": -0.003933718689788052
+    },
+    "KXHIGHCHI": {
+     "n": 1097,
+     "mean_net": 0.013445852324521425
+    },
+    "KXHIGHMIA": {
+     "n": 407,
+     "mean_net": 0.04011425061425062
+    },
+    "KXHIGHAUS": {
+     "n": 925,
+     "mean_net": 0.018637081081081083
+    },
+    "KXHIGHLAX": {
+     "n": 215,
+     "mean_net": 0.02798372093023256
+    },
+    "KXHIGHDEN": {
+     "n": 395,
+     "mean_net": -0.03730860759493671
+    },
+    "KXHIGHPHIL": {
+     "n": 316,
+     "mean_net": 0.019962974683544306
+    }
+   },
+   "carried": false
+  }
+ ],
+ "carried": []
+}
