@@ -14126,6 +14126,16 @@ York**, using that day's **13Z** NBM run (out by ~14:30Z), forecast valid D+1 00
 re-estimated for the 13Z run, discovery days only); θ 5¢ / 10¢ — **4 tests**. Disclosed: the same days' outcomes were read in §673 at a
 different decision time. Everything else as §672 (discovery before 2025-07-01, sealed after; carried / validation as §664).
 
+## 675. K-family 3b: the day-before weather edge carried in discovery and vanished in the sealed window — REJECT ×3 (S9)
+
+**3 trials (t01530–t01532); N 1,532.** `reports/k3b_discovery.json`, `reports/k3b_validation.json`. Discovery (2022-12 → 2025-06, ~820–870
+days): raw θ 5¢ +1.85¢ a contract (t 2.53), raw θ 10¢ +2.25¢ (t 2.29), calibrated θ 10¢ **+2.91¢ (t 2.96, monthly 2.74)** carried; calibrated θ 5¢
+(t 2.01, monthly 1.72) did not. **Sealed 2025-07-01 → 2026-10-16 (~307 days, 11 months with quotes): −0.49¢ (t −0.72), −0.07¢ (t −0.07),
+−0.39¢ (t −0.38) — all REJECT**; months positive 5 of 11. By city, Miami (+0.7 … +2.8¢) and Austin (+1.3 … +2.9¢) stayed positive in both
+windows while LA, Denver and NY turned clearly negative — a pattern seen after the fact, not a tested rule. Read: through mid-2025 the
+weather quotes under-used the NBM's day-before forecast; since then the market has caught up (more traders, more cities, probably forecast-
+driven bots). **Kalshi: three families, no confirmed edge; the arena is set aside** (the Miami / Austin observation is noted, not tracked).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -186,3 +186,29 @@ if __name__ == "__main__":
     if "--validate" in sys.argv:
         raise SystemExit("validation runs once, after the discovery result is recorded (decisions.md 672)")
     scan()
+
+
+def validate(cells: list[tuple[str, str, int]], tag: str) -> list[dict]:
+    """Once, on the sealed window: each carried (time, variant, theta index) cell; §664.4's rule; trials logged by the caller."""
+    cal = calibrate(); lo, hi = VAL; rows = {}; city = {}
+    for D, s, tn, v, k, pnl in trades(lo, hi + dt.timedelta(days=1), cal):
+        rows.setdefault((tn, v, k), {}).setdefault(D, []).append(pnl); city.setdefault((tn, v, k, s), []).append(pnl)
+    rng = np.random.default_rng(672); out = []
+    for tn, v, k in cells:
+        dd = rows.get((tn, v, k), {}); ds = sorted(dd); x = np.array([np.mean(dd[d]) for d in ds]); n = len(x)
+        m = float(x.mean()); t = _t(x)
+        null = np.array([(x * rng.choice((-1.0, 1.0), n)).mean() for _ in range(2000)]); pct = float((null < m).mean() * 100)
+        se2 = x.var(ddof=1) / n; post0 = m * 0.02 ** 2 / (0.02 ** 2 + se2)
+        dec = "CONFIRM" if (t > 1.645 and pct >= 95 and m > 0 and post0 > 0) else ("WATCHLIST" if m > 0 else "REJECT")
+        months = {}
+        for d, val in zip(ds, x):
+            months.setdefault((d.year, d.month), []).append(val)
+        r = {"time": tn, "variant": v, "theta": THETAS[k], "days": n, "contracts": int(sum(len(a) for a in dd.values())), "mean_net": m, "t": t,
+             "placebo_pct": pct, "posterior_zero_prior": post0, "decision": dec, "months_positive": int(sum(np.sum(a) > 0 for a in months.values())),
+             "months": len(months), "by_city": {s: (float(np.mean(city[(tn, v, k, s)])), len(city[(tn, v, k, s)])) for s in CITY if city.get((tn, v, k, s))}}
+        out.append(r)
+        print(f"  {tag} {tn} {v} theta {THETAS[k]*100:.0f}c: days {n} contracts {r['contracts']} net {m*100:+.2f}c t {t:+.2f} placebo {pct:.0f}% "
+              f"post0 {post0*100:+.2f}c months + {r['months_positive']}/{r['months']} -> {dec}", flush=True)
+        print("      " + " ".join(f"{s[6:]} {a*100:+.1f}c/{b}" for s, (a, b) in r["by_city"].items()), flush=True)
+    (ROOT / "reports" / f"{tag}_validation.json").write_text(json.dumps({"window": [str(lo), str(hi)], "cells": out}, indent=1) + "\n")
+    return out
