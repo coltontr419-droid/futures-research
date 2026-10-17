@@ -10,7 +10,9 @@ from __future__ import annotations
 import datetime as dt
 import json
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -18,13 +20,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "data" / "kalshi"
 B = "https://api.elections.kalshi.com/trade-api/v2"
-PACE = 0.12                                              # ~8 requests a second (the public limit is higher)
+RATE = 10.0                                              # requests a second overall, across the worker threads
+_LOCK = threading.Lock(); _NEXT = [0.0]
+
+
+def _pace() -> None:
+    with _LOCK:
+        now = time.monotonic(); t = max(now, _NEXT[0]); _NEXT[0] = t + 1.0 / RATE
+    time.sleep(max(0.0, t - now))
 
 
 def get(u: str, tries: int = 5) -> dict:
     for k in range(tries):
         try:
-            time.sleep(PACE)
+            _pace()
             return json.loads(urllib.request.urlopen(urllib.request.Request(B + u, headers={"User-Agent": "Mozilla/5.0"}), timeout=30).read())
         except urllib.error.HTTPError as e:
             if e.code == 404:
@@ -73,20 +82,25 @@ def run(series: str, close_only: bool) -> None:
     evs = events(series)
     if close_only:
         evs = [e for e in evs if e.endswith("H1600") or "H" not in e.split("-")[1]]
-    print(series, len(evs), "settled events", flush=True)
-    for i, ev in enumerate(evs):
-        f = d / f"{ev}.json"
-        if f.exists():
-            continue
-        ms = []
-        for mk in markets(ev):
-            rec = {k: mk.get(k) for k in KEEP}
-            vol = float(mk.get("volume_fp") or mk.get("volume") or 0)
-            rec["candles"] = candles(series, mk) if vol > 0 else []
-            ms.append(rec)
-        tmp = f.with_suffix(".tmp"); tmp.write_text(json.dumps({"event": ev, "markets": ms})); tmp.replace(f)
-        if i % 25 == 0:
-            print(f"  {series} {i}/{len(evs)} {ev}", flush=True)
+    todo = [e for e in evs if not (d / f"{e}.json").exists()]
+    print(series, len(evs), "settled events,", len(todo), "to fetch", flush=True)
+
+    def one(ev):
+        f = d / f"{ev}.json"; ms = []
+        try:
+            for mk in markets(ev):
+                rec = {k: mk.get(k) for k in KEEP}
+                vol = float(mk.get("volume_fp") or mk.get("volume") or 0)
+                rec["candles"] = candles(series, mk) if vol > 0 else []
+                ms.append(rec)
+        except Exception as e:                       # left for the next run
+            print("  failed", ev, e, flush=True); return
+        tmp = f.with_suffix(f".{threading.get_ident()}.tmp"); tmp.write_text(json.dumps({"event": ev, "markets": ms})); tmp.replace(f)
+
+    with ThreadPoolExecutor(8) as ex:
+        for i, _ in enumerate(ex.map(one, todo)):
+            if i % 50 == 0:
+                print(f"  {series} {i}/{len(todo)}", flush=True)
 
 
 if __name__ == "__main__":
