@@ -14243,6 +14243,19 @@ plus 0.02% slippage; leverage ≤ 5× (BTC).
    zero-edge EV that survives the replay makes this a candidate income stream needing no edge (as Tradeify), subject to the user's checks
    (US eligibility, current fees, any prohibited-strategy clause). Not a trial (no edge is tested).
 
+## 685. A78: Breakout's structure is worth ~+0.6% an attempt in the idealised game but loses on real BTC paths — not an income stream as modelled (S10)
+
+**No trial.** `reports/a78_crypto_prop.json` (modules `reporting/a78_crypto_prop.py`, `a78_btc_data.py`; Coinbase BTC-USD hourly 2018-01 →
+2026-10, 3,206 days). Solved game (zero edge, costs priced): P(pass) 35.7%, funded value 4.49% of the account, **EV +0.60% an attempt**
+(+$60 per $10K) — the best play risks the full 3% daily limit for the whole 10% target, and once funded risks 0.5% for 10%. (A first solve
+let the policy skip trading at long horizons — waiting ties betting at zero edge — and was corrected to A01's always-trade rule.) **Replay,
+random sides (6 seeds), per $10K:** out at 23:00 UTC daily — 84 days −$145 (P > 0 5%), 252 days −$204 (14%); held to take or stop (crypto
+trades around the clock; added, disclosed; funding 0.03% a day) — 84 days −$101 (10%), 252 days −$64 (22%, p90 +$463). Why: the coin game
+ignores time — its long-odds brackets (take 20× the stop) need 60% BTC moves, so trades mostly end at the window's close while costs and
+funding accrue. A rough check with brackets that resolve in days: ~+0.8% gross minus ~0.5–0.7% costs ≈ zero. **The fee refund on the first
+payout (reported by some sources, denied by others) is what would make it positive (+~0.4% an attempt); without it, not worth doing.**
+Static-floor, on-demand programmes are the right shape; Breakout's fee (1% of the account) and crypto's costs leave too little.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
