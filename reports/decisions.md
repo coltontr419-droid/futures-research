@@ -14266,6 +14266,12 @@ spread (pushes void); a home cover = home margin > spread_line (positive spread_
 over weeks; season t. **Discovery seasons 1999–2014; sealed 2015–2025.** Carried: t > 1.96, mean > 0, season t > 1.96; validation once per
 §664.4. Caveat: closing lines are the hardest to beat; a bettor gets an earlier line.
 
+## 687. S-family 3: NFL situational spreads — 0 of 6; closing spreads price every published spot (S10)
+
+**N 1,535 (no trial).** `reports/s3_discovery.json` (module `sports/s3_nfl_spots.py`). 1999–2014 at −110: home underdogs 50.1% (−4.3% a bet,
+t −1.75); rest edge ≥ 3 days 49.8% (−4.9%); Thursday home 51.9% (−0.9%); divisional underdogs 52.0% (−0.8%); 10+ point underdogs 53.5%
+(+2.1%, t 0.55); prime-time under 49.4% (−5.6%). None near the bar.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
