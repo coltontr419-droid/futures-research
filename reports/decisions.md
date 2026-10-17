@@ -14165,6 +14165,24 @@ prices). Discovery 2012/13 → 2018/19: the rule bet 4,788 times at θ 2% (of ~5
 Pinnacle's fair price; returns per bet −3.2% … +18% with |t| ≤ 0.81 in every cell (high variance, no signal). The Kaunitz result relied on
 the best price across ~30 books; a single US-licensed book does not reproduce it. Sports value betting set aside.
 
+## 678. K-family 4 protocol: Kalshi US gas-price contracts priced by the wholesale-to-retail lag (S10)
+
+**No trial spent; N 1,532. Written and committed BEFORE any model price is compared with any quote or outcome.** Mechanism: US retail
+gasoline follows wholesale (RBOB futures) with a lag of one to several weeks, faster up than down ("rockets and feathers"). Kalshi lists
+daily (KXAAAGASD), weekly (KXAAAGASW) and monthly (KXAAAGASM) contracts on AAA's US average regular price ("strictly greater than $x on
+date D"), each trading hundreds of thousands of contracts a day. Free inputs: Yahoo RB=F daily closes; EIA's weekly US regular retail price
+(1990 →); AAA's level on each day from Kalshi's own recorded settlement values (daily series, 2023-09 →).
+
+1. **Weekly model, fitted on EIA weekly 2010-01 → 2022-12 only (before any Kalshi gas market):** ΔR(t → t+1 week) = c + b0·ΔRB(week to t) +
+   b1·ΔRB(week to t−1) + b2·ΔRB(week to t−2) + g·(R_t − RB_t − M_t), M_t the trailing 52-week mean of R − RB; up and down RBOB moves get
+   separate b's (asymmetry); σ from residuals. Horizon h days: mean = weekly prediction × h/7, SD = σ·√(h/7); applied to AAA's level (AAA
+   and EIA move together; their level gap cancels in changes).
+2. **Daily model:** Δ(AAA, D−1 → D) = φ·(yesterday's AAA change) + (1 − φ)·(weekly prediction / 7); φ and σ_d fitted on **discovery days only**.
+3. **Decision points (12:00 New York candle):** weekly — 6 and 3 days before settlement; monthly — 14 days before; daily — the day before.
+   P(AAA_D > K) = 1 − Φ((K − μ)/sd). Trade as §668 (model − ask − fee > θ buys YES; the NO side likewise), θ ∈ {5¢, 10¢}.
+4. **Tests:** weekly × 2 points × 2 θ + monthly × 1 × 2 + daily × 1 × 2 = **8**. Daily statistic over settlement dates; carried / validation
+   as §664 (discovery before 2025-07-01; sealed 2025-07-01 → 2026-10-16). Year-round markets.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
