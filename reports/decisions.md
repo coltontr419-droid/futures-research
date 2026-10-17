@@ -14202,6 +14202,21 @@ Sealed: 2015–2025** (the 2026 season so far is excluded: forecasts at bet time
 §664.4. Caveats fixed now: nflverse weather is recorded at kickoff, while a bettor acts on a forecast hours earlier (forecasts of wind are good
 but not perfect — an upper bound); closing totals are the hardest number to beat, so passing here is meaningful; legality is per state.
 
+## 681. S-family 2: windy unders near-miss, cold unders lose — nothing carried (S10)
+
+**N 1,532 (no trial).** `reports/s2_discovery.json` (module `sports/s2_nfl_weather.py`; nflverse games, 1999–2014). Under at wind ≥ 15 mph:
+449 bets, **57.2% won, +9.3% a bet, weekly t 2.35, by-season t 1.52** (the carry rule needs both > 1.96); wind ≥ 20: 58.1%, +10.9%, t 1.74;
+wind ≥ 10: +1.2%, t 0.0. **Unders in the cold lose:** temp ≤ 35°F 46.3%, −11.5% (t −2.22), ≤ 25°F 40.2%, −23.2% (t −2.19) — the market seems
+to over-adjust totals down for cold. Dome overs: −0.1% (t 0.7).
+
+## 682. S-family 2b protocol: one sealed look at windy unders and cold overs (S10)
+
+**No trial spent; N 1,532. Written and committed BEFORE seasons 2015–2025 are read.** Suggested by §681 (the wind result is also the
+published hypothesis; the cold result is its mirror), so tested only on data §681 did not use: **under at wind ≥ 15 mph; over at temp ≤ 35°F;
+over at temp ≤ 25°F** (outdoor / open roof; −110; pushes void) — **3 tests**, each judged alone and reported against 3. Sealed seasons
+2015–2025, read once; CONFIRM per §664.4 (one-sided weekly t > 1.645, ≥ 95% sign-randomisation placebo on weekly returns, positive posterior);
+watchlist if net-positive. Season-by-season results reported.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

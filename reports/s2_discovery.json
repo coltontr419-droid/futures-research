@@ -1,0 +1,70 @@
+{
+ "discovery": [
+  1999,
+  2014
+ ],
+ "tests": 6,
+ "all": [
+  {
+   "test": "under, wind >= 10",
+   "bets": 1194,
+   "weeks": 306,
+   "win_rate": 0.5301507537688442,
+   "return_per_bet": 0.012105984467793514,
+   "t": -0.012360237717203076,
+   "t_season": 0.44942578500041425,
+   "carried": false
+  },
+  {
+   "test": "under, wind >= 15",
+   "bets": 449,
+   "weeks": 208,
+   "win_rate": 0.5723830734966593,
+   "return_per_bet": 0.09273132212998583,
+   "t": 2.3533353967719934,
+   "t_season": 1.516219405948197,
+   "carried": false
+  },
+  {
+   "test": "under, wind >= 20",
+   "bets": 136,
+   "weeks": 89,
+   "win_rate": 0.5808823529411765,
+   "return_per_bet": 0.10895721925133689,
+   "t": 1.7369234547540284,
+   "t_season": 1.2648840867627607,
+   "carried": false
+  },
+  {
+   "test": "under, temp <= 25",
+   "bets": 97,
+   "weeks": 53,
+   "win_rate": 0.4020618556701031,
+   "return_per_bet": -0.232427366447985,
+   "t": -2.191026029378326,
+   "t_season": -2.2688139366244857,
+   "carried": false
+  },
+  {
+   "test": "under, temp <= 35",
+   "bets": 328,
+   "weeks": 123,
+   "win_rate": 0.4634146341463415,
+   "return_per_bet": -0.11529933481152992,
+   "t": -2.220823190832281,
+   "t_season": -1.8716825895469371,
+   "carried": false
+  },
+  {
+   "test": "over, dome",
+   "bets": 944,
+   "weeks": 306,
+   "win_rate": 0.5233050847457628,
+   "return_per_bet": -0.0009630200308166326,
+   "t": 0.698328497440543,
+   "t_season": -0.03626013801437377,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
