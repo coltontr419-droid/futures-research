@@ -14136,6 +14136,28 @@ windows while LA, Denver and NY turned clearly negative — a pattern seen after
 weather quotes under-used the NBM's day-before forecast; since then the market has caught up (more traders, more cities, probably forecast-
 driven bots). **Kalshi: three families, no confirmed edge; the arena is set aside** (the Miami / Austin observation is noted, not tracked).
 
+## 676. Polymarket cross-venue parked; S-series family 1 protocol — soccer value betting at Bet365 against Pinnacle's fair price (S10)
+
+**No trial spent; N 1,532. Written and committed BEFORE any return is computed** (the CSVs are being downloaded). The user (2026-10-17):
+keep searching arenas this programme has not studied — another income stream. **Kalshi × Polymarket arbitrage is parked:** Polymarket's
+US exchange (CFTC) opened only in December 2025 and its fees have changed several times (now quadratic like Kalshi's), so there is <1 year
+of history and the two venues' fees together take ~3.5¢ at even odds. **Sports:** football-data.co.uk publishes free match results and
+pre-match / closing odds for ~22 European leagues since 2012/13, including **Pinnacle** (the sharp market; its de-margined price is the
+standard fair-probability estimate) and **Bet365** (licensed in many US states). The documented strategy (Kaunitz, Zhong & Kreiner 2017)
+is to bet where a soft bookmaker's odds exceed the sharp fair price.
+
+1. **Rule:** fair p_i = (1 / PS_i) / Σ_j (1 / PS_j) from Pinnacle's pre-match 1X2 odds (proportional de-margining); value_i = B365_i × p_i − 1;
+   **bet one unit on outcome i at Bet365's pre-match odds when value_i > θ** (both prices from the same pre-match snapshot, so the rule is
+   executable at that time). Return B365_i − 1 if it wins, else −1.
+2. **Tests:** θ ∈ {2%, 4%, 6%} × outcome ∈ {home, draw, away, any} = **12**. Statistic: each match date's mean return per bet; t over dates;
+   monthly t. **Discovery: seasons 2012/13 → 2018/19. Sealed: 2019/20 → today** (asserted in code). Carried: t > 1.96, mean > 0, monthly t >
+   1.96; validation once, §664.4's rule (one-sided t > 1.645, ≥ 95% sign-randomisation placebo, positive posterior).
+3. **Reported beside validation:** closing-line value (Bet365 pre-match odds against Pinnacle's closing fair price, 2019/20 on), bets a
+   season, and the stake capacity a typical US account would allow.
+4. **Caveats fixed now:** Bet365's US odds can differ from the UK odds recorded; soft books limit accounts that win (a practical ceiling no
+   backtest can show); legality depends on the user's state; football-data's pre-match snapshot is taken Friday / Tuesday afternoons, so
+   later price moves are not seen.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
