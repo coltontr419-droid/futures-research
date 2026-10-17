@@ -14053,6 +14053,15 @@ probability is the difference of its two bounds. **Trade** a contract when model
 → 2026-09-30**, where the CFD minute data ends). The 2022 range-series naming (INX-…) and older above/below series are included where
 candles exist. Caveat: the CFD tracks the cash index with a basis that moves within the day; the previous day's basis is an approximation.
 
+## 669. K-family 2: our model does not beat Kalshi's S&P quotes — 0 of 16 carried (S9)
+
+**N 1,529 (no trial).** `reports/k2_discovery.json` (module `kalshi/k2_model.py`). Inputs checked first: settlement-minus-CFD basis median
++0.24 points (day-to-day SD 2.9, against 25-point brackets); σ ≈ 0.6% a day. Discovery 2022-12 → 2025-06: where the model disagreed with the
+quote by more than 3¢ / 6¢ after fees, trading its side lost in 12 of 16 cells (worst KXINXU 12:00 θ 6¢ −6.86¢, t −3.58); none carried.
+Read: Kalshi's S&P prices already hold what a price-and-volatility model knows, plus more (fat tails, intraday news); disagreeing with
+them is paying for it. **Kalshi index markets: two families, no edge; the arena is set aside** unless a genuinely informed signal (one the
+quotes cannot know) comes up. Its API remains the easiest route to a fully autonomous bot if one ever does.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
