@@ -14017,6 +14017,22 @@ overpriced**. Hypothesis: buying NO on cheap YES contracts earns more than it pa
 5. **Caveats fixed now:** candle quotes are the hour's last quote, so fills at exactly that price are an assumption (to be checked
    live with small size); Kalshi's fee schedule and rules are as published today; the user's tax and account eligibility are the user's.
 
+## 665. K-family 1: no longshot bias to sell — 0 of 36 carried; buying NO on cheap contracts loses (S9)
+
+**N 1,525 (no trial).** `reports/k1_discovery.json` (module `kalshi/k1_longshot.py`). Download complete (KXINXU 787, KXINX 1,112, KXNASDAQ100
+1,134 settled events; 6 failed on missing candles). Discovery (events before 2025-07-01, 2022-04 → 2025-06): **no cell carried**; 25 of 36
+are negative after the spread and fees, the Nasdaq range ones most clearly (10:00 1–5¢ −2.22¢ a contract, t −3.54; 12:00 10–20¢ −3.79¢,
+t −2.78; 10:00 10–20¢ −2.38¢, t −2.18; 12:00 1–5¢ −1.19¢, t −2.21). Read: Kalshi's index longshots are not overpriced by more than the
+spread; if anything the NO side is too dear. Capacity was modest anyway (median hourly volume of qualifying contracts ~200–3,000).
+
+## 666. K-family 1b protocol: the reverse — buying cheap Nasdaq YES contracts, one sealed test (S9)
+
+**No trial spent; N 1,525. Written and committed BEFORE the sealed window is read.** Suggested by §665's discovery data, so it can only
+be tested on data §665 did not use. Exactly the three Nasdaq range cells with discovery t < −2.1 on the NO side, now **buying YES at the yes
+ask** (taker fee at the YES price): KXNASDAQ100 10:00 1–5¢, 10:00 10–20¢, 12:00 10–20¢ (12:00 1–5¢, t −2.21, is included too: 4 cells).
+Same quote filter and statistic; **sealed window 2025-07-01 → 2026-10-16, read once**; CONFIRM per §664.4 (one-sided t > 1.645, ≥ 95%
+sign-randomisation placebo, positive posterior), each cell judged alone and reported against 4 tests; watchlist if net-positive.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
