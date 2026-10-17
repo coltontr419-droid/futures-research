@@ -14033,6 +14033,26 @@ ask** (taker fee at the YES price): KXNASDAQ100 10:00 1–5¢, 10:00 10–20¢, 
 Same quote filter and statistic; **sealed window 2025-07-01 → 2026-10-16, read once**; CONFIRM per §664.4 (one-sided t > 1.645, ≥ 95%
 sign-randomisation placebo, positive posterior), each cell judged alone and reported against 4 tests; watchlist if net-positive.
 
+## 667. K-family 1b: buying cheap Nasdaq YES also loses — REJECT ×4; Kalshi's index longshots are priced within the spread (S9)
+
+**4 trials (t01526–t01529, sealed looks); N 1,529.** `reports/k1b_validation.json`. Sealed 2025-07-01 → 2026-10-16, buying YES at the ask:
+10:00 1–5¢ −2.05¢ a contract (t −1.83); 10:00 10–20¢ −0.57¢ (t −0.33); 12:00 10–20¢ −4.37¢ (t −2.41); 12:00 1–5¢ −1.54¢ (t −1.53) — all
+REJECT. Both sides of the cheap contracts lose by about the spread plus fees: no price-level bias to harvest by taking quotes. Any edge
+in this arena has to come from knowing the probability better than the quote, not from a blanket bias.
+
+## 668. K-family 2 protocol: S&P contracts priced by our own model against Kalshi's quotes (S9)
+
+**No trial spent; N 1,529. Written and committed BEFORE any model price is compared with any quote or outcome.** Model: at the candle
+ending hh:00 New York (hh ∈ 10, 12, 14, 15), the S&P level S = the HistData S&P CFD minute close (corrected clock, `hd_grid`) at hh:00,
+**plus the previous settlement day's basis** (Kalshi's recorded settlement value minus the CFD's 16:00 close that day — known before
+today); daily volatility σ = root-mean-square over the previous 20 sessions of each session's realised 1-minute variance 09:30–16:00;
+remaining variance σ² × (minutes to 16:00 / 390); zero drift, normal in log price. P(close ≥ K) = Φ(ln(S/K) / (σ√τ)); a range contract's
+probability is the difference of its two bounds. **Trade** a contract when model − ask − fee(ask) > θ (buy YES) or (1 − model) − (1 − bid)
+− fee(1 − bid) > θ (buy NO), quote filter as §664; hold to settlement. **Tests:** KXINXU (above/below at 4 PM) and KXINX (range) × 4 hours ×
+θ ∈ {3¢, 6¢} = **16** (≈ 0.4 by chance). Statistic, carried rule and validation as §664 (discovery before 2025-07-01; **sealed 2025-07-01
+→ 2026-09-30**, where the CFD minute data ends). The 2022 range-series naming (INX-…) and older above/below series are included where
+candles exist. Caveat: the CFD tracks the cash index with a basis that moves within the day; the previous day's basis is an approximation.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

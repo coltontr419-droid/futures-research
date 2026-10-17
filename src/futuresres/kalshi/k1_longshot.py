@@ -37,7 +37,7 @@ def fee(q: float, n: int = 100) -> float:
     return math.ceil(round(0.07 * n * q * (1 - q) * 100, 6)) / 100 / n
 
 
-def trades(series: str):
+def trades(series: str, side: str = "no"):
     """(settlement date, hour, bucket index, net P&L per contract, candle volume) for every qualifying contract."""
     for f in sorted((DATA / series).glob("*.json")):
         ev = json.loads(f.read_text())
@@ -57,8 +57,11 @@ def trades(series: str):
                 mid = (bid + ask) / 2
                 for k, (lo, hi) in enumerate(BUCKETS):
                     if lo < mid <= hi:
-                        q = 1 - bid                              # buy NO at 1 - yes bid
-                        pnl = (1.0 if m["result"] == "no" else 0.0) - q - fee(q)
+                        if side == "no":
+                            q = 1 - bid                          # buy NO at 1 - yes bid
+                            pnl = (1.0 if m["result"] == "no" else 0.0) - q - fee(q)
+                        else:                                    # 1b (decisions.md 666): buy YES at the yes ask
+                            pnl = (1.0 if m["result"] == "yes" else 0.0) - ask - fee(ask)
                         vol = float(c.get("volume_fp", c.get("volume")) or 0)
                         yield day, h, k, pnl, vol
 
@@ -107,7 +110,38 @@ def scan() -> dict:
     return res
 
 
+#: 1b (decisions.md 666): the cells tested once on the sealed window, buying YES
+CELLS_1B = (("KXNASDAQ100", 10, 0), ("KXNASDAQ100", 10, 2), ("KXNASDAQ100", 12, 2), ("KXNASDAQ100", 12, 0))
+PRIOR_SD = 0.02                                      # zero-mean prior on the mean net per contract: 2 cents
+
+
+def validate_1b() -> dict:
+    lo, hi = VAL; out = []
+    rows = {}
+    for day, h, k, pnl, vol in trades("KXNASDAQ100", side="yes"):
+        if lo <= day <= hi:
+            rows.setdefault((h, k), {}).setdefault(day, []).append(pnl)
+    rng = np.random.default_rng(664)
+    for s_, h, k in CELLS_1B:
+        dd = rows.get((h, k), {}); days = sorted(dd); x = np.array([np.mean(dd[d]) for d in days])
+        n = len(x); t = _t(x); m = float(x.mean()) if n else float("nan")
+        null = np.array([(x * rng.choice((-1.0, 1.0), n)).mean() for _ in range(2000)]) if n else np.array([0.0])
+        pct = float((null < m).mean() * 100); se2 = x.var(ddof=1) / n if n > 2 else float("nan")
+        post0 = m * PRIOR_SD ** 2 / (PRIOR_SD ** 2 + se2)            # zero-mean prior; the flat-prior posterior mean is m
+        dec = "CONFIRM" if (t > 1.645 and pct >= 95 and m > 0 and post0 > 0) else ("WATCHLIST" if m > 0 else "REJECT")
+        r = {"series": s_, "hour": h, "bucket": f"{BUCKETS[k][0]*100:.0f}-{BUCKETS[k][1]*100:.0f}c", "days": n,
+             "contracts": int(sum(len(v) for v in dd.values())), "mean_net": m, "t": t, "placebo_pct": pct, "posterior_zero_prior": post0, "decision": dec}
+        out.append(r)
+        print(f"  1b {s_} {h}:00 {r['bucket']}: days {n} contracts {r['contracts']} net {m*100:+.2f}c t {t:+.2f} placebo {pct:.0f}% "
+              f"posterior(0-prior) {post0*100:+.2f}c -> {dec}", flush=True)
+    (ROOT / "reports" / "k1b_validation.json").write_text(json.dumps({"window": [str(lo), str(hi)], "cells": out}, indent=1) + "\n")
+    return {"cells": out}
+
+
 if __name__ == "__main__":
-    if "--validate" in sys.argv:
-        raise SystemExit("validation is run once, after the discovery result is recorded (decisions.md 664)")
-    scan()
+    if "--validate-1b" in sys.argv:
+        validate_1b()
+    elif "--validate" in sys.argv:
+        raise SystemExit("family 1 carried nothing (decisions.md 665); its validation does not run")
+    else:
+        scan()

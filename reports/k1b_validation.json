@@ -1,0 +1,56 @@
+{
+ "window": [
+  "2025-07-01",
+  "2026-10-16"
+ ],
+ "cells": [
+  {
+   "series": "KXNASDAQ100",
+   "hour": 10,
+   "bucket": "1-5c",
+   "days": 210,
+   "contracts": 625,
+   "mean_net": -0.020528324452003022,
+   "t": -1.832745337968721,
+   "placebo_pct": 3.35,
+   "posterior_zero_prior": -0.015626957663911926,
+   "decision": "REJECT"
+  },
+  {
+   "series": "KXNASDAQ100",
+   "hour": 10,
+   "bucket": "10-20c",
+   "days": 224,
+   "contracts": 615,
+   "mean_net": -0.005734114583333334,
+   "t": -0.3324082962297411,
+   "placebo_pct": 35.85,
+   "posterior_zero_prior": -0.003288051525350978,
+   "decision": "REJECT"
+  },
+  {
+   "series": "KXNASDAQ100",
+   "hour": 12,
+   "bucket": "10-20c",
+   "days": 231,
+   "contracts": 420,
+   "mean_net": -0.04374528138528139,
+   "t": -2.4145748056051444,
+   "placebo_pct": 1.0,
+   "posterior_zero_prior": -0.02402820705526805,
+   "decision": "REJECT"
+  },
+  {
+   "series": "KXNASDAQ100",
+   "hour": 12,
+   "bucket": "1-5c",
+   "days": 242,
+   "contracts": 725,
+   "mean_net": -0.015412419323101147,
+   "t": -1.5296806354080792,
+   "placebo_pct": 5.4,
+   "posterior_zero_prior": -0.012292632029057324,
+   "decision": "REJECT"
+  }
+ ]
+}
