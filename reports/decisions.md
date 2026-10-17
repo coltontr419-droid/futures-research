@@ -14081,6 +14081,15 @@ start date, 84 sessions; net = 80% payouts − fees. **Chosen on 2021–24 start
 (three $5K + three $10K + one $25K + one $100K at once, New option). Not a trial (a computation on confirmed edges); a recommendation needs
 the user's go-ahead on a second firm (§131, "multi-firm deferred").
 
+## 671. A77: the edges in static-drawdown CFD accounts earn ~$500 per $10K a run, losing more often than not — not recommended (S9)
+
+**No trial.** `reports/a77_cfd_static.json` (module `reporting/a77_cfd_static.py`). Window SD 2021–24: NKD 81 bps, DAX 86 bps. Best of 54 on
+2021–24 (both markets in one account, size r 3%, stop at the per-trade daily cap 2.5%, hold to the window's end): **+$505** per $10K account
+per 84 sessions (median −$141, P > 0 44%); read once: 2025 starts +$552 (median −$234, 34%); 2021–26 +$517; **2010–20 +$66** (31%); zero edge
+−$106 / +$3. About 4 evaluations bought ($78 each) and ~1.3 payouts a run. The +15% across two steps before any payout eats most of the
+static floor's advantage, and every account would carry the same trades, so stacking the allowed ~$170K of allocation multiplies one
+mostly-losing outcome rather than diversifying it. Against Tradeify's ~$4,600 per 50K account a run (§657) it is not worth a second firm.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
