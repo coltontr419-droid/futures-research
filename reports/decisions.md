@@ -14285,6 +14285,13 @@ mid-week several of the seven days are public; the question is whether quotes fu
 3. **Decision days:** Tuesday (k = 1), Thursday (k = 3), Saturday (k = 5) — **6 tests**. Statistic: weekly mean net per contract; t over weeks;
    monthly t. **Discovery: weeks ending before 2025-07-01; sealed: 2025-07-01 → 2026-10-11.** Carried / validation as §664.4.
 
+## 689. K-family 5: the TSA nowcast does not beat the quotes — 0 of 6 (S10)
+
+**N 1,535 (no trial).** `reports/k5_discovery.json` (module `kalshi/k5_tsa.py`; 243 of 274 weekly events, 31 transient download failures). The
+364-day-ratio nowcast's error (discovery weeks, 2020 included) is wide: SD 7.6% with Monday known, 6.6% with three days, 2.8% with five. Trades
+2023-01 → 2025-06: Tuesday −3.5¢ / −4.6¢ a contract (t ≈ −1.0 … −1.3); Thursday −1.6¢ / −2.4¢; **Saturday +4.6¢ / +4.5¢ (t 0.95 / 0.85,
+~50 weeks)** — none near the bar. The market already reads the published days at least as well as a simple seasonal ratio.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
