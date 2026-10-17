@@ -14062,6 +14062,25 @@ Read: Kalshi's S&P prices already hold what a price-and-volatility model knows, 
 them is paying for it. **Kalshi index markets: two families, no edge; the arena is set aside** unless a genuinely informed signal (one the
 quotes cannot know) comes up. Its API remains the easiest route to a fully autonomous bot if one ever does.
 
+## 670. A77 protocol: our two confirmed edges in CFD prop accounts with a static drawdown (The5ers High Stakes) (S9)
+
+**No trial; N 1,529. Written and committed BEFORE any replay is run.** The user (2026-10-17) asked to search outside the Tradeify arena;
+§131's objection was ~$500 fees, and cheap CFD accounts now exist. Our confirmed edges (NKD dollar-week, DAX-dollar) were measured on
+HistData CFD prices — the instruments these firms list (JPN225, GER40). Rules as modelled (The5ers High Stakes, from its own page plus
+third-party summaries; **to be confirmed by the user before any purchase**): Step 1 +10%, Step 2 +5%, each needing ≥ 3 profitable days
+(closed profit ≥ 0.5% of the initial balance); **static maximum loss 10% of the initial balance**; daily loss 5%; no time limit, no
+consistency rule; funded: 80% of profit above the initial balance, paid every 14 calendar days (10 sessions) from funding, the floor
+staying at 90% of initial; no commission on indices; a failed account is re-bought (Classic prices: $5K $39, $10K $78; sizes scale
+linearly, so per-dollar results are reported on $10K). One trade a day per traded market, in its current window with its deployed
+side (A21 CFD paths; NKD 09:00–15:00 Tokyo, DAX 09:00–17:30 Frankfurt); costs: spread 2.2 bps (JPN225) / 0.6 bps (GER40) plus 1 bp
+slippage a round trip. Position size: the window's 2021–24 daily SD = r% of the initial balance, r ∈ {1, 2, 3}; stop at s × r% (s ∈ {1,
+2}; never more than the 5% daily limit or the room to the floor); take at k × stop, k ∈ {1, 2, none = hold to the window's end}; markets:
+NKD, DAX, or both in one account (two trades a day) — 3 × 2 × 3 × 3 = **54 candidates** per account. Back-to-back accounts from every
+start date, 84 sessions; net = 80% payouts − fees. **Chosen on 2021–24 starts** (mean net per $10K account); read once on 2025 starts and
+2010–20 and with random sides (6 seeds). Reported: mean, median, P > 0, p10; payouts; evaluations bought; and the allocation ceiling
+(three $5K + three $10K + one $25K + one $100K at once, New option). Not a trial (a computation on confirmed edges); a recommendation needs
+the user's go-ahead on a second firm (§131, "multi-firm deferred").
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
