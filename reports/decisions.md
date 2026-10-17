@@ -14256,6 +14256,16 @@ funding accrue. A rough check with brackets that resolve in days: ~+0.8% gross m
 payout (reported by some sources, denied by others) is what would make it positive (+~0.4% an attempt); without it, not worth doing.**
 Static-floor, on-demand programmes are the right shape; Breakout's fee (1% of the account) and crypto's costs leave too little.
 
+## 686. S-family 3 protocol: NFL point spreads in published situational spots (S10)
+
+**No trial spent; N 1,535. Written and committed BEFORE the tests are computed.** The user (2026-10-17): cover as many arenas as possible,
+report only a success. nflverse games (closing spread, rest days, division flag, weekday, kickoff time). Bets at −110 against the closing
+spread (pushes void); a home cover = home margin > spread_line (positive spread_line = home favoured). **Tests (each a published idea):**
+(1) home underdogs; (2) the team with ≥ 3 more days of rest (e.g. off a bye); (3) Thursday games — the home team; (4) divisional underdogs;
+(5) underdogs of 10+ points; (6) the under in prime time (kickoff ≥ 19:00 Eastern, any day) — **6 tests**. Statistic: weekly mean return; t
+over weeks; season t. **Discovery seasons 1999–2014; sealed 2015–2025.** Carried: t > 1.96, mean > 0, season t > 1.96; validation once per
+§664.4. Caveat: closing lines are the hardest to beat; a bettor gets an earlier line.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
