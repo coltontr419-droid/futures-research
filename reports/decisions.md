@@ -14217,6 +14217,13 @@ over at temp ≤ 25°F** (outdoor / open roof; −110; pushes void) — **3 test
 2015–2025, read once; CONFIRM per §664.4 (one-sided weekly t > 1.645, ≥ 95% sign-randomisation placebo on weekly returns, positive posterior);
 watchlist if net-positive. Season-by-season results reported.
 
+## 683. S-family 2b: windy NFL unders hold out of sample but are too sparse to confirm — WATCHLIST; cold overs REJECT (S10)
+
+**3 trials (t01533–t01535); N 1,535.** `reports/s2b_validation.json`. Sealed seasons 2015–2025: **under at wind ≥ 15 mph — 225 bets, 56.4% won,
++7.8% a bet** (discovery 57.2%, +9.3%), but weekly t 0.53, placebo 70% → **WATCHLIST** (positive in 6 of 11 seasons). Over at ≤ 35°F −6.7% a
+bet, over at ≤ 25°F −20.2% → REJECT (both sides of cold totals lose — the vig, not a mispricing). Read: the published wind effect persists
+at ~57% over 26 seasons, but it is ~20 bets a season — at $100 a bet about +$150 a season. Too small to be an income stream.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
