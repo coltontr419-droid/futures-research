@@ -1,0 +1,107 @@
+{
+ "discovery_end": "2025-07-01",
+ "tests": 8,
+ "beta": [
+  0.010287808743480814,
+  0.20321027286219912,
+  0.16861124117546314,
+  0.0009752849526259103,
+  0.18915793355606855,
+  0.04204453676940743,
+  0.09476844090163887,
+  -0.11024869474340526
+ ],
+ "sigma_week": 0.0443958089395032,
+ "daily": [
+  0.3301938350260836,
+  0.0028287470461956037,
+  14
+ ],
+ "all": [
+  {
+   "point": "weekly D-6",
+   "theta": 0.05,
+   "days": 18,
+   "contracts": 18,
+   "mean_net": -0.12300555555555556,
+   "t": -1.5094760057566934,
+   "t_monthly": -1.285426802938151,
+   "first": "2024-06-24",
+   "last": "2025-06-23",
+   "carried": false
+  },
+  {
+   "point": "weekly D-6",
+   "theta": 0.1,
+   "days": 13,
+   "contracts": 13,
+   "mean_net": -0.11297692307692309,
+   "t": -1.0729369485852502,
+   "t_monthly": -0.9668274451495771,
+   "first": "2024-06-24",
+   "last": "2025-06-23",
+   "carried": false
+  },
+  {
+   "point": "weekly D-3",
+   "theta": 0.05,
+   "days": 21,
+   "contracts": 21,
+   "mean_net": -0.06494761904761906,
+   "t": -1.1224618735399894,
+   "t_monthly": -0.9430497055856127,
+   "first": "2024-07-08",
+   "last": "2025-06-30",
+   "carried": false
+  },
+  {
+   "point": "weekly D-3",
+   "theta": 0.1,
+   "days": 19,
+   "contracts": 19,
+   "mean_net": -0.09189473684210527,
+   "t": -1.7550002496268402,
+   "t_monthly": -1.442620045419587,
+   "first": "2024-07-15",
+   "last": "2025-06-30",
+   "carried": false
+  },
+  {
+   "point": "monthly D-14",
+   "theta": 0.05,
+   "days": 0,
+   "carried": false
+  },
+  {
+   "point": "monthly D-14",
+   "theta": 0.1,
+   "days": 0,
+   "carried": false
+  },
+  {
+   "point": "daily D-1",
+   "theta": 0.05,
+   "days": 2,
+   "contracts": 2,
+   "mean_net": -0.44175,
+   "t": NaN,
+   "t_monthly": NaN,
+   "first": "2023-09-28",
+   "last": "2023-10-20",
+   "carried": false
+  },
+  {
+   "point": "daily D-1",
+   "theta": 0.1,
+   "days": 2,
+   "contracts": 2,
+   "mean_net": -0.44175,
+   "t": NaN,
+   "t_monthly": NaN,
+   "first": "2023-09-28",
+   "last": "2023-10-20",
+   "carried": false
+  }
+ ],
+ "carried": []
+}

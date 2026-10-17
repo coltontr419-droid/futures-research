@@ -14183,6 +14183,25 @@ date D"), each trading hundreds of thousands of contracts a day. Free inputs: Ya
 4. **Tests:** weekly × 2 points × 2 θ + monthly × 1 × 2 + daily × 1 × 2 = **8**. Daily statistic over settlement dates; carried / validation
    as §664 (discovery before 2025-07-01; sealed 2025-07-01 → 2026-10-16). Year-round markets.
 
+## 679. K-family 4: Kalshi's gas markets are too young to test — uninformative (S10)
+
+**N 1,532 (no trial).** `reports/k4_discovery.json` (module `kalshi/k4_gas.py`). The weekly model fitted on EIA 2010–22 (656 weeks) is sensible
+(RBOB pass-through ≈ 0.20 + 0.17 + 0.10 over three weeks on rises, a gap term −0.11, σ 4.4¢ a week), but before 2025-07 there are only 73 weekly
+events (12:00 quote on ~half), 19 monthly (markets open 7 days before settlement, so the D−14 point never exists) and 24 daily (the daily
+series is mostly 2026). Trades: weekly 13–21 days per cell, all negative (−6.5 … −12.3¢, |t| ≤ 1.8); monthly none; daily 2. **Uninformative**
+— no split leaves enough history; set aside (a forward record would be the only way to test it).
+
+## 680. S-family 2 protocol: NFL totals and game-day weather (S10)
+
+**No trial spent; N 1,532. Written and committed BEFORE the data is examined.** nflverse (free, GitHub) records every NFL game since 1999
+with the closing total and spread, roof type, temperature and wind. Mechanism: wind and cold lower passing efficiency and scoring; the
+question is whether closing totals fully price it. **Bet the UNDER at −110** (win +0.909, loss −1, pushes void) in outdoor games
+(roof "outdoors" or "open") with wind ≥ 10 / 15 / 20 mph, or temperature ≤ 25 / 35°F; and the OVER in dome / closed-roof games
+(control-direction test) — **6 tests**. Statistic: per-week mean return over that week's bets; t over weeks. **Discovery: seasons 1999–2014.
+Sealed: 2015–2025** (the 2026 season so far is excluded: forecasts at bet time vs recorded game-time weather, see caveat). Carried / validation as
+§664.4. Caveats fixed now: nflverse weather is recorded at kickoff, while a bettor acts on a forecast hours earlier (forecasts of wind are good
+but not perfect — an upper bound); closing totals are the hardest number to beat, so passing here is meaningful; legality is per state.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
