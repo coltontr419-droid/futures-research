@@ -13971,6 +13971,17 @@ blow-up forfeits. **Part 2** (plan's contracts): 2021–24 5 NKD +$10,651, **4 N
 once: 2025 mean +$25,799 vs +$23,020 but median +$11,895 vs +$15,267, P > 0 88% vs 100%, p10 −$281 vs +$3,175; 2010–20 **+$4,080 vs +$6,336**
 — fails. Diversification across two markets is what keeps the tail. **The plan stands as adopted.**
 
+## 662. A76 protocol: longer windows on live accounts (S8)
+
+**No trial; N 1,525. Written and committed BEFORE any path is built or replayed.** §657 found a live account is worth more the more each
+trade can swing; a longer window gives more swing. Evaluation and funded accounts keep their windows; **live accounts only**: same entry,
+later exit — NKD 09:00 Tokyo to 15:00 (now), **18:00** or **23:00** Tokyo; FDXM 09:00 Frankfurt to 17:30 (now) or **21:30** (Eurex trades to
+22:00; 21:30 stays before the 17:00 ET break even in the weeks when only one side of the Atlantic has changed its clocks; NKD's 23:00 Tokyo
+is 09:00–10:00 ET). 6 combinations. Paths built as A21 (HistData 1-minute, drift removed within each era, the dollar rules' sides as now),
+the adopted plan otherwise (§657; 1 tick a side, Tradovate Free fees). **Chosen on 2021–24 starts**; read once on 2025 starts and 2010–20
+and with random sides (6 seeds per era); adopt by §655's rule. Caveat fixed now: the dollar rules were found on the current windows; a
+longer window's sign is untested beyond these replays.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
