@@ -14292,6 +14292,16 @@ mid-week several of the seven days are public; the question is whether quotes fu
 2023-01 → 2025-06: Tuesday −3.5¢ / −4.6¢ a contract (t ≈ −1.0 … −1.3); Thursday −1.6¢ / −2.4¢; **Saturday +4.6¢ / +4.5¢ (t 0.95 / 0.85,
 ~50 weeks)** — none near the bar. The market already reads the published days at least as well as a simple seasonal ratio.
 
+## 690. K-family 6 protocol: Kalshi EUR/USD and USD/JPY 10:00 ranges priced by our own model (S10)
+
+**No trial spent; N 1,535. Written and committed BEFORE any model price is compared with any quote or outcome.** KXEURUSD / KXUSDJPY
+(since 2022-08): each day's range brackets on the rate at 10:00 New York; markets open 10:00 the day before. Model as §668 with the FX minute
+grid (HistData, corrected clock, `hd_grid`): level = the grid's last close at the decision minute plus the previous settlement's basis
+(Kalshi's recorded value − the grid at 10:00 that day); σ = RMS over the previous 20 days of the 24-hour realised 1-minute variance, scaled to
+the time left; zero drift, normal in log price; a bracket's probability = difference of its bounds. **Decision points:** 12:00 the day before
+(22 h left), 16:00 the day before (18 h), 08:00 on the day (2 h); θ ∈ {3¢, 6¢}; trade as §668 — 2 pairs × 3 points × 2 θ = **12 tests**.
+**Discovery before 2025-07-01; sealed 2025-07-01 → 2026-09-30** (the minute data's end). Carried / validation as §664.4.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
