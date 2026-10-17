@@ -14158,6 +14158,13 @@ is to bet where a soft bookmaker's odds exceed the sharp fair price.
    backtest can show); legality depends on the user's state; football-data's pre-match snapshot is taken Friday / Tuesday afternoons, so
    later price moves are not seen.
 
+## 677. S-family 1: Bet365 rarely beats Pinnacle's fair price, and when it does the bets earn nothing reliable — 0 of 12 (S10)
+
+**N 1,532 (no trial).** `reports/s1_discovery.json` (module `sports/s1_value.py`; data: 22 leagues × 14 seasons, ~100k matches with both
+prices). Discovery 2012/13 → 2018/19: the rule bet 4,788 times at θ 2% (of ~53,000 matches) — Bet365's pre-match odds are rarely above
+Pinnacle's fair price; returns per bet −3.2% … +18% with |t| ≤ 0.81 in every cell (high variance, no signal). The Kaunitz result relied on
+the best price across ~30 books; a single US-licensed book does not reproduce it. Sports value betting set aside.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

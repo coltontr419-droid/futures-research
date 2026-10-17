@@ -1,0 +1,147 @@
+{
+ "discovery": [
+  "1213",
+  "1314",
+  "1415",
+  "1516",
+  "1617",
+  "1718",
+  "1819"
+ ],
+ "tests": 12,
+ "all": [
+  {
+   "outcome": "H",
+   "theta": 0.02,
+   "dates": 507,
+   "bets": 939,
+   "mean_return_per_bet": 0.040638977635782746,
+   "mean_daily": 0.04465565417488496,
+   "t": 0.5368025948451892,
+   "t_monthly": 0.4707826152761706,
+   "carried": false
+  },
+  {
+   "outcome": "H",
+   "theta": 0.04,
+   "dates": 284,
+   "bets": 419,
+   "mean_return_per_bet": -0.02496420047732698,
+   "mean_daily": -0.025677816901408478,
+   "t": -0.20021544307823555,
+   "t_monthly": -0.19777709489316267,
+   "carried": false
+  },
+  {
+   "outcome": "H",
+   "theta": 0.06,
+   "dates": 172,
+   "bets": 226,
+   "mean_return_per_bet": -0.031504424778761066,
+   "mean_daily": -0.024801356589147276,
+   "t": -0.1292571022643196,
+   "t_monthly": -0.12873836473393363,
+   "carried": false
+  },
+  {
+   "outcome": "D",
+   "theta": 0.02,
+   "dates": 519,
+   "bets": 1165,
+   "mean_return_per_bet": 0.011793991416309008,
+   "mean_daily": 0.009572077889996979,
+   "t": 0.1453318559667727,
+   "t_monthly": 0.12807824934879988,
+   "carried": false
+  },
+  {
+   "outcome": "D",
+   "theta": 0.04,
+   "dates": 225,
+   "bets": 339,
+   "mean_return_per_bet": 0.039941002949852505,
+   "mean_daily": -0.01575185185185184,
+   "t": -0.1336685771782595,
+   "t_monthly": -0.14618133383727616,
+   "carried": false
+  },
+  {
+   "outcome": "D",
+   "theta": 0.06,
+   "dates": 89,
+   "bets": 116,
+   "mean_return_per_bet": 0.18362068965517245,
+   "mean_daily": -0.028745318352059946,
+   "t": -0.14067070681449542,
+   "t_monthly": -0.15022486683695516,
+   "carried": false
+  },
+  {
+   "outcome": "A",
+   "theta": 0.02,
+   "dates": 860,
+   "bets": 2684,
+   "mean_return_per_bet": -0.024955290611028313,
+   "mean_daily": -0.011459826314146727,
+   "t": -0.18788850181656347,
+   "t_monthly": -0.14980932865215915,
+   "carried": false
+  },
+  {
+   "outcome": "A",
+   "theta": 0.04,
+   "dates": 667,
+   "bets": 1417,
+   "mean_return_per_bet": 0.012018348623853207,
+   "mean_daily": 0.03333417519511972,
+   "t": 0.4041119042992524,
+   "t_monthly": 0.3377915119448058,
+   "carried": false
+  },
+  {
+   "outcome": "A",
+   "theta": 0.06,
+   "dates": 483,
+   "bets": 793,
+   "mean_return_per_bet": 0.08158890290037829,
+   "mean_daily": 0.08045203588681848,
+   "t": 0.7688044293056758,
+   "t_monthly": 0.7082881821728829,
+   "carried": false
+  },
+  {
+   "outcome": "any",
+   "theta": 0.02,
+   "dates": 1057,
+   "bets": 4788,
+   "mean_return_per_bet": -0.00314954051796157,
+   "mean_daily": -0.020133625108410314,
+   "t": -0.4248036354908475,
+   "t_monthly": -0.3152292249400844,
+   "carried": false
+  },
+  {
+   "outcome": "any",
+   "theta": 0.04,
+   "dates": 770,
+   "bets": 2175,
+   "mean_return_per_bet": 0.009245977011494246,
+   "mean_daily": -0.008543966211193089,
+   "t": -0.12648042588723096,
+   "t_monthly": -0.09893431117491941,
+   "carried": false
+  },
+  {
+   "outcome": "any",
+   "theta": 0.06,
+   "dates": 559,
+   "bets": 1135,
+   "mean_return_per_bet": 0.06949779735682819,
+   "mean_daily": 0.07504554683043055,
+   "t": 0.8083195837932801,
+   "t_monthly": 0.7302316580722966,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
