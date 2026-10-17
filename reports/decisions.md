@@ -13992,6 +13992,31 @@ fails §655 (no better on 2025). Read: the dollar-week side holds for the Tokyo 
 hours runs against the side often enough to cost more than the variance is worth; FDXM's evening adds nothing either way. **Live windows
 stay as they are.** With A75, the account-play levers on the current data are exhausted.
 
+## 664. A new arena: Kalshi index markets. K-series family 1 protocol — the longshot bias in S&P and Nasdaq daily contracts (S9)
+
+**No trial spent; N 1,525. Written and committed BEFORE any outcome is examined** (the download, `futuresres/kalshi/download.py`, saves
+markets, results and hourly candles; nothing has been tabulated). The user (2026-10-17): search outside the Tradeify arena, per the
+2026-10-16 brief (fresh ideas, more income, autonomous bots, no paid data). Kalshi (CFTC-regulated, US) lists daily S&P 500 range
+(KXINX, 30 brackets), S&P above/below at the 4 PM close (KXINXU) and Nasdaq-100 range (KXNASDAQ100) contracts; settled history and hourly
+yes bid / ask / trade candles are public and free since 2022; trading has a full API (an autonomous bot is possible); fees are quadratic,
+taker ≈ 0.07 × p × (1 − p) a contract, rounded up per order. The best-documented bias in prediction markets is that **longshots are
+overpriced**. Hypothesis: buying NO on cheap YES contracts earns more than it pays, after the spread and fees.
+
+1. **Trade (fixed):** at the hourly candle ending 10:00, 12:00, 14:00 or 15:00 New York time on the settlement day, every contract of the
+   event whose yes mid ((bid + ask) / 2, candle close) is in a bucket — (1, 5], (5, 10], (10, 20] cents — and whose quote is live (bid > 0,
+   ask < $1, spread ≤ 10 cents): **buy NO at 1 − yes bid**, hold to settlement (payout $1 if the result is "no"). Fee: ceil(7 × q × (1 − q))
+   cents per 100 contracts at NO price q. P&L per contract net of fee.
+2. **Tests:** 3 series × 4 hours × 3 buckets = **36** (≈ 0.9 pass by chance at |t| > 1.96). Statistic per test: each day's mean net P&L
+   per contract over its qualifying contracts; t over days; monthly t over month sums.
+3. **Discovery: events settling before 2025-07-01. Sealed validation: 2025-07-01 → 2026-10-16** (asserted in code). **Carried:** t > 1.96,
+   mean > 0, monthly t > 1.96 (as family 175). At most 5 carried, by t.
+4. **Validation (once, sealed window):** CONFIRM if one-sided t > 1.645 on the daily series, beats ≥ 95% of a sign-randomisation placebo
+   on the daily P&L (2,000 draws), and the posterior mean is positive (zero-mean prior shown too) — §119 adapted: a bet's return has no
+   time-shift structure to shuffle, so the day-level sign flip is the null. Watchlist if net-positive but short of that (§133).
+   Capacity is reported (qualifying contracts' hourly volume), since a bias in a thin book cannot be scaled.
+5. **Caveats fixed now:** candle quotes are the hour's last quote, so fills at exactly that price are an assumption (to be checked
+   live with small size); Kalshi's fee schedule and rules are as published today; the user's tax and account eligibility are the user's.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
