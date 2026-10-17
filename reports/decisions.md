@@ -13982,6 +13982,16 @@ the adopted plan otherwise (§657; 1 tick a side, Tradovate Free fees). **Chosen
 and with random sides (6 seeds per era); adopt by §655's rule. Caveat fixed now: the dollar rules were found on the current windows; a
 longer window's sign is untested beyond these replays.
 
+## 663. A76: longer live windows do not help — NKD's later hours cost ~$3k, FDXM's are a wash; live windows unchanged (S8)
+
+**No trial.** `reports/a76_live_windows.json` (module `reporting/a76_live_windows.py`; A63 gained `live_paths`; the base reproduces the
+adopted plan's +$23,020). Longer windows swing more (NKD window SD 84 → 91 / 106 bps; DAX 85 → 96) with the same sessions (±3%). 2021–24
+mean: base **+$10,385**; FDXM to 21:30 +$10,522; any NKD extension **+$7,336 … +$7,470** (−$3k). Chosen (NKD 15:00, FDXM 21:30) read once:
+2025 +$22,988 vs **+$23,020**; 2021–26 +$13,791 vs +$13,699; 2010–20 +$6,323 vs +$6,336; zero edge +$6,549 / +$4,335 vs +$6,506 / +$4,291 —
+fails §655 (no better on 2025). Read: the dollar-week side holds for the Tokyo session, not after it — the extra swing in NKD's later
+hours runs against the side often enough to cost more than the variance is worth; FDXM's evening adds nothing either way. **Live windows
+stay as they are.** With A75, the account-play levers on the current data are exhausted.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

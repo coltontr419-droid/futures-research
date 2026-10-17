@@ -86,6 +86,10 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             release0 = others >= hold_k
         for m in ACC:
             h, l, c, cost, has = P[MK[m]]; a_ = st[m]; act = has[idx]
+            if F.get("live_paths"):                           # A76: live accounts trade their own (longer) window; same width as P's
+                hL, lL, cL, hasL = F["live_paths"][MK[m]]; act_l = hasL[idx]
+            else:
+                act_l = act
             if F.get("pol"):                                  # A71: per-market policies (eval, funded) from the real-game solve
                 pe, ge, pf, gf = F["pol"][MK[m]]
             ev = a_["phase"] == 0; fu = ~ev; eq, pk, best, npay = a_["eq"], a_["pk"], a_["best"], a_["npay"]
@@ -126,10 +130,14 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 Wl = Wl * lm; Ll = Ll * lm
             lcost = cost * lm
             Ll = np.minimum(Ll, np.maximum(a_["leq"] - lfloor - 1, 1))
-            ltrade = lact & act & (a_["leq"] - lfloor > lcost + 10)
+            ltrade = lact & act_l & (a_["leq"] - lfloor > lcost + 10)
             WW = np.where(trade, (W + scost) / sm, np.where(ltrade, (Wl + lcost) / lm, 1e12))
             LL = np.where(trade, np.maximum(L - scost, 1.0) / sm, np.where(ltrade, np.maximum(Ll - lcost, 1.0) / lm, 1e12))
-            raw, mfe = bracket_mfe(h[idx], l[idx], c[idx], WW, LL)
+            if F.get("live_paths"):
+                lt = ltrade[:, None]
+                raw, mfe = bracket_mfe(np.where(lt, hL[idx], h[idx]), np.where(lt, lL[idx], l[idx]), np.where(lt, cL[idx], c[idx]), WW, LL)
+            else:
+                raw, mfe = bracket_mfe(h[idx], l[idx], c[idx], WW, LL)
             raw = np.where(ltrade, raw * lm, np.where(trade, raw * sm, raw)); mfe = np.where(trade, mfe * sm, mfe)
             pnl = np.round(np.where(trade, raw - scost, np.where(ltrade, raw - lcost, 0.0)), 2)
             # ---- sim accounts
@@ -173,7 +181,7 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             # ---- live accounts
             leq = a_["leq"] + np.where(ltrade, pnl, 0.0); lpk = np.maximum(a_["lpk"], leq)
             lfloor2 = np.where(lpk >= LLK, 0.0, lpk - a_["lroom"])
-            dead = lact & act & ((leq <= lfloor2) | ~ltrade)
+            dead = lact & act_l & ((leq <= lfloor2) | ~ltrade)
             a_["lalive"] = a_["lalive"] & ~dead
             CU = F.get("live_cushion", 2_000.0)                # A73: withdraw above this once locked (100K: its $3,000 lock)
             wd = np.where(a_["lalive"] & (lpk >= LLK) & (leq > CU), leq - CU, 0.0)
