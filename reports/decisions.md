@@ -14224,6 +14224,25 @@ watchlist if net-positive. Season-by-season results reported.
 bet, over at ≤ 25°F −20.2% → REJECT (both sides of cold totals lose — the vig, not a mispricing). Read: the published wind effect persists
 at ~57% over 26 seasons, but it is ~20 bets a season — at $100 a bet about +$150 a season. Too small to be an income stream.
 
+## 684. A78 protocol: the staking game in a crypto prop with a static floor and on-demand payouts (Breakout Classic 1-step) (S10)
+
+**No trial; N 1,535. Written and committed BEFORE any game is solved or replayed.** The user (2026-10-17): other funded programmes — someone
+else's capital with rules we can model. Tradeify's game pays at zero edge through its rules; this asks whether Breakout's (Kraken-owned crypto
+prop) does too. Rules as modelled (Kraken's comparison page and third-party reviews; **to be confirmed by the user at checkout**): one-step
+target +10%; **static** maximum loss 6% of the starting balance; daily loss 3% of the day's starting balance; no time limit, no minimum days,
+no consistency rule; funded: **80% of any profit above the starting balance, withdrawable on demand**, floor stays at −6%; fee ≈ 1% of the
+account ($100 per $10K; $100K $800–999); fee refund on the first payout NOT assumed; trading fee assumed 0.05% of notional a side (taker)
+plus 0.02% slippage; leverage ≤ 5× (BTC).
+1. **The game (A01's method):** balance in 0.25% steps; each day one bracket on BTC — stop L ≤ 3% of the account (daily limit), take W from
+   a menu up to the target; win probability at zero edge p = (L − c)/(W + L) with c the round-trip cost of the notional needed for that
+   stop at a fixed stop distance in price; evaluation value = P(pass within H days) and funded value = E[80% of withdrawals within H days];
+   EV per attempt = P(pass) × funded value − fee. H = 84 and 252 days; reported per $10K.
+2. **Replay check:** the solved policy on real BTC-USD hourly paths (free Coinbase/Binance data), entry at 00:00 UTC, the bracket by the
+   policy, out at 23:00 UTC, **sides random** (zero edge, 6 seeds) — the game's EV must survive real paths and costs.
+3. **Read:** EV per attempt and per $10K a month, P(pass), payouts per funded account, evaluations bought, the cash low point; a positive
+   zero-edge EV that survives the replay makes this a candidate income stream needing no edge (as Tradeify), subject to the user's checks
+   (US eligibility, current fees, any prohibited-strategy clause). Not a trial (no edge is tested).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
