@@ -13960,6 +13960,17 @@ distances ($ × k, the stop still capped at the $1,000 daily loss limit and the 
 and 2010–20 and with random sides (6 seeds per era); **adopt only if** it beats the base on the 2025 mean, is no more than $250 worse on
 2010–20, is not worse on the zero-edge mean in either era, and its 2025 p10 is no more than $1,000 below (§655's rule).
 
+## 661. A75: no change — more contracts before live hurt, and 3 NKD + 2 FDXM stays the mix (S8)
+
+**No trial.** `reports/a75_sim_contracts.json` (module `reporting/a75_sim_contracts.py`; A63 gained `sim_k`, `sim_k_where`,
+`sim_k_price`; reproduces +$12,041 and the adopted plan's +$23,020). Base (adopted plan) 2021–24 **+$10,385**. **Part 1**: none of the 18
+candidates beats it on 2021–24 (+$10,028 best, k 2 funded same price; evaluation with same price distances −$4.7k … −$6.2k: the $1,000 daily
+limit and the 40% consistency rule turn bigger days into failures). Read anyway: 2025 +$15,211 vs **+$23,020**, 2021–26 p10 −$4,240 vs −$612
+— not adopted. The evaluation is not a free option the way a live account is: its value is the funded account behind it, which a
+blow-up forfeits. **Part 2** (plan's contracts): 2021–24 5 NKD +$10,651, **4 NKD + 1 FDXM +$12,196**, 3 + 2 +$10,385, 2 + 3 +$8,832; 4 + 1 read
+once: 2025 mean +$25,799 vs +$23,020 but median +$11,895 vs +$15,267, P > 0 88% vs 100%, p10 −$281 vs +$3,175; 2010–20 **+$4,080 vs +$6,336**
+— fails. Diversification across two markets is what keeps the tail. **The plan stands as adopted.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

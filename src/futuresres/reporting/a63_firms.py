@@ -99,10 +99,17 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             a = np.where(ev, a_e, a_f); W = (a // 100) * 100.0; L = (a % 100) * 100.0
             if F.get("fscale"):                               # A65: funded-stage bracket scaling (take, stop factors)
                 W = np.where(fu, W * F["fscale"][0], W); L = np.where(fu, L * F["fscale"][1], L)
+            # A75: evaluation / funded accounts may trade sm x the plan's contracts; "price" keeps the price distances ($ x sm, the stop
+            # still within the $1,000 daily loss limit)
+            scope = {"eval": ev, "funded": fu}.get(F.get("sim_k_where"), np.ones(A, bool))
+            sm = np.where(scope, (F.get("sim_k") or {}).get(MK[m], 1.0), 1.0)
+            if F.get("sim_k_price"):
+                W = W * sm; L = np.minimum(L * sm, F.get("daily_limit", 1_000.0))
+            scost = cost * sm
             floor = np.where(ev, pk - ddE, np.where(pk >= F["lock"] + ddF, F["lock"], pk - ddF))
             L = np.minimum(L, np.maximum(eq - floor - 1, 1))
             idle = (m == ACC[0]) & bool(F.get("idle_first"))            # A70: account 0 sits out the simulated stage (no trades, no breach)
-            trade = sim & act & (a > 0) & (eq - floor > cost + 10) & (not idle)
+            trade = sim & act & (a > 0) & (eq - floor > scost + 10) & (not idle)
             LLK = F.get("live_dd", LIVE_LOCK)
             lfloor = np.where(a_["lpk"] >= LLK, 0.0, a_["lpk"] - a_["lroom"])
             lact = liv & a_["lalive"]; locked = a_["lpk"] >= LLK
@@ -120,11 +127,11 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             lcost = cost * lm
             Ll = np.minimum(Ll, np.maximum(a_["leq"] - lfloor - 1, 1))
             ltrade = lact & act & (a_["leq"] - lfloor > lcost + 10)
-            WW = np.where(trade, W + cost, np.where(ltrade, (Wl + lcost) / lm, 1e12))
-            LL = np.where(trade, np.maximum(L - cost, 1.0), np.where(ltrade, np.maximum(Ll - lcost, 1.0) / lm, 1e12))
+            WW = np.where(trade, (W + scost) / sm, np.where(ltrade, (Wl + lcost) / lm, 1e12))
+            LL = np.where(trade, np.maximum(L - scost, 1.0) / sm, np.where(ltrade, np.maximum(Ll - lcost, 1.0) / lm, 1e12))
             raw, mfe = bracket_mfe(h[idx], l[idx], c[idx], WW, LL)
-            raw = np.where(ltrade, raw * lm, raw)
-            pnl = np.round(np.where(trade, raw - cost, np.where(ltrade, raw - lcost, 0.0)), 2)
+            raw = np.where(ltrade, raw * lm, np.where(trade, raw * sm, raw)); mfe = np.where(trade, mfe * sm, mfe)
+            pnl = np.round(np.where(trade, raw - scost, np.where(ltrade, raw - lcost, 0.0)), 2)
             # ---- sim accounts
             ne = eq + np.where(trade, pnl, 0.0)
             if F["fdd"] == "intraday":                    # funded floor trails the intraday high (the day's best point before the exit)
@@ -212,7 +219,7 @@ FIRMS["Phidias Premium"] = dict(FIRMS["Phidias Fundamental"], min_days=1, cycle_
 
 MIXES = {"5: 3NKD+2FDXM": ("NKD", "NKD", "NKD", "FDXM", "FDXM"), "5: NKD×5": ("NKD",) * 5, "5: now": ("MNQ", "MGC", "MCL", "NKD", "FDXM"),
          "5: no Eurex (NKD×3, MNQ, MGC)": ("NKD", "NKD", "NKD", "MNQ", "MGC"), "3: NKD×3": ("NKD",) * 3, "3: NKD, MNQ, MGC": ("NKD", "MNQ", "MGC"),
-         "15: 9NKD+6FDXM": ("NKD",) * 9 + ("FDXM",) * 6}
+         "15: 9NKD+6FDXM": ("NKD",) * 9 + ("FDXM",) * 6, "5: 4NKD+1FDXM": ("NKD",) * 4 + ("FDXM",), "5: 2NKD+3FDXM": ("NKD",) * 2 + ("FDXM",) * 3}
 RUNS = [("Tradeify Select Daily", "5: 3NKD+2FDXM", None), ("Tradeify Select Daily", "5: now", None), ("Tradeify Select Daily", "5: no Eurex (NKD×3, MNQ, MGC)", None),
         ("MFF Rapid EOD", "3: NKD×3", None), ("MFF Rapid EOD", "3: NKD×3", ("after", 10)), ("MFF Rapid EOD", "3: NKD, MNQ, MGC", None),
         ("TPT PRO", "5: no Eurex (NKD×3, MNQ, MGC)", None), ("TPT PRO", "5: NKD×5", None), ("TPT PRO", "5: no Eurex (NKD×3, MNQ, MGC)", ("after", 10)),
