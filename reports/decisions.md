@@ -14090,6 +14090,25 @@ per 84 sessions (median −$141, P > 0 44%); read once: 2025 starts +$552 (media
 static floor's advantage, and every account would carry the same trades, so stacking the allowed ~$170K of allocation multiplies one
 mostly-losing outcome rather than diversifying it. Against Tradeify's ~$4,600 per 50K account a run (§657) it is not worth a second firm.
 
+## 672. K-family 3 protocol: Kalshi daily-high temperature contracts priced by the National Blend of Models (S9)
+
+**No trial spent; N 1,529. Written and committed BEFORE any forecast is compared with any quote or outcome.** §669: an edge on Kalshi
+needs information the quotes may not hold. The NWS National Blend of Models (NBM, text product NBS; free archive at the Iowa Environmental
+Mesonet) gives each station's daytime maximum (TXN) and its spread (XND) — a probabilistic forecast built from ~30 models. Markets: daily
+highs for **NYC (Central Park, KNYC), Chicago (Midway, KMDW), Miami (KMIA), Austin (KAUS), Los Angeles (KLAX), Denver (KDEN), Philadelphia
+(KPHL)**, settled on the station's climate report (2°F brackets plus two tails; "greater than x" = ≥ x + 1, "less than x" = ≤ x − 1;
+markets without a strike encoding are skipped). Fees quadratic, multiplier 1.
+
+1. **Decision points:** T1 = the candle ending 10:00 New York on the day **before**, with that day's 07Z NBM run; T2 = 10:00 New York **on
+   the day**, with that day's 07Z run (both runs are out by ~09Z). Forecast for local day D: TXN / XND valid D+1 00Z.
+2. **Model:** high ~ Normal(μ, σ); P(bracket [a, b]) = Φ((b + 0.5 − μ)/σ) − Φ((a − 0.5 − μ)/σ). **Variants:** raw (μ = TXN, σ = max(XND, 1))
+   and calibrated (per city: bias = mean(observed − TXN) and SD scale = SD(observed − TXN) / mean(XND), estimated on discovery days only,
+   then fixed; observed = Kalshi's recorded settlement value).
+3. **Trade:** model − ask − fee(ask) > θ → buy YES; (1 − model) − (1 − bid) − fee(1 − bid) > θ → buy NO; θ ∈ {5¢, 10¢}; quote filter as §664.
+4. **Tests:** 2 times × 2 variants × 2 θ = **8**, cities pooled (per-city results reported, not tested); daily statistic = the day's mean
+   net P&L per contract over all cities. **Discovery before 2025-07-01; sealed 2025-07-01 → 2026-10-16.** Carried / validation as §664.
+5. **Year-round** (the user's rule): every day of the year trades; a result carried by one season will be reported as such.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
