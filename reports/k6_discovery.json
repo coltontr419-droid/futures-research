@@ -1,0 +1,127 @@
+{
+ "discovery_end": "2025-07-01",
+ "tests": 12,
+ "all": [
+  {
+   "series": "KXEURUSD",
+   "point": "D-1 12:00",
+   "theta": 0.03,
+   "days": 27,
+   "contracts": 38,
+   "mean_net": 0.03702345679012348,
+   "t": 0.5960627896120316,
+   "t_monthly": 0.7216853085321284,
+   "carried": false
+  },
+  {
+   "series": "KXEURUSD",
+   "point": "D-1 12:00",
+   "theta": 0.06,
+   "days": 3,
+   "contracts": 3,
+   "mean_net": 0.05960000000000001,
+   "t": 0.3273438677329591,
+   "t_monthly": 0.3273438677329591,
+   "carried": false
+  },
+  {
+   "series": "KXEURUSD",
+   "point": "D-1 16:00",
+   "theta": 0.03,
+   "days": 25,
+   "contracts": 36,
+   "mean_net": -0.06611333333333332,
+   "t": -0.8133189046174156,
+   "t_monthly": -0.8399626654272473,
+   "carried": false
+  },
+  {
+   "series": "KXEURUSD",
+   "point": "D-1 16:00",
+   "theta": 0.06,
+   "days": 8,
+   "contracts": 8,
+   "mean_net": -0.10609999999999997,
+   "t": -0.9133329568865208,
+   "t_monthly": -1.389433246972104,
+   "carried": false
+  },
+  {
+   "series": "KXEURUSD",
+   "point": "D 08:00",
+   "theta": 0.03,
+   "days": 0,
+   "carried": false
+  },
+  {
+   "series": "KXEURUSD",
+   "point": "D 08:00",
+   "theta": 0.06,
+   "days": 0,
+   "carried": false
+  },
+  {
+   "series": "KXUSDJPY",
+   "point": "D-1 12:00",
+   "theta": 0.03,
+   "days": 51,
+   "contracts": 77,
+   "mean_net": -0.03492565359477123,
+   "t": -0.7363166897728637,
+   "t_monthly": -0.7280851124547166,
+   "carried": false
+  },
+  {
+   "series": "KXUSDJPY",
+   "point": "D-1 12:00",
+   "theta": 0.06,
+   "days": 22,
+   "contracts": 28,
+   "mean_net": -0.05885378787878785,
+   "t": -0.6137033729758717,
+   "t_monthly": -0.632250102168189,
+   "carried": false
+  },
+  {
+   "series": "KXUSDJPY",
+   "point": "D-1 16:00",
+   "theta": 0.03,
+   "days": 32,
+   "contracts": 51,
+   "mean_net": -0.028503124999999997,
+   "t": -0.42438841067319194,
+   "t_monthly": -0.305931353901289,
+   "carried": false
+  },
+  {
+   "series": "KXUSDJPY",
+   "point": "D-1 16:00",
+   "theta": 0.06,
+   "days": 16,
+   "contracts": 20,
+   "mean_net": 0.004415624999999999,
+   "t": 0.043028901366006275,
+   "t_monthly": 0.03833683762379546,
+   "carried": false
+  },
+  {
+   "series": "KXUSDJPY",
+   "point": "D 08:00",
+   "theta": 0.03,
+   "days": 1,
+   "contracts": 1,
+   "mean_net": 0.046600000000000044,
+   "t": NaN,
+   "t_monthly": NaN,
+   "carried": false
+  },
+  {
+   "series": "KXUSDJPY",
+   "point": "D 08:00",
+   "theta": 0.06,
+   "days": 0,
+   "carried": false
+  }
+ ],
+ "carried": []
+}

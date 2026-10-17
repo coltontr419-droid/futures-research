@@ -14302,6 +14302,13 @@ the time left; zero drift, normal in log price; a bracket's probability = differ
 (22 h left), 16:00 the day before (18 h), 08:00 on the day (2 h); θ ∈ {3¢, 6¢}; trade as §668 — 2 pairs × 3 points × 2 θ = **12 tests**.
 **Discovery before 2025-07-01; sealed 2025-07-01 → 2026-09-30** (the minute data's end). Carried / validation as §664.4.
 
+## 691. K-family 6: Kalshi FX ranges — 0 of 12, mostly too thin to trade; WTI skipped (S10)
+
+**N 1,535 (no trial).** `reports/k6_discovery.json` (module `kalshi/k6_fx.py`; 1,238 EUR/USD and 1,236 USD/JPY events). The model disagreed with
+a live quote by more than θ on only 0–51 days per cell before 2025-07 (the books are thin and wide: the quote filter removes most hours); every
+cell |t| < 1, means −10.6¢ … +6.0¢. Uninformative-to-null. **WTI (KXWTI) is not run:** the same model on oil has only 18 months of free minute
+data (HistData wtiusd), and FX shows the approach rarely finds a tradable disagreement; recorded as skipped, not tested.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
