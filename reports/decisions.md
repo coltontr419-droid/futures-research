@@ -14567,6 +14567,17 @@ estimated rewards. **Closed:** short programmes are filled by informed sellers b
 already decided. Both bots stopped and disabled (droplet services `kalshi-lip`, `kalshi-lip-short`); ~$102 of long-shot positions settle over
 the coming days; any further credits appear under Portfolio → Credits. Code and records kept (`kalshi_lip/`, §692–713).
 
+## 714. A84 protocol: Kalshi × Polymarket US cross-venue prices on the same games — a live, no-money measurement (S10)
+
+**No trial; N 1,535. Written and committed BEFORE any price is sampled.** The user is in Texas; Polymarket US (CFTC-regulated) is reported open
+there (Nevada excluded) — to be confirmed by the user before any account. Public data: Polymarket US gateway (`/v2/leagues/{league}/events`,
+`/v1/markets/{slug}/book`, no key) and Kalshi's public API. Fees: Polymarket US taker 0.0695 × p × (1 − p), Kalshi taker ≈ 0.07 × p × (1 − p) a
+contract. **Arbitrage** on a two-way game: buy team A on one venue and team B on the other; profit a contract = 1 − cost_A − cost_B − both fees
+(ties and rule differences noted: Polymarket settles a tie at $0.50). **Measurement:** NFL, MLB, NHL and college-football games (live or
+starting within 24 hours) matched across venues by date and team; every 3 minutes for 3 hours; for each game and direction the net profit a
+contract at the best prices and the size available at those prices (min of the two tops). **Read:** how often a positive net appears, how big,
+how much size, how long it lasts. A candidate only if positive nets with tradable size recur; then the user's account decision comes first.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
