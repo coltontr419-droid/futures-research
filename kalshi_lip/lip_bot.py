@@ -74,10 +74,8 @@ def side_share(others: list, target: float, disc: float, add: float, price: int)
         return 0.0, False
     w = lambda p: 1.0 if p >= ref else disc ** (ref - p)
     tot = sum(s * w(p) for p, s in q)
-    mine = 0.0
-    if add and any(p == price for p, _ in q):                  # our size may be cut at the target boundary: count what qualifies
-        before = sum(s for p, s in q if p > price) + sum(s for p, s in q if p == price) - add
-        mine = max(0.0, min(add, target - max(before, 0.0))) * w(price) if before < target else 0.0
+    # every order at a qualifying price level counts in full (the filing adds "the size available at the current bid price")
+    mine = add * w(price) if add and any(p == price for p, _ in q) else 0.0
     return (mine / tot if tot > 0 else 0.0), True
 
 
