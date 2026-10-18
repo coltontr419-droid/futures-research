@@ -106,15 +106,27 @@ class Client:
         d = self.req("GET", "/portfolio/positions?limit=1000", auth=True)
         return d.get("market_positions", [])
 
+    _shard: dict = {}
+
+    def shard(self, ticker: str) -> int:
+        """The market's exchange shard (cached); funds and orders are per shard (docs: Exchange Sharding)."""
+        if ticker not in self._shard:
+            m = self.req("GET", f"/markets/{urllib.parse.quote(ticker)}").get("market") or {}
+            self._shard[ticker] = int(m.get("exchange_index", 0) or 0)
+        return self._shard[ticker]
+
     def place(self, ticker: str, outcome: str, cents: int, count: int, expires: int | None = None) -> dict:
         """Buy `count` contracts of `outcome` ('yes' / 'no') at `cents` of that outcome's price, post-only, resting.
         V2 single book: bid = yes, ask = no, and the price is always the YES price (decisions.md 694)."""
         side = "bid" if outcome == "yes" else "ask"; yes_price = cents if outcome == "yes" else 100 - cents
         body = {"ticker": ticker, "client_order_id": str(uuid.uuid4()), "side": side, "count": f"{count:.2f}", "price": f"{yes_price / 100:.4f}",
-                "time_in_force": "good_till_canceled", "self_trade_prevention_type": "taker_at_cross", "post_only": True}
+                "time_in_force": "good_till_canceled", "self_trade_prevention_type": "taker_at_cross", "post_only": True,
+                "exchange_index": self.shard(ticker)}
         if expires:
             body["expiration_time"] = int(expires)
-        return self.req("POST", "/portfolio/events/orders", body, auth=True)
+        r = self.req("POST", "/portfolio/events/orders", body, auth=True)
+        r.setdefault("client_order_id", body["client_order_id"])
+        return r
 
     def cancel(self, order_id: str, ticker: str) -> dict:
         return self.req("DELETE", f"/portfolio/events/orders/{order_id}?market_ticker={urllib.parse.quote(ticker)}", auth=True)

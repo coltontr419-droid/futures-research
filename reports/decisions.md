@@ -14357,6 +14357,23 @@ MODE=dry 2026-10-18 01:06Z** (`kalshi-lip.service`, /opt/kalshi-lip, MemoryMax 1
 First loops: ~1,826 short programmes, ~520 with a thin side; its chosen 10 would hold ~$96 of collateral for an estimated ~$9,000 a day,
 mostly **Miami hourly temperature markets ($100 an hour each, long-shot side empty)** — plausible by the rules, unproven until paid.
 
+## 695. The live test failed: thin sides are thin because informed sellers fill any 1¢ bid at once — bot stopped, ~$36 at risk (S10)
+
+**No trial.** Live 2026-10-18 01:46–01:57Z ($150 funded; programmes ≤ 2 days). Sequence: (1) orders defaulted to exchange shard 0 →
+"market not found" on a LigaPro match (sports shard 3) — fixed by routing per market; (2) **"post only cross" on many thin sides**: where
+the opposite side bids 99¢, a 1¢ bid crosses, so those sides can never rest — my sampler (§692–693) had counted them as earnable, inflating
+its estimates; fixed by requiring the opposite best bid < 99¢; (3) the first order's read-back ran before Kalshi listed it, the safety stop
+did not cancel an order it had not yet recorded, and systemd restarted the bot — three loops, two orphan orders (cancelled), and a **LigaPro
+in-play match bid filled 300 contracts at 1¢ ($3)**; fixed (retry + client-id match, record before verify, no restart on a safety stop,
+sports / match markets excluded); (4) the corrected bot placed 10 verified 1¢ bids on state daily gas markets (settling the next day) and
+**4 were filled within seconds** (≈2,800 contracts, ≈$33): someone sells the long shot to any 1¢ bid in markets whose outcome is nearly
+known. Each fill re-opens the side, so the bot would re-post and bleed ~$30–40 every loop — **stopped, disabled and all orders cancelled**.
+Positions: five long shots at 1¢ (≈$36.26 exposure; cash $113.74) — expected to expire worthless. **Read:** the "gap" is not free money:
+completable thin sides stay thin because resting there is filled by better-informed traders almost at once, so the reward accrues for
+seconds while each fill costs ~1¢ a contract. Short programmes (near resolution) are the worst case. The live test did its job: it found
+what no snapshot could. Whether longer programmes (outcome still uncertain, slower informed flow) behave differently is an open question;
+not pursued without the user's decision.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

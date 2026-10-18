@@ -44,6 +44,9 @@ MAX_DAYS = float(os.environ.get("MAX_DAYS", "2"))
 PRICE_CENTS = int(os.environ.get("PRICE_CENTS", "1"))
 LOOP_SEC = int(os.environ.get("LOOP_SEC", "300"))
 MIN_LEFT_MIN = 20                                   # don't enter a programme ending within this many minutes
+SHARDS = {int(x) for x in os.environ.get("SHARDS", "0").split(",")}   # trade only markets on shards that hold our funds
+# live sports / matches: whoever sells a long shot in-play knows the score (a 300-contract fill on a LigaPro match, decisions.md 695)
+EXCLUDE = [x for x in os.environ.get("EXCLUDE", "MATCH,GAME,KXLIGAPRO,KXTT,KXATP,KXWTA,KXMLB,KXNBA,KXNFL,KXNHL,KXNCAA,KXUFC,KXMVE").split(",") if x]
 STATE = HERE / os.environ.get("STATE_FILE", "state.json"); LOG = HERE / "lip_log.jsonl"; STOP = HERE / "STOP"
 DISCORD_ENV = Path(os.environ.get("DISCORD_ENV", "/opt/futures-bot/.env"))
 
@@ -120,9 +123,10 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
     for t, o in st["orders"].items():
         mine[(o["ticker"], o["outcome"])] = (o["cents"], o["count"])
     cands = []
+    skip = set(st.get("skip", []))
     for p in P:
         tk = p["market_ticker"]; ob = books.get(tk)
-        if ob is None:
+        if ob is None or tk in skip or any(x in tk for x in EXCLUDE):
             continue
         tgt = float(p.get("target_size_fp") or 0); disc = (p.get("discount_factor_bps") or 5000) / 1e4
         if tgt <= 0:
@@ -134,7 +138,13 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
                 mp, ms = mine[(tk, outcome)]
                 lv = [(pp, s - ms if pp == mp else s) for pp, s in lv]; lv = [(pp, s) for pp, s in lv if s > 1e-9]
             sides[outcome] = lv
+        # a bid at PRICE_CENTS can only REST if the other side's best bid is below 100 - PRICE_CENTS (else it crosses and post-only rejects
+        # it): such a side can never be completed by anyone - the reason many long-shot sides are empty (found going live, decisions.md 695)
+        best = {o: max((pp for pp, _ in sides[o]), default=0) for o in ("yes", "no")}
+        can = {"yes": best["no"] < 100 - PRICE_CENTS, "no": best["yes"] < 100 - PRICE_CENTS}
         need = {o: sum(s for _, s in sides[o]) < tgt for o in ("yes", "no")}
+        if any(need[o] and not can[o] for o in ("yes", "no")):
+            continue                                             # a side below target that nobody can fill: the snapshot cannot count
         if not any(need.values()):
             continue
         add = {o: (tgt if need[o] else 0.0) for o in ("yes", "no")}
@@ -147,6 +157,17 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
         cands.append({"ticker": tk, "pid": p["id"], "end": p["end_date"], "need": [o for o in ("yes", "no") if need[o]], "count": int(tgt),
                       "rate": rate, "collateral": coll, "share": (sy + sn) / 2, "reward": reward, "dur_h": dur / 3600})
     cands.sort(key=lambda x: -x["rate"] / max(x["collateral"], 0.01))
+    if MODE == "live":                                           # only shards that hold our funds (lookups cached; best candidates first)
+        keep = []
+        for x in cands:
+            if len(keep) >= MAX_MARKETS * 3:
+                break
+            try:
+                if c.shard(x["ticker"]) in SHARDS:
+                    keep.append(x)
+            except Exception as e:
+                log(event="shard_error", ticker=x["ticker"], err=str(e)[:200])
+        cands = keep
     chosen, used = [], 0.0
     held = {o["ticker"] for o in st["orders"].values()}
     for x in sorted(cands, key=lambda x: (x["ticker"] not in held, -x["rate"] / max(x["collateral"], 0.01))):   # keep what we hold first
@@ -155,14 +176,24 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
     return chosen, {"programmes": len(P), "candidates": len(cands)}
 
 
-def verify(c: Client, oid: str, outcome: str) -> bool:
-    """After the first live order: it must rest on the intended outcome at PRICE_CENTS of that outcome."""
-    for o in c.resting():
-        if o.get("order_id") == oid:
+def verify(c: Client, oid: str, outcome: str, coid: str = "") -> bool:
+    """After the first live order: it must rest on the intended outcome at PRICE_CENTS of that outcome (retried: a new order can take a
+    moment to appear among resting orders, decisions.md 695)."""
+    for attempt in range(6):
+        found = [o for o in c.resting() if o.get("order_id") == oid or (coid and o.get("client_order_id") == coid)]
+        if found:
+            break
+        time.sleep(1.5)
+    for o in found:
+        if True:
             raw = json.dumps(o)
-            side = o.get("side") or o.get("book_side") or o.get("outcome_side")
-            yes_p = o.get("yes_price_dollars") or o.get("price") or o.get("yes_price")
-            yp = float(yes_p) * (100 if float(yes_p) <= 1 else 1)
+            side = o.get("outcome_side") or o.get("book_side") or o.get("side")
+            if o.get("yes_price_dollars") not in (None, ""):          # explicit units: dollars string, else cents integer
+                yp = float(o["yes_price_dollars"]) * 100
+            elif o.get("yes_price") not in (None, ""):
+                yp = float(o["yes_price"])
+            else:
+                yp = float(o.get("price")) * 100                       # V2: fixed-point dollars, always the YES price
             want = PRICE_CENTS if outcome == "yes" else 100 - PRICE_CENTS
             ok = (side in (("yes", "bid") if outcome == "yes" else ("no", "ask"))) and abs(yp - want) < 0.5
             log(event="verify", ok=ok, order=raw[:600]); return ok
@@ -190,10 +221,19 @@ def step(c: Client, st: dict) -> None:
             continue
         oid = f"dry-{key}"
         if live:
-            r = c.place(tk, outcome, PRICE_CENTS, x["count"], expires=int(ts(x["end"]).timestamp()))
-            oid = (r.get("order") or r).get("order_id") or r.get("order_id")
+            try:
+                r = c.place(tk, outcome, PRICE_CENTS, x["count"], expires=int(ts(x["end"]).timestamp()))
+            except Exception as e:                               # one rejected market must not stop the loop
+                log(event="place_error", key=key, err=str(e)[:300])
+                if "market_not_found" in str(e):
+                    st.setdefault("skip", []).append(tk)             # not on our routing: don't retry it every loop
+                continue
+            oid = (r.get("order") or r).get("order_id") or r.get("order_id"); coid = r.get("client_order_id", "")
+            st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": x["count"], "order_id": oid, "end": x["end"],
+                                 "pid": x["pid"], "placed": now.isoformat(timespec="seconds")}
+            save_state(st)
             if not st["verified"]:
-                if not verify(c, oid, outcome):
+                if not verify(c, oid, outcome, coid):
                     discord("**Kalshi LIP bot: first order did not verify — cancelling everything and stopping.** See lip_log.jsonl.")
                     shutdown(c, st); sys.exit(2)
                 st["verified"] = True

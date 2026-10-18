@@ -1,0 +1,12 @@
+{"t": "2026-10-18T01:55:19+00:00", "event": "verify", "ok": true, "order": "{\"action\": \"buy\", \"book_side\": \"bid\", \"client_order_id\": \"e2f98832-91ad-4a54-a508-13619d96fe24\", \"created_time\": \"2026-10-18T01:55:17.497085Z\", \"exchange_index\": 0, \"expiration_time\": \"2026-10-18T03:59:00Z\", \"fill_count_fp\": \"0.00\", \"initial_count_fp\": \"1000.00\", \"last_update_time\": \"2026-10-18T01:55:17.497085Z\", \"maker_fees_dollars\": \"0.000000\", \"maker_fill_cost_dollars\": \"0.000000\", \"no_price_dollars\": \"0.9900\", \"order_id\": \"01a14cb8-6b88-7e9e-9d84-336e7d1cda6c\", \"outcome_side\": \"yes\", \"remaining_count_fp\": \"1000.00\", \"self_trade_prevention_type\": \"taker_at_cross\", \"side\": \"yes\", \"status\": \""}
+{"t": "2026-10-18T01:55:19+00:00", "event": "place", "key": "KXAAAGASDGA-26OCT18-3.7750|yes", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:19+00:00", "event": "place", "key": "KXAAAGASDAL-26OCT18-3.9500|yes", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:19+00:00", "event": "place", "key": "KXAAAGASDIA-26OCT18-4.1250|no", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:19+00:00", "event": "place", "key": "KXAAAGASDLA-26OCT18-3.8400|no", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:19+00:00", "event": "place", "key": "KXAAAGASDGA-26OCT18-3.7100|no", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:19+00:00", "event": "place", "key": "KXAAAGASDTN-26OCT18-3.8150|no", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:19+00:00", "event": "place", "key": "KXAAAGASDCT-26OCT18-4.3800|yes", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:20+00:00", "event": "place", "key": "KXAAAGASDNJ-26OCT18-4.2200|no", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:20+00:00", "event": "place", "key": "KXAAAGASDNE-26OCT18-4.1450|no", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:20+00:00", "event": "place", "key": "KXAAAGASDVT-26OCT18-4.4250|yes", "count": 1000, "cents": 1, "mode": "live"}
+{"t": "2026-10-18T01:55:20+00:00", "event": "loop", "programmes": 1809, "candidates": 30, "orders": 10, "collateral": 100.0, "est_loop": 2.6068821689259645, "est_rate_day": 750.7820646506777}
