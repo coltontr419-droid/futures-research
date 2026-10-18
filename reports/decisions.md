@@ -14472,6 +14472,15 @@ was about $1–2. To keep the user's one-day canary test running, **a pinned ord
 limit** (the short bot stood at $3.06 + $10 = $13.06 against a $10 stop). Lesson for short programmes: even a canary that passes is filled
 before the period ends when the outcome is nearly known; §704's rule (leave when reward to the end < worst-case fill) covers it.
 
+## 706. Short programmes keep failing; the user lifts the short bot's stop to run the test to the end of its money (S10)
+
+**No trial.** After Georgia (§705), both executive-order canaries that passed (KXEOWEEK-26OCT10-1 / -3, 670 at 1¢ each) were filled in full
+(cash $100.68 → $80.67). The user: "if it does we know not to use short positions anymore" — then: let the short bot continue with **no hard
+stop** until the balance runs out, for the test. `MAX_FILL_COST=1000` in short.env (above the account) at 2026-10-18 03:39Z; the
+collateral cap ($50 for that bot) still bounds its resting size, and orders simply fail once cash is gone. The long probe is unchanged
+($20 stop). Read so far: across Miami temperature, state gas, Georgia and executive orders, short programmes are filled by informed
+sellers before their periods end even after a canary passes.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
