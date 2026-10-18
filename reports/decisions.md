@@ -14607,6 +14607,21 @@ abandoned, not tested. The user also corrected the record: **the Tradeify plan i
 edges (rules that pay regardless of skill), (2) small-capacity niches too small for professionals, or (3) effort / access others lack — and each
 must pass a written "why hasn't someone already taken this?" screen before anything is built.
 
+## 718. A85 protocol: Tradeify's other account lines (Growth, Lightning) against Select Daily at today's prices (S10)
+
+**No trial; N 1,535. Written and committed BEFORE any replay.** The user (2026-10-18): prices rose; with the standing 30% sale the 50K accounts
+cost **Select $116 (was $80 in every replay so far), Growth $102, Lightning $344**. Rules (Tradeify's help centre, 2026-10-18): **Growth** —
+evaluation +$3,000, $2,000 EOD trailing, no evaluation consistency; funded payout needs ≥ 5 days of ≥ $150 profit since the last payout, balance
+≥ $53,000, 35% consistency (largest day ≤ 35% of the cycle's profit); caps $1,500 / $2,000 / $2,500 / $3,000 (third-party, unverified); 90%.
+**Lightning** — no evaluation (funded at once), $2,000 EOD trailing; payout 1 needs $3,000 of profit, later ones $2,000; consistency 20% / 25% / 30%
+of the goal (largest day ≤ that × max(goal, cycle profit)); caps $2,000 / $2,000 / $2,000 / $2,500; minimum request $1,000; 90%.
+**Assumptions (not published, flagged):** both funded drawdowns lock at the starting balance once the peak is $2,000 up (as Select); Growth
+withdraws down to the start + $2,000; Lightning's funded brackets are capped so a day cannot exceed its consistency share of the goal; Tradeify's
+live-account rules (§623, §653, §657) apply to all lines; daily loss limits ($1,250, soft) never bind (a day's stop is ≤ $1,000).
+**Replays (A63 joint simulation, 5 × 50K, 3 NKD + 2 FDXM, 1 tick a side, Tradovate fees, Eurex data, adopted live policy):** Select Daily at
+$116 (the corrected baseline), Growth at $102, Lightning at $344 — read on 2025 starts, 2021–26, 2010–20 and with random sides. No choice is
+tuned; the line with the best 2021–26 mean that is not worse on 2010–20 and on zero edge is recommended.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
