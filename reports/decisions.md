@@ -14532,6 +14532,17 @@ contracts a day, and the same for "take everything" (the §709 baseline). **Cand
 beats the baseline per contract, and its worst day is smaller than the baseline's.** The 45-day history is short; a pass means a small live
 trial, not scale.
 
+## 711. A83: the chosen rule fails — selected on 2 days; second-look protocol with a minimum sample (S10)
+
+**No trial.** `reports/a83_rule.json` (modules `kalshi/a83_meta.py`, `a83_rule.py`; 65,821 long-shot sales, 1,261 events, all "above K"
+markets with settled values). **The wholesale filter (|RB=F 2-day move| ≤ 3¢ or 6¢) almost never passes** — gasoline futures usually move more —
+so §710's selection by return per capital picked "cushion ≥ 2¢, move ≤ 3¢", which **traded on 2 of 30 discovery days**; on validation it lost
+**−2.53¢ a contract (worst day −$41,359)** against the baseline's +0.32¢ (worst −$41,314) → **not a candidate**. The protocol's flaw: no minimum
+sample. Discovery also shows **"cushion ≥ 6¢, any move": +1.17¢ a contract, 22 of 22 days positive, worst day +$21**, ~25,800 contracts a day.
+**A83b protocol (second look, written BEFORE its validation numbers are read):** the same 9 rules on the same discovery days, chosen by return
+per capital **among rules trading on ≥ 15 discovery days** (which picks cushion ≥ 6¢, any move); read once on the 15 validation days; same
+candidate test as §710. Reported as a second look at the validation window (two looks; the first failed).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

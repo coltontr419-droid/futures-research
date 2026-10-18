@@ -1,0 +1,127 @@
+{
+ "discovery_end": "2026-10-03",
+ "rules": {
+  "cushion>=2c, move<=3c": {
+   "days": 2,
+   "contracts": 412525.04000000004,
+   "net": 5271.962265209986,
+   "net_per_contract_c": 1.277973881345478,
+   "return_per_capital": 0.012957575319412808,
+   "days_positive": 2,
+   "worst_day": 2416.4496151899975,
+   "contracts_per_day": 206262.52000000002
+  },
+  "cushion>=2c, move<=6c": {
+   "days": 8,
+   "contracts": 2301915.14,
+   "net": 5315.738821269853,
+   "net_per_contract_c": 0.23092679347292763,
+   "return_per_capital": 0.002336937047694231,
+   "days_positive": 6,
+   "worst_day": -5746.168263980011,
+   "contracts_per_day": 287739.3925
+  },
+  "cushion>=2c, move<=anyc": {
+   "days": 30,
+   "contracts": 8939982.74,
+   "net": 65946.0031558695,
+   "net_per_contract_c": 0.7376524661597893,
+   "return_per_capital": 0.007464681967087661,
+   "days_positive": 27,
+   "worst_day": -5746.168263980011,
+   "contracts_per_day": 297999.42466666666
+  },
+  "cushion>=4c, move<=3c": {
+   "days": 2,
+   "contracts": 92876.8,
+   "net": 1121.586760080001,
+   "net_per_contract_c": 1.2076070235839318,
+   "return_per_capital": 0.012234754808637753,
+   "days_positive": 2,
+   "worst_day": 255.40410192000024,
+   "contracts_per_day": 46438.4
+  },
+  "cushion>=4c, move<=6c": {
+   "days": 8,
+   "contracts": 388097.44000000006,
+   "net": 4233.3420350600045,
+   "net_per_contract_c": 1.0907935994269902,
+   "return_per_capital": 0.011037261869463669,
+   "days_positive": 8,
+   "worst_day": 255.40410192000024,
+   "contracts_per_day": 48512.18000000001
+  },
+  "cushion>=4c, move<=anyc": {
+   "days": 30,
+   "contracts": 1886501.5799999998,
+   "net": 16451.838107920015,
+   "net_per_contract_c": 0.8720818621270392,
+   "return_per_capital": 0.008827502993906456,
+   "days_positive": 28,
+   "worst_day": -2982.0615324000023,
+   "contracts_per_day": 62883.38599999999
+  },
+  "cushion>=6c, move<=3c": {
+   "days": 1,
+   "contracts": 31337.77,
+   "net": 371.95910339000034,
+   "net_per_contract_c": 1.186935456447604,
+   "return_per_capital": 0.012022620390150238,
+   "days_positive": 1,
+   "worst_day": 371.95910339000034,
+   "contracts_per_day": 31337.77
+  },
+  "cushion>=6c, move<=6c": {
+   "days": 5,
+   "contracts": 77339.68,
+   "net": 886.7338219800009,
+   "net_per_contract_c": 1.1465444671868321,
+   "return_per_capital": 0.011608401147487868,
+   "days_positive": 5,
+   "worst_day": 64.79322900000005,
+   "contracts_per_day": 15467.935999999998
+  },
+  "cushion>=6c, move<=anyc": {
+   "days": 22,
+   "contracts": 566798.73,
+   "net": 6623.824525030007,
+   "net_per_contract_c": 1.1686378558099464,
+   "return_per_capital": 0.011836582480432432,
+   "days_positive": 22,
+   "worst_day": 20.679221000000023,
+   "contracts_per_day": 25763.578636363636
+  }
+ },
+ "baseline_discovery": {
+  "days": 30,
+  "contracts": 12708450.42,
+  "net": 103961.58638189932,
+  "net_per_contract_c": 0.8180508476335491,
+  "return_per_capital": 0.008280998326355333,
+  "days_positive": 28,
+  "worst_day": -7600.430157719969,
+  "contracts_per_day": 423615.014
+ },
+ "chosen": "cushion>=2c, move<=3c",
+ "baseline_validation": {
+  "days": 15,
+  "contracts": 13356621.720000004,
+  "net": 42555.5785589299,
+  "net_per_contract_c": 0.31861034512348146,
+  "return_per_capital": 0.0032214793222573065,
+  "days_positive": 12,
+  "worst_day": -41314.00575336008,
+  "contracts_per_day": 890441.4480000003
+ },
+ "chosen_validation": {
+  "days": 2,
+  "contracts": 1360804.7000000002,
+  "net": -34495.913433220114,
+  "net_per_contract_c": -2.53496430701776,
+  "return_per_capital": -0.025619181928835114,
+  "days_positive": 1,
+  "worst_day": -41358.50492633007,
+  "contracts_per_day": 680402.3500000001
+ },
+ "candidate": false
+}
