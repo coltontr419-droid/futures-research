@@ -14413,6 +14413,19 @@ week ending today) — the near-certain case again — so a **market-close condi
 KXSUPERBOWLHEADLINE-27-EDS (yes), KXWNBAFINALSMVP-26-THAYES15 (yes), KXTRUMPSAYMONTH-26NOV01-NEWS (no); $50 collateral; all five verified
 resting; **no fill on placement** (the short gas markets filled within seconds). Estimated reward ~$30 a day. Stop rule $20 of fill cost.
 
+## 700. The user's canary idea, live: 1-contract probes find the waiting sellers; long probe capped at 8-day periods (S10)
+
+**No trial.** The user (2026-10-18): payouts follow each programme *period* (the held markets' periods: 7, 7 and 14 days; first ends 10-21), so
+the long probe's periods are capped at **8 days** for roughly weekly payouts; and the user's idea — **test a market with a 1-contract order
+before committing**. The sellers who filled the gas bids (§695) were not resting (a resting seller would have made our bid cross); they arrive
+after a bid appears, so they are invisible in the book but a canary flushes them for 1¢. Built as a **separate instance** (`kalshi-lip-short`,
+own env / state / log / stop file; short programmes ≤ 2 days, no market-close condition, ≤ 5 markets, $50, **stop at $10 of fills**):
+each new side gets **1 contract, then 100, then the full size**, a loop (5 min) apart; a fill at any step drops that side for good.
+Fixes on the way: the order check now looks an order up by id and accepts "executed" (a canary filled within seconds is a valid order and a
+detected seller); fills are rebuilt each loop from Kalshi's records using the fill's `outcome_side` (an earlier guess from side/action read a
+1¢ NO fill as YES at 99¢) and matched to each instance's own order ids. **First results: Miami hourly temperature canaries were filled
+within seconds (3 of the first ~6, 1 contract each, 3¢ in all); state daily gas canaries are being tried; the long probe: no fills.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

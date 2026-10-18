@@ -33,7 +33,7 @@ def _load_env(p: Path) -> None:
                 k, v = line.split("=", 1); os.environ.setdefault(k.strip(), v.strip())
 
 
-_load_env(HERE / ".env")
+_load_env(Path(os.environ.get("ENV_FILE", str(HERE / ".env"))))
 from kalshi_api import Client  # noqa: E402  (after the environment is loaded)
 
 ET = ZoneInfo("America/New_York")
@@ -51,8 +51,17 @@ MIN_LEFT_MIN = 20                                   # don't enter a programme en
 SHARDS = {int(x) for x in os.environ.get("SHARDS", "0").split(",")}   # trade only markets on shards that hold our funds
 # live sports / matches: whoever sells a long shot in-play knows the score (a 300-contract fill on a LigaPro match, decisions.md 695)
 EXCLUDE = [x for x in os.environ.get("EXCLUDE", "MATCH,GAME,KXLIGAPRO,KXTT,KXATP,KXWTA,KXMLB,KXNBA,KXNFL,KXNHL,KXNCAA,KXUFC,KXMVE").split(",") if x]
-STATE = HERE / os.environ.get("STATE_FILE", "state.json"); LOG = HERE / "lip_log.jsonl"; STOP = HERE / "STOP"
+STATE = HERE / os.environ.get("STATE_FILE", "state.json"); LOG = HERE / os.environ.get("LOG_FILE", "lip_log.jsonl")
+STOP = HERE / os.environ.get("STOP_FILE", "STOP")
+NAME = os.environ.get("BOT_NAME", "Kalshi rewards bot")
+# canary (the user's idea, decisions.md 700): a new side gets 1 contract, then 100, then the full size, one loop apart; a fill at any step ends it
+CANARY = [int(x) for x in os.environ.get("CANARY_STEPS", "").split(",") if x]
 DISCORD_ENV = Path(os.environ.get("DISCORD_ENV", "/opt/futures-bot/.env"))
+
+
+def steps(full: int) -> list[int]:
+    """Order sizes in sequence: the canary steps (below the full size), then the full size; just the full size without a canary."""
+    return [n for n in CANARY if n < full] + [full]
 
 
 def ts(x: str) -> dt.datetime:
@@ -114,7 +123,7 @@ def embed(title: str, color: int, fields: list[tuple[str, str]] | None = None, d
     if fields:
         e["fields"] = [{"name": n[:256], "value": (v or "—")[:1024], "inline": inline} for n, v, inline in
                        [(f[0], f[1], f[2] if len(f) > 2 else True) for f in fields]][:25]
-    e["footer"] = {"text": (footer or "Kalshi rewards bot")[:2048]}
+    e["footer"] = {"text": ((footer + " · " if footer else "") + NAME)[:2048]}
     _post({"embeds": [e]})
 
 
@@ -221,47 +230,59 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
 
 
 def verify(c: Client, oid: str, outcome: str, coid: str = "") -> bool:
-    """After the first live order: it must rest on the intended outcome at PRICE_CENTS of that outcome (retried: a new order can take a
-    moment to appear among resting orders, decisions.md 695)."""
+    """After the first live order: it must be on the intended outcome at PRICE_CENTS of that outcome. Looked up by id, any status - a
+    canary can be filled (executed) within seconds, which is a valid order and a detected seller (decisions.md 700)."""
+    o = {}
     for attempt in range(6):
-        found = [o for o in c.resting() if o.get("order_id") == oid or (coid and o.get("client_order_id") == coid)]
-        if found:
+        try:
+            o = c.req("GET", f"/portfolio/orders/{oid}", auth=True).get("order") or {}
+        except Exception:
+            o = {}
+        if o:
             break
         time.sleep(1.5)
-    for o in found:
-        if True:
-            raw = json.dumps(o)
-            side = o.get("outcome_side") or o.get("book_side") or o.get("side")
-            if o.get("yes_price_dollars") not in (None, ""):          # explicit units: dollars string, else cents integer
-                yp = float(o["yes_price_dollars"]) * 100
-            elif o.get("yes_price") not in (None, ""):
-                yp = float(o["yes_price"])
-            else:
-                yp = float(o.get("price")) * 100                       # V2: fixed-point dollars, always the YES price
-            want = PRICE_CENTS if outcome == "yes" else 100 - PRICE_CENTS
-            ok = (side in (("yes", "bid") if outcome == "yes" else ("no", "ask"))) and abs(yp - want) < 0.5
-            log(event="verify", ok=ok, order=raw[:600]); return ok
-    log(event="verify", ok=False, note="order not found among resting"); return False
+    if not o:
+        log(event="verify", ok=False, note="order not found by id"); return False
+    side = o.get("outcome_side") or o.get("book_side") or o.get("side")
+    if o.get("yes_price_dollars") not in (None, ""):
+        yp = float(o["yes_price_dollars"]) * 100
+    elif o.get("yes_price") not in (None, ""):
+        yp = float(o["yes_price"])
+    else:
+        yp = float(o.get("price")) * 100
+    want = PRICE_CENTS if outcome == "yes" else 100 - PRICE_CENTS
+    ok = (side in (("yes", "bid") if outcome == "yes" else ("no", "ask"))) and abs(yp - want) < 0.5
+    log(event="verify", ok=ok, status=o.get("status"), order=json.dumps(o)[:600]); return ok
 
 
 def check_fills(c: Client, st: dict) -> None:
-    """New fills since start: log, alert, mark the side filled; hard stop past MAX_FILL_COST."""
+    """Fills since start, rebuilt from Kalshi's records each loop (self-correcting): the side is the fill's outcome_side, the price that
+    outcome's price. New fills: logged, alerted, their side dropped and never re-posted. Hard stop past MAX_FILL_COST."""
     if MODE != "live":
         return
-    st.setdefault("filled", {}); st.setdefault("fill_ids", []); st.setdefault("fill_cost", 0.0)
+    st.setdefault("fill_ids", [])
     since = int(ts(st["started"]).timestamp())
-    d = c.req("GET", f"/portfolio/fills?min_ts={since}&limit=1000", auth=True)
-    new = []
-    for f in d.get("fills", []):
-        fid = f.get("fill_id") or f.get("trade_id") or json.dumps(f, sort_keys=True)[:120]
-        if fid in st["fill_ids"]:
-            continue
-        st["fill_ids"].append(fid); n = float(f.get("count_fp") or 0)
-        outcome = "yes" if (f.get("side") == "yes" and f.get("action") == "buy") or (f.get("side") == "no" and f.get("action") == "sell") else "no"
-        price = float(f.get("yes_price_dollars") or 0) if outcome == "yes" else float(f.get("no_price_dollars") or 0)
-        key = f"{f.get('ticker')}|{outcome}"; st["filled"][key] = st["filled"].get(key, 0.0) + n; st["fill_cost"] += n * price
-        new.append((key, n, price)); log(event="fill", key=key, count=n, price=price)
+    fills = c.req("GET", f"/portfolio/fills?min_ts={since}&limit=1000", auth=True).get("fills", [])
+    mine = {o["order_id"] for o in st["orders"].values()} | set(st.get("order_ids", []))
+    filled, cost, new = {}, 0.0, []
+    for f in fills:
+        if mine and f.get("order_id") not in mine:
+            continue                                             # another instance's fill (both bots share the account)
+        outcome = f.get("outcome_side") or f.get("side")
+        price = float(f.get("yes_price_dollars") if outcome == "yes" else f.get("no_price_dollars") or 0)
+        n = float(f.get("count_fp") or 0); key = f"{f.get('ticker')}|{outcome}"
+        filled[key] = filled.get(key, 0.0) + n; cost += n * price
+        fid = f.get("fill_id") or f.get("trade_id")
+        if fid not in st["fill_ids"]:
+            st["fill_ids"].append(fid); new.append((key, n, price)); log(event="fill", key=key, count=n, price=price)
+    st["filled"], st["fill_cost"] = filled, cost
     for k, n, p in new:
+        o = st["orders"].pop(k, None)
+        if o:                                                    # cancel what is left of a filled order straight away
+            try:
+                c.cancel(o["order_id"], o["ticker"])
+            except Exception as e:
+                log(event="cancel_error", key=k, err=str(e)[:300])
         tk, outcome = k.split("|")
         embed("🟠 Order filled", ORANGE, [
             ("Market", name(c, tk), False),
@@ -294,19 +315,33 @@ def step(c: Client, st: dict) -> None:
     for (tk, outcome), x in want.items():
         key = f"{tk}|{outcome}"
         if key in st["orders"]:
+            o = st["orders"][key]
+            seq = steps(x["count"])
+            if CANARY and live and o.get("step", len(seq) - 1) < len(seq) - 1:    # survived a loop unfilled: next size
+                nxt = seq[o["step"] + 1]
+                try:
+                    c.cancel(o["order_id"], o["ticker"])
+                    r = c.place(tk, outcome, PRICE_CENTS, nxt, expires=int(ts(x["end"]).timestamp()))
+                    o.update(order_id=(r.get("order") or r).get("order_id") or r.get("order_id"), count=nxt, step=o["step"] + 1)
+                    st.setdefault("order_ids", []).append(o["order_id"])
+                    log(event="step_up", key=key, count=nxt, step=o["step"])
+                except Exception as e:
+                    log(event="step_error", key=key, err=str(e)[:300])
             continue
         oid = f"dry-{key}"
+        first = steps(x["count"])[0]
         if live:
             try:
-                r = c.place(tk, outcome, PRICE_CENTS, x["count"], expires=int(ts(x["end"]).timestamp()))
+                r = c.place(tk, outcome, PRICE_CENTS, first, expires=int(ts(x["end"]).timestamp()))
             except Exception as e:                               # one rejected market must not stop the loop
                 log(event="place_error", key=key, err=str(e)[:300])
                 if "market_not_found" in str(e):
                     st.setdefault("skip", []).append(tk)             # not on our routing: don't retry it every loop
                 continue
             oid = (r.get("order") or r).get("order_id") or r.get("order_id"); coid = r.get("client_order_id", "")
-            st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": x["count"], "order_id": oid, "end": x["end"],
-                                 "pid": x["pid"], "placed": now.isoformat(timespec="seconds")}
+            st.setdefault("order_ids", []).append(oid)
+            st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": first, "order_id": oid, "end": x["end"],
+                                 "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0}
             save_state(st)
             if not st["verified"]:
                 if not verify(c, oid, outcome, coid):
@@ -314,9 +349,9 @@ def step(c: Client, st: dict) -> None:
                           ("Action", "All resting orders cancelled; the bot will not restart on its own. Details in lip_log.jsonl.", False)])
                     shutdown(c, st); sys.exit(2)
                 st["verified"] = True
-        st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": x["count"], "order_id": oid, "end": x["end"],
-                             "pid": x["pid"], "placed": now.isoformat(timespec="seconds")}
-        log(event="place", key=key, count=x["count"], cents=PRICE_CENTS, mode=MODE)
+        st["orders"].setdefault(key, {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": first, "order_id": oid, "end": x["end"],
+                                      "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0})
+        log(event="place", key=key, count=first, cents=PRICE_CENTS, mode=MODE)
     # accrue the estimate for this loop (our share now x the programme's reward rate x the loop length)
     acc = sum(x["rate"] * LOOP_SEC for x in chosen if any(f"{x['ticker']}|{o}" in st["orders"] for o in x["need"]))
     day = now.astimezone(ET).date().isoformat()
