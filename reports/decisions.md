@@ -14488,6 +14488,22 @@ sellers before their periods end even after a canary passes.
 began restarting the bot; it was stopped by hand, and the kill switch now exits with code 2 (`RestartPreventExitStatus=2`). Only
 `kalshi-lip-short` runs (stop lifted, §706). Re-enable the long probe after the Sunday-night readout on the user's word.
 
+## 708. A82 protocol: the other side — do traders who sell long shots near settlement win often enough? (S10)
+
+**No trial; N 1,535. Written and committed BEFORE any trade is downloaded.** The user (2026-10-17): if completing thin books fails, could a
+bot take the other side — fill the long-shot bids others rest (as was done to ours), presumably knowing the outcome? A taker who sells a
+long shot at p (1–3¢) — i.e. buys the favourite at 100 − p — keeps p a contract if the favourite wins and loses 100 − p if it does not; the
+taker fee is ≈ 0.07 × p × (1 − p) a contract (rounded up per order). Break-even: the favourite must win more than ≈ (100 − p + fee)/100
+of the time (≈ 99.3% at 1¢).
+1. **Markets:** settled events of the last 45 days in the short series the bots met — state daily gas (every KXAAAGASD… series), Miami hourly
+   temperature (KXTEMPMIAH), weekly executive orders (KXEOWEEK) — plus daily highs (KXHIGH… cities) as a wider check.
+2. **Trades:** Kalshi's public trades (taker side, price, size, time) on every market; a **long-shot sale** = the taker buys the favourite at
+   ≥ 97¢ (yes at ≥ 97¢, or no at ≥ 97¢).
+3. **Read:** per series group, per price (97 / 98 / 99¢ for the favourite) and per time left to the market's close (≤ 1 h, 1–6 h, 6–24 h,
+   > 24 h): contracts, favourite win rate (Wilson 95% interval), and the takers' net P&L per contract after fees. **A strategy candidate only
+   where the win rate's lower bound clears break-even with room**; a positive aggregate dominated by one rare loss is reported as such.
+   No orders are placed; this measures what others earned.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
