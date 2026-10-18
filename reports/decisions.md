@@ -14517,6 +14517,21 @@ only with a model that avoids the moving days (wholesale gasoline leads retail b
 $85.02 (unpaid); 152 canaries tried, 23 swept, 41 passed — and most passed ones were filled later. Bot stopped, disabled, orders cancelled.
 **Short programmes are closed.** Remaining: ~$102 of long-shot positions settling over the coming days.
 
+## 710. A83 protocol: selling long shots in state daily gas only when the outcome is safely decided (S10)
+
+**No trial; N 1,535. Written and committed BEFORE the market details are fetched or any rule is scored.** The user (2026-10-18): test the edge
+behind §709. Data: the A82 trades (state daily gas, every KXAAAGASD… series, 45 days); each market's strike and its settled AAA value
+(re-fetched); Yahoo RB=F daily closes (wholesale gasoline). For a long-shot sale (we buy the favourite at 97–99¢, as the historical taker did)
+in market (state s, date D, strike K) at time t: **L** = the state's latest settled AAA value before D (the price already known); **cushion** =
+how far the favourite side is from losing, in cents: (K − L) when the favourite is "not above K", (L − K) when it is "above K"; **wholesale
+move** = |RB=F's last close before t − the close two trading days earlier| in ¢/gal. **Rule: take the sale only if cushion ≥ X and wholesale
+move ≤ Y**, X ∈ {2, 4, 6}¢, Y ∈ {3, 6, ∞}¢ — 9 rules. Each scored as if we had been the taker of every qualifying historical sale (an upper
+bound on capacity: we could not have taken them all). **Chosen on the first 30 days by mean daily net P&L per $ of capital (99¢ a contract
+tied up until settlement); read once on the last 15 days.** Reported for each: net per contract after fees, days positive, worst day,
+contracts a day, and the same for "take everything" (the §709 baseline). **Candidate only if, on the last 15 days, the chosen rule is positive,
+beats the baseline per contract, and its worst day is smaller than the baseline's.** The 45-day history is short; a pass means a small live
+trial, not scale.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
