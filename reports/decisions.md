@@ -14598,6 +14598,15 @@ day (decision at the 10:00 New York candle) and the 13Z run of the day before (d
 3. **Discovery: 2026-07-15 → 2026-09-12 (60 days); sealed: 2026-09-13 → 2026-10-17.** Statistic: the day's mean net per contract; t over days;
    carried: t > 1.96, mean > 0; validation once, §664.4's rule. Station codes from each market's rules (CLIxxx → NBM station Kxxx, checked).
 
+## 717. K-family 7 (rain) abandoned before any result; new search criterion (S10)
+
+**No trial.** The user challenged the rain test: a simple public-forecast-versus-market comparison is almost certainly saturated (the
+temperature markets' edge vanished by mid-2025, §675). Agreed; the downloads were stopped with no forecast compared with any quote or outcome —
+abandoned, not tested. The user also corrected the record: **the Tradeify plan is backtested, not proven — the demo is still negative.**
+**New search criterion (the user agrees):** no more "public data versus a liquid market" families; candidates must come from (1) structural
+edges (rules that pay regardless of skill), (2) small-capacity niches too small for professionals, or (3) effort / access others lack — and each
+must pass a written "why hasn't someone already taken this?" screen before anything is built.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
