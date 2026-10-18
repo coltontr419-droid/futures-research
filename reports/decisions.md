@@ -14640,6 +14640,20 @@ breaks even at best. Lightning skips the evaluation but costs ~3× a Select pass
 **The price rise to $116 (from $80) costs the plan ≈ $1,700 per four months (2025 starts $23,020 → $21,306; 2021–26 $13,699 → $11,988).** The
 launch checklist's fee is updated. Account lines: closed — Select Daily 50K remains the choice.
 
+## 720. New-arena screens: free trading competitions fail; K-family 8 protocol — base rates in Kalshi's Trump mention markets (S10)
+
+**No trial spent; N 1,535. Written BEFORE any price is compared with any base rate.** Screen (§717's criterion): **free trading
+competitions — fail**: nearly all are run by forex/CFD prop firms whose prizes are funded CFD accounts (worth little to us, §671), and the cash
+prizes go to the top few of tens of thousands of entrants who already play maximum risk, so our odds are ~1/N. **Mention markets — weak pass**:
+professional market makers avoid them (live listeners), prices are retail-set and each market is small (capacity); against it, a mention-trading
+community already uses base rates. KXTRUMPMENTION: 242 settled events since 2025-04, ~40 words each (~9,700 markets), ~54% resolve Yes.
+1. **Base rate** for a word (Kalshi's label, normalised): the share of **earlier** KXTRUMPMENTION events containing it that resolved Yes; only
+   words with ≥ 5 earlier occurrences.
+2. **Price:** the hourly candle ending 1 hour after the market opened (well before the event; live listeners excluded), quote filter as §664.
+3. **Trade:** base rate − ask − fee > θ buys Yes; (1 − base rate) − (1 − bid) − fee > θ buys No; θ ∈ {5¢, 10¢, 15¢} — **3 tests**.
+4. **Discovery: events closing before 2026-03-01; sealed after.** Statistic: each event's mean net per contract; t over events; carried:
+   t > 1.96, mean > 0; validation once per §664.4.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
