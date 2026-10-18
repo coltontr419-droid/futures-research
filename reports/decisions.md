@@ -14671,6 +14671,19 @@ quotes at or near the best price earn: professional market-making in deep sports
 the touch). The thin-side 1¢ trick of §692 does not apply. Its deposit / refer-a-friend / deposit-and-trading credits ($25 … $250, non-
 withdrawable trading credits) are one-off bonuses — the category the user excluded. **Both fail the screen; not built.**
 
+## 723. Early demo review (2026-10-18): negative but within noise; execution matches except FDXM's open; the user may start one real NKD account (S10)
+
+**No trial.** `a18_demo_check --review`, 29 tickets 10-12 → 10-16: recorded −$7,250 against −$658 ± ~$5,600 (z ≈ −1.2); the launch products
+(NKD + FDXM) −$2,650 against ≈ −$100 ± ~$3,300 (z ≈ −0.8). With ≈ +$100–200 of edge a ticket against ≈ ±$1,000 of noise, ~150–200 tickets a
+product are needed to tell edge from luck — the demo tests **execution**, not the edge, on any short horizon. Execution: 26 of 29 recorded
+results match the 1-minute replay within commission; **FDXM 10-13 and 10-14 recorded a time exit (−$650) and a stop (−$600) where the DAX-cash
+proxy replay took profit (+$1,202 each)** — ≈ $3,650 of the week's gap, plausibly the cash open auction versus futures trading since 01:10;
+to be compared over coming weeks (the research paths behave like the cash/CFD series). MGC 10-16 went the other way (+$2,203). Dollar rules: 4
+sessions, signed move +316 bps, brackets −$1,800 (40-session trigger pending). The user asked whether to start one real account rather than
+forward-test for months: advised **NKD, not FDXM** (strongest backtest, readings match the replay, no Eurex fee, no 01:45 re-check); cost at
+$116 an evaluation ≈ $700 typical / ≈ $2,000 bad / ≈ $2,500 worst to two payouts; the demo's NKD account (fresh $50k) can track it unchanged.
+Verified on the droplet: live-account support deployed (live NKD from $0 → 3 contracts, take ≈ $9,000 / stop ≈ $2,000).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
