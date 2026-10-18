@@ -14701,6 +14701,30 @@ The largest products are FFDEC $53/day, FES $39, FNQ $19, HORC $17. Even a large
 resting size at the best price, which carries the informed-fill exposure that sank the Kalshi short LIP (§713). Customer eligibility also
 depends on IBKR having arranged pass-through (unverified). Fails the size screen; closed.
 
+## 726. F-family 1 protocol — ForecastEx daily-high contracts settle on Weather Underground, not NWS: is YES overpriced? (S10)
+
+**No trial spent. Written and committed BEFORE any ForecastEx price is compared with any outcome.** Screen (§717 criterion): a
+**structural** edge — a settlement-rule difference between venues. ForecastEx's daily-high contracts ("will the high exceed X?") resolve on
+the highest value in Weather Underground's Daily Observations table (mostly hourly METARs); Kalshi's resolve on the NWS climate report
+(continuous data). The no-price screen `forecastex/f0_settle.py` (ForecastEx settlements vs Kalshi's `expiration_value`, same stations:
+LAX, Midway, Austin-Bergstrom, Miami, Philadelphia; Feb-Sep 2026, 231-243 days each) finds the NWS high **above** ForecastEx's bracket on
+55-68% of days (mostly by 1 F, sometimes 2-3 F), below it on 0-4 days. Hypothesis: traders anchor ForecastEx to NWS-based forecasts and
+Kalshi, so ForecastEx YES is overpriced. Why might it be untaken? ForecastEx is a small, mostly retail IBKR venue; against it, LA trades
+~70M contracts since February and retained market makers quote temperatures, so the gap may be priced in. That is what this tests.
+Data: every ForecastEx trade (`pairs/`, public S3, via `forecastex/download.py`); settlements from `prices/`.
+1. **Trade (fixed):** every trade (pair) in UHLAX, UHMDW, UHAUS, UHMIA, UHPHL with yes price in [0.10, 0.90]: **buy NO at the pair's NO
+   price + 1¢ slippage**, pay the 1¢ ForecastEx fee, hold to settlement ($1 if NO). The pair has no aggressor flag, so being the NO side
+   at that price is an assumption; the 1¢ is the allowance for it.
+2. **Tests:** 5 cities × 2 windows (pair time in the city's local time: (a) before 10:00 on the contract date, incl. the day before;
+   (b) 10:00-16:00 on the contract date) = **10** (≈ 0.25 pass by chance). Statistic: each contract-date's quantity-weighted mean net per
+   contract; t over dates.
+3. **Discovery: contract dates before 2026-07-01. Sealed validation: 2026-07-01 → 2026-10-17** (asserted in code). **Carried:** t > 1.96,
+   mean > 0, positive in ≥ 4 of the 5 discovery months (Feb-Jun; monthly t is meaningless over 5 months). At most 3 carried, by t.
+4. **Validation (once, sealed):** as §664.4 (one-sided t > 1.645 over dates; ≥ 95% of a 2,000-draw date-level sign-flip placebo;
+   positive posterior, zero-mean prior shown). Watchlist if net-positive but short of that (§133). Capacity: qualifying contracts a day.
+5. **Caveats fixed now:** fills at trade prices are an assumption to be checked live via IBKR quotes (read-only API works, §725) before
+   any money; the fee is ForecastEx's published 1¢ (IBKR commission, if any, to be confirmed); trading eligibility is the user's.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
