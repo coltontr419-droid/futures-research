@@ -14374,6 +14374,19 @@ seconds while each fill costs ~1¢ a contract. Short programmes (near resolution
 what no snapshot could. Whether longer programmes (outcome still uncertain, slower informed flow) behave differently is an open question;
 not pursued without the user's decision.
 
+## 696. A80 protocol: do longer liquidity programmes escape the adverse fills? — measured from public trades, no money (S10)
+
+**No trial; N 1,535. Written and committed BEFORE the measurement runs.** The user (2026-10-18): test longer programmes. Programmes lasting
+**≥ 6 days with ≥ 1 day left** (outcome further from known). For each: the book now; a side is **completable** if other traders' resting size
+is below target AND the opposite best bid is < 99¢ (so a 1¢ bid can rest). **Reward:** our share (scoring as §692, with the price-level rule
+of §694) × the programme's reward rate. **Fills:** the public trades of the last 72 hours (`GET /markets/trades`) at the 1¢ level on that
+side (taker selling the long shot: yes-price 1¢ with taker side no for a yes bid; yes-price 99¢ with taker side yes for a no bid); we would
+have been filled only after the size already resting at 1¢ ahead of us — fills to us = max(0, traded − ahead), per day. **Cost of a fill:**
+1¢ a contract (the long shot assumed to lose — informed sellers). **Net a day = reward − fills × $0.01.** Reported: markets measured, how
+many net-positive, total net a day per $ of collateral, and by series; the same computed for programmes ≤ 2 days as the control (it must
+show the failure §695 saw). **Read:** a candidate only if net stays clearly positive with the control behaving as observed live; then a
+forward check over days before any money.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
