@@ -331,7 +331,8 @@ def check_fills(c: Client, st: dict) -> None:
         fid = f.get("fill_id") or f.get("trade_id")
         if fid not in st["fill_ids"]:
             st["fill_ids"].append(fid); new.append((key, n, price)); log(event="fill", key=key, count=n, price=price)
-    st["filled"], st["fill_cost"] = filled, cost
+    pinned_cost = sum(n * (PRICE_CENTS / 100) for k, n in filled.items() if k in PINNED)
+    st["filled"], st["fill_cost"], st["pinned_fill_cost"] = filled, cost - pinned_cost, pinned_cost   # a pinned order (the user's watch) is reported, not counted toward the stop
     for k, n, p in new:
         o = st["orders"].pop(k, None)
         if o:                                                    # cancel what is left of a filled order straight away

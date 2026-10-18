@@ -14463,6 +14463,15 @@ the worst-case fill cost** — and leaves when that turns negative (with 50 minu
 with 10 hours left +$21). **Pinned at the user's request** (`PIN_KEYS`): KXAAAGASDGA-26OCT18-3.7750 yes, 1,000 at 1¢, kept to its period end
 (22:59 CDT) to watch what happens.
 
+## 705. The pinned Georgia order was filled 25 minutes before its period ended (S10)
+
+**No trial.** KXAAAGASDGA-26OCT18-3.7750 yes (Georgia daily gas, settling 10-18): canary 1 → 100 → full 1,000 at 22:09 CDT (old step logic),
+pinned at the user's request at 22:33; **filled in full at 1¢ at 22:34 CDT (maker), 25 minutes before the period end** — the final-stretch
+informed seller §704 anticipated; $10 at risk (pays ~$990 only if the long shot happens). Its estimated reward over ~25 minutes at full size
+was about $1–2. To keep the user's one-day canary test running, **a pinned order's fills are reported but not counted toward the bot's stop
+limit** (the short bot stood at $3.06 + $10 = $13.06 against a $10 stop). Lesson for short programmes: even a canary that passes is filled
+before the period ends when the outcome is nearly known; §704's rule (leave when reward to the end < worst-case fill) covers it.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
