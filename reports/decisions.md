@@ -14654,6 +14654,15 @@ community already uses base rates. KXTRUMPMENTION: 242 settled events since 2025
 4. **Discovery: events closing before 2026-03-01; sealed after.** Statistic: each event's mean net per contract; t over events; carried:
    t > 1.96, mean > 0; validation once per §664.4.
 
+## 721. K-family 8: mention-market base rates are positive but below the bar, and tiny — nothing carried (S10)
+
+**N 1,535 (no trial).** `reports/k8_discovery.json` (module `kalshi/k8_mention.py`; 236 of 242 KXTRUMPMENTION events after a second pass filled 95
+rate-limited downloads). Discovery (events closing before 2026-03-01), buying the side the word's earlier base rate favours against the quote one
+hour after the market opened: θ 5¢ +3.66¢ a contract (64 events, 352 contracts, t 1.07); **θ 10¢ +6.76¢ (61 events, 283 contracts, t 1.78)**;
+θ 15¢ +6.45¢ (t 1.63). The first, incomplete pass had θ 10¢ at t 2.04 — it fell below the bar once the missing events were in, so the rule was
+judged on the complete data before any sealed look. **Nothing carried; no validation.** Even if real, ~300 qualifying contracts in ten months is
+not an income stream. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,31 @@
+{
+ "cut": "2026-03-01 00:00:00+00:00",
+ "tests": 3,
+ "all": [
+  {
+   "theta": 0.05,
+   "events": 64,
+   "contracts": 352,
+   "mean_net": 0.036598748911678615,
+   "t": 1.0749088073986208,
+   "carried": false
+  },
+  {
+   "theta": 0.1,
+   "events": 61,
+   "contracts": 283,
+   "mean_net": 0.0675547141866857,
+   "t": 1.7839284987007606,
+   "carried": false
+  },
+  {
+   "theta": 0.15,
+   "events": 57,
+   "contracts": 220,
+   "mean_net": 0.06449300500182079,
+   "t": 1.6267879460958279,
+   "carried": false
+  }
+ ],
+ "carried": []
+}
