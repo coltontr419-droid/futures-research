@@ -86,21 +86,55 @@ def side_share(others: list, target: float, disc: float, add: float, price: int)
     return (mine / tot if tot > 0 else 0.0), True
 
 
-def discord(text: str) -> None:
+BLUE, GREEN, ORANGE, RED = 0x3498DB, 0x2ECC71, 0xE67E22, 0xE74C3C
+
+
+def _post(payload: dict) -> None:
     env = {}
     if DISCORD_ENV.exists():
         for line in DISCORD_ENV.read_text().splitlines():
             if "=" in line and not line.strip().startswith("#"):
                 k, v = line.split("=", 1); env[k.strip()] = v.strip()
     if not env.get("DISCORD_TOKEN") or not env.get("DISCORD_CHANNEL_ID"):
-        print("[discord skipped]", text[:200], flush=True); return
+        print("[discord skipped]", json.dumps(payload)[:300], flush=True); return
     try:
         req = urllib.request.Request(f"https://discord.com/api/v10/channels/{env['DISCORD_CHANNEL_ID']}/messages", method="POST",
-                                     data=json.dumps({"content": text[:1990]}).encode(),
+                                     data=json.dumps(payload).encode(),
                                      headers={"Authorization": f"Bot {env['DISCORD_TOKEN']}", "Content-Type": "application/json", "User-Agent": "lip-bot"})
         urllib.request.urlopen(req, timeout=30).read()
     except Exception as e:
         print("discord error", e, flush=True)
+
+
+def embed(title: str, color: int, fields: list[tuple[str, str]] | None = None, description: str = "", footer: str = "") -> None:
+    """A clean Discord embed: title, colour, optional description, inline fields (name, value), footer."""
+    e = {"title": title[:256], "color": color, "timestamp": dt.datetime.now(dt.timezone.utc).isoformat()}
+    if description:
+        e["description"] = description[:4000]
+    if fields:
+        e["fields"] = [{"name": n[:256], "value": (v or "—")[:1024], "inline": inline} for n, v, inline in
+                       [(f[0], f[1], f[2] if len(f) > 2 else True) for f in fields]][:25]
+    e["footer"] = {"text": (footer or "Kalshi rewards bot")[:2048]}
+    _post({"embeds": [e]})
+
+
+def discord(text: str) -> None:
+    """Plain-text fallback, kept for anything unexpected."""
+    _post({"content": text[:1990]})
+
+
+def name(c, ticker: str) -> str:
+    """A market's plain-English name (cached lookups), e.g. 'Will gas go below $4.30 by Oct 31? — No'."""
+    try:
+        m = c.market(ticker); t = (m.get("title") or ticker).strip()
+        sub = (m.get("yes_sub_title") or "").strip()
+        return f"{t} ({sub})" if sub and sub not in t else t
+    except Exception:
+        return ticker
+
+
+def usd(x: float) -> str:
+    return f"${x:,.2f}"
 
 
 def load_state() -> dict:
@@ -227,11 +261,17 @@ def check_fills(c: Client, st: dict) -> None:
         price = float(f.get("yes_price_dollars") or 0) if outcome == "yes" else float(f.get("no_price_dollars") or 0)
         key = f"{f.get('ticker')}|{outcome}"; st["filled"][key] = st["filled"].get(key, 0.0) + n; st["fill_cost"] += n * price
         new.append((key, n, price)); log(event="fill", key=key, count=n, price=price)
-    if new:
-        discord("**Kalshi LIP probe: fill** — " + "; ".join(f"{k} {n:,.0f} @ {p*100:.0f}c" for k, n, p in new)
-                + f". Fill cost since start ${st['fill_cost']:,.2f} (stop at ${MAX_FILL_COST:,.0f}). Filled sides are not re-posted.")
+    for k, n, p in new:
+        tk, outcome = k.split("|")
+        embed("🟠 Order filled", ORANGE, [
+            ("Market", name(c, tk), False),
+            ("Side bought", outcome.upper()), ("Contracts", f"{n:,.0f}"), ("Price", f"{p*100:.0f}¢"),
+            ("Cost", usd(n * p)), ("Pays if this side wins", usd(n * (1 - p))),
+            ("Fill cost so far", f"{usd(st['fill_cost'])} of {usd(MAX_FILL_COST)} limit"),
+        ], footer="Filled sides are never re-posted. Most long shots expire worthless, so treat the cost as spent.")
     if st["fill_cost"] > MAX_FILL_COST:
-        discord(f"**Kalshi LIP probe: fill cost ${st['fill_cost']:,.2f} > ${MAX_FILL_COST:,.0f} — cancelling everything and stopping.**")
+        embed("🔴 Bot stopped — fill limit reached", RED, [("Fill cost", f"{usd(st['fill_cost'])} (limit {usd(MAX_FILL_COST)})"),
+              ("Action", "All resting orders cancelled; the bot will not restart on its own.", False)])
         shutdown(c, st); sys.exit(2)
 
 
@@ -270,7 +310,8 @@ def step(c: Client, st: dict) -> None:
             save_state(st)
             if not st["verified"]:
                 if not verify(c, oid, outcome, coid):
-                    discord("**Kalshi LIP bot: first order did not verify — cancelling everything and stopping.** See lip_log.jsonl.")
+                    embed("🔴 Bot stopped — order check failed", RED, [("What happened", "The first order did not appear on Kalshi as intended.", False),
+                          ("Action", "All resting orders cancelled; the bot will not restart on its own. Details in lip_log.jsonl.", False)])
                     shutdown(c, st); sys.exit(2)
                 st["verified"] = True
         st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": x["count"], "order_id": oid, "end": x["end"],
@@ -292,16 +333,21 @@ def summary(c: Client, st: dict, force: bool = False) -> None:
     if not force and (st["last_summary"] == key or now.hour < 7):
         return
     y = (now.date() - dt.timedelta(days=1)).isoformat()
-    lines = [f"**Kalshi LIP bot ({MODE})** — estimated earnings yesterday ${st['est_by_day'].get(y, 0):,.2f}, today so far "
-             f"${st['est_by_day'].get(key, 0):,.2f}, since start ${st['est_total']:,.2f} (estimates from the published scoring; paid credits are final)."]
-    lines.append(f"Holding {len(st['orders'])} orders, ${sum(o['count'] * o['cents'] / 100 for o in st['orders'].values()):,.0f} collateral.")
+    coll = sum(o["count"] * o["cents"] / 100 for o in st["orders"].values())
+    fields = [("Est. rewards yesterday", usd(st["est_by_day"].get(y, 0))), ("Est. today so far", usd(st["est_by_day"].get(key, 0))),
+              ("Est. since start", usd(st["est_total"])),
+              ("Orders resting", f"{len(st['orders'])} ({usd(coll)} capital)"),
+              ("Fills since start", f"{sum(1 for _ in st.get('fill_ids', []))} ({usd(st.get('fill_cost', 0.0))} cost)")]
     if MODE == "live" and c.authed:
         try:
-            b = c.balance(); pos = [p for p in c.positions() if float(p.get("position_fp") or p.get("position") or 0) != 0]
-            lines.append(f"Balance ${float(b.get('balance', 0)) / 100:,.2f}; open positions (fills) {len(pos)}.")
-        except Exception as e:
-            lines.append(f"(balance unavailable: {str(e)[:80]})")
-    discord("\n".join(lines)); st["last_summary"] = key; save_state(st)
+            fields.append(("Cash balance", usd(float(c.balance().get("balance_dollars") or 0))))
+        except Exception:
+            fields.append(("Cash balance", "unavailable"))
+    if st["orders"]:
+        fields.append(("Markets", "\n".join(f"• {name(c, o['ticker'])} — **{o['outcome'].upper()}** at {o['cents']}¢" for o in st["orders"].values())[:1024], False))
+    embed(f"🟢 Daily summary — {now:%a %b %d}" + ("" if MODE == "live" else " (dry run)"), GREEN, fields,
+          footer="Estimates use Kalshi's published scoring. Only paid credits (Kalshi → Rewards) are final.")
+    st["last_summary"] = key; save_state(st)
 
 
 def shutdown(c: Client, st: dict) -> None:
@@ -320,12 +366,15 @@ def main() -> int:
     if MODE == "live" and not c.authed:
         print("MODE=live needs KALSHI_KEY_ID and KALSHI_KEY_PATH", flush=True); return 1
     st = load_state()
-    discord(f"**Kalshi LIP bot started ({MODE})** — up to {MAX_MARKETS} markets, ${MAX_COLLATERAL:,.0f} collateral, programmes <= {MAX_DAYS:g} days, "
-            f"bids at {PRICE_CENTS}c. Kill switch: STOP file.")
+    embed("🔵 Kalshi rewards bot started" + ("" if MODE == "live" else " (dry run — no orders)"), BLUE, [
+        ("Markets", f"up to {MAX_MARKETS}"), ("Capital limit", usd(MAX_COLLATERAL)), ("Bid price", f"{PRICE_CENTS}¢"),
+        ("Programmes", f"{MIN_DAYS:g}–{MAX_DAYS:g} days long" + (f", market closing ≥ {MIN_MARKET_DAYS:g} days out" if MIN_MARKET_DAYS else ""), False),
+        ("Safety", f"stops itself after {usd(MAX_FILL_COST)} of fills; filled sides never re-posted", False)],
+        footer="It earns Kalshi liquidity rewards by resting bids; fills are the risk.")
     once = "--once" in sys.argv
     while True:
         if STOP.exists():
-            shutdown(c, st); discord("**Kalshi LIP bot stopped** (STOP file): all orders cancelled."); return 0
+            shutdown(c, st); embed("🔴 Bot stopped (kill switch)", RED, [("Action", "All resting orders cancelled.", False)]); return 0
         try:
             step(c, st); save_state(st); summary(c, st)
         except SystemExit:
