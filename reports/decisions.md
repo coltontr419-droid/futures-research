@@ -14435,6 +14435,18 @@ passed), **🟠 large fill** (a fill costing ≥ $5 — a real loss), **🔴 sto
 small (canary) fill — counted in the daily results instead — and start messages on routine restarts (only a fresh start posts). Rewards now
 accrue in the estimate only while every needed side holds its full size (a canary alone completes nothing).
 
+## 702. Seven improvements to both liquidity bots (the user: apply all now) (S10)
+
+**No trial.** Deployed 2026-10-18 03:13Z to `kalshi-lip` and `kalshi-lip-short`. (1) **Stay unless it stops paying** — a held order is kept
+while its projected reward to the period end (share now × reward rate × time left) is ≥ $1, instead of leaving the moment another trader
+completes the side; (2) **re-entry skips the canary** for a side that passed it today; (3) **series blacklist** — a series whose canaries are
+swept twice in a day is skipped for the rest of the day; (4) **enter only if the projected reward to the period end is ≥ $3** (Kalshi pays
+nothing under $1 a period; the New Jersey order rested 15 minutes and showed $0.00); (5) **price 1–3¢** and (6) **size = the shortfall or the
+full target**, per side, whichever maximises projected reward − worst-case fill cost (size × price) — e.g. with 700 resting at 2¢, a 1,000
+bid at 3¢ takes the whole side under the scoring (bids below the target cut-off do not qualify); (7) **canary steps wait a real 5 minutes by
+the clock**. Unit-checked and dry-run on both configurations first. A dry check showed most long programmes (6–8 days) sit on markets closing
+within 3 days, so the long probe currently has few candidates (the market-close rule is doing its job).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

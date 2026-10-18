@@ -169,52 +169,94 @@ def log(**kw) -> None:
         f.write(json.dumps({"t": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), **kw}) + "\n")
 
 
+# decisions.md 702 (the user: apply all improvements to both bots)
+STAY_MIN_USD = float(os.environ.get("STAY_MIN_USD", "1"))          # keep a held order while its projected reward to the period end is >= this
+MIN_PROJECTED_USD = float(os.environ.get("MIN_PROJECTED_USD", "3"))  # enter only if the projected reward to the period end is >= this
+MAX_PRICE_CENTS = int(os.environ.get("MAX_PRICE_CENTS", "3"))      # a side may be bid at 1..this cents (whichever pays best)
+SWEEP_LIMIT = int(os.environ.get("SWEEP_LIMIT", "2"))              # a series whose canaries are swept this often today is skipped today
+STEP_SEC = int(os.environ.get("STEP_SEC", "300"))                  # a canary step must rest this long (wall clock) before the next
+
+
+def best_option(others: list, target: float, disc: float, can_max: int, rate_side: float, remaining: float, held=None):
+    """The side's best (cents, size, share, value): price 1..can_max, size = the shortfall or the full target; value = projected reward
+    to the period end - worst-case fill cost (size x price). `held` = our current (cents, size), always an option (no new risk)."""
+    tot = sum(s for _, s in others); short = max(0.0, target - tot)
+    opts = []
+    for cents in range(1, max(1, min(MAX_PRICE_CENTS, can_max)) + 1):
+        for size in sorted({int(-(-short // 10) * 10) if short > 0 else 0, int(target)}):
+            if size <= 0:
+                continue
+            sh, q = side_share(others, target, disc, size, cents)
+            if q:
+                opts.append((sh * rate_side * remaining - size * cents / 100, cents, size, sh))
+    if held:
+        sh, q = side_share(others, target, disc, held[1], held[0])
+        if q:
+            opts.append((sh * rate_side * remaining, held[0], held[1], sh))           # already resting: no extra risk to keep it
+    if not opts:
+        return None
+    v, cents, size, sh = max(opts)
+    return {"cents": cents, "size": size, "share": sh, "value": v}
+
+
 def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
     P = [p for p in c.programmes() if ts(p["start_date"]) <= now < ts(p["end_date"]) - dt.timedelta(minutes=MIN_LEFT_MIN)
          and MIN_DAYS * 86400 <= (ts(p["end_date"]) - ts(p["start_date"])).total_seconds() <= MAX_DAYS * 86400
          and ts(p["end_date"]) - now >= dt.timedelta(hours=MIN_LEFT_HOURS)]
     books = c.orderbooks(sorted({p["market_ticker"] for p in P}))
-    mine = {}                                                    # (ticker, outcome) -> (price, size) of our resting orders
-    for t, o in st["orders"].items():
-        mine[(o["ticker"], o["outcome"])] = (o["cents"], o["count"])
+    mine = {(o["ticker"], o["outcome"]): (o["cents"], o["count"]) for o in st["orders"].values()}
+    skip = set(st.get("skip", [])); filled_keys = set(st.get("filled", {}))
+    today = now.astimezone(ET).date().isoformat(); swept = st.get("swept_series", {}).get(today, {})
     cands = []
-    skip = set(st.get("skip", []))
-    filled_keys = set(st.get("filled", {}))
     for p in P:
-        tk = p["market_ticker"]; ob = books.get(tk)
-        if ob is None or tk in skip or any(x in tk for x in EXCLUDE):
+        tk = p["market_ticker"]; ob = books.get(tk); series = tk.split("-")[0]
+        if ob is None or tk in skip or any(x in tk for x in EXCLUDE) or swept.get(series, 0) >= SWEEP_LIMIT:
             continue
         tgt = float(p.get("target_size_fp") or 0); disc = (p.get("discount_factor_bps") or 5000) / 1e4
         if tgt <= 0:
             continue
         sides = {}
-        for outcome, key in (("yes", "yes"), ("no", "no")):
-            lv = levels(ob, key)
-            if (tk, outcome) in mine:                            # remove our own size from the book before judging thinness
+        for outcome in ("yes", "no"):
+            lv = levels(ob, outcome)
+            if (tk, outcome) in mine:                            # our own size out of the book before judging the side
                 mp, ms = mine[(tk, outcome)]
-                lv = [(pp, s - ms if pp == mp else s) for pp, s in lv]; lv = [(pp, s) for pp, s in lv if s > 1e-9]
+                lv = [(pp, sz - ms if pp == mp else sz) for pp, sz in lv]; lv = [(pp, sz) for pp, sz in lv if sz > 1e-9]
             sides[outcome] = lv
-        # a bid at PRICE_CENTS can only REST if the other side's best bid is below 100 - PRICE_CENTS (else it crosses and post-only rejects
-        # it): such a side can never be completed by anyone - the reason many long-shot sides are empty (found going live, decisions.md 695)
         best = {o: max((pp for pp, _ in sides[o]), default=0) for o in ("yes", "no")}
-        can = {"yes": best["no"] < 100 - PRICE_CENTS, "no": best["yes"] < 100 - PRICE_CENTS}
-        need = {o: sum(s for _, s in sides[o]) < tgt for o in ("yes", "no")}
-        if any(f"{tk}|{o}" in filled_keys for o in ("yes", "no") if need[o]):
-            continue                                             # a side that was filled is never re-posted (decisions.md 698)
-        if any(need[o] and not can[o] for o in ("yes", "no")):
+        can_max = {"yes": 99 - best["no"], "no": 99 - best["yes"]}                 # highest price that still rests (post-only)
+        need = {o: sum(sz for _, sz in sides[o]) < tgt for o in ("yes", "no")}
+        held = {o: mine.get((tk, o)) for o in ("yes", "no")}
+        act = {o: need[o] or held[o] is not None for o in ("yes", "no")}
+        if not any(act.values()) or any(f"{tk}|{o}" in filled_keys and need[o] and not held[o] for o in ("yes", "no")):
+            continue                                             # nothing to do / a filled side is never re-posted
+        if any(need[o] and can_max[o] < 1 for o in ("yes", "no")):
             continue                                             # a side below target that nobody can fill: the snapshot cannot count
-        if not any(need.values()):
-            continue
-        add = {o: (tgt if need[o] else 0.0) for o in ("yes", "no")}
-        sy, qy = side_share(sides["yes"], tgt, disc, add["yes"], PRICE_CENTS); sn, qn = side_share(sides["no"], tgt, disc, add["no"], PRICE_CENTS)
-        if not (qy and qn):
-            continue
         dur = (ts(p["end_date"]) - ts(p["start_date"])).total_seconds(); reward = p["period_reward"] / 1e4
-        rate = (sy + sn) / 2 * reward / dur                      # $ a second while it holds
-        coll = sum(add.values()) * PRICE_CENTS / 100
-        cands.append({"ticker": tk, "pid": p["id"], "end": p["end_date"], "need": [o for o in ("yes", "no") if need[o]], "count": int(tgt),
-                      "rate": rate, "collateral": coll, "share": (sy + sn) / 2, "reward": reward, "dur_h": dur / 3600})
-    cands.sort(key=lambda x: -x["rate"] / max(x["collateral"], 0.01))
+        remaining = (ts(p["end_date"]) - now).total_seconds(); rate_side = reward / dur / 2     # $ a second per unit share of one side
+        orders, value, share = {}, 0.0, {}
+        ok = True
+        for o in ("yes", "no"):
+            if act[o]:
+                b = best_option(sides[o], tgt, disc, can_max[o], rate_side, remaining, held[o])
+                if b is None:
+                    ok = False; break
+                orders[o] = b; value += b["value"]; share[o] = b["share"]
+            else:
+                sh, q = side_share(sides[o], tgt, disc, 0, 1)
+                if not q:
+                    ok = False; break
+                share[o] = 0.0
+        if not ok:
+            continue
+        rate = sum(rate_side * share[o] for o in ("yes", "no"))
+        projected = rate * remaining; is_held = any(held.values())
+        if projected < (STAY_MIN_USD if is_held else MIN_PROJECTED_USD):
+            continue                                             # too little left to clear Kalshi's $1 minimum (or to be worth staying)
+        coll = sum(b["size"] * b["cents"] / 100 for b in orders.values())
+        cands.append({"ticker": tk, "pid": p["id"], "end": p["end_date"], "need": list(orders), "orders": orders, "rate": rate,
+                      "projected": projected, "collateral": coll, "share": sum(share.values()) / 2, "reward": reward, "dur_h": dur / 3600,
+                      "held": is_held, "count": max(b["size"] for b in orders.values())})
+    cands.sort(key=lambda x: -x["projected"] / max(x["collateral"], 0.01))
     if MODE == "live" or MIN_MARKET_DAYS > 0:                    # shards holding our funds; markets far enough from closing (cached lookups)
         keep = []
         for x in cands:
@@ -229,14 +271,13 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
                 log(event="shard_error", ticker=x["ticker"], err=str(e)[:200])
         cands = keep
     chosen, used = [], 0.0
-    held = {o["ticker"] for o in st["orders"].values()}
-    for x in sorted(cands, key=lambda x: (x["ticker"] not in held, -x["rate"] / max(x["collateral"], 0.01))):   # keep what we hold first
+    for x in sorted(cands, key=lambda x: (not x["held"], -x["projected"] / max(x["collateral"], 0.01))):   # keep what we hold first
         if len(chosen) < MAX_MARKETS and used + x["collateral"] <= MAX_COLLATERAL:
             chosen.append(x); used += x["collateral"]
     return chosen, {"programmes": len(P), "candidates": len(cands)}
 
 
-def verify(c: Client, oid: str, outcome: str, coid: str = "") -> bool:
+def verify(c: Client, oid: str, outcome: str, coid: str = "", cents: int | None = None) -> bool:
     """After the first live order: it must be on the intended outcome at PRICE_CENTS of that outcome. Looked up by id, any status - a
     canary can be filled (executed) within seconds, which is a valid order and a detected seller (decisions.md 700)."""
     o = {}
@@ -257,7 +298,8 @@ def verify(c: Client, oid: str, outcome: str, coid: str = "") -> bool:
         yp = float(o["yes_price"])
     else:
         yp = float(o.get("price")) * 100
-    want = PRICE_CENTS if outcome == "yes" else 100 - PRICE_CENTS
+    pc = cents if cents is not None else PRICE_CENTS
+    want = pc if outcome == "yes" else 100 - pc
     ok = (side in (("yes", "bid") if outcome == "yes" else ("no", "ask"))) and abs(yp - want) < 0.5
     log(event="verify", ok=ok, status=o.get("status"), order=json.dumps(o)[:600]); return ok
 
@@ -293,6 +335,8 @@ def check_fills(c: Client, st: dict) -> None:
         tk, outcome = k.split("|")
         if o and o.get("step", 0) < len(steps(o.get("full", o["count"]))) - 1:
             bump(st, "canary_swept")                             # a canary (or step) did its job: counted, no message
+            d = dt.datetime.now(ET).date().isoformat(); ser = tk.split("-")[0]
+            ss = st.setdefault("swept_series", {}).setdefault(d, {}); ss[ser] = ss.get(ser, 0) + 1
         if n * p < ALERT_FILL_USD:
             bump(st, "small_fill_cost", n * p); continue
         bump(st, "large_fills"); bump(st, "large_fill_cost", n * p)
@@ -330,56 +374,69 @@ def step(c: Client, st: dict) -> None:
                 except Exception as e:
                     log(event="cancel_error", key=key, err=str(e)[:300])
             log(event="cancel", key=key); st["orders"].pop(key)
-    # place what is missing
+    # place, re-price or step up what we want (decisions.md 702)
+    today = now.astimezone(ET).date().isoformat(); passed = st.setdefault("passed", {})
     for (tk, outcome), x in want.items():
-        key = f"{tk}|{outcome}"
-        if key in st["orders"]:
-            o = st["orders"][key]
-            seq = steps(x["count"])
-            if CANARY and live and o.get("step", len(seq) - 1) < len(seq) - 1:    # survived a loop unfilled: next size
-                nxt = seq[o["step"] + 1]
-                try:
-                    c.cancel(o["order_id"], o["ticker"])
-                    r = c.place(tk, outcome, PRICE_CENTS, nxt, expires=int(ts(x["end"]).timestamp()))
-                    o.update(order_id=(r.get("order") or r).get("order_id") or r.get("order_id"), count=nxt, step=o["step"] + 1)
-                    st.setdefault("order_ids", []).append(o["order_id"])
-                    log(event="step_up", key=key, count=nxt, step=o["step"])
-                    if nxt == x["count"]:
-                        bump(st, "canary_passed")
-                        embed("✅ Canary passed — full order resting", GREEN, [
-                            ("Market", name(c, tk), False), ("Side", outcome.upper()), ("Size", f"{nxt:,} at {PRICE_CENTS}¢"),
-                            ("Capital", usd(nxt * PRICE_CENTS / 100)), ("Reward pool", f"{usd(x['reward'])} over {x['dur_h']:.0f} h"),
-                            ("Est. our share", f"{x['share']:.0%}"), ("Period ends", f"<t:{int(ts(x['end']).timestamp())}:R>")],
-                            footer="No seller appeared at 1, then 100 contracts. Rewards accrue while it rests.")
-                except Exception as e:
-                    log(event="step_error", key=key, err=str(e)[:300])
+        key = f"{tk}|{outcome}"; tgt_c = x["orders"][outcome]["cents"]; tgt_n = int(x["orders"][outcome]["size"])
+        o = st["orders"].get(key)
+        if o:
+            seq = steps(tgt_n)
+            stepping = CANARY and o.get("step", len(seq) - 1) < len(seq) - 1 and passed.get(key) != today
+            if stepping:
+                waited = (now - ts(o.get("step_time", o["placed"]))).total_seconds()
+                if not live or waited < STEP_SEC:                # a real STEP_SEC unfilled, by the clock (not just the next loop)
+                    continue
+                nxt, step_no = seq[o["step"] + 1], o["step"] + 1
+            elif o["cents"] != tgt_c or (o["count"] >= o.get("full", o["count"]) and abs(o["count"] - tgt_n) > 0.2 * tgt_n):
+                nxt, step_no = tgt_n, len(seq) - 1               # a better price or size: re-post at the planned one
+            else:
+                continue
+            if not live:
+                o.update(count=nxt, cents=tgt_c, step=step_no, full=tgt_n); continue
+            try:
+                c.cancel(o["order_id"], o["ticker"])
+                r = c.place(tk, outcome, tgt_c, nxt, expires=int(ts(x["end"]).timestamp()))
+                o.update(order_id=(r.get("order") or r).get("order_id") or r.get("order_id"), count=nxt, cents=tgt_c, step=step_no, full=tgt_n,
+                         step_time=now.isoformat(timespec="seconds"))
+                st.setdefault("order_ids", []).append(o["order_id"])
+                log(event="step_up" if stepping else "reprice", key=key, count=nxt, cents=tgt_c, step=step_no)
+                if stepping and nxt == tgt_n:
+                    bump(st, "canary_passed"); passed[key] = today
+                    embed("✅ Canary passed — full order resting", GREEN, [
+                        ("Market", name(c, tk), False), ("Side", outcome.upper()), ("Size", f"{nxt:,} at {tgt_c}¢"),
+                        ("Capital", usd(nxt * tgt_c / 100)), ("Reward pool", f"{usd(x['reward'])} over {x['dur_h']:.0f} h"),
+                        ("Est. our share", f"{x['share']:.0%}"), ("Projected to period end", usd(x["projected"])),
+                        ("Period ends", f"<t:{int(ts(x['end']).timestamp())}:R>")],
+                        footer="No seller appeared at the smaller sizes. Rewards accrue while it rests.")
+            except Exception as e:
+                log(event="step_error", key=key, err=str(e)[:300])
             continue
-        oid = f"dry-{key}"
-        first = steps(x["count"])[0]
+        # a new side: canary first, unless this side already passed its canary today (re-entry after stepping aside)
+        first = tgt_n if passed.get(key) == today else steps(tgt_n)[0]
+        oid = f"dry-{key}"; coid = ""
         if live:
             try:
-                r = c.place(tk, outcome, PRICE_CENTS, first, expires=int(ts(x["end"]).timestamp()))
+                r = c.place(tk, outcome, tgt_c, first, expires=int(ts(x["end"]).timestamp()))
             except Exception as e:                               # one rejected market must not stop the loop
                 log(event="place_error", key=key, err=str(e)[:300])
                 if "market_not_found" in str(e):
-                    st.setdefault("skip", []).append(tk)             # not on our routing: don't retry it every loop
+                    st.setdefault("skip", []).append(tk)
                 continue
             oid = (r.get("order") or r).get("order_id") or r.get("order_id"); coid = r.get("client_order_id", "")
             st.setdefault("order_ids", []).append(oid)
-            st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": first, "order_id": oid, "end": x["end"],
-                                 "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0, "full": x["count"], "est": 0.0}
-            if CANARY:
-                bump(st, "canary_tried")
-            save_state(st)
-            if not st["verified"]:
-                if not verify(c, oid, outcome, coid):
-                    embed("🔴 Bot stopped — order check failed", RED, [("What happened", "The first order did not appear on Kalshi as intended.", False),
-                          ("Action", "All resting orders cancelled; the bot will not restart on its own. Details in lip_log.jsonl.", False)])
-                    shutdown(c, st); sys.exit(2)
-                st["verified"] = True
-        st["orders"].setdefault(key, {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": first, "order_id": oid, "end": x["end"],
-                                      "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0, "full": x["count"], "est": 0.0})
-        log(event="place", key=key, count=first, cents=PRICE_CENTS, mode=MODE)
+        st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": tgt_c, "count": first, "order_id": oid, "end": x["end"], "pid": x["pid"],
+                             "placed": now.isoformat(timespec="seconds"), "step_time": now.isoformat(timespec="seconds"),
+                             "step": len(steps(tgt_n)) - 1 if first == tgt_n else 0, "full": tgt_n, "est": 0.0}
+        if CANARY and first < tgt_n:
+            bump(st, "canary_tried")
+        save_state(st)
+        if live and not st["verified"]:
+            if not verify(c, oid, outcome, coid, tgt_c):
+                embed("🔴 Bot stopped — order check failed", RED, [("What happened", "The first order did not appear on Kalshi as intended.", False),
+                      ("Action", "All resting orders cancelled; the bot will not restart on its own. Details in the log.", False)])
+                shutdown(c, st); sys.exit(2)
+            st["verified"] = True
+        log(event="place", key=key, count=first, cents=tgt_c, mode=MODE, reentry=first == tgt_n and bool(CANARY))
     # accrue the estimate for this loop (our share now x the programme's reward rate x the loop length)
     acc = 0.0
     for x in chosen:
