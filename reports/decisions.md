@@ -14326,6 +14326,22 @@ across samples. **Read:** it is a candidate income stream if the estimated earni
 real orders, small size, the user's go-ahead) comes after. Risks named now: other quoters doing the same (shares fall), programme changes or
 end (sources say January 2027), Kalshi treating it as abusive (its rules score size × distance and say nothing against far orders).
 
+## 693. A79: completing thin books in Kalshi's liquidity programme measures as a large, persistent gap — a live test is the next step (S10)
+
+**No trial (a measurement of the present, not an edge test).** `reports/lip_sampler.jsonl` (22 sweeps, two independent random samples of
+~500 active programmes — the afternoon run continued through the planned shutdown while a resumed run drew a fresh 500; split in
+`kalshi/lip_summary.py`), 2026-10-17 20:59Z → 2026-10-18 00:50Z. Posting the target size at 1¢ on every side below target would have earned
+(by the published scoring, given every other resting order seen): **sample A $1,578 a day (range $1,305–2,120) on $620 of collateral; sample B
+$1,380 a day ($1,063–1,746) on $554**; ~10–12% of sampled programmes are thin at any sweep; **96% / 90% of thin sides are still thin 15 minutes
+later**; the top 10 markets carry a third of the total; leading series: KXRAIN, KXRT (Rotten Tomatoes), state daily / weekly gas (KXAAAGASD…),
+mentions and weekly event markets. Scaled to all ~6,700 programmes: **~$18,500–21,600 a day — an upper bound** (no copycats, payout exactly
+as written). The official terms (CFTC filing, 2026-07-15) set no price restriction on qualifying bids and **exclude members with a Market
+Maker Agreement** — the likeliest reason the gap persists. **Caveats:** estimates, not payouts — Kalshi actually paying as written is
+untested; copycats split a side's share; the programme ends by 2027-01-01 at the latest and may end any time; Kalshi may revoke a participant
+judged "inconsistent with the purpose of the Program"; a filled 1¢ bid loses its 1¢ if the long shot does not happen (≤ $10 a market). **Next:
+a small live test** (≈10 persistent thin markets, 1,000 contracts at 1¢ each, ~$100 of collateral, 3–5 days) on the user's go-ahead and
+account; payouts compared with these estimates before any scale-up.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
