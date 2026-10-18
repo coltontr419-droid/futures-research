@@ -14447,6 +14447,12 @@ bid at 3¢ takes the whole side under the scoring (bids below the target cut-off
 the clock**. Unit-checked and dry-run on both configurations first. A dry check showed most long programmes (6–8 days) sit on markets closing
 within 3 days, so the long probe currently has few candidates (the market-close rule is doing its job).
 
+## 703. The liquidity bots post to their own Discord bot and channel (S10)
+
+**No trial.** The user created a separate Discord bot and channel so the futures demo channel is not flooded. `/opt/kalshi-lip/discord.env`
+(token and channel id, entered by the user, 600; never read or printed); both bots' env files set `DISCORD_ENV` to it; a test embed was sent
+and both bots restarted (2026-10-18). The futures demo bot is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
