@@ -1,0 +1,548 @@
+[
+ {
+  "group": "ALL",
+  "price": "all",
+  "time_left": "all",
+  "trades": 286641,
+  "contracts": 35103851.97000463,
+  "win_rate_trades": 0.9868267275093235,
+  "wilson_trades": [
+   0.9864027531970933,
+   0.9872376529660715
+  ],
+  "markets": 24458,
+  "markets_where_favourite_lost": 497,
+  "market_win_rate": 0.9796794504865484,
+  "wilson_markets": [
+   0.9778343568288892,
+   0.9813738820144201
+  ],
+  "net_total": 171991.28130442806,
+  "net_per_contract": 0.004899498819998168
+ },
+ {
+  "group": "Miami hourly temperature",
+  "price": "97c",
+  "time_left": "all",
+  "trades": 13401,
+  "contracts": 364047.97000000224,
+  "win_rate_trades": 0.9720916349526155,
+  "wilson_trades": [
+   0.9691647192171844,
+   0.9747479637943031
+  ],
+  "markets": 4087,
+  "markets_where_favourite_lost": 143,
+  "market_win_rate": 0.9650110105211647,
+  "wilson_markets": [
+   0.9589264755359861,
+   0.9702221866854991
+  ],
+  "net_total": -5118.566614889653,
+  "net_per_contract": -0.014060143268728077
+ },
+ {
+  "group": "Miami hourly temperature",
+  "price": "98c",
+  "time_left": "all",
+  "trades": 17934,
+  "contracts": 658385.340000008,
+  "win_rate_trades": 0.9819337571094011,
+  "wilson_trades": [
+   0.979878661295789,
+   0.9837824293451274
+  ],
+  "markets": 3692,
+  "markets_where_favourite_lost": 99,
+  "market_win_rate": 0.9731852654387866,
+  "wilson_markets": [
+   0.9674620904170965,
+   0.9779247465079491
+  ],
+  "net_total": 6076.0021135194975,
+  "net_per_contract": 0.009228641259720977
+ },
+ {
+  "group": "Miami hourly temperature",
+  "price": "99c",
+  "time_left": "all",
+  "trades": 42460,
+  "contracts": 3193939.719999999,
+  "win_rate_trades": 0.9934997644842204,
+  "wilson_trades": [
+   0.9926894614445401,
+   0.9942207760879962
+  ],
+  "markets": 7074,
+  "markets_where_favourite_lost": 93,
+  "market_win_rate": 0.9868532654792197,
+  "wilson_markets": [
+   0.9839222614312547,
+   0.9892557763479461
+  ],
+  "net_total": 19798.656974041114,
+  "net_per_contract": 0.006198819861898058
+ },
+ {
+  "group": "Miami hourly temperature",
+  "price": "all",
+  "time_left": "<= 1 h",
+  "trades": 73795,
+  "contracts": 4216373.029999914,
+  "win_rate_trades": 0.9868012737990379,
+  "wilson_trades": [
+   0.985952141053817,
+   0.9875997256464865
+  ],
+  "markets": 7655,
+  "markets_where_favourite_lost": 192,
+  "market_win_rate": 0.9749183540169823,
+  "wilson_markets": [
+   0.9711698818758142,
+   0.9781903973601476
+  ],
+  "net_total": 20756.092472675486,
+  "net_per_contract": 0.004922736277125819
+ },
+ {
+  "group": "Miami hourly temperature",
+  "price": "all",
+  "time_left": "all",
+  "trades": 73795,
+  "contracts": 4216373.029999914,
+  "win_rate_trades": 0.9868012737990379,
+  "wilson_trades": [
+   0.985952141053817,
+   0.9875997256464865
+  ],
+  "markets": 7655,
+  "markets_where_favourite_lost": 192,
+  "market_win_rate": 0.9749183540169823,
+  "wilson_markets": [
+   0.9711698818758142,
+   0.9781903973601476
+  ],
+  "net_total": 20756.092472675486,
+  "net_per_contract": 0.004922736277125819
+ },
+ {
+  "group": "daily high temperature",
+  "price": "97c",
+  "time_left": "all",
+  "trades": 40075,
+  "contracts": 865227.7300000135,
+  "win_rate_trades": 0.9685589519650655,
+  "wilson_trades": [
+   0.9668049693691615,
+   0.9702231108036946
+  ],
+  "markets": 1662,
+  "markets_where_favourite_lost": 55,
+  "market_win_rate": 0.96690734055355,
+  "wilson_markets": [
+   0.9571732999041099,
+   0.9744879096610733
+  ],
+  "net_total": -11015.716986007328,
+  "net_per_contract": -0.012731581067110686
+ },
+ {
+  "group": "daily high temperature",
+  "price": "98c",
+  "time_left": "all",
+  "trades": 46931,
+  "contracts": 1205615.3000000194,
+  "win_rate_trades": 0.9857663378150903,
+  "wilson_trades": [
+   0.9846541888599087,
+   0.9867989671682136
+  ],
+  "markets": 1824,
+  "markets_where_favourite_lost": 39,
+  "market_win_rate": 0.9786184210526315,
+  "wilson_markets": [
+   0.9709051189233229,
+   0.9843198852564704
+  ],
+  "net_total": 3149.681808399181,
+  "net_per_contract": 0.0026125098183468064
+ },
+ {
+  "group": "daily high temperature",
+  "price": "99c",
+  "time_left": "all",
+  "trades": 59219,
+  "contracts": 2513121.1799999257,
+  "win_rate_trades": 0.9946638747699218,
+  "wilson_trades": [
+   0.9940441479018276,
+   0.9952194270496317
+  ],
+  "markets": 1884,
+  "markets_where_favourite_lost": 28,
+  "market_win_rate": 0.9851380042462845,
+  "wilson_markets": [
+   0.9786038939204553,
+   0.9896976839237874
+  ],
+  "net_total": 10091.36882226101,
+  "net_per_contract": 0.004015472434266504
+ },
+ {
+  "group": "daily high temperature",
+  "price": "all",
+  "time_left": "1-6 h",
+  "trades": 2807,
+  "contracts": 99288.47999999995,
+  "win_rate_trades": 0.9690060562878517,
+  "wilson_trades": [
+   0.9619263000283733,
+   0.9748038237893473
+  ],
+  "markets": 53,
+  "markets_where_favourite_lost": 2,
+  "market_win_rate": 0.9622641509433962,
+  "wilson_markets": [
+   0.8724547684904087,
+   0.9895899311661808
+  ],
+  "net_total": -4552.841885529911,
+  "net_per_contract": -0.04585468410363331
+ },
+ {
+  "group": "daily high temperature",
+  "price": "all",
+  "time_left": "6-24 h",
+  "trades": 117669,
+  "contracts": 3883170.249999849,
+  "win_rate_trades": 0.9844309036364718,
+  "wilson_trades": [
+   0.9837075490265865,
+   0.9851226283522523
+  ],
+  "markets": 1630,
+  "markets_where_favourite_lost": 47,
+  "market_win_rate": 0.9711656441717792,
+  "wilson_markets": [
+   0.9618681969298593,
+   0.978247417704999
+  ],
+  "net_total": 4805.626053084736,
+  "net_per_contract": 0.0012375522430634923
+ },
+ {
+  "group": "daily high temperature",
+  "price": "all",
+  "time_left": "<= 1 h",
+  "trades": 361,
+  "contracts": 18458.700000000004,
+  "win_rate_trades": 1.0,
+  "wilson_trades": [
+   0.9894704989781866,
+   1.0
+  ],
+  "markets": 20,
+  "markets_where_favourite_lost": 0,
+  "market_win_rate": 1.0,
+  "wilson_markets": [
+   0.8388698745050667,
+   0.9999999999999998
+  ],
+  "net_total": 205.24789496000054,
+  "net_per_contract": 0.011119303903308493
+ },
+ {
+  "group": "daily high temperature",
+  "price": "all",
+  "time_left": "> 24 h",
+  "trades": 25388,
+  "contracts": 583046.7800000021,
+  "win_rate_trades": 0.9871986765400976,
+  "wilson_trades": [
+   0.9857402695613542,
+   0.9885096643229213
+  ],
+  "markets": 897,
+  "markets_where_favourite_lost": 19,
+  "market_win_rate": 0.9788182831661093,
+  "wilson_markets": [
+   0.967154296430312,
+   0.9863984702270006
+  ],
+  "net_total": 1767.3015821399488,
+  "net_per_contract": 0.0030311488593418564
+ },
+ {
+  "group": "daily high temperature",
+  "price": "all",
+  "time_left": "all",
+  "trades": 146225,
+  "contracts": 4583964.209999785,
+  "win_rate_trades": 0.984653786972132,
+  "wilson_trades": [
+   0.9840108658764206,
+   0.9852712432420585
+  ],
+  "markets": 1884,
+  "markets_where_favourite_lost": 56,
+  "market_win_rate": 0.970276008492569,
+  "wilson_markets": [
+   0.9615986892049132,
+   0.9770393829723286
+  ],
+  "net_total": 2225.3336446544463,
+  "net_per_contract": 0.00048546051904156353
+ },
+ {
+  "group": "state daily gas",
+  "price": "97c",
+  "time_left": "all",
+  "trades": 7913,
+  "contracts": 908683.9000000013,
+  "win_rate_trades": 0.9825603437381524,
+  "wilson_trades": [
+   0.9794331345140214,
+   0.9852192339254331
+  ],
+  "markets": 4215,
+  "markets_where_favourite_lost": 85,
+  "market_win_rate": 0.9798339264531435,
+  "wilson_markets": [
+   0.9751327919553685,
+   0.9836612049560111
+  ],
+  "net_total": 18859.6778957017,
+  "net_per_contract": 0.02075493787850943
+ },
+ {
+  "group": "state daily gas",
+  "price": "98c",
+  "time_left": "all",
+  "trades": 13626,
+  "contracts": 2256270.4600000023,
+  "win_rate_trades": 0.9887714663143989,
+  "wilson_trades": [
+   0.9868593802326091,
+   0.9904080298303223
+  ],
+  "markets": 6527,
+  "markets_where_favourite_lost": 84,
+  "market_win_rate": 0.987130381492263,
+  "wilson_markets": [
+   0.9840952211131474,
+   0.989592457975563
+  ],
+  "net_total": 25365.766128881736,
+  "net_per_contract": 0.011242342874480442
+ },
+ {
+  "group": "state daily gas",
+  "price": "99c",
+  "time_left": "all",
+  "trades": 44792,
+  "contracts": 23079624.92000002,
+  "win_rate_trades": 0.9940391141275228,
+  "wilson_trades": [
+   0.9932826446134866,
+   0.9947108480682091
+  ],
+  "markets": 13295,
+  "markets_where_favourite_lost": 154,
+  "market_win_rate": 0.9884166980067695,
+  "wilson_markets": [
+   0.9864515533063615,
+   0.9900996675157588
+  ],
+  "net_total": 104006.36913043931,
+  "net_per_contract": 0.004506415051845618
+ },
+ {
+  "group": "state daily gas",
+  "price": "all",
+  "time_left": "1-6 h",
+  "trades": 21382,
+  "contracts": 6567656.3499999745,
+  "win_rate_trades": 0.9918155457861753,
+  "wilson_trades": [
+   0.9905164273764295,
+   0.9929379717247029
+  ],
+  "markets": 6846,
+  "markets_where_favourite_lost": 87,
+  "market_win_rate": 0.9872918492550394,
+  "wilson_markets": [
+   0.9843518717451187,
+   0.9896852505147596
+  ],
+  "net_total": 42346.14823316374,
+  "net_per_contract": 0.006447680264690448
+ },
+ {
+  "group": "state daily gas",
+  "price": "all",
+  "time_left": "6-24 h",
+  "trades": 40294,
+  "contracts": 18901145.13,
+  "win_rate_trades": 0.9921080061547625,
+  "wilson_trades": [
+   0.9911958718262177,
+   0.9929263150057441
+  ],
+  "markets": 10144,
+  "markets_where_favourite_lost": 147,
+  "market_win_rate": 0.9855086750788643,
+  "wilson_markets": [
+   0.9829924629096393,
+   0.9876572957543114
+  ],
+  "net_total": 100222.46556250576,
+  "net_per_contract": 0.0053024546858503364
+ },
+ {
+  "group": "state daily gas",
+  "price": "all",
+  "time_left": "<= 1 h",
+  "trades": 4655,
+  "contracts": 775777.7999999999,
+  "win_rate_trades": 0.9860365198711063,
+  "wilson_trades": [
+   0.9822425302562979,
+   0.9890289549128909
+  ],
+  "markets": 2032,
+  "markets_where_favourite_lost": 39,
+  "market_win_rate": 0.9808070866141733,
+  "wilson_markets": [
+   0.9738711499622911,
+   0.985928472955327
+  ],
+  "net_total": 5663.199359359925,
+  "net_per_contract": 0.007300027610173849
+ },
+ {
+  "group": "state daily gas",
+  "price": "all",
+  "time_left": "all",
+  "trades": 66331,
+  "contracts": 26244579.28000025,
+  "win_rate_trades": 0.9915876437864648,
+  "wilson_trades": [
+   0.9908635523506156,
+   0.9922547973282354
+  ],
+  "markets": 14903,
+  "markets_where_favourite_lost": 249,
+  "market_win_rate": 0.9832919546400054,
+  "wilson_markets": [
+   0.9811060106926095,
+   0.9852288029811335
+  ],
+  "net_total": 148231.81315503066,
+  "net_per_contract": 0.005648092566985484
+ },
+ {
+  "group": "weekly executive orders",
+  "price": "97c",
+  "time_left": "all",
+  "trades": 52,
+  "contracts": 5931.24,
+  "win_rate_trades": 1.0,
+  "wilson_trades": [
+   0.9312054095871177,
+   1.0
+  ],
+  "markets": 14,
+  "markets_where_favourite_lost": 0,
+  "market_win_rate": 1.0,
+  "wilson_markets": [
+   0.7846829880728186,
+   1.0
+  ],
+  "net_total": 165.85526412000016,
+  "net_per_contract": 0.027963000000000026
+ },
+ {
+  "group": "weekly executive orders",
+  "price": "98c",
+  "time_left": "all",
+  "trades": 89,
+  "contracts": 12753.630000000001,
+  "win_rate_trades": 1.0,
+  "wilson_trades": [
+   0.9586219970358115,
+   1.0
+  ],
+  "markets": 16,
+  "markets_where_favourite_lost": 0,
+  "market_win_rate": 1.0,
+  "wilson_markets": [
+   0.8063865817272801,
+   1.0
+  ],
+  "net_total": 237.57461964000018,
+  "net_per_contract": 0.018628000000000013
+ },
+ {
+  "group": "weekly executive orders",
+  "price": "99c",
+  "time_left": "all",
+  "trades": 149,
+  "contracts": 40250.579999999994,
+  "win_rate_trades": 1.0,
+  "wilson_trades": [
+   0.9748654816489752,
+   1.0
+  ],
+  "markets": 16,
+  "markets_where_favourite_lost": 0,
+  "market_win_rate": 1.0,
+  "wilson_markets": [
+   0.8063865817272801,
+   1.0
+  ],
+  "net_total": 374.61214806000044,
+  "net_per_contract": 0.009307000000000011
+ },
+ {
+  "group": "weekly executive orders",
+  "price": "all",
+  "time_left": "> 24 h",
+  "trades": 290,
+  "contracts": 58935.45000000001,
+  "win_rate_trades": 1.0,
+  "wilson_trades": [
+   0.9869262895383092,
+   1.0
+  ],
+  "markets": 16,
+  "markets_where_favourite_lost": 0,
+  "market_win_rate": 1.0,
+  "wilson_markets": [
+   0.8063865817272801,
+   1.0
+  ],
+  "net_total": 778.0420318199997,
+  "net_per_contract": 0.013201596523314907
+ },
+ {
+  "group": "weekly executive orders",
+  "price": "all",
+  "time_left": "all",
+  "trades": 290,
+  "contracts": 58935.45000000001,
+  "win_rate_trades": 1.0,
+  "wilson_trades": [
+   0.9869262895383092,
+   1.0
+  ],
+  "markets": 16,
+  "markets_where_favourite_lost": 0,
+  "market_win_rate": 1.0,
+  "wilson_markets": [
+   0.8063865817272801,
+   1.0
+  ],
+  "net_total": 778.0420318199997,
+  "net_per_contract": 0.013201596523314907
+ }
+]

@@ -14504,6 +14504,19 @@ of the time (≈ 99.3% at 1¢).
    where the win rate's lower bound clears break-even with room**; a positive aggregate dominated by one rare loss is reported as such.
    No orders are placed; this measures what others earned.
 
+## 709. A82: selling long shots near settlement is thinly profitable in state gas, with clustered tail days; the short canary test ends at $0 (S10)
+
+**No trial.** `reports/a82_taker.json` (modules `kalshi/a82_download.py`, `a82_analyse.py`; 45 days, 2,649 events, 24,458 markets, 286,641
+long-shot sales, 35.1M contracts; a first pass hit Kalshi's trade-endpoint rate limit and was completed by a slower second pass). Takers who
+bought the favourite at 97–99¢: **all +0.49¢ a contract after fees ($172K)**; **state daily gas +0.56¢ ($148K on 26.2M), favourite 99.16%, positive
+at every price (97¢ +2.08¢, 98¢ +1.12¢, 99¢ +0.45¢) and every time-to-close**; Miami hourly +0.49¢ but −1.41¢ at 97¢; daily highs +0.05¢;
+executive orders +1.32¢ (16 markets). **Gas losses cluster: 40 of 45 days positive (median +$4,525), worst day 2026-10-14 −$41,314 (favourite
+lost in 30 of 709 markets), then −$10,169, −$7,600, −$6,116, −$5,029.** Capital-heavy: ~99¢ tied up per contract to earn ~0.56¢. A candidate
+only with a model that avoids the moving days (wholesale gasoline leads retail by a day or two).
+**Short canary test (§700–706) ended:** cash $0.90 of $150; fills $114.24 (10 large fills after passed canaries, $109); estimated rewards
+$85.02 (unpaid); 152 canaries tried, 23 swept, 41 passed — and most passed ones were filled later. Bot stopped, disabled, orders cancelled.
+**Short programmes are closed.** Remaining: ~$102 of long-shot positions settling over the coming days.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
