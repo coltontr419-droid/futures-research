@@ -1,0 +1,4699 @@
+{
+ "time": "2026-10-18T02:00:36+00:00",
+ "long": {
+  "label": "long (>= 6 days)",
+  "programmes": 3357,
+  "completable": 71,
+  "rows": [
+   {
+    "ticker": "KXYTVIEWSHIGH-TAT26NOV-2.7M",
+    "series": "KXYTVIEWSHIGH",
+    "dur_days": 14,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 3.571428571428571,
+    "fills_day": 0.0,
+    "net_day": 3.571428571428571,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3130.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7270",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUT26OCT18-4.5M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2930.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-188",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-182",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-OLI26OCT18-7.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2610.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXTRUMPSAYMONTH-26NOV01-NEWS",
+    "series": "KXTRUMPSAYMONTH",
+    "dur_days": 14,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 3.571428571428571,
+    "fills_day": 100.33333333333333,
+    "net_day": 2.5680952380952378,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 301.0
+    },
+    "ahead": {
+     "yes": 5215.95,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-YOU26OCT18-5.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3750.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASMINM-26OCT31-4.30",
+    "series": "KXAAAGASMINM",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 7.142857142857142,
+    "fills_day": 791.6999999999999,
+    "net_day": -0.7741428571428575,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2375.1
+    },
+    "ahead": {
+     "yes": 1001.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUT26OCT18-5.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2270.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-BAD26OCT18-23.5M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 1300.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-174",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXFEAR-26OCT16-NEUT",
+    "series": "KXFEAR",
+    "dur_days": 14,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 7.142857142857142,
+    "fills_day": 1285.4466666666667,
+    "net_day": -5.711609523809525,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 3856.34,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7290",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-KEN26OCT18-4.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 450.0,
+    "net_day": 1.8157894736842106,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1350.0
+    },
+    "ahead": {
+     "yes": 2810.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXWEEKSNUM1-26DEC26-TAYL-5",
+    "series": "KXWEEKSNUM1",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 7.142857142857142,
+    "fills_day": 985.6666666666666,
+    "net_day": -2.713809523809525,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2957.0
+    },
+    "ahead": {
+     "yes": 7511.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-OLI26OCT18-5.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 551.0,
+    "net_day": 0.8057894736842108,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1653.0
+    },
+    "ahead": {
+     "yes": 2610.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7260",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUE26OCT18-13.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2920.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7265",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-180",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-WEE26OCT18-13.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3770.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUE26OCT18-17.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3580.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-KAT26OCT18-13.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2710.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUE26OCT18-12.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3060.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7320",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-168",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXFEAR-26OCT16-FEAR",
+    "series": "KXFEAR",
+    "dur_days": 14,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 7.142857142857142,
+    "fills_day": 333.6666666666667,
+    "net_day": 3.8061904761904755,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 1001.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-DRA26OCT18-11.75M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3570.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-176",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUT26OCT18-4.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 1153.0,
+    "net_day": -5.214210526315789,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 3459.0
+    },
+    "ahead": {
+     "yes": 2660.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7240",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-DRA26OCT18-11.25M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 1300.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-192",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUE26OCT18-14.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2980.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-ARI26OCT18-19.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "yes"
+    ],
+    "share": 0.47619047619047616,
+    "reward_day": 6.015037593984962,
+    "fills_day": 1083.3333333333333,
+    "net_day": -4.81829573934837,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 3300.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 50.0,
+     "no": 1001.0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-KAT26OCT18-12.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2460.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUE26OCT18-18.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 4260.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-KEN26OCT18-4.5M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3060.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7280",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUE26OCT18-16.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3070.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-TAT26OCT18-2.4M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 1491.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-POS26OCT18-5.5M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3670.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXTRUMPSAY-26OCT19-MAKE",
+    "series": "KXTRUMPSAY",
+    "dur_days": 6,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.329198709087131,
+    "fills_day": 1020.3233333333333,
+    "net_day": -2.8740346242462023,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 3060.97,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 317.0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7310",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-WEE26OCT18-12.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.3333333333333333,
+    "net_day": 6.312456140350878,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1.0
+    },
+    "ahead": {
+     "yes": 3560.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXDPZ-26OCTSTORES-7300",
+    "series": "KXDPZ",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-OLI26OCT18-4.5M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 833.3333333333334,
+    "net_day": -2.0175438596491233,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2500.0
+    },
+    "ahead": {
+     "yes": 3010.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-190",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-WEE26OCT18-18.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 128.58666666666667,
+    "net_day": 5.0299228070175435,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 385.76
+    },
+    "ahead": {
+     "yes": 2860.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXWNBAFINALSMVP-26-THAYES15",
+    "series": "KXWNBAFINALSMVP",
+    "dur_days": 7,
+    "need": [
+     "yes"
+    ],
+    "share": 0.3786587905638229,
+    "reward_day": 5.4094112937688985,
+    "fills_day": 787.1866666666666,
+    "net_day": -2.462455372897768,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2682.0099999999998,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 320.45,
+     "no": 798078.0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-ARI26OCT18-19.5M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "yes"
+    ],
+    "share": 0.47619047619047616,
+    "reward_day": 6.015037593984962,
+    "fills_day": 1148.3333333333333,
+    "net_day": -5.46829573934837,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 3495.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 50.0,
+     "no": 1001.0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-172",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-WEE26OCT18-16.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3520.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXSUPERBOWLHEADLINE-27-EDS",
+    "series": "KXSUPERBOWLHEADLINE",
+    "dur_days": 7,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.142857142857142,
+    "fills_day": 0.0,
+    "net_day": 7.142857142857142,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 1727.73
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-WEE26OCT18-14.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2750.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXNEXTPRESSECPERM-29JAN20-MBOY",
+    "series": "KXNEXTPRESSECPERM",
+    "dur_days": 7,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 11.428571428571429,
+    "fills_day": 3178.113333333334,
+    "net_day": -20.352561904761913,
+    "collateral": 25.0,
+    "traded_1c_72h": {
+     "yes": 9534.340000000002,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 9850.0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-DRA26OCT18-11.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2870.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXFEAR-26OCT16-XGREE",
+    "series": "KXFEAR",
+    "dur_days": 14,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 7.142857142857142,
+    "fills_day": 4.0,
+    "net_day": 7.102857142857142,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 12.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-YOU26OCT18-6.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3060.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-KAT26OCT18-11.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 1333.3333333333333,
+    "net_day": -7.0175438596491215,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 4000.0
+    },
+    "ahead": {
+     "yes": 2870.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-178",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-FUE26OCT18-11.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2880.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXFEAR-26OCT16-GREE",
+    "series": "KXFEAR",
+    "dur_days": 14,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 7.142857142857142,
+    "fills_day": 826.79,
+    "net_day": -1.1250428571428568,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 2480.37,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-186",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-WEE26OCT18-17.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3160.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-YE26OCT18-4.0M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 1300.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-184",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXBA-26OCTDELIV-170",
+    "series": "KXBA",
+    "dur_days": 7,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 14.285714285714285,
+    "fills_day": 0.0,
+    "net_day": 14.285714285714285,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-DRA26OCT18-11.5M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3020.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTVIEWSW-TAT26OCT18-2.6M",
+    "series": "KXYTVIEWSW",
+    "dur_days": 7,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 6.315789473684211,
+    "fills_day": 0.0,
+    "net_day": 6.315789473684211,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 1300.0,
+     "no": 0
+    }
+   }
+  ],
+  "net_day": 468.7336596269164,
+  "reward_day": 628.678459626916,
+  "fill_cost_day": 159.9448
+ },
+ "short_control": {
+  "label": "short control (<= 2 days)",
+  "programmes": 1807,
+  "completable": 276,
+  "rows": [
+   {
+    "ticker": "KXAAAGASDME-26OCT18-4.3950",
+    "series": "KXAAAGASDME",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 53.333333333333336,
+    "net_day": 74.39501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 162.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCA-26OCT18-6.2050",
+    "series": "KXAAAGASDCA",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.5000000000043516,
+    "reward_day": 75.07820646572121,
+    "fills_day": 495.6666666666667,
+    "net_day": 70.12153979905455,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 1487.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNY-26OCT18-4.4000",
+    "series": "KXAAAGASDNY",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 734.6666666666666,
+    "net_day": 67.58168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2206.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNE-26OCT18-4.1500",
+    "series": "KXAAAGASDNE",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 1667.28,
+    "net_day": 58.405406465067784,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 5001.84
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDOR-26OCT18-4.9350",
+    "series": "KXAAAGASDOR",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.3779289493575208,
+    "reward_day": 56.748455377980186,
+    "fills_day": 0.0,
+    "net_day": 56.748455377980186,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 160.0,
+     "no": 323.0
+    }
+   },
+   {
+    "ticker": "KXTXERCOTPEAKD-26OCT18-T52500",
+    "series": "KXTXERCOTPEAKD",
+    "dur_days": 1,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 1.0,
+    "reward_day": 50.0,
+    "fills_day": 0.0,
+    "net_day": 50.0,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXTRUTHSOCIALD-26OCT17-B22",
+    "series": "KXTRUTHSOCIALD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 50.03474635163308,
+    "fills_day": 45.0,
+    "net_day": 49.58474635163308,
+    "collateral": 25.0,
+    "traded_1c_72h": {
+     "yes": 135.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 1250.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDUT-26OCT18-4.7700",
+    "series": "KXAAAGASDUT",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.5000000000000001,
+    "reward_day": 75.0782064650678,
+    "fills_day": 735.79,
+    "net_day": 67.7203064650678,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2207.37
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6750",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 47.0,
+    "net_day": 74.60820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 141.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDFL-26OCT18-4.1600",
+    "series": "KXAAAGASDFL",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 115.66666666666667,
+    "net_day": 73.92153979840111,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 347.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDDE-26OCT18-4.0400",
+    "series": "KXAAAGASDDE",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 639.3333333333334,
+    "net_day": 68.53501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1920.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXYTDAILYTOPVIDEOG-26OCT17-PAR",
+    "series": "KXYTDAILYTOPVIDEOG",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.06864636456857,
+    "fills_day": 450.0,
+    "net_day": 2.56864636456857,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1350.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2726.0
+    }
+   },
+   {
+    "ticker": "KXYTDAILYTOPVIDEOG-26OCT17-BAS",
+    "series": "KXYTDAILYTOPVIDEOG",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646363411955,
+    "fills_day": 255.66666666666666,
+    "net_day": 4.511979696745288,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 767.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2726.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMT-26OCT18-4.4350",
+    "series": "KXAAAGASDMT",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 625.0,
+    "net_day": 68.67834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1877.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDGA-26OCT18-3.7750",
+    "series": "KXAAAGASDGA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 734.3333333333334,
+    "net_day": 67.73487313173445,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2203.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCA-26OCT18-6.1550",
+    "series": "KXAAAGASDCA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 841.0,
+    "net_day": 66.66820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2523.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEOG2D-26OCT17-PAR",
+    "series": "KXYTTOPVIDEOG2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646355373482,
+    "fills_day": 873.3333333333334,
+    "net_day": -1.6646869779598523,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2620.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2076.0
+    }
+   },
+   {
+    "ticker": "KXYTDAILYTOPVIDEOG-26OCT17-SHA",
+    "series": "KXYTDAILYTOPVIDEOG",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.0686463647998945,
+    "fills_day": 450.0,
+    "net_day": 2.5686463647998945,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1350.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2726.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDIN-26OCT18-3.8500",
+    "series": "KXAAAGASDIN",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 72.33333333333333,
+    "net_day": 74.35487313173445,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 217.0
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDGA-26OCT18-3.7550",
+    "series": "KXAAAGASDGA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 255.0,
+    "net_day": 72.52820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 765.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNM-26OCT18-4.3900",
+    "series": "KXAAAGASDNM",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4191114836546521,
+    "reward_day": 62.9322770034097,
+    "fills_day": 338.6666666666667,
+    "net_day": 59.54561033674304,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1209.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 193.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEOG2D-26OCT17-BBY",
+    "series": "KXYTTOPVIDEOG2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.0686463567035895,
+    "fills_day": 566.6666666666666,
+    "net_day": 1.4019796900369235,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1700.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2076.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDWY-26OCT18-4.5350",
+    "series": "KXAAAGASDWY",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4703226413319538,
+    "reward_day": 70.6219607422329,
+    "fills_day": 27.666666666666668,
+    "net_day": 70.34529407556623,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 135.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 52.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSC-26OCT18-3.8900",
+    "series": "KXAAAGASDSC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 128.33333333333334,
+    "net_day": 73.64501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 387.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCA-26OCT18-6.2200",
+    "series": "KXAAAGASDCA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 133.66666666666666,
+    "net_day": 73.7415397984011,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 401.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDRI-26OCT18-4.2650",
+    "series": "KXAAAGASDRI",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 448.3333333333333,
+    "net_day": 70.44501643220337,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1347.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 954.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDND-26OCT18-4.2000",
+    "series": "KXAAAGASDND",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.484027105517909,
+    "reward_day": 72.67977392552544,
+    "fills_day": 41.666666666666664,
+    "net_day": 72.26310725885877,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 158.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 33.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMO-26OCT18-3.9150",
+    "series": "KXAAAGASDMO",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 69.0,
+    "net_day": 74.38820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 207.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDVT-26OCT18-4.4350",
+    "series": "KXAAAGASDVT",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 65.0,
+    "net_day": 74.42820646506777,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 195.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSC-26OCT18-3.8800",
+    "series": "KXAAAGASDSC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 116.66666666666667,
+    "net_day": 73.76168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 352.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCT-26OCT18-4.3500",
+    "series": "KXAAAGASDCT",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 3694.3199999999997,
+    "net_day": 38.13500646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 11082.96
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNE-26OCT18-4.1350",
+    "series": "KXAAAGASDNE",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 464.0,
+    "net_day": 70.43820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1392.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDDE-26OCT18-4.1000",
+    "series": "KXAAAGASDDE",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 50.0,
+    "net_day": 74.42834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 152.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAR-26OCT18-3.9550",
+    "series": "KXAAAGASDAR",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 686.6666666666666,
+    "net_day": 68.06168309887005,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2062.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEOG2D-26OCT17-KALY",
+    "series": "KXYTTOPVIDEOG2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.06864635583613,
+    "fills_day": 566.6666666666666,
+    "net_day": 1.4019796891694636,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1700.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2076.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCA-26OCT18-6.2100",
+    "series": "KXAAAGASDCA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 443.3333333333333,
+    "net_day": 70.64487313173444,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1330.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDND-26OCT18-4.1950",
+    "series": "KXAAAGASDND",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4752851711026616,
+    "reward_day": 71.36711641166139,
+    "fills_day": 28.333333333333332,
+    "net_day": 71.08378307832805,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 137.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 52.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDPA-26OCT18-4.5050",
+    "series": "KXAAAGASDPA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 974.3000000000001,
+    "net_day": 65.18534976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2924.9,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAL-26OCT18-3.9400",
+    "series": "KXAAAGASDAL",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 771.6666666666666,
+    "net_day": 67.21168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2317.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXTXERCOTPEAKD-26OCT18-T50500",
+    "series": "KXTXERCOTPEAKD",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 25.0,
+    "fills_day": 0.0,
+    "net_day": 25.0,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 1350.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDVA-26OCT18-4.1150",
+    "series": "KXAAAGASDVA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 397.3333333333333,
+    "net_day": 70.95501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1194.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNE-26OCT18-4.1600",
+    "series": "KXAAAGASDNE",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 107.0,
+    "net_day": 73.85834976553672,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 323.0
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDOH-26OCT18-4.1150",
+    "series": "KXAAAGASDOH",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 179.33333333333334,
+    "net_day": 73.13501643220337,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 540.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSD-26OCT18-4.2800",
+    "series": "KXAAAGASDSD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4340277777777778,
+    "reward_day": 65.17205422314912,
+    "fills_day": 0.0,
+    "net_day": 65.17205422314912,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 152.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNY-26OCT18-4.4700",
+    "series": "KXAAAGASDNY",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 201.66666666666666,
+    "net_day": 72.91168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 607.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 1225.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMA-26OCT18-4.2550",
+    "series": "KXAAAGASDMA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 2051.6666666666665,
+    "net_day": 54.561539798401114,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 6155.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDPA-26OCT18-4.4950",
+    "series": "KXAAAGASDPA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 52.333333333333336,
+    "net_day": 74.55487313173445,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 157.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6700",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 63.666666666666664,
+    "net_day": 74.44153979840111,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 191.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNY-26OCT18-4.4400",
+    "series": "KXAAAGASDNY",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4022526146419952,
+    "reward_day": 60.40080970641012,
+    "fills_day": 252.0,
+    "net_day": 57.88080970641012,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 999.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 243.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDKS-26OCT18-4.0300",
+    "series": "KXAAAGASDKS",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.47573739295908657,
+    "reward_day": 71.43502042347077,
+    "fills_day": 30.666666666666668,
+    "net_day": 71.1283537568041,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 143.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 51.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDGA-26OCT18-3.7650",
+    "series": "KXAAAGASDGA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 57.333333333333336,
+    "net_day": 74.50487313173444,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 172.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 944.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDOH-26OCT18-4.1200",
+    "series": "KXAAAGASDOH",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 50.666666666666664,
+    "net_day": 74.42168309887005,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 154.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6150",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.3779289493575208,
+    "reward_day": 56.748455377980186,
+    "fills_day": 0.0,
+    "net_day": 56.748455377980186,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 323.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSD-26OCT18-4.2950",
+    "series": "KXAAAGASDSD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4340277777777778,
+    "reward_day": 65.17205422314912,
+    "fills_day": 0.0,
+    "net_day": 65.17205422314912,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 152.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6400",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.45998160073597055,
+    "reward_day": 69.06918718037514,
+    "fills_day": 0.0,
+    "net_day": 69.06918718037514,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 15.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 87.0,
+     "no": 24204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDDE-26OCT18-4.0350",
+    "series": "KXAAAGASDDE",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 716.3333333333334,
+    "net_day": 67.76501643220337,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2151.0
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDGA-26OCT18-3.7850",
+    "series": "KXAAAGASDGA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 152.0,
+    "net_day": 73.55820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 456.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDME-26OCT18-4.3250",
+    "series": "KXAAAGASDME",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 456.6666666666667,
+    "net_day": 70.36168309887005,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1372.0
+    },
+    "ahead": {
+     "yes": 70684.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAL-26OCT18-3.9550",
+    "series": "KXAAAGASDAL",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 699.6666666666666,
+    "net_day": 68.08153979840111,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2099.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 69763.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6500",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.4603611096817554,
+    "reward_day": 69.1261728823491,
+    "fills_day": 0.0,
+    "net_day": 69.1261728823491,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 15.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 87.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDDE-26OCT18-4.1150",
+    "series": "KXAAAGASDDE",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 397.3333333333333,
+    "net_day": 70.95501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1194.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEO2D-26OCT17-HAA",
+    "series": "KXYTTOPVIDEO2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646360925235,
+    "fills_day": 857.0,
+    "net_day": -1.5013536390747655,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2571.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2001.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6450",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.45998160073597055,
+    "reward_day": 69.06918718037514,
+    "fills_day": 0.0,
+    "net_day": 69.06918718037514,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 15.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 87.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNC-26OCT18-3.6700",
+    "series": "KXAAAGASDNC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 454.6666666666667,
+    "net_day": 70.38168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1366.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMT-26OCT18-4.5150",
+    "series": "KXAAAGASDMT",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4752851711026616,
+    "reward_day": 71.36711641166139,
+    "fills_day": 37.666666666666664,
+    "net_day": 70.99044974499472,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 165.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 52.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEO2D-26OCT17-THE",
+    "series": "KXYTTOPVIDEO2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.0686463602312655,
+    "fills_day": 834.3333333333334,
+    "net_day": -1.2746869731020682,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2503.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2001.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCO-26OCT18-4.3950",
+    "series": "KXAAAGASDCO",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 154.0,
+    "net_day": 73.53820646506777,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 462.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 24204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNH-26OCT18-4.2950",
+    "series": "KXAAAGASDNH",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4752851711026616,
+    "reward_day": 71.36711641166139,
+    "fills_day": 28.333333333333332,
+    "net_day": 71.08378307832805,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 137.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 52.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEOG2D-26OCT17-KAY",
+    "series": "KXYTTOPVIDEOG2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646356414437,
+    "fills_day": 636.6666666666666,
+    "net_day": 0.7019796897477706,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1910.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2076.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSC-26OCT18-3.8850",
+    "series": "KXAAAGASDSC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 128.33333333333334,
+    "net_day": 73.64501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 387.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDGA-26OCT18-3.7800",
+    "series": "KXAAAGASDGA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 796.0,
+    "net_day": 67.11820646506779,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2388.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 69385.0
+    }
+   },
+   {
+    "ticker": "KXYTDAILYTOPVIDEOG-26OCT17-GAV",
+    "series": "KXYTDAILYTOPVIDEOG",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646363874603,
+    "fills_day": 333.3333333333333,
+    "net_day": 3.7353130305412696,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1000.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2726.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDWI-26OCT18-4.2600",
+    "series": "KXAAAGASDWI",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 72.33333333333333,
+    "net_day": 74.20501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 219.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNC-26OCT18-3.6750",
+    "series": "KXAAAGASDNC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4088307440719542,
+    "reward_day": 61.38855802540292,
+    "fills_day": 0.0,
+    "net_day": 61.38855802540292,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 126.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 223.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNJ-26OCT18-4.2950",
+    "series": "KXAAAGASDNJ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 68.0,
+    "net_day": 74.2483497655367,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 206.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXTRUTHSOCIALD-26OCT17-T5",
+    "series": "KXTRUTHSOCIALD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 50.03474635163308,
+    "fills_day": 130.33333333333334,
+    "net_day": 48.73141301829975,
+    "collateral": 25.0,
+    "traded_1c_72h": {
+     "yes": 391.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 1322.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNV-26OCT18-5.4350",
+    "series": "KXAAAGASDNV",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 58.0,
+    "net_day": 74.49820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 174.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNH-26OCT18-4.3100",
+    "series": "KXAAAGASDNH",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4752851711026616,
+    "reward_day": 71.36711641166139,
+    "fills_day": 28.333333333333332,
+    "net_day": 71.08378307832805,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 137.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 52.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMN-26OCT18-4.2900",
+    "series": "KXAAAGASDMN",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 1082.5266666666666,
+    "net_day": 64.25293979840112,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 3247.58,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSC-26OCT18-3.8700",
+    "series": "KXAAAGASDSC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 385.6666666666667,
+    "net_day": 71.07168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1159.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNM-26OCT18-4.4000",
+    "series": "KXAAAGASDNM",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 460.0,
+    "net_day": 70.32834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1382.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNJ-26OCT18-4.2700",
+    "series": "KXAAAGASDNJ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 467.0,
+    "net_day": 70.2583497655367,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1403.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDIN-26OCT18-3.9100",
+    "series": "KXAAAGASDIN",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 3168.5033333333336,
+    "net_day": 43.39317313173444,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 9505.51,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDME-26OCT18-4.3850",
+    "series": "KXAAAGASDME",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 497.3333333333333,
+    "net_day": 69.95501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1494.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDRI-26OCT18-4.2500",
+    "series": "KXAAAGASDRI",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4191114836546521,
+    "reward_day": 62.9322770034097,
+    "fills_day": 303.0,
+    "net_day": 59.9022770034097,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1102.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 193.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEO2D-26OCT17-BBY",
+    "series": "KXYTTOPVIDEO2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.0686463597686195,
+    "fills_day": 812.0,
+    "net_day": -1.0513536402313814,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2436.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2001.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNH-26OCT18-4.3000",
+    "series": "KXAAAGASDNH",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4752851711026616,
+    "reward_day": 71.36711641166139,
+    "fills_day": 28.333333333333332,
+    "net_day": 71.08378307832805,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 137.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 52.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDIA-26OCT18-4.1250",
+    "series": "KXAAAGASDIA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 132.41666666666666,
+    "net_day": 73.75403979840111,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 397.25
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTDAILYTOPVIDEOG-26OCT17-KAL",
+    "series": "KXYTDAILYTOPVIDEOG",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646363122802,
+    "fills_day": 333.3333333333333,
+    "net_day": 3.735313029789469,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1000.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2726.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDME-26OCT18-4.3200",
+    "series": "KXAAAGASDME",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 722.3333333333334,
+    "net_day": 67.85487313173445,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2167.0
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDFL-26OCT18-4.1750",
+    "series": "KXAAAGASDFL",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 1036.0,
+    "net_day": 64.71820646506778,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 3108.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDWY-26OCT18-4.5300",
+    "series": "KXAAAGASDWY",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4340277777777778,
+    "reward_day": 65.17205422314912,
+    "fills_day": 0.0,
+    "net_day": 65.17205422314912,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 152.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDVT-26OCT18-4.4300",
+    "series": "KXAAAGASDVT",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 401.0,
+    "net_day": 71.06820646506777,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1203.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMA-26OCT18-4.2850",
+    "series": "KXAAAGASDMA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 586.6666666666666,
+    "net_day": 69.21153979840112,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1760.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDFL-26OCT18-4.1350",
+    "series": "KXAAAGASDFL",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4397537379067722,
+    "reward_day": 66.0318438566999,
+    "fills_day": 0.0,
+    "net_day": 66.0318438566999,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 15.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 137.0,
+     "no": 343.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEOG2D-26OCT17-TRAI",
+    "series": "KXYTTOPVIDEOG2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646356067451,
+    "fills_day": 566.6666666666666,
+    "net_day": 1.4019796894007852,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1700.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2076.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSC-26OCT18-3.8950",
+    "series": "KXAAAGASDSC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 149.33333333333334,
+    "net_day": 73.43501643220337,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 450.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMN-26OCT18-4.2450",
+    "series": "KXAAAGASDMN",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.5000023823090038,
+    "reward_day": 75.07856418404229,
+    "fills_day": 956.0,
+    "net_day": 65.51856418404229,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2868.0
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXYTDAILYTOPVIDEOG-26OCT17-TRAI",
+    "series": "KXYTDAILYTOPVIDEOG",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646365320371,
+    "fills_day": 450.0,
+    "net_day": 2.5686463653203706,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1350.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2726.0
+    }
+   },
+   {
+    "ticker": "KXTRUTHSOCIALD-26OCT17-T40",
+    "series": "KXTRUTHSOCIALD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 50.03474635163308,
+    "fills_day": 124.33333333333333,
+    "net_day": 48.79141301829975,
+    "collateral": 25.0,
+    "traded_1c_72h": {
+     "yes": 373.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 1242.0
+    }
+   },
+   {
+    "ticker": "KXTRUMPACT-26OCT11-T2",
+    "series": "KXTRUMPACT",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.34644752705755183,
+    "reward_day": 39.646399808365885,
+    "fills_day": 0.0,
+    "net_day": 39.646399808365885,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 3.0,
+     "no": 1800.36
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCO-26OCT18-4.3150",
+    "series": "KXAAAGASDCO",
+    "dur_days": 0,
+    "need": [
+     "yes",
+     "no"
+    ],
+    "share": 0.9389815627743634,
+    "reward_day": 140.99410327373133,
+    "fills_day": 146.33333333333334,
+    "net_day": 139.530769940398,
+    "collateral": 20.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 439.0
+    },
+    "ahead": {
+     "yes": 104.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNC-26OCT18-3.6650",
+    "series": "KXAAAGASDNC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 765.6666666666666,
+    "net_day": 67.27168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2299.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMI-26OCT18-4.5400",
+    "series": "KXAAAGASDMI",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 519.0,
+    "net_day": 69.88820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1557.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDGA-26OCT18-3.7200",
+    "series": "KXAAAGASDGA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 2751.86,
+    "net_day": 47.55960646506777,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 8255.58
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMI-26OCT18-4.5500",
+    "series": "KXAAAGASDMI",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 128.0,
+    "net_day": 73.79820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 384.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDVA-26OCT18-4.1200",
+    "series": "KXAAAGASDVA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 64.0,
+    "net_day": 74.28834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 194.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDLA-26OCT18-3.8400",
+    "series": "KXAAAGASDLA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 567.3333333333334,
+    "net_day": 69.40487313173445,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 1702.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCA-26OCT18-6.2250",
+    "series": "KXAAAGASDCA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 111.33333333333333,
+    "net_day": 73.96487313173445,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 334.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAR-26OCT18-3.9500",
+    "series": "KXAAAGASDAR",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 512.0,
+    "net_day": 69.8083497655367,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1538.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDIN-26OCT18-3.9150",
+    "series": "KXAAAGASDIN",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 1086.3333333333333,
+    "net_day": 64.21487313173445,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 3259.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDOH-26OCT18-4.1050",
+    "series": "KXAAAGASDOH",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 1219.6666666666667,
+    "net_day": 62.73168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 3661.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMA-26OCT18-4.2450",
+    "series": "KXAAAGASDMA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 124.0,
+    "net_day": 73.83820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 372.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDID-26OCT18-4.7750",
+    "series": "KXAAAGASDID",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 708.0,
+    "net_day": 67.84834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2126.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSC-26OCT18-3.8550",
+    "series": "KXAAAGASDSC",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 51.666666666666664,
+    "net_day": 74.41168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 157.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6050",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.42122999157540014,
+    "reward_day": 63.2503845535533,
+    "fills_day": 0.0,
+    "net_day": 63.2503845535533,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 15.0
+    },
+    "ahead": {
+     "yes": 24104.0,
+     "no": 187.0
+    }
+   },
+   {
+    "ticker": "KXTRUTHSOCIALD-26OCT17-B34",
+    "series": "KXTRUTHSOCIALD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 50.03474635163308,
+    "fills_day": 33.333333333333336,
+    "net_day": 49.701413018299746,
+    "collateral": 25.0,
+    "traded_1c_72h": {
+     "yes": 100.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 1202.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNJ-26OCT18-4.2800",
+    "series": "KXAAAGASDNJ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 399.3333333333333,
+    "net_day": 70.93501643220337,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1200.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCT-26OCT18-4.3800",
+    "series": "KXAAAGASDCT",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 6209.75,
+    "net_day": 12.980706465067776,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 18629.25,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDFL-26OCT18-4.1300",
+    "series": "KXAAAGASDFL",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4397537379067722,
+    "reward_day": 66.0318438566999,
+    "fills_day": 0.0,
+    "net_day": 66.0318438566999,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 15.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 137.0,
+     "no": 353.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNE-26OCT18-4.1550",
+    "series": "KXAAAGASDNE",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 2144.0,
+    "net_day": 53.48834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 6434.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEO2D-26OCT17-JAN",
+    "series": "KXYTTOPVIDEO2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646360693911,
+    "fills_day": 834.3333333333334,
+    "net_day": -1.2746869726394223,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 2503.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2001.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDGA-26OCT18-3.7100",
+    "series": "KXAAAGASDGA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 766.1933333333333,
+    "net_day": 67.41627313173444,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2298.58
+    },
+    "ahead": {
+     "yes": 69747.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMA-26OCT18-4.2800",
+    "series": "KXAAAGASDMA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 384.6666666666667,
+    "net_day": 71.23153979840112,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1154.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 69710.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDWA-26OCT18-5.4350",
+    "series": "KXAAAGASDWA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4191114836546521,
+    "reward_day": 62.9322770034097,
+    "fills_day": 332.0,
+    "net_day": 59.6122770034097,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1189.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 193.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNV-26OCT18-5.3650",
+    "series": "KXAAAGASDNV",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 1695.6666666666667,
+    "net_day": 57.971683098870045,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 5089.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDIA-26OCT18-4.1800",
+    "series": "KXAAAGASDIA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 459.3333333333333,
+    "net_day": 70.33501643220337,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1380.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 24204.0
+    }
+   },
+   {
+    "ticker": "KXYTDAILYTOPVIDEOG-26OCT17-KALY",
+    "series": "KXYTDAILYTOPVIDEOG",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646365031217,
+    "fills_day": 333.3333333333333,
+    "net_day": 3.735313031697884,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1000.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2726.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNV-26OCT18-5.4400",
+    "series": "KXAAAGASDNV",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 384.0,
+    "net_day": 71.0883497655367,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1154.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAK-26OCT18-4.8950",
+    "series": "KXAAAGASDAK",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 147.66666666666666,
+    "net_day": 73.45168309887003,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 445.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDSD-26OCT18-4.3000",
+    "series": "KXAAAGASDSD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4359349933737881,
+    "reward_day": 65.45843487573043,
+    "fills_day": 0.0,
+    "net_day": 65.45843487573043,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 5.04,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 146.96,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDHI-26OCT18-5.6650",
+    "series": "KXAAAGASDHI",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 50.0,
+    "net_day": 74.42834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 152.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDDE-26OCT18-4.1100",
+    "series": "KXAAAGASDDE",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 51.333333333333336,
+    "net_day": 74.41501643220337,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 156.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDWI-26OCT18-4.2550",
+    "series": "KXAAAGASDWI",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 185.66666666666666,
+    "net_day": 73.07168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 559.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 1049.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDMD-26OCT18-4.1650",
+    "series": "KXAAAGASDMD",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 160.33333333333334,
+    "net_day": 73.47487313173444,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 481.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDPA-26OCT18-4.4500",
+    "series": "KXAAAGASDPA",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 957.0,
+    "net_day": 65.50820646506779,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2871.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNM-26OCT18-4.3850",
+    "series": "KXAAAGASDNM",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4191114836546521,
+    "reward_day": 62.9322770034097,
+    "fills_day": 319.6666666666667,
+    "net_day": 59.735610336743036,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1152.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 193.0,
+     "no": 204.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCT-26OCT18-4.3450",
+    "series": "KXAAAGASDCT",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 754.0,
+    "net_day": 67.53820646506777,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 2262.0
+    },
+    "ahead": {
+     "yes": 55550.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6650",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 47.0,
+    "net_day": 74.60820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 141.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDKS-26OCT18-3.9600",
+    "series": "KXAAAGASDKS",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 1317.6666666666667,
+    "net_day": 61.75168309887004,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 3955.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 2.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEOG2D-26OCT17-TRA",
+    "series": "KXYTTOPVIDEOG2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646355142159,
+    "fills_day": 656.6666666666666,
+    "net_day": 0.501979688475493,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1970.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2076.0
+    }
+   },
+   {
+    "ticker": "KXTXERCOTPEAKD-26OCT18-T51500",
+    "series": "KXTXERCOTPEAKD",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 25.0,
+    "fills_day": 351.0,
+    "net_day": 21.49,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1053.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 1350.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNE-26OCT18-4.1400",
+    "series": "KXAAAGASDNE",
+    "dur_days": 0,
+    "need": [
+     "no"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 1861.6666666666667,
+    "net_day": 56.46153979840111,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 0.0,
+     "no": 5585.0
+    },
+    "ahead": {
+     "yes": 804.0,
+     "no": 0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDNM-26OCT18-4.4050",
+    "series": "KXAAAGASDNM",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 63.0,
+    "net_day": 74.29834976553671,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 191.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDWY-26OCT18-4.5400",
+    "series": "KXAAAGASDWY",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 44.333333333333336,
+    "net_day": 74.48501643220338,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 135.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 924.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCA-26OCT18-6.2150",
+    "series": "KXAAAGASDCA",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 444.0,
+    "net_day": 70.63820646506778,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1332.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDCO-26OCT18-4.3750",
+    "series": "KXAAAGASDCO",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.4397537379067722,
+    "reward_day": 66.0318438566999,
+    "fills_day": 0.0,
+    "net_day": 66.0318438566999,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 15.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 137.0,
+     "no": 1204.0
+    }
+   },
+   {
+    "ticker": "KXYTTOPVIDEOG2D-26OCT17-GAV",
+    "series": "KXYTTOPVIDEOG2D",
+    "dur_days": 1,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 7.068646354621683,
+    "fills_day": 333.3333333333333,
+    "net_day": 3.7353130212883503,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1000.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 2076.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDDE-26OCT18-4.1050",
+    "series": "KXAAAGASDDE",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.499001996007984,
+    "reward_day": 74.92834976553671,
+    "fills_day": 448.3333333333333,
+    "net_day": 70.44501643220337,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 1347.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 2.0,
+     "no": 904.0
+    }
+   },
+   {
+    "ticker": "KXAAAGASDAZ-26OCT18-4.6600",
+    "series": "KXAAAGASDAZ",
+    "dur_days": 0,
+    "need": [
+     "yes"
+    ],
+    "share": 0.5,
+    "reward_day": 75.07820646506778,
+    "fills_day": 34.666666666666664,
+    "net_day": 74.73153979840112,
+    "collateral": 10.0,
+    "traded_1c_72h": {
+     "yes": 104.0,
+     "no": 0.0
+    },
+    "ahead": {
+     "yes": 0,
+     "no": 904.0
+    }
+   }
+  ],
+  "net_day": 8868.560087688258,
+  "reward_day": 9596.652821021584,
+  "fill_cost_day": 728.0927333333341
+ }
+}

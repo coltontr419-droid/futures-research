@@ -14387,6 +14387,15 @@ many net-positive, total net a day per $ of collateral, and by series; the same 
 show the failure §695 saw). **Read:** a candidate only if net stays clearly positive with the control behaving as observed live; then a
 forward check over days before any money.
 
+## 697. A80: historical trades cannot measure the fill risk — the control fails, so the longer-programme question stays open (S10)
+
+**No trial.** `reports/a80_lip_long.json` (module `kalshi/a80_lip_long.py`). Long programmes (≥ 6 days, ≥ 1 day left): 3,357 active, 71 with a
+completable thin side; reward $629/day, fill cost from 72 h of 1¢ trades $160/day, **net +$469/day** on $985 of collateral, 59 of 71 positive
+(KXBA, KXYTVIEWSW, KXDPZ lead; 52 of 71 show no 1¢ fills in 72 h). **Control (≤ 2 days): net +$8,869/day, 145 of 150 positive — but live
+(§695) 4 of 10 such bids were filled within seconds.** The method fails its control: before anyone bid 1¢ there was little to trade against,
+so past trades miss the sellers who wait for a bid. Fill risk is created by posting and can only be measured by posting. The longer-programme
+question is therefore unanswered by public data; the only test is a small live probe (user's decision).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
