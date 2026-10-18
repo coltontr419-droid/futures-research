@@ -14481,6 +14481,13 @@ collateral cap ($50 for that bot) still bounds its resting size, and orders simp
 ($20 stop). Read so far: across Miami temperature, state gas, Georgia and executive orders, short programmes are filled by informed
 sellers before their periods end even after a canary passes.
 
+## 707. The long probe is paused until the short test has run to Sunday night (S10)
+
+**No trial.** The user: run the long bot only after seeing how the short bot does by tomorrow night. `kalshi-lip` stopped via its kill switch
+(orders cancelled) and **disabled** 2026-10-18 03:46Z. The kill switch returned exit code 0, which `Restart=always` treated as a crash and
+began restarting the bot; it was stopped by hand, and the kill switch now exits with code 2 (`RestartPreventExitStatus=2`). Only
+`kalshi-lip-short` runs (stop lifted, §706). Re-enable the long probe after the Sunday-night readout on the user's word.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

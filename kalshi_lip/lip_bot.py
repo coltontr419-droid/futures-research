@@ -519,7 +519,8 @@ def main() -> int:
     once = "--once" in sys.argv
     while True:
         if STOP.exists():
-            shutdown(c, st); embed("🔴 Bot stopped (kill switch)", RED, [("Action", "All resting orders cancelled.", False)]); return 0
+            shutdown(c, st); embed("🔴 Bot stopped (kill switch)", RED, [("Action", "All resting orders cancelled.", False)])
+            return 2                                             # the deliberate-stop code: systemd does not restart it (decisions.md 707)
         try:
             step(c, st); save_state(st); summary(c, st)
         except SystemExit:
