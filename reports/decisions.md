@@ -14663,6 +14663,14 @@ hour after the market opened: θ 5¢ +3.66¢ a contract (64 events, 352 contract
 judged on the complete data before any sealed look. **Nothing carried; no validation.** Even if real, ~300 qualifying contracts in ten months is
 not an income stream. Closed.
 
+## 722. Screen: Polymarket US's liquidity and deposit incentives fail (S10)
+
+**No trial.** Polymarket US runs a Liquidity Incentive Program (docs.polymarket.us/incentives/liquidity), but it scores each order by
+**discount factor ^ ticks from the best price** (often 0.30 a tick) with target sizes and an optional max spread around the midpoint — so only
+quotes at or near the best price earn: professional market-making in deep sports books against sharp flow (the adverse selection of §695 at
+the touch). The thin-side 1¢ trick of §692 does not apply. Its deposit / refer-a-friend / deposit-and-trading credits ($25 … $250, non-
+withdrawable trading credits) are one-off bonuses — the category the user excluded. **Both fail the screen; not built.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
