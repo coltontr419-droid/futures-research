@@ -14592,7 +14592,7 @@ Cross-venue arbitrage on game lines: closed (null).
 a day, 10k–95k contracts a market): Yes if the station's climate report shows precipitation > 0 inches that local day. All history is after
 the mid-2025 catch-up seen in temperature markets (§675), so this tests whether quotes still under-use the forecast now. Inputs: NBM text (NBS,
 IEM archive) PoP12 for the three 12-hour periods touching the local day (the night before, the day, the night after), from the 07Z run of the
-day (decision at the 10:00 New York candle) and the 13Z run of the day before (decision at 14:00 New York the day before).
+day (decision at the 10:00 New York candle) and the 13Z run of the day before (decision at 14:00 New York the day before). *(Note added before any result: the 2026 archive's runs are at 00/06/12/18Z, so the 06Z and 12Z runs are used — both published well before their decision times.)*
 1. **Model:** logistic regression of the outcome on the three PoP12 values (and a constant), **fitted on discovery days only**, then fixed.
 2. **Trade:** model − ask − fee > θ buys Yes; the No side likewise; θ ∈ {5¢, 10¢}; quote filter as §664 — 2 decision points × 2 θ = **4 tests**.
 3. **Discovery: 2026-07-15 → 2026-09-12 (60 days); sealed: 2026-09-13 → 2026-10-17.** Statistic: the day's mean net per contract; t over days;
