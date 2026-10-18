@@ -1,0 +1,27 @@
+{
+ "chosen": [
+  6,
+  null
+ ],
+ "validation": {
+  "days": 14,
+  "contracts": 513743.67999999993,
+  "net": 1929.2108473300063,
+  "net_per_contract_c": 0.37552011293452925,
+  "return_per_capital": 0.0037963197073028416,
+  "days_positive": 12,
+  "worst_day": -2085.3725626000005,
+  "contracts_per_day": 36695.97714285714
+ },
+ "baseline_validation": {
+  "days": 15,
+  "contracts": 13356621.720000004,
+  "net": 42555.5785589299,
+  "net_per_contract_c": 0.31861034512348146,
+  "return_per_capital": 0.0032214793222573065,
+  "days_positive": 12,
+  "worst_day": -41314.00575336008,
+  "contracts_per_day": 890441.4480000003
+ },
+ "candidate": true
+}

@@ -14543,6 +14543,16 @@ sample. Discovery also shows **"cushion ≥ 6¢, any move": +1.17¢ a contract, 
 per capital **among rules trading on ≥ 15 discovery days** (which picks cushion ≥ 6¢, any move); read once on the 15 validation days; same
 candidate test as §710. Reported as a second look at the validation window (two looks; the first failed).
 
+## 712. A83b (second look): "cushion ≥ 6¢" passes on the validation days — a thin, real candidate (S10)
+
+**No trial.** `reports/a83b_rule.json`. Chosen among rules trading on ≥ 15 discovery days: **cushion ≥ 6¢, any wholesale move**. Validation
+(15 days, the second look at this window — the first rule failed, §711): **+0.38¢ a contract after fees (+0.380% of capital per turn), 12 of 14
+days positive, worst day −$2,085** — against "take everything" +0.32¢, worst −$41,314. Candidate test met (positive, better per contract,
+far smaller worst day). Discovery: +1.17¢, 22/22 days. Read: selling a long shot only when the state's last settled AAA price is ≥ 6¢ on the
+favourite's side of the strike avoids the moving days that made the October 14 loss; the edge is thin (~0.4–1.2¢ a contract) and the worst
+validation day was ~15 typical days' profit. Capacity: ~25,000–37,000 such contracts a day were sold by all takers together. Caveats: 45 days
+of history, two looks at the validation window, and execution (we would have to reach those bids first, competing with the takers who did).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
