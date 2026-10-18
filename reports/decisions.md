@@ -14553,6 +14553,20 @@ favourite's side of the strike avoids the moving days that made the October 14 l
 validation day was ~15 typical days' profit. Capacity: ~25,000–37,000 such contracts a day were sold by all takers together. Caveats: 45 days
 of history, two looks at the validation window, and execution (we would have to reach those bids first, competing with the takers who did).
 
+## 713. The Kalshi liquidity line is closed (S10)
+
+**No trial.** Final review of the long-programme bot before any further money (the user: find any reason it would behave like the short bot;
+$100 maximum only if it genuinely could work). A dry plan on 2026-10-18 found **2 qualifying long markets among ~2,600 long programmes**:
+(a) "Gas below $4.30 by Oct 31" — **already decided**: AAA's national price hit $4.2988 in October and the market pays Yes if the price is below
+$4.30 at any time in the month (trades 98–99¢); a 1¢ No bid there is the short-bot failure inside a long market, and the market-close filter
+cannot see it; (b) Super Bowl halftime, Ed Sheeran yes — genuinely open (Miley Cyrus 45%, Jay-Z 42%), ≈ $7 a day on $10 at a 50% share, with
+competing reward bots seen entering and leaving. Capacity, not money, binds: $100 could not be deployed. **First paid credit: $1.41
+(Portfolio → Credits → incentives)**, most likely the Georgia order (§705; ~25 minutes at full size, estimated ≈ $1–2) — Kalshi pays, and
+the per-order scoring estimate is about right; other periods may still be processed. The short test lost $114 of fills against ≤ $85 of
+estimated rewards. **Closed:** short programmes are filled by informed sellers before they end; long programmes are too few and some are
+already decided. Both bots stopped and disabled (droplet services `kalshi-lip`, `kalshi-lip-short`); ~$102 of long-shot positions settle over
+the coming days; any further credits appear under Portfolio → Credits. Code and records kept (`kalshi_lip/`, §692–713).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
