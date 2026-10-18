@@ -14690,6 +14690,17 @@ Verified on the droplet: live-account support deployed (live NKD from $0 → 3 c
 limits winning users strictly — not scalable; not to be proposed again. (2) Free futures prop evaluations (pure positive EV with the NKD edge):
 none found — firms waive activation fees at most (MFF, Bulenox, TradeDay, Goat Funded Futures list paid evaluations); fail.
 
+## 725. Screen: ForecastEx Liquidity Incentive Program (via IBKR) — the pool is too small; out (S10)
+
+**No trial.** Read-only API access to the user's IBKR paper account works (TWS on the user's PC, 192.168.1.203:7497); ForecastEx contracts,
+live quotes and depth come through. The terms (NTM 2026-221, effective 2026-09-01): one snapshot a second; only orders AT the best price score;
+a snapshot counts only if both sides hold the target size (200-5,000) at the best price; pro-rata share of a per-product daily pool
+= 3-day volume / 3,000 (10 bp of $1 notional). The public daily reports (forecastex-public-data S3, liquidity_rewards/, 45 days 09-04 to
+10-18) give the whole exchange's pool: **mean $185/day, median $152, min $35, max $655; $8,345 in total**, for all participants combined.
+The largest products are FFDEC $53/day, FES $39, FNQ $19, HORC $17. Even a large share is a few tens of $/day, and earning it means
+resting size at the best price, which carries the informed-fill exposure that sank the Kalshi short LIP (§713). Customer eligibility also
+depends on IBKR having arranged pass-through (unverified). Fails the size screen; closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
