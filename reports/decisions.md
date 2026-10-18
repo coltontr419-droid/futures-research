@@ -14586,6 +14586,18 @@ date and team code; 622 game snapshots). Best cross-venue combination after both
 (often > $100k at the top) and tight (¼¢ steps); the venues track each other to within about a cent, below the ~3.5¢ of combined fees.
 Cross-venue arbitrage on game lines: closed (null).
 
+## 716. K-family 7 protocol: Kalshi daily rain in 35 cities priced by the NBM's precipitation probabilities (S10)
+
+**No trial spent; N 1,535. Written and committed BEFORE any forecast is compared with any quote or outcome.** KXRAIN (from 2026-07-15, ~35 cities
+a day, 10k–95k contracts a market): Yes if the station's climate report shows precipitation > 0 inches that local day. All history is after
+the mid-2025 catch-up seen in temperature markets (§675), so this tests whether quotes still under-use the forecast now. Inputs: NBM text (NBS,
+IEM archive) PoP12 for the three 12-hour periods touching the local day (the night before, the day, the night after), from the 07Z run of the
+day (decision at the 10:00 New York candle) and the 13Z run of the day before (decision at 14:00 New York the day before).
+1. **Model:** logistic regression of the outcome on the three PoP12 values (and a constant), **fitted on discovery days only**, then fixed.
+2. **Trade:** model − ask − fee > θ buys Yes; the No side likewise; θ ∈ {5¢, 10¢}; quote filter as §664 — 2 decision points × 2 θ = **4 tests**.
+3. **Discovery: 2026-07-15 → 2026-09-12 (60 days); sealed: 2026-09-13 → 2026-10-17.** Statistic: the day's mean net per contract; t over days;
+   carried: t > 1.96, mean > 0; validation once, §664.4's rule. Station codes from each market's rules (CLIxxx → NBM station Kxxx, checked).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
