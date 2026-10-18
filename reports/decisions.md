@@ -14684,6 +14684,12 @@ forward-test for months: advised **NKD, not FDXM** (strongest backtest, readings
 $116 an evaluation ≈ $700 typical / ≈ $2,000 bad / ≈ $2,500 worst to two payouts; the demo's NKD account (fresh $50k) can track it unchanged.
 Verified on the droplet: live-account support deployed (live NKD from $0 → 3 contracts, take ≈ $9,000 / stop ≈ $2,000).
 
+## 724. Screens: PrizePicks (user already testing; strict limits) and free futures evaluations (none exist) — both out (S10)
+
+**No trial.** (1) PrizePicks priced from prediction-market props: the user already runs a PrizePicks bot test for the same idea, and PrizePicks
+limits winning users strictly — not scalable; not to be proposed again. (2) Free futures prop evaluations (pure positive EV with the NKD edge):
+none found — firms waive activation fees at most (MFF, Bulenox, TradeDay, Goat Funded Futures list paid evaluations); fail.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
