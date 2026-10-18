@@ -14396,6 +14396,15 @@ completable thin side; reward $629/day, fill cost from 72 h of 1¢ trades $160/d
 so past trades miss the sellers who wait for a bid. Fill risk is created by posting and can only be measured by posting. The longer-programme
 question is therefore unanswered by public data; the only test is a small live probe (user's decision).
 
+## 698. A81 protocol: a small live probe of longer liquidity programmes (user's go-ahead) (S10)
+
+**No trial; N 1,535. Written and committed BEFORE the probe starts.** The only way to measure fill risk (§697). Programmes **≥ 6 days long
+with ≥ 1 day left**; completable thin sides (others below target, opposite best bid < 99¢); 1,000-contract bids at 1¢; **at most 5 markets
+and $50 of collateral**; sports / match markets excluded; **a side that has been filled is never re-posted**; every fill logged and posted to
+Discord; **hard stop if fill cost exceeds $20** (cancel all, exit, no restart). Run 24–48 hours. Read: fills per market per day against the
+break-even of ~1 full fill a day (§697 table); the rewards estimate in each market's Kalshi popover; then, once a programme ends, the paid
+credit against the estimate. Decision after: scale within the fill rate observed, or close the arena.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
