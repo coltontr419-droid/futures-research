@@ -37,3 +37,9 @@ bot/*.tmp
 bot/tickets.json
 bot/shadow_log.csv
 bot/last_alert.txt
+# Kalshi LIP bot runtime files (never commit keys or state)
+/kalshi_lip/.env
+/kalshi_lip/*.pem
+/kalshi_lip/state*.json
+/kalshi_lip/lip_log.jsonl
+/kalshi_lip/STOP
