@@ -14405,6 +14405,14 @@ Discord; **hard stop if fill cost exceeds $20** (cancel all, exit, no restart). 
 break-even of ~1 full fill a day (§697 table); the rewards estimate in each market's Kalshi popover; then, once a programme ends, the paid
 credit against the estimate. Decision after: scale within the fill rate observed, or close the arena.
 
+## 699. A81 started: five long-programme probes resting, none filled on placement (S10)
+
+**No trial.** Before starting, the dry plan showed that a long *programme* can sit on a market settling tomorrow (KXTRUMPSAY-26OCT19, a YouTube
+week ending today) — the near-certain case again — so a **market-close condition was added: the market must close ≥ 3 days ahead**
+(`MIN_MARKET_DAYS`). Live from 2026-10-18 02:10Z: 1,000 at 1¢ on KXWEEKSNUM1-26DEC26-TAYL-5 (no), KXAAAGASMINM-26OCT31-4.30 (no),
+KXSUPERBOWLHEADLINE-27-EDS (yes), KXWNBAFINALSMVP-26-THAYES15 (yes), KXTRUMPSAYMONTH-26NOV01-NEWS (no); $50 collateral; all five verified
+resting; **no fill on placement** (the short gas markets filled within seconds). Estimated reward ~$30 a day. Stop rule $20 of fill cost.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

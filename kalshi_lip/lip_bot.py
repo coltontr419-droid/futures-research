@@ -41,6 +41,10 @@ MODE = os.environ.get("MODE", "dry")
 MAX_MARKETS = int(os.environ.get("MAX_MARKETS", "10"))
 MAX_COLLATERAL = float(os.environ.get("MAX_COLLATERAL", "150"))
 MAX_DAYS = float(os.environ.get("MAX_DAYS", "2"))
+MIN_DAYS = float(os.environ.get("MIN_DAYS", "0"))            # A81 (decisions.md 698): long programmes only when set (e.g. 6)
+MIN_LEFT_HOURS = float(os.environ.get("MIN_LEFT_HOURS", "0"))
+MAX_FILL_COST = float(os.environ.get("MAX_FILL_COST", "20"))  # hard stop: total $ paid for filled contracts since start
+MIN_MARKET_DAYS = float(os.environ.get("MIN_MARKET_DAYS", "0"))  # the MARKET must close this far ahead (a long programme can sit on a market settling tomorrow)
 PRICE_CENTS = int(os.environ.get("PRICE_CENTS", "1"))
 LOOP_SEC = int(os.environ.get("LOOP_SEC", "300"))
 MIN_LEFT_MIN = 20                                   # don't enter a programme ending within this many minutes
@@ -117,13 +121,15 @@ def log(**kw) -> None:
 
 def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
     P = [p for p in c.programmes() if ts(p["start_date"]) <= now < ts(p["end_date"]) - dt.timedelta(minutes=MIN_LEFT_MIN)
-         and (ts(p["end_date"]) - ts(p["start_date"])).total_seconds() <= MAX_DAYS * 86400]
+         and MIN_DAYS * 86400 <= (ts(p["end_date"]) - ts(p["start_date"])).total_seconds() <= MAX_DAYS * 86400
+         and ts(p["end_date"]) - now >= dt.timedelta(hours=MIN_LEFT_HOURS)]
     books = c.orderbooks(sorted({p["market_ticker"] for p in P}))
     mine = {}                                                    # (ticker, outcome) -> (price, size) of our resting orders
     for t, o in st["orders"].items():
         mine[(o["ticker"], o["outcome"])] = (o["cents"], o["count"])
     cands = []
     skip = set(st.get("skip", []))
+    filled_keys = set(st.get("filled", {}))
     for p in P:
         tk = p["market_ticker"]; ob = books.get(tk)
         if ob is None or tk in skip or any(x in tk for x in EXCLUDE):
@@ -143,6 +149,8 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
         best = {o: max((pp for pp, _ in sides[o]), default=0) for o in ("yes", "no")}
         can = {"yes": best["no"] < 100 - PRICE_CENTS, "no": best["yes"] < 100 - PRICE_CENTS}
         need = {o: sum(s for _, s in sides[o]) < tgt for o in ("yes", "no")}
+        if any(f"{tk}|{o}" in filled_keys for o in ("yes", "no") if need[o]):
+            continue                                             # a side that was filled is never re-posted (decisions.md 698)
         if any(need[o] and not can[o] for o in ("yes", "no")):
             continue                                             # a side below target that nobody can fill: the snapshot cannot count
         if not any(need.values()):
@@ -157,13 +165,15 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
         cands.append({"ticker": tk, "pid": p["id"], "end": p["end_date"], "need": [o for o in ("yes", "no") if need[o]], "count": int(tgt),
                       "rate": rate, "collateral": coll, "share": (sy + sn) / 2, "reward": reward, "dur_h": dur / 3600})
     cands.sort(key=lambda x: -x["rate"] / max(x["collateral"], 0.01))
-    if MODE == "live":                                           # only shards that hold our funds (lookups cached; best candidates first)
+    if MODE == "live" or MIN_MARKET_DAYS > 0:                    # shards holding our funds; markets far enough from closing (cached lookups)
         keep = []
         for x in cands:
             if len(keep) >= MAX_MARKETS * 3:
                 break
             try:
-                if c.shard(x["ticker"]) in SHARDS:
+                m = c.market(x["ticker"]); close = m.get("close_time") or m.get("expiration_time")
+                far = (not MIN_MARKET_DAYS) or (close and ts(close) - now >= dt.timedelta(days=MIN_MARKET_DAYS))
+                if int(m.get("exchange_index", 0) or 0) in SHARDS and far:
                     keep.append(x)
             except Exception as e:
                 log(event="shard_error", ticker=x["ticker"], err=str(e)[:200])
@@ -200,8 +210,34 @@ def verify(c: Client, oid: str, outcome: str, coid: str = "") -> bool:
     log(event="verify", ok=False, note="order not found among resting"); return False
 
 
+def check_fills(c: Client, st: dict) -> None:
+    """New fills since start: log, alert, mark the side filled; hard stop past MAX_FILL_COST."""
+    if MODE != "live":
+        return
+    st.setdefault("filled", {}); st.setdefault("fill_ids", []); st.setdefault("fill_cost", 0.0)
+    since = int(ts(st["started"]).timestamp())
+    d = c.req("GET", f"/portfolio/fills?min_ts={since}&limit=1000", auth=True)
+    new = []
+    for f in d.get("fills", []):
+        fid = f.get("fill_id") or f.get("trade_id") or json.dumps(f, sort_keys=True)[:120]
+        if fid in st["fill_ids"]:
+            continue
+        st["fill_ids"].append(fid); n = float(f.get("count_fp") or 0)
+        outcome = "yes" if (f.get("side") == "yes" and f.get("action") == "buy") or (f.get("side") == "no" and f.get("action") == "sell") else "no"
+        price = float(f.get("yes_price_dollars") or 0) if outcome == "yes" else float(f.get("no_price_dollars") or 0)
+        key = f"{f.get('ticker')}|{outcome}"; st["filled"][key] = st["filled"].get(key, 0.0) + n; st["fill_cost"] += n * price
+        new.append((key, n, price)); log(event="fill", key=key, count=n, price=price)
+    if new:
+        discord("**Kalshi LIP probe: fill** — " + "; ".join(f"{k} {n:,.0f} @ {p*100:.0f}c" for k, n, p in new)
+                + f". Fill cost since start ${st['fill_cost']:,.2f} (stop at ${MAX_FILL_COST:,.0f}). Filled sides are not re-posted.")
+    if st["fill_cost"] > MAX_FILL_COST:
+        discord(f"**Kalshi LIP probe: fill cost ${st['fill_cost']:,.2f} > ${MAX_FILL_COST:,.0f} — cancelling everything and stopping.**")
+        shutdown(c, st); sys.exit(2)
+
+
 def step(c: Client, st: dict) -> None:
     now = dt.datetime.now(dt.timezone.utc)
+    check_fills(c, st)
     chosen, info = plan(c, st, now)
     want = {(x["ticker"], o): x for x in chosen for o in x["need"]}
     live = MODE == "live"

@@ -106,14 +106,16 @@ class Client:
         d = self.req("GET", "/portfolio/positions?limit=1000", auth=True)
         return d.get("market_positions", [])
 
-    _shard: dict = {}
+    _mk: dict = {}
+
+    def market(self, ticker: str) -> dict:
+        if ticker not in self._mk:
+            self._mk[ticker] = self.req("GET", f"/markets/{urllib.parse.quote(ticker)}").get("market") or {}
+        return self._mk[ticker]
 
     def shard(self, ticker: str) -> int:
         """The market's exchange shard (cached); funds and orders are per shard (docs: Exchange Sharding)."""
-        if ticker not in self._shard:
-            m = self.req("GET", f"/markets/{urllib.parse.quote(ticker)}").get("market") or {}
-            self._shard[ticker] = int(m.get("exchange_index", 0) or 0)
-        return self._shard[ticker]
+        return int(self.market(ticker).get("exchange_index", 0) or 0)
 
     def place(self, ticker: str, outcome: str, cents: int, count: int, expires: int | None = None) -> dict:
         """Buy `count` contracts of `outcome` ('yes' / 'no') at `cents` of that outcome's price, post-only, resting.
