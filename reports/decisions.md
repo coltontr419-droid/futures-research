@@ -14342,6 +14342,21 @@ judged "inconsistent with the purpose of the Program"; a filled 1¢ bid loses it
 a small live test** (≈10 persistent thin markets, 1,000 contracts at 1¢ each, ~$100 of collateral, 3–5 days) on the user's go-ahead and
 account; payouts compared with these estimates before any scale-up.
 
+## 694. The Kalshi liquidity bot: built, tested, running dry on the droplet; live test waits for the user's key (S10)
+
+**No trial.** The user (2026-10-17): use the droplet so it runs 24/7; **only programmes of two days or less** at first (faster payouts,
+faster scaling). Kalshi's terms (help centre): estimated earnings show per market in the app's Rewards popover; paid credits under Rewards and
+Account → Activity; scoring happens after a programme ends and payment follows in a later run; programme periods range from 15 minutes to
+weeks (~935 under a day, ~910 of 1–2 days among 6,800 active); no per-account cap is set. `kalshi_lip/` (separate from the futures bot):
+`kalshi_api.py` (Ed25519 / RSA-PSS request signing, V2 orders — single book, bid = yes, ask = no, price always the YES price — batch order
+books), `lip_bot.py` (every 5 minutes: short programmes → books → sides whose OTHER traders' size is below target → our target-size bid at 1¢,
+post-only, expiring at the programme's end; best 10 markets by estimated $ per $ of collateral within $150; cancels sides no longer needed;
+accrues an estimate from the published scoring; daily Discord summary; first live order read back and verified or everything is cancelled;
+STOP file kill switch). A unit test caught one scoring error (an order at a qualifying price level counts in full) — fixed. **Deployed in
+MODE=dry 2026-10-18 01:06Z** (`kalshi-lip.service`, /opt/kalshi-lip, MemoryMax 150M; Discord via the futures bot's token, read-only).
+First loops: ~1,826 short programmes, ~520 with a thin side; its chosen 10 would hold ~$96 of collateral for an estimated ~$9,000 a day,
+mostly **Miami hourly temperature markets ($100 an hour each, long-shot side empty)** — plausible by the rules, unproven until paid.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
