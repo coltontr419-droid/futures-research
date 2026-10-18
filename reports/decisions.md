@@ -14453,6 +14453,16 @@ within 3 days, so the long probe currently has few candidates (the market-close 
 (token and channel id, entered by the user, 600; never read or printed); both bots' env files set `DISCORD_ENV` to it; a test embed was sent
 and both bots restarted (2026-10-18). The futures demo bot is unchanged.
 
+## 704. Held orders are judged with their fill risk; one order pinned at the user's request (S10)
+
+**No trial.** The user asked why the short bot posted a full order at 22:09 CDT for a period ending 22:59 (Georgia daily gas): it was the old
+step-up logic (§702 deployed 22:13); there is no minimum holding time — rewards accrue per one-second snapshot, with Kalshi's $1 minimum per
+period. It exposed a flaw in §702: a held order was valued as risk-free to keep, but a resting order keeps its fill risk, and short markets'
+final stretch is when informed sellers are most active. **Now a held order is valued like a new one — projected reward to the period end minus
+the worst-case fill cost** — and leaves when that turns negative (with 50 minutes left on a $100 / 16 h pool, a 1,000 at 1¢ is worth −$7.40;
+with 10 hours left +$21). **Pinned at the user's request** (`PIN_KEYS`): KXAAAGASDGA-26OCT18-3.7750 yes, 1,000 at 1¢, kept to its period end
+(22:59 CDT) to watch what happens.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

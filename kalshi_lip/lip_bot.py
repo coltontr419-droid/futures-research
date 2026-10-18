@@ -175,9 +175,11 @@ MIN_PROJECTED_USD = float(os.environ.get("MIN_PROJECTED_USD", "3"))  # enter onl
 MAX_PRICE_CENTS = int(os.environ.get("MAX_PRICE_CENTS", "3"))      # a side may be bid at 1..this cents (whichever pays best)
 SWEEP_LIMIT = int(os.environ.get("SWEEP_LIMIT", "2"))              # a series whose canaries are swept this often today is skipped today
 STEP_SEC = int(os.environ.get("STEP_SEC", "300"))                  # a canary step must rest this long (wall clock) before the next
+# orders the user wants kept to the period end whatever the projection (e.g. to watch one) - "TICKER|side,..." (decisions.md 704)
+PINNED = {x.strip() for x in os.environ.get("PIN_KEYS", "").split(",") if x.strip()}
 
 
-def best_option(others: list, target: float, disc: float, can_max: int, rate_side: float, remaining: float, held=None):
+def best_option(others: list, target: float, disc: float, can_max: int, rate_side: float, remaining: float, held=None, pinned=False):
     """The side's best (cents, size, share, value): price 1..can_max, size = the shortfall or the full target; value = projected reward
     to the period end - worst-case fill cost (size x price). `held` = our current (cents, size), always an option (no new risk)."""
     tot = sum(s for _, s in others); short = max(0.0, target - tot)
@@ -192,7 +194,11 @@ def best_option(others: list, target: float, disc: float, can_max: int, rate_sid
     if held:
         sh, q = side_share(others, target, disc, held[1], held[0])
         if q:
-            opts.append((sh * rate_side * remaining, held[0], held[1], sh))           # already resting: no extra risk to keep it
+            # keeping an order keeps its fill risk: judged like a new one (decisions.md 704), except a pinned order, kept as it is
+            keep_value = sh * rate_side * remaining - (0.0 if pinned else held[1] * held[0] / 100)
+            if pinned:
+                return {"cents": held[0], "size": held[1], "share": sh, "value": keep_value}
+            opts.append((keep_value, held[0], held[1], sh))
     if not opts:
         return None
     v, cents, size, sh = max(opts)
@@ -237,7 +243,7 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
         ok = True
         for o in ("yes", "no"):
             if act[o]:
-                b = best_option(sides[o], tgt, disc, can_max[o], rate_side, remaining, held[o])
+                b = best_option(sides[o], tgt, disc, can_max[o], rate_side, remaining, held[o], f"{tk}|{o}" in PINNED)
                 if b is None:
                     ok = False; break
                 orders[o] = b; value += b["value"]; share[o] = b["share"]
@@ -250,8 +256,9 @@ def plan(c: Client, st: dict, now: dt.datetime) -> tuple[list[dict], dict]:
             continue
         rate = sum(rate_side * share[o] for o in ("yes", "no"))
         projected = rate * remaining; is_held = any(held.values())
-        if projected < (STAY_MIN_USD if is_held else MIN_PROJECTED_USD):
-            continue                                             # too little left to clear Kalshi's $1 minimum (or to be worth staying)
+        value = sum(b["value"] for b in orders.values()); pinned = any(f"{tk}|{o}" in PINNED for o in orders)
+        if not pinned and (projected < (STAY_MIN_USD if is_held else MIN_PROJECTED_USD) or value <= 0):
+            continue                                             # too little left to clear $1 / the reward left no longer covers the fill risk
         coll = sum(b["size"] * b["cents"] / 100 for b in orders.values())
         cands.append({"ticker": tk, "pid": p["id"], "end": p["end_date"], "need": list(orders), "orders": orders, "rate": rate,
                       "projected": projected, "collateral": coll, "share": sum(share.values()) / 2, "reward": reward, "dur_h": dur / 3600,
