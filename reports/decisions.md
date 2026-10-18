@@ -14578,6 +14578,14 @@ starting within 24 hours) matched across venues by date and team; every 3 minute
 contract at the best prices and the size available at those prices (min of the two tops). **Read:** how often a positive net appears, how big,
 how much size, how long it lasts. A candidate only if positive nets with tradable size recur; then the user's account decision comes first.
 
+## 715. A84: Kalshi and Polymarket US price the same games within the fees — one $3.72 gap in 3 hours (S10)
+
+**No trial.** `reports/a84_xvenue.jsonl` (module `kalshi/a84_xvenue.py`; 61 sweeps 2026-10-18 15:53–18:53Z; 10–11 NFL, MLB and NHL games matched by
+date and team code; 622 game snapshots). Best cross-venue combination after both taker fees: **positive once — +0.88¢ × 424 contracts = $3.72
+(Houston–Jacksonville, live), gone by the next sweep**; median net −2.74¢ live (204), −3.99¢ before the game (418). Polymarket US books are deep
+(often > $100k at the top) and tight (¼¢ steps); the venues track each other to within about a cent, below the ~3.5¢ of combined fees.
+Cross-venue arbitrage on game lines: closed (null).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
