@@ -20,7 +20,7 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 - [ ] Demo review run: `.venv/bin/python -m futuresres.reporting.a18_demo_check --review`
 - [ ] Dollar rules: keep or revert? (the review's "dollar rules, forward" section; revert if the first 40 rule sessions are negative)
 - [ ] Tradeify's answers above match the models — if any rule differs, have the models re-run before buying.
-- [ ] Rules as modelled (50K Select Daily): $80 evaluation, target +$3,000, end-of-day trailing drawdown $2,000, evaluation consistency
+- [ ] Rules as modelled (50K Select Daily): **$116 evaluation** (list ~$165 at the standing 30% sale; was $80 until 2026-10, decisions.md 719), target +$3,000, end-of-day trailing drawdown $2,000, evaluation consistency
   40% (best day ≤ 40% of profit), funded drawdown $2,000 locking at $50,000, payouts daily capped at $1,250, 90% split.
 
 **What to expect** (four-month runs; replays with the live rules and one tick of slippage a side; decisions.md 623–635):
@@ -75,7 +75,7 @@ fill; resend with `confirm` only if the platform really shows it (it stays quiet
 
 ## 5. When something happens
 
-- **Account breached:** buy a new $80 evaluation for it and send `!new <ACCOUNT>`. Don't change the plan after a loss — the replays
+- **Account breached:** buy a new evaluation (~$116 at the sale) for it and send `!new <ACCOUNT>`. Don't change the plan after a loss — the replays
   include the losing runs.
 - **Evaluation passed:** nothing to do — the bot sees it from `!eod`.
 - **Payout received:** `!payout <ACCOUNT> <amount>`.

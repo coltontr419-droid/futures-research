@@ -14622,6 +14622,24 @@ live-account rules (§623, §653, §657) apply to all lines; daily loss limits (
 $116 (the corrected baseline), Growth at $102, Lightning at $344 — read on 2025 starts, 2021–26, 2010–20 and with random sides. No choice is
 tuned; the line with the best 2021–26 mean that is not worse on 2010–20 and on zero edge is recommended.
 
+## 719. A85: Select Daily stays — at today's $116 it still beats Growth and Lightning by a wide margin (S10)
+
+**No trial.** `reports/a85_account_lines.json` (module `reporting/a85_account_lines.py`; A63 gained Growth / Lightning rules — no-evaluation
+start, goal and 5-winning-day payout kinds — and still reproduces +$12,041 and the adopted plan's +$23,020). 5 × 50K, 3 NKD + 2 FDXM, 1 tick,
+Tradovate fees, adopted live policy; mean (median; P > 0):
+
+| | 2025 starts | 2021–26 | 2010–20 | zero edge |
+|---|---|---|---|---|
+| **Select Daily $116** | **+$21,306** (+$13,186; 95%) | **+$11,988** (76%) | **+$4,791** | +$4,582 / +$2,692 |
+| Lightning $344 | +$6,110 (p10 −$12,408) | +$8,067 | +$1,501 | +$1,492 / +$1,945 |
+| Growth $102 | −$3,560 | −$3,596 | −$3,496 | −$4,181 / −$3,337 |
+| Growth, funded days capped to fit its 35% rule (disclosed variant) | −$1,183 … −$1,510 | −$804 … +$27 | −$1,748 … −$1,820 | — |
+
+Growth's 35% funded consistency rule is the binding one (with it removed, funded payouts rise from $279 to $3,096 a run); even adapted, it
+breaks even at best. Lightning skips the evaluation but costs ~3× a Select pass per funded account and its consistency caps a day near $600.
+**The price rise to $116 (from $80) costs the plan ≈ $1,700 per four months (2025 starts $23,020 → $21,306; 2021–26 $13,699 → $11,988).** The
+launch checklist's fee is updated. Account lines: closed — Select Daily 50K remains the choice.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -59,6 +59,9 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
     st = {m: {"phase": np.zeros(A, int), "eq": np.full(A, START), "pk": np.full(A, START), "best": np.zeros(A), "days": np.zeros(A, int),
               "npay": np.zeros(A, int), "cyc": np.zeros(A, int), "cprof": np.zeros(A), "cbest": np.zeros(A), "leq": np.zeros(A), "lpk": np.zeros(A), "lroom": np.full(A, F.get("live_dd", LIVE_DD)), "lalive": np.zeros(A, bool)} for m in ACC}
     mode = np.zeros(A, int); cool = np.zeros(A, int); bookpay = np.zeros(A, int)
+    if F.get("no_eval"):                                               # A85: Lightning - funded from the start, no evaluation
+        for m in ACC:
+            st[m]["phase"] = np.ones(A, int)
     for i, ini in enumerate(F.get("init") or []):                      # A69: an account's starting state (the switch-over)
         if ini:
             for k_, v_ in ini.items():
@@ -75,7 +78,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             mode = np.where(restart, 0, mode); bookpay = np.where(restart, 0, bookpay)
             fees += np.where(restart & (d + 1 < window), NA * F["fee"], 0.0)
             for m in ACC:
-                for k, v in (("phase", 0), ("eq", START), ("pk", START), ("best", 0.0), ("npay", 0), ("days", 0)):
+                for k, v in (("phase", 1 if F.get("no_eval") else 0), ("eq", START), ("pk", START), ("best", 0.0), ("npay", 0), ("days", 0),
+                             ("cyc", 0), ("cprof", 0.0), ("cbest", 0.0)):
                     st[m][k] = np.where(restart, v, st[m][k])
         sim = mode == 0; liv = mode == 1
         hold_k = F.get("hold_first_until")
@@ -101,6 +105,9 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             pk_f = np.maximum(np.clip(np.rint((pk - START) / 100).astype(int), 0, gf["BUF"]), np.clip(b_f, 0, gf["BUF"]))
             a_f = pf[b_f - gf["FMIN"], pk_f, np.minimum(npay, s.live_after), np.zeros(A, int)]
             a = np.where(ev, a_e, a_f); W = (a // 100) * 100.0; L = (a % 100) * 100.0
+            if F.get("kind_goal"):                            # A85: Lightning - a day may not exceed its consistency share of the goal
+                g_ = np.where(npay == 0, F["goals"][0], F["goals"][1]); c_ = np.array(F["cons_goal"])[np.minimum(npay, len(F["cons_goal"]) - 1)]
+                W = np.where(fu, np.minimum(W, np.maximum(c_ * g_ - 100.0, 100.0)), W)
             if F.get("fscale"):                               # A65: funded-stage bracket scaling (take, stop factors)
                 W = np.where(fu, W * F["fscale"][0], W); L = np.where(fu, L * F["fscale"][1], L)
             # A75: evaluation / funded accounts may trade sm x the plan's contracts; "price" keeps the price distances ($ x sm, the stop
@@ -162,6 +169,19 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 okc = (a_["cyc"] >= F["cycle_days"]) & (a_["cprof"] > 0) & (a_["cbest"] <= F["cons_f"] * a_["cprof"] + 0.005)
                 amt = np.where(sim & fu & ~br & okc, np.maximum(eq - (START + buf), 0.0), 0.0); amt = np.minimum(amt, cap)
                 amt = np.where(amt >= pmin, amt, 0.0)
+            elif kind in ("growth", "goal"):              # A85: Tradeify Growth / Lightning funded payouts
+                a_["cprof"] = np.where(sim & fu, a_["cprof"] + np.where(trade, pnl, 0.0), a_["cprof"])
+                a_["cbest"] = np.where(sim & fu, np.maximum(a_["cbest"], np.where(trade, pnl, 0.0)), a_["cbest"])
+                capn = np.array(F["caps"])[np.minimum(npay, len(F["caps"]) - 1)]
+                if kind == "growth":                      # >= 5 days of >= $150, balance >= start + $3,000, largest day <= 35% of the cycle
+                    a_["cyc"] = np.where(sim & fu & trade & (pnl >= F["win_day"]), a_["cyc"] + 1, a_["cyc"])
+                    okp = (a_["cyc"] >= 5) & (eq >= START + F["min_bal"]) & (a_["cbest"] <= F["cons_f"] * a_["cprof"] + 0.005)
+                    amt = np.where(sim & fu & ~br & okp, np.minimum(np.maximum(eq - (START + buf), 0.0), capn), 0.0)
+                else:                                     # goal $3,000 then $2,000; largest day <= cons x max(goal, cycle profit)
+                    g_ = np.where(npay == 0, F["goals"][0], F["goals"][1]); c_ = np.array(F["cons_goal"])[np.minimum(npay, len(F["cons_goal"]) - 1)]
+                    okp = (a_["cprof"] >= g_) & (a_["cbest"] <= c_ * np.maximum(g_, a_["cprof"]) + 0.005)
+                    amt = np.where(sim & fu & ~br & okp, np.minimum(np.minimum(a_["cprof"], np.maximum(eq - START, 0.0)), capn), 0.0)
+                amt = np.where(amt >= pmin, amt, 0.0)
             else:
                 amt = np.where(sim & fu & ~br, np.maximum(eq - (START + buf), 0.0), 0.0); amt = np.where(amt >= pmin, amt, 0.0)
             if hold_k is not None and m == ACC[0]:
@@ -169,10 +189,10 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             got = amt > 0
             spl = F["split"] if not isinstance(F["split"], tuple) else np.array(F["split"])[np.minimum(npay, len(F["split"]) - 1)]
             paid_sim += spl * amt; eq -= amt; npay = npay + got; bookpay = bookpay + got
-            if kind == "cycle":
+            if kind in ("cycle", "growth", "goal"):
                 a_["cyc"] = np.where(got, 0, a_["cyc"]); a_["cprof"] = np.where(got, 0.0, a_["cprof"]); a_["cbest"] = np.where(got, 0.0, a_["cbest"])
             reset = br | ok
-            a_["phase"] = np.where(ok, 1, np.where(br, 0, a_["phase"]))
+            a_["phase"] = np.where(ok, 1, np.where(br, 1 if F.get("no_eval") else 0, a_["phase"]))
             a_["eq"] = np.where(reset, START, eq); a_["pk"] = np.where(reset, START, pk)
             a_["best"] = np.where(reset, 0.0, best); a_["npay"] = np.where(reset, 0, npay); a_["days"] = np.where(reset, 0, a_["days"])
             for k in ("cyc", "cprof", "cbest"):
