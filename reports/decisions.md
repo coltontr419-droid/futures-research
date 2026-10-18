@@ -14426,6 +14426,15 @@ detected seller); fills are rebuilt each loop from Kalshi's records using the fi
 1¢ NO fill as YES at 99¢) and matched to each instance's own order ids. **First results: Miami hourly temperature canaries were filled
 within seconds (3 of the first ~6, 1 contract each, 3¢ in all); state daily gas canaries are being tried; the long probe: no fills.**
 
+## 701. Discord: only the important messages (S10)
+
+**No trial.** The user (2026-10-18): limit embeds to the important ones. Sent now: **✅ canary passed** (a side reached its full size after
+1 and 100 rested unfilled), **🏁 reward period completed** (an order rested through its period unfilled — with its estimated reward; the
+long-programme success), **🟢 daily results** (per bot, named; estimated rewards, orders, fills, cash, and the canary counts tried / swept /
+passed), **🟠 large fill** (a fill costing ≥ $5 — a real loss), **🔴 stopped** (fill limit, failed check or kill switch). Dropped: every
+small (canary) fill — counted in the daily results instead — and start messages on routine restarts (only a fresh start posts). Rewards now
+accrue in the estimate only while every needed side holds its full size (a canary alone completes nothing).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -54,6 +54,7 @@ EXCLUDE = [x for x in os.environ.get("EXCLUDE", "MATCH,GAME,KXLIGAPRO,KXTT,KXATP
 STATE = HERE / os.environ.get("STATE_FILE", "state.json"); LOG = HERE / os.environ.get("LOG_FILE", "lip_log.jsonl")
 STOP = HERE / os.environ.get("STOP_FILE", "STOP")
 NAME = os.environ.get("BOT_NAME", "Kalshi rewards bot")
+ALERT_FILL_USD = float(os.environ.get("ALERT_FILL_USD", "5"))   # only fills costing at least this get their own message (decisions.md 701)
 # canary (the user's idea, decisions.md 700): a new side gets 1 contract, then 100, then the full size, one loop apart; a fill at any step ends it
 CANARY = [int(x) for x in os.environ.get("CANARY_STEPS", "").split(",") if x]
 DISCORD_ENV = Path(os.environ.get("DISCORD_ENV", "/opt/futures-bot/.env"))
@@ -146,8 +147,14 @@ def usd(x: float) -> str:
     return f"${x:,.2f}"
 
 
+def bump(st: dict, what: str, n: float = 1) -> None:
+    """Per-day counters for the daily results (canaries tried / swept / passed, periods completed, large fills)."""
+    d = dt.datetime.now(ET).date().isoformat(); day = st.setdefault("days", {}).setdefault(d, {})
+    day[what] = day.get(what, 0) + n
+
+
 def load_state() -> dict:
-    s = json.loads(STATE.read_text()) if STATE.exists() else {}
+    s = json.loads(STATE.read_text()) if STATE.exists() else {"fresh": True}
     s.setdefault("orders", {}); s.setdefault("est_by_day", {}); s.setdefault("est_total", 0.0); s.setdefault("last_summary", "")
     s.setdefault("started", dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")); s.setdefault("verified", False)
     return s
@@ -284,7 +291,12 @@ def check_fills(c: Client, st: dict) -> None:
             except Exception as e:
                 log(event="cancel_error", key=k, err=str(e)[:300])
         tk, outcome = k.split("|")
-        embed("🟠 Order filled", ORANGE, [
+        if o and o.get("step", 0) < len(steps(o.get("full", o["count"]))) - 1:
+            bump(st, "canary_swept")                             # a canary (or step) did its job: counted, no message
+        if n * p < ALERT_FILL_USD:
+            bump(st, "small_fill_cost", n * p); continue
+        bump(st, "large_fills"); bump(st, "large_fill_cost", n * p)
+        embed("🟠 Large fill", ORANGE, [
             ("Market", name(c, tk), False),
             ("Side bought", outcome.upper()), ("Contracts", f"{n:,.0f}"), ("Price", f"{p*100:.0f}¢"),
             ("Cost", usd(n * p)), ("Pays if this side wins", usd(n * (1 - p))),
@@ -304,6 +316,13 @@ def step(c: Client, st: dict) -> None:
     live = MODE == "live"
     # cancel orders no longer wanted (side filled up by others, programme ended, or dropped from the chosen set)
     for key, o in list(st["orders"].items()):
+        if ts(o["end"]) <= now + dt.timedelta(minutes=MIN_LEFT_MIN) and o.get("count", 0) >= o.get("full", 0) > 0:
+            bump(st, "periods_done"); bump(st, "periods_est", o.get("est", 0.0))
+            held_h = (now - ts(o["placed"])).total_seconds() / 3600
+            embed("🏁 Reward period completed", BLUE, [
+                ("Market", name(c, o["ticker"]), False), ("Side", o["outcome"].upper()), ("Size", f"{o['count']:,} at {o['cents']}¢"),
+                ("Rested", f"{held_h:,.1f} h, never filled"), ("Est. reward earned", usd(o.get("est", 0.0)))],
+                footer="Kalshi pays after the period ends, in a later processing run. Check Rewards → Lifetime.")
         if (o["ticker"], o["outcome"]) not in want or ts(o["end"]) <= now:
             if live:
                 try:
@@ -325,6 +344,13 @@ def step(c: Client, st: dict) -> None:
                     o.update(order_id=(r.get("order") or r).get("order_id") or r.get("order_id"), count=nxt, step=o["step"] + 1)
                     st.setdefault("order_ids", []).append(o["order_id"])
                     log(event="step_up", key=key, count=nxt, step=o["step"])
+                    if nxt == x["count"]:
+                        bump(st, "canary_passed")
+                        embed("✅ Canary passed — full order resting", GREEN, [
+                            ("Market", name(c, tk), False), ("Side", outcome.upper()), ("Size", f"{nxt:,} at {PRICE_CENTS}¢"),
+                            ("Capital", usd(nxt * PRICE_CENTS / 100)), ("Reward pool", f"{usd(x['reward'])} over {x['dur_h']:.0f} h"),
+                            ("Est. our share", f"{x['share']:.0%}"), ("Period ends", f"<t:{int(ts(x['end']).timestamp())}:R>")],
+                            footer="No seller appeared at 1, then 100 contracts. Rewards accrue while it rests.")
                 except Exception as e:
                     log(event="step_error", key=key, err=str(e)[:300])
             continue
@@ -341,7 +367,9 @@ def step(c: Client, st: dict) -> None:
             oid = (r.get("order") or r).get("order_id") or r.get("order_id"); coid = r.get("client_order_id", "")
             st.setdefault("order_ids", []).append(oid)
             st["orders"][key] = {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": first, "order_id": oid, "end": x["end"],
-                                 "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0}
+                                 "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0, "full": x["count"], "est": 0.0}
+            if CANARY:
+                bump(st, "canary_tried")
             save_state(st)
             if not st["verified"]:
                 if not verify(c, oid, outcome, coid):
@@ -350,10 +378,17 @@ def step(c: Client, st: dict) -> None:
                     shutdown(c, st); sys.exit(2)
                 st["verified"] = True
         st["orders"].setdefault(key, {"ticker": tk, "outcome": outcome, "cents": PRICE_CENTS, "count": first, "order_id": oid, "end": x["end"],
-                                      "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0})
+                                      "pid": x["pid"], "placed": now.isoformat(timespec="seconds"), "step": 0, "full": x["count"], "est": 0.0})
         log(event="place", key=key, count=first, cents=PRICE_CENTS, mode=MODE)
     # accrue the estimate for this loop (our share now x the programme's reward rate x the loop length)
-    acc = sum(x["rate"] * LOOP_SEC for x in chosen if any(f"{x['ticker']}|{o}" in st["orders"] for o in x["need"]))
+    acc = 0.0
+    for x in chosen:
+        held = [f"{x['ticker']}|{o}" for o in x["need"] if f"{x['ticker']}|{o}" in st["orders"]]
+        full = [k for k in held if st["orders"][k].get("count", 0) >= st["orders"][k].get("full", 0)]
+        if full and len(full) == len(x["need"]):                 # rewards only once every needed side holds its full size
+            a = x["rate"] * LOOP_SEC; acc += a
+            for k in full:
+                st["orders"][k]["est"] = st["orders"][k].get("est", 0.0) + a / len(full)
     day = now.astimezone(ET).date().isoformat()
     st["est_by_day"][day] = st["est_by_day"].get(day, 0.0) + acc; st["est_total"] += acc
     coll = sum(o["count"] * o["cents"] / 100 for o in st["orders"].values())
@@ -378,9 +413,18 @@ def summary(c: Client, st: dict, force: bool = False) -> None:
             fields.append(("Cash balance", usd(float(c.balance().get("balance_dollars") or 0))))
         except Exception:
             fields.append(("Cash balance", "unavailable"))
+    dy = st.get("days", {}).get(y, {})
+    if CANARY:
+        fields.append(("Canaries yesterday", f"{dy.get('canary_tried', 0):.0f} tried · {dy.get('canary_swept', 0):.0f} swept · "
+                       f"{dy.get('canary_passed', 0):.0f} passed (cost {usd(dy.get('small_fill_cost', 0))})", False))
+    if dy.get("periods_done") or dy.get("large_fills"):
+        fields.append(("Yesterday", f"{dy.get('periods_done', 0):.0f} reward periods completed (est. {usd(dy.get('periods_est', 0))}) · "
+                       f"{dy.get('large_fills', 0):.0f} large fills ({usd(dy.get('large_fill_cost', 0))})", False))
     if st["orders"]:
-        fields.append(("Markets", "\n".join(f"• {name(c, o['ticker'])} — **{o['outcome'].upper()}** at {o['cents']}¢" for o in st["orders"].values())[:1024], False))
-    embed(f"🟢 Daily summary — {now:%a %b %d}" + ("" if MODE == "live" else " (dry run)"), GREEN, fields,
+        fields.append(("Markets", "\n".join(f"• {name(c, o['ticker'])} — **{o['outcome'].upper()}** "
+                                              f"{o['count']:,} at {o['cents']}¢" + (" (canary)" if o.get("count", 0) < o.get("full", 0) else "")
+                                              for o in st["orders"].values())[:1024], False))
+    embed(f"🟢 {NAME} — daily results, {now:%a %b %d}" + ("" if MODE == "live" else " (dry run)"), GREEN, fields,
           footer="Estimates use Kalshi's published scoring. Only paid credits (Kalshi → Rewards) are final.")
     st["last_summary"] = key; save_state(st)
 
@@ -401,7 +445,8 @@ def main() -> int:
     if MODE == "live" and not c.authed:
         print("MODE=live needs KALSHI_KEY_ID and KALSHI_KEY_PATH", flush=True); return 1
     st = load_state()
-    embed("🔵 Kalshi rewards bot started" + ("" if MODE == "live" else " (dry run — no orders)"), BLUE, [
+    if st.pop("fresh", False):
+      embed("🔵 " + NAME + " started" + ("" if MODE == "live" else " (dry run — no orders)"), BLUE, [
         ("Markets", f"up to {MAX_MARKETS}"), ("Capital limit", usd(MAX_COLLATERAL)), ("Bid price", f"{PRICE_CENTS}¢"),
         ("Programmes", f"{MIN_DAYS:g}–{MAX_DAYS:g} days long" + (f", market closing ≥ {MIN_MARKET_DAYS:g} days out" if MIN_MARKET_DAYS else ""), False),
         ("Safety", f"stops itself after {usd(MAX_FILL_COST)} of fills; filled sides never re-posted", False)],
