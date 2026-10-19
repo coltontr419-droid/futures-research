@@ -14892,6 +14892,21 @@ signal) — a bug; the NWS climate day is local STANDARD time. Fixed: a 5-minute
 min** (p90 3.1), the prize after the reading was **$1,718 in two months**, and 8,921 NO contracts were bought at ≤ 85¢ in the 30 min
 BEFORE it — others watch faster data. Closed.
 
+## 739. F-family 3 protocol — ForecastEx Nasdaq contracts (FNQ) in their last 15 minutes against the futures price (S10)
+
+**No trial spent. Written BEFORE any FNQ trade is compared with any futures price or settlement.** Screen (loosened §717): an **access**
+edge — ForecastEx is reachable only through IBKR, and its FNQ contracts ("will lead-month Nasdaq-100 futures settle above K?", ~16,000
+a day, trading to 15:00 CT, settled on CME's daily settlement) are quoted by retained market makers for IBKR retail. In the last minutes
+the outcome is nearly fixed by where the futures trade. Why isn't everyone doing it? It needs both an IBKR ForecastEx account and a
+futures feed; the window is minutes a day. Against it: retained MMs hedge with futures and may already price it.
+1. **Signal (fixed):** each FNQ trade (pair) between 14:45 and 15:00 CT on its contract date; the lead-month MNQ 1-minute close for the
+   last minute ending at least 1 minute before the trade (latency allowance); distance d = (F − K) / F. **YES if d ≥ +0.25%, NO if
+   d ≤ −0.25%**, else no signal.
+2. **Trade:** where the signalled side printed at ≤ 90¢, buy it at the printed price + 1¢ slippage + 1¢ fee; hold to settlement.
+3. **One test.** Statistic: each contract date's quantity-weighted mean net per contract; t over dates; signal hit rate reported.
+4. **Discovery: contract dates before 2026-03-01. Sealed: 2026-03-01 → 2026-10-09** (the end of the futures data; asserted in code).
+   Carried if t > 1.96 and mean > 0; validation once as §664.4; watchlist per §133. Capacity: qualifying contracts a day.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
