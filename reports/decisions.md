@@ -15112,6 +15112,17 @@ watch the call, not the filing. Data: Kalshi markets (live + /historical) and pu
 4. **Caveats fixed now:** the last print is not the ask (1¢ allowance); some releases may not match the speaker or the exact word form;
    events whose 8-K cannot be matched are excluded and counted.
 
+## 753. E-family 1: Kalshi already prices the earnings press release — not carried (S10)
+
+**N 1,538 (no trial).** `earnings/e0_download.py` (191 series, 450 settled events, 192 MB of trades), `earnings/e1_edgar.py`,
+`earnings/e2_rule.py`, `reports/e1_discovery.json`. Count markets excluded (as fixed in the code before data). **Clock caveat found:**
+EDGAR acceptance often LAGS the newswire release — Apple's 8-K for its 2026-04-30 call was accepted 2026-05-01 00:30Z, two hours after
+the call; the release itself went out on the wire at 16:30 ET. So 251 of 450 events had no 8-K before the market closed (unmatched);
+for the 199 matched, the EDGAR time is no earlier than the true release — the test trades late, i.e. conservatively. **Discovery
+(closes before 2026-06-01): 124 events with a release, 88 traded, 244 markets: −5.49¢ a contract, t −2.26, hit rate 49%.** Descriptive:
+words in the release YES 79.4% at a mean price 78.5¢; words not in it YES 41.2% at 45.9¢ — the market prices the release correctly,
+and in-release words still ≤ 85¢ are exactly the ones executives skip. Not carried; no validation. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

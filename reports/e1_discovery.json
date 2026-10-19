@@ -1,0 +1,21 @@
+{
+ "window": "discovery",
+ "events_with_release": 124,
+ "events_traded": 88,
+ "markets": 244,
+ "mean_net": -0.054896645021645034,
+ "t": -2.2601877620192035,
+ "hit_rate": 0.48770491803278687,
+ "next_30min_volume": 122341.4,
+ "in_release": {
+  "n": 650,
+  "yes_rate": 0.7938461538461539,
+  "mean_price": 0.7850461538461538
+ },
+ "not_in_release": {
+  "n": 972,
+  "yes_rate": 0.411522633744856,
+  "mean_price": 0.45896090534979417
+ },
+ "carried": false
+}
