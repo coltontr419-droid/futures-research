@@ -15088,6 +15088,9 @@ Predictions/Railbird, Gemini Predictions, Crypto.com/OG, Underdog): Gemini's pub
 78/79¢ on both Gemini and Kalshi (Gemini volume $47k vs Kalshi $5.2M); **51 game-winner markets (NFL/NBA/NHL) paired team-vs-other-team
 across the two venues: 0 combinations under $1 after fees** (a first pass paired the same team — bug, fixed). The new venues' market
 makers quote off Kalshi; the others publish no prices to check. Closed.
+(4) Productising the Tradeify prop-firm EV/policy machinery: free Monte-Carlo pass-probability calculators already exist (Phoenix Planner,
+Trader's Second Brain, One Trade Journal); prop-firm affiliate commissions ~10-20% of evaluation fees (Track360 estimates) with
+established comparison sites (PropFirmMap, Track360). A marketing business against free tools — not an edge. Not pursued.
 
 ## 10. Still outstanding, and blocking
 
