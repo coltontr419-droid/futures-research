@@ -15042,6 +15042,13 @@ weeks; consistency and caps ignored): P(pass) 21-25%; EV an attempt **50K traili
 static +$183** (funded EV $0.7-3.6k). Break-even at zero edge with a crude policy; an optimised policy (as A71 did for Tradeify) and any
 real per-contract edge both add. Open before any money: the exact funded-payout / drawdown interaction, the fill model (ask? size caps:
 'max shares per event'), Texas/US eligibility, and counterparty risk (new firms, crypto/fiat payouts).
+**Update (2026-10-19):** user: Texas allowed; Funding Predicts says it is backed by My Funded Futures (PropFirmMap: "directly backed and
+invested in by MyFundedFutures", $180M+ paid since 2023) — counterparty risk much lower. But the funded rules (PropFirmMap, checked
+2026-07-19): **max $150,000 active funded capital per user; bots / automation / copy trading prohibited; no overnight holding; prices
+≤ 85¢ with ≥ $250 depth within 7¢; real Polymarket books and taker fees**; 5 trading days a 7-day payout cycle, 35% daily consistency
+(50% on 10K), $100 min / $10k max a payout, drawdown locks at the start once a payout is requested; 20 open positions max. At zero
+edge the $150k cap allows ~one 100K + one 50K static account ≈ $5.5k in 26 weeks ≈ **$0.9k a month** (≈ $1.2k at a 5% per-bet edge):
+below the user's scale bar; real books keep depth caps. **Parked** until a same-day, manually tradable Polymarket edge exists.
 
 ## 10. Still outstanding, and blocking
 
