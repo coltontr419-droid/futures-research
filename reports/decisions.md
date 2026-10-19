@@ -15053,6 +15053,13 @@ below the user's scale bar; real books keep depth caps. **Parked** until a same-
 +30% add-on); founded 2026-05, assessments via "Prop Account, LLC", no payout history. Zero-edge 100K: P(pass) ≈ e^-2 ≈ 13.5% × funded
 ≈ 0.7 × $10k = $945 vs $1,099 → **negative** (≈ +$286 once with a 40%-off first-evaluation code). Closed.
 
+## 749. Screens: publication races on Kalshi's chart markets — closed by design (S10)
+
+**No trial.** Kalshi closes these markets BEFORE the source publishes: Netflix Top 10 (KXNETFLIXRANK*) close 23:59 ET Monday, the chart
+posts Tuesday; Billboard Hot 100 #1 (KXTOPSONG) closes before the chart week ends; album units (KXALBUMEQUIV) close at the Luminate value
+time itself (10:00 ET Sunday). No window between publication and close. Also noted: the laptop's Linux container restarted ~16:00Z
+2026-10-19 and killed the scheduled rally recorder; restarted 20:44Z (wall-clock scheduler, ready for 21:30Z).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
