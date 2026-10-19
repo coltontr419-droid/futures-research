@@ -14816,6 +14816,25 @@ and streaming markets, $10-$500 a period — **none active or scheduled now**. R
 spread + fee in a tight market would pay to trade). Sample check (KXMLBDEBUT, 9 programs; reward ÷ the market's whole volume): median
 0.53¢ a contract traded, max 12¢ — below Kalshi's ~1-2¢ fee in the typical case; other series' settled markets no longer resolve by ticker.
 
+## 734. M-family protocol — live mention markets: the first-taker prize, the winners' latency, and a forward feed race (S10)
+
+**No trial. Screen (§717 as loosened 2026-10-18: "why isn't everyone doing this?" — real-time transcription + a Kalshi bot + odd hours).**
+Data: every public trade in YES-resolved KXTRUMPMENTION markets (`mention/m0_download.py`; trades before 2026-08-19 are under
+`/historical/trades`). Kalshi does **not** halt a word's market when it is said (trading continues to the event's close).
+1. **The prize (`m1_prize.py`, 3 most recent rallies, 36 words with a jump from ≤ 85¢):** takers buying YES at ≤ 90¢ in the jump to ≥ 95¢
+   earned **$451 / $4,194 / $5,538 per event** net of the taker fee (mean ~$3.4k); the first taker instant took 36%; median 3 distinct
+   taker instants a jump, median span 1.3 s. Example: "Massie" — one sweep at 19:34:32.475 bought ~5,000 YES at 43-95¢.
+2. **The winners' latency (`m2_latency.py`; RSBN live-stream recordings: actual start time + word-timed auto captions):** the first sweep
+   comes **~7 s BEFORE the word on RSBN's recording timeline** — Wasilla 10-13 −7.6 s (n 5), Dalton 10-16 −6.9 s (n 13), Highland Heights
+   10-17 −7.7 s (n 11, quartiles −7.8/−7.5). The tight spread says one mechanical pipeline on a feed faster than RSBN's; a live YouTube
+   viewer of RSBN is later still, so **an RSBN-YouTube transcription bot would lose every race.**
+3. **Forward test (fixed now):** for the 2026-10-19 Wichita rally (remarks ~23:00 UTC), `mention/m3_record.py` records the audio of 8
+   public live streams (YouTube: RSBN, Forbes, LiveNOW from FOX, NTD, White House, C-SPAN, Fox News, ABC News) in 10-s chunks named by
+   NTP-corrected UTC arrival time. Afterwards each sweep's ±40 s is transcribed offline (faster-whisper base.en, word timestamps) per
+   stream. **Decision rule:** a public feed is viable only if, for ≥ 60% of jumps, the word arrives on it ≥ 1.5 s BEFORE the first sweep
+   (the allowance for streaming ASR + order latency). If none is, the public-feed route is closed; a TV/satellite capture would be the
+   remaining (hardware) route, for the user to decide.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
