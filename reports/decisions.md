@@ -15074,6 +15074,8 @@ it. The 20% drawdown vs 30% target is the source (Funding Predicts ~3.75% vs 6%;
 automated reads (terms unconfirmed from the source); Trustpilot 8 reviews, 2 mention a payout; payments in USDT on BSC, no KYC →
 offshore crypto counterparty; payout cadence/caps and account limits unknown. Next (user): confirm terms in a browser; a 10K ($125)
 evaluation would test rules and payouts end to end.
+**Closed (user, 2026-10-19):** no KYC + crypto-only + 8 reviews = a grey-area firm; a site that blocks automated reads likely blocks bots too.
+Rule: only legitimate, KYC'd, established counterparties.
 
 ## 10. Still outstanding, and blocking
 
