@@ -15077,6 +15077,18 @@ evaluation would test rules and payouts end to end.
 **Closed (user, 2026-10-19):** no KYC + crypto-only + 8 reviews = a grey-area firm; a site that blocks automated reads likely blocks bots too.
 Rule: only legitimate, KYC'd, established counterparties.
 
+## 751. Screens: prediction-market tool businesses (crowded); White House stream (YouTube); new sports venues mirror Kalshi (S10)
+
+**No trial.** (1) Selling tools/data to prediction-market traders: 288 tools listed (GitHub directory); mention tools charge ~$199-200 a
+month (Mention Metrix, Mention Market Analyzer), arbitrage alerts $59-299, analytics $9-30 — people pay, but it is a crowded business,
+not an edge; kept as a later option. (2) Since 2026-09 the network TV pool skipped some events and the White House streams its own
+24/7 feed ("TRUMP TV", whitehouse.gov/live) — it embeds the White House YouTube stream, already in tonight's recording; free-to-air
+satellite pool feeds: no evidence found. (3) New CFTC sports venues reportedly open to Texans (FanDuel Predicts/CME, DraftKings
+Predictions/Railbird, Gemini Predictions, Crypto.com/OG, Underdog): Gemini's public API (`arb/a3_gemini.py`) — tonight's MNF 49ers
+78/79¢ on both Gemini and Kalshi (Gemini volume $47k vs Kalshi $5.2M); **51 game-winner markets (NFL/NBA/NHL) paired team-vs-other-team
+across the two venues: 0 combinations under $1 after fees** (a first pass paired the same team — bug, fixed). The new venues' market
+makers quote off Kalshi; the others publish no prices to check. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
