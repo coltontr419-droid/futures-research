@@ -14790,6 +14790,21 @@ it. Funds cannot scale 99 shares; the issuer, not competition, sets the price. E
 3. **Caveats fixed now:** the close is an assumed fill (99 shares is far inside the volume of every listed name); prices from a free
    daily source; IBKR's corporate-action fee (if any) to be confirmed; one beneficial owner assumed.
 
+## 732. T-family 1: odd-lot tenders are a real but small stream — about $2k a year, dominated by one exchange offer a year (S10)
+
+**No trial (a measurement).** `reports/t1_oddlot.json` (module `tender/t1_oddlot.py`; EDGAR full text + submissions, Yahoo daily closes).
+The automated parse is noisy (split-adjusted prices: COKE, MNST, RBNE; some odd-lot flags misread), so the totals below rest on the offers
+checked by hand. **Disclosed rule flaw:** §731 buys even when the stock already trades above a fixed price (RUM, TORO, CFNB) — no one would;
+an ex-ante filter (buy only below a fixed price or below a Dutch range's low end) is the obvious live rule, and is post hoc here.
+- **Exchange offers (odd lots accepted in full every time; others prorated to 7-18%):** CMI→ATMU 2024 (12.030 ATMU a share) **+$4,791** on
+  $26,314; LEN→MRP 2025 (4.137) **+$1,304** on $11,684; MDT→MMED 2026 (4.594) **−$915** on $9,281 — the subsidiary's price moves between the
+  pricing window and the sale (MMED fell after expiry). Net ≈ +$5.2k in 2.8 years, ±10% risk on $9-26k each time.
+- **Cash buybacks / fund tenders with odd-lot priority:** tens to low hundreds of dollars each (e.g. INCY +$290, SCHL +$111, JOF +$105,
+  SWZ +$52, YEXT +$20 where the flags hold); many fund tenders subject odd lots to proration (BlackRock 2024, XFLT, NFJ); WEX −$370.
+**Read:** the structural mechanism is genuine and cannot be competed away, but one beneficial owner earns roughly **$1.5-2.5k a year**,
+lumpy and carried mostly by ~1 exchange offer a year with market risk (hedgeable by shorting the subsidiary in the pricing window).
+Not an income stream at the scale sought; worth only a cheap EDGAR alert if the user wants one. No further work unless asked.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
