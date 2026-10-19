@@ -15026,6 +15026,23 @@ Data: every public trade of KXTRUMPMENTION markets — said words (`mention_trad
 user's scale bar, so it is not worth the download. No trial spent; the module stays unrun. Rule going forward: the capacity screen
 comes BEFORE any download.
 
+## 748. Screens: ForecastEx retainers (no); prediction-market PROP FIRMS — the Tradeify structure on Kalshi/Polymarket (lead) (S10)
+
+**No trial.** (1) ForecastEx Liquidity Retainer Programs (NTM 226 hourly temps, 253 oil/energy): fixed daily payments for meeting
+spread/size/presence on EVERY strike of 1-21 products, max **3 market makers** a program, a Market Maker Agreement needed, amounts in a
+confidential appendix, programs ending 2026-10-31 — needs inventory capital far above $100-200 and approval: not for us.
+(2) **Prediction-market prop firms (lead; user's scale + $100-200 rules):** firms fund traders on Polymarket/Kalshi with simulated
+evaluations — the same structure as Tradeify (other people's capital supplies the scale). **Funding Predicts** (fundingpredicts.com,
+Polymarket): trailing-EOD accounts 10K $85 … 50K **$209** (target $3,000, DD $2,000, daily $1,000) … 100K **$359** ($6,000 / $3,750 /
+$2,000), 150K $535; static accounts 50K **$375** ($6,000 / $2,500 static / $1,500), 100K **$700** ($12,000 / $5,000 / $3,000); split
+80-90%, weekly payouts, **$100k lifetime payout cap per trader**. **PropMarket** (prop.market, Polymarket + Kalshi): $59+ evaluation,
+20% target, 10% trailing equity DD, markets 20-80¢ resolving ≤ 60 d, 10%-per-market consistency, 70/30 (90/10 add-on). Rough zero-edge
+Monte Carlo (`reporting/a88_pm_prop.py`: fair 50¢ bets, 1¢ spread a contract, one fixed stake a day, weekly withdrawal, 26 funded
+weeks; consistency and caps ignored): P(pass) 21-25%; EV an attempt **50K trailing −$49, 100K trailing −$79, 50K static +$68, 100K
+static +$183** (funded EV $0.7-3.6k). Break-even at zero edge with a crude policy; an optimised policy (as A71 did for Tradeify) and any
+real per-contract edge both add. Open before any money: the exact funded-payout / drawdown interaction, the fill model (ask? size caps:
+'max shares per event'), Texas/US eligibility, and counterparty risk (new firms, crypto/fiat payouts).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
