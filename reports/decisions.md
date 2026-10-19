@@ -14805,6 +14805,16 @@ an ex-ante filter (buy only below a fixed price or below a Dutch range's low end
 lumpy and carried mostly by ~1 exchange offer a year with market risk (hedgeable by shorting the subsidiary in the pricing window).
 Not an income stream at the scale sought; worth only a cheap EDGAR alert if the user wants one. No further work unless asked.
 
+## 733. Screens: midterm cross-venue (ForecastEx × Kalshi) and Kalshi volume incentives — neither available at size (S10)
+
+**No trial.** (1) **Elections, ForecastEx × Kalshi** (2026-10-18): the big markets agree — House control D: ForecastEx last 91¢ vs Kalshi
+90.1/90.2¢; Senate D 66¢ (stale) / R 37¢ vs Kalshi 62-63¢ / 38-39¢. Of 503 ForecastEx election products, almost all district prints had
+zero volume that day (stale, not tradable quotes), contracts are named by candidate (mapping to Kalshi's party markets is manual), open
+interest is 200-5,800 a district, and ForecastEx resolves 2027-01-04. At best a one-off ~$1-2k needing live IBKR quotes; not pursued.
+(2) **Kalshi volume incentive programs** (`/incentive_programs?type=volume`): 8,000+ ran 2026-04-13 → 09-20, mostly KXBTC15M/KXETH15M
+and streaming markets, $10-$500 a period — **none active or scheduled now**. Recheck if Kalshi restarts them (a volume rebate above the
+spread + fee in a tight market would pay to trade).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
