@@ -14975,6 +14975,22 @@ settlement): $200 sells ~$35 of premium a cycle, ~$3-7 at a 10-20% edge — a te
 by window (KXMVESPORTSMULTIGAMEEXTENDED Aug 17-30: 0.4% of premium; cross-category windows 38-71%). The read-only shadow logger keeps
 running ~2 days so the evidence exists for later; then it is stopped. Revisit once another stream funds the capital.
 
+## 745. Screens: no riskless structure on Kalshi; K-family 9 protocol — base rates across ALL mention series (S10)
+
+**No trial. (1) Riskless structure (`arb/a1_scan.py`, `arb/a2_cross.py`), 2026-10-19 17:04Z:** 12,907 open events — mutually exclusive
+sets (sum of YES bids > $1 after fees): **0**; one-sided threshold ladders (lower-K ask < higher-K bid after fees; first two passes had
+false positives from mixing teams / players, fixed by grouping on the ticker stem): **0**; 702 "above K" markets against the sum of their
+range brackets (INXU/INX, NASDAQ100U/NASDAQ100, BTCD/BTC, ETHD/ETH): **0**. A one-hour repeat runs in the background.
+**(2) K-family 9 protocol (written BEFORE any of the new series is downloaded).** Under the $100-200 rule (user, 2026-10-19), the
+closest miss so far was §721 (Trump mention base rates, θ 10¢: +6.76¢, t 1.78, 61 events). Same mechanism, every OTHER mention series:
+all series matched by `mention/m4_series.py` (458) except KXTRUMPMENTION (family 8's data), downloaded with `kalshi/download.py`
+(settled history incl. /historical, hourly candles). **Design identical to §720:** base rate of a normalised word label = share of
+EARLIER events **of the same series** in which it resolved Yes (≥ 5 earlier occurrences); price = the hourly candle ending 1 h after the
+market opened, quote filter bid > 0, ask < 1, spread ≤ 10¢; buy Yes if base − ask − fee > θ (and ≥ the No edge), buy No if
+(1 − base) − (1 − bid) − fee > θ; θ ∈ {5, 10, 15}¢ — **3 tests, pooled over series**. **Discovery: events closing before 2026-06-01;
+sealed: 2026-06-01 → 2026-10-19.** Statistic: each event's mean net per contract; t over events; carried t > 1.96, mean > 0; validation
+once per §664.4; watchlist per §133. Capacity reported (qualifying contracts' hourly volume at the 1 h candle).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
