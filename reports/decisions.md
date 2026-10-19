@@ -15092,6 +15092,26 @@ makers quote off Kalshi; the others publish no prices to check. Closed.
 Trader's Second Brain, One Trade Journal); prop-firm affiliate commissions ~10-20% of evaluation fees (Track360 estimates) with
 established comparison sites (PropFirmMap, Track360). A marketing business against free tools — not an edge. Not pursued.
 
+## 752. E-family 1 protocol — earnings-call mention markets: the press release is public before the call (S10)
+
+**No trial. Written BEFORE any Kalshi earnings-mention price is compared with any press release or result.** Screen (user rules:
+legitimate, small start, scale; capacity first): companies file the earnings press release (8-K, Exhibit 99.1; EDGAR records the
+acceptance time to the second) ~30-60 min before the call, and executives largely read its highlights. Words in the release should be
+near-certain to be said. Capacity: 191 Kalshi earnings-mention series; 71 settled events 2026-08-19 → 10-19 (off-season) with 5.4M
+contracts (~76k an event); earnings season (late Oct-Nov) is several times busier — a rough ceiling of ~$5-20k a month at full capture
+if the gap exists. Why isn't everyone doing it? It needs an EDGAR watcher + word matching within minutes, per company; mention traders
+watch the call, not the filing. Data: Kalshi markets (live + /historical) and public trades; EDGAR submissions + filing documents.
+1. **Clock:** t0 = the EDGAR acceptance time of the company's 8-K whose exhibit is the earnings press release, filed within the 36 h
+   before the market's close; trade time = t0 + 5 min (read + order latency).
+2. **Rule (fixed):** for each word market of the event, if any form of the word (Kalshi's label split on "/", case-insensitive, whole
+   word) appears in the press release text AND the last YES print before t0 + 5 min is ≤ 85¢: **buy YES at that print + 1¢ slippage**,
+   Kalshi taker fee, hold to settlement. **One test.** Also reported (descriptive): the same for words NOT in the release (buy NO when
+   YES ≥ 15¢ is NOT a test); hit rates; contracts traded in the 30 min after t0 (capacity).
+3. **Statistic:** each event's mean net per contract; t over events. **Discovery: events closing before 2026-06-01; sealed:
+   2026-06-01 → 2026-10-19.** Carried t > 1.96, mean > 0; validation once per §664.4; watchlist per §133.
+4. **Caveats fixed now:** the last print is not the ask (1¢ allowance); some releases may not match the speaker or the exact word form;
+   events whose 8-K cannot be matched are excluded and counted.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
