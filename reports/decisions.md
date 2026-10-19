@@ -14960,6 +14960,17 @@ about the product, not about quoting. A quoter needs a correlation-aware, live p
 authenticated WebSocket, our would-be quote vs the executed price vs settlement, no orders) can measure it. Pending the user's decision
 on API access.
 
+## 744. C-family 1 forward shadow test deployed on the droplet (user-approved 2026-10-19; read-only, no orders) (S10)
+
+**No trial.** `kalshi_lip/rfq_shadow.py` runs as systemd `kalshi-rfq-shadow` in /opt/kalshi-lip (venv + `websockets` added), with the
+user's existing Kalshi key (only KALSHI_KEY_ID / KALSHI_KEY_PATH exported; the key is never read by us). It subscribes to the
+authenticated `communications` channel and NEVER creates RFQs or quotes. **Observed: > 1,000 RFQs a second** (73,282 created and 71,778
+deleted in one minute; most $10 target-cost requests withdrawn within the minute) — so it logs a deterministic 0.1% hash-sample of RFQ
+ids (~36 a minute, ~300 MB a day): the RFQ (legs, size, created_ts), each leg's top of book at that moment (batch orderbooks, ≤ 4 req/s),
+and the RFQ's deletion; it stops writing below 10 GB free disk. Analysis (to write once data accrues): join each sampled RFQ's combo
+ticker to its public trades (executed price, taker side) and settlement; price it from the leg books (crypto legs in one window
+grouped as one bet; in-play combos flagged); measure a would-be quoter's wins and P&L after fees, by price band.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
