@@ -14725,6 +14725,15 @@ Data: every ForecastEx trade (`pairs/`, public S3, via `forecastex/download.py`)
 5. **Caveats fixed now:** fills at trade prices are an assumption to be checked live via IBKR quotes (read-only API works, §725) before
    any money; the fee is ForecastEx's published 1¢ (IBKR commission, if any, to be confirmed); trading eligibility is the user's.
 
+## 727. F-family 1: the settlement gap is priced in — 1 of 10 carried, rejected on sealed data (S10)
+
+**N 1,536 (one trial, t01536).** `reports/f1_discovery.json`, `reports/f1_validation.json` (module `forecastex/f1_wu.py`). Discovery (Feb-Jun
+2026, 132-139 dates a test): the cities disagree — LA, Austin and Midway positive, **Miami significantly negative before 10:00 (−7.56¢,
+t −2.85)** and Philadelphia negative, although every city has the same 55-68% gap; one carried, **UHLAX before 10:00: +5.00¢ a contract,
+t 2.02**, 4 of 5 months positive, ~66,500 contracts a date (0.25 chance passes expected). **Sealed validation (2026-07-01 → 10-17, 109
+dates): −1.48¢, t −0.47, placebo 33%, posterior −0.42¢ → REJECT.** Read: ForecastEx's temperature prices already account for its
+Weather-Underground settlement; the per-city discovery means were noise around zero. Closed; no watchlist entry (net negative sealed).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
