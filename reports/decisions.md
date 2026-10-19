@@ -14980,7 +14980,8 @@ running ~2 days so the evidence exists for later; then it is stopped. Revisit on
 **No trial. (1) Riskless structure (`arb/a1_scan.py`, `arb/a2_cross.py`), 2026-10-19 17:04Z:** 12,907 open events — mutually exclusive
 sets (sum of YES bids > $1 after fees): **0**; one-sided threshold ladders (lower-K ask < higher-K bid after fees; first two passes had
 false positives from mixing teams / players, fixed by grouping on the ticker stem): **0**; 702 "above K" markets against the sum of their
-range brackets (INXU/INX, NASDAQ100U/NASDAQ100, BTCD/BTC, ETHD/ETH): **0**. A one-hour repeat runs in the background.
+range brackets (INXU/INX, NASDAQ100U/NASDAQ100, BTCD/BTC, ETHD/ETH): **0**. Repeated 12 times 17:06-18:17Z (12,905-13,027 events):
+**0 every time.** Kalshi's riskless structure is policed.
 **(2) K-family 9 protocol (written BEFORE any of the new series is downloaded).** Under the $100-200 rule (user, 2026-10-19), the
 closest miss so far was §721 (Trump mention base rates, θ 10¢: +6.76¢, t 1.78, 61 events). Same mechanism, every OTHER mention series:
 all series matched by `mention/m4_series.py` (458) except KXTRUMPMENTION (family 8's data), downloaded with `kalshi/download.py`
