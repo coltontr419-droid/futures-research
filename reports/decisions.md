@@ -14907,6 +14907,21 @@ futures feed; the window is minutes a day. Against it: retained MMs hedge with f
 4. **Discovery: contract dates before 2026-03-01. Sealed: 2026-03-01 → 2026-10-09** (the end of the futures data; asserted in code).
    Carried if t > 1.96 and mean > 0; validation once as §664.4; watchlist per §133. Capacity: qualifying contracts a day.
 
+## 740. F-family 3 discovery: carried, and its source is the futures ROLL; F-family 4 registered before the sealed look (S10)
+
+**N 1,536 (no trial yet).** `reports/f3_discovery.json` (module `forecastex/f3_fnq.py`). Implementation fix before reading the result:
+the first pass took the lead month as the day's highest-volume MNQ contract, which rolls a week before expiry (hit rate 17%); §739
+says lead month, which ForecastEx defines as the nearest contract until its final settlement — fixed to that (hit rate 100%).
+**Discovery (2025-05 → 2026-02): 48 trades, 21,921 contracts, +16.9¢ a contract, t 3.53 over only 4 dates, $5,362 → CARRIED**, but
+it is concentrated: **2025-12-16 (13,500 contracts, +$4,150) and 12-17 (7,920, +$1,167), 3 and 2 days before the December expiry**,
+plus 2025-09-19 (expiry day, $209) and two small trades. Reading: in roll week FNQ trades as if it referenced the NEXT quarterly contract
+(~0.5-1% higher), while it settles on the expiring lead month — e.g. 12-16: lead 25,180 vs strike 25,300, NO traded at 48-54¢.
+**F-family 4 (registered now, from that reading, before any sealed data is opened):** same as §739 (signal from the LEAD month,
+latency 1 min, printed price ≤ 90¢, +1¢ slip +1¢ fee) but (a) only on **roll days** — trading days on which a later quarterly MNQ
+contract out-trades the lead month while the lead month is unexpired — (b) window **13:00-15:00 CT**, (c) threshold **|d| ≥ 0.40%**.
+One test; sealed window as §739 (2026-03-01 → 10-09: the March, June and September 2026 rolls); same carry/validation rules (here the
+sealed run is the only run). Both F3 (as registered) and F4 are now validated once on the sealed window.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

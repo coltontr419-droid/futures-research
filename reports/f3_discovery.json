@@ -1,0 +1,15 @@
+{
+ "window": [
+  "2025-05-01",
+  "2026-02-28"
+ ],
+ "dates": 4,
+ "trades": 48,
+ "contracts": 21921.0,
+ "mean_net_dated": 0.16868265993265993,
+ "t": 3.5308575098284547,
+ "hit_rate": 1.0,
+ "pnl_dollars": 5361.93,
+ "mean_price": 0.7464583333333333,
+ "carried": true
+}
