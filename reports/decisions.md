@@ -14883,6 +14883,15 @@ markets store a label, so each event's final score is bracketed from its strike 
 25 events, 30 strikes, +2.14¢ (t 0.23); 48 h: 13 events, 15 strikes, −18.81¢ (t −1.48)**; market-implied median − final **+0.41 pt
 (t 0.79) / −0.34 pt (t −1.12)**, n 31. Not carried; no validation. Kalshi's RT markets already price the drift. Closed.
 
+## 738. Screen: Kalshi daily-high brackets after the temperature passes them — taken before the public 5-minute reading (S10)
+
+**No trial.** `weather/w1_cross.py`, `reports/w1_cross.json`: IEM 5-minute ASOS (MDW, MIA, AUS, LAX, DEN, PHL) × Kalshi trades, settled since
+2026-08-20. A first pass used the 30 h before the close and so mixed in the previous afternoon (apparent $32k prize, 5 h to collapse, 97%
+signal) — a bug; the NWS climate day is local STANDARD time. Fixed: a 5-minute reading ≥ the bracket top + 0.5 F → settled NO in **818 of
+818** brackets (a perfect signal), but only **18** brackets were still ≥ 15¢ when it arrived, the price fell to ≤ 5¢ in a **median 1.3
+min** (p90 3.1), the prize after the reading was **$1,718 in two months**, and 8,921 NO contracts were bought at ≤ 85¢ in the 30 min
+BEFORE it — others watch faster data. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

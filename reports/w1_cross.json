@@ -1,0 +1,146 @@
+[
+ {
+  "ticker": "KXHIGHCHI-26OCT12-B86.5",
+  "cross": "2026-10-12T19:53:00+00:00",
+  "last_yes_before": 0.3,
+  "minutes_to_dead": 0.9262354166666668,
+  "prize_after_cross": 38.7484,
+  "no_bought_in_30min_before": 1200.3299999999995
+ },
+ {
+  "ticker": "KXHIGHCHI-26SEP03-B90.5",
+  "cross": "2026-09-03T20:53:00+00:00",
+  "last_yes_before": 0.2,
+  "minutes_to_dead": 1.18107775,
+  "prize_after_cross": 25.91,
+  "no_bought_in_30min_before": 2408.9900000000002
+ },
+ {
+  "ticker": "KXHIGHMIA-26SEP12-B90.5",
+  "cross": "2026-09-12T17:37:00+00:00",
+  "last_yes_before": 0.28,
+  "minutes_to_dead": 2.1011475666666666,
+  "prize_after_cross": 34.355000000000004,
+  "no_bought_in_30min_before": 962.8800000000001
+ },
+ {
+  "ticker": "KXHIGHAUS-26SEP07-B99.5",
+  "cross": "2026-09-07T21:53:00+00:00",
+  "last_yes_before": 0.41,
+  "minutes_to_dead": 0.9471605666666666,
+  "prize_after_cross": 651.0492999999998,
+  "no_bought_in_30min_before": 1326.16
+ },
+ {
+  "ticker": "KXHIGHAUS-26SEP06-B94.5",
+  "cross": "2026-09-06T19:53:00+00:00",
+  "last_yes_before": 0.29,
+  "minutes_to_dead": 1.5693230166666665,
+  "prize_after_cross": 14.049999999999999,
+  "no_bought_in_30min_before": 153.82999999999998
+ },
+ {
+  "ticker": "KXHIGHDEN-26SEP03-B89.5",
+  "cross": "2026-09-03T21:28:00+00:00",
+  "last_yes_before": 0.15,
+  "minutes_to_dead": 1.0786073166666665,
+  "prize_after_cross": 0,
+  "no_bought_in_30min_before": 77.92
+ },
+ {
+  "ticker": "KXHIGHDEN-26SEP01-B85.5",
+  "cross": "2026-09-01T21:53:00+00:00",
+  "last_yes_before": 0.43,
+  "minutes_to_dead": 1.2878242166666667,
+  "prize_after_cross": 165.78839999999997,
+  "no_bought_in_30min_before": 938.49
+ },
+ {
+  "ticker": "KXHIGHDEN-26AUG31-B82.5",
+  "cross": "2026-08-31T20:53:00+00:00",
+  "last_yes_before": 0.21,
+  "minutes_to_dead": 1.12255035,
+  "prize_after_cross": 62.90460000000001,
+  "no_bought_in_30min_before": 215.2
+ },
+ {
+  "ticker": "KXHIGHDEN-26AUG27-B89.5",
+  "cross": "2026-08-27T20:53:00+00:00",
+  "last_yes_before": 0.2,
+  "minutes_to_dead": 2.2933928499999996,
+  "prize_after_cross": 141.5026,
+  "no_bought_in_30min_before": 456.6
+ },
+ {
+  "ticker": "KXHIGHDEN-26AUG23-B91.5",
+  "cross": "2026-08-23T20:53:00+00:00",
+  "last_yes_before": 0.23,
+  "minutes_to_dead": 1.9705211,
+  "prize_after_cross": 97.75090000000002,
+  "no_bought_in_30min_before": 132.01
+ },
+ {
+  "ticker": "KXHIGHDEN-26AUG22-B90.5",
+  "cross": "2026-08-22T20:40:00+00:00",
+  "last_yes_before": 0.44,
+  "minutes_to_dead": 3.07447105,
+  "prize_after_cross": 44.61299999999999,
+  "no_bought_in_30min_before": 82.55
+ },
+ {
+  "ticker": "KXHIGHDEN-26AUG22-B88.5",
+  "cross": "2026-08-22T20:40:00+00:00",
+  "last_yes_before": 0.16,
+  "minutes_to_dead": 3.0736592833333334,
+  "prize_after_cross": 0,
+  "no_bought_in_30min_before": 0
+ },
+ {
+  "ticker": "KXHIGHPHIL-26SEP27-B65.5",
+  "cross": "2026-09-27T18:54:00+00:00",
+  "last_yes_before": 0.48,
+  "minutes_to_dead": 1.19435935,
+  "prize_after_cross": 106.66,
+  "no_bought_in_30min_before": 169.0
+ },
+ {
+  "ticker": "KXHIGHPHIL-26SEP24-B65.5",
+  "cross": "2026-09-24T18:54:00+00:00",
+  "last_yes_before": 0.15,
+  "minutes_to_dead": 1.2595300166666665,
+  "prize_after_cross": 5.32,
+  "no_bought_in_30min_before": 190.35999999999999
+ },
+ {
+  "ticker": "KXHIGHPHIL-26SEP22-B64.5",
+  "cross": "2026-09-22T17:21:00+00:00",
+  "last_yes_before": 0.45,
+  "minutes_to_dead": 1.1372596166666669,
+  "prize_after_cross": 115.9332,
+  "no_bought_in_30min_before": 453.4
+ },
+ {
+  "ticker": "KXHIGHPHIL-26SEP18-B83.5",
+  "cross": "2026-09-18T18:54:00+00:00",
+  "last_yes_before": 0.15,
+  "minutes_to_dead": 2.073838616666667,
+  "prize_after_cross": 0,
+  "no_bought_in_30min_before": 0
+ },
+ {
+  "ticker": "KXHIGHPHIL-26SEP11-B79.5",
+  "cross": "2026-09-11T21:54:00+00:00",
+  "last_yes_before": 0.35,
+  "minutes_to_dead": 1.4380771166666666,
+  "prize_after_cross": 10.646800000000004,
+  "no_bought_in_30min_before": 58.769999999999996
+ },
+ {
+  "ticker": "KXHIGHPHIL-26SEP05-B82.5",
+  "cross": "2026-09-05T19:54:00+00:00",
+  "last_yes_before": 0.67,
+  "minutes_to_dead": 1.19986275,
+  "prize_after_cross": 203.06829999999997,
+  "no_bought_in_30min_before": 94.42999999999999
+ }
+]
