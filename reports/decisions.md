@@ -14766,6 +14766,15 @@ Descriptive, all 26 days: after the deciding report (+3 min) with a clear signal
 contracts), 91-96¢ in 53 (3,121), **≤ 90¢ in 9 (94 contracts)**; the 362 other post-report trades were within the rounding margin.
 Someone reprices within minutes; the residue is ~$125 in 26 days across five cities. Closed.
 
+## 730. Screen: ForecastEx release-timing errors (data public before trading stops) — none worth having (S10)
+
+**No trial.** Mechanism: indicator contracts stop trading at a fixed Central-time "Resolution Time" while foreign agencies publish on
+local clocks (e.g. SGCPI closes 00:00 CT; Singapore publishes 13:00 SGT = 23:00 CST in US winter), so a schedule slip would leave a
+market open after the number is public. Screen over every Economic Indicators trade (`pairs_all/`, 810 days) and every settlement
+(`prices_all/`): contracts whose winning side was ≤ 80¢ (median) 2-24 h before the close but printed ≥ 95¢ before it — **21 contracts in
+9 products**, median 22-59 minutes early; trades of the winning side at ≤ 90¢ after that print: **21 trades, 210 contracts, $32.90**
+(+1¢ slip and fee), all in USGP. ForecastEx's closes are set correctly and early information is repriced at once. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

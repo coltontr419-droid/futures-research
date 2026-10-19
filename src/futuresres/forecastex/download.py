@@ -43,14 +43,20 @@ def one(prefix: str, key: str, keep, sub: str = "") -> None:
     if dest.exists():
         return
     lines = get(f"{BUCKET}/{key}").decode("utf-8", "replace").splitlines()
-    rows = [lines[0]] + [ln for ln in lines[1:] if ln.split(",", 2)[1 if prefix == "pairs" else 0].startswith(keep)]
+    if keep == "ALL" and prefix == "prices":                        # settlement rows only: date == expiry date
+        rows = [lines[0]] + [ln for ln in lines[1:] if (c := ln.split(","))[3:4] and c[2][:10] == c[3]]
+    elif keep == "ALL":
+        rows = lines
+    else:
+        rows = [lines[0]] + [ln for ln in lines[1:] if ln.split(",", 2)[1 if prefix == "pairs" else 0].startswith(keep)]
     dest.write_text("\n".join(rows) + "\n")
 
 
 def main(argv: list[str]) -> int:
     import urllib.parse  # noqa: F401
     for arg in argv or ["prices", "pairs"]:
-        prefix, keep, sub = (arg[:-3], KEEP_HR, arg) if arg.endswith("_hr") else (arg, KEEP, "")
+        prefix, keep, sub = ((arg[:-3], KEEP_HR, arg) if arg.endswith("_hr") else (arg[:-4], "ALL", arg) if arg.endswith("_all")
+                             else (arg, KEEP, ""))
         (OUT / (sub or prefix)).mkdir(parents=True, exist_ok=True)
         ks = keys(prefix)
         with cf.ThreadPoolExecutor(8) as ex:
