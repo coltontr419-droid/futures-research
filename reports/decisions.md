@@ -14847,6 +14847,17 @@ Data: every public trade in YES-resolved KXTRUMPMENTION markets (`mention/m0_dow
    1.2 s, company 0.9 s). Truth Social returns 403 (Cloudflare) to plain requests from here. A sub-second incumbent for ~$6k a month: not
    worth the race. Closed.
 
+## 735. Screen: Kalshi's OpenRouter AI-share markets — public intra-week tally, but the market already follows it (S10)
+
+**No trial.** Ranking of data-publication series (`kalshi/a86_rank.py`, 3,300 series in Entertainment / Science & Tech / Companies / …;
+settled since 2026-08-19): Kalshi combos (MVE) 20-40M contracts, Rotten Tomatoes 16.9M (23 movies), YouTube views 1.2-4.8M, Netflix ranks
+1.6-1.8M, AI market share 1.3-1.9M per series. **AI share (`kalshi/a87_aishare.py`):** the weekly markets settle on OpenRouter's public
+`/api/frontend/v1/rankings/author-market-share?metric=requests&modality=text`, which reproduces Kalshi's settled values exactly (one-week
+label shift) and shows the current week partially (updated within the week); no daily history exists. 621 settled markets, 73 events
+(~9 weeks): the winner was 10-90¢ in 43% / 39% / 34% / 19% of hourly candles 96-72 / 72-48 / 48-24 / 24-0 h before close, BUT that late
+uncertainty sits at strikes near the final — 12-0 h: none > 0.3 pt away; 48-24 h: 3% of it > 1 pt away (hindsight ceiling $2.9k in ~9
+weeks); 72-48 h: 10% > 1 pt away ($9.4k). The running tally is already priced; the residue is too small. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
