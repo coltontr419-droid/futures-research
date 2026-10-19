@@ -14970,6 +14970,10 @@ ids (~36 a minute, ~300 MB a day): the RFQ (legs, size, created_ts), each leg's 
 and the RFQ's deletion; it stops writing below 10 GB free disk. Analysis (to write once data accrues): join each sampled RFQ's combo
 ticker to its public trades (executed price, taker side) and settlement; price it from the leg books (crypto legs in one window
 grouped as one bet; in-play combos flagged); measure a would-be quoter's wins and P&L after fees, by price band.
+**Parked (user, 2026-10-19):** new strategies must start on ~$100-200. Combo quoting is capital-bound (a 15¢ parlay ties up 85¢ until
+settlement): $200 sells ~$35 of premium a cycle, ~$3-7 at a 10-20% edge — a test, not income. The sample's seller margin is also noisy
+by window (KXMVESPORTSMULTIGAMEEXTENDED Aug 17-30: 0.4% of premium; cross-category windows 38-71%). The read-only shadow logger keeps
+running ~2 days so the evidence exists for later; then it is stopped. Revisit once another stream funds the capital.
 
 ## 10. Still outstanding, and blocking
 
