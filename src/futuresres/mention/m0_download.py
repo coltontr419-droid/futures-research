@@ -37,13 +37,14 @@ def trades(c: Client, ticker: str, base: str = "/markets/trades") -> list:
     return out
 
 
-def one(c: Client, f: str) -> str:
-    ev = Path(f).stem; dest = OUT / f"{ev}.json"
+def one(c: Client, f: str, result: str = "yes") -> str:
+    """Trades of the event's markets that resolved `result` ("yes": the word was said; "no": never said - saved as <event>.no.json)."""
+    ev = Path(f).stem; dest = OUT / (f"{ev}.json" if result == "yes" else f"{ev}.no.json")
     if dest.exists() and any(m["trades"] for m in json.load(open(dest))["markets"]):
         return ev + " cached"
     d = json.load(open(f)); rows = []
     for m in d["markets"]:
-        if m.get("result") == "yes":
+        if m.get("result") == result:
             rows.append({"ticker": m["ticker"], "word": m.get("yes_sub_title"), "open": m.get("open_time"), "close": m.get("close_time"),
                          "volume": m.get("volume_fp"), "trades": trades(c, m["ticker"])})
     dest.write_text(json.dumps({"event": ev, "title": d["markets"][0].get("title") if d["markets"] else None, "markets": rows}))
@@ -52,10 +53,11 @@ def one(c: Client, f: str) -> str:
 
 def main(argv) -> int:
     OUT.mkdir(parents=True, exist_ok=True); c = Client()
+    result = "no" if "--no" in argv else "yes"; argv = [a for a in argv if a != "--no"]
     fs = sorted(glob.glob(str(SRC / "*.json")), key=lambda f: json.load(open(f))["markets"][0].get("close_time") or "")
     fs = fs[-int(argv[0]):] if argv else fs
     with ThreadPoolExecutor(4) as ex:
-        for msg in ex.map(lambda f: one(c, f), fs):
+        for msg in ex.map(lambda f: one(c, f, result), fs):
             print(msg, flush=True)
     return 0
 

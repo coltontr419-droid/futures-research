@@ -15006,6 +15006,23 @@ taker volume priced against the 50-70 s VWAP, after fee, still available X s aft
 bot arrives after ~15-20 s; the winners use stadium-speed data feeds. The pool is large but not reachable without a paid low-latency
 feed (and even 3-6 s figures partly count plays still unfolding). Closed.
 
+## 747. M-family 2 protocol — in-speech decay: is YES on still-unsaid words overpriced mid-speech? (S10)
+
+**No trial. Written BEFORE any unsaid-word price is compared with any result.** Screen (§717 loosened; user's scale + $100-200 rules):
+not a speed race — a hazard question. While Trump speaks, an unsaid word's YES should fall as time runs out; retail holding YES "in
+hope" would leave NO cheap. Capacity: ~20 unsaid words an event at thousands of contracts each, ~16-19 events a month; capital recycles
+nightly. Why isn't everyone doing it? It needs per-word hazard judgement while live; mention traders are fans of a word, not of NO.
+Data: every public trade of KXTRUMPMENTION markets — said words (`mention_trades/<event>.json`) and unsaid words (`<event>.no.json`,
+`mention/m0_download.py --no`).
+1. **Clock:** speech start = the event's first jump (m1: the first taker sweep of a said word) — what a live bot sees.
+2. **Rule (fixed):** at τ ∈ {15, 30, 45} min after the start, every market of the event that has not yet jumped (no trade ≥ 90¢ so far)
+   and whose last YES print is in [0.10, 0.60]: **buy NO at 1 − last YES print + 1¢ slippage**, Kalshi taker fee, hold to settlement.
+   **3 tests.** Statistic: each event's mean net per contract; t over events; also the hit rate and the next-10-min volume (capacity).
+3. **Discovery: events closing before 2026-06-01; sealed: 2026-06-01 → 2026-10-19.** Carried t > 1.96, mean > 0; validation once per
+   §664.4; watchlist per §133.
+4. **Caveats fixed now:** the last print is not the NO ask (1¢ slippage is the allowance); "start" can lag the true start (it errs late,
+   which is conservative for a decay trade); words said during the speech jump and are excluded only from τ on.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
