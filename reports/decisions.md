@@ -15062,6 +15062,19 @@ time itself (10:00 ET Sunday). No window between publication and close. Also not
 Also: Polymarket US lists no mention markets (500 active events: 394 sports, 67 politics, …) — no less-contested venue for the mention
 race; RSBN's Rumble stream returns 403 to automated access (YouTube-only recording tonight).
 
+## 750. Lead: PolyFundr (Polymarket prop firm) — the most generous structure found; unverified, crypto counterparty (S10)
+
+**No trial.** PolyMart's roundup (affiliate links; unverified): **PolyFundr** 10K **$125**, 25K $300, 50K **$500** ($100K "coming soon");
+target **30%**, total drawdown **20% trailing from peak equity**, daily 10% of the day's start, max risk 5% of start a trade, consistency
+30% of profit a day (40% in funded payout windows), 14-day inactivity, **90% split**, "no KYC", real Polymarket prices. Also listed:
+FundedPoly (one payout per account, then closed — poor), Funding Predicts (§748), PropMarket (§748). Zero-edge Monte Carlo
+(`reporting/a89_polyfundr.py`: fair 50¢ bets at the 5% risk cap, 1¢ spread, one bet a day best, weekly withdrawal lowering the peak, 26
+funded weeks): **P(pass) ~20%; EV an attempt 10K +$133 (1.1× fee), 25K +$348, 50K +$762 (1.5× fee)**; a 3% per-bet edge roughly doubles
+it. The 20% drawdown vs 30% target is the source (Funding Predicts ~3.75% vs 6%; PropMarket 10% vs 20%). Risks: its site rate-limits
+automated reads (terms unconfirmed from the source); Trustpilot 8 reviews, 2 mention a payout; payments in USDT on BSC, no KYC →
+offshore crypto counterparty; payout cadence/caps and account limits unknown. Next (user): confirm terms in a browser; a 10K ($125)
+evaluation would test rules and payouts end to end.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
