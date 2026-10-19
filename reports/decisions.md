@@ -14930,6 +14930,23 @@ dates, 81 trades, 7,526 contracts, hit rate 86%, +6.24¢ dated mean but −$1,12
 of §133 (dated mean > 0), but net-negative in money: treated as no edge and not forward-tracked.** The 2025-12-16/17 episode was a
 one-off. ForecastEx's index contracts are priced off the right contract in its rolls now. Closed.
 
+## 742. C-family 1 — Kalshi combos (RFQ parlays): the sellers' margin, and a protocol to price them from their legs (S10)
+
+**No trial. Screen (loosened §717): structural + access.** Combos (MVE) are created on request (RFQ); makers answer with a yes bid and
+a no bid for the full size, the requester takes the best; quotes are private; any member may quote via the API per Kalshi (Sportico),
+onboarding unverified; Oddpool (2026-05, 270 test RFQs) saw ~5 combo-only makers, 2.7-3.7 quoting each request, responses < 300 ms,
+**inside combo spread 40.5¢**. Why isn't everyone doing it? It needs a multi-leg pricing engine, a live WebSocket/REST quoting bot and
+capital, against a few incumbents. **Calibration (`combo/c1_calib.py`; 149,754 settled combos, 204M contracts, the latest ~30k in each
+of five MVE series):** sellers kept **$1.97M on $11.44M of premium (17%)**; by price band the seller earned 1.6¢ (2-5¢ band), 3.4¢
+(5-10¢), **5.9¢ (10-20¢), 7.5¢ (20-35¢)** a contract; 35-65¢ about fair; 65-95¢ the buyer +4-5¢ (sellers underprice favourites).
+**C-family 1 protocol (fixed now, before any leg price is looked up):** a stratified sample of settled combos in
+KXMVESPORTSMULTIGAMEEXTENDED and KXMVECROSSCATEGORY whose legs are all in **different events** (no two legs share an event_ticker:
+treated as independent). Fair value = the product over legs of each leg's own Kalshi mid (side-adjusted) at the last 1-minute candle
+before the combo opened. Report (a) executed price ÷ fair (the incumbents' markup) by price band, (b) calibration of FAIR against
+results (is the product unbiased?), (c) the P&L of a seller who quotes YES at max(fair × 1.15, fair + 1¢) and wins every combo where
+that undercuts the executed price — net of Kalshi's fee. Descriptive (no trial); a positive (c) with (b) unbiased means a forward
+shadow test on live RFQs (no orders) is next, which needs the user's Kalshi API key (on the droplet) — the user's call.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
