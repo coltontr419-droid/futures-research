@@ -14842,6 +14842,10 @@ Data: every public trade in YES-resolved KXTRUMPMENTION markets (`mention/m0_dow
    KXTRUMPMENTIONB $1.0k, KXFEDMENTION $2.6k (1 event), KXWORLDNEWSMENTION $392 (45 events), KXVANCEMENTION $610, KXMTPMENTION $555, most
    others $50-500. The whole arena (~$90-100k a month of first-taker prize) turns on the same question: can any feed we can get match the
    winners'? If public streams fail (step 3), the remaining candidate is over-the-air broadcast TV (USB tuner) on scheduled newscasts.
+5. **Truth Social-triggered sweeps (`mention/m5_truth.py`; CNN's public archive of 36,968 posts with ms timestamps):** KXTRUMPSAY counts
+   posts. 31 of 110 jumps follow a matching post ($10.1k of $21.9k); **sweep − post created_at: median 0.6 s, p10 0.2 s, p90 2.1 s** (monthly
+   1.2 s, company 0.9 s). Truth Social returns 403 (Cloudflare) to plain requests from here. A sub-second incumbent for ~$6k a month: not
+   worth the race. Closed.
 
 ## 10. Still outstanding, and blocking
 

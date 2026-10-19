@@ -1,0 +1,1200 @@
+{
+ "KXTRUMPSAY": [
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-WHO",
+   "word": "Who are you with / Where are you from",
+   "sweep": "2026-10-12T21:15:24.127768Z",
+   "prize": 30.983500000000006,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-RIGG",
+   "word": "Rigged Election / Stolen Election",
+   "sweep": "2026-10-12T23:27:56.764553Z",
+   "prize": 27.943,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-MOON",
+   "word": "Moon",
+   "sweep": "2026-10-16T20:43:19.221473Z",
+   "prize": 109.9462,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-MELA",
+   "word": "Melania",
+   "sweep": "2026-10-16T21:37:21.059889Z",
+   "prize": 91.65410000000003,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-ILHA",
+   "word": "Ilhan / Omar",
+   "sweep": "2026-10-12T23:38:20.883147Z",
+   "prize": 14.690000000000003,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-GOLF",
+   "word": "Golf / Golfer / Golfing",
+   "sweep": "2026-10-14T20:23:36.912899Z",
+   "prize": 23.969299999999997,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-BLOC",
+   "word": "Blockade",
+   "sweep": "2026-10-13T15:56:26.008027Z",
+   "prize": 14.7445,
+   "post_lag_s": 0.952027
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-BIBI",
+   "word": "Bibi / Netanyahu",
+   "sweep": "2026-10-18T14:45:34.513919Z",
+   "prize": 350.50570000000005,
+   "post_lag_s": 0.175919
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT19-AUTO",
+   "word": "Autopen / Auto Pen",
+   "sweep": "2026-10-14T01:01:13.949031Z",
+   "prize": 216.6845,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-ZOHR",
+   "word": "Zohran / Mamdani",
+   "sweep": "2026-10-11T15:06:59.88183Z",
+   "prize": 2376.4314999999997,
+   "post_lag_s": 2.04183
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-UKRA",
+   "word": "Ukraine",
+   "sweep": "2026-10-05T15:08:49.115851Z",
+   "prize": 1.0999999999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-SUPE",
+   "word": "Superintelligence / Super Intelligence",
+   "sweep": "2026-10-05T08:41:49.787223Z",
+   "prize": 6.6,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-STUP",
+   "word": "Stupid Question",
+   "sweep": "2026-10-06T00:09:06.624006Z",
+   "prize": 90.3232,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-10-05T05:55:35.253185Z",
+   "prize": 0.6699999999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-NOBE",
+   "word": "Nobel",
+   "sweep": "2026-10-05T19:23:36.498765Z",
+   "prize": 16.4008,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-MOON",
+   "word": "Moon",
+   "sweep": "2026-10-08T17:42:07.13652Z",
+   "prize": 70.91890000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-MELA",
+   "word": "Melania",
+   "sweep": "2026-10-07T23:18:03.921045Z",
+   "prize": 18.866,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-MARI",
+   "word": "Marijuana / Weed / Cannabis",
+   "sweep": "2026-10-09T15:50:58.164605Z",
+   "prize": 587.7118999999997,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-CEAS",
+   "word": "Ceasefire",
+   "sweep": "2026-10-11T14:16:42.339809Z",
+   "prize": 1388.8847999999998,
+   "post_lag_s": 3.810809
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-CANA",
+   "word": "Canada / Canadian",
+   "sweep": "2026-10-05T08:42:14.713599Z",
+   "prize": 0.5399999999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT12-AUTO",
+   "word": "Autopen / Auto Pen",
+   "sweep": "2026-10-05T23:56:54.371931Z",
+   "prize": 23.6912,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-WHO",
+   "word": "Who are you with / Where are you from",
+   "sweep": "2026-10-02T20:01:03.119509Z",
+   "prize": 210.52289999999996,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-VOTE",
+   "word": "Voter ID",
+   "sweep": "2026-09-29T14:30:24.205455Z",
+   "prize": 27.400000000000002,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-UKRA",
+   "word": "Ukraine",
+   "sweep": "2026-09-30T21:22:55.742008Z",
+   "prize": 10.2304,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-TDS",
+   "word": "TDS / Trump Derangement Syndrome",
+   "sweep": "2026-09-28T21:34:27.415018Z",
+   "prize": 53.32839999999999,
+   "post_lag_s": 0.338018
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-STUP",
+   "word": "Stupid Question",
+   "sweep": "2026-10-03T00:21:49.229451Z",
+   "prize": 1290.116,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-09-28T14:41:41.693633Z",
+   "prize": 0.144,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-RIGG",
+   "word": "Rigged Election / Stolen Election",
+   "sweep": "2026-09-30T18:17:34.37572Z",
+   "prize": 150.60270000000003,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-MOON",
+   "word": "Moon",
+   "sweep": "2026-10-02T01:45:05.48516Z",
+   "prize": 346.8806,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-KAMA",
+   "word": "Kamala",
+   "sweep": "2026-09-30T18:16:26.826553Z",
+   "prize": 19.522000000000006,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-GOLF",
+   "word": "Golf / Golfer / Golfing",
+   "sweep": "2026-09-30T18:26:45.732431Z",
+   "prize": 52.273999999999994,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-DIVI",
+   "word": "Dividend / Stimulus",
+   "sweep": "2026-09-29T20:09:41.132092Z",
+   "prize": 35.86000000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-CANA",
+   "word": "Canada / Canadian",
+   "sweep": "2026-09-28T18:59:24.395075Z",
+   "prize": 4.26,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-BLOC",
+   "word": "Blockade",
+   "sweep": "2026-10-01T22:10:05.914564Z",
+   "prize": 18.109999999999996,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-BIBI",
+   "word": "Bibi / Netanyahu",
+   "sweep": "2026-09-30T20:59:16.177545Z",
+   "prize": 42.6656,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26OCT05-BARA",
+   "word": "Barack Hussein Obama",
+   "sweep": "2026-09-30T17:17:34.232873Z",
+   "prize": 35.7708,
+   "post_lag_s": 1.090873
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-ZOHR",
+   "word": "Zohran / Mamdani",
+   "sweep": "2026-09-21T19:53:04.707451Z",
+   "prize": 8.697799999999997,
+   "post_lag_s": 0.938451
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-TDS",
+   "word": "TDS / Trump Derangement Syndrome",
+   "sweep": "2026-09-24T00:21:25.841805Z",
+   "prize": 297.86369999999994,
+   "post_lag_s": 0.545805
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-09-22T13:59:27.628649Z",
+   "prize": 4.855699999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-SLEE",
+   "word": "Sleepy Joe",
+   "sweep": "2026-09-26T19:14:49.912111Z",
+   "prize": 364.2639,
+   "post_lag_s": 1.416111
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-RIGG",
+   "word": "Rigged Election / Stolen Election",
+   "sweep": "2026-09-26T15:59:00.93231Z",
+   "prize": 469.7649,
+   "post_lag_s": 1.72031
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-MELA",
+   "word": "Melania",
+   "sweep": "2026-09-22T14:56:00.588847Z",
+   "prize": 2.6992000000000003,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-GOLF",
+   "word": "Golf / Golfer / Golfing",
+   "sweep": "2026-09-26T18:52:20.703443Z",
+   "prize": 4.907900000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-DIVI",
+   "word": "Dividend / Stimulus",
+   "sweep": "2026-09-26T22:27:21.157518Z",
+   "prize": 533.3245000000001,
+   "post_lag_s": 2.096518
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-CUBA",
+   "word": "Cuba / Cuban",
+   "sweep": "2026-09-22T13:58:28.730874Z",
+   "prize": 47.02149999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-CEAS",
+   "word": "Ceasefire",
+   "sweep": "2026-09-22T14:37:32.130809Z",
+   "prize": 130.21640000000002,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-CANA",
+   "word": "Canada / Canadian",
+   "sweep": "2026-09-21T14:47:19.31532Z",
+   "prize": 3.829999999999999,
+   "post_lag_s": 0.58532
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-BLOC",
+   "word": "Blockade",
+   "sweep": "2026-09-22T19:39:09.696261Z",
+   "prize": 112.78170000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-BIBI",
+   "word": "Bibi / Netanyahu",
+   "sweep": "2026-09-23T04:04:03.692175Z",
+   "prize": 64.23460000000001,
+   "post_lag_s": 0.285175
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-AUTO",
+   "word": "Autopen / Auto Pen",
+   "sweep": "2026-09-24T18:15:41.287346Z",
+   "prize": 8.456699999999998,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP28-ANTI",
+   "word": "Antifa",
+   "sweep": "2026-09-22T14:29:31.69766Z",
+   "prize": 11.0,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-UKRA",
+   "word": "Ukraine",
+   "sweep": "2026-09-14T15:05:41.606442Z",
+   "prize": 2.34,
+   "post_lag_s": 2.079442
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-THIR",
+   "word": "Third Term",
+   "sweep": "2026-09-18T19:40:42.015483Z",
+   "prize": 1313.0114999999998,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-TDS",
+   "word": "TDS / Trump Derangement Syndrome",
+   "sweep": "2026-09-14T23:43:23.047175Z",
+   "prize": 261.4958,
+   "post_lag_s": 2.456175
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-09-14T13:38:47.044747Z",
+   "prize": 0.111,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-SLEE",
+   "word": "Sleepy Joe",
+   "sweep": "2026-09-14T14:58:31.806821Z",
+   "prize": 0.06099999999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-OBAM",
+   "word": "Obamacare",
+   "sweep": "2026-09-18T20:23:13.372061Z",
+   "prize": 147.8424,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-KAMA",
+   "word": "Kamala",
+   "sweep": "2026-09-16T23:56:13.291026Z",
+   "prize": 86.30899999999998,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-GOLF",
+   "word": "Golf / Golfer / Golfing",
+   "sweep": "2026-09-17T23:06:42.76402Z",
+   "prize": 257.98069999999996,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-DIVI",
+   "word": "Dividend / Stimulus",
+   "sweep": "2026-09-14T17:20:07.88756Z",
+   "prize": 5.863399999999999,
+   "post_lag_s": 3.75156
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-CANA",
+   "word": "Canada / Canadian",
+   "sweep": "2026-09-16T22:29:16.713634Z",
+   "prize": 88.90150000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-BLOC",
+   "word": "Blockade",
+   "sweep": "2026-09-17T00:21:42.842324Z",
+   "prize": 73.5247,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-BARA",
+   "word": "Barack Hussein Obama",
+   "sweep": "2026-09-17T19:35:55.634407Z",
+   "prize": 530.5151999999999,
+   "post_lag_s": 1.604407
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP21-AUTO",
+   "word": "Autopen / Auto Pen",
+   "sweep": "2026-09-16T23:40:58.263645Z",
+   "prize": 413.22619999999995,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-WHO",
+   "word": "Who are you with / Where are you from",
+   "sweep": "2026-09-09T18:29:33.436968Z",
+   "prize": 125.25160000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-TRAN",
+   "word": "Transgender",
+   "sweep": "2026-09-08T21:40:59.581342Z",
+   "prize": 10.966,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-STUP",
+   "word": "Stupid Question",
+   "sweep": "2026-09-10T01:34:52.174586Z",
+   "prize": 118.6496,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-RIGG",
+   "word": "Rigged Election / Stolen Election",
+   "sweep": "2026-09-12T11:07:49.05565Z",
+   "prize": 750.3010999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-MELA",
+   "word": "Melania",
+   "sweep": "2026-09-10T02:08:45.084464Z",
+   "prize": 161.75679999999997,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-LAND",
+   "word": "Landslide",
+   "sweep": "2026-09-10T01:13:50.553348Z",
+   "prize": 46.5126,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-KAMA",
+   "word": "Kamala",
+   "sweep": "2026-09-11T23:49:40.729986Z",
+   "prize": 349.6589000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-FRAU",
+   "word": "Fraud",
+   "sweep": "2026-09-10T02:50:59.874916Z",
+   "prize": 48.405,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-BIBI",
+   "word": "Bibi / Netanyahu",
+   "sweep": "2026-09-13T13:40:29.423319Z",
+   "prize": 3.6189999999999998,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-BARA",
+   "word": "Barack Hussein Obama",
+   "sweep": "2026-09-10T01:56:36.402608Z",
+   "prize": 113.31819999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP14-BALL",
+   "word": "Ballroom",
+   "sweep": "2026-09-10T02:06:01.954561Z",
+   "prize": 42.625,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-WHO",
+   "word": "Who are you with / Where are you from",
+   "sweep": "2026-09-04T18:21:39.628542Z",
+   "prize": 541.5327999999997,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-UKRA",
+   "word": "Ukraine",
+   "sweep": "2026-08-31T15:34:53.06115Z",
+   "prize": 61.11399999999999,
+   "post_lag_s": 0.56115
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-TRAN",
+   "word": "Transgender",
+   "sweep": "2026-09-01T19:29:40.338293Z",
+   "prize": 8.6686,
+   "post_lag_s": 0.294293
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-TDS",
+   "word": "TDS / Trump Derangement Syndrome",
+   "sweep": "2026-09-04T16:06:33.727385Z",
+   "prize": 593.1528,
+   "post_lag_s": 0.244385
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-STUP",
+   "word": "Stupid Question",
+   "sweep": "2026-08-31T20:02:59.289711Z",
+   "prize": 346.01460000000003,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-09-01T20:01:33.042872Z",
+   "prize": 94.45720000000001,
+   "post_lag_s": 0.485872
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-SLEE",
+   "word": "Sleepy Joe",
+   "sweep": "2026-09-01T22:55:26.832503Z",
+   "prize": 93.59530000000001,
+   "post_lag_s": 0.206503
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-MELA",
+   "word": "Melania",
+   "sweep": "2026-08-31T15:34:53.131612Z",
+   "prize": 137.78699999999998,
+   "post_lag_s": 0.631612
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-LAND",
+   "word": "Landslide",
+   "sweep": "2026-09-01T22:04:52.216041Z",
+   "prize": 238.0416,
+   "post_lag_s": 0.966041
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-GOLF",
+   "word": "Golf / Golfer / Golfing",
+   "sweep": "2026-09-01T02:43:25.978285Z",
+   "prize": 179.45419999999996,
+   "post_lag_s": 0.258285
+  },
+  {
+   "ticker": "KXTRUMPSAY-26SEP07-FRAU",
+   "word": "Fraud",
+   "sweep": "2026-09-02T23:12:38.999281Z",
+   "prize": 246.5815,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-UKRA",
+   "word": "Ukraine",
+   "sweep": "2026-08-26T13:11:05.862525Z",
+   "prize": 83.99940000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-08-27T15:51:57.855372Z",
+   "prize": 2.7374,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-SLEE",
+   "word": "Sleepy Joe",
+   "sweep": "2026-08-24T22:13:06.852093Z",
+   "prize": 5.2475999999999985,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-MELA",
+   "word": "Melania",
+   "sweep": "2026-08-24T18:46:09.863196Z",
+   "prize": 11.7858,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-KARO",
+   "word": "Karoline / Leavitt",
+   "sweep": "2026-08-24T18:39:26.92502Z",
+   "prize": 39.068999999999996,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-KAMA",
+   "word": "Kamala",
+   "sweep": "2026-08-31T01:18:34.599498Z",
+   "prize": 714.3315999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-JD",
+   "word": "JD / Vance",
+   "sweep": "2026-08-26T16:35:11.772816Z",
+   "prize": 102.95169999999999,
+   "post_lag_s": 0.418816
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-GOLF",
+   "word": "Golf / Golfer / Golfing",
+   "sweep": "2026-08-31T01:19:00.695317Z",
+   "prize": 293.9282999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG31-CUBA",
+   "word": "Cuba / Cuban",
+   "sweep": "2026-08-26T15:57:13.143689Z",
+   "prize": 368.2145000000001,
+   "post_lag_s": 0.214689
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-WHO",
+   "word": "Who are you with / Where are you from",
+   "sweep": "2026-08-17T18:04:25.34672Z",
+   "prize": 112.3974,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-UKRA",
+   "word": "Ukraine",
+   "sweep": "2026-08-19T14:31:27.785187Z",
+   "prize": 222.4847,
+   "post_lag_s": 0.232187
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-08-21T23:38:54.127155Z",
+   "prize": 5.0983,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-PRED",
+   "word": "Prediction Market / Predictive Market",
+   "sweep": "2026-08-19T19:03:46.273796Z",
+   "prize": 418.05100000000004,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-MELA",
+   "word": "Melania",
+   "sweep": "2026-08-21T17:21:29.750162Z",
+   "prize": 467.8083,
+   "post_lag_s": 0.230162
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-LAND",
+   "word": "Landslide",
+   "sweep": "2026-08-17T17:56:42.81134Z",
+   "prize": 78.30520000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-KARO",
+   "word": "Karoline / Leavitt",
+   "sweep": "2026-08-21T20:56:02.163462Z",
+   "prize": 0.36,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-KAMA",
+   "word": "Kamala",
+   "sweep": "2026-08-20T22:31:18.756653Z",
+   "prize": 188.2452,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-GOLF",
+   "word": "Golf / Golfer / Golfing",
+   "sweep": "2026-08-21T23:09:20.496302Z",
+   "prize": 280.741,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-FRAU",
+   "word": "Fraud",
+   "sweep": "2026-08-21T17:21:42.730002Z",
+   "prize": 15.88,
+   "post_lag_s": 0.504002
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG24-BALL",
+   "word": "Ballroom",
+   "sweep": "2026-08-17T17:53:39.362837Z",
+   "prize": 27.78000000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG17-ZOHR",
+   "word": "Zohran / Mamdani",
+   "sweep": "2026-08-14T19:47:18.58539Z",
+   "prize": 101.8608,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG17-TDS",
+   "word": "TDS / Trump Derangement Syndrome",
+   "sweep": "2026-08-15T02:16:08.03183Z",
+   "prize": 783.4826999999999,
+   "post_lag_s": 0.78083
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG17-SOCI",
+   "word": "Socialist / Socialism",
+   "sweep": "2026-08-14T19:41:21.644587Z",
+   "prize": 80.52690000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAY-26AUG17-BARA",
+   "word": "Barack Hussein Obama",
+   "sweep": "2026-08-14T20:23:25.55661Z",
+   "prize": 132.80679999999998,
+   "post_lag_s": null
+  }
+ ],
+ "KXTRUMPSAYMONTH": [
+  {
+   "ticker": "KXTRUMPSAYMONTH-26NOV01-ZOHR",
+   "word": "Zohran / Mamdani",
+   "sweep": "2026-10-11T15:06:59.883463Z",
+   "prize": 67.1464,
+   "post_lag_s": 2.043463
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26NOV01-THIR",
+   "word": "Third Term",
+   "sweep": "2026-10-02T01:29:55.141381Z",
+   "prize": 64.7294,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26NOV01-SPAC",
+   "word": "Space Force",
+   "sweep": "2026-10-02T03:03:33.864664Z",
+   "prize": 2.8569999999999998,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26NOV01-FILI",
+   "word": "Filibuster",
+   "sweep": "2026-10-13T00:22:29.751517Z",
+   "prize": 54.6786,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26NOV01-COGN",
+   "word": "Cognitive",
+   "sweep": "2026-10-14T21:37:11.449391Z",
+   "prize": 3.9968999999999997,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26NOV01-CEAS",
+   "word": "Ceasefire",
+   "sweep": "2026-10-11T14:16:42.342703Z",
+   "prize": 91.23140000000001,
+   "post_lag_s": 3.813703
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26NOV01-ALUM",
+   "word": "Aluminum",
+   "sweep": "2026-10-01T19:08:54.105116Z",
+   "prize": 4.320000000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-ZOHR",
+   "word": "Zohran / Mamdani",
+   "sweep": "2026-09-21T19:53:04.701497Z",
+   "prize": 90.5468,
+   "post_lag_s": 0.932497
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-UFC",
+   "word": "UFC",
+   "sweep": "2026-09-02T17:50:13.635326Z",
+   "prize": 231.02870000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-THIR",
+   "word": "Third Term",
+   "sweep": "2026-09-18T19:40:42.012333Z",
+   "prize": 531.4405,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-PELO",
+   "word": "Pelosi",
+   "sweep": "2026-09-17T22:19:16.574441Z",
+   "prize": 286.7984,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-GREE",
+   "word": "Greenland",
+   "sweep": "2026-09-18T21:18:50.685141Z",
+   "prize": 147.0029,
+   "post_lag_s": 1.367141
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-FILI",
+   "word": "Filibuster",
+   "sweep": "2026-09-18T20:08:40.470907Z",
+   "prize": 85.0447,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-FAT",
+   "word": "Fat shot / Ozempic",
+   "sweep": "2026-09-02T23:35:15.067483Z",
+   "prize": 2.2999999999999994,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-CEAS",
+   "word": "Ceasefire",
+   "sweep": "2026-09-22T14:37:32.175501Z",
+   "prize": 605.5699999999998,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-AUTI",
+   "word": "Autism",
+   "sweep": "2026-09-18T19:58:53.838019Z",
+   "prize": 184.29749999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26OCT01-ANTI",
+   "word": "Antifa",
+   "sweep": "2026-09-22T14:03:53.858595Z",
+   "prize": 32.00000000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-ZOHR",
+   "word": "Zohran / Mamdani",
+   "sweep": "2026-08-14T19:47:18.270228Z",
+   "prize": 125.9575,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-SPAC",
+   "word": "Space Force",
+   "sweep": "2026-08-14T20:22:37.365707Z",
+   "prize": 15.410799999999997,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-PRED",
+   "word": "Predict / Prediction",
+   "sweep": "2026-08-19T19:03:46.244462Z",
+   "prize": 86.21840000000002,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-MOON",
+   "word": "Moon",
+   "sweep": "2026-08-20T22:37:21.664997Z",
+   "prize": 28.000000000000004,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-GULF",
+   "word": "Gulf of America",
+   "sweep": "2026-08-26T13:25:45.235382Z",
+   "prize": 488.7629,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-FAT",
+   "word": "Fat shot / Ozempic",
+   "sweep": "2026-08-31T19:13:07.140726Z",
+   "prize": 260.4782,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-COGN",
+   "word": "Cognitive",
+   "sweep": "2026-08-22T02:37:47.023593Z",
+   "prize": 310.3346,
+   "post_lag_s": 0.477593
+  },
+  {
+   "ticker": "KXTRUMPSAYMONTH-26SEP01-ANTI",
+   "word": "Antifa",
+   "sweep": "2026-08-28T18:06:00.316297Z",
+   "prize": 746.8508999999999,
+   "post_lag_s": 1.004297
+  }
+ ],
+ "KXTRUMPSAYCOMPANY": [
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26NOV01-TSM",
+   "word": "TSMC / TSM",
+   "sweep": "2026-10-14T21:13:35.566906Z",
+   "prize": 62.849999999999994,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26NOV01-TIKT",
+   "word": "TikTok",
+   "sweep": "2026-10-14T21:15:57.517336Z",
+   "prize": 40.51240000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26NOV01-EBAY",
+   "word": "eBay",
+   "sweep": "2026-10-04T00:36:21.544565Z",
+   "prize": 69.82,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-TWIT",
+   "word": "X / Twitter",
+   "sweep": "2026-09-01T19:39:55.286019Z",
+   "prize": 33.519999999999996,
+   "post_lag_s": 28.360019
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-TPUSA",
+   "word": "Turning Point",
+   "sweep": "2026-09-12T02:31:44.437349Z",
+   "prize": 145.74399999999997,
+   "post_lag_s": 1.713349
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-TOYO",
+   "word": "Toyota",
+   "sweep": "2026-09-02T14:03:18.732151Z",
+   "prize": 53.84,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-TIKT",
+   "word": "TikTok",
+   "sweep": "2026-09-10T23:07:27.34726Z",
+   "prize": 86.04149999999998,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-PFE",
+   "word": "Pfizer / PFE",
+   "sweep": "2026-09-02T18:06:30.816355Z",
+   "prize": 118.21000000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-MSNBC",
+   "word": "MS NOW / MSNBC",
+   "sweep": "2026-09-18T19:04:51.080905Z",
+   "prize": 312.7994,
+   "post_lag_s": 0.243905
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-MICR",
+   "word": "Microsoft / MSFT",
+   "sweep": "2026-09-04T22:02:03.753776Z",
+   "prize": 49.5036,
+   "post_lag_s": 0.364776
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-META",
+   "word": "Meta",
+   "sweep": "2026-09-29T14:25:24.110592Z",
+   "prize": 233.7046,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-MERC",
+   "word": "Mercedes / Mercedes-Benz",
+   "sweep": "2026-09-11T23:50:28.706167Z",
+   "prize": 20.0,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-LLY",
+   "word": "Eli Lilly / LLY",
+   "sweep": "2026-09-02T18:06:20.900809Z",
+   "prize": 39.480000000000004,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-HMC",
+   "word": "Honda / HMC",
+   "sweep": "2026-09-02T14:35:13.793925Z",
+   "prize": 26.220000000000006,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-GOOG",
+   "word": "Google / GOOG / GOOGL",
+   "sweep": "2026-09-02T20:09:31.913403Z",
+   "prize": 37.0,
+   "post_lag_s": 0.941403
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-GENE",
+   "word": "General Motors / GM",
+   "sweep": "2026-09-10T01:47:42.293226Z",
+   "prize": 45.0524,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-EXXO",
+   "word": "ExxonMobil / XOM",
+   "sweep": "2026-09-02T23:32:55.291455Z",
+   "prize": 142.6686,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-DELL",
+   "word": "Dell",
+   "sweep": "2026-09-10T02:11:30.778782Z",
+   "prize": 2.87,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-CVX",
+   "word": "Chevron / CVX",
+   "sweep": "2026-09-02T20:35:23.104251Z",
+   "prize": 0.49999999999999994,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-CNN",
+   "word": "CNN",
+   "sweep": "2026-09-01T04:11:24.564016Z",
+   "prize": 28.000000000000004,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-CHAT",
+   "word": "ChatGPT / OpenAI",
+   "sweep": "2026-09-29T14:29:10.16478Z",
+   "prize": 67.68780000000001,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-BBC",
+   "word": "BBC",
+   "sweep": "2026-09-18T20:33:55.292686Z",
+   "prize": 93.75999999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-ANTH",
+   "word": "Anthropic / Claude",
+   "sweep": "2026-09-11T23:37:33.719069Z",
+   "prize": 180.0,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-AMAZ",
+   "word": "Amazon / AMZN",
+   "sweep": "2026-09-01T20:02:18.325686Z",
+   "prize": 50.866200000000006,
+   "post_lag_s": 45.768686
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-ABNB",
+   "word": "Airbnb / ABNB",
+   "sweep": "2026-09-29T14:22:41.233219Z",
+   "prize": 63.870000000000005,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26OCT01-AAPL",
+   "word": "Apple / AAPL",
+   "sweep": "2026-09-02T12:12:35.961039Z",
+   "prize": 15.75,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26SEP01-PFE",
+   "word": "Pfizer / PFE",
+   "sweep": "2026-08-20T22:36:02.966631Z",
+   "prize": 98.8698,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26SEP01-NVDA",
+   "word": "Nvidia / NVDA",
+   "sweep": "2026-08-27T21:24:31.088464Z",
+   "prize": 449.3719000000001,
+   "post_lag_s": 0.926464
+  },
+  {
+   "ticker": "KXTRUMPSAYCOMPANY-26SEP01-MICR",
+   "word": "Microsoft / MSFT",
+   "sweep": "2026-08-23T21:50:43.759306Z",
+   "prize": 44.0,
+   "post_lag_s": null
+  }
+ ],
+ "KXTRUMPSAYNICKNAME": [
+  {
+   "ticker": "KXTRUMPSAYNICKNAME-27JAN01-POCA",
+   "word": "Pocahontas",
+   "sweep": "2026-10-01T22:12:35.628946Z",
+   "prize": 37.082699999999996,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYNICKNAME-26OCT01-WHAC",
+   "word": "Whack Job / Wack Job",
+   "sweep": "2026-09-30T20:59:43.596456Z",
+   "prize": 451.60440000000017,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYNICKNAME-26OCT01-SLOP",
+   "word": "Slopadopolous / Slopadopolus",
+   "sweep": "2026-09-18T20:33:38.456476Z",
+   "prize": 412.50909999999993,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYNICKNAME-26OCT01-MARJ",
+   "word": "Marjorie Traitor Greene",
+   "sweep": "2026-08-22T02:37:47.044116Z",
+   "prize": 988.0178999999999,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYNICKNAME-26OCT01-CROO",
+   "word": "Crooked Hillary",
+   "sweep": "2026-08-21T23:33:30.326713Z",
+   "prize": 271.30039999999997,
+   "post_lag_s": null
+  },
+  {
+   "ticker": "KXTRUMPSAYNICKNAME-26OCT01-CON",
+   "word": "Con Job",
+   "sweep": "2026-08-28T20:36:17.789676Z",
+   "prize": 123.2953,
+   "post_lag_s": 0.346676
+  }
+ ]
+}
