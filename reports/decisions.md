@@ -14947,6 +14947,19 @@ results (is the product unbiased?), (c) the P&L of a seller who quotes YES at ma
 that undercuts the executed price — net of Kalshi's fee. Descriptive (no trial); a positive (c) with (b) unbiased means a forward
 shadow test on live RFQs (no orders) is next, which needs the user's Kalshi API key (on the droplet) — the user's call.
 
+## 743. C-family 1 result: the leg-product cannot price combos historically; the sellers' margin is real but band-specific (S10)
+
+**No trial.** `combo/c2_legs.py`, `reports/c2_legs.json` (1,336 of 1,500 sampled combos priced). First pass took empty books (bid 0 /
+ask 1 → a fake 50¢ mid) and stale candles — fixed to a real two-sided quote (spread ≤ 10¢) ≤ 5 min old; the result is still unusable:
+by band the leg product misses the outcome by 4-46 points (65-95¢: product 0.50 vs YES rate 0.96). Two reasons, seen by hand: (1)
+crypto 15-minute legs in one window (BTC/ETH/HYPE/… "down") are one bet, not independent — six legs at ~75% multiply to 17% while the
+combo trades at 81% and wins; (2) many combos are built in play, when legs are nearly decided. Takers (150 sampled combos): **85% of
+contracts are YES buys** — so §742's calibration is the parlay buyers' result: they **overpay on 2-35¢ combos (sellers +1.6 to +7.5¢)
+and are underpriced on 65-95¢ in-play combos (buyers +4-5¢)**. Quoting at fair × 1.15 on the (wrong) product loses $34k — a statement
+about the product, not about quoting. A quoter needs a correlation-aware, live pricing engine; only a live shadow test (RFQs on the
+authenticated WebSocket, our would-be quote vs the executed price vs settlement, no orders) can measure it. Pending the user's decision
+on API access.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
