@@ -15059,6 +15059,8 @@ below the user's scale bar; real books keep depth caps. **Parked** until a same-
 posts Tuesday; Billboard Hot 100 #1 (KXTOPSONG) closes before the chart week ends; album units (KXALBUMEQUIV) close at the Luminate value
 time itself (10:00 ET Sunday). No window between publication and close. Also noted: the laptop's Linux container restarted ~16:00Z
 2026-10-19 and killed the scheduled rally recorder; restarted 20:44Z (wall-clock scheduler, ready for 21:30Z).
+Also: Polymarket US lists no mention markets (500 active events: 394 sports, 67 politics, …) — no less-contested venue for the mention
+race; RSBN's Rumble stream returns 403 to automated access (YouTube-only recording tonight).
 
 ## 10. Still outstanding, and blocking
 
