@@ -14991,6 +14991,9 @@ market opened, quote filter bid > 0, ask < 1, spread ≤ 10¢; buy Yes if base �
 (1 − base) − (1 − bid) − fee > θ; θ ∈ {5, 10, 15}¢ — **3 tests, pooled over series**. **Discovery: events closing before 2026-06-01;
 sealed: 2026-06-01 → 2026-10-19.** Statistic: each event's mean net per contract; t over events; carried t > 1.96, mean > 0; validation
 once per §664.4; watchlist per §133. Capacity reported (qualifying contracts' hourly volume at the 1 h candle).
+**(3) Post-speech window (screen, no trial):** for the 10-13/16/17 rallies, the trade tapes of the 58 words NOT said (43,090 trades):
+from 30 min after each rally's last said-word sweep to the close, **0 contracts printed at YES ≥ 3¢** (two events' markets closed within
+an hour of the speech). Buying NO on dead words after the speech is already done by others. Closed.
 
 ## 10. Still outstanding, and blocking
 
