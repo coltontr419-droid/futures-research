@@ -14875,6 +14875,14 @@ settlement. Why isn't everyone doing it? A niche retail market; the drift is lor
 4. **Caveats fixed now:** candle quotes are the hour's last quote (fills assumed); strikes are correlated within an event (hence t over
    events, not strikes); capacity = the qualifying strikes' hourly volume.
 
+## 737. R-family 1: no drift to sell — the market's implied median is the final score (S10)
+
+**N 1,536 (no trial).** `reports/r1_discovery.json` (module `rt/r1_drift.py`). Implementation notes (not tuning): candles exist only for
+hours with activity, so each horizon uses the last candle at or before it (within 6 h); /historical candles name prices `close`; older
+markets store a label, so each event's final score is bracketed from its strike results. Discovery (closes before 2026-06-01): **72 h:
+25 events, 30 strikes, +2.14¢ (t 0.23); 48 h: 13 events, 15 strikes, −18.81¢ (t −1.48)**; market-implied median − final **+0.41 pt
+(t 0.79) / −0.34 pt (t −1.12)**, n 31. Not carried; no validation. Kalshi's RT markets already price the drift. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
