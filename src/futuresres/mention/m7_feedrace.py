@@ -60,7 +60,6 @@ def forms(label: str) -> list[list[str]]:
 def main(argv) -> int:
     label, ev = argv[0], argv[1]
     sys.path.insert(0, str(ROOT / "kalshi_lip"))
-    from futuresres.mention.m0_download import one
     from futuresres.mention.m1_prize import T, jump
     from kalshi_api import Client
     from faster_whisper import WhisperModel
