@@ -14824,6 +14824,9 @@ Data: every public trade in YES-resolved KXTRUMPMENTION markets (`mention/m0_dow
 1. **The prize (`m1_prize.py`, 3 most recent rallies, 36 words with a jump from ≤ 85¢):** takers buying YES at ≤ 90¢ in the jump to ≥ 95¢
    earned **$451 / $4,194 / $5,538 per event** net of the taker fee (mean ~$3.4k); the first taker instant took 36%; median 3 distinct
    taker instants a jump, median span 1.3 s. Example: "Massie" — one sweep at 19:34:32.475 bought ~5,000 YES at 43-95¢.
+   **Full history (221 events with trades, 2025-04 → 2026-10; 2,079 jumps): $454,211 in total, mean $2,055 / median $1,073 an event,
+   max $31,538; first instant 44%.** By month it grew with volume: 2025 $284-929 an event (first sweep 72-94%); 2026-02/03 peak $5.7-6.3k;
+   2026-06 → 10 $1.4-2.5k an event, 16-19 events a month (~$24-47k a month across all fast takers; first sweep 41-56%).
 2. **The winners' latency (`m2_latency.py`; RSBN live-stream recordings: actual start time + word-timed auto captions):** the first sweep
    comes **~7 s BEFORE the word on RSBN's recording timeline** — Wasilla 10-13 −7.6 s (n 5), Dalton 10-16 −6.9 s (n 13), Highland Heights
    10-17 −7.7 s (n 11, quartiles −7.8/−7.5). The tight spread says one mechanical pipeline on a feed faster than RSBN's; a live YouTube
