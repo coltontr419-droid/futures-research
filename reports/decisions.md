@@ -14775,6 +14775,21 @@ market open after the number is public. Screen over every Economic Indicators tr
 9 products**, median 22-59 minutes early; trades of the winning side at ≤ 90¢ after that print: **21 trades, 210 contracts, $32.90**
 (+1¢ slip and fee), all in USGP. ForecastEx's closes are set correctly and early information is repriced at once. Closed.
 
+## 731. T-family 1 protocol — odd-lot tender offers: a measurement of a structural stream, not a fitted edge (S10)
+
+**No trial spent. Written BEFORE any offer's profit is computed.** Screen (§717): **structural, small-capacity** — issuer tender offers
+(SC TO-I) usually exempt holders of < 100 shares from proration, so 99 shares bought below the final tender price are all bought back at
+it. Funds cannot scale 99 shares; the issuer, not competition, sets the price. EDGAR full-text search ("odd lot", SC TO-I, 2024-01 →
+2026-10): 162 filings, 101 from listed issuers. The user's IBKR account can tender electronically.
+1. **Rule (fixed):** for each listed issuer's original SC TO-I with odd-lot priority (offers that subject odd lots to proration excluded),
+   **buy 99 shares at the close of the first trading day after the filing date**; tender all at the offer's final price (fixed price,
+   Dutch-auction clearing price, or the NAV-based price, from the final SC TO-I/A); if terminated or not completed, sell at the close of
+   the first trading day after the expiry. Costs: $2 a round trip. Exchange offers (paid in another company's shares) are listed apart.
+2. **Reported:** per offer — type, buy price, final price, $ on 99 shares, days held; per year — offers, total $, capital needed at once.
+   Not a statistical test: a positive total is a stream to forward-check on the next live offer, not a confirmation under §119.
+3. **Caveats fixed now:** the close is an assumed fill (99 shares is far inside the volume of every listed name); prices from a free
+   daily source; IBKR's corporate-action fee (if any) to be confirmed; one beneficial owner assumed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
