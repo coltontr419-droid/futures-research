@@ -14858,6 +14858,23 @@ label shift) and shows the current week partially (updated within the week); no 
 uncertainty sits at strikes near the final — 12-0 h: none > 0.3 pt away; 48-24 h: 3% of it > 1 pt away (hindsight ceiling $2.9k in ~9
 weeks); 72-48 h: 10% > 1 pt away ($9.4k). The running tally is already priced; the residue is too small. Closed.
 
+## 736. R-family 1 protocol — Rotten Tomatoes score drift on Kalshi (KXRT): is YES on the upper strikes overpriced? (S10)
+
+**No trial spent. Written BEFORE any KXRT price is compared with any outcome.** Screen (loosened §717): Kalshi's biggest data-publication
+series (16.9M contracts in 23 movies since 2026-08-19; 58 more Jan-Aug 2026 under /historical). Each event: "Tomatometer above K on the
+Monday after wide release at 10:00 ET", 10-19 strikes. The film-watcher folk rule: early (festival / embargo-day) reviews run kinder, so
+scores drift down as the rest arrive. Hypothesis: Kalshi anchors on the current score, so YES on strikes near it is overpriced days before
+settlement. Why isn't everyone doing it? A niche retail market; the drift is lore, not a posted number; it needs per-movie patience.
+1. **Trade (fixed):** at the hourly candle ending 72 h and 48 h before the close, every strike whose yes mid ((bid + ask) / 2) is in
+   [0.30, 0.70] with a live quote (bid > 0, ask < 1, spread ≤ 10¢): **buy NO at 1 − yes bid**, hold to settlement; Kalshi's taker fee
+   ceil(7 × q × (1 − q)) ¢ at NO price q. **2 tests** (72 h, 48 h).
+2. **Statistic:** each event's mean net per contract over its qualifying strikes; t over events. Also reported: the market-implied median
+   (where the strikes' yes mids cross 0.5) minus the final score, per horizon.
+3. **Discovery: events closing before 2026-06-01. Sealed: 2026-06-01 → 2026-10-19** (asserted in code). Carried: t > 1.96, mean > 0.
+   Validation once as §664.4; watchlist per §133.
+4. **Caveats fixed now:** candle quotes are the hour's last quote (fills assumed); strikes are correlated within an event (hence t over
+   events, not strikes); capacity = the qualifying strikes' hourly volume.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
