@@ -15022,6 +15022,9 @@ Data: every public trade of KXTRUMPMENTION markets — said words (`mention_trad
    §664.4; watchlist per §133.
 4. **Caveats fixed now:** the last print is not the NO ask (1¢ slippage is the allowance); "start" can lag the true start (it errs late,
    which is conservative for a decay trade); words said during the speech jump and are excluded only from τ on.
+**Withdrawn before any test (user, 2026-10-19):** its capacity estimate (~$50-300 an event, ~$1-5k a month, depth-capped) is below the
+user's scale bar, so it is not worth the download. No trial spent; the module stays unrun. Rule going forward: the capacity screen
+comes BEFORE any download.
 
 ## 10. Still outstanding, and blocking
 
