@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "data" / "forecastex"
 BUCKET = "https://forecastex-public-data.s3.amazonaws.com"
 KEEP = ("UHLAX_", "UHMDW_", "UHAUS_", "UHMIA_", "UHPHL_", "FFDEC_")
+KEEP_HR = ("HRU",)                                       # hourly temperatures, kept apart (pairs_hr/)
 
 
 def get(url: str) -> bytes:
@@ -37,8 +38,8 @@ def keys(prefix: str) -> list[str]:
         token = m.group(1)
 
 
-def one(prefix: str, key: str, keep) -> None:
-    dest = OUT / prefix / Path(key).name
+def one(prefix: str, key: str, keep, sub: str = "") -> None:
+    dest = OUT / (sub or prefix) / Path(key).name
     if dest.exists():
         return
     lines = get(f"{BUCKET}/{key}").decode("utf-8", "replace").splitlines()
@@ -48,11 +49,12 @@ def one(prefix: str, key: str, keep) -> None:
 
 def main(argv: list[str]) -> int:
     import urllib.parse  # noqa: F401
-    for prefix in argv or ["prices", "pairs"]:
-        (OUT / prefix).mkdir(parents=True, exist_ok=True)
+    for arg in argv or ["prices", "pairs"]:
+        prefix, keep, sub = (arg[:-3], KEEP_HR, arg) if arg.endswith("_hr") else (arg, KEEP, "")
+        (OUT / (sub or prefix)).mkdir(parents=True, exist_ok=True)
         ks = keys(prefix)
         with cf.ThreadPoolExecutor(8) as ex:
-            for i, _ in enumerate(ex.map(lambda k: one(prefix, k, KEEP), ks)):
+            for i, _ in enumerate(ex.map(lambda k: one(prefix, k, keep, sub), ks)):
                 if i % 100 == 0:
                     print(prefix, i, "/", len(ks), flush=True)
         print(prefix, "done", len(ks), flush=True)

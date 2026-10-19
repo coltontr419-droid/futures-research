@@ -14734,6 +14734,28 @@ t 2.02**, 4 of 5 months positive, ~66,500 contracts a date (0.25 chance passes e
 dates): −1.48¢, t −0.47, placebo 33%, posterior −0.42¢ → REJECT.** Read: ForecastEx's temperature prices already account for its
 Weather-Underground settlement; the per-city discovery means were noise around zero. Closed; no watchlist entry (net negative sealed).
 
+## 728. F-family 2 protocol — ForecastEx hourly temperatures: the deciding METAR is public minutes before trading stops (S10)
+
+**No trial spent. Written and committed BEFORE any trade is compared with any METAR or settlement.** Screen (§717): a **structural /
+latency** edge. ForecastEx's hourly contracts ("will the temperature exceed X as of hh:00?", HRU*; listed since 2026-09-23) resolve on the
+LAST Weather Underground observation in the hour ending hh:00, and trading runs until hh:00 (terms, `HRTermsandConditions.pdf`). Routine
+METARs are at about :53, so the deciding reading is usually public ~5 minutes before the close. No-outcome timing screen (`pairs_hr`):
+of 30,462 trades, 1,783 fall 3-7 minutes before the close, **551 of them at yes 10-90¢** (14,694 contracts in 26 days); 0-3 minutes:
+76 of 1,003. Why might it be untaken? A thin retail venue and a minutes-long window that bots may not watch; against it, most post-:53
+trades are already at extreme prices, so someone reacts. Data: IEM ASOS reports (routine + specials) for KLAX, KLGA, KSFO, KLAS, KMIA.
+1. **Signal (fixed):** for each trade, the latest METAR with time in (hh:00 − 60 min, hh:00] and at least **3 minutes before the trade**
+   (the publication-latency allowance); its temperature F = round(T-group °C × 9/5 + 32) (main-body °C if no T-group). **YES if F ≥ X + 2;
+   NO if F ≤ X − 1;** otherwise no signal (the 1-2 °F margin absorbs WU's rounding).
+2. **Trade:** where a trade printed the signalled side at ≤ 90¢, **buy that side at the printed price + 1¢ slippage + 1¢ fee**, hold to
+   settlement. A later special report inside the hour can still flip the outcome; that risk is in the result.
+3. **One pooled test** (5 cities). Statistic: each contract date's quantity-weighted mean net per contract; t over dates. Also reported:
+   the signal's hit rate against settlement, and per city (descriptive).
+4. **Discovery: contract dates 2026-09-23 → 10-07. Sealed: 10-08 → 10-18** (asserted in code). Carried if t > 1.96 and mean > 0 (the
+   monthly condition is impossible in two weeks). Validation once as §664.4; watchlist per §133.
+5. **Caveats fixed now:** METAR publication latency is assumed ≤ 3 min (to be measured live); fills at printed prices are an
+   assumption to be checked live with IBKR quotes; trading needs the API's Read-Only flag off, which is the user's decision; capacity
+   is bounded by the 10-90¢ trades in that window (~565 contracts a day across 5 cities).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
