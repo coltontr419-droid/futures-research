@@ -15049,6 +15049,9 @@ invested in by MyFundedFutures", $180M+ paid since 2023) — counterparty risk m
 (50% on 10K), $100 min / $10k max a payout, drawdown locks at the start once a payout is requested; 20 open positions max. At zero
 edge the $150k cap allows ~one 100K + one 50K static account ≈ $5.5k in 26 weeks ≈ **$0.9k a month** (≈ $1.2k at a 5% per-bet edge):
 below the user's scale bar; real books keep depth caps. **Parked** until a same-day, manually tradable Polymarket edge exists.
+**PropMarket fees** (PropFirmMap / polymarketpropfirms reviews): $5K $59, $10K $119, $25K $279, $50K $549, **$100K $1,099**; 70/30 (90/10 a
++30% add-on); founded 2026-05, assessments via "Prop Account, LLC", no payout history. Zero-edge 100K: P(pass) ≈ e^-2 ≈ 13.5% × funded
+≈ 0.7 × $10k = $945 vs $1,099 → **negative** (≈ +$286 once with a 40%-off first-evaluation code). Closed.
 
 ## 10. Still outstanding, and blocking
 
