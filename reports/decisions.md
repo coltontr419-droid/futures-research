@@ -14994,6 +14994,17 @@ once per §664.4; watchlist per §133. Capacity reported (qualifying contracts' 
 **(3) Post-speech window (screen, no trial):** for the 10-13/16/17 rallies, the trade tapes of the 58 words NOT said (43,090 trades):
 from 30 min after each rally's last said-word sweep to the close, **0 contracts printed at YES ≥ 3¢** (two events' markets closed within
 an hour of the speech). Buying NO on dead words after the speech is already done by others. Closed.
+**K9 status:** its download was stopped part-way (user: a more important download may preempt it; K9 is depth-capped and so below
+the user's scale bar, §745 note in memory) — the discovery run waits; it may be resumed later (the downloader resumes).
+
+## 746. Screen: Kalshi NFL in-play races — the prize is gone within ~10 s of the snap; public feeds cannot reach it (S10)
+
+**No trial.** `sports/s4_inplay.py`: ESPN play-by-play `wallclock` (the snap) for scoring plays and turnovers × Kalshi public trades of
+the home team's winner market, 11 games of 2026-10-18 (two had no matching market), 51 plays moving ≥ 3¢ (median 6.7¢). Stale-side
+taker volume priced against the 50-70 s VWAP, after fee, still available X s after the snap: **3 s $37,748; 6 s $15,562; 10 s $3,970;
+15 s $693; 20 s $440; 30 s $101.** A play lasts 3-8 s and TV / streams / ESPN's feed lag the stadium by further seconds, so a public-feed
+bot arrives after ~15-20 s; the winners use stadium-speed data feeds. The pool is large but not reachable without a paid low-latency
+feed (and even 3-6 s figures partly count plays still unfolding). Closed.
 
 ## 10. Still outstanding, and blocking
 
