@@ -14837,6 +14837,11 @@ Data: every public trade in YES-resolved KXTRUMPMENTION markets (`mention/m0_dow
    stream. **Decision rule:** a public feed is viable only if, for ≥ 60% of jumps, the word arrives on it ≥ 1.5 s BEFORE the first sweep
    (the allowance for streaming ASR + order latency). If none is, the public-feed route is closed; a TV/satellite capture would be the
    remaining (hardware) route, for the user to decide.
+4. **Other mention series (`mention/m4_series.py`; 458 series, settled since the 2026-08-19 cutoff, top 40 by volume):** nothing easier than
+   the rallies — most are taken by ONE sweeper (first instant 70-98%, median 1-2 takers, median span < 1 s); per-event prize KXTRUMPSAY $2.2k,
+   KXTRUMPMENTIONB $1.0k, KXFEDMENTION $2.6k (1 event), KXWORLDNEWSMENTION $392 (45 events), KXVANCEMENTION $610, KXMTPMENTION $555, most
+   others $50-500. The whole arena (~$90-100k a month of first-taker prize) turns on the same question: can any feed we can get match the
+   winners'? If public streams fail (step 3), the remaining candidate is over-the-air broadcast TV (USB tuner) on scheduled newscasts.
 
 ## 10. Still outstanding, and blocking
 
