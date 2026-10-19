@@ -1,0 +1,43 @@
+{
+ "window": [
+  "2026-09-23",
+  "2026-10-07"
+ ],
+ "dates": 8,
+ "trades": 47,
+ "contracts": 461.0,
+ "mean_net_dated": 0.14801497627520757,
+ "t": 1.8822889828637748,
+ "hit_rate": 0.6170212765957447,
+ "pnl_dollars": -46.65999999999999,
+ "by_city": {
+  "HRULAX": {
+   "trades": 30,
+   "contracts": 291.0,
+   "pnl": -82.76
+  },
+  "HRULGA": {
+   "trades": 15,
+   "contracts": 150.0,
+   "pnl": 32.7
+  },
+  "HRUSFO": {
+   "trades": 0,
+   "contracts": 0,
+   "pnl": 0
+  },
+  "HRULAS": {
+   "trades": 0,
+   "contracts": 0,
+   "pnl": 0
+  },
+  "HRUMIA": {
+   "trades": 2,
+   "contracts": 20.0,
+   "pnl": 3.4
+  }
+ },
+ "mean_price": 0.7031914893617021,
+ "minutes_to_close_median": 18.5,
+ "carried": false
+}

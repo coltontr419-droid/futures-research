@@ -14756,6 +14756,16 @@ trades are already at extreme prices, so someone reacts. Data: IEM ASOS reports 
    assumption to be checked live with IBKR quotes; trading needs the API's Read-Only flag off, which is the user's decision; capacity
    is bounded by the 10-90¢ trades in that window (~565 contracts a day across 5 cities).
 
+## 729. F-family 2: the post-METAR window is already taken — not carried (S10)
+
+**N 1,536 (no trial).** `reports/f2_discovery.json` (module `forecastex/f2_hourly.py`). Discovery (09-23 → 10-07): 47 signalled trades,
+461 contracts, dated mean +14.8¢ but t 1.88 and **−$46.66 in total** (hit rate 62%: most signalled trades came before the :53 report, on an
+earlier special). **Not carried; no validation.** Mapping check (settlements only, no prices): the contract hour is **Central time** and
+the last METAR of that CT hour reproduces **100%** of 9,338 settlements (local-time reading 72-86%), so the implementation stands.
+Descriptive, all 26 days: after the deciding report (+3 min) with a clear signal, the indicated side traded ≥ 97¢ in 103 trades (11,182
+contracts), 91-96¢ in 53 (3,121), **≤ 90¢ in 9 (94 contracts)**; the 362 other post-report trades were within the rounding margin.
+Someone reprices within minutes; the residue is ~$125 in 26 days across five cities. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
