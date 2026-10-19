@@ -14922,6 +14922,14 @@ contract out-trades the lead month while the lead month is unexpired — (b) win
 One test; sealed window as §739 (2026-03-01 → 10-09: the March, June and September 2026 rolls); same carry/validation rules (here the
 sealed run is the only run). Both F3 (as registered) and F4 are now validated once on the sealed window.
 
+## 741. F-families 3 and 4: the December 2025 roll mispricing did not repeat — rejected (S10)
+
+**N 1,538 (two trials, t01537-t01538).** Sealed 2026-03-01 → 10-09 (the March, June, September rolls). **F3 (§739 as registered): 17
+dates, 63 trades, 19,426 contracts, hit rate 81%, −4.85¢ dated mean, −$401, t −0.48, placebo 31% → REJECT. F4 (§740, roll days): 7
+dates, 81 trades, 7,526 contracts, hit rate 86%, +6.24¢ dated mean but −$1,124 in dollars, t 0.61, placebo 72% → WATCHLIST by the letter
+of §133 (dated mean > 0), but net-negative in money: treated as no edge and not forward-tracked.** The 2025-12-16/17 episode was a
+one-off. ForecastEx's index contracts are priced off the right contract in its rolls now. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

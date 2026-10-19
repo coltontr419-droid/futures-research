@@ -1,0 +1,17 @@
+{
+ "window": [
+  "2026-03-01",
+  "2026-10-09"
+ ],
+ "dates": 17,
+ "trades": 63,
+ "contracts": 19426.0,
+ "mean_net_dated": -0.04849496858553231,
+ "t": -0.47589093045063025,
+ "hit_rate": 0.8095238095238095,
+ "pnl_dollars": -400.6600000000001,
+ "mean_price": 0.7957142857142856,
+ "placebo_pct": 31.0,
+ "posterior_zero_prior": -0.0017987196468517855,
+ "decision": "REJECT"
+}

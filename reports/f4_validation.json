@@ -1,0 +1,17 @@
+{
+ "window": [
+  "2026-03-01",
+  "2026-10-09"
+ ],
+ "dates": 7,
+ "trades": 81,
+ "contracts": 7526.0,
+ "mean_net_dated": 0.062402551508335846,
+ "t": 0.6144970183777994,
+ "hit_rate": 0.8641975308641975,
+ "pnl_dollars": -1123.8900000000006,
+ "mean_price": 0.7791358024691357,
+ "placebo_pct": 71.6,
+ "posterior_zero_prior": 0.0023300775433535586,
+ "decision": "WATCHLIST"
+}
