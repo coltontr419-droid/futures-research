@@ -15308,6 +15308,14 @@ Tradeify mixes at zero edge ($116): **NKD×5 +$5,929 / +$3,797; 3 NKD + 2 FDXM (
 +$3,692; the demo's five-product mix +$2,524 / +$1,574.** The planned mix is near the zero-edge best and adds FDXM's independent signal
 — no change needed whether or not the edges hold.
 
+## 767. Screen: Kalshi crypto perpetuals funding carry — capital-bound ~15% a year; closed (S10)
+
+**No trial.** Kalshi's CFTC-regulated perps (launched 2026-05-29; BTC on BRTI; funding at 00/08/16 ET, capped ±2% per 8 h; ~6x leverage;
+~$8 minimum). Kalshi's research note: BTC funding persistently positive, 0.01-0.03% per 8 h (≈ 11-33% a year); an aggregator showed
++17.9% a year on 2026-10-16; ETH around zero; total perp open interest ~$18-33M. Short perp + long spot carry ≈ 15% a year on capital
+before fees — $30 a year on $200: capital-bound, below the user's scale bar (needs a large bankroll). Closed. Gold watchlist rule
+D727/D728: user asked to re-check in ~a month (~2026-11-20).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
