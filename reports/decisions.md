@@ -15304,6 +15304,9 @@ Smaller size at LucidPro (to fit the 40% rule): sim size ×0.3 / ×0.5 / ×0.7 �
 LucidFlex (no funded consistency; 50% evaluation consistency; 5 winning days ≥ $150; ≤ 50% of profit and ≤ $2,000 a payout): **−$1,409
 ($130) / −$3,589 ($175).** Firm thread closed: **Tradeify Select Daily is the only modelled firm whose structure pays with no edge** —
 worth knowing when choosing a second firm later (an edge would be required elsewhere).
+Tradeify mixes at zero edge ($116): **NKD×5 +$5,929 / +$3,797; 3 NKD + 2 FDXM (the plan) +$5,523 / +$3,783; 2 NKD + 3 FDXM +$5,213 /
++$3,692; the demo's five-product mix +$2,524 / +$1,574.** The planned mix is near the zero-edge best and adds FDXM's independent signal
+— no change needed whether or not the edges hold.
 
 ## 10. Still outstanding, and blocking
 

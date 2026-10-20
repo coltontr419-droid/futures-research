@@ -75,3 +75,5 @@ positive.** The "+$16-23k a run across firms" figures above are withdrawn. Takea
 whether the structure pays; Tradeify's Select Daily is unusual in passing.
 - Also checked: LucidPro at smaller size (still negative), LucidFlex (−$1.4k to −$3.6k). **Final: Tradeify Select Daily is the only
   firm (of ~14 plan models) whose structure pays with zero edge.** A second firm would need a real edge to be worth it.
+- Tradeify mix at zero edge: NKD×5 +$5.9k ≈ the plan's 3 NKD + 2 FDXM +$5.5k > 2+3 +$5.2k ≫ the demo's 5-product mix +$2.5k.
+  The planned launch mix is right even if the edges are zero.
