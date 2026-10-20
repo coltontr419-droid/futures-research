@@ -15372,6 +15372,18 @@ last 24 h before close in the 2026 season; NBA points props trade 14-22 M contra
   placebo ≥ 95th, positive posterior, PRIOR_SD 0.02); seed 772; §133 watchlist otherwise. The sealed window overlaps K11b's for
   KXNFLTD/KXNFLRSHYDS/KXNHLGOAL; K11b stays registered and is run on its own rule.
 
+## 773. A93 protocol: Kalshi × Polymarket US on the same PLAYER PROPS — a live, no-money measurement (S10)
+
+**No trial; N 1,539. Written BEFORE any price is sampled.** A84 (§714-715) compared game winners only (deep, priced within the fees).
+Polymarket US also lists full player props (NBA points/rebounds/assists/threes, ~300 a game on its public gateway, `bestBidQuote` /
+`bestAskQuote`, no key); Kalshi lists the same lines (KXNBAPTS/REB/AST/3PT, "Name: N+"). Props books are thinner, so gaps may be wider.
+- **Match:** same game, player full name, stat, threshold ("at least N" ↔ "N+").
+- **Net of fees, both legs taker:** buy YES on one venue at its ask and NO on the other (1 − its YES bid); net = 1 − cost − Kalshi
+  0.07·p(1−p) − Polymarket feeCoefficient·p(1−p). Size = the smaller top-of-book quantity (books fetched only for net > 0).
+- **Sweep** every 5 minutes, NBA games starting within 12 h, ~6 hours. **Pass (fixed now):** ≥ 5 distinct positive-net pairs a day
+  with a median top size ≥ $50 and median net ≥ 1¢ → worth an account conversation (both venues need the user's KYC; Polymarket US
+  allowed in TX per §714). Otherwise closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
