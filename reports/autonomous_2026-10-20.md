@@ -38,3 +38,10 @@ mean +$4,582 per 4-month run on 2021-26 paths, +$2,692 on 2010-20** (Growth −$
 payout structure is a free option: even with no edge the plan expects ≈ $0.7-1.1k a month (high variance). The demo's −$11k is market
 P&L per ticket; it does not include this account-structure value. The decision at the review is therefore "edge or no edge", not
 "profit or loss" — a zero-edge plan is still positive but small.
+
+### 7. ★ Zero-edge value across prop firms (A90, §763) — the most useful finding so far
+Each firm's own rules, random trade directions (no edge at all), per 4-month run: **Tradeify +$5.5k (2021-26 paths) / +$3.8k
+(2010-20); Lucid Daily +$3.4k / +$2.9k; TPT PRO +$2.5k / +$2.2k;** MFF −$2.9k; Phidias −$4.5k. Tradeify + Lucid + TPT ≈ **+$11.5k
+a run ≈ $2.9k a month with zero edge**, scaling across firms rather than capital. Catches: Lucid/TPT churn ~$10k of eval fees a run
+(cash buffer needed), fees/rules must be re-checked at today's prices, results across firms correlate if the same sides are traded.
+Needs the user (accounts, money) → tabled for the user's decision.

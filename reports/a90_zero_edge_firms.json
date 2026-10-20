@@ -1,0 +1,86 @@
+{
+ "Tradeify Select Daily": {
+  "fee": 116.0,
+  "mix": "5: 3NKD+2FDXM",
+  "2021-26": {
+   "zero_edge_mean_net": 5523.218027007818,
+   "seed_sd": 1598.152505966988,
+   "fees_paid": 5548.982705520019
+  },
+  "2010-20": {
+   "zero_edge_mean_net": 3782.7988804232805,
+   "seed_sd": 520.3899871087397,
+   "fees_paid": 4599.469047619048
+  }
+ },
+ "MFF Rapid EOD": {
+  "fee": 157.0,
+  "mix": "3: NKD\u00d73",
+  "2021-26": {
+   "zero_edge_mean_net": -2904.4823717128643,
+   "seed_sd": 675.5289914459214,
+   "fees_paid": 3774.974058280028
+  },
+  "2010-20": {
+   "zero_edge_mean_net": -1877.6007634920636,
+   "seed_sd": 173.14170127405416,
+   "fees_paid": 2241.424206349206
+  }
+ },
+ "TPT PRO": {
+  "fee": 150.0,
+  "mix": "5: no Eurex (NKD\u00d73, MNQ, MGC)",
+  "2021-26": {
+   "zero_edge_mean_net": 2530.902345415778,
+   "seed_sd": 2198.318123874268,
+   "fees_paid": 10036.709310589908
+  },
+  "2010-20": {
+   "zero_edge_mean_net": 2194.3325433862433,
+   "seed_sd": 1060.919031187909,
+   "fees_paid": 5758.730158730159
+  }
+ },
+ "Lucid Daily": {
+  "fee": 150.0,
+  "mix": "5: no Eurex (NKD\u00d73, MNQ, MGC)",
+  "2021-26": {
+   "zero_edge_mean_net": 3428.4509726368155,
+   "seed_sd": 3226.527612610597,
+   "fees_paid": 10024.431414356788
+  },
+  "2010-20": {
+   "zero_edge_mean_net": 2881.33801170635,
+   "seed_sd": 1248.6005416847408,
+   "fees_paid": 5750.079365079365
+  }
+ },
+ "Phidias Fundamental": {
+  "fee": 150.0,
+  "mix": "5: no Eurex (NKD\u00d73, MNQ, MGC)",
+  "2021-26": {
+   "zero_edge_mean_net": -4494.60214546316,
+   "seed_sd": 276.3613809204538,
+   "fees_paid": 4681.82302771855
+  },
+  "2010-20": {
+   "zero_edge_mean_net": -2764.530050264551,
+   "seed_sd": 74.18872932818498,
+   "fees_paid": 2878.839285714286
+  }
+ },
+ "Phidias Premium": {
+  "fee": 150.0,
+  "mix": "5: no Eurex (NKD\u00d73, MNQ, MGC)",
+  "2021-26": {
+   "zero_edge_mean_net": -4569.839453920871,
+   "seed_sd": 278.1956959367472,
+   "fees_paid": 4786.087420042643
+  },
+  "2010-20": {
+   "zero_edge_mean_net": -2904.2682533068783,
+   "seed_sd": 64.50691041913004,
+   "fees_paid": 2994.464285714286
+  }
+ }
+}

@@ -15224,6 +15224,18 @@ series pooled; per-game t; CONFIRM per §664.4, watchlist per §133.
 **K-family 10b sealed (t01539): 556 games, favourite YES −1.74¢ a contract, t −1.15, 5 of 13 months positive → REJECT. N 1,539.**
 Kalshi's game-winner lines are calibrated at both ends. Closed.
 
+## 763. A90: zero-edge value of each prop firm — Tradeify, Lucid and TPT are positive with NO edge (autonomous session) (S10)
+
+**No trial.** `reporting/a90_zero_edge_firms.py`: each firm's A63 rules and natural mix, sides randomised every session (A73 seeds), mean
+net per 84-session run (fees as stored in A63 on 2026-10-16, Tradeify at today's $116): **Tradeify Select Daily (3 NKD + 2 FDXM)
++$5,523 on 2021-26 paths / +$3,783 on 2010-20 (fees $5,549); Lucid Daily (NKD×3, MNQ, MGC) +$3,428 / +$2,881 (fees $10,024); TPT PRO
++$2,531 / +$2,194 (fees $10,037); MFF Rapid EOD −$2,904 / −$1,878; Phidias Fundamental −$4,495 / −$2,765; Premium −$4,570 / −$2,904.**
+(A85's live-rule figure for Tradeify, +$4,582, is the more exact one; A63's simulator here is the same for every firm.) Three
+legitimate firms pay a structural option with no market edge: together ≈ +$11.5k a run (≈ $2.9k a month; ≈ $2.2k on 2010-20 paths) —
+the scale route that does not depend on the demo's edges. Caveats: Lucid and TPT churn ~$10k of evaluation fees a run (cash buffer
+and drawdown before payouts need an A67-style check); fees and rules must be re-verified at current prices; outcomes across firms are
+correlated if the same sides are traded (the mean adds, the variance grows); the user had deferred a second firm ("months away").
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
