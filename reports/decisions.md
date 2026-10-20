@@ -15135,6 +15135,18 @@ stream: RSBN −5.1 / −3.3 / −4.8 s (NATO / Kamala / Cattle); Real America's
 measurement (§734.2). The public-feed route to the mention race is closed. A cable/satellite capture would have to gain > 5 s on RSBN's
 YouTube feed; not proposed without evidence that any consumer feed does.
 
+## 755. C-family 1 shadow result: incumbent combo makers price within ~6% of fair — no room for a new quoter; logger stopped (S10)
+
+**No trial.** 12 h of the droplet's 0.1% RFQ sample (104,227 RFQs, 96,473 with leg books; Kalshi saw 54M RFQs that day).
+`combo/c3_shadow.py` (two-pass streaming; the first in-memory load was OOM-killed on the 2 GB laptop), `combo/c3b_fills.py`,
+`combo/c3c_price.py`. Combo tickers are SHARED across requesters (a market's volume is not one RFQ's fill), so a fill = a trade on the
+combo within 30 s of the RFQ: **528 of 3,000 sampled RFQs (17.6%)**; 2,884 of the 3,000 were sports combos (filled 475, ~2,900
+contracts each). **Independent pre-game sports combos (legs in different games, every leg quoted 5-95¢ with spread ≤ 10¢), YES fills:
+145; executed ÷ leg-product fair: median 1.06 (quartiles 1.02 / 1.14).** Settled 82: YES 11.4% (contract-weighted) vs fair 8.8% vs
+executed 9.1%; sellers −$2,808 on $10,760 premium that day (noise). A quoter at fair × 1.05 would have won 6 of 82, × 1.10 one, × 1.20
+none. §742's 17% historical margin sits in long-shot / in-play / correlated combos, where the incumbents' models beat a leg product.
+**Closed.** `kalshi-rfq-shadow` stopped and disabled on the droplet (data kept: /opt/kalshi-lip/rfq).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
