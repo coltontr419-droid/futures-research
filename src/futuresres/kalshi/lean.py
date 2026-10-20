@@ -76,7 +76,7 @@ def row(m: dict, c: dict | None) -> dict:
 def run(series: str, sample: int | None, since: str | None, before: str | None = None) -> None:
     d_ = OUT / "lean_start" if START else LEAN; d_.mkdir(parents=True, exist_ok=True); f = d_ / f"{series}.jsonl"
     done = {json.loads(l)["ticker"] for l in open(f)} if f.exists() else set()
-    ms = [m for m in listing(series) if m["ticker"] not in done and float(m.get("volume_fp") or m.get("volume") or 0) > 0 and window(m)]
+    ms = [m for m in listing(series) if float(m.get("volume_fp") or m.get("volume") or 0) > 0 and window(m)]
     if since:
         ms = [m for m in ms if m["close_time"] >= since]
     if before:
@@ -84,6 +84,7 @@ def run(series: str, sample: int | None, since: str | None, before: str | None =
     if sample:
         evs = sorted({m["event_ticker"] for m in ms}); random.Random(series).shuffle(evs); keep = set(evs[:sample])
         ms = [m for m in ms if m["event_ticker"] in keep]
+    ms = [m for m in ms if m["ticker"] not in done]                 # after sampling, so a resumed run keeps the same events
     print(series, len(ms), "markets to fetch", flush=True)
     hist = []; out = open(f, "a"); n = 0
     pending = sorted(ms, key=lambda m: window(m)[1])
