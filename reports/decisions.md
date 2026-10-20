@@ -15213,6 +15213,15 @@ perps) — a fee holiday for institutions, not a payment. The 2026-02 Sportsbook
 for us. **Early demo read** (`a18_demo_check --review`, read-only): 35 tickets, TAKE 11 / STOP 23 vs 15.1 / 18.3 expected; shadow
 −$11,007 vs −$814 ± $6,076 (z −1.68); every product negative; execution matches (median gap $2.56). Logged for the 10-25 review.
 
+## 762. K-family 10 discovery: thin (sports volume came after the split); favourite-YES near miss → K-family 10b registered (S10)
+
+**N 1,538 (no trial yet).** `kalshi/k10_sports_fl.py`, `reports/k10_discovery.json`; download: NFL 474, NHL, NBA, NCAAF 1,770, MLB 4,494
+events (427 candle requests failed and were skipped). Discovery (games before 2025-10-01, spread ≤ 5¢ at the 6 h candle) is thin
+because Kalshi's sports volume arrived later: **long-shot NO −1.19¢ (155 games, t −0.51); favourite YES +3.84¢ (114 games, t 1.69,
+4 of 6 months positive)** — not carried. **K-family 10b (registered now, before the sealed window is opened):** the favourite-YES rule
+of §756 (YES mid ≥ 75¢ at the 6 h candle, buy at the ask, taker fee) as ONE test on the sealed window 2025-10-01 → 2026-10-19, all five
+series pooled; per-game t; CONFIRM per §664.4, watchlist per §133.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
