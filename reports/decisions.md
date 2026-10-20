@@ -15123,6 +15123,18 @@ for the 199 matched, the EDGAR time is no earlier than the true release — the 
 words in the release YES 79.4% at a mean price 78.5¢; words not in it YES 41.2% at 45.9¢ — the market prices the release correctly,
 and in-release words still ≤ 85¢ are exactly the ones executives skip. Not carried; no validation. Closed.
 
+## 754. M-family forward test (Wichita rally, 2026-10-19): every public stream hears the word AFTER Kalshi's sweep — closed (S10)
+
+**No trial.** `mention/m3_record.py` + a URL recorder (the channel handle @RSBNetwork was wrong; RSBN is @RSBN — fixed at 23:09Z, after
+6 words had been said) recorded RSBN, Real America's Voice, FOX 10 Phoenix, KMBC 9, CBS 13 (from 23:09Z) and ABC, LiveNOW, Fox News;
+`mention/m7_feedrace.py` (faster-whisper base.en, NTP-corrected chunk times) transcribed the windows around each jump; it stopped after
+3 jumps (likely memory on the 2 GB laptop), but the verdict is unambiguous (`reports/m7_wichita.json`): **lead = sweep − heard on the
+stream: RSBN −5.1 / −3.3 / −4.8 s (NATO / Kamala / Cattle); Real America's Voice −6.5 / −5.7 / −6.2; FOX 10 −7.4 / −12.2; Fox News
+−10.0 / −11.4; KMBC −13.2 / −12.4 / −8.8** (ABC, LiveNOW, CBS: not heard / not carried). §734's bar was lead ≥ +1.5 s on ≥ 60% of jumps:
+**0%; the fastest public stream is 3-5 s late before any transcription or order latency** — consistent with the recorded-timeline
+measurement (§734.2). The public-feed route to the mention race is closed. A cable/satellite capture would have to gain > 5 s on RSBN's
+YouTube feed; not proposed without evidence that any consumer feed does.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

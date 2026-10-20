@@ -1,0 +1,77 @@
+{
+ "FoxNews": [
+  {
+   "word": "Kamala",
+   "sweep_utc": "00:27:57",
+   "lead_s": -10.0
+  },
+  {
+   "word": "Cattle",
+   "sweep_utc": "01:27:26",
+   "lead_s": -11.4
+  }
+ ],
+ "RAV": [
+  {
+   "word": "Kamala",
+   "sweep_utc": "00:27:57",
+   "lead_s": -5.7
+  },
+  {
+   "word": "Cattle",
+   "sweep_utc": "01:27:26",
+   "lead_s": -6.2
+  },
+  {
+   "word": "NATO",
+   "sweep_utc": "00:08:09",
+   "lead_s": -6.5
+  }
+ ],
+ "KMBC9": [
+  {
+   "word": "Kamala",
+   "sweep_utc": "00:27:57",
+   "lead_s": -12.4
+  },
+  {
+   "word": "Cattle",
+   "sweep_utc": "01:27:26",
+   "lead_s": -8.8
+  },
+  {
+   "word": "NATO",
+   "sweep_utc": "00:08:09",
+   "lead_s": -13.2
+  }
+ ],
+ "RSBN": [
+  {
+   "word": "Kamala",
+   "sweep_utc": "00:27:57",
+   "lead_s": -3.3
+  },
+  {
+   "word": "Cattle",
+   "sweep_utc": "01:27:26",
+   "lead_s": -4.8
+  },
+  {
+   "word": "NATO",
+   "sweep_utc": "00:08:09",
+   "lead_s": -5.1
+  }
+ ],
+ "FOX10PHX": [
+  {
+   "word": "Kamala",
+   "sweep_utc": "00:27:57",
+   "lead_s": -7.4
+  },
+  {
+   "word": "Cattle",
+   "sweep_utc": "01:27:26",
+   "lead_s": -12.2
+  }
+ ]
+}

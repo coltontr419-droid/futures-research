@@ -72,7 +72,7 @@ def main(argv) -> int:
                                                                     "trades": trades(c, m["ticker"])} for m in ms]}))
     d = json.loads(live_file.read_text()); off = ntp_offset(label)
     chans = [p.name for p in (LIVE / label).iterdir() if p.is_dir()]
-    model = WhisperModel("base.en", device="cpu", compute_type="int8", cpu_threads=4)
+    model = WhisperModel("base.en", device="cpu", compute_type="int8", cpu_threads=8)
     res = {ch: [] for ch in chans}
     for m in d["markets"]:
         j = jump(m["trades"])
@@ -80,7 +80,7 @@ def main(argv) -> int:
             continue
         sweep = T(j["t"]); fs = forms(m["word"])
         for ch in chans:
-            w = window_audio(chunks(label, ch, off), sweep - dt.timedelta(seconds=45), sweep + dt.timedelta(seconds=15))
+            w = window_audio(chunks(label, ch, off), sweep - dt.timedelta(seconds=35), sweep + dt.timedelta(seconds=10))
             if not w:
                 continue
             t0, wav = w; segs, _ = model.transcribe(str(wav), word_timestamps=True, vad_filter=False)
