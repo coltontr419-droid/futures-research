@@ -15301,6 +15301,9 @@ modelled.** Lesson: consistency and payout-gating rules dominate a firm's struct
 (Elite Trader Funding's promo-price result also omits its "active trade days" rule — treat as negative.)
 Smaller size at LucidPro (to fit the 40% rule): sim size ×0.3 / ×0.5 / ×0.7 → **−$1,130 / −$2,062 / −$3,149** a run — still negative
 (small size rarely reaches the $3,000 target before fees pile up). Lucid closed.
+LucidFlex (no funded consistency; 50% evaluation consistency; 5 winning days ≥ $150; ≤ 50% of profit and ≤ $2,000 a payout): **−$1,409
+($130) / −$3,589 ($175).** Firm thread closed: **Tradeify Select Daily is the only modelled firm whose structure pays with no edge** —
+worth knowing when choosing a second firm later (an edge would be required elsewhere).
 
 ## 10. Still outstanding, and blocking
 
