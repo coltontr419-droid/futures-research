@@ -15192,6 +15192,19 @@ positively-correlated parlays. Shadow sample (`combo/c3d_samegame.py`): 1,933 of
 208: YES 1.0% vs executed 2.1% vs independent 1.4%; buyers −$12,546 on $12,576.** Crypto same-window: ×2.56, buyers −$669 on $1,032.
 No requester edge. Closed.
 
+## 760. K-family 11 protocol — single player props on Kalshi (anytime TD, rushing yards, NHL goals) (autonomous session) (S10)
+
+**No trial. Written BEFORE any prop price is compared with any result.** Screen: the deepest retail markets found — KXNFLTD had
+71.6M contracts on its first 1,000 settled markets (YES rate 7.4%), KXNFLRSHYDS 15.8M (YES 32.8%), KXNHLGOAL ~1M (YES 8.4%). Sports
+books are known for "over"/YES over-betting on props; Kalshi props are retail-heavy. Keys needed only to trade (tabled).
+1. **Data:** settled KXNFLTD, KXNFLRSHYDS, KXNHLGOAL (live + /historical, hourly candles) via `kalshi/download.py`.
+2. **Price (fixed):** the hourly candle ending 6 h before the market's close (pre-game), quote filter bid > 0, ask < 1, spread ≤ 5¢.
+3. **Trades (fixed), Kalshi taker fee:** (a) YES mid ≤ 35¢ → **buy NO at 1 − YES bid**; (b) YES mid ≥ 65¢ → **buy YES at the ask**.
+   **2 tests, pooled over the three series** (series shown, not tested). Statistic: each game's (event's) mean net per contract; t
+   over games.
+4. **Discovery: games closing before 2026-03-01 (the 2025-26 seasons); sealed 2026-03-01 → 2026-10-19.** Carried t > 1.96, mean > 0;
+   validation per §664.4; watchlist per §133. Capacity reported.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
