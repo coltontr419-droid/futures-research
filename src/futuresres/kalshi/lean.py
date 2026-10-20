@@ -5,7 +5,7 @@ event (--sample N keeps N random events a series). Output: data/kalshi/lean/<SER
 
     python -m futuresres.kalshi.lean KXNBAPTS KXMLBHR ... [--sample 150] [--since 2026-08-20] [--before 2026-08-20] [--start] [--rate 5]
 
---start (esports, decisions.md 774): the window is instead 3 h -> 0 h before the match's scheduled start, read from the event ticker
+--start (esports, decisions.md 774-775): the window is instead 4 h -> 1 h before the match's scheduled start, read from the event ticker
 (e.g. KXLOLGAME-26OCT181400MVKKC = 2026-10-18 14:00 ET), and rows go to data/kalshi/lean_start/.
 """
 
@@ -58,7 +58,7 @@ def start(m: dict) -> int | None:
 def window(m: dict) -> tuple[int, int] | None:
     if START:
         s = start(m)
-        return (s - 3 * 3600, s) if s else None
+        return (s - 4 * 3600, s - 3600) if s else None
     cl = T(m["close_time"])
     return cl - 9 * 3600, cl - 6 * 3600
 

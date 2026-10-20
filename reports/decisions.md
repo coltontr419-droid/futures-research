@@ -15392,13 +15392,22 @@ matches across titles), large and growing volume (outcome-free screen, settled c
 professional market makers anchoring prices than the major leagues (K10, §756, found the majors fair). Esports markets close at the
 match's END, so the entry is anchored to the scheduled start in the event ticker (`lean.py --start`).
 - **Universe (fixed):** KXLOLGAME, KXCS2GAME, KXDOTA2GAME, KXVALORANTGAME, KXR6GAME, KXRLGAME, KXOWGAME, KXCODGAME, KXMLBBGAME.
-- **Entry:** last hourly candle ending in the 3 h before the scheduled start; spread ≤ 5¢; one market an event — the side with the
+- **Entry (amended in §775: 4 h → 1 h before):** last hourly candle ending in the 3 h before the scheduled start; spread ≤ 5¢; one market an event — the side with the
   higher mid. **favourite_YES:** its mid ≥ 0.70 → buy YES at its ask. **underdog_YES:** the other side's mid ≤ 0.30 → buy that side's
   YES at its ask. Taker fee ceil(7·p(1−p))¢. Unit: the event (one bet each); t over events.
 - **Discovery:** matches starting before 2026-08-20, 300 random events a series (`--sample 300`, seeded by series). A test is carried
   only with discovery t > 1.96 and mean > 0; at most one direction can be.
 - **Sealed:** matches starting 2026-08-20 → 2026-10-19, every event; ONE look at the carried test with the §664.4 rule (seed 774),
   §133 watchlist otherwise. Capacity reported as contracts traded in the entry candle and over the market's life.
+
+## 775. K-family 13 amended BEFORE any outcome: Kalshi's esports start times can be wrong by hours (S10)
+
+**No trial; N 1,539.** Checked against Riot's public schedule (esports-api.lolesports.com) while screening in-play capacity:
+KXLOLGAME-26OCT151900KCC9 says "scheduled Oct 15 7:00 PM EDT" (23:00Z) but KC-C9 started 18:00Z and the market CLOSED 22:49Z, before
+its own listed start (Kalshi swapped KC-C9 and MVK-FUR). With §774's window (3 h → 0 h before the listed start) such matches would be
+entered in play. **Amended:** the entry candle is the last one ending in the window **4 h → 1 h before the listed start** (a 1 h
+buffer against small errors), and an event is **dropped if its market closed < 20 min after the listed start** (impossible as
+scheduled). Everything else in §774 unchanged. The partial download (0 rows written) was discarded and restarted with this window.
 
 ## 10. Still outstanding, and blocking
 
