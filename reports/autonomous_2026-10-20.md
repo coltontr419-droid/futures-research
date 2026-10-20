@@ -128,3 +128,7 @@ products the launch plan doesn't use.
   counterpart. Closed for main lines.
 - Infrastructure: the laptop container restarted twice (scratchpad wiped, jobs killed). Background jobs now live in
   `scripts/jobs/*.sh` and run as systemd user services `futres-{k11c,k13,a93,a94}` (lingering on → they start with the container).
+- Kalshi × Polymarket US midterm races (19 Senate/governor sides matched by slug): best combined net +0.7¢ (Georgia R), locked to
+  2026-11-03 — capital-bound, tiny. Prices near identical (e.g. Texas 63/64 vs 62/63). Closed.
+- A93 matching bug fixed (Polymarket's 2-letter team codes); tonight's two games now match 245 props; the only > 0 nets sit on dust
+  (0.08-contract offers).
