@@ -12,3 +12,7 @@ protocol before any price/outcome comparison; strict edge rule (§119) with §13
 - `a49_watchlist` (forward data after the sealed window): 14 of 23 watchlist rules positive (≈ chance). Standout: **D728 MGC fades
   its own 60-day trend (strong days): forward n 28, +35.5 bps, t +3.00**; sibling D727 (all days) t +1.73. With 23 rules tracked one
   t≈3 can be chance → keep watching (the §133 path), not adoption. D659 (MGC follows CNY) t −2.20 — failing forward.
+
+### 2. ForecastEx favourite/long-shot bias (§757-758) — closed
+Every ForecastEx trade ≥ 24 h before expiry (2.4k events, 160M contracts): buying NO on long shots −4.4¢ (t −7.8), YES on favourites
+−3.2¢ (t −6.1). A category subset looked positive by contract weight but is negative event by event (a few big NFL trades). Nothing.

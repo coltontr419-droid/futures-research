@@ -1,0 +1,35 @@
+{
+ "longshot_NO": {
+  "events": 2451,
+  "contracts": 160121122.0,
+  "mean_net": -0.04383076892878307,
+  "t": -7.76070370910249,
+  "by_category": {
+   "Economic Indicators": 2.91,
+   "?": 4.67,
+   "Elections": 2.68,
+   "Environmental": -9.01,
+   "Financial Markets": -6.98,
+   "Government": 6.9,
+   "Technology": 4.15,
+   "Sports": 4.33
+  },
+  "carried": false
+ },
+ "favourite_YES": {
+  "events": 2548,
+  "contracts": 142441598.0,
+  "mean_net": -0.03217990576179301,
+  "t": -6.106428308890866,
+  "by_category": {
+   "Economic Indicators": 4.02,
+   "Environmental": -5.8,
+   "?": 2.88,
+   "Financial Markets": 0.68,
+   "Government": 3.63,
+   "Technology": 7.48,
+   "Sports": 2.35
+  },
+  "carried": false
+ }
+}

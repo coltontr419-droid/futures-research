@@ -15176,6 +15176,14 @@ retail venue — where a long-shot bias is most plausible. Trading would need th
    product categories shown, not tested.
 3. **Discovery: expirations before 2026-03-01; sealed 2026-03-01 → 2026-10-19.** Carried t > 1.96, mean > 0; validation per §664.4.
 
+## 758. F-family 5: no long-shot bias on ForecastEx — both sides lose; not carried (S10)
+
+**N 1,538 (no trial).** `forecastex/f5_longshot.py`, `reports/f5_discovery.json`. Discovery (expirations before 2026-03-01, trades ≥ 24 h
+before expiry): **long-shot NO −4.38¢ a contract (2,451 events, 160M contracts, t −7.76); favourite YES −3.22¢ (2,548 events, t −6.11).**
+Contract-weighted by category, Economic/Elections/Government/Technology/Sports looked positive (+2 to +7¢) while Environmental and
+Financial were negative; checked at the event level inside discovery before registering anything: that subset is **NO −2.42¢ (t −2.52),
+YES −0.98¢ (t −1.15)** — the positive weighting came from a few large NFL game-winner trades. No hypothesis registered. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
