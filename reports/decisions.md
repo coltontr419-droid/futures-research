@@ -15275,6 +15275,16 @@ Quick Pay EOD (and Elite Trader Funding only on a 70% promo); negative — MFF R
 Topstep, Alpha, Bulenox, FFF, Top One.** What separates them: low fee, EOD drawdown, payouts without a large buffer or consistency
 gate, high split.
 
+## 765. A90c: the three positive firms together at zero edge — +$22.8k a run on average, wide tail, ~$10-25k bankroll (S10)
+
+**No trial.** `reporting/a90c_portfolio.py`: Tradeify Select Daily (3 NKD + 2 FDXM, $116), LucidPro 2026 terms (NKD×5, $129.50),
+TradeDay Quick Pay EOD (NKD×5, $79, 50% split) on the SAME randomised sides (3 seeds) — the accounts move together. **2021-26 paths:
+net mean +$22,783 a run (Tradeify +$5,502, Lucid +$10,438, TradeDay +$6,843), median +$16,103, P(net>0) 74%, p10 −$18,134, p90
++$62,511; joint cash low (sum, conservative) median −$9,271, 5% −$22,483, worst −$30,596. 2010-20 paths: mean +$15,838, median +$4,171,
+P(net>0) 60%, p10 −$10,926, p90 +$55,990; cash low median −$6,128, 5% −$17,616.** ≈ $4-5.7k a month on average with no market edge —
+clears the user's scale bar on the mean, but the variance is large (one NKD signal drives 15 accounts) and it needs a ~$10-25k
+bankroll; 26-40% of 4-month runs lose. A real edge would add to this; diversifying the traded market across firms would cut the tail.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

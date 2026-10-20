@@ -61,3 +61,6 @@ Needs the user (accounts, money) → tabled for the user's decision.
 - Funded Futures Family −$6.5k, Top One −$2.9k. **Zero-edge firm survey done (12 models): positive = Tradeify, LucidPro, TradeDay
   (+ Elite Trader Funding only on promo); negative = MFF, TPT, Phidias, Topstep, Alpha, Bulenox, FFF, Top One.** The winners share:
   low fee, end-of-day drawdown, payouts without big buffers/consistency gates, high split.
+- **Portfolio (A90c, §765): Tradeify + LucidPro + TradeDay together, zero edge, same signals: mean +$22.8k per 4-month run
+  (median +$16.1k, 74% profitable, p10 −$18.1k, p90 +$62.5k) on 2021-26 paths; mean +$15.8k (median +$4.2k, 60%) on 2010-20.
+  Cash low median −$9.3k, 5% −$22.5k.** ≈ $4-5.7k/month average with NO edge — big swings, needs a ~$10-25k bankroll.
