@@ -53,3 +53,7 @@ Needs the user (accounts, money) → tabled for the user's decision.
   payout rule not modelled). **Tradeify + LucidPro ≈ +$10-15k per 4-month run with zero edge ≈ $2.5-3.6k a month.** Needs: verify
   LucidPro terms at checkout, a bankroll (~$5k median, ~$14k bad-case for both), the user's decision. Tabled for the user.
 - At Lucid, NKD×5 beats the mixed set at zero edge: +$11.0k / +$7.9k a run (vs +$9.1k / +$5.9k).
+- More firms (§764): **TradeDay Quick Pay EOD 50K ($79): zero-edge +$6.2k (50% split) to +$9.6k per run; P(net>0) 80%; cash low
+  median −$2.0k (5%: −$5.9k)** — the best cash profile. Topstep ≈ −$0.7k (50%-per-payout cap), Alpha Futures −$4.4k (−$1.4k with
+  a promo) → no. **Total across Tradeify + LucidPro + TradeDay ≈ +$21-26k per 4-month run ≈ $5-6.5k a month with ZERO edge.**
+  Main risk: my translation of each firm's rules (from third-party summaries). Signs more reliable than dollars.

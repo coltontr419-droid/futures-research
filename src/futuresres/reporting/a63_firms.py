@@ -176,7 +176,7 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 if kind == "growth":                      # >= 5 days of >= $150, balance >= start + $3,000, largest day <= 35% of the cycle
                     a_["cyc"] = np.where(sim & fu & trade & (pnl >= F["win_day"]), a_["cyc"] + 1, a_["cyc"])
                     okp = (a_["cyc"] >= 5) & (eq >= START + F["min_bal"]) & (a_["cbest"] <= F["cons_f"] * a_["cprof"] + 0.005)
-                    amt = np.where(sim & fu & ~br & okp, np.minimum(np.maximum(eq - (START + buf), 0.0), capn), 0.0)
+                    amt = np.where(sim & fu & ~br & okp, np.minimum(np.maximum(eq - (START + buf), 0.0) * F.get("pay_frac", 1.0), capn), 0.0)
                 else:                                     # goal $3,000 then $2,000; largest day <= cons x max(goal, cycle profit)
                     g_ = np.where(npay == 0, F["goals"][0], F["goals"][1]); c_ = np.array(F["cons_goal"])[np.minimum(npay, len(F["cons_goal"]) - 1)]
                     okp = (a_["cprof"] >= g_) & (a_["cbest"] <= c_ * np.maximum(g_, a_["cprof"]) + 0.005)

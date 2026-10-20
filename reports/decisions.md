@@ -15250,6 +15250,20 @@ with zero edge; needs real terms verification and a bankroll; the user's call.
 Mix: LucidPro (2026 terms) with **NKD×5: zero edge +$10,995 / +$7,889 a run** vs +$9,114 / +$5,944 for NKD×3+MNQ+MGC — NKD's
 bracket/volatility profile carries the most option value (the 5 accounts move together, as simulated).
 
+## 764. A90 extended: more firms at zero edge — TradeDay positive; Topstep, Alpha negative (autonomous session) (S10)
+
+**No trial.** Rules from PropFirmMap firm pages (third-party, checked 2026-09/10; verify at checkout) translated into A63's
+simulator (a `pay_frac` option added to the "growth" payout scheme, default 1.0 — earlier results unchanged); all NKD×5, sides
+randomised, 6 seeds. **Topstep 50K** ($85/mo + $149 activation ≈ $130 an attempt; EOD $2,000; 50% evaluation consistency; 5 winning
+days ≥ $150; ≤ 50% of profit and ≤ $5k a payout; 90%): **−$676 / −$631.** **Alpha Futures Standard 50K** ($129/mo; EOD $2,000;
+50% evaluation, 40% funded consistency; 5 winning days ≥ $200; 90%): **−$4,384 / −$3,021** (−$1,396 at a 50%-off code).
+**TradeDay Quick Pay EOD 50K** ($79/mo sale price; EOD $2,000; payouts from day 1, no buffer, ≥ $250; split 50/50 under $4k net
+profit then 80/20): **+$6,164 / +$3,900 with a flat 50% split, +$9,593 / +$6,038 at a 65% blend; cash (3 seeds, 50% split): net mean
++$6,843, P(net>0) 80%, p10 −$5,135, cash low median −$1,975, 5% −$5,925, worst −$8,295.** Positive at zero edge: Tradeify (+$5.5k),
+LucidPro (+$9.6-11.0k), TradeDay (+$6.2-9.6k) ≈ +$21-26k a 4-month run ≈ $5-6.5k a month with no market edge — scaling across
+established firms (each capped at ~5 accounts). Model fidelity is the main risk: each firm's rules are translated from summaries
+(lock levels, monthly billing, payout timing); the signs are more reliable than the dollars. For the user: verify terms, bankroll.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
