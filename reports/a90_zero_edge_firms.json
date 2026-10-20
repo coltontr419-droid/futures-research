@@ -28,31 +28,31 @@
   }
  },
  "TPT PRO": {
-  "fee": 150.0,
+  "fee": 200.0,
   "mix": "5: no Eurex (NKD\u00d73, MNQ, MGC)",
   "2021-26": {
-   "zero_edge_mean_net": 2530.902345415778,
-   "seed_sd": 2198.318123874268,
-   "fees_paid": 10036.709310589908
+   "zero_edge_mean_net": -814.6674247808577,
+   "seed_sd": 2229.3107418283794,
+   "fees_paid": 13382.279080786544
   },
   "2010-20": {
-   "zero_edge_mean_net": 2194.3325433862433,
-   "seed_sd": 1060.919031187909,
-   "fees_paid": 5758.730158730159
+   "zero_edge_mean_net": 274.75582380952386,
+   "seed_sd": 1074.8452967909495,
+   "fees_paid": 7678.3068783068775
   }
  },
  "Lucid Daily": {
-  "fee": 150.0,
+  "fee": 129.5,
   "mix": "5: no Eurex (NKD\u00d73, MNQ, MGC)",
   "2021-26": {
-   "zero_edge_mean_net": 3428.4509726368155,
-   "seed_sd": 3226.527612610597,
-   "fees_paid": 10024.431414356788
+   "zero_edge_mean_net": 4798.456599265576,
+   "seed_sd": 3219.062129081169,
+   "fees_paid": 8654.425787728027
   },
   "2010-20": {
-   "zero_edge_mean_net": 2881.33801170635,
-   "seed_sd": 1248.6005416847408,
-   "fees_paid": 5750.079365079365
+   "zero_edge_mean_net": 3667.1821916005297,
+   "seed_sd": 1242.1377073539675,
+   "fees_paid": 4964.2351851851845
   }
  },
  "Phidias Fundamental": {

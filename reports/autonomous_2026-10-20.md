@@ -45,3 +45,6 @@ Each firm's own rules, random trade directions (no edge at all), per 4-month run
 a run ≈ $2.9k a month with zero edge**, scaling across firms rather than capital. Catches: Lucid/TPT churn ~$10k of eval fees a run
 (cash buffer needed), fees/rules must be re-checked at today's prices, results across firms correlate if the same sides are traded.
 Needs the user (accounts, money) → tabled for the user's decision.
+- Follow-up at TODAY's prices: Lucid (≈$129.50) improves to +$4.8k / +$3.7k; TPT ($170/month + activation) falls to ≈ 0 → drop TPT.
+  Tradeify + Lucid ≈ +$10.3-10.5k per 4-month run with zero edge (P(net>0) 67%), **but the cash low is median −$6.7k, 5% −$13.6k,
+  worst −$18.9k** — it needs a ~$7-14k bankroll, not $100-200. Real, structural, legit; a bankroll decision for the user.

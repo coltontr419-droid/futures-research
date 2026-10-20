@@ -15235,6 +15235,11 @@ legitimate firms pay a structural option with no market edge: together ≈ +$11.
 the scale route that does not depend on the demo's edges. Caveats: Lucid and TPT churn ~$10k of evaluation fees a run (cash buffer
 and drawdown before payouts need an A67-style check); fees and rules must be re-verified at current prices; outcomes across firms are
 correlated if the same sides are traded (the mean adds, the variance grows); the user had deferred a second firm ("months away").
+**Update at current prices** (web, 2026-10-20: LucidPro 50K ≈ $129.50; TPT 50K test $170 a MONTH + $130 activation → modelled $200):
+**Lucid +$4,798 / +$3,667; TPT −$815 / +$275 (drops out).** Tradeify + Lucid ≈ +$10.3k a run (2021-26) ≈ $2.6k a month (≈ $1.9k on
+2010-20). **Cash (`reporting/a90b_cash.py`, 3 seeds, zero edge):** Tradeify P(net>0) 71%, cash low median −$2,552, 5% −$7,424, worst
+−$10,788; Lucid P(net>0) 57%, low median −$3,496, 5% −$8,418; both: net mean +$10,513, P(>0) 67%, p10 −$8,264, cash low median −$6,715,
+5% −$13,646, worst −$18,946. The structural route needs a ~$7-14k bankroll — not a $100-200 start; for the user to weigh.
 
 ## 10. Still outstanding, and blocking
 
