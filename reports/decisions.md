@@ -15334,6 +15334,14 @@ same-minute stop/take → stop. $ a ticket: **NKD 2021-26 market −8.2 vs limit
 −38/−20/−22/−30 (fills 85-94%); NKD 2010-20 market −53 vs −54 … −88; FDXM 2021-26 market −0.4 vs −13 … −21; 2010-20 −17 vs −26 … −30.**
 Fills come on sessions that keep going against the position and the misses are the clean winners. Market entries stay.
 
+## 770. LucidPro with its real 2026 rules loses even WITH the plan's edges — A63's Lucid figure (§631) is superseded (S10)
+
+**No trial.** Launch paths (the deployed rules, 1 tick slippage), A63 simulator: **Tradeify Select Daily ($116, 3 NKD + 2 FDXM) +$6,181
+(P(net>0) 76%, p10 −$2,651) on 2021-26, +$3,834 (72%) on 2010-20; LucidPro 2026 terms (EOD, no evaluation consistency, funded best day
+≤ 40% of cycle profit, ≤ $2,000 a payout, $129.50; NKD×3 + MNQ + MGC) −$5,629 (P(net>0) 1%) / −$3,620 (1%).** A63's "Lucid Daily
++$9.0k (63%)" (§631) modelled an intraday drawdown and no funded consistency; with the funded 40% rule the bracket game cannot pay.
+For a future second firm: check consistency/payout gating first — it decides the answer.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

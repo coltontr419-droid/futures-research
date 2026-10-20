@@ -22,7 +22,7 @@ Four of four positive; none significant alone after seven weeks. (A48's ticket-l
   paths (+$2.7-3.8k on 2010-20); P(net>0) ≈ 71%; cash low median ≈ −$2.6k, 5% ≈ −$7.4k.
 - The planned mix is already near the zero-edge best (NKD×5 +$5.9k; 3+2 +$5.5k; the demo's 5-product mix only +$2.5k).
 - Tradeify is the **only** one of ~14 modelled firm/plan combinations whose structure pays with no edge (consistency and
-  payout-gating rules sink the others) — a second firm needs a real edge.
+  payout-gating rules sink the others) — and LucidPro loses even WITH the plan's edges (−$5.6k a run, §770).
 
 ## 4. Execution
 - Limit entries one tick better LOSE to market entries (A92, §769: adverse selection > the saved tick) — keep market entries.
