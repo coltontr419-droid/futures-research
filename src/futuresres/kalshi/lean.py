@@ -15,6 +15,7 @@ import datetime as dt
 import json
 import random
 import sys
+import time
 import re
 import urllib.error
 from zoneinfo import ZoneInfo
@@ -31,19 +32,29 @@ def T(s: str) -> int:
 
 
 def listing(series: str) -> list[dict]:
-    out = []
-    for base in ("/historical/markets", "/markets"):
-        cur = None
+    """Settled markets of a series; cached on disk (pages too) so a restarted run does not list again (the container restarts)."""
+    cache = OUT / "lean_list"; cache.mkdir(parents=True, exist_ok=True); f = cache / f"{series}.json"
+    if f.exists() and time.time() - f.stat().st_mtime < 12 * 3600:
+        return json.loads(f.read_text())
+    part = cache / f"{series}.part.json"; st_ = json.loads(part.read_text()) if part.exists() else {"base": 0, "cur": None, "out": []}
+    out = st_["out"]
+    for bi, base in enumerate(("/historical/markets", "/markets")):
+        if bi < st_["base"]:
+            continue
+        cur = st_["cur"] if bi == st_["base"] else None
         while True:
             d = get(f"{base}?series_ticker={series}&limit=1000" + ("&status=settled" if base == "/markets" else "") + (f"&cursor={cur}" if cur else ""))
-            out += [m for m in d.get("markets", []) if m.get("result") in ("yes", "no") and m.get("close_time")]
+            out += [{k: m.get(k) for k in ("ticker", "event_ticker", "result", "close_time", "volume_fp", "volume", "floor_strike")}
+                    for m in d.get("markets", []) if m.get("result") in ("yes", "no") and m.get("close_time")]
             cur = d.get("cursor")
+            part.write_text(json.dumps({"base": bi, "cur": cur, "out": out}))
             if not cur or not d.get("markets"):
                 break
     seen = set(); uniq = []
     for m in out:
         if m["ticker"] not in seen:
             seen.add(m["ticker"]); uniq.append(m)
+    f.write_text(json.dumps(uniq)); part.unlink(missing_ok=True)
     return uniq
 
 
