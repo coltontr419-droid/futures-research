@@ -1,6 +1,6 @@
 """A94 (decisions.md 776): does Riot's public livestats feed show LoL game events before Kalshi's in-play sweep? Records only, no orders.
 
-Riot: every second, the three latest 10 s-aligned windows of feed.lolesports.com/livestats/v1/window/{game} for every live game
+Riot: every second, the four latest 10 s-aligned windows (incl. the current one) of feed.lolesports.com/livestats/v1/window/{game} for every live game
 (found via esports-api getLive); each frame is logged once with the wall time it was first received.
 Kalshi: every second, new trades on one side of each LIVE match's KXLOLGAME event (Riot team codes matched inside the event ticker,
 else the open event listed nearest to now), logged with their exchange time and receive time.
@@ -91,7 +91,7 @@ class Rec:
         while time.time() < self.end:
             t0 = time.time(); base = now().replace(microsecond=0)
             for g in list(self.games):
-                for back in (10, 20, 30):
+                for back in (0, 10, 20, 30):                # the current window too: no added wait for a frame
                     s = base - dt.timedelta(seconds=back); s = s.replace(second=s.second // 10 * 10)
                     d = get(f"https://feed.lolesports.com/livestats/v1/window/{g}?startingTime={s.strftime('%Y-%m-%dT%H:%M:%SZ')}", timeout=5)
                     rcv = now().isoformat()
