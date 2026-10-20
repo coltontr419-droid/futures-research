@@ -64,7 +64,11 @@ def sweep() -> list[dict]:
         if ev.get("closed") or not dt.timedelta(0) < st - now < dt.timedelta(hours=12):
             continue
         full = get(f"{PM}/v1/events/slug/{ev['slug']}").get("event", {})
-        a, h = ev["slug"].split("-")[1:3]; pair = (a + h).upper()
+        a, h = (x.upper() for x in ev["slug"].split("-")[1:3])      # Polymarket codes can be shorter (NY / NYK, SA / SAS)
+        pairs = {k[0] for ks in K.values() for k in ks}
+        pair = next((t for t in pairs if any(t[:i].startswith(a) and t[i:].startswith(h) for i in range(2, len(t) - 1))), None)
+        if not pair:
+            continue
         for m in full.get("markets", []):
             ser = STATS.get(m.get("sportsMarketType"))
             g = re.match(r"Will (.+?) (?:record|score|make) at least (\d+)", m.get("question", ""))
