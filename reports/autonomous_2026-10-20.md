@@ -132,3 +132,8 @@ products the launch plan doesn't use.
   2026-11-03 — capital-bound, tiny. Prices near identical (e.g. Texas 63/64 vs 62/63). Closed.
 - A93 matching bug fixed (Polymarket's 2-letter team codes); tonight's two games now match 245 props; the only > 0 nets sit on dust
   (0.08-contract offers).
+- A95 closed (§781): BTC 15-min last-minute takers net ≈ −$1.1k a market (median), taker edge −0.1…−0.7¢; book tracks BRTI better than a
+  Coinbase proxy ($4 median error) — the firms there run BRTI replicas.
+- K13 closed (§780). K11c listing now cached on disk (restarts were re-listing MLB forever).
+- Alternate prop rungs vs a Poisson fit to Pinnacle's main line (NBA REB/AST/3PT, 413 rungs): Kalshi tails sit 1-2¢ above Poisson on
+  cheap rungs and 2.6-3¢ below on dear ones — the expected sign of over-dispersion, so model-dependent; outcomes (K11c) decide.
