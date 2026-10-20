@@ -15315,6 +15315,8 @@ Tradeify mixes at zero edge ($116): **NKD×5 +$5,929 / +$3,797; 3 NKD + 2 FDXM (
 +17.9% a year on 2026-10-16; ETH around zero; total perp open interest ~$18-33M. Short perp + long spot carry ≈ 15% a year on capital
 before fees — $30 a year on $200: capital-bound, below the user's scale bar (needs a large bankroll). Closed. Gold watchlist rule
 D727/D728: user asked to re-check in ~a month (~2026-11-20).
+Also checked: Tradeify caps 5 funded accounts in any mix (plus ≤ 15 evaluations per 30 days); Select Flex vs Daily is a payout choice
+after passing, not a separate allowance — no extra structural room inside Tradeify.
 
 ## 10. Still outstanding, and blocking
 
