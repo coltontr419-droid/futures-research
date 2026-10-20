@@ -77,3 +77,8 @@ whether the structure pays; Tradeify's Select Daily is unusual in passing.
   firm (of ~14 plan models) whose structure pays with zero edge.** A second firm would need a real edge to be worth it.
 - Tradeify mix at zero edge: NKD×5 +$5.9k ≈ the plan's 3 NKD + 2 FDXM +$5.5k > 2+3 +$5.2k ≫ the demo's 5-product mix +$2.5k.
   The planned launch mix is right even if the edges are zero.
+
+### 8. (2026-10-21) Deployed dollar rules forward since 2026-09-01 (A91, §768) — encouraging
+D171 DAX-fades-pound +5.8 bps (n 34), D174 DAX-follows-dollar +20.5 (n 14), D175 DAX-fades-Aussie +4.4 (n 10), D227 NKD-follows-euro
+week +5.4 (n 34) — all four positive, near research size; none significant alone yet. The demo's −$11k is mostly bracket noise plus
+products the launch plan doesn't use.

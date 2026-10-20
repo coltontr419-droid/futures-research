@@ -15318,6 +15318,14 @@ D727/D728: user asked to re-check in ~a month (~2026-11-20).
 Also checked: Tradeify caps 5 funded accounts in any mix (plus ≤ 15 evaluations per 30 days); Select Flex vs Daily is a payout choice
 after passing, not a separate allowance — no extra structural room inside Tradeify.
 
+## 768. A91: the deployed dollar rules forward (2026-09-01 → now, Yahoo-patched targets) — all four components positive (S10)
+
+**No trial.** `reporting/a91_deployed_forward.py` reuses A49's Yahoo 5-minute targets after the research caches end: **D171 DAX fades
+6B (all) +5.75 bps (n 34, t 0.58; research +7.56); D174 DAX follows DXY (strong) +20.53 (n 14, t 1.66; +10.94); D175 DAX fades 6A
+(strong) +4.35 (n 10, t 0.26; +11.27); D227 NKD follows 6E week (all) +5.38 (n 34, t 0.34; +5.93).** 4 of 4 the right sign at about the
+research size — none significant alone (7 weeks). The demo's adverse −$11k (§761) is mostly bracket noise and the four products the
+launch plan does not use (MNQ, MGC, MCL, ZS). For the 10-25 review.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
