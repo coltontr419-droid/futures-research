@@ -1,0 +1,66 @@
+{
+ "longshot_NO": {
+  "games": 660,
+  "mean_net": -0.019566363636363635,
+  "t": -1.4361620576145353,
+  "candle_volume": 19566666.35999999,
+  "by_sport": {
+   "KXNFLGAME": {
+    "n": 52,
+    "mean": -0.06298076923076924
+   },
+   "KXNBAGAME": {
+    "n": 270,
+    "mean": -0.014882222222222229
+   },
+   "KXMLBGAME": {
+    "n": 2,
+    "mean": 0.2224
+   },
+   "KXNHLGAME": {
+    "n": 8,
+    "mean": -0.03723750000000001
+   },
+   "KXNCAAFGAME": {
+    "n": 328,
+    "mean": -0.01758384146341463
+   }
+  },
+  "months_positive": "5/11",
+  "placebo_pct": 6.800000000000001,
+  "posterior_zero_prior": -0.0133646574809694,
+  "decision": "REJECT"
+ },
+ "favourite_YES": {
+  "games": 556,
+  "mean_net": -0.017402338129496403,
+  "t": -1.14939844150236,
+  "candle_volume": 10938320.250000007,
+  "by_sport": {
+   "KXNFLGAME": {
+    "n": 30,
+    "mean": -0.059103333333333334
+   },
+   "KXNBAGAME": {
+    "n": 186,
+    "mean": -0.007097849462365596
+   },
+   "KXMLBGAME": {
+    "n": 4,
+    "mean": 0.21037499999999998
+   },
+   "KXNHLGAME": {
+    "n": 7,
+    "mean": 0.07469999999999997
+   },
+   "KXNCAAFGAME": {
+    "n": 329,
+    "mean": -0.024154407294832824
+   }
+  },
+  "months_positive": "5/13",
+  "placebo_pct": 13.0,
+  "posterior_zero_prior": -0.011062600958368717,
+  "decision": "REJECT"
+ }
+}

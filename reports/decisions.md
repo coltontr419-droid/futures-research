@@ -15221,6 +15221,8 @@ because Kalshi's sports volume arrived later: **long-shot NO −1.19¢ (155 game
 4 of 6 months positive)** — not carried. **K-family 10b (registered now, before the sealed window is opened):** the favourite-YES rule
 of §756 (YES mid ≥ 75¢ at the 6 h candle, buy at the ask, taker fee) as ONE test on the sealed window 2025-10-01 → 2026-10-19, all five
 series pooled; per-game t; CONFIRM per §664.4, watchlist per §133.
+**K-family 10b sealed (t01539): 556 games, favourite YES −1.74¢ a contract, t −1.15, 5 of 13 months positive → REJECT. N 1,539.**
+Kalshi's game-winner lines are calibrated at both ends. Closed.
 
 ## 10. Still outstanding, and blocking
 

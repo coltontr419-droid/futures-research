@@ -27,3 +27,7 @@ on 208 settled sports same-game parlays. No buyer edge.
 MNQ −$2,000, NKD −$1,607, ZS −$3,000). Not yet conclusive (≈ 1-in-11 by chance) but adverse. Execution matches (median gap $2.56 a
 ticket); 3 recorded readings disagree with the replay (2 on FDXM's DAX-cash proxy, 1 MGC). Dollar rules forward: 6 sessions, NKD
 +$200 vs other side, FDXM −$2,206; trigger needs 40 sessions. Accounts: 13 evaluations bought, 0 passes so far.
+
+### 5. Kalshi sports game-winner favourite/long-shot bias (K10, §756/762) — closed (trial t01539)
+Downloaded every settled NFL/NBA/MLB/NHL/NCAAF game market. Discovery (pre-2025-10) thin: long-shot NO −1.2¢; favourite YES +3.8¢
+(t 1.69) → registered as one sealed test: **−1.7¢, t −1.15 over 556 games → REJECT.** Game lines are calibrated.
