@@ -15468,6 +15468,13 @@ fair price is computable from public exchange data. Surely bot-contested; the qu
 - **Pass (fixed now):** median over markets of the best executable edge (fair − ask − fee, or bid − fair − fee) ≥ 2¢ on ≥ $100 of top
   size in the last 60 s, in ≥ 50% of markets. Otherwise closed (bots already price it). Trading would need the user's API key.
 
+## 780. K-family 13 discovery: esports pre-match prices are fair — not carried; closed (S10)
+
+**No trial.** `kalshi/k13_esports.py` on the full discovery sample (8 titles; MLBB had no usable rows): **favourite_YES −0.87¢ a
+contract (786 events, t −0.65); underdog_YES −3.01¢ (789, t −2.25)** — LoL +0.6 / −3.4, CS2 +2.4 / −8.0, Dota −5.0 / +0.8, Valorant
+−2.2 / −1.4, R6 −5.4 / +0.4, OW +1.2 / −3.8, CoD −1.3 / −3.5. Matches the outcome-free Pinnacle check (Kalshi esports within ~1¢ of
+Pinnacle's no-vig). The sealed download was not run (job gated on carrying). Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
