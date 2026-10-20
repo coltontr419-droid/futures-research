@@ -15165,6 +15165,17 @@ market is calibrated, cheap to run on public data.
 4. **Discovery: games closing before 2025-10-01. Sealed: 2025-10-01 → 2026-10-19.** Carried t > 1.96, mean > 0; validation once per
    §664.4; watchlist per §133. Capacity reported (volume at the 6 h candle).
 
+## 757. F-family 5 protocol — favourite/long-shot bias across every ForecastEx product (autonomous session) (S10)
+
+**No trial. Written BEFORE any ForecastEx price is compared with any settlement in this family** (families 1-4 used only UH*/HRU*/FNQ
+late windows). Data on disk: every trade (`forecastex/pairs_all`, 810 days) and every settlement (`prices_all`). ForecastEx is IBKR's
+retail venue — where a long-shot bias is most plausible. Trading would need the user's IBKR/TWS session → tabled if it passes.
+1. **Trades (fixed):** every pair priced at least 24 h before its contract's expiration: (a) yes ≤ 15¢ → **buy NO at the pair's NO
+   price + 1¢**; (b) yes ≥ 85¢ → **buy YES at the pair's YES price + 1¢**; 1¢ ForecastEx fee; hold to settlement. **2 tests.**
+2. **Statistic:** each contract-expiry event's (product + expiration date) quantity-weighted mean net per contract; t over events;
+   product categories shown, not tested.
+3. **Discovery: expirations before 2026-03-01; sealed 2026-03-01 → 2026-10-19.** Carried t > 1.96, mean > 0; validation per §664.4.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
