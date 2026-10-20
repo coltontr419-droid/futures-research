@@ -15147,6 +15147,24 @@ executed 9.1%; sellers −$2,808 on $10,760 premium that day (noise). A quoter a
 none. §742's 17% historical margin sits in long-shot / in-play / correlated combos, where the incumbents' models beat a leg product.
 **Closed.** `kalshi-rfq-shadow` stopped and disabled on the droplet (data kept: /opt/kalshi-lip/rfq).
 
+## 756. K-family 10 protocol — favourite/long-shot bias in Kalshi game-winner markets (autonomous session, 2026-10-20) (S10)
+
+**No trial spent. Written BEFORE any game-winner price is compared with any result.** Screen (user rules): legitimate venue (Kalshi);
+small start; capacity is the deepest on the exchange (millions of contracts a game); no keys needed to test (keys only to trade —
+tabled until the user is back). K-family 1 found no long-shot bias in index brackets (§665), but sports books are known for it and
+Kalshi sports are retail-heavy. Why isn't everyone doing it? If it exists, it would be eaten by makers — this is a check that the
+market is calibrated, cheap to run on public data.
+1. **Data:** settled KXNFLGAME, KXNBAGAME, KXMLBGAME, KXNHLGAME (+ KXNCAAFGAME, KXNCAABGAME where present) via `kalshi/download.py`
+   (live + /historical, hourly candles).
+2. **Price (fixed):** the hourly candle ending 6 h before the market's close (pre-game for every sport; games end ≤ ~4 h after
+   start), quote filter bid > 0, ask < 1, spread ≤ 5¢; one market per game (the team listed first in the event's markets, to avoid
+   counting both sides of one game).
+3. **Trades (fixed), Kalshi taker fee ceil(7·q(1−q))¢ at price q:** (a) long-shot side: YES mid ≤ 25¢ → **buy NO at 1 − YES bid**;
+   (b) favourite side: YES mid ≥ 75¢ → **buy YES at the ask**. **2 tests per sport, pooled across sports = 2 tests** (sport-level shown,
+   not tested). Statistic: per-game net per contract; t over games; monthly sign shown.
+4. **Discovery: games closing before 2025-10-01. Sealed: 2025-10-01 → 2026-10-19.** Carried t > 1.96, mean > 0; validation once per
+   §664.4; watchlist per §133. Capacity reported (volume at the 6 h candle).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
