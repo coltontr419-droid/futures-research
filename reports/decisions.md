@@ -15514,6 +15514,13 @@ proportional no-vig of that market); everything else in §782 unchanged (EV ≥ 
 closing-line EV score, pass rule incl. ≥ 3 of 4 sport groups and ≥ $500 a week). Recorder: ~1.5 s between requests, 60 s pause on a
 403 (the CDN rate-limits bursts — a second sweep at 0.4 s spacing was refused), events within 4 days, every 20 minutes.
 
+## 784. A93: Kalshi × Polymarket US player props — gaps are dust or sub-cent; fails §773; closed (S10)
+
+**No trial.** 33 sweeps with matches (3 NBA games, 123-245 matched props a sweep; a team-code bug — Polymarket's NY/SA vs Kalshi's
+NYK/SAS — fixed after the first game). **14 distinct positive-net pairs; the big ones (+2.9…+5.0¢) sit on 0.05-0.08-contract
+Polymarket offers; those with real size are +0.5…+0.7¢.** Median net < 1¢ → fails the pass rule. The two venues show near-identical
+prop books (same market makers). Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
