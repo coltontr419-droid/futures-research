@@ -15446,6 +15446,14 @@ screen, so the sealed test is FORWARD only.
 - **Sealed = forward:** matches starting after 2026-10-20 20:00Z, evaluated once at ≥ 60 matches with signals (or 2026-12-31,
   whichever first); §664.4 rule (seed 777); §133 otherwise. Trading itself needs the user's Kalshi API key (tabled until they are back).
 
+## 778. K-family 14 discovery: following Valorant in-play moves loses — no under-reaction once the move is defined causally (S10)
+
+**No trial (not carried).** `kalshi/k14_valmom.py` on the first 334 downloaded matches (194 with signals, 1,150 signals, all before
+the cut): **−2.48¢ a contract after costs (t −3.95)**, negative in every quarter (2026Q2 −2.1¢ on 173 matches, Q3 −5.5¢ on 20).
+Before fees and the half-spread: **−0.36¢** (2,214 signals) — no follow-through at all. §777's screen was positive only because it
+picked moves by their later size (≥ 15¢ within 60 s), which a live bot cannot know. Closed; download stopped. Also: K13 provisional
+discovery on 5 titles (341 events) favourite_YES −2.70¢ (t −1.26), underdog_YES −1.11¢ — fair pricing minus costs.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
