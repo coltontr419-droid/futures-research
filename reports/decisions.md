@@ -15284,6 +15284,9 @@ net mean +$22,783 a run (Tradeify +$5,502, Lucid +$10,438, TradeDay +$6,843), me
 P(net>0) 60%, p10 −$10,926, p90 +$55,990; cash low median −$6,128, 5% −$17,616.** ≈ $4-5.7k a month on average with no market edge —
 clears the user's scale bar on the mean, but the variance is large (one NKD signal drives 15 accounts) and it needs a ~$10-25k
 bankroll; 26-40% of 4-month runs lose. A real edge would add to this; diversifying the traded market across firms would cut the tail.
+With **independent sides per firm** (as if each firm traded a different rule set): 2021-26 mean +$20,688, median +$18,084, P(net>0)
+79%, **p10 −$6,598** (vs −$18,134 correlated), cash low median −$10,272, 5% −$18,093; 2010-20 mean +$10,850, median +$5,552, P(net>0)
+70%, p10 −$5,102. Practical form: give each firm a different deployed rule / market (NKD dollar-week, FDXM DAX-dollar, MNQ D68, …).
 
 ## 10. Still outstanding, and blocking
 
