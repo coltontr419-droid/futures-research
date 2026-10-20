@@ -15288,6 +15288,18 @@ With **independent sides per firm** (as if each firm traded a different rule set
 79%, **p10 −$6,598** (vs −$18,134 correlated), cash low median −$10,272, 5% −$18,093; 2010-20 mean +$10,850, median +$5,552, P(net>0)
 70%, p10 −$5,102. Practical form: give each firm a different deployed rule / market (NKD dollar-week, FDXM DAX-dollar, MNQ D68, …).
 
+## 766. CORRECTION to §763-765: with their real consistency rules, TradeDay and LucidPro are NEGATIVE at zero edge — only Tradeify stands (S10)
+
+**No trial.** Two rules left out of the earlier models reverse the result. **TradeDay 2.0** (relaunched 2026-05; reviews 2026-06/07):
+Quick Pay has a **5-day minimum and a 30% evaluation consistency cap**; with them (fee $87 with code): **−$2,861 (50% split) / −$2,475
+(80%) a run.** **LucidPro**: funded payouts need the best day ≤ **40% of the cycle's profit** (modelled with the "cycle" scheme:
+cycle_days 1, cons_f 0.40, buffer $2,100, min $500, max $2,000): **−$5,236 / −$3,376** (was +$9-11k without it). The bracket game's
++$1,200 winning days rarely sit below 40% (or 30%) of the needed profit, so consistency rules destroy the option value. **So §764's
+TradeDay and §763-765's LucidPro figures, and §765's three-firm / two-firm portfolios, are WITHDRAWN.** The zero-edge survey now reads:
+**positive — Tradeify Select Daily only (+$5.5k a run; its rules confirmed with the user); negative or unproven — every other firm
+modelled.** Lesson: consistency and payout-gating rules dominate a firm's structural value; only a firm with verified rules counts.
+(Elite Trader Funding's promo-price result also omits its "active trade days" rule — treat as negative.)
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -66,3 +66,10 @@ Needs the user (accounts, money) → tabled for the user's decision.
   Cash low median −$9.3k, 5% −$22.5k.** ≈ $4-5.7k/month average with NO edge — big swings, needs a ~$10-25k bankroll.
 - If each firm trades an INDEPENDENT signal (different rule/market): mean +$20.7k, median +$18.1k, 79% profitable, p10 only −$6.6k
   (2021-26); 2010-20 mean +$10.9k, 70% profitable. → Split the deployed rules across firms rather than copying one signal.
+
+### 7b. ⚠ CORRECTION to item 7 (§766) — the multi-firm zero-edge result does NOT hold
+Modelling the rules I had first left out reverses it: **TradeDay 2.0** (5-day minimum, 30% evaluation consistency) → **−$2.9k a run**;
+**LucidPro** (funded payouts need best day ≤ 40% of the cycle profit) → **−$5.2k a run**. The bracket strategy's big winning days
+break consistency rules, which kills the option value. **Only Tradeify (+$5.5k a run at zero edge, rules confirmed with you) is
+positive.** The "+$16-23k a run across firms" figures above are withdrawn. Takeaway: a firm's consistency/payout-gating rules decide
+whether the structure pays; Tradeify's Select Daily is unusual in passing.
