@@ -107,3 +107,12 @@ products the launch plan doesn't use.
   books near-identical → likely the same market makers on both venues). Result after ~6 h of sweeps.
 - Polymarket US internal consistency (NBA/NHL/NFL, all open events): winning-margin / exact-margin / race-to buckets — sum of asks
   1.14-2.20, sum of bids ≤ 0.98; no prop-ladder violations → no riskless structure. Closed.
+- K13 (§774-775, esports favourite/underdog before start) registered; amended before outcomes after finding Kalshi's listed start
+  times can be hours wrong (KC-C9 market closed before its own listed start). Provisional discovery (LoL/CS2/Dota): favourite_YES
+  −2.4¢ (t −0.87), underdog_YES −1.7¢ — fair pricing minus costs; rest of the titles downloading.
+- Esports in-play (A94, §776): stale-price value swept in fast moves on LoL matches median $427 / mean $1.3k / max $5.3k a match;
+  one historical alignment: Kalshi's sweep 6.0 s after Riot's frame time. Live recorder scheduled for 2026-10-22 12:00Z (EMEA
+  Masters) and 2026-10-23 17:00Z → (Worlds, 8 matches).
+- Pinnacle (guest odds API) vs Kalshi esports pre-match: 52 matched sides; Kalshi within ~1¢ of Pinnacle's no-vig on the big LoL
+  matches; only 2 sides > 2¢ after fee, both on thin books (≈ $1-2k volume) → a few dollars a day. Closed.
+- Polymarket US has no price history or trades endpoint (closed events only) → no backtests there.
