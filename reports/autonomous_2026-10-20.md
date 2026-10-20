@@ -93,3 +93,13 @@ products the launch plan doesn't use.
 - Player props (K11, provisional, §771): the "retail over-bets overs" idea is wrong in sign; cheap rushing-yards props (20-35¢) hit
   more than priced (+6.7¢, n 320) — narrow; registered as K11b (buy cheap YES) for one sealed test after the download.
 - Review prep written: `reports/review_2026-10-25_prep.md`.
+
+### 10. (2026-10-20 afternoon) K11c registered (§772) + three screens closed
+- Cheap-YES props, discovery after costs (NFL rushing yards, 6 h lead): +3.0¢ a contract per game, t 0.91 — weaker than the
+  mid-based calibration (+6.7¢); fades by 3 h before close; NHL goals negative. K11c (all sports, year-round) downloading now.
+- Prop-ladder monotonicity arbitrage (bid on a higher strike above the ask on a lower one, same hour): 11 hits in 1.08 M pairs, almost
+  all < 1¢ → closed.
+- Near-certain in-game contracts (ask 90-99¢, last 4 h): game winners fair (−1.8¢ to +1.8¢, no t > 1.6); prop asks at 90-99¢ are
+  stale quotes on markets that settle NO → closed.
+- Novig (CFTC DCM, June 2026; zero pre-game fees) — site behind an AWS CAPTCHA, GraphQL allow-listed → no automated reads; ProphetX
+  API needs keys → tabled (needs the user's login; capacity also unverified).

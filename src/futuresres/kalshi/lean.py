@@ -3,7 +3,7 @@
 Markets closing after Kalshi's historical cutoff come 100 at a time from /markets/candlesticks; older ones one by one, sampled by
 event (--sample N keeps N random events a series). Output: data/kalshi/lean/<SERIES>.jsonl, one row a market, resumable.
 
-    python -m futuresres.kalshi.lean KXNBAPTS KXMLBHR ... [--sample 150] [--since 2026-08-20]
+    python -m futuresres.kalshi.lean KXNBAPTS KXMLBHR ... [--sample 150] [--since 2026-08-20] [--before 2026-08-20]
 """
 
 from __future__ import annotations
@@ -50,12 +50,14 @@ def row(m: dict, c: dict | None) -> dict:
             "volume": float(m.get("volume_fp") or m.get("volume") or 0), "candle": c}
 
 
-def run(series: str, sample: int | None, since: str | None) -> None:
+def run(series: str, sample: int | None, since: str | None, before: str | None = None) -> None:
     LEAN.mkdir(parents=True, exist_ok=True); f = LEAN / f"{series}.jsonl"
     done = {json.loads(l)["ticker"] for l in open(f)} if f.exists() else set()
     ms = [m for m in listing(series) if m["ticker"] not in done and float(m.get("volume_fp") or m.get("volume") or 0) > 0]
     if since:
         ms = [m for m in ms if m["close_time"] >= since]
+    if before:
+        ms = [m for m in ms if m["close_time"] < before]
     if sample:
         evs = sorted({m["event_ticker"] for m in ms}); random.Random(series).shuffle(evs); keep = set(evs[:sample])
         ms = [m for m in ms if m["event_ticker"] in keep]
@@ -95,5 +97,8 @@ if __name__ == "__main__":
         i = a.index("--sample"); sample = int(a[i + 1]); del a[i:i + 2]
     if "--since" in a:
         i = a.index("--since"); since = a[i + 1]; del a[i:i + 2]
+    before = None
+    if "--before" in a:
+        i = a.index("--before"); before = a[i + 1]; del a[i:i + 2]
     for s in a:
-        run(s, sample, since)
+        run(s, sample, since, before)
