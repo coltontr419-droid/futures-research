@@ -1,0 +1,98 @@
+{
+ "NKD_post": {
+  "market_entry": -8.150191179757243,
+  "n": 1445,
+  "limit_k1": {
+   "fill_rate": 0.8484429065743945,
+   "skip_if_unfilled": -38.12513905909972,
+   "else_market": -37.97103894646187
+  },
+  "limit_k5": {
+   "fill_rate": 0.9058823529411765,
+   "skip_if_unfilled": -31.183066981239648,
+   "else_market": -20.388016910024916
+  },
+  "limit_k15": {
+   "fill_rate": 0.9349480968858132,
+   "skip_if_unfilled": -32.25196209665312,
+   "else_market": -22.40071397015786
+  },
+  "limit_k30": {
+   "fill_rate": 0.9411764705882353,
+   "skip_if_unfilled": -28.248546099613215,
+   "else_market": -29.98797758036411
+  }
+ },
+ "NKD_pre": {
+  "market_entry": -53.16851977278272,
+  "n": 1484,
+  "limit_k1": {
+   "fill_rate": 0.8032345013477089,
+   "skip_if_unfilled": -84.24110722060468,
+   "else_market": -53.755650074537705
+  },
+  "limit_k5": {
+   "fill_rate": 0.8793800539083558,
+   "skip_if_unfilled": -87.50666284699318,
+   "else_market": -66.23626600331686
+  },
+  "limit_k15": {
+   "fill_rate": 0.9171159029649596,
+   "skip_if_unfilled": -83.49096307974935,
+   "else_market": -63.307785482271576
+  },
+  "limit_k30": {
+   "fill_rate": 0.9285714285714286,
+   "skip_if_unfilled": -82.44709180281161,
+   "else_market": -74.12440923170894
+  }
+ },
+ "FDXM_post": {
+  "market_entry": -0.4369012680759971,
+  "n": 1296,
+  "limit_k1": {
+   "fill_rate": 0.8858024691358025,
+   "skip_if_unfilled": -12.476553347316765,
+   "else_market": -13.882907445931105
+  },
+  "limit_k5": {
+   "fill_rate": 0.9297839506172839,
+   "skip_if_unfilled": -18.344739743691875,
+   "else_market": -15.835419927500613
+  },
+  "limit_k15": {
+   "fill_rate": 0.9513888888888888,
+   "skip_if_unfilled": -20.713151268075986,
+   "else_market": -17.029756182329123
+  },
+  "limit_k30": {
+   "fill_rate": 0.9598765432098766,
+   "skip_if_unfilled": -20.72825929276734,
+   "else_market": -18.85217217374728
+  }
+ },
+ "FDXM_pre": {
+  "market_entry": -16.742075202803225,
+  "n": 2538,
+  "limit_k1": {
+   "fill_rate": 0.8790386130811663,
+   "skip_if_unfilled": -26.241452641504004,
+   "else_market": -27.693523033093584
+  },
+  "limit_k5": {
+   "fill_rate": 0.9365642237982663,
+   "skip_if_unfilled": -27.414281799766904,
+   "else_market": -30.06967829167511
+  },
+  "limit_k15": {
+   "fill_rate": 0.9582348305752562,
+   "skip_if_unfilled": -27.41853014144676,
+   "else_market": -27.860115972363705
+  },
+  "limit_k30": {
+   "fill_rate": 0.9704491725768322,
+   "skip_if_unfilled": -27.06262860938257,
+   "else_market": -29.2238875984807
+  }
+ }
+}

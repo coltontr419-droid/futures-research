@@ -15326,6 +15326,14 @@ after passing, not a separate allowance — no extra structural room inside Trad
 research size — none significant alone (7 weeks). The demo's adverse −$11k (§761) is mostly bracket noise and the four products the
 launch plan does not use (MNQ, MGC, MCL, ZS). For the 10-25 review.
 
+## 769. A92: limit entries one tick better lose to the plan's market entries — adverse selection beats the saved tick (S10)
+
+**No trial.** `reporting/a92_limit_entry.py`: A21 minute paths from the entry, the plan's brackets (NKD 1 contract +$1,200/−$1,000,
+tick $25; FDXM 2 contracts, per contract +$600/−$500, tick ≈ $1.08), random sides (adverse selection is a property of the path),
+same-minute stop/take → stop. $ a ticket: **NKD 2021-26 market −8.2 vs limit (wait 1/5/15/30 min) skip −38/−31/−32/−28, else market
+−38/−20/−22/−30 (fills 85-94%); NKD 2010-20 market −53 vs −54 … −88; FDXM 2021-26 market −0.4 vs −13 … −21; 2010-20 −17 vs −26 … −30.**
+Fills come on sessions that keep going against the position and the misses are the clean winners. Market entries stay.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
