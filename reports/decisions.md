@@ -15205,6 +15205,14 @@ books are known for "over"/YES over-betting on props; Kalshi props are retail-he
 4. **Discovery: games closing before 2026-03-01 (the 2025-26 seasons); sealed 2026-03-01 → 2026-10-19.** Carried t > 1.96, mean > 0;
    validation per §664.4; watchlist per §133. Capacity reported.
 
+## 761. Screens: Kalshi rebate programs 2026 (institution-only); early demo read (autonomous session) (S10)
+
+**No trial.** Kalshi launched perpetual futures in 2026; its Temporary Perpetual Fee Rebate Program (CFTC filings 2026-06-25, updated
+2026-09-24 for 2026-10-08) rebates fees only to **Self-Clearing Members**, and never beyond fees paid (makers net ~0.3 bps on crypto
+perps) — a fee holiday for institutions, not a payment. The 2026-02 Sportsbook Hedging Rebate waives fees for sportsbooks only. Not
+for us. **Early demo read** (`a18_demo_check --review`, read-only): 35 tickets, TAKE 11 / STOP 23 vs 15.1 / 18.3 expected; shadow
+−$11,007 vs −$814 ± $6,076 (z −1.68); every product negative; execution matches (median gap $2.56). Logged for the 10-25 review.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
