@@ -116,3 +116,10 @@ products the launch plan doesn't use.
 - Pinnacle (guest odds API) vs Kalshi esports pre-match: 52 matched sides; Kalshi within ~1¢ of Pinnacle's no-vig on the big LoL
   matches; only 2 sides > 2¢ after fee, both on thin books (≈ $1-2k volume) → a few dollars a day. Closed.
 - Polymarket US has no price history or trades endpoint (closed events only) → no backtests there.
+- (afternoon, after a laptop restart wiped the scratchpad: all jobs resumed detached; recorder scheduler recreated)
+- K14 (§777-778) closed at discovery: following Valorant in-play moves −2.48¢ after costs (t −3.95), −0.36¢ before costs — the
+  screen's positive value came from choosing moves by their later size.
+- Market-making markout (Valorant, 610 matches): makers lose BEFORE fees pre-match (−3.0¢ > 1 h before, −1.3¢ last hour; in-play
+  −0.24¢) — informed takers pick off quotes. Closed.
+- Pinnacle vs Kalshi soccer (909 Pinnacle 1X2 matchups × 817 Kalshi 3-way events → 960 matched sides): 6 sides > 2¢ after fee, the
+  large ones mismatched markets (Pinnacle margin 10-11%). Kalshi soccer — small leagues included — sits on the sharp line. Closed.
