@@ -15267,6 +15267,13 @@ More firms (same method, assumptions stated): **Bulenox 50K EOD** ($175; $2,500 
 $2,600 reserve; 100% of first $10k): **−$4,708 / −$2,874.** **Elite Trader Funding 50K EOD** (min 5 days; payouts every ~8 qualified
 days, ≤ $2,000; keep 100%): **−$7,816 / −$4,537 at the $347 list price; +$4,905 / +$2,994 at the 70%-off promo ($104)** — positive
 only on a promotion (fragile).
+**Funded Futures Family Prime 50K** ($179/mo; EOD $2,000; 40% consistency; 3 days ≥ $200; funded: winning days ≥ $200 (7 required,
+modelled as 5 — generous), 40% consistency, 100% of first $10k): **−$6,524 / −$4,391.** **Top One Futures Elite Access 50K** ($74
+all-in; EOD $2,000; payouts ~every 10 days, assumed $2,000 buffer, $500-1,500 a payout, 40% consistency; founded 2025): **−$2,892 /
+−$1,856.** **Summary of the zero-edge survey (12 firm/plan models): positive — Tradeify Select Daily, LucidPro (2026 terms), TradeDay
+Quick Pay EOD (and Elite Trader Funding only on a 70% promo); negative — MFF Rapid, TPT PRO (at today's monthly price), Phidias,
+Topstep, Alpha, Bulenox, FFF, Top One.** What separates them: low fee, EOD drawdown, payouts without a large buffer or consistency
+gate, high split.
 
 ## 10. Still outstanding, and blocking
 

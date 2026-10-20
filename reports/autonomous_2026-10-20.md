@@ -58,3 +58,6 @@ Needs the user (accounts, money) → tabled for the user's decision.
   a promo) → no. **Total across Tradeify + LucidPro + TradeDay ≈ +$21-26k per 4-month run ≈ $5-6.5k a month with ZERO edge.**
   Main risk: my translation of each firm's rules (from third-party summaries). Signs more reliable than dollars.
 - Bulenox −$4.7k (no); Elite Trader Funding −$7.8k at list, +$4.9k only at its 70%-off promo price (fragile).
+- Funded Futures Family −$6.5k, Top One −$2.9k. **Zero-edge firm survey done (12 models): positive = Tradeify, LucidPro, TradeDay
+  (+ Elite Trader Funding only on promo); negative = MFF, TPT, Phidias, Topstep, Alpha, Bulenox, FFF, Top One.** The winners share:
+  low fee, end-of-day drawdown, payouts without big buffers/consistency gates, high split.
