@@ -43,3 +43,4 @@ bot/last_alert.txt
 /kalshi_lip/state*.json
 /kalshi_lip/lip_log.jsonl
 /kalshi_lip/STOP
+logs/
