@@ -15263,6 +15263,10 @@ profit then 80/20): **+$6,164 / +$3,900 with a flat 50% split, +$9,593 / +$6,038
 LucidPro (+$9.6-11.0k), TradeDay (+$6.2-9.6k) ≈ +$21-26k a 4-month run ≈ $5-6.5k a month with no market edge — scaling across
 established firms (each capped at ~5 accounts). Model fidelity is the main risk: each firm's rules are translated from summaries
 (lock levels, monthly billing, payout timing); the signs are more reliable than the dollars. For the user: verify terms, bankroll.
+More firms (same method, assumptions stated): **Bulenox 50K EOD** ($175; $2,500 EOD; weekly ≥ $1,000 payouts, 40% consistency, assumed
+$2,600 reserve; 100% of first $10k): **−$4,708 / −$2,874.** **Elite Trader Funding 50K EOD** (min 5 days; payouts every ~8 qualified
+days, ≤ $2,000; keep 100%): **−$7,816 / −$4,537 at the $347 list price; +$4,905 / +$2,994 at the 70%-off promo ($104)** — positive
+only on a promotion (fragile).
 
 ## 10. Still outstanding, and blocking
 

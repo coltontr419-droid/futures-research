@@ -57,3 +57,4 @@ Needs the user (accounts, money) → tabled for the user's decision.
   median −$2.0k (5%: −$5.9k)** — the best cash profile. Topstep ≈ −$0.7k (50%-per-payout cap), Alpha Futures −$4.4k (−$1.4k with
   a promo) → no. **Total across Tradeify + LucidPro + TradeDay ≈ +$21-26k per 4-month run ≈ $5-6.5k a month with ZERO edge.**
   Main risk: my translation of each firm's rules (from third-party summaries). Signs more reliable than dollars.
+- Bulenox −$4.7k (no); Elite Trader Funding −$7.8k at list, +$4.9k only at its 70%-off promo price (fragile).
