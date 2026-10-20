@@ -15475,6 +15475,17 @@ contract (786 events, t −0.65); underdog_YES −3.01¢ (789, t −2.25)** — 
 −2.2 / −1.4, R6 −5.4 / +0.4, OW +1.2 / −3.8, CoD −1.3 / −3.5. Matches the outcome-free Pinnacle check (Kalshi esports within ~1¢ of
 Pinnacle's no-vig). The sealed download was not run (job gated on carrying). Closed.
 
+## 781. A95: Kalshi's BTC 15-minute books price the averaging minute — a public single-exchange proxy cannot beat them; closed (S10)
+
+**No trial.** Historical supplement `kalshi/a95h_btc15_hist.py` (30 recent markets with ≥ $1k of last-minute risk; Coinbase trades
+rebuilt to 1 s as the BRTI proxy): **last-minute takers' net median −$1,093 a market; median taker edge −0.1¢ to −0.7¢ in almost
+every market**. The proxy settles $0.6-13.8 away from Kalshi's expiration_value (median |err| $4.1) — in a close contest's last
+seconds that error is larger than any edge, and the few big positive totals (+$80.8k, +$56.7k, +$21.9k) are exactly the markets
+with $4-7 proxy errors, i.e. the model's error, not the book's. Last-minute capacity is real ($50-180k of risk in close
+contests) but the book tracks BRTI; an edge would need a live BRTI replica from every constituent exchange's order book — what the
+crypto firms in these markets already run. The live recorder (§779) caught one market before a container restart; not resumed.
+Closed. Also: the laptop container restarted a third time — the futres-* services came back on their own.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,302 @@
+[
+ {
+  "ticker": "KXBTC15M-26OCT201730-30",
+  "result": "yes",
+  "last_minute_risk": 5600.67557999997,
+  "proxy_err_usd": -3.3628333333326736,
+  "takers_net_usd": -4721.411584405161,
+  "trades": 6634,
+  "share_off_fair_3c": 0.7689176967138981,
+  "median_taker_edge_c": -0.10999982995185231
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201630-30",
+  "result": "yes",
+  "last_minute_risk": 34497.36540999999,
+  "proxy_err_usd": 4.336999999999534,
+  "takers_net_usd": -6675.318411089991,
+  "trades": 11075,
+  "share_off_fair_3c": 0.45661399548532733,
+  "median_taker_edge_c": -0.3289628684192502
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201600-00",
+  "result": "no",
+  "last_minute_risk": 21161.09795999997,
+  "proxy_err_usd": -6.051833333345712,
+  "takers_net_usd": -3326.3821672126064,
+  "trades": 6362,
+  "share_off_fair_3c": 0.4408990883370009,
+  "median_taker_edge_c": -0.21999177041165588
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201515-15",
+  "result": "no",
+  "last_minute_risk": 88684.85325000045,
+  "proxy_err_usd": 2.5869999999995343,
+  "takers_net_usd": -11988.713046264002,
+  "trades": 9791,
+  "share_off_fair_3c": 0.7562046777652947,
+  "median_taker_edge_c": -0.6829973057122253
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201400-00",
+  "result": "no",
+  "last_minute_risk": 140795.09025000062,
+  "proxy_err_usd": 3.952999999994063,
+  "takers_net_usd": 80845.5546528989,
+  "trades": 11460,
+  "share_off_fair_3c": 0.981500872600349,
+  "median_taker_edge_c": 0.7200075338001779
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201330-30",
+  "result": "no",
+  "last_minute_risk": 5567.071229999967,
+  "proxy_err_usd": 0.6080000000074506,
+  "takers_net_usd": -1108.0413841069583,
+  "trades": 4791,
+  "share_off_fair_3c": 0.25339177624713005,
+  "median_taker_edge_c": -0.107826906296855
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201315-15",
+  "result": "yes",
+  "last_minute_risk": 179904.26824000044,
+  "proxy_err_usd": -6.744999999995343,
+  "takers_net_usd": 12677.16454368152,
+  "trades": 13342,
+  "share_off_fair_3c": 0.9874081846799581,
+  "median_taker_edge_c": -14.309317168207405
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201230-30",
+  "result": "no",
+  "last_minute_risk": 5507.633879999982,
+  "proxy_err_usd": -2.458166666649049,
+  "takers_net_usd": -1481.5932949521955,
+  "trades": 4157,
+  "share_off_fair_3c": 0.4147221554005292,
+  "median_taker_edge_c": -0.08126918325945355
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201200-00",
+  "result": "yes",
+  "last_minute_risk": 1059.8902500000004,
+  "proxy_err_usd": 5.235833333339542,
+  "takers_net_usd": -103.59106616187104,
+  "trades": 1797,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.1100000000000001
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201145-45",
+  "result": "yes",
+  "last_minute_risk": 2276.853289999992,
+  "proxy_err_usd": -2.721833333329414,
+  "takers_net_usd": -2621.274815459919,
+  "trades": 2813,
+  "share_off_fair_3c": 0.47813722004976894,
+  "median_taker_edge_c": 0.03974448805624698
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201100-00",
+  "result": "yes",
+  "last_minute_risk": 2726.780669999992,
+  "proxy_err_usd": 3.9400000000023283,
+  "takers_net_usd": -461.79307844414876,
+  "trades": 2713,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.3296993761867572
+ },
+ {
+  "ticker": "KXBTC15M-26OCT201030-30",
+  "result": "no",
+  "last_minute_risk": 5865.775520000005,
+  "proxy_err_usd": -3.787833333321032,
+  "takers_net_usd": -831.8099852652185,
+  "trades": 3898,
+  "share_off_fair_3c": 0.6849666495638789,
+  "median_taker_edge_c": -0.10996284234228261
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200930-30",
+  "result": "no",
+  "last_minute_risk": 104410.09554000001,
+  "proxy_err_usd": 6.973500000007334,
+  "takers_net_usd": 56742.953682591506,
+  "trades": 10056,
+  "share_off_fair_3c": 0.9680787589498807,
+  "median_taker_edge_c": -1.0667816356784936
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200900-00",
+  "result": "no",
+  "last_minute_risk": 1147.1048000000033,
+  "proxy_err_usd": -6.264000000010128,
+  "takers_net_usd": -657.5738885136208,
+  "trades": 1282,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.10999622457365622
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200700-00",
+  "result": "yes",
+  "last_minute_risk": 5469.313009999999,
+  "proxy_err_usd": -5.0073333333129995,
+  "takers_net_usd": -1316.64297597921,
+  "trades": 2723,
+  "share_off_fair_3c": 0.8013220712449505,
+  "median_taker_edge_c": -0.1100000000000001
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200630-30",
+  "result": "yes",
+  "last_minute_risk": 123931.51061999987,
+  "proxy_err_usd": -7.0935000000026776,
+  "takers_net_usd": 21934.571929986418,
+  "trades": 10945,
+  "share_off_fair_3c": 0.9342165372316126,
+  "median_taker_edge_c": 2.878497288426297
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200545-45",
+  "result": "no",
+  "last_minute_risk": 8208.969049999992,
+  "proxy_err_usd": 0.8251666666765232,
+  "takers_net_usd": -1225.962116363989,
+  "trades": 3870,
+  "share_off_fair_3c": 0.5599483204134367,
+  "median_taker_edge_c": -0.11
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200530-30",
+  "result": "yes",
+  "last_minute_risk": 6879.371899999992,
+  "proxy_err_usd": -4.702999999994063,
+  "takers_net_usd": -1277.879187768575,
+  "trades": 2705,
+  "share_off_fair_3c": 0.7922365988909427,
+  "median_taker_edge_c": -0.10999976691662527
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200445-45",
+  "result": "yes",
+  "last_minute_risk": 119622.24425000063,
+  "proxy_err_usd": 3.7031666666734964,
+  "takers_net_usd": -4079.0704328505253,
+  "trades": 9644,
+  "share_off_fair_3c": 0.5826420572376607,
+  "median_taker_edge_c": -0.6402676945401004
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200345-45",
+  "result": "no",
+  "last_minute_risk": 5711.1372400000055,
+  "proxy_err_usd": -1.1521666666812962,
+  "takers_net_usd": -471.29762774629114,
+  "trades": 3825,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.11
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200315-15",
+  "result": "no",
+  "last_minute_risk": 1316.3694599999983,
+  "proxy_err_usd": -7.079499999992549,
+  "takers_net_usd": 160.8743260954485,
+  "trades": 1064,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.10999999999508171
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200130-30",
+  "result": "no",
+  "last_minute_risk": 1079.5081000000005,
+  "proxy_err_usd": 0.6755000000121072,
+  "takers_net_usd": -384.4945165248627,
+  "trades": 1014,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.11
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200115-15",
+  "result": "no",
+  "last_minute_risk": 1990.5688600000035,
+  "proxy_err_usd": -13.758666666675708,
+  "takers_net_usd": -575.5309125154428,
+  "trades": 1988,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.11
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200100-00",
+  "result": "yes",
+  "last_minute_risk": 53721.653009999696,
+  "proxy_err_usd": 11.133833333326038,
+  "takers_net_usd": 1408.2239480032986,
+  "trades": 10210,
+  "share_off_fair_3c": 0.5055827619980411,
+  "median_taker_edge_c": -0.4300000000000003
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200045-45",
+  "result": "no",
+  "last_minute_risk": 48880.26455000002,
+  "proxy_err_usd": 2.038666666674544,
+  "takers_net_usd": -7047.930732673931,
+  "trades": 10532,
+  "share_off_fair_3c": 0.7045195594379036,
+  "median_taker_edge_c": -0.10999614126598435
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200030-30",
+  "result": "no",
+  "last_minute_risk": 2147.065819999995,
+  "proxy_err_usd": -6.078666666668141,
+  "takers_net_usd": -2177.343348322484,
+  "trades": 2394,
+  "share_off_fair_3c": 0.03968253968253968,
+  "median_taker_edge_c": -0.10999665718164177
+ },
+ {
+  "ticker": "KXBTC15M-26OCT200015-15",
+  "result": "no",
+  "last_minute_risk": 87920.47757999886,
+  "proxy_err_usd": -9.78933333333407,
+  "takers_net_usd": -1646.6268390423356,
+  "trades": 12512,
+  "share_off_fair_3c": 0.5055946291560103,
+  "median_taker_edge_c": -0.43
+ },
+ {
+  "ticker": "KXBTC15M-26OCT192330-30",
+  "result": "no",
+  "last_minute_risk": 2422.9948900000204,
+  "proxy_err_usd": 3.5671666666748933,
+  "takers_net_usd": -367.7874083881153,
+  "trades": 2562,
+  "share_off_fair_3c": 0.0,
+  "median_taker_edge_c": -0.11
+ },
+ {
+  "ticker": "KXBTC15M-26OCT192230-30",
+  "result": "no",
+  "last_minute_risk": 14648.590809999941,
+  "proxy_err_usd": -0.6208333333197515,
+  "takers_net_usd": -3987.0918137777644,
+  "trades": 7316,
+  "share_off_fair_3c": 0.330098414434117,
+  "median_taker_edge_c": -0.10999968726485111
+ },
+ {
+  "ticker": "KXBTC15M-26OCT192100-00",
+  "result": "yes",
+  "last_minute_risk": 8747.077500000014,
+  "proxy_err_usd": 6.860333333330345,
+  "takers_net_usd": -1077.8077155295798,
+  "trades": 6209,
+  "share_off_fair_3c": 0.05926880334997584,
+  "median_taker_edge_c": -0.17019959223861875
+ }
+]
