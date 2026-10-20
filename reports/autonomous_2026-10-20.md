@@ -48,3 +48,7 @@ Needs the user (accounts, money) → tabled for the user's decision.
 - Follow-up at TODAY's prices: Lucid (≈$129.50) improves to +$4.8k / +$3.7k; TPT ($170/month + activation) falls to ≈ 0 → drop TPT.
   Tradeify + Lucid ≈ +$10.3-10.5k per 4-month run with zero edge (P(net>0) 67%), **but the cash low is median −$6.7k, 5% −$13.6k,
   worst −$18.9k** — it needs a ~$7-14k bankroll, not $100-200. Real, structural, legit; a bankroll decision for the user.
+- LucidPro's actual 2026 terms (EOD drawdown, no eval consistency, $2k payout cap) make it BETTER than the survey assumed: zero-edge
+  **+$9.6k a run, P(net>0) 73%, cash low median −$2.6k (5%: −$7.0k)** — like Tradeify. Realistic range +$4.8-9.1k (40% best-day
+  payout rule not modelled). **Tradeify + LucidPro ≈ +$10-15k per 4-month run with zero edge ≈ $2.5-3.6k a month.** Needs: verify
+  LucidPro terms at checkout, a bankroll (~$5k median, ~$14k bad-case for both), the user's decision. Tabled for the user.

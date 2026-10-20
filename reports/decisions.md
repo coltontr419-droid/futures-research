@@ -15240,6 +15240,13 @@ correlated if the same sides are traded (the mean adds, the variance grows); the
 2010-20). **Cash (`reporting/a90b_cash.py`, 3 seeds, zero edge):** Tradeify P(net>0) 71%, cash low median −$2,552, 5% −$7,424, worst
 −$10,788; Lucid P(net>0) 57%, low median −$3,496, 5% −$8,418; both: net mean +$10,513, P(>0) 67%, p10 −$8,264, cash low median −$6,715,
 5% −$13,646, worst −$18,946. The structural route needs a ~$7-14k bankroll — not a $100-200 start; for the user to weigh.
+**LucidPro's 2026 terms** (proptradingvibes, 2026-10-11 summary): EOD trailing $2,000 MLL locking at $50,100; no evaluation
+consistency; funded payouts min $500, max $2,000 (then $2,500), leave $52,100, 40% best-day cap; optional DLL; 90/10. A63 had modelled
+Lucid with an INTRADAY drawdown and 50% evaluation consistency. Re-run with EOD drawdown, no evaluation consistency, $2,000 payout cap
+at $129.50 (the funded 40% best-day cap not modelled): **zero edge +$9,114 / +$5,944 a run; cash (3 seeds): net mean +$9,555, P(net>0)
+73%, p10 −$4,642, cash low median −$2,590, 5% −$6,993, worst −$9,972** — a profile like Tradeify's. Lucid sits between ~+$4.8k and
+~+$9.1k a run at zero edge depending on the unmodelled payout consistency. Tradeify + LucidPro ≈ +$10-15k a run (≈ $2.5-3.6k a month)
+with zero edge; needs real terms verification and a bankroll; the user's call.
 
 ## 10. Still outstanding, and blocking
 
