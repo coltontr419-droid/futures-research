@@ -15384,6 +15384,22 @@ Polymarket US also lists full player props (NBA points/rebounds/assists/threes, 
   with a median top size ≥ $50 and median net ≥ 1¢ → worth an account conversation (both venues need the user's KYC; Polymarket US
   allowed in TX per §714). Otherwise closed.
 
+## 774. K-family 13 registered: favourite / underdog mispricing in Kalshi ESPORTS match winners, before the scheduled start (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any esports price or outcome is looked at.** Why esports: year-round (daily
+matches across titles), large and growing volume (outcome-free screen, settled contracts: LoL match winner ≈ 10.5 M Aug / 50 M Sep /
+26 M Oct-to-date; CS2 map ≈ 8 M Oct; Dota 2 ≈ 8 M a month; R6 ≈ 2.5 M Sep; Valorant total maps ≈ 0.3-0.4 M), and plausibly fewer
+professional market makers anchoring prices than the major leagues (K10, §756, found the majors fair). Esports markets close at the
+match's END, so the entry is anchored to the scheduled start in the event ticker (`lean.py --start`).
+- **Universe (fixed):** KXLOLGAME, KXCS2GAME, KXDOTA2GAME, KXVALORANTGAME, KXR6GAME, KXRLGAME, KXOWGAME, KXCODGAME, KXMLBBGAME.
+- **Entry:** last hourly candle ending in the 3 h before the scheduled start; spread ≤ 5¢; one market an event — the side with the
+  higher mid. **favourite_YES:** its mid ≥ 0.70 → buy YES at its ask. **underdog_YES:** the other side's mid ≤ 0.30 → buy that side's
+  YES at its ask. Taker fee ceil(7·p(1−p))¢. Unit: the event (one bet each); t over events.
+- **Discovery:** matches starting before 2026-08-20, 300 random events a series (`--sample 300`, seeded by series). A test is carried
+  only with discovery t > 1.96 and mean > 0; at most one direction can be.
+- **Sealed:** matches starting 2026-08-20 → 2026-10-19, every event; ONE look at the carried test with the §664.4 rule (seed 774),
+  §133 watchlist otherwise. Capacity reported as contracts traded in the entry candle and over the market's life.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
