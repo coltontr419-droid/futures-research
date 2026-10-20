@@ -15427,6 +15427,25 @@ times, not publication times, so only a live recording answers the question.
   after that time, valued as above) has a median ≥ $300 a match. Otherwise closed. A pass is still only a measurement: trading needs
   the user's Kalshi API key (tabled until they are back), and a §119-style forward test.
 
+## 777. K-family 14 registered: in-play under-reaction in Kalshi VALORANT match markets — follow a fast move, no game feed (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any rule P&L is computed.** Screen (outcome-free price paths, 15-19 recent
+matches a title with > 50k contracts): buying in a fast move's direction X s after its first trade, valued at the 60-120 s later
+median, net of fee and counting losers: **Valorant +$449 / +$393 / +$334 / +$133 a match at 2 / 5 / 10 / 20 s; LoL +$234 / +$114 /
++$47 / +$43; CS2 −$34 / −$48 / −$61 / −$55.** (A first version counting only positive trades overstated all three — corrected.) If
+Valorant prices under-react for 10+ s, a bot needs no game data: Kalshi's own trades are the signal. Valorant was picked from that
+screen, so the sealed test is FORWARD only.
+- **Data:** every KXVALORANTGAME event's trades (one market an event; `kalshi/k14_valmom.py download`).
+- **Signal (causal):** a trade whose price is ≥ 10¢ from the median of the market's trades 120 s → 10 s before it (≥ 3 trades
+  there); no other signal in the previous 120 s. Direction = the move's.
+- **Entry:** the first trade ≥ 5 s after the signal whose taker side is the move's direction, at its price + taker fee (a taker
+  arriving 5 s late). **Exit:** VWAP of the market's trades 60-120 s after the signal, minus 1¢ (half a spread) and the taker fee.
+  Unit: the signal; per-match mean P&L, t over matches.
+- **Discovery:** every match settled before 2026-10-20 20:00Z (including the 16 screened). Carried with discovery t > 1.96, mean > 0,
+  AND positive in ≥ 2 of the 3 calendar-quarter blocks the data spans.
+- **Sealed = forward:** matches starting after 2026-10-20 20:00Z, evaluated once at ≥ 60 matches with signals (or 2026-12-31,
+  whichever first); §664.4 rule (seed 777); §133 otherwise. Trading itself needs the user's Kalshi API key (tabled until they are back).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
