@@ -15409,6 +15409,24 @@ entered in play. **Amended:** the entry candle is the last one ending in the win
 buffer against small errors), and an event is **dropped if its market closed < 20 min after the listed start** (impossible as
 scheduled). Everything else in §774 unchanged. The partial download (0 rows written) was discarded and restarted with this window.
 
+## 776. A94 protocol: LoL in-play — does Riot's public livestats feed beat Kalshi's sweep? (live, no money) (S10)
+
+**No trial; N 1,539. Written BEFORE any live data is recorded.** Outcome-free capacity screen (12 recent DCGI/Worlds matches on
+KXLOLGAME): fast moves (≥ 15¢ within 60 s) leave value swept at stale prices of median $427, mean $1.3k, max $5.3k a match (trades
+in the move's direction within 20 s, valued at the 1-5 min later median). Kalshi's LoL match markets trade 10-50 M contracts a month;
+LoL runs ~10 months a year (Worlds → off-season Nov-Jan); CS2/Dota/Valorant lack a comparable free live feed (HLTV is Cloudflare-
+gated, Dota spectating is delayed 2+ min). Historical frames: the one usable alignment so far (MVK-FUR, 2026-10-15) shows an
+inhibitor in Riot's frames at 23:46:09.2Z and Kalshi's first move trade at 23:46:15.1Z (+6.0 s) — but frame timestamps are game-server
+times, not publication times, so only a live recording answers the question.
+- **Recorder:** `esports/a94_lolrace.py` (Riot frames with first-received time, every 1 s; Kalshi trades on the live match, every
+  1 s; NTP offset). Runs: EMEA Masters 2026-10-22 12:00Z; Worlds 2026-10-23 17:00Z → ~03:00Z (8 matches).
+- **Jump:** a Kalshi move ≥ 15¢ within 60 s; its first trade ≥ 5¢ from the pre-move price = the sweep time. The game event = the last
+  Riot state change (kills, towers, inhibitors, barons, dragons, game end) before the sweep. **Lead = sweep time − our receive time
+  of that frame** (NTP-corrected).
+- **Pass (fixed now):** lead ≥ 1.5 s on ≥ 60% of ≥ 10 jumps, AND the value still available after receive + 1.0 s (stale-price trades
+  after that time, valued as above) has a median ≥ $300 a match. Otherwise closed. A pass is still only a measurement: trading needs
+  the user's Kalshi API key (tabled until they are back), and a §119-style forward test.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
