@@ -123,3 +123,8 @@ products the launch plan doesn't use.
   −0.24¢) — informed takers pick off quotes. Closed.
 - Pinnacle vs Kalshi soccer (909 Pinnacle 1X2 matchups × 817 Kalshi 3-way events → 960 matched sides): 6 sides > 2¢ after fee, the
   large ones mismatched markets (Pinnacle margin 10-11%). Kalshi soccer — small leagues included — sits on the sharp line. Closed.
+- Pinnacle vs Kalshi NBA player props (main lines, 198 matched, 171 with ≤ 5¢ spread): Kalshi mid − Pinnacle no-vig −0.15¢ mean,
+  0.00¢ median; no side > 2¢ after fee. Kalshi props sit on the sharp main line; the cheap alternate rungs (K11c) have no Pinnacle
+  counterpart. Closed for main lines.
+- Infrastructure: the laptop container restarted twice (scratchpad wiped, jobs killed). Background jobs now live in
+  `scripts/jobs/*.sh` and run as systemd user services `futres-{k11c,k13,a93,a94}` (lingering on → they start with the container).
