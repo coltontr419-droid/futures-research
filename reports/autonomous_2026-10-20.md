@@ -82,3 +82,14 @@ whether the structure pays; Tradeify's Select Daily is unusual in passing.
 D171 DAX-fades-pound +5.8 bps (n 34), D174 DAX-follows-dollar +20.5 (n 14), D175 DAX-fades-Aussie +4.4 (n 10), D227 NKD-follows-euro
 week +5.4 (n 34) — all four positive, near research size; none significant alone yet. The demo's −$11k is mostly bracket noise plus
 products the launch plan doesn't use.
+
+### 9. (2026-10-21) More screens — all closed
+- Kalshi crypto perps funding carry (§767): ≈ 11-33% a year funding, ~15% a year on capital → capital-bound.
+- Tradeify account cap: 5 funded in any mix (+ ≤ 15 evals / 30 days) — no extra structural room.
+- Limit entries one tick better (A92, §769): lose to market entries (adverse selection > saved tick) → keep market entries.
+- LucidPro with real rules loses even WITH the plan's edges (§770): −$5.6k a run → no second firm without checking consistency rules.
+- FanDuel Predicts sports moved to Crypto.com (no public prices, 2% fee); NFL props for non-playing players settle at fair price, not
+  NO (no inactive-list edge).
+- Player props (K11, provisional, §771): the "retail over-bets overs" idea is wrong in sign; cheap rushing-yards props (20-35¢) hit
+  more than priced (+6.7¢, n 320) — narrow; registered as K11b (buy cheap YES) for one sealed test after the download.
+- Review prep written: `reports/review_2026-10-25_prep.md`.
