@@ -31,3 +31,10 @@ ticket); 3 recorded readings disagree with the replay (2 on FDXM's DAX-cash prox
 ### 5. Kalshi sports game-winner favourite/long-shot bias (K10, §756/762) — closed (trial t01539)
 Downloaded every settled NFL/NBA/MLB/NHL/NCAAF game market. Discovery (pre-2025-10) thin: long-shot NO −1.2¢; favourite YES +3.8¢
 (t 1.69) → registered as one sealed test: **−1.7¢, t −1.15 over 556 games → REJECT.** Game lines are calibrated.
+
+### 6. Does the Tradeify plan survive if the edges are zero? (context for the adverse demo) — yes, structurally
+From A85 at today's $116 price (sides randomised per session, 6 seeds, live rules): **5 × 50K Select Daily, 3 NKD + 2 FDXM: zero-edge
+mean +$4,582 per 4-month run on 2021-26 paths, +$2,692 on 2010-20** (Growth −$4,181 / −$3,337; Lightning +$1,492 / +$1,945). The
+payout structure is a free option: even with no edge the plan expects ≈ $0.7-1.1k a month (high variance). The demo's −$11k is market
+P&L per ticket; it does not include this account-structure value. The decision at the review is therefore "edge or no edge", not
+"profit or loss" — a zero-edge plan is still positive but small.
