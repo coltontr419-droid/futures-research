@@ -52,3 +52,4 @@ Needs the user (accounts, money) → tabled for the user's decision.
   **+$9.6k a run, P(net>0) 73%, cash low median −$2.6k (5%: −$7.0k)** — like Tradeify. Realistic range +$4.8-9.1k (40% best-day
   payout rule not modelled). **Tradeify + LucidPro ≈ +$10-15k per 4-month run with zero edge ≈ $2.5-3.6k a month.** Needs: verify
   LucidPro terms at checkout, a bankroll (~$5k median, ~$14k bad-case for both), the user's decision. Tabled for the user.
+- At Lucid, NKD×5 beats the mixed set at zero edge: +$11.0k / +$7.9k a run (vs +$9.1k / +$5.9k).

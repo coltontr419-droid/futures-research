@@ -15247,6 +15247,8 @@ at $129.50 (the funded 40% best-day cap not modelled): **zero edge +$9,114 / +$5
 73%, p10 −$4,642, cash low median −$2,590, 5% −$6,993, worst −$9,972** — a profile like Tradeify's. Lucid sits between ~+$4.8k and
 ~+$9.1k a run at zero edge depending on the unmodelled payout consistency. Tradeify + LucidPro ≈ +$10-15k a run (≈ $2.5-3.6k a month)
 with zero edge; needs real terms verification and a bankroll; the user's call.
+Mix: LucidPro (2026 terms) with **NKD×5: zero edge +$10,995 / +$7,889 a run** vs +$9,114 / +$5,944 for NKD×3+MNQ+MGC — NKD's
+bracket/volatility profile carries the most option value (the 5 accounts move together, as simulated).
 
 ## 10. Still outstanding, and blocking
 
