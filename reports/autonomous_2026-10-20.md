@@ -103,3 +103,7 @@ products the launch plan doesn't use.
   stale quotes on markets that settle NO → closed.
 - Novig (CFTC DCM, June 2026; zero pre-game fees) — site behind an AWS CAPTCHA, GraphQL allow-listed → no automated reads; ProphetX
   API needs keys → tabled (needs the user's login; capacity also unverified).
+- A93 (§773) running: Kalshi × Polymarket US on the same NBA player props (124 matched on the first game; first sweep best net −0.3¢,
+  books near-identical → likely the same market makers on both venues). Result after ~6 h of sweeps.
+- Polymarket US internal consistency (NBA/NHL/NFL, all open events): winning-margin / exact-margin / race-to buckets — sum of asks
+  1.14-2.20, sum of bids ≤ 0.98; no prop-ladder violations → no riskless structure. Closed.
