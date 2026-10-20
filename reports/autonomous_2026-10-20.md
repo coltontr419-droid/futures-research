@@ -20,3 +20,10 @@ Every ForecastEx trade ≥ 24 h before expiry (2.4k events, 160M contracts): buy
 ### 3. Kalshi combos as a REQUESTER (correlated same-game parlays) (§759) — closed
 Makers price same-game correlation (executed ≈ 1.23× the independent product; crypto same-window 2.56×). Buyers lost ~all premium
 on 208 settled sports same-game parlays. No buyer edge.
+
+### 4. Early read of the demo bot (a18 --review, read-only) — IMPORTANT for the Oct-25 review
+35 finished tickets: TAKE 11 / STOP 23 / time exit 1 vs expected 15.1 / 18.3 / 1.6 (chi-square p ≈ 0.28).
+**Shadow P&L −$11,007 vs expected −$814 ± $6,076 (z −1.68)** — every product negative (FDXM −$800, MCL −$1,800, MGC −$1,800,
+MNQ −$2,000, NKD −$1,607, ZS −$3,000). Not yet conclusive (≈ 1-in-11 by chance) but adverse. Execution matches (median gap $2.56 a
+ticket); 3 recorded readings disagree with the replay (2 on FDXM's DAX-cash proxy, 1 MGC). Dollar rules forward: 6 sessions, NKD
++$200 vs other side, FDXM −$2,206; trigger needs 40 sessions. Accounts: 13 evaluations bought, 0 passes so far.
