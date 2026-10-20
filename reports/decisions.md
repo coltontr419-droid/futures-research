@@ -15486,6 +15486,24 @@ contests) but the book tracks BRTI; an edge would need a live BRTI replica from 
 crypto firms in these markets already run. The live recorder (§779) caught one market before a container restart; not resumed.
 Closed. Also: the laptop container restarted a third time — the futres-* services came back on their own.
 
+## 782. A96 protocol: ProphetX offers vs Pinnacle — forward paper bets scored on closing-line value (no money) (S10)
+
+**No trial at registration (one when evaluated); N 1,539. Written BEFORE any paper bet is recorded.** ProphetX (CFTC DCM since
+2026-06; peer-to-peer exchange; reviews: 48 states, not MN/NV → Texas served, to confirm in-app; fee 2% of net winnings, 1% on
+NBA/NCAAB per one source — 2% used throughout) publishes its order book on a keyless public API (`/trade/public/api/v1/events`,
+`/v2/events/{id}/markets`: best back odds per side with the stake behind them). One outcome-free snapshot (2026-10-20 ~23:00Z,
+185 two-way moneyline sides matched to Pinnacle's guest API): **19 sides EV > 0 after the 2%, 7 > +2%, $7.3k of stake at EV > 0**;
+mostly NFL favourites days before kick-off (DAL −166 vs no-vig 65.3% → +3.8% on $228; HOU −315 +3.6%; LAR −172 +3.2%).
+- **Recorder** (`sports/a96_prophetx.py`, service futres-a96): every 10 min, ProphetX events starting within 7 days (tennis, NFL/NCAAF,
+  NHL, NBA, MMA, esports, MLB) × Pinnacle pre-match moneylines; both logged.
+- **Paper bet:** a side whose best ProphetX back price has EV ≥ +2% vs Pinnacle's proportional no-vig after the 2% fee, with ≥ $25
+  behind it; size = min(available, $100); at most one paper bet per side per 6 h.
+- **Score:** closing-line EV = p_close·(D−1)·0.98 − (1 − p_close), p_close = Pinnacle no-vig in the last snapshot before the start.
+  Outcomes recorded too (secondary; too noisy to decide at this size).
+- **Pass (fixed now):** ≥ 150 paper bets; mean closing-line EV ≥ +1.0% with t > 1.645 (per bet) and > 0 in ≥ 3 of 4 sport groups
+  present; AND capacity: the expected value of the week's qualifying stake (Σ size × closing EV) ≥ $500 a week → toward the user's
+  $2k/month bar. Otherwise closed. Betting is manual-capable (days-ahead NFL), so no API key is needed to act.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
