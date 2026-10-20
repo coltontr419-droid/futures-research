@@ -15504,6 +15504,16 @@ mostly NFL favourites days before kick-off (DAL −166 vs no-vig 65.3% → +3.8%
   present; AND capacity: the expected value of the week's qualifying stake (Σ size × closing EV) ≥ $500 a week → toward the user's
   $2k/month bar. Otherwise closed. Betting is manual-capable (days-ahead NFL), so no API key is needed to act.
 
+## 783. A96 amended before any paper bet is scored: spreads and totals added; gentler recorder (S10)
+
+**No trial.** ProphetX's money is not in moneylines: Patriots-Bears had $69.5k on the moneyline but **$485k on the spread and $348k
+on the total** ($250k-1.3M per NFL game across all markets). The first recorder also picked the first market typed "moneyline",
+which on NFL events can be a touchdown-scorer prop (ProphetX types those "moneyline" too) — now selected by `subType`.
+**Amended:** paper bets also on full-game spreads and totals, only at the line equal to Pinnacle's main line for that side (Pinnacle
+proportional no-vig of that market); everything else in §782 unchanged (EV ≥ 2% after the 2% fee, ≥ $25 behind it, size ≤ $100,
+closing-line EV score, pass rule incl. ≥ 3 of 4 sport groups and ≥ $500 a week). Recorder: ~1.5 s between requests, 60 s pause on a
+403 (the CDN rate-limits bursts — a second sweep at 0.4 s spacing was refused), events within 4 days, every 20 minutes.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

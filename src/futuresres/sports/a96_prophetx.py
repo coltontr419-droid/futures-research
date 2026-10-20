@@ -1,6 +1,6 @@
 """A96 (decisions.md 782): ProphetX offers vs Pinnacle — forward paper bets scored on closing-line value. Records only, no orders.
 
-    python -m futuresres.sports.a96_prophetx record      # every 10 min, forever (service futres-a96)
+    python -m futuresres.sports.a96_prophetx record      # every 20 min, forever (service futres-a96)
     python -m futuresres.sports.a96_prophetx             # paper bets + closing-line EV so far
 """
 
@@ -15,6 +15,7 @@ import statistics as st
 import sys
 import time
 import unicodedata
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -33,6 +34,8 @@ def get(url: str, headers: dict | None = None):
     for k in range(4):
         try:
             return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=headers or {"User-Agent": "Mozilla/5.0"}), timeout=30).read())
+        except urllib.error.HTTPError as e:
+            time.sleep(60 if e.code in (403, 429) else 1 + k)          # ProphetX's CDN rate-limits bursts with 403
         except Exception:
             time.sleep(1 + k)
     return None
@@ -47,12 +50,14 @@ def dec(a: float) -> float:
 
 
 def pinnacle() -> dict:
-    """(sport, team) -> {p, opp, start, id}: proportional no-vig moneyline, pre-match only."""
+    """(sport, team) -> {p, opp, start, id, spread: (points, p), total: (points, p_over)}: proportional no-vig, pre-match, main lines."""
     out = {}
     for sp, sid in SPORTS.items():
         mu = get(f"{PIN}/sports/{sid}/matchups?withSpecials=false", PIN_H) or []
         mk = get(f"{PIN}/sports/{sid}/markets/straight", PIN_H) or []
         ml = {m["matchupId"]: m for m in mk if m.get("type") == "moneyline" and m.get("period") == 0}
+        sp_ = {m["matchupId"]: m for m in mk if m.get("type") == "spread" and m.get("period") == 0 and not m.get("isAlternate")}
+        to_ = {m["matchupId"]: m for m in mk if m.get("type") == "total" and m.get("period") == 0 and not m.get("isAlternate")}
         for m in mu:
             if m.get("parentId") or m["id"] not in ml or len(m.get("participants", [])) != 2 or m.get("isLive"):
                 continue
@@ -60,8 +65,16 @@ def pinnacle() -> dict:
             if set(pr) != {"home", "away"}:
                 continue
             s = sum(pr.values()); nm = {p["alignment"]: norm(p["name"]) for p in m["participants"]}
+            def novig(mm, keys):
+                q = {x["designation"]: (1 / dec(float(x["price"])), x.get("points")) for x in mm["prices"]}
+                if set(q) != set(keys):
+                    return None
+                t = sum(v[0] for v in q.values()); return {k: (v[1], v[0] / t) for k, v in q.items()}
+            spr = novig(sp_[m["id"]], ("home", "away")) if m["id"] in sp_ else None
+            tot = novig(to_[m["id"]], ("over", "under")) if m["id"] in to_ else None
             for a, b in (("home", "away"), ("away", "home")):
-                out[(sp, nm[a])] = {"p": pr[a] / s, "opp": nm[b], "start": m["startTime"], "id": m["id"]}
+                out[(sp, nm[a])] = {"p": pr[a] / s, "opp": nm[b], "start": m["startTime"], "id": m["id"],
+                                    "spread": spr[a] if spr else None, "total": tot}
         time.sleep(0.5)
     return out
 
@@ -82,27 +95,50 @@ def snapshot() -> list[dict]:
         if sp not in SPORTS or e.get("status") != "not_started":
             continue
         start = dt.datetime.fromisoformat(e["scheduled"].replace("Z", "+00:00"))
-        if not dt.timedelta(0) < start - now < dt.timedelta(days=7):
+        if not dt.timedelta(0) < start - now < dt.timedelta(days=4):
             continue
         comp = {c["id"]: norm(c["name"]) for c in e.get("competitors", [])}
         ms = ((get(f"{PX}/v2/events/{e['id']}/markets") or {}).get("data") or {}).get("markets") or []
-        time.sleep(0.4)
-        m = next((x for x in ms if x.get("type") == "moneyline"), None)
-        if not m or len(comp) != 2:
+        time.sleep(1.5)
+        if len(comp) != 2:
             continue
-        for side in m.get("selections") or []:
-            if not side:
-                continue
-            best = max(side, key=lambda s: dec(s["odds"])); me = comp.get(best.get("competitorId"), "")
-            other = next((v for k, v in comp.items() if k != best.get("competitorId")), "")
+        names = list(comp.values()); pz = None
+        for me in names:
             hit = me if (sp, me) in pins else (difflib.get_close_matches(me, keys[sp], 1, 0.85) or [None])[0]
-            if not hit or not difflib.get_close_matches(other, [pins[(sp, hit)]["opp"]], 1, 0.8):
+            other = next(v for v in names if v != me)
+            if hit and difflib.get_close_matches(other, [pins[(sp, hit)]["opp"]], 1, 0.8):
+                pz = {me: pins[(sp, hit)], other: pins[(sp, pins[(sp, hit)]["opp"])]} if (sp, pins[(sp, hit)]["opp"]) in pins else None
+                break
+        if not pz:
+            continue
+        base = {"t": now.isoformat(timespec="seconds"), "sport": sp, "px_event": e["id"], "start": e["scheduled"]}
+        for x in ms:
+            st_ = x.get("subType")
+            if st_ not in ("moneyline", "spread", "total"):
                 continue
-            pz = pins[(sp, hit)]; D = dec(best["odds"])
-            rows.append({"t": now.isoformat(timespec="seconds"), "sport": sp, "px_event": e["id"], "start": e["scheduled"], "side": me,
-                         "odds": best["odds"], "risk_avail": float(best.get("value") or 0), "pin_id": pz["id"], "pin_p": round(pz["p"], 4),
-                         "ev": round(pz["p"] * (D - 1) * (1 - FEE) - (1 - pz["p"]), 4)})
-    return rows
+            for side in x.get("selections") or []:
+                for o in side:
+                    who = comp.get(o.get("competitorId"), ""); nm_ = (o.get("name") or "").lower(); line = o.get("line")
+                    if st_ == "moneyline" and who in pz:
+                        p = pz[who]["p"]; key = who
+                    elif st_ == "spread" and who in pz and pz[who]["spread"] and pz[who]["spread"][0] is not None and float(line) == float(pz[who]["spread"][0]):
+                        p = pz[who]["spread"][1]; key = f"{who} {line:+g}"
+                    elif st_ == "total" and pz[names[0]]["total"] and nm_[:4] in ("over", "unde"):
+                        ou = "over" if nm_.startswith("over") else "under"; pt, pp = pz[names[0]]["total"][ou]
+                        if pt is None or float(line) != float(pt):
+                            continue
+                        p = pp; key = f"{ou} {line:g}"
+                    else:
+                        continue
+                    D = dec(o["odds"])
+                    rows.append({**base, "market": st_, "side": key, "odds": o["odds"], "risk_avail": float(o.get("value") or 0),
+                                 "pin_id": pz[names[0]]["id"], "pin_p": round(p, 4), "ev": round(p * (D - 1) * (1 - FEE) - (1 - p), 4)})
+    best = {}                                                    # keep the best-priced offer per (event, market, side)
+    for r in rows:
+        k = (r["px_event"], r["market"], r["side"])
+        if k not in best or dec(r["odds"]) > dec(best[k]["odds"]):
+            best[k] = r
+    return list(best.values())
 
 
 def record() -> None:
@@ -117,7 +153,7 @@ def record() -> None:
             print(f"{dt.datetime.now(UTC):%H:%MZ} sides {len(rows)}, EV >= 2%: {sum(r['ev'] >= 0.02 for r in rows)}", flush=True)
         except Exception as e:                                   # keep recording through a bad sweep
             print("sweep error", e, flush=True)
-        time.sleep(max(60.0, 600 - (time.time() - t0)))
+        time.sleep(max(120.0, 1200 - (time.time() - t0)))
 
 
 def analyse() -> dict:
@@ -125,10 +161,10 @@ def analyse() -> dict:
     last = {}                                                    # closing: last snapshot before the start, per (event, side)
     for r in rows:
         if r["t"] < r["start"]:
-            last[(r["px_event"], r["side"])] = r
+            last[(r["px_event"], r.get("market", "moneyline"), r["side"])] = r
     bets, seen = [], {}
     for r in sorted(rows, key=lambda r: r["t"]):
-        k = (r["px_event"], r["side"]); t = dt.datetime.fromisoformat(r["t"])
+        k = (r["px_event"], r.get("market", "moneyline"), r["side"]); t = dt.datetime.fromisoformat(r["t"])
         if r["ev"] < 0.02 or r["risk_avail"] < 25 or r["t"] >= r["start"]:
             continue
         if k in seen and (t - seen[k]).total_seconds() < 6 * 3600:
@@ -137,7 +173,7 @@ def analyse() -> dict:
         if not c or c["t"] == r["t"] or dt.datetime.fromisoformat(r["start"].replace("Z", "+00:00")) > dt.datetime.now(UTC):
             continue                                             # not closed yet
         D = dec(r["odds"]); p = c["pin_p"]
-        bets.append({"sport": r["sport"], "size": min(r["risk_avail"], 100.0), "ev_entry": r["ev"], "clv_ev": p * (D - 1) * (1 - FEE) - (1 - p),
+        bets.append({"sport": r["sport"], "market": r.get("market", "moneyline"), "size": min(r["risk_avail"], 100.0), "ev_entry": r["ev"], "clv_ev": p * (D - 1) * (1 - FEE) - (1 - p),
                      "t": r["t"], "side": r["side"]})
     if len(bets) < 3:
         print(f"closed paper bets so far: {len(bets)}"); return {"bets": len(bets)}
