@@ -15184,6 +15184,14 @@ Contract-weighted by category, Economic/Elections/Government/Technology/Sports l
 Financial were negative; checked at the event level inside discovery before registering anything: that subset is **NO −2.42¢ (t −2.52),
 YES −0.98¢ (t −1.15)** — the positive weighting came from a few large NFL game-winner trades. No hypothesis registered. Closed.
 
+## 759. Screen: requesting correlated same-game combos — makers price the correlation; buyers lose (S10)
+
+**No trial.** Idea: the requester gets the cheapest quote, so one maker pricing correlated legs as independent would underprice
+positively-correlated parlays. Shadow sample (`combo/c3d_samegame.py`): 1,933 of 3,000 sampled RFQs had same-game legs (mostly NFL props
++ game), 332 filled. **Sports same-game YES fills 226: executed ÷ independent product median 1.23 (makers add for correlation); settled
+208: YES 1.0% vs executed 2.1% vs independent 1.4%; buyers −$12,546 on $12,576.** Crypto same-window: ×2.56, buyers −$669 on $1,032.
+No requester edge. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

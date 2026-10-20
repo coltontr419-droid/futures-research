@@ -16,3 +16,7 @@ protocol before any price/outcome comparison; strict edge rule (§119) with §13
 ### 2. ForecastEx favourite/long-shot bias (§757-758) — closed
 Every ForecastEx trade ≥ 24 h before expiry (2.4k events, 160M contracts): buying NO on long shots −4.4¢ (t −7.8), YES on favourites
 −3.2¢ (t −6.1). A category subset looked positive by contract weight but is negative event by event (a few big NFL trades). Nothing.
+
+### 3. Kalshi combos as a REQUESTER (correlated same-game parlays) (§759) — closed
+Makers price same-game correlation (executed ≈ 1.23× the independent product; crypto same-window 2.56×). Buyers lost ~all premium
+on 208 settled sports same-game parlays. No buyer edge.
