@@ -15342,6 +15342,18 @@ Fills come on sessions that keep going against the position and the misses are t
 +$9.0k (63%)" (§631) modelled an intraday drawdown and no funded consistency; with the funded 40% rule the bracket game cannot pay.
 For a future second firm: check consistency/payout gating first — it decides the answer.
 
+## 771. K-family 11 provisional discovery: cheap props are UNDER-priced (the reverse of the hypothesis) → K-family 11b registered (S10)
+
+**No trial.** `kalshi/k11_props.py` on the data downloaded so far (KXNFLTD started with the 2026 season → no discovery rows; KXNFLRSHYDS,
+KXNHLGOAL), games before 2026-03-01: **cheap_NO (YES mid ≤ 35¢, buy NO) −4.72¢ a contract (129 games, 561 markets, t −1.79; rushing
+yards −6.5¢ on 525, NHL goals +1.8¢ on 36); dear_YES −4.02¢ (80 games, t −0.97).** Not carried. The over-betting hypothesis is wrong
+in sign: cheap props hit more often than priced. Two sidelines checked: FanDuel Predicts' sports moved from CME to Crypto.com (2026-08;
+no public prices; 2% fee on payout) — closed; NFL props for players who do not play settle at "the fair market price before game
+start", not NO — no inactive-list edge. **K-family 11b (registered now, before any sealed row is looked at):** buy YES at the ask on
+props with YES mid ≤ 35¢ at the 6 h candle (taker fee), pooled KXNFLTD + KXNFLRSHYDS + KXNHLGOAL, ONE test on the sealed window
+2026-03-01 → 2026-10-19 once the download is complete; per-game t; §664.4 / §133. Discovery is re-run on the complete data first and
+reported as is.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

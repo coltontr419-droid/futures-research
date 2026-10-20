@@ -27,8 +27,11 @@ def T(s):
     return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
 
 
+REVERSE = False
+
+
 def run(validate: bool) -> dict:
-    per = {"cheap_NO": collections.defaultdict(list), "dear_YES": collections.defaultdict(list)}
+    per = {("cheap_YES" if REVERSE else "cheap_NO"): collections.defaultdict(list), "dear_YES": collections.defaultdict(list)}
     ser = {k: collections.defaultdict(list) for k in per}; cap = collections.Counter()
     for s in SERIES:
         for f in sorted((DATA / s).glob("*.json")):
@@ -47,7 +50,9 @@ def run(validate: bool) -> dict:
                 if yb is None or ya is None or not (0 < yb < ya < 1) or ya - yb > 0.05:
                     continue
                 mid = (yb + ya) / 2; yes = m["result"] == "yes"
-                if mid <= 0.35:
+                if mid <= 0.35 and REVERSE:                      # K-family 11b (decisions.md 771): buy YES on cheap props
+                    q = ya; pnl = (1.0 if yes else 0.0) - q - fee(q); k = "cheap_YES"
+                elif mid <= 0.35:
                     q = 1 - yb; pnl = (0.0 if yes else 1.0) - q - fee(q); k = "cheap_NO"
                 elif mid >= 0.65:
                     q = ya; pnl = (1.0 if yes else 0.0) - q - fee(q); k = "dear_YES"
@@ -71,9 +76,10 @@ def run(validate: bool) -> dict:
         print(f"{k}: games {n}, markets {r['markets']}, mean net {m_*100:+.2f}c, t {t_:+.2f} | "
               + ", ".join(f"{s} {d['n']}:{d['mean']*100:+.1f}c" for s, d in r["by_series"].items())
               + (f" -> {r.get('decision')}" if validate else ("  CARRIED" if r["carried"] else "")), flush=True)
-    (ROOT / "reports" / ("k11_validation.json" if validate else "k11_discovery.json")).write_text(json.dumps(res, indent=1) + "\n")
+    (ROOT / "reports" / (("k11b" if REVERSE else "k11") + ("_validation.json" if validate else "_discovery.json"))).write_text(json.dumps(res, indent=1) + "\n")
     return res
 
 
 if __name__ == "__main__":
-    run(sys.argv[1:2] == ["validate"])
+    REVERSE = "--reverse" in sys.argv
+    run("validate" in sys.argv)
