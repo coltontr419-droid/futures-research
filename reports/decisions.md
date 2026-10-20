@@ -15299,6 +15299,8 @@ TradeDay and §763-765's LucidPro figures, and §765's three-firm / two-firm por
 **positive — Tradeify Select Daily only (+$5.5k a run; its rules confirmed with the user); negative or unproven — every other firm
 modelled.** Lesson: consistency and payout-gating rules dominate a firm's structural value; only a firm with verified rules counts.
 (Elite Trader Funding's promo-price result also omits its "active trade days" rule — treat as negative.)
+Smaller size at LucidPro (to fit the 40% rule): sim size ×0.3 / ×0.5 / ×0.7 → **−$1,130 / −$2,062 / −$3,149** a run — still negative
+(small size rarely reaches the $3,000 target before fees pile up). Lucid closed.
 
 ## 10. Still outstanding, and blocking
 
