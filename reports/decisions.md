@@ -15454,6 +15454,20 @@ Before fees and the half-spread: **−0.36¢** (2,214 signals) — no follow-thr
 picked moves by their later size (≥ 15¢ within 60 s), which a live bot cannot know. Closed; download stopped. Also: K13 provisional
 discovery on 5 titles (341 events) favourite_YES −2.70¢ (t −1.26), underdog_YES −1.11¢ — fair pricing minus costs.
 
+## 779. A95 protocol: Kalshi BTC 15-minute markets in their averaging minute — does the book lag the partly-known average? (S10)
+
+**No trial; N 1,539. Written BEFORE any price is recorded.** KXBTC15M (≈ 3 M contracts ≈ $1.5 M a market, every 15 minutes, all
+year) resolves on the simple average of the 60 one-second BRTI prints before the close, against the same average before the open
+(`floor_strike`); trading runs to the close. In the last minute part of the average is already fixed and the rest is narrow, so the
+fair price is computable from public exchange data. Surely bot-contested; the question is whether a residue above fees is left.
+- **Recorder** (`kalshi/a95_btc15.py`): every second from 120 s before each close to the close: Coinbase BTC-USD ticker (public REST,
+  BRTI proxy), Kalshi's current KXBTC15M order book top (bid/ask/size), receive times. ~3 hours (12 markets) to start.
+- **Fair value:** known part = mean of the recorded proxy prints already inside the window; remaining k seconds: proxy now plus a
+  Brownian average with σ from the last 15 min of 1 s returns; P(YES) = Φ((mean_known·(60−k)/60 + S·k/60 − strike) / (σ_S·√(k³/3)/60)).
+  Proxy basis vs BRTI (Coinbase ≠ BRTI by a few dollars) is estimated per market from the open-average vs floor_strike and removed.
+- **Pass (fixed now):** median over markets of the best executable edge (fair − ask − fee, or bid − fair − fee) ≥ 2¢ on ≥ $100 of top
+  size in the last 60 s, in ≥ 50% of markets. Otherwise closed (bots already price it). Trading would need the user's API key.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
