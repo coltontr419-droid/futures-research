@@ -15354,6 +15354,24 @@ props with YES mid ≤ 35¢ at the 6 h candle (taker fee), pooled KXNFLTD + KXNF
 2026-03-01 → 2026-10-19 once the download is complete; per-game t; §664.4 / §133. Discovery is re-run on the complete data first and
 reported as is.
 
+## 772. K-family 11c registered: buy YES on 20-35¢ player props across every sport — the year-round version of K11b (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any outcome in the new series is looked at.** Why: the only provisional sign in
+K11 sits in 20-35¢ rushing-yards props (YES 34.7% vs 28.0% priced, n 320, discovery calibration); NFL is Sep-Feb only, and the
+user wants year-round strategies. Capacity screened first (outcome-free): 20-35¢ rushing-yards props traded ≈ $100-320k a week in the
+last 24 h before close in the 2026 season; NBA points props trade 14-22 M contracts a month (May-Jun), MLB home-run props 7-43 M
+(Aug-Oct) — capacity is not the constraint. Data: new `kalshi/lean.py` keeps only the candle traded on (batch endpoint after the
+2026-08-19 cutoff, one by one before it); the old full-history download was stopped (rate-limited, 50+ failures).
+- **Universe (fixed):** KXNBAPTS, KXNBAREB, KXNBAAST, KXNBA3PT, KXWNBAPTS, KXMLBHIT, KXMLBHR, KXMLBKS, KXMLBTB, KXNHLPTS, KXNHLAST,
+  KXNHLGOAL, KXNFLRSHYDS, KXNFLRECYDS, KXNFLPASSYDS, KXNFLTD.
+- **Rule:** last hourly candle ending 9 h → 6 h before the market's close; spread ≤ 5¢; YES mid in [0.20, 0.35] → buy YES at the
+  ask, taker fee ceil(7·p(1−p))¢. Statistic: per-event (game) mean P&L a contract, t over events.
+- **Discovery:** markets closing before 2026-08-20, 150 random events a series (seeded by the series name). Proceed to the sealed test
+  only if the pooled discovery mean is > 0 with t > 1.645 AND it is > 0 in at least two of the four sports outside the NFL.
+- **Sealed:** every market closing 2026-08-20 → 2026-10-19, run once (`kalshi/k11c.py validate`); §664.4 rule (t > 1.645, sign-flip
+  placebo ≥ 95th, positive posterior, PRIOR_SD 0.02); seed 772; §133 watchlist otherwise. The sealed window overlaps K11b's for
+  KXNFLTD/KXNFLRSHYDS/KXNHLGOAL; K11b stays registered and is run on its own rule.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
