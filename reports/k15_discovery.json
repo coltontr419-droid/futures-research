@@ -1,0 +1,78 @@
+{
+ "favourite_YES": {
+  "events": 61,
+  "markets": 112,
+  "mean_net": 0.024174605776736937,
+  "t": 1.0881815459412059,
+  "market_volume": 21349851.790000003,
+  "by_cat": {
+   "Entertainment": {
+    "n": 17,
+    "mean": 0.032952941176470595
+   },
+   "Mentions": {
+    "n": 30,
+    "mean": 0.04544333333333335
+   },
+   "Climate and Weather": {
+    "n": 20,
+    "mean": 0.01752500000000002
+   },
+   "Economics": {
+    "n": 18,
+    "mean": 0.04312777777777779
+   },
+   "Science and Technology": {
+    "n": 9,
+    "mean": 0.04784444444444446
+   },
+   "Politics": {
+    "n": 7,
+    "mean": 0.06294285714285716
+   },
+   "Elections": {
+    "n": 11,
+    "mean": -0.04237272727272725
+   }
+  },
+  "carried": false
+ },
+ "longshot_NO": {
+  "events": 190,
+  "markets": 482,
+  "mean_net": -0.009256286967418535,
+  "t": -0.6612497647023737,
+  "market_volume": 59194898.96000002,
+  "by_cat": {
+   "Entertainment": {
+    "n": 48,
+    "mean": 0.004087500000000015
+   },
+   "Mentions": {
+    "n": 32,
+    "mean": 0.078896875
+   },
+   "Climate and Weather": {
+    "n": 343,
+    "mean": -0.0031871720116617946
+   },
+   "Economics": {
+    "n": 17,
+    "mean": -0.07303529411764705
+   },
+   "Politics": {
+    "n": 19,
+    "mean": 0.03292105263157896
+   },
+   "Elections": {
+    "n": 15,
+    "mean": -0.02597999999999999
+   },
+   "Science and Technology": {
+    "n": 8,
+    "mean": 0.01977500000000002
+   }
+  },
+  "carried": false
+ }
+}

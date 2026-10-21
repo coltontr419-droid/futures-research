@@ -15692,6 +15692,13 @@ anchor, a daily candle 7 days earlier, spread ≤ 5¢ and mid 0.60-0.95, only **
 market, but −9.91¢ a week, t(weeks) −1.36** — not carried. The published underconfidence (arXiv 2602.19520, trade-weighted, all
 horizons) does not survive the ask, the fee and the correlation of races resolving together. Closed; the 2026 general is not touched.
 
+## 801. K-family 15 discovery: no taker-side favourite / long-shot edge 24 h out in non-sports Kalshi — not carried (S10)
+
+**No trial.** `kalshi/k15_nonsports.py`, discovery (closes 2026-08-15 → 09-20; 3,913 sampled markets, 24 h candle, spread ≤ 5¢):
+**favourite_YES +2.42¢ (61 events, 112 markets, t +1.09); longshot_NO −0.93¢ (190 events, 482 markets, t −0.66)** — not carried.
+By category the only large cell is Mentions long-shot NO +7.9¢ (32 markets), which is the taker version of K16's maker question.
+Most markets fail the ≤ 5¢-spread filter 24 h out (wide books), so taker entry is the binding cost. Sealed candles not fetched (job gated).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
