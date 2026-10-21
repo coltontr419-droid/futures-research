@@ -15718,6 +15718,17 @@ before tonight's tip-offs (so "latest", not yet closing): **NBA spreads 9 episod
 ProphetX's makers were ahead, and the "edges" were Pinnacle's stale lines. With §792 (long shots = devig artifact) this leaves the
 ProphetX taking lead with nothing. Final closing-line readout after tonight's games.
 
+## 804. A99 protocol: does Kalshi's NBA moneyline lag ProphetX's moves? (live, no money) (S10)
+
+**No trial; N 1,539. Written BEFORE any price is recorded.** §803: on NBA lines ProphetX's makers moved before Pinnacle. If they also lead
+Kalshi, Kalshi's stale side (deep books) can be taken after a ProphetX move.
+- **Recorder** (`sports/a99_pxlead.py`, tonight + following nights, pre-tip only): ProphetX public websocket, NBA moneylines → ProphetX fair =
+  proportional devig of the two best back prices (both sides needed); Kalshi KXNBAGAME top of book polled every ~3 s (one listing call).
+- **Move:** ProphetX fair changes ≥ 2 points within 60 s. **Opportunity at +3 / +10 / +30 / +60 s:** new ProphetX fair − Kalshi ask − fee
+  (up) or Kalshi bid − fair − fee (down).
+- **Pass (fixed now):** ≥ 20 moves; median opportunity at +10 s ≥ +1¢ and ≥ 1¢ on ≥ 50% of moves → then a closing-line check (do those
+  Kalshi fills beat Pinnacle's close?). Otherwise closed. Trading would need the user's Kalshi API key.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
