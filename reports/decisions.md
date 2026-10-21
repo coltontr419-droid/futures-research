@@ -15601,6 +15601,14 @@ proportional "pass" would be the method's bias, not an edge — the morning brie
 "pinnacle_moved" endings are mostly Pinnacle shifting its main line (the old line's fair disappears), not Pinnacle moving to
 ProphetX's price; start/end fair prices are now logged to separate the two.
 
+## 793. A96 amended before any spread/total paper bet has closed: score spreads/totals at the bet's own line (S10)
+
+**No trial.** §783 enters spread/total bets only at Pinnacle's main line, but scored them only if that same line was still Pinnacle's
+main line at the close — when Pinnacle shifts its line (common), the bet went unscored, a selection bias. Now every sweep also logs
+every Pinnacle full-game spread/total line (main and alternate, proportional no-vig) for the matched events (`lines_*.jsonl`), and a
+spread/total bet is scored at its own line from the last Pinnacle snapshot before the start. Moneylines unchanged. No spread/total
+paper bet had closed when this was written (2026-10-21 ~12:40Z).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

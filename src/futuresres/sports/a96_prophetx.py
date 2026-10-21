@@ -49,9 +49,13 @@ def dec(a: float) -> float:
     return 1 + a / 100 if a > 0 else 1 + 100 / -a
 
 
+ALL_LINES: dict = {}                                             # Pinnacle matchup id -> every spread/total line (main + alternate)
+
+
 def pinnacle() -> dict:
-    """(sport, team) -> {p, opp, start, id, spread: (points, p), total: (points, p_over)}: proportional no-vig, pre-match, main lines."""
-    out = {}
+    """(sport, team) -> {p, opp, start, id, spread: (points, p), total: (points, p_over)}: proportional no-vig, pre-match, main lines.
+    Also fills ALL_LINES (decisions.md 793) so spread/total bets can be scored at their own line at the close."""
+    out = {}; ALL_LINES.clear()
     for sp, sid in SPORTS.items():
         mu = get(f"{PIN}/sports/{sid}/matchups?withSpecials=false", PIN_H) or []
         mk = get(f"{PIN}/sports/{sid}/markets/straight", PIN_H) or []
@@ -75,6 +79,15 @@ def pinnacle() -> dict:
             for a, b in (("home", "away"), ("away", "home")):
                 out[(sp, nm[a])] = {"p": pr[a] / s, "q": (pr[a], pr[b]), "opp": nm[b], "start": m["startTime"], "id": m["id"],
                                     "spread": spr[a] if spr else None, "total": tot}
+            lines = []
+            for x in mk:
+                if x["matchupId"] != m["id"] or x.get("period") != 0 or x.get("type") not in ("spread", "total") or len(x.get("prices", [])) != 2:
+                    continue
+                q = [1 / dec(float(y["price"])) for y in x["prices"]]; t = sum(q)
+                for y, qq in zip(x["prices"], q):
+                    side = nm[y["designation"]] if x["type"] == "spread" else y["designation"]
+                    lines.append([x["type"], side, float(y["points"]), round(qq / t, 4)])
+            ALL_LINES[m["id"]] = lines
         time.sleep(0.5)
     return out
 
@@ -154,6 +167,10 @@ def record() -> None:
             with open(OUT / f"{dt.datetime.now(UTC):%Y%m%d}.jsonl", "a") as f:
                 for r in rows:
                     f.write(json.dumps(r) + "\n")
+            with open(OUT / f"lines_{dt.datetime.now(UTC):%Y%m%d}.jsonl", "a") as f:   # Pinnacle's lines for the matched events
+                t_ = dt.datetime.now(UTC).isoformat(timespec="seconds")
+                for pid in {r["pin_id"] for r in rows}:
+                    f.write(json.dumps({"t": t_, "pin_id": pid, "lines": ALL_LINES.get(pid, [])}) + "\n")
             print(f"{dt.datetime.now(UTC):%H:%MZ} sides {len(rows)}, EV >= 2%: {sum(r['ev'] >= 0.02 for r in rows)}", flush=True)
         except Exception as e:                                   # keep recording through a bad sweep
             print("sweep error", e, flush=True)
@@ -172,7 +189,11 @@ def power(q) -> float | None:
 
 
 def analyse() -> dict:
-    rows = [json.loads(l) for p in sorted(OUT.glob("*.jsonl")) for l in open(p)]
+    rows = [json.loads(l) for p in sorted(OUT.glob("2026*.jsonl")) for l in open(p)]
+    plines = collections.defaultdict(list)                       # pin_id -> [(t, lines)]
+    for p in sorted(OUT.glob("lines_*.jsonl")):
+        for l in open(p):
+            x = json.loads(l); plines[x["pin_id"]].append((x["t"], x["lines"]))
     last = {}                                                    # closing: last snapshot before the start, per (event, side)
     for r in rows:
         if r["t"] < r["start"]:
@@ -184,10 +205,21 @@ def analyse() -> dict:
             continue
         if k in seen and (t - seen[k]).total_seconds() < 6 * 3600:
             continue
-        seen[k] = t; c = last.get(k)
-        if not c or c["t"] == r["t"] or dt.datetime.fromisoformat(r["start"].replace("Z", "+00:00")) > dt.datetime.now(UTC):
+        seen[k] = t; c = last.get(k); D = dec(r["odds"])
+        if dt.datetime.fromisoformat(r["start"].replace("Z", "+00:00")) > dt.datetime.now(UTC):
             continue                                             # not closed yet
-        D = dec(r["odds"]); p = c["pin_p"]; pw = power(c.get("pin_q"))
+        if r.get("market") in ("spread", "total"):                # score at the bet's own line (decisions.md 793)
+            kind = r["market"]; who, pts = r["side"].rsplit(" ", 1); pts = float(pts)
+            snaps = [ls for t_, ls in plines.get(r["pin_id"], []) if t_ < r["start"]]
+            hit = [x[3] for x in (snaps[-1] if snaps else []) if x[0] == kind and x[2] == pts
+                   and (x[1] == who or difflib.SequenceMatcher(None, x[1], who).ratio() >= 0.85)]
+            if not hit:
+                continue
+            p = hit[0]; pw = None
+        else:
+            if not c or c["t"] == r["t"]:
+                continue
+            p = c["pin_p"]; pw = power(c.get("pin_q"))
         bets.append({"sport": r["sport"], "market": r.get("market", "moneyline"), "size": min(r["risk_avail"], 100.0), "ev_entry": r["ev"], "clv_ev": p * (D - 1) * (1 - FEE) - (1 - p),
                      "clv_ev_power": (pw * (D - 1) * (1 - FEE) - (1 - pw)) if pw is not None else None,
                      "t": r["t"], "side": r["side"]})
