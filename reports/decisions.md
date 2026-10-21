@@ -15709,6 +15709,15 @@ Entertainment 31/43) but the long shot that hits costs more than the many small 
 contract-weighted: Weather +0.3¢, Mentions +1.6¢, Entertainment −0.6¢, Politics −0.9¢. Becker's trade-weighted maker profits are
 dominated by a few giant markets. Closed; sealed trades not fetched.
 
+## 803. A97 episodes against Pinnacle's latest pre-start price: the NBA "edges" were Pinnacle lagging ProphetX (interim) (S10)
+
+**No trial (descriptive; A96's registered verdict still waits for ≥ 150 bets).** `sports/a97_clv.py` joins each A97 +EV episode to
+Pinnacle's no-vig at the same line in A96's last Pinnacle snapshot before the start (`lines_*.jsonl`, §793). At 2026-10-21 ~15:45 CT,
+before tonight's tip-offs (so "latest", not yet closing): **NBA spreads 9 episodes, entry +2.54% → now −2.61% (3/9 positive); NBA totals
+18 episodes, +2.75% → −1.97% (6/18)**; NFL total 1: +2.0% → −9.2%; NHL total 1: +2.9% → +3.9%. Pinnacle moved TO ProphetX's prices —
+ProphetX's makers were ahead, and the "edges" were Pinnacle's stale lines. With §792 (long shots = devig artifact) this leaves the
+ProphetX taking lead with nothing. Final closing-line readout after tonight's games.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
