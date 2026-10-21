@@ -23,7 +23,7 @@ from futuresres.sports import a96_prophetx as a
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "data" / "sports" / "a97"
 WS = "wss://ws.prophetx.co/app/c975574818f436e8dd4a?protocol=7&client=js&version=8.4.0&flash=false"
-SPORTS = ("American Football", "Basketball", "Ice Hockey")
+SPORTS = ("American Football", "Basketball", "Ice Hockey", "Tennis")
 UTC = dt.timezone.utc
 
 
@@ -69,7 +69,8 @@ class Book:
                 continue
             ms = ((a.get(f"{a.PX}/v2/events/{e['id']}/markets") or {}).get("data") or {}).get("markets") or []
             time.sleep(1.5)
-            mk = {x["id"]: x.get("subType") for x in ms if x.get("subType") in ("moneyline", "spread", "total")}
+            mk = {x["id"]: x.get("subType") for x in ms if x.get("subType") in ("moneyline", "spread", "total")
+                  and (e["sport"]["name"] != "Tennis" or x.get("subType") == "moneyline")}   # tennis handicaps/totals are in sets
             self.events[e["id"]] = {"sport": e["sport"]["name"], "start": e["scheduled"], "markets": mk,
                                     "comp": {c["id"]: a.norm(c["name"]) for c in e.get("competitors", [])}}
             new.append(e["id"])

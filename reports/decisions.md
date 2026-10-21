@@ -15585,6 +15585,11 @@ last 2 h −0.58¢; small (≤ 50) trades −0.16…−0.28¢ — negative in ev
 price their way; a quoter is picked off before any fee. Markout to settlement was too noisy on 23 games (±50¢ a game). Consistent
 with Valorant (§778's markout) and the Pinnacle-anchored pricing everywhere on Kalshi. Closed (NBA download stopped).
 
+## 791. A97 amended: tennis moneylines added (S10)
+
+**No trial.** A96's first three closed paper bets are tennis (closing-line EV +7.9%, n = 3 — no inference); tennis is ProphetX's
+largest category (274 events) and year-round. A97 now also streams tennis moneylines (not handicaps/totals: ProphetX's are in sets).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
