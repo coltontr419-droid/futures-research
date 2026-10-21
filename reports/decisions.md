@@ -15670,6 +15670,13 @@ month); e.g. a 70¢ political contract a week out maps to ≈ 83%. Race markets 
   → 2026-10-20 (2026 primaries and specials, many separate dates), once (seed 797); §664.4; §133 otherwise. The 2026-11-03 general is a
   forward look only after a confirm. Capacity: race-market volume (millions of contracts per major race).
 
+## 798. K15/K16 amended before any outcome is joined: the "Mentions" category added (S10)
+
+**No trial.** Kalshi files mention markets under their own event category "Mentions" (seen in a settled-events page: Sports 49,
+Elections 35, Politics 32, Economics 23, Financials 21, Mentions 15, …), which §795's list omitted — likely Becker's "Media" bucket
+(makers +3.64%). Added to K15's universe (and therefore K16's sample); the listing was restarted from scratch (no outcome had been joined
+to any price). Everything else unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

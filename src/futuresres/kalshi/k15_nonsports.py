@@ -22,7 +22,7 @@ from futuresres.kalshi.k1_longshot import PRIOR_SD, _q, fee
 
 ROOT = Path(__file__).resolve().parents[3]
 DIR = ROOT / "data" / "kalshi" / "k15"
-CATS = {"Politics", "Elections", "Economics", "Climate and Weather", "World", "Entertainment", "Science and Technology", "Companies",
+CATS = {"Politics", "Elections", "Economics", "Climate and Weather", "World", "Entertainment", "Science and Technology", "Companies", "Mentions",
         "Health", "Social", "Culture"}
 START, SEAL, END = "2026-06-01", "2026-09-01", "2026-10-21"
 
