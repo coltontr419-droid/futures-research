@@ -51,7 +51,8 @@ def listing() -> None:
     print("listed", n, flush=True)
 
 
-def candles() -> None:
+def candles(sealed: bool = False) -> None:
+    """Discovery sample first; the sealed window only once discovery has carried (decisions.md 795)."""
     ms = [json.loads(l) for l in open(DIR / "markets.jsonl")]
     ms = list({m["ticker"]: m for m in ms}.values())
     disc = [m for m in ms if m["close"] < SEAL]; seal = [m for m in ms if SEAL <= m["close"] < END]
@@ -62,7 +63,7 @@ def candles() -> None:
         if k + len(sub) > 4000:
             continue
         pick += sub; k += len(sub)
-    todo = pick + seal
+    todo = seal if sealed else pick
     f = DIR / "candles.jsonl"; done = {json.loads(l)["ticker"] for l in open(f)} if f.exists() else set()
     todo = [m for m in todo if m["ticker"] not in done]
     print("to fetch", len(todo), flush=True)
@@ -122,4 +123,4 @@ def run(validate: bool) -> dict:
 
 if __name__ == "__main__":
     a = sys.argv[1:2]
-    {"list": listing, "candles": candles}.get(a[0] if a else "", lambda: run(a == ["validate"]))()
+    {"list": listing, "candles": candles, "candles-sealed": lambda: candles(True)}.get(a[0] if a else "", lambda: run(a == ["validate"]))()
