@@ -15622,6 +15622,21 @@ stale side can be taken. Kalshi game books are deep (tens of millions of contrac
 - **Pass (fixed now):** over ≥ 3 days with ≥ 20 moves: median opportunity at +20 s ≥ +1¢ AND ≥ 1¢ on ≥ 50% of moves. Otherwise closed
   (Kalshi follows Pinnacle within one poll). Trading would need the user's Kalshi API key.
 
+## 795. K-family 15 registered: favourite / long-shot bias in Kalshi's NON-sports, non-index markets (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any price is joined to any outcome.** K1 (§665) covered only S&P/Nasdaq brackets
+and K10 (§756) sports — both sit on a sharp anchor. The literature reports the bias elsewhere: Kalshi contracts < 20¢ under-perform and
+> 80¢ out-perform their prices (Becker, trade-level); political markets compressed toward 50% (arXiv 2602.19520). Non-sports markets have
+no Pinnacle-style anchor, so a bias could survive there.
+- **Universe:** settled markets closing 2026-06-01 → 2026-10-20, event category in {Politics, Elections, Economics, Climate and Weather,
+  World, Entertainment, Science and Technology, Companies, Health, Social, Culture} (not Sports, Financials, Crypto, Exotics), market
+  volume ≥ 1,000 contracts (`kalshi/k15_nonsports.py`).
+- **Entry:** last hourly candle ending 27 h → 24 h before the close; spread ≤ 5¢. **favourite_YES:** mid ≥ 0.80 → buy YES at the ask;
+  **longshot_NO:** mid ≤ 0.20 → buy NO at 1 − bid; taker fee. Unit: the event (mean over its qualifying markets); t over events.
+- **Discovery:** closes 2026-06-01 → 2026-08-31 (≤ 4,000 markets sampled by event, seeded). Carried: t > 1.96, mean > 0 and > 0 in ≥ 2
+  categories. **Sealed:** 2026-09-01 → 2026-10-20, once, carried tests only; §664.4 rule (seed 795); §133 otherwise.
+- **Capacity:** volume in the entry candle and the market's life, per category, reported before any sealed look.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
