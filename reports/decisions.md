@@ -15767,6 +15767,15 @@ payout p25/median/p75/p90 **old 22/42/83/127 → V2 24/46/86/133**; all starts r
 −$787 → **−$837**, 95th pct −$2,157 both, worst −$2,640 both; fees by then median $812. The V2 cost (§805) falls on the five-account /
 live phase, not the launch.
 
+## 808. A103: 50K stays — under V2 the 100K book loses its structural value (S10)
+
+**No trial.** `reporting/a103_v2_100k.py` (official V2 table read 2026-10-21: buffer / cap 25K $1,100/$600, 50K $2,100/$1,250, 100K
+$2,600/$1,750, 150K $3,600/$2,500; min $250; 2× profit since last payout), 3 NKD + 2 FDXM, live rules, mean net per 84-session run:
+50K V2 ($116) 2025 +$11,930 (89%) | 2021-26 +$7,958 | 2010-20 +$3,391 | zero edge +$4,157; **100K V2 ($186 stored fee) 2025 +$9,092
+(72%, p10 −$9,243) | 2021-26 +$5,221 | 2010-20 +$250 | zero edge −$2,296** (old model: +$20,759 / +$11,030 / +$5,968 / +$2,680). The 2×
+rule bites harder on the larger account (bigger buffer, fewer payouts relative to fees). 50K remains the choice. Also noted: the
+official drawdown locks at start + $100 (e.g. $50,100); the model locks at $50,000 — minor.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
