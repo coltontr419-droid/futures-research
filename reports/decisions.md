@@ -15699,6 +15699,16 @@ horizons) does not survive the ask, the fee and the correlation of races resolvi
 By category the only large cell is Mentions long-shot NO +7.9¢ (32 markets), which is the taker version of K16's maker question.
 Most markets fail the ≤ 5¢-spread filter 24 h out (wide books), so taker entry is the binding cost. Sealed candles not fetched (job gated).
 
+## 802. K-family 16 discovery: selling long shots as a maker is "picking up pennies" — negative per event; not carried; closed (S10)
+
+**No trial.** `kalshi/k16_makerls.py`, discovery (581 events, 3,913 markets, closes 2026-08-15 → 09-20): maker P&L on taker-YES fills
+at ≤ 20¢, **event-weighted −3.03¢ a contract (t −2.89)** — not carried. Contract-weighted it is +5.5¢ (≤ 20¢) / +11.9¢ (20-35¢), but
+that is one market: KXFEDDECISION-26SEP carries 46.1 M of Economics' 47.1 M contracts (+7.0¢); Elections' +5.2¢ is 79% one event
+(KXSCRSENS-26). Most events are positive for the seller (Economics 62/74, Elections 34/37, Weather 295/362, Mentions 21/27,
+Entertainment 31/43) but the long shot that hits costs more than the many small wins — the insurance-seller profile; by category
+contract-weighted: Weather +0.3¢, Mentions +1.6¢, Entertainment −0.6¢, Politics −0.9¢. Becker's trade-weighted maker profits are
+dominated by a few giant markets. Closed; sealed trades not fetched.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -1,0 +1,64 @@
+{
+ "events": 581,
+ "mean_per_contract": -0.030347215807326244,
+ "t": -2.892171972530597,
+ "by_cat": {
+  "Entertainment": {
+   "contracts": 1577038.7100000058,
+   "mean": -0.0059362731812714915
+  },
+  "Climate and Weather": {
+   "contracts": 6217482.859999618,
+   "mean": 0.002525142707028625
+  },
+  "Mentions": {
+   "contracts": 1645883.3800000083,
+   "mean": 0.016418665154757026
+  },
+  "Elections": {
+   "contracts": 3774822.489999974,
+   "mean": 0.05186121714295524
+  },
+  "Economics": {
+   "contracts": 47129180.250002116,
+   "mean": 0.0671666738739758
+  },
+  "Politics": {
+   "contracts": 582953.7800000003,
+   "mean": -0.009185632349789318
+  },
+  "Science and Technology": {
+   "contracts": 172881.58000000005,
+   "mean": -0.02871635428135252
+  }
+ },
+ "by_band": {
+  "<=20c": 0.05538962169201677,
+  "20-35c": 0.11848031092816734
+ },
+ "by_time_to_close": {
+  "1-7d": 0.09434319559593175,
+  "<6h": 0.05227551932899875,
+  "6-24h": 0.03923887787676474,
+  ">7d": 0.016064789326305572
+ },
+ "pool_contracts": {
+  "Entertainment": 1577038.7100000058,
+  "Climate and Weather": 6217482.859999618,
+  "Mentions": 1645883.3800000083,
+  "Elections": 3774822.489999974,
+  "Economics": 47129180.250002116,
+  "Politics": 582953.7800000003,
+  "Science and Technology": 172881.58000000005
+ },
+ "median_hours_to_close": {
+  "Entertainment": 50.325741280833334,
+  "Climate and Weather": 12.343455884444445,
+  "Mentions": 13.731486941388889,
+  "Elections": 21.7951216525,
+  "Economics": 26.509766362500002,
+  "Politics": 90.950746475,
+  "Science and Technology": 119.21586485388889
+ },
+ "carried": false
+}
