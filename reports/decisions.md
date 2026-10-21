@@ -15751,6 +15751,15 @@ structural reason the plan pays) drops only ~9%. **Every earlier dollar figure f
 checklist, the review prep) used the old payout model and is too high — the 2025-start headline by ~80%.** Plan choices (5 × 50K, mix,
 live policy) were not re-solved under V2; that is the next check.
 
+## 806. A101: under V2 payouts, 2 NKD + 3 FDXM edges out the planned 3 NKD + 2 FDXM — for the user's review (S10)
+
+**No trial.** `reporting/a101_v2_mix.py` (V2 payouts §805, $116, live rules), mean net per 84-session run:
+3 NKD + 2 FDXM (plan) 2025 +$11,930 (89%, p10 −$147) | 2021-26 +$7,958 | 2010-20 +$3,391 | zero edge +$4,157;
+**2 NKD + 3 FDXM 2025 +$13,075 (96%, p10 +$2,537) | 2021-26 +$7,902 | 2010-20 +$4,568 | zero edge +$4,244**;
+4 NKD + 1 FDXM +$11,566 (89%) | +$8,442 | +$2,021 | +$4,355; NKD × 5 +$5,960 (p10 −$9,280) | +$7,341 | −$1,016 | +$5,892.
+2 + 3 is better in 2025 starts and 2010-20 and in the tail; 2021-26 a tie. Not adopted (the user decides at the 10-25 review; the first
+account is NKD-only by the user's launch choice anyway).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
