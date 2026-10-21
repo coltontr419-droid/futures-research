@@ -15558,6 +15558,16 @@ A97 measures how much positive-EV stake appears and how fast it is taken.
   ending in < 10 s (contested). Feeds A96's ≥ $500-a-week capacity criterion — a lifetime of seconds means a bot race, hours means
   manual-capable. Outcome-free; no trial.
 
+## 788. CORRECTION to §786: ProphetX's "totalStake" is RESTING liquidity, not matched volume — the $526k figure is not flow (S10)
+
+**No trial.** Checked over 8 minutes on 4 NFL events: the REST `totalStake` of a market fell by $36,000 while the websocket's summed
+`traded_value` for it was −$36,033 (moneyline −$4,476 vs −$6,027+1,551; total −$5,401 vs −$4,564+64). `totalStake` is the stake
+resting on the book and `traded_value` its change (posts and pulls); neither is matched volume. §786's "$526k matched in 20 minutes"
+counted only increases in resting stake — liquidity being posted, not trades. **ProphetX's traded volume is not public**; the
+maker-route capacity is unknown, and the adverse-selection question remains unanswerable from outside. §786's tabling stands
+(it needs the user and ProphetX's market-maker programme); the "large flow" premise is withdrawn. Also: market ids are per
+market TYPE (shared across events) — A96 keys by (event, market), so its records are unaffected.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
