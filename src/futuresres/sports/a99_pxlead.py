@@ -148,5 +148,51 @@ def readout() -> dict:
     return {}
 
 
+
+
+
+def readout_inplay() -> dict:
+    """A99b (decisions.md 820): ProphetX in-play fair moves >= 5 pts within 30 s vs Kalshi's book at +3 / +10 / +30 s."""
+    T = lambda s: dt.datetime.fromisoformat(s)
+    px = [json.loads(l) for p in sorted(OUT.glob("px_*.jsonl")) for l in open(p)]
+    px = [r for r in px if r.get("inplay")]
+    ks = [json.loads(l) for p in sorted(OUT.glob("kalshi_*.jsonl")) for l in open(p)]
+    kb = collections.defaultdict(list)
+    for k in ks:
+        kb[k["event"]].append((T(k["t"]), k["books"]))
+    bye = collections.defaultdict(list)
+    for r in px:
+        bye[r["event"]].append((T(r["t"]), r["fair"]))
+    opp = collections.defaultdict(list)
+    for ev, v in bye.items():
+        v.sort(key=lambda x: x[0]); kk = sorted(kb.get(ev, []), key=lambda x: x[0]); last_move = None
+        for i in range(1, len(v)):
+            t1, f1 = v[i]
+            if last_move and (t1 - last_move).total_seconds() < 30:
+                continue
+            prev = [f for t, f in v[:i] if (t1 - t).total_seconds() <= 30]
+            if not prev:
+                continue
+            for team, p1 in f1.items():
+                p0 = prev[0].get(team)
+                if p0 is None or abs(p1 - p0) < 0.05:
+                    continue
+                last_move = t1
+                for lag in (3, 10, 30):
+                    k = next((b for t, b in kk if (t - t1).total_seconds() >= lag), None)
+                    if k and team in k:
+                        bid, ask = k[team]
+                        opp[lag].append((p1 - ask - fee(ask)) if p1 > p0 else (bid - p1 - fee(bid)))
+                break
+    if not opp:
+        print(f"in-play px rows {len(px)}: no ProphetX in-play moves >= 5 pts yet"); return {}
+    for lag, v in sorted(opp.items()):
+        print(f"in-play +{lag:2d}s: moves {len(v)}, median opportunity {st.median(v)*100:+.2f}c, >= 2c on {sum(x >= 0.02 for x in v)/len(v):.0%}")
+    return {}
+
+
 if __name__ == "__main__":
-    asyncio.run(record()) if sys.argv[1:2] == ["record"] else readout()
+    if sys.argv[1:2] == ["record"]:
+        asyncio.run(record())
+    else:
+        readout(); readout_inplay()
