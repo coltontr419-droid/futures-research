@@ -15576,6 +15576,15 @@ a few extra events): **cheap_YES (20-35¢ mid, buy at the ask) −1.13¢ a contr
 +6.7 — the series the idea came from, in-sample; receiving −0.6). Fails the carry rule (pooled t > 1.645 and ≥ 2 positive non-NFL
 sports needed both). The sealed download was not run (job gated). Closed; K11b was retired in its favour (§785).
 
+## 790. Screen: quoting Kalshi/Polymarket NFL game markets loses — takers are informed at every size (S10)
+
+**No trial.** Idea: Polymarket US charges makers nothing and its game books mirror Kalshi's, so quoting there would scale if takers
+lose before fees. Kalshi public trades, 23 recent NFL games (≈ 35 M pre-game contracts): **maker markout against the pre-game
+closing price (median of the last 20 trades 4 h before close), before fees: > 24 h out −1.44¢ (big trades −2.11¢), 2-24 h −0.35¢,
+last 2 h −0.58¢; small (≤ 50) trades −0.16…−0.28¢ — negative in every bucket; per game > 24 h −1.12¢ (t −2.22).** Takers move the
+price their way; a quoter is picked off before any fee. Markout to settlement was too noisy on 23 games (±50¢ a game). Consistent
+with Valorant (§778's markout) and the Pinnacle-anchored pricing everywhere on Kalshi. Closed (NBA download stopped).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
