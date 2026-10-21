@@ -163,3 +163,4 @@ products the launch plan doesn't use.
   seasonal (user rule) → closed without data.
 - Golf matchups (ProphetX vs Pinnacle): Pinnacle had not posted this week's matchups yet — retry before Thursday's round 1.
 - A94 readout script written (`esports/a94_analyse.py`). Review prep refreshed: A91 to 10-20 (D227 weaker), demo 41 tickets.
+- ProphetX × Kalshi riskless pairs (56 moneyline pairs, same event, both fees): best −1.9% → none. Closed.
