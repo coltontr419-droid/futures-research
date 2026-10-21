@@ -15820,6 +15820,15 @@ the post-payout balance. Droplet: before-image identical to the repo's previous 
 accounts.py`; deployed 2026-10-21 22:10Z, sha256 a0c9861f… matches the repo; service active, Discord connected. Rollback: copy the
 backup over `accounts.py` and restart `futures-bot.service`.
 
+## 814. A108: under V2 a tighter funded stop is broadly better (0.6-0.9× all beat 1.0×); ~0.7× best — review candidate (S10)
+
+**No trial.** `reporting/a108_v2_stopshape.py` (V2, 3 NKD + 2 FDXM, $116; funded stop factor, take unchanged), mean net per 84-session run
+2025 starts | 2021-26 | 2010-20: 0.60× +$18,910 (78%) | +$11,622 | +$3,383; **0.70× +$19,872 (94%) | +$13,274 | +$4,306**; 0.75×
++$19,143 (95%) | +$11,432 | +$3,065; 0.80× +$14,601 | +$8,346 | +$3,389; 0.90× +$18,649 | +$11,315 | +$2,956; **1.00× (current)
++$11,930 (89%) | +$7,958 | +$3,391**. Not a single lucky point: every factor in 0.6-0.9 beats 1.0 in 2025 and 2021-26; 2010-20 is
+roughly flat (0.7× better). Non-monotone steps are tick/contract rounding. Why under V2: a smaller funded stop keeps more cushion above
+the locked floor between payouts while the 2× rule meters withdrawals. Candidate for the review: funded stop ≈ 0.7×; not adopted.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
