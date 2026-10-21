@@ -15783,6 +15783,14 @@ official drawdown locks at start + $100 (e.g. $50,100); the model locks at $50,0
 +$4,058; $1,000 +$9,249 (p10 +$813) / +$7,864 / +$4,040 / +$3,023; $1,250 (full cap only) +$2,437 / +$3,018 / +$708 / +$143. Fewer,
 larger payouts delay the 3-payout move to live. Operating rule: request the maximum the 2× rule allows whenever it is ≥ $250.
 
+## 810. A105: Select Flex loses to Select Daily even under V2 — Daily stays (S10)
+
+**No trial.** `reporting/a105_flex.py`. Flex (official, after 2026-09-01): a payout every 5 winning days (≥ $150), ≤ 50% of total profit,
+cap $2,500, min $250, no 2× rule / buffer / consistency / daily loss limit, same $2,000 EOD drawdown (modelled with A63's "growth"
+kind; Daily's brackets kept). Mean net per 84-session run, 3 NKD + 2 FDXM: **Daily V2 +$11,930 / +$7,958 / +$3,391, zero edge +$4,157;
+Flex +$3,914 / +$596 / −$1,148, zero edge −$1,748** (2 + 3: Daily +$13,075 / +$7,902 / +$4,568 / +$4,244; Flex +$3,780 / +$926 / −$744
+/ −$1,258). Flex pays too slowly — live paid ~$400 vs ~$4,500. Not re-tuned for Flex (no daily loss limit), but the gap is too wide.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
