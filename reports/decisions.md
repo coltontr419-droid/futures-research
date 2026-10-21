@@ -15860,6 +15860,13 @@ the zero-edge side. What holds: no measurable harm at zero edge, and every stop 
 weak evidence). The 0.7× deployment (§815, user-approved) is kept — no downside found, plausible upside — but treat its "+$8k a run" as
 uncertain; the demo/live record decides. The plan's dollar figures carry several-thousand-dollar noise between nearby settings.
 
+## 818. A111: paired test — the 0.7× funded stop beats 1.0× on 2021-26 paths (90% CI +$2.9k..+$7.4k a run) (S10)
+
+**No trial.** `reporting/a111_stop_ci.py`: both settings on the same start windows (V2, 3 NKD + 2 FDXM, $116), per-window difference
+0.7× − 1.0×, block bootstrap with 84-session blocks: **2021-26 mean +$5,316, 90% CI +$2,935 .. +$7,404, 60% of windows better; 2010-20
++$915, CI −$771 .. +$2,620, 58% better.** Paired, the improvement is clear in the regime the plan targets and neutral-to-positive before
+2021 — firmer than §817's unpaired reading. Model-internal (same simulator, same paths); the live record is the external check.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
