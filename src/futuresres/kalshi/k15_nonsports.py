@@ -69,7 +69,8 @@ def candles() -> None:
     with open(f, "a") as out:
         for i, m in enumerate(todo):
             hi = T(m["close"]) - 24 * 3600; lo = hi - 3 * 3600; c = None
-            for u in (f"/historical/markets/{m['ticker']}/candlesticks", f"/series/{m['series']}/markets/{m['ticker']}/candlesticks"):
+            us = (f"/historical/markets/{m['ticker']}/candlesticks", f"/series/{m['series']}/markets/{m['ticker']}/candlesticks")
+            for u in (us if m["close"] < "2026-08-19" else us[::-1]):      # most settle after the historical cutoff
                 try:
                     cs = get(f"{u}?start_ts={lo}&end_ts={hi}&period_interval=60").get("candlesticks", [])
                     c = max(cs, key=lambda x: int(x["end_period_ts"])) if cs else None; break
