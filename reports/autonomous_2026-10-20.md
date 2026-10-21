@@ -199,3 +199,7 @@ products the launch plan doesn't use.
 - A94 LoL race — 10-22 06:45 CT (EMEA) and 10-23 11:45 CT (Worlds).
 - A96 ProphetX paper bets — running to 150 bets (lead mostly dead: §792, §803).
 - Tabled for the user: ProphetX market-maker programme; Novig (CAPTCHA); GRID esports data (application).
+- Bot V2 payout suggestions deployed (§813, user-approved).
+- Does ProphetX lead Pinnacle in general? (A96 20-min snapshots, pre-start moneylines): slope of Pinnacle's next move on the PX−Pinnacle
+  gap 0.01-0.18 (corr 0.09-0.26; NBA 0.18/0.26 on 748); gaps ≥ 2 pts close toward PX only ~10% of the time (tennis 532, NFL 66). Esports
+  slope 0.25, +4.3 pts after 79 big gaps — thin. No general lead; A99 (Kalshi vs ProphetX) still records tonight's NBA.
