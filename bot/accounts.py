@@ -13,6 +13,9 @@ import re
 from pathlib import Path
 
 START, TARGET, TRAIL, LOCK_AT, CONSISTENCY, CAP, LIVE_AFTER, FEE = 50_000.0, 3_000.0, 2_000.0, 52_000.0, 0.40, 1_250.0, 3, 80.0
+# Select Daily V2 payouts (accounts bought after 2026-09-01; decisions.md 805): a request is at most min(CAP, 2x the profit since the
+# last payout, balance - (START + BUFFER)), at least PAY_MIN, and the profit since the last payout must be > 0.
+BUFFER, PAY_MIN = 2_100.0, 250.0
 # Tradeify live (decisions.md 623, 640): moved at 3 payouts on one account or 10 on the book; accounts holding a payout go live, the rest
 # close; live = $0 start, $2,000 trailing drawdown locking at $0, withdrawals above it at 80%; no new evaluations while one is live;
 # up to 4 weeks' cool-off after the last live account ends.
@@ -120,17 +123,16 @@ class Book:
                 msgs.append(f"**{product} PASSED** (profit ${prof:,.0f}, best day ${a['best']:,.0f}). Now trading the "
                             f"funded account from $50,000.")
                 self.log(product, "PASSED")
-                a.update(phase="funded", balance=START, peak=START, best=0.0, payouts=0)
+                a.update(phase="funded", balance=START, peak=START, best=0.0, payouts=0, last_pay_bal=START)
             elif prof >= TARGET:
                 need = a["best"] / CONSISTENCY
                 msgs.append(f"{product}: target reached but the best day (${a['best']:,.0f}) is over 40% of profit - "
                             f"needs profit of ${need:,.0f} to pass.")
         else:
             self.log(product, "EOD", pnl=pnl)
-            amt = max(balance - LOCK_AT, 0.0)
-            if a["payouts"] < LIVE_AFTER:
-                amt = min(amt, CAP)
-            if amt > 0:
+            since = balance - a.get("last_pay_bal", START)
+            amt = min(max(balance - (START + BUFFER), 0.0), CAP, 2.0 * since) if since > 0 else 0.0
+            if amt >= PAY_MIN:
                 msgs.append(f"**{product}: request a payout of ${amt:,.2f}** (you keep 90%: ${0.9 * amt:,.2f}). "
                             f"When paid, send `!payout {product} {amt:.2f}`.")
         self.save(); return msgs
@@ -142,7 +144,7 @@ class Book:
             self.log(product, "LIVE_PAYOUT", amount=amount); self.save()
             return (f"{product} (live): withdrawal ${amount:,.2f} recorded (you received ${LIVE_SPLIT * amount:,.2f}). "
                     f"Balance ${a['balance']:,.2f}.")
-        a["balance"] -= amount; a["payouts"] += 1; a["paid"] += 0.9 * amount
+        a["balance"] -= amount; a["payouts"] += 1; a["paid"] += 0.9 * amount; a["last_pay_bal"] = a["balance"]
         self.bk["payouts"] = self.bk.get("payouts", 0) + 1
         self.log(product, "PAYOUT", amount=amount); self.save()
         msg = f"{product}: payout ${amount:,.2f} recorded (#{a['payouts']}; you received ${0.9 * amount:,.2f}). Balance ${a['balance']:,.2f}."
