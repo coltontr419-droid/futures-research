@@ -203,3 +203,7 @@ products the launch plan doesn't use.
 - Does ProphetX lead Pinnacle in general? (A96 20-min snapshots, pre-start moneylines): slope of Pinnacle's next move on the PX−Pinnacle
   gap 0.01-0.18 (corr 0.09-0.26; NBA 0.18/0.26 on 748); gaps ≥ 2 pts close toward PX only ~10% of the time (tennis 532, NFL 66). Esports
   slope 0.25, +4.3 pts after 79 big gaps — thin. No general lead; A99 (Kalshi vs ProphetX) still records tonight's NBA.
+- Esports: Kalshi KXLOLGAME vs ProphetX (8 Worlds events, 16 sides): on the price, best +0.2¢ → closed (§820).
+- NBA props when a player is ruled out: Kalshi settles inactive players at a fair price → no riskless NO → closed.
+- Kalshi NBA totals vs Pinnacle (36 lines matched via game codes): Kalshi mid − Pinnacle median 0.04¢, none positive after fees → closed.
+- A99b (in-play ProphetX vs Kalshi NBA) recording tonight; plan paired tests: 0.7× stop +$5.3k (CI +2.9..+7.4k) §818, keep 3+2 §819.
