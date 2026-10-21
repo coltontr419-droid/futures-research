@@ -15892,7 +15892,7 @@ is not a buyer's P&L. Test it at trade level. Actionable without quoting: any me
 - **Fill = a trade whose taker bought YES at 0.65-0.95**; buyer P&L a contract = 1{YES} − price − taker fee. Unit = the combo
   (contract-weighted mean of its qualifying fills); t over combos, also over settlement days (clustered).
 - **Discovery:** combos closing 2026-10-10 → 10-19 (≤ 6,000 sampled). Carried: t(days) > 1.96 and mean > 0. **Sealed:** closing
-  2026-10-20 → (download time), once (seed 821); §664.4; §133 otherwise. Also reported: by legs, in-play share (fill after the first
+  2026-10-20 → (download time), ≤ 6,000 sampled (seed 821), once; §664.4; §133 otherwise. Also reported: by legs, in-play share (fill after the first
   leg's event started is not observable — reported by hours before close instead), 35-65¢ and 2-35¢ bands (descriptive).
 
 ## 10. Still outstanding, and blocking
