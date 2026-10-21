@@ -15840,6 +15840,15 @@ checks the funded scaling and unchanged evaluation tickets (17 passed). Droplet:
 backup `/opt/futures-bot/backup-2026-10-21/ticket.py`; deployed 2026-10-21 22:31Z; sha256 952020b3… matches; service active. The demo
 checker (a18) scores each ticket by its own recorded take/stop, so the review statistics stay valid.
 
+## 816. A109: with the 0.7× stop, keep the funded take at 1.0× and the 3 + 2 mix — but a take cliff needs explaining (S10)
+
+**No trial.** `reporting/a109_v2_take.py` (V2, $116, funded stop 0.7×; zero edge 6 seeds). 3 NKD + 2 FDXM by funded take factor:
+0.8× +$4,987 | +$5,617 | +$1,712 | z +$2,298; **0.9× +$4,334 | +$5,675 | +$2,313 | z +$2,947; 1.0× +$19,872 | +$13,274 | +$4,306 | z
++$4,769**; 1.1× +$20,133 | +$12,967 | +$5,305 | z +$4,668; 1.25× +$18,397 | +$10,022 | +$2,671 | z +$3,990 (2025 | 2021-26 | 2010-20 | zero
+edge). Mixes at take 1.0 / stop 0.7: 4 + 1 +$23,461 | +$14,544 | +$2,362 | z +$5,611; 2 + 3 +$15,649 | +$11,639 | +$6,288 | z +$4,053.
+Keep take 1.0 and 3 + 2 (no mix dominates). **Warning:** the drop from take 1.0× to 0.9× (+$19.9k → +$4.3k) is a cliff, not a slope —
+the simulator is very sensitive to the funded bracket size near some threshold; checked next (§817) before relying on §814-815.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
