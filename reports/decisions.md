@@ -15776,6 +15776,13 @@ $2,600/$1,750, 150K $3,600/$2,500; min $250; 2× profit since last payout), 3 NK
 rule bites harder on the larger account (bigger buffer, fewer payouts relative to fees). 50K remains the choice. Also noted: the
 official drawdown locks at start + $100 (e.g. $50,100); the model locks at $50,000 — minor.
 
+## 809. A104: under V2, request a payout every eligible day — waiting for bigger requests loses (S10)
+
+**No trial.** `reporting/a104_v2_paytiming.py` (50K V2, 3 NKD + 2 FDXM, $116), requesting only when the allowed amount reaches X:
+**$250 (every eligible day) 2025 +$11,930 | 2021-26 +$7,958 | 2010-20 +$3,391 | zero edge +$4,157**; $625 +$6,423 / +$5,123 / +$3,201 /
++$4,058; $1,000 +$9,249 (p10 +$813) / +$7,864 / +$4,040 / +$3,023; $1,250 (full cap only) +$2,437 / +$3,018 / +$708 / +$143. Fewer,
+larger payouts delay the 3-payout move to live. Operating rule: request the maximum the 2× rule allows whenever it is ≥ $250.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -32,7 +32,7 @@ Four of four positive (refreshed 2026-10-21 with data to 10-20); none significan
 - Limit entries one tick better LOSE to market entries (A92, §769: adverse selection > the saved tick) — keep market entries.
 
 ## Decisions for the review
-0. **V2 payouts (§805-806):** all plan dollar figures are lower; under V2 the mix 2 NKD + 3 FDXM edges out 3 + 2 (2025 +$13.1k vs +$11.9k, p10 +$2.5k vs −$0.1k; 2010-20 +$4.6k vs +$3.4k). Switch? The one-NKD launch is barely changed: 2nd payout median 46 sessions (was 42), cash low median −$837 (A102, §807).
+0. **V2 payouts (§805-806):** all plan dollar figures are lower; under V2 the mix 2 NKD + 3 FDXM edges out 3 + 2 (2025 +$13.1k vs +$11.9k, p10 +$2.5k vs −$0.1k; 2010-20 +$4.6k vs +$3.4k). Switch? The one-NKD launch is barely changed: 2nd payout median 46 sessions (was 42), cash low median −$837 (A102, §807). 50K stays (100K under V2: zero edge −$2.3k, §808). Payout timing: request the max allowed every eligible day (§809).
 1. Launch on 3 NKD + 2 FDXM as planned? (Supported by §2 and §3; the demo's losses sit mostly in products the plan drops.)
 2. Keep the dollar rules (A48 trigger at 40 sessions still pending)?
 3. Budget: keep ≈ $4-5k available for evaluation fees before payouts (A67; zero-edge 5% low ≈ −$7.4k).
