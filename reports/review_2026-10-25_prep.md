@@ -2,11 +2,12 @@
 
 The launch decision rests on one question: **do the deployed rules have an edge, and does the plan pay even if they don't?**
 
-## 1. The demo (a18 --review, 2026-10-20) — adverse, not yet conclusive
-- 35 finished tickets: 11 take / 23 stop / 1 time exit vs 15.1 / 18.3 / 1.6 expected (chi-square p ≈ 0.28).
-- Shadow P&L **−$11,007** vs expected −$814 ± $6,076 (z −1.68, ≈ 1-in-11 by chance). Every product negative.
-- Execution matches the replay (median gap $2.56 a ticket); 3 of 35 readings disagree (2 on FDXM's DAX-cash proxy).
-- The demo trades **six products**; the launch plan uses **two** (NKD, FDXM). MNQ, MGC, MCL and ZS together are −$8,600 of the −$11,007.
+## 1. The demo (a18 --review, refreshed 2026-10-21) — adverse, not yet conclusive
+- 41 finished tickets; outcome mix vs history chi-square p ≈ 0.33. Shadow P&L **−$11,065** vs expected −$875 ± $6,576 (z −1.55).
+- By product: FDXM **+$400** (3/3/1); NKD −$2,865 (2 take / 5 stop); MNQ −$3,000; MGC −$2,800; ZS −$2,000; MCL −$800.
+- Execution: median gap $+1 a ticket (mean −$41); 3 of 41 readings disagree with the replay (2 on FDXM's DAX-cash proxy).
+- Dollar rules on the demo (A48): 8 sessions, signed +213 bps but recorded −$1,615 (NKD rule side −$2,000) — trigger at 40 sessions.
+- The plan trades NKD + FDXM: together −$2,465 of the −$11,065.
 
 ## 2. The deployed rules on unseen data since 2026-09-01 (A91, §768) — the right sign, at research size
 | rule | research | forward (n) | t |
