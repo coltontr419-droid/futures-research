@@ -15760,6 +15760,13 @@ live policy) were not re-solved under V2; that is the next check.
 2 + 3 is better in 2025 starts and 2010-20 and in the tail; 2021-26 a tie. Not adopted (the user decides at the 10-25 review; the first
 account is NKD-only by the user's launch choice anyway).
 
+## 807. A102: the user's launch (one NKD account to two payouts) is barely changed by V2 (S10)
+
+**No trial.** `reporting/a102_v2_launch.py` (A85 setup, $116, one NKD account, 252 sessions, 2021-26 starts): sessions to the 2nd
+payout p25/median/p75/p90 **old 22/42/83/127 → V2 24/46/86/133**; all starts reach it within 252 sessions; cash low before it median
+−$787 → **−$837**, 95th pct −$2,157 both, worst −$2,640 both; fees by then median $812. The V2 cost (§805) falls on the five-account /
+live phase, not the launch.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
