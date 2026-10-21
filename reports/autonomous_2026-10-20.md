@@ -154,3 +154,8 @@ products the launch plan doesn't use.
   comparable with Pinnacle 1X2 without more mapping; dropped (10 sides).
 - Running (systemd user services): futres-a96 (ProphetX vs Pinnacle paper bets, closing-line value), futres-a97 (ProphetX websocket
   +EV episodes: lifetime/capacity), futres-a94 (LoL race recordings 10-22 / 10-23).
+
+### 11. (overnight 2026-10-21, user away; ≤ 3 small runs at a time)
+- ProphetX NBA player props vs Pinnacle main lines (614 offers): median −6.3%, 3 offers ≥ +2% ($487) → closed.
+- ProphetX alternate spreads/totals vs Pinnacle's own alternate lines (748 offers, NFL/NBA/NHL): median −3.3%, none ≥ +2% → closed.
+  ProphetX's softness is confined to a few long-shot moneylines; A96 likely small even if its closing-line value is positive.
