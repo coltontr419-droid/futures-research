@@ -133,6 +133,7 @@ def snapshot() -> list[dict]:
                         continue
                     D = dec(o["odds"])
                     rows.append({**base, "market": st_, "side": key, "odds": o["odds"], "risk_avail": float(o.get("value") or 0),
+                                 "market_stake": float(x.get("totalStake") or 0),          # matched so far (flow = change between sweeps)
                                  "pin_id": pz[names[0]]["id"], "pin_p": round(p, 4), "ev": round(p * (D - 1) * (1 - FEE) - (1 - p), 4)})
     best = {}                                                    # keep the best-priced offer per (event, market, side)
     for r in rows:
