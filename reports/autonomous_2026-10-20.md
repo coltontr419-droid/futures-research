@@ -166,3 +166,15 @@ products the launch plan doesn't use.
 - ProphetX × Kalshi riskless pairs (56 moneyline pairs, same event, both fees): best −1.9% → none. Closed.
 - ProphetX tennis by tier (A96 rows): median EV ATP −2.2%, WTA −2.6%, Challenger −3.5%, ITF −12.3%; only ~19 distinct sides ever ≥ +2%.
   A96's first 3 closed paper bets (tennis): closing-line EV +7.9% — n far too small. A97 now streams tennis too (§791).
+
+### 12. Morning brief (2026-10-21 ~14:00Z) — nothing profitable confirmed
+- **ProphetX taking (A96/A97) — the only live lead, now much weaker.** The long-shot "edges" (tennis, NCAAF +280…+4,300) are a
+  proportional-devig artifact: 8 closed tennis paper bets score +16.3% closing-line EV proportional but **−18.0% with power devig**
+  (§792). What remains is near-even-money NBA spreads/totals: A97 sees ≈ $15k + $26k a day of stake at ≥ +2% (EV×stake ≈ $360 +
+  $750/day, extrapolated from < 1 day), lifetimes minutes, a quarter taken within 10 s (contested). Their closing-line value is scored
+  from tonight at their own line (§793). Decision needs ≥ 150 bets (≈ 1-2 weeks).
+- Closed overnight: ProphetX NBA props (median −6.3%), ProphetX alternate lines (−3.3%), ProphetX × Kalshi riskless pairs (none),
+  ProphetX tennis by tier (−2…−12%), reality-TV markets (seasonal). Golf matchups: Pinnacle not posted yet.
+- Review prep refreshed: A91 deployed rules 4/4 positive to 10-20 but D227 (NKD) weaker (+1.8 bps); demo 41 tickets −$11,065
+  (z −1.55), NKD −$2,865, FDXM +$400.
+- Needs the user: ProphetX market-maker programme contact (§786/788) — only if the user wants it; A94 LoL race records 10-22/10-23.
