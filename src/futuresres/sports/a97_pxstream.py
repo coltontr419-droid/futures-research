@@ -96,8 +96,8 @@ class Book:
 
     def update(self, eid: int, mid: int, lines: list) -> None:
         ev = self.events.get(eid)
-        if not ev or mid not in ev["markets"]:
-            return
+        if not ev or mid not in ev["markets"] or now().isoformat() >= ev["start"].replace("Z", "+00:00"):
+            return                                               # pre-match only
         sub = ev["markets"][mid]
         for ln in lines or []:
             for side in ln.get("selections") or []:
