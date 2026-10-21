@@ -15654,6 +15654,22 @@ series is fee type `quadratic` — **takers only; makers pay nothing** (2,589 of
 - **Capacity:** contracts traded at ≤ 20¢ by takers buying YES, per category per week — the pool a quoter could share. Acting needs the
   user's Kalshi API key (tabled until confirmed).
 
+## 797. K-family 17 registered: political favourites a week before the outcome is known — the underconfidence finding (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any political price is joined to an outcome.** arXiv 2602.19520 (353 M trades): Kalshi
+politics is UNDER-confident at nearly every horizon (calibration slope up to 1.83; pooled horizon factor 0.99 at < 1 h → 1.32 beyond a
+month); e.g. a 70¢ political contract a week out maps to ≈ 83%. Race markets close at CERTIFICATION, weeks after election night, so
+"days before close" is meaningless; the anchor is the price's own resolution.
+- **Universe:** settled markets of Elections/Politics series whose tickers are races or nominations (regex `^(KX)?(SENATE|HOUSE|GOV|PRES|
+  MAYOR|ECVOTE|POPVOTE|SENATEPARTY|GOVPARTY|PRESPARTY)` or containing `NOM`), volume ≥ 5,000 contracts (`kalshi/k17_politics.py`).
+- **Anchor R:** the first day whose daily close is ≥ 0.97 or ≤ 0.03 and stays beyond it to the close. **Entry:** the daily candle 7 days
+  before R; spread ≤ 5¢. **Test (one):** favourite_YES — mid in [0.60, 0.95] → buy YES at the ask, taker fee.
+- **Unit and clustering:** races resolve together (one national error), so t is computed over **resolution weeks** (mean P&L of the
+  week's qualifying markets), not markets.
+- **Discovery:** R before 2026-01-01 (2024 cycle, 2025 races). Carried with week-clustered t > 1.96 and mean > 0. **Sealed:** R 2026-01-01
+  → 2026-10-20 (2026 primaries and specials, many separate dates), once (seed 797); §664.4; §133 otherwise. The 2026-11-03 general is a
+  forward look only after a confirm. Capacity: race-market volume (millions of contracts per major race).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
