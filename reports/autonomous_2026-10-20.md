@@ -143,3 +143,6 @@ products the launch plan doesn't use.
   scored on closing-line value now recording (service futres-a96, every 20 min); first evaluation once ≥ 150 bets have closed.
 - A93 closed (§784). Other TX venues: DraftKings Predictions 403, Fanatics Markets and OG behind Cloudflare challenges → skipped
   (user rule: blocked automated reads).
+- Kalshi vs Pinnacle, days ahead: NCAAF median −2.13% (§785), tennis median −2.27% (198 sides; > +2% only on name collisions with
+  tournament-winner markets) — Kalshi's sports books sit on the sharp line everywhere checked. ProphetX is the outlier.
+- K11b retired unrun (§785). K11c / K13 jobs gated: sealed downloads only if discovery carries.
