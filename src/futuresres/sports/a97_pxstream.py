@@ -73,6 +73,9 @@ class Book:
             self.events[e["id"]] = {"sport": e["sport"]["name"], "start": e["scheduled"], "markets": mk,
                                     "comp": {c["id"]: a.norm(c["name"]) for c in e.get("competitors", [])}}
             new.append(e["id"])
+            for x in ms:                                         # seed: offers already resting when we subscribe
+                if x["id"] in mk:
+                    self.update(e["id"], x["id"], x.get("marketLines") or [{"selections": x.get("selections")}])
         for k in [k for k, v in self.events.items() if v["start"] < now().isoformat()]:
             self.events.pop(k)
         return new
