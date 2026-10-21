@@ -15685,6 +15685,13 @@ passes: earliest close 2026-08-15T03:59Z; Aug 1.2 k, Sep 2.8 k, Oct 21.7 k marke
 closes 2026-08-15 → 2026-09-20; sealed = 2026-09-21 → 2026-10-20 (K15 and K16 alike; K16 imports K15's constants). The discovery
 sample stays ≤ 4,000 markets by event. Everything else unchanged.
 
+## 800. K-family 17 discovery: political favourites a week before resolution — not carried; closed (S10)
+
+**No trial.** `kalshi/k17_politics.py`: 1,440 race/nomination markets with ≥ 5,000 contracts (673 series); with the price-resolution
+anchor, a daily candle 7 days earlier, spread ≤ 5¢ and mid 0.60-0.95, only **61 markets qualified (24 resolution weeks): +1.55¢ a
+market, but −9.91¢ a week, t(weeks) −1.36** — not carried. The published underconfidence (arXiv 2602.19520, trade-weighted, all
+horizons) does not survive the ask, the fee and the correlation of races resolving together. Closed; the 2026 general is not touched.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
