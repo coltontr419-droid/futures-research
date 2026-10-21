@@ -15882,6 +15882,19 @@ price — best edge +0.2¢ after fee — closed. (2) **A99b:** the A99 recorder 
 30 s; Kalshi opportunity (new fair − ask − fee / bid − fair − fee) at +3 / +10 / +30 s. Pass: ≥ 20 moves, median at +10 s ≥ +2¢ and
 ≥ 2¢ on ≥ 50%. Otherwise closed. A speed race — Kalshi's in-play makers are expected to be fast.
 
+## 821. K-family 18 registered: are Kalshi combo BUYERS at 65-95¢ under-charged? — trade-level, not last-price (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any combo trade is downloaded.** §742's calibration found the buyer +4-5¢ in the
+65-95¢ band, but it used each combo's LAST trade price weighted by its WHOLE volume — late in-play last trades sit near the result, so it
+is not a buyer's P&L. Test it at trade level. Actionable without quoting: any member can request a combo (parlay) in Kalshi's app.
+- **Universe:** settled combos in the five MVE series (KXMVESPORTSMULTIGAMEEXTENDED, KXMVECROSSCATEGORY, …-SHARD1, KXMVECROSSCATEGORY0,
+  …0-SHARD1), listed newest first (`kalshi/k18_combobuy.py`); public trades of each.
+- **Fill = a trade whose taker bought YES at 0.65-0.95**; buyer P&L a contract = 1{YES} − price − taker fee. Unit = the combo
+  (contract-weighted mean of its qualifying fills); t over combos, also over settlement days (clustered).
+- **Discovery:** combos closing 2026-10-10 → 10-19 (≤ 6,000 sampled). Carried: t(days) > 1.96 and mean > 0. **Sealed:** closing
+  2026-10-20 → (download time), once (seed 821); §664.4; §133 otherwise. Also reported: by legs, in-play share (fill after the first
+  leg's event started is not observable — reported by hours before close instead), 35-65¢ and 2-35¢ bands (descriptive).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
