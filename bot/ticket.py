@@ -26,6 +26,9 @@ def _pts(usd: float, n: int, p: dict) -> float:
     return round(round(usd / (n * p["mult"]) / p["tick"]) * p["tick"], 2)
 
 
+FUNDED_STOP = 0.7      # decisions.md 814-815: under Tradeify's V2 payouts a funded stop of 0.7x the policy's is better with or without an edge
+
+
 def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: int = 0, product: str = "MNQ",
            side: str = "long") -> dict:
     from accounts import base
@@ -57,7 +60,7 @@ def ticket(phase: str, balance: float, peak: float, best: float = 0.0, payouts: 
     if a <= 0:
         return {"trade": False, "floor": floor}
     W = (a // 100) * 100.0 * k
-    L = min((a % 100) * 100.0 * k, max(balance - floor - 1, 1))
+    L = min((a % 100) * 100.0 * k * (FUNDED_STOP if phase == "funded" else 1.0), max(balance - floor - 1, 1))
     cost = p["rt"] * n
     return {"trade": True, "product": product, "side": side, "contracts": n, "entry": p["entry"], "exit": p["exit"],
             "take_net": W, "stop_net": L, "floor": floor,

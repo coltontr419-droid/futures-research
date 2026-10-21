@@ -25,8 +25,9 @@ def both():
     return bt, pb
 
 
-def test_bot_ticket_matches_playbook(both):
+def test_bot_ticket_matches_playbook(both, monkeypatch):
     bt, pb = both
+    monkeypatch.setattr(bt, "FUNDED_STOP", 1.0)                   # the playbook is the unscaled policy (decisions.md 815)
     rng = np.random.default_rng(123)
     for _ in range(3000):
         phase = "eval" if rng.random() < 0.6 else "funded"
@@ -348,3 +349,16 @@ def test_ten_book_payouts_trigger_the_move(tmp_path, monkeypatch):
     bk = ac.Book(tmp_path / "s.json", tmp_path / "log.csv")
     bk.set("NKD", "funded", 52_000, 52_000, 0, 0); bk.bk["payouts"] = 9
     assert "the book has 10 payouts" in bk.payout("NKD", 300)
+
+
+def test_funded_stop_scaled(both, monkeypatch):
+    bt, _ = both
+    for product in ("NKD", "FDXM"):
+        for bal in (50_400.0, 51_000.0, 52_500.0, 53_200.0):
+            monkeypatch.setattr(bt, "FUNDED_STOP", 1.0); a = bt.ticket("funded", bal, bal, 0.0, 1, product)
+            monkeypatch.setattr(bt, "FUNDED_STOP", 0.7); b = bt.ticket("funded", bal, bal, 0.0, 1, product)
+            if a.get("trade") and b.get("trade"):
+                assert b["take_net"] == a["take_net"] and b["contracts"] == a["contracts"]
+                assert b["stop_net"] == pytest.approx(min(a["stop_net"] * 0.7, a["stop_net"]))
+            e1 = bt.ticket("eval", bal, bal, 300.0, 0, product); monkeypatch.setattr(bt, "FUNDED_STOP", 1.0)
+            assert e1 == bt.ticket("eval", bal, bal, 300.0, 0, product)   # evaluation tickets unchanged
