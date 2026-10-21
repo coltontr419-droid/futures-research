@@ -15827,7 +15827,9 @@ backup over `accounts.py` and restart `futures-bot.service`.
 +$19,143 (95%) | +$11,432 | +$3,065; 0.80× +$14,601 | +$8,346 | +$3,389; 0.90× +$18,649 | +$11,315 | +$2,956; **1.00× (current)
 +$11,930 (89%) | +$7,958 | +$3,391**. Not a single lucky point: every factor in 0.6-0.9 beats 1.0 in 2025 and 2021-26; 2010-20 is
 roughly flat (0.7× better). Non-monotone steps are tick/contract rounding. Why under V2: a smaller funded stop keeps more cushion above
-the locked floor between payouts while the 2× rule meters withdrawals. Candidate for the review: funded stop ≈ 0.7×; not adopted.
+the locked floor between payouts while the 2× rule meters withdrawals. Candidate for the review: funded stop ≈ 0.7×; not adopted. **Zero edge (`a108b_v2_stop_zero.py`, 6 seeds): 0.7× +$4,769 / +$2,998 vs
+1.0× +$4,157 / +$2,431 (2021-26 / 2010-20 paths)** — better with AND without an edge, i.e. a structural improvement under V2, unlike §811's
+edge-dependent reading of 0.75×. Recommended at the review.
 
 ## 10. Still outstanding, and blocking
 
