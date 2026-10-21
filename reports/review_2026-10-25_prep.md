@@ -35,7 +35,7 @@ Four of four positive (refreshed 2026-10-21 with data to 10-20); none significan
 0. **V2 payouts (§805-806):** all plan dollar figures are lower; under V2 the mix 2 NKD + 3 FDXM edges out 3 + 2 (2025 +$13.1k vs +$11.9k, p10 +$2.5k vs −$0.1k; 2010-20 +$4.6k vs +$3.4k). Switch? The one-NKD launch is barely changed: 2nd payout median 46 sessions (was 42), cash low median −$837 (A102, §807). 50K stays (100K under V2: zero edge −$2.3k, §808). Payout timing: request the max allowed every eligible day (§809).
    **Funded stop at 0.75× (§811)?** Under V2: 2025 +$19.1k vs +$11.9k, 2021-26 +$11.4k vs +$8.0k, but 2010-20 +$3.1k vs +$3.4k and
    zero edge +$3.8k vs +$4.1k — it pays only if the dollar rules keep their edge; best of six variants. With all 6 zero-edge seeds the 3 + 2 / 0.75× zero edge is +$4.2k (= current) — leading candidate (A107); but by year it gains in 5/6 years 2021-26 and only 3/11 years 2010-20 (edge-dependent).
-   **Deploy the bot's V2 payout suggestions?** (committed, tested, NOT on the droplet — needs your OK; the live bot still suggests the old rule.)
+   Bot V2 payout suggestions: **deployed 2026-10-21** (§813).
 1. Launch on 3 NKD + 2 FDXM as planned? (Supported by §2 and §3; the demo's losses sit mostly in products the plan drops.)
 2. Keep the dollar rules (A48 trigger at 40 sessions still pending)?
 3. Budget: keep ≈ $4-5k available for evaluation fees before payouts (A67; zero-edge 5% low ≈ −$7.4k).

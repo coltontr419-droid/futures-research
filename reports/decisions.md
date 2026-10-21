@@ -15812,6 +15812,14 @@ consistency; caps $2,000 ×3 then $2,500; min $1,000), so A85's figures stand; G
 Lightning $344 +$6,110 (p10 −$12,408) | +$8,067 (p10 −$7,464) | +$1,501 | +$1,492 / +$1,945; Growth $102 −$3,560 | −$3,596 | −$3,496 |
 −$4,181 / −$3,337. Daily stays: equal 2021-26 mean to Lightning with a far smaller tail and 3× the zero-edge value.
 
+## 813. Bot V2 payout suggestions DEPLOYED (user-approved 2026-10-21) (S10)
+
+**No trial.** `bot/accounts.py` (commit eb26aba; tests pass): funded payout suggestions now follow Tradeify Select Daily V2 — min($1,250,
+2× profit since the last payout, balance − $52,100), shown only when ≥ $250 and the profit since the last payout is > 0; `!payout` records
+the post-payout balance. Droplet: before-image identical to the repo's previous version; backup `/opt/futures-bot/backup-2026-10-21/
+accounts.py`; deployed 2026-10-21 22:10Z, sha256 a0c9861f… matches the repo; service active, Discord connected. Rollback: copy the
+backup over `accounts.py` and restart `futures-bot.service`.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
