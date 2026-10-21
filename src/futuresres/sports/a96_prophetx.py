@@ -160,6 +160,17 @@ def record() -> None:
         time.sleep(max(120.0, 1200 - (time.time() - t0)))
 
 
+def power(q) -> float | None:
+    """Power devig (sensitivity, decisions.md 782): k with q1^k + q2^k = 1; proportional devig over-states long shots."""
+    if not q:
+        return None
+    lo, hi = 0.5, 3.0
+    for _ in range(60):
+        k = (lo + hi) / 2
+        lo, hi = (k, hi) if q[0] ** k + q[1] ** k > 1 else (lo, k)
+    return q[0] ** ((lo + hi) / 2)
+
+
 def analyse() -> dict:
     rows = [json.loads(l) for p in sorted(OUT.glob("*.jsonl")) for l in open(p)]
     last = {}                                                    # closing: last snapshot before the start, per (event, side)
@@ -176,8 +187,9 @@ def analyse() -> dict:
         seen[k] = t; c = last.get(k)
         if not c or c["t"] == r["t"] or dt.datetime.fromisoformat(r["start"].replace("Z", "+00:00")) > dt.datetime.now(UTC):
             continue                                             # not closed yet
-        D = dec(r["odds"]); p = c["pin_p"]
+        D = dec(r["odds"]); p = c["pin_p"]; pw = power(c.get("pin_q"))
         bets.append({"sport": r["sport"], "market": r.get("market", "moneyline"), "size": min(r["risk_avail"], 100.0), "ev_entry": r["ev"], "clv_ev": p * (D - 1) * (1 - FEE) - (1 - p),
+                     "clv_ev_power": (pw * (D - 1) * (1 - FEE) - (1 - pw)) if pw is not None else None,
                      "t": r["t"], "side": r["side"]})
     if len(bets) < 3:
         print(f"closed paper bets so far: {len(bets)}"); return {"bets": len(bets)}
@@ -187,6 +199,9 @@ def analyse() -> dict:
         by[b["sport"]].append(b["clv_ev"])
     weeks = max(1.0, (dt.datetime.fromisoformat(bets[-1]["t"]) - dt.datetime.fromisoformat(bets[0]["t"])).total_seconds() / 604800)
     wk = sum(b["size"] * b["clv_ev"] for b in bets) / weeks
+    pw = [b["clv_ev_power"] for b in bets if b.get("clv_ev_power") is not None]
+    if pw:
+        print(f"sensitivity — power-devig closing-line EV on {len(pw)} bets with raw prices: {st.mean(pw)*100:+.2f}%")
     print(f"paper bets {len(bets)}; mean entry EV {st.mean(b['ev_entry'] for b in bets)*100:+.2f}%, closing-line EV {m*100:+.2f}% (t {t:+.2f}); "
           f"EV $/week {wk:,.0f} | " + ", ".join(f"{k} {len(v)}:{st.mean(v)*100:+.2f}%" for k, v in by.items()))
     res = {"bets": len(bets), "clv_ev": m, "t": t, "usd_week": wk, "by_sport": {k: {"n": len(v), "mean": st.mean(v)} for k, v in by.items()}}
