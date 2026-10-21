@@ -147,3 +147,10 @@ products the launch plan doesn't use.
 - Kalshi vs Pinnacle, days ahead: NCAAF median −2.13% (§785), tennis median −2.27% (198 sides; > +2% only on name collisions with
   tournament-winner markets) — Kalshi's sports books sit on the sharp line everywhere checked. ProphetX is the outlier.
 - K11b retired unrun (§785). K11c / K13 jobs gated: sealed downloads only if discovery carries.
+- K11c closed (§789): cheap props −1.13¢ after costs (522 games); only MLB/WNBA lean positive.
+- Maker side of Kalshi NFL game markets (§790): makers lose vs the pre-game closing price in every size bucket → quoting (incl. fee-free
+  Polymarket US) closed.
+- ProphetX: "totalStake" is resting liquidity, not volume (§788 corrects §786). Soccer "moneyline" there is 2-way (no draw) — not
+  comparable with Pinnacle 1X2 without more mapping; dropped (10 sides).
+- Running (systemd user services): futres-a96 (ProphetX vs Pinnacle paper bets, closing-line value), futres-a97 (ProphetX websocket
+  +EV episodes: lifetime/capacity), futres-a94 (LoL race recordings 10-22 / 10-23).
