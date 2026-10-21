@@ -104,8 +104,8 @@ def snapshot() -> list[dict]:
             continue
         names = list(comp.values()); pz = None
         for me in names:
-            hit = me if (sp, me) in pins else (difflib.get_close_matches(me, keys[sp], 1, 0.85) or [None])[0]
-            other = next(v for v in names if v != me)
+            hit = me if (sp, me) in pins else (difflib.get_close_matches(me, keys[sp], 1, 0.9) or [None])[0] if len(me) >= 8 else None
+            other = next(v for v in names if v != me)                # short names (esports tags) must match exactly
             if hit and difflib.get_close_matches(other, [pins[(sp, hit)]["opp"]], 1, 0.8):
                 pz = {me: pins[(sp, hit)], other: pins[(sp, pins[(sp, hit)]["opp"])]} if (sp, pins[(sp, hit)]["opp"]) in pins else None
                 break
@@ -114,10 +114,11 @@ def snapshot() -> list[dict]:
         base = {"t": now.isoformat(timespec="seconds"), "sport": sp, "px_event": e["id"], "start": e["scheduled"]}
         for x in ms:
             st_ = x.get("subType")
-            if st_ not in ("moneyline", "spread", "total"):
-                continue
-            for side in x.get("selections") or []:
-                for o in side:
+            if st_ not in ("moneyline", "spread", "total") or (sp == "Tennis" and st_ != "moneyline"):
+                continue                                         # ProphetX tennis handicaps/totals are in sets, Pinnacle's in games
+            sides = x.get("selections") or [sd for ln in x.get("marketLines") or [] for sd in ln.get("selections") or []]
+            for side in sides:                                  # spreads / totals keep their offers under marketLines
+                for o in side or []:
                     who = comp.get(o.get("competitorId"), ""); nm_ = (o.get("name") or "").lower(); line = o.get("line")
                     if st_ == "moneyline" and who in pz:
                         p = pz[who]["p"]; key = who

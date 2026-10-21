@@ -15511,7 +15511,9 @@ on the total** ($250k-1.3M per NFL game across all markets). The first recorder 
 which on NFL events can be a touchdown-scorer prop (ProphetX types those "moneyline" too) — now selected by `subType`.
 **Amended:** paper bets also on full-game spreads and totals, only at the line equal to Pinnacle's main line for that side (Pinnacle
 proportional no-vig of that market); everything else in §782 unchanged (EV ≥ 2% after the 2% fee, ≥ $25 behind it, size ≤ $100,
-closing-line EV score, pass rule incl. ≥ 3 of 4 sport groups and ≥ $500 a week). Recorder: ~1.5 s between requests, 60 s pause on a
+closing-line EV score, pass rule incl. ≥ 3 of 4 sport groups and ≥ $500 a week). Tennis spreads/totals excluded (ProphetX's are in sets,
+Pinnacle's in games — a first sweep showed +12…+37% "edges" from that alone); names shorter than 8 characters must match exactly
+(esports tags mis-paired). Recorder: ~1.5 s between requests, 60 s pause on a
 403 (the CDN rate-limits bursts — a second sweep at 0.4 s spacing was refused), events within 4 days, every 20 minutes.
 
 ## 784. A93: Kalshi × Polymarket US player props — gaps are dust or sub-cent; fails §773; closed (S10)
