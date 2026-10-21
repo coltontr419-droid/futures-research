@@ -32,7 +32,7 @@ Four of four positive (refreshed 2026-10-21 with data to 10-20); none significan
 - Limit entries one tick better LOSE to market entries (A92, §769: adverse selection > the saved tick) — keep market entries.
 
 ## Decisions for the review
-0. **V2 payouts (§805-806):** all plan dollar figures are lower; under V2 the mix 2 NKD + 3 FDXM edges out 3 + 2 (2025 +$13.1k vs +$11.9k, p10 +$2.5k vs −$0.1k; 2010-20 +$4.6k vs +$3.4k). Switch? The one-NKD launch is barely changed: 2nd payout median 46 sessions (was 42), cash low median −$837 (A102, §807). 50K stays (100K under V2: zero edge −$2.3k, §808). Payout timing: request the max allowed every eligible day (§809).
+0. **V2 payouts (§805-806; mix settled by paired tests §819: keep 3 + 2):** all plan dollar figures are lower; under V2 the mix 2 NKD + 3 FDXM edges out 3 + 2 (2025 +$13.1k vs +$11.9k, p10 +$2.5k vs −$0.1k; 2010-20 +$4.6k vs +$3.4k). Switch? The one-NKD launch is barely changed: 2nd payout median 46 sessions (was 42), cash low median −$837 (A102, §807). 50K stays (100K under V2: zero edge −$2.3k, §808). Payout timing: request the max allowed every eligible day (§809).
    **Funded stop ≈ 0.7× (§811, §814)?** A108: every factor 0.6-0.9× beats the current 1.0×; 0.7× 2025 +$19.9k (94%), 2021-26 +$13.3k,
    2010-20 +$4.3k vs current +$11.9k / +$8.0k / +$3.4k; **zero edge +$4.8k / +$3.0k vs +$4.2k / +$2.4k — better with or without an edge.** **DEPLOYED 2026-10-21 (§815).** Caveat §817: the zero-edge differences between stop settings are within noise (seed SE ≈ $0.8k), so
    the gain is plausible, not proven; no harm found. Paired test (§818): +$5.3k a run on 2021-26 paths, 90% CI +$2.9k..+$7.4k; 2010-20

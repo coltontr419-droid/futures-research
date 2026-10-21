@@ -15867,6 +15867,13 @@ uncertain; the demo/live record decides. The plan's dollar figures carry several
 +$915, CI −$771 .. +$2,620, 58% better.** Paired, the improvement is clear in the regime the plan targets and neutral-to-positive before
 2021 — firmer than §817's unpaired reading. Model-internal (same simulator, same paths); the live record is the external check.
 
+## 819. A112: keep 3 NKD + 2 FDXM — paired tests show no mix dominates (S10)
+
+**No trial.** `reporting/a112_mix_ci.py` (V2, 0.7× funded stop, paired per start window, 84-session block bootstrap, 90% CI), vs 3 + 2:
+**4 + 1: 2021-26 +$1,270 (−$785 .. +$2,655), 2010-20 −$1,944 (−$2,894 .. −$1,226); 2 + 3: 2021-26 −$1,635 (−$3,026 .. +$453), 2010-20
++$1,982 (+$1,152 .. +$3,067).** Each alternative trades one era against the other; 3 + 2 is the balanced choice. The review's mix
+question (§806) is answered: keep 3 + 2.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
