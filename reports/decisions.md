@@ -15849,6 +15849,17 @@ edge). Mixes at take 1.0 / stop 0.7: 4 + 1 +$23,461 | +$14,544 | +$2,362 | z +$5
 Keep take 1.0 and 3 + 2 (no mix dominates). **Warning:** the drop from take 1.0× to 0.9× (+$19.9k → +$4.3k) is a cliff, not a slope —
 the simulator is very sensitive to the funded bracket size near some threshold; checked next (§817) before relying on §814-815.
 
+## 817. CORRECTION / caveat to §814-816: the funded-bracket differences are within the replay's noise; 0.7× kept (no harm found) (S10)
+
+**No trial.** The take cliff (§816) is live-account money: 2021-26 at stop 0.7×, take 0.90× / 0.95× / 1.00× / 1.05× → live paid $3,785 /
+$8,148 / $8,896 / $8,598 (moves to live 0.84-0.98), funded paid $6.8-10.1k (`a110_cliff.py`). Small funded changes shift when accounts
+reach live, and 84-session live returns hinge on a few big moves; overlapping start windows make the effective sample small. **Zero
+edge on a finer grid (`a110b_cliff_zero.py`, 6 seeds): stop 1.0 / 0.9 / 0.8 / 0.7 / 0.6 → +$4,157 / +$4,320 / +$3,109 / +$4,769 / +$4,017,
+each with a seed range of ~$5k (SE of a 6-seed mean ≈ $0.8k)** — indistinguishable. §814's "better with AND without an edge" overstated
+the zero-edge side. What holds: no measurable harm at zero edge, and every stop 0.6-0.9× beat 1.0× in the edge runs (shared paths, so
+weak evidence). The 0.7× deployment (§815, user-approved) is kept — no downside found, plausible upside — but treat its "+$8k a run" as
+uncertain; the demo/live record decides. The plan's dollar figures carry several-thousand-dollar noise between nearby settings.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

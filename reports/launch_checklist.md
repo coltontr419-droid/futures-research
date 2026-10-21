@@ -28,7 +28,8 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 - [x] **Funded stop = 0.7× the policy's** (bot does it automatically since 2026-10-21, decisions.md 814-815): e.g. NKD $700 / 140 pts.
 
 **What to expect — V2 payouts + funded stop 0.7× as deployed (decisions.md 805-815):** about **+$19,900** a four-month run on 2025
-starts (94% positive), **+$13,300** across 2021-26 starts, +$4,300 in the 2010-20 case; with zero edge about +$4,800 (2021-26 paths). (Under V2, 2 NKD + 3 FDXM edges out
+starts (94% positive), **+$13,300** across 2021-26 starts, +$4,300 in the 2010-20 case; with zero edge about +$4,200-4,800 (2021-26 paths). Nearby settings differ by several thousand dollars in these replays (decisions.md 817) —
+treat the figures as ± that. (Under V2, 2 NKD + 3 FDXM edges out
 3 + 2 — decide at the review, §806.) The older figures below used the wrong payout model and are too high:
 
 **Old figures** (four-month runs; replays with the live rules and one tick of slippage a side; decisions.md 623–635):
