@@ -15895,6 +15895,14 @@ is not a buyer's P&L. Test it at trade level. Actionable without quoting: any me
   2026-10-20 → (download time), ≤ 6,000 sampled (seed 821), once; §664.4; §133 otherwise. Also reported: by legs, in-play share (fill after the first
   leg's event started is not observable — reported by hours before close instead), 35-65¢ and 2-35¢ bands (descriptive).
 
+## 822. A99 / A99b closed: Kalshi's NBA books do not lag ProphetX — pre-match nor in-play (S10)
+
+**No trial.** `sports/a99_pxlead.py`, 2026-10-21 (9 NBA games). **Pre-match:** after ProphetX fair moves (≥ 2 points within 60 s; ~1,000),
+buying Kalshi's stale side loses: median opportunity +3 / +10 / +30 / +60 s = −1.81 / −2.07 / −1.87 / −1.53¢, ≥ 1¢ on only 4-13% → fails
+§804. **In-play (A99b):** 7 "moves" with +11.6¢ median "opportunity" are ProphetX artifacts — its in-play fair whipsaws when offers are
+pulled and reposted (Orlando 0.52 → 0.36 → 0.57 → 0.67 → 0.37 in three minutes, back to ~0.55 two minutes later) while Kalshi barely
+moves. Not information. Closed; service disabled. A98 (Kalshi vs Pinnacle) saw no Pinnacle move ≥ 2 points all day — disabled, inconclusive.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
