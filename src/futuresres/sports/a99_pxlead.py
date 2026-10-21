@@ -46,7 +46,7 @@ def nba_events() -> dict:
     out = {}
     for e in evs:
         st_ = dt.datetime.fromisoformat(e["scheduled"].replace("Z", "+00:00"))
-        if e["tournament"]["name"] != "NBA" or e.get("status") != "not_started" or not dt.timedelta(0) < st_ - now() < dt.timedelta(hours=14):
+        if e["tournament"]["name"] != "NBA" or e.get("status") not in ("not_started", "live") or not -dt.timedelta(hours=4) < st_ - now() < dt.timedelta(hours=14):
             continue
         ms = ((a.get(f"{a.PX}/v2/events/{e['id']}/markets") or {}).get("data") or {}).get("markets") or []; time.sleep(1.5)
         ml = next((m for m in ms if m.get("subType") == "moneyline"), None)
@@ -102,15 +102,16 @@ async def record() -> None:
                     if m.get("event") != "liquidity_change":
                         continue
                     d = json.loads(m["data"]) if isinstance(m["data"], str) else m["data"]; e = E.get(d.get("sport_event_id"))
-                    if not e or d.get("market_id") != e["mid"] or now().isoformat() >= e["start"].replace("Z", "+00:00"):
+                    if not e or d.get("market_id") != e["mid"]:
                         continue
+                    inplay = now().isoformat() >= e["start"].replace("Z", "+00:00")      # A99b (decisions.md 820)
                     for ln in d.get("marketLines") or [{"selections": d.get("selections")}]:
                         for side in ln.get("selections") or []:
                             if side:
                                 b = max(side, key=lambda s: a.dec(s["odds"])); e["best"][b.get("competitorId")] = a.dec(b["odds"])
                     f = fair(e)
                     if f:
-                        log("px", {"event": d["sport_event_id"], "fair": f})
+                        log("px", {"event": d["sport_event_id"], "fair": f, "inplay": inplay})
         except Exception as ex:
             print(f"{now():%H:%MZ} error {ex!r}; restarting", flush=True); await asyncio.sleep(10)
 

@@ -15874,6 +15874,14 @@ uncertain; the demo/live record decides. The plan's dollar figures carry several
 +$1,982 (+$1,152 .. +$3,067).** Each alternative trades one era against the other; 3 + 2 is the balanced choice. The review's mix
 question (§806) is answered: keep 3 + 2.
 
+## 820. A99 extended to IN-PLAY (A99b protocol) before any in-play price is recorded; esports ProphetX vs Kalshi closed (S10)
+
+**No trial.** (1) Outcome-free snapshot, 8 ProphetX LoL/Worlds events vs Kalshi KXLOLGAME (16 sides): Kalshi sits on ProphetX's devigged
+price — best edge +0.2¢ after fee — closed. (2) **A99b:** the A99 recorder keeps ProphetX NBA moneyline updates after the start, tagged
+`inplay`; Kalshi polled every 3 s as before. Readout separate from A99's pre-match one: ProphetX in-play fair moves ≥ 5 points within
+30 s; Kalshi opportunity (new fair − ask − fee / bid − fair − fee) at +3 / +10 / +30 s. Pass: ≥ 20 moves, median at +10 s ≥ +2¢ and
+≥ 2¢ on ≥ 50%. Otherwise closed. A speed race — Kalshi's in-play makers are expected to be fast.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
