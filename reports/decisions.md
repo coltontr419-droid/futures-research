@@ -15531,6 +15531,18 @@ own discovery gate — running both would spend two trials on overlapping sealed
 NCAAF moneylines days ahead vs Pinnacle no-vig (91 sides): median −2.13% (fair minus costs); the large "edges" were cross-date
 event mismatches. Closed.
 
+## 786. Screen: ProphetX's flow is large; quoting it needs its market-maker programme — tabled for the user (S10)
+
+**No trial.** A96's recorder now logs each market's matched stake. Between two sweeps (00:35Z → 00:54Z, a Tuesday evening):
+**$526k matched — NFL spreads $298k, NFL totals $71k, NBA spreads/totals $85k, NFL moneylines $32k** (≈ $1.5 M an hour even if
+the figure counts both sides). Taking stale offers is small (A96: ~$1k a sweep at EV ≥ 2%); quoting against that flow is not.
+But: (1) the public websocket channels carry only best-line / liquidity / score changes — matched wagers are private, so the flow's
+adverse selection (soft vs sharp) cannot be measured from outside; (2) ProphetX's official fee page (v1.3, 2026-10-12) charges 2%
+of net gains on straight trades; its market-maker page offers onboarding (zero-fee high-frequency API per its marketing) by contact
+only. A 2%-fee user quoting at the best price cannot be +EV against zero-fee professional quoters (the books already sit ~0-2%
+from Pinnacle before fees). **Tabled until the user is back:** an approach to ProphetX's market-maker programme (terms, capital,
+API) is the only route; then a shadow quote test with their private fill feed. A96 (taking) keeps recording.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
