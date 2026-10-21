@@ -15609,6 +15609,19 @@ every Pinnacle full-game spread/total line (main and alternate, proportional no-
 spread/total bet is scored at its own line from the last Pinnacle snapshot before the start. Moneylines unchanged. No spread/total
 paper bet had closed when this was written (2026-10-21 ~12:40Z).
 
+## 794. A98 protocol: steam lag — does Kalshi's game-line book lag Pinnacle's moves? (live, no money) (S10)
+
+**No trial; N 1,539. Written BEFORE any price is recorded.** Every book checked sits on Pinnacle's price (§785, §790); the open
+question is TIMING. When Pinnacle moves a moneyline (news, sharp money), Kalshi's market makers must follow; if they lag, Kalshi's
+stale side can be taken. Kalshi game books are deep (tens of millions of contracts a game), so a real lag has capacity.
+- **Recorder** (`sports/a98_steam.py`, ≈ 20 s cadence): Pinnacle guest-API moneylines (proportional no-vig; near-even prices dominate)
+  for NBA / NHL / NFL / NCAAF games starting within 24 h; Kalshi top of book (yes bid/ask) for the matched KXNBAGAME / KXNHLGAME /
+  KXNFLGAME / KXNCAAFGAME markets (one public listing call per series). Both logged with receive times.
+- **Move:** Pinnacle no-vig changes ≥ 2 percentage points between consecutive polls. **Opportunity at +20 / +40 / +60 / +120 s:**
+  new fair − Kalshi ask − fee (up-moves) or Kalshi bid − new fair − fee (down-moves).
+- **Pass (fixed now):** over ≥ 3 days with ≥ 20 moves: median opportunity at +20 s ≥ +1¢ AND ≥ 1¢ on ≥ 50% of moves. Otherwise closed
+  (Kalshi follows Pinnacle within one poll). Trading would need the user's Kalshi API key.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
