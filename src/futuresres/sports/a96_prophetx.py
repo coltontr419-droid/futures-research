@@ -73,7 +73,7 @@ def pinnacle() -> dict:
             spr = novig(sp_[m["id"]], ("home", "away")) if m["id"] in sp_ else None
             tot = novig(to_[m["id"]], ("over", "under")) if m["id"] in to_ else None
             for a, b in (("home", "away"), ("away", "home")):
-                out[(sp, nm[a])] = {"p": pr[a] / s, "opp": nm[b], "start": m["startTime"], "id": m["id"],
+                out[(sp, nm[a])] = {"p": pr[a] / s, "q": (pr[a], pr[b]), "opp": nm[b], "start": m["startTime"], "id": m["id"],
                                     "spread": spr[a] if spr else None, "total": tot}
         time.sleep(0.5)
     return out
@@ -120,8 +120,9 @@ def snapshot() -> list[dict]:
             for side in sides:                                  # spreads / totals keep their offers under marketLines
                 for o in side or []:
                     who = comp.get(o.get("competitorId"), ""); nm_ = (o.get("name") or "").lower(); line = o.get("line")
+                    q_raw = None
                     if st_ == "moneyline" and who in pz:
-                        p = pz[who]["p"]; key = who
+                        p = pz[who]["p"]; key = who; q_raw = pz[who]["q"]   # raw implied (own, other): power-devig sensitivity
                     elif st_ == "spread" and who in pz and pz[who]["spread"] and pz[who]["spread"][0] is not None and float(line) == float(pz[who]["spread"][0]):
                         p = pz[who]["spread"][1]; key = f"{who} {line:+g}"
                     elif st_ == "total" and pz[names[0]]["total"] and nm_[:4] in ("over", "unde"):
@@ -134,7 +135,8 @@ def snapshot() -> list[dict]:
                     D = dec(o["odds"])
                     rows.append({**base, "market": st_, "side": key, "odds": o["odds"], "risk_avail": float(o.get("value") or 0),
                                  "market_stake": float(x.get("totalStake") or 0),          # matched so far (flow = change between sweeps)
-                                 "pin_id": pz[names[0]]["id"], "pin_p": round(p, 4), "ev": round(p * (D - 1) * (1 - FEE) - (1 - p), 4)})
+                                 "pin_id": pz[names[0]]["id"], "pin_p": round(p, 4), "pin_q": [round(x, 5) for x in q_raw] if q_raw else None,
+                                 "ev": round(p * (D - 1) * (1 - FEE) - (1 - p), 4)})
     best = {}                                                    # keep the best-priced offer per (event, market, side)
     for r in rows:
         k = (r["px_event"], r["market"], r["side"])
