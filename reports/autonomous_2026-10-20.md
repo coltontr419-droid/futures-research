@@ -137,3 +137,9 @@ products the launch plan doesn't use.
 - K13 closed (§780). K11c listing now cached on disk (restarts were re-listing MLB forever).
 - Alternate prop rungs vs a Poisson fit to Pinnacle's main line (NBA REB/AST/3PT, 413 rungs): Kalshi tails sit 1-2¢ above Poisson on
   cheap rungs and 2.6-3¢ below on dear ones — the expected sign of over-dispersion, so model-dependent; outcomes (K11c) decide.
+- **LEAD — A96 (§782-783): ProphetX vs Pinnacle.** ProphetX (CFTC DCM, 48 states incl. TX per reviews; 2% of net winnings) has a
+  keyless public order-book API. Snapshots after the 2% fee: a handful of sides +2-8% vs Pinnacle's no-vig (mostly NCAAF underdogs,
+  some NFL favourites), $15-950 behind each; NFL spreads/totals ($250k-1.3M staked a game) near fair so far. Forward paper bets
+  scored on closing-line value now recording (service futres-a96, every 20 min); first evaluation once ≥ 150 bets have closed.
+- A93 closed (§784). Other TX venues: DraftKings Predictions 403, Fanatics Markets and OG behind Cloudflare challenges → skipped
+  (user rule: blocked automated reads).
