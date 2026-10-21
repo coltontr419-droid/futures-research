@@ -154,6 +154,7 @@ async def run() -> None:
                         print(f"{now():%H:%MZ} subscribed {len(subs)} events", flush=True)
                     if time.time() - last_pin > 120:
                         await asyncio.to_thread(b.refresh_pins); b.rejudge(); last_pin = time.time()
+                        print(f"{now():%H:%MZ} tracked sides {len(b.best)}, open +EV episodes {len(b.open)}", flush=True)
                         await ws.send(json.dumps({"event": "pusher:ping", "data": {}}))
                     try:
                         m = json.loads(await asyncio.wait_for(ws.recv(), timeout=30))
