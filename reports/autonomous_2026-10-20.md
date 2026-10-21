@@ -159,3 +159,7 @@ products the launch plan doesn't use.
 - ProphetX NBA player props vs Pinnacle main lines (614 offers): median −6.3%, 3 offers ≥ +2% ($487) → closed.
 - ProphetX alternate spreads/totals vs Pinnacle's own alternate lines (748 offers, NFL/NBA/NHL): median −3.3%, none ≥ +2% → closed.
   ProphetX's softness is confined to a few long-shot moneylines; A96 likely small even if its closing-line value is positive.
+- Reality-TV elimination markets (Big Brother, DWTS, AGT, Love Island): only Aug-Oct on Kalshi, ~1-4 M contracts a month total →
+  seasonal (user rule) → closed without data.
+- Golf matchups (ProphetX vs Pinnacle): Pinnacle had not posted this week's matchups yet — retry before Thursday's round 1.
+- A94 readout script written (`esports/a94_analyse.py`). Review prep refreshed: A91 to 10-20 (D227 weaker), demo 41 tickets.
