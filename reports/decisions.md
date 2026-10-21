@@ -15801,7 +15801,8 @@ only where the deployed rules have an edge (2025, 2021-26) and gives a little ba
 so part of it is selection. Under the old payout model A65 rejected funded scaling. **For the user at the 10-25 review; not adopted.** A107 (`reporting/a107_v2_combo.py`, zero edge on all 6 seeds): 3 + 2 with the
 0.75× funded stop 2025 +$19,143 (95%, p10 +$1,619) | 2021-26 +$11,432 | 2010-20 +$3,065 | **zero edge +$4,194 (≈ current +$4,157)**;
 2 + 3 at 1× +$13,075 / +$7,902 / +$4,568 / +$4,244; 2 + 3 at 0.75× +$14,182 / +$9,188 / +$5,056 / +$3,807. Leading candidate: 3 + 2 with the
-0.75× funded stop (better with the edge, no worse without it except 2010-20 by ~$330).
+0.75× funded stop (better with the edge, no worse without it except 2010-20 by ~$330). **By start year (`a107b_years.py`): the 0.75× stop gains in 5 of 6
+years 2021-26 (2021 −$1,728; 2026 +$14,372) but in only 3 of 11 years 2010-20** — it is a bet that the deployed rules keep their edge.
 
 ## 10. Still outstanding, and blocking
 
