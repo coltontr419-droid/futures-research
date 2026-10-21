@@ -15568,6 +15568,14 @@ maker-route capacity is unknown, and the adverse-selection question remains unan
 (it needs the user and ProphetX's market-maker programme); the "large flow" premise is withdrawn. Also: market ids are per
 market TYPE (shared across events) — A96 keys by (event, market), so its records are unaffected.
 
+## 789. K-family 11c discovery: cheap player props are fairly priced after costs — not carried; closed (S10)
+
+**No trial.** `kalshi/k11c.py` on the full discovery sample (16 series, 60 random events each before 2026-08-20; resumed runs added
+a few extra events): **cheap_YES (20-35¢ mid, buy at the ask) −1.13¢ a contract (522 games, 1,500 markets, t −0.80)** — NBA −4.4¢
+(points −6.7, assists −6.2), NHL −4.4¢, WNBA +4.7¢, MLB +2.9¢ (hits +4.6, HR +7.9, Ks +1.6, TB +0.9), NFL +2.3¢ (rushing yards
++6.7 — the series the idea came from, in-sample; receiving −0.6). Fails the carry rule (pooled t > 1.645 and ≥ 2 positive non-NFL
+sports needed both). The sealed download was not run (job gated). Closed; K11b was retired in its favour (§785).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
