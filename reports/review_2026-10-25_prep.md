@@ -11,11 +11,11 @@ The launch decision rests on one question: **do the deployed rules have an edge,
 ## 2. The deployed rules on unseen data since 2026-09-01 (A91, §768) — the right sign, at research size
 | rule | research | forward (n) | t |
 |---|---|---|---|
-| D171 DAX fades the pound (all) | +7.6 bps | +5.8 (34) | 0.58 |
+| D171 DAX fades the pound (all) | +7.6 bps | +6.5 (35) | 0.67 |
 | D174 DAX follows the dollar index (strong) | +10.9 | +20.5 (14) | 1.66 |
 | D175 DAX fades the Aussie (strong) | +11.3 | +4.4 (10) | 0.26 |
-| D227 NKD follows the euro week (all) | +5.9 | +5.4 (34) | 0.34 |
-Four of four positive; none significant alone after seven weeks. (A48's ticket-level record since deployment: 6 sessions, too few.)
+| D227 NKD follows the euro week (all) | +5.9 | +1.8 (35) | 0.11 |
+Four of four positive (refreshed 2026-10-21 with data to 10-20); none significant alone; D227 (the NKD rule) weakened from +5.4 to +1.8 bps — watch it. (A48's ticket-level record since deployment: 6 sessions, too few.)
 
 ## 3. If the rules had zero edge — the plan still pays (A85/A90, §763-766)
 - 5 × 50K Tradeify Select Daily, 3 NKD + 2 FDXM, $116, live rules, sides randomised: **≈ +$4.6-5.5k per 4-month run** on 2021-26
