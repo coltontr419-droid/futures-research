@@ -178,3 +178,4 @@ products the launch plan doesn't use.
 - Review prep refreshed: A91 deployed rules 4/4 positive to 10-20 but D227 (NKD) weaker (+1.8 bps); demo 41 tickets −$11,065
   (z −1.55), NKD −$2,865, FDXM +$400.
 - Needs the user: ProphetX market-maker programme contact (§786/788) — only if the user wants it; A94 LoL race records 10-22/10-23.
+- Golf matchups: Pinnacle's guest API carries no golf matchups (only single top-N props) — no anchor; closed.
