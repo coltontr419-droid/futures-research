@@ -119,11 +119,11 @@ class Book:
         if evv >= 0.02 and val >= 1:
             if key not in self.open:
                 self.open[key] = {"start": t.isoformat(), "sport": ev["sport"], "market": sub, "side": key[2], "event": key[0], "odds": odds,
-                                  "ev": round(evv, 4), "stake0": val, "stake_min": val}
+                                  "ev": round(evv, 4), "stake0": val, "stake_min": val, "p_start": round(p, 4)}
             else:
                 o = self.open[key]; o["stake_min"] = min(o["stake_min"], val)
         elif key in self.open:
-            o = self.open.pop(key); o.update(end=t.isoformat(), ev_end=round(evv, 4), reason=reason_if_close,
+            o = self.open.pop(key); o.update(end=t.isoformat(), ev_end=round(evv, 4), reason=reason_if_close, p_end=round(p, 4), odds_end=odds,
                                              life_s=(t - dt.datetime.fromisoformat(o["start"])).total_seconds())
             self.log(o)
 
