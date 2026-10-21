@@ -187,3 +187,15 @@ products the launch plan doesn't use.
 - K17 (§797/800) not carried: political favourites a week before resolution, 61 markets, −9.9¢ a week (t −1.36).
 - Fed decision markets: tails at 0-1¢ (nothing to sell); the hold/hike split is CME-anchored ("public data vs liquid market") — closed.
 - Kalshi fee check: almost every non-sports series charges takers only (makers free); Basic API tier 10 writes/s.
+
+### 14. (2026-10-21 late afternoon) Tradeify V2 payout correction and plan re-checks (§805-812)
+- V2 payouts (min($1,250, 2× profit since last payout, above the $2,100 buffer), ≥ $250): plan 2025 +$11.9k (was +$21.3k), 2021-26 +$8.0k
+  (was +$12.0k), zero edge +$4.2k (was +$4.6k). Launch (one NKD to two payouts) barely changed. 50K stays (100K zero edge negative), Daily
+  beats Flex / Lightning / Growth, request every eligible day. Review candidates: 2 NKD + 3 FDXM (§806); funded stop 0.75× (§811, A107:
+  3 + 2 / 0.75× 2025 +$19.1k, zero edge +$4.2k, but edge-dependent by year). Bot payout suggestions fixed for V2 locally (needs deploy OK).
+
+### Search backlog (open)
+- A98 Kalshi lag vs Pinnacle moves, A99 Kalshi lag vs ProphetX moves — evening data (NBA pre-tip); A97 NBA closing-line check tonight.
+- A94 LoL race — 10-22 06:45 CT (EMEA) and 10-23 11:45 CT (Worlds).
+- A96 ProphetX paper bets — running to 150 bets (lead mostly dead: §792, §803).
+- Tabled for the user: ProphetX market-maker programme; Novig (CAPTCHA); GRID esports data (application).
