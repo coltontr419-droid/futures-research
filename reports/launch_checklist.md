@@ -21,9 +21,16 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 - [ ] Dollar rules: keep or revert? (the review's "dollar rules, forward" section; revert if the first 40 rule sessions are negative)
 - [ ] Tradeify's answers above match the models — if any rule differs, have the models re-run before buying.
 - [ ] Rules as modelled (50K Select Daily): **$116 evaluation** (list ~$165 at the standing 30% sale; was $80 until 2026-10, decisions.md 719), target +$3,000, end-of-day trailing drawdown $2,000, evaluation consistency
-  40% (best day ≤ 40% of profit), funded drawdown $2,000 locking at $50,000, payouts daily capped at $1,250, 90% split.
+  40% (best day ≤ 40% of profit), funded drawdown $2,000 locking at $50,000 (officially $50,100), 90% split.
+- [ ] **Payouts — V2 rules (accounts bought after 2026-09-01; decisions.md 805):** each request is at most **min($1,250, 2× the profit
+  since your last payout, balance − the $2,100 buffer)**, minimum $250, profit since the last payout must be > 0. **Request the maximum
+  allowed every day it is ≥ $250** (waiting for bigger requests earns less, decisions.md 809).
 
-**What to expect** (four-month runs; replays with the live rules and one tick of slippage a side; decisions.md 623–635):
+**What to expect — CORRECTED for V2 payouts (decisions.md 805-809):** about **+$11,900** a four-month run on 2025 starts (89% positive),
+**+$8,000** across 2021-26 starts, +$3,400 in the 2010-20 case; with zero edge about +$4,200. (Under V2, 2 NKD + 3 FDXM edges out
+3 + 2 — decide at the review, §806.) The older figures below used the wrong payout model and are too high:
+
+**Old figures** (four-month runs; replays with the live rules and one tick of slippage a side; decisions.md 623–635):
 - about **+$11,000** on average for runs started in 2025 (all positive; bad case about +$3,000); about +$8,000 across all 2021–26 starts
   (86% positive); if the dollar rules stop working, roughly +$5,000 (the 2010–20 case)
 - about **39 evaluations bought** (~$3,100), first move to live around **day 25**, 1–2 moves per four months, about **25 trading days in
