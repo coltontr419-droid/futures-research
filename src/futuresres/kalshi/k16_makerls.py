@@ -1,6 +1,7 @@
 """K-family 16 (decisions.md 796): sell long shots as a maker in Kalshi's non-sports markets — markout of taker-YES fills at <= 20c.
 
-    python -m futuresres.kalshi.k16_makerls download     # public trades of the K15 sample (resumable)
+    python -m futuresres.kalshi.k16_makerls download          # public trades of the K15 discovery sample (resumable)
+    python -m futuresres.kalshi.k16_makerls download-sealed   # the sealed window's trades, only after discovery carried
     python -m futuresres.kalshi.k16_makerls              # discovery (closes before 2026-09-21; decisions.md 799)
     python -m futuresres.kalshi.k16_makerls validate     # sealed 2026-09-21 -> 2026-10-20, once
 """
@@ -32,9 +33,11 @@ def sample() -> list[dict]:
     return [json.loads(l) for l in open(K15 / "candles.jsonl")]
 
 
-def download() -> None:
+def download(sealed: bool = False) -> None:
+    """Discovery markets first; the sealed window only once discovery has carried (decisions.md 796)."""
     DIR.mkdir(parents=True, exist_ok=True); n = 0
-    for i, m in enumerate(sample()):
+    ms = [m for m in sample() if (m["close"] >= SEAL) == sealed]
+    for i, m in enumerate(ms):
         f = DIR / f"{m['ticker']}.json"
         if f.exists():
             continue
@@ -88,4 +91,9 @@ def run(validate: bool) -> dict:
 
 if __name__ == "__main__":
     a = sys.argv[1:2]
-    download() if a == ["download"] else run(a == ["validate"])
+    if a == ["download"]:
+        download()
+    elif a == ["download-sealed"]:
+        download(sealed=True)
+    else:
+        run(a == ["validate"])
