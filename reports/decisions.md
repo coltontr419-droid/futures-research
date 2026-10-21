@@ -15590,6 +15590,17 @@ with Valorant (§778's markout) and the Pinnacle-anchored pricing everywhere on 
 **No trial.** A96's first three closed paper bets are tennis (closing-line EV +7.9%, n = 3 — no inference); tennis is ProphetX's
 largest category (274 events) and year-round. A97 now also streams tennis moneylines (not handicaps/totals: ProphetX's are in sets).
 
+## 792. A96 caveat (no rule change): its tennis "edges" are a proportional-devig artifact on extreme long shots (S10)
+
+**No trial; the §782 pass rule is unchanged and will be applied as registered — this entry is how to read it.** Almost every tennis
+side A96 flags at EV ≥ +2% is a long shot at +600…+4,300 (e.g. +4,000 at 2.4% implied vs Pinnacle 3.15% proportional no-vig).
+Proportional devig spreads Pinnacle's margin evenly, which over-states long shots — most where margins are widest (lower-tier
+tennis, ITF median −12%). A power-devig sensitivity (raw Pinnacle prices logged since ~06:00Z 2026-10-21, `a96_prophetx.power`):
+on the first 6 closed paper bets **closing-line EV +13.3% proportional vs −19.2% power**. Unless that sign survives at n ≥ 150, a
+proportional "pass" would be the method's bias, not an edge — the morning brief and the final A96 verdict report both. A97's
+"pinnacle_moved" endings are mostly Pinnacle shifting its main line (the old line's fair disappears), not Pinnacle moving to
+ProphetX's price; start/end fair prices are now logged to separate the two.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
