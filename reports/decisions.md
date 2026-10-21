@@ -15677,6 +15677,14 @@ Elections 35, Politics 32, Economics 23, Financials 21, Mentions 15, …), which
 (makers +3.64%). Added to K15's universe (and therefore K16's sample); the listing was restarted from scratch (no outcome had been joined
 to any price). Everything else unchanged.
 
+## 799. K15/K16 split amended before any outcome is joined: Kalshi's events listing starts at its history cutoff (S10)
+
+**No trial.** The settled-events listing (`/events?status=settled&min_close_ts=…`) returns nothing closing before 2026-08-15 (two full
+passes: earliest close 2026-08-15T03:59Z; Aug 1.2 k, Sep 2.8 k, Oct 21.7 k markets so far) — older markets live only under
+`/historical/markets`, which has no category. §795's discovery window (06-01 → 08-31) would hold two weeks. **Amended:** discovery =
+closes 2026-08-15 → 2026-09-20; sealed = 2026-09-21 → 2026-10-20 (K15 and K16 alike; K16 imports K15's constants). The discovery
+sample stays ≤ 4,000 markets by event. Everything else unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

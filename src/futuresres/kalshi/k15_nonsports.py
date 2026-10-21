@@ -2,8 +2,8 @@
 
     python -m futuresres.kalshi.k15_nonsports list        # settled events since 2026-06-01 (resumable, cached)
     python -m futuresres.kalshi.k15_nonsports candles     # the 27 h -> 24 h candle per sampled market (resumable)
-    python -m futuresres.kalshi.k15_nonsports             # discovery (closes before 2026-09-01)
-    python -m futuresres.kalshi.k15_nonsports validate    # sealed 2026-09-01 -> 2026-10-20, once
+    python -m futuresres.kalshi.k15_nonsports             # discovery (closes before 2026-09-21; decisions.md 799)
+    python -m futuresres.kalshi.k15_nonsports validate    # sealed 2026-09-21 -> 2026-10-20, once
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[3]
 DIR = ROOT / "data" / "kalshi" / "k15"
 CATS = {"Politics", "Elections", "Economics", "Climate and Weather", "World", "Entertainment", "Science and Technology", "Companies", "Mentions",
         "Health", "Social", "Culture"}
-START, SEAL, END = "2026-06-01", "2026-09-01", "2026-10-21"
+START, SEAL, END = "2026-06-01", "2026-09-21", "2026-10-21"
 
 
 def T(s: str) -> int:

@@ -1,8 +1,8 @@
 """K-family 16 (decisions.md 796): sell long shots as a maker in Kalshi's non-sports markets — markout of taker-YES fills at <= 20c.
 
     python -m futuresres.kalshi.k16_makerls download     # public trades of the K15 sample (resumable)
-    python -m futuresres.kalshi.k16_makerls              # discovery (closes before 2026-09-01)
-    python -m futuresres.kalshi.k16_makerls validate     # sealed 2026-09-01 -> 2026-10-20, once
+    python -m futuresres.kalshi.k16_makerls              # discovery (closes before 2026-09-21; decisions.md 799)
+    python -m futuresres.kalshi.k16_makerls validate     # sealed 2026-09-21 -> 2026-10-20, once
 """
 
 from __future__ import annotations
