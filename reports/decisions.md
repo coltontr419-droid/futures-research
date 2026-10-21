@@ -15637,6 +15637,23 @@ no Pinnacle-style anchor, so a bias could survive there.
   categories. **Sealed:** 2026-09-01 → 2026-10-20, once, carried tests only; §664.4 rule (seed 795); §133 otherwise.
 - **Capacity:** volume in the entry candle and the market's life, per category, reported before any sealed look.
 
+## 796. K-family 16 registered: sell long shots as a MAKER in Kalshi's non-sports markets (zero maker fee) — trade-level markout (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any trade is joined to an outcome.** Becker's Kalshi trade study (gross of fees): makers
++1.12% a contract overall, but Media +3.64%, World Events +3.66%, Entertainment +2.40%, Weather +1.29% (Sports +1.12%, Finance +0.08%);
+the gap is driven by takers buying cheap YES (at 1¢ takers −57%, makers +57%). Kalshi's fee check (2026-10-21): almost every non-sports
+series is fee type `quadratic` — **takers only; makers pay nothing** (2,589 of 2,596 Entertainment, all 143 World, 458 Climate, 2,257 of
+2,264 Politics). So a resting offer that sells cheap YES (= buys NO) in these categories keeps the whole markout. Our own NFL markout
+(§790) was negative — sports flow is informed; the question is whether non-sports flow is not.
+- **Data:** public trades of the K15 universe (§795) markets (same sample), `kalshi/k16_makerls.py`.
+- **Fill = every trade where the TAKER bought YES at ≤ 20¢** (a resting YES-sell / NO-buy filled at that price). Maker P&L a contract =
+  price − (1 if YES else 0); no fee. Also reported: 20-35¢, and by time to close (> 7 d, 1-7 d, 6-24 h, < 6 h — late fills are where
+  news sweeps resting quotes).
+- **Unit:** the event (contract-weighted mean of its fills); t over events. **Discovery:** closes 2026-06-01 → 08-31; carried with
+  t > 1.96, mean > 0, > 0 in ≥ 2 categories. **Sealed:** 2026-09-01 → 10-20, once (seed 796); §664.4; §133 otherwise.
+- **Capacity:** contracts traded at ≤ 20¢ by takers buying YES, per category per week — the pool a quoter could share. Acting needs the
+  user's Kalshi API key (tabled until confirmed).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
