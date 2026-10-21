@@ -179,3 +179,11 @@ products the launch plan doesn't use.
   (z −1.55), NKD −$2,865, FDXM +$400.
 - Needs the user: ProphetX market-maker programme contact (§786/788) — only if the user wants it; A94 LoL race records 10-22/10-23.
 - Golf matchups: Pinnacle's guest API carries no golf matchups (only single top-N props) — no anchor; closed.
+
+### 13. (2026-10-21 afternoon, user back; ≤ 3 runs; desk research alongside)
+- K15 (§795/799/801) not carried: non-sports favourite_YES +2.4¢ (t 1.09), longshot_NO −0.9¢, 24 h out; wide books.
+- K16 (§796/802) not carried: maker long-shot sales −3.0¢ per event (t −2.89) — insurance-seller profile; the trade-weighted maker profits
+  in the literature are one giant market (Sep Fed decision, 46 M contracts).
+- K17 (§797/800) not carried: political favourites a week before resolution, 61 markets, −9.9¢ a week (t −1.36).
+- Fed decision markets: tails at 0-1¢ (nothing to sell); the hold/hike split is CME-anchored ("public data vs liquid market") — closed.
+- Kalshi fee check: almost every non-sports series charges takers only (makers free); Basic API tier 10 writes/s.
