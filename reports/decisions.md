@@ -15523,6 +15523,14 @@ NYK/SAS — fixed after the first game). **14 distinct positive-net pairs; the b
 Polymarket offers; those with real size are +0.5…+0.7¢.** Median net < 1¢ → fails the pass rule. The two venues show near-identical
 prop books (same market makers). Closed.
 
+## 785. K-family 11b retired unrun in favour of K11c; Kalshi NCAAF days ahead is fair (S10)
+
+**No trial.** K11b (§771: buy YES on ≤ 35¢ props, KXNFLTD + KXNFLRSHYDS + KXNHLGOAL, sealed 2026-03-01 → 10-19) was registered but
+never run; its sealed data were never looked at. K11c (§772) tests the same mechanism on a superset of series, year-round, with its
+own discovery gate — running both would spend two trials on overlapping sealed rows. Retired; K11c is the test. Also: Kalshi's
+NCAAF moneylines days ahead vs Pinnacle no-vig (91 sides): median −2.13% (fair minus costs); the large "edges" were cross-date
+event mismatches. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
