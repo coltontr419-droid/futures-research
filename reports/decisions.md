@@ -15543,6 +15543,21 @@ only. A 2%-fee user quoting at the best price cannot be +EV against zero-fee pro
 from Pinnacle before fees). **Tabled until the user is back:** an approach to ProphetX's market-maker programme (terms, capital,
 API) is the only route; then a shadow quote test with their private fill feed. A96 (taking) keeps recording.
 
+## 787. A97 protocol: ProphetX positive-EV offer episodes in real time — capacity and competition for A96 (no money) (S10)
+
+**No trial; N 1,539. Written BEFORE any episode is recorded.** ProphetX's public Pusher websocket (`ws.prophetx.co`, key from its
+public `/pusher/public/connection-config`; channel `public-broadcast-service=1-device_type=1-event={id}`) pushes every liquidity change
+with the line's full current ladder (6 NBA games: 1,433 updates a minute). A96's 20-minute snapshots only see offers that survived;
+A97 measures how much positive-EV stake appears and how fast it is taken.
+- **Recorder** (`sports/a97_pxstream.py`, service futres-a97): subscribes to NFL / NCAAF / NBA / NHL events starting within 3 days
+  (refreshed hourly); full-game moneyline / spread / total market ids from one REST call per event (props share the "total" type);
+  Pinnacle no-vig refreshed every 2 min (same matching and lines as A96, §783). An **episode** = the best back offer on a side has EV ≥
+  +2% after the 2% fee; logged: start, end, odds, stake behind it at start and its minimum, end reason (EV < 2% because the offer was
+  taken / pulled / Pinnacle moved).
+- **Readout** (after ≥ 3 days incl. a weekend): +EV stake appearing per day by sport; median episode lifetime; share of episodes
+  ending in < 10 s (contested). Feeds A96's ≥ $500-a-week capacity criterion — a lifetime of seconds means a bot race, hours means
+  manual-capable. Outcome-free; no trial.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
