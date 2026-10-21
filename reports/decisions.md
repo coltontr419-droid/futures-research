@@ -15798,7 +15798,10 @@ seeds): current (1, 1) 2025 +$11,930 (89%, p10 −$147) | 2021-26 +$7,958 | 2010
 p10 +$1,619) | +$11,432 | +$3,065 | +$3,766**; (1.25, 1) +$12,932 / +$9,202 / +$4,320 / +$2,835; (1.5, 1) +$10,280 / +$6,974 / +$3,653 /
 +$2,245; (1.25, 1.25) +$10,388 / +$9,493 / +$4,851 / +$3,468; (0.75, 0.75) +$2,245 / +$2,831 / +$2,234 / +$1,757. The tighter stop gains
 only where the deployed rules have an edge (2025, 2021-26) and gives a little back without one (2010-20, zero edge); best of six variants,
-so part of it is selection. Under the old payout model A65 rejected funded scaling. **For the user at the 10-25 review; not adopted.**
+so part of it is selection. Under the old payout model A65 rejected funded scaling. **For the user at the 10-25 review; not adopted.** A107 (`reporting/a107_v2_combo.py`, zero edge on all 6 seeds): 3 + 2 with the
+0.75× funded stop 2025 +$19,143 (95%, p10 +$1,619) | 2021-26 +$11,432 | 2010-20 +$3,065 | **zero edge +$4,194 (≈ current +$4,157)**;
+2 + 3 at 1× +$13,075 / +$7,902 / +$4,568 / +$4,244; 2 + 3 at 0.75× +$14,182 / +$9,188 / +$5,056 / +$3,807. Leading candidate: 3 + 2 with the
+0.75× funded stop (better with the edge, no worse without it except 2010-20 by ~$330).
 
 ## 10. Still outstanding, and blocking
 
