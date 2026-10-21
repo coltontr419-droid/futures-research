@@ -15791,6 +15791,15 @@ kind; Daily's brackets kept). Mean net per 84-session run, 3 NKD + 2 FDXM: **Dai
 Flex +$3,914 / +$596 / −$1,148, zero edge −$1,748** (2 + 3: Daily +$13,075 / +$7,902 / +$4,568 / +$4,244; Flex +$3,780 / +$926 / −$744
 / −$1,258). Flex pays too slowly — live paid ~$400 vs ~$4,500. Not re-tuned for Flex (no daily loss limit), but the gap is too wide.
 
+## 811. A106: under V2, a tighter funded stop (0.75×) helps when the rules have an edge — candidate for the review, not adopted (S10)
+
+**No trial.** `reporting/a106_v2_fscale.py` (V2 payouts, 3 NKD + 2 FDXM, $116; funded-stage bracket factors (take, stop); zero edge on 3
+seeds): current (1, 1) 2025 +$11,930 (89%, p10 −$147) | 2021-26 +$7,958 | 2010-20 +$3,391 | zero edge +$4,090; **(1, 0.75) +$19,143 (95%,
+p10 +$1,619) | +$11,432 | +$3,065 | +$3,766**; (1.25, 1) +$12,932 / +$9,202 / +$4,320 / +$2,835; (1.5, 1) +$10,280 / +$6,974 / +$3,653 /
++$2,245; (1.25, 1.25) +$10,388 / +$9,493 / +$4,851 / +$3,468; (0.75, 0.75) +$2,245 / +$2,831 / +$2,234 / +$1,757. The tighter stop gains
+only where the deployed rules have an edge (2025, 2021-26) and gives a little back without one (2010-20, zero edge); best of six variants,
+so part of it is selection. Under the old payout model A65 rejected funded scaling. **For the user at the 10-25 review; not adopted.**
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
