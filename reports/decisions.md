@@ -15831,6 +15831,15 @@ the locked floor between payouts while the 2× rule meters withdrawals. Candidat
 1.0× +$4,157 / +$2,431 (2021-26 / 2010-20 paths)** — better with AND without an edge, i.e. a structural improvement under V2, unlike §811's
 edge-dependent reading of 0.75×. Recommended at the review.
 
+## 815. Funded stop 0.7× DEPLOYED to the bot (user-approved 2026-10-21) (S10)
+
+**No trial.** `bot/ticket.py`: `FUNDED_STOP = 0.7` multiplies the policy's stop (USD, before costs and the room cap) on FUNDED tickets only —
+evaluation and live tickets unchanged; take and contracts unchanged (as A108's `fscale=(1, 0.7)`). Example at $52,500: NKD stop $1,000
+(200 pts) → $700 (140 pts); FDXM $1,000 (89 pts) → $700 (62 pts). Tests: the playbook comparison runs with the factor at 1.0; a new test
+checks the funded scaling and unchanged evaluation tickets (17 passed). Droplet: before-image identical to the repo's previous version;
+backup `/opt/futures-bot/backup-2026-10-21/ticket.py`; deployed 2026-10-21 22:31Z; sha256 952020b3… matches; service active. The demo
+checker (a18) scores each ticket by its own recorded take/stop, so the review statistics stay valid.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

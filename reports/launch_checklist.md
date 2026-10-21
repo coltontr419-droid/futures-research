@@ -25,6 +25,7 @@ Commands below run from the repo folder: `cd ~/futures-research` first (Claude r
 - [ ] **Payouts — V2 rules (accounts bought after 2026-09-01; decisions.md 805):** each request is at most **min($1,250, 2× the profit
   since your last payout, balance − the $2,100 buffer)**, minimum $250, profit since the last payout must be > 0. **Request the maximum
   allowed every day it is ≥ $250** (waiting for bigger requests earns less, decisions.md 809).
+- [x] **Funded stop = 0.7× the policy's** (bot does it automatically since 2026-10-21, decisions.md 814-815): e.g. NKD $700 / 140 pts.
 
 **What to expect — CORRECTED for V2 payouts (decisions.md 805-809):** about **+$11,900** a four-month run on 2025 starts (89% positive),
 **+$8,000** across 2021-26 starts, +$3,400 in the 2010-20 case; with zero edge about +$4,200. (Under V2, 2 NKD + 3 FDXM edges out
