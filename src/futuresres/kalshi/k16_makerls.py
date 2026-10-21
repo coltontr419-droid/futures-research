@@ -47,6 +47,7 @@ def download() -> None:
 def run(validate: bool) -> dict:
     per = collections.defaultdict(lambda: [0.0, 0.0]); cat = collections.defaultdict(lambda: [0.0, 0.0])
     band = collections.defaultdict(lambda: [0.0, 0.0]); ttc = collections.defaultdict(lambda: [0.0, 0.0]); pool = collections.Counter()
+    hold = collections.defaultdict(list)                         # hours from fill to close (capital turnover; descriptive)
     for f in DIR.glob("*.json"):
         d = json.loads(f.read_text())
         if (validate and not SEAL <= d["close"] < END) or (not validate and d["close"] >= SEAL):
@@ -62,13 +63,13 @@ def run(validate: bool) -> dict:
             k = ">7d" if h > 168 else ("1-7d" if h > 24 else ("6-24h" if h > 6 else "<6h"))
             ttc[k][0] += pnl * x["q"]; ttc[k][1] += x["q"]
             per[d["event"]][0] += pnl * x["q"]; per[d["event"]][1] += x["q"]
-            cat[d["cat"]][0] += pnl * x["q"]; cat[d["cat"]][1] += x["q"]; pool[d["cat"]] += x["q"]
+            cat[d["cat"]][0] += pnl * x["q"]; cat[d["cat"]][1] += x["q"]; pool[d["cat"]] += x["q"]; hold[d["cat"]].append(h)
     x = np.array([s / q for s, q in per.values() if q > 0]); n = len(x)
     m = float(x.mean()) if n else float("nan"); t = float(m / (x.std(ddof=1) / np.sqrt(n))) if n > 2 else float("nan")
     res = {"events": n, "mean_per_contract": m, "t": t,
            "by_cat": {c: {"contracts": q, "mean": s / q} for c, (s, q) in cat.items() if q},
            "by_band": {b: s / q for b, (s, q) in band.items() if q}, "by_time_to_close": {k: s / q for k, (s, q) in ttc.items() if q},
-           "pool_contracts": dict(pool)}
+           "pool_contracts": dict(pool), "median_hours_to_close": {c: float(np.median(v)) for c, v in hold.items()}}
     if validate:
         rng = np.random.default_rng(796)
         pct = float((np.array([(x * rng.choice((-1.0, 1.0), n)).mean() for _ in range(2000)]) < m).mean() * 100)
@@ -78,6 +79,7 @@ def run(validate: bool) -> dict:
         res["carried"] = bool(t > 1.96 and m > 0 and sum(v["mean"] > 0 for v in res["by_cat"].values()) >= 2)
     print(f"maker long-shot sale (<= 20c): events {n}, mean {m*100:+.2f}c/contract (event-weighted), t {t:+.2f} | "
           + ", ".join(f"{c[:12]} {v['contracts']:,.0f}:{v['mean']*100:+.1f}c" for c, v in res["by_cat"].items()), flush=True)
+    print("  median hours fill -> close", {c[:12]: round(v, 1) for c, v in res["median_hours_to_close"].items()})
     print("  by band", {k: round(v * 100, 2) for k, v in res["by_band"].items()}, "| by time to close", {k: round(v * 100, 2) for k, v in res["by_time_to_close"].items()},
           ("-> " + res["decision"]) if validate else ("CARRIED" if res["carried"] else "not carried"))
     (ROOT / "reports" / ("k16_validation.json" if validate else "k16_discovery.json")).write_text(json.dumps(res, indent=1) + "\n")
