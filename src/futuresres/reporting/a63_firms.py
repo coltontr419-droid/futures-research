@@ -57,7 +57,7 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
     live_kind, live_n = live_override or F["live"]
     ACC = [f"{m}#{i}" for i, m in enumerate(accounts[: F["max_acc"]])]; MK = {a: a.split("#")[0] for a in ACC}; NA = len(ACC)
     st = {m: {"phase": np.zeros(A, int), "eq": np.full(A, START), "pk": np.full(A, START), "best": np.zeros(A), "days": np.zeros(A, int),
-              "npay": np.zeros(A, int), "cyc": np.zeros(A, int), "cprof": np.zeros(A), "cbest": np.zeros(A), "leq": np.zeros(A), "lpk": np.zeros(A), "lroom": np.full(A, F.get("live_dd", LIVE_DD)), "lalive": np.zeros(A, bool)} for m in ACC}
+              "npay": np.zeros(A, int), "lpay": np.full(A, START), "cyc": np.zeros(A, int), "cprof": np.zeros(A), "cbest": np.zeros(A), "leq": np.zeros(A), "lpk": np.zeros(A), "lroom": np.full(A, F.get("live_dd", LIVE_DD)), "lalive": np.zeros(A, bool)} for m in ACC}
     mode = np.zeros(A, int); cool = np.zeros(A, int); bookpay = np.zeros(A, int)
     if F.get("no_eval"):                                               # A85: Lightning - funded from the start, no evaluation
         for m in ACC:
@@ -162,6 +162,10 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             ok = sim & ev & ~br & (prof >= TGT - 0.005) & (best <= F["cons"] * prof + 0.005) & (a_["days"] >= F["min_days"])
             if kind == "cap":
                 amt = np.where(sim & fu & ~br, np.maximum(eq - (START + buf), 0.0), 0.0); amt = np.minimum(amt, cap)
+            elif kind == "daily":                         # Tradeify Select Daily, official help article (decisions.md 805): above the
+                since = eq - a_["lpay"]                   # buffer, <= cap, <= 2x the profit since the last payout (> 0), >= the minimum
+                amt = np.where(sim & fu & ~br & (since > 0), np.minimum(np.minimum(np.maximum(eq - (START + buf), 0.0), cap), 2.0 * since), 0.0)
+                amt = np.where(amt >= pmin, amt, 0.0)
             elif kind == "cycle":                         # Phidias: a request every N funded days, capped, best day <= cons_f x cycle profit
                 a_["cyc"] = np.where(sim & fu & act, a_["cyc"] + 1, a_["cyc"])
                 a_["cprof"] = np.where(sim & fu, a_["cprof"] + np.where(trade, pnl, 0.0), a_["cprof"])
@@ -189,12 +193,14 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             got = amt > 0
             spl = F["split"] if not isinstance(F["split"], tuple) else np.array(F["split"])[np.minimum(npay, len(F["split"]) - 1)]
             paid_sim += spl * amt; eq -= amt; npay = npay + got; bookpay = bookpay + got
+            a_["lpay"] = np.where(got, eq, a_["lpay"])
             if kind in ("cycle", "growth", "goal"):
                 a_["cyc"] = np.where(got, 0, a_["cyc"]); a_["cprof"] = np.where(got, 0.0, a_["cprof"]); a_["cbest"] = np.where(got, 0.0, a_["cbest"])
             reset = br | ok
             a_["phase"] = np.where(ok, 1, np.where(br, 1 if F.get("no_eval") else 0, a_["phase"]))
             a_["eq"] = np.where(reset, START, eq); a_["pk"] = np.where(reset, START, pk)
             a_["best"] = np.where(reset, 0.0, best); a_["npay"] = np.where(reset, 0, npay); a_["days"] = np.where(reset, 0, a_["days"])
+            a_["lpay"] = np.where(reset, START, a_["lpay"])
             for k in ("cyc", "cprof", "cbest"):
                 a_[k] = np.where(reset, 0, a_[k])
             fees += np.where(br & (d + 1 < window), F["fee"], 0.0)

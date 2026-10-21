@@ -15729,6 +15729,28 @@ Kalshi, Kalshi's stale side (deep books) can be taken after a ProphetX move.
 - **Pass (fixed now):** ≥ 20 moves; median opportunity at +10 s ≥ +1¢ and ≥ 1¢ on ≥ 50% of moves → then a closing-line check (do those
   Kalshi fills beat Pinnacle's close?). Otherwise closed. Trading would need the user's Kalshi API key.
 
+## 805. CORRECTION: Tradeify Select Daily V2 payout rules — the plan's dollar estimates were too high (A100) (S10)
+
+**No trial.** Official help article (help.tradeify.co 12853966, read 2026-10-21) and the user (2026-10-21) for V2 50K accounts (bought
+after 2026-09-01): a request is at most **min($1,250, 2 × the profit since the last payout, balance − the $2,100 buffer)**, ≥ $250, and the
+profit since the last payout must be > 0 (user's example: at $54k, +$500 today → up to $1,000; +$500 on two days → capped at $1,250).
+The A63 simulator's "cap" payout (buffer $2,000, no 2× rule, no minimum) let any payout to $1,250 through above the buffer. New payout kind
+"daily" in `reporting/a63_firms.py` (state: balance after the last payout). `reporting/a100_official_payouts.py`, same setup as A85
+(5 × 50K, 3 NKD + 2 FDXM, $116, live rules), mean net per 84-session run:
+
+| | model so far | **V2 official** |
+|---|---|---|
+| 2025 starts (median, P>0, p10) | +$21,306 (+13,186, 95%, +1,290) | **+$11,930 (+7,800, 89%, −147)** |
+| 2021-26 (P>0) | +$11,988 (76%) | **+$7,958 (74%)** |
+| 2010-20 (P>0) | +$4,791 (72%) | **+$3,391 (68%)** |
+| zero edge 2021-26 / 2010-20 | +$4,582 / +$2,692 | **+$4,157 / +$2,431** |
+| 2021-26 funded paid / live paid / fees | $10,036 / $7,463 / $5,511 | $9,000 / $4,517 / $5,558 |
+
+The 2× rule slows payouts, so accounts reach the 3-payout live move later — most of the loss is live money. The zero-edge value (the
+structural reason the plan pays) drops only ~9%. **Every earlier dollar figure for Select Daily (A60-A92, §625-§770, the launch
+checklist, the review prep) used the old payout model and is too high — the 2025-start headline by ~80%.** Plan choices (5 × 50K, mix,
+live policy) were not re-solved under V2; that is the next check.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

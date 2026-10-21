@@ -18,7 +18,10 @@ The launch decision rests on one question: **do the deployed rules have an edge,
 | D227 NKD follows the euro week (all) | +5.9 | +1.8 (35) | 0.11 |
 Four of four positive (refreshed 2026-10-21 with data to 10-20); none significant alone; D227 (the NKD rule) weakened from +5.4 to +1.8 bps — watch it. (A48's ticket-level record since deployment: 6 sessions, too few.)
 
-## 3. If the rules had zero edge — the plan still pays (A85/A90, §763-766)
+## 3. If the rules had zero edge — the plan still pays (A85/A90, §763-766; **CORRECTED for V2 payouts §805**)
+- **V2 payout rules (min($1,250, 2× profit since last payout, above the $2,100 buffer)):** plan mean per 4-month run 2025 starts
+  **+$11.9k** (was +$21.3k), 2021-26 **+$8.0k** (was +$12.0k), 2010-20 +$3.4k; zero edge **+$4.2k / +$2.4k** (was +$4.6k / +$2.7k).
+  The figures below are the old model's.
 - 5 × 50K Tradeify Select Daily, 3 NKD + 2 FDXM, $116, live rules, sides randomised: **≈ +$4.6-5.5k per 4-month run** on 2021-26
   paths (+$2.7-3.8k on 2010-20); P(net>0) ≈ 71%; cash low median ≈ −$2.6k, 5% ≈ −$7.4k.
 - The planned mix is already near the zero-edge best (NKD×5 +$5.9k; 3+2 +$5.5k; the demo's 5-product mix only +$2.5k).
