@@ -15804,6 +15804,14 @@ so part of it is selection. Under the old payout model A65 rejected funded scali
 0.75× funded stop (better with the edge, no worse without it except 2010-20 by ~$330). **By start year (`a107b_years.py`): the 0.75× stop gains in 5 of 6
 years 2021-26 (2021 −$1,728; 2026 +$14,372) but in only 3 of 11 years 2010-20** — it is a bet that the deployed rules keep their edge.
 
+## 812. Select Daily (V2) still beats Lightning and Growth (S10)
+
+**No trial.** Lightning's official rules (help article 10495932, read 2026-10-21) are as A85 modelled ($3,000 then $2,000 goals; 20/25/30%
+consistency; caps $2,000 ×3 then $2,500; min $1,000), so A85's figures stand; Growth unchanged. Mean net per 84-session run (2025 starts |
+2021-26 | 2010-20 | zero edge 2021-26 / 2010-20): **Daily V2 $116 +$11,930 (p10 −$147) | +$7,958 (p10 −$2,790) | +$3,391 | +$4,157 / +$2,431**;
+Lightning $344 +$6,110 (p10 −$12,408) | +$8,067 (p10 −$7,464) | +$1,501 | +$1,492 / +$1,945; Growth $102 −$3,560 | −$3,596 | −$3,496 |
+−$4,181 / −$3,337. Daily stays: equal 2021-26 mean to Lightning with a far smaller tail and 3× the zero-edge value.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
