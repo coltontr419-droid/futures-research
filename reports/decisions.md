@@ -16536,6 +16536,13 @@ rules or claw back rewards earned by deep far-from-market quotes; quotes near fa
 P(1H tie) ≈ 8%, Pinnacle × 0.92 reproduces Gemini's mids (0.580 × 0.92 = 0.534). Not mispriced; Gemini's quarter/half quoters price the
 tie correctly → G1's mid-anchored quotes sit on a sharp price. Pinnacle prices NFL 1H/1Q (periods 1, 3) but not 2Q-4Q or 2H.
 
+## 891. User redirect (2026-10-22 18:20 CT): no new prediction-market / liquidity-reward leads. Screens: options prop firms (none), expired domains (data blocked) (S11)
+
+**No trial.** Running PM/reward tests (Polymarket §881, Kalshi bot §877, A-LIP2/3, G1) finish as registered; no new ones. (1) Options prop
+firms: none found for US equity/index options — the field is futures/forex/CFD (excluded or declined). (2) Expired-domain resale: NameBio
+and GoDaddy Auctions block automated reads (Cloudflare/403); typical portfolio sell-through ~1-2%/year vs ~$10/name/year renewals — a
+skill-and-capital business. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
