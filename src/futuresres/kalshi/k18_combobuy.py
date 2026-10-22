@@ -26,7 +26,7 @@ D0, SEAL = "2026-10-10", "2026-10-20"
 
 
 def listing() -> list[dict]:
-    """Combos closing in two random one-hour windows a day per series (decisions.md 823), from 2026-10-10 to now."""
+    """Combos closing in two random 5-minute windows a day per series (decisions.md 823-824), from 2026-10-10 to now."""
     f = DIR / "combos.json"
     if f.exists():
         return json.loads(f.read_text())
@@ -35,8 +35,8 @@ def listing() -> list[dict]:
     for s in SERIES:
         d0 = day0
         while d0 < now:
-            for h in rng.sample(range(24), 2):
-                lo = int((d0 + dt.timedelta(hours=h)).timestamp()); hi = lo + 3600
+            for mnt in rng.sample(range(24 * 12), 2):
+                lo = int((d0 + dt.timedelta(minutes=5 * mnt)).timestamp()); hi = lo + 300
                 if hi > now.timestamp():
                     continue
                 cur = None
