@@ -16007,6 +16007,23 @@ public trade tape pays — a structural, public, low-capital rule. Never tested 
 - **Amended before any trade is fetched:** rain series (`KXRAIN*`) are dropped from the universe before sampling — the user excludes
   rain markets. Block trades (`is_block_trade`) never count as the signal.
 
+## 836. A116: a "steady" (keep-accounts-alive) version of the plan loses — the edge does not cover the trading cost at small brackets (S10)
+
+**No trial.** The user asked (2026-10-21) whether the edge should be traded as a steady prop strategy instead of churning evaluations.
+`reporting/a116_steady.py`: brackets (take, stop) x0.5 and x0.33 in BOTH stages (funded stop keeps the 0.7x) vs the deployed policy; V2,
+$116, live rules, 3 NKD + 2 FDXM, paired 84-session block CI.
+
+| | 84 sessions 2021-26 | 252 sessions 2021-26 | 84 s 2010-20 | 252 s 2010-20 | zero edge 252 s (21-26 / 10-20) |
+|---|---|---|---|---|---|
+| deployed | +$13,274 (43.6 evals, paid $18.3k) | +$40,960 (117.8 evals) | +$4,306 | +$13,353 | +$5,011 / +$13,430 |
+| steady x0.5 | −$2,345 (21.2 evals, paid $109) | −$6,306 | −$2,135 | −$5,549 | −$7,540 / −$5,560 |
+| steady x0.33 | −$1,907 (16.4 evals, paid $0) | −$4,910 | −$1,623 | −$4,016 | −$5,635 / −$3,937 |
+
+Every paired CI is far below zero. Why: NKD's smallest contract is $5 × Nikkei (one-session SD ≈ $2,850) against a $2,000 drawdown, and a
+round trip costs ≈ $57; shrinking the brackets shrinks the edge captured per trade but not the cost, so small-bracket trading bleeds to
+the drawdown anyway (still 14-55 evaluations a run) and rarely reaches the $3,000 target. The plan's value is the asymmetric bet (loss
+capped at $116, payouts kept); in 2010-20 it is ALL structure (+$13.4k with or without the edge). The deployed policy stays.
+
 
 ## 10. Still outstanding, and blocking
 
