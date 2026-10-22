@@ -16202,6 +16202,12 @@ for the rest of that day and all of the next — short sales only above the nati
 - **Rules (3):** buy at T close → sell at T+1 open; T close → T+1 close; T+1 open → T+1 close. Cost 0.5% a round trip (liquid filter).
 - **Split:** discovery 2025-07 → 2026-02; sealed 2026-03 → 2026-10. Carry: mean > 0 and t (clustered by day) > 1.96; sealed strict §664.4.
 
+## 854. H-family 1 discovery: LULD reopenings — nothing carried; closed (S11)
+
+**No trial.** 75 discovery events (10 trading days, 2026-09-23 → 10-06; median $187k traded in the first minute after reopening): with the
+move +15m −2.50% (t −0.96), +30m −4.13% (t −1.81); against +15m +0.50% (t −0.16), +30m +2.13% (t +0.81), after 1% costs. A reversal tilt,
+not significant; Yahoo keeps only ~30 days of 1-minute bars, so the sample cannot grow historically. Sealed half unread. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
