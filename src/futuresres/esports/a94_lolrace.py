@@ -91,7 +91,8 @@ class Rec:
         while time.time() < self.end:
             t0 = time.time(); base = now().replace(microsecond=0)
             for g in list(self.games):
-                for back in (0, 10, 20, 30):                # the current window too: no added wait for a frame
+                for back in range(0, 130, 10):              # decisions.md 867: Riot refuses windows that are too recent; poll 0-120 s back so each
+                                                            # frame's first receive time measures its availability delay
                     s = base - dt.timedelta(seconds=back); s = s.replace(second=s.second // 10 * 10)
                     d = get(f"https://feed.lolesports.com/livestats/v1/window/{g}?startingTime={s.strftime('%Y-%m-%dT%H:%M:%SZ')}", timeout=5)
                     rcv = now().isoformat()
@@ -103,7 +104,7 @@ class Rec:
                         self.w("riot", {"game": g, "ts": fr["rfc460Timestamp"], "rcv": rcv, "state": fr["gameState"],
                                         "k": [b["totalKills"], r["totalKills"]], "tw": [b["towers"], r["towers"]], "inh": [b["inhibitors"], r["inhibitors"]],
                                         "bar": [b["barons"], r["barons"]], "drg": [len(b["dragons"]), len(r["dragons"])], "gold": [b["totalGold"], r["totalGold"]]})
-            time.sleep(max(0.0, 1.0 - (time.time() - t0)))
+            time.sleep(max(0.0, 2.0 - (time.time() - t0)))   # 13 windows per game: 2 s cadence
 
     def kalshi(self) -> None:
         last: dict[str, str] = {}

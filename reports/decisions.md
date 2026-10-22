@@ -16295,6 +16295,14 @@ Sealed 2026-03-01 → 10-20, 436 events / 138 days: short open→close **+0.55%*
 short open→next open **+0.62%** (median +0.14%, t +0.55, placebo 72nd) after 1% spread and 0.5-1% borrow, locates not modelled. Discovery's
 −3.2% for longs shrank to a thin, insignificant short edge. Not a lead even with a margin account. Watchlist only (§133 forward rule).
 
+## 867. A94: the 2026-10-22 EMEA recording captured no Riot frames — recorder bug; amended for 10-23 (S10)
+
+**No trial.** `emea_1022`: the game (KXLOLGAME-26OCT220800SLYGAL, Riot game 117173205319911445, ~15:13-15:21Z) and 2,118 Kalshi trades were
+recorded, but `riot.jsonl` is empty: the recorder asked for windows 0-30 s old, and Riot's livestats answers windows that recent with
+400/204 (checked after the fact: a window 60 s old → 400; 15:20:00Z → 45 frames). **Amendment (before the 10-23 recording; analysis rule
+§776 unchanged):** poll windows 0-120 s back every 2 s, so a frame's first receive time measures how late the public feed makes it
+available. If the feed only serves frames ≥ ~40 s after the event, the race cannot be won (Kalshi sweeps within seconds) and A94 closes.
+
 
 ## 10. Still outstanding, and blocking
 
