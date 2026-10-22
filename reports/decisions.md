@@ -16517,6 +16517,9 @@ order within 5¢ of mid scored as size / (2·distance)², floor 1¢); counted on
 through our price (we are best when inside the book; otherwise we join last), held to the contract's result. **Read after the 10-25/26 slate
 settles:** rewards, fill P&L, net, per market type (quarter/half/full); capital = max simultaneous collateral. Flagged as untestable without
 money: actual payment rules (eligibility, per-minute pro-rating, two-sided checks).
+- **Started 2026-10-22 22:53Z** (`futres-g1`, until 2026-10-27 06:00Z). First cycle: 52 of 60 sampled markets quotable; simulated
+  rewards $3.04 per 2 min (≈ $2,200/day on ≈ $5,200 of quotes) — implausibly high, so fills and the unverifiable payment rules decide.
+  Gemini's realised-payout summary (`/liquidity-rewards/summary/daily`) needs an authenticated account (401).
 
 
 ## 10. Still outstanding, and blocking
