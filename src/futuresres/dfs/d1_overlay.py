@@ -78,4 +78,30 @@ def readout() -> None:
 
 
 if __name__ == "__main__":
-    record(float(sys.argv[2])) if sys.argv[1:2] == ["record"] else readout()
+    record(float(sys.argv[2])) if sys.argv[1:2] == ["record"] else (None if sys.argv[1:2] == ["traj"] else readout())
+
+
+def trajectory() -> None:
+    """How much of the shortfall seen 45 / 20 / 10 / 5 minutes out is still there at the last pre-lock snapshot (late-entry risk)."""
+    snaps = collections.defaultdict(list)
+    for l in open(OUT):
+        s = json.loads(l); t = dt.datetime.fromisoformat(s["t"]).timestamp() * 1000
+        for r in s["rows"]:
+            if t <= r["start"]:
+                snaps[r["id"]].append(((r["start"] - t) / 60000, r))
+    out = collections.defaultdict(lambda: [0.0, 0.0, 0])
+    for cid, ss in snaps.items():
+        ss.sort(key=lambda x: x[0]); m_last, last = ss[0]
+        if m_last > 10:
+            continue
+        sf = lambda r: max(0.0, r["prize"] - r["entries"] * r["fee"])
+        for h in (45, 20, 10, 5):
+            early = [x for x in ss if x[0] >= h]
+            if early:
+                e = min(early, key=lambda x: x[0])[1]; out[h][0] += sf(e); out[h][1] += sf(last); out[h][2] += 1
+    for h, (a, b, n) in sorted(out.items(), reverse=True):
+        print(f"  shortfall {h:2} min out ${a:,.0f} → at lock ${b:,.0f} ({b / a:.0%} survives; {n} contests)" if a else f"  {h} min: none")
+
+
+if __name__ == "__main__" and sys.argv[1:2] == ["traj"]:
+    trajectory()
