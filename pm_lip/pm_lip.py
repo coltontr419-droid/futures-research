@@ -131,7 +131,13 @@ def monitor() -> None:
                     cost += abs(float((p.get("cost") or {}).get("value", 0)))
                 except Exception:
                     pass
-            if cost > STOP_USD:
+            orders = c.req("GET", "/v1/orders/open").get("orders", [])
+            filled = sum(float(o.get("cumQuantity") or 0) * (float(o["price"]["value"]) if o.get("intent") == "ORDER_INTENT_BUY_LONG" else 1 - float(o["price"]["value"]))
+                         for o in orders)
+            missing = {o["id"] for o in orders}
+            log(event="orders", n=len(orders), filled_usd=round(filled, 2), ids=sorted(missing))
+            cost = max(cost, filled)
+            if cost > STOP_USD or (orders == [] and (HERE / "placed.flag").exists()):   # all our orders gone = filled or removed: stop
                 log(event="stop", cost=cost); cancel_all(); (HERE / "STOP").write_text("fill stop"); break
         except Exception as e:
             log(event="error", err=str(e)[:300])
