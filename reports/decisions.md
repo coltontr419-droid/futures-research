@@ -15983,6 +15983,13 @@ the house maker; no public real-time data, trading only in the Robinhood app (lo
 account and manual execution, against a professional maker; not pursued. Prediction-market prop firms: still only PropMarket / Funding
 Predicts (parked, §750 and memory: ~$1k/month structural cap, no bots, no overnight).
 
+## 834. Screen: sweepstakes sportsbooks (Fliff and peers) — app-only, winners limited; closed (S10)
+
+**No trial.** Fliff Cash is redeemable in Texas (KYC at first redemption; $50 min, ~$1,000/week and ~$5,000/month caps per review sites).
+The angle would be value-betting its house lines against Pinnacle's no-vig price, but (1) lines are app-only — no public feed to measure
+(same reason Underdog UDX was tabled), and (2) house books limit winning accounts, so capacity is not dependable; sweepstakes betting is also
+being banned state by state. Not pursued.
+
 
 ## 10. Still outstanding, and blocking
 
