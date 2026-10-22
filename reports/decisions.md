@@ -16143,6 +16143,14 @@ SeatGeek needs a client id (403), StubHub/SeatGeek pages block automated reads, 
 cannot be measured without the user's free developer keys, and the access edge (presale codes, Verified Fan) is not measurable from public
 data. Tabled for the user (keys), not pursued unattended.
 
+## 848. Screens: DRIP optional-cash discounts (capital-bound) and classic DFS (needs the user) — closed / tabled (S11)
+
+**No trial.** (1) Discounted optional cash purchases: TELUS moved OCPs to 100% of market (2026-04); Omega's 1% applies to reinvested dividends
+only; remaining plans allow ≤ 3% on ≤ $10,000 a month (more only by waiver). ~1-3% a month on capital → about $6 a month on $200; fails the
+small-start/scale rule. (2) Classic DFS (DraftKings/FanDuel contests) is the only betting-type arena left in Texas outside prediction
+markets; sharp-prop-based projections are the obvious edge but pros already use them, results/ownership are not public, and a test needs
+entered contests on the user's account; close to the user's PrizePicks exclusion. Tabled, not pursued.
+
 
 ## 10. Still outstanding, and blocking
 
