@@ -16229,6 +16229,11 @@ hard-to-borrow small caps: the fee compensates the expected decline; no free fee
 fee capped at the lesser of 25% or $1,000 per claim (Tax Code §34.04(i)), non-attorneys reportedly may not charge, assignments capped at
 125% of the price paid — closed.
 
+## 858. H-family 5 protocol — large opening gap-ups ("gap and go"): buy the open (S11)
+
+**No trial; written BEFORE any H2 daily bar is read.** Mirror of §855: event = open ≥ 1.20 × prior close (first in 10 days per stock), same
+universe / filters / window / survivorship caveat / split. Rules (2): open → close; open → next open. Cost 1.0%. Carry / sealed as §853.
+
 
 ## 10. Still outstanding, and blocking
 

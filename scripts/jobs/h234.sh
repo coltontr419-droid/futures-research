@@ -5,3 +5,4 @@ while systemctl --user is-active -q futres-h2 && ! grep -q "discovery:" logs/h2.
 grep -q "discovery:" logs/h2.log || .venv/bin/python -u -m futuresres.stocks.h2_ssr >> logs/h2.log 2>&1
 .venv/bin/python -u -m futuresres.stocks.h3_gapdown > logs/h3.log 2>&1
 .venv/bin/python -u -m futuresres.stocks.h4_newlistings > logs/h4.log 2>&1
+.venv/bin/python -u -m futuresres.stocks.h5_gapup > logs/h5.log 2>&1
