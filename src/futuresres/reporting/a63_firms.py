@@ -110,6 +110,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
                 W = np.where(fu, np.minimum(W, np.maximum(c_ * g_ - 100.0, 100.0)), W)
             if F.get("fscale"):                               # A65: funded-stage bracket scaling (take, stop factors)
                 W = np.where(fu, W * F["fscale"][0], W); L = np.where(fu, L * F["fscale"][1], L)
+            if F.get("escale"):                               # A114: evaluation-stage bracket scaling (take, stop factors)
+                W = np.where(ev, W * F["escale"][0], W); L = np.where(ev, L * F["escale"][1], L)
             # A75: evaluation / funded accounts may trade sm x the plan's contracts; "price" keeps the price distances ($ x sm, the stop
             # still within the $1,000 daily loss limit)
             scope = {"eval": ev, "funded": fu}.get(F.get("sim_k_where"), np.ones(A, bool))
