@@ -16122,6 +16122,13 @@ phase are sold at the open while the same amount is bought on Kraken at the same
   2026-01-01). **A lead** if ≥ $2,000 a month in BOTH halves at 10% participation; then the deposit / transfer-only timing and inventory
   price risk are checked before anything else. Otherwise closed.
 
+## 845. X3: Coinbase listing openings — the crude gaps were the listing pump; hedged capacity ~$300/month in 2026; closed (S11)
+
+**No trial.** §844 measure, 88 listings with Kraken trades in the same minutes: most minutes are negative after 1.6% of taker fees; capturable
+at 10% participation **2025 (52 listings) $17,414 = $1,877/month, of which RLS alone $13,402 (median per listing $0); 2026 (36) $2,707 =
+$301/month (median $4)**. Fails "≥ $2,000 a month in both halves". The crude +4-27% gaps (§844) were Kraken repricing with Coinbase at
+the open. Closed.
+
 
 ## 10. Still outstanding, and blocking
 

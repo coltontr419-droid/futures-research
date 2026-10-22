@@ -82,4 +82,66 @@ def gaps() -> None:
 
 
 if __name__ == "__main__":
-    listing() if sys.argv[1:2] == ["list"] else gaps()
+    listing() if sys.argv[1:2] == ["list"] else (None if sys.argv[1:2] == ["hedged"] else gaps())
+
+
+def kraken_minutes(base: str, t0: int, t1: int) -> dict:
+    """minute start -> (VWAP, USD volume) of Kraken trades in [t0, t1)."""
+    out, since = {}, t0
+    for _ in range(40):
+        time.sleep(1.1)
+        try:
+            r = get(f"https://api.kraken.com/0/public/Trades?pair={base.replace('BTC', 'XBT')}USD&since={since}")["result"]
+        except Exception:
+            break
+        tr = next(v for k, v in r.items() if k != "last")
+        for x in tr:
+            ts = float(x[2])
+            if t0 <= ts < t1:
+                m = int(ts // 60 * 60); pv, v = out.get(m, (0.0, 0.0)); out[m] = (pv + float(x[0]) * float(x[1]), v + float(x[1]))
+        if not tr or float(tr[-1][2]) >= t1:
+            break
+        since = r["last"]
+    return {m: (pv / v, pv) for m, (pv, v) in out.items() if v > 0}
+
+
+def hedged() -> None:
+    """decisions.md 844."""
+    rows = []
+    for L in listing():
+        day = dt.datetime.fromtimestamp(L["first_day"], dt.timezone.utc)
+        c = []
+        for k in range(5):
+            c += candles(L["id"], day + dt.timedelta(minutes=300 * k), 60, 300)
+        c = sorted(x for x in c if x[5] > 0)
+        if not c:
+            continue
+        t_open = int(c[0][0]); first = [x for x in c if x[0] < t_open + 1800]
+        K = kraken_minutes(L["base"], t_open, t_open + 1800)
+        cap = 0.0; gaps_ = []
+        for x in first:
+            k = K.get(int(x[0]))
+            if not k:
+                continue
+            g = x[4] / k[0] - 1 - FEES; gaps_.append(g)
+            if g > 0:
+                cap += min(0.1 * x[4] * x[5], 0.1 * k[1]) * g
+        if gaps_:
+            rows.append({**L, "open": dt.datetime.fromtimestamp(t_open, dt.timezone.utc).isoformat(), "minutes": len(gaps_), "median_gap": st.median(gaps_),
+                         "max_gap": max(gaps_), "capturable_usd": cap})
+            print(f"{L['base']:8} {rows[-1]['open'][:16]}: matched minutes {len(gaps_):2}, median net gap {st.median(gaps_)*100:+.1f}%, "
+                  f"max {max(gaps_)*100:+.1f}%, capturable at 10% ${cap:,.0f}", flush=True)
+    (ROOT / "reports" / "x3_hedged.json").write_text(json.dumps(rows, indent=0))
+    for half, lo, hi in (("to 2025-12", "2025", "2026-01-01"), ("2026", "2026-01-01", "2027")):
+        q = [r for r in rows if lo <= r["open"] < hi]
+        if not q:
+            continue
+        t0 = min(r["open"] for r in q); t1 = max(r["open"] for r in q)
+        months = max((dt.datetime.fromisoformat(t1) - dt.datetime.fromisoformat(t0)).days / 30.4, 1)
+        tot = sum(r["capturable_usd"] for r in q)
+        print(f"{half}: listings {len(q)}, capturable ${tot:,.0f} over {months:.1f} months = ${tot / months:,.0f}/month; "
+              f"median per listing ${st.median(r['capturable_usd'] for r in q):,.0f}")
+
+
+if __name__ == "__main__" and sys.argv[1:2] == ["hedged"]:
+    hedged()
