@@ -16467,6 +16467,8 @@ sides, conservative queue, fills held to settlement or marked), universe = every
 variant reported apart: no quotes on a market for 6 h after its mid moved ≥ 5¢ within one cycle. Read after ≥ 3 days per film: rewards,
 fill P&L, net; a lead if net > 0 overall and in a majority of films, ≥ $2k/month at a capital the user can scale to.
 A98 paused (no qualifying Pinnacle moves since restart) to keep three runs.
+- **Amended after 2 cycles, before any readout:** universe extended to KXSTREAMERAWARDS (199 markets, $6k/day, target 1,000; winners revealed
+  only at the December 2026 ceremony — the cleanest no-early-information profile found); reported as its own series.
 
 
 ## 10. Still outstanding, and blocking
