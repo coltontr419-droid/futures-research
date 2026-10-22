@@ -16259,6 +16259,13 @@ day trading) and hard-to-borrow locates, so it fails the small-start rule. Seale
 priced with a house margin (the ~90% FMV buyback is the operator's edge) and mystery-box sales face gambling challenges. Not measurable, low
 prior. Closed.
 
+## 862. Screens: Texas unclaimed-property locating (business, 10% fee cap) and shorting gap-ups (needs margin) — tabled / closed (S11)
+
+**No trial.** (1) Locators may charge at most 10% of the recovered value (Property Code §74.507 per secondary summaries); owners can claim
+free; the work is outreach, bulk lists need a Public Information Act request — a service business, not an edge; tabled. (2) Shorting
+≥ 20% gap-ups (the mirror of §860's H5): gross ≈ +2.2% open→next open, minus ~1% spread and ~1% hard-to-borrow fee ≈ +0.2%; needs a margin
+account (≥ $2k) and locates — fails the small-start rule; not registered.
+
 
 ## 10. Still outstanding, and blocking
 
