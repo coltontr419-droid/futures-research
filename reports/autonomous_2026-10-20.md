@@ -240,3 +240,13 @@ Nothing profitable. Closed (decisions.md §836-862):
   unclaimed property (10% cap), horse racing (illegal in TX), sweeps books, Novig/Rothera (login), US Mint/eBay/CS2/Courtyard (blocked).
 - Tabled for the user (need keys/accounts): ticket resale (Ticketmaster/SeatGeek keys), classic DFS (account), retail arbitrage (paid data),
   overnight stock sessions (TWS on), ProphetX MM programme (earlier).
+
+### Tabled items ranked by plausible upside (for the user's morning decision)
+1. **Shorting small-cap gap-ups / SSR names** — the only strongly significant effects tonight (H5 open→next open −3.2%, t −3.2; H2 −0.85%,
+   t −6.0 on the long side) — but needs a margin account (≥ $2k; ≥ $25k to day-trade) and hard-to-borrow locates; after ~1% borrow the
+   gap-up short nets ~+0.2%. Only worth a look if a margin account is acceptable — would need its own registered test with borrow data.
+2. **Classic DFS** (DraftKings/FanDuel; open in TX) — sharp-prop projections from the Pinnacle feed we already read; needs the user's account to
+   see results; competes with pros; close to the PrizePicks exclusion.
+3. **Ticket resale** — needs free Ticketmaster + SeatGeek developer keys to measure face vs resale; the real edge (presale access) is effort.
+4. **ProphetX market-maker programme** (sports exchange) — contact only; prediction-market-like, which the user has deprioritised.
+5. Overnight stock sessions (needs TWS on), unclaimed-property locating (business), retail arbitrage (paid data) — low.
