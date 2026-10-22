@@ -16266,6 +16266,15 @@ free; the work is outreach, bulk lists need a Public Information Act request —
 ≥ 20% gap-ups (the mirror of §860's H5): gross ≈ +2.2% open→next open, minus ~1% spread and ~1% hard-to-borrow fee ≈ +0.2%; needs a margin
 account (≥ $2k) and locates — fails the small-start rule; not registered.
 
+## 863. H-family 6 protocol — S&P SmallCap 600 deletions for size ("no longer representative"): rebound after the forced sale (S11)
+
+**No trial; written BEFORE any price is joined.** Mechanism: index funds tracking the S&P 600 (IJR, VIOO, SLY …) sell a deleted stock at the
+close before the effective date; deletions for size have no buyer index. Events: Wikipedia's "Recent and announced changes" table, removals
+whose reason says "no longer representative" (or equivalent: market cap / size), effective 2023-01-01 → 2026-10-20; acquisitions, spin-offs
+and moves to the S&P 400 excluded. Prices: Yahoo daily (cached in H2 where present, else fetched). **Rules (2):** buy at the close of the
+last trading day BEFORE the effective date; sell at the next close / the close 5 trading days later. Cost 0.5%. Split: discovery effective
+dates before 2025-01-01, sealed from 2025-01-01. Carry / sealed as §853 (t clustered by event date).
+
 
 ## 10. Still outstanding, and blocking
 
