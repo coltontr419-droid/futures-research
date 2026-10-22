@@ -16389,6 +16389,20 @@ strong teams; prizes are lumpy, not a monthly stream. An effort option for the u
 threes 22, rebounds 17, PRA 14, assists 12), i.e. stars only. A props-based projection edge over the field needs contest results (login) to
 measure; projection sites already use sportsbook props. Next with the account: enter small overlay contests at lock (D1) and log results.
 
+## 877. Kalshi LIP post-mortem by series, and a filtered live test (user: "go", 2026-10-22) (S10)
+
+**No trial.** Account reconciled (read-only API): $150 deposit + $41.66 rewards (paid as cash) − $162.07 of contracts that all settled at $0
+− $0.44 fee = $29.15. One fill was not the bots': a manual market order 2026-10-20 01:28Z, 25.13 YES KXRAIN-26OCT19-ABQ @ 46¢ ($12.00).
+Per-series rewards (user's Credits list) vs fill losses: AI share (OpenAI/Google/DeepSeek) +$26.78 / −$80.03; EO week +$3.74 / −$20.00;
+state gas +$1.41 / −$45.33; **Truth Social +$3.51 / −$0.04, Rotten Tomatoes +$3.88 / $0, rain (bot) +$2.34 / −$0.01**; Miami temp, Trump
+actions, soccer $0 / −$5.10. Series whose result is public before the close paid 77% of the rewards and lost $145; series settled by the
+event itself earned $9.73 for ~$0.05.
+**Filtered test (live from 2026-10-22 20:31Z, `kalshi-lip-short` with short.env):** `INCLUDE=KXTRUTHSOCIAL,KXRT,KXRAIN,MENTION` (new
+allow-list), `PULL_CENTS=97` (new: pull and skip a market when the opposite bid moves to ≥ 97¢ after entry), `MAX_FILL_COST=10`,
+`MAX_DAYS=31`, `MIN_LEFT_HOURS=12`, state/log `state_filtered.json` / `lip_log_filtered.jsonl`; code backup `lip_bot.py.bak-2026-10-22`.
+First loop: 6 thin sides, all KXTRUMPMENTIONB (Oct 27), est. $8/day (dry estimates have run high). Read after 3-5 days: rewards vs fill
+cost per series.
+
 
 ## 10. Still outstanding, and blocking
 
