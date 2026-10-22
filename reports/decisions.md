@@ -15990,6 +15990,21 @@ The angle would be value-betting its house lines against Pinnacle's no-vig price
 (same reason Underdog UDX was tabled), and (2) house books limit winning accounts, so capacity is not dependable; sweepstakes betting is also
 being banned state by state. Not pursued.
 
+## 835. K-family 19 registered: follow LARGE takers in Kalshi's non-sports markets — is the tape's informed flow under-priced? (S10)
+
+**No trial at registration; N 1,539. Written BEFORE any trade is fetched.** Why: §790 found takers informed at every size (makers' markout
+negative); §695 found informed sellers fill thin bids at once. If large takers' information is only partly absorbed, copying them from the
+public trade tape pays — a structural, public, low-capital rule. Never tested (K14 followed price MOVES in esports, not trades).
+- **Universe:** K15's settled non-sports listing (same categories), volume ≥ 5,000 contracts. Random sample (seed 835) of 3,000 discovery
+  markets (close 2026-08-14 → 09-20) and 3,000 sealed (09-21 → 10-20). Trades from `/markets/trades` (≤ 20 pages a market).
+- **Signal:** the FIRST taker trade in the market whose taker-side notional (count × taker-side price) ≥ $250, taker-side price 10-90¢, more
+  than 10 minutes before the close.
+- **Entry:** the first trade ≥ 60 s after the signal, at that trade's price for the signal's side + 1¢ slippage + the taker fee; held to
+  settlement. One entry per market. Markets without a later trade are skipped.
+- **Decision (discovery):** carried if mean P&L per contract > 0 and t over close-days > 1.96. **Sealed:** strict §664.4 (t over days >
+  1.645, sign-flip placebo ≥ 95th, posterior > 0 with PRIOR_SD 0.02) → CONFIRM; else WATCHLIST if mean > 0, else REJECT. One trial if
+  validated. Reported, not decided on: $1,000 notional threshold; 300 s lag; by category.
+
 
 ## 10. Still outstanding, and blocking
 
