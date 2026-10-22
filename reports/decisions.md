@@ -15903,6 +15903,13 @@ buying Kalshi's stale side loses: median opportunity +3 / +10 / +30 / +60 s = �
 pulled and reposted (Orlando 0.52 → 0.36 → 0.57 → 0.67 → 0.37 in three minutes, back to ~0.55 two minutes later) while Kalshi barely
 moves. Not information. Closed; service disabled. A98 (Kalshi vs Pinnacle) saw no Pinnacle move ≥ 2 points all day — disabled, inconclusive.
 
+## 823. K18 amended before any trade is fetched: list combos in two random one-hour windows a day (S10)
+
+**No trial.** A full newest-first listing of the four active MVE series (~45k settled combos a day each) would take hours. Amended: per
+series and day from 2026-10-10, two random one-hour close windows (seed 823) via `min_close_ts` / `max_close_ts`; the discovery (10-10 →
+10-19) and sealed (10-20 →) samples of ≤ 6,000 are then drawn from those as registered. KXMVESPORTSMULTIGAMEEXTENDED has no combos after
+2026-10-10 (nothing listed). Everything else in §821 unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

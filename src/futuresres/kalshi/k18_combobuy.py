@@ -26,20 +26,29 @@ D0, SEAL = "2026-10-10", "2026-10-20"
 
 
 def listing() -> list[dict]:
+    """Combos closing in two random one-hour windows a day per series (decisions.md 823), from 2026-10-10 to now."""
     f = DIR / "combos.json"
     if f.exists():
         return json.loads(f.read_text())
-    out = []
+    out, rng = [], random.Random(823)
+    day0 = dt.datetime(2026, 10, 10, tzinfo=dt.timezone.utc); now = dt.datetime.now(dt.timezone.utc)
     for s in SERIES:
-        cur = None
-        while True:
-            d = get(f"/markets?series_ticker={s}&status=settled&limit=1000" + (f"&cursor={cur}" if cur else ""))
-            ms = d.get("markets", [])
-            out += [{"ticker": m["ticker"], "close": m["close_time"], "result": m["result"], "volume": float(m.get("volume_fp") or 0), "series": s}
-                    for m in ms if m.get("result") in ("yes", "no") and float(m.get("volume_fp") or 0) > 0 and m.get("close_time", "") >= D0]
-            cur = d.get("cursor")
-            if not cur or not ms or min(m.get("close_time", "9") for m in ms) < D0:
-                break
+        d0 = day0
+        while d0 < now:
+            for h in rng.sample(range(24), 2):
+                lo = int((d0 + dt.timedelta(hours=h)).timestamp()); hi = lo + 3600
+                if hi > now.timestamp():
+                    continue
+                cur = None
+                while True:
+                    d = get(f"/markets?series_ticker={s}&status=settled&limit=1000&min_close_ts={lo}&max_close_ts={hi}" + (f"&cursor={cur}" if cur else ""))
+                    ms = d.get("markets", [])
+                    out += [{"ticker": m["ticker"], "close": m["close_time"], "result": m["result"], "volume": float(m.get("volume_fp") or 0), "series": s}
+                            for m in ms if m.get("result") in ("yes", "no") and float(m.get("volume_fp") or 0) > 0]
+                    cur = d.get("cursor")
+                    if not cur or not ms:
+                        break
+            d0 += dt.timedelta(days=1)
         print(s, "listed so far", len(out), flush=True)
     f.write_text(json.dumps(out)); return out
 
