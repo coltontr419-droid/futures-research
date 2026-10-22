@@ -16494,6 +16494,18 @@ markets carry most contracts) — a guide, not a test. Live bot INCLUDE now KXRT
 (2) OSS bug bounties: huntr (Palo Alto Networks since 2025-07) moved away from open-source bounties to relieve maintainers of triaging
 report floods; AI-assisted reports are now discounted — crowded, uncertain. Closed.
 
+## 887. LEAD — Gemini Predictions liquidity rewards: $43k/day on NFL markets, most of it on thin quarter/half books (S10)
+
+**No trial.** Public API (no key): `api.gemini.com/v1/prediction-markets/liquidity-rewards/config` (max spread 10¢, min size 10 [docs say
+100 per side], spread exponent 2, floor 0.001) and `/liquidity-rewards/events` (738 events, $51,150/day; Pro Football 432 × $100/day =
+$43,200, avg 3.8 qualifying makers; Bitcoin/XRP/SOL/ETH short-dated contracts ~$5.5k/day). Scoring (docs): per-minute snapshots, order score
+= size / spread², two-sided within 10¢ required, no size cap, paid daily ~5:30 pm ET; makers under a Market Maker Agreement excluded.
+Books (`/v1/book/{symbol}`, 25 sampled NFL reward markets): quarter/half markets mostly one maker at 100/100 and 2-4¢, several EMPTY; full
+games deep (share ≈ 0-2%). Estimated share for our 100-contract two-sided quote at 4¢: median ≈ 50% (100% where empty). ≈ $100 collateral
+per market. Caveats: pool pro-rating per minute, game-start cut-off and fill risk unmeasured; qualifying_maker_count is from the last daily
+scoring (new short BTC contracts show 0 until scored). Texas availability not confirmed (sign-up decides). Pricing anchor: Pinnacle
+quarter/half lines. Needs the user: Gemini account + API key + ~$100-200 test on a few empty/thin quarter markets.
+
 
 ## 10. Still outstanding, and blocking
 
