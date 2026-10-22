@@ -15938,6 +15938,13 @@ $349 attempt +$181 (2021-26) / +$73 (2010-20); zero edge +$143 / +$201**; with $
 lifetime attempts → roughly +$0.5k expected; not material beside the 50K plan. Optional for the user. Also fixed: `a63_firms.simulate`
 had `TGT = …` stranded in a comment by an uncommitted edit (would have broken every run); `dd_f` (separate funded drawdown) kept.
 
+## 828. A114: the evaluation brackets are already right — every scaling is significantly worse (S10)
+
+**No trial.** `reporting/a114_eval_scale.py` (new `escale` in `a63_firms`; V2, funded stop 0.7× as deployed; paired, 84-session block
+bootstrap, 90% CI) — evaluation-stage (take, stop) factor minus the policy: 2021-26 (1, 0.85) −$4,299 (−7,562..−1,132); (1, 0.7) −$6,015
+(−9,508..−2,326); (1.15, 1) −$10,716 (−13,110..−6,907); (0.85, 1) −$9,877 (−13,322..−4,810); 2010-20 −$1,690 / −$2,392 / −$3,598 / −$3,634, all
+CIs below zero. The pass-probability solver's evaluation brackets stay; only the funded stage had slack (§814-818).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
