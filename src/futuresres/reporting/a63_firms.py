@@ -105,6 +105,8 @@ def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=Non
             pk_f = np.maximum(np.clip(np.rint((pk - START) / 100).astype(int), 0, gf["BUF"]), np.clip(b_f, 0, gf["BUF"]))
             a_f = pf[b_f - gf["FMIN"], pk_f, np.minimum(npay, s.live_after), np.zeros(A, int)]
             a = np.where(ev, a_e, a_f); W = (a // 100) * 100.0; L = (a % 100) * 100.0
+            if F.get("fixed"):                                # A117: one fixed (take, stop) per product in every state (Tradeify §6.5)
+                W = np.full(A, float(F["fixed"][MK[m]][0])); L = np.full(A, float(F["fixed"][MK[m]][1]))
             if F.get("kind_goal"):                            # A85: Lightning - a day may not exceed its consistency share of the goal
                 g_ = np.where(npay == 0, F["goals"][0], F["goals"][1]); c_ = np.array(F["cons_goal"])[np.minimum(npay, len(F["cons_goal"]) - 1)]
                 W = np.where(fu, np.minimum(W, np.maximum(c_ * g_ - 100.0, 100.0)), W)

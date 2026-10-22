@@ -16039,6 +16039,25 @@ $22,932 (BTC/ETH daily price contracts, top event $5.9k), Economics $396, Politi
 a month, its sports makers quote off Kalshi (§751). A cross-venue or quoting edge of a few percent on any realistic share cannot reach the
 $2k/month bar. Closed before any measurement.
 
+## 839. A117 + compliance: Tradeify's §6.5 "consistent trading plan" vs the state-dependent policy — a fixed-bracket plan keeps ~25-30% of the value; needs the user (S10)
+
+**No trial.** Tradeify Funded Trader Agreement (tradeify.co/funded-trader-agreement, "Last modified: October 2026"), §6.5: "The Trader must
+adhere to a consistent trading plan in terms of size, stops, and targets, avoiding maximum or larger contract sizes on single trades ...
+maintaining consistent trading sizes ... and demonstrating consistency in the trading plan." §4.4: payouts may be suspended pending review of
+suspected non-compliance with §6 and "are subject to forfeiture"; §6.10 audit at any time; §6.8 microscalping (≥ 50% of profit from trades
+held > 10 s). Help-centre pages (Select specifics) return 403 to automated reads. **Never assessed before.** The bot's policy (`bot/policy.json`)
+uses 72 (take, stop) pairs across evaluation states — most often take $100 / stop $500 (NKD: 4 ticks vs 20), up to take $3,000 / stop $1,000.
+Contract size is constant (1 NKD, 2 FDXM).
+
+`reporting/a117_fixed_brackets.py` (new `fixed` in `a63_firms`): one (take, stop) for both products in every evaluation and funded state, 84
+sessions, V2, paired vs deployed. Best fixed: **2021-26 take $800 / stop $1,000 +$4,218** (deployed +$13,274; −$9,056, CI −13,128..−3,487);
+$1,000 / $1,000 +$2,944; **2010-20 $1,000 / $1,000 +$1,194** (deployed +$4,306); $800 / $1,000 −$990. Small fixed brackets (≤ $500 take) all
+lose. A compliant single-bracket plan keeps roughly a quarter of the modelled value and is near zero in 2010-20.
+
+**For the user (review):** how strictly Tradeify reads §6.5 decides between the policy (more value, payout-review risk) and a fixed or
+few-bracket plan (lower value, safer). Asking Tradeify support whether state-dependent brackets with constant size are acceptable is the
+cheapest resolution. Nothing changed on the bot.
+
 
 ## 10. Still outstanding, and blocking
 

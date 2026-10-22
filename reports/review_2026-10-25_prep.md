@@ -48,3 +48,7 @@ Plan as deployed today — 5 × 50K, 3 NKD + 2 FDXM, $116, live rules, **funded 
 2. Keep the dollar rules (A48 trigger at 40 sessions still pending)? D227 is the weakest.
 3. Budget: keep ≈ $4-5k available for evaluation fees before payouts (A67; cash low 95th pct ≈ −$2.2k on the one-NKD launch).
 4. Watchlist: gold D727/D728 — re-check ~2026-11-20.
+5. **Compliance (new, §839):** Tradeify's agreement §6.5 asks for "a consistent trading plan in terms of size, stops, and targets"; payouts
+   can be withheld and forfeited under review (§4.4). The bot's brackets change with account state (72 pairs, mostly take $100 / stop $500).
+   A single fixed bracket ($800-1,000 take / $1,000 stop) earns ~+$4.2k (2021-26) / ~+$1.2k (2010-20) a run vs the policy's +$13.3k / +$4.3k.
+   Ask Tradeify support before launch whether constant size with state-dependent brackets is acceptable.
