@@ -16521,6 +16521,14 @@ money: actual payment rules (eligibility, per-minute pro-rating, two-sided check
   rewards $3.04 per 2 min (≈ $2,200/day on ≈ $5,200 of quotes) — implausibly high, so fills and the unverifiable payment rules decide.
   Gemini's realised-payout summary (`/liquidity-rewards/summary/daily`) needs an authenticated account (401).
 
+## 889. Screens: other venues' liquidity rewards — none open to us; CFTC advisory 26-23 (S10)
+
+**No trial.** DraftKings' Railbird: market-maker programme with confidential schedules, agreement required. Fanatics Markets: 10% FanCash
+back on trades (promo / store credit — excluded). Underdog Predict (on Crypto.com Derivatives): reportedly no resting orders. ForecastEx LIP
+(effective 2026-09-01) closed earlier (§725). Gemini also runs a trade-based "Titan" pro-football programme (volume rewards — excluded).
+CFTC staff letter 26-23 (2026-08-12) warns exchanges about incentive programmes that reward non-bona-fide activity → venues may tighten
+rules or claw back rewards earned by deep far-from-market quotes; quotes near fair value (G1's design) carry less of that risk.
+
 
 ## 10. Still outstanding, and blocking
 
