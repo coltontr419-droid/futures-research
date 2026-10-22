@@ -15976,6 +15976,13 @@ query texts) and a token from an Auth0 login (`/nbx/v1/auth/hasura_token`); ther
 account; the nearest analogues (ProphetX taking vs Pinnacle §803/825, quoting Kalshi/PM game markets §790) found no edge, so this is not
 worth asking for. Sporttrade's CFTC application (2026-02-04) is still pending → not available in Texas.
 
+## 833. Screens: Robinhood's Rothera exchange; prediction-market prop firms — nothing new; closed (S10)
+
+**No trial.** Rothera (Robinhood × Susquehanna DCM, contracts self-certified from 2026-05-20) carries Robinhood's retail flow with SIG as
+the house maker; no public real-time data, trading only in the Robinhood app (login) — a Kalshi × Rothera gap test would need the user's
+account and manual execution, against a professional maker; not pursued. Prediction-market prop firms: still only PropMarket / Funding
+Predicts (parked, §750 and memory: ~$1k/month structural cap, no bots, no overnight).
+
 
 ## 10. Still outstanding, and blocking
 
