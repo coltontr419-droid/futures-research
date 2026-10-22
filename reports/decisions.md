@@ -16342,6 +16342,12 @@ everyone": overlays are small, late, and in odd contests. Public lobby (`draftki
 every best ask 0.9986-1.0007 and **$0 of depth at ≤ $0.997** (Gemini USDG 0.99 is dust). Discounts with size exist only in depeg crises
 (USDC 2023-03) — a rare event, not a stream; a depeg alert could be kept later. Closed.
 
+## 871. Screen: Texas tax-sale redemption premiums — statutory 25%/50%, but capital-bound and bid away; closed (S11)
+
+**No trial.** Tax Code §34.21: homestead/agricultural owners redeem within 2 years paying the bid + costs + a premium of 25% (first year) or
+50% (second); other property has a shorter period with a 25% premium. Lots need thousands per bid (fails the $100-200 start), unredeemed lots
+leave the buyer with illiquid property and title risk, and sale-day bidding above the minimum shrinks the effective premium. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
