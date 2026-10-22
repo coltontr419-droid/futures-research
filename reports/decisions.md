@@ -16364,6 +16364,7 @@ Timber Wolves "$0.10") or vintage cards whose TCG "market" mixes played-conditio
 ($5-30 buy, 1.15-2× market): 422 cards, naive $2,015 profit on $12.5k capital as a one-off snapshot — before ~8.25% Texas sales tax on
 purchases, per-seller shipping, CK's condition downgrades and promo-stamp mismatches. A few percent per 3-4-week cycle on capital: fails the
 small-start/scale rule. Closed.
+Side screen: textbook buyback arbitrage — BookScouter API needs a key (403), pages block bots → tabled.
 
 
 ## 10. Still outstanding, and blocking
