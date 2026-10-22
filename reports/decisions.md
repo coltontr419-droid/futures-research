@@ -16080,6 +16080,14 @@ broker handling, delayed share credit (~10 trading days).
   reorganisation; Robinhood/tastytrade have deposited fractions instead). Even a passing V1 is a lead only after current broker handling
   is confirmed; retroactive-change risk is reported as the share of events whose terms changed after announcement where visible.
 
+## 841. Screens: US cross-exchange crypto gaps (dust, stale) and spin-off round-ups (none) — closed (S11)
+
+**No trial.** (1) `xarb/x1_snapshot.py`, `x2_record.py`: top of book on every USD pair at Kraken, Binance.US, Bitstamp, Crypto.com, Gemini
+(public endpoints, base-tier taker fees). Large "gaps" are ticker collisions (ONE, LIT); real crossed books: ZIL Crypto.com→Binance.US +19%
+(walking the books: $267 deployable, $26 profit, persistent → transfers likely suspended), GRAM +3.8% ($83, $1.62), ZRC/2Z/USDG +0.2-0.9% on
+$0.01-$13 of size. The same stale gaps sit in every sweep; no new episodes. Venue-wide capturable ≈ $30 once. (2) Spin-off / distribution
+round-ups (EDGAR, 115 documents): the hits are equity-plan and option rounding; one microcap distribution rounds up registered holders only.
+
 
 ## 10. Still outstanding, and blocking
 
