@@ -16303,6 +16303,13 @@ recorded, but `riot.jsonl` is empty: the recorder asked for windows 0-30 s old, 
 §776 unchanged):** poll windows 0-120 s back every 2 s, so a frame's first receive time measures how late the public feed makes it
 available. If the feed only serves frames ≥ ~40 s after the event, the race cannot be won (Kalshi sweeps within seconds) and A94 closes.
 
+## 868. Screen: going-private cash-out reverse splits — ~4 a year; closed (S11)
+
+**No trial.** EDGAR SC 13E3 (2023-01 → 2026-10) with reverse-split cash-out language: 13 companies (Ashford $5.00 under 10,000 shares;
+Mobivity $0.29 under 25,000; Tile Shop, LakeShore +15%, Cyanotech, Mymetics $0.01 …). ~4 events a year; after announcement the market
+trades to the cash-out price; many deals measure holders at the record level (Cede & Co.) so street-name beneficial owners may not be cashed
+out. Even at ~$1k an event per account it is ≈ $300/month. Closed (same family as T1 §732, V1 §843).
+
 
 ## 10. Still outstanding, and blocking
 
