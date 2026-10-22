@@ -226,3 +226,17 @@ products the launch plan doesn't use.
 - Underdog Exchange (UDX, CFTC, July 2026): no public API/fees found; app-only → tabled for the user. Odds aggregators (OpticOdds,
   OddsPapi) need paid keys; ProphetX's direct API is partner-only.
 - Laptop: 2.7 GB RAM, VS Code ~1.5 GB → keep runs light (likely cause of the container restarts).
+
+## 2026-10-21/22 overnight (user redirect: new arenas only; no prediction markets; no Tradeify-plan work)
+Nothing profitable. Closed (decisions.md §836-862):
+- Plan questions answered first: A116 steady small-bracket plan loses (§836); A117 Tradeify §6.5 "consistent trading plan" risk — a fixed
+  bracket keeps ~25-30% of the value; ask Tradeify support (§839, review item 5).
+- Crypto on US KYC'd venues: snapshot gaps dust (§841); Coinbase/Kraken listing openings ~$300-340/month hedged (§845, §850); delisting
+  discounts ≤ $500/month (§846); minute-level Coinbase×Bitstamp $7 in 161 pair-days (§859). Gemini too small (§838).
+- US stocks: reverse-split round-ups ~$40-70/account/month (§843); LULD reopenings nothing (§854); buying SSR days / gap-downs / gap-ups /
+  new listings all lose (§860; the short mirror needs margin + borrow, fails small-start). Literature (Muravyev 2025): microcap anomalies are
+  short-side and vanish after borrow fees.
+- Desk: IPO allocations, bank conversions, DRIP discounts, stock-dividend/spin-off round-ups, odd-lot programs, excess proceeds ($1k cap),
+  unclaimed property (10% cap), horse racing (illegal in TX), sweeps books, Novig/Rothera (login), US Mint/eBay/CS2/Courtyard (blocked).
+- Tabled for the user (need keys/accounts): ticket resale (Ticketmaster/SeatGeek keys), classic DFS (account), retail arbitrage (paid data),
+  overnight stock sessions (TWS on), ProphetX MM programme (earlier).
