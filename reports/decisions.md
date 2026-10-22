@@ -16487,6 +16487,13 @@ YES at 1¢ (what a resting 1¢ YES bid buys), weighted by contracts, against the
 KXTEMPMIAH 0.03%, KXTRUMPAPPROVE 0.49%, KXWORLDNEWSMENTION 0.90%, most state gas 0.00%, KXGOOGSHARE 0.00%. Clustered by market (few
 markets carry most contracts) — a guide, not a test. Live bot INCLUDE now KXRT, KXRAIN, KXSTREAMERAWARDS (mentions dropped).
 
+## 886. Screens: LEGO retirement resale (capital-bound, value data blocked) and open-source bug bounties (AI-report flood) — closed (S11)
+
+**No trial.** (1) LEGO: Brickset gives RRP and launch/exit dates; resale values need BrickLink (bot challenge) or eBay (403); the literature
+(Dobrynskaya & Kishilova 2022) reports ~11%/year for retired sets — capital-bound, slow, storage/selling effort; fails small-start/scale.
+(2) OSS bug bounties: huntr (Palo Alto Networks since 2025-07) moved away from open-source bounties to relieve maintainers of triaging
+report floods; AI-assisted reports are now discounted — crowded, uncertain. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
