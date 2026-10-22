@@ -16151,6 +16151,11 @@ small-start/scale rule. (2) Classic DFS (DraftKings/FanDuel contests) is the onl
 markets; sharp-prop-based projections are the obvious edge but pros already use them, results/ownership are not public, and a test needs
 entered contests on the user's account; close to the user's PrizePicks exclusion. Tabled, not pursued.
 
+## 848b. Screen: Amazon/Walmart retail arbitrage — legit effort business, unmeasurable without paid data; tabled (S11)
+
+**No trial.** Starts at $200-1,000, guides cite 10-20% net margins after fees (clearance markdowns, mostly Walmart); measuring it needs Keepa or
+BrickSeek (paid data plans — excluded) and Amazon/Walmart block automated reads. An effort business rather than an edge we can verify. Tabled.
+
 ## 849. X4 protocol — Kraken new listings of assets already on Coinbase: the §844 measure mirrored (S11)
 
 **No trial. Written before any X4 price is fetched.** Same measure and bar as §844 with the venues swapped: inventory deposited on Kraken
