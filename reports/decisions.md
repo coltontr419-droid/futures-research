@@ -15911,6 +15911,14 @@ series and day from 2026-10-10, two random one-hour close windows (seed 823) via
 2026-10-10 (nothing listed). Everything else in §821 unchanged. **§824 (same day, still before any trade):** windows shortened to 5 minutes
 — a single series settles ~30,000 combos an hour (1,000 in two minutes), so one-hour windows were hundreds of pages.
 
+## 825. A96 retired unevaluated (no trial): ProphetX taking cannot meet its own bar (S10)
+
+**No trial.** At 28 closed paper bets (2026-10-21 20:05 CT): closing-line EV +8.27% proportional — tennis 14 bets +18.0%, NBA 13 −1.2%,
+NHL 1 −4.9%; **power-devig sensitivity −8.1% (20 bets with raw prices)**; expected value of the qualifying stake **$173 a week vs the
+§782 bar of $500**. The tennis gain is the proportional-devig long-shot artifact (§792), the NBA spread/total "edges" were Pinnacle's
+stale lines (§803; at the close −1.6…−2.4%), and the stake behind real-looking offers is a few hundred dollars. Waiting for 150 bets
+could only confirm an artifact; recorder disabled (data kept in data/sports/a96/). The ProphetX taking lead is closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
