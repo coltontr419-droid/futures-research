@@ -16329,6 +16329,9 @@ everyone": overlays are small, late, and in odd contests. Public lobby (`draftki
 - **Readout arithmetic fixed (before any multi-day result):** one account's take = max over k ≤ min(per-user cap, room) of k·prize/(n+k) − k·fee
   (own entries dilute the overlay); the first version overstated it. First slate (UEL soccer 10-22): 9 of 17 guaranteed contests in overlay,
   $322 in total.
+- **Caveats fixed now:** (1) Texas legal status is grey — AG Paxton's 2016 opinion (nonbinding) calls paid DFS likely illegal gambling;
+  DraftKings kept operating in Texas, FanDuel agreed to leave (2016). The user decides before any account. (2) One account per person at
+  DraftKings → no scaling beyond one account. (3) Field-average results assumed; overlay contests may draw strong regulars.
 
 
 ## 10. Still outstanding, and blocking
