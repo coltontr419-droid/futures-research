@@ -72,15 +72,18 @@ def entry(m: dict, usd: float, lag: int) -> float | None:
 
 
 def run(validate: bool) -> dict:
-    rows = [json.loads(l) for l in open(DIR / "trades.jsonl")]
-    rows = [m for m in rows if (m["close"] >= SEAL) == validate]
+    CFG = ((250.0, 60), (1_000.0, 60), (250.0, 300)); rows = []     # streamed: the full trade file does not fit in memory
+    for l in open(DIR / "trades.jsonl"):
+        m = json.loads(l)
+        if (m["close"] >= SEAL) == validate:
+            rows.append({"close": m["close"], "cat": m["cat"], "v": {c: entry(m, *c) for c in CFG}})
 
     def stats(usd: float, lag: int, sub=None) -> tuple:
         day = collections.defaultdict(list); xs = []
         for m in rows:
             if sub and m["cat"] != sub:
                 continue
-            v = entry(m, usd, lag)
+            v = m["v"][(usd, lag)]
             if v is not None:
                 xs.append(v); day[m["close"][:10]].append(v)
         x = np.array(xs); dx = np.array([np.mean(v) for v in day.values()])

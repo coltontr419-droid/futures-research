@@ -16024,6 +16024,14 @@ round trip costs ≈ $57; shrinking the brackets shrinks the edge captured per t
 the drawdown anyway (still 14-55 evaluations a run) and rarely reaches the $3,000 target. The plan's value is the asymmetric bet (loss
 capped at $116, payouts kept); in 2010-20 it is ALL structure (+$13.4k with or without the edge). The deployed policy stays.
 
+## 837. K-family 19 discovery: copying large takers loses — not carried; closed (S10)
+
+**No trial.** `kalshi/k19_whales.py` (§835): 3,000 discovery markets, 859 entries — **−0.94¢ a contract, t over days −1.79 → not carried**.
+Reported only: $1,000 signal −1.54¢ (n 156); 300 s lag −1.08¢ (t −1.98). By category: weather −7.9¢ (t −2.57), mentions −4.1¢ (t −2.35),
+Science & Technology +14.1¢ (t +2.88, n 48), others within ±1.3 t — one of nine reported splits positive at that level is what chance
+gives; not followed up. Large takers' information is priced by the next trade. Sealed sample (3,000 markets) left unread. The readout now
+streams the 242 MB trade file (the first run was killed for memory).
+
 
 ## 10. Still outstanding, and blocking
 
