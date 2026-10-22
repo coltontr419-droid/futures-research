@@ -16458,6 +16458,16 @@ Higher-collateral markets were skipped: books whose best offer is 1¢ cannot hol
 KXWORLDNEWSMENTION (resolving today) rewards $41.10 / fills −$46.59 (89); KXTRUMPMENTION (multi-week) $16.63 / +$0.24 (33); KXRT $3.63 / 0;
 KXRAINONT $1.02 / 0. Without same-day mentions ≈ $21 in 72 min. Nothing settled yet; the 3-day readout (§878) decides.
 
+## 883. A-LIP3 protocol — shadow quoting on ALL Kalshi Rotten Tomatoes rewards markets (the largest event-settled pool) (S10)
+
+**No trial. Written before any A-LIP3 quote is simulated.** Kalshi rewards 2026-10-22: $389k/day across 7,222 programmes; KXRT $19.9k/day
+across 232 markets (19 films; e.g. "Hexed score above 70 on Nov 30", $100/day per market, target 1,000, discount 0.5). Scores are unknown
+until reviews appear, then fill in publicly (information arrives gradually). Same simulation as §878 (100 contracts at the best bid on both
+sides, conservative queue, fills held to settlement or marked), universe = every active KXRT programme, cycle 120 s; plus a **pull rule**
+variant reported apart: no quotes on a market for 6 h after its mid moved ≥ 5¢ within one cycle. Read after ≥ 3 days per film: rewards,
+fill P&L, net; a lead if net > 0 overall and in a majority of films, ≥ $2k/month at a capital the user can scale to.
+A98 paused (no qualifying Pinnacle moves since restart) to keep three runs.
+
 
 ## 10. Still outstanding, and blocking
 
