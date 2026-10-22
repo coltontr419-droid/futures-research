@@ -16191,6 +16191,17 @@ Yahoo 1-minute bars (only the last ~30 calendar days exist). Cash-account friend
   units) → CONFIRM. Each carried rule validated is a trial.
 - **Capacity read** if confirmed: median 1-min dollar volume after resumption.
 
+## 853. H-family 2 protocol — the short-sale restriction (Rule 201) day: does a stock that triggered SSR drift up while it applies? (S11)
+
+**No trial at registration; written BEFORE any price is fetched.** Mechanism: a ≥ 10% intraday drop from the prior close triggers Rule 201
+for the rest of that day and all of the next — short sales only above the national best bid, a mechanical cut in selling pressure.
+- **Universe:** Nasdaq screener's current US common stocks (6,956), price ≥ $1 and 20-day median dollar volume ≥ $1M at the event.
+  **Survivorship caveat:** current listings only — stocks delisted after a crash are missing, which biases bounces UP; mitigated by a short
+  recent window and judged against that bias (a pass must survive excluding events within 60 days of the window end).
+- **Event:** day T low ≤ 0.90 × prior close (first trigger in 10 days per stock). Window 2025-07-01 → 2026-10-20 (Yahoo daily).
+- **Rules (3):** buy at T close → sell at T+1 open; T close → T+1 close; T+1 open → T+1 close. Cost 0.5% a round trip (liquid filter).
+- **Split:** discovery 2025-07 → 2026-02; sealed 2026-03 → 2026-10. Carry: mean > 0 and t (clustered by day) > 1.96; sealed strict §664.4.
+
 
 ## 10. Still outstanding, and blocking
 
