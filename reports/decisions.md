@@ -16281,6 +16281,14 @@ dates before 2025-01-01, sealed from 2025-01-01. Carry / sealed as §853 (t clus
 date → next close −1.33% (median −2.33%, t −0.80), → +5 closes −1.62% (median −2.26%, t −0.52), after 0.5%. Index-fund selling is absorbed
 without a tradeable overshoot. Sealed half unread. Closed.
 
+## 865. H-family 5s protocol — SHORT ≥ 20% gap-ups, tested once on H5's unread sealed half (for the user's margin-account decision) (S11)
+
+**Written BEFORE H5's sealed half (2026-03-01 → 10-20) is read.** Motivated by §860 (buying gap-ups lost −3.2%, t −3.3 in discovery); the
+short side was not registered then, so this is a fresh protocol tested once on sealed data. Outside the small-start rule (margin account
+≥ $2k; overnight holds are not day trades). Event as §858. **Rules (2):** short the open → cover at the close (a day trade: needs $25k under
+PDT); short the open → cover at the next open. Costs: 1.0% spread/slippage + hard-to-borrow fee 1.0% for the overnight rule (0.5% intraday).
+Strict §664.4 on the sealed half → CONFIRM / WATCHLIST / REJECT; one trial each. Locate availability is NOT modelled (optimistic).
+
 
 ## 10. Still outstanding, and blocking
 
