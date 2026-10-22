@@ -213,3 +213,7 @@ products the launch plan doesn't use.
 - ProphetX × Kalshi NFL prop arbitrage (367 pairs, over/under vs ladder, both fees): best −1.9% → none.
 - Old combo calibration decomposed: the 65-95¢ "buyer edge" (last-price) is sports combos (2-leg +8.5¢), crypto negative — K18 tests it at
   trade level (listing running).
+- Favourite buyers at 80-95¢, non-sports, trade level (K16 discovery data, 593 events): event-weighted −3.75¢ (t −2.90), 79% of events
+  positive — the mirror image of K16 (rare large losses); contract-weighted gains are the Sep Fed market again. Weather flat (+0.5¢). Closed.
+- Review prep rewritten cleanly (deployed state, V2 table, four open decisions).
+- K18 (combo buyers, trade level) downloading: 39,903 combos listed via 5-minute windows (§823-824); 10,044 sampled.
