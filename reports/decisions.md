@@ -16443,6 +16443,15 @@ a 0.1¢ YES bid is rounded to $0 and a 99.9¢ offer to 99¢ — so filling an em
 top-up sits ~97¢ from the best offer (≈ zero weight under a Kalshi-like formula). No order placed. Options for the user: ask Polymarket
 support for the scoring rules first; or a one-market test at ~$75; or stop.
 
+## 881. Polymarket US incentive test LIVE: one market, $79.28 (user: "run it with $75, or $80") (S10)
+
+**No trial.** 2026-10-22 21:53Z, market `aachc-cfb-2026-11-28-mostpassyds-niciam` (FBS passing-yards leader prop; pool $27/day, target 7,500):
+no bids before us; best offer 2¢ (offers 7,072). Orders (maker-only, GTC): YES bid 7,500 @ 1¢ (exchange shows 7,479) = $75.00; NO top-up
+428 @ YES 0.99 = $4.28. Account $80 ($30 deposits + $50 bonus). Within minutes the public bid side showed 19,479 @ 1¢ — another quoter
+joined (our share ≈ 38%). Monitor `pm-lip-monitor.service` (droplet, /opt/pm-lip, log pm_lip_log.jsonl): every 5 min balances, positions,
+activities, open orders; cancels all if fills cost > $15 or our orders vanish. Read rewards (activities / balance) after 1-3 days.
+Higher-collateral markets were skipped: books whose best offer is 1¢ cannot hold a 1¢ bid (it would cross) — why their bid sides are empty.
+
 
 ## 10. Still outstanding, and blocking
 
