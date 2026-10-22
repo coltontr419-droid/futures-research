@@ -16452,6 +16452,12 @@ joined (our share ≈ 38%). Monitor `pm-lip-monitor.service` (droplet, /opt/pm-l
 activities, open orders; cancels all if fills cost > $15 or our orders vanish. Read rewards (activities / balance) after 1-3 days.
 Higher-collateral markets were skipped: books whose best offer is 1¢ cannot hold a 1¢ bid (it would cross) — why their bid sides are empty.
 
+## 882. A-LIP2 interim (72 min, not the verdict): same-day mention markets pick off quotes; slower series keep their rewards (S10)
+
+**No trial; interim.** Shadow (§878) 2026-10-22 ~20:55-22:07Z: rewards $62.37; fills marked −$46.36 → +$16.01. By series:
+KXWORLDNEWSMENTION (resolving today) rewards $41.10 / fills −$46.59 (89); KXTRUMPMENTION (multi-week) $16.63 / +$0.24 (33); KXRT $3.63 / 0;
+KXRAINONT $1.02 / 0. Without same-day mentions ≈ $21 in 72 min. Nothing settled yet; the 3-day readout (§878) decides.
+
 
 ## 10. Still outstanding, and blocking
 
