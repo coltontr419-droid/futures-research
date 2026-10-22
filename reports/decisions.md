@@ -16074,6 +16074,11 @@ broker handling, delayed share credit (~10 trading days).
 - **Read:** qualifying events a month; median and total profit per account a month; dollars a month at 10 and 20 accounts. **A lead** if
   ≥ $2,000 a month at ≤ 20 accounts in both halves of the year (10-2025→03-2026, 04→10-2026) — then broker handling is checked before anything
   else. Otherwise closed.
+- **Added before any price is fetched (desk check):** SIFMA's Dec-2025 issuer best practice makes cash-in-lieu the default; the revRSS
+  tracker's author stopped in Nov 2024 after manipulation probes (shareholder-count jumps before splits) and retroactive switches from
+  round-up to cash-in-lieu that left SHORT positions in traders' accounts; broker handling varies (Fidelity free; some charge $38-50 a
+  reorganisation; Robinhood/tastytrade have deposited fractions instead). Even a passing V1 is a lead only after current broker handling
+  is confirmed; retroactive-change risk is reported as the share of events whose terms changed after announcement where visible.
 
 
 ## 10. Still outstanding, and blocking
