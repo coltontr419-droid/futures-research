@@ -16004,6 +16004,8 @@ public trade tape pays — a structural, public, low-capital rule. Never tested 
 - **Decision (discovery):** carried if mean P&L per contract > 0 and t over close-days > 1.96. **Sealed:** strict §664.4 (t over days >
   1.645, sign-flip placebo ≥ 95th, posterior > 0 with PRIOR_SD 0.02) → CONFIRM; else WATCHLIST if mean > 0, else REJECT. One trial if
   validated. Reported, not decided on: $1,000 notional threshold; 300 s lag; by category.
+- **Amended before any trade is fetched:** rain series (`KXRAIN*`) are dropped from the universe before sampling — the user excludes
+  rain markets. Block trades (`is_block_trade`) never count as the signal.
 
 
 ## 10. Still outstanding, and blocking
