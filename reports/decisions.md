@@ -15919,6 +15919,14 @@ NHL 1 −4.9%; **power-devig sensitivity −8.1% (20 bets with raw prices)**; ex
 stale lines (§803; at the close −1.6…−2.4%), and the stake behind real-looking offers is a few hundred dollars. Waiting for 150 bets
 could only confirm an artifact; recorder disabled (data kept in data/sports/a96/). The ProphetX taking lead is closed.
 
+## 826. K-family 18 discovery: combo buyers at 65-95¢ are not under-charged — not carried; closed (S10)
+
+**No trial.** `kalshi/k18_combobuy.py`, discovery (combos closing 2026-10-10 → 10-19, 6,000 sampled from 5-minute windows; only 152 had a
+taker-YES fill at 65-95¢): **buyer P&L −4.76¢ a contract per combo (t −1.36), t over 10 settlement days −0.16** — not carried. Contract-
+weighted the band is +6.7¢ (a few large wins; 1-6 h before close +10.9¢, > 6 h +20.0¢, < 1 h +0.9¢) — the same per-event-loss /
+volume-weighted-gain split as K16. §742's "buyers +4-5¢" came from last prices weighted by whole volume. Closed; the sealed download
+was stopped (no sealed look).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -218,3 +218,4 @@ products the launch plan doesn't use.
 - Review prep rewritten cleanly (deployed state, V2 table, four open decisions).
 - K18 (combo buyers, trade level) downloading: 39,903 combos listed via 5-minute windows (§823-824); 10,044 sampled.
 - ProphetX soccer as draw-no-bet vs Pinnacle 1X2 (power devig, 22 sides): median −3.0%, none ≥ +2% → closed.
+- CME event contracts (S&P ADV ~85k/day, Jan 2026): would need the user's own futures-broker account — conflicts with the Tradeify-only rule for futures-exchange trading → dropped without data.
