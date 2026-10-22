@@ -15945,6 +15945,14 @@ bootstrap, 90% CI) — evaluation-stage (take, stop) factor minus the policy: 20
 (−9,508..−2,326); (1.15, 1) −$10,716 (−13,110..−6,907); (0.85, 1) −$9,877 (−13,322..−4,810); 2010-20 −$1,690 / −$2,392 / −$3,598 / −$3,634, all
 CIs below zero. The pass-probability solver's evaluation brackets stay; only the funded stage had slack (§814-818).
 
+## 829. A115 registered: funded stop factor per product (NKD vs FDXM) under V2 — paired vs the deployed 0.7× for both (S10)
+
+**No trial** (plan tuning on the same simulator). `reporting/a115_stop_by_product.py` (new `fscale_by` in `a63_firms`): (NKD, FDXM) funded stop
+factors (0.7, 1.0), (1.0, 0.7), (0.6, 0.8), (0.8, 0.6) minus (0.7, 0.7); V2, $116, live rules, mix 3 NKD + 2 FDXM, 84-session windows,
+paired block bootstrap 90% CI, both eras. **Change rule (fixed now):** recommend a per-product stop only if its 2021-26 CI is wholly above
+zero AND its 2010-20 mean is ≥ 0; otherwise the uniform 0.7× stays. Any change goes to the user for approval before the bot is touched.
+
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
