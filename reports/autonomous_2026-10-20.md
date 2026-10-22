@@ -217,3 +217,4 @@ products the launch plan doesn't use.
   positive — the mirror image of K16 (rare large losses); contract-weighted gains are the Sep Fed market again. Weather flat (+0.5¢). Closed.
 - Review prep rewritten cleanly (deployed state, V2 table, four open decisions).
 - K18 (combo buyers, trade level) downloading: 39,903 combos listed via 5-minute windows (§823-824); 10,044 sampled.
+- ProphetX soccer as draw-no-bet vs Pinnacle 1X2 (power devig, 22 sides): median −3.0%, none ≥ +2% → closed.
