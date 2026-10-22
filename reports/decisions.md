@@ -16470,6 +16470,14 @@ A98 paused (no qualifying Pinnacle moves since restart) to keep three runs.
 - **Amended after 2 cycles, before any readout:** universe extended to KXSTREAMERAWARDS (199 markets, $6k/day, target 1,000; winners revealed
   only at the December 2026 ceremony — the cleanest no-early-information profile found); reported as its own series.
 
+## 884. Filtered LIP bot: a Truth Social bucket was dumped into our 1¢ bid (−$10); Truth Social counts are public in real time → excluded (S10)
+
+**No trial.** 2026-10-22 22:14Z: 1,000 YES @ 1¢ on KXTRUTHSOCIAL-26OCT24-B209 (200-219 posts) filled ($10.00) while the 240+ bucket traded
+97-98¢ — the running count had already passed the bucket; the §877 pull rule could not fire (the opposite side was already ≥ 97¢ at entry).
+Truth Social post counts are observable during the period, like the data-release series of §877; its earlier +$3.51 was luck. INCLUDE now
+KXRT, KXRAIN, MENTION, KXSTREAMERAWARDS (Streamer Awards added 22:24Z: winners revealed only at the December ceremony). fill_cost = $10.00
+= MAX_FILL_COST (the next fill stops the bot). Account effect: −$10 of the $29.15.
+
 
 ## 10. Still outstanding, and blocking
 
