@@ -16336,6 +16336,12 @@ everyone": overlays are small, late, and in odd contests. Public lobby (`draftki
   Side screens: FanDuel's lobby API needs a login (401); Splash Sports is mostly pick'em/survivor pools (excluded) with no open lobby.
   Lock state = last snapshot ≤ 10 min before start (contests seen only earlier, e.g. during a recorder restart, are dropped).
 
+## 870. Screen: stablecoins below par with 1:1 redemption — none with depth; event-only (S11)
+
+**No trial.** 2026-10-22 14:40 CT, ask books for USDC, USDT, PYUSD, USDG, RLUSD, DAI, USD1, USDS on Bitstamp, Gemini, Crypto.com, Binance.US:
+every best ask 0.9986-1.0007 and **$0 of depth at ≤ $0.997** (Gemini USDG 0.99 is dust). Discounts with size exist only in depeg crises
+(USDC 2023-03) — a rare event, not a stream; a depeg alert could be kept later. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
