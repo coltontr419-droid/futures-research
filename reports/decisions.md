@@ -16234,6 +16234,13 @@ fee capped at the lesser of 25% or $1,000 per claim (Tax Code §34.04(i)), non-a
 **No trial; written BEFORE any H2 daily bar is read.** Mirror of §855: event = open ≥ 1.20 × prior close (first in 10 days per stock), same
 universe / filters / window / survivorship caveat / split. Rules (2): open → close; open → next open. Cost 1.0%. Carry / sealed as §853.
 
+## 859. X5: minute-level Coinbase vs Bitstamp gaps — $7 of capacity in 161 pair-days; stopped early, closed (S11)
+
+**No trial.** §851 measure, stopped after 161 pair-days (2026-01-11 and most of 01-14, 99 pairs) because the answer cannot change: capturable
+at volume-tier fees (0.8% combined) **$7 in total** (largest single pair-day $2), at base tier $1; liquid pairs (BTC, ETH, SOL, DOGE …) had
+no minute beyond either fee level. Even 100× for volatile days ≈ $350 a month as an upper bound with simultaneous-close optimism. US KYC'd
+crypto cross-venue arbitrage is closed (§841, §845, §846, §850, §859).
+
 
 ## 10. Still outstanding, and blocking
 
