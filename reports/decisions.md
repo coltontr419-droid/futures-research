@@ -16374,6 +16374,12 @@ fill trajectory: 22% of the shortfall seen 20 min out survives to lock, 44% of 1
 single-entry (cap 1). One account at field-average ≈ $24 so far. Pinnacle publishes NBA player props (92 live) → props-based DFS projections
 are buildable if the overlay base justifies it.
 
+## 875. Screen: data-science prize competitions (DrivenData/Kaggle) — skill contests, sporadic, compute-bound; tabled (S11)
+
+**No trial.** DrivenData's listing: one active prize competition (GEMS geothermal faults, $300,000, 699 joined, ends 2026-12-03); the others
+are closed or practice. Kaggle's list API needs the user's key. Winning needs ML work and GPU compute (this laptop: 2.7 GB RAM) against
+strong teams; prizes are lumpy, not a monthly stream. An effort option for the user, not a measured edge. Tabled.
+
 
 ## 10. Still outstanding, and blocking
 
