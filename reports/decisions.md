@@ -16433,6 +16433,16 @@ create API keys at polymarket.us/developer (docs quickstart). Texas not on the r
 live test: the scoring formula (a spread-from-midpoint limit would kill 1¢ quotes), payout per market, fill risk on season-long props.
 Needs the user: Polymarket US account (KYC) + API key; a ~$150 live test on a few empty markets for 2-3 days.
 
+## 880. §879 corrected: the Polymarket US incentive list is 100 markets (pages repeat), ≈ $3.2k/day; 1¢ tick blocks a $20 test (S10)
+
+**No trial.** `/v1/incentives` returns the SAME 100 markets on every page (page 2 = page 1), so §879's "20,000 markets / ≈ $345k of pools"
+was the duplicate count; real: **100 markets, ≈ $3,233 of active pools** (mostly CFB season props, $27 each, target 7,500). Book states
+(100 markets): 64 two-sided, **35 with no bids** (offers 3.5-6.2k, below target), 1 timeout. Account (user's, key on the droplet
+/opt/pm-lip/.env, auth OK): $70 buying power ($20 deposit + $50 bonus). Order preview (`/v1/order/preview`): these markets trade in 1¢ —
+a 0.1¢ YES bid is rounded to $0 and a 99.9¢ offer to 99¢ — so filling an empty bid side costs 7,500 × 1¢ = $75 (> $70), and a 1¢ NO
+top-up sits ~97¢ from the best offer (≈ zero weight under a Kalshi-like formula). No order placed. Options for the user: ask Polymarket
+support for the scoring rules first; or a one-market test at ~$75; or stop.
+
 
 ## 10. Still outstanding, and blocking
 
