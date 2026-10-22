@@ -125,6 +125,7 @@ def monitor() -> None:
             for a in new:
                 seen.add(json.dumps(a, sort_keys=True)); log(event="activity", a=a)
             pos = c.req("GET", "/v1/portfolio/positions"); log(event="snapshot", balances=b, positions=pos)
+            log(event="earnings", e=c.req("GET", "/v1/incentives/earnings"))
             cost = 0.0
             for p in (pos.get("positions") or {}).values() if isinstance(pos.get("positions"), dict) else (pos.get("positions") or []):
                 try:
