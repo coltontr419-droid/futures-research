@@ -16208,6 +16208,12 @@ for the rest of that day and all of the next — short sales only above the nati
 move +15m −2.50% (t −0.96), +30m −4.13% (t −1.81); against +15m +0.50% (t −0.16), +30m +2.13% (t +0.81), after 1% costs. A reversal tilt,
 not significant; Yahoo keeps only ~30 days of 1-minute bars, so the sample cannot grow historically. Sealed half unread. Closed.
 
+## 855. H-family 3 protocol — large opening gap-downs in liquid US stocks: does the open overshoot? (S11)
+
+**No trial; written BEFORE any of H2's daily bars are read** (H3 reuses them). Same universe, filters, window, survivorship caveat and
+split as §853. **Event:** open ≤ 0.85 × prior close (first in 10 days per stock). **Rules (2):** buy the open → sell the close; buy the
+open → sell the next open. Cost 1.0% a round trip (wide spreads on gappers at the open). Carry / sealed exactly as §853.
+
 
 ## 10. Still outstanding, and blocking
 
