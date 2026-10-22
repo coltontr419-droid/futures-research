@@ -16088,6 +16088,15 @@ broker handling, delayed share credit (~10 trading days).
 $0.01-$13 of size. The same stale gaps sit in every sweep; no new episodes. Venue-wide capturable ≈ $30 once. (2) Spin-off / distribution
 round-ups (EDGAR, 115 documents): the hits are equity-plan and option rounding; one microcap distribution rounds up registered holders only.
 
+## 842. Screens (new arenas, desk): IPO allocations, stock-dividend round-ups, US Mint flips, CS2 cash markets, bank conversions, horse racing — closed (S11)
+
+**No trial.** IPO allocations (Robinhood/SoFi): flipping inside 30 days bans access (Robinhood 60 days); fills are random, small and largest
+on weak deals (winner's curse); no allocation data → cannot reach the bar. Stock-dividend round-ups (EDGAR, 237 companies scanned): one real
+case (OTC microcap); the rest are warrant/conversion/rights-plan wording. US Mint limited releases: sold-price sources (eBay, 130point, PCGS,
+usmint.gov) all 403 → skipped. CS2 item cash markets: DMarket and CSFloat need a login; Skinport alone is not cash-to-cash. Mutual-bank
+conversions: 3-12 deals a year, Tier 1 prorated by deposits held 1-2 years before the record date → capital-bound, long lead. Online
+pari-mutuel wagering: illegal for Texas residents (track/simulcast only; TwinSpires ordered out in 2026).
+
 
 ## 10. Still outstanding, and blocking
 
