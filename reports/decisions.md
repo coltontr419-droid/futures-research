@@ -15927,6 +15927,17 @@ weighted the band is +6.7¢ (a few large wins; 1-6 h before close +10.9¢, > 6 h
 volume-weighted-gain split as K16. §742's "buyers +4-5¢" came from last prices weighted by whole volume. Closed; the sealed download
 was stopped (no sealed look).
 
+## 827. A113: Tradeify Select 300K (V2) — small positive value per attempt, 3 per lifetime → about +$0.5k; optional (S10)
+
+**No trial.** Official 300K article (16497699, read 2026-10-21): V2 300K accounts are held **on top of** the 5 standard funded accounts
+(up to 8 sim funded), 3 purchases per lifetime (failures count), no resets; evaluation $349, target $14,000, EOD drawdown $8,000, daily
+loss $4,000, 40% consistency, min 3 days; funded Daily: drawdown $6,000 (locks at $300,100 once at $306,100), buffer $6,100, ≤ $4,000 a day,
+50% of each payout new profit (= the 2× rule), no consistency, 90% split. `reporting/a113_300k.py` (quarter-size virtual account ×4 —
+the full policy solve is ~5 M states a step, too big for 2.7 GB; one NKD account, 252 sessions, no live phase modelled): **value per
+$349 attempt +$181 (2021-26) / +$73 (2010-20); zero edge +$143 / +$201**; with $6,000 for the evaluation too (pessimistic) −$103. Three
+lifetime attempts → roughly +$0.5k expected; not material beside the 50K plan. Optional for the user. Also fixed: `a63_firms.simulate`
+had `TGT = …` stranded in a comment by an uncommitted edit (would have broken every run); `dd_f` (separate funded drawdown) kept.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

@@ -53,7 +53,7 @@ def bracket_mfe(h, l, c, W, L):
 
 def simulate(common, P, window: int, accounts: tuple, F: dict, live_override=None) -> dict:
     s = F.get("spec") or a23.specs()["50K Daily"]; pe, ge, _, pf, gf, _ = a23.policy(s)
-    S = len(common); starts = np.arange(0, S - window); A = len(starts); ddE = ddF = F.get("dd", 2_000.0); TGT = F.get("target", 3_000.0)
+    S = len(common); starts = np.arange(0, S - window); A = len(starts); ddE = F.get("dd", 2_000.0); ddF = F.get("dd_f", ddE); TGT = F.get("target", 3_000.0)   # A113: dd_f = a separate funded drawdown (300K)
     live_kind, live_n = live_override or F["live"]
     ACC = [f"{m}#{i}" for i, m in enumerate(accounts[: F["max_acc"]])]; MK = {a: a.split("#")[0] for a in ACC}; NA = len(ACC)
     st = {m: {"phase": np.zeros(A, int), "eq": np.full(A, START), "pk": np.full(A, START), "best": np.zeros(A), "days": np.zeros(A, int),
