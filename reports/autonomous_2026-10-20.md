@@ -219,3 +219,10 @@ products the launch plan doesn't use.
 - K18 (combo buyers, trade level) downloading: 39,903 combos listed via 5-minute windows (§823-824); 10,044 sampled.
 - ProphetX soccer as draw-no-bet vs Pinnacle 1X2 (power devig, 22 sides): median −3.0%, none ≥ +2% → closed.
 - CME event contracts (S&P ADV ~85k/day, Jan 2026): would need the user's own futures-broker account — conflicts with the Tradeify-only rule for futures-exchange trading → dropped without data.
+- A96 retired unevaluated (§825): $173/week at face value vs a $500 bar; tennis gain is the devig artifact (power −8.1%).
+- K18 not carried (§826): combo buyers at 65-95¢ −4.76¢ per combo (152 combos); §742's buyer edge was a last-price artifact.
+- A113 Select 300K V2 (§827): held on top of the 5-account cap, 3 per lifetime; ≈ +$180 per $349 attempt (2021-26), +$73 (2010-20) → ~+$0.5k
+  total; optional. Fixed a broken line in a63_firms.simulate (TGT stranded in a comment).
+- Underdog Exchange (UDX, CFTC, July 2026): no public API/fees found; app-only → tabled for the user. Odds aggregators (OpticOdds,
+  OddsPapi) need paid keys; ProphetX's direct API is partner-only.
+- Laptop: 2.7 GB RAM, VS Code ~1.5 GB → keep runs light (likely cause of the container restarts).
