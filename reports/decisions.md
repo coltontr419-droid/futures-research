@@ -16289,6 +16289,12 @@ short side was not registered then, so this is a fresh protocol tested once on s
 PDT); short the open → cover at the next open. Costs: 1.0% spread/slippage + hard-to-borrow fee 1.0% for the overnight rule (0.5% intraday).
 Strict §664.4 on the sealed half → CONFIRM / WATCHLIST / REJECT; one trial each. Locate availability is NOT modelled (optimistic).
 
+## 866. H-family 5s sealed: shorting ≥ 20% gap-ups — positive but not significant → WATCHLIST ×2 (t01540, t01541); N 1,539 → 1,541 (S11)
+
+Sealed 2026-03-01 → 10-20, 436 events / 138 days: short open→close **+0.55%** (median −0.09%, t +0.70, placebo 76th, posterior +0.47%);
+short open→next open **+0.62%** (median +0.14%, t +0.55, placebo 72nd) after 1% spread and 0.5-1% borrow, locates not modelled. Discovery's
+−3.2% for longs shrank to a thin, insignificant short edge. Not a lead even with a margin account. Watchlist only (§133 forward rule).
+
 
 ## 10. Still outstanding, and blocking
 
