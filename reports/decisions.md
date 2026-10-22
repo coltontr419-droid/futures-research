@@ -16241,6 +16241,18 @@ at volume-tier fees (0.8% combined) **$7 in total** (largest single pair-day $2)
 no minute beyond either fee level. Even 100× for volatile days ≈ $350 a month as an upper bound with simultaneous-close optimism. US KYC'd
 crypto cross-venue arbitrage is closed (§841, §845, §846, §850, §859).
 
+## 860. H-families 2-5 discovery: buying small-cap stress (SSR days, gap-downs, gap-ups, new listings) loses — nothing carried; closed (S11)
+
+**No trial.** Yahoo daily bars for 6,574 current US listings (2025-07 → 2026-02 discovery; liquid filter ≥ $1, 20-day median ≥ $1M):
+- H2 SSR (≥ 10% intraday drop), 6,934 events / 167 days: close→next open −0.39% (t −2.07), close→next close −0.78% (t −4.62), next open→close
+  −0.85% (t −6.02).
+- H3 gap-down ≥ 15%, 669: open→close −1.51% (t −1.85), open→next open −1.36% (t −1.38).
+- H4 new listings, 352: day-1 open→close −0.88% (t −0.72), day-2 −2.55% (t −3.07), day-1→day-5 close −3.48% (t −1.48).
+- H5 gap-up ≥ 20%, 508: open→close −3.21% (t −3.33), open→next open −3.22% (t −3.20).
+All after costs and despite survivorship bias in their favour. (The "excl. last 60 days" check is moot in discovery.) The mirror images
+(short gap-ups / SSR names) are the known "short the gappers" trade — not registered, and it needs a margin account (≥ $2k; $25k for pattern
+day trading) and hard-to-borrow locates, so it fails the small-start rule. Sealed halves unread. Closed.
+
 
 ## 10. Still outstanding, and blocking
 

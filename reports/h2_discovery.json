@@ -1,0 +1,5 @@
+{
+ "close->next open": false,
+ "close->next close": false,
+ "next open->next close": false
+}
