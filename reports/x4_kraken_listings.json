@@ -1,0 +1,392 @@
+[
+{
+"pair": "AEROUSD",
+"base": "AERO",
+"cb": "AERO-USD",
+"first": 1741188596,
+"minutes": 1,
+"median_gap": 0.024068205559079972,
+"max_gap": 0.024068205559079972,
+"capturable_usd": 0.3649686907049681
+},
+{
+"pair": "AIOZUSD",
+"base": "AIOZ",
+"cb": "AIOZ-USD",
+"first": 1752242461,
+"minutes": 17,
+"median_gap": -0.012721320823792834,
+"max_gap": -0.006284821085976708,
+"capturable_usd": 0.0
+},
+{
+"pair": "ALEOUSD",
+"base": "ALEO",
+"cb": "ALEO-USD",
+"first": 1769699028,
+"minutes": 6,
+"median_gap": -0.013708600295919124,
+"max_gap": 0.03846444823262109,
+"capturable_usd": 2.5979819522139542
+},
+{
+"pair": "ALIGNUSD",
+"base": "ALIGN",
+"cb": "ALIGN-USD",
+"first": 1787252746,
+"minutes": 5,
+"median_gap": -0.02520886849431768,
+"max_gap": -0.02277471256397233,
+"capturable_usd": 0.0
+},
+{
+"pair": "ARXUSD",
+"base": "ARX",
+"cb": "ARX-USD",
+"first": 1782130555,
+"minutes": 17,
+"median_gap": -0.04374734968142134,
+"max_gap": 0.10979858623695772,
+"capturable_usd": 32.119358491360565
+},
+{
+"pair": "B3USD",
+"base": "B3",
+"cb": "B3-USD",
+"first": 1741966496,
+"minutes": 6,
+"median_gap": -0.012997921836012657,
+"max_gap": -0.008457257794167047,
+"capturable_usd": 0.0
+},
+{
+"pair": "BLENDUSD",
+"base": "BLEND",
+"cb": "BLEND-USD",
+"first": 1777036127,
+"minutes": 14,
+"median_gap": -0.02221239504973281,
+"max_gap": 0.028352049933126247,
+"capturable_usd": 27.096301300401056
+},
+{
+"pair": "BNKRUSD",
+"base": "BNKR",
+"cb": "BNKR-USD",
+"first": 1785333654,
+"minutes": 12,
+"median_gap": -0.0024359279061640787,
+"max_gap": 0.008286435086182,
+"capturable_usd": 1.1211949389146687
+},
+{
+"pair": "CAPUSD",
+"base": "CAP",
+"cb": "CAP-USD",
+"first": 1782475220,
+"minutes": 20,
+"median_gap": 0.003867386010952392,
+"max_gap": 0.16368433832456475,
+"capturable_usd": 61.31610648789483
+},
+{
+"pair": "CHIPUSD",
+"base": "CHIP",
+"cb": "CHIP-USD",
+"first": 1776864851,
+"minutes": 30,
+"median_gap": 0.011678722900023378,
+"max_gap": 0.4473380263438709,
+"capturable_usd": 498.1609993447687
+},
+{
+"pair": "CLANKERUSD",
+"base": "CLANKER",
+"cb": "CLANKER-USD",
+"first": 1747668690,
+"minutes": 3,
+"median_gap": 0.13276507754164268,
+"max_gap": 0.4052620807276861,
+"capturable_usd": 43.181509623601464
+},
+{
+"pair": "COOKIEUSD",
+"base": "COOKIE",
+"cb": "COOKIE-USD",
+"first": 1746719256,
+"minutes": 5,
+"median_gap": -0.05074387527839673,
+"max_gap": -0.02216027895794624,
+"capturable_usd": 0.0
+},
+{
+"pair": "CTRUSD",
+"base": "CTR",
+"cb": "CTR-USD",
+"first": 1779800715,
+"minutes": 7,
+"median_gap": -0.09507968353725403,
+"max_gap": -0.028488859944418618,
+"capturable_usd": 0.0
+},
+{
+"pair": "CTUSD",
+"base": "CT",
+"cb": "CT-USD",
+"first": 1790762449,
+"minutes": 9,
+"median_gap": -0.03491536762920709,
+"max_gap": -0.015375296969668314,
+"capturable_usd": 0.0
+},
+{
+"pair": "DEGENUSD",
+"base": "DEGEN",
+"cb": "DEGEN-USD",
+"first": 1747846260,
+"minutes": 10,
+"median_gap": 0.08725715408930414,
+"max_gap": 0.49219973188424015,
+"capturable_usd": 17.005725021857085
+},
+{
+"pair": "EDGEXUSD",
+"base": "EDGEX",
+"cb": "EDGEX-USD",
+"first": 1778065433,
+"minutes": 6,
+"median_gap": -0.009864001408695464,
+"max_gap": -0.005779417436859488,
+"capturable_usd": 0.0
+},
+{
+"pair": "FLOCKUSD",
+"base": "FLOCK",
+"cb": "FLOCK-USD",
+"first": 1767971797,
+"minutes": 12,
+"median_gap": -0.014629591310130405,
+"max_gap": -0.010896851248642689,
+"capturable_usd": 0.0
+},
+{
+"pair": "HBARUSD",
+"base": "HBAR",
+"cb": "HBAR-USD",
+"first": 1752163707,
+"minutes": 31,
+"median_gap": -0.014206326166707348,
+"max_gap": 0.13956789728593644,
+"capturable_usd": 85.13790368127657
+},
+{
+"pair": "IPUSD",
+"base": "IP",
+"cb": "IP-USD",
+"first": 1741618933,
+"minutes": 7,
+"median_gap": -0.007810959462212205,
+"max_gap": -0.004370188370188308,
+"capturable_usd": 0.0
+},
+{
+"pair": "KATUSD",
+"base": "KAT",
+"cb": "KAT-USD",
+"first": 1773839623,
+"minutes": 12,
+"median_gap": 0.1911820617567549,
+"max_gap": 10.790574923547402,
+"capturable_usd": 2224.9042313249574
+},
+{
+"pair": "LIGHTERUSD",
+"base": "LIGHTER",
+"cb": "LIGHTER-USD",
+"first": 1786989268,
+"minutes": 15,
+"median_gap": -0.006963855421686635,
+"max_gap": 1.0512029597834407,
+"capturable_usd": 150.53459326804264
+},
+{
+"pair": "METUSD",
+"base": "MET",
+"cb": "MET-USD",
+"first": 1762182471,
+"minutes": 21,
+"median_gap": -0.012338912133891253,
+"max_gap": -0.00420860787980025,
+"capturable_usd": 0.0
+},
+{
+"pair": "MEZOUSD",
+"base": "MEZO",
+"cb": "MEZO-USD",
+"first": 1775052020,
+"minutes": 7,
+"median_gap": 0.003988348644246922,
+"max_gap": 0.23749523314308862,
+"capturable_usd": 7.313146831516857
+},
+{
+"pair": "MONUSD",
+"base": "MON",
+"cb": "MON-USD",
+"first": 1763996411,
+"minutes": 30,
+"median_gap": 0.11991737895887934,
+"max_gap": 0.1923739181629418,
+"capturable_usd": 9526.836310730543
+},
+{
+"pair": "NEXUSD",
+"base": "NEX",
+"cb": "NEX-USD",
+"first": 1779289344,
+"minutes": 6,
+"median_gap": 0.01379028417659757,
+"max_gap": 0.056047523734355634,
+"capturable_usd": 3.724978430621933
+},
+{
+"pair": "PROUSD",
+"base": "PRO",
+"cb": "PRO-USD",
+"first": 1758125061,
+"minutes": 24,
+"median_gap": 0.004768315343387522,
+"max_gap": 0.017065124465677664,
+"capturable_usd": 13.802916890879809
+},
+{
+"pair": "PROVEUSD",
+"base": "PROVE",
+"cb": "PROVE-USD",
+"first": 1756476164,
+"minutes": 18,
+"median_gap": -0.01451768443661959,
+"max_gap": -0.0035353055645872405,
+"capturable_usd": 0.0
+},
+{
+"pair": "QIUSD",
+"base": "QI",
+"cb": "QI-USD",
+"first": 1751900589,
+"minutes": 1,
+"median_gap": 0.10209556082683836,
+"max_gap": 0.10209556082683836,
+"capturable_usd": 0.05104777979523056
+},
+{
+"pair": "REUSD",
+"base": "RE",
+"cb": "RE-USD",
+"first": 1781791205,
+"minutes": 23,
+"median_gap": -0.011345258120543975,
+"max_gap": 0.03091943910557983,
+"capturable_usd": 6.057911389795163
+},
+{
+"pair": "ROBOUSD",
+"base": "ROBO",
+"cb": "ROBO-USD",
+"first": 1772564444,
+"minutes": 23,
+"median_gap": -0.005614243323442278,
+"max_gap": 0.005425239927570505,
+"capturable_usd": 0.12356951837778461
+},
+{
+"pair": "RSCUSD",
+"base": "RSC",
+"cb": "RSC-USD",
+"first": 1763391832,
+"minutes": 4,
+"median_gap": -0.001402774493299383,
+"max_gap": 0.00126083463407968,
+"capturable_usd": 0.03070722407467473
+},
+{
+"pair": "SPKUSD",
+"base": "SPK",
+"cb": "SPK-USD",
+"first": 1750451349,
+"minutes": 12,
+"median_gap": -0.015320786121335347,
+"max_gap": -0.010714079769341675,
+"capturable_usd": 0.0
+},
+{
+"pair": "SUKUUSD",
+"base": "SUKU",
+"cb": "SUKU-USD",
+"first": 1760018540,
+"minutes": 14,
+"median_gap": 0.0008097725048259591,
+"max_gap": 0.011756038237609193,
+"capturable_usd": 1.5485113355005113
+},
+{
+"pair": "SUPUSD",
+"base": "SUP",
+"cb": "SUP-USD",
+"first": 1770303629,
+"minutes": 7,
+"median_gap": -0.46581675689110447,
+"max_gap": -0.4185170068027212,
+"capturable_usd": 0.0
+},
+{
+"pair": "SYNDUSD",
+"base": "SYND",
+"cb": "SYND-USD",
+"first": 1761660180,
+"minutes": 10,
+"median_gap": -0.010455110358420824,
+"max_gap": 0.007106052902353235,
+"capturable_usd": 0.18000575694106363
+},
+{
+"pair": "USD1USD",
+"base": "USD1",
+"cb": "USD1-USD",
+"first": 1756564131,
+"minutes": 1,
+"median_gap": -0.016,
+"max_gap": -0.016,
+"capturable_usd": 0.0
+},
+{
+"pair": "VELOUSD",
+"base": "VELO",
+"cb": "VELO-USD",
+"first": 1773759619,
+"minutes": 2,
+"median_gap": -0.7761426432711631,
+"max_gap": -0.7740059270614947,
+"capturable_usd": 0.0
+},
+{
+"pair": "VETUSD",
+"base": "VET",
+"cb": "VET-USD",
+"first": 1767362744,
+"minutes": 20,
+"median_gap": -0.0049458792354706155,
+"max_gap": 0.0009279524842855796,
+"capturable_usd": 0.05367864976831918
+},
+{
+"pair": "XYOUSD",
+"base": "XYO",
+"cb": "XYO-USD",
+"first": 1755092535,
+"minutes": 16,
+"median_gap": -0.009053314850167235,
+"max_gap": 0.09511111111111094,
+"capturable_usd": 0.06515111073066655
+}
+]

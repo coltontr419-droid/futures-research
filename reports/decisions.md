@@ -16162,6 +16162,12 @@ BrickSeek (paid data plans — excluded) and Amazon/Walmart block automated read
 before its open is sold on Kraken while the same amount is bought on Coinbase in the same minute; net of 1.6% taker fees; 10% participation
 cap; ≥ $2,000 a month in both halves (to 2025-12, 2026) = a lead. Listing time = Kraken's first public trade.
 
+## 850. X4: Kraken listing openings — ~$340/month in 2026; closed (S11)
+
+**No trial.** §849 measure, 39 Kraken USD listings since 2025-03 with Coinbase minutes: to 2025-12 $9,688 = $1,116/month (MON alone $9,527);
+2026 $3,015 = $338/month. Extremes (KAT +1,079%, VELO −77%, SUP −47%) look like ticker collisions, so even these are upper bounds. Fails the
+bar. Listing-opening gaps on US KYC'd venues are closed in both directions.
+
 
 ## 10. Still outstanding, and blocking
 
