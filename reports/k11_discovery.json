@@ -1,0 +1,34 @@
+{
+ "cheap_NO": {
+  "games": 129,
+  "markets": 561,
+  "mean_net": -0.047244381983219175,
+  "t": -1.7948906132281495,
+  "candle_volume": 105078.0,
+  "by_series": {
+   "KXNFLRSHYDS": {
+    "n": 525,
+    "mean": -0.06454704761904762
+   },
+   "KXNHLGOAL": {
+    "n": 36,
+    "mean": 0.017652777777777802
+   }
+  },
+  "carried": false
+ },
+ "dear_YES": {
+  "games": 80,
+  "markets": 164,
+  "mean_net": -0.04023820833333334,
+  "t": -0.9682471541399696,
+  "candle_volume": 63177.0,
+  "by_series": {
+   "KXNFLRSHYDS": {
+    "n": 164,
+    "mean": -0.048375
+   }
+  },
+  "carried": false
+ }
+}

@@ -15953,12 +15953,21 @@ paired block bootstrap 90% CI, both eras. **Change rule (fixed now):** recommend
 zero AND its 2010-20 mean is ≥ 0; otherwise the uniform 0.7× stays. Any change goes to the user for approval before the bot is touched.
 
 
-## 829. A115: keep the funded stop at 0.7× for both products — the gain is mostly NKD's (S10)
+## 830. A115: keep the funded stop at 0.7× for both products — the gain is mostly NKD's (S10)
 
 **No trial.** `reporting/a115_stop_by_product.py` (new `fscale_by` in `a63_firms`; V2; paired vs 0.7× for both, 90% CI): 2021-26 NKD 0.7 /
 FDXM 1.0 −$1,178 (−3,169..+573); **NKD 1.0 / FDXM 0.7 −$4,721 (−6,782..−2,360)**; NKD 0.6 / FDXM 0.8 −$1,670 (−4,502..+1,624); NKD 0.8 / FDXM
 0.6 −$4,204 (−6,823..−2,458); 2010-20 −$335 / −$838 / −$30 / −$1,548. Nothing beats the deployed setting; the tighter NKD stop carries
 most of the improvement.
+
+## 831. Screen: newly launched Kalshi series — the young-series pool is mostly state daily gas (already rejected); closed (S10)
+
+**No trial; no outcome looked at.** Idea: series in their first weeks may be mispriced before makers arrive. From K15's settled listing
+(events from 2026-08-14): 110 recurring series (≥3 events) first appear from 2026-09-01; their first three events hold 2,344 markets (median
+volume 2,000 contracts). 45 of 110 are Economics — almost all the 50 state `KXAAAGASD*` daily-gas series, the arena A82/A83 (§708-712)
+already tested and rejected; the remaining ~60 are heterogeneous (weather, entertainment, politics) with only K15's 228 priced samples,
+too few for a per-age calibration test. Not registered.
+
 
 ## 10. Still outstanding, and blocking
 
