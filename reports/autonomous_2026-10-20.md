@@ -207,3 +207,9 @@ products the launch plan doesn't use.
 - NBA props when a player is ruled out: Kalshi settles inactive players at a fair price → no riskless NO → closed.
 - Kalshi NBA totals vs Pinnacle (36 lines matched via game codes): Kalshi mid − Pinnacle median 0.04¢, none positive after fees → closed.
 - A99b (in-play ProphetX vs Kalshi NBA) recording tonight; plan paired tests: 0.7× stop +$5.3k (CI +2.9..+7.4k) §818, keep 3+2 §819.
+- A99/A99b closed (§822): Kalshi's NBA books don't lag ProphetX pre-match (median −1.8…−2.1¢ after ~1,000 moves); in-play "moves" are
+  ProphetX liquidity artifacts. A98 inconclusive (no Pinnacle move ≥ 2 pts all day) → disabled.
+- A97 at the close (NBA, 27 episodes): spreads −1.55% (6/9 positive), totals −2.35% (4/18) — the ProphetX "edges" were not value.
+- ProphetX × Kalshi NFL prop arbitrage (367 pairs, over/under vs ladder, both fees): best −1.9% → none.
+- Old combo calibration decomposed: the 65-95¢ "buyer edge" (last-price) is sports combos (2-leg +8.5¢), crypto negative — K18 tests it at
+  trade level (listing running).
