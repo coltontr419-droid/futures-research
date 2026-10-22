@@ -16168,6 +16168,15 @@ cap; ≥ $2,000 a month in both halves (to 2025-12, 2026) = a lead. Listing time
 2026 $3,015 = $338/month. Extremes (KAT +1,079%, VELO −77%, SUP −47%) look like ticker collisions, so even these are upper bounds. Fails the
 bar. Listing-opening gaps on US KYC'd venues are closed in both directions.
 
+## 851. X5 protocol — minute-level cross-venue gaps, Coinbase vs Bitstamp, all common USD pairs, random 2026 days (S11)
+
+**No trial. Written before any candle is fetched.** Snapshots (§841) and listing openings (§845, §850) found no capacity; the open question is
+transient gaps in ordinary minutes, especially volatile ones. Pairs: every USD pair on both Coinbase and Bitstamp. Days: 20 random 2026 days
+(seed 851, 2026-01-01 → 2026-10-20). Per minute with volume on both: gap = |CB close / BS close − 1|; tradeable net = gap − fees, at base-tier
+takers (CB 1.2% + BS 0.4% = 1.6%) and at volume-tier takers (≈ 0.8% combined). Capacity per minute = min(10% of each venue's minute USD
+volume) × net (inventory on both venues; rebalancing transfers ignored — optimistic). Closes are not simultaneous, so this is an upper bound.
+**A lead** if the volume-tier capacity ≥ $2,000 a month (scaled from the 20 days) AND ≥ $1,000 a month at base tier; then execution realism.
+
 
 ## 10. Still outstanding, and blocking
 
