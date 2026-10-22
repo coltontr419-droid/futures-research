@@ -16326,6 +16326,9 @@ everyone": overlays are small, late, and in odd contests. Public lobby (`draftki
   user must then decide on a DraftKings account; skill and lineup tooling come after). Otherwise closed.
 - **Amended before any lock readout (2026-10-22 ~14:35 CT):** sports extended to GOLF, MMA, NAS, TEN, LOL, CS, CFL, F1 (niche slates are
   where overlays should live); contests de-duplicated by id; CBB dropped (no such lobby code). Earlier snapshots stand.
+- **Readout arithmetic fixed (before any multi-day result):** one account's take = max over k ≤ min(per-user cap, room) of k·prize/(n+k) − k·fee
+  (own entries dilute the overlay); the first version overstated it. First slate (UEL soccer 10-22): 9 of 17 guaranteed contests in overlay,
+  $322 in total.
 
 
 ## 10. Still outstanding, and blocking

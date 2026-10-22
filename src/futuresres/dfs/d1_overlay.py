@@ -65,7 +65,9 @@ def readout() -> None:
     L = [r for r in last.values() if r["fee"] > 0 and r["entries"] > 0]
     days = max(len({dt.datetime.fromtimestamp(r["start"] / 1000, dt.timezone.utc).date() for r in L}), 1)
     ov = [r | {"overlay": r["prize"] - r["entries"] * r["fee"], "ev": r["prize"] / (r["entries"] * r["fee"])} for r in L if r["prize"] > r["entries"] * r["fee"]]
-    cap = sum(min(r["mec"] or 1, r["max"] - r["entries"] + 1) * r["fee"] * (r["ev"] - 1) for r in ov)
+    def best(r):                                       # our own k entries dilute it: k * prize / (n + k) - k * fee, k <= per-user cap and room
+        return max([k * r["prize"] / (r["entries"] + k) - k * r["fee"] for k in range(1, max(1, min(r["mec"] or 1, r["max"] - r["entries"])) + 1)] + [0.0])
+    cap = sum(best(r) for r in ov)
     print(f"guaranteed contests at lock {len(L)} over {days} days; with overlay {len(ov)}; total overlay ${sum(r['overlay'] for r in ov):,.0f} "
           f"(${sum(r['overlay'] for r in ov) / days * 30.4:,.0f}/month); one account at its per-user cap, field-average: ${cap:,.0f} → ${cap / days * 30.4:,.0f}/month")
     for r in sorted(ov, key=lambda r: -r["overlay"])[:20]:
