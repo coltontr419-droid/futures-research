@@ -16129,6 +16129,13 @@ at 10% participation **2025 (52 listings) $17,414 = $1,877/month, of which RLS a
 $301/month (median $4)**. Fails "≥ $2,000 a month in both halves". The crude +4-27% gaps (§844) were Kraken repricing with Coinbase at
 the open. Closed.
 
+## 846. Screen: Coinbase delistings vs Kraken — forced-seller discounts are rare and small; closed (S11)
+
+**No trial.** 328 delisted Coinbase products; 11 USD delistings since 2025 also on Kraken (~0.6 a month; several in one batch 2026-08-07).
+Final-week daily closes, net of 1.6% taker fees: mostly −1 to −4%; a final-day discount appears on about a third (FIS +18.7%, IDEX +10.7%,
+OMNI +6-35% on < $6k volume) with $3-56k of Coinbase volume that day → ~$1-3k on a good event, ≈ ≤ $500 a month, before withdrawal timing.
+Fails the bar. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
