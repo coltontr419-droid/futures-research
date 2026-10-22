@@ -16380,6 +16380,15 @@ are buildable if the overlay base justifies it.
 are closed or practice. Kaggle's list API needs the user's key. Winning needs ML work and GPU compute (this laptop: 2.7 GB RAM) against
 strong teams; prizes are lumpy, not a monthly stream. An effort option for the user, not a measured edge. Tabled.
 
+## 876. User relaxes four limits (2026-10-22); DFS data access mapped (S11)
+
+**No trial.** The user allowed: a DraftKings DFS account (accepting Texas's grey legal status), a margin brokerage account, free API keys
+(user signs up), and revisiting prediction markets. Data mapped for DFS without a login: DraftKings salaries are public
+(`draftkings.com/lineup/getavailableplayerscsv?contestTypeId=70&draftGroupId=…`: salary, roster position, AvgPointsPerGame); the
+`api.draftkings.com` draftables/contest/leaderboard endpoints are 403. Pinnacle prices NBA player props (2026-10-22: 92 markets — points 27,
+threes 22, rebounds 17, PRA 14, assists 12), i.e. stars only. A props-based projection edge over the field needs contest results (login) to
+measure; projection sites already use sportsbook props. Next with the account: enter small overlay contests at lock (D1) and log results.
+
 
 ## 10. Still outstanding, and blocking
 
