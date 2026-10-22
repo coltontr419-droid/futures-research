@@ -128,27 +128,32 @@ def events() -> list[dict]:
             rel = [d for d in ds if 0 <= (eff - dt.date.fromisoformat(d["date"])).days <= 120 or 0 <= (dt.date.fromisoformat(d["date"]) - eff).days <= 5]
             cls = {d["cls"] for d in rel}
             c = "participant" if "participant" in cls else ("roundlot" if "roundlot" in cls else ("holder" if "holder" in cls else "unmatched"))
-            # Yahoo closes are adjusted for every split; un-adjust by the splits after each day
-            later = lambda day: [s for s in p["splits"] if dt.datetime.fromtimestamp(s["date"], dt.timezone.utc).date() > day]
-            def raw(i):
-                c_ = p["close"][i]
-                if c_ is None:
-                    return None
-                for s in later(days[i]):
-                    c_ = c_ * float(s["denominator"]) / float(s["numerator"])   # undo: Yahoo multiplies pre-split prices by den/num for a reverse split
-                return c_
+            # Yahoo is not consistent about split adjustment: infer it from the jump across THIS split; skip if another split is near
+            if any(s_ is not sp and abs((dt.datetime.fromtimestamp(s_["date"], dt.timezone.utc).date() - eff).days) <= 60 for s_ in p["splits"]):
+                out.append({"ticker": t, "eff": eff.isoformat(), "ratio": den / num, "cls": c, "skip": "other split within 60 days"}); continue
             pre = max((i for i, d in enumerate(days) if d < eff), default=None); post = [i for i, d in enumerate(days) if d >= eff]
-            if pre is None or len(post) < 11:
+            if pre is None or len(post) < 11 or None in (p["close"][pre], p["close"][post[0]], p["close"][post[10]]):
                 continue
-            out.append({"ticker": t, "eff": eff.isoformat(), "ratio": den / num, "cls": c, "pre_raw": raw(pre), "post10_raw": raw(post[10]), "post0_raw": raw(post[0])})
+            N = den / num; cp, c0, c10 = p["close"][pre], p["close"][post[0]], p["close"][post[10]]; r = c0 / cp
+            if 1 / 3 <= r <= 3:                                                   # adjusted series: also undo every LATER split's scaling
+                k = 1.0
+                for s_ in p["splits"]:
+                    if dt.datetime.fromtimestamp(s_["date"], dt.timezone.utc).date() > eff:
+                        k *= float(s_["denominator"]) / float(s_["numerator"])
+                pre_raw = cp / N / k; c0, c10 = c0 / k, c10 / k
+            elif N / 3 <= r <= 3 * N:
+                pre_raw = cp                                                      # raw series
+            else:
+                out.append({"ticker": t, "eff": eff.isoformat(), "ratio": N, "cls": c, "skip": "ambiguous jump"}); continue
+            out.append({"ticker": t, "eff": eff.isoformat(), "ratio": N, "cls": c, "pre_raw": pre_raw, "post0": c0, "post10_raw": c10})
     return out
 
 
 def readout() -> None:
-    E = events(); print("reverse splits in window with a classified filing:", collections.Counter(e["cls"] for e in E))
+    E = events(); print("reverse splits in window with a classified filing:", collections.Counter(e["cls"] for e in E), "| skipped:", collections.Counter(e.get("skip") for e in E if e.get("skip")))
     rows = []
     for e in E:
-        if e["pre_raw"] is None or e["post10_raw"] is None:
+        if e.get("skip"):
             continue
         sh = {"holder": 1, "roundlot": 100}.get(e["cls"], 0)
         e["profit"] = sh * e["post10_raw"] - e["pre_raw"] if sh else 0.0; rows.append(e)

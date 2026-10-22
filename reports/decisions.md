@@ -16097,6 +16097,17 @@ usmint.gov) all 403 → skipped. CS2 item cash markets: DMarket and CSFloat need
 conversions: 3-12 deals a year, Tier 1 prorated by deposits held 1-2 years before the record date → capital-bound, long lead. Online
 pari-mutuel wagering: illegal for Texas residents (track/simulcast only; TwinSpires ordered out in 2026).
 
+## 843. V-family 1: reverse-split round-ups are a real but small stream — ~$40-70 per account a month; fails the bar; closed (S11)
+
+**No trial.** `stocks/v1_revsplit.py` (§840): 2,173 EDGAR documents → 348 reverse splits 2025-10 → 2026-10 with a matched filing (holder-level
+round-up 221, participant-level 33, round-lot 3, unmatched 91; 23 skipped: another split within 60 days or an ambiguous price jump). Prices
+from Yahoo, split adjustment inferred from the jump across the split and later splits undone (the first two readouts were wrong: inverted
+and then un-undone later-split scaling). One share per account, value 10 trading days after:
+- 10-2025 → 03-2026: 77 qualifying, $471 per account ($79/month), median $2.66 an event; without AREB's one round-lot event (+$217) ~$42/month.
+- 04 → 10-2026: 133 qualifying, $2,564 per account, median $3.17; without BRRN (1-for-100,000 — a cash-out split's shape, +$2,100) ~$70/month.
+- At 20 accounts: ~$0.8-1.4k a month **before** broker reorganisation fees ($0-50 an event), brokers that keep the round-up or pay cash,
+  and retroactive cash-in-lieu switches (§840). Fails "≥ $2,000 a month at ≤ 20 accounts in both halves". Closed.
+
 
 ## 10. Still outstanding, and blocking
 
