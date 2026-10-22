@@ -16366,6 +16366,14 @@ purchases, per-seller shipping, CK's condition downgrades and promo-stamp mismat
 small-start/scale rule. Closed.
 Side screen: textbook buyback arbitrage — BookScouter API needs a key (403), pages block bots → tabled.
 
+## 874. D1 interim (2026-10-22 15:05 CT): late entries fill most overlays; Madden slate $14 (S11)
+
+**No trial; interim, not the verdict (§869 reads after the weekend).** 22 guaranteed contests at lock: overlay $336 in total, $322 from one
+UEL soccer slate; the 15:00 CT Madden Stream slate (7 contests, $8.7k of guarantees across the lobby's Madden slates) ended with $14 —
+fill trajectory: 22% of the shortfall seen 20 min out survives to lock, 44% of 10-min-out, 74% of 5-min-out. Underfilled contests are mostly
+single-entry (cap 1). One account at field-average ≈ $24 so far. Pinnacle publishes NBA player props (92 live) → props-based DFS projections
+are buildable if the overlay base justifies it.
+
 
 ## 10. Still outstanding, and blocking
 
