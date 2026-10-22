@@ -16419,6 +16419,20 @@ Question: does joining the best bid on BOTH sides earn more in rewards than the 
   net per day; capital (max simultaneous collateral + inventory). **A lead** if net > 0 in total and in at least two series, with net ≥
   $2,000/month at a capital the user can scale to; then a small live test. Otherwise closed.
 
+## 879. LEAD — Polymarket US Standing Order Incentive Program: many rewarded markets have no real book (S10)
+
+**No trial.** Public gateway `gateway.polymarket.us/v1/incentives` (no key): liquidity programmes per market with `rewardPool`, `targetSize`,
+`discountFactor`, `period` (`daily_event`, `day_of`, `live`); first 20,000 markets listed (more pages remain); ≈ $345k of pools across 10,800
+active periods in the first 10,000 (college-football season futures/props ≈ $27 per market per day, target 7,500; LoL Worlds moneylines
+$97 live / $24 day-of). Sample of 150 programme markets (`/v1/markets/{slug}/book`): **52 one-sided or empty**, 12 thin on both sides,
+75 thin on the offer side (filling it ≈ $2.6k+ of collateral at 98-99¢), 11 full. Terms (CFTC filing 2025-11-26, effective 2025-12-12):
+eligible = "direct clearing API participants" in good standing, automatically enrolled; DMM/SLP/IB/FCM channels excluded; award amount per
+contract published; **formula (target, discount, any spread limit) is in a confidential appendix**. Retail access: identity-verified users
+create API keys at polymarket.us/developer (docs quickstart). Texas not on the reported restricted list (AZ IL MA MD MI MT NJ NV OH).
+**Why it may pay:** in an empty market, 7,500 @ 1¢ on both sides (≈ $150 collateral) may be the whole qualifying book. Unknown until a
+live test: the scoring formula (a spread-from-midpoint limit would kill 1¢ quotes), payout per market, fill risk on season-long props.
+Needs the user: Polymarket US account (KYC) + API key; a ~$150 live test on a few empty markets for 2-3 days.
+
 
 ## 10. Still outstanding, and blocking
 
