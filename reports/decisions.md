@@ -16108,6 +16108,20 @@ and then un-undone later-split scaling). One share per account, value 10 trading
 - At 20 accounts: ~$0.8-1.4k a month **before** broker reorganisation fees ($0-50 an event), brokers that keep the round-up or pay cash,
   and retroactive cash-in-lieu switches (§840). Fails "≥ $2,000 a month at ≤ 20 accounts in both halves". Closed.
 
+## 844. X3 protocol — Coinbase new-listing openings vs Kraken: is there a HEDGED cross-venue gap at the open? (S11)
+
+**No trial (a structural stream measured). Written after a crude screen and BEFORE the contemporaneous measure is computed.** Crude screen
+(`xarb/x3_listings.py`, 109 Coinbase USD listings since 2025-03 of assets already on Kraken): Coinbase's first-30-minute VWAP vs Kraken's
+last trade BEFORE the open, net of base-tier takers (1.2% + 0.4%), showed +4-27% on several (TRIA, BLEND, UP, ZKP, DRV, PROMPT) — but that
+mixes the listing pump (unhedged) with any cross-venue gap. **The tradeable stream:** tokens deposited on Coinbase during its transfer-only
+phase are sold at the open while the same amount is bought on Kraken at the same time (inventory unchanged).
+- **Measure, per listing:** for each of the first 30 one-minute Coinbase candles with volume: Coinbase close vs Kraken VWAP of the same
+  minute (Kraken public trade history; minute skipped if Kraken has no trade). Net gap = Coinbase / Kraken − 1 − 1.6%. Capacity per listing
+  = Σ over positive-gap minutes of min(10% of Coinbase minute volume, 10% of Kraken minute volume) × net gap (a 10% participation cap).
+- **Read:** listings a month; median and total capturable dollars a month; first and second halves of the sample (to 2025-12-31, from
+  2026-01-01). **A lead** if ≥ $2,000 a month in BOTH halves at 10% participation; then the deposit / transfer-only timing and inventory
+  price risk are checked before anything else. Otherwise closed.
+
 
 ## 10. Still outstanding, and blocking
 
