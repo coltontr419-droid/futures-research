@@ -17,9 +17,10 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "kalshi_lip"))
 from kalshi_api import Client  # noqa: E402
 
-OUT = ROOT / "data" / "kalshi" / "alip2"
-INCLUDE = ("KXTRUTHSOCIAL", "KXRT", "KXRAIN", "MENTION")
-N_MARKETS, SIZE, CYCLE = 40, 100.0, 60
+import os
+OUT = ROOT / "data" / "kalshi" / os.environ.get("ALIP_OUT", "alip2")                         # A-LIP3 (decisions.md 883): ALIP_OUT=alip3
+INCLUDE = tuple(os.environ.get("ALIP_INCLUDE", "KXTRUTHSOCIAL,KXRT,KXRAIN,MENTION").split(","))
+N_MARKETS, SIZE, CYCLE = int(os.environ.get("ALIP_N", "40")), 100.0, int(os.environ.get("ALIP_CYCLE", "60"))
 
 
 def ts(x: str) -> dt.datetime:
@@ -119,11 +120,17 @@ def record(hours: float) -> None:
 
 def readout() -> None:
     c = Client(); rew = collections.defaultdict(float); F = collections.defaultdict(list); lastmid = {}; t_first = t_last = None
+    pull = os.environ.get("ALIP_PULL") == "1"; blocked: dict[str, dt.datetime] = {}       # §883 variant: skip 6 h after a >= 5c mid move
     for l in open(OUT / "shadow.jsonl"):
-        s = json.loads(l); t_first = t_first or s["t"]; t_last = s["t"]
+        s = json.loads(l); t_first = t_first or s["t"]; t_last = s["t"]; t = ts(s["t"])
         for r in s["rows"]:
-            rew[r["tk"]] += r["reward"]; lastmid[r["tk"]] = r["mid"] or lastmid.get(r["tk"])
-            F[r["tk"]] += r["fills"]
+            tk = r["tk"]
+            if pull and r["mid"] is not None and lastmid.get(tk) is not None and abs(r["mid"] - lastmid[tk]) >= 5:
+                blocked[tk] = t + dt.timedelta(hours=6)
+            lastmid[tk] = r["mid"] or lastmid.get(tk)
+            if pull and blocked.get(tk) and t < blocked[tk]:
+                continue
+            rew[tk] += r["reward"]; F[tk] += r["fills"]
     days = max((ts(t_last) - ts(t_first)).total_seconds() / 86400, 1e-6)
     by = collections.defaultdict(lambda: [0.0, 0.0, 0.0, 0])     # reward, settled pnl, marked pnl, fills
     for tk in set(rew) | set(F):
