@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "data" / "dfs" / "d1.jsonl"
-SPORTS = ("NFL", "NBA", "NHL", "CFB", "MLB", "CBB", "SOC")
+SPORTS = ("NFL", "NBA", "NHL", "CFB", "MLB", "SOC", "GOLF", "MMA", "NAS", "TEN", "LOL", "CS", "CFL", "F1")   # 869 amendment: niche sports added
 
 
 def lobby(sport: str) -> list[dict]:
@@ -37,9 +37,12 @@ def cash(c: dict) -> float | None:
 def record(hours: float) -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True); end = time.time() + hours * 3600
     while time.time() < end:
-        t0 = time.time(); now_ms = time.time() * 1000; rows = []
+        t0 = time.time(); now_ms = time.time() * 1000; rows = []; seen = set()
         for sp in SPORTS:
             for c in lobby(sp):
+                if c["id"] in seen:
+                    continue
+                seen.add(c["id"])
                 st = int(re.search(r"\d+", c.get("sd", "0")).group(0))
                 if (c.get("attr") or {}).get("IsGuaranteed") != "true" or not 0 <= st - now_ms <= 45 * 60_000:
                     continue

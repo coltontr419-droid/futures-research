@@ -16324,6 +16324,8 @@ everyone": overlays are small, late, and in odd contests. Public lobby (`draftki
   capture at the contest's max-entries-per-user (`mec`, entries × prize / entries); dollars a month for one account entering every overlay
   contest at its per-user cap, assuming field-average results. **A lead** if ≥ $2,000 a month for one account at field-average results (the
   user must then decide on a DraftKings account; skill and lineup tooling come after). Otherwise closed.
+- **Amended before any lock readout (2026-10-22 ~14:35 CT):** sports extended to GOLF, MMA, NAS, TEN, LOL, CS, CFL, F1 (niche slates are
+  where overlays should live); contests de-duplicated by id; CBB dropped (no such lobby code). Earlier snapshots stand.
 
 
 ## 10. Still outstanding, and blocking
