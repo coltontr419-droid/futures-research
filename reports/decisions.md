@@ -16310,6 +16310,21 @@ Mobivity $0.29 under 25,000; Tile Shop, LakeShore +15%, Cyanotech, Mymetics $0.0
 trades to the cash-out price; many deals measure holders at the record level (Cede & Co.) so street-name beneficial owners may not be cashed
 out. Even at ~$1k an event per account it is ≈ $300/month. Closed (same family as T1 §732, V1 §843).
 
+## 869. D-family 1 protocol — DFS guaranteed-prize overlays on DraftKings: how much free money is left at lock? (S11)
+
+**No trial (a structural stream measured). Written BEFORE any snapshot is taken.** Mechanism: a guaranteed (GPP) contest pays its full
+prize pool even when it does not fill; if entries × fee < prize pool at lock, the shortfall ("overlay") is paid by DraftKings to the field.
+An average-skill entry then has EV = prize / entries > fee. Classic DFS is legal in Texas and starts at $0.25-$5 entries; "why isn't
+everyone": overlays are small, late, and in odd contests. Public lobby (`draftkings.com/lobby/getcontests?sport=…`, no login).
+- **Recorder** (`dfs/d1_overlay.py`): every 3 minutes, for NFL / NBA / NHL / NCAAF / MLB / CBB / SOC, all contests with
+  `attr.IsGuaranteed` and a cash prize (`pd.Cash`), starting within 45 minutes: id, start, fee, prize, entries, max entries. The last
+  snapshot before start is the lock state (DraftKings closes entry at start).
+- **Per contest:** overlay $ = max(0, prize − entries × fee); EV ratio = prize / (entries × fee). Fillable room = max − entries.
+- **Read after ≥ 3 days covering a weekend:** overlay contests a day; total overlay $ a day; the share of each overlay one person could
+  capture at the contest's max-entries-per-user (`mec`, entries × prize / entries); dollars a month for one account entering every overlay
+  contest at its per-user cap, assuming field-average results. **A lead** if ≥ $2,000 a month for one account at field-average results (the
+  user must then decide on a DraftKings account; skill and lineup tooling come after). Otherwise closed.
+
 
 ## 10. Still outstanding, and blocking
 
