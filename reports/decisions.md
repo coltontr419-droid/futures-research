@@ -16334,6 +16334,7 @@ everyone": overlays are small, late, and in odd contests. Public lobby (`draftki
   DraftKings → no scaling beyond one account. (3) Field-average results assumed; overlay contests may draw strong regulars.
   (4) Ticket/seat-prize contests (~11% of the NFL lobby) are not valued (the lobby gives a ticket count, not its worth) → understates.
   Side screens: FanDuel's lobby API needs a login (401); Splash Sports is mostly pick'em/survivor pools (excluded) with no open lobby.
+  Lock state = last snapshot ≤ 10 min before start (contests seen only earlier, e.g. during a recorder restart, are dropped).
 
 
 ## 10. Still outstanding, and blocking

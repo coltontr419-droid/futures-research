@@ -63,7 +63,7 @@ def readout() -> None:
         for r in s["rows"]:
             if t <= r["start"]:
                 last[r["id"]] = r | {"snap_ms_before": r["start"] - t}
-    L = [r for r in last.values() if r["fee"] > 0 and r["entries"] > 0]
+    L = [r for r in last.values() if r["fee"] > 0 and r["entries"] > 0 and r["snap_ms_before"] <= 10 * 60_000]   # a lock state only
     days = max(len({dt.datetime.fromtimestamp(r["start"] / 1000, dt.timezone.utc).date() for r in L}), 1)
     ov = [r | {"overlay": r["prize"] - r["entries"] * r["fee"], "ev": r["prize"] / (r["entries"] * r["fee"])} for r in L if r["prize"] > r["entries"] * r["fee"]]
     def best(r):                                       # our own k entries dilute it: k * prize / (n + k) - k * fee, k <= per-user cap and room
