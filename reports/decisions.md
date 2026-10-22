@@ -16214,6 +16214,12 @@ not significant; Yahoo keeps only ~30 days of 1-minute bars, so the sample canno
 split as §853. **Event:** open ≤ 0.85 × prior close (first in 10 days per stock). **Rules (2):** buy the open → sell the close; buy the
 open → sell the next open. Cost 1.0% a round trip (wide spreads on gappers at the open). Carry / sealed exactly as §853.
 
+## 856. H-family 4 protocol — new listings' first trading days: open → close, day 1 and day 2 (S11)
+
+**No trial; written BEFORE any H2 daily bar is read.** New listing = a symbol whose Yahoo daily series starts after 2025-07-01 (its first bar,
+volume > 0, open ≥ $1). **Rules (3):** day-1 open → day-1 close; day-2 open → day-2 close; day-1 close → day-5 close. Cost 1.0%. Survivorship
+caveat as §853 (failed listings delisted since are missing — biases up). Split, carry and sealed rule as §853.
+
 
 ## 10. Still outstanding, and blocking
 
