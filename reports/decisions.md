@@ -16032,6 +16032,13 @@ Science & Technology +14.1¢ (t +2.88, n 48), others within ±1.3 t — one of n
 gives; not followed up. Large takers' information is priced by the next trade. Sealed sample (3,000 markets) left unread. The readout now
 streams the 242 MB trade file (the first run was killed for memory).
 
+## 838. Screen: Gemini Predictions' non-sports markets — the venue is too small; closed on capacity (S10)
+
+**No trial; no prices compared.** Public API, 2026-10-21 22:50 CT, all 1,000 active events: 24-hour volume Sports $103,081, Crypto
+$22,932 (BTC/ETH daily price contracts, top event $5.9k), Economics $396, Politics $130, Weather $148, Commodities $39. Venue-wide ≈ $3.8M
+a month, its sports makers quote off Kalshi (§751). A cross-venue or quoting edge of a few percent on any realistic share cannot reach the
+$2k/month bar. Closed before any measurement.
+
 
 ## 10. Still outstanding, and blocking
 
