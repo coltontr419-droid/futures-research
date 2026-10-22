@@ -52,7 +52,8 @@ def record(hours: float) -> None:
             time.sleep(1)
         with open(OUT, "a") as f:
             f.write(json.dumps({"t": dt.datetime.now(dt.timezone.utc).isoformat(), "rows": rows}) + "\n")
-        time.sleep(max(10, 180 - (time.time() - t0)))
+        soon = any(r["start"] - time.time() * 1000 <= 6 * 60_000 for r in rows)
+        time.sleep(max(5, (30 if soon else 180) - (time.time() - t0)))   # 30 s near a lock: late entries matter
 
 
 def readout() -> None:
