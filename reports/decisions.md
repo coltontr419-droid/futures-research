@@ -16478,6 +16478,15 @@ Truth Social post counts are observable during the period, like the data-release
 KXRT, KXRAIN, MENTION, KXSTREAMERAWARDS (Streamer Awards added 22:24Z: winners revealed only at the December ceremony). fill_cost = $10.00
 = MAX_FILL_COST (the next fill stops the bot). Account effect: −$10 of the $29.15.
 
+## 885. Which series' 1¢ bid fills win? — historical win rate of contracts sold into 1¢ YES bids, by series (S10)
+
+**No trial.** K19's trades (§835; 6,000 settled non-sports markets 2026-08-14 → 10-20, rain excluded): every trade with a taker selling
+YES at 1¢ (what a resting 1¢ YES bid buys), weighted by contracts, against the market result. Break-even = 1%. **Overall 0.47%** (a blind
+1¢ bid loses ~half its fill cost). By series (≥ 1,000 contracts): **KXRT 1.78% (53 markets, 561k contracts)**, KXHIGHNY 4.92%, KXAAAGASDFL
+2.89%, KXEMMY 2.83%, KXHIGHMIA 2.00%, KXAAAGASD 1.35%, KXHIGHLAX 1.35%; toxic: KXTRUMPMENTION 0.21%, KXTRUMPMENTIONB 0.00%, KXTRUMPSAY 0.04%,
+KXTEMPMIAH 0.03%, KXTRUMPAPPROVE 0.49%, KXWORLDNEWSMENTION 0.90%, most state gas 0.00%, KXGOOGSHARE 0.00%. Clustered by market (few
+markets carry most contracts) — a guide, not a test. Live bot INCLUDE now KXRT, KXRAIN, KXSTREAMERAWARDS (mentions dropped).
+
 
 ## 10. Still outstanding, and blocking
 
