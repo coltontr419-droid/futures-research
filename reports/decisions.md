@@ -16332,6 +16332,8 @@ everyone": overlays are small, late, and in odd contests. Public lobby (`draftki
 - **Caveats fixed now:** (1) Texas legal status is grey — AG Paxton's 2016 opinion (nonbinding) calls paid DFS likely illegal gambling;
   DraftKings kept operating in Texas, FanDuel agreed to leave (2016). The user decides before any account. (2) One account per person at
   DraftKings → no scaling beyond one account. (3) Field-average results assumed; overlay contests may draw strong regulars.
+  (4) Ticket/seat-prize contests (~11% of the NFL lobby) are not valued (the lobby gives a ticket count, not its worth) → understates.
+  Side screens: FanDuel's lobby API needs a login (401); Splash Sports is mostly pick'em/survivor pools (excluded) with no open lobby.
 
 
 ## 10. Still outstanding, and blocking
