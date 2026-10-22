@@ -16220,6 +16220,15 @@ open → sell the next open. Cost 1.0% a round trip (wide spreads on gappers at 
 volume > 0, open ≥ $1). **Rules (3):** day-1 open → day-1 close; day-2 open → day-2 close; day-1 close → day-5 close. Cost 1.0%. Survivorship
 caveat as §853 (failed listings delisted since are missing — biases up). Split, carry and sealed rule as §853.
 
+## 857. Desk screens: overnight stock sessions, odd-lot buyback programs, fully-paid lending, Texas tax-sale excess proceeds — closed / tabled (S11)
+
+**No trial.** (1) Overnight US-stock sessions (Blue Ocean ATS via Robinhood/Schwab/IBKR): no free history; the user's TWS (192.168.1.203:7497)
+is unreachable overnight; and with futures restricted to Tradeify the trade would be an unhedged reversion bet — tabled. (2) Odd-lot buyback
+programs with a premium: EDGAR hits are tender offers with odd-lot priority (already T-family 1) — none found. (3) Fully-paid lending of
+hard-to-borrow small caps: the fee compensates the expected decline; no free fee history — not pursued. (4) Texas tax-sale excess proceeds:
+fee capped at the lesser of 25% or $1,000 per claim (Tax Code §34.04(i)), non-attorneys reportedly may not charge, assignments capped at
+125% of the price paid — closed.
+
 
 ## 10. Still outstanding, and blocking
 
