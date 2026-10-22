@@ -16348,6 +16348,14 @@ every best ask 0.9986-1.0007 and **$0 of depth at ≤ $0.997** (Gemini USDG 0.99
 50% (second); other property has a shorter period with a 25% premium. Lots need thousands per bid (fails the $100-200 start), unredeemed lots
 leave the buyer with illiquid property and title risk, and sale-day bidding above the minimum shrinks the effective premium. Closed.
 
+## 872. Screen: Pokémon sealed product at MSRP vs TCGplayer market — break-even except hyped/preorder product; access is the whole edge; tabled (S11)
+
+**No trial.** tcgcsv.com daily TCGplayer dumps (public), 2026-10-22: 2026 sets after release — ETB $71-75 (ME03-ME05), booster bundles $35-40,
+booster boxes $174-184; indicative ETB MSRP $50-60. After ~13% marketplace fees and ~$5 shipping an ETB nets ≈ $57-60 → ≈ break-even.
+Margins exist only on hyped/preorder product (ME06 Delta Reign ETB $106 / bundle $66 before its 2026-11-06 release; ME02 ETB $149), where
+MSRP stock is what bots and scalpers compete for under per-customer limits. An effort/access business, not a measurable edge; capacity per
+person is set by retailer limits. Tabled (if pursued: preorder allocations at MSRP, sold before release).
+
 
 ## 10. Still outstanding, and blocking
 
