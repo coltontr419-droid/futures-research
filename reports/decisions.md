@@ -16529,6 +16529,13 @@ back on trades (promo / store credit — excluded). Underdog Predict (on Crypto.
 CFTC staff letter 26-23 (2026-08-12) warns exchanges about incentive programmes that reward non-bona-fide activity → venues may tighten
 rules or claw back rewards earned by deep far-from-market quotes; quotes near fair value (G1's design) carry less of that risk.
 
+## 890. Gemini NFL 1st-half moneylines vs Pinnacle — the 4-5¢ gap is the tie rule; Gemini's quoters are sharp (no taking edge) (S10)
+
+**No trial.** 2026-10-22 ~23:20Z, 11 games: Gemini "X wins 1st Half" bid/ask sits 4-5¢ under Pinnacle's 1H no-vig for X in every game
+(e.g. CHI 0.53/0.54 vs 0.580; HOU 0.69/0.71 vs 0.747). Gemini resolves a tied half NO; Pinnacle's 2-way 1H line pushes ties. With
+P(1H tie) ≈ 8%, Pinnacle × 0.92 reproduces Gemini's mids (0.580 × 0.92 = 0.534). Not mispriced; Gemini's quarter/half quoters price the
+tie correctly → G1's mid-anchored quotes sit on a sharp price. Pinnacle prices NFL 1H/1Q (periods 1, 3) but not 2Q-4Q or 2H.
+
 
 ## 10. Still outstanding, and blocking
 
