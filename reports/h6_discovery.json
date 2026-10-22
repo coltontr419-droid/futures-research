@@ -1,0 +1,288 @@
+{
+"res": {
+"r1": false,
+"r5": false
+},
+"rows": [
+{
+"sym": "HPP",
+"eff": "2024-12-23",
+"reason": "TRNO replaced HPP as it was no longer representative of the small-cap market space.",
+"r1": -0.025477819190977354,
+"r5": -0.018651910459328788
+},
+{
+"sym": "RGNX",
+"eff": "2024-12-23",
+"reason": "SKY replaced RGNX as it was no longer representative of the small-cap market space.",
+"r1": -0.03649603342816265,
+"r5": -0.05618108560929213
+},
+{
+"sym": "MYE",
+"eff": "2024-11-27",
+"reason": "CON replaced MYE as it was no longer representative of the small-cap market space.",
+"r1": 0.012777760823567633,
+"r5": 0.09900000678168397
+},
+{
+"sym": "CHCT",
+"eff": "2024-09-23",
+"reason": "ZWS replaced CHCT as it was no longer representative of the small-cap market space.",
+"r1": 0.04493907984251944,
+"r5": 0.08147990680243933
+},
+{
+"sym": "VREX",
+"eff": "2024-09-23",
+"reason": "YOU replaced VREX as it was no longer representative of the small-cap market space.",
+"r1": 0.0876784062590733,
+"r5": 0.09972660967895475
+},
+{
+"sym": "DIN",
+"eff": "2024-09-23",
+"reason": "TGTX replaced DIN as it was no longer representative of the small-cap market space.",
+"r1": -0.002635944161387567,
+"r5": 0.06355787698252169
+},
+{
+"sym": "NUS",
+"eff": "2024-09-23",
+"reason": "INSP replaced NUS as it was no longer representative of the small-cap market space.",
+"r1": 0.01766286808907769,
+"r5": 0.03749294520769542
+},
+{
+"sym": "AMCX",
+"eff": "2024-09-23",
+"reason": "CSW replaced AMCX as it was no longer representative of the small-cap market space.",
+"r1": -0.04062658801704754,
+"r5": -0.0013145292744612914
+},
+{
+"sym": "RILY",
+"eff": "2024-09-23",
+"reason": "PI replaced RILY as it was no longer representative of the small-cap market space.",
+"r1": -0.03603453435455405,
+"r5": -0.08948279859336328
+},
+{
+"sym": "OSUR",
+"eff": "2024-06-24",
+"reason": "KRYS replaced OSUR as it was no longer representative of the small-cap market space.",
+"r1": -0.03227270067230791,
+"r5": -0.03681815078435912
+},
+{
+"sym": "MCS",
+"eff": "2024-06-24",
+"reason": "VIRT replaced MCS as it was no longer representative of the small-cap market space.",
+"r1": 0.037727297002618905,
+"r5": 0.0286363532326438
+},
+{
+"sym": "TTEC",
+"eff": "2024-06-24",
+"reason": "STEP replaced TTEC as it was no longer representative of the small-cap market space.",
+"r1": -0.11611111111111116,
+"r5": -0.15651511398369378
+},
+{
+"sym": "MED",
+"eff": "2024-06-24",
+"reason": "WHD replaced MED as it was no longer representative of the small-cap market space.",
+"r1": -0.026467812802546394,
+"r5": 0.08436589849306142
+},
+{
+"sym": "CRNC",
+"eff": "2024-06-24",
+"reason": "TDW replaced CRNC as it was no longer representative of the small-cap market space.",
+"r1": -0.039700356740371305,
+"r5": -0.11225556605834075
+},
+{
+"sym": "CRMT",
+"eff": "2024-03-18",
+"reason": "MGY replaced CRMT as it was no longer representative of the small-cap market space.",
+"r1": -0.04100575995464117,
+"r5": -0.026443432814783226
+},
+{
+"sym": "TBI",
+"eff": "2024-03-18",
+"reason": "AL replaced TBI as it was no longer representative of the small-cap market space.",
+"r1": -0.021183950944421933,
+"r5": 0.02396083127908855
+},
+{
+"sym": "FORR",
+"eff": "2024-03-18",
+"reason": "BOX replaced FORR as it was no longer representative of the small-cap market space.",
+"r1": 0.004999956403459853,
+"r5": -0.010714325677780853
+},
+{
+"sym": "OIS",
+"eff": "2024-03-18",
+"reason": "BGC replaced OIS as it was no longer representative of the small-cap market space.",
+"r1": -0.016764654969436795,
+"r5": 0.01012607655007736
+},
+{
+"sym": "APPS",
+"eff": "2024-03-18",
+"reason": "BL replaced APPS as it was no longer representative of the small-cap market space.",
+"r1": -0.05229733212835296,
+"r5": -0.14013516561230888
+},
+{
+"sym": "CCSI",
+"eff": "2024-03-18",
+"reason": "ARCH replaced CCSI as it was no longer representative of the small-cap market space.",
+"r1": 0.029407047751018104,
+"r5": -0.02037335581938215
+},
+{
+"sym": "CYH",
+"eff": "2023-12-18",
+"reason": "ALKS replaced CYH as it was no longer representative of the small-cap market space.",
+"r1": 0.049794466860145,
+"r5": 0.12171228626428132
+},
+{
+"sym": "IVR",
+"eff": "2023-12-18",
+"reason": "AWI replaced IVR as it was no longer representative of the small-cap market space.",
+"r1": -0.012700736375047313,
+"r5": 0.029103351016350424
+},
+{
+"sym": "JRVR",
+"eff": "2023-12-18",
+"reason": "PJT replaced JRVR as it was no longer representative of the small-cap market space.",
+"r1": 0.1139635166207803,
+"r5": 0.09040641242090619
+},
+{
+"sym": "FF",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.033806589745659414,
+"r5": -0.01734570000807156
+},
+{
+"sym": "ONL",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.012339442798700025,
+"r5": -0.02518342394989514
+},
+{
+"sym": "VNDA",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.05606378316123572,
+"r5": -0.0454254442752856
+},
+{
+"sym": "ANGO",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.026917852064214928,
+"r5": -0.04335619212225838
+},
+{
+"sym": "EGHT",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.03922058884853807,
+"r5": -0.07344108704362784
+},
+{
+"sym": "CHRS",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.0842682643166478,
+"r5": -0.09849594126296712
+},
+{
+"sym": "NTGR",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.03299375321058617,
+"r5": -0.04699066689497499
+},
+{
+"sym": "UVE",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": 0.010432084002812373,
+"r5": 0.028179035795532607
+},
+{
+"sym": "QURE",
+"eff": "2023-09-18",
+"reason": "Market capitalization change.",
+"r1": -0.07696971795082364,
+"r5": -0.10979796915537932
+},
+{
+"sym": "DOUG",
+"eff": "2023-06-19",
+"reason": "DOUG was removed from the S&P 600 and replaced with MC as it was no longer representative of the small-cap market space.",
+"r1": -0.05827890297150872,
+"r5": -0.06258217648807818
+},
+{
+"sym": "INGN",
+"eff": "2023-06-19",
+"reason": "INGN was removed from the S&P 600 and replaced with CARG as it was no longer representative of the small-cap market space.",
+"r1": 0.05432204531353924,
+"r5": 0.04302262093950938
+},
+{
+"sym": "TG",
+"eff": "2023-06-19",
+"reason": "TG was removed from the S&P 600 and replaced with CRC as it was no longer representative of the small-cap market space.",
+"r1": -0.005,
+"r5": 0.10166664441426587
+},
+{
+"sym": "TREE",
+"eff": "2023-06-19",
+"reason": "TREE was removed from the S&P 600 and replaced with APAM as it was no longer representative of the small-cap market space.",
+"r1": 0.03799585488947466,
+"r5": -0.036900076443855505
+},
+{
+"sym": "UEIC",
+"eff": "2023-03-20",
+"reason": "RDN replaced UEIC which was no longer representative of the small-cap market space.",
+"r1": -0.030078346789077167,
+"r5": -0.02485366629489649
+},
+{
+"sym": "MPAA",
+"eff": "2023-03-20",
+"reason": "NEX replaced MPAA which was no longer representative of the small-cap market space.",
+"r1": -0.0990475620109722,
+"r5": -0.17761903275167523
+},
+{
+"sym": "FSP",
+"eff": "2023-03-20",
+"reason": "AUB replaced FSB which was no longer representative of the small-cap market space.",
+"r1": 0.01798848369758155,
+"r5": -0.07396551960383058
+},
+{
+"sym": "COLB",
+"eff": "2023-03-01",
+"reason": "VRRM replaced COLB which replaced [[Umpqua Holdings Corporation]] in the S&P 400. COLB acquired Umpqua Holdings and post-merger, COLB market cap was more repres",
+"r1": 0.0023999739014654064,
+"r5": -0.08740830451780524
+}
+]
+}

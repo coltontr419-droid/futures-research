@@ -16275,6 +16275,12 @@ and moves to the S&P 400 excluded. Prices: Yahoo daily (cached in H2 where prese
 last trading day BEFORE the effective date; sell at the next close / the close 5 trading days later. Cost 0.5%. Split: discovery effective
 dates before 2025-01-01, sealed from 2025-01-01. Carry / sealed as §853 (t clustered by event date).
 
+## 864. H-family 6 discovery: S&P 600 size deletions do not rebound — not carried; closed (S11)
+
+**No trial.** 53 size deletions effective 2023-2024 (40 priced on Yahoo; the rest since delisted): buy the last close before the effective
+date → next close −1.33% (median −2.33%, t −0.80), → +5 closes −1.62% (median −2.26%, t −0.52), after 0.5%. Index-fund selling is absorbed
+without a tradeable overshoot. Sealed half unread. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
