@@ -16356,6 +16356,15 @@ Margins exist only on hyped/preorder product (ME06 Delta Reign ETB $106 / bundle
 MSRP stock is what bots and scalpers compete for under per-customer limits. An effort/access business, not a measurable edge; capacity per
 person is set by retailer limits. Tabled (if pursued: preorder allocations at MSRP, sold before release).
 
+## 873. Screen: Magic singles buylist arbitrage (TCGplayer market → Card Kingdom cash buylist) — capital-bound, thin after tax/grading; closed (S11)
+
+**No trial.** Card Kingdom's public pricelist (152,788 rows, cash `price_buy`, `qty_buying`, Scryfall ids) joined to Scryfall's TCGplayer
+market prices: median CK cash buy = 0.65 × TCG market. 2,212 cards with buy ≥ market, but the large gaps are variant mismatches (e.g. Alpha
+Timber Wolves "$0.10") or vintage cards whose TCG "market" mixes played-condition sales while CK pays cash for Near Mint only. Affordable tier
+($5-30 buy, 1.15-2× market): 422 cards, naive $2,015 profit on $12.5k capital as a one-off snapshot — before ~8.25% Texas sales tax on
+purchases, per-seller shipping, CK's condition downgrades and promo-stamp mismatches. A few percent per 3-4-week cycle on capital: fails the
+small-start/scale rule. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
