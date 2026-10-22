@@ -242,7 +242,7 @@ Nothing profitable. Closed (decisions.md §836-862):
   overnight stock sessions (TWS on), ProphetX MM programme (earlier).
 
 ### Tabled items ranked by plausible upside (for the user's morning decision)
-1. **Shorting small-cap gap-ups / SSR names** — the only strongly significant effects tonight (H5 open→next open −3.2%, t −3.2; H2 −0.85%,
+1. **Shorting small-cap gap-ups / SSR names** — SEALED TEST DONE (§866): +0.55-0.62%, not significant → WATCHLIST, not a lead. Was: the only strongly significant effects tonight (H5 open→next open −3.2%, t −3.2; H2 −0.85%,
    t −6.0 on the long side) — but needs a margin account (≥ $2k; ≥ $25k to day-trade) and hard-to-borrow locates; after ~1% borrow the
    gap-up short nets ~+0.2%. Only worth a look if a margin account is acceptable — would need its own registered test with borrow data.
 2. **Classic DFS** (DraftKings/FanDuel; open in TX) — sharp-prop projections from the Pinnacle feed we already read; needs the user's account to
