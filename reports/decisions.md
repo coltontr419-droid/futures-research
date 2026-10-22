@@ -16253,6 +16253,12 @@ All after costs and despite survivorship bias in their favour. (The "excl. last 
 (short gap-ups / SSR names) are the known "short the gappers" trade — not registered, and it needs a margin account (≥ $2k; $25k for pattern
 day trading) and hard-to-borrow locates, so it fails the small-start rule. Sealed halves unread. Closed.
 
+## 861. Screen: collectible mystery packs with buyback (Courtyard, Arena Club) — closed (S11)
+
+**No trial.** Courtyard's API answers 403 and pack odds/values are not in its public pages; Arena Club blocks automated reads. The product is
+priced with a house margin (the ~90% FMV buyback is the operator's edge) and mystery-box sales face gambling challenges. Not measurable, low
+prior. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
