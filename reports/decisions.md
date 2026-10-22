@@ -15968,6 +15968,14 @@ volume 2,000 contracts). 45 of 110 are Economics — almost all the 50 state `KX
 already tested and rejected; the remaining ~60 are heterogeneous (weather, entertainment, politics) with only K15's 228 priced samples,
 too few for a per-age calibration test. Not registered.
 
+## 832. Screen: Novig (CFTC exchange since 2026-08) and Sporttrade — no anonymous data; not worth a login; closed (S10)
+
+**No trial.** Novig relaunched 2026-08-04 as a CFTC-designated sports exchange (Ludlow Exchange; TX allowed). Its web app reads all market
+data through Hasura (`api.novig.us/v1/graphql`) with an allow-list ("query is not allowed" for anonymous requests, including the app's own
+query texts) and a token from an Auth0 login (`/nbx/v1/auth/hasura_token`); there is no public REST. Screening it would need the user's
+account; the nearest analogues (ProphetX taking vs Pinnacle §803/825, quoting Kalshi/PM game markets §790) found no edge, so this is not
+worth asking for. Sporttrade's CFTC application (2026-02-04) is still pending → not available in Texas.
+
 
 ## 10. Still outstanding, and blocking
 
