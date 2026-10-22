@@ -16058,6 +16058,23 @@ lose. A compliant single-bracket plan keeps roughly a quarter of the modelled va
 few-bracket plan (lower value, safer). Asking Tradeify support whether state-dependent brackets with constant size are acceptable is the
 cheapest resolution. Nothing changed on the bot.
 
+## 840. V-family 1 protocol — reverse-split round-up arbitrage: a measurement of a structural stream (S11: new arenas)
+
+**No trial (a structural stream measured, like T-family 1 §731). Written BEFORE any price is fetched.** The user (2026-10-21) moved the search
+off prediction markets and the Tradeify plan. Mechanism: when a company reverse-splits 1-for-N and rounds fractional holdings UP to a whole
+share (some add "round-lot protection": holders of < 100 post-split shares get 100), one pre-split share bought before the effective date
+becomes ≥ 1 post-split share. Capacity is one position per brokerage account per event — the "why isn't everyone": many accounts, effort,
+broker handling, delayed share credit (~10 trading days).
+- **Events:** EDGAR full-text search (8-K, 6-K; 2025-10-01 → 2026-10-21) for "reverse stock split" with "rounded up" / "round up"; per company
+  and effective date, the announcing document is parsed for the ratio, effective date, and rounding language. Classes: **holder-level round
+  up** (1 share), **round-lot protection** (100 shares), **participant-level / DTC-participant rounding or cash in lieu** (excluded — the
+  broker, not the holder, gets it). Unparseable events are listed, not guessed.
+- **Per event, per account:** cost = raw close the day before the effective date (1 share); value = shares received × close 10 trading days
+  after the effective date (Yahoo daily, split-adjusted, un-adjusted with its split events); no commissions.
+- **Read:** qualifying events a month; median and total profit per account a month; dollars a month at 10 and 20 accounts. **A lead** if
+  ≥ $2,000 a month at ≤ 20 accounts in both halves of the year (10-2025→03-2026, 04→10-2026) — then broker handling is checked before anything
+  else. Otherwise closed.
+
 
 ## 10. Still outstanding, and blocking
 
