@@ -16506,6 +16506,18 @@ per market. Caveats: pool pro-rating per minute, game-start cut-off and fill ris
 scoring (new short BTC contracts show 0 until scored). Texas availability not confirmed (sign-up decides). Pricing anchor: Pinnacle
 quarter/half lines. Needs the user: Gemini account + API key + ~$100-200 test on a few empty/thin quarter markets.
 
+## 888. G1 protocol — shadow quoting on Gemini Predictions NFL reward markets (no money; user: test without live funds) (S10)
+
+**No trial. Written before any G1 quote is simulated.** Universe: Pro Football events in `/liquidity-rewards/events` whose game starts
+within 5 days, all quarter/half/game markets, first contract of each; a fixed random sample of 60 (seed 888), re-drawn daily from the
+list. Every 120 s: book (`/v1/book/{symbol}`) and trades (`/v1/trades/{symbol}`). **Our quote:** 100 contracts bid at mid − 2¢ and ask at
+mid + 2¢ (mid = book mid; if a side is empty, the contract's displayed price; skipped if none), never crossing. **Reward per cycle:**
+pool/1440 × 2 min × our score / (our score + others'), with score = size / spread² per Gemini's published formula (others: each resting
+order within 5¢ of mid scored as size / (2·distance)², floor 1¢); counted only before the game's start time. **Fills:** public trades at or
+through our price (we are best when inside the book; otherwise we join last), held to the contract's result. **Read after the 10-25/26 slate
+settles:** rewards, fill P&L, net, per market type (quarter/half/full); capital = max simultaneous collateral. Flagged as untestable without
+money: actual payment rules (eligibility, per-minute pro-rating, two-sided checks).
+
 
 ## 10. Still outstanding, and blocking
 
