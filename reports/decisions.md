@@ -16136,6 +16136,13 @@ Final-week daily closes, net of 1.6% taker fees: mostly −1 to −4%; a final-d
 OMNI +6-35% on < $6k volume) with $3-56k of Coinbase volume that day → ~$1-3k on a good event, ≈ ≤ $500 a month, before withdrawal timing.
 Fails the bar. Closed.
 
+## 847. Screen: event-ticket resale — data needs keys; tabled (S11)
+
+**No trial.** Resale is legal in Texas with no price cap and starts at one ticket. Data: Ticketmaster Discovery API needs an API key (401),
+SeatGeek needs a client id (403), StubHub/SeatGeek pages block automated reads, Vivid Seats returns a page shell. Face value vs resale price
+cannot be measured without the user's free developer keys, and the access edge (presale codes, Verified Fan) is not measurable from public
+data. Tabled for the user (keys), not pursued unattended.
+
 
 ## 10. Still outstanding, and blocking
 
