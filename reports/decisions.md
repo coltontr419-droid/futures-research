@@ -16403,6 +16403,22 @@ allow-list), `PULL_CENTS=97` (new: pull and skip a market when the opposite bid 
 First loop: 6 thin sides, all KXTRUMPMENTIONB (Oct 27), est. $8/day (dry estimates have run high). Read after 3-5 days: rewards vs fill
 cost per series.
 
+## 878. A-LIP2 protocol — shadow competitive quoting on event-settled Kalshi rewards markets (no money) (S10)
+
+**No trial. Written BEFORE any shadow quote is simulated.** §877 showed event-settled series pay rewards without much adverse selection
+at the thin-side scale; the allowed series pay ≈ $33,500/day in rewards (2026-10-22), most of it to competitive quoters, not thin sides.
+Question: does joining the best bid on BOTH sides earn more in rewards than the quotes lose to the trades that fill them?
+- **Universe each cycle (60 s):** active liquidity programmes on `INCLUDE` series (KXTRUTHSOCIAL*, KXRT*, KXRAIN*, *MENTION*), the 40 with
+  the highest reward per day (re-ranked hourly). Public endpoints only.
+- **Shadow quote:** 100 contracts bid at the best bid on YES and on NO (never crossing). Reward per cycle = side_share (the bot's §694
+  formula) × side rate × 60 s for each side, counted only when both sides reach the target with our size included.
+- **Fills (conservative queue):** public trades since the last cycle; a YES bid at p fills on taker-NO trades at yes price ≤ p, beyond
+  the size resting ahead of us at p (we join last); likewise NO. Filled inventory is held to settlement; quoting continues (a YES fill
+  at p and a NO fill at q lock 1 − p − q).
+- **Read after ≥ 3 days, per series and in total:** rewards; fill P&L at settlement (unsettled marked at the last mid, reported apart);
+  net per day; capital (max simultaneous collateral + inventory). **A lead** if net > 0 in total and in at least two series, with net ≥
+  $2,000/month at a capital the user can scale to; then a small live test. Otherwise closed.
+
 
 ## 10. Still outstanding, and blocking
 
