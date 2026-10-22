@@ -16177,6 +16177,20 @@ takers (CB 1.2% + BS 0.4% = 1.6%) and at volume-tier takers (≈ 0.8% combined).
 volume) × net (inventory on both venues; rebalancing transfers ignored — optimistic). Closes are not simultaneous, so this is an upper bound.
 **A lead** if the volume-tier capacity ≥ $2,000 a month (scaled from the 20 days) AND ≥ $1,000 a month at base tier; then execution realism.
 
+## 852. H-family 1 protocol — after a small-cap LULD pause reopens: continuation or reversal? (S11, new arena: US small caps)
+
+**No trial at registration (N 1,539); written BEFORE any halt or price is fetched.** Arena: US-listed stocks in volatility (LULD, code
+LUDP) pauses — thin, retail-heavy, chaotic reopenings. Data: Nasdaq Trader halts RSS by date (all US listings' halts as published),
+Yahoo 1-minute bars (only the last ~30 calendar days exist). Cash-account friendly (one position at a time; starts at $100-200).
+- **Events:** every LUDP pause with a resumption trade time, 09:45-15:30 ET, price ≥ $1. Direction = sign of (last 1-min close before the
+  halt − close 5 minutes before that). One event per symbol per day (the first).
+- **Rules (4):** at the close of the first full minute after resumption, go WITH the direction or AGAINST it; exit at +15 or +30 minutes'
+  close. Cost 1.0% a round trip (small-cap spread + slippage; no commission).
+- **Split:** trading days in the window ordered by date; first half discovery, second half sealed. Carry if discovery mean > 0 and t > 1.96
+  (clustered by day); sealed: strict §664.4 (t over days > 1.645, sign-flip placebo ≥ 95th, posterior > 0 with PRIOR_SD 0.02 in return
+  units) → CONFIRM. Each carried rule validated is a trial.
+- **Capacity read** if confirmed: median 1-min dollar volume after resumption.
+
 
 ## 10. Still outstanding, and blocking
 
