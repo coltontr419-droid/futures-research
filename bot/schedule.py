@@ -42,7 +42,7 @@ ORDER = ("MCL", "ZS", "NKD", "MGC", "FDXM", "MNQ")   # by entry time after the 1
 ACC_ORDER = tuple(sorted(PRODUCTS, key=lambda a: (ORDER.index(base(a)) if base(a) in ORDER else 99, a)))   # the configured accounts, same order
 # decisions.md 899 (user, 2026-10-23): Discord tickets only for the real plan's products; the others are still issued and shadow-tracked
 # silently and reported in Friday's weekly check.
-TICKET_PRODUCTS = {x.strip() for x in __import__("os").environ.get("TICKET_PRODUCTS", "NKD,FDXM").split(",") if x.strip()}
+TICKET_PRODUCTS = {x.strip() for x in __import__("os").environ.get("TICKET_PRODUCTS", "NKD").split(",") if x.strip()}   # 2026-10-23: NKD only (the one real account)
 
 
 def posted(product: str) -> bool:

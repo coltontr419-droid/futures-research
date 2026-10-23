@@ -74,7 +74,7 @@ def test_schedule_alert_track_and_report(tmp_path):
     tx = sc.Tickets(tmp_path / "t.json", tmp_path / "shadow.csv")
     sun = dt.datetime(2026, 10, 11, 17, 30, tzinfo=sc.ET)                    # a Sunday
     text = sc.alert_text(bk, tx, sun)
-    assert text.count("BUY") == 2                                           # decisions.md 899: tickets posted for NKD and FDXM only ...
+    assert text.count("BUY") + text.count("SELL") == 1                      # decisions.md 899-900: a ticket posted for NKD only ...
     assert len(tx.t) == 6                                                   # ... but all six are issued and shadow-tracked
     win = {r["product"]: (r["entry"], r["exit"]) for r in tx.t}
     assert win["MCL"] == ("2026-10-11T18:00:00-04:00", "2026-10-12T16:55:00-04:00")
@@ -96,7 +96,7 @@ def test_schedule_alert_track_and_report(tmp_path):
     for p, b in (("MNQ", 51_000), ("MGC", 50_500), ("MCL", 49_500), ("NKD", 50_200), ("FDXM", 50_900), ("ZS", 50_100)):
         bk.eod(p, b, "2026-10-12")
     text = sc.alert_text(bk, tx, mon)
-    assert "Results" in text and text.count("TAKE") == 2 and "not recorded" not in text     # posted products' results only
+    assert "Results" in text and text.count("TAKE") == 1 and "not recorded" not in text     # posted products' results only
     assert "Results" not in sc.alert_text(bk, tx, mon)                     # each result reported once
     fri = dt.datetime(2026, 10, 16, 17, 30, tzinfo=sc.ET)
     fri_text = sc.alert_text(bk, tx, fri)

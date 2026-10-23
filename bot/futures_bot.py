@@ -189,7 +189,7 @@ async def loop():
     ch = bot.get_channel(CHANNEL_ID)
     if ch is None:
         return
-    if now.weekday() < 5 and (2, 45) <= (now.hour, now.minute) < (2, 58):
+    if now.weekday() < 5 and (2, 45) <= (now.hour, now.minute) < (2, 58) and posted("FDXM"):     # silent while FDXM is tracked only
         await fdxm_recheck(ch, now)
     key = now.date().isoformat()
     done = LAST_ALERT.read_text().strip() if LAST_ALERT.exists() else ""

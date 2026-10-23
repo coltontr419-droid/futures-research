@@ -16613,6 +16613,13 @@ are posted (board, `!ticket`, daily results, missing-EOD reminders); all six are
 a per-product line (tracked-only products marked). Tests 17 passed (alert test now: 2 posted, 6 issued). Deployed 2026-10-23 19:39Z,
 backup /opt/futures-bot/backup-2026-10-23b.
 
+## 900. Bot tickets for NKD only (the one real account) — deployed (S10)
+
+**No trial.** User 2026-10-23: "I only want tickets for NKD actually since that's the only live market getting traded for now. I'm currently
+on a real NKD account and the bot is matched to the P&L already." `TICKET_PRODUCTS` default → NKD; the 02:45 FDXM side re-check posts only
+while FDXM is posted. FDXM, MNQ, MGC, MCL, ZS: issued and shadow-tracked silently, in Friday's weekly check. Tests 17 passed; deployed
+2026-10-23, backup /opt/futures-bot/backup-2026-10-23c. `!new NKD` not needed (the user's NKD book already matches the real account).
+
 
 ## 10. Still outstanding, and blocking
 
