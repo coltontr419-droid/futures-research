@@ -36,7 +36,10 @@ def fetch() -> None:
             u = f"https://efts.sec.gov/LATEST/search-index?q={q}&forms=8-K&dateRange=custom&startdt={a}&enddt={b}&from={frm}"
             for k in range(4):
                 try:
-                    d = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read()); break
+                    d = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read())
+                    if "hits" in d:
+                        break
+                    time.sleep(5 * (k + 1))
                 except Exception:
                     time.sleep(3 * (k + 1))
             else:
