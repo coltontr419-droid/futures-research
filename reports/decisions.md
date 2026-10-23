@@ -16747,6 +16747,12 @@ after the announcement date; sell at the close of the last session before the ef
 Yahoo daily. Split: announcements before 2025-01-01 discovery, from 2025-01-01 sealed. Carry: mean > 0, t (clustered by announcement date)
 > 1.96; sealed strict §664.4. One trial.
 
+## 917. H-family 7 discovery: S&P 400 additions lose between announcement and effective date (−2.16%, t −1.55); closed (S11)
+
+**No trial.** 75 S&P 400 additions announced 2023-24 (67 priced, 37 announcement days): buy next open → sell before the effective date,
+mean −2.16% (median −0.95%, t −1.55) after 0.2%. The announcement jump is priced at the open; the run-up to the index funds' close is gone.
+Closed (sealed unread).
+
 
 ## 10. Still outstanding, and blocking
 
