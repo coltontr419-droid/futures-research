@@ -95,7 +95,7 @@ def record(hours: float) -> None:
                     tr = []
                 new = [x for x in tr if x["created_time"] > last_trade.get(tk, now.isoformat() if tk not in last_trade else "")]
                 if tr:
-                    last_trade[tk] = max(x["created_time"] for x in tr)
+                    last_trade[tk] = max(last_trade.get(tk, ""), max(x["created_time"] for x in tr))   # monotonic (stale pages)
                 if prev:
                     for o, hit_by in (("yes", "no"), ("no", "yes")):
                         qp = prev[o]
