@@ -16814,6 +16814,11 @@ a few squeezes; 20 d +3.08% (median +1.26%, t +1.53). Not carried. Closed (seale
 events = 8-K exhibits containing "share repurchase program" and "authorized", and entry at the OPEN of the first session after the filing
 date (primary hold 20 sessions; 5 reported). Cost 0.3%; SPY-adjusted. One trial.
 
+## 928. O-family 2 discovery: buyback announcements give no drift (20 d adjusted +0.51%, median −0.05%, t −1.31); closed (S11)
+
+**No trial.** 2,217 events (900 discovery, 700 liquid and priced): 20 d raw +1.93%, adjusted +0.51% (t −1.31 by filing date) → not carried;
+5 d adjusted −0.10%. Closed (sealed unread).
+
 
 ## 10. Still outstanding, and blocking
 
