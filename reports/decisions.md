@@ -16620,6 +16620,13 @@ on a real NKD account and the bot is matched to the P&L already." `TICKET_PRODUC
 while FDXM is posted. FDXM, MNQ, MGC, MCL, ZS: issued and shadow-tracked silently, in Friday's weekly check. Tests 17 passed; deployed
 2026-10-23, backup /opt/futures-bot/backup-2026-10-23c. `!new NKD` not needed (the user's NKD book already matches the real account).
 
+## 901. Filtered Kalshi LIP bot stopped itself at the $10 fill limit; test over (S10)
+
+**No trial.** 2026-10-23 02:23Z: canary 94 YES @ 1¢ on KXRT-WILD-95 (a Rotten Tomatoes "above 95" long shot) filled ($0.94) → fill cost
+$10.94 > $10 → kill switch (exit 2). Account (read-only): cash $18.21, no resting orders; positions 1,000 KXTRUTHSOCIAL-26OCT24-B209 (dead,
+§884) and 94 KXRT-WILD-95 (likely dead). Rewards earned during the filtered test ≈ $0.68 estimated (to be confirmed in the user's Credits
+list). Outcome: the filtered thin-side bot did not cover its fills; even RT long shots get dumped into 1¢ bids. Not restarted (user's call).
+
 
 ## 10. Still outstanding, and blocking
 
