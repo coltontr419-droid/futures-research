@@ -35,6 +35,7 @@ def bars() -> dict:
 ROOT = Path(__file__).resolve().parents[3]
 DIR = ROOT / "data" / "stocks" / "i1"
 COST, PRIOR_SD, SEAL, START = 0.003, 0.02, "2026-01-01", "2025-06-02"
+PRIMARY_B = "--b" in sys.argv          # decisions.md 914: I-family 1b primary (≥ $500k, 20 sessions)
 
 
 def rows(z: zipfile.ZipFile, name: str):
@@ -109,9 +110,9 @@ def run(validate: bool) -> None:
             continue
         t = float(dm.mean() / (dm.std(ddof=1) / np.sqrt(len(dm)))); m = float(a.mean())
         line = f"  {tag} hold {h:2}d: n {len(a):4} raw {rw.mean()*100:+.2f}% adj {m*100:+.2f}% (median {np.median(a)*100:+.2f}%) t {t:+.2f}"
-        if (tag, h) == ("≥$100k", 5):
+        if (tag, h) == (("≥$500k", 20) if PRIMARY_B else ("≥$100k", 5)):
             if validate:
-                rng = np.random.default_rng(913); pct = float((np.array([(a * rng.choice((-1.0, 1.0), len(a))).mean() for _ in range(4000)]) < m).mean() * 100)
+                rng = np.random.default_rng(914 if PRIMARY_B else 913); pct = float((np.array([(a * rng.choice((-1.0, 1.0), len(a))).mean() for _ in range(4000)]) < m).mean() * 100)
                 post = m * PRIOR_SD ** 2 / (PRIOR_SD ** 2 + a.var(ddof=1) / len(a))
                 line += f" placebo {pct:.0f}th -> " + ("CONFIRM" if t > 1.645 and pct >= 95 and m > 0 and post > 0 else ("WATCHLIST" if m > 0 else "REJECT"))
             else:

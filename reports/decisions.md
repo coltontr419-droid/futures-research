@@ -16723,6 +16723,21 @@ the close 5 (primary) or 20 sessions later; cost 0.3%; market-adjusted by SPY ov
 2026-01-01 discovery (from 2025-06-02), from 2026-01-01 sealed. Carry: adjusted mean > 0, t (clustered by filing date) > 1.96, raw mean > 0;
 sealed strict §664.4. One trial.
 
+## 914. E-family 2 and I-family 1 discovery; I-family 1b registered: insider purchases ≥ $500k, 20-session hold, on the sealed half (S11)
+
+**No trial yet.** E2 (PEAD, 348 calendar days): surprise ≥ 20%, 5 d: n 1,045, adjusted −0.12% (t −0.47) → **not carried**; reported:
+20 d +2.57% (t +0.70); ≥ 50%: 5 d −0.30%, 20 d +2.35% (t +1.02). Closed. I1 (insider purchases, 1,108 discovery events): primary ≥ $100k,
+5 d: n 820, adjusted +0.94% (median +0.32%, t +1.35) → **not carried**; reported: ≥ $100k 20 d +2.66% (t +1.89); ≥ $500k 5 d +1.35%
+(t +1.55); **≥ $500k 20 d: n 299, raw +5.26%, adjusted +3.49% (median +0.95%), t +2.58**.
+**I-family 1b (registered now, before the sealed half is read):** the ≥ $500k / 20-session rule exactly as reported (same filters, costs,
+market adjustment), tested once on 2026 filings; strict §664.4 (t > 1.645, sign-flip placebo ≥ 95th, posterior > 0) → CONFIRM, one trial.
+Caveat fixed now: 20-session windows overlap across nearby filing dates; t is clustered by filing date only.
+
+## 915. I-family 1b sealed: insider purchases ≥ $500k, 20 sessions — REJECT (t01542); N 1,541 → 1,542 (S11)
+
+2026 filings: n 474, raw −0.81%, **SPY-adjusted −1.12% (median −1.65%), t −1.38, placebo 3rd → REJECT**. The discovery's +3.49% did not
+survive. Insider-purchase drift is closed.
+
 
 ## 10. Still outstanding, and blocking
 
