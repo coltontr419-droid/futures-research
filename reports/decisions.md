@@ -16699,6 +16699,10 @@ after 1.2%. The fade is the tradeable side, but US spot venues give no short. Cl
 Coinbase USD pair. Rule: buy at the Coinbase 1-hour candle close 1 hour after the notice; sell at the close 24 h / 72 h after the notice.
 Cost 1.2%. Split: discovery before 2026-01-01, sealed after. Carry mean > 0 and t > 1.96; sealed strict §664.4.
 
+## 911. U-family 2 discovery: only 6 Upbit delisting/warning events on Coinbase-listed tokens — not carried, too rare; closed (S11)
+
+**No trial.** n 6: 24 h +5.90% (t +1.20), 72 h +10.90% (median −1.23%, t +0.82). Too few events to matter or to test. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
