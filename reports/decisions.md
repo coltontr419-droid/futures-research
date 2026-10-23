@@ -16570,6 +16570,12 @@ P(win | attempt) = rewarded / Σ attempts; EV per attempt = mean amount × P(win
 by amount bucket. **A lead** if EV per attempt ≥ $50 in some bucket with ≥ 10 awards a month there (enough flow for ≥ $2k/month at a
 plausible win rate). Otherwise closed.
 
+## 895. B-family 1: the Algora bounty market has dried up — 3 rewarded and 36 new bounties in Jul-Oct 2026; closed (S11)
+
+**No trial.** GitHub search (gh, authenticated): label "💰 Rewarded" — 2,908 issues all-time, **3 closed 2026-07-01 → 10-20**; label
+"💎 Bounty" — **36 created** in that window (4 closed); the 578 open are stale. Algora now markets hiring, not bounties. No flow to earn
+from. Fetch stopped. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
