@@ -16627,6 +16627,13 @@ $10.94 > $10 → kill switch (exit 2). Account (read-only): cash $18.21, no rest
 §884) and 94 KXRT-WILD-95 (likely dead). Rewards earned during the filtered test ≈ $0.68 estimated (to be confirmed in the user's Credits
 list). Outcome: the filtered thin-side bot did not cover its fills; even RT long shots get dumped into 1¢ bids. Not restarted (user's call).
 
+## 902. G1 interim (0.76 days): $364 simulated rewards, 116 unsettled fills (all on our offers) — verdict after Sunday's games (S10)
+
+**No trial; interim.** 157 cycles 2026-10-22 22:53Z → 10-23 ~17:00Z, 114 markets seen, 36-52 quoted per cycle: rewards $364.34 ($482/day)
+— game $93, 3Q $59, 2Q $58, 2H $55, 4Q $49, 1Q $44, 1H $7; fills 116, all taker buys lifting our offer (59 × 0.61 in one game market,
+24 × 0.47, 16 × 0.43 …), unsettled until the games. Caveat (conservative): cycles average ~7 min, not the 2 min credited per cycle, so
+rewards are understated up to ~3.5×; fills are counted from all trades between cycles. Settled fill P&L decides (§888).
+
 
 ## 10. Still outstanding, and blocking
 
