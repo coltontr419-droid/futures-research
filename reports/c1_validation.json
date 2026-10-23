@@ -1,0 +1,14 @@
+{
+ "reversal|0.05|4": "REJECT",
+ "reversal|0.05|12": "REJECT",
+ "reversal|0.05|24": "REJECT",
+ "reversal|0.08|4": "REJECT",
+ "reversal|0.08|12": "REJECT",
+ "reversal|0.08|24": "REJECT",
+ "continuation|0.05|4": "REJECT",
+ "continuation|0.05|12": "REJECT",
+ "continuation|0.05|24": "WATCHLIST",
+ "continuation|0.08|4": "REJECT",
+ "continuation|0.08|12": "WATCHLIST",
+ "continuation|0.08|24": "WATCHLIST"
+}

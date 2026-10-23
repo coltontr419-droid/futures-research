@@ -16777,6 +16777,12 @@ performers. Same universe, filters, costs, benchmark, split and decision rule. S
 **No trial.** Best 20: raw −1.17%/wk, excess −1.40% (t −1.36); best 50 excess −0.80% (t −1.14). Extreme movers in either direction lag
 the market — the short-volatility side is not available to a long-only small account. R1/R2 closed (sealed unread).
 
+## 922. C-family 1: buying ≥8% hourly crypto drops carried in discovery and failed sealed — REJECT ×3 (t01543-t01545); N → 1,545 (S11)
+
+Discovery (2024-01 → 2025-06, 119 events / 33 days): hold 4 h +3.82% (t +3.52), 12 h +6.90% (t +2.36), 24 h +10.21% (t +2.05); all
+other rules not carried. **Sealed (2025-07 → 2026-10, 93 events / 44 days): 4 h −0.36% (t +0.18, placebo 32nd), 12 h −0.16% (43rd), 24 h
+−1.22% (19th) → REJECT.** The discovery edge was the 2024-early-2025 crash rebounds. Closed.
+
 
 ## 10. Still outstanding, and blocking
 

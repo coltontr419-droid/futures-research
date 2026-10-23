@@ -1,0 +1,14 @@
+{
+ "reversal|0.05|4": false,
+ "reversal|0.05|12": false,
+ "reversal|0.05|24": false,
+ "reversal|0.08|4": true,
+ "reversal|0.08|12": true,
+ "reversal|0.08|24": true,
+ "continuation|0.05|4": false,
+ "continuation|0.05|12": false,
+ "continuation|0.05|24": false,
+ "continuation|0.08|4": false,
+ "continuation|0.08|12": false,
+ "continuation|0.08|24": false
+}
