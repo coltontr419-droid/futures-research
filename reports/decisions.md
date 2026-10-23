@@ -16692,6 +16692,13 @@ mean > 0 and t > 1.96 (one return per listing); sealed strict §664.4. One trial
 **No trial.** 67 discovery listings: buy 2nd-hour open → 24 h mean −4.67% (median −6.45%, t −1.69); → 72 h −6.43% (median −8.23%, t −1.71),
 after 1.2%. The fade is the tradeable side, but US spot venues give no short. Closed (sealed unread).
 
+## 910. U-family 2 protocol — Upbit delisting / warning notices: does the dump overshoot (buy 1 h later on Coinbase)? (S11)
+
+**No trial at registration. Written BEFORE any price around these notices is read.** Events: Upbit trade notices 2025-01 → 2026-10 titled
+"거래지원 종료 안내" (delisting) or "유의 종목 지정 안내" / "유의 촉구 안내" (warning; not "기간 연장" extensions), first per token, token with a
+Coinbase USD pair. Rule: buy at the Coinbase 1-hour candle close 1 hour after the notice; sell at the close 24 h / 72 h after the notice.
+Cost 1.2%. Split: discovery before 2026-01-01, sealed after. Carry mean > 0 and t > 1.96; sealed strict §664.4.
+
 
 ## 10. Still outstanding, and blocking
 
