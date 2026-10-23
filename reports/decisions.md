@@ -16640,6 +16640,8 @@ rewards are understated up to ~3.5×; fills are counted from all trades between 
 t +0.26); **D227 NKD follows the euro week −6.84 (37, t −0.42; was +1.8 at n 35)**. Not significant; the plan pays at zero edge (§805-819),
 so the live NKD account does not depend on D227 being right — but D227 sets its side. A48's 40-session trigger (≈ 3 sessions away) is the
 pre-registered decision point; flagged for the user, nothing changed.
+A48 (the trigger's own tracker, demo tickets): 14 rule sessions, signed window **+96.8 bps**, bracket outcome rule − other side −$2,039,
+recorded −$3,229; trigger pending (needs 40 sessions, ~5 more weeks). No action.
 
 
 ## 10. Still outstanding, and blocking
