@@ -41,7 +41,7 @@ from accounts import PRODUCTS, Book, base
 import daxdollar
 import json
 
-from schedule import ACC_ORDER, ALERT, CT, ET, ORDER, Tickets, alert_parts, clock, eod_check, eod_day, last_trading_day, needs_eod, ticket_post
+from schedule import ACC_ORDER, ALERT, CT, ET, ORDER, Tickets, alert_parts, clock, eod_check, eod_day, last_trading_day, needs_eod, posted, ticket_post
 
 HERE = Path(__file__).resolve().parent
 
@@ -169,7 +169,7 @@ async def on_ready():
         ch = bot.get_channel(CHANNEL_ID)
         last = LAST_ALERT.read_text().strip() if LAST_ALERT.exists() else ""
         if ch and last and last not in _boards():
-            recs = [r for r in tix.t if dt.datetime.fromisoformat(r["issued"]).astimezone(ET).date().isoformat() == last]
+            recs = [r for r in tix.t if dt.datetime.fromisoformat(r["issued"]).astimezone(ET).date().isoformat() == last and posted(r["product"])]
             if recs:
                 await post_board(ch, "", recs, last, f"{dt.date.fromisoformat(last):%A %d %B} · 4:30 PM CT")
     except Exception as e:
@@ -293,7 +293,7 @@ async def ticket_cmd(ctx):
     if not _allowed(ctx):
         return
     now = dt.datetime.now(ET)
-    live = [r for r in tix.t if r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["exit"]) > now]
+    live = [r for r in tix.t if r["status"] in ("pending", "none") and dt.datetime.fromisoformat(r["exit"]) > now and posted(r["product"])]
     await send(ctx.channel, "\n\n".join(ticket_post(r) for r in live) or "No open tickets - the next ones come with the 17:30 alert.")
 
 

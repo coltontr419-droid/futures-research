@@ -16603,6 +16603,16 @@ ZS 51,200, NKD 50,185, MNQ 50,000, FDXM 50,000 (eval). Bot replays (54): takes 2
 within noise. FDXM re-scored with §897's 10-minute skip: only 10-14 changes (TAKE → STOP); 10-22 is still a replay "take" the user did not
 see → the ^GDAXI cash index diverges from FDXM beyond the open; FDXM replays are indicative only, the log is the record.
 
+## 899. Review held early (2026-10-23): launch with one real NKD account; bot tickets for NKD and FDXM only (deployed) (S10)
+
+**No trial.** User: run the review now; "real traders have different brackets constantly" (§839 compliance concern closed); "the other
+instruments can still be tracked and reported weekly … but I don't want the tickets for them"; "any changes deploy now". Decisions in
+`reports/review_2026-10-23.md`: launch (one real NKD account to two payouts, then 3 NKD + 2 FDXM); keep the dollar rules; ≈ $4-5k fee
+budget; gold watchlist 11-20. **Bot change (`bot/schedule.py`, `bot/futures_bot.py`):** `TICKET_PRODUCTS` (default NKD, FDXM) — only these
+are posted (board, `!ticket`, daily results, missing-EOD reminders); all six are still issued and shadow-tracked; Friday's weekly check adds
+a per-product line (tracked-only products marked). Tests 17 passed (alert test now: 2 posted, 6 issued). Deployed 2026-10-23 19:39Z,
+backup /opt/futures-bot/backup-2026-10-23b.
+
 
 ## 10. Still outstanding, and blocking
 

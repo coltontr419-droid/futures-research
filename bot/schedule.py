@@ -40,6 +40,13 @@ WINDOWS = {"MCL": (ET, 0, (18, 0), 1, (16, 55)), "MGC": (ET, 1, (3, 0), 1, (11, 
            "ZS": (ZoneInfo("America/Chicago"), 0, (19, 0), 1, (13, 15))}    # soybeans, decisions.md 141
 ORDER = ("MCL", "ZS", "NKD", "MGC", "FDXM", "MNQ")   # by entry time after the 17:30 alert
 ACC_ORDER = tuple(sorted(PRODUCTS, key=lambda a: (ORDER.index(base(a)) if base(a) in ORDER else 99, a)))   # the configured accounts, same order
+# decisions.md 899 (user, 2026-10-23): Discord tickets only for the real plan's products; the others are still issued and shadow-tracked
+# silently and reported in Friday's weekly check.
+TICKET_PRODUCTS = {x.strip() for x in __import__("os").environ.get("TICKET_PRODUCTS", "NKD,FDXM").split(",") if x.strip()}
+
+
+def posted(product: str) -> bool:
+    return base(product) in TICKET_PRODUCTS
 SHADOW_DELAY = dt.timedelta(minutes=5)
 
 
@@ -301,9 +308,13 @@ def weekly_check(tix: Tickets, now: dt.datetime) -> str:
     z = (pnl - mu) / math.sqrt(var) if var > 0 else 0.0
     chi = sum((obs[k] - exp[k]) ** 2 / exp[k] for k in exp if exp[k] > 0.5)
     flag = "within the normal range" if abs(z) < 2 and chi < 6.0 else "**UNUSUAL - worth a look**"
+    by = {}
+    for r in rows:
+        b = by.setdefault(base(r["product"]), [0, 0, 0.0]); b[0] += 1; b[1] += r["result"]["outcome"] == "TAKE"; b[2] += r["result"].get("pnl") or 0.0
+    lines = "\n".join(f"• {p}{'' if p in TICKET_PRODUCTS else ' (tracked only)'}: {v[0]} tickets, {v[1]} takes, ${v[2]:+,.0f}" for p, v in sorted(by.items()))
     return (f"**Weekly check** ({len(rows)} tickets, shadow-tracked): take / stop / time exit **{obs['TAKE']} / {obs['STOP']} / "
             f"{obs['TIME EXIT']}** vs expected {exp['TAKE']:.1f} / {exp['STOP']:.1f} / {exp['TIME EXIT']:.1f}; P&L ${pnl:+,.0f} vs "
-            f"expected ${mu:+,.0f} ± ${math.sqrt(var):,.0f} (z {z:+.1f}) - {flag}.")
+            f"expected ${mu:+,.0f} ± ${math.sqrt(var):,.0f} (z {z:+.1f}) - {flag}.\n" + lines)
 
 
 def needs_eod(rec: dict) -> bool:
@@ -314,11 +325,11 @@ def needs_eod(rec: dict) -> bool:
 def alert_parts(book: Book, tix: Tickets, now: dt.datetime) -> tuple[str, list[dict]]:
     """The 17:30 post as (information text, the newly issued ticket records). Issues and records the next tickets (Sun-Thu)."""
     parts = []
-    res = tix.unreported()
+    res = [r for r in tix.unreported() if posted(r["product"])]           # tracked-only products: in Friday's weekly check
     if res:
         parts.append("**Results** (shadow-tracked; how each ticket played out):\n" + "\n".join(result_line(r) for r in res))
     want = last_trading_day(now.date())
-    missing = [p for p in PRODUCTS if book.s[p].get("eod_date") != want.isoformat() and book.s[p]["phase"] not in ("dead", "closed")]
+    missing = [p for p in PRODUCTS if posted(p) and book.s[p].get("eod_date") != want.isoformat() and book.s[p]["phase"] not in ("dead", "closed")]
     recs = []
     if now.weekday() in (6, 0, 1, 2, 3):
         if missing:
@@ -330,7 +341,7 @@ def alert_parts(book: Book, tix: Tickets, now: dt.datetime) -> tuple[str, list[d
             parts.append("Closing balance not recorded for " + ", ".join(missing) + ". Send `!eod <PRODUCT> <balance>`.")
         parts.append(weekly_check(tix, now))
         parts.append("No new tickets - next session opens Sunday 5:00 PM CT; tickets at Sunday 4:30 PM CT.")
-    return "\n\n".join(parts), [r for r in recs if r]
+    return "\n\n".join(parts), [r for r in recs if r and posted(r["product"])]
 
 
 def alert_text(book: Book, tix: Tickets, now: dt.datetime) -> str:
