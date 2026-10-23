@@ -16652,6 +16652,19 @@ plus rewards credited for the real time between cycles (cap 15 min) instead of t
 **rewards $511 (≈ $573/day)**; fills 11 (game 6, 3Q 2, 1Q 3), settled P&L −$39 (the earlier −$1,268 was the double-count). The same
 monotonic-marker fix applied to A-LIP2/3 (restarted). Verdict after Sunday/Monday's games (§888).
 
+## 905. U-family 1 protocol — Upbit listing notices: is there still a move to catch a minute later on Coinbase? (S11)
+
+**No trial at registration; N 1,541. Written BEFORE any price around a notice is fetched.** Upbit (Korea's largest exchange) posts trade
+notices publicly (`api-manager.upbit.com/api/v1/announcements?category=trade`, second-precision KST times). New listings ("신규 거래지원",
+"KRW 마켓 디지털 자산 추가") are widely reported to lift the token on every venue within minutes. Public information, automatable, small
+start, legitimate US venue (Coinbase spot).
+- **Events:** listing notices 2025-01-01 → 2026-10-23 whose token has a Coinbase USD pair trading at the notice minute (first per token).
+- **Rule:** buy at the close of the Coinbase 1-minute candle starting 1 minute after the notice (entry lag variants 2 and 5 minutes
+  reported only); sell at the close 60 minutes after the notice (15 and 240 minutes reported only). Cost 1.2% round trip (Coinbase taker).
+- **Split:** notices before 2026-01-01 discovery, from 2026-01-01 sealed. Carry if discovery mean > 0 and t > 1.96 (one return per event);
+  sealed: strict §664.4 (t > 1.645, sign-flip placebo ≥ 95th, posterior > 0 with PRIOR_SD 0.02) → CONFIRM. One trial.
+- Delisting / warning notices (shorts) are out of scope (no spot shorting on Coinbase).
+
 
 ## 10. Still outstanding, and blocking
 
