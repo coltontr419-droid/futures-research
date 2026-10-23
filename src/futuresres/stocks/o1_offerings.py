@@ -21,14 +21,15 @@ import numpy as np
 from futuresres.stocks.i1_insider import bars
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / "data" / "stocks" / "o1"
+BUYBACK = "--buyback" in sys.argv                    # decisions.md 927: O-family 2
+OUT = ROOT / "data" / "stocks" / ("o2" if BUYBACK else "o1")
 UA = {"User-Agent": "futures-research-screen research-bot/1.0"}
 COST, PRIOR_SD, SEAL = 0.003, 0.02, "2026-01-01"
 
 
 def fetch() -> None:
     OUT.mkdir(parents=True, exist_ok=True); hits = {}
-    q = urllib.parse.quote('"announces pricing of" "public offering"')
+    q = urllib.parse.quote('"share repurchase program" "authorized"' if BUYBACK else '"announces pricing of" "public offering"')
     for a, b in (("2025-06-02", "2025-09-30"), ("2025-10-01", "2025-12-31"), ("2026-01-01", "2026-04-30"), ("2026-05-01", "2026-09-30")):
         frm = 0
         while True:
@@ -74,11 +75,17 @@ def run(validate: bool) -> None:
             x = i0 + h
             if x >= len(ds) or not c[x]:
                 continue
-            raw = c[x] / c[i0] - 1 - COST; a, z = si.get(ds[i0]), si.get(ds[x])
+            a, z = si.get(ds[i0]), si.get(ds[x])
             if a is None or z is None:
                 continue
-            res[h].append((e["date"], raw, raw - (sc[z] / sc[a] - 1)))
-    print(f"O1 {'sealed' if validate else 'discovery'}: events {len(E)}")
+            if BUYBACK:                                 # entry at the open after the filing; hold h sessions (to the close of i0 + h - 1)
+                x2 = i0 + h - 1; z2 = si.get(ds[x2])
+                if not o[i0] or not c[x2] or z2 is None:
+                    continue
+                raw = c[x2] / o[i0] - 1 - COST; res[h].append((e["date"], raw, raw - (sc[z2] / so[a] - 1)))
+            else:
+                raw = c[x] / c[i0] - 1 - COST; res[h].append((e["date"], raw, raw - (sc[z] / sc[a] - 1)))
+    print(f"{'O2' if BUYBACK else 'O1'} {'sealed' if validate else 'discovery'}: events {len(E)}")
     for h, v in sorted(res.items()):
         by = collections.defaultdict(list)
         for d, _, adj in v:
@@ -88,9 +95,9 @@ def run(validate: bool) -> None:
             continue
         t = float(dm.mean() / (dm.std(ddof=1) / np.sqrt(len(dm)))); m = float(a.mean())
         line = f"  hold {h:2}d: n {len(a):4} raw {rw.mean()*100:+.2f}% adj {m*100:+.2f}% (median {np.median(a)*100:+.2f}%) t {t:+.2f}"
-        if h == 5:
+        if h == (20 if BUYBACK else 5):
             if validate:
-                rng = np.random.default_rng(925); pct = float((np.array([(a * rng.choice((-1.0, 1.0), len(a))).mean() for _ in range(4000)]) < m).mean() * 100)
+                rng = np.random.default_rng(927 if BUYBACK else 925); pct = float((np.array([(a * rng.choice((-1.0, 1.0), len(a))).mean() for _ in range(4000)]) < m).mean() * 100)
                 post = m * PRIOR_SD ** 2 / (PRIOR_SD ** 2 + a.var(ddof=1) / len(a))
                 line += f" placebo {pct:.0f}th -> " + ("CONFIRM" if t > 1.645 and pct >= 95 and m > 0 and post > 0 else ("WATCHLIST" if m > 0 else "REJECT"))
             else:

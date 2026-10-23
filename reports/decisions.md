@@ -16808,6 +16808,12 @@ strict §664.4. One trial.
 **No trial.** 567 pricing events (267 discovery, 117 liquid and priced): 5 d adjusted +2.81% (median −0.37%, t +1.70) — a skewed mean from
 a few squeezes; 20 d +3.08% (median +1.26%, t +1.53). Not carried. Closed (sealed unread).
 
+## 927. O-family 2 protocol — share repurchase authorizations: drift after the announcement (S11)
+
+**No trial at registration; N 1,545. Written BEFORE any event is priced.** Same machinery, filters, split and decision rule as §925, with
+events = 8-K exhibits containing "share repurchase program" and "authorized", and entry at the OPEN of the first session after the filing
+date (primary hold 20 sessions; 5 reported). Cost 0.3%; SPY-adjusted. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
