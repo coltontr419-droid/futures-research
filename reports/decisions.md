@@ -16687,6 +16687,11 @@ on Kraken (§844 list, `data/xarb/x3/listings.json`). Rule: buy at the open of t
 72 h after the first trade; cost 1.2% (Coinbase taker both ways). Split by listing date: discovery before 2026-01-01, sealed after. Carry:
 mean > 0 and t > 1.96 (one return per listing); sealed strict §664.4. One trial per carried hold.
 
+## 909. C-family 2 discovery: new listings fade after the first hour (−4.7% / 1 day, −6.4% / 3 days) — long side loses; closed (S11)
+
+**No trial.** 67 discovery listings: buy 2nd-hour open → 24 h mean −4.67% (median −6.45%, t −1.69); → 72 h −6.43% (median −8.23%, t −1.71),
+after 1.2%. The fade is the tradeable side, but US spot venues give no short. Closed (sealed unread).
+
 
 ## 10. Still outstanding, and blocking
 
