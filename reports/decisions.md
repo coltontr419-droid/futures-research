@@ -16794,6 +16794,15 @@ t over weeks > 1.96, raw > 0; sealed strict §664.4. One trial.
 
 **No trial.** 78 weeks: top 5 raw +1.54%/wk, vs BTC +0.15% (t +0.13) → not carried; bottom 5 vs BTC −0.94% (t −0.93). Closed.
 
+## 925. O-family 1 protocol — follow-on offering pricings: does the stock recover after the pricing drop? (S11)
+
+**No trial at registration; N 1,545. Written BEFORE any event is priced.** Events: EDGAR full-text search, 8-K exhibits containing
+"announces pricing of" and "public offering", filed 2025-06-02 → 2026-09-30 (first per issuer per 30 days), symbol from the filer's
+display name, liquidity from H2 (price ≥ $1, 20-day median dollar volume ≥ $1M). Rule: buy at the close of the first session after the
+filing date (after the pricing drop has printed); sell at the close 5 sessions later (primary) or 20 (reported). Cost 0.3%; SPY-adjusted.
+Split: filings before 2026-01-01 discovery, after sealed. Carry: adjusted mean > 0, t (clustered by filing date) > 1.96, raw > 0; sealed
+strict §664.4. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
