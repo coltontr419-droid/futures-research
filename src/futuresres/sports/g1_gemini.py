@@ -146,7 +146,7 @@ def readout() -> None:
             continue
         ev = get(f"/v1/prediction-markets/events/{tk_of[sym]}") or {}
         c = next((c for c in ev.get("contracts", []) if c.get("instrumentSymbol", "").lower() == sym), {})
-        res = c.get("settlementValue") or c.get("resolvedOutcome") or c.get("result")
+        res = c.get("resolutionSide") or c.get("settlementValue") or c.get("result")      # Gemini: resolutionSide "yes" / "no"
         for f in F[sym]:
             by[k][2] += 1
             if res is None:
