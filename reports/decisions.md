@@ -16634,6 +16634,13 @@ list). Outcome: the filtered thin-side bot did not cover its fills; even RT long
 24 × 0.47, 16 × 0.43 …), unsettled until the games. Caveat (conservative): cycles average ~7 min, not the 2 min credited per cycle, so
 rewards are understated up to ~3.5×; fills are counted from all trades between cycles. Settled fill P&L decides (§888).
 
+## 903. A91 refreshed to 2026-10-22: the NKD rule D227 has turned negative on unseen data (−6.84 bps, n 37, t −0.42) (S10)
+
+**No trial.** Forward from 2026-09-01 (Yahoo-patched targets): D171 +3.73 bps (37, t +0.37); D174 +20.53 (14, t +1.66); D175 +4.35 (10,
+t +0.26); **D227 NKD follows the euro week −6.84 (37, t −0.42; was +1.8 at n 35)**. Not significant; the plan pays at zero edge (§805-819),
+so the live NKD account does not depend on D227 being right — but D227 sets its side. A48's 40-session trigger (≈ 3 sessions away) is the
+pre-registered decision point; flagged for the user, nothing changed.
+
 
 ## 10. Still outstanding, and blocking
 
