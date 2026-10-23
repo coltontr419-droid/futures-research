@@ -16783,6 +16783,13 @@ Discovery (2024-01 → 2025-06, 119 events / 33 days): hold 4 h +3.82% (t +3.52)
 other rules not carried. **Sealed (2025-07 → 2026-10, 93 events / 44 days): 4 h −0.36% (t +0.18, placebo 32nd), 12 h −0.16% (43rd), 24 h
 −1.22% (19th) → REJECT.** The discovery edge was the 2024-early-2025 crash rebounds. Closed.
 
+## 923. C-family 3 protocol — weekly cross-sectional momentum among the 40 liquid Coinbase coins (C1's cached hourly bars) (S11)
+
+**No trial at registration; N 1,545. Written BEFORE the computation.** Every Monday 00:00 UTC: rank the 40 coins by their prior 7-day
+return; buy the top 5 (primary) or the bottom 5 (reported), equal weight, at that hour's open; sell 168 hours later. Cost 0.8% round trip.
+Benchmark: BTC over the same week. Split: weeks before 2025-07-01 discovery (from 2024-01-08), after sealed. Carry: mean weekly excess > 0,
+t over weeks > 1.96, raw > 0; sealed strict §664.4. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
