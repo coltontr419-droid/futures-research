@@ -52,3 +52,7 @@ Plan as deployed today — 5 × 50K, 3 NKD + 2 FDXM, $116, live rules, **funded 
    can be withheld and forfeited under review (§4.4). The bot's brackets change with account state (72 pairs, mostly take $100 / stop $500).
    A single fixed bracket ($800-1,000 take / $1,000 stop) earns ~+$4.2k (2021-26) / ~+$1.2k (2010-20) a run vs the policy's +$13.3k / +$4.3k.
    Ask Tradeify support before launch whether constant size with state-dependent brackets is acceptable.
+6. **Two-week demo (§897):** take/stop hit rates exactly as modelled (22 takes vs 22.2 expected over 54 replays); P&L within noise; 1 pass
+   (MCL). FDXM's bot replays were wrong at the 3:00 AM open (cash-index proxy) — fixed and deployed; the user's log is the FDXM record.
+   To discuss: any other trades where execution differed from the ticket.
+

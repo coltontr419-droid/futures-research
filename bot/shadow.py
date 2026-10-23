@@ -14,11 +14,15 @@ from zoneinfo import ZoneInfo
 ET = ZoneInfo("America/New_York")
 YAHOO = {"MNQ": "NQ=F", "MGC": "GC=F", "MCL": "CL=F", "NKD": "NKD=F", "FDXM": "^GDAXI",   # FDXM tracked on the DAX index
          "ZS": "ZS=F"}   # soybeans, cents a bushel; Yahoo's continuous series can mix two months near a roll (decisions.md 140)
+# decisions.md 897: the DAX cash index opens at 03:00 ET (Xetra) while the future has traded all night - its first minutes catch up
+# with the future and fake takes/stops (FDXM 2026-10-22 "take" at 03:06). FDXM is replayed from 10 minutes after the entry, tagged approximate.
+SKIP_OPEN = {"FDXM": dt.timedelta(minutes=10)}
 
 
 def bars(product: str, start: dt.datetime, end: dt.datetime) -> list[tuple[dt.datetime, float, float, float, float]]:
     """1-minute (time ET, open, high, low, close) from Yahoo between start and end (ET-aware datetimes)."""
     from accounts import base
+    start = start + SKIP_OPEN.get(base(product), dt.timedelta(0))
     url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{YAHOO[base(product)]}?interval=1m"
            f"&period1={int(start.timestamp()) - 60}&period2={int(end.timestamp()) + 60}")
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})

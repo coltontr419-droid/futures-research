@@ -106,6 +106,8 @@ class Tickets:
             except Exception as e:                         # Yahoo down: try again next pass
                 r["last_error"] = f"{type(e).__name__}: {e}"; continue
             res = shadow.simulate(b, tk["side"], tk["take_points"], tk["stop_points"], tk["contracts"], p["mult"], p["rt"])
+            if base(r["product"]) in PROXY:
+                res["approx"] = PROXY[base(r["product"])]           # decisions.md 897: not the traded future
             if res["outcome"] == "NO DATA" and now - dt.datetime.fromisoformat(r["exit"]) < dt.timedelta(days=2):
                 continue
             r["result"] = res; r["status"] = "done"; done.append(r); self._log(r)
@@ -195,6 +197,8 @@ def eod_check(tix: "Tickets", product: str, pnl: float, now: dt.datetime, fetch=
                  and dt.datetime.fromisoformat(r["entry"]) <= now]
         if not cands:
             return None
+        if base(product) in PROXY:
+            return None                                # decisions.md 897: a proxy replay never overrules the trader's FDXM result
         r = max(cands, key=lambda x: x["entry"]); tk = r["ticket"]; pp = policy()["PRODUCTS"][base(product)]
         sent = recorded_outcome(pnl, tk.get("take_net", 0), tk.get("stop_net", 0))
         if sent not in ("TAKE", "STOP"):

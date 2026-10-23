@@ -16584,6 +16584,17 @@ submission), Design 2, QA 1, Marathon 4 ($0). Superteam Earn (`superteam.fun/api
 content (e.g. $500 thread, 268 submissions), a few technical pieces with little competition (a $2,500 Solana article, 1 submission) —
 occasional one-offs, not a stream. With Algora (§895), code-bounty boards hold no scalable +EV flow. Closed.
 
+## 897. Demo two-week check; FDXM shadow replay fixed (cash-index open faked takes) — deployed with the user's OK (S10)
+
+**No trial.** Two weeks (2026-10-12 → 10-23). User's EOD log (demo_log.csv): trading P&L −$9,779 across six products, 10 resets ($800 demo
+fees), **1 pass (MCL 10-22, now funded)**, no payouts. Bot's ticket replays (54 done): takes 22 vs 22.2 expected from `expected.json`;
+P&L −$6,084 vs −$1,231 expected (z −0.66) — FDXM +$5,851 (z +2.31), NKD −$3,140 (z −0.92). **The log and the replays disagree on FDXM
+(−$400 vs +$5,851): `shadow.py` replays FDXM on the DAX cash index (^GDAXI), which opens at 03:00 ET while the future traded all night;
+its first minutes catch up and fake brackets (10-22 short "take" at 03:06, the user saw no take).** The research is unaffected (FDXM paths
+from HistData's continuous DAX CFD quotes `grxeur`, a21). Fix (user: "go"): FDXM replays start 10 minutes after the entry and are tagged
+`approx: DAX index proxy`; the `!eod` cross-check no longer warns on FDXM. Tests 19 passed; deployed 2026-10-23 18:23Z, backup
+/opt/futures-bot/backup-2026-10-23. FDXM truth = the user's log.
+
 
 ## 10. Still outstanding, and blocking
 
