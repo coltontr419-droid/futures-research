@@ -16671,6 +16671,15 @@ start, legitimate US venue (Coinbase spot).
 primary (enter +1 min, exit +60 min, 1.2% cost) **mean +1.52%, median −1.22%, t +0.98 → not carried**; +1 → +15 min +1.83% (t +1.38);
 **entering at +2 min ≈ 0 (−0.06% to +0.23%), at +5 min negative** — bots take the move within a minute or two. Sealed half unread. Closed.
 
+## 907. C-family 1 protocol — large hourly moves in liquid crypto (Coinbase USD): reversal or continuation? (S11)
+
+**No trial at registration; N 1,541. Written BEFORE any candle is fetched.** Universe: the 40 Coinbase USD pairs with the most 30-day USD
+volume on 2026-10-23 (stablecoins excluded). Data: Coinbase 1-hour candles 2024-01-01 → 2026-10-22. Event: an hour whose close-to-close
+return is beyond ±5% or ±8% (first event per coin per 24 h). **Rules (2 directions × 2 thresholds × 3 holds = 12):** reversal (buy after a
+drop / sell-side not traded — spot only, so drops only: buy) and continuation (buy after a rise), entry at the next hour's open, exit after
+4, 12 or 24 hours. Cost 0.8% round trip (Kraken taker 0.4% × 2). Split: discovery 2024-01 → 2025-06, sealed 2025-07 → 2026-10. Carry: mean
+> 0 and t (clustered by event day) > 1.96; sealed strict §664.4 → CONFIRM, one trial per carried rule.
+
 
 ## 10. Still outstanding, and blocking
 
