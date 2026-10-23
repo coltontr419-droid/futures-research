@@ -16665,6 +16665,12 @@ start, legitimate US venue (Coinbase spot).
   sealed: strict §664.4 (t > 1.645, sign-flip placebo ≥ 95th, posterior > 0 with PRIOR_SD 0.02) → CONFIRM. One trial.
 - Delisting / warning notices (shorts) are out of scope (no spot shorting on Coinbase).
 
+## 906. U-family 1 discovery: Upbit listing moves are gone within ~1-2 minutes — not carried; closed (S11)
+
+**No trial.** 175 listing notices 2025-01 → 2026-10 (155 tokens, 109 with a Coinbase USD pair; 39 discovery events with candles, 37 priced):
+primary (enter +1 min, exit +60 min, 1.2% cost) **mean +1.52%, median −1.22%, t +0.98 → not carried**; +1 → +15 min +1.83% (t +1.38);
+**entering at +2 min ≈ 0 (−0.06% to +0.23%), at +5 min negative** — bots take the move within a minute or two. Sealed half unread. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
