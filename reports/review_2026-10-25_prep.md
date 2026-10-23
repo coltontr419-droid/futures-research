@@ -55,4 +55,6 @@ Plan as deployed today — 5 × 50K, 3 NKD + 2 FDXM, $116, live rules, **funded 
 6. **Two-week demo (§897):** take/stop hit rates exactly as modelled (22 takes vs 22.2 expected over 54 replays); P&L within noise; 1 pass
    (MCL). FDXM's bot replays were wrong at the 3:00 AM open (cash-index proxy) — fixed and deployed; the user's log is the FDXM record.
    To discuss: any other trades where execution differed from the ticket.
+7. **Final two-week demo (§898):** log 61 trades, 43% wins, −$4,579 trading P&L, 10 resets; **first demo payout (MCL, 10-23)**. Replays
+   21 takes vs 22.2 expected (z −0.91 on P&L) — consistent with the model. FDXM replays remain unreliable (cash index ≠ future); use the log.
 

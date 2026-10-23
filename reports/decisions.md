@@ -16595,6 +16595,14 @@ from HistData's continuous DAX CFD quotes `grxeur`, a21). Fix (user: "go"): FDXM
 `approx: DAX index proxy`; the `!eod` cross-check no longer warns on FDXM. Tests 19 passed; deployed 2026-10-23 18:23Z, backup
 /opt/futures-bot/backup-2026-10-23. FDXM truth = the user's log.
 
+## 898. Demo two weeks, final (2026-10-12 → 10-23): first demo payout; hit rates as modelled; FDXM proxy unreliable even after the fix (S10)
+
+**No trial.** User's log: 61 trades, 26 wins (43%), trading P&L −$4,579, 10 resets ($800 demo fees); **MCL passed 10-22 and took the first
+payout 10-23 (balance 53,000 → 52,100)**. Live-plan products: NKD 4/12 −$3,779; FDXM 4/10 −$400. Accounts now: MCL funded 52,100; MGC 51,200,
+ZS 51,200, NKD 50,185, MNQ 50,000, FDXM 50,000 (eval). Bot replays (54): takes 21 vs 22.2 expected; P&L −$7,884 vs −$1,231 (z −0.91) —
+within noise. FDXM re-scored with §897's 10-minute skip: only 10-14 changes (TAKE → STOP); 10-22 is still a replay "take" the user did not
+see → the ^GDAXI cash index diverges from FDXM beyond the open; FDXM replays are indicative only, the log is the record.
+
 
 ## 10. Still outstanding, and blocking
 
