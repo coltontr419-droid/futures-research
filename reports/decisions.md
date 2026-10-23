@@ -16559,6 +16559,17 @@ Bullion, Money Metals, Bullion Exchanges) sit behind Cloudflare/captcha and thei
 Together with §841-859 (crypto), §715 (prediction markets) and §892 (cards): locked two-sided arbitrage on public, liquid markets is
 competed away; none found that is automatable and ~90% certain. Closed.
 
+## 894. B-family 1 protocol — Algora open-source code bounties: expected value per attempt from closed bounties (S11)
+
+**No trial (a measurement). Written before any closed bounty is read.** New bar (user, 2026-10-23): +EV verified on real data before money.
+Bounties are cash on GitHub issues (label "💎 Bounty"; paid label "💰 Rewarded"); workers comment `/attempt #N`, open a PR, and the
+maintainer awards one. Zero capital; I write the code — the user's time is the claim/payout account. **Sample:** GitHub search, issues
+labelled 💎 Bounty closed 2026-07-01 → 2026-10-20 (all pages ≤ 1,000), plus the 585 open ones. **Per closed bounty:** amount (from the
+"$N" label or the Algora bot comment), rewarded or not, distinct `/attempt` users, days open. **Read:** awarded share; median attempts;
+P(win | attempt) = rewarded / Σ attempts; EV per attempt = mean amount × P(win | attempt); total awarded $ per month across the platform;
+by amount bucket. **A lead** if EV per attempt ≥ $50 in some bucket with ≥ 10 awards a month there (enough flow for ≥ $2k/month at a
+plausible win rate). Otherwise closed.
+
 
 ## 10. Still outstanding, and blocking
 
