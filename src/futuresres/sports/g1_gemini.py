@@ -111,16 +111,16 @@ def record(hours: float) -> None:
                 fills = []; prev = quotes.get(u["symbol"])
                 tr = get(f"/v1/trades/{u['symbol']}?limit_trades=100") or []
                 new = [x for x in tr if x["tid"] > last_tid.get(u["symbol"], -1)] if u["symbol"] in last_tid else []
-                if tr:
-                    last_tid[u["symbol"]] = max(x["tid"] for x in tr)
+                if tr:                                         # monotonic: a stale page must not move the marker back (old trades re-counted)
+                    last_tid[u["symbol"]] = max(last_tid.get(u["symbol"], -1), max(x["tid"] for x in tr))
                 if prev:
                     ahead_b = sum(s for p, s in prev["bids"] if p > prev["bp"]); ahead_a = sum(s for p, s in prev["asks"] if p < prev["ap"])
                     for x in new:
                         p, a = float(x["price"]), float(x["amount"])
                         if x["type"] == "sell" and p <= prev["bp"]:
-                            fills.append({"side": "buy_yes", "px": prev["bp"], "n": min(SIZE, a)})       # taker sold into our bid
+                            fills.append({"side": "buy_yes", "px": prev["bp"], "n": min(SIZE, a), "tid": x["tid"]})       # taker sold into our bid
                         if x["type"] == "buy" and p >= prev["ap"]:
-                            fills.append({"side": "sell_yes", "px": prev["ap"], "n": min(SIZE, a)})      # taker bought our offer
+                            fills.append({"side": "sell_yes", "px": prev["ap"], "n": min(SIZE, a), "tid": x["tid"]})      # taker bought our offer
                 quotes[u["symbol"]] = (q | {"bids": bids, "asks": asks}) if q else None
                 rows.append({"ticker": u["ticker"], "symbol": u["symbol"], "q": q, "reward": reward, "fills": fills,
                              "top": [bids[0] if bids else None, asks[0] if asks else None]})
@@ -133,10 +133,20 @@ def record(hours: float) -> None:
 
 def readout() -> None:
     rew = collections.defaultdict(float); F = collections.defaultdict(list); quoted = collections.Counter(); t_first = t_last = None; tk_of = {}
+    seen_fill: set = set()
     for l in open(OUT / "shadow.jsonl"):
         s = json.loads(l); t_first = t_first or s["t"]; t_last = s["t"]
         for r in s["rows"]:
-            rew[r["symbol"]] += r["reward"]; F[r["symbol"]] += r["fills"]; quoted[r["symbol"]] += bool(r["q"]); tk_of[r["symbol"]] = r["ticker"]
+            rew[r["symbol"]] += r["reward"]; quoted[r["symbol"]] += bool(r["q"]); tk_of[r["symbol"]] = r["ticker"]
+            left = {"buy_yes": SIZE, "sell_yes": SIZE}                  # our quote is SIZE per side between re-quotes: cap the cycle's fills
+            for f in r["fills"]:
+                key = (r["symbol"], f.get("tid")) if f.get("tid") else (r["symbol"], f["side"], f["px"], f["n"])
+                if key in seen_fill:                                     # re-counted trades (stale pages before the fix) dropped
+                    continue
+                seen_fill.add(key)
+                n = min(f["n"], left[f["side"]])
+                if n > 0:
+                    left[f["side"]] -= n; F[r["symbol"]].append(f | {"n": n})
     days = max((ts(t_last) - ts(t_first)).total_seconds() / 86400, 1e-6)
     kind = lambda tk: tk.split("-")[-1][:2] if tk.split("-")[-1][:1].isdigit() else "game"
     by = collections.defaultdict(lambda: [0.0, 0.0, 0, 0])            # reward, fill pnl (settled), fills, unsettled fills
