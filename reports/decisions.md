@@ -16803,6 +16803,11 @@ filing date (after the pricing drop has printed); sell at the close 5 sessions l
 Split: filings before 2026-01-01 discovery, after sealed. Carry: adjusted mean > 0, t (clustered by filing date) > 1.96, raw > 0; sealed
 strict §664.4. One trial.
 
+## 926. O-family 1 discovery: offering-pricing rebound not carried (+2.81% adjusted but median −0.37%, t +1.70); closed (S11)
+
+**No trial.** 567 pricing events (267 discovery, 117 liquid and priced): 5 d adjusted +2.81% (median −0.37%, t +1.70) — a skewed mean from
+a few squeezes; 20 d +3.08% (median +1.26%, t +1.53). Not carried. Closed (sealed unread).
+
 
 ## 10. Still outstanding, and blocking
 
