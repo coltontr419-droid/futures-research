@@ -16753,6 +16753,10 @@ Yahoo daily. Split: announcements before 2025-01-01 discovery, from 2025-01-01 s
 mean −2.16% (median −0.95%, t −1.55) after 0.2%. The announcement jump is priced at the open; the run-up to the index funds' close is gone.
 Closed (sealed unread).
 
+## 918. Screen: closed-end fund discount reversion — NAV history not freely available (CEF Connect API serves HTML); closed (S11)
+
+**No trial.** Capital-bound in any case (discount narrowing ~ a few % a year). Closed on data access.
+
 
 ## 10. Still outstanding, and blocking
 
