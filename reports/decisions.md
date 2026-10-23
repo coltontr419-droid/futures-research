@@ -16543,6 +16543,14 @@ firms: none found for US equity/index options — the field is futures/forex/CFD
 and GoDaddy Auctions block automated reads (Cloudflare/403); typical portfolio sell-through ~1-2%/year vs ~$10/name/year renewals — a
 skill-and-capital business. Closed.
 
+## 892. Locked arbitrage 1: store-to-store Magic singles (Card Kingdom ↔ ABU Games) — 12 gaps in 69k cards; competed away (S11)
+
+**No trial.** User's bar (2026-10-22 night): automatable, ~90% likely — only locked arbitrage qualifies. Card Kingdom public pricelist
+(retail + cash buylist + quantities) joined to ABU Games' open Solr index (`data.abugames.com/solr/nodes/select`, NM English singles:
+retail price/qty, buy_price/buy_list_quantity; 132,388 rows) on name + collector number + foil + set: 69,261 matched. Gaps where one store's
+cash buy > the other's retail × 1.0825 (Texas sales tax) + $0.30: **12, ≈ $992 in total, the largest being version/listing mismatches
+($0 retail rows; Tempest Sapphire Medallion $27.99 → $154.44)**. Prices between stores are kept aligned; no stream. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
