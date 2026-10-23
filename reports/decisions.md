@@ -16643,6 +16643,15 @@ pre-registered decision point; flagged for the user, nothing changed.
 A48 (the trigger's own tracker, demo tickets): 14 rule sessions, signed window **+96.8 bps**, bracket outcome rule − other side −$2,039,
 recorded −$3,229; trigger pending (needs 40 sessions, ~5 more weeks). No action.
 
+## 904. G1 corrected interim: three readout bugs fixed — ≈ $573/day simulated rewards, 11 fills (−$39 settled) (S10)
+
+**No trial.** Fixes (2026-10-23): (1) settlement read from Gemini's `resolutionSide` (was never matched → all "unsettled"); (2) fills
+capped at our 100 contracts per side per cycle (each trade had been counted up to 100); (3) the trade marker can no longer move back on a
+stale page (old trades re-counted every few cycles; recorder fixed and restarted, readout de-duplicates by trade id or identical fill);
+plus rewards credited for the real time between cycles (cap 15 min) instead of the nominal 2 min. Result over 0.89 days, 123 markets:
+**rewards $511 (≈ $573/day)**; fills 11 (game 6, 3Q 2, 1Q 3), settled P&L −$39 (the earlier −$1,268 was the double-count). The same
+monotonic-marker fix applied to A-LIP2/3 (restarted). Verdict after Sunday/Monday's games (§888).
+
 
 ## 10. Still outstanding, and blocking
 

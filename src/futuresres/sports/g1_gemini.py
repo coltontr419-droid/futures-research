@@ -135,9 +135,12 @@ def readout() -> None:
     rew = collections.defaultdict(float); F = collections.defaultdict(list); quoted = collections.Counter(); t_first = t_last = None; tk_of = {}
     seen_fill: set = set()
     for l in open(OUT / "shadow.jsonl"):
-        s = json.loads(l); t_first = t_first or s["t"]; t_last = s["t"]
+        s = json.loads(l)
+        # a cycle's quote stands until the next cycle: credit the real elapsed time (cap 15 min), not the nominal CYCLE seconds
+        el = min((ts(s["t"]) - ts(t_last)).total_seconds(), 900) if t_last else CYCLE
+        t_first = t_first or s["t"]; t_last = s["t"]
         for r in s["rows"]:
-            rew[r["symbol"]] += r["reward"]; quoted[r["symbol"]] += bool(r["q"]); tk_of[r["symbol"]] = r["ticker"]
+            rew[r["symbol"]] += r["reward"] * el / CYCLE; quoted[r["symbol"]] += bool(r["q"]); tk_of[r["symbol"]] = r["ticker"]
             left = {"buy_yes": SIZE, "sell_yes": SIZE}                  # our quote is SIZE per side between re-quotes: cap the cycle's fills
             for f in r["fills"]:
                 key = (r["symbol"], f.get("tid")) if f.get("tid") else (r["symbol"], f["side"], f["px"], f["n"])
