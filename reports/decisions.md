@@ -16576,6 +16576,14 @@ plausible win rate). Otherwise closed.
 "💎 Bounty" — **36 created** in that window (4 closed); the 578 open are stale. Algora now markets hiring, not bounties. No flow to earn
 from. Fetch stopped. Closed.
 
+## 896. Paid-code/content boards: Topcoder shrank (~$2.9k/month platform-wide), Superteam Earn is 13 crypto-content listings — closed (S11)
+
+**No trial.** Topcoder public API (`api.topcoder.com/v6/challenges`, 34,012 completed all-time): **21 public challenges completed
+2026-04-01 → 10-22**, $19.5k of placement prizes (≈ $2.9k/month platform-wide) — Development 14 ($16,350, 425 submissions, ≈ $38 per
+submission), Design 2, QA 1, Marathon 4 ($0). Superteam Earn (`superteam.fun/api/listings`): 13 open bounties, mostly crypto promotion
+content (e.g. $500 thread, 268 submissions), a few technical pieces with little competition (a $2,500 Solana article, 1 submission) —
+occasional one-offs, not a stream. With Algora (§895), code-bounty boards hold no scalable +EV flow. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
