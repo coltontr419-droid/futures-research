@@ -16790,6 +16790,10 @@ return; buy the top 5 (primary) or the bottom 5 (reported), equal weight, at tha
 Benchmark: BTC over the same week. Split: weeks before 2025-07-01 discovery (from 2024-01-08), after sealed. Carry: mean weekly excess > 0,
 t over weeks > 1.96, raw > 0; sealed strict §664.4. One trial.
 
+## 924. C-family 3 discovery: weekly crypto momentum adds nothing over BTC (+0.15%/week, t +0.13); closed (S11)
+
+**No trial.** 78 weeks: top 5 raw +1.54%/wk, vs BTC +0.15% (t +0.13) → not carried; bottom 5 vs BTC −0.94% (t −0.93). Closed.
+
 
 ## 10. Still outstanding, and blocking
 
