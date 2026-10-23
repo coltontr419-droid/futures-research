@@ -16713,6 +16713,16 @@ after the report (pre-market reports: same day; after-hours or unstated: next da
 Yahoo daily bars (`data/stocks/h2/daily.jsonl`) + SPY. Split: report dates before 2026-01-01 discovery, from 2026-01-01 sealed. Carry:
 market-adjusted mean > 0 with t (clustered by report date) > 1.96 AND raw mean > 0; sealed strict §664.4 on market-adjusted. One trial.
 
+## 913. I-family 1 protocol — open-market insider purchases (SEC Form 4 datasets) → drift over 5 / 20 days (S11)
+
+**No trial at registration; N 1,541. Written BEFORE any insider file is opened.** Data: SEC Insider Transactions Data Sets 2025Q2-2026Q3
+(SUBMISSION, NONDERIV_TRANS, REPORTINGOWNER). Event: per issuer and filing date, total open-market purchases (transaction code P, non-
+derivative) by officers or directors ≥ $100,000 (≥ $500,000 reported only); first event per issuer per 30 days. Liquidity filter from H2's
+cached daily bars: price ≥ $1, 20-day median dollar volume ≥ $500k. Entry at the open of the first session after the filing date; exit at
+the close 5 (primary) or 20 sessions later; cost 0.3%; market-adjusted by SPY over the same window. Split: filing dates before
+2026-01-01 discovery (from 2025-06-02), from 2026-01-01 sealed. Carry: adjusted mean > 0, t (clustered by filing date) > 1.96, raw mean > 0;
+sealed strict §664.4. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
