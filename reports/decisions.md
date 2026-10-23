@@ -16772,6 +16772,11 @@ continuation, not reversal, despite survivorship bias in the losers' favour (cur
 **R-family 2 protocol (written before the winners are computed):** identical to §919 but buying the 20 (primary) / 50 BEST 5-session
 performers. Same universe, filters, costs, benchmark, split and decision rule. Survivorship caveat: current listings only (biases up).
 
+## 921. R-family 2 discovery: weekly winners also lag (−1.40%/week vs SPY, t −1.36) — both extremes underperform (volatility effect); closed (S11)
+
+**No trial.** Best 20: raw −1.17%/wk, excess −1.40% (t −1.36); best 50 excess −0.80% (t −1.14). Extreme movers in either direction lag
+the market — the short-volatility side is not available to a long-only small account. R1/R2 closed (sealed unread).
+
 
 ## 10. Still outstanding, and blocking
 
