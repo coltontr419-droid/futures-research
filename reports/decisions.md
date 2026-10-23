@@ -16703,6 +16703,16 @@ Cost 1.2%. Split: discovery before 2026-01-01, sealed after. Carry mean > 0 and 
 
 **No trial.** n 6: 24 h +5.90% (t +1.20), 72 h +10.90% (median −1.23%, t +0.82). Too few events to matter or to test. Closed.
 
+## 912. E-family 2 protocol — post-earnings drift after large positive surprises (Nasdaq calendar, cached daily bars) (S11)
+
+**No trial at registration; N 1,541. Written BEFORE any calendar day or post-report price is read.** Events: Nasdaq earnings calendar
+(`api.nasdaq.com/api/calendar/earnings?date=D`) for report dates 2025-06-02 → 2026-09-30; keep rows with EPS forecast ≥ $0.05 in absolute
+value, ≥ 2 estimates, market cap ≥ $300M, and surprise ≥ +20% (primary; ≥ +50% reported only). Entry at the open of the first session
+after the report (pre-market reports: same day; after-hours or unstated: next day); exit at the close 5 trading days later (primary) or
+20 (reported). Return net of 0.2% (commission-free spread) and also minus SPY over the same window (market-adjusted). Prices: H2's cached
+Yahoo daily bars (`data/stocks/h2/daily.jsonl`) + SPY. Split: report dates before 2026-01-01 discovery, from 2026-01-01 sealed. Carry:
+market-adjusted mean > 0 with t (clustered by report date) > 1.96 AND raw mean > 0; sealed strict §664.4 on market-adjusted. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
