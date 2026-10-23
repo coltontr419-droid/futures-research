@@ -16551,6 +16551,14 @@ retail price/qty, buy_price/buy_list_quantity; 132,388 rows) on name + collector
 cash buy > the other's retail × 1.0825 (Texas sales tax) + $0.30: **12, ≈ $992 in total, the largest being version/listing mismatches
 ($0 retail rows; Tempest Sapphire Medallion $27.99 → $154.44)**. Prices between stores are kept aligned; no stream. Closed.
 
+## 893. Locked arbitrage 2: gift-card exchanges, buyback vendors, bullion dealers — no crossing, data mostly blocked (S11)
+
+**No trial.** Gift-card exchanges (CardCash, Raise, GiftCardGranny) each run 10-15% buy/sell spreads and block or hide quote feeds; textbook
+and device buyback (SellBackYourBook, Decluttr, BookScouter) give quotes only per item behind redirects/blocks; bullion dealers (APMEX, SD
+Bullion, Money Metals, Bullion Exchanges) sit behind Cloudflare/captcha and their bid/ask spreads (3-8%) do not cross between dealers.
+Together with §841-859 (crypto), §715 (prediction markets) and §892 (cards): locked two-sided arbitrage on public, liquid markets is
+competed away; none found that is automatable and ~90% certain. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
