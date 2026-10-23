@@ -16680,6 +16680,13 @@ drop / sell-side not traded — spot only, so drops only: buy) and continuation 
 4, 12 or 24 hours. Cost 0.8% round trip (Kraken taker 0.4% × 2). Split: discovery 2024-01 → 2025-06, sealed 2025-07 → 2026-10. Carry: mean
 > 0 and t (clustered by event day) > 1.96; sealed strict §664.4 → CONFIRM, one trial per carried rule.
 
+## 908. C-family 2 protocol — new Coinbase USD listings after the opening hour: buy and hold 1 or 3 days? (S11)
+
+**No trial at registration. Written BEFORE any post-open candle is read.** Events: the 109 Coinbase USD listings since 2025-03 of assets also
+on Kraken (§844 list, `data/xarb/x3/listings.json`). Rule: buy at the open of the second trading hour on Coinbase, sell at the close 24 h /
+72 h after the first trade; cost 1.2% (Coinbase taker both ways). Split by listing date: discovery before 2026-01-01, sealed after. Carry:
+mean > 0 and t > 1.96 (one return per listing); sealed strict §664.4. One trial per carried hold.
+
 
 ## 10. Still outstanding, and blocking
 
