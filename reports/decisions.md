@@ -16765,6 +16765,13 @@ weight, bought at Monday's open, sold at Friday's close. Cost 0.2% round trip. B
 discovery (from 2025-06), from 2026-01-01 sealed. Carry: mean weekly excess > 0 with t (over weeks) > 1.96 and raw > 0; sealed strict
 §664.4 (t over weeks). One trial.
 
+## 920. R-family 1 discovery: weekly losers keep losing (−3.30%/week vs SPY, t −2.92) → not carried. R-family 2 registered: weekly winners (S11)
+
+**No trial.** R1 discovery (28 weeks 2025-06 → 12): worst 20 raw −3.06%/wk, excess −3.30% (t −2.92); worst 50 excess −1.83% (t −2.46) —
+continuation, not reversal, despite survivorship bias in the losers' favour (current listings only). Closed.
+**R-family 2 protocol (written before the winners are computed):** identical to §919 but buying the 20 (primary) / 50 BEST 5-session
+performers. Same universe, filters, costs, benchmark, split and decision rule. Survivorship caveat: current listings only (biases up).
+
 
 ## 10. Still outstanding, and blocking
 

@@ -43,7 +43,7 @@ def main(validate: bool) -> None:
             if a is None or b is None or not o[a] or not c[b]:
                 continue
             cand.append((c[i] / c[i - 5] - 1, c[b] / o[a] - 1))
-        cand.sort()
+        cand.sort(reverse="--winners" in sys.argv)            # decisions.md 920: R-family 2 buys the best performers
         spy = sc[si[nfri]] / so[si[mon]] - 1
         for k in (20, 50):
             if len(cand) >= k:
@@ -54,10 +54,10 @@ def main(validate: bool) -> None:
         if len(a) < 4:
             continue
         m, t = float(a.mean()), float(a.mean() / (a.std(ddof=1) / np.sqrt(len(a))))
-        line = f"R1 {'sealed' if validate else 'discovery'} worst {k}: weeks {len(a)}, raw {rw.mean()*100:+.2f}%/wk, excess {m*100:+.2f}%/wk, t {t:+.2f}"
+        line = f"{'R2' if '--winners' in sys.argv else 'R1'} {'sealed' if validate else 'discovery'} {'best' if '--winners' in sys.argv else 'worst'} {k}: weeks {len(a)}, raw {rw.mean()*100:+.2f}%/wk, excess {m*100:+.2f}%/wk, t {t:+.2f}"
         if k == 20:
             if validate:
-                rng = np.random.default_rng(919); pct = float((np.array([(a * rng.choice((-1.0, 1.0), len(a))).mean() for _ in range(4000)]) < m).mean() * 100)
+                rng = np.random.default_rng(920 if "--winners" in sys.argv else 919); pct = float((np.array([(a * rng.choice((-1.0, 1.0), len(a))).mean() for _ in range(4000)]) < m).mean() * 100)
                 post = m * PRIOR_SD ** 2 / (PRIOR_SD ** 2 + a.var(ddof=1) / len(a))
                 line += f", placebo {pct:.0f}th -> " + ("CONFIRM" if t > 1.645 and pct >= 95 and m > 0 and post > 0 else ("WATCHLIST" if m > 0 else "REJECT"))
             else:
