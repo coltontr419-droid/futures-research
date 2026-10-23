@@ -16738,6 +16738,15 @@ Caveat fixed now: 20-session windows overlap across nearby filing dates; t is cl
 2026 filings: n 474, raw −0.81%, **SPY-adjusted −1.12% (median −1.65%), t −1.38, placebo 3rd → REJECT**. The discovery's +3.49% did not
 survive. Insider-purchase drift is closed.
 
+## 916. H-family 7 protocol — S&P 400 / 600 additions: buy after the announcement, sell into the index funds' close (S11)
+
+**No trial at registration; N 1,542. Written BEFORE any price is joined.** Events: Wikipedia "Recent and announced changes" tables for the
+S&P MidCap 400 and SmallCap 600, additions with an S&P press-release citation date (the announcement date) and an effective date,
+2023-01-01 → 2026-10-20; additions arising from moves between S&P indices kept, spin-offs excluded. Rule: buy at the open of the first session
+after the announcement date; sell at the close of the last session before the effective date (when index funds buy). Cost 0.2%. Prices:
+Yahoo daily. Split: announcements before 2025-01-01 discovery, from 2025-01-01 sealed. Carry: mean > 0, t (clustered by announcement date)
+> 1.96; sealed strict §664.4. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
