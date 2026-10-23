@@ -16757,6 +16757,14 @@ Closed (sealed unread).
 
 **No trial.** Capital-bound in any case (discount narrowing ~ a few % a year). Closed on data access.
 
+## 919. R-family 1 protocol — weekly reversal in liquid US stocks (H2 cached bars) (S11)
+
+**No trial at registration; N 1,542. Written BEFORE the computation.** Universe each Friday: H2 stocks with price ≥ $5 and 20-day median
+dollar volume ≥ $5M. Signal: the 5-session return to Friday's close; portfolio: the 20 worst (primary) / 50 worst (reported), equal
+weight, bought at Monday's open, sold at Friday's close. Cost 0.2% round trip. Benchmark: SPY same week. Split: weeks before 2026-01-01
+discovery (from 2025-06), from 2026-01-01 sealed. Carry: mean weekly excess > 0 with t (over weeks) > 1.96 and raw > 0; sealed strict
+§664.4 (t over weeks). One trial.
+
 
 ## 10. Still outstanding, and blocking
 
