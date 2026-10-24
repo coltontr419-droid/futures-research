@@ -17012,6 +17012,12 @@ roughly the market with more risk. Capital-bound. N → 1,550.
 **No trial.** 241 forward splits 2015-2022: from the effective-session close, 20 sessions excess −0.39% (t −0.80) → not carried; 60
 sessions −2.55% (t −2.96). Closed.
 
+## 959. Screen: levered retail-FX carry (OANDA-type spot) — the live carry ETF earned +1.1%/yr (2009-26, DD −26%); closed (S11)
+
+**No trial.** FRED rates unreachable; real-money evidence instead: WisdomTree EM currency (CEW) 2009-05 → 2026-10 total +20% (CAGR +1.1%),
+max drawdown −26%; Invesco G10 carry (DBV) delisted. Retail FX financing marks up ~2-3%/yr per side, so levered carry is negative after
+costs and a −26% currency move ruins a 10× account. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
