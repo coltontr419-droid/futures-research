@@ -16874,6 +16874,16 @@ same-hour return is lowest relative to BTC's; buy at the next hour's open, sell 
 from the midpoint near zero (§881 scenario B). Orders left resting (monitor's $15 stop active); cancelling and freeing the $80 is the
 user's call. Polymarket US liquidity rewards via deep quotes: closed.
 
+## 938. K-calendar protocols — SPY turn-of-month, pre-holiday, pre-FOMC (Yahoo daily 2005-2026) (S11)
+
+**No trial at registration; N 1,546. Written BEFORE the computation.** SPY daily (adjusted closes and opens), 0.02% cost per round trip.
+**TOM:** buy at the close of the second-to-last trading day of the month, sell at the close of the 3rd trading day of the next month.
+**PRE-HOL:** buy at the close two sessions before an NYSE holiday closure (detected as a weekday gap of ≥ 1 non-weekend day), sell at the
+close of the session before the holiday. **PRE-FOMC:** buy at the close of the session before a scheduled FOMC statement day, sell at
+that day's 2:00 pm ET proxy = the close (daily data). FOMC dates from the Fed's calendar pages. Each compared with the average SPY return
+over the same number of sessions. Split: 2005-2018 discovery, 2019-2026 sealed. Carry: excess mean > 0, t > 1.96; sealed strict §664.4.
+One trial each.
+
 
 ## 10. Still outstanding, and blocking
 
