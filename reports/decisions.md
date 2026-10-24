@@ -16889,6 +16889,12 @@ One trial each.
 Discovery 2005-2018: TOM −0.013% (t −0.09), pre-holiday −0.002% (t −0.02) → not carried; **PRE-FOMC +0.270% (n 109, t +2.26) → carried;
 sealed 2019-2026: +0.003% (n 59, t +0.02, placebo 51st) → WATCHLIST** — the published pre-FOMC drift has disappeared. Closed. N → 1,547.
 
+## 940. Screens: perp-funding signal (OKX keeps only ~3 months) and Kraken triangular arbitrage (dust) — closed (S11)
+
+**No trial.** (1) Funding-rate extremes as a spot signal: Binance/Bybit block US; OKX public history = 288 rows (2026-07-20 →) — too short.
+(2) Kraken triangles (1,472 USD→A→B→USD at 0.4% × 3 taker): the only positives are stale books — USD→EUR→GAIB→USD +179% on 72 GAIB
+(≈ $0.50), USD→EUR→EURR→USD +2.0% with ≈ $50 on the bid; all liquid triangles ≤ −0.9%. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
