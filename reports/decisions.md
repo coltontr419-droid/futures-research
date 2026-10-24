@@ -17481,6 +17481,15 @@ reading (the largest non-8-K .htm). Some fallbacks are cover pages or supplement
 set (≥ +1) is 168 events. Heuristic used throughout: raised/beat guidance → +1/+2; reaffirmed or no information → 0; lowered guidance or misses → −1/−2.
 `data/ai1/scores.json` (sorted keys) hashes to the value above, and `ai1_reads score` refuses to run if the file changes.
 
+## 1013. AI-1: Claude's blind reads of earnings releases do not predict the post-open move — +0.02%/trade, t 0.05, Spearman −0.035; WATCHLIST in name only (t01556); N → 1,556 (S11)
+
+**Trial t01556.** 299 scored lines (Z and ZG share one release), 169 longs (score ≥ +1): mean open→close excess over SPY after 0.1% =
+**+0.02%, t +0.05, placebo 52nd, posterior +0.02% → WATCHLIST** under §664.4 (positive mean), but it is a null in substance. By score: −2 −1.35%
+(n 9), −1 +0.54% (17), 0 +0.50% (104), +1 +0.02% (110), +2 +0.04% (59). Rank correlation of score with excess across all: −0.035. The
+information in the release is in the opening print, and what Claude reads adds nothing to the open→close drift. (Lopez-Lira & Tang's effect
+came from headlines and partly from small caps, under different timing.) Closed as a strategy. Nothing here supports an LLM-reading edge for a
+retail trader who acts at the open.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
