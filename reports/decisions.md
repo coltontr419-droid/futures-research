@@ -16946,6 +16946,13 @@ month for stock j in month m: j had an ex-dividend date in month m−12 (Hartzma
 eligible stocks predicted to go ex-dividend next month, held one month, vs the equal-weight eligible universe; cost 0.2% round trip.
 Split, carry and sealed rules as §942. One trial.
 
+## 948. L-family 12 protocol — same-calendar-month seasonality of individual stocks (Heston & Sadka), 2015-2026 (S11)
+
+**No trial at registration; N 1,548. Written BEFORE the computation.** Pack as §942. For holding month m (every month of the year): rank
+eligible stocks (price ≥ $5, history for m in each of the previous 5 years) by their average return in calendar month m over years y−5 …
+y−1; hold the top 20 equal weight for month m vs the equal-weight eligible universe; cost 0.2%. Discovery holding months 2020-01 → 2022-12
+(5-year lookback needs 2015-2019), sealed 2023-01 →. Carry and sealed rules as §942. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
