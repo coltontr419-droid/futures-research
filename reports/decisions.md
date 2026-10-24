@@ -17282,6 +17282,22 @@ Value, Harbert Discovery, Kanen, 22NW, Ortelius, Stilwell, Macellum, Land and Bu
 first-session-open entry, 20-session hold, minus the universe and 0.3%. The published drift appears in sign. Most of the announcement return is already
 in the open after the filing, and the remainder is too noisy at the liquid-stock coverage of `pack.npz`. Closed.
 
+## 987. B-family 4 protocol — online cash-prize hackathons (Devpost): prize dollars per submission (S11)
+
+**No trial (a measurement). Written before any hackathon's numbers are read.** Claude builds; the user would submit (identity, demo video).
+**Measure** on Devpost hackathons that ended 2026-04-01 → 10-23, are online, open to the public (not invite-only) and have a cash prize: the cash pool,
+registrations, and **submissions** (gallery count). Statistic: total cash ÷ total submissions, and the distribution of cash per
+submission by hackathon. Also read a sample of rules (AI use, US eligibility, judging). **Pass:** ≥ $300 of cash per submission
+in the median eligible hackathon AND ≥ 10 eligible hackathons a month. If passed, stage 2 would be the user's call, because submissions are theirs.
+
+## 988. B-family 4: online hackathons pay a median $39 of cash per submission — closed (S11)
+
+**No trial (a measurement).** `data/bounty/devpost/` (Devpost API + gallery counts). Of 315 recently ended hackathons, 48 were online, public and
+cash-prized, and 24 had countable galleries. Together: $4.56M of cash over 32,001 submissions. **Median $39 per submission** (quartiles $13 / $39 / $130).
+The few rich ones are sponsor mega-events with thousands of entries (Build with Gemini XPRIZE $2M / 1,401; RevenueCat Shipaton 2026 $740k /
+3,923; OpenAI Build Week $100k / 8,014), and prizes are top-heavy. Each entry also needs the user's identity, a demo video and judging
+luck. Under the $300 bar, and not a stream. Closed; a rare one-off with few entrants could be flagged ad hoc.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
