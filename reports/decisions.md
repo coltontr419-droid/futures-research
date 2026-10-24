@@ -16911,6 +16911,15 @@ weight. **L1** nearest the 52-week high (price / 252-day high); **L2** 12-1 mome
 (worst 21-session return); **L4** lowest 63-day volatility. Split: months before 2023-01 discovery, from 2023-01 sealed. Carry: monthly
 excess mean > 0 with t > 1.96; sealed strict §664.4 (t over months). One trial per carried rule.
 
+## 943. L-families 5-7 protocols — large-cap weekly reversal, single-stock overnight, large-cap gap-down (2015-2026 long history) (S11)
+
+**No trial at registration; N 1,547. Written BEFORE the long history is read.** Universe each period: the 200 eligible stocks with the
+highest trailing 63-day median dollar volume (proxy for size; eligibility as §942). Costs: 0.1% per round trip (large caps). Split as §942.
+**L5:** each Friday, buy the 20 worst 5-session performers of the 200 at Monday's open, sell Friday's close; excess vs the 200's equal-weight
+same window. **L6:** each session, buy at the close the 20 of the 200 with the highest prior 21-session cumulative overnight return
+(close→open), sell at the next open; excess vs the 200's average overnight return. **L7:** any of the 200 opening ≥ 3% below its prior close
+→ buy the open, sell the close; excess vs the 200's average open→close that day; t clustered by day. Carry and sealed rules as §942.
+
 
 ## 10. Still outstanding, and blocking
 
