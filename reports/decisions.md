@@ -17407,6 +17407,19 @@ marketplaces). Lumpy one-offs with no flow and no data on entrants. Closed.
 auctions (Royalty Exchange / SongVest, ≈ 8-12% yields priced by bidders), invoice factoring and real-estate crowdfunding (≈ 6-10%, illiquid,
 often accredited-only). On $200 any of these is a few dollars a month, and $2k a month needs $200k+. Same verdict as staking (§ survey F). Closed.
 
+## 1004. K-calendar 7 protocol — mid-month Treasury coupon reinvestment (the 15th) in TLT and IEF (S11)
+
+**Written before any return is computed.** Mechanism: coupons and principal paid on the 15th (the quarterly refunding issues and many notes)
+are reinvested by index and liability holders, a cash flow like the month-end extension of §961. **Rule (one, two series):** buy at the close of
+the last session at least 2 sessions before the 15th, sell at the close of the first session after the 15th (or on it, if the 15th is a session).
+Return minus the series' own average drift over the same number of sessions (as §962), minus 0.02%. Series TLT and IEF from the cached Yahoo
+files; each is a trial if carried. **Statistic:** per-month mean, t on months. Discovery 2005-2015; sealed 2016-01 → 2026-10 under §664.4.
+
+## 1005. K-calendar 7: mid-month coupon reinvestment is positive but weak — TLT +0.16% (t 1.22), IEF +0.08% (t 1.33); not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/k_coupon.py`, discovery 2005-2015, 132 months each. Same sign as the confirmed month-end
+extension (§961/§963), about half the size and not significant. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
