@@ -16833,6 +16833,12 @@ from 2025-06). Carry: mean overnight net > 0 with t > 1.96. **R4:** every Friday
 volume ≥ $5M) with the lowest 20-day daily-return standard deviation, bought at Monday's open, sold at Friday's close, 0.2% cost, excess vs
 SPY; split and decision as §919. One trial each if carried.
 
+## 931. R3 sealed: SPY overnight +0.021%/night (t +0.54) → WATCHLIST (t01546); R4 low-volatility not carried; N → 1,546 (S11)
+
+Discovery R3 (2025-06 → 12): overnight +0.074%/night net (t +2.20; intraday +0.008%) → carried; **sealed 2026: +0.021% (t +0.54,
+placebo 71st) → WATCHLIST** (positive, not significant; capital-bound anyway). R4 discovery: lowest-volatility 20 −0.531%/week vs SPY
+(t −2.22) → not carried. Closed except the R3 watchlist entry.
+
 
 ## 10. Still outstanding, and blocking
 
