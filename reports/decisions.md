@@ -17372,6 +17372,16 @@ the prior 50 sessions (`V`), among stocks whose last-5-session return is between
 
 **N 1,554 (no trial).** `src/futuresres/stocks/l21_volshock.py`, discovery 2016-2022, 82 months. Closed.
 
+## 999. Screen: sports-betting prop firms (simulated bankrolls, paid challenges) — small, unproven counterparties; closed (S11)
+
+**No trial (a desk screen).** These are the sports analogue of the Tradeify plan: buy a challenge on a simulated bankroll and earn a profit split once
+funded. Current operators (comparison checked 2026-10-03): Prime Sports Funded (€109 for €5k, +35% in ≥ 25 picks, 2-5% stakes, 20% max
+loss, 80% split), Fan Funded ($59.99, three +33% steps), GetBet Funded, Bankroll U (US-only, $245), Playvo, OddsON, MySportsFunding (€499
+instant). Against the user's criteria: **no published payout proof**, mostly euro-priced small operators, and churn (Funded Sports Trader closed,
+Funded Stake offline, BETfunded stopped selling, Player Profit absorbed). Texas status is unstated, and sports wagering is illegal in Texas.
+Desk EV at −110 odds with no edge: pass ≈ 25% (drift −0.2% a 5% bet across ~28 bets) against a €109 fee and a capped split. Roughly break-even
+before counterparty risk, and positive only with a real pick edge, which §677/§687 did not find. Closed; not a legitimate-KYC venue in the user's sense.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
