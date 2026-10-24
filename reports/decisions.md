@@ -17342,6 +17342,25 @@ universe per 60-session hold after 0.4%, t +1.87, under the bar. The mechanism i
 small, and in the 2015-2021 coverage most of the narrowing comes before or at the filing. Forward watchlist: new CEF-activist 13Ds are logged from
 2026-10. Capital-bound (≈ 2% per event, a few events a month across all funds).
 
+## 994. Forward watchlist logger for L18/L19 installed; Hypermind screened (no 2026 cash contests) (S11)
+
+**No trial.** `src/futuresres/stocks/watch_forward.py` runs monthly (user timer `futres-watchfwd.timer`, days 1-2, 04:00 CT; persistent across
+reboots). It refreshes CEF prices and NAVs, logs L18's top-10 discount z-scores and any new CEF-activist 13Ds to `reports/watch_forward.jsonl`.
+Revisit after 12 months (2027-10). Hypermind: the last cash contests were the 2022-25 AI tournament ($3-12k a year); nothing current. Closed.
+
+## 995. L-family 20 protocol — CEF ex-distribution day: do funds fall by less than the distribution? (S11)
+
+**Written before any ex-day return is computed.** The 271 CEFs of §990. Ex-dates are detected from the Yahoo series: the session where
+the ratio adjclose/close falls by more than 0.2% versus the previous session (a distribution adjustment). **Rule (one):** buy at the close
+before the ex-date, sell at the ex-date close; distribution-inclusive return (adjclose) minus the equal-weight CEF universe that session, minus
+0.3% cost. **Statistic:** mean by month, t on months. Discovery before 2022-01 (carry: mean > 0, t > 1.96); sealed 2022-01 → 2026-09.
+
+## 996. L-family 20: CEFs fall by the full distribution on ex-day — gross +0.01%, net −0.29%; not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/l20_cefexdiv.py`: 23,924 ex-days in 108 months (2013-2021), distribution-inclusive
+ex-day return over the CEF universe +0.010% gross, −0.290% after costs, t −26. No ex-day anomaly to capture. The first forward-log run
+(2026-10-24) is in `reports/watch_forward.jsonl` (L18 top 10: NMZ, NAC, MGF, MIN, VCV, NXP, WIW, NAN, NUV, DSU; no new CEF-activist 13Ds since 10-01). Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
