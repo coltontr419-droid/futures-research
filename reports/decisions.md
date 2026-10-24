@@ -16884,6 +16884,11 @@ that day's 2:00 pm ET proxy = the close (daily data). FOMC dates from the Fed's 
 over the same number of sessions. Split: 2005-2018 discovery, 2019-2026 sealed. Carry: excess mean > 0, t > 1.96; sealed strict §664.4.
 One trial each.
 
+## 939. Calendar families: TOM and pre-holiday nothing; pre-FOMC +0.27% (2005-18) gone since 2019 (+0.003%) → WATCHLIST (t01547) (S11)
+
+Discovery 2005-2018: TOM −0.013% (t −0.09), pre-holiday −0.002% (t −0.02) → not carried; **PRE-FOMC +0.270% (n 109, t +2.26) → carried;
+sealed 2019-2026: +0.003% (n 59, t +0.02, placebo 51st) → WATCHLIST** — the published pre-FOMC drift has disappeared. Closed. N → 1,547.
+
 
 ## 10. Still outstanding, and blocking
 
