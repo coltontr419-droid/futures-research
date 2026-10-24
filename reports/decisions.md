@@ -16990,6 +16990,10 @@ highest 63-day median dollar volume. Event: close-to-close drop ≥ 8% (first pe
 later (primary; 20 reported); excess vs the 200's equal-weight over the window; cost 0.1%. t clustered by event day. Split, carry and sealed
 rules as §942. One trial.
 
+## 955. L-family 15 discovery: large-cap crash rebound −0.42% over 5 sessions (t −0.25); closed (S11)
+
+**No trial.** 1,445 events on 577 days (2016-2022): 5 sessions excess −0.42% (t −0.25), 20 sessions −0.15% (t +0.38). Closed.
+
 
 ## 10. Still outstanding, and blocking
 
