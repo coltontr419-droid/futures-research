@@ -16983,6 +16983,13 @@ One trial.
 **No trial.** 83 discovery months, median 335 predicted payers a month: predicted ex-dividend months vs equal weight −0.31%/month (t −2.09).
 Closed.
 
+## 954. L-family 15 protocol — large-cap one-day crashes (≥ 8%): buy the close, hold 5 sessions (S11)
+
+**No trial at registration; N 1,549. Written BEFORE the computation.** Pack as §942; universe each day = the 200 eligible stocks with the
+highest 63-day median dollar volume. Event: close-to-close drop ≥ 8% (first per stock per 20 sessions). Buy at that close, sell 5 sessions
+later (primary; 20 reported); excess vs the 200's equal-weight over the window; cost 0.1%. t clustered by event day. Split, carry and sealed
+rules as §942. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
