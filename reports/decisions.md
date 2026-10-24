@@ -17034,6 +17034,18 @@ Mechanism: index duration extension at month-end (bond-index funds buy long Trea
 notes: ETF (cash account) holds overnight — fine; on Tradeify, Treasury futures could not be held through the 17:00-18:00 ET break, so
 only an intraday version would be eligible (untested). Forward-track monthly; N → 1,551.
 
+## 962. K-calendar 3-6 protocols — pension rebalancing, Treasury auction cycle, month-end in IEF/LQD, OPEX week (S11)
+
+**No trial at registration; N 1,551. Written BEFORE any computation.** Yahoo adjusted daily 2005-2026; costs 0.02% (ETFs). Split: before
+2016-01 discovery, from 2016 sealed; carry mean > 0 with t > 1.96, sealed strict §664.4, one trial each.
+- **K3 pension rebalancing:** month m, if TLT beat SPY by ≥ 3% from the prior month-end to the close 3 sessions before m's last session,
+  buy SPY at that close and sell at m's last close; excess over SPY's average 3-session return.
+- **K4 auction cycle:** 30-year bond auction dates (TreasuryDirect public API); buy TLT at the auction-day close, sell 5 sessions later;
+  excess over TLT's average 5-session return.
+- **K5 month-end extension elsewhere:** §960's rule on IEF and on LQD (two rules).
+- **K6 OPEX week:** SPY from the close of the Friday before monthly options expiration (3rd Friday) to the expiration-Friday close;
+  excess over SPY's average 5-session return.
+
 
 ## 10. Still outstanding, and blocking
 
