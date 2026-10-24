@@ -17395,6 +17395,12 @@ capital, but the whole flow is ≈ $2.75k a month, so even a high win share is a
 contest (search, then compare with the announced winning references) would measure skill, but the cap makes it moot for the $2k/month bar.
 Closed as a stream; could be offered to the user as an occasional side bounty.
 
+## 1002. Screen: federal prize challenges — Challenge.gov sunset 2026-03-30; USA.gov lists 15 active, few written-ideation; sporadic, closed (S11)
+
+**No trial.** The 15 active challenges (USA.gov find-active-challenge, 2026-10-24) are mostly technical or team builds (DARPA surgery, NASA
+lander comms, DHS biothreat AI, xTech) or student challenges (TechRise). About 4 accept written ideas (careers, invasive species, CDC data platform, talent
+marketplaces). Lumpy one-offs with no flow and no data on entrants. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
