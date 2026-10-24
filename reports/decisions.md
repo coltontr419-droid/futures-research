@@ -16957,6 +16957,13 @@ y−1; hold the top 20 equal weight for month m vs the equal-weight eligible uni
 
 **No trial.** 35 discovery months (2020-2022): top 20 by 5-year same-month average vs equal weight −0.25%/month (t −0.17). Closed.
 
+## 950. L-family 13 protocol — industry momentum (Nasdaq screener industries), 2015-2026 (S11)
+
+**No trial at registration; N 1,548. Written BEFORE the computation.** Pack as §942; industry = the Nasdaq screener's `industry` field
+(current mapping). Industries with ≥ 5 eligible members. Each month end: industry return = equal-weight member return over the past 126
+sessions (t−126 → t); hold all eligible members of the top 3 industries, equal weight, for one month, vs the equal-weight eligible universe;
+cost 0.2%. Split, carry and sealed rules as §942. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
