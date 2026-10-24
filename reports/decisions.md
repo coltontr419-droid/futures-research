@@ -17307,6 +17307,25 @@ But eight leg-trades through quoted spreads cost ≈ 65% of risk. The sparse str
 width. Even at a quarter of these spreads the trade stays negative. With X1-X4 all failing on cost (§977, §978, §983), option strategies on
 this end-of-day dataset are closed; testing them properly needs intraday quotes (paid OPRA data).
 
+## 990. L-family 18 protocol — closed-end fund discount reversion, reopened (§918's data blocker is gone: Yahoo serves CEF NAVs as X{ticker}X) (S11)
+
+**Written before any NAV or return is read.** Universe: listed tickers from the Nasdaq screener cache (`data/stocks/screener.json`) whose
+name contains Fund / Trust / Income / Municipal / Opportunit / Strategic and whose Yahoo NAV symbol X{ticker}X exists with
+instrumentType MUTUALFUND. Daily close (raw) and adjusted close from Yahoo for price, NAV close for the NAV. **Signal at each month-end:**
+discount D = price / NAV − 1; z = (D − its 252-session mean) / its 252-session s.d. (≥ 200 valid days; NAV and price dated the same
+session). **Rule (one):** buy the 10 lowest-z funds (discounts unusually wide versus their own history) at the month-end close, hold one month on
+adjusted close (distributions included), minus the equal-weight universe the same month, minus 0.4% cost. **Statistic:** monthly excess; t
+on months. Discovery 2013-06 → 2021-12 (carry: mean > 0, t > 1.96); sealed 2022-01 → 2026-09 under §664.4. Year-round, liquid listed
+funds, cash account.
+
+## 991. L-family 18: CEF discount reversion is a near miss — +0.29%/month over the CEF universe, t 1.72; not carried, forward watchlist (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/l18_cef.py`; 460 name-matched candidates, **271 with a Yahoo NAV series** (`data/stocks/l18/`).
+Discovery 2013-06 → 2021-12: 103 months, the 10 lowest discount z-scores beat the equal-weight CEF universe by **+0.29% a month after 0.4%
+costs, t +1.72**. That is under the 1.96 carry bar, so the sealed window is not opened. Caveat: survivorship, since only funds listed today are included;
+the benchmark shares that bias but not exactly. The literature effect is present and small. Per §133 it goes to the forward watchlist: from
+2026-10 the month-end top 10 are logged, and it is revisited after 12 months. Capital-bound regardless (≈ $30/month on $10k).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
