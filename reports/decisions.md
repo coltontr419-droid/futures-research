@@ -17420,6 +17420,22 @@ files; each is a trial if carried. **Statistic:** per-month mean, t on months. D
 **N 1,554 (no trial).** `src/futuresres/stocks/k_coupon.py`, discovery 2005-2015, 132 months each. Same sign as the confirmed month-end
 extension (§961/§963), about half the size and not significant. Closed.
 
+## 1006. B-family 6 protocol — Freelancer.com software microjobs: budgets versus competition (S11)
+
+**No trial (a measurement). Written before the sample is read.** Public API `projects/0.1/projects/active` (no login). Sample: active USD
+projects for the queries python, web scraping, excel automation, data analysis, chatbot, api integration, wordpress, automation; up to 500 each,
+deduplicated. **Measure:** median and quartiles of the budget midpoint, bids per project, and the average bid ÷ budget midpoint; the share
+with ≤ 10 bids and a midpoint ≥ $200. **Pass:** ≥ 100 such low-competition, ≥ $200 jobs live at once, i.e. a newcomer could win ~10 a month
+(≈ $2k). Winning also needs the user's account, reviews and client communication.
+
+## 1007. B-family 6: Freelancer.com software jobs draw a median 104 bids; 6 low-competition $200+ jobs live, none software — closed (S11)
+
+**No trial (a measurement).** `data/bounty/freelancer/active.json`: 1,039 active projects, 313 USD fixed-price. Budget midpoint quartiles
+$140 / $500 / $500 (the posting bands). **Bids per project 45 / 104 / 211.** Average bid ≈ 0.91 × the budget. Only 6 projects had ≤ 10 bids and
+a midpoint ≥ $200, and they are commission sales or translation, not software. A no-review newcomer competes against 100+ bids at a price
+near the budget. This is the quantitative side of survey item D2 (AI automation freelancing): the open marketplaces are saturated, and
+earnings depend on reputation and outbound sales, not on build speed. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
