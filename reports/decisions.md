@@ -16853,6 +16853,10 @@ Event: reopen price ≤ 0.98 × Friday reference (≤ 0.97 reported). Buy at the
 (gap filled) or at the close 72 h after entry. Cost 0.8%. Split: weekends before 2025-07-01 discovery, after sealed. Carry: mean > 0, t > 1.96
 (one return per weekend); sealed strict §664.4. One trial.
 
+## 934. C-family 4 discovery: BTC CME-gap long — 9 events, +0.36% (t +0.29); not carried, too rare; closed (S11)
+
+**No trial.** Gap ≥ 2% below: n 9, mean +0.36% (median +1.98%, t +0.29); ≥ 3%: n 6, −0.60%. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
