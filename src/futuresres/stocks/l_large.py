@@ -29,18 +29,8 @@ def verdict(x: np.ndarray, validate: bool, seed: int) -> str:
 
 
 def main(validate: bool) -> None:
-    cal = set(); raw = {}
-    for l in open(LONG):
-        x = json.loads(l); d = [dt.datetime.fromtimestamp(t, dt.timezone.utc).date().isoformat() for t in x["t"]]
-        raw[x["sym"]] = (d, x["o"], x["c"], x["a"], x["v"]); cal.update(d)
-    cal = sorted(cal); ci = {d: i for i, d in enumerate(cal)}; T = len(cal); syms = sorted(raw)
-    A = np.full((len(syms), T), np.nan); O = A.copy(); V = A.copy()
-    for j, s in enumerate(syms):
-        d, o, c, a, v = raw[s]
-        for k, dd in enumerate(d):
-            if a[k] and c[k] and o[k]:
-                i = ci[dd]; f = a[k] / c[k]; A[j, i] = a[k]; O[j, i] = o[k] * f; V[j, i] = (v[k] or 0) * c[k]
-    del raw
+    z = np.load(ROOT / "data" / "stocks" / "long" / "pack.npz"); cal = list(z["cal"]); T = len(cal)
+    A, O, V = z["A"].astype(np.float64), z["O"].astype(np.float64), z["V"].astype(np.float64)
     on = O[:, 1:] / A[:, :-1] - 1                      # overnight return into session i (close i-1 -> open i)
     intra = A / O - 1                                  # open -> close of session i
     res = {"L5": [], "L6": [], "L7": []}

@@ -16920,6 +16920,14 @@ same window. **L6:** each session, buy at the close the 20 of the 200 with the h
 (close→open), sell at the next open; excess vs the 200's average overnight return. **L7:** any of the 200 opening ≥ 3% below its prior close
 → buy the open, sell the close; excess vs the 200's average open→close that day; t clustered by day. Carry and sealed rules as §942.
 
+## 944. L-families 1-7: only 12-1 momentum carried; sealed +1.46%/month excess (t +0.96) → WATCHLIST (t01548); N → 1,548 (S11)
+
+Long history packed (`stocks/longpack.py`, 2,012 × 2,970 float32; the JSON loader ran out of memory). Discovery 2016-2022 (83 months):
+L1 52-week-high −0.55%/mo (t −1.39); **L2 12-1 momentum +2.66%/mo (t +2.50) → carried**; L3 1-month losers +0.77% (t +0.65); L4 low-vol
+−0.84% (t −2.16). Large caps (top 200 by dollar volume): L5 weekly losers +0.047% (t +0.33); L6 overnight momentum −0.069% (t −4.32);
+L7 gap-down ≥ 3% open→close −0.334% (t −3.67). **L2 sealed 2023-01 → 2026-10 (45 months): +1.46%/month excess, t +0.96, placebo 83rd →
+WATCHLIST.** Momentum is positive but not significant on unseen data; capital-bound (a monthly rebalance of 20 stocks). Forward watch.
+
 
 ## 10. Still outstanding, and blocking
 

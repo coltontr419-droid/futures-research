@@ -5,8 +5,6 @@
 
 from __future__ import annotations
 
-import datetime as dt
-import json
 import sys
 from pathlib import Path
 
@@ -17,42 +15,24 @@ LONG = ROOT / "data" / "stocks" / "long" / "daily.jsonl"
 COST, PRIOR_SD, SEAL, K = 0.002, 0.02, "2023-01", 20
 
 
-def load():
-    S = {}
-    for l in open(LONG):
-        x = json.loads(l)
-        d = [dt.datetime.fromtimestamp(t, dt.timezone.utc).date().isoformat() for t in x["t"]]
-        a = [v if v else np.nan for v in x["a"]]
-        S[x["sym"]] = (d, np.array(a, float))
-    return S
-
-
 def main(validate: bool) -> None:
-    S = load()
-    cal = sorted({d for d, _ in S.values() for d in d})
-    month_ends = [cal[i] for i in range(len(cal) - 1) if cal[i][:7] != cal[i + 1][:7]]
-    idx = {s: {d: i for i, d in enumerate(v[0])} for s, v in S.items()}
+    z = np.load(ROOT / "data" / "stocks" / "long" / "pack.npz"); cal = list(z["cal"]); A = z["A"].astype(np.float64)
+    month_ends = [i for i in range(len(cal) - 1) if cal[i][:7] != cal[i + 1][:7]]
     res = {k: [] for k in ("L1", "L2", "L3", "L4")}
-    for m0, m1 in zip(month_ends[:-1], month_ends[1:]):
-        if (m1[:7] >= SEAL) != validate:
+    for i0, i1 in zip(month_ends[:-1], month_ends[1:]):
+        if (cal[i1][:7] >= SEAL) != validate or i0 < 260:
             continue
-        rows = []
-        for s, (d, a) in S.items():
-            i0, i1 = idx[s].get(m0), idx[s].get(m1)
-            if i0 is None or i1 is None or i0 < 260 or not np.isfinite(a[i0]) or not np.isfinite(a[i1]) or a[i0] < 5:
-                continue
-            w = a[i0 - 252:i0 + 1]
-            if np.isnan(w).mean() > 0.05:
-                continue
-            fwd = a[i1] / a[i0] - 1
-            hi = np.nanmax(w); r = np.diff(np.log(a[i0 - 63:i0 + 1]))
-            rows.append({"fwd": fwd, "L1": a[i0] / hi, "L2": a[i0 - 21] / a[i0 - 252] - 1, "L3": -(a[i0] / a[i0 - 21] - 1), "L4": -np.nanstd(r)})
-        if len(rows) < 200:
+        a0, a1 = A[:, i0], A[:, i1]; W = A[:, i0 - 252:i0 + 1]
+        ok = np.isfinite(a0) & np.isfinite(a1) & (a0 >= 5) & (np.isnan(W).mean(axis=1) <= 0.05) & np.isfinite(A[:, i0 - 252]) & np.isfinite(A[:, i0 - 21])
+        if ok.sum() < 200:
             continue
-        ew = float(np.mean([r["fwd"] for r in rows]))
+        fwd = a1 / a0 - 1; ew = float(np.nanmean(fwd[ok]))
+        with np.errstate(all="ignore"):
+            R = np.diff(np.log(A[:, i0 - 63:i0 + 1]), axis=1)
+            sc = {"L1": a0 / np.nanmax(W, axis=1), "L2": A[:, i0 - 21] / A[:, i0 - 252] - 1, "L3": -(a0 / A[:, i0 - 21] - 1), "L4": -np.nanstd(R, axis=1)}
         for k in res:
-            top = sorted(rows, key=lambda r: r[k], reverse=True)[:K]
-            res[k].append(float(np.mean([r["fwd"] for r in top])) - COST - ew)
+            v = np.where(ok & np.isfinite(sc[k]), sc[k], -np.inf); top = np.argsort(v)[::-1][:K]
+            res[k].append(float(np.nanmean(fwd[top])) - COST - ew)
     print(f"L monthly {'sealed' if validate else 'discovery'}")
     for k, v in res.items():
         x = np.array(v)
