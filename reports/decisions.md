@@ -17540,6 +17540,19 @@ series are highly correlated (same rate factor), so they do not diversify each o
 EDV/ZROZ (+0.27-0.31% a window, sealed, not significant alone). Dollar scale is unchanged: ≈ $27-31 a month per $10k in EDV, ≈ $65 in TMF.
 Still a capital-bound edge, not a $2k/month stream.
 
+## 1020. L-family 26 protocol — quarter-end window dressing: buy the top-20 year-to-date winners 5 sessions before quarter-end (S11)
+
+**Written before any return is computed.** `pack.npz`, price ≥ $5, ≤ 5% missing in the year. At the close 5 sessions before the last session of
+March, June, September and December, rank by return since the last close of the prior year (for Q1: the prior 63 sessions). **Rule:** buy the top 20,
+sell at the quarter's last close. Return minus the equal-weight universe over the same 5 sessions, minus 0.2%. Discovery quarters before 2023-01;
+sealed 2023-01 → 2026-09 under §664.4. One rule.
+
+## 1021. L-family 26: quarter-end window dressing is a near miss — +1.57% per 5-session window, t 1.68, 28 quarters; not carried, forward watchlist (S11)
+
+**N 1,561 (no trial).** `src/futuresres/stocks/l26_window.py`, discovery 2016-2022. A large point estimate on a noisy, high-volatility basket
+(YTD winners) with only 28 observations. It goes on the forward watchlist and is re-read with the sealed quarters once a year of new data accrues (the sealed window
+stays closed; four quarter-ends a year makes a fair forward test slow).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
