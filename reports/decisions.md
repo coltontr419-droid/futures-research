@@ -16839,6 +16839,12 @@ Discovery R3 (2025-06 → 12): overnight +0.074%/night net (t +2.20; intraday +0
 placebo 71st) → WATCHLIST** (positive, not significant; capital-bound anyway). R4 discovery: lowest-volatility 20 −0.531%/week vs SPY
 (t −2.22) → not carried. Closed except the R3 watchlist entry.
 
+## 932. Polymarket US test: first credited reward $0.02 for 2026-10-22 (~2 h quoted) → ≈ $0.25/day, far below the ~$5/day estimate (S10)
+
+**No trial.** `/v1/incentives/earnings` (2026-10-24 11:39Z): $0.02, status PENDING, market mostpassyds-niciam, date 10-22 (ET; orders
+rested from 21:53Z, ≈ 2 h of that day). Consistent with scenario B of §881 (quotes far from the midpoint weighted near zero). The full day
+10-23 decides; if it is ≈ $0.25-0.50, cancel and return the $80 (user's call).
+
 
 ## 10. Still outstanding, and blocking
 
