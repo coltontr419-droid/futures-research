@@ -17514,6 +17514,15 @@ trade-month, t +1.84** (per-trade mean +1.10%, 51% winners). This is the earning
 window stays closed, and it goes to the forward watchlist: re-run after a year of new data (2027-10, events refetched). Capital-bound either way (≈ +1% per 20-day
 trade, ~70 trades a month across all names).
 
+## 1017. D1 readout of the paused recorder: one afternoon, $402 overlay, ≈ $28 a day for one field-average account; a full week is scheduled (S11)
+
+**No trial.** `python -m futuresres.dfs.d1_overlay` on `data/dfs/d1.jsonl` (96 snapshots, 2026-10-22 only, paused for memory): 28 guaranteed
+contests at lock, 16 with overlay, $402 in total. Dominated by one UEL soccer slate ($120 + $65 + $60 + $25 + $26). Golf showdowns had $30 and $20 overlays,
+Madden $14. One account at its per-user cap at field-average skill ≈ $28 that day, i.e. ≈ $840 a month if every day looked like this. That's under the
+$2k bar and resting on one day. Last snapshots were 0-6 minutes before lock, so late entries may still fill part of it. **Decision:** run the
+recorder for a full week (incl. NFL Sunday) once the A-LIP shadows finish, to stay within 3 runs: timer `futres-d1-start` at 2026-10-26 01:30Z,
+recorder until 2026-11-02 06:00Z. Readout then. Lead if ≥ $2k/month at field-average with one account (§869).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
