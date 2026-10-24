@@ -16935,6 +16935,10 @@ WATCHLIST.** Momentum is positive but not significant on unseen data; capital-bo
 weight; benchmark = equal weight of all available sectors; cost 0.05% per round trip. Split: months before 2016-01 discovery, from 2016-01
 sealed. Carry and sealed rules as §942.
 
+## 946. L-family 8 discovery: sector ETF momentum −0.05%/month (t −0.30); closed (S11)
+
+**No trial.** 119 discovery months (2006-2015): top-3 sectors by 12-1 return vs equal weight −0.05%/month (t −0.30). Closed.
+
 
 ## 10. Still outstanding, and blocking
 
