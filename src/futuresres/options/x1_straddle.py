@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+import bisect
 import collections
 import datetime as dt
 import json
@@ -94,6 +95,11 @@ def cap(s: str) -> float:
         return 0.0
 
 
+def latest(snaps: list[str], lo: str, hi: str) -> str | None:
+    i = bisect.bisect_right(snaps, hi) - 1
+    return snaps[i] if i >= 0 and snaps[i] >= lo else None
+
+
 def events() -> list[dict]:
     snaps = sorted(d for d, n in json.loads((OUT / "snapdates.json").read_text()).items() if n > 0)
     seen, ev = set(), []
@@ -107,11 +113,11 @@ def events() -> list[dict]:
                 continue
             seen.add((s, d)); dd = dt.date.fromisoformat(d)
             prev = dd - dt.timedelta(days=3 if dd.weekday() == 0 else 1)  # d - 1 trading day (holidays: snapshot absent anyway)
-            X = max((t for t in snaps if (dd - dt.timedelta(days=4)).isoformat() <= t <= prev.isoformat()), default=None)
+            X = latest(snaps, (dd - dt.timedelta(days=4)).isoformat(), prev.isoformat())
             if X is None:
                 continue
             xd = dt.date.fromisoformat(X)
-            E = max((t for t in snaps if (xd - dt.timedelta(days=8)).isoformat() <= t <= (xd - dt.timedelta(days=4)).isoformat()), default=None)
+            E = latest(snaps, (xd - dt.timedelta(days=8)).isoformat(), (xd - dt.timedelta(days=4)).isoformat())
             if E is None:
                 continue
             ev.append({"sym": s, "d": d, "E": E, "X": X})
@@ -207,11 +213,13 @@ def fill() -> None:
 
 
 def load_q() -> dict:
-    Q = collections.defaultdict(list)
+    Q = {}
     for name in ("quotes.jsonl", "quotes_fill.jsonl"):
         if (OUT / name).exists():
-            for q in map(json.loads, open(OUT / name)):
-                Q[(q["date"], q["sym"])] += [r for r in q["q"] if r not in Q[(q["date"], q["sym"])]]
+            for l in open(OUT / name):
+                q = json.loads(l); k = (q["date"], q["sym"])
+                if k not in Q or not Q[k]:
+                    Q[k] = [tuple(r) for r in q["q"]]
     return Q
 
 

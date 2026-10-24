@@ -17207,6 +17207,48 @@ strike of that type). The −100% / intrinsic fallbacks then apply only when the
 S 358 → 339 cost 5.51 to close a 1.66 credit; quiet months keep 70-90% of the credit. The index variance premium does not survive the
 bid/ask of a two-leg spread closed early, and the losses in 2020 and 2022 dominate. Closed.
 
+## 978. X-family 1: the pre-earnings IV run-up is +1.5% an event at mid — far below the spread; −16% at bid/ask, t −22; not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/options/x1_straddle.py` (§966, §975, §976). Discovery 2020-2023: 7,439 tradable events (5,546
+untradable: no expiry spanning the report listed at both snapshots, or no entry quote), 198 weeks. **Net (ask in, bid out) −16.26% an
+event-week, t −22.10, 12% winners.** −100% fallbacks are only 0.7%. The loss is the quoted spread: DoltHub's end-of-day straddle spread has a
+median of **12.5% of the straddle** (10th-90th percentile 4.5%-53%), wider than intraday markets in large caps. Mid-to-mid, the published
+run-up is present but small: **+1.5% an event** (excluding fallbacks), below even a realistic 2-3% round-trip spread on a
+large-cap straddle. Not carried on either reading. Note for X2/X3: with spreads this wide in the data, a rule needs a gross edge well above 10%
+a trade to carry. Mid-to-mid figures are printed alongside for information.
+
+## 979. B-family 3 protocol — Expensify open-source bounties ($175-250 an issue via Upwork): flow, competition, and the rules (S11)
+
+**No trial (a measurement). Written before any issue's comments are read.** Expensify/App labels paid issues "External" with a price in
+the title (2026-07-01 → 10-23: 1,183 such issues; 2026-H1: 2,275). Contributors post proposals; a reviewer picks one, who opens the PR and
+is paid via Upwork after merge plus a regression period. **Measure** on External issues created 2026-08-01 → 09-30 that are closed: proposals per issue
+(comments with a "Proposal" heading), minutes from the "Help Wanted" label to the first proposal, the share of issues won by the top 10
+and top 50 assignees, and the price. Also read CONTRIBUTING / the bounty rules (AI use, eligibility, payment, limits on concurrent
+assignments). **Pass:** a newcomer can plausibly win ≥ 10 issues a month (≈ $1,750) — i.e. winners are not concentrated in a closed
+group, proposals per issue ≤ ~10, and the rules allow AI-assisted work; if passed, a stage 2 would be the user's call (it needs their GitHub +
+Upwork accounts).
+
+## 980. B-family 3: Expensify's own AI agent takes most jobs — outside contributors are paid on ~1 in 4 paid issues, ≈ $12k a month for all of them combined; closed (S11)
+
+**No trial (a measurement).** `data/bounty/expensify_*.json` (GitHub API). 469 External issues were created 2026-08/09 and are now closed (≈ 235 a month).
+In a random 80 (seed 979), **MelvinBot** (Expensify's agent, first proposal by design) proposed on 53. The median issue drew 1 proposal (mean 2.6).
+Of the 55 with a payment summary, **15 paid an outside contributor** (typically $250; one $750, one $500); the rest paid only the C+ reviewer,
+i.e. Melvin's fix was used. Scaled up: ≈ 44 outside-contributor jobs a month, ≈ $12k a month split among ~46 active proposers. The top
+three took 11 of the 15. The rules make it worse for a newcomer: one job at a time until the first PR merges; outside proposals must be "meaningfully different"
+from Melvin's; every PR must be tested on web, iOS, Android and desktop (this laptop cannot build the app); a 50% penalty per regression.
+A newcomer would plausibly win a few jobs a month, far from the bar. Closed.
+
+## 981. L-family 16 protocol — overnight-return momentum (Lou, Polk & Skouras 2019, "A tug of war") on liquid US stocks (S11)
+
+**Written before any return is computed.** Same frame as L1-L4 (§942: `pack.npz`, monthly, K = 20, cost 0.2%, price ≥ $5, ≤ 5% missing
+in the year, vs the equal-weight universe, discovery before 2023-01, sealed 2023-01 → 2026-10). **Score:** the sum over the last 21
+sessions of overnight log returns, log(open_t / close_{t−1}) (from the adjusted O and A arrays). **Rule:** hold the top 20 for the next month. One rule;
+the §664.4 rule on the sealed window if carried.
+
+## 982. L-family 16: overnight momentum not present — −0.24%/month, t −0.34; not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/l16_overnight.py`, discovery 2016-2022, 83 months. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
