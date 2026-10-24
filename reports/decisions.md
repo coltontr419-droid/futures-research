@@ -17135,6 +17135,78 @@ buy (defined risk), so one long-only rule.
 3. **Statistic:** the monthly equal-weight mean return on premium; t on months. **Discovery 2020-02 → 2023-12** (carry: mean > 0, t > 1.96);
    **sealed 2024-01 → 2026-09** under §664.4. One rule, one trial if carried.
 
+## 970. Screen: WorldQuant BRAIN consultant programme — paid per alpha, no capital, US eligible; pay unpublished; needs the user's account — PARKED as a lead (S11)
+
+**No trial (a desk screen).** BRAIN users write alpha expressions and run them in WorldQuant's simulator (their data); users who reach Gold
+(10,000 points) may be invited as Research Consultants, paid a base fee per period that depends on the quantity and quality of submitted alphas and
+on their correlation with WorldQuant's existing pool. Nothing is paid in a month without a qualifying submission. **Pay:** WorldQuant advertises
+≈ $8,000+/quarter (Grandmaster) and $2,000+ (Master) at the top two levels. 2022 regional fee documents (copies only) cap the top tier at $3,500 a month.
+Typical earnings are unpublished and reported as modest. **US:** listed among 17 eligible regions. **Automation:** Python API access is a listed
+consultant feature, and open-source LLM alpha agents exist (wq-alpha-agent and others), so machine-generated alphas already crowd the pool;
+the correlation penalty is what limits pay. **What it needs:** the user's BRAIN account (free) and the consultant contract (identity, tax);
+no measurement is possible before that, since the simulator is behind the login. Plausibly a few hundred dollars a month, more only at the
+top levels; capped by quality, not capital. Parked with §968, to put to the user.
+
+## 971. Screens: QuantConnect Quant League (university teams only; Pro needs a $30k real account) and Quantiacs (no current contest found) — closed (S11)
+
+**No trial.** Both are other no-capital quant-contest routes, checked after §970. QuantConnect's league is for university classes and clubs;
+its Pro tier trades real money with a $30k minimum. For Quantiacs, the only figures found are undated marketing ($2M allocations, 10% of profits),
+with no 2026 contest. Closed.
+
+## 972. E-family 3 protocol — the earnings-announcement premium (Frazzini & Lamont 2007; Barber et al. 2013) in large US stocks (S11)
+
+**Written before any return is computed.** Published: stocks earn abnormal returns around scheduled announcements (risk/attention). Events:
+the X1 calendar (`data/options/x1/calendar.jsonl`), market cap ≥ $10B, 2020-01-01 → 2026-10-16, symbols in `pack.npz`. **Rule:** buy at the
+close two trading days before d, sell at the close one trading day after d (spans pre-market and after-close reports alike); return minus the
+equal-weight `pack.npz` universe over the same days, minus 0.2% cost. **Statistic:** weekly mean (by entry week), t on weeks. Discovery
+2020-01 → 2023-12 (carry: mean > 0, t > 1.96); sealed 2024-01 → 2026-10 under §664.4. One rule.
+
+## 973. E-family 3: no earnings-announcement premium in large caps after costs — +0.10% an event, t 0.56; not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/e3_eap.py`. Discovery 2020-2023: 12,608 events in 205 weeks, +0.103% an event over the
+universe after the 0.2% cost (≈ +0.30% gross), t +0.56. The published premium is there in sign, but it is too small and noisy to trade. Closed.
+
+## 974. X-family 4 protocol — SPY put credit spreads, monthly (the index variance premium with defined risk) (S11)
+
+**Written before any SPY option price is read.** The best-documented option premium is that index puts are overpriced. A small account can
+sell it only with defined risk. **Rule (one):** at the first DoltHub snapshot of each month, 2020-02 → 2026-09, take the SPY expiration 20-45 calendar
+days out (nearest 30). **Sell** the put with delta nearest −0.30 at the bid and **buy** the put with delta nearest −0.15 at the ask (the strikes
+must differ), $0.65 a contract a leg. **Exit:** the last snapshot ≥ 3 calendar days before the expiration; buy back the short at the ask and sell
+the long at the bid (a leg with no quote is valued at intrinsic from that day's SPY close in `data/stocks/y_SPY.json`, plus 1% of the price on the
+short). **Return on risk** = P&L / (width − credit). Statistic: the monthly return on risk. Discovery 2020-02 → 2023-12 (carry: mean > 0,
+t > 1.96); sealed 2024-01 → 2026-09 under §664.4.
+
+## 975. X-family amendment (data structure, before any return was read): DoltHub lists only three target expirations per snapshot (S11)
+
+**No trial.** Found while debugging X4's empty exits (every exit query returned no rows; no P&L was looked at, and the X4 run printed a
+number built on intrinsic-only exits, which is void and not used). Each snapshot carries just three expirations, chosen relative to that
+date: ≈ 2 weeks, ≈ 4 weeks and a month-end/monthly one (e.g. 2023-12-18: 12-29, 01-12, 02-16; 2023-12-27: 01-09, 01-26, 02-16). A
+given expiry is therefore listed on some snapshots only, and never in its last ~10 days. The rules are amended as follows:
+- **X1:** the expiration is the nearest one after d that is listed at **both** E and X. A leg missing from X's delta-filtered pull is fetched
+  exactly (strike + expiry) before scoring; only a leg still unquoted counts at −100%.
+- **X2:** the expiration is the nearest one after d listed at both X and Y (Y's pull takes all listed expirations).
+- **X3 and X4:** the exit is the **last snapshot ≤ expiry − 3 days on which that expiry is listed** (searching back from expiry − 3 for up to
+  six snapshots). If none is found, the trade is untradable and counted.
+Everything else stands as registered.
+
+## 976. X-family amendment 2 (data structure): the strike grid is sparse and moves, so unlisted exit legs are valued from that day's IV smile (S11)
+
+**No trial.** X4's re-run (−31.9%/month, t −5.15) is **void**. 67 of its 90 exit legs fell back to intrinsic + 1% because the snapshot lists ≈ 25
+strikes spread over a wide range (spacing ≈ $10 on SPY), and that set changes from date to date. The exact traded strike is usually absent at
+exit (e.g. short 287 / long 278 entered 2020-03-02; listed 03-16 strikes 205-276, neither present). Any rule that holds a contract
+and exits it therefore needs a valuation for unlisted legs. **Amendment, all X rules, before any return is read:** a leg listed at exit trades
+at its own bid/ask. An unlisted leg is valued with Black-76 on the forward **F = K* + C* − P*** (mid prices at the listed strike K* with call delta
+nearest 0.50, same expiry and date), T = days to expiry / 365, r = 0, and σ interpolated linearly in strike between the two nearest listed
+strikes of the same type (flat beyond the listed range). Its bid/ask = model price × (1 ∓ half the relative spread of the nearest listed
+strike of that type). The −100% / intrinsic fallbacks then apply only when the expiry itself is unlisted at exit, or no IV is available.
+
+## 977. X-family 4: SPY put credit spreads lose after real spreads — −11.2% a month on risk, t −1.85; not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/options/x4_spyputs.py` (exits valued per §975/§976; 0 intrinsic fallbacks). Discovery 2020-02 →
+2023-12: 45 months (2 untradable), mean −11.17% on risk a month, t −1.85, 62% winners, worst −113%. Spot checks look right: 2020-09
+S 358 → 339 cost 5.51 to close a 1.66 credit; quiet months keep 70-90% of the credit. The index variance premium does not survive the
+bid/ask of a two-leg spread closed early, and the losses in 2020 and 2022 dominate. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —

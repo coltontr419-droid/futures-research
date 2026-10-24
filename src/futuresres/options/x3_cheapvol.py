@@ -15,6 +15,7 @@ from pathlib import Path
 
 import numpy as np
 
+from futuresres.options import smile
 from futuresres.options.x1_straddle import COMM, PRIOR_SD, sql
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -53,19 +54,24 @@ def form() -> None:
         L = [chr(c) for c in range(ord("A"), ord("Z") + 1)]
         def kids(P: str) -> list[tuple[str, str]]:              # complete partition of the symbols starting with P (P itself included)
             return [(P, P + "A")] + [(P + c, P + chr(ord(c) + 1)) for c in L[:-1]] + [(P + "Z", P + "~")]
-        stack, rows, ok = kids(""), [], True
-        while stack:
-            lo, hi = stack.pop()
-            r = fetch_range(d, lo, hi, extra)
-            if r is None:
-                ok = False; break
-            if len(r) >= 1000:                                   # row limit: split by the next character
-                if len(hi) == len(lo) and hi[:-1] == lo[:-1]:
-                    stack += kids(lo)
-                else:
-                    print("  unsplittable range at row limit", d, lo, hi); rows += r
-                continue
-            rows += r
+        from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
+        rows, ok = [], True
+        with ThreadPoolExecutor(4) as ex:
+            fut = {ex.submit(fetch_range, d, lo, hi, extra): (lo, hi) for lo, hi in kids("")}
+            while fut:
+                dn, _ = wait(fut, return_when=FIRST_COMPLETED)
+                for fu in dn:
+                    lo, hi = fut.pop(fu); r = fu.result()
+                    if r is None:
+                        ok = False; continue
+                    if len(r) >= 1000:                           # row limit: split by the next character
+                        if len(hi) == len(lo) and hi[:-1] == lo[:-1]:
+                            for k in kids(lo):
+                                fut[ex.submit(fetch_range, d, *k, extra)] = k
+                        else:
+                            print("  unsplittable range at row limit", d, lo, hi); rows += r
+                        continue
+                    rows += r
         if not ok:
             print("  failed", d); continue
         q = [[r["act_symbol"], r["expiration"], float(r["strike"]), r["call_put"][0], float(r["bid"] or 0), float(r["ask"] or 0),
@@ -108,33 +114,45 @@ def selections() -> list[dict]:
     return out
 
 
-def exit_date(c: dict, S: list[str]) -> str | None:
+def exit_dates(c: dict, S: list[str]) -> list[str]:
+    """§975: candidate exits, latest first — snapshots <= expiry - 3 days after formation, up to six."""
     lim = (dt.date.fromisoformat(c["ex"]) - dt.timedelta(days=3)).isoformat()
-    return max((t for t in S if c["date"] < t <= lim), default=None)
+    return sorted((t for t in S if c["date"] < t <= lim), reverse=True)[:6]
 
 
 def exits() -> None:
+    from concurrent.futures import ThreadPoolExecutor
     S = snaps(); f = OUT / "exits.jsonl"
-    done = {(q["date"], q["sym"], q["ex"]) for q in map(json.loads, open(f))} if f.exists() else set()
-    need = collections.defaultdict(set)
-    for c in selections():
-        y = exit_date(c, S)
-        if y and (y, c["sym"], c["ex"]) not in done:
-            need[y].add((c["sym"], c["ex"], c["k"]))
-    print("exit symbol-dates", sum(map(len, need.values())))
-    with open(f, "a") as fo:
-        for d in sorted(need):
-            pr = sorted(need[d])
-            for i in range(0, len(pr), 20):
-                ch = pr[i:i + 20]; w = " OR ".join(f"(act_symbol='{s}' AND expiration='{x}' AND strike={k})" for s, x, k in ch)
-                rows = sql(f"SELECT act_symbol, expiration, strike, call_put, bid, ask FROM option_chain WHERE date='{d}' AND ({w})")
+    E = collections.defaultdict(list)
+    if f.exists():
+        for q in map(json.loads, open(f)):
+            E[(q["sym"], q["ex"])].append(q)
+    sel = selections()
+    for rnd in range(6):                                         # round r tries each unresolved straddle's r-th candidate date
+        need = collections.defaultdict(set)
+        for c in sel:
+            got = E.get((c["sym"], c["ex"]), [])
+            if any(q["q"] for q in got):
+                continue
+            ds = exit_dates(c, S)
+            tried = {q["date"] for q in got}
+            nxt = next((t for t in ds if t not in tried), None)
+            if nxt:
+                need[nxt].add((c["sym"], c["ex"]))
+        print("round", rnd, "exit queries", sum(map(len, need.values())), flush=True)
+        if not need:
+            break
+        jobs = [(d, sorted(need[d])[i:i + 8]) for d in sorted(need) for i in range(0, len(need[d]), 8)]
+        q_ = lambda d, ch: sql(f"SELECT act_symbol, expiration, strike, call_put, bid, ask, delta FROM option_chain WHERE date='{d}' AND ("
+                               + " OR ".join(f"(act_symbol='{s}' AND expiration='{x}')" for s, x in ch) + ")")
+        with open(f, "a") as fo, ThreadPoolExecutor(4) as ex:
+            for (d, ch), rows in zip(jobs, ex.map(lambda j: q_(*j), jobs)):
                 if rows is None:
                     continue
-                by = collections.defaultdict(list)
-                for r in rows:
-                    by[r["act_symbol"]].append([float(r["strike"]), r["call_put"][0], float(r["bid"] or 0), float(r["ask"] or 0)])
-                for s, x, k in ch:
-                    fo.write(json.dumps({"date": d, "sym": s, "ex": x, "q": by.get(s, [])}) + "\n")
+                for s_, x_ in ch:
+                    q = [[float(r["strike"]), r["call_put"][0], float(r["bid"] or 0), float(r["ask"] or 0), float(r["delta"] or 0)] for r in rows
+                         if r["act_symbol"] == s_ and r["expiration"] == x_]
+                    rec = {"date": d, "sym": s_, "ex": x_, "q": q}; E[(s_, x_)].append(rec); fo.write(json.dumps(rec) + "\n")
                 fo.flush()
 
 
@@ -144,10 +162,11 @@ def evaluate(validate: bool) -> None:
     for c in selections():
         if (c["date"][:7] >= SEAL) != validate:
             continue
-        y = exit_date(c, S); q = E.get((y, c["sym"], c["ex"])) if y else None
-        if q is None:
-            skip += 1; continue
-        bid = sum(next((r[2] for r in q if r[0] == c["k"] and r[1] == cp), 0.0) for cp in ("C", "P"))
+        t = next((t for t in exit_dates(c, S) if E.get((t, c["sym"], c["ex"]))), None)
+        if t is None:
+            skip += 1; continue                                  # expiry never listed again: untradable (counted)
+        rows = [tuple(r) for r in E[(t, c["sym"], c["ex"])]]
+        bid = sum(max(smile.leg(rows, c["k"], cp, "bid", t, c["ex"]) or 0.0, 0.0) for cp in ("C", "P"))   # §976; no IV -> 0
         mon[c["date"][:7]].append((bid - c["ask"] - 4 * COMM) / (c["ask"] + 2 * COMM))
     x = np.array([np.mean(v) for _, v in sorted(mon.items())]); allr = np.concatenate([np.array(v) for v in mon.values()])
     m, t = float(x.mean()), float(x.mean() / (x.std(ddof=1) / np.sqrt(len(x))))
