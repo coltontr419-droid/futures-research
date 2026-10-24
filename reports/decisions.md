@@ -16895,6 +16895,12 @@ sealed 2019-2026: +0.003% (n 59, t +0.02, placebo 51st) → WATCHLIST** — the 
 (2) Kraken triangles (1,472 USD→A→B→USD at 0.4% × 3 taker): the only positives are stale books — USD→EUR→GAIB→USD +179% on 72 GAIB
 (≈ $0.50), USD→EUR→EURR→USD +2.0% with ≈ $50 on the bid; all liquid triangles ≤ −0.9%. Closed.
 
+## 941. Screen: stale crossed orders in Kraken's cross-currency books — $43 in total across 330 books; closed (S11)
+
+**No trial.** Every non-USD book (EUR, GBP, USDT, USDC, XBT, ETH, CAD, AUD, JPY, CHF) of coins with ≥ $50k/day USD volume, top 20 levels,
+converted at Kraken mids, against the USD mid ± 0.8%: crossed profit $43.43 (WOO/EUR $20.89, TREE/EUR $15.59, ZORA/EUR $6.18) before the
+currency leg. Dust. Closed.
+
 
 ## 10. Still outstanding, and blocking
 
