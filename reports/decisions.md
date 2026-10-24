@@ -17001,6 +17001,12 @@ t: if VIX_t < VIX3M_t hold SVXY over t → t+1, else cash (0). Cost 0.05% per sw
 (both regimes kept; the rule is the same). Benchmark: SPY held over the same days. Split: before 2020-01-01 discovery, from 2020 sealed.
 Carry: mean daily excess over SPY > 0 with t > 1.96 (one return per day). Sealed strict §664.4. One trial. Reported: max drawdown.
 
+## 957. V-family 2: SVXY in contango — discovery +38%/yr (DD −50%), sealed +17.8%/yr (DD −33%), excess over SPY t +0.54 → WATCHLIST (t01550) (S11)
+
+Discovery 2012-2019 (2,011 days): CAGR +38.4%, max DD −50%, daily excess vs SPY +0.126% (t +2.06) → carried. **Sealed 2020-2026 (1,712
+days): CAGR +17.8%, max DD −33%, excess vs SPY +0.021%/day (t +0.54, placebo 71st) → WATCHLIST** — after SVXY's cut to −0.5× it earns
+roughly the market with more risk. Capital-bound. N → 1,550.
+
 
 ## 10. Still outstanding, and blocking
 
