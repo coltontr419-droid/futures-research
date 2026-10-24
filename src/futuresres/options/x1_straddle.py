@@ -15,6 +15,7 @@ import bisect
 import collections
 import datetime as dt
 import json
+import re
 import sys
 import time
 import urllib.parse
@@ -265,9 +266,26 @@ def trade2(e: dict, Q: dict, QY: dict, snaps: list[str]) -> float | None:
     return max(pnl / risk, -1.0) if np.isfinite(pnl) else -1.0
 
 
+class LazyY:
+    """(date, sym) -> rows of quotes_y.jsonl, read on demand from a byte-offset index (the file is too large to hold in memory)."""
+
+    def __init__(self, f: Path):
+        self.f, self.ix = open(f, "rb"), {}
+        off = 0
+        for l in self.f:
+            m = re.match(rb'\{"date": "([0-9-]+)", "sym": "([^"]+)"', l)
+            if m and l.endswith(b"\n"):
+                self.ix.setdefault((m.group(1).decode(), m.group(2).decode()), off)
+            off += len(l)
+
+    def get(self, k, default=None):
+        if k not in self.ix:
+            return default
+        self.f.seek(self.ix[k]); return [tuple(r) for r in json.loads(self.f.readline())["q"]]
+
+
 def evaluate2(validate: bool) -> None:
-    Q = {(q["date"], q["sym"]): q["q"] for q in map(json.loads, open(OUT / "quotes.jsonl"))}
-    QY = {(q["date"], q["sym"]): q["q"] for q in map(json.loads, open(OUT / "quotes_y.jsonl"))}
+    Q = load_q(); QY = LazyY(OUT / "quotes_y.jsonl")
     snaps = sorted(d for d, n in json.loads((OUT / "snapdates.json").read_text()).items() if n > 0)
     wk, n, skip = collections.defaultdict(list), 0, 0
     for e in events():

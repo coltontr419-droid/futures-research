@@ -17298,6 +17298,15 @@ The few rich ones are sponsor mega-events with thousands of entries (Build with 
 3,923; OpenAI Build Week $100k / 8,014), and prizes are top-heavy. Each entry also needs the user's identity, a demo video and judging
 luck. Under the $300 bar, and not a stream. Closed; a rare one-off with few entrants could be flagged ad hoc.
 
+## 989. X-family 2: the earnings iron fly earns +3.1% on risk at mid and loses −46% at bid/ask — not carried; the options family is closed on this data (S11)
+
+**N 1,554 (no trial).** `src/futuresres/options/x1_straddle.py x2` (§967, §975-976; Y quotes read lazily, `LazyY`). Discovery 2020-2023:
+5,597 tradable events (7,388 untradable: no expiry listed at both X and Y, or wings not distinct), 198 weeks. **Return on risk −45.81% an
+event-week, t −13.78, 5% winners.** Diagnostic: mid-to-mid **+3.1% on risk (median +4.6%, 57% winners)**, so a small IV-crush premium is real.
+But eight leg-trades through quoted spreads cost ≈ 65% of risk. The sparse strike grid also puts the wings close: median credit is 64% of the
+width. Even at a quarter of these spreads the trade stays negative. With X1-X4 all failing on cost (§977, §978, §983), option strategies on
+this end-of-day dataset are closed; testing them properly needs intraday quotes (paid OPRA data).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
