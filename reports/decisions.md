@@ -17473,6 +17473,14 @@ minus SPY's open→close the same session, minus 0.1%. **Statistic:** mean exces
 correlation of score with excess across all 300. **Decision:** this is a single sealed sample (no discovery split, since post-cutoff data is
 scarce). Under the §664.4 rule (t > 1.645, placebo ≥ 95th, posterior > 0) → CONFIRM / WATCHLIST / REJECT. One trial.
 
+## 1012. AI-1 scores frozen before any price is read — sha256 0482669d8b7ec19f5c5f01f5ef597ec8a96fb5e3bdcbfd5a8c000fcdfe2a746f (S11)
+
+**No trial yet.** 1,703 after-hours Item 2.02 8-Ks; a 300 sample (seed 1011). 298 had text: 228 via the EX-99 regex, 70 via a fallback fixed before
+reading (the largest non-8-K .htm). Some fallbacks are cover pages or supplements, scored 0. Claude read the first ≈ 2,200 characters of each
+(headline, results, guidance) with no prices, headlines or search, in batches of 15. Scores: +2 59, +1 109, 0 104, −1 17, −2 9. The rule's long
+set (≥ +1) is 168 events. Heuristic used throughout: raised/beat guidance → +1/+2; reaffirmed or no information → 0; lowered guidance or misses → −1/−2.
+`data/ai1/scores.json` (sorted keys) hashes to the value above, and `ai1_reads score` refuses to run if the file changes.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
