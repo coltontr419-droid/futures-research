@@ -17326,6 +17326,22 @@ costs, t +1.72**. That is under the 1.96 carry bar, so the sealed window is not 
 the benchmark shares that bias but not exactly. The literature effect is present and small. Per §133 it goes to the forward watchlist: from
 2026-10 the month-end top 10 are logged, and it is revisited after 12 months. Capital-bound regardless (≈ $30/month on $10k).
 
+## 992. L-family 19 protocol — following CEF activists' original 13Ds (Saba and peers force tenders/liquidations near NAV) (S11)
+
+**Written before any of these events' returns is read.** Events: original SC 13D / SCHEDULE 13D in `data/stocks/l17/filings.jsonl` whose subject
+ticker is one of the 271 CEFs of §990 and whose filer name contains one of: Saba, Bulldog, Karpus, Almitas, 1607 Capital, City of London,
+Relative Value Partners, Western Investment, Special Opportunities Fund, Sit Investment; first such filing per fund per 365 days. **Entry:** the
+adjusted close of the first session after the filing date. **Exit:** the adjusted close 60 sessions later (campaigns take months). Return minus
+the equal-weight CEF universe over the same window, minus 0.4%. **Statistic:** per-event mean grouped by entry month, t on months. Discovery:
+filings before 2022-01 (carry: mean > 0, t > 1.96); sealed 2022-01 → 2026-07 under §664.4. One rule.
+
+## 993. L-family 19: following CEF activists' 13Ds is a near miss — +1.78% per 60 sessions, t 1.87, 42 events; not carried, forward watchlist (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/l19_cefact.py`. Discovery (filings before 2022): 42 events in 28 months, +1.78% over the CEF
+universe per 60-session hold after 0.4%, t +1.87, under the bar. The mechanism is visible: activists force tenders near NAV. The sample is
+small, and in the 2015-2021 coverage most of the narrowing comes before or at the filing. Forward watchlist: new CEF-activist 13Ds are logged from
+2026-10. Capital-bound (≈ 2% per event, a few events a month across all funds).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
