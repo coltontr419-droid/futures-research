@@ -17361,6 +17361,17 @@ before the ex-date, sell at the ex-date close; distribution-inclusive return (ad
 ex-day return over the CEF universe +0.010% gross, −0.290% after costs, t −26. No ex-day anomaly to capture. The first forward-log run
 (2026-10-24) is in `reports/watch_forward.jsonl` (L18 top 10: NMZ, NAC, MGF, MIN, VCV, NXP, WIW, NAN, NUV, DSU; no new CEF-activist 13Ds since 10-01). Closed.
 
+## 997. L-family 21 protocol — high-volume return premium (Gervais, Kaniel & Mingelgrin 2001) on liquid US stocks (S11)
+
+**Written before any return is computed.** Frame as §942 (`pack.npz`, monthly, K = 20, cost 0.2%, price ≥ $5, vs equal-weight universe;
+discovery before 2023-01, sealed 2023-01 → 2026-10). **Score:** dollar volume over the last 5 sessions ÷ the mean 5-session dollar volume over
+the prior 50 sessions (`V`), among stocks whose last-5-session return is between −5% and +5% (a volume shock without a price shock).
+**Rule:** hold the top 20 by score for the next month. One rule.
+
+## 998. L-family 21: no high-volume return premium — +0.05%/month, t 0.14; not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/l21_volshock.py`, discovery 2016-2022, 82 months. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
