@@ -17263,6 +17263,25 @@ several running Claude via Claude Code / GitHub Actions. Prizes fall steeply wit
 copied or baseline bot now lands around rank 20-60 of ~200, i.e. **≈ $0-500 a season**. Only a genuinely top-5 bot clears ~$1k/month.
 It stays parked, ranked lower; the user decides whether it is worth an account.
 
+## 985. L-family 17 protocol — buying after original Schedule 13D filings (Brav, Jiang, Partnoy & Thomas 2008): activists and all filers (S11)
+
+**Written before any filing or return is read.** Events: original **SC 13D / SCHEDULE 13D** filings (amendments excluded) from EDGAR full-text
+search, 2015-02 → 2026-09, whose subject ticker (from the display name) is in `pack.npz`; first original 13D per subject per 365 days.
+**Entry:** the open of the first session after the filing date (filings can arrive during the session, so no same-day entry). **Exit:** the
+close 20 sessions later. Return minus the equal-weight `pack.npz` universe over the same window, minus 0.3% cost (mid/small caps).
+**Two rules (each a trial if carried):** **L17a activists** — the filer's name contains one of a fixed list written here before any data:
+Elliott, Starboard, Icahn, Trian, Third Point, ValueAct, JANA, Pershing Square, Engaged Capital, Land & Buildings, Ancora, Legion Partners,
+Corvex, Sachem Head, Mantle Ridge, Politan, Irenic, Engine Capital, Barington, Blackwells, Cevian, Impactive, Inclusive Capital, Glenview,
+Voss Capital, Driver Management, Anson Funds, Sarissa, D. E. Shaw, Carronade, Oasis Management, Saba Capital, Bulldog, Marcato, Lone Star
+Value, Harbert Discovery, Kanen, 22NW, Ortelius, Stilwell, Macellum, Land and Buildings. **L17b all filers.** **Statistic:** the monthly mean
+(by entry month), t on months. Discovery 2015-02 → 2022-12 (carry: mean > 0, t > 1.96); sealed 2023-01 → 2026-09 under §664.4.
+
+## 986. L-family 17: post-13D drift is positive but weak — activists +1.64% per 20 sessions (t 1.32, 67 events), all filers +0.76% (t 0.69); not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/stocks/l17_13d.py`; 610 weeks of EDGAR filings (`data/stocks/l17/`). Discovery 2015-02 → 2022-12,
+first-session-open entry, 20-session hold, minus the universe and 0.3%. The published drift appears in sign. Most of the announcement return is already
+in the open after the filing, and the remainder is too noisy at the liquid-stock coverage of `pack.npz`. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
