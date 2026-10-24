@@ -17055,6 +17055,86 @@ carried): **K5 IEF +0.156%/month (n 129, t +2.71, placebo 99th) → CONFIRM; K5 
 bond effect is confirmed in three funds — one mechanism (index duration extension). Capital-bound and small in dollars.
 
 
+## 964. AU-family 1 protocol — paid smart-contract audit contests (Sherlock, Cantina): flow first, then a blind shadow audit (S11)
+
+**No trial (a measurement). Written before any contest's results are read.** A new arena: crowdsourced security-audit contests pay USDC
+prize pools for valid High/Medium findings in published code. It is effort work (code review, which Claude does), not trading, so none of
+the trading exclusions apply. Code4rena reportedly closed 2026-05-13 (one source); Sherlock (`audits.sherlock.xyz/api/contests`) and
+Cantina (`cantina.xyz/api/v0/competitions`) have public APIs.
+1. **Flow (stage 1):** contests ending 2026-04-01 → 2026-10-24 on both platforms: count, prize pools (bug-bounty programmes kept separate),
+   participants and per-researcher payouts where published. **Pass:** ≥ $300k a month of contest pools AND a typical contest pays its
+   10th-ranked researcher ≥ $500. Eligibility (US / Texas, KYC, payment) checked from the platforms' terms.
+2. **Shadow audit (stage 2, only if stage 1 passes):** pick finished contests that started after 2026-06-30 (after Claude's training cutoff;
+   no leakage from published reports), audit the in-scope code blind (results not read until the audit is written and saved with a hash),
+   then score each claimed finding against the judged list; payout = what the platform's formula would have paid. **Pass:** ≥ 1 valid
+   High/Medium in at least half the contests audited and a simulated payout ≥ $1,000 a month at a feasible pace (≤ 2 contests a week).
+
+## 965. AU-family 1: audit contests have collapsed — about $90k a month across Sherlock and Cantina since April, thousands of findings each; closed at stage 1 (S11)
+
+**No trial (a measurement).** `data/audit/` (Sherlock contest API, 301 entries; Cantina competitions API, 145). Contests ending 2026-04-01 →
+2026-10-24: **Sherlock 2** public contests ($13.5k and $50k; 3 since February, against 4-8 a month in late 2024), **Cantina 3 finished + 1 live**
+(Morpho Midnight $400k, Royco $30k private, two May contests $80k; Revert v4lend $50k live). That is ≈ $620k over seven months, **≈ $90k a
+month** across both, under the $300k bar, and the finding counts are flooded (Revert v4lend: 2,750 submissions to a $50k pot with 10 days
+left; Morpho: 3,890). The market shrank by 5-10× from 2024-25, and AI-assisted auditors already crowd what is left. Stage 2 (the shadow
+audit) is not run. Closed.
+
+## 966. X-family 1 protocol — buying straddles into earnings (the pre-announcement IV run-up; Gao, Xing & Zhang 2018), on real bid/ask (S11)
+
+**Written before any option price is read.** Data: DoltHub `post-no-preference/options` (`option_chain`: end-of-day bid/ask/delta, about
+three snapshots a week, three expirations, US stocks; 2020 → 2026-10); earnings dates from the Nasdaq calendar (as in E2). Mechanism
+(published): implied volatility rises into a known announcement by more than it costs to hold, because demand for event exposure arrives late.
+1. **Events:** announcement date d with calendar market cap ≥ $10B, 2020-01-01 → 2026-10-16, one per symbol per d.
+2. **Exit snapshot X:** the latest snapshot date ≤ d − 1 trading day and ≥ d − 4 calendar days (the timing field is mostly missing, so the exit
+   is always before even a pre-market report). **Entry snapshot E:** the latest snapshot ≤ X − 4 calendar days and ≥ X − 8.
+3. **Contract:** the nearest expiration after d present at both snapshots; the strike whose call delta at E is closest to 0.50. **Buy the call +
+   put at the ask at E, sell both at the bid at X**; commission $0.65 a contract a leg each way. Return = (bids_X − asks_E − 0.026) / (asks_E +
+   0.013). Events with a missing quote or zero bid at X are counted at −100% (the conservative case), and no other events are dropped.
+4. **Statistic:** the mean return per event, aggregated into calendar weeks (weekly mean; t on weeks). **Discovery 2020-01 → 2023-12**: carry
+   if mean > 0 and t > 1.96. **Sealed 2024-01 → 2026-10**: the §664.4 rule (t > 1.645, sign-flip placebo ≥ 95th, positive posterior with
+   PRIOR_SD 0.02). One rule, one trial if carried. Mid-to-mid returns printed for information only.
+
+## 967. X-family 1 clarification and X-family 2 protocol — the opposite trade: a defined-risk short iron fly held through the report (S11)
+
+**Written before any option price is read.** (a) X1 clarification: an event with no expiry spanning the report, or no ask on either leg, *at
+entry* is not tradable under the rule and is left out (counted and printed); only exit-side gaps are counted at −100%, as §966.3 says.
+(b) **X2 (one rule):** the variance premium may sit in the event itself (IV overprices the earnings move), and a small account can only sell it with
+defined risk. Same events, same expiration choice. At **X** (§966.2, the last snapshot before the report): **sell** the call and put at the strike
+with call delta closest to 0.50 at the bid; **buy** the call whose delta is closest to +0.20 and the put whose delta is closest to −0.20 at the ask
+(those strikes need to be at least one strike away from the body, otherwise the event is untradable). **Exit Y:** the first snapshot ≥ d + 1 calendar day and
+≤ d + 5 calendar days; buy the body back at the ask, sell the wings at the bid; a leg without a quote at Y is valued at intrinsic from that
+day's Yahoo close (the body at intrinsic + 2% of the price, the wings at intrinsic). Commission $0.65 a contract a leg each way. **Return on
+risk** = P&L / (max loss = wider wing − net credit); an event with no Y snapshot is untradable. Statistic, windows and the §664.4 rule as X1;
+one trial if carried.
+
+## 968. Screen: Metaculus FutureEval bot tournaments — no capital at risk, ~$200k a year to ~110 eligible bots; needs the user's account — PARKED as a lead (S11)
+
+**No trial (a desk screen).** Not a market: bots post forecasts on 300-400 questions a season and prizes go to the best sum of peer scores.
+**Pools:** Spring, Summer and Fall 2026 seasons at $50-58k each (Fall: questions 2026-09-28 → 2027-01-06; joining open until a few weeks
+before 2027-01-01, late joiners start at 0 points, so a late start forfeits the missed questions), plus MiniBench ($1,000 per two-week round of
+~60 auto-generated questions) and the Metaculus Cup ($5k; a bot won Summer 2026). **Payouts (published tables):** Q2 2025 ($30k, 96 bots):
+#1 $7,550, #2 $4,563, #3 $3,270, #9 $1,731, #20 $465; Q1 2025: #10 $2,228. **Spring 2026:** 173 bots (111 eligible); the best single-prompt
+baseline (GPT-5.1 high + AskNews) placed 18th; the top bots ensemble several frontier models with multi-source research (AskNews, Perplexity),
+take the median and aggregate several runs; 7 of the top 10 makers were hobbyists. **What it would earn:** a baseline-plus bot ≈ #10-20 ≈
+$0.5-2k a season; top 3 ≈ $5-10k a season — i.e. ≈ $150-700/month typical, ~$2k/month only at the top, capped by rank (one bot each), not by
+capital. **Costs:** LLM calls (~$100-500 a season; Metaculus grants sponsor credits selectively) and a free AskNews account. **Blocked on the
+user:** a Metaculus account + bot account + participation form (the API refuses unauthenticated calls, Cloudflare blocks the site). No
+measurement possible until then; a backtest would score our bot on Summer-2026 questions (post-cutoff) against the published leaderboard.
+Parked; to be put to the user with the next report.
+
+## 969. X-family 3 protocol — cheap volatility: buy straddles where realised volatility exceeds implied (Goyal & Saretto 2009), real bid/ask (S11)
+
+**Written before any option price is read.** Published: sorting stocks on HV − IV, the high-HV/low-IV decile's straddles earned large monthly
+returns in 1996-2006 (mean reversion of the mis-estimated volatility). Untested after publication on real quotes here; small accounts can only
+buy (defined risk), so one long-only rule.
+1. **Formation:** the first DoltHub snapshot of each month, 2020-02 → 2026-09. Per symbol: the expiration 20-45 calendar days out (nearest to
+   30 if two); ATM strike = call delta nearest 0.50 (fetched with |delta| in 0.35-0.65); **IV** = mean of that strike's call and put `vol`;
+   **HV** = annualised s.d. of the last 21 daily log returns from `data/stocks/long/pack.npz` (symbols present there only, ≥ 250 days of
+   history, strike ≥ $10, both legs with a positive bid and ask, relative spread of the straddle ≤ 20% of its mid).
+2. **Rule:** buy the straddle (call + put at the ask, $0.65 a contract a leg) on the top decile of log(HV / IV), equal weight. **Exit:** the last
+   snapshot ≥ 3 calendar days before the expiration, both legs at the bid (fetched with no delta filter); a leg with no bid there counts as 0.
+3. **Statistic:** the monthly equal-weight mean return on premium; t on months. **Discovery 2020-02 → 2023-12** (carry: mean > 0, t > 1.96);
+   **sealed 2024-01 → 2026-09** under §664.4. One rule, one trial if carried.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
