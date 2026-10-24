@@ -17456,7 +17456,7 @@ window holds only a handful of funds, and even a true effect would be a few trad
 
 **Trial t01555.** Sealed listings 2021-01 → 2026-03 in the universe: BMN +3.41%, DMA −7.04% (a conversion, not an IPO), GUG +7.67%, PDO −2.43%,
 WDI +5.12%: mean +1.34% per 118 sessions after cost and borrow, t +0.50, placebo 69th, posterior +0.48% → **WATCHLIST** (positive, not
-significant). The IPO-only cut is +1.95%, t 0.6 on 4. Discovery was strong (+7.6%, t 5.3, 26 funds), but there are too few sealed listings to judge, and
+significant). The IPO-only cut (without DMA) is +3.44%, t 1.60 on 4. Discovery was strong (+7.6%, t 5.3, 26 funds), but there are too few sealed listings to judge, and
 the flow is the binding fact: the universe (current names with Yahoo NAVs) shows one new listing since 2022. Forward rule: if CEF IPOs
 return, short from session 2 to 120 (borrow permitting) and log. Not a stream at today's issuance.
 
