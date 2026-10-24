@@ -17249,6 +17249,20 @@ the §664.4 rule on the sealed window if carried.
 
 **N 1,554 (no trial).** `src/futuresres/stocks/l16_overnight.py`, discovery 2016-2022, 83 months. Closed.
 
+## 983. X-family 3: cheap-volatility straddles lose — −11.4% a month, t −3.20; not carried (S11)
+
+**N 1,554 (no trial).** `src/futuresres/options/x3_cheapvol.py` (§969, §975-976). Discovery 2020-02 → 2023-12: 1,167 top-decile straddles
+in 44 months (straddle spread ≤ 20% of mid, symbols in `pack.npz`; 3 with no listed exit), mean −11.38% a month on premium, t −3.20,
+median −26.3%, 27% winners. Buying volatility where realised exceeds implied does not pay after publication on these quotes. Closed.
+
+## 984. §968 update: the Metaculus bot field is growing fast and copying is common — the lead is weaker (S11)
+
+**No trial.** Summer 2026 FutureEval had **282 bots (201 non-Metaculus)**, against 173 in Spring (Metaculus/aib-analysis PR #33). The
+open-source No-Stream bot placed 15th of 277 and has been forked repeatedly; ≥ 15 new "metaculus-bot" repos were pushed in the last two weeks,
+several running Claude via Claude Code / GitHub Actions. Prizes fall steeply with rank (Q2 2025: #1 $7,550, #9 $1,731, #20 $465). A
+copied or baseline bot now lands around rank 20-60 of ~200, i.e. **≈ $0-500 a season**. Only a genuinely top-5 bot clears ~$1k/month.
+It stays parked, ranked lower; the user decides whether it is worth an account.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
