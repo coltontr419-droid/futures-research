@@ -16901,6 +16901,16 @@ sealed 2019-2026: +0.003% (n 59, t +0.02, placebo 51st) → WATCHLIST** — the 
 converted at Kraken mids, against the USD mid ± 0.8%: crossed profit $43.43 (WOO/EUR $20.89, TREE/EUR $15.59, ZORA/EUR $6.18) before the
 currency leg. Dust. Closed.
 
+## 942. L-families 1-4 protocols — monthly cross-sectional rules on 2,012 liquid US stocks, 2015-2026 (S11)
+
+**No trial at registration; N 1,547. Written BEFORE the long history is read.** Data: Yahoo adjusted daily closes 2015-01 → 2026-10 for
+the 2,012 current US listings with ≥ $20M median daily dollar volume (`stocks/longhist.py`). Survivorship (current listings only) is handled
+by benchmarking every portfolio against the equal-weight portfolio of the same eligible universe that month (eligible: ≥ 260 sessions of
+history, price ≥ $5). Rebalance at the last close of each month; hold one month; cost 0.2% per round trip; 20 stocks per portfolio, equal
+weight. **L1** nearest the 52-week high (price / 252-day high); **L2** 12-1 momentum (return from t−252 to t−21); **L3** 1-month losers
+(worst 21-session return); **L4** lowest 63-day volatility. Split: months before 2023-01 discovery, from 2023-01 sealed. Carry: monthly
+excess mean > 0 with t > 1.96; sealed strict §664.4 (t over months). One trial per carried rule.
+
 
 ## 10. Still outstanding, and blocking
 
