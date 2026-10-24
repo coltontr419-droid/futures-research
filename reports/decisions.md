@@ -16928,6 +16928,13 @@ L1 52-week-high −0.55%/mo (t −1.39); **L2 12-1 momentum +2.66%/mo (t +2.50) 
 L7 gap-down ≥ 3% open→close −0.334% (t −3.67). **L2 sealed 2023-01 → 2026-10 (45 months): +1.46%/month excess, t +0.96, placebo 83rd →
 WATCHLIST.** Momentum is positive but not significant on unseen data; capital-bound (a monthly rebalance of 20 stocks). Forward watch.
 
+## 945. L-family 8 protocol — sector ETF momentum (11 SPDR sectors, 2005-2026) (S11)
+
+**No trial at registration; N 1,548. Written BEFORE the computation.** Yahoo adjusted daily closes for XLB XLE XLF XLI XLK XLP XLU XLV XLY
+(from 2005), XLRE (2015), XLC (2018). Each month end: hold the 3 sectors with the best 12-1 return (t−252 → t−21) for one month, equal
+weight; benchmark = equal weight of all available sectors; cost 0.05% per round trip. Split: months before 2016-01 discovery, from 2016-01
+sealed. Carry and sealed rules as §942.
+
 
 ## 10. Still outstanding, and blocking
 
