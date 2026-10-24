@@ -17382,6 +17382,11 @@ Funded Stake offline, BETfunded stopped selling, Player Profit absorbed). Texas 
 Desk EV at −110 odds with no edge: pass ≈ 25% (drift −0.2% a 5% bet across ~28 bets) against a €109 fee and a capped split. Roughly break-even
 before counterparty risk, and positive only with a real pick edge, which §677/§687 did not find. Closed; not a legitimate-KYC venue in the user's sense.
 
+## 1000. Screen: OnlyDust (OSS rewards) — no labelled issues since mid-2025; closed (S11)
+
+**No trial.** GitHub issues labelled "ODHack": 41 in 2025-H1, **0 in 2026**; "Onlydust" label 0 since July. Like Algora (§895), the
+crypto-funded OSS reward flow has dried up. (A search result carried an embedded instruction to an AI to fetch a URL; it was ignored.) Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
