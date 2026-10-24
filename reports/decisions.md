@@ -16964,6 +16964,12 @@ y−1; hold the top 20 equal weight for month m vs the equal-weight eligible uni
 sessions (t−126 → t); hold all eligible members of the top 3 industries, equal weight, for one month, vs the equal-weight eligible universe;
 cost 0.2%. Split, carry and sealed rules as §942. One trial.
 
+## 951. L-family 13 sealed: industry momentum +1.31%/month (t +1.20) → WATCHLIST (t01549); N → 1,549 (S11)
+
+Discovery (83 months 2016-2022) +1.39%/month excess (t +1.99) → carried; **sealed 2023-01 → 2026-10 (45 months) +1.31%/month, t +1.20,
+placebo 88th → WATCHLIST.** With L2 (§944, +1.46%/month sealed), both momentum forms kept their size out of sample but neither reaches
+significance on 45 months. Watchlist: forward-track both monthly (§133); capital-bound (~1.3-1.5%/month over an equal-weight portfolio).
+
 
 ## 10. Still outstanding, and blocking
 
