@@ -17460,6 +17460,19 @@ significant). The IPO-only cut (without DMA) is +3.44%, t 1.61 on 4. Discovery w
 the flow is the binding fact: the universe (current names with Yahoo NAVs) shows one new listing since 2022. Forward rule: if CEF IPOs
 return, short from session 2 to 120 (borrow permitting) and log. Not a stream at today's issuance.
 
+## 1011. AI-family 1 protocol — Claude reads earnings releases blind; buy the next open on strong positive reads (Lopez-Lira & Tang 2023), post-cutoff only (S11)
+
+**Written before any filing is read or any price is looked up.** The edge would be Claude's reading. No leakage is possible because every event is
+after the model's training cutoff (June 2026). **Events:** 8-K filings with Item 2.02 ("Results of Operations and Financial Condition") filed
+2026-07-01 → 2026-10-16 by companies in `pack.npz`, accepted outside regular hours (16:00-23:59 ET → trade the next session; 00:00-09:29 ET → trade
+that session). A random sample of **300** (seed 1011), drawn from the event list before any text is read. **Scoring (blind):** Claude reads the
+EX-99.1 press release text only (no prices, no headlines from other sources, no web search) and writes a score −2…+2 for the expected
+next-day stock reaction *beyond what an average release implies* (guidance, beats or misses stated in the text, tone), saved with a hash
+before any price is fetched. **Rule (one, long-only):** buy at the open of the trade session when score ≥ +1, sell at that close; return
+minus SPY's open→close the same session, minus 0.1%. **Statistic:** mean excess over the ≥ +1 events, t; and, for information, the Spearman
+correlation of score with excess across all 300. **Decision:** this is a single sealed sample (no discovery split, since post-cutoff data is
+scarce). Under the §664.4 rule (t > 1.645, placebo ≥ 95th, posterior > 0) → CONFIRM / WATCHLIST / REJECT. One trial.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
