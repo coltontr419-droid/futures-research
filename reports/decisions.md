@@ -16845,6 +16845,14 @@ placebo 71st) → WATCHLIST** (positive, not significant; capital-bound anyway).
 rested from 21:53Z, ≈ 2 h of that day). Consistent with scenario B of §881 (quotes far from the midpoint weighted near zero). The full day
 10-23 decides; if it is ≈ $0.25-0.50, cancel and return the $80 (user's call).
 
+## 933. C-family 4 protocol — the BTC "CME gap": buy at the Sunday reopen when spot sits ≥ 2% below Friday's CME close (S11)
+
+**No trial at registration; N 1,546. Written BEFORE the computation.** Data: C1's cached Coinbase BTC-USD hourly bars 2024-01 → 2026-10.
+Friday reference = the close of the hour ending 16:00 CT (21:00/22:00 UTC by DST); Sunday reopen = the open of the hour starting 17:00 CT.
+Event: reopen price ≤ 0.98 × Friday reference (≤ 0.97 reported). Buy at the reopen; sell at the first hourly close ≥ the Friday reference
+(gap filled) or at the close 72 h after entry. Cost 0.8%. Split: weekends before 2025-07-01 discovery, after sealed. Carry: mean > 0, t > 1.96
+(one return per weekend); sealed strict §664.4. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
