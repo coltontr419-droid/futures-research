@@ -17018,6 +17018,22 @@ sessions −2.55% (t −2.96). Closed.
 max drawdown −26%; Invesco G10 carry (DBV) delisted. Retail FX financing marks up ~2-3%/yr per side, so levered carry is negative after
 costs and a −26% currency move ruins a 10× account. Closed.
 
+## 960. K-calendar 2 protocol — TLT into month-end (index duration extension), 2005-2026 (S11)
+
+**No trial at registration; N 1,550. Written BEFORE the computation.** Yahoo TLT adjusted daily. Buy at the close 4 sessions before the
+month's last session, sell at the month's last close (primary); excess over TLT's average 4-session return; cost 0.02%. Split: before
+2016-01 discovery, from 2016 sealed. Carry: mean > 0, t > 1.96; sealed strict §664.4. One trial.
+
+## 961. K-calendar 2 CONFIRMED: TLT into month-end +0.22%/month excess (sealed 2016-2026) — t01551; small in dollars (S11)
+
+Discovery 2005-2015 (132 months): +0.382% excess per 4-session window (t +2.78) → carried. **Sealed 2016-01 → 2026-10 (129 months):
++0.220% excess, t +1.76, placebo 96th, posterior +0.219% → CONFIRM** (strict §664.4). Raw window +0.286%, win rate 59%; by year (excess):
+2016 +0.51, 2017 −0.02, 2018 +0.39, 2019 +0.62, 2020 −0.06, 2021 +0.36, 2022 −0.19, 2023 +0.55, 2024 +0.28, 2025 +0.52, **2026 −0.78 (9 mo)**.
+Mechanism: index duration extension at month-end (bond-index funds buy long Treasuries). Sizing: capital is used 4 sessions a month; TMF
+(3×) same window +0.668%/month → ≈ $67/month on $10k, ≈ $1.3 on $200 — confirmed but far below the user's bar on its own. Implementation
+notes: ETF (cash account) holds overnight — fine; on Tradeify, Treasury futures could not be held through the 17:00-18:00 ET break, so
+only an intraday version would be eligible (untested). Forward-track monthly; N → 1,551.
+
 
 ## 10. Still outstanding, and blocking
 
