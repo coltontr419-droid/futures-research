@@ -17401,6 +17401,12 @@ Closed as a stream; could be offered to the user as an occasional side bounty.
 lander comms, DHS biothreat AI, xTech) or student challenges (TechRise). About 4 accept written ideas (careers, invasive species, CDC data platform, talent
 marketplaces). Lumpy one-offs with no flow and no data on entrants. Closed.
 
+## 1003. Desk screen: lending and yield marketplaces (Prosper notes, music royalties, invoice/real-estate crowdfunding) — capital-bound yields; closed (S11)
+
+**No trial.** Each sells a yield, not an edge: P2P consumer notes (Prosper, net ≈ 4-7% after defaults in published cohorts), royalty
+auctions (Royalty Exchange / SongVest, ≈ 8-12% yields priced by bidders), invoice factoring and real-estate crowdfunding (≈ 6-10%, illiquid,
+often accredited-only). On $200 any of these is a few dollars a month, and $2k a month needs $200k+. Same verdict as staking (§ survey F). Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
