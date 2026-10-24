@@ -16953,6 +16953,10 @@ eligible stocks (price ≥ $5, history for m in each of the previous 5 years) by
 y−1; hold the top 20 equal weight for month m vs the equal-weight eligible universe; cost 0.2%. Discovery holding months 2020-01 → 2022-12
 (5-year lookback needs 2015-2019), sealed 2023-01 →. Carry and sealed rules as §942. One trial.
 
+## 949. L-family 12 discovery: same-month seasonality −0.25%/month (t −0.17); closed (S11)
+
+**No trial.** 35 discovery months (2020-2022): top 20 by 5-year same-month average vs equal weight −0.25%/month (t −0.17). Closed.
+
 
 ## 10. Still outstanding, and blocking
 
