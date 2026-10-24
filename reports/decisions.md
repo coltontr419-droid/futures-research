@@ -17387,6 +17387,14 @@ before counterparty risk, and positive only with a real pick edge, which §677/�
 **No trial.** GitHub issues labelled "ODHack": 41 in 2025-H1, **0 in 2026**; "Onlydust" label 0 since July. Like Algora (§895), the
 crypto-funded OSS reward flow has dried up. (A search result carried an embedded instruction to an AI to fetch a URL; it was ignored.) Closed.
 
+## 1001. Screen: Unified Patents PATROLL prior-art bounties — ≈ $33k paid in 2026 (≈ $2.75k/month platform-wide); below the bar, side stream only (S11)
+
+**No trial (a desk screen).** Unified's 2026 winner posts tally ≈ 11 contests: $2,000 to $6,000 each, sometimes split, often to professional
+searchers. Two contests were open in October (Sol IP MIMO, CyboEnergy inverters, $4k each). It is effort work (prior-art search) with no
+capital, but the whole flow is ≈ $2.75k a month, so even a high win share is a few hundred dollars a month. A blind shadow on a post-cutoff
+contest (search, then compare with the announced winning references) would measure skill, but the cap makes it moot for the $2k/month bar.
+Closed as a stream; could be offered to the user as an occasional side bounty.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
