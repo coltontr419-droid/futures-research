@@ -16857,6 +16857,13 @@ Event: reopen price ≤ 0.98 × Friday reference (≤ 0.97 reported). Buy at the
 
 **No trial.** Gap ≥ 2% below: n 9, mean +0.36% (median +1.98%, t +0.29); ≥ 3%: n 6, −0.60%. Closed.
 
+## 935. C-family 5 protocol — BTC leads altcoins: after a ≥ 2% BTC hour, do lagging alts catch up? (S11)
+
+**No trial at registration; N 1,546. Written BEFORE the computation.** C1 cache (40 Coinbase USD coins, hourly, 2024-01 → 2026-10). Event:
+BTC's hourly close-to-close return ≥ +2% (primary) or ≥ +3% (reported). Portfolio: the 5 coins (ex BTC/ETH, ≥ 30 coins available) whose
+same-hour return is lowest relative to BTC's; buy at the next hour's open, sell after 1 / 4 hours (1 h primary). Cost 0.8%. Split: before
+2025-07-01 discovery, after sealed. Carry: mean > 0, t (one return per event) > 1.96; sealed strict §664.4. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
