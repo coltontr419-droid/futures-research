@@ -17490,6 +17490,30 @@ information in the release is in the opening print, and what Claude reads adds n
 came from headlines and partly from small caps, under different timing.) Closed as a strategy. Nothing here supports an LLM-reading edge for a
 retail trader who acts at the open.
 
+## 1014. L-family 23 protocol — earnings-gap continuation: buy the open after a ≥ 4% gap-up on an outside-hours earnings 8-K, sell the close (S11)
+
+**Written before any return is computed.** Events: Item 2.02 8-Ks from EDGAR submissions (exact acceptance times) for `pack.npz` companies,
+2016-01 → 2026-10-16, accepted outside regular hours (trade session = next session if after 16:00 ET, same session if before 09:30).
+Gap = adjusted open(trade session) ÷ adjusted close(previous session) − 1. **Rule (one, long-only):** gap ≥ +4% → buy the open, sell that
+close; return minus SPY open→close the same session, minus 0.1%. One event per company per trade session. **Statistic:** monthly mean, t on
+months. Discovery 2016-01 → 2022-12 (carry: mean > 0, t > 1.96); sealed 2023-01 → 2026-10 under §664.4.
+
+## 1015. L-family 23: no earnings-gap continuation intraday — 6,013 gap-ups ≥ 4%, +0.00% a trade, t −0.53; not carried. L24/L25 protocols on the same events (S11)
+
+**N 1,556 (no trial).** `src/futuresres/stocks/l23_gapcont.py`; 63,619 outside-hours Item 2.02 8-Ks (2016-2026) for `pack.npz` names, with exact
+acceptance times (`data/stocks/l23/events.json`). Discovery 2016-2022: open→close excess over SPY after 0.1% = −0.065% a trade-month, t −0.53,
+47% winners. Closed. **Registered before computing, on the same events and windows (each a trial if carried):**
+- **L24 gap-down reversal:** gap ≤ −8% → buy the open, sell that close (minus SPY, 0.1%).
+- **L25 gap-up drift:** gap ≥ +4% → buy the open, sell the close 20 sessions later (minus SPY over the same span, 0.2%).
+
+## 1016. L24 gap-down reversal not carried (+0.23%, t 0.86); L25 gap-up 20-session drift a near miss (+0.81% a trade-month, t 1.84) — forward watchlist (S11)
+
+**N 1,556 (no trial).** Discovery 2016-2022 (`l23_gapcont.py L24|L25`). **L24:** 1,871 gap-downs ≤ −8%, open→close +0.227% a trade-month after
+costs, t +0.86, 51% winners. Closed. **L25:** 6,013 gap-ups ≥ +4%, open → close 20 sessions later minus SPY minus 0.2% = **+0.809% a
+trade-month, t +1.84** (per-trade mean +1.10%, 51% winners). This is the earnings-gap form of post-announcement drift. It sits under the bar, so the sealed
+window stays closed, and it goes to the forward watchlist: re-run after a year of new data (2027-10, events refetched). Capital-bound either way (≈ +1% per 20-day
+trade, ~70 trades a month across all names).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
