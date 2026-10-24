@@ -16868,6 +16868,12 @@ same-hour return is lowest relative to BTC's; buy at the next hour's open, sell 
 
 **No trial.** BTC ≥ 2% hours with ≥ 30 alts priced: n 10, 1 h +0.00% (t +0.01), 4 h +0.91% (t +1.38); ≥ 3%: n 4. Too rare, no effect.
 
+## 937. Polymarket US test, first full day: $0.11 (10-23) → ≈ $3/month on $80 — the 1¢ book earns ~nothing; test answered (S10)
+
+**No trial.** Earnings 10-22 $0.02 (partial), **10-23 $0.11** (pending); 0 fills. Polymarket's (confidential) formula weights quotes far
+from the midpoint near zero (§881 scenario B). Orders left resting (monitor's $15 stop active); cancelling and freeing the $80 is the
+user's call. Polymarket US liquidity rewards via deep quotes: closed.
+
 
 ## 10. Still outstanding, and blocking
 
