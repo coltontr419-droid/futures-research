@@ -16825,6 +16825,14 @@ date (primary hold 20 sessions; 5 reported). Cost 0.3%; SPY-adjusted. One trial.
 20 s, median 27.6 s. Jumps 9; our receive time trails the Kalshi sweep by a median **18.8 s** (lead ≥ 1.5 s on 0%); value after receive +
 1 s median $102 a match → fails §776. The public feed is delayed by design. Closed; futres-a94 has no further recordings.
 
+## 930. R-family 3 and 4 protocols — SPY overnight drift; weekly low-volatility portfolio (cached daily bars) (S11)
+
+**No trial at registration; N 1,545. Written BEFORE either computation.** **R3:** every session, buy SPY at the close, sell at the next
+open; cost 0.02% round trip (ETF spread); compared with SPY's intraday (open → close) return; split as §919 (before 2026-01-01 discovery,
+from 2025-06). Carry: mean overnight net > 0 with t > 1.96. **R4:** every Friday, the 20 H2 stocks (price ≥ $5, 20-day median dollar
+volume ≥ $5M) with the lowest 20-day daily-return standard deviation, bought at Monday's open, sold at Friday's close, 0.2% cost, excess vs
+SPY; split and decision as §919. One trial each if carried.
+
 
 ## 10. Still outstanding, and blocking
 
