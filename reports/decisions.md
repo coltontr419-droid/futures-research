@@ -17046,6 +17046,14 @@ only an intraday version would be eligible (untested). Forward-track monthly; N 
 - **K6 OPEX week:** SPY from the close of the Friday before monthly options expiration (3rd Friday) to the expiration-Friday close;
   excess over SPY's average 5-session return.
 
+## 963. K-calendar 3-6: month-end extension CONFIRMED again in IEF and LQD (t01553, t01554); auction cycle WATCHLIST (t01552); N → 1,554 (S11)
+
+Discovery 2005-2015: K3 pension (n 6) −0.072% not carried; **K4 30Y auction +1.014% (n 37, t +2.71) carried; K5 IEF month-end +0.176%
+(t +2.61) carried; K5 LQD +0.184% (t +2.55) carried**; K6 OPEX week +0.217% (t +0.84) not carried. Sealed 2016-2026 (trials only for the
+carried): **K5 IEF +0.156%/month (n 129, t +2.71, placebo 99th) → CONFIRM; K5 LQD +0.123% (t +1.94, placebo 97th) → CONFIRM**; K4 auction
++0.107% (n 54, t +0.43) → WATCHLIST. (K3/K6 sealed lines were printed by the script but are not decisions.) With TLT (§961) the month-end
+bond effect is confirmed in three funds — one mechanism (index duration extension). Capital-bound and small in dollars.
+
 
 ## 10. Still outstanding, and blocking
 
