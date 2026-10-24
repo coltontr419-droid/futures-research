@@ -16939,6 +16939,13 @@ sealed. Carry and sealed rules as §942.
 
 **No trial.** 119 discovery months (2006-2015): top-3 sectors by 12-1 return vs equal weight −0.05%/month (t −0.30). Closed.
 
+## 947. L-family 11 protocol — the dividend-month premium (predicted ex-dividend months), 2015-2026 (S11)
+
+**No trial at registration; N 1,548. Written BEFORE dividend dates are joined to returns.** Universe and pack as §942. Predicted dividend
+month for stock j in month m: j had an ex-dividend date in month m−12 (Hartzmark & Solomon 2013). Each month end: equal-weight portfolio of
+eligible stocks predicted to go ex-dividend next month, held one month, vs the equal-weight eligible universe; cost 0.2% round trip.
+Split, carry and sealed rules as §942. One trial.
+
 
 ## 10. Still outstanding, and blocking
 
