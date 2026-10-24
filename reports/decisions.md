@@ -17553,6 +17553,18 @@ sealed 2023-01 → 2026-09 under §664.4. One rule.
 (YTD winners) with only 28 observations. It goes on the forward watchlist and is re-read with the sealed quarters once a year of new data accrues (the sealed window
 stays closed; four quarter-ends a year makes a fair forward test slow).
 
+## 1022. K-calendar 9 protocol — month-end extension in long corporates and international bonds: VCLT, BNDX, IGOV (S11)
+
+**Written before these series are read.** K5's rule and costs (0.02%; IGOV 0.05%). Discovery before 2016-01 (BNDX from 2013); sealed 2016-01 →
+2026-09. Each series is a trial if carried. VCLT tests a longer-duration corporate version of LQD's confirmed effect; BNDX/IGOV test whether the
+flow exists in non-US index funds.
+
+## 1023. K-calendar 9: VCLT month-end WATCHLIST (t01562; sealed +0.13%, t 1.37); BNDX and IGOV not carried; N → 1,562 (S11)
+
+**Trial t01562.** Discovery: VCLT +0.311% (t 2.36), carried; BNDX +0.083% (t 1.48, 31 months) and IGOV +0.112% (t 1.01) not carried. VCLT sealed
+2016-2026: +0.134%, t 1.37, placebo 91st → WATCHLIST. The flow is clearest in US Treasury, MBS, TIPS and IG indices (§1019), weaker in long
+corporates and absent from non-US index funds. Closed as a family; nothing changes the capital-bound verdict.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
