@@ -16978,6 +16978,11 @@ available). Buy at that session's close, hold 20 sessions (primary) or 60 (repor
 same window; cost 0.2%. Split by event date: before 2023-01-01 discovery, after sealed. Carry: mean > 0, t > 1.96; sealed strict §664.4.
 One trial.
 
+## 953. L-family 11 discovery: the dividend-month premium is negative here (−0.31%/month, t −2.09); closed (S11)
+
+**No trial.** 83 discovery months, median 335 predicted payers a month: predicted ex-dividend months vs equal weight −0.31%/month (t −2.09).
+Closed.
+
 
 ## 10. Still outstanding, and blocking
 
