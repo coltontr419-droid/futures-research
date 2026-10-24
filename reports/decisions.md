@@ -16970,6 +16970,14 @@ Discovery (83 months 2016-2022) +1.39%/month excess (t +1.99) → carried; **sea
 placebo 88th → WATCHLIST.** With L2 (§944, +1.46%/month sealed), both momentum forms kept their size out of sample but neither reaches
 significance on 45 months. Watchlist: forward-track both monthly (§133); capital-bound (~1.3-1.5%/month over an equal-weight portfolio).
 
+## 952. L-family 14 protocol — post-forward-split drift (2015-2026) (S11)
+
+**No trial at registration; N 1,549. Written BEFORE split dates are joined to returns.** Universe and pack as §942; forward splits (ratio
+> 1) from Yahoo split events. Event day = the split's effective date (first session at the new share count; announcement dates not
+available). Buy at that session's close, hold 20 sessions (primary) or 60 (reported); excess vs the equal-weight eligible universe over the
+same window; cost 0.2%. Split by event date: before 2023-01-01 discovery, after sealed. Carry: mean > 0, t > 1.96; sealed strict §664.4.
+One trial.
+
 
 ## 10. Still outstanding, and blocking
 
