@@ -17523,6 +17523,23 @@ $2k bar and resting on one day. Last snapshots were 0-6 minutes before lock, so 
 recorder for a full week (incl. NFL Sunday) once the A-LIP shadows finish, to stay within 3 runs: timer `futres-d1-start` at 2026-10-26 01:30Z,
 recorder until 2026-11-02 06:00Z. Readout then. Lead if ≥ $2k/month at field-average with one account (§869).
 
+## 1018. K-calendar 8 protocol — the month-end extension (§961/§963) in other bond ETFs: EDV, ZROZ, MBB, TIP, MUB, HYG, EMB (S11)
+
+**Written before any of these series is read.** Same rule as K5 (§962): buy the close 4 sessions before the last session of the month, sell the last
+close; return minus the series' own average 4-session drift, minus 0.02% (0.05% for HYG and EMB, which have wider spreads). Yahoo adjusted closes. Discovery:
+months before 2016-01 (each series from its inception); sealed 2016-01 → 2026-09 under §664.4. Each series is its own trial if carried. The point
+is scale: EDV/ZROZ carry ≈ 1.4× TLT's duration, so the same flow yields more per dollar without leverage decay.
+
+## 1019. K-calendar 8: the month-end extension CONFIRMED in MBB (t01559) and TIP (t01560); EDV, ZROZ, EMB WATCHLIST; N → 1,561 (S11)
+
+**Trials t01557-t01561.** Discovery (to 2015) carried EDV +0.662% (t 2.13), ZROZ +0.722% (2.34), MBB +0.100% (2.81), TIP +0.177% (2.70), EMB
++0.371% (2.15). Not carried: MUB +0.085% (1.15), HYG +0.135% (0.83). **Sealed 2016-01 → 2026-09 (129 month-ends each):** **MBB +0.130%, t 3.07,
+placebo 100th → CONFIRM; TIP +0.133%, t 2.59, placebo 100th → CONFIRM**; EDV +0.270% (t 1.55, 94th), ZROZ +0.312% (t 1.59, 94th), EMB
++0.016% (t 0.20) → WATCHLIST. The index-extension flow is now confirmed in five ETFs (TLT, IEF, LQD, MBB, TIP). It is one mechanism, and the
+series are highly correlated (same rate factor), so they do not diversify each other. The largest per-dollar version is the long-duration
+EDV/ZROZ (+0.27-0.31% a window, sealed, not significant alone). Dollar scale is unchanged: ≈ $27-31 a month per $10k in EDV, ≈ $65 in TMF.
+Still a capital-bound edge, not a $2k/month stream.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
