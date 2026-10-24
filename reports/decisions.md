@@ -16864,6 +16864,10 @@ BTC's hourly close-to-close return ≥ +2% (primary) or ≥ +3% (reported). Port
 same-hour return is lowest relative to BTC's; buy at the next hour's open, sell after 1 / 4 hours (1 h primary). Cost 0.8%. Split: before
 2025-07-01 discovery, after sealed. Carry: mean > 0, t (one return per event) > 1.96; sealed strict §664.4. One trial.
 
+## 936. C-family 5 discovery: BTC→alt lead-lag — only 10 events, +0.00% (1 h); closed (S11)
+
+**No trial.** BTC ≥ 2% hours with ≥ 30 alts priced: n 10, 1 h +0.00% (t +0.01), 4 h +0.91% (t +1.38); ≥ 3%: n 4. Too rare, no effect.
+
 
 ## 10. Still outstanding, and blocking
 
