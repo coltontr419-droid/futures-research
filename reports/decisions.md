@@ -17007,6 +17007,11 @@ Discovery 2012-2019 (2,011 days): CAGR +38.4%, max DD −50%, daily excess vs SP
 days): CAGR +17.8%, max DD −33%, excess vs SPY +0.021%/day (t +0.54, placebo 71st) → WATCHLIST** — after SVXY's cut to −0.5× it earns
 roughly the market with more risk. Capital-bound. N → 1,550.
 
+## 958. L-family 14 discovery: post-split drift is negative (20 sessions −0.39%, 60 −2.55%); closed (S11)
+
+**No trial.** 241 forward splits 2015-2022: from the effective-session close, 20 sessions excess −0.39% (t −0.80) → not carried; 60
+sessions −2.55% (t −2.96). Closed.
+
 
 ## 10. Still outstanding, and blocking
 
