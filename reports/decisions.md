@@ -16994,6 +16994,13 @@ rules as §942. One trial.
 
 **No trial.** 1,445 events on 577 days (2016-2022): 5 sessions excess −0.42% (t −0.25), 20 sessions −0.15% (t +0.38). Closed.
 
+## 956. V-family 2 protocol — SVXY held only in VIX contango (VIX < VIX3M), daily, 2012-2026 (S11)
+
+**No trial at registration; N 1,549. Written BEFORE the computation.** Yahoo daily ^VIX, ^VIX3M (closes) and SVXY (adjusted). Each close
+t: if VIX_t < VIX3M_t hold SVXY over t → t+1, else cash (0). Cost 0.05% per switch. Note: SVXY changed from −1× to −0.5× on 2018-02-28
+(both regimes kept; the rule is the same). Benchmark: SPY held over the same days. Split: before 2020-01-01 discovery, from 2020 sealed.
+Carry: mean daily excess over SPY > 0 with t > 1.96 (one return per day). Sealed strict §664.4. One trial. Reported: max drawdown.
+
 
 ## 10. Still outstanding, and blocking
 
