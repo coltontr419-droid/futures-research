@@ -16819,6 +16819,12 @@ date (primary hold 20 sessions; 5 reported). Cost 0.3%; SPY-adjusted. One trial.
 **No trial.** 2,217 events (900 discovery, 700 liquid and priced): 20 d raw +1.93%, adjusted +0.51% (t −1.31 by filing date) → not carried;
 5 d adjusted −0.10%. Closed (sealed unread).
 
+## 929. A94 closed: Riot's public livestats arrive ~28 s after the frame; Kalshi sweeps lead us by a median 18.8 s (S10)
+
+**No trial.** Worlds 2026-10-23 recording (fixed recorder §867): 28,007 Riot frames, 8,495 Kalshi trades; frame availability delay min
+20 s, median 27.6 s. Jumps 9; our receive time trails the Kalshi sweep by a median **18.8 s** (lead ≥ 1.5 s on 0%); value after receive +
+1 s median $102 a match → fails §776. The public feed is delayed by design. Closed; futres-a94 has no further recordings.
+
 
 ## 10. Still outstanding, and blocking
 
