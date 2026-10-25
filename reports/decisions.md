@@ -17870,6 +17870,20 @@ returns only vendor SEO pages. With §1046–1055, no fourth route of the §1053
 The others are student-only (Susquehanna Predictions Cup, Point72, Bloomberg, McGill), one-off, crypto (AGON, Virtuals, NetMind, Kuru, Prizefight), non-USD (MOEX analysts in RUB, Qminers in CZK), or no-cash.
 Metaculus FutureEval and Market Pulse remain the only sizeable recurring bot pools. The stack is unchanged. The remaining 205 listings are worth one more pass.
 
+## 1058. Registry pass complete (245 listings): free simulated-futures contests and quarterly benchmarks — real, US-open, but EV ≈ pool ÷ field; none is a route (S11)
+
+**No trial (desk; registry pages saved under the session scratchpad).** The rest of the 245 entries are student-only (Citadel, Jane Street, IMC, Rotman, university comps), one-off Kaggle comps, crypto arenas
+(Bitget, OKX, BNB, Gate, GRVT, Virtuals), or CFD (UEX, Monaxa, HF Markets). The recurring, US-open, USD ones are:
+- **TradingView "The Leap"** (monthly-ish, broker-sponsored, e.g. TradeStation July 2026): a $100k paper futures account with live CME data, ranked on realized P/L, one entry, ≥ 5 trading days, and it needs a TradingView
+  paid, trial or former-paid account. Cash: $10k, 7k, 6k, 3.5k, 2.5k, then $550 for ranks 6–25 and $400 for ranks 26–50, **≈ $50k an edition**. Paper orders go through TradingView's UI with no order API, so it is manual.
+- **NinjaTrader Arena Cup 2026**: free sim futures, three qualifier rounds plus an invite-only final, $250k pool, one qualifier per trader. Annual.
+- **Tradeify Grand Cup** (§1054): annual, $1M.
+- **ADIA Lab Structural Break benchmark** (CrunchDAO-hosted, USD): $3k / $2k / $1k a quarter for the top 3, with continuous submissions. A skill benchmark, $6k a quarter in total.
+- **Bridgewater "Forecasting the Future"**: annual, $25k per winner, with a written framework (manual). **ROLR**: an 8-week sweepstakes-style prediction promo (gambling operator), excluded as a promo.
+**Why none is a route:** in a free one-entry contest the average entrant's EV is pool ÷ field. For The Leap that is ≈ $50k ÷ (~10–30k entrants) ≈ $2–5 an edition. A max-variance strategy lifts the
+odds of a top-50 finish severalfold, but the field already gambles, so it is realistically ≈ $10–50 an edition, ≈ $10–50 a month, and manual. Summed across Leap, Arena Cup and Grand Cup, that is ≈ $20–60 a month for one
+person. These are noted as free lottery tickets for the user, not for the stack. Registry pass closed. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
