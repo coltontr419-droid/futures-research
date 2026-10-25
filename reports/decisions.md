@@ -17814,6 +17814,14 @@ the parked Funding Predicts. With the excluded classes and §968/§970, this exh
 disqualifies the entrant. Prizes are time-bound challenges paid as points converted to credits (an older championship paid $1–2k per model). **HackAPrompt 2.0** (2025, OpenAI-sponsored,
 > $100k) was a one-off with no 2026 edition found. Both fail the automation rule and are sporadic. Closed. The stack is unchanged.
 
+## 1052. Screen: tax-lien certificates and Texas tax-deed redemption premiums (S18) — capital-bound, yields bid away; closed
+
+**No trial.** **Lien states** (FL, AZ, AL, LA) run bid-down auctions, many online with uploaded bid lists, so they are partly automatable. Institutional buyers dominate the large auctions,
+with yields compressed to roughly 0.25–5% in metro auctions (unsourced industry claim). Arizona's Yavapai County sold 81% of its liens, and the remainder within a week. The national market is ≈ $5bn (NTLA 2024).
+Rural higher-yield liens need parcel due diligence (manual) and are capital at par. **Texas tax deeds** pay a 25% or 50% redemption premium on homestead and agricultural property, but
+the buyer pays the full bid (thousands per parcel) and bids in person or by county auction. Both are capital-bound. $200 at even 18% is ≈ $3 a month, and scale needs capital in
+proportion. This fails the small-start/scale rule. Closed. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
