@@ -17998,6 +17998,15 @@ Workday, SmartRecruiters via public APIs, auto-detected): 300 of 300 with descri
 (5) Bayt (2 rivals, 318 users): 10 MENA countries, JobPosting LD details. Cloudflare blocks datacenter IPs, so it falls back to residential (≈ $0.0003 per job). Test: 120 jobs, 114 with details, 44 with salaries.
 11 actors are now built. `publish.py` holds PPE prices for all of them. Credit used $2.12 of $5.
 
+## 1069. AP-1 marketing pass: quality-score prep, SEO, and a launch kit (IKEA Price Index data story) (S11)
+
+**No trial.** Apify ranks the Store by an Actor quality score: reliability (including a daily test of the default input that must succeed in under 5 minutes), popularity and repeat use, reviews, ease of use,
+pricing transparency, least-privilege permissions and consistency. Done for all 11 actors: dataset schemas with table views; READMEs rebuilt in Apify's structure (usage, cost example, real input/output samples,
+cross-link table, FAQ); a simulated daily test (all 11 SUCCEEDED; Dreamstime default cut to 40 because it took 213 s; ATS default cut to 100 jobs because a first run would have cost ≈ $1.50); SEO title and description per Store page
+in `publish.py`. **Launch kit** (`~/apify-actors/marketing/`): the **IKEA Price Index**, 35 items sold in ≥ 30 of 41 countries, matched by item number, USD, index = median(price/median) × 100. Germany 86 is cheapest;
+**US 128 is third most expensive**, after Saudi Arabia 159 and Mexico 172, and understated because US prices exclude sales tax. Also a chart, a blog article, a developer tutorial for the ATS actor, and a launch plan with community-rule-compliant drafts
+(r/dataisbeautiful [OC] with a sources comment; r/webscraping monthly thread only; Apify Discord; Apify ScrapeDiary pitch; niche forums). Posting is the user's job, from the user's accounts. Credit used $2.36 of $5.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
