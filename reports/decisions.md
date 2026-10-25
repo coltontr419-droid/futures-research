@@ -17638,6 +17638,19 @@ across all series, and top 3 ≈ $1.6-3.5k. **Fully automatable** (a bot on the 
 (Metaculus account, bot account, participation form). Fastest real test: MiniBench's two-week rounds. Combined with the Tradeify plan automated through a bridge (§1029),
 it is the most credible automatable path to the user's $2k/month stack.
 
+## 1031. F-family 1 protocol — is a Claude forecaster competitive with top forecasting bots? A blind ForecastBench test on a post-cutoff question set (S11)
+
+**No trial (a skill measurement for the Metaculus lead, §1030). Written before any question is forecast or any resolution is read.** ForecastBench (FRI,
+`forecastingresearch/forecastbench-datasets`) question set **2026-07-05** (freeze 2026-06-25; after Claude's training cutoff, so outcomes are unknown).
+**Forecasts:** all resolved market questions (Manifold, Metaculus, Polymarket, INFER, as in the tournament fixed-effects file), plus a random 60 of the
+dataset questions (seed 1031) at their 7-, 30- and 90-day horizons. Claude forecasts from the question text, background and freeze value only (no web, no
+tools beyond reading the file), in batches. Probabilities are saved and hashed before `2026-07-05_resolution_set.json` is opened.
+**Scoring, ForecastBench's own method (`src/leaderboard/main.py`):** Brier per forecast minus the published tournament question fixed effect; mean per question type;
+shifted so that "Always 0.5" on the same questions scores 0.25; **Brier Index = (1 − √score) × 100** (higher is better). **Read:** compare with the tournament
+leaderboard (`leaderboard_tournament.csv`): top-10 Dataset ≈ 63-67, Market ≈ 72-76; superforecaster median 63.5 / 74.5. **Pass for the lead:** both
+indices within the top-20 band. Then a Metaculus bot built on Claude is plausibly a top-tier entrant, and the user's accounts are worth asking for. Caveat: one
+set (sampling noise), and real bots also use live news, which this test does not.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
