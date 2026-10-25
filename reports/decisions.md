@@ -17659,6 +17659,17 @@ slight upward drift for stocks, 0.5 for rates). **Leakage caveat, noted before s
 (e.g. a bank's mention of 10-year yields above 5.2% in October, Rollins missing its Q2 expectations). To avoid using them, every rates/yields question was set to 0.5 and
 Rollins to a neutral drift. No World Cup or election outcomes were seen.
 
+## 1033. F1 result: a zero-shot Claude forecaster scores at the baseline-LLM tier, not the top — Brier Index 60.3 dataset / 67.5 market; fails the top-20 bar (S11)
+
+**No trial (a measurement).** ForecastBench's method on set 2026-07-05: **dataset 60.3** (180 forecasts; the leaderboard median of 463 entries is 59.8,
+Claude Opus 5 baselines 61.5, top-10 63-67, superforecaster median 63.5), **market 67.5** (107; on these same questions, copying the freeze price scores 66.6,
+so +0.9 for my adjustments, much like the baselines' +1 over Naive on the leaderboard. Top-10 market scores are 72-76 on other sets). Pooled 62.8. On a single set, the
+rescaling against Always 0.5 reduces to the raw Brier, so the numbers sit on the leaderboard scale directly. **Reading:** without a research pipeline,
+Claude is a mid-pack forecaster, about where single-model baselines rank. Biggest losses: SpaceX −50% (0.40 vs 0.49, resolved YES), ER seat gains, Mbappé top scorer. Biggest
+gains: shading OpenAI's S-1 timing, Hormuz-by-August and Haiti election down. **For the Metaculus lead (§1030):** the prize-relevant ranks need a research-plus-ensemble
+pipeline (AskNews, multiple models, aggregation), as the Spring 2026 top bots used. Zero-shot quality alone places it ~rank 50-150 of ~200 eligible bots, i.e.
+≈ $0-200 a season. The lead stays parked at its low estimate. Proving a top-tier pipeline needs live news, so the real test is a MiniBench round with your accounts.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
