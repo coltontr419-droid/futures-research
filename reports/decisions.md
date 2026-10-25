@@ -17770,6 +17770,12 @@ user's "no liquidity rewards" line, though rebate-free. Blocked. (3) **Borrow-fe
 shorting the same stock at a broker whose borrow rate lags): needs two brokers' daily rates (IBKR's via iborrowdesk is public; payout rates aren't), a margin account, and
 capital. The user also rejects IBKR. Blocked. None changes the stack.
 
+## 1046. Screen: bot-eligible cash competitions (S12) — nothing new beyond Metaculus
+
+**No trial.** Web screen 2026-10-25 for recurring cash contests that allow bots. **Metaculus FutureEval Fall 2026** ($50k, bots welcome) and **Market Pulse** ($7.5k, bots eligible)
+are already parked (§968, §1030, §1044); they need the user's account. **CrunchDAO DataCrunch** pays in USDC, so the crypto exclusion applies (as before). Prop-firm "free
+trading competitions" (FundedNext, The5ers) are CFD/forex props, which are excluded. Bridgewater x Metaculus is a one-off (Jan–Mar). Ocean Predict-ETH is crypto. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
