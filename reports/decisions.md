@@ -17966,6 +17966,14 @@ traction test before scaling. (3) Rejected: AI utilities (no demand on Apify apa
 contributor concentration, related searches). There were zero actors for iStock, Getty, Dreamstime, 123RF, Depositphotos and Alamy, while Adobe Stock's ≈ 700 contributor-users show an audience. CloudFront's WAF rejected
 httpx from Apify IPs, including residential; **curl_cffi Chrome impersonation passes even on datacenter proxies.** Test: 6 query×site combinations, 1,080 assets plus summaries, about 90 s.
 
+## 1066. AP-1 build 3: Dreamstime scraper (download counts, level, keywords), the only stock agency publishing per-image sales (S11)
+
+**No trial.** StockX was checked and dropped: 8 actors, ≤ 22 users, so demand on Apify is thin. **Dreamstime** had zero actors, and its image pages show **downloads** and a 0–5 **level** (sales-based price tier). Structured data
+carries the full keyword list, creator and publish date. The actor collects search results (80 per page), opens each image page through a worker pool (one proxy session per worker, rotated only on block, paced),
+pushes rows incrementally, and writes a keyword summary: download median/P90, level mix, upload-year mix, top keywords weighted by downloads, top contributors and best sellers. **Blocking:** Cloudflare burned the free
+plan's 5 datacenter IPs at 6 parallel requests, so **residential is the default** at a measured **$0.0006 per result** in proxy traffic (5.8 MB per 81 pages, compressed). Under PPE the developer pays that, so it must sit inside the price.
+Test: 2 queries × 160, 320 rows, 0 errors, $0.19 total. About 20% of results are 2026 uploads whose stats Dreamstime hides (`statsShown: false`). Credit used so far $1.58 of $5.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
