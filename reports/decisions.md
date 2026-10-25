@@ -17920,6 +17920,9 @@ Building, fixing broken scrapers and answering issues is code work that Claude c
 target-site ToS and personal-data scraping, so prefer business, public and e-commerce data and avoid logged-in or personal scraping; it is a 6–12-month ramp; and revenue per user is a crude average.
 **Verdict:** the first broadened-search lead that can plausibly clear $2k a month alone, with $0 capital. It needs the user's (free) Apify account to publish, and nothing can be measured further before then.
 
+**Addendum (same day):** apify.com currently shows **"$1.7M paid out last month"**, which puts the proxy at $2.82 per actor-user-month. At that rate ≈ 119 developers earn ≥ $2k a month, and **$2k a month takes ≈ 710 users**,
+between the ≥ 500 (30%) and ≥ 1,200 (12%) marks of the 6–12-month newcomer cohort, so roughly 1 in 5 serious newcomers before the selection-bias haircut. The estimate is still crude, since spend per user is skewed.
+
 ## 1062. Screens: other platforms that supply demand and billing — Poe bots, Telegram Stars, Discord apps, Shopify apps, Adobe Stock AI imagery (S11)
 
 **No trial.** (1) **Poe creator monetization** is live: per-message pricing set in code, with monthly Stripe payouts (US eligible). Quora claims creators earn "tens of millions" a year (unaudited), and most earn little.
