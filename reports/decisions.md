@@ -17583,6 +17583,16 @@ fully automatable** (no daily manual work). Screen of what we have:
 **Implication:** the automatable stack today is a few hundred dollars a month, far from $2k. Streams that don't grow with capital and can be automated are scarce once
 liquidity rewards and prediction markets are excluded. Search target from here: automatable, capital-light streams.
 
+## 1025. Screens for automatable, capital-light streams (2026-10-25 morning): AI stock imagery, CrunchDAO, equity intraday data — closed or blocked (S11)
+
+**No trial.** (1) **Adobe Stock AI images:** almost half the library is already AI-generated (PetaPixel 2025); per-contributor upload limits since May 2025 depend on past
+sales and acceptance; vendor-claimed $0.25-0.50 a download. Saturated and capped, closed. (2) **CrunchDAO / DataCrunch:** rewards in the CRUNCH token on
+Solana, a crypto counterparty without the KYC'd-firm standard. Closed. (3) **Intraday US equity data** for capacity-limited small-cap intraday rules: this
+repo holds only Databento FTP batch credentials, so pricing or downloading equity data needs the user. Free alternatives: Yahoo (5-minute bars for 60 days,
+hourly for 2 years), and Alpaca's free market-data plan (historical bars with an account, which is also the natural automation rail). Blocked on an
+account. (4) **Metaculus:** Metaculus's analysis repo has no question or forecast data, so a bot can only be measured by entering it; MiniBench's two-week
+rounds are the fastest real test. Prizes are concentrated at the top (Metaculus weighed score-squared and exponential splits to avoid flat payouts).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
