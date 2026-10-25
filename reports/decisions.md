@@ -17670,6 +17670,15 @@ gains: shading OpenAI's S-1 timing, Hormuz-by-August and Haiti election down. **
 pipeline (AskNews, multiple models, aggregation), as the Spring 2026 top bots used. Zero-shot quality alone places it ~rank 50-150 of ~200 eligible bots, i.e.
 ≈ $0-200 a season. The lead stays parked at its low estimate. Proving a top-tier pipeline needs live news, so the real test is a MiniBench round with your accounts.
 
+## 1034. Desk sweep for other automatable streams: merger cash-outs, SPAC trusts, data/bandwidth-sharing apps, per-record data programs — none qualifies (S11)
+
+**No trial.** (1) **Merger arbitrage** (buy targets after announcement; the cash at close is a mandatory, automatic event): automatable through any API broker, but it is a
+capital-bound spread of T-bills + ≈ 2-4% with deal-break tails. (2) **SPAC trust arbitrage:** redemption is a voluntary election (manual) and it is capital-bound (≈ T-bill
+yield). (3) **Data- and bandwidth-sharing apps** (Honeygain-type): ≈ $5-20 a month a device; affiliate-marketed, terms grey. (4) **Per-record data-contribution programs:**
+nothing verifiable surfaced; the category is scam-prone. With F1 (§1033) putting a zero-shot bot mid-pack, the automatable, capital-light stack stands at:
+Metaculus bot ≈ $0-200 a season unless a full research pipeline lifts it; round-ups ≈ $50-150 a month (narrowing); everything else capital-bound. The only
+automatable piece that scales without your own capital is still the prop account (§1026/§1029).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
