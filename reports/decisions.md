@@ -17761,6 +17761,15 @@ option chains (free, delayed, Yahoo `v7/finance/options`), with a small correcti
 miscalibrated on numeric tails (F1's biggest miss was a −50% SpaceX threshold). This is the only identified structural edge for an automated forecaster, and F2's Bot A tests the
 same "use the market's own number" idea on ForecastBench. It would be built only with the user's accounts (§1030).
 
+## 1045. Desk screens: bond-fund stale NAVs, 24/5 overnight equity market-making, cross-broker borrow-fee arbitrage — blocked or capital-bound (S11)
+
+**No trial.** (1) **Stale NAVs in bond/muni mutual funds** (4 pm NAVs lag moves in futures-implied bond prices; Choi-Kronlund-style): round-trip limits and redemption fees cap
+frequency, broker APIs rarely route funds, and it is capital-bound. (2) **Market-making in the new 24/5 overnight equity sessions** (Blue Ocean ATS; retail flow, wide spreads vs
+ES/NQ-implied fair value): automatable only where an API broker routes overnight orders. Overnight trade data isn't free (§857 tabled it), and it is market-making, close to the
+user's "no liquidity rewards" line, though rebate-free. Blocked. (3) **Borrow-fee arbitrage** (be paid a hard-to-borrow fee through one broker's fully-paid lending while
+shorting the same stock at a broker whose borrow rate lags): needs two brokers' daily rates (IBKR's via iborrowdesk is public; payout rates aren't), a margin account, and
+capital. The user also rejects IBKR. Blocked. None changes the stack.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
