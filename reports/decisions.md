@@ -17679,6 +17679,13 @@ nothing verifiable surfaced; the category is scam-prone. With F1 (§1033) puttin
 Metaculus bot ≈ $0-200 a season unless a full research pipeline lifts it; round-ups ≈ $50-150 a month (narrowing); everything else capital-bound. The only
 automatable piece that scales without your own capital is still the prop account (§1026/§1029).
 
+## 1035. Round-ups, automated, priced on V1's real events: ≈ $35 a month per API-broker account after Tradier's fee, outliers aside — a negligible stack piece (S11)
+
+**No trial (a measurement).** `reports/v1_revsplit.json` (§843): 210 holder-level or round-lot events, 2025-10 → 2026-10, one share each, minus Tradier's $1.45
+per event: $2,731 over 12 months. Two outliers carry most of it: BRRN (1-for-100,000 cash-out shape) +$2,100 and AREB (round-lot) +$217. **Without events over
+$200: ≈ $35 a month, median $1.34 an event.** The trend runs against the stream (record-holder-level rounding, SIFMA cash-in-lieu default, §1028). Even across 3-4 API brokers it is ≈ $100-150 a month,
+mostly from rare outliers. It is logged in the stack at that value, and no build is warranted.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
