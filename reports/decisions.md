@@ -17565,6 +17565,24 @@ flow exists in non-US index funds.
 2016-2026: +0.134%, t 1.37, placebo 91st → WATCHLIST. The flow is clearest in US Treasury, MBS, TIPS and IG indices (§1019), weaker in long
 corporates and absent from non-US index funds. Closed as a family; nothing changes the capital-bound verdict.
 
+## 1024. New rule and an automation screen of the candidate stack (user, 2026-10-24/25) (S11)
+
+**No trial.** User rules (2026-10-24): small streams may count if their **combined** verified total exceeds **$2k/month**, and **every stream must be
+fully automatable** (no daily manual work). Screen of what we have:
+- **DFS overlays (D1):** DraftKings' Terms of Use prohibit outside automated tools or scripts for creating, entering or withdrawing from contests and
+  managing lineups (policy since 2016). Not automatable, so it does not count. The scheduled week of recording is cancelled to free a run slot
+  (`futres-d1-start` and `futres-d1-readout` timers stopped).
+- **Reverse-split round-ups (§843, ~$40-70 a month per account):** automation needs a broker API and holder-level round-up handling. Alpaca (API) deposits fractional
+  shares and never rounds up (revRSS broker notes; one 2023 note says otherwise, superseded). Tradier (API) credits round-ups at $1.45 an event.
+  tastytrade (API) is on-and-off fractional. Schwab, E*TRADE, Public and Webull (APIs) have unknown handling. Brokers also terminate round-up accounts
+  (Ally, and Fidelity is a stated risk). Issuers increasingly round at the record-holder level or pay cash (SIFMA default). Automatable portion
+  ≈ $100-300 a month with 2-4 API brokers, if handling holds. Counts, but small.
+- **Bond month-end (§961-§1019):** automatable through any API broker (scheduled orders). Capital-bound: ≈ $2-6 a month on $200.
+- **Metaculus bots (§968/§984):** automatable by design (bot posts forecasts); $0-500 a season typical, more only near the top; needs your accounts.
+- Odd-lot tenders, PATROLL, hackathons, freelancing, WorldQuant consultant work: manual, do not count.
+**Implication:** the automatable stack today is a few hundred dollars a month, far from $2k. Streams that don't grow with capital and can be automated are scarce once
+liquidity rewards and prediction markets are excluded. Search target from here: automatable, capital-light streams.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
