@@ -17884,6 +17884,12 @@ Metaculus FutureEval and Market Pulse remain the only sizeable recurring bot poo
 odds of a top-50 finish severalfold, but the field already gambles, so it is realistically ≈ $10–50 an edition, ≈ $10–50 a month, and manual. Summed across Leap, Arena Cup and Grand Cup, that is ≈ $20–60 a month for one
 person. These are noted as free lottery tickets for the user, not for the stack. Registry pass closed. The stack is unchanged.
 
+## 1059. Screen: renting out GPU compute (Vast.ai / Salad-style hosting) (S11) — hardware capital; closed
+
+**No trial (desk arithmetic).** One RTX 4090-class card (≈ $1.8k) rents at about $0.30–0.40 an hour at roughly 50% utilization, about $110–150 a month gross. Texas power for 0.35 kW × 360 h at about $0.14/kWh is ≈ $18,
+so it nets ≈ $90–130 a month and pays back in about 15 months. It is automatable, but it is hardware-capital-bound (each $2k a month needs ≈ 15–20 cards), so it fails the $100–200 start rule.
+A CPU-only or no-GPU PC earns about $0–10 a month (cf. the bandwidth/DePIN nodes in §1036). Code-bounty boards are already closed (§895–896). The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
