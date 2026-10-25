@@ -17746,6 +17746,13 @@ business, youth) at AED 550k (≈ $150k) each, plus AED 1M (≈ $272k) for "AI A
 (`dubaichamberdigital.com/en/create-ai-agents`). It is a pitch-judged lottery ticket, not a stream, and does not count toward the automatable stack, but the cost is only build time. For the
 user's end-of-day list as optional.
 
+## 1043. §1037 open point closed: TradersPost accepts webhooks from custom code (Python requests POST of JSON), not only TradingView (S11)
+
+**No trial.** TradersPost's docs ("Signal sources → Custom code") show a Python `requests` POST of a JSON body (ticker, action, price) to the strategy's
+webhook URL, with a JSON success response and signal ID. The parser is JSON5 (since 2022-12). Stop/target fields for custom JSON are documented on its signal-format page
+(to read before any build). So the droplet bot could send the NKD bracket itself. Still open for the user: the account's connection (Tradovate), TradersPost's price, and
+Tradeify's written OK.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
