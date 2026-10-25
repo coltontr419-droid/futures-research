@@ -17610,6 +17610,14 @@ tens of thousands of entrants, so ≈ a few dollars of EV each, and everyone els
 forex, close to the user's exclusions); GoChamp CME futures (prizes in commission credits, residence-restricted); Moomoo (weekly top-3, 2025 format). Contest rules
 on bots are unstated. EV per entry ≈ $1-20 a month and prizes are lumpy, so this is not a stream. Closed.
 
+## 1028. Round-up automation re-check: the stream is narrowing — issuers round at the record-holder level and automated RSA services crowd it (S11)
+
+**No trial (desk).** 2025-26 sources: issuers increasingly apply the round-up "at the record holder level with the transfer agent to prevent arbitrage" (MultiSensor AI,
+2026). Street-name brokers may keep the round-up rather than pass it to customers (Impact Biomedical, 2026-09: allocation to customers unexplained). SIFMA asks that
+round-ups be eliminated altogether. Commercial "automated RSA signal" services now sell the trade (TradeLabs, OneArbitrage, stocksplitarbitrage). Many RSA
+names are OTC or sub-$1, which some API brokers block. With Alpaca out (fractions, §1024), the automatable version is Tradier (fee) plus tastytrade (inconsistent):
+≈ $50-150 a month, shrinking. It stays in the stack as a minor piece and is not worth building ahead of anything larger.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
