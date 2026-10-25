@@ -17686,6 +17686,15 @@ per event: $2,731 over 12 months. Two outliers carry most of it: BRRN (1-for-100
 $200: ≈ $35 a month, median $1.34 an event.** The trend runs against the stream (record-holder-level rounding, SIFMA cash-in-lieu default, §1028). Even across 3-4 API brokers it is ≈ $100-150 a month,
 mostly from rare outliers. It is logged in the stack at that value, and no build is warranted.
 
+## 1036. Capacity-and-rules sweep of automatable content/commerce arenas — all closed before any data (S11)
+
+**No trial (desk; the user's 10-19 rule: estimate the ceiling before downloading).** AI music on streaming (Spotify's 2025 AI-spam policy removes mass uploads;
+≈ $0.003 a stream); AI e-books on KDP (AI disclosure, a 3-titles-a-day cap, saturated); print-on-demand (saturated, Etsy AI rules); AI-content websites (search
+quality updates demote them; AI Overviews cut clicks, §survey E); faceless YouTube ("inauthentic content" policy); deal/affiliate bots on Telegram/Discord (need an
+audience; Amazon commission cuts); domain drop-catching (≈ 1-2% a year sell-through against renewals, §survey C); DePIN/bandwidth nodes (≈ $5-20 a month); airdrop
+farming (sybil filtering, no KYC'd counterparty). App/extension/API/data products are excluded until we profit from our own use (user, 10-19). None reaches the scale or
+rule bar, so all are closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
