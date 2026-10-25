@@ -18007,6 +18007,12 @@ in `publish.py`. **Launch kit** (`~/apify-actors/marketing/`): the **IKEA Price 
 **US 128 is third most expensive**, after Saudi Arabia 159 and Mexico 172, and understated because US prices exclude sales tax. Also a chart, a blog article, a developer tutorial for the ATS actor, and a launch plan with community-rule-compliant drafts
 (r/dataisbeautiful [OC] with a sources comment; r/webscraping monthly thread only; Apify Discord; Apify ScrapeDiary pitch; niche forums). Posting is the user's job, from the user's accounts. Credit used $2.36 of $5.
 
+## 1070. AP-1 launch: 5 actors live on the Apify Store (2026-10-25, username ColtonT); 6 queued by Apify's 5-per-day publication limit (S11)
+
+**No trial.** The user completed billing, payout and KYC, made the profile public (username **ColtonT**) and accepted the Store terms. Live, with PPE pricing, SEO fields, output schemas and 10 public example tasks: Google Trends Explorer,
+iStock & Getty, Dreamstime, Seek/Jobstreet/JobsDB and Envato Market. Queued (systemd timers 10-27 and 10-28 00:30Z): IKEA, Bayt, ATS career sites, idealo, Nordic and Coles/Woolworths. A daily health check runs at 13:00Z.
+**The 30-day traction test starts now** (day 7–10 and day 30 reviews against §1065). Credit used ≈ $2.5 of $5.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
