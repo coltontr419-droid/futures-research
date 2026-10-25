@@ -17857,6 +17857,19 @@ VIC pay no cash. Replication Markets (DARPA SCORE) has ended. (2) **2026 new-pro
 (May 2026) pays rebates to member firms, not retail; there is nothing early-adopter-mispriced that an API account can reach. Overnight 24/5 was already blocked (§1045). (3) **The generic "automated side income" scan**
 returns only vendor SEO pages. With §1046–1055, no fourth route of the §1053 shape was found today. The stack is unchanged.
 
+## 1057. Screen: the quantchallenges.com registry (first 40 of 245 listings) — four unseen recurring contests, all small or crypto (S11)
+
+**No trial (desk; registry last verified 2026-09-23, official pages where reachable).**
+- **AlphaNova Biweekly Season 1** (Singapore, crowdsourced fund; alphanova.tech): signals on factor-hedged residuals. Each cycle has a 2-week submission window, then one month of live evaluation, with 5 cycles a season.
+  The pot is "up to $2,500 + carry-over per cycle", grows with admitted *quality* signals, and saturates at 13 of them (the calculator shows $1,609 for 7). Admission needs a significant positive Sharpe plus a low
+  correlation to others. **Ceiling ≈ $200–400 per cycle for one consistently admitted contributor, about $12.5k for the whole season across everyone.** Payment currency, eligibility and API are unstated. Too
+  small for the stack. Revisit only if the pot grows.
+- **AI4Finance Open Trading Challenge** (FinRL strategy plus Alpaca paper trading, 30+ days, public repo): $3.5k / $1k / $500 for the top 3 in a "pilot quarter". Top-heavy and one-off so far.
+- **CrunchDAO × Synth** ("up to $50k a month"): a share of Bittensor subnet emissions converted TAO→USD, minus a $500 hosting fee and 20%, split among the top 8, paid on Solana. Crypto, excluded.
+- **ALGOGENE Global Quant Trading Challenge** (funded capital up to $100k, keep 85%): HK-based, and the asset class is unstated. Most likely CFD, crypto or stock-prop-like, so excluded unless shown otherwise.
+The others are student-only (Susquehanna Predictions Cup, Point72, Bloomberg, McGill), one-off, crypto (AGON, Virtuals, NetMind, Kuru, Prizefight), non-USD (MOEX analysts in RUB, Qminers in CZK), or no-cash.
+Metaculus FutureEval and Market Pulse remain the only sizeable recurring bot pools. The stack is unchanged. The remaining 205 listings are worth one more pass.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
