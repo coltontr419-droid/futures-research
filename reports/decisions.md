@@ -17770,13 +17770,13 @@ user's "no liquidity rewards" line, though rebate-free. Blocked. (3) **Borrow-fe
 shorting the same stock at a broker whose borrow rate lags): needs two brokers' daily rates (IBKR's via iborrowdesk is public; payout rates aren't), a margin account, and
 capital. The user also rejects IBKR. Blocked. None changes the stack.
 
-## 1046. Screen: bot-eligible cash competitions (S12) — nothing new beyond Metaculus
+## 1046. Screen: bot-eligible cash competitions (S11) — nothing new beyond Metaculus
 
 **No trial.** Web screen 2026-10-25 for recurring cash contests that allow bots. **Metaculus FutureEval Fall 2026** ($50k, bots welcome) and **Market Pulse** ($7.5k, bots eligible)
 are already parked (§968, §1030, §1044); they need the user's account. **CrunchDAO DataCrunch** pays in USDC, so the crypto exclusion applies (as before). Prop-firm "free
 trading competitions" (FundedNext, The5ers) are CFD/forex props, which are excluded. Bridgewater x Metaculus is a one-off (Jan–Mar). Ocean Predict-ETH is crypto. The stack is unchanged.
 
-## 1047. Desk screens: ERCOT/Texas power, demand response, gift-card and claim arbitrage, P2P/litigation lending — blocked, hardware- or capital-bound (S13)
+## 1047. Desk screens: ERCOT/Texas power, demand response, gift-card and claim arbitrage, P2P/litigation lending — blocked, hardware- or capital-bound (S11)
 
 **No trial.** The user is in Texas, so ERCOT was checked first. (1) **ERCOT DAM/RT virtual trading and CRRs** require registration as a QSE/CRR account holder with
 collateral in the five-to-six figures. This is not a $100–200 start. (2) **Residential demand response and VPPs** (OhmConnect-style events, battery VPPs, wholesale
@@ -17785,21 +17785,21 @@ is capital. (3) **The 4CP transmission-charge avoidance** applies to commercial 
 eligibility-bound (filing a claim without eligibility is fraud), so they are excluded. (5) **P2P, Fundrise and litigation-finance lending** is capital-bound and returns about
 the market rate. None is automatable at scale from a small start. The stack is unchanged.
 
-## 1048. Screen: game/agent competitions and skill-game bots (S14) — excluded or sporadic
+## 1048. Screen: game/agent competitions and skill-game bots (S11) — excluded or sporadic
 
 **No trial.** (1) **Bots in real-money poker, chess, backgammon or sweepstakes poker** break every site's rules (cheating), so they are excluded outright. (2) **Season-long fantasy leagues (Sleeper,
 Underdog)** are pick'em/DFS-like, ban scripts, and fall under the PrizePicks/DK exclusions. (3) **Kaggle simulation and agent competitions** (Pokémon TCG AI Battle Challenge
 2026, > $300k, with the cash mostly in a written strategy track and an in-person final; Orbit Wars has no prize; ARC-AGI-3): bots are welcome, but the contests are one-off, top-8
 winner-take-most, and need months of skilled effort per contest. That is not recurring automated income and cannot be stacked toward $2k a month. The stack is unchanged.
 
-## 1049. Screen: autonomous AI web bug bounties (HackerOne/Bugcrowd hackbots) (S15) — fails automation and saturation
+## 1049. Screen: autonomous AI web bug bounties (HackerOne/Bugcrowd hackbots) (S11) — fails automation and saturation
 
 **No trial.** Since XBOW (a funded company) topped HackerOne in 2025, hackbot volume has surged: Elastic alone got > 1,390 reports in the first half of 2026, more than 2024 and 2025 combined.
 Google paused part of its OSS VRP over AI reports (secondary coverage). HackerOne's 2026 conduct update makes the researcher validate AI-assisted findings, bars mass unverified submissions, and
 auto-closes out-of-scope or duplicate reports. Many programs ban automated scanning. Each finding therefore needs human validation (the user's hands, which fails the automation rule).
 Duplicate risk against funded hackbots is high, and a scope mistake is a legal exposure. Closed (cf. §886 for OSS bounties). The stack is unchanged.
 
-## 1050. Screen: other people's capital — copy-trading payouts, signal marketplaces, new funded programs (S16) — none open to us
+## 1050. Screen: other people's capital — copy-trading payouts, signal marketplaces, new funded programs (S11) — none open to us
 
 **No trial.** (1) **eToro's Popular Investor program** pays on assets under copy, but eToro's US CopyTrader page says it is "coming" and not yet available in the US.
 Third-party sources list $1–2k minimum equity and two months of history. Blocked. (2) **Collective2 signal subscriptions** take about a 50% platform cut (forum figures)
@@ -17808,19 +17808,29 @@ track record of an edge that we would simply trade ourselves. (3) **A 2026 web s
 FundedNext futures). Futures props other than Tradeify are deferred until payouts start (memory, §766), and the rest are excluded. Nothing funds forecasters or bettors beyond
 the parked Funding Predicts. With the excluded classes and §968/§970, this exhausts the firm-capital routes found so far. The stack is unchanged.
 
-## 1051. Screen: AI red-teaming prize arenas (Gray Swan, HackAPrompt) (S17) — automation banned; closed
+## 1051. Screen: AI red-teaming prize arenas (Gray Swan, HackAPrompt) (S11) — automation banned; closed
 
 **No trial.** **Gray Swan Arena's rules prohibit "automated tools, scripts, or bots to generate or submit jailbreaks"**; submissions must be crafted by hand, and a breach
 disqualifies the entrant. Prizes are time-bound challenges paid as points converted to credits (an older championship paid $1–2k per model). **HackAPrompt 2.0** (2025, OpenAI-sponsored,
 > $100k) was a one-off with no 2026 edition found. Both fail the automation rule and are sporadic. Closed. The stack is unchanged.
 
-## 1052. Screen: tax-lien certificates and Texas tax-deed redemption premiums (S18) — capital-bound, yields bid away; closed
+## 1052. Screen: tax-lien certificates and Texas tax-deed redemption premiums (S11) — capital-bound, yields bid away; closed
 
 **No trial.** **Lien states** (FL, AZ, AL, LA) run bid-down auctions, many online with uploaded bid lists, so they are partly automatable. Institutional buyers dominate the large auctions,
 with yields compressed to roughly 0.25–5% in metro auctions (unsourced industry claim). Arizona's Yavapai County sold 81% of its liens, and the remainder within a week. The national market is ≈ $5bn (NTLA 2024).
 Rural higher-yield liens need parcel due diligence (manual) and are capital at par. **Texas tax deeds** pay a 25% or 50% redemption premium on homestead and agricultural property, but
 the buyer pays the full bid (thousands per parcel) and bids in person or by county auction. Both are capital-bound. $200 at even 18% is ≈ $3 a month, and scale needs capital in
 proportion. This fails the small-start/scale rule. Closed. The stack is unchanged.
+
+## 1053. Synthesis of 2026-10-25's screens (§1045–1052): the binding constraint is "small start × automation", and only three routes survive it (S11)
+
+**No trial.** Every arena screened today failed on one of two walls. **Capital:** the edge is a percentage of one's own money (stale NAVs, borrow arbitrage, lending, tax liens, ERCOT, bond month-end),
+so $200 earns dollars a month. **Automation or rules:** the payer bans bots or wants human validation (Gray Swan, HackerOne, poker/chess, DFS), or the pay is one-off and top-heavy (Kaggle and agent
+contests). Clearing $2k a month from $100–200 therefore needs someone else's capital or prize money, plus a payer that permits code. Only three routes found so far meet all three conditions:
+(1) **Tradeify via the TradersPost webhook bridge** (§1029, §1037, §1043; backtested, not proven), (2) **a Metaculus bot** (FutureEval ≈ $50k a season plus Market Pulse ≈ $7.5k a quarter;
+zero-shot is at the baseline tier per F1, so a market-implied module (§1044) is the planned edge; F2 scores 11-09), and (3) **WorldQuant BRAIN** (API automation is common, pay is per-alpha and
+unpublished, about a few hundred a month typical). Routes (2) and (3) need the user's own accounts before anything can be measured. The search continues for a fourth route of this shape,
+meaning outside capital or prizes, with code allowed and a legitimate US payer.
 
 ## 10. Still outstanding, and blocking
 
