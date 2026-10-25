@@ -17920,6 +17920,14 @@ Building, fixing broken scrapers and answering issues is code work that Claude c
 target-site ToS and personal-data scraping, so prefer business, public and e-commerce data and avoid logged-in or personal scraping; it is a 6–12-month ramp; and revenue per user is a crude average.
 **Verdict:** the first broadened-search lead that can plausibly clear $2k a month alone, with $0 capital. It needs the user's (free) Apify account to publish, and nothing can be measured further before then.
 
+## 1062. Screens: other platforms that supply demand and billing — Poe bots, Telegram Stars, Discord apps, Shopify apps, Adobe Stock AI imagery (S11)
+
+**No trial.** (1) **Poe creator monetization** is live: per-message pricing set in code, with monthly Stripe payouts (US eligible). Quora claims creators earn "tens of millions" a year (unaudited), and most earn little.
+Bot-level usage data is not public, so it is unmeasured. Kept as a secondary candidate behind Apify. (2) **Telegram Stars** withdraw via Fragment in TON, which is crypto and excluded. (3) **Discord premium apps** need $100 to
+qualify for payouts, the developer share of Discord's revenue is small, and demand needs community growth, so it is too small. (4) **The Shopify App Store** keeps 0% fees on the first $1M, but 17.6k apps compete, ≈ 36% earn anything (RevenueHunt),
+and app review plus merchant support are heavy. It is a weaker version of Apify. (5) **Adobe Stock AI images** have dynamic caps (≈ 500 a week), multi-month review queues and a flooded collection, so they are closed.
+Apify (§1061) stays the lead in this class.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
