@@ -17897,7 +17897,7 @@ which relaxes the 10-19 "no products before we profit" rule for this search. The
 **AP-1 (a market measurement, no trial).** Apify Store developers publish scrapers and automations ("Actors") that customers run pay-per-event. Apify bills and pays out 80% of revenue minus compute, and
 reported paying $563k a month to developers (Sep 2025), rising to ≈ $1–1.4M a month in 2026. **Data:** public store API (`/v2/store`, top ≈ 15k by popularity; 9,646 unique) plus `/v2/acts/{id}`
 `createdAt` for the top 3,000 community actors and a random 1,500 of the rest. **Revenue proxy:** a monthly payout ÷ Σ community paid-actor 30-day users = **$0.93–1.66 per actor-user-month**
-(the per-user spend is skewed, so this is a crude average). **Questions, fixed before the date pull is read:** (1) how cohorts by creation half-year reach ≥ 100, 500 and 1,000 30-day users;
+(the per-user spend is skewed, so this is a crude average). **Questions (Q1 was already glimpsed on a partial pull of 1,773 rows; Q2 and the bar are fixed before the newcomer analysis is run):** (1) how cohorts by creation half-year reach ≥ 100, 500 and 1,000 30-day users;
 (2) **newcomer developers** (earliest sampled actor ≥ 2025-11-01): the distribution of total 30-day users across their actors, and the share reaching ≥ 1,200 (≈ $2k a month at the upper rate);
 (3) which niches the newcomers won. **Lead bar:** at least about 10% of newcomer developers with ≥ 10 actors reach ≥ 1,200 users within about 12 months. Otherwise the route is too competitive.
 
