@@ -17974,6 +17974,18 @@ pushes rows incrementally, and writes a keyword summary: download median/P90, le
 plan's 5 datacenter IPs at 6 parallel requests, so **residential is the default** at a measured **$0.0006 per result** in proxy traffic (5.8 MB per 81 pages, compressed). Under PPE the developer pays that, so it must sit inside the price.
 Test: 2 queries × 160, 320 rows, 0 errors, $0.19 total. About 20% of results are 2026 uploads whose stats Dreamstime hides (`statsShown: false`). Credit used so far $1.58 of $5.
 
+## 1067. AP-1 builds 4–6 (SEEK 8-market jobs, Envato Market, Nordic marketplaces); competitor benchmark; a substring error in one demand figure (S11)
+
+**No trial.** All are private and unpublished, with code in `~/apify-actors`. (1) **Seek/Jobstreet/JobsDB**: one JSON search API plus GraphQL `jobDetails` serves 8 markets (AU, NZ, MY, SG, PH, ID, HK, TH), with ≈ 950 users across
+the rival per-country actors. Head-to-head (AU "accountant", 50 jobs): ours 12 s and $0.0009; blackfalcondata 31 s, 78 fields, with applicant insights, alerts and incremental mode; websift 14 s, with applicant numbers and
+contacts; bovi 15 s, no descriptions. **Gap closed:** added GraphQL `insights` (applicant count/volume, resume and cover-letter %), screening questions, isLinkOut/apply URL, review count, contacts in the ad text, and
+an only-new-jobs mode (a named KV store; verified 0 overlap across two runs). Our remaining edges are the 8 markets in one run, salaries parsed into numbers, and price. (2) **Envato Market** (ThemeForest,
+CodeCanyon, AudioJungle, 3DOcean): sales, price, rating and reviews are on the search cards. Each site's firewall accepts different fingerprints (ThemeForest wants Safari plus residential; the others Chrome plus
+datacenter), so the actor rotates fingerprint × proxy type and remembers what worked: 480 items, 100 s, $0.013. GraphicRiver is blocked, and VideoHive/PhotoDune show no sales, so they are excluded. (3) **Nordic** (Tori, FINN, Blocket, DBA:
+one Vend "recommerce" platform; base64 react-query state embedded in the page; Product LD for details): 480 listings, 39 s, $0.002. **Correction:** "Tori 546 users" came from a substring match on
+"s-tori-es" (Instagram Stories actors). Real Tori demand is ≈ 4 users, and FINN/Blocket/DBA ≈ 125, so this is a low-demand bet. Rejected along the way: Depositphotos (obfuscated JS state), Alamy (client-side API),
+Vecteezy (no public stats), StockX/Steam (≤ 22 users per actor), Adobe Stock (DataDome), most EU classifieds (15–45 actors each). Credit used ≈ $1.7 of $5.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
