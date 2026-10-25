@@ -17799,6 +17799,15 @@ Google paused part of its OSS VRP over AI reports (secondary coverage). HackerOn
 auto-closes out-of-scope or duplicate reports. Many programs ban automated scanning. Each finding therefore needs human validation (the user's hands, which fails the automation rule).
 Duplicate risk against funded hackbots is high, and a scope mistake is a legal exposure. Closed (cf. §886 for OSS bounties). The stack is unchanged.
 
+## 1050. Screen: other people's capital — copy-trading payouts, signal marketplaces, new funded programs (S16) — none open to us
+
+**No trial.** (1) **eToro's Popular Investor program** pays on assets under copy, but eToro's US CopyTrader page says it is "coming" and not yet available in the US.
+Third-party sources list $1–2k minimum equity and two months of history. Blocked. (2) **Collective2 signal subscriptions** take about a 50% platform cut (forum figures)
+and charge listing fees, and the leaderboard drives demand. That makes it a product sale, which the user excludes until we profit from our own use, and it needs a
+track record of an edge that we would simply trade ourselves. (3) **A 2026 web sweep of new funded programs** found only CFD/forex/futures props (Funded Academy UAE,
+FundedNext futures). Futures props other than Tradeify are deferred until payouts start (memory, §766), and the rest are excluded. Nothing funds forecasters or bettors beyond
+the parked Funding Predicts. With the excluded classes and §968/§970, this exhausts the firm-capital routes found so far. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
