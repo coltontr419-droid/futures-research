@@ -17602,6 +17602,14 @@ machine, not only the droplet); using the same bot at other firms is prohibited;
 constraint stays the one you reported on 10-15: no API order placement until the account reaches the live stage. Until then, staged bracket orders
 (§581) are the semi-automated path. For the combined-stack rule, the Tradeify plan is the only scalable automatable piece found so far (prop capital supplies the scale).
 
+## 1027. Screen: free paper-trading competitions with cash prizes — a real lottery-ticket structure, but EV is a few dollars an entry; closed (S11)
+
+**No trial (desk).** Mechanism: free entry plus ranking by ROI means a maximum-variance strategy buys a free lottery ticket with EV = prize pool × P(top).
+Current: TradingView "The Leap" ($50k cash for 2026-07-20 → 08-14; paid or trial TradingView account; ≥ 5 trading days; typically
+tens of thousands of entrants, so ≈ a few dollars of EV each, and everyone else also plays high-variance); Trading.com monthly (US clients, forex demo, up to $6k;
+forex, close to the user's exclusions); GoChamp CME futures (prizes in commission credits, residence-restricted); Moomoo (weekly top-3, 2025 format). Contest rules
+on bots are unstated. EV per entry ≈ $1-20 a month and prizes are lumpy, so this is not a stream. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
