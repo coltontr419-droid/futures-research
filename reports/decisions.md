@@ -17695,6 +17695,15 @@ audience; Amazon commission cuts); domain drop-catching (≈ 1-2% a year sell-th
 farming (sybil filtering, no KYC'd counterparty). App/extension/API/data products are excluded until we profit from our own use (user, 10-19). None reaches the scale or
 rule bar, so all are closed.
 
+## 1037. §1029 follow-up: TradersPost says its Tradovate bridge supports Tradeify evaluation, funded-sim and Elite live accounts (S11)
+
+**No trial (vendor source, 2026-02-10).** Chain: alert → TradersPost webhook → Tradovate execution, set up by entering the Tradeify Tradovate credentials in
+TradersPost. Works for all three stages (Select/Growth evaluation, funded sim, Elite live). Bracket parameters can ride in the alert. A 7-day free trial and a paper
+account exist; pricing is not on the page. Tradeify rules it quotes: bots allowed with proof of sole ownership; commercial, shared and HFT bots banned; copy trading
+between traders banned; > 50% of trades held > 10 s; flat by 16:59 ET (12:59 on early-close days); Select evaluation consistency 40%; Elite traders may hold up to
+5 live funded accounts. Still open: whether a custom JSON webhook from the droplet (not TradingView) is accepted (TradersPost markets "any source", to verify in its docs);
+your account's connection type; and written confirmation from Tradeify. With this, the NKD plan is the stack's automatable, capital-independent core.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
