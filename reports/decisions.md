@@ -17941,6 +17941,19 @@ rated 3.49; Facebook reels 2.81). **Non-personal candidates with weak incumbents
 vertical e-commerce and job niches (§1061). **Build plan if the user opens an account:** 10–20 HTTP-only (cheap compute) PPE actors on public business data (jobs, e-commerce catalogs, trends, transcripts,
 ad-transparency, government datasets), each priced below the incumbent, with uptime monitoring and automatic repair by scheduled Claude runs.
 
+## 1064. AP-1 build 1: Google Trends Explorer, benchmarked against the incumbents on Apify; it beats them on success, speed and cost (S11)
+
+**No trial (a product benchmark; code in `~/apify-actors`, a separate local git repo).** The user opened Apify account DevColtrain (2026-10-25; token in `~/.apify_token`, never printed). Benchmark, identical input
+(bitcoin, ethereum, solana; US; 12 months):
+| Actor | 30-day users | Result | Time | Cost |
+|---|---|---|---|---|
+| apify/google-trends-scraper (official, headless browser, rated 3.7) | 2,731 | **0 of 3 succeeded** (timeouts) | 15.6 min | $0.37 |
+| agenscrape/google-trends-scraper | 328 | 3/3, related topics empty, no comparison mode | 35 s | $0.075 to the user ($0.025 start + $0.025/kw) |
+| data_xplorer "fast" | 779 | returns trending searches, not keyword data | 6 s | $0.05 |
+| **ours (HTTP-only, private build)** | — | **3/3; 20/20 in a batch; compare mode; DMA (210 metros); YouTube property** | 19 s (≈ 4.5 s/kw) | **$0.0004 compute** |
+Google tags non-browser Trends traffic `USER_TYPE_SCRAPER` and returns **empty related topics** even through residential proxies. Every HTTP competitor has the same gap, and it is documented in the README.
+**Next:** set PPE pricing (≈ $0.002 per keyword result, no start fee, failures free) once the user's payout setup exists, then publish with the user's go-ahead. Benchmarks used ≈ $0.9 of the $5 free credit.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
