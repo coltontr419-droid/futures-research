@@ -17785,6 +17785,13 @@ is capital. (3) **The 4CP transmission-charge avoidance** applies to commercial 
 eligibility-bound (filing a claim without eligibility is fraud), so they are excluded. (5) **P2P, Fundrise and litigation-finance lending** is capital-bound and returns about
 the market rate. None is automatable at scale from a small start. The stack is unchanged.
 
+## 1048. Screen: game/agent competitions and skill-game bots (S14) — excluded or sporadic
+
+**No trial.** (1) **Bots in real-money poker, chess, backgammon or sweepstakes poker** break every site's rules (cheating), so they are excluded outright. (2) **Season-long fantasy leagues (Sleeper,
+Underdog)** are pick'em/DFS-like, ban scripts, and fall under the PrizePicks/DK exclusions. (3) **Kaggle simulation and agent competitions** (Pokémon TCG AI Battle Challenge
+2026, > $300k, with the cash mostly in a written strategy track and an in-person final; Orbit Wars has no prize; ARC-AGI-3): bots are welcome, but the contests are one-off, top-8
+winner-take-most, and need months of skilled effort per contest. That is not recurring automated income and cannot be stacked toward $2k a month. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
