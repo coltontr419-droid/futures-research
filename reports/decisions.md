@@ -17753,6 +17753,14 @@ webhook URL, with a JSON success response and signal ID. The parser is JSON5 (si
 (to read before any build). So the droplet bot could send the NKD bracket itself. Still open for the user: the account's connection (Tradovate), TradersPost's price, and
 Tradeify's written OK.
 
+## 1044. Metaculus bot design note: a market-implied module (options-implied distributions) for finance questions — the one structural edge over LLM bots (S11)
+
+**No trial (desk).** Market Pulse rounds (≈ $7.5k a quarter, bots eligible) ask rolling finance questions: NVIDIA guidance, S&P 500 additions, earnings, VIX maxima over a window.
+Seasonal tournaments also carry numeric market questions (e.g. the S&P 500 close on a date). For price and volatility thresholds, the risk-neutral distribution from live
+option chains (free, delayed, Yahoo `v7/finance/options`), with a small correction for the variance premium, is close to the best forecast. Most bots reason in text and are
+miscalibrated on numeric tails (F1's biggest miss was a −50% SpaceX threshold). This is the only identified structural edge for an automated forecaster, and F2's Bot A tests the
+same "use the market's own number" idea on ForecastBench. It would be built only with the user's accounts (§1030).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
