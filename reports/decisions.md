@@ -17618,6 +17618,16 @@ round-ups be eliminated altogether. Commercial "automated RSA signal" services n
 names are OTC or sub-$1, which some API brokers block. With Alpaca out (fractions, §1024), the automatable version is Tradier (fee) plus tastytrade (inconsistent):
 ≈ $50-150 a month, shrinking. It stays in the stack as a minor piece and is not worth building ahead of anything larger.
 
+## 1029. An automation path for the Tradeify plan exists now: webhook bridges (TradersPost / PickMyTrade) on a Tradovate connection; direct API only later (S11)
+
+**No trial (desk; vendor sources marked).** Tradovate's own API needs a live funded account with ≥ $1,000 equity and a $25/month add-on, and **evaluation accounts are excluded**
+(vendor blog). Rithmic's API is approval-only. Tradeify's help centre says TradingView works only through Tradovate. TradersPost and PickMyTrade both advertise
+Tradeify automation over Tradovate through webhooks, and they accept a webhook from any source, so the droplet bot that already computes the NKD ticket
+could send the bracket order itself, replacing manual staging. Policy (§1026): personal, non-HFT bots allowed; prove sole ownership; possibly a live video of
+enabling it on your PC; no use at other firms. **Open points before any build (yours to check or decide):** which connection your account uses (Tradovate is
+needed for this path; the connection can't be switched without a new purchase); the bridge's cost (≈ $30-100/month); Tradeify support's written confirmation that a
+bridge counts as a personal bot; and any droplet change still needs your confirmation. This is the one path found that makes the scalable stream hands-free.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
