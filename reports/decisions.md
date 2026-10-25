@@ -17776,6 +17776,15 @@ capital. The user also rejects IBKR. Blocked. None changes the stack.
 are already parked (§968, §1030, §1044); they need the user's account. **CrunchDAO DataCrunch** pays in USDC, so the crypto exclusion applies (as before). Prop-firm "free
 trading competitions" (FundedNext, The5ers) are CFD/forex props, which are excluded. Bridgewater x Metaculus is a one-off (Jan–Mar). Ocean Predict-ETH is crypto. The stack is unchanged.
 
+## 1047. Desk screens: ERCOT/Texas power, demand response, gift-card and claim arbitrage, P2P/litigation lending — blocked, hardware- or capital-bound (S13)
+
+**No trial.** The user is in Texas, so ERCOT was checked first. (1) **ERCOT DAM/RT virtual trading and CRRs** require registration as a QSE/CRR account holder with
+collateral in the five-to-six figures. This is not a $100–200 start. (2) **Residential demand response and VPPs** (OhmConnect-style events, battery VPPs, wholesale
+pass-through plans) can be automated with a smart thermostat, but pay only about $5–20 a month without a home battery. With a battery (≈ $10k of hardware) they pay more, but that
+is capital. (3) **The 4CP transmission-charge avoidance** applies to commercial load only. (4) **Discounted gift-card resale and settlement claims** are promo-like or manual and
+eligibility-bound (filing a claim without eligibility is fraud), so they are excluded. (5) **P2P, Fundrise and litigation-finance lending** is capital-bound and returns about
+the market rate. None is automatable at scale from a small start. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
