@@ -17737,6 +17737,15 @@ test, not a sealed window. Automatable through any API broker's open orders. Cap
 days with few signals; days with many signals (broad selloffs) lose. A first run used β = 1 by mistake (+0.045%, t 0.18), was corrected before reading the result as a
 verdict, and is noted here. Closed.
 
+## 1042. Screen: AI-agent prize competitions — no recurring stream; one large one-off noted (Dubai "Create AI Agents Championship") (S11)
+
+**No trial (desk).** Recurring agent contests with monthly pools open to API-based Claude/GPT agents: none found. ARC Prize 2026 (ARC-AGI-3, $850k) is annual and
+Kaggle-style. Berkeley AgentX-AgentBeats sprints pay ≈ $1-10k per track. Bybit's AI-vs-human contest is crypto trading in USDT. **One-off worth flagging:** Dubai Chamber's
+*Create AI Agents Championship* (registration 2026-10-07 → December 2026; global, individuals or teams, idea/prototype/MVP stage). Four categories (societal, personal,
+business, youth) at AED 550k (≈ $150k) each, plus AED 1M (≈ $272k) for "AI Agent of the Year". Judging criteria and AI-tool rules are unstated
+(`dubaichamberdigital.com/en/create-ai-agents`). It is a pitch-judged lottery ticket, not a stream, and does not count toward the automatable stack, but the cost is only build time. For the
+user's end-of-day list as optional.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
