@@ -17832,6 +17832,17 @@ zero-shot is at the baseline tier per F1, so a market-implied module (§1044) is
 unpublished, about a few hundred a month typical). Routes (2) and (3) need the user's own accounts before anything can be measured. The search continues for a fourth route of this shape,
 meaning outside capital or prizes, with code allowed and a legitimate US payer.
 
+## 1054. Screen: Tradeify Grand Cup (free simulated futures tournament, $1M pool) and ChartChamps — annual, one entry per person, EV ≈ $50–150 a year; noted, not a route (S11)
+
+**No trial (desk; official T&C at tradeify.co/grandcup-tc and the help-centre guide).** Grand Cup 2 (May 17 – Jun 9, 2026) had a free entry. **Stage 1** was a 5-day qualifier on a $50k sim account with a
+$2.5k drawdown, max 1 mini or 10 micros, ranked by ending balance, top 1,000 advancing, with up to 3 resets at $29. **Stage 2** was a 1,024-trader single-elimination bracket of one-day head-to-heads,
+1 contract, no drawdown, at least 3 trades held > 10 s each. **All prizes are cash** ($80k per round split among those eliminated: $156 for a round-1 loss up to $200k for the champion, plus
+$5k bounties on 24 invited pros), paid by wire with a 1099-MISC. It is open in all 50 US states, and **one contest account per person** (a second means disqualification). The T&C are silent on bots.
+**Field:** Grand Cup 1 (2025) drew > 20,000 entrants, so qualifying is roughly the top 5%. The average bracket seat is worth ≈ $1M/1,024 ≈ $977. A free max-variance qualifier attempt,
+for example a stop at the $2.5k floor and a trend hold, qualifies perhaps 5–15% of the time, giving **≈ $50–150 EV per year** for one person; each $29 reset is +EV only if P(qualify) > 3%.
+It is annual, with no Grand Cup 3 announced. **ChartChamps** (acquired by Tradeify in June 2026) has Elo matches on historical data with no stated cash prizes. Conclusion: a free annual lottery ticket
+worth mentioning to the user when Grand Cup 3 opens, not a $2k-a-month route. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
