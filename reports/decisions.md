@@ -17628,6 +17628,16 @@ enabling it on your PC; no use at other firms. **Open points before any build (y
 needed for this path; the connection can't be switched without a new purchase); the bridge's cost (≈ $30-100/month); Tradeify support's written confirmation that a
 bridge counts as a personal bot; and any droplet change still needs your confirmation. This is the one path found that makes the scalable stream hands-free.
 
+## 1030. Metaculus bot lead, re-ranked under the automation rule: the strongest automatable stream that needs no capital; Market Pulse adds ≈ $7k a quarter (S11)
+
+**No trial (desk).** Bot-eligible prize pools: seasonal FutureEval ≈ $50-58k × 3 a year, MiniBench ≈ $1k every two weeks (≈ $26k a year), and Market Pulse
+≈ $7k a quarter (bots eligible since Q3 2025; bots must update continuously and handle numeric group questions). Total ≈ $200k a year. Prizes are top-weighted:
+Q2 2025 ($30k) paid #1 $7,550, #9 $1,731, #20 $465. Scaled to a $58k season, #9 ≈ $3.3k a season. The best single-prompt baseline placed 18th of 173 in Spring 2026,
+and top bots are research-plus-ensemble pipelines, so a well-engineered Claude ensemble with AskNews plausibly lands in the top 10-20: ≈ $300-1,000 a month
+across all series, and top 3 ≈ $1.6-3.5k. **Fully automatable** (a bot on the droplet), no capital, only API costs (Metaculus grants some credits). It needs your accounts
+(Metaculus account, bot account, participation form). Fastest real test: MiniBench's two-week rounds. Combined with the Tradeify plan automated through a bridge (§1029),
+it is the most credible automatable path to the user's $2k/month stack.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
