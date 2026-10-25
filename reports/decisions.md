@@ -17704,6 +17704,16 @@ between traders banned; > 50% of trades held > 10 s; flat by 16:59 ET (12:59 on 
 5 live funded accounts. Still open: whether a custom JSON webhook from the droplet (not TradingView) is accepted (TradersPost markets "any source", to verify in its docs);
 your account's connection type; and written confirmation from Tradeify. With this, the NKD plan is the stack's automatable, capital-independent core.
 
+## 1038. F2 protocol — a forward ForecastBench test of two automatable forecasters on today's set (2026-10-25): "latest market price" and Claude + research (S11)
+
+**No trial (a measurement for the Metaculus lead). Written before any forecast is made.** Set 2026-10-25 (freeze 2026-10-09, due today). Market questions only
+(Kalshi 104, Polymarket 104, Metaculus 42). **Bot A (mechanical):** for Kalshi and Polymarket, the live mid/last price fetched today from each venue's public API,
+clipped to [0.01, 0.99]. For Metaculus questions (no public price), the freeze value. **Bot B (Claude + research):** Bot A's number, adjusted by Claude after
+web searches on questions that close by 2027-01-31, recorded per question. Both are saved and hashed today. **Scoring** (ForecastBench method, §1031) when the resolution
+sets for 2026-10-25 are published (first ≈ 2026-11-08). Compare: freeze-value copy (Naive), Bot A, Bot B, and the tournament leaderboard's market indices
+(top-10 ≈ 72-76). **Read:** if Bot B beats Bot A by ≥ 1 index point and reaches top-20 levels, a research bot is plausibly prize-grade on Metaculus. Bot A
+measures how much fresh prices alone are worth.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
