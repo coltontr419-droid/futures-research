@@ -17843,6 +17843,13 @@ for example a stop at the $2.5k floor and a trend hold, qualifies perhaps 5–15
 It is annual, with no Grand Cup 3 announced. **ChartChamps** (acquired by Tradeify in June 2026) has Elo matches on historical data with no stated cash prizes. Conclusion: a free annual lottery ticket
 worth mentioning to the user when Grand Cup 3 opens, not a $2k-a-month route. The stack is unchanged.
 
+## 1055. Screen: free monthly prop-firm competitions as a source of free funded accounts (S11) — CFD-dominated, one entry each, top-N of thousands; closed
+
+**No trial.** Idea: a free funded or evaluation account has EV ≥ 0 even at firms whose fees made the plan negative (§766), so recurring free contests could be "free evals". Aggregators (fundedtrading,
+tradercomps, propfirmxl) list monthly free contests at FundedNext (≈ $8k cash over 600 places), Blue Guardian, Goat Funded and Alpha Capital. **All are CFD/forex props, which are excluded.** No free recurring contest
+was found at Apex, Bulenox, TakeProfitTrader or MyFundedFutures. The Topstep "Octagon" pool ($250k a month) is a bonus for Topstep's own paid funded traders (attribution unclear), so it is not free. Each allows one entry
+per person and ranks the top N of thousands, giving roughly $10–50 EV per month at best even if allowed. Futures firms other than Tradeify are deferred until payouts start. Closed. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
