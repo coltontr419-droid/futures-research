@@ -17651,6 +17651,14 @@ leaderboard (`leaderboard_tournament.csv`): top-10 Dataset ≈ 63-67, Market ≈
 indices within the top-20 band. Then a Metaculus bot built on Claude is plausibly a top-tier entrant, and the user's accounts are worth asking for. Caveat: one
 set (sampling noise), and real bots also use live news, which this test does not.
 
+## 1032. F1 forecasts frozen before resolutions are read — sha256 f7766cfa7d1dd2960db142f1f50ee81d760f726cadfb802f772a94f2a5256f90 (S11)
+
+**No trial.** 287 probabilities: 107 resolved market questions and 60 dataset questions × 3 horizons (`data/fbench/f1_forecasts.json`). Method used: anchor on the market
+price at freeze with small adjustments from prior knowledge, plus base rates for dataset questions (Poisson for ACLED counts, climatology for the Météo-France temperatures,
+slight upward drift for stocks, 0.5 for rates). **Leakage caveat, noted before scoring:** today's AI-1 reading included some July-October 2026 company releases
+(e.g. a bank's mention of 10-year yields above 5.2% in October, Rollins missing its Q2 expectations). To avoid using them, every rates/yields question was set to 0.5 and
+Rollins to a neutral drift. No World Cup or election outcomes were seen.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
