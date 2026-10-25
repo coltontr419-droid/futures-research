@@ -17986,6 +17986,18 @@ one Vend "recommerce" platform; base64 react-query state embedded in the page; P
 "s-tori-es" (Instagram Stories actors). Real Tori demand is ≈ 4 users, and FINN/Blocket/DBA ≈ 125, so this is a low-demand bet. Rejected along the way: Depositphotos (obfuscated JS state), Alamy (client-side API),
 Vecteezy (no public stats), StockX/Steam (≤ 22 users per actor), Adobe Stock (DataDome), most EU classifieds (15–45 actors each). Credit used ≈ $1.7 of $5.
 
+## 1068. AP-1 batch 2 (IKEA, idealo, Coles/Woolworths, ATS career sites, Bayt) and the demand map (S11)
+
+**No trial.** **Demand map (whole-word store scans, about 200 sites):** Apify demand concentrates in social, Google Maps and **jobs** (LinkedIn Jobs ≈ 34k users, Indeed ≈ 13k, Naukri ≈ 5k, Glassdoor ≈ 4k).
+B2B public data (tenders, company registries, patents, SEC, FDA, grants) runs ≈ 1 user per actor. Real estate is saturated (13–86 actors per site, ≤ 12 users each, apart from Zillow), as are reviews (G2, Capterra, Trustpilot: 40–80 actors).
+**Scanner caveat:** regex and search misses produced false zeros (Daft.ie actually has ≈ 20 actors), so every pick was re-verified by direct search. **Built (private, tested):** (1) IKEA (zero actors): public search service,
+41 countries, `size=1000`, item numbers matched across countries with USD prices (open.er-api). Test: 1,440 products and 289 comparisons. BILLY white is $38 JP, $49 US, $80 MX. (2) idealo DE/AT (zero actors): 36 tiles per page,
+`I16-{offset}` paging, plus shop offers (shop, price, price incl. shipping, delivery time). Test: 144 products, 1,004 offers, 0 errors. UK/FR/IT/ES return 410. (3) Coles + Woolworths: works with fingerprint/proxy self-healing,
+428 products, 0 errors. **But it is a crowded clone:** ≈ 14 combined AU-grocery actors with ≈ 1 user each, and users sit with dromb's per-store actors at $0.0006 per item. (4) ATS career sites (Greenhouse, Lever, Ashby,
+Workday, SmartRecruiters via public APIs, auto-detected): 300 of 300 with descriptions and 52 with salaries. **Strong incumbent:** fantastic-jobs (275k career sites, 58 ATS, 1.6k users at $0.012 per job), so ours competes on price.
+(5) Bayt (2 rivals, 318 users): 10 MENA countries, JobPosting LD details. Cloudflare blocks datacenter IPs, so it falls back to residential (≈ $0.0003 per job). Test: 120 jobs, 114 with details, 44 with salaries.
+11 actors are now built. `publish.py` holds PPE prices for all of them. Credit used $2.12 of $5.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
