@@ -17714,6 +17714,14 @@ sets for 2026-10-25 are published (first ≈ 2026-11-08). Compare: freeze-value 
 (top-10 ≈ 72-76). **Read:** if Bot B beats Bot A by ≥ 1 index point and reaches top-20 levels, a research bot is plausibly prize-grade on Metaculus. Bot A
 measures how much fresh prices alone are worth.
 
+## 1039. F2 forecasts frozen — Bot A sha256 74e8bb60…69ff4, Bot B sha256 2c42a38b…fff87; scoring scheduled for 2026-11-09 (S11)
+
+**No trial.** Bot A: 248 market questions (206 live Kalshi/Polymarket prices, mean 8.2 points away from the freeze value; Metaculus at the freeze value; 2 missing).
+Bot B: Bot A plus research on all 42 Metaculus questions. Web checks covered CagriSema (FDA decision guided for Q4 2026, missed non-inferiority vs tirzepatide), Israel's 10-27 election
+(polls: opposition bloc ~62, no majority certain), Joby Dubai (commercial launch "toward end of 2026"), Waymo (500k weekly in Q1, 1M target), Ohio governor
+(markets 31% Ramaswamy), EUR/USD ≈ 1.12 (below the start of 2026) and Missouri Amendment 3 (43-44 tied in August). The other Metaculus questions got hazard time-decay (16 of the
+83 days remaining at freeze passed with no event seen). Full hashes are in `data/fbench/`. Scorer: `python -m futuresres.forecast.f2_score` (timer `futres-f2-score`).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
