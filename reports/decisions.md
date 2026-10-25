@@ -17890,6 +17890,17 @@ person. These are noted as free lottery tickets for the user, not for the stack.
 so it nets ≈ $90–130 a month and pays back in about 15 months. It is automatable, but it is hardware-capital-bound (each $2k a month needs ≈ 15–20 cards), so it fails the $100–200 start rule.
 A CPU-only or no-GPU PC earns about $0–10 a month (cf. the bandwidth/DePIN nodes in §1036). Code-bounty boards are already closed (§895–896). The stack is unchanged.
 
+## 1060. User broadens the search (2026-10-25): any automatable income, including services and data products. AP-1 protocol — Apify Store developer economics (S11)
+
+**Rule change (user, 2026-10-25):** the search is no longer only "money in → money out". Fully automatable freelance or custom work, services, data products and marketplaces are in scope,
+which relaxes the 10-19 "no products before we profit" rule for this search. The combined automatable stack must still exceed $2k a month, with a legitimate payer and a small start.
+**AP-1 (a market measurement, no trial).** Apify Store developers publish scrapers and automations ("Actors") that customers run pay-per-event. Apify bills and pays out 80% of revenue minus compute, and
+reported paying $563k a month to developers (Sep 2025), rising to ≈ $1–1.4M a month in 2026. **Data:** public store API (`/v2/store`, top ≈ 15k by popularity; 9,646 unique) plus `/v2/acts/{id}`
+`createdAt` for the top 3,000 community actors and a random 1,500 of the rest. **Revenue proxy:** a monthly payout ÷ Σ community paid-actor 30-day users = **$0.93–1.66 per actor-user-month**
+(the per-user spend is skewed, so this is a crude average). **Questions, fixed before the date pull is read:** (1) how cohorts by creation half-year reach ≥ 100, 500 and 1,000 30-day users;
+(2) **newcomer developers** (earliest sampled actor ≥ 2025-11-01): the distribution of total 30-day users across their actors, and the share reaching ≥ 1,200 (≈ $2k a month at the upper rate);
+(3) which niches the newcomers won. **Lead bar:** at least about 10% of newcomer developers with ≥ 10 actors reach ≥ 1,200 users within about 12 months. Otherwise the route is too competitive.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
