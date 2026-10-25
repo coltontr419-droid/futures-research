@@ -17722,6 +17722,21 @@ Bot B: Bot A plus research on all 42 Metaculus questions. Web checks covered Cag
 (markets 31% Ramaswamy), EUR/USD ≈ 1.12 (below the start of 2026) and Missouri Amendment 3 (43-44 tied in August). The other Metaculus questions got hazard time-decay (16 of the
 83 days remaining at freeze passed with no event seen). Full hashes are in `data/fbench/`. Scorer: `python -m futuresres.forecast.f2_score` (timer `futres-f2-score`).
 
+## 1040. L-family 27 protocol — premarket laggards: buy the open when a large cap's premarket move trails its beta × QQQ premarket move by > 2% (S11)
+
+**Written before any intraday data is read.** Free data: Yahoo 5-minute bars with pre/post (last ≈ 60 calendar days). Universe: the 100 largest `pack.npz` names by dollar
+volume. **Signal at 09:25 ET:** stock premarket return (09:25 last price ÷ prior 16:00 close − 1) minus β × QQQ premarket return (β = 60-session daily beta from
+`pack.npz`). **Rule:** residual < −2% and no earnings 8-K in the prior 24 h (from `data/stocks/l23/events.json`) → buy the 09:30 open, sell at the 16:00 close; return minus
+QQQ open→close, minus 0.1%. **Statistic:** per-day mean, t on days. This is a discovery read only (≈ 40 sessions); if it carries (mean > 0, t > 1.96), it gets a forward
+test, not a sealed window. Automatable through any API broker's open orders. Capital-bound.
+
+## 1041. L-family 27: premarket laggards don't catch up after the open — +0.002% a day, t 0.01; not carried (S11)
+
+**N 1,562 (no trial).** `src/futuresres/stocks/l27_premarket.py`, Yahoo 5-minute bars (2026-07-28 → 10-23, 59 sessions), the 100 most traded `pack.npz` names. With the registered
+60-session β vs QQQ: 351 signals on 58 days; open→close minus QQQ minus 0.1% = **+0.002% per day-mean, t +0.01**. Per-trade mean +0.57%, but it is concentrated on
+days with few signals; days with many signals (broad selloffs) lose. A first run used β = 1 by mistake (+0.045%, t 0.18), was corrected before reading the result as a
+verdict, and is noted here. Closed.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
