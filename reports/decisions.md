@@ -17808,6 +17808,12 @@ track record of an edge that we would simply trade ourselves. (3) **A 2026 web s
 FundedNext futures). Futures props other than Tradeify are deferred until payouts start (memory, §766), and the rest are excluded. Nothing funds forecasters or bettors beyond
 the parked Funding Predicts. With the excluded classes and §968/§970, this exhausts the firm-capital routes found so far. The stack is unchanged.
 
+## 1051. Screen: AI red-teaming prize arenas (Gray Swan, HackAPrompt) (S17) — automation banned; closed
+
+**No trial.** **Gray Swan Arena's rules prohibit "automated tools, scripts, or bots to generate or submit jailbreaks"**; submissions must be crafted by hand, and a breach
+disqualifies the entrant. Prizes are time-bound challenges paid as points converted to credits (an older championship paid $1–2k per model). **HackAPrompt 2.0** (2025, OpenAI-sponsored,
+> $100k) was a one-off with no 2026 edition found. Both fail the automation rule and are sporadic. Closed. The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
