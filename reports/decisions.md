@@ -17901,6 +17901,25 @@ reported paying $563k a month to developers (Sep 2025), rising to ≈ $1–1.4M 
 (2) **newcomer developers** (earliest sampled actor ≥ 2025-11-01): the distribution of total 30-day users across their actors, and the share reaching ≥ 1,200 (≈ $2k a month at the upper rate);
 (3) which niches the newcomers won. **Lead bar:** at least about 10% of newcomer developers with ≥ 10 actors reach ≥ 1,200 users within about 12 months. Otherwise the route is too competitive.
 
+## 1061. AP-1 result: Apify Store newcomers can reach $2k a month in 6–12 months, about 1 in 8 of serious catalog builders. A LEAD (needs the user's free account) (S11)
+
+**No trial (a market measurement; data under the session scratchpad `apify/`, 4,483 actor details).** **Revenue proxy:** $0.93–2.3 per actor-user-month (Apify's payouts were $563k in Sep 2025, then ≈ $1M, with
+$1.4M quoted in 2026, divided by 602k community paid-actor 30-day users). **Developers today:** ≈ 75 earn ≥ $2k a month, ≈ 170 earn ≥ $500. **Newcomer developers (Q2)**, by first sampled actor:
+| first actor | devs | ≥ 10 actors | of those, ≥ 500 users (≈ $0.5–1.1k) | ≥ 1,200 users (≈ $1.1–2.8k) | ≥ 2,000 |
+|---|---|---|---|---|---|
+| 2025-05 → 11 (age 12–18 mo) | 107 | 36 | 19 (53%) | 10 (28%) | 8 |
+| 2025-11 → 2026-05 (age 6–12 mo) | 289 | 66 | 20 (30%) | **8 (12%)** | 5 |
+| 2026-05 → (age < 6 mo) | 370 | 33 | 2 (6%) | 0 | 0 |
+**Bias:** devs whose actors all sit outside the top ≈ 10k by popularity are missing (≈ 87k of 97k store actors are near-zero), so these shares overstate success. The bar (≈ 10% at 12 months) is met
+nominally and is perhaps 5–10% after correction. **Ramp:** nobody in the youngest cohort has passed 1,200 users. It takes 6–12 months, then compounds (the 12–18-month cohort: 28%).
+**Winners 2025-11 → 2026-05:** zen-studio (45 actors, 12.7k users ≈ $12–29k a month; Chinese platforms Douyin, Xiaohongshu, 1688, Taobao), automation-lab (71, 7.9k; Reddit, FB Ads Library, Trustpilot),
+data-slayer (22, 4.2k), blackfalcondata (148, 4.1k). **Where new actors take share** (u30 share new vs old): developer tools 11.8% vs 2.3%, e-commerce 6.1 vs 2.4, AI 5.0 vs 2.4, SEO 2.9 vs 1.3,
+MCP servers 1.6 vs 0.2. Old strongholds lose share to them: social 18 vs 27, travel 1 vs 6.
+**Effort:** a 98-actor developer reported 15–20 h a week (maintenance 5–7 h, support 3–4 h, about 4–8 h per new actor) for 855 MAU at 6 months. **Automation reading:** runs, billing and payouts are Apify's.
+Building, fixing broken scrapers and answering issues is code work that Claude can do on a schedule, and none of it falls to the user beyond the account, KYC and the payout method. **Risks:**
+target-site ToS and personal-data scraping, so prefer business, public and e-commerce data and avoid logged-in or personal scraping; it is a 6–12-month ramp; and revenue per user is a crude average.
+**Verdict:** the first broadened-search lead that can plausibly clear $2k a month alone, with $0 capital. It needs the user's (free) Apify account to publish, and nothing can be measured further before then.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
