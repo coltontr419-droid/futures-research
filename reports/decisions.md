@@ -17954,6 +17954,18 @@ ad-transparency, government datasets), each priced below the incumbent, with upt
 Google tags non-browser Trends traffic `USER_TYPE_SCRAPER` and returns **empty related topics** even through residential proxies. Every HTTP competitor has the same gap, and it is documented in the README.
 **Next:** set PPE pricing (≈ $0.002 per keyword result, no start fee, failures free) once the user's payout setup exists, then publish with the user's go-ahead. Benchmarks used ≈ $0.9 of the $5 free credit.
 
+## 1065. AP-1 reality check and build 2: the Store is saturated; new users go to first movers. iStock & Getty scraper built for an empty niche (S11)
+
+**No trial.** (1) **Full Google Trends benchmark** (7 keyword actors, identical input): five small actors (sourabhbgp, cycha, leadsbrary, signalbench, unitbytes) already return what ours does, at similar speed and
+$0.0001–0.015 per 3 keywords, yet have 9–38 users each. The official actor (0 of 3 results, "SUCCEEDED" with an empty dataset, so its failure rate understates it) keeps 2.7k. **Users do not switch to
+better actors; store rank and trust decide.** Ours is a commodity there. (2) **Supply scan, ≈ 120 target sites:** nearly every valuable site has 5–47 actors (Seek has 5, not 3; Walmart 37, Zillow 43).
+**Catalog developers (≥ 30 actors) average a median 11 users per actor (p75 38); the median actor has 2.** At $2.82 per user, $2k a month needs ≈ 20 actors at p75 or ≈ 60 at the median. §1061's newcomer
+shares were survivors who were **first** on new demand (Chinese platforms, Naver, AI Mode). **This revises AP-1 down:** feasible only as a high-volume catalog aimed at unserved targets, with a 30-day
+traction test before scaling. (3) Rejected: AI utilities (no demand on Apify apart from one upscaler), AI-visibility trackers (≤ 65 users each; the official SERP actor already bundles AI engines), Adobe Stock
+(DataDome; the clean route is Adobe's keyed API, whose terms bar reselling). (4) **Build 2:** an iStock & Getty Images scraper with keyword-research summaries (total results, freshness of popular results,
+contributor concentration, related searches). There were zero actors for iStock, Getty, Dreamstime, 123RF, Depositphotos and Alamy, while Adobe Stock's ≈ 700 contributor-users show an audience. CloudFront's WAF rejected
+httpx from Apify IPs, including residential; **curl_cffi Chrome impersonation passes even on datacenter proxies.** Test: 6 query×site combinations, 1,080 assets plus summaries, about 90 s.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
