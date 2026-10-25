@@ -17792,6 +17792,13 @@ Underdog)** are pick'em/DFS-like, ban scripts, and fall under the PrizePicks/DK 
 2026, > $300k, with the cash mostly in a written strategy track and an in-person final; Orbit Wars has no prize; ARC-AGI-3): bots are welcome, but the contests are one-off, top-8
 winner-take-most, and need months of skilled effort per contest. That is not recurring automated income and cannot be stacked toward $2k a month. The stack is unchanged.
 
+## 1049. Screen: autonomous AI web bug bounties (HackerOne/Bugcrowd hackbots) (S15) — fails automation and saturation
+
+**No trial.** Since XBOW (a funded company) topped HackerOne in 2025, hackbot volume has surged: Elastic alone got > 1,390 reports in the first half of 2026, more than 2024 and 2025 combined.
+Google paused part of its OSS VRP over AI reports (secondary coverage). HackerOne's 2026 conduct update makes the researcher validate AI-assisted findings, bars mass unverified submissions, and
+auto-closes out-of-scope or duplicate reports. Many programs ban automated scanning. Each finding therefore needs human validation (the user's hands, which fails the automation rule).
+Duplicate risk against funded hackbots is high, and a scope mistake is a legal exposure. Closed (cf. §886 for OSS bounties). The stack is unchanged.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
