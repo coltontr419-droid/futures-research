@@ -17931,6 +17931,16 @@ qualify for payouts, the developer share of Discord's revenue is small, and dema
 and app review plus merchant support are heavy. It is a weaker version of Apify. (5) **Adobe Stock AI images** have dynamic caps (≈ 500 a week), multi-month review queues and a flooded collection, so they are closed.
 Apify (§1061) stays the lead in this class.
 
+## 1063. AP-1 niche scan: where the Apify incumbents are weak, preferring non-personal data (S11)
+
+**No trial (store data, §1061).** Paid actors are grouped by target site in the title. For each site: total 30-day users, number of actors, the top actor's share, its 30-day failure rate and its rating.
+**Personal-data social scraping** (Instagram, LinkedIn, TikTok, Facebook, which hold most users) is **avoided on ToS and privacy grounds** even where incumbents are weak (Instagram hashtag 18k users,
+rated 3.49; Facebook reels 2.81). **Non-personal candidates with weak incumbents:** YouTube transcripts (5.3k users, 34 actors, **17% run failures**, rated 3.72); Google Trends (4.0k, 23 actors,
+3.68); Indeed jobs (4.3k, 22 actors, top rated **3.01**); advanced job-board scrapers (2.0k, 2.92); Twitter/X public posts (rated 3.38–3.86). **Thinly served, with one or two actors:** Naver products (2.1k users),
+1688 wholesale (1.9k), Naukri jobs (1.7k), career-site job listings (1.6k), Zillow details (1.2k), Google Ads Transparency (1.4k), YouTube channel videos (1.5k). Newcomer winners took these regional and
+vertical e-commerce and job niches (§1061). **Build plan if the user opens an account:** 10–20 HTTP-only (cheap compute) PPE actors on public business data (jobs, e-commerce catalogs, trends, transcripts,
+ad-transparency, government datasets), each priced below the incumbent, with uptime monitoring and automatic repair by scheduled Claude runs.
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
