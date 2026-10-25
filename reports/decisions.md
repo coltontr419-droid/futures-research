@@ -17593,6 +17593,15 @@ hourly for 2 years), and Alpaca's free market-data plan (historical bars with an
 account. (4) **Metaculus:** Metaculus's analysis repo has no question or forecast data, so a bot can only be measured by entering it; MiniBench's two-week
 rounds are the fastest real test. Prizes are concentrated at the top (Metaculus weighed score-squared and exponential splits to avoid flat payouts).
 
+## 1026. Tradeify allows personal bots — the existing plan can become the automated core once API access exists (S11)
+
+**No trial.** Tradeify's help-centre "Guidelines for traders" (fetched 2026-10-25, "updated over a week ago"): **personal bots are allowed unless they are HFT**.
+Conditions: you must prove you are the sole owner; Tradeify may require a live video of you enabling the code on your own PC (so the bot should run on your
+machine, not only the droplet); using the same bot at other firms is prohibited; funded payouts need > 50% of trades and > 50% of profit from holds over 10 seconds
+(the NKD rule's holds are minutes to hours). Connections: Tradovate, Rithmic or WealthCharts, fixed at purchase (vendor blogs). The binding
+constraint stays the one you reported on 10-15: no API order placement until the account reaches the live stage. Until then, staged bracket orders
+(§581) are the semi-automated path. For the combined-stack rule, the Tradeify plan is the only scalable automatable piece found so far (prop capital supplies the scale).
+
 ## 10. Still outstanding, and blocking
 
 - ~~The Stage 1 bootstrap α calibration is still crypto's.~~ **RESOLVED 2026-08-29** —
