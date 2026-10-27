@@ -18151,3 +18151,14 @@ real payouts. Job `futres-g1` disabled (it was restarting after its end time).
 **No trial.** Gemini's published rules: program ends 2026-11-06; snapshots every minute; max 10¢ from mid; size 10-250; two-sided ×1.5;
 uptime ≥ 50% or $0 for the day; $1 minimum daily payout; pools $10-1,000/day. User decision: skip the live test; re-check around
 2026-11-10 whether the program was extended (then offer a $100 test). User: no further searches for liquidity/maker reward programs.
+
+## §1081 — 2026-10-27: Apify Store demand scan + job-board feasibility: LinkedIn Jobs feasible and biggest; Glassdoor feasible; Indeed, Naukri not (S11)
+
+**No trial.** Store scan (top 10k actors): every query with ≥300 users/30d has dozens of clones; the top ~4 search slots take the users
+(our Google Trends Explorer: #132 in search). Our 12 actors: 0 external users except 1. Newcomer evidence: valig's 8 job-board actors have
+15.9k users/30d (LinkedIn Jobs 7.1k, Indeed 4.9k, Naukri 2.5k after 5 months, Glassdoor 1.3k); blackfalcondata's 200 long-tail actors
+average ~30 users. Feasibility probe from Apify (public pages, no login, 5 tries each): LinkedIn guest search 5/5 on datacenter
+(10 jobs / 30 KB), details 5/5; Glassdoor search 4/5 residential (30 jobs / 920 KB ≈ $0.25 per 1k jobs in bandwidth), 1/5 datacenter;
+Indeed search 1/5 residential and job pages 401 (no); Naukri HTML is client-rendered and its JSON API requires a captcha token (no).
+Market: LinkedIn Jobs ≈ 35k users/30d, prices $0.40–2.00 per 1k (curious_coder 15.4k users at $2/1k); Glassdoor ≈ 2.5k, $0.40–4.75 per 1k.
+Probe cost $0.006.
