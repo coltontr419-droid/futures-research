@@ -18115,7 +18115,7 @@ iStock & Getty, Dreamstime, Seek/Jobstreet/JobsDB and Envato Market. Queued (sys
 - Last 75 days via the SE API: web-scraping 3 new questions, python-requests 4, google-trends 0, beautifulsoup 0. Q79379416 (teacher) is closed; Q50571317 (49.8k views) is protected (needs 10 rep).
 - Plan: one answer on Q79473669 (pytrends 404, trending RSS feed replacement, code tested); answer Q50571317 only if that earns 10 rep; then stop. Effort goes to dev.to tutorials (Google + AI-assistant citations).
 
-## 11. A-LIP2 / A-LIP3 readout (2026-10-26): CLOSED — no version passes the capital clause; A-LIP2's profit is three coin-flips (S10)
+## §1077 — 2026-10-26: A-LIP2 / A-LIP3 readout: CLOSED — no version passes the capital clause; A-LIP2's profit is three coin-flips (S10)
 
 **Readout of §878 / §883 as registered**, plus concentration and capital (computed from the same shadow.jsonl, same fill and settlement rules):
 - **A-LIP2** (3.16 days, 269 markets): rewards $387, settled fills +$361, marked −$41 → **net +$706 ($223/day)**; series: World News Mention +$1,107,
