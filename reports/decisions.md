@@ -18145,3 +18145,9 @@ account (401); (2) fills only count prints at/through our price, so adverse sele
 (3) competitors would react if one quoter took whole pools; (4) CFTC letter 26-23 (§889). Texas: no source excludes TX (one excluded list:
 AZ IL MD MA MI MT NV OH), unconfirmed. Next step needs money and the user's decision: a small live test (≈ $1-2k, 1-2 weeks) to read
 real payouts. Job `futres-g1` disabled (it was restarting after its end time).
+
+## §1080 — 2026-10-27: G1 parked — Gemini's reward program ends 2026-11-06; no more reward-program searches (user) (S10)
+
+**No trial.** Gemini's published rules: program ends 2026-11-06; snapshots every minute; max 10¢ from mid; size 10-250; two-sided ×1.5;
+uptime ≥ 50% or $0 for the day; $1 minimum daily payout; pools $10-1,000/day. User decision: skip the live test; re-check around
+2026-11-10 whether the program was extended (then offer a $100 test). User: no further searches for liquidity/maker reward programs.
