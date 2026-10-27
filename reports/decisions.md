@@ -18078,3 +18078,53 @@ iStock & Getty, Dreamstime, Seek/Jobstreet/JobsDB and Envato Market. Queued (sys
   nothing.
 - **F04's confound control is owed if it is ever revived** — the same-clock-time
   random-day benchmark for the PM auction against 10:00 ET US liquidity.
+
+## §1071 — 2026-10-26: idealo Shop Price Report Actor built; US direct-B2B scan (no unserved niche)
+- Built `apify-actors/idealo-report` (idealo-shop-price-report): per-shop price-position report (HTML in KV store + data row) and market overview. Apify test: 72 products / 1,008 offers / 110 shops in 47 s, $0.002 platform cost. PPE planned: shop-report $1.00, market-overview $0.50. Queued to publish Tue 10-27 (day-3 timer, with Coles).
+- US direct-B2B scan, by area (incumbent price → verdict):
+  - US retailer price position: Google Merchant Center gives a FREE price-competitiveness benchmark (GTIN-matched) → no gap.
+  - Hiring signals / job data: PredictLeads ~$40/mo, Coresignal $49, TheirStack $59, JobsPipe → crowded.
+  - Gov bids: GovTribe/HigherGov/GovSpend/BidPrime $99-300/mo, DemandStar per-state from $35/yr, BidSync SLED $105/mo; 7 Apify actors already → crowded.
+  - New business filings: 5+ Apify actors at $3-10/1k; lead lists $50-200/mo → crowded.
+  - MAP monitoring: TrackStreet ~$1,000/mo, but Price2Spy (~$158 + Starter tier), Prisync $99+, Browse AI, PageCrawl, MetricsCart cover small brands → no clear gap.
+  - Restaurant menu pricing: Juicer Compete FREE US tier; Uber merchant terms restrict use → no.
+  - Permits: Shovels/BuildZoom (178M+/350M permits) → data moat on the incumbent side.
+- Verdict: no unserved US niche where a scraped-data tool beats incumbents on price or coverage. Direct B2B also needs a sales motion and payment/legal setup that Apify already provides. Recommend keeping B2B products inside the Apify Store.
+
+## §1072 — 2026-10-26: US "no Actor yet" scan: exhausted
+- Scanned ~190 US sites (jobs, retail, marketplaces, auctions, local, gov data, events, reviews) with tools/site_scan.py, then verified by direct Store search. The scanner undercounts badly (Dice: scanner 3, Store 81; Built In 3 vs 36; Target 2 vs 48).
+- Every site with real demand already has 5-90 Actors. Truly empty: RV Trader (1 Actor, 5 users), Taleo (4/12), HigherEdJobs (4/25), i.e. tiny demand.
+- Multi-ATS extension also taken: fantastic-jobs career-site API 1,622 users/30d; memo23 "116 ATS"; glitchbound 24 systems; santamaria 42.
+- Verdict: no new US single-source Actor is worth building. Remaining differentiation: finished-analysis Actors (like idealo-shop-price-report) instead of raw scrapers. Judge that by the report Actor's traction at the Nov 2-4 review before building more.
+
+## §1073 — 2026-10-26: marketing data stories
+- SWE pay story (Career Sites Actor, run locally, free): 12,518 jobs / 46 companies; 1,067 US SWE postings with ranges at 34 companies; overall median midpoint $230k; Anthropic $402k, OpenAI $356k ... Twilio $156k. Ranges posted in 91% of non-law-state postings (excl. Carvana hourly). Chart marketing/swe-pay-2026-10.png; article marketing/articles/swe-pay-postings.md.
+- Microstock story (Dreamstime Actor on Apify, $0.30): page 1 of 12 popular photo searches, 462 images: 55% uploaded <=2015 (median 148 downloads); 2024-26 uploads are 19% of page 1 with median 2 downloads. Home IP gets 403 after one query; residential is required.
+
+## §1074 — 2026-10-26: Seek salary-parser bug found via marketing data run; Q&A channel scan
+- Seek local run (8 markets × 60 data-analyst jobs) exposed parser bugs: IDR dot-thousands (Rp 6.000.000 → 6.0), non-salary numbers ("Up to 24 Months" → 24), p.d/p.m periods missed, ambiguous "$". Fixed (ISO currency per market; AU/NZ period inference), deployed build txOypD1aIkIaIk1ol, 13 label cases verified.
+- Q&A: Stack Exchange API shows almost no Seek/Jobstreet/idealo/IKEA questions. Best target: pytrends 429 (Q50571317, 49.8k views; Q79379416, a teacher, shared school IP). Two disclosed answers drafted. Reddit API returns 403 without OAuth, so the user checks the search links.
+- Tutorial: marketing/articles/seek-jobstreet-jobsdb-api.md (scheduled Mon 2 Nov).
+
+## §1075 — 2026-10-26: data-quality audit of all 12 Actors
+- New tools/audit.py (per-field fill, types, ranges, suspect strings). Ran every Actor locally on broader inputs (Dreamstime from the Apify run).
+- Fixed: IKEA previousPrice was always null (previous price comes as display parts; now parsed, + priceTag); idealo 7% of products had no URL/offers (id-only URL fallback); Nordic dealers ("retailer" flag) had no sellerType, 0,0 coordinates → null; Bayt "Unspecified" openings → null, industry dropped (never present); Coles/Woolworths rating/reviewCount dropped (never present), unit measures normalized; ATS employmentType/workplaceType normalized across platforms (+ employmentTypeRaw); Dreamstime views dropped, descriptions entity-decoded; iStock people dropped.
+- All 9 redeployed; platform health check 12/12 OK before tonight's publish batch.
+
+## §1076 — 2026-10-26: Stack Overflow is a weak channel now
+- Last 75 days via the SE API: web-scraping 3 new questions, python-requests 4, google-trends 0, beautifulsoup 0. Q79379416 (teacher) is closed; Q50571317 (49.8k views) is protected (needs 10 rep).
+- Plan: one answer on Q79473669 (pytrends 404, trending RSS feed replacement, code tested); answer Q50571317 only if that earns 10 rep; then stop. Effort goes to dev.to tutorials (Google + AI-assistant citations).
+
+## 11. A-LIP2 / A-LIP3 readout (2026-10-26): CLOSED — no version passes the capital clause; A-LIP2's profit is three coin-flips (S10)
+
+**Readout of §878 / §883 as registered**, plus concentration and capital (computed from the same shadow.jsonl, same fill and settlement rules):
+- **A-LIP2** (3.16 days, 269 markets): rewards $387, settled fills +$361, marked −$41 → **net +$706 ($223/day)**; series: World News Mention +$1,107,
+  Truth Social +$30 (excluded since §884), Rain +$8, RT −$89, Trump Mention −$349. **Fragile:** without the top 3 markets −$107, without top 5
+  −$593: the result is a few binary mention outcomes. Max capital **$23,426**.
+- **A-LIP3** plain (3.11 days, 462 markets): rewards $494, fills −$917 → **net −$423**. Max capital $64,085.
+- **A-LIP3 pull-rule variant** (reported apart, as registered): rewards $308, settled +$61, marked −$84 → **net +$284 ($91/day)**; broad (54 of 57
+  films/events > 0; +$41 without the top 10 markets). Max capital **$48,967**. Most fill P&L is unsettled until RT scores finalize (late Nov).
+- **Verdict:** the rule needs ≥ $2,000/month at a capital the user can scale to. The pull variant earns ≈ $2.8/day per $1.5k of capital (≈ $84/month);
+  $2k/month needs ≈ $36k at the simulated reward share, and the reward formula / payment rules are unverified. A-LIP2 fails robustness, A-LIP3 plain
+  is negative. **Closed**, consistent with the user's 2026-10-23 call (no new liquidity-reward work). Services futres-alip2/3 disabled (they had been
+  restarting every minute after their end time; data complete to 2026-10-26 01:00Z). G1 still running to 2026-10-27 06:00Z (readout tomorrow).
