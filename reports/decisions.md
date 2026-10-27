@@ -18128,3 +18128,20 @@ iStock & Getty, Dreamstime, Seek/Jobstreet/JobsDB and Envato Market. Queued (sys
   $2k/month needs ≈ $36k at the simulated reward share, and the reward formula / payment rules are unverified. A-LIP2 fails robustness, A-LIP3 plain
   is negative. **Closed**, consistent with the user's 2026-10-23 call (no new liquidity-reward work). Services futres-alip2/3 disabled (they had been
   restarting every minute after their end time; data complete to 2026-10-26 01:00Z). G1 still running to 2026-10-27 06:00Z (readout tomorrow).
+
+## §1078 — 2026-10-26 (night): Coles/Woolworths reliability fix + AU basket story; Envato/Bayt tutorials
+- Basket run on Apify (40 branded queries × 2 stores): first run 6/40 Coles searches failed after 7 attempts (Incapsula "page data missing", intermittent on all strategies). Fix: residential fallback pinned to AU, second pass after a 30 s cool-down, default retries 8. Rerun: 0 failures, 1,222 rows, $0.04.
+- Story: 34 matched identical products (Nescafé decaf/regular mismatch dropped by hand): 33/34 same regular price; today 20 same, Coles cheaper 8, Woolworths 6 (specials: Coles 18, Woolworths 9); basket $288.30 C / $300.50 W / $250.75 cheapest-of-each. Chart marketing/coles-woolworths-2026-10.png; posts scheduled Thu 29 Oct evening (r/AusFinance).
+- Tutorials written: themeforest-codecanyon-sales-data.md, bayt-jobs-api.md. Google Trends Actor: 1 external user generated ~$0.05 (12 runs from other accounts).
+
+## §1079 — 2026-10-27: G1 readout (Gemini NFL reward shadow, §888): PASSES on paper; payment rules unverifiable without an account (S10)
+
+**No trial.** 4.24 days, 305 markets (2026-10-22 22:53Z → 10-27 06:00Z). Simulated rewards **$2,223 ($524/day)**; fill P&L **−$408**
+(29 fills settled, 2 unsettled; game −$51 on 21, 3Q −$168 on 3, 1Q −$188 on 5); **net +$1,815 (≈ $428/day)**. Capital (max simultaneous
+collateral) **$4,984**, median $1,725. Concentration: rewards without the top 3 / 10 / 20 markets $1,940 / $1,509 / $1,102, so net stays
+positive with the top 20 removed. 29% of rewards came from cycles with no other order within 5¢ (we take the whole pool there). Caveats, all
+pointing down: (1) actual payment rules (snapshot timing, two-sided checks, eligibility) unverified, and the realised-payout endpoint needs an
+account (401); (2) fills only count prints at/through our price, so adverse selection is under-measured, with few fills and about −$14 per fill;
+(3) competitors would react if one quoter took whole pools; (4) CFTC letter 26-23 (§889). Texas: no source excludes TX (one excluded list:
+AZ IL MD MA MI MT NV OH), unconfirmed. Next step needs money and the user's decision: a small live test (≈ $1-2k, 1-2 weeks) to read
+real payouts. Job `futres-g1` disabled (it was restarting after its end time).
