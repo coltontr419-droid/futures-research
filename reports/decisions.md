@@ -18223,3 +18223,14 @@ odds carry no equity premium and 2024–26 was a strong rally (sealed: all quest
 points; train 2020–23 gap +3.0 points and its 0.85–0.95 bin calibrated, 90.7% vs 89.5%). Downside long shots — where LLM bots are worst
 — are calibrated. A drift correction is a new hypothesis: it can only be tested forward. Decision: no Metaculus account on F3's
 strength; the route rests on F2 (11-09). Module kept (`forecast/market_implied.py`).
+
+## §1087 — Screen: other channels for our data products — x402 agent payments, RapidAPI, AWS Data Exchange / Datarade (S11)
+
+**No trial (desk + x402scan's public explorer, 2026-10-28).** (1) **x402** (AI agents pay per call in USDC on Base/Solana): last 30 days
+$1.57M across 13,548 sellers and 33,080 buyers (x402scan); the top seller is a crypto gift-card shop ($229k), then an STT/TTS gateway
+($36k); data/search sellers earn little — StableEnrich $1.3k, Apify's own x402 gateway (agi.apify.com) $693, a SERP/scrape API $125.
+Supply is flooded (78k routes, median price $0.02, ~half of early volume was testing). Closed; our Actors are already reachable through
+Apify's gateway at no cost. (2) **RapidAPI** (Nokia API Hub since 11/2024): business declined before the sale, fee reportedly 25%, no
+public subscriber counts, so demand cannot be measured; a listing would need our own hosted endpoint proxying Apify. Parked as a
+zero-evidence add-on. (3) **AWS Data Exchange** needs a registered, qualified AWS Marketplace seller (reportedly a US/EU company);
+Datarade/Snowflake sell to enterprises. Closed for a small start.
