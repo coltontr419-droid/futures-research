@@ -18196,3 +18196,18 @@ run, P>0): NKD 2025 +$3,877 (80%) / 2021-26 +$2,662 / 2010-20 +$99 / zero edge +
 the simulator). The two-week shadow records (NKD 2/6, FDXM 5/7) are noise and FDXM's are on the DAX-index proxy. Decision: NKD stays for
 the replacement account; FDXM is the robust second (positive in every era) once the 02:00 CT entry can be placed as a scheduled bracket;
 D227's fate is A48's pre-registered 40-session trigger. Execution: enter at the open or skip; never chase.
+
+## §1085 — F-family 3 protocol: are options-implied probabilities a better forecast of "close above K" questions than a realized-vol model? (S11)
+
+**No trial at registration; written BEFORE any outcome is joined.** Metaculus's API now requires an account even to read (403), so the
+§1044 module is tested on synthetic Market-Pulse-style questions. **Questions:** for 21 underlyings (SPY, NVDA, AAPL, MSFT, AMZN, GOOGL,
+META, TSLA, AVGO, AMD, NFLX, JPM, XOM, LLY, COST, WMT, ORCL, PLTR, MU, INTC, BA), every 5th DoltHub snapshot date (post-no-preference/options)
+from 2020-01, each listed expiration 5–60 calendar days out, each call strike with delta in [0.03, 0.97]: "will the close on the expiration
+date be above K?" Outcome: Yahoo daily close on the expiration date (previous close if closed). **Forecasts:** (M) module p = N(N⁻¹(Δ) − σ√T)
+with σ the strike's implied vol, T = days/365 (risk-neutral P(S_T > K)); (M_c) the same with σ × c, c fitted on 2020–2023 by Brier on a
+0.70–1.10 grid (variance-premium correction); (B) baseline lognormal, zero drift, σ = 20-session realized vol of daily log returns, S = the
+snapshot date's close. **Periods:** train 2020-01 → 2023-12 (fit c only); sealed = snapshot dates 2024-01 → expirations ≤ 2026-10-23.
+**Read (sealed):** Brier and log-score difference M − B (and M_c − B), paired, clustered by (underlying, date); calibration by forecast bin,
+with the tails (p < 0.15, p > 0.85) reported separately. **Pass:** M or M_c beats B on Brier with clustered t ≥ 2 AND the tail bins are
+calibrated within ±3 points or 2 SE. Pass → the module is worth wiring into a Metaculus bot once the user has an account; fail → §1044's
+edge is not demonstrated and the Metaculus route rests on F2 alone.
