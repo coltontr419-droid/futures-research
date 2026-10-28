@@ -18250,3 +18250,20 @@ consistency, no buffer, 90%, 5 payouts then treated as ended (live unmodelled). 
 funded, sides randomised daily (4 seeds) on A23 MNQ RTH paths; W ∈ {150…1,500}, L ∈ {150…2,000}. **Selection:** chosen on one era
 (2010-20 or 2021-26) and scored on the other. **Read:** a firm is a candidate only if its policy chosen on EITHER era is positive on the
 OTHER era by ≥ $500 a run; dollars are approximate (rule fidelity is the main risk, as §766 showed), the sign is the finding.
+
+## §1089 — A120 result: Topstep passes — a rule-fitted strategy is positive at zero edge on both eras; Apex and LucidFlex do not (S10)
+
+**No trial.** `reports/a120_firm_strategies.json`. Mean net per 84-session run, one account slot, sides random (4 seeds), policy chosen on
+one era and scored on the other: **Topstep XFA Consistency** chosen on 2010-20 → 2021-26 **+$1,845** (chosen on 2021-26 → 2010-20 +$957);
+**Topstep XFA Standard** +$1,294 / +$743; LucidFlex +$616 / +$159 (only one direction ≥ $500 — marginal); Apex at list −$442 / −$447,
+at 80% off −$119 / +$16; Tradeify fixed-bracket reference +$884 (its solved policy is better, §806). **The Topstep strategy:** evaluation
+take $1,250 / stop up to the full $2,000 (best day stays under the 50% consistency mark, ~3 days to pass, a cheap monthly Combine to
+retry); funded take $650 / stop $2,000 (≈ 75% winning days), payout as soon as eligible (≤ 50% of balance), then the MLL sits at the
+start and the next loss usually ends the account — buy the next Combine. Value comes from cheap re-entry plus early payouts.
+**Robustness (Consistency path, chosen on 2010-20, read 2021-26, incl. the $29/month API):** EOD trailing +$1,373 / +$1,723 (P>0 63%);
+INTRADAY trailing (two sources say so) +$1,266 / +$1,737 (61%); plus a $1,000 Combine DLL +$629 / +$1,031 (48%); plus $85/month Combine
+pricing +$258 / +$564 (43%). Standard path: +$1,100 / +$1,172 → +$144 / +$39 in the worst variant. **Candidate (structural, zero edge):**
+≈ $330-430 a month per slot at the base terms, ≈ $65-140 in the worst; Topstep allows 5 XFAs (≈ $1.6-2.1k / $0.3-0.7k a month total).
+Open: Combine price ($49 vs $85/month) and DLL, the bot rules (API allowed via ProjectX, not on live accounts; third parties report
+"personal device only"), Live Funded Account terms (unmodelled), and accounts must trade the SAME side or different markets (opposite
+positions across accounts = prohibited hedging).

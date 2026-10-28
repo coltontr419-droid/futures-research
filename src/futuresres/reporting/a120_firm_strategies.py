@@ -62,27 +62,35 @@ W_GRID = [150, 200, 250, 300, 400, 500, 650, 800, 1000, 1250, 1500]
 L_GRID = [150, 250, 400, 500, 650, 800, 1000, 1250, 1500, 2000]
 
 
-def outcomes(h, l, c, W, L):
-    """$ P&L per session for one long bracket (take W, stop L per contract); a bar touching both = stop."""
+def outcomes(h, l, c, W, L, mfe=False):
+    """$ P&L per session for one long bracket (take W, stop L per contract); a bar touching both = stop. With mfe, also the best
+    open profit before the exit (for intraday-trailing drawdowns)."""
     hitW = h >= W; hitL = l <= -L; T = c.shape[1]; big = T + 1
     tw = np.where(hitW.any(1), hitW.argmax(1), big); tl = np.where(hitL.any(1), hitL.argmax(1), big)
     stop = (tl < big) & (tl <= tw); take = (tw < big) & ~stop
     out = c[:, -1].astype(np.float64).copy(); out[stop] = -L; out[take] = W
-    return out
+    if not mfe:
+        return out
+    te = np.where(stop, tl, np.where(take, tw, T - 1))
+    cm = np.maximum.accumulate(h, axis=1)
+    m = np.minimum(cm[np.arange(len(c)), np.minimum(te, T - 1)].astype(np.float64), W)
+    return out, np.maximum(m, 0.0)
 
 
-def run(F: dict, pnl_e: np.ndarray, pnl_f: np.ndarray, starts: np.ndarray) -> np.ndarray:
+def run(F: dict, pnl_e: np.ndarray, pnl_f: np.ndarray, starts: np.ndarray, mfe_e=None, mfe_f=None) -> np.ndarray:
     """Net $ (payouts x split - fees) per start over H sessions; one account slot, replaced when it fails or finishes."""
     A = len(starts)
     ph = np.zeros(A, int); eq = np.zeros(A); pk = np.zeros(A); best = np.zeros(A); days = np.zeros(A, int); mdays = np.zeros(A, int)
     qd = np.zeros(A, int); cprof = np.zeros(A); cbest = np.zeros(A); npay = np.zeros(A, int); lastpay_eq = np.zeros(A); paid_once = np.zeros(A, bool)
-    net = -np.full(A, F["e_fee"] + F["e_month"]); caps = np.array(F["caps"], float)
+    net = -np.full(A, F["e_fee"] + F["e_month"] + F.get("api_month", 0.0) * H / 20); caps = np.array(F["caps"], float)
     for d in range(H):
         i = starts + d
         ev = ph == 0
         x = np.where(ev, pnl_e[i], pnl_f[i])
         if F["e_dll"]:
             x = np.where(ev, np.maximum(x, -F["e_dll"]), x)
+        if F.get("intraday") and mfe_e is not None:          # trailing from the intraday high: the peak sees the open profit
+            pk = np.maximum(pk, eq + np.where(ev, mfe_e[i], mfe_f[i]))
         eq = eq + x; days += 1
         best = np.where(ev, np.maximum(best, x), best)
         # ---- evaluation

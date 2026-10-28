@@ -1,0 +1,158 @@
+{
+ "Tradeify Select Daily (ref)": {
+  "chosen_on_pre": {
+   "eval": [
+    500,
+    150
+   ],
+   "funded": [
+    200,
+    2000
+   ],
+   "value_pre": -133.17252178628482,
+   "value_post": -136.47751054162484
+  },
+  "chosen_on_post": {
+   "eval": [
+    800,
+    1500
+   ],
+   "funded": [
+    1500,
+    1500
+   ],
+   "value_post": 1405.1485773670424,
+   "value_pre": 883.5221585363136
+  }
+ },
+ "Topstep XFA Standard": {
+  "chosen_on_pre": {
+   "eval": [
+    1250,
+    2000
+   ],
+   "funded": [
+    650,
+    2000
+   ],
+   "value_pre": 1221.4008492292724,
+   "value_post": 1293.5105810908858
+  },
+  "chosen_on_post": {
+   "eval": [
+    1250,
+    2000
+   ],
+   "funded": [
+    650,
+    1500
+   ],
+   "value_post": 1577.4980180096386,
+   "value_pre": 742.8338180641531
+  }
+ },
+ "Topstep XFA Consistency": {
+  "chosen_on_pre": {
+   "eval": [
+    1250,
+    2000
+   ],
+   "funded": [
+    650,
+    2000
+   ],
+   "value_pre": 1494.711692818755,
+   "value_post": 1845.2655330224973
+  },
+  "chosen_on_post": {
+   "eval": [
+    1250,
+    2000
+   ],
+   "funded": [
+    1250,
+    2000
+   ],
+   "value_post": 2155.912075575731,
+   "value_pre": 957.0487615251294
+  }
+ },
+ "Apex EOD (list $349+$119)": {
+  "chosen_on_pre": {
+   "eval": [
+    150,
+    150
+   ],
+   "funded": [
+    400,
+    1500
+   ],
+   "value_pre": -439.3378615789544,
+   "value_post": -442.31249440854316
+  },
+  "chosen_on_post": {
+   "eval": [
+    150,
+    150
+   ],
+   "funded": [
+    500,
+    2000
+   ],
+   "value_post": -400.0955140230846,
+   "value_pre": -447.3751093600547
+  }
+ },
+ "Apex EOD (80% off: $70+$119)": {
+  "chosen_on_pre": {
+   "eval": [
+    500,
+    150
+   ],
+   "funded": [
+    400,
+    1500
+   ],
+   "value_pre": -32.31890467932773,
+   "value_post": -118.8497715422273
+  },
+  "chosen_on_post": {
+   "eval": [
+    1500,
+    800
+   ],
+   "funded": [
+    500,
+    2000
+   ],
+   "value_post": 331.01941139683396,
+   "value_pre": 15.592949796629249
+  }
+ },
+ "LucidFlex": {
+  "chosen_on_pre": {
+   "eval": [
+    1250,
+    2000
+   ],
+   "funded": [
+    1250,
+    1500
+   ],
+   "value_pre": 426.0269757870679,
+   "value_post": 616.0328726870799
+  },
+  "chosen_on_post": {
+   "eval": [
+    1250,
+    1500
+   ],
+   "funded": [
+    650,
+    1500
+   ],
+   "value_post": 695.1234544764952,
+   "value_pre": 158.62689880225216
+  }
+ }
+}
