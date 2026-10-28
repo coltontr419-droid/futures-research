@@ -18171,3 +18171,14 @@ curious_coder and valig; salary on 37/50 vs 4/50 for each; details 100%, company
 10-28 19:45 CT with Coles + idealo report (the 10-27 run hit Apify's limit of 5 publications per 24h). Glassdoor re-probe: 1/36 HTTP 200 across
 residential/datacenter × chrome/safari/firefox/cookie warm-up; the rest are 403 `cf-mitigated: challenge` (Cloudflare JS challenge).
 Would need a real browser to solve the challenge, and bypassing bot challenges is out of scope → dropped. Probe cost $0.001.
+
+## §1083 — 2026-10-27: second-tier job boards: demand and feasibility; shortlist StepStone, Wellfound, Dice (S11)
+
+**No trial.** LinkedIn Jobs: salary parser now also reads "Maximum … Minimum" order (0/1,050 regressions; smoke test 30 jobs, 0 errors).
+Store demand (users/30d, all matching actors): LinkedIn Jobs 36.5k, Indeed 13.4k, Naukri 5.6k, Glassdoor 4.0k, then Upwork 1.8k,
+Google Jobs ~1.2k (loose match), StepStone 1.0k, Wellfound 963, Xing 588, Welcome to the Jungle 525, Hiring Cafe 413, Dice 407;
+everything else < 350. Feasibility (Apify, 3 tries each, datacenter / residential, public pages): StepStone 1/3 / 3/3 (25 jobs
+per 1.2 MB page, salary present), Wellfound 3/3 / 3/3 (36 jobs in __NEXT_DATA__), Dice 3/3 / 3/3 (34 jobs), Xing 3/3 / 3/3 (16
+jobs, Apollo state), Hiring Cafe ok; Welcome to the Jungle and foundit render jobs client-side; Upwork, Indeed (residential
+1/3, rest 403 Cloudflare) out. Each second-tier market is ~1/35 of LinkedIn Jobs, so each Actor adds little on its own.
+Probe cost $0.004.
