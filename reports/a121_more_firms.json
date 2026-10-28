@@ -1,0 +1,210 @@
+{
+ "Tradeify Select Daily (ref, MNQ)": {
+  "chosen_on_pre": {
+   "eval": [
+    500,
+    150
+   ],
+   "funded": [
+    200,
+    2000
+   ],
+   "value_pre": -133.17252178628482,
+   "value_post": -136.47751054162484
+  },
+  "chosen_on_post": {
+   "eval": [
+    800,
+    1500
+   ],
+   "funded": [
+    1500,
+    1500
+   ],
+   "value_post": 1405.1485773670424,
+   "value_pre": 883.5221585363136
+  }
+ },
+ "Topstep XFA Consistency ($59, DLL)": {
+  "chosen_on_pre": {
+   "eval": [
+    1250,
+    800
+   ],
+   "funded": [
+    250,
+    2000
+   ],
+   "value_pre": 552.6389602973245,
+   "value_post": 782.6259295608188
+  },
+  "chosen_on_post": {
+   "eval": [
+    1500,
+    1000
+   ],
+   "funded": [
+    1250,
+    2000
+   ],
+   "value_post": 1196.5316244373694,
+   "value_pre": 191.4353709377672
+  }
+ },
+ "MFF Rapid ($157/mo)": {
+  "chosen_on_pre": {
+   "eval": [
+    1250,
+    1250
+   ],
+   "funded": [
+    1500,
+    2000
+   ],
+   "value_pre": 467.3361986534819,
+   "value_post": 633.0716682890046
+  },
+  "chosen_on_post": {
+   "eval": [
+    1500,
+    1250
+   ],
+   "funded": [
+    1250,
+    2000
+   ],
+   "value_post": 795.2269011816516,
+   "value_pre": 52.7289859402249
+  }
+ },
+ "MFF Rapid ($79/mo, 50% code)": {
+  "chosen_on_pre": {
+   "eval": [
+    1250,
+    2000
+   ],
+   "funded": [
+    1500,
+    2000
+   ],
+   "value_pre": 1545.3924239663666,
+   "value_post": 2523.56731051367
+  },
+  "chosen_on_post": {
+   "eval": [
+    1250,
+    2000
+   ],
+   "funded": [
+    1250,
+    2000
+   ],
+   "value_post": 2267.394618213726,
+   "value_pre": 1411.7688992958329
+  }
+ },
+ "Bulenox Momentum ($78.65, reserve $3,100)": {
+  "chosen_on_pre": {
+   "eval": [
+    1500,
+    150
+   ],
+   "funded": [
+    1250,
+    1000
+   ],
+   "value_pre": 108.80818645796546,
+   "value_post": 444.4782740877303
+  },
+  "chosen_on_post": {
+   "eval": [
+    1500,
+    800
+   ],
+   "funded": [
+    1000,
+    800
+   ],
+   "value_post": 1085.453150857446,
+   "value_pre": 530.5045998115677
+  }
+ },
+ "Bulenox Momentum ($143 list, reserve $3,000)": {
+  "chosen_on_pre": {
+   "eval": [
+    1500,
+    150
+   ],
+   "funded": [
+    1250,
+    1000
+   ],
+   "value_pre": -32.52726838931647,
+   "value_post": 311.22757283465256
+  },
+  "chosen_on_post": {
+   "eval": [
+    1500,
+    800
+   ],
+   "funded": [
+    1000,
+    800
+   ],
+   "value_post": 864.8626899706518,
+   "value_pre": 360.51066148470045
+  }
+ },
+ "Bulenox Fast Track ($268.40, no reserve)": {
+  "chosen_on_pre": {
+   "eval": [
+    300,
+    650
+   ],
+   "funded": [
+    500,
+    1000
+   ],
+   "value_pre": 1783.7909246575346,
+   "value_post": 2137.804601226994
+  },
+  "chosen_on_post": {
+   "eval": [
+    300,
+    650
+   ],
+   "funded": [
+    650,
+    1000
+   ],
+   "value_post": 3051.6111963190183,
+   "value_pre": 1659.074828767123
+  }
+ },
+ "Bulenox Fast Track ($488 list, reserve $2,350)": {
+  "chosen_on_pre": {
+   "eval": [
+    300,
+    650
+   ],
+   "funded": [
+    1000,
+    800
+   ],
+   "value_pre": -78.81630094149341,
+   "value_post": 28.36656441717787
+  },
+  "chosen_on_post": {
+   "eval": [
+    300,
+    650
+   ],
+   "funded": [
+    650,
+    1000
+   ],
+   "value_post": 666.1128689520939,
+   "value_pre": -277.9262939704579
+  }
+ }
+}

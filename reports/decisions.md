@@ -18280,3 +18280,31 @@ Standard path: +$398-900 / +$142-520. **Status:** still positive at zero edge bu
 the chosen strategies (intraday trailing, $59 + $1k DLL Combine): cap $3k → $6k barely moves them (Consistency +$526/+$901 unchanged;
 +$353/+$939 → +$379/+$992) because 50%-of-balance payouts on a $2k-drawdown account rarely reach $3k. Final: Consistency path, Combine take
 $1,250 / stop $1,000, funded take $650 / stop $2,000, no funded DLL: ≈ +$350-990 per 84-session run per slot, ≈ $0.4-1.2k/month over 5 XFAs.
+
+## §1091 — A121 protocol: the A120 rule-fitted zero-edge strategy on more bot-friendly firms (user 2026-10-28: "keep searching") (S10)
+
+**No trial.** Topstep is parked until the user runs 5 Tradeify accounts (user 2026-10-28). Screen: MyFundedFutures Rapid 50K (EOD
+evaluation $3k / $2k, 50% consistency, 2 days; funded $2k intraday trailing locking at +$100, $2,100 buffer, daily payouts, $500 min, no
+cap published, 90%; $157/month list, $79 with the usual 50% code; automation allowed if the trader's own legitimate strategy) and
+Bulenox Momentum ($78.65 / $143, $2,250 target, $3k drawdown, $1,200 DLL, Master 5 days ≥ $150, 35% consistency, $53k first
+withdrawal, reserve bracketed $3,000-3,100) and Fast Track (no evaluation, $268.40 / $488 one-time, $2,000-2,250 drawdown locking at
++$100, first payout after $3k profit then $2k, consistency 20/25/30% per payout cycle, $1k min / $2k cap, Option 1 intraday no DLL or
+Option 2 EOD + $1,200 DLL, 100% of the first $10k then 90%; reserve bracketed none / $2,350). Excluded: Take Profit Trader PRO and
+Alpha Futures (bots prohibited). Engine A120 (+ optional keys: e_skip, f_target ladder, f_cons ladder, funded-only intraday trailing,
+DLL bounding the stop), MNQ, chosen on one era and scored on the other; references Tradeify Select (MNQ) and Topstep at §1090 terms.
+Bar: beat the live plan's zero-edge NKD/Tradeify value (+$1,077 per 84-session run) on both eras, and allow a bot the droplet can run.
+
+## §1092 — A121 result: Bulenox Fast Track is the strongest zero-edge firm found — +$4.5k / +$6.4k per 84-session run per slot (S10)
+
+`reporting/a121_more_firms.py` (engine regression: Topstep §1090 policy reproduces +$526). Chosen on one era → read on the other (per
+slot, 84 sessions): **Bulenox Fast Track Option 1** (intraday, no DLL, help-center terms, $268.40, 100% split): funded take $650 / stop
+$2,000 chosen on both eras, +$4,516 / +$6,400; P>0 86% / 92%, p10 −$684 / +$779; 10.5-13.1 accounts bought per run, 2.7-2.9 per payout,
+avg payout $2,040. Stress (same policy): 90% split +$3,782 / +$5,408; list $488 + 90% +$1,476 / +$2,528; $488 + 90% + $3k goal every cycle
++$954 / +$1,727. Option 2 (EOD + $1,200 DLL) +$1,684..+$3,070. MFF Rapid $79/mo +$1,412..+$2,524 (P>0 53-69%, ~6 evals per payout);
+$157/mo +$53..+$795. Bulenox Momentum −$33..+$1,085. Refs: Tradeify Select (MNQ) −$136..+$1,405; Topstep §1090 +$191..+$1,197.
+**Why it works:** no evaluation — $268 buys a direct shot at a $2,000 payout after +$3,000 against a $2,000 trailing drawdown (≈ 35-40%
+of accounts), and the small-take / wide-stop bracket (≈ 75% winning days) satisfies the 20% per-cycle consistency. **Status: lead, rules
+unverified.** Open: current Fast Track price/discount, drawdown $2,000 vs $2,250, Option 1 availability, payout goal/cap/consistency ladder,
+whether Fast Track counts in the 5-Master cap and can be re-bought without limit, split (100% of first $10k?), and automation (FAQ:
+user-built bots for personal use allowed; Master Agreement: no VPS/VPN, third-party algos need approval) — Rithmic only, so a bot runs
+on the user's own computer (e.g. NinjaTrader over Rithmic). All accounts must take the same side (no cross-account hedging).

@@ -80,7 +80,7 @@ def outcomes(h, l, c, W, L, mfe=False):
 def run(F: dict, pnl_e: np.ndarray, pnl_f: np.ndarray, starts: np.ndarray, mfe_e=None, mfe_f=None) -> np.ndarray:
     """Net $ (payouts x split - fees) per start over H sessions; one account slot, replaced when it fails or finishes."""
     A = len(starts)
-    ph = np.zeros(A, int); eq = np.zeros(A); pk = np.zeros(A); best = np.zeros(A); days = np.zeros(A, int); mdays = np.zeros(A, int)
+    ph = np.full(A, 1 if F.get("e_skip") else 0); eq = np.zeros(A); pk = np.zeros(A); best = np.zeros(A); days = np.zeros(A, int); mdays = np.zeros(A, int)
     qd = np.zeros(A, int); cprof = np.zeros(A); cbest = np.zeros(A); npay = np.zeros(A, int); lastpay_eq = np.zeros(A); paid_once = np.zeros(A, bool)
     net = -np.full(A, F["e_fee"] + F["e_month"] + F.get("api_month", 0.0) * H / 20); caps = np.array(F["caps"], float)
     for d in range(H):
@@ -90,7 +90,8 @@ def run(F: dict, pnl_e: np.ndarray, pnl_f: np.ndarray, starts: np.ndarray, mfe_e
         if F["e_dll"]:
             x = np.where(ev, np.maximum(x, -F["e_dll"]), x)
         if F.get("intraday") and mfe_e is not None:          # trailing from the intraday high: the peak sees the open profit
-            pk = np.maximum(pk, eq + np.where(ev, mfe_e[i], mfe_f[i]))
+            io = ~ev if F["intraday"] == "funded" else np.ones(A, bool)     # "funded": EOD evaluation, intraday funded
+            pk = np.where(io, np.maximum(pk, eq + np.where(ev, mfe_e[i], mfe_f[i])), pk)
         eq = eq + x; days += 1
         best = np.where(ev, np.maximum(best, x), best)
         # ---- evaluation
@@ -118,8 +119,11 @@ def run(F: dict, pnl_e: np.ndarray, pnl_f: np.ndarray, starts: np.ndarray, mfe_e
         cprof = np.where(fu, cprof + x, cprof); cbest = np.where(fu, np.maximum(cbest, x), cbest)
         ok = fu & ~fail_f & (qd >= F["q_days"]) & (npay < F["max_pay"])
         ok &= np.where(paid_once, eq > lastpay_eq, True) if F["cap_rule"] != "v2" else ok
-        if F["f_cons"] is not None:
-            ok &= (cprof > 0) & (cbest <= F["f_cons"] * cprof)
+        if F["f_cons"] is not None:                           # a number, or a ladder by payout count
+            fc = np.array(F["f_cons"], float)[np.minimum(npay, len(F["f_cons"]) - 1)] if isinstance(F["f_cons"], list) else F["f_cons"]
+            ok &= (cprof > 0) & (cbest <= fc * cprof)
+        if F.get("f_target"):                                  # profit needed since the last payout (a ladder by payout count)
+            ok &= eq - lastpay_eq >= np.array(F["f_target"], float)[np.minimum(npay, len(F["f_target"]) - 1)]
         cap = caps[np.minimum(npay, len(caps) - 1)]
         if F["cap_rule"] == "frac_balance":
             amt = np.minimum(F["pay_frac"] * eq, cap)
@@ -140,7 +144,7 @@ def run(F: dict, pnl_e: np.ndarray, pnl_f: np.ndarray, starts: np.ndarray, mfe_e
         new = (fail_e | fail_f | done) & (d < H - 1)
         net = net - np.where(new, F["e_fee"] + F["e_month"], 0.0)
         reset = new | to_f
-        ph = np.where(to_f, 1, np.where(new, 0, ph))
+        ph = np.where(to_f, 1, np.where(new, 1 if F.get("e_skip") else 0, ph))   # e_skip: direct funded, no evaluation
         for arr, v in ((eq, 0.0), (pk, 0.0), (best, 0.0), (cprof, 0.0), (cbest, 0.0), (lastpay_eq, 0.0)):
             arr[reset] = v
         days[reset] = 0; mdays[new] = 0; qd[reset] = 0; npay[reset] = 0; paid_once[reset] = False
