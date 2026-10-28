@@ -18211,3 +18211,15 @@ snapshot date's close. **Periods:** train 2020-01 → 2023-12 (fit c only); seal
 with the tails (p < 0.15, p > 0.85) reported separately. **Pass:** M or M_c beats B on Brier with clustered t ≥ 2 AND the tail bins are
 calibrated within ±3 points or 2 SE. Pass → the module is worth wiring into a Metaculus bot once the user has an account; fail → §1044's
 edge is not demonstrated and the Metaculus route rests on F2 alone.
+
+## §1086 — F3 result: options-implied probabilities beat the realized-vol model (t −3.6) but fail the tail-calibration clause on the upper tail — FAIL by protocol (S11)
+
+**No trial.** 222,961 questions (train 73,828; sealed 149,133, 2,537 underlying × date clusters). `reports/f3_threshold.json`.
+**Accuracy (sealed):** module Brier 0.14464 vs baseline 0.14598, diff −0.00134 (clustered t −3.55); log score −0.0081 (t −3.99).
+c fitted on train = 1.025 (no variance-premium shrink); M_c t −2.83. **Calibration (sealed, module):** p < 0.05: 3.6% predicted vs 3.5%
+observed; 0.05–0.15: 9.4% vs 11.2%; 0.95+: 95.6% vs 98.3%; **0.85–0.95: 90.6% vs 96.3% — outside ±3 points and 2 SE → FAIL.** The
+baseline is far worse in the tails (p < 0.05: 1.6% predicted vs 6.0% observed). **Reading:** the miss is upward drift — risk-neutral
+odds carry no equity premium and 2024–26 was a strong rally (sealed: all questions 48.6% predicted vs 53.8% observed; even INTC +6.6
+points; train 2020–23 gap +3.0 points and its 0.85–0.95 bin calibrated, 90.7% vs 89.5%). Downside long shots — where LLM bots are worst
+— are calibrated. A drift correction is a new hypothesis: it can only be tested forward. Decision: no Metaculus account on F3's
+strength; the route rests on F2 (11-09). Module kept (`forecast/market_implied.py`).
