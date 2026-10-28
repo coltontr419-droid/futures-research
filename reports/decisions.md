@@ -18234,3 +18234,19 @@ Apify's gateway at no cost. (2) **RapidAPI** (Nokia API Hub since 11/2024): busi
 public subscriber counts, so demand cannot be measured; a listing would need our own hosted endpoint proxying Apify. Parked as a
 zero-evidence add-on. (3) **AWS Data Exchange** needs a registered, qualified AWS Marketplace seller (reportedly a US/EU company);
 Datarade/Snowflake sell to enterprises. Closed for a small start.
+
+## §1088 — A120 protocol: a strategy fitted to each prop firm's own rules, at zero edge (user request 2026-10-28) (S10)
+
+**No trial; written before the grid is run.** User: the Tradeify plan is known to fail other firms (§766: consistency and qualifying-
+day gates destroy the one-big-bracket option); find a different, rule-fitted strategy per firm with positive EV. **Rules (2026, from
+third-party summaries, checked 2026-10-28; to verify at checkout):** Topstep 50K Combine $49/month + $149 activation, target $3,000,
+EOD MLL $2,000, best day ≤ 50% of target; XFA Standard: 5 winning days ≥ $150, payout ≤ 50% of balance up to $2,000, min $125, MLL
+fixed at the start after the first payout, 90%; XFA Consistency: 3 days, best day ≤ 40% of cycle profit, ≤ 50% up to $3,000. Apex 50K
+EOD: eval $349 list (often 80% off) + $119 activation, target $3,000, $2,000 EOD, $1,000 DLL; PA: safety net $52,100, 5 days ≥ $250,
+best day < 50% of profit since the last payout, caps $1.5k/1.5k/2k/2.5k/2.5k/3k, min $500, 100%, 6 payouts then closed. LucidFlex 50K:
+$138 one-time, target $3,000, $2,000 EOD, 40% eval consistency; funded: 5 days ≥ $150, ≤ 50% of profit up to $2,000, min $500, no
+consistency, no buffer, 90%, 5 payouts then treated as ended (live unmodelled). Tradeify Select Daily kept as a fixed-bracket reference.
+**Strategy family:** one MNQ bracket a day (take W, stop L in $, contracts = round(max(W,L)/$600)), separate (W, L) for evaluation and
+funded, sides randomised daily (4 seeds) on A23 MNQ RTH paths; W ∈ {150…1,500}, L ∈ {150…2,000}. **Selection:** chosen on one era
+(2010-20 or 2021-26) and scored on the other. **Read:** a firm is a candidate only if its policy chosen on EITHER era is positive on the
+OTHER era by ≥ $500 a run; dollars are approximate (rule fidelity is the main risk, as §766 showed), the sign is the finding.
