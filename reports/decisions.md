@@ -18162,3 +18162,12 @@ average ~30 users. Feasibility probe from Apify (public pages, no login, 5 tries
 Indeed search 1/5 residential and job pages 401 (no); Naukri HTML is client-rendered and its JSON API requires a captcha token (no).
 Market: LinkedIn Jobs ≈ 35k users/30d, prices $0.40–2.00 per 1k (curious_coder 15.4k users at $2/1k); Glassdoor ≈ 2.5k, $0.40–4.75 per 1k.
 Probe cost $0.006.
+
+## §1082 — 2026-10-27: LinkedIn Jobs Actor benchmarked and approved; Glassdoor now behind a Cloudflare challenge: dropped (S11)
+
+**No trial.** LinkedIn Jobs (public logged-out pages). Same search as competitors (data analyst, US, 24h, 50 jobs): same 50 jobs as
+curious_coder and valig; salary on 37/50 vs 4/50 for each; details 100%, company fields ~90%, 0 errors. 1,000-job "sales" run: 0 errors,
+0 duplicates, 3.7 min, $0.019 compute (≈98% margin at $1/1k), salary 57%, no period mix-ups in spot check. User approved; publishes
+10-28 19:45 CT with Coles + idealo report (the 10-27 run hit Apify's limit of 5 publications per 24h). Glassdoor re-probe: 1/36 HTTP 200 across
+residential/datacenter × chrome/safari/firefox/cookie warm-up; the rest are 403 `cf-mitigated: challenge` (Cloudflare JS challenge).
+Would need a real browser to solve the challenge, and bypassing bot challenges is out of scope → dropped. Probe cost $0.001.
