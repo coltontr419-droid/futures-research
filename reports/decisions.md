@@ -18267,3 +18267,12 @@ pricing +$258 / +$564 (43%). Standard path: +$1,100 / +$1,172 → +$144 / +$39 i
 Open: Combine price ($49 vs $85/month) and DLL, the bot rules (API allowed via ProjectX, not on live accounts; third parties report
 "personal device only"), Live Funded Account terms (unmodelled), and accounts must trade the SAME side or different markets (opposite
 positions across accounts = prohibited hedging).
+
+## §1090 — A120 re-run at the user-verified Combine terms: $59/month, $1,000 DLL (S10)
+
+User checked Topstep checkout 2026-10-28: 50K Combine $59/month with a $1,000 daily loss limit. Re-fitted (Combine stop now ≤ $1,000), $29/month
+API fee included, chosen on one era and read on the other. Consistency path: EOD trailing +$659 / +$932 (pre→post), +$1,066 / +$440 (post→pre);
+intraday trailing +$526 / +$901 and +$939 / +$353; P>0 per run 43-46%. Chosen: Combine take $1,250 / stop $1,000, funded take $650-1,250 / stop
+$2,000. **If the funded XFA also has a $1,000 DLL** (funded stop ≤ $1,000): +$95 / +$247 and +$608 / -$41 — no longer reliably positive.
+Standard path: +$398-900 / +$142-520. **Status:** still positive at zero edge but halved: ≈ $90-230/month per slot, ≈ $0.4-1.2k/month over 5 XFAs
+— under the $2k bar alone. Decisive open item: whether the XFA (funded) has a DLL. Then bot rules (personal device) and LFA terms.
