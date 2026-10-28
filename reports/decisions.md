@@ -18276,3 +18276,7 @@ intraday trailing +$526 / +$901 and +$939 / +$353; P>0 per run 43-46%. Chosen: C
 $2,000. **If the funded XFA also has a $1,000 DLL** (funded stop ≤ $1,000): +$95 / +$247 and +$608 / -$41 — no longer reliably positive.
 Standard path: +$398-900 / +$142-520. **Status:** still positive at zero edge but halved: ≈ $90-230/month per slot, ≈ $0.4-1.2k/month over 5 XFAs
 — under the $2k bar alone. Decisive open item: whether the XFA (funded) has a DLL. Then bot rules (personal device) and LFA terms.
+**Addendum (user, same day):** the XFA DLL is optional (so the no-funded-DLL rows stand) and the per-account payout cap is now $6,000. Re-scored
+the chosen strategies (intraday trailing, $59 + $1k DLL Combine): cap $3k → $6k barely moves them (Consistency +$526/+$901 unchanged;
++$353/+$939 → +$379/+$992) because 50%-of-balance payouts on a $2k-drawdown account rarely reach $3k. Final: Consistency path, Combine take
+$1,250 / stop $1,000, funded take $650 / stop $2,000, no funded DLL: ≈ +$350-990 per 84-session run per slot, ≈ $0.4-1.2k/month over 5 XFAs.
