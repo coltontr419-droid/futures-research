@@ -18308,3 +18308,8 @@ unverified.** Open: current Fast Track price/discount, drawdown $2,000 vs $2,250
 whether Fast Track counts in the 5-Master cap and can be re-bought without limit, split (100% of first $10k?), and automation (FAQ:
 user-built bots for personal use allowed; Master Agreement: no VPS/VPN, third-party algos need approval) — Rithmic only, so a bot runs
 on the user's own computer (e.g. NinjaTrader over Rithmic). All accounts must take the same side (no cross-account hedging).
+**Addendum (user verified Bulenox terms, 2026-10-28):** $268.40 (45% off), $2,000 intraday trailing, no DLL, no minimum days, $3k profit
+for the 1st payout, $1k min, $2k max for payouts 1-3 then $2.5k, consistency 20/25/30% then 30%, **90/10 split (no 100%-of-first-$10k)**,
+re-buy after failure unlimited, counts toward the 5 Masters, user-built bot allowed for **+$100/month**. Re-fit (funded grid, era-swapped):
+take $650 / stop $2,000 chosen everywhere; later-payout goal none or $2k: +$3,698 / +$5,324 (bot fee per user) and +$3,362 / +$4,988 (per
+account); later goal $3k (unconfirmed, worst): +$3,076 / +$4,335 and +$2,740 / +$3,999. ≈ $3.4-6.7k/month over 5 slots. Next: the bot.
