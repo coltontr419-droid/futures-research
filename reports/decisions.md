@@ -18182,3 +18182,17 @@ per 1.2 MB page, salary present), Wellfound 3/3 / 3/3 (36 jobs in __NEXT_DATA__)
 jobs, Apollo state), Hiring Cafe ok; Welcome to the Jungle and foundit render jobs client-side; Upwork, Indeed (residential
 1/3, rest 403 Cloudflare) out. Each second-tier market is ~1/35 of LinkedIn Jobs, so each Actor adds little on its own.
 Probe cost $0.004.
+
+## §1084 — 2026-10-28: NKD late-entry loss; entry-delay test; which instrument for the replacement account — keep NKD (S10)
+
+**No trial.** The user entered the 10-27 NKD ticket late; it stopped (eval failed) while the exact-entry replay took at 19:01 CT. Live
+NKD tickets settle fast (4 of 14 in the entry minute, 6 in two), because NKD is volatile now: live first-minute range median 0.23%,
+first 5 min 0.42% (19 sessions, Oct), matching the research paths for Jul–Sep 2026 (0.28% / 0.51%; 2021-26 average 0.16% / 0.29%), so
+no data problem. **Entry delay** (HistData paths 2021-26, rule side, ±0.31% / ±0.50% brackets, n 1,445): rule mean +0.057R / +0.061R at
+0 min, +0.03 to +0.06R at 1–10 min; the edge does not depend on the first minute. A91 refreshed: D227 (NKD) −5.21 bps at n 40 (t −0.34);
+DAX rules D171 +9.52, D174 +20.53, D175 +4.35. **Single 50K account per instrument** (A101 setup, V2, live rules; mean net per 84-session
+run, P>0): NKD 2025 +$3,877 (80%) / 2021-26 +$2,662 / 2010-20 +$99 / zero edge +$1,077; FDXM +$2,818 (91%, p10 +$875) / +$1,390 /
++$1,643 / +$984; MGC +$929 / +$1,253 / +$777 / +$428; MNQ +$406 / +$404 / +$187 / +$1,168; MCL +$1,155 / −$211 / −$337 / −$4 (ZS not in
+the simulator). The two-week shadow records (NKD 2/6, FDXM 5/7) are noise and FDXM's are on the DAX-index proxy. Decision: NKD stays for
+the replacement account; FDXM is the robust second (positive in every era) once the 02:00 CT entry can be placed as a scheduled bracket;
+D227's fate is A48's pre-registered 40-session trigger. Execution: enter at the open or skip; never chase.
