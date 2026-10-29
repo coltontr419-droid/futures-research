@@ -18628,3 +18628,9 @@ purchase and 804,296 sale filings by officers/directors; 814 discovery weeks, lo
 **S-series reading (§1113-§1122):** five free sentiment/positioning gauges (short interest, put/call, breadth, short volume, insider buying), each as a long/short
 sign for MNQ against always long: all five negative in discovery. Paying the short side's drift is the bar none clears. No more index-timing gauges; the next tests use
 targets without a drift (relative spreads).
+
+## §1123 — A139: the D68 side (follow a 10-year-note shock) on the Fast Track 100K MNQ day slot — no gain where it counts; the plan stays always long (S10)
+
+**No trial (overlay of a confirmed rule).** `scripts/a139_d68_overlay.py`, a123 minute engine, take $800 / stop $4,000, 7 MNQ, drift removed, per 84 sessions: **2015-20
+always long +$7,553 (2.03 accounts/payout) vs overlay +$8,506 (1.80); 2021-26 +$7,809 (2.24) vs +$7,804 (2.28).** 2015-20 overlaps D68's own discovery years (2018-22),
+so only 2021-26 is a fair read, and it is flat. Not adopted.
