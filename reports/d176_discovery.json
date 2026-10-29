@@ -1,0 +1,783 @@
+{
+ "cells": 96,
+ "carried": [
+  {
+   "gauge": "insider",
+   "target": "ZN",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 2.28,
+   "t": 2.14
+  }
+ ],
+ "all": [
+  {
+   "gauge": "putcall",
+   "target": "GC",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -2.96,
+   "t": -1.0
+  },
+  {
+   "gauge": "putcall",
+   "target": "GC",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 1.36,
+   "t": 0.46
+  },
+  {
+   "gauge": "putcall",
+   "target": "SI",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": 2.01,
+   "t": 0.42
+  },
+  {
+   "gauge": "putcall",
+   "target": "SI",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": -3.01,
+   "t": -0.63
+  },
+  {
+   "gauge": "putcall",
+   "target": "HG",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -0.06,
+   "t": -0.02
+  },
+  {
+   "gauge": "putcall",
+   "target": "HG",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -3.94,
+   "t": -1.08
+  },
+  {
+   "gauge": "putcall",
+   "target": "CL",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": 17.03,
+   "t": 1.73
+  },
+  {
+   "gauge": "putcall",
+   "target": "CL",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": -18.43,
+   "t": -1.87
+  },
+  {
+   "gauge": "putcall",
+   "target": "NG",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": 21.61,
+   "t": 1.88
+  },
+  {
+   "gauge": "putcall",
+   "target": "NG",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": -24.41,
+   "t": -2.13
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZN",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -0.37,
+   "t": -0.35
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZN",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -0.43,
+   "t": -0.4
+  },
+  {
+   "gauge": "putcall",
+   "target": "6E",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -2.36,
+   "t": -1.65
+  },
+  {
+   "gauge": "putcall",
+   "target": "6E",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 1.76,
+   "t": 1.23
+  },
+  {
+   "gauge": "putcall",
+   "target": "6J",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -2.19,
+   "t": -1.33
+  },
+  {
+   "gauge": "putcall",
+   "target": "6J",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 1.19,
+   "t": 0.72
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZC",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": -1.45,
+   "t": -0.3
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZC",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": -2.35,
+   "t": -0.49
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZS",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -3.56,
+   "t": -0.91
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZS",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 2.16,
+   "t": 0.55
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZW",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -4.16,
+   "t": -0.69
+  },
+  {
+   "gauge": "putcall",
+   "target": "ZW",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 1.36,
+   "t": 0.22
+  },
+  {
+   "gauge": "putcall",
+   "target": "RTY",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": 0.08,
+   "t": 0.01
+  },
+  {
+   "gauge": "putcall",
+   "target": "RTY",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -4.08,
+   "t": -0.73
+  },
+  {
+   "gauge": "breadth",
+   "target": "GC",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -0.71,
+   "t": -0.24
+  },
+  {
+   "gauge": "breadth",
+   "target": "GC",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -0.89,
+   "t": -0.3
+  },
+  {
+   "gauge": "breadth",
+   "target": "SI",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": 2.78,
+   "t": 0.58
+  },
+  {
+   "gauge": "breadth",
+   "target": "SI",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": -3.78,
+   "t": -0.79
+  },
+  {
+   "gauge": "breadth",
+   "target": "HG",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -1.4,
+   "t": -0.39
+  },
+  {
+   "gauge": "breadth",
+   "target": "HG",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -2.6,
+   "t": -0.71
+  },
+  {
+   "gauge": "breadth",
+   "target": "CL",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": 16.54,
+   "t": 1.68
+  },
+  {
+   "gauge": "breadth",
+   "target": "CL",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": -17.94,
+   "t": -1.82
+  },
+  {
+   "gauge": "breadth",
+   "target": "NG",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": -8.85,
+   "t": -0.77
+  },
+  {
+   "gauge": "breadth",
+   "target": "NG",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": 6.05,
+   "t": 0.53
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZN",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -0.8,
+   "t": -0.75
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZN",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -0.0,
+   "t": -0.0
+  },
+  {
+   "gauge": "breadth",
+   "target": "6E",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": 1.35,
+   "t": 0.95
+  },
+  {
+   "gauge": "breadth",
+   "target": "6E",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -1.95,
+   "t": -1.37
+  },
+  {
+   "gauge": "breadth",
+   "target": "6J",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": 2.22,
+   "t": 1.35
+  },
+  {
+   "gauge": "breadth",
+   "target": "6J",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -3.22,
+   "t": -1.96
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZC",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": 2.96,
+   "t": 0.62
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZC",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": -6.76,
+   "t": -1.41
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZS",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": 4.38,
+   "t": 1.12
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZS",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -5.78,
+   "t": -1.48
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZW",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -3.36,
+   "t": -0.55
+  },
+  {
+   "gauge": "breadth",
+   "target": "ZW",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 0.56,
+   "t": 0.09
+  },
+  {
+   "gauge": "breadth",
+   "target": "RTY",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -3.09,
+   "t": -0.55
+  },
+  {
+   "gauge": "breadth",
+   "target": "RTY",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -0.91,
+   "t": -0.16
+  },
+  {
+   "gauge": "shortvol",
+   "target": "GC",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -3.34,
+   "t": -1.12
+  },
+  {
+   "gauge": "shortvol",
+   "target": "GC",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 1.74,
+   "t": 0.58
+  },
+  {
+   "gauge": "shortvol",
+   "target": "SI",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": -2.08,
+   "t": -0.43
+  },
+  {
+   "gauge": "shortvol",
+   "target": "SI",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": 1.08,
+   "t": 0.23
+  },
+  {
+   "gauge": "shortvol",
+   "target": "HG",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": 0.02,
+   "t": 0.01
+  },
+  {
+   "gauge": "shortvol",
+   "target": "HG",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -4.02,
+   "t": -1.11
+  },
+  {
+   "gauge": "shortvol",
+   "target": "CL",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": 10.37,
+   "t": 1.05
+  },
+  {
+   "gauge": "shortvol",
+   "target": "CL",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": -11.77,
+   "t": -1.19
+  },
+  {
+   "gauge": "shortvol",
+   "target": "NG",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": 5.01,
+   "t": 0.44
+  },
+  {
+   "gauge": "shortvol",
+   "target": "NG",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": -7.81,
+   "t": -0.68
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZN",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": 0.04,
+   "t": 0.04
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZN",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -0.84,
+   "t": -0.79
+  },
+  {
+   "gauge": "shortvol",
+   "target": "6E",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -0.84,
+   "t": -0.59
+  },
+  {
+   "gauge": "shortvol",
+   "target": "6E",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 0.24,
+   "t": 0.17
+  },
+  {
+   "gauge": "shortvol",
+   "target": "6J",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -1.06,
+   "t": -0.64
+  },
+  {
+   "gauge": "shortvol",
+   "target": "6J",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 0.06,
+   "t": 0.03
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZC",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": -1.49,
+   "t": -0.31
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZC",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": -2.31,
+   "t": -0.48
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZS",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -3.53,
+   "t": -0.9
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZS",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 2.13,
+   "t": 0.54
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZW",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -8.33,
+   "t": -1.37
+  },
+  {
+   "gauge": "shortvol",
+   "target": "ZW",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 5.53,
+   "t": 0.91
+  },
+  {
+   "gauge": "shortvol",
+   "target": "RTY",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -1.22,
+   "t": -0.22
+  },
+  {
+   "gauge": "shortvol",
+   "target": "RTY",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -2.78,
+   "t": -0.5
+  },
+  {
+   "gauge": "insider",
+   "target": "GC",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -2.97,
+   "t": -1.0
+  },
+  {
+   "gauge": "insider",
+   "target": "GC",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 1.37,
+   "t": 0.46
+  },
+  {
+   "gauge": "insider",
+   "target": "SI",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": -3.8,
+   "t": -0.79
+  },
+  {
+   "gauge": "insider",
+   "target": "SI",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": 2.8,
+   "t": 0.58
+  },
+  {
+   "gauge": "insider",
+   "target": "HG",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -4.29,
+   "t": -1.18
+  },
+  {
+   "gauge": "insider",
+   "target": "HG",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 0.29,
+   "t": 0.08
+  },
+  {
+   "gauge": "insider",
+   "target": "CL",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": -2.54,
+   "t": -0.26
+  },
+  {
+   "gauge": "insider",
+   "target": "CL",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": 1.14,
+   "t": 0.11
+  },
+  {
+   "gauge": "insider",
+   "target": "NG",
+   "rule": "follow",
+   "n": 1008,
+   "mean_bps": -1.25,
+   "t": -0.11
+  },
+  {
+   "gauge": "insider",
+   "target": "NG",
+   "rule": "fade",
+   "n": 1008,
+   "mean_bps": -1.55,
+   "t": -0.14
+  },
+  {
+   "gauge": "insider",
+   "target": "ZN",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -3.08,
+   "t": -2.89
+  },
+  {
+   "gauge": "insider",
+   "target": "ZN",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 2.28,
+   "t": 2.14
+  },
+  {
+   "gauge": "insider",
+   "target": "6E",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -1.48,
+   "t": -1.04
+  },
+  {
+   "gauge": "insider",
+   "target": "6E",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 0.88,
+   "t": 0.62
+  },
+  {
+   "gauge": "insider",
+   "target": "6J",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -2.2,
+   "t": -1.34
+  },
+  {
+   "gauge": "insider",
+   "target": "6J",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": 1.2,
+   "t": 0.73
+  },
+  {
+   "gauge": "insider",
+   "target": "ZC",
+   "rule": "follow",
+   "n": 1007,
+   "mean_bps": -6.42,
+   "t": -1.34
+  },
+  {
+   "gauge": "insider",
+   "target": "ZC",
+   "rule": "fade",
+   "n": 1007,
+   "mean_bps": 2.62,
+   "t": 0.54
+  },
+  {
+   "gauge": "insider",
+   "target": "ZS",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -0.11,
+   "t": -0.03
+  },
+  {
+   "gauge": "insider",
+   "target": "ZS",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -1.29,
+   "t": -0.33
+  },
+  {
+   "gauge": "insider",
+   "target": "ZW",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -0.67,
+   "t": -0.11
+  },
+  {
+   "gauge": "insider",
+   "target": "ZW",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -2.13,
+   "t": -0.35
+  },
+  {
+   "gauge": "insider",
+   "target": "RTY",
+   "rule": "follow",
+   "n": 1009,
+   "mean_bps": -3.05,
+   "t": -0.55
+  },
+  {
+   "gauge": "insider",
+   "target": "RTY",
+   "rule": "fade",
+   "n": 1009,
+   "mean_bps": -0.95,
+   "t": -0.17
+  }
+ ]
+}

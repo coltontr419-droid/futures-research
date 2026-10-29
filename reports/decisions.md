@@ -18650,3 +18650,9 @@ else −1. **Targets:** next weekday's open → close (d10 series, bps) for GC, 
 4 × 12 × 2 = 96 cells. Cost d12.COST per session. **Discovery** 2018-11 → 2022-12 (d24.DISC, from the short-volume start): carry if mean > 0 and t > 1.96; at most 5
 carried, by t. **Sealed** 2023-01 → 2026-08 (d24.VAL), each carried cell read once (one trial each): CONFIRM needs net t > 1.645, against-always-long t > 1.645
 (§119), circular-shift placebo ≥ 95th.
+
+## §1126 — Family 176: 1 of 96 carried (insider gauge, fade, into ZN); sealed REJECT (t01563); N 1,562 → 1,563 (S1)
+
+`reporting/d176_gauges.py`; `reports/d176_discovery.json`, `d176_sealed.json`. Discovery 2018-11 → 2022-12: 96 cells, one carried — fade the insider gauge into ZN's next
+session, +2.28 bp (t +2.14, 1,009 sessions), about what chance gives across 96 cells. **Sealed 2023-01 → 2026-08: −1.64 bp, t −1.33, against always long t −0.58,
+placebo 17th → REJECT.** The S-series gauges carry nothing into the other markets either.
