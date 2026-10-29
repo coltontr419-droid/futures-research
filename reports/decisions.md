@@ -18407,3 +18407,10 @@ First read (2026-10-01 → 10-28): MNQ full 16 sessions −$2,138 (6 accounts, n
 caps $2k/$2.5k +$5,739 / +$5,893; caps $3k/$3.5k +$9,134 / +$9,039; **later payout goal $6k (every cycle) +$3,179 / +$3,540**; consistency 30% flat unchanged;
 **list price $648 (no discount) +$4,733 / +$4,453**; **drawdown $3,000** +$3,578 / +$2,406; caps $2k + later goal $6k + list price +$811 / +$618. What decides the size choice,
 in order: the later payout goal, the discount, the drawdown, then the caps. Script: scripts/a124_sensitivity.py.
+**§1098 addendum 2 (terms VERIFIED from Bulenox's own help center, 2026-10-29: bulenox.com/cms help_items, "fast-track" category):** Option 1 (trailing, incl. open P&L)
+100K $648, $4,000, 12 minis; drawdown locks at start + $100; **first goal $6,000, later goal $3,000 new profit per cycle, caps $2,500 (payouts 1-3) / $3,000, min $1,000,
+consistency 20/25/30% of the cycle, 90/10, no minimum days**; payout may not bring the balance to/below the threshold. 25K/50K/150K rows match §1098 too; Option 1 has no daily
+loss limit (Option 2 does). Master-level session rules: session 5:00 PM-4:00 PM CT, flat by 3:59 PM CT, no overnight holds — the RTH, London and 18:00-16:55 ET windows all
+comply. The cash-on-hand scaling table (100K: 3 minis up to $2,000 profit) does not bind 7 MNQ (0.7 mini). Up to 5 Master-level accounts; ≥ 1 trade a week (inactivity rule).
+Only the discount is unverified (the user paid 45% off on the 50K; the site's always-on coupon "applies the best available discount"); at list price the 100K is
++$4.7k / +$4.5k per 84 sessions.
