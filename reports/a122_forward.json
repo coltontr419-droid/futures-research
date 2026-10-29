@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T02:41-04:00",
+ "updated": "2026-10-29T03:07-04:00",
  "first": "2026-09-30",
  "last": "2026-10-28",
  "sessions": 21,
@@ -145,5 +145,10 @@
    2289.66
   ]
  ],
- "history_reference": "A122 history, long, minute replay: +$3,872 (2010-20) / +$3,876 (2021-26) per 84 sessions; 3.4-3.7 accounts per payout"
+ "history_reference": "A122 history, long, minute replay: +$3,872 (2010-20) / +$3,876 (2021-26) per 84 sessions; 3.4-3.7 accounts per payout",
+ "100K": {
+  "net": -712.8,
+  "net_per_84": -2851.2,
+  "accounts_per_payout": 2.0
+ }
 }

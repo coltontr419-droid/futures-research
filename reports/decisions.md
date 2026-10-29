@@ -18369,3 +18369,22 @@ work. Kept only as the inbound Apify-Discord channel already running. Closed as 
 room minus M ∈ {none, $50, $250} (skip if room < $300); chosen on one era, scored on the other. **Both eras choose the A122 plan** (take $650 / stop $2,000, full
 payout, no stop cut): +$3,872 / +$3,876 per 84 sessions. Reserves ≤ $1,000 change nothing (the $2,000 cap binds first); R $1,500 and every room-capped stop are worse
 (stop cuts turn tolerable dips into realised losses and skipped days). The post-payout blow-ups are the price of the payout, not a fixable leak.
+
+## §1098 — A124: Bulenox Fast Track by account size — the 100K roughly doubles the 50K per slot and per dollar (S10)
+
+**No trial.** Fast Track list prices from bulenox.com's pricing bundle (2026-10-29): 25K $338 ($1,000 trailing, first goal $1,500), 50K $488 ($2,000 / $3,000), 100K $648
+($4,000 / $6,000), 150K $788 ($5,500 / $9,000), priced at the user's 45% discount ($186 / $268 / $356 / $433). Payout caps and later goals from third-party reviews
+(UNVERIFIED except 50K): 25K $1,000 → $1,250, later goal $1,000; 100K $2,500 → $3,000, later $3,000; 150K $3,000 → $3,500, later $4,500; $1,000 min, 20/25/30%,
+90%. `reporting/a124_fast_track_sizes.py`, A122 minute engine, bracket as fractions of the drawdown, chosen on one era and scored on the other (long, one slot):
+
+| size | chosen bracket | per 84 sessions (other era) | accounts per payout | fresh 84-session windows, long: mean / P>0 / p10 / worst |
+|---|---|---|---|---|
+| 25K | take 0.2-0.325 dd, stop 1.0 dd | +$847 / +$1,354 | 3.4-3.7 | — |
+| 50K | take 0.325, stop 1.0 (= A122) | +$3,876 / +$3,872 | 3.4-3.7 | +$3.3-3.6k / 80-86% / −$1.2..−2.0k / −$4.9k |
+| **100K** | **take 0.2 ($800), stop 1.0 ($4,000), 7 MNQ** | **+$7,809 / +$7,553** | **2.0-2.2** | **+$6.4k / 80-93% / −$2.6k..+$1.0k / −$8.6k** |
+| 150K | take 0.2, stop 1.0 | +$6,136 / +$7,338 | 1.9-2.4 | +$4.1-5.5k / 73-88% / −$4.0..−0.7k / −$10.0k |
+
+Short side is weaker at every size (100K +$2.2-3.5k, P>0 67-71%); keep long. The 100K wins because its first payout ($6,000) is reached against a $4,000 drawdown with a $2,500
+cap, so ≈ $3.4k of room stays after the payout (the 50K leaves ≈ $1.4k), and the price per $ of drawdown is lower ($0.089 vs $0.134). ≈ $1.6-1.9k a month per slot, 5 slots
+≈ $8-9.5k a month in backtests (same-side, perfectly correlated slots; the worst 84-session window buys ≈ 24 accounts). **Open:** the 100K payout caps, later goal and
+consistency must be verified in Bulenox's help center/checkout before buying. The forward test now also logs the 100K (first read 09-30 → 10-28: −$713, no payout yet).

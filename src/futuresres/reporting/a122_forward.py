@@ -81,7 +81,16 @@ def main() -> int:
              f"Sessions {r['sessions']} ({out['first']} → {out['last']}), long, 3 MNQ, take 108.25 / stop 333.25 pts, minute replay.", "",
              f"Accounts bought {r['bought']}, payouts {r['payouts']}, paid after split ${r['paid']:,.0f}, fees ${r['fees']:,.0f}, "
              f"**net ${r['net']:+,.0f}** (${r['net_per_84']:+,.0f} per 84 sessions); open account balance ${r['open_balance']:+,.0f}.", "",
-             f"Reference: {out['history_reference']}.", "", "| Date | Event | $ | Account balance (P&L) |", "|---|---|---|---|"]
+             f"Reference: {out['history_reference']}.", ""]
+    # A124 (§1098): the 100K Fast Track (take 0.2 x $4,000, stop $4,000, 7 MNQ) on the same days
+    from futuresres.reporting.a123_fast_track_policy import simulate as sim2
+    from futuresres.reporting.a124_fast_track_sizes import SIZES
+    if C:
+        v, pp = sim2(H, Lo, C, 800.0, 4000.0, 0, None, dict(TERMS, **SIZES["100K"]))
+        out["100K"] = {"net": round(v * len(C) / 84, 2), "net_per_84": round(v, 2), "accounts_per_payout": round(pp, 2)}
+        (ROOT / "reports" / "a122_forward.json").write_text(json.dumps(out, indent=1) + "\n")
+        lines += [f"100K variant (A124): net ${out['100K']['net']:+,.0f} (${v:+,.0f} per 84 sessions; history long +$6.4k per 84, fresh windows).", ""]
+    lines += ["| Date | Event | $ | Account balance (P&L) |", "|---|---|---|---|"]
     fm = lambda v: "" if v is None else f"{v:+,.0f}"
     lines += [f"| {d} | {e} | {fm(a)} | {fm(b)} |" for d, e, a, b in r["log"]]
     (ROOT / "reports" / "a122_forward.md").write_text("\n".join(lines) + "\n")
