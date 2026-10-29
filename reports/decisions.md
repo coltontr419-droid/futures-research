@@ -18500,3 +18500,7 @@ Script: scripts/a131_sizes_by_market.py.
 vs MNQ full +0.39 / −0.15 (both negative 1-4%). **A five-slot plan with every entry at a human hour:** MNQ day (8:30 AM CT) + MNQ full session (5:01 PM CT) + MGC full
 session (5:01 PM CT), one side per market (opposite sides across accounts would be hedging). The 2:00 AM CT London entry (needs a bot → Bulenox approval) is no longer needed.
 Script: scripts/a132_mgc_full_session.py.
+**§1107 addendum (forward calibration, honest read):** forward 2026-09-30 → 10-28, 100K: MNQ RTH −$713 (21 sessions), MNQ full −$2,138 (16), MGC London −$2,138 (20), MGC full
+−$1,782 (16); 50K MNQ RTH +$995. History, net over the same number of sessions from a fresh start: mean +$53 to +$459, **negative 45-61% of the time** (the start-up
+risk, §1103); the observed values sit at the 44th / 11th / 6th / 14th percentiles. Each alone is ordinary; three tail months at once (overlapping, partly correlated slots)
+is a mild warning, not a verdict. The pre-registered 60-session read (§1095) stands for each variant. Script: scripts/a133_forward_calibration.py.
