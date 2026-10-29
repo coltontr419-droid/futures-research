@@ -18728,3 +18728,14 @@ archive (the "CSV" link now serves a PDF), Baker Hughes rig count (§1132), FRED
 families, 125 discovery cells, one sealed read) every free daily predictor class checked today was either already in the archive (overnight drift §617, month-end
 fix Z11, net liquidity 87, auction calendar K4, relative value 17/134/135, VIX term structure, CFTC 174) or null on discovery. Free public gauges are priced by the
 close; new futures families now have a very low prior. The Fast Track plan (§1098-§1112, §1123-§1131) remains the only lead clearing the overnight bar.
+
+## §1138 — Desk sweep of zero-coverage arenas; CS2 skin cross-market arbitrage screened and closed (S11)
+
+**No trial.** A keyword sweep of the log found no prior screen for: trading cards, sneakers, pawn, carbon credits/RECs, water/mineral rights, receivables/factoring,
+farmland/timber, storage units, EV charging, Roblox, game skins, Twitch, podcasts, Canva/fonts/3D-model marketplaces, Hugging Face, mystery shopping, user testing,
+Prolific, MTurk. **Capital-bound** (a yield on owned assets far below $2k/month at a small start): mineral/water rights, factoring, farmland, timber, storage, EV
+charging, carbon credits, pawn. **Manual or physical:** card/sneaker resale (drop bots break retailer terms), mystery shopping. **Human-only labour** (botting
+breaks the terms): MTurk, Prolific, user testing. **Audience-bound:** Twitch, podcasts, Roblox, template/font/3D marketplaces (the §1062 distribution wall).
+**CS2 skins** (Steam ↔ CSFloat/Skinport/DMarket arbitrage via public price APIs): automatable, but listed spreads are mostly fees and Steam-wallet illiquidity
+(Steam 15%, Skinport 12% seller), crowded by bots that close gaps within minutes, trade-protection holds lock inventory, and Valve can reprice the whole market by
+policy (the Oct-2025 trade-up change); closed. Nothing new clears the bar.
