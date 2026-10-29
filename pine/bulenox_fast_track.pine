@@ -26,14 +26,14 @@ split   = input.float(0.90, "Your split", group=grpA)
 monthly = input.float(0, "Bot fee per month (0 if manual)", group=grpA)
 
 // presets: decisions.md §1098-§1099 (terms from Bulenox's help center, 2026-10-29)
-size = plan == "Custom" ? cSize : plan == "50K · MNQ day session" ? "50K" : "100K"
-fee   = disc * (size == "25K" ? 338 : size == "50K" ? 488 : size == "100K" ? 648 : 788)
-dd    = size == "25K" ? 1000 : size == "50K" ? 2000 : size == "100K" ? 4000 : 5500
+acct = plan == "Custom" ? cSize : plan == "50K · MNQ day session" ? "50K" : "100K"
+fee   = disc * (acct == "25K" ? 338 : acct == "50K" ? 488 : acct == "100K" ? 648 : 788)
+dd    = acct == "25K" ? 1000 : acct == "50K" ? 2000 : acct == "100K" ? 4000 : 5500
 lockAt = 100.0
-goal1 = size == "25K" ? 1500 : size == "50K" ? 3000 : size == "100K" ? 6000 : 9000
-goalN = size == "25K" ? 1000 : size == "50K" ? 2000 : size == "100K" ? 3000 : 4500
-cap13 = size == "25K" ? 1000 : size == "50K" ? 2000 : size == "100K" ? 2500 : 3000
-cap4  = size == "25K" ? 1250 : size == "50K" ? 2500 : size == "100K" ? 3000 : 3500
+goal1 = acct == "25K" ? 1500 : acct == "50K" ? 3000 : acct == "100K" ? 6000 : 9000
+goalN = acct == "25K" ? 1000 : acct == "50K" ? 2000 : acct == "100K" ? 3000 : 4500
+cap13 = acct == "25K" ? 1000 : acct == "50K" ? 2000 : acct == "100K" ? 2500 : 3000
+cap4  = acct == "25K" ? 1250 : acct == "50K" ? 2500 : acct == "100K" ? 3000 : 3500
 side   = plan == "Custom" ? cSide : "Long"
 qty    = plan == "Custom" ? cQty : plan == "50K · MNQ day session" ? 3 : 7
 tpPts  = plan == "Custom" ? cTp : plan == "50K · MNQ day session" ? 108.25 : plan == "100K · MGC London" ? 11.4 : 57.25
