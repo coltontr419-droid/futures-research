@@ -1,0 +1,28 @@
+{
+ "cells": [
+  {
+   "cell": "xs_follow",
+   "weeks": 667,
+   "mean_ru": 0.0105,
+   "t": 0.51
+  },
+  {
+   "cell": "xs_fade",
+   "weeks": 667,
+   "mean_ru": -0.0488,
+   "t": -2.37
+  },
+  {
+   "cell": "ts_follow",
+   "weeks": 667,
+   "mean_ru": 0.0059,
+   "t": 0.36
+  },
+  {
+   "cell": "ts_fade",
+   "weeks": 667,
+   "mean_ru": -0.0451,
+   "t": -2.77
+  }
+ ]
+}

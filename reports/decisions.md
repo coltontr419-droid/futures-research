@@ -18704,3 +18704,8 @@ excluded). Each market's weekly return = sum of its open → close moves Mon-Fri
 the sign of its own last week, pooled equal-risk — **follow**; (4) the same **fade**. 4 cells; weekly return in risk units net of d12.COST × 5 per leg. **Discovery**
 2010-03 → 2022-12: carry if mean > 0 and t > 1.96. **Sealed** 2023-01 → 2026-08, once per carried cell: CONFIRM needs t > 1.645 and circular-shift placebo ≥ 95th
 (the cells are market-neutral or two-sided, so the always-long leg of §119 is the pooled-long benchmark: the cell must also beat it with t > 1.645).
+
+## §1134 — Family 179: weekly commodity momentum is too small to trade — follow +0.011 / +0.006 risk units a week (t 0.51 / 0.36); 0 of 4 carried (S1)
+
+**No trial.** `reporting/d179_cmdmom.py`, 667 discovery weeks 2010-2022. Cross-sectional follow +0.0105 (t 0.51), fade −0.049 (t −2.37); own-market follow +0.0059 (t 0.36),
+fade −0.045 (t −2.77): the gross effect is near zero on either side and costs decide the sign. (The script's placebo flips signs rather than shifting; never reached.)
