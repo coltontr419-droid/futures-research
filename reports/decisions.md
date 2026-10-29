@@ -18785,3 +18785,13 @@ Bulenox needs written approval for any automated order placement (§1105), so th
 **No trial.** Help centre ("Multiple Master Accounts", "Number of Accounts", read 2026-10-29 via the CMS translations endpoint): up to five active Master-level accounts
 per profile and Rithmic ID, shared across Master, Fast Track and Momentum Master; no unlocking sequence; balances and drawdowns cannot be combined. Qualification
 accounts are unlimited. The five-slot plan (§1111) is the ceiling at Bulenox.
+
+## §1146 — A142: the transition rule as the help centre states it (sweep of other paid accounts + pending accounts frozen while a Funded Account is active) — five slots keep ≈ $3.9-6.6k a month (S10)
+
+**No trial.** Help centre "Transition of Master-level Accounts" (read 2026-10-29): when an account is eligible after 3 payouts, Bulenox reviews every active Master-level
+account; others with ≥ 1 payout may transition too; balances do not transfer; accounts pending at the time cannot be activated while a Funded Account is active.
+`scripts/a142_transition_sweep.py` simulates the five A137 slots jointly by date (Funded Account valued $0; during a freeze, active 0-payout accounts keep trading,
+replacements stay pending). Mean monthly net, 2015-20 / 2021-26: **own-only, no freeze +$7,320 / +$7,148 (reproduces A137); sweep, no freeze +$6,559 / +$6,254;
+own-only, 20-session freeze +$5,766 / +$5,090; sweep + 60 +$4,800 / +$4,510; sweep + 120 +$4,674 / +$3,896** (28-37% of months negative with a freeze). Transitions
+≈ 4-8 a year. The freeze costs less than feared because accounts without a payout keep trading through it. Planning range for five slots: ≈ $4-6.5k a month in
+backtests, before payout-denial risk and the start-up ruin (§1103).
