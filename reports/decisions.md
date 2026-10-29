@@ -18833,3 +18833,10 @@ read as §1140 (drift-neutral excess; discovery 2010-03 → 2022-12, carry if ex
 ## §1153 — Family 185: gold options expiry and coupon day — 0 of 6 carried (GC day after expiry short +10.0 bp vs other days, t 1.80; ZN 15th long +2.2, t 0.91) (S1)
 
 **No trial.** `reporting/d185_ogcoupon.py`, `reports/d185_discovery.json`, 154 events each. Under the bar; closed.
+
+## §1154 — D-series family 186 protocol: gold first notice day (longs exit before delivery) in GC (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Untested here. **Dates:** FND for the active gold months (Feb, Apr, Jun, Aug, Oct, Dec) = the last d10
+trading day of the month before (Jan, Mar, May, Jul, Sep, Nov). **Cells:** GC × {the 3 sessions before FND summed, FND day, the day after} × {long, short} = 6 cells, open →
+close (roll gaps excluded), read as §1140 (drift-neutral excess against non-overlapping blocks of the same length; discovery 2010-03 → 2022-12, carry if excess > 0 and
+t > 1.96; sealed strict rule; placebo random trading days).
