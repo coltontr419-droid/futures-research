@@ -18544,3 +18544,6 @@ ends at its 3rd payout (live account = $0) and is re-bought; Bulenox commissions
 +$7,045, median +$5,904, 19% negative, worst month −$4,878, worst 3 months −$778**, best months +$20-26k. Not included: a freeze of new activations while a live Funded
 Account is active (§1109: up to ≈ −55%), payout denials (§1105), the start-up ruin before the first payout (§1103). A planning range of ≈ $3-7k a month for five slots
 in backtests, after the first payout has funded the churn.
+**§1105 addendum (flip-day exposure, if a flip day means a near-flat result):** share of days with |P&L| < $200 on the 100K plans (take $800 / stop $4,000), 2015-20 (MGC 2011-20)
+/ 2021-26: MNQ day 1.9% / 0.5%, MNQ full 1.6% / 0.2%, MGC full 1.2% / 0.4%, NKD 0.4% / 0.3%; rolling 10-day windows with ≥ 3 such days: 0.5% (MNQ day 2015-20), else 0.0%.
+Every day trades the full size, so a "minimal activity" reading is not met either. Flip-day exposure is negligible on the data; the discretionary risk remains.
