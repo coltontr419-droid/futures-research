@@ -18453,3 +18453,10 @@ the per-payout averages in §1095/§1098 are carried by survivors that then pay 
 first payout (p90 13-29). The first payout ($2,250 net on the 100K, $1,800 on the 50K) funds the next several accounts, after which the long-run averages apply. Reading:
 positive long-run EV with a front-loaded ruin risk — a $1-1.5k start fails before any payout roughly a third to a half of the time. Funding the start from a payout
 (the user's plan) is the right sequencing.
+
+## §1104 — §970 follow-up: WorldQuant BRAIN pay against the overnight bar (≥ $2k/month per stream) — only the top tier clears it (S11)
+
+**No trial (desk).** WorldQuant's own consultant page: Master "upwards of $2,000 per quarterly payment" (≈ $670/month), Grandmaster "upwards of $8,000 per quarter" (≈ $2,700/month) —
+the top two of the levels; quantt.co.uk's 2026 review: typical reported earnings modest. Glassdoor's "$10-19k a month" rests on 3 self-reports (2024) that read like staff roles.
+With machine-generated alphas crowding the correlation check (§970), an automated miner plausibly reaches the lower paid levels, not Grandmaster. Stays a parked
+add-on (free, user's account), not a ≥ $2k stream.
