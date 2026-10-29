@@ -18641,3 +18641,12 @@ so only 2021-26 is a fair read, and it is flat. Not adopted.
 2015-20 / 2021-26; MGC 2011-20 / 2021-26): **MNQ day 25K +$1.3k / +$0.7k, 50K +$3.7k / +$3.3k, 100K +$6.1k / +$6.3k, 150K +$5.9k / +$4.9k; MNQ full 100K +$6.6k / +$6.8k vs
 150K +$6.1k / +$6.0k; MGC full 100K +$6.5k / +$5.8k vs 150K +$6.6k / +$4.3k.** The 150K's larger first goal ($9k) takes longer to reach under a cap of three payouts.
 100K remains the size.
+
+## §1125 — D-series family 176 protocol: the four S-series gauges as every-day signs for the non-equity markets, current regime (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,562.** Gauges known at the close of day d (constructions exactly as §1114/§1115/§1117/§1118): put/call P,
+breadth z, short-volume z, insider z (latest weekly value). Each gauge's sign gives side = +1 when it reads "risk-on" (P < 0, breadth z > 0, short-volume z > 0, insider z > 0)
+else −1. **Targets:** next weekday's open → close (d10 series, bps) for GC, SI, HG, CL, NG, ZN, 6E, 6J, ZC, ZS, ZW, RTY; rules **follow** (side) and **fade** (−side):
+4 × 12 × 2 = 96 cells. Cost d12.COST per session. **Discovery** 2018-11 → 2022-12 (d24.DISC, from the short-volume start): carry if mean > 0 and t > 1.96; at most 5
+carried, by t. **Sealed** 2023-01 → 2026-08 (d24.VAL), each carried cell read once (one trial each): CONFIRM needs net t > 1.645, against-always-long t > 1.645
+(§119), circular-shift placebo ≥ 95th.
