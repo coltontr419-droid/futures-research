@@ -18795,3 +18795,10 @@ replacements stay pending). Mean monthly net, 2015-20 / 2021-26: **own-only, no 
 own-only, 20-session freeze +$5,766 / +$5,090; sweep + 60 +$4,800 / +$4,510; sweep + 120 +$4,674 / +$3,896** (28-37% of months negative with a freeze). Transitions
 ≈ 4-8 a year. The freeze costs less than feared because accounts without a payout keep trading through it. Planning range for five slots: ≈ $4-6.5k a month in
 backtests, before payout-denial risk and the start-up ruin (§1103).
+
+## §1147 — D-series family 183 protocol: FOMC minutes days (meeting + 21 days, 14:00 ET) in ES, ZN and GC (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Pre-FOMC drift and decision days were tested (§962 family, Lucca & Moench); minutes days were not.
+**Dates:** each `fomc_dates.json` decision date + 21 calendar days (the Fed's standing schedule), moved to the next d10 trading day if needed. **Cells:** ES, ZN, GC ×
+{long, short}, minutes-day open → close = 6 cells, read as §1140 (drift-neutral excess vs all other days; discovery 2010-03 → 2022-12, carry if excess > 0 and t > 1.96;
+sealed 2023-01 → 2026-08 strict rule; placebo = random Wednesdays).
