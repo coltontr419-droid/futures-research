@@ -1,0 +1,64 @@
+{
+ "cells": [
+  {
+   "window": "3_before",
+   "side": "long",
+   "n": 77,
+   "excess_bps": -30.81,
+   "t": -2.47,
+   "net_bps": -35.25
+  },
+  {
+   "window": "3_before",
+   "side": "short",
+   "n": 77,
+   "excess_bps": 30.81,
+   "t": 2.47,
+   "net_bps": 30.45,
+   "sealed_n": 22,
+   "sealed_net": -44.65,
+   "sealed_t": -1.08,
+   "vs_long_t": -1.05,
+   "placebo": 38.85,
+   "decision": "REJECT"
+  },
+  {
+   "window": "fnd_day",
+   "side": "long",
+   "n": 77,
+   "excess_bps": 7.1,
+   "t": 0.71,
+   "net_bps": 4.89
+  },
+  {
+   "window": "fnd_day",
+   "side": "short",
+   "n": 77,
+   "excess_bps": -7.1,
+   "t": -0.71,
+   "net_bps": -6.49
+  },
+  {
+   "window": "day_after",
+   "side": "long",
+   "n": 77,
+   "excess_bps": 28.75,
+   "t": 2.26,
+   "net_bps": 26.02,
+   "sealed_n": 22,
+   "sealed_net": 14.29,
+   "sealed_t": 0.5,
+   "vs_long_t": NaN,
+   "placebo": 55.1,
+   "decision": "WATCHLIST"
+  },
+  {
+   "window": "day_after",
+   "side": "short",
+   "n": 77,
+   "excess_bps": -28.75,
+   "t": -2.26,
+   "net_bps": -27.62
+  }
+ ]
+}

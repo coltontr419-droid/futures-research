@@ -18840,3 +18840,10 @@ read as §1140 (drift-neutral excess; discovery 2010-03 → 2022-12, carry if ex
 trading day of the month before (Jan, Mar, May, Jul, Sep, Nov). **Cells:** GC × {the 3 sessions before FND summed, FND day, the day after} × {long, short} = 6 cells, open →
 close (roll gaps excluded), read as §1140 (drift-neutral excess against non-overlapping blocks of the same length; discovery 2010-03 → 2022-12, carry if excess > 0 and
 t > 1.96; sealed strict rule; placebo random trading days).
+
+## §1155 — Family 186: gold first notice day — 2 of 6 carried; sealed: pre-FND short REJECT (t01564), day-after long WATCHLIST (t01565); N 1,563 → 1,565 (S1)
+
+`reporting/d186_goldfnd.py`; `reports/d186_discovery.json`, `d186_sealed.json`. Discovery 2010-03 → 2022-12 (77 FNDs): short the 3 sessions before FND +30.8 bp vs other
+3-session blocks (t +2.47); long the day after +28.8 bp (t +2.26) — the liquidation-and-recovery story. **Sealed 2023-01 → 2026-08 (22 FNDs): pre-FND short −44.7 bp a
+trade (t −1.08, placebo 39th) → REJECT; day-after long +14.3 bp (t +0.50, placebo 55th) → WATCHLIST** (positive, far from the strict rule; the against-always-long
+test is undefined for a long-only cell). Six events a year at ≈ $14 per MGC contract would not matter to the stack even if it held. Watchlist only.
