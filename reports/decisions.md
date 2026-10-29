@@ -18566,3 +18566,12 @@ publishes ≈ 7 business days after settlement, so S is usable at the close of t
 **Rule:** S > 0 (short interest high) → short MNQ, else long (the paper's sign). **Target:** QQQ adjusted close-to-close over each holding period. **Statistic (strict rule
 §119):** x = (rule − always long) × r; CONFIRM needs t > 1.645, circular-shift placebo ≥ 95th (2,000 shifts of the signal series), and mean x > 0. **Split:** discovery
 2020-12 → 2022-12 (first 24 reports are warm-up); sealed 2023-01 → latest, read once. A discovery mean ≤ 0 closes it without a sealed read.
+
+## §1114 — S-family 2 protocol: the CBOE equity put/call ratio as a contrarian next-session sign for MNQ, current regime (S1)
+
+**Written and committed BEFORE any statistic is computed; one trial on the sealed read.** Untested here (no put/call series in any family). **Data:** CBOE equity put/call
+ratio, daily: `equitypc.csv` (2006-11 → 2019-10-04) plus the daily `market_statistics/daily/{date}_daily_options` JSON ("EQUITY PUT/CALL RATIO", 2019-10-07 →). Published
+after the close. **Signal:** P = 5-session mean of the ratio ÷ its 60-session mean − 1, known at the close of day d. **Rule:** P > 0 (puts heavy: fear) → long the next
+session close-to-close, else short. **Target:** QQQ adjusted close d → d+1 (MNQ proxy). **Statistic (strict rule §119):** x = (rule − always long) × r; CONFIRM needs t > 1.645,
+circular-shift placebo ≥ 95th (2,000 shifts), mean x > 0. Costs: 0.25 MNQ point a side on each flip (≈ 0.003% at NQ 20k), charged to x. **Split:** discovery 2007-03 → 2022-12;
+sealed 2023-01 → latest, read once. A discovery mean ≤ 0 closes it.
