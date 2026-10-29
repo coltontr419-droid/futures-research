@@ -18739,3 +18739,9 @@ breaks the terms): MTurk, Prolific, user testing. **Audience-bound:** Twitch, po
 **CS2 skins** (Steam ↔ CSFloat/Skinport/DMarket arbitrage via public price APIs): automatable, but listed spreads are mostly fees and Steam-wallet illiquidity
 (Steam 15%, Skinport 12% seller), crowded by bots that close gaps within minutes, trade-protection holds lock inventory, and Valve can reprice the whole market by
 policy (the Oct-2025 trade-up change); closed. Nothing new clears the bar.
+
+## §1139 — Fast Track price re-check (2026-10-29): list $338 / $488 / $648 / $788, 45% code still listed — the model's fees stand (S10)
+
+**No trial.** eltraderfinanciado.com's Bulenox launch page (header updated 2026-10-13): Fast Track 25K/50K/100K/150K list $338/$488/$648/$788, with the 45% code
+(ETFPROMO) $185.90/$268.40/$356.40/$433.40, activation included; Momentum $94-$358 list (the "$94" seen in a search snippet is Momentum, not Fast Track). Matches
+the help-center terms and the A124 fees. Still confirm the code at checkout.
