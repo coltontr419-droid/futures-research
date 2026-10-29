@@ -18881,3 +18881,8 @@ stop $4,000, 3-payout cap, $4.72 round trip, per 84 sessions. **2011-20: long +$
 dollar-week +$9,252** — split: 2021-24 (D227's discovery years) long +$5,424 / short +$5,672 / rule +$10,162; **2025-26 (D227's sealed window + forward, 443 sessions)
 long +$947 / short +$8,360 / rule +$7,127.** Reading: in the regime where D227 was confirmed the rule adds ≈ $2.5-4.5k per 84 sessions over the average fixed side; before
 2021 it adds nothing (as D227's own regime notes say). If an NKD Fast Track slot is opened, use the same dollar-week side as the Tradeify NKD ticket; keep MNQ/MGC long.
+
+## §1162 — Re-check (2026-10-29): AI-agent task marketplaces launched in 2026 still pay in stablecoins — §1101 stands (S11)
+
+**No trial (desk).** FutureTools AI (pay-per-task in USDC on Base/Solana), ClawTasks (decentralised), SwarmDock (subscription), Virtuals Revenue Network (agent commerce
+protocol), roborent.cc (USDT): crypto-settled or not per-task developer pay; excluded (no crypto). Nothing USD-denominated and per-task found.
