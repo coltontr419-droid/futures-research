@@ -18464,3 +18464,5 @@ add-on (free, user's account), not a ≥ $2k stream.
 the best cells sit at 18-25% (50K take 0.15-0.2 dd: 19-25%; 100K take 0.15-0.2 dd: 18-25%), the chosen plans at 18-20%; large takes fall to 7-12%. At zero edge, reaching
 +1.5 × the drawdown before −1 × with a ratcheting floor and a 20% consistency cap is ≈ 1-in-5 for any bracket — the start-up risk is structural, not a tuning gap.
 Script: scripts/a130_first_payout_grid.py.
+**§1098 addendum 3 (commissions):** Bulenox's rate sheet (bulenox.com/legal/Bulenox-Rates.pdf, 2026-10-29): MNQ $0.61 per side ($1.22 round trip), MGC $0.76 ($1.52), MES $0.61.
+§1095-§1103 charged $2.32 round trip per contract, so every Fast Track figure is slightly conservative (≈ $7-8 per 7-contract day on the 100K).
