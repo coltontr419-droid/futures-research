@@ -18547,3 +18547,11 @@ in backtests, after the first payout has funded the churn.
 **§1105 addendum (flip-day exposure, if a flip day means a near-flat result):** share of days with |P&L| < $200 on the 100K plans (take $800 / stop $4,000), 2015-20 (MGC 2011-20)
 / 2021-26: MNQ day 1.9% / 0.5%, MNQ full 1.6% / 0.2%, MGC full 1.2% / 0.4%, NKD 0.4% / 0.3%; rolling 10-day windows with ≥ 3 such days: 0.5% (MNQ day 2015-20), else 0.0%.
 Every day trades the full size, so a "minimal activity" reading is not met either. Flip-day exposure is negligible on the data; the discretionary risk remains.
+
+## §1112 — A138: Bulenox Qualification → Master (the cheap-evaluation route) — weak even at 89% off; Fast Track stays the product (S10)
+
+**No trial.** `reporting/a138_qualification.py`, help-center terms (Option 1 evaluation, 30-day access ≈ 21 sessions; Master: activation fee, ≥ 10 trading days per cycle,
+reserve, 40% consistency, caps $1,000-2,000, 90%; each Master ends at its 3rd payout), separate evaluation/Master brackets chosen on one era, scored on the other, MNQ RTH long.
+Per 84 sessions (other era): **50K at 89% off ($19 + $148 activation) +$765 / +$750**; 25K at 89% off +$362 / +$6; 100K at 89% off −$54 / +$81; 150K at 89% off −$680 / −$448;
+at 45% off or list every size is −$1.7k to +$0.1k. The Master's 10-day cycle, reserve and low caps leave little per pass, and the activation fee is paid on every pass.
+Fast Track 100K (§1098: +$7.6-7.8k; with the 3-payout cap +$5.8-6.8k) dominates.
