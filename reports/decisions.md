@@ -18443,3 +18443,13 @@ NQ_MNQ_spliced for 2010-06-07 → 2015-11-19 (795 complete sessions, drift remov
 50K (take $650 / stop $2,000) long +$3,806 per 84 sessions (3.3 accounts per payout), fresh 84-session windows +$2,962, P>0 81%, worst −$4.1k; short +$1,998 / +$940, 57%.
 **100K (take $800 / stop $4,000) long +$6,948 (2.1 per payout), fresh windows +$5,710, P>0 88%, p10 −$846, worst −$3.3k**; short +$4,573 / +$3,363, 72%. Three eras now
 agree on the long 100K: +$6.9k / +$7.6k / +$7.8k per 84 sessions (2010-15 / 2015-20 / 2021-26).
+
+## §1103 — A129: the start-up risk — with a fixed budget, how often is it gone before the first Fast Track payout (S10)
+
+**No trial.** `scripts/a129_budget_ruin.py`: from every 3rd session (MNQ RTH long, 2015-20 and 2021-26) buy one account at a time until the first payout or the budget
+(k accounts) is spent; minute engine, verified terms, 45% off. **Only ≈ 17-19% of single accounts reach a first payout** (50K 83% / 100K 81% of 1-account budgets fail);
+the per-payout averages in §1095/§1098 are carried by survivors that then pay several times (later goals $2-3k with room left). Budget gone before the first payout:
+50K — 2 accts ($537) 65%, 3 ($805) 52%, 4 ($1,074) 41%, 5 ($1,342) 33%; **100K — 2 ($713) 62%, 3 ($1,069) 47%, 4 ($1,426) 36%, 5 ($1,782) 27%**. Median 8-15 sessions to the
+first payout (p90 13-29). The first payout ($2,250 net on the 100K, $1,800 on the 50K) funds the next several accounts, after which the long-run averages apply. Reading:
+positive long-run EV with a front-loaded ruin risk — a $1-1.5k start fails before any payout roughly a third to a half of the time. Funding the start from a payout
+(the user's plan) is the right sequencing.
