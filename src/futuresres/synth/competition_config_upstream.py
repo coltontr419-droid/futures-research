@@ -1,0 +1,215 @@
+from dataclasses import dataclass, replace
+
+# Each competition's share of the miner block: four competitions (the three
+# below and VHFT), 1:1:1:1. VHFT's share is split equally among its rewarded
+# assets. The shares sum to 1, so a stored miner_rewards.reward_weight is that
+# miner's fraction of the block from that competition; set_weights normalises
+# again, so a validator without VHFT still splits its three equally.
+SMOOTHED_SCORE_COEFFICIENT = 1 / 4
+
+# 1h score = price CRPS + VOL_CRPS_LAMBDA × the mean, over the block sizes,
+# of the mean per-block volatility CRPS — so each weight below must stay
+# VOL_CRPS_LAMBDA / (3 block sizes × the number of blocks of that size).
+VOL_CRPS_LAMBDA = 5.25
+
+
+@dataclass
+class CompetitionConfig:
+    asset_list: list[str]
+    label: str
+    time_length: int
+    time_increment: int
+    scoring_intervals: dict[str, int]  # Define scoring intervals in seconds.
+    # Volatility CRPS blocks: name -> (block duration in seconds, weight).
+    # Empty means the competition scores on the price CRPS alone.
+    vol_scoring_blocks: dict[str, tuple[int, float]]
+    window_days: int
+    softmax_beta: float
+
+
+COM_EQU_24H = CompetitionConfig(
+    asset_list=[
+        "XAU",
+        "NVDAX",
+        "GOOGLX",
+        "TSLAX",
+        "AAPLX",
+        "WTIOIL",
+        "SPCX",
+        "SP500",
+    ],
+    label="Commodities/Equities 24h",
+    time_length=86400,
+    time_increment=300,
+    scoring_intervals={
+        "5min": 300,  # 5 minutes
+        "30min": 1800,  # 30 minutes
+        "3hour": 10800,  # 3 hours
+        "24hour_abs": 86400,  # 24 hours
+    },
+    vol_scoring_blocks={},
+    window_days=10,
+    softmax_beta=-0.15,
+)
+
+CRYPTO_24H = CompetitionConfig(
+    asset_list=[
+        "BTC",
+        "ETH",
+        "SOL",
+        "XRP",
+        "HYPE",
+    ],
+    label="Crypto 24h",
+    time_length=86400,
+    time_increment=300,
+    scoring_intervals={
+        "5min": 300,  # 5 minutes
+        "30min": 1800,  # 30 minutes
+        "3hour": 10800,  # 3 hours
+        "24hour_abs": 86400,  # 24 hours
+    },
+    vol_scoring_blocks={},
+    window_days=10,
+    softmax_beta=-0.15,
+)
+
+CRYPTO_1H = CompetitionConfig(
+    asset_list=[
+        "BTC",
+        "ETH",
+        "SOL",
+        "XRP",
+        "HYPE",
+    ],
+    label="Crypto 1h",
+    time_length=3600,
+    time_increment=60,
+    scoring_intervals={
+        "1min": 60,
+        "2min": 120,
+        "5min": 300,
+        "15min": 900,
+        "30min": 1800,
+        "60min_abs": 3600,
+        "0_5min_gaps": 300,
+        "0_10min_gaps": 600,
+        "0_15min_gaps": 900,
+        "0_20min_gaps": 1200,
+        "0_25min_gaps": 1500,
+        "0_30min_gaps": 1800,
+        "0_35min_gaps": 2100,
+        "0_40min_gaps": 2400,
+        "0_45min_gaps": 2700,
+        "0_50min_gaps": 3000,
+        "0_55min_gaps": 3300,
+        "0_60min_gaps": 3600,
+    },
+    vol_scoring_blocks={
+        "vol_60min": (3600, VOL_CRPS_LAMBDA / 3),  # 1 block
+        "vol_15min": (900, VOL_CRPS_LAMBDA / 12),  # 4 blocks
+        "vol_5min": (300, VOL_CRPS_LAMBDA / 36),  # 12 blocks
+    },
+    window_days=5,
+    softmax_beta=-0.3,
+)
+
+
+# Canonical list of competitions. Both the scoring cycle (neurons/validator.py)
+# and the moving-average update (forward.py) iterate this, so a competition
+# added/renamed/reordered here propagates to both — don't re-list elsewhere.
+ALL_COMPETITIONS = [
+    COM_EQU_24H,
+    CRYPTO_24H,
+    CRYPTO_1H,
+]
+
+# VHFT (Synth Ultra) — the 10-second BTC-microprice competition. Scored OFF-subnet
+# and blended in via the external-ingestion path (vhft_score_provider +
+# compute_vhft_smoothed_score), NOT through the inline-CRPS path — so it is
+# deliberately kept OUT of ALL_COMPETITIONS. It reuses the same
+# SMOOTHED_SCORE_COEFFICIENT and softmax as the other three, so the four
+# competitions split emissions equally.
+VHFT_COMPETITION = CompetitionConfig(
+    asset_list=["BTC"],
+    label="VHFT 10s",
+    time_length=10,
+    time_increment=10,
+    scoring_intervals={"10s": 10},
+    vol_scoring_blocks={},
+    # window_days is nominal — the external scorer already windows the scores, so
+    # no per-window aggregation happens here.
+    window_days=1,
+    # softmax_beta is deliberately steeper than the other competitions': this
+    # field is tightly bunched, so a gentler beta leaves rewards nearly flat
+    # across it.
+    #
+    # Beta responds to the SPREAD between miners, not the absolute score level:
+    # the scorer subtracts each prompt's winner and softmax is invariant to that
+    # shared offset, so shifting every score changes nothing. A wider field
+    # therefore concentrates rewards harder at a fixed beta. Re-measure before
+    # changing this; do not reason from the score level.
+    #
+    # MUST stay negative (lower score = higher reward), same convention as the
+    # other competitions.
+    softmax_beta=-4.0,
+)
+
+# Every asset the VHFT scorer runs as its own competition, one softmax each,
+# with its beta. Which of them are paid is VhftScoreProvider's `assets`
+# (VHFT_REWARDED_ASSETS, default BTC); the VHFT block is split equally among
+# those.
+#
+# Scores are in each asset's own price units, so one beta cannot fit all four:
+# the gaps between miners shrink with the asset's price. Each beta is BTC's
+# scaled by BTC's typical 10 s move over the asset's, which gives every asset
+# the same steepness relative to its own volatility. Starting values: set them
+# from the asset's observed score spread before it is paid. Must match the
+# external scorer's per-asset betas.
+VHFT_SOFTMAX_BETAS = {
+    "BTC": -4.0,
+    "ETH": -86.0,
+    "SOL": -1460.0,
+    "XRP": -128000.0,
+}
+VHFT_ASSETS = list(VHFT_SOFTMAX_BETAS)
+
+
+def vhft_competition(asset: str) -> CompetitionConfig:
+    """The competition config for one VHFT asset. BTC is VHFT_COMPETITION itself,
+    so its label — stored as miner_rewards.prompt_name — stays "VHFT 10s"."""
+    if asset == "BTC":
+        return VHFT_COMPETITION
+    return replace(
+        VHFT_COMPETITION,
+        asset_list=[asset],
+        label=f"VHFT 10s {asset}",
+        softmax_beta=VHFT_SOFTMAX_BETAS[asset],
+    )
+
+
+def competition_shares(vhft_assets: list[str]) -> dict[str, float]:
+    """Each competition's share of the block, by label: the inline ones, and each
+    rewarded VHFT asset's equal part of the VHFT share. Empty `vhft_assets` means
+    VHFT is not blended on this validator."""
+    shares = {c.label: SMOOTHED_SCORE_COEFFICIENT for c in ALL_COMPETITIONS}
+    for asset in vhft_assets:
+        shares[vhft_competition(asset).label] = (
+            SMOOTHED_SCORE_COEFFICIENT / len(vhft_assets)
+        )
+    return shares
+
+
+# Plausible size of the VHFT participant field, enforced in
+# compute_vhft_smoothed_score — outside this range the blend is skipped for the
+# cycle rather than trusted.
+#
+# The VHFT block is a fixed SMOOTHED_SCORE_COEFFICIENT however many uids share
+# it, so each participant's cut scales as 1/N — at one participant that is the
+# entire block. A round that scores only a handful of miners, whether from a
+# degraded scorer or a field that has mostly dropped out, would otherwise hand
+# one miner an outsized share, so require a floor. The ceiling is the other end
+# of the same argument: a snapshot naming far more scored participants than the
+# competition has is a malfunctioning scorer, not sudden popularity.
+VHFT_MIN_PARTICIPANTS = 3
+VHFT_MAX_PARTICIPANTS = 64

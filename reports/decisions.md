@@ -18892,3 +18892,18 @@ protocol), roborent.cc (USDT): crypto-settled or not per-task developer pay; exc
 **No trial.** `reporting/a122_forward.py` now also replays the 100K NKD Tokyo slot (Yahoo NKD=F 1-minute, 09:00-15:00 JST, 2 contracts, take $800 / stop $4,000, the
 dollar-week side from Yahoo 6E=F daily, A137's 3-payout cap) from 2026-09-30 in every daily run; a failure in this variant never blocks the others. First read
 (2026-10-29, 20 sessions): 3 accounts bought, net −$1,069, the open account +$3,162. Read with the other variants at 60 sessions.
+
+## §1164 — Crypto now in scope (user, 2026-10-29): Bittensor mining screen; SN50 (Synth) Crypto-24h backtest — a simple conditional-vol model beats the median miner on BTC (S11)
+
+**No trial (new arena, measurement).** User: crypto payouts are fine ("crypto is correct"). **Chain economics** (raw JSON-RPC to finney, TAO $253): per-UID miner pay = emission per
+tempo × tempos per day × alpha price. Scan of 128 subnets (median miner UID per month / registration burn): SN82 Noah ≈ $14.9k / $1,671 (30 miners); SN5 Hone (SWE tasks,
+RLVR) $1,130 / $129; SN92 REAX $511 / $147; SN83 CliqueAI (maximum clique) $509 / $38; SN61 RedTeam $396 / $11; SN101 Tag101 $353 / $9; SN79 $263; SN32 ItsAI $242; SN33
+$210; SN22 Desearch $203; SN50 Synth $203 / $202. Many subnets pay one owner UID or almost nothing to the median miner.
+**SN50 Synth** (miners submit 1,000 simulated price paths; CRPS on bp changes at 5m/30m/3h/24h; per-prompt cap at the 90th pct, minus the best; 10-day rolling mean;
+softmax β 0.15; four competitions share emissions: Crypto 24h, Crypto 1h, Commodities/Equities 24h, VHFT). Public API gives every miner's per-prompt CRPS and the validator's
+realized path, so a backtest is exact. `synth/s50_backtest.py` + `synth/fast_crps.py` (vectorised, equals the subnet's own code to 1e-13, 250× faster). Findings: Binance.US
+data is too noisy; Binance's public market-data mirror (data-api.binance.vision, reachable from the US) matches the validator feed; the 5-minute terms are ~63% of the score;
+a time-of-day vol profile × fast EWMA level (half-life 0.5-1 h, reverting to the 7-day level over 2-3 h) with residuals standardised by local vol, scaled 0.9-0.95, works best.
+**BTC, last 10 days (240 prompts; the variants were chosen on the last 3): our averaged score 29.8-30.4 vs the field's median UID 33.1; softmax share 0.49-0.55% of the
+competition vs the median UID's 0.33%.** ≈ $75/month per UID from Crypto-24h alone at today's prices; other assets and the other three competitions not yet built.
+Registration ≈ 0.8 TAO ($202) per UID. Next: ETH/SOL/XRP/HYPE, then Crypto-1h and Com/Equ-24h; CliqueAI benchmark in parallel.
