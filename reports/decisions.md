@@ -18514,3 +18514,15 @@ lists a 45% code with no end date); the user paid exactly 45% off on the 50K (§
 2011-26 positive except **2012 −$4,277 (0 payouts / 12 accounts)**, range +$0.2k (2013) to +$45.6k (2025). Three slots together: every full year 2013-2026 positive,
 +$41k (2022) to +$108k (2023); median ≈ +$65k a year ≈ $5.4k a month for 3 slots in backtests. Churn is the price: 15-46 accounts bought per slot-year (≈ $5-16k of fees
 recycled from payouts), so cash flow must cover runs of 10+ blown accounts. Payout-denial risk (§1105) is outside these numbers.
+
+## §1109 — A135: Bulenox's transition rule (after 3 payouts → live Funded Account; pending Masters frozen while it is active) — the plans keep 45-80% of their value (S10)
+
+**Help center, 2026-10-29 ("funded" category):** after three payouts a Master-level account may be moved to a live Funded Account at Bulenox's discretion; refusing closes it;
+Master balances do not transfer (the Funded Account gets its own initial EOD drawdown: 100K $3,000); other active Masters with ≥ 1 payout may transition too; **a pending
+Master-level account cannot be activated while the trader holds an active Funded Account.** §1095-§1108 let accounts pay indefinitely. **No trial.**
+`scripts/a135_three_payout_cap.py` (100K, live account valued at $0): per 84 sessions, 2015-20 / 2021-26 (MGC 2011-20 / 2021-26) —
+MNQ day no cap +$7,553 / +$7,809 → ends at the 3rd payout and re-buys +$6,142 / +$6,275 → plus 20 idle sessions +$5,882 / +$5,137 → plus 60 idle +$4,619 / +$4,832;
+MNQ full +$8.1k / +$8.7k → +$6.6k / +$6.8k → +$5.8k / +$5.5k → +$5.0k / +$4.0k; MGC full +$7.8k / +$8.0k → +$6.5k / +$5.8k → +$6.0k / +$5.0k → +$4.5k / +$3.6k. 50K ending at the
+3rd payout: +$3.4-4.4k. Reading: the cap costs ≈ 20%; a long freeze of new activations after a transition costs up to ≈ 55%; all cases stay positive. The live Funded
+Account's own payouts (unknown terms) are left out. Open question for Bulenox support: how long a transition takes, and whether Fast Track accounts bought while a Funded
+Account is active stay frozen.
