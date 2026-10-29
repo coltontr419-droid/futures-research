@@ -1,5 +1,5 @@
-// A121-A125 (decisions.md 1092-1099): Bulenox Fast Track — one MNQ bracket a day, with the Fast Track account rules simulated on top.
-// Use on MNQ1! (MGC1! for the MGC London plan), 1-minute chart, extended hours ON. Commission $0.61/side (MNQ; MGC is $0.76).
+// A121-A137 (decisions.md 1092-1111): Bulenox Fast Track — one bracket a day, with the Fast Track account rules simulated on top.
+// Use on MNQ1! (MGC1! for the MGC plans), 1-minute chart, extended hours ON. Commission $0.61/side is MNQ; set $0.76 in Properties for MGC.
 // Green label = payout (amount before split), red label = account blown (a new one is bought next day).
 //@version=5
 strategy("Fast Track bracket (Bulenox)", overlay=true, pyramiding=0, process_orders_on_close=true,
