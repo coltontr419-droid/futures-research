@@ -18867,3 +18867,9 @@ CME rule — trading ends 3 business days before the 25th calendar day of each m
 ## §1159 — Family 188: CL expiry — 0 of 6 carried (best: short the 3 sessions before, +18.8 bp vs other blocks, t 0.56; 154 expiries) (S1)
 
 **No trial.** `reporting/d188_clexp.py`, `reports/d188_discovery.json`. Expiry-week liquidation is not visible in front-month open → close moves. Closed.
+
+## §1160 — Filter for the rest of the search: monthly event-calendar families cannot reach the bar even if confirmed (S1/S11)
+
+**No trial.** Families 181-188 tested monthly or rarer events (6-12 a year). At the effect sizes seen (10-30 bp of open → close) one event is worth ≈ $10-40 per micro
+contract, ≈ $100-500 a year per contract; even 10 contracts on a prop account is far below $2k a month, and these events fit poorly into the Fast Track slots. From here,
+futures families only if they trade (nearly) every day, or structures that pay at zero edge; event calendars are dropped unless the event is daily.
