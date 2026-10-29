@@ -18535,3 +18535,12 @@ era): **NKD (2 contracts) long +$4,344 / +$4,513, short +$8,540 / +$4,514; 6E (4
 +$4,517; 6B (6) +$3.4-3.7k; 6J (2) ≈ 0** (+$5 / +$466). A first run with ten-to-one micros at $0.15 a round trip overstated FX; corrected here. Reading: NKD (7 PM CT
 entry) is a usable fourth market at a human hour; FX works but its windows open at 2 AM CT (needs a scheduled order or an approved bot). The five-slot core stays MNQ day,
 MNQ full, MGC full (+$7.8-8.7k each). Script: scripts/a136_more_markets.py.
+
+## §1111 — A137: a five-slot Fast Track 100K portfolio as monthly cash flows, with the 3-payout transition cap (S10)
+
+**No trial.** `scripts/a137_portfolio_months.py`: MNQ day ×2 (starts 40 sessions apart), MNQ full, MGC full, NKD Tokyo (2 contracts); take $800 / stop $4,000; each account
+ends at its 3rd payout (live account = $0) and is re-bought; Bulenox commissions; drift removed. Monthly net (payouts × 90% − purchases), all five slots live:
+**2015-12 → 2020-12 (61 months) mean +$7,320, median +$7,218, 15% of months negative, worst month −$5,947, worst 3 months +$1,361; 2021-01 → 2026-09 (69 months) mean
++$7,045, median +$5,904, 19% negative, worst month −$4,878, worst 3 months −$778**, best months +$20-26k. Not included: a freeze of new activations while a live Funded
+Account is active (§1109: up to ≈ −55%), payout denials (§1105), the start-up ruin before the first payout (§1103). A planning range of ≈ $3-7k a month for five slots
+in backtests, after the first payout has funded the churn.
