@@ -18816,3 +18816,10 @@ excess > 0 and t > 1.96; sealed 2023-01 → 2026-08 strict rule; placebo = rando
 ## §1150 — Family 184: WASDE days — 0 of 6 carried (best ZW short +18.5 bp vs other days, t 1.08; 155 releases) (S1)
 
 **No trial.** `reporting/d184_wasde.py`, `reports/d184_discovery.json`. Release days are bigger-range days with no directional lean. Closed.
+
+## §1151 — A143: a volatility-scaled Fast Track bracket (stop = k × median 20-session range, contracts sized to $4,000) — no robust gain over the fixed 7-contract plan (S10)
+
+**No trial.** `scripts/a143_vol_bracket.py` (A135 engine, 3-payout cap, per 84 sessions, 2015-20 / 2021-26; MGC 2011-20 / 2021-26). Fixed plan: MNQ day +$6,339 / +$6,134,
+MNQ full +$6,379 / +$6,679, MGC full +$6,532 / +$6,006. Best k (0.5, chosen on either era) scored on the other: MNQ day +$5,858 (vs +$6,134) / +$6,610 (vs +$6,339);
+MNQ full +$6,818 / +$6,086 (vs +$6,679 / +$6,379); MGC full +$6,208 / +$6,556 (vs +$6,006 / +$6,532). Wider vol stops (k ≥ 1) are clearly worse. Within ±5% either
+way: the fixed bracket stays (simpler, and the forward test is registered on it).
