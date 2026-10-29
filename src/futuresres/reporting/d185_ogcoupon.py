@@ -21,8 +21,8 @@ ROOT = Path(__file__).resolve().parents[3]
 
 def og(days):
     ds = sorted(days)
-    return \
-        [g[-4] for g in ([list(v) for _, v in itertools.groupby(ds, key=lambda d: (d.year, d.month))]) if len(g) >= 4]
+    months = [list(v) for _, v in itertools.groupby(ds, key=lambda d: (d.year, d.month))]
+    return [g[-4] for g in months if len(g) >= 4]
 
 
 def coupon(days):
