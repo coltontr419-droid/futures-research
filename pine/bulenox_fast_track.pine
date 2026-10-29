@@ -1,36 +1,52 @@
-// A121 (decisions.md 1092): Bulenox Fast Track 50K — one MNQ bracket a day, with the Fast Track account rules simulated on top.
-// Use on MNQ1! (or the front MNQ contract), 1- or 5-minute chart, Regular + extended hours.
+// A121-A125 (decisions.md 1092-1099): Bulenox Fast Track — one MNQ bracket a day, with the Fast Track account rules simulated on top.
+// Use on MNQ1! (MGC1! for the MGC London plan), 1-minute chart, extended hours ON. Commission $0.61/side (MNQ; MGC is $0.76).
 // Green label = payout (amount before split), red label = account blown (a new one is bought next day).
 //@version=5
-strategy("Fast Track MNQ bracket", overlay=true, pyramiding=0, process_orders_on_close=true,
+strategy("Fast Track bracket (Bulenox)", overlay=true, pyramiding=0, process_orders_on_close=true,
      default_qty_type=strategy.fixed, default_qty_value=3, commission_type=strategy.commission.cash_per_contract,
-     commission_value=1.16, initial_capital=50000, max_labels_count=500)
+     commission_value=0.61, initial_capital=50000, max_labels_count=500)
 
-grpT = "Trade"
-side   = input.string("Long", "Side (same on every account)", options=["Long", "Short"], group=grpT)
-qty    = input.int(3, "Contracts (MNQ)", minval=1, group=grpT)
-tpPts  = input.float(108.25, "Take profit (points)", group=grpT)
-slPts  = input.float(333.25, "Stop (points)", group=grpT)
-tz     = input.string("America/New_York", "Time zone for the times below", group=grpT)
-entryHM = input.int(930, "Entry (HHMM, bar closing at this time)", group=grpT)
-flatHM  = input.int(1600, "Flatten (HHMM)", group=grpT)
+grpP = "Plan"
+plan = input.string("100K · MNQ day session", "Plan preset (sets everything below unless Custom)", options=["50K · MNQ day session", "100K · MNQ day session", "100K · MNQ full session", "100K · MGC London", "Custom"], group=grpP)
 
-grpA = "Fast Track account (50K)"
-fee     = input.float(268.40, "Account price", group=grpA)
-dd      = input.float(2000, "Trailing drawdown (intraday)", group=grpA)
-lockAt  = input.float(100, "Drawdown locks at (profit)", group=grpA)
-goal1   = input.float(3000, "Profit for the 1st payout", group=grpA)
-goalN   = input.float(0, "Profit since last payout, later payouts", group=grpA)
+grpT = "Trade (used when the plan is Custom)"
+cSide   = input.string("Long", "Side (same on every account)", options=["Long", "Short"], group=grpT)
+cQty    = input.int(3, "Contracts (micros)", minval=1, group=grpT)
+cTp     = input.float(108.25, "Take profit (points)", group=grpT)
+cSl     = input.float(333.25, "Stop (points)", group=grpT)
+cEntry  = input.int(930, "Entry (HHMM, bar closing at this time)", group=grpT)
+cFlat   = input.int(1600, "Flatten (HHMM)", group=grpT)
+tz      = input.string("America/New_York", "Time zone for the times", group=grpT)
+
+grpA = "Fast Track account (used when the plan is Custom)"
+cSize   = input.string("50K", "Account size", options=["25K", "50K", "100K", "150K"], group=grpA)
+disc    = input.float(0.55, "Price paid as a share of list (0.55 = 45% off)", group=grpA)
 pmin    = input.float(1000, "Minimum payout", group=grpA)
-cap13   = input.float(2000, "Maximum payout, payouts 1-3", group=grpA)
-cap4    = input.float(2500, "Maximum payout, payout 4+", group=grpA)
 split   = input.float(0.90, "Your split", group=grpA)
-monthly = input.float(100, "Bot fee per month (0 if manual)", group=grpA)
+monthly = input.float(0, "Bot fee per month (0 if manual)", group=grpA)
+
+// presets: decisions.md §1098-§1099 (terms from Bulenox's help center, 2026-10-29)
+size = plan == "Custom" ? cSize : plan == "50K · MNQ day session" ? "50K" : "100K"
+fee   = disc * (size == "25K" ? 338 : size == "50K" ? 488 : size == "100K" ? 648 : 788)
+dd    = size == "25K" ? 1000 : size == "50K" ? 2000 : size == "100K" ? 4000 : 5500
+lockAt = 100.0
+goal1 = size == "25K" ? 1500 : size == "50K" ? 3000 : size == "100K" ? 6000 : 9000
+goalN = size == "25K" ? 1000 : size == "50K" ? 2000 : size == "100K" ? 3000 : 4500
+cap13 = size == "25K" ? 1000 : size == "50K" ? 2000 : size == "100K" ? 2500 : 3000
+cap4  = size == "25K" ? 1250 : size == "50K" ? 2500 : size == "100K" ? 3000 : 3500
+side   = plan == "Custom" ? cSide : "Long"
+qty    = plan == "Custom" ? cQty : plan == "50K · MNQ day session" ? 3 : 7
+tpPts  = plan == "Custom" ? cTp : plan == "50K · MNQ day session" ? 108.25 : plan == "100K · MGC London" ? 11.4 : 57.25
+slPts  = plan == "Custom" ? cSl : plan == "50K · MNQ day session" ? 333.25 : plan == "100K · MGC London" ? 57.1 : 285.75
+entryHM = plan == "Custom" ? cEntry : plan == "100K · MNQ full session" ? 1801 : plan == "100K · MGC London" ? 300 : 930
+flatHM  = plan == "Custom" ? cFlat : plan == "100K · MNQ full session" ? 1655 : plan == "100K · MGC London" ? 1130 : 1600
 
 // ---- the trade
 hm(t) => hour(t, tz) * 100 + minute(t, tz)
 dir = side == "Long" ? 1 : -1
-wkday = dayofweek(time_close, tz) != dayofweek.saturday and dayofweek(time_close, tz) != dayofweek.sunday
+dow = dayofweek(time_close, tz)
+// an evening entry (18:01, the first bar after the 18:00 reopen) trades Sunday-Thursday evenings for the next day's session; day entries Monday-Friday
+wkday = entryHM > flatHM ? (dow != dayofweek.friday and dow != dayofweek.saturday) : (dow != dayofweek.saturday and dow != dayofweek.sunday)
 var int entryDay = na
 
 if hm(time_close) == entryHM and wkday and strategy.position_size == 0
@@ -38,7 +54,8 @@ if hm(time_close) == entryHM and wkday and strategy.position_size == 0
     entryDay := dayofmonth(time_close, tz)
 strategy.exit("FT x", "FT", profit=tpPts / syminfo.mintick, loss=slPts / syminfo.mintick)
 // flatten at the set time, or on the next day if a short session never reached it
-if strategy.position_size != 0 and (hm(time_close) == flatHM or dayofmonth(time_close, tz) != entryDay)
+overnight = entryHM > flatHM
+if strategy.position_size != 0 and (hm(time_close) == flatHM or (not overnight and dayofmonth(time_close, tz) != entryDay))
     strategy.close_all("Flatten")
 
 // ---- the account (P&L relative to the $50,000 start)
