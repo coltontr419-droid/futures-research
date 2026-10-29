@@ -18873,3 +18873,11 @@ CME rule — trading ends 3 business days before the 25th calendar day of each m
 **No trial.** Families 181-188 tested monthly or rarer events (6-12 a year). At the effect sizes seen (10-30 bp of open → close) one event is worth ≈ $10-40 per micro
 contract, ≈ $100-500 a year per contract; even 10 contracts on a prop account is far below $2k a month, and these events fit poorly into the Fast Track slots. From here,
 futures families only if they trade (nearly) every day, or structures that pay at zero edge; event calendars are dropped unless the event is daily.
+
+## §1161 — A144: the bot's NKD dollar-week side (D227) on the Fast Track 100K NKD slot — helps in the current regime, nothing before 2021 (S10)
+
+**No trial (overlay of a confirmed rule).** `scripts/a144_nkd_dollar_side.py`, A21 NKD Tokyo paths (09:00-15:00 JST = 7 PM-1 AM CT, drift removed), 2 contracts, take $800 /
+stop $4,000, 3-payout cap, $4.72 round trip, per 84 sessions. **2011-20: long +$4,058, short +$4,883, dollar-week side +$4,414. 2021-26: long +$4,072, short +$6,538,
+dollar-week +$9,252** — split: 2021-24 (D227's discovery years) long +$5,424 / short +$5,672 / rule +$10,162; **2025-26 (D227's sealed window + forward, 443 sessions)
+long +$947 / short +$8,360 / rule +$7,127.** Reading: in the regime where D227 was confirmed the rule adds ≈ $2.5-4.5k per 84 sessions over the average fixed side; before
+2021 it adds nothing (as D227's own regime notes say). If an NKD Fast Track slot is opened, use the same dollar-week side as the Tradeify NKD ticket; keep MNQ/MGC long.
