@@ -18720,3 +18720,11 @@ close (d10 bps, d12.COST); **follow** = side −sign(ΔTP) (a rising premium con
 ## §1136 — Family 180: term-premium shocks — 0 of 4 carried (ZN follow +3.73 bp, t 1.38; ES fade +14.7 bp, t 1.15; 180 events) (S1)
 
 **No trial.** `reporting/d180_termprem.py`, `reports/d180_discovery.json`. Below the carry bar; closed.
+
+## §1137 — Data blocks and a saturation reading for the daytime 10-29 search (S1/S11)
+
+**No trial.** Blocked sources: GDELT DOC API (rate-limits even single requests from this IP; the bulk ngrams set is far larger than the question), SPDR GLD holdings
+archive (the "CSV" link now serves a PDF), Baker Hughes rig count (§1132), FRED ICE BofA spreads (now only the last 3 years). **Reading:** after §1113-§1136 (nine
+families, 125 discovery cells, one sealed read) every free daily predictor class checked today was either already in the archive (overnight drift §617, month-end
+fix Z11, net liquidity 87, auction calendar K4, relative value 17/134/135, VIX term structure, CFTC 174) or null on discovery. Free public gauges are priced by the
+close; new futures families now have a very low prior. The Fast Track plan (§1098-§1112, §1123-§1131) remains the only lead clearing the overnight bar.
