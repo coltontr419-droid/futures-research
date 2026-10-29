@@ -18847,3 +18847,8 @@ t > 1.96; sealed strict rule; placebo random trading days).
 3-session blocks (t +2.47); long the day after +28.8 bp (t +2.26) — the liquidation-and-recovery story. **Sealed 2023-01 → 2026-08 (22 FNDs): pre-FND short −44.7 bp a
 trade (t −1.08, placebo 39th) → REJECT; day-after long +14.3 bp (t +0.50, placebo 55th) → WATCHLIST** (positive, far from the strict rule; the against-always-long
 test is undefined for a long-only cell). Six events a year at ≈ $14 per MGC contract would not matter to the stack even if it held. Watchlist only.
+
+## §1156 — D-series family 187 protocol: the first-notice-day mechanism in Treasury notes (ZN FND = last trading day of Feb, May, Aug, Nov) (S1)
+
+**Written and committed BEFORE any ZN statistic is computed; N 1,565.** The same liquidation-and-recovery mechanism as §1154, applied to the other physically delivered
+plan-adjacent market. Cells, reading and splits exactly as §1154 with ZN in place of GC (6 cells).
