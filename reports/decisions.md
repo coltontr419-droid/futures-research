@@ -18597,3 +18597,12 @@ volume is mostly market makers selling into customer buying, so a high ratio mar
 Σ TotalVolume × price over the 500 `pack.npz` names with the largest prior-60-session dollar volume (price = that day's `pack` close); z = D − mean of D over the previous
 60 sessions. **Rule:** z > 0 → long QQQ close d → d+1, else short. **Statistic, costs, placebo:** as §1114. **Split:** discovery 2018-11 → 2022-12; sealed 2023-01 → latest,
 read once. A discovery mean ≤ 0 closes it.
+
+## §1118 — S-family 5 protocol: aggregate insider buying (Seyhun 1988; Lakonishok & Lee 2001) as a weekly sign for MNQ, 2007-2026 (S1)
+
+**Written and committed BEFORE any statistic is computed; one trial on the sealed read.** I-family 1 (§913-915) tested stock-level drift after purchases; the *aggregate*
+insider buy/sell balance as a market-timing sign has not been tested. **Data:** SEC Insider Transactions Data Sets (Form 4 and 4/A, quarterly, 2006Q1 →), officers and
+directors only, open-market non-derivative trades: code P (buy) and S (sale). **Signal at each Friday close:** b = purchase filings ÷ (purchase + sale filings), by filing
+date, over the last 20 sessions; z = b − mean of the weekly b over the previous 52 weeks. **Rule:** z > 0 (insiders buying more than usual) → long QQQ Friday close → next
+Friday close, else short. **Statistic, placebo:** as §1114, on weeks; cost charged on flips. **Split:** discovery 2007-06 → 2022-12; sealed 2023-01 → latest, read once.
+A discovery mean ≤ 0 closes it.
