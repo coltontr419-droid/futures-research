@@ -18779,3 +18779,9 @@ MNQ full and MGC full 5:01 PM CT; 7 contracts, take $800 / stop $4,000, long), `
 (eligibility, amount, the reason when not eligible, and a flag when the next payout is the 3rd — the transition point). `tests/test_bot_fasttrack.py` (4 tests) checks
 it against the A123/A124 engine's payout rule on 5,000 random states. Not wired into `futures_bot.py`, and nothing is copied to the droplet without the user's OK.
 Bulenox needs written approval for any automated order placement (§1105), so the tickets are for manual brackets.
+
+## §1145 — Bulenox account limit confirmed: at most five active Master-level accounts (Fast Track included), all activatable at once (S10)
+
+**No trial.** Help centre ("Multiple Master Accounts", "Number of Accounts", read 2026-10-29 via the CMS translations endpoint): up to five active Master-level accounts
+per profile and Rithmic ID, shared across Master, Fast Track and Momentum Master; no unlocking sequence; balances and drawdowns cannot be combined. Qualification
+accounts are unlimited. The five-slot plan (§1111) is the ceiling at Bulenox.
