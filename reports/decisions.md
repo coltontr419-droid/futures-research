@@ -18504,3 +18504,5 @@ Script: scripts/a132_mgc_full_session.py.
 −$1,782 (16); 50K MNQ RTH +$995. History, net over the same number of sessions from a fresh start: mean +$53 to +$459, **negative 45-61% of the time** (the start-up
 risk, §1103); the observed values sit at the 44th / 11th / 6th / 14th percentiles. Each alone is ordinary; three tail months at once (overlapping, partly correlated slots)
 is a mild warning, not a verdict. The pre-registered 60-session read (§1095) stands for each variant. Script: scripts/a133_forward_calibration.py.
+**§1098 addendum 4 (discount):** a 45%-off code for Fast Track and Momentum has been listed since the August 2026 launch (eltraderfinanciado.com, updated 2026-08-27; godfunded.com
+lists a 45% code with no end date); the user paid exactly 45% off on the 50K (§1092). Treat 45% as near-verified, product-wide; confirm on the 100K at checkout.
