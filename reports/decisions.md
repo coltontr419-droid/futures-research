@@ -18656,3 +18656,11 @@ carried, by t. **Sealed** 2023-01 → 2026-08 (d24.VAL), each carried cell read 
 `reporting/d176_gauges.py`; `reports/d176_discovery.json`, `d176_sealed.json`. Discovery 2018-11 → 2022-12: 96 cells, one carried — fade the insider gauge into ZN's next
 session, +2.28 bp (t +2.14, 1,009 sessions), about what chance gives across 96 cells. **Sealed 2023-01 → 2026-08: −1.64 bp, t −1.33, against always long t −0.58,
 placebo 17th → REJECT.** The S-series gauges carry nothing into the other markets either.
+
+## §1127 — D-series family 177 protocol: the weekly natural-gas storage surprise against its 5-year norm as a week-long sign for NG (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Untested here (families 40/89 used EIA crude only). **Data:** EIA weekly Lower-48 working gas
+(`NW2_EPG0_SWO_R48_BCFw.xls`, week ending Friday, released the next Thursday 10:30 ET), 2010 →. **Surprise:** u = this week's change − mean change of the same ISO week
+in the previous 5 years. **Trade:** the 5 weekdays after the release Thursday (Fri → Thu), summed open → close returns of NG (d10 series, bps; open → close only, so
+the continuous contract's roll gaps are excluded), cost d12.COST × 5. **Cells:** follow fundamentals (u > 0 → short, else long) and fade (opposite): 2 cells. **Discovery**
+2015-01 → 2022-12: carry if mean > 0, t > 1.96. **Sealed** 2023-01 → 2026-08 once per carried cell, strict rule as §1125.
