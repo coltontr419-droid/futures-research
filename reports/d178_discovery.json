@@ -1,0 +1,32 @@
+{
+ "cells": [
+  {
+   "measure": "bid_to_cover",
+   "rule": "follow",
+   "n": 1093,
+   "mean_bps": 0.53,
+   "t": 0.57
+  },
+  {
+   "measure": "bid_to_cover",
+   "rule": "fade",
+   "n": 1093,
+   "mean_bps": -1.33,
+   "t": -1.43
+  },
+  {
+   "measure": "indirect_share",
+   "rule": "follow",
+   "n": 1093,
+   "mean_bps": -1.38,
+   "t": -1.48
+  },
+  {
+   "measure": "indirect_share",
+   "rule": "fade",
+   "n": 1093,
+   "mean_bps": 0.58,
+   "t": 0.62
+  }
+ ]
+}

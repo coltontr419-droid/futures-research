@@ -18676,3 +18676,8 @@ Data `auctions_query` (free, no key): Notes and Bonds, 2009 →. Each auction's 
 **Strength measures:** (a) bid-to-cover − mean of the previous 6 auctions in the same bucket; (b) indirect share (indirect accepted ÷ total accepted) − the same mean.
 A day with several auctions takes the mean across them. **Trade:** ZN next weekday open → close (d10 bps), cost d12.COST; strong (> 0) → long for **follow**, short for
 **fade**: 2 measures × 2 rules = 4 cells. **Discovery** 2010-01 → 2022-12: carry if mean > 0, t > 1.96. **Sealed** 2023-01 → 2026-08, strict rule as §1125.
+
+## §1130 — Family 178: auction strength does not carry into ZN's next session — 0 of 4 carried (best +0.58 bp, t 0.62) (S1)
+
+**No trial.** `reporting/d178_auctions.py`, 1,721 Fiscal Data coupon auctions (2009 →), 1,093 auction days in discovery 2010-2022. Bid-to-cover follow +0.53 (t 0.57), fade
+−1.33; indirect share follow −1.38, fade +0.58. The auction is priced by the close.
