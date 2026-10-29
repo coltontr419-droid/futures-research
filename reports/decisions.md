@@ -18422,3 +18422,6 @@ limits not binding at these sizes; grid take ∈ {0.1…0.45} × dd, stop ∈ {0
 (other era): 100K MNQ RTH +$3,028 / +$2,445 (Option 1: +$7,809 / +$7,553); 100K MNQ full +$2,544 / +$3,105; 100K MGC London +$2,513 / +$1,536; 50K +$1.8-3.0k;
 150K +$2.0-3.8k. The DLL forces a stop of ≈ half the drawdown, which costs more than the EOD floor saves. Option 1 (intraday trailing, no DLL) stays.
 Script: scripts/a126_fast_track_option2.py.
+**§1099 addendum 2 (fills):** 100K, take $800 / stop $4,000, per 84 sessions with the entry 1/2/3 ticks worse and the take needing 1/1/2 ticks of trade-through:
+MNQ RTH 2010-20 +$7,553 → +$7,529 / +$7,152 / +$6,887, 2021-26 +$7,809 → +$7,219 / +$6,839 / +$6,725; MNQ full +$8.1-8.7k → +$7.1-8.3k; MGC London +$5.1-7.4k → +$4.2-6.2k.
+Worse fills cost ≈ 5-20%; none changes the sign. Script: scripts/a124_fill_ticks.py.
