@@ -18506,3 +18506,11 @@ risk, §1103); the observed values sit at the 44th / 11th / 6th / 14th percentil
 is a mild warning, not a verdict. The pre-registered 60-session read (§1095) stands for each variant. Script: scripts/a133_forward_calibration.py.
 **§1098 addendum 4 (discount):** a 45%-off code for Fast Track and Momentum has been listed since the August 2026 launch (eltraderfinanciado.com, updated 2026-08-27; godfunded.com
 lists a 45% code with no end date); the user paid exactly 45% off on the 50K (§1092). Treat 45% as near-verified, product-wide; confirm on the 100K at checkout.
+
+## §1108 — A134: the three human-hour 100K plans by calendar year (S10)
+
+**No trial.** `scripts/a134_by_year.py`, one slot each, continuous timeline (re-buy next session), minute engine, drift removed, $356 per account, 90% split. Net per year
+(payouts / accounts bought): MNQ day 2016-26 every year positive, +$3.9k (2024: 9 payouts / 46 accounts) to +$46.1k (2023); MNQ full 2015-26 +$3.4k to +$46.2k; MGC full
+2011-26 positive except **2012 −$4,277 (0 payouts / 12 accounts)**, range +$0.2k (2013) to +$45.6k (2025). Three slots together: every full year 2013-2026 positive,
++$41k (2022) to +$108k (2023); median ≈ +$65k a year ≈ $5.4k a month for 3 slots in backtests. Churn is the price: 15-46 accounts bought per slot-year (≈ $5-16k of fees
+recycled from payouts), so cash flow must cover runs of 10+ blown accounts. Payout-denial risk (§1105) is outside these numbers.
