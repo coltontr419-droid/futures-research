@@ -18425,3 +18425,12 @@ Script: scripts/a126_fast_track_option2.py.
 **§1099 addendum 2 (fills):** 100K, take $800 / stop $4,000, per 84 sessions with the entry 1/2/3 ticks worse and the take needing 1/1/2 ticks of trade-through:
 MNQ RTH 2010-20 +$7,553 → +$7,529 / +$7,152 / +$6,887, 2021-26 +$7,809 → +$7,219 / +$6,839 / +$6,725; MNQ full +$8.1-8.7k → +$7.1-8.3k; MGC London +$5.1-7.4k → +$4.2-6.2k.
 Worse fills cost ≈ 5-20%; none changes the sign. Script: scripts/a124_fill_ticks.py.
+
+## §1101 — A127: Bulenox Momentum (evaluation + free Master) on the minute engine — weak or negative at every size; and AI-agent task marketplaces — closed (S10/S11)
+
+**No trial.** `reporting/a127_momentum.py`, help-center terms (Option 1; Master: 5 qualifying days, 35% consistency, minimum payout balance, reserve = drawdown, caps by payout
+number, later goal $1k-5k), separate evaluation/Master brackets chosen on one era and scored on the other, MNQ RTH long, price at 45% off (and list): 25K +$162 / −$262
+(list −$468 / −$591); 50K −$36 / −$235 (list −$804 / −$922); 100K −$470 / −$340 (list −$2,626 / −$1,277); 150K +$662 / +$491 (list −$557 / −$461); 11-39 evaluations per
+payout. The Master's reserve plus five-day and 35% gates make most passed evaluations die before a payout. Fast Track 100K (§1098) stays the Bulenox product.
+**AI-agent task marketplaces (desk):** toku.agency (Stripe USD, 85/15), dealwork.ai, opentask.ai/BasedAgents/OKX AI (USDC/USDT) — promoter-written listings, crypto
+settlement on most, no measurable demand. Closed.
