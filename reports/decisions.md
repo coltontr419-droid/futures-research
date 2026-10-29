@@ -18355,3 +18355,17 @@ a $2k stop. **Forward test:** `reporting/a122_forward.py` pulls Yahoo NQ=F 1-min
 `futres-a122fwd.timer` (Mon-Fri 16:30 CT, persistent). First read (21 sessions, 09-30 → 10-28): 3 accounts, 1 payout ($2,000), net +$995 (+$3,979 per 84).
 **Pre-registered read** when the NKD payout arrives (or at 60 sessions): a red flag if net per 84 sessions < $0 or accounts per payout > 6; otherwise consistent with
 the history. Not a confirmation either way (one path, ~3 months).
+
+## §1096 — Overnight search 2026-10-29 (user: ≥ 90% autonomous / ≤ 10% human effort, ≥ $2k/month per stream). Screen: freelance scraping on Upwork — fails the effort bar (S11)
+
+**No trial (desk; Upwork's public category pages).** Open sample: 278 "Web Scraping" and 531 "Web Data Scraping" jobs; most are $25-150 contact-finding or
+list-building tasks, a few $1.5-5k builds (ad-spy platform, Accredia database, ticket bot). Reaching $2k/month needs ≈ 4-8 wins at $300-500; a new profile wins
+a few % of bids, so ≈ 150-250 proposals a month, each submitted by the user (Upwork bans automated bidding) plus client calls and revisions — well above 10% of the
+work. Kept only as the inbound Apify-Discord channel already running. Closed as a stream.
+
+## §1097 — A123: Fast Track account-management policies (payout reserve, room-capped stop, bracket) on the A122 minute engine — the A122 plan is already best (S10)
+
+**No trial.** `reporting/a123_fast_track_policy.py`: grid W ∈ {450, 650, 900} × L ∈ {1,500, 2,000} × payout reserve R ∈ {0, 500, 1,000, 1,500} × stop cut to the
+room minus M ∈ {none, $50, $250} (skip if room < $300); chosen on one era, scored on the other. **Both eras choose the A122 plan** (take $650 / stop $2,000, full
+payout, no stop cut): +$3,872 / +$3,876 per 84 sessions. Reserves ≤ $1,000 change nothing (the $2,000 cap binds first); R $1,500 and every room-capped stop are worse
+(stop cuts turn tolerable dips into realised losses and skipped days). The post-payout blow-ups are the price of the payout, not a fixable leak.
