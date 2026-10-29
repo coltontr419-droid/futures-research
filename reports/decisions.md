@@ -18812,3 +18812,7 @@ sealed 2023-01 → 2026-08 strict rule; placebo = random Wednesdays).
 **Written and committed BEFORE any statistic is computed; N 1,563.** Untested here. **Dates:** USDA ESMIS WASDE listing (692 releases, 1973 →; `data/wasde/dates.txt`).
 **Cells:** ZC, ZS, ZW × {long, short}, release-day open → close = 6 cells, read as §1140 (drift-neutral excess vs all other days; discovery 2010-03 → 2022-12, carry if
 excess > 0 and t > 1.96; sealed 2023-01 → 2026-08 strict rule; placebo = random days of the same weekday mix — here random trading days).
+
+## §1150 — Family 184: WASDE days — 0 of 6 carried (best ZW short +18.5 bp vs other days, t 1.08; 155 releases) (S1)
+
+**No trial.** `reporting/d184_wasde.py`, `reports/d184_discovery.json`. Release days are bigger-range days with no directional lean. Closed.
