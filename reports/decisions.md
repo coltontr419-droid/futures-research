@@ -18823,3 +18823,9 @@ excess > 0 and t > 1.96; sealed 2023-01 → 2026-08 strict rule; placebo = rando
 MNQ full +$6,379 / +$6,679, MGC full +$6,532 / +$6,006. Best k (0.5, chosen on either era) scored on the other: MNQ day +$5,858 (vs +$6,134) / +$6,610 (vs +$6,339);
 MNQ full +$6,818 / +$6,086 (vs +$6,679 / +$6,379); MGC full +$6,208 / +$6,556 (vs +$6,006 / +$6,532). Wider vol stops (k ≥ 1) are clearly worse. Within ±5% either
 way: the fixed bracket stays (simpler, and the forward test is registered on it).
+
+## §1152 — D-series family 185 protocol: COMEX gold options expiry (4th-last business day of each month) in GC; mid-month Treasury coupon day (15th) in ZN (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Neither calendar is in the archive. **Dates:** OG monthly expiry = the 4th-last d10 trading day of
+each month; coupon day = the 15th, or the next d10 trading day. **Cells:** GC × {expiry day, next day} × {long, short} and ZN coupon day × {long, short} = 6 cells,
+read as §1140 (drift-neutral excess; discovery 2010-03 → 2022-12, carry if excess > 0 and t > 1.96; sealed strict rule; placebo random trading days).
