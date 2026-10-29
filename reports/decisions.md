@@ -18400,3 +18400,6 @@ MNQ RTH vs MNQ full −0.29 / +0.21. Five slots split across MNQ RTH, MNQ full s
 cut the joint bad-run risk that §1098's five identical slots carry: ≈ $6-7k a month in backtests. Execution: MNQ RTH 09:30 ET and MGC 03:00 ET / MNQ 18:00 ET
 entries are one bracket each; the 03:00 entry needs a scheduled order or the +$100/month bot. Caveats as §1098 (100K caps unverified); MGC/MNQ-full not yet in
 the forward test. Script: scripts/a125_fast_track_markets.py.
+**§1099 addendum (forward):** `a122_forward.py` now also replays the 100K on MNQ full session and MGC London from Yahoo NQ=F / GC=F (data/forward/gc_1m.parquet).
+First read (2026-10-01 → 10-28): MNQ full 16 sessions −$2,138 (6 accounts, no payout), MGC London 20 sessions −$2,138 (6 accounts) — session ranges match the history
+(median $1,034 vs $1,033 and $466 vs $489 per contract), so this is outcome, not data; too few sessions to read (the §1095 60-session rule applies to each).

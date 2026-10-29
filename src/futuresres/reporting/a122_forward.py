@@ -23,13 +23,15 @@ from futuresres.reporting.a122_fast_track_minute import TERMS, simulate
 
 ROOT = Path(__file__).resolve().parents[3]
 STORE = ROOT / "data" / "forward" / "nq_1m.parquet"
+STORE_GC = ROOT / "data" / "forward" / "gc_1m.parquet"
 NY = zoneinfo.ZoneInfo("America/New_York")
 FIRST = dt.date(2026, 9, 30)          # first day Yahoo still had at the start; the A23 history ends 2026-08-27
 URL = "https://query1.finance.yahoo.com/v8/finance/chart/NQ=F"
 
 
-def fetch() -> pd.DataFrame:
+def fetch(url: str = URL) -> pd.DataFrame:
     from curl_cffi import requests
+    URL = url
     now = int(time.time()); rows = []
     for back in (29, 22, 15, 8, 1):
         p1 = now - back * 86400; p2 = min(now, p1 + 7 * 86400 + 3600)
@@ -43,13 +45,38 @@ def fetch() -> pd.DataFrame:
     return pd.concat(rows).dropna() if rows else pd.DataFrame(columns=["ts", "open", "high", "low", "close"])
 
 
-def update() -> pd.DataFrame:
-    new = fetch()
-    old = pd.read_parquet(STORE) if STORE.exists() else new.iloc[:0]
+def update(store: Path = STORE, url: str = URL) -> pd.DataFrame:
+    new = fetch(url)
+    old = pd.read_parquet(store) if store.exists() else new.iloc[:0]
     df = pd.concat([old, new]).drop_duplicates("ts", keep="last").sort_values("ts").reset_index(drop=True)
-    STORE.parent.mkdir(parents=True, exist_ok=True)
-    df.to_parquet(STORE)
+    store.parent.mkdir(parents=True, exist_ok=True)
+    df.to_parquet(store)
     return df
+
+
+def window(df: pd.DataFrame, start: int, end: int, mult: float):
+    """Complete sessions of a window [start, end) ET (HHMM; start > end means it opens the evening before) as 1-contract $ paths."""
+    t = pd.to_datetime(df["ts"], unit="s", utc=True).dt.tz_convert(NY)
+    hm = t.dt.hour * 100 + t.dt.minute
+    over = start > end
+    day = (t + pd.Timedelta(hours=6)).dt.date if over else t.dt.date
+    keep = ((hm >= start) | (hm < end)) if over else ((hm >= start) & (hm < end))
+    df = df.assign(day=day, hm=hm)[keep]
+    df = df[df.day >= FIRST]
+    now = dt.datetime.now(NY); lastbar = (end // 100 * 60 + end % 100) - 5
+    H, Lo, C, D = [], [], [], []
+    for d, g in df.groupby("day"):
+        h0 = g.hm.iloc[0]
+        if not (start <= h0 < start + 5):
+            continue
+        if d >= now.date() and now.hour * 60 + now.minute < lastbar + 10:
+            continue
+        if (g.hm.iloc[-1] // 100 * 60 + g.hm.iloc[-1] % 100) < lastbar - 30:
+            continue
+        e = float(g.open.iloc[0])
+        H.append(((g.high.values - e) * mult).astype(np.float32)); Lo.append(((g.low.values - e) * mult).astype(np.float32))
+        C.append(((g.close.values - e) * mult).astype(np.float32)); D.append(d)
+    return H, Lo, C, D
 
 
 def sessions(df: pd.DataFrame):
@@ -90,6 +117,16 @@ def main() -> int:
         out["100K"] = {"net": round(v * len(C) / 84, 2), "net_per_84": round(v, 2), "accounts_per_payout": round(pp, 2)}
         (ROOT / "reports" / "a122_forward.json").write_text(json.dumps(out, indent=1) + "\n")
         lines += [f"100K variant (A124): net ${out['100K']['net']:+,.0f} (${v:+,.0f} per 84 sessions; history long +$6.4k per 84, fresh windows).", ""]
+    # A125 (§1099): 100K on MNQ full session 18:00-16:55 ET and MGC London 03:00-11:30 ET (long, take $800 / stop $4,000)
+    gc = update(STORE_GC, "https://query1.finance.yahoo.com/v8/finance/chart/GC=F")
+    for key, (frame, st, en, mult, ref) in {"100K MNQ full session": (df, 1800, 1655, 2.0, "+$6.4-7.2k"),
+                                           "100K MGC London": (gc, 300, 1130, 10.0, "+$3.5-6.1k")}.items():
+        h2, l2, c2, d2 = window(frame, st, en, mult)
+        if c2:
+            v, pp = sim2(h2, l2, c2, 800.0, 4000.0, 0, None, dict(TERMS, **SIZES["100K"]))
+            out[key] = {"sessions": len(c2), "net": round(v * len(c2) / 84, 2), "net_per_84": round(v, 2), "accounts_per_payout": round(pp, 2)}
+            lines += [f"{key} (A125): {len(c2)} sessions, net ${out[key]['net']:+,.0f} (${v:+,.0f} per 84; history long {ref} per 84, fresh windows).", ""]
+    (ROOT / "reports" / "a122_forward.json").write_text(json.dumps(out, indent=1) + "\n")
     lines += ["| Date | Event | $ | Account balance (P&L) |", "|---|---|---|---|"]
     fm = lambda v: "" if v is None else f"{v:+,.0f}"
     lines += [f"| {d} | {e} | {fm(a)} | {fm(b)} |" for d, e, a, b in r["log"]]
