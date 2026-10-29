@@ -18582,3 +18582,9 @@ sealed 2023-01 → latest, read once. A discovery mean ≤ 0 closes it.
 not. **Data:** `pack.npz` adjusted closes (2,012 liquid US names, 2015-01 → 2026-10). **Signal at the close of d:** B = share of names (with 50 prior closes) above their
 50-session mean; z = B − mean of B over the previous 250 sessions. **Rule:** z < 0 (washed out) → long QQQ close d → d+1, else short. **Statistic, costs, placebo:** as §1114.
 **Split:** discovery 2016-01 → 2022-12; sealed 2023-01 → latest, read once. A discovery mean ≤ 0 closes it.
+
+## §1116 — S-family 3 discovery: breadth is not a contrarian sign for MNQ — −6.44 bp a session, t −1.67; closed without a sealed read. NAAIM: data behind scripts (S1)
+
+**No trial (discovery fail, §1115).** `stocks/s3_breadth.py`, 1,714 sessions 2016-01 → 2022-12, long on 48% of them. The sign runs the other way (weak breadth → weaker
+next day), but reversing it after seeing it would be a new, data-led hypothesis; not registered. NAAIM exposure index: the site serves the series only through
+scripts (no file link), so it is not used. AAII sentiment: `sentiment.xls` returns 403.
