@@ -1,0 +1,52 @@
+{
+ "cells": [
+  {
+   "target": "ES",
+   "side": "long",
+   "n": 98,
+   "excess_bps": 8.94,
+   "t": 1.13,
+   "net_bps": 13.63
+  },
+  {
+   "target": "ES",
+   "side": "short",
+   "n": 98,
+   "excess_bps": -8.94,
+   "t": -1.13,
+   "net_bps": -15.43
+  },
+  {
+   "target": "ZN",
+   "side": "long",
+   "n": 98,
+   "excess_bps": -3.16,
+   "t": -1.09,
+   "net_bps": -2.87
+  },
+  {
+   "target": "ZN",
+   "side": "short",
+   "n": 98,
+   "excess_bps": 3.16,
+   "t": 1.09,
+   "net_bps": 2.07
+  },
+  {
+   "target": "GC",
+   "side": "long",
+   "n": 98,
+   "excess_bps": -3.85,
+   "t": -0.47,
+   "net_bps": -5.77
+  },
+  {
+   "target": "GC",
+   "side": "short",
+   "n": 98,
+   "excess_bps": 3.85,
+   "t": 0.47,
+   "net_bps": 4.17
+  }
+ ]
+}

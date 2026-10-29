@@ -18802,3 +18802,7 @@ backtests, before payout-denial risk and the start-up ruin (§1103).
 **Dates:** each `fomc_dates.json` decision date + 21 calendar days (the Fed's standing schedule), moved to the next d10 trading day if needed. **Cells:** ES, ZN, GC ×
 {long, short}, minutes-day open → close = 6 cells, read as §1140 (drift-neutral excess vs all other days; discovery 2010-03 → 2022-12, carry if excess > 0 and t > 1.96;
 sealed 2023-01 → 2026-08 strict rule; placebo = random Wednesdays).
+
+## §1148 — Family 183: FOMC minutes days — 0 of 6 carried (best ES long +8.9 bp vs other days, t 1.13; 98 days) (S1)
+
+**No trial.** `reporting/d183_minutes.py`, `reports/d183_discovery.json`. Closed.
