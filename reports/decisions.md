@@ -18434,3 +18434,12 @@ number, later goal $1k-5k), separate evaluation/Master brackets chosen on one er
 payout. The Master's reserve plus five-day and 35% gates make most passed evaluations die before a payout. Fast Track 100K (§1098) stays the Bulenox product.
 **AI-agent task marketplaces (desk):** toku.agency (Stripe USD, 85/15), dealwork.ai, opentask.ai/BasedAgents/OKX AI (USDC/USDT) — promoter-written listings, crypto
 settlement on most, no measurable demand. Closed.
+
+## §1102 — A128: a third, untouched MNQ era (2010-06 → 2015-11) confirms the Fast Track plans; era-label correction for §1095-1100 (S10)
+
+**Correction:** the A08 MNQ minute caches labelled "pre" start 2015-11-20 (1,251 sessions; the loader keeps complete 18:00-16:55 sessions only), so every MNQ "2010-20"
+in §1095-§1100 reads **2015-20**; MGC London's "pre" does start 2011-02. **No trial.** `scripts/a128_mnq_2010_15.py` builds RTH 09:30-16:00 minute paths straight from
+NQ_MNQ_spliced for 2010-06-07 → 2015-11-19 (795 complete sessions, drift removed, scaled to today's notional like A08) and runs the plans unchanged (nothing chosen here):
+50K (take $650 / stop $2,000) long +$3,806 per 84 sessions (3.3 accounts per payout), fresh 84-session windows +$2,962, P>0 81%, worst −$4.1k; short +$1,998 / +$940, 57%.
+**100K (take $800 / stop $4,000) long +$6,948 (2.1 per payout), fresh windows +$5,710, P>0 88%, p10 −$846, worst −$3.3k**; short +$4,573 / +$3,363, 72%. Three eras now
+agree on the long 100K: +$6.9k / +$7.6k / +$7.8k per 84 sessions (2010-15 / 2015-20 / 2021-26).
