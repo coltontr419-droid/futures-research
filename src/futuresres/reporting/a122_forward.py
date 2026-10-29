@@ -120,7 +120,8 @@ def main() -> int:
     # A125 (§1099): 100K on MNQ full session 18:00-16:55 ET and MGC London 03:00-11:30 ET (long, take $800 / stop $4,000)
     gc = update(STORE_GC, "https://query1.finance.yahoo.com/v8/finance/chart/GC=F")
     for key, (frame, st, en, mult, ref) in {"100K MNQ full session": (df, 1800, 1655, 2.0, "+$6.4-7.2k"),
-                                           "100K MGC London": (gc, 300, 1130, 10.0, "+$3.5-6.1k")}.items():
+                                           "100K MGC London": (gc, 300, 1130, 10.0, "+$3.5-6.1k"),
+                                           "100K MGC full session": (gc, 1800, 1655, 10.0, "+$6.1-10.2k")}.items():
         h2, l2, c2, d2 = window(frame, st, en, mult)
         if c2:
             v, pp = sim2(h2, l2, c2, 800.0, 4000.0, 0, None, dict(TERMS, **SIZES["100K"]))

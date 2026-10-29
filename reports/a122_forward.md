@@ -1,4 +1,4 @@
-# Fast Track forward test (A122) — updated 2026-10-29T03:17-04:00 ET
+# Fast Track forward test (A122) — updated 2026-10-29T03:54-04:00 ET
 
 Sessions 21 (2026-09-30 → 2026-10-28), long, 3 MNQ, take 108.25 / stop 333.25 pts, minute replay.
 
@@ -11,6 +11,8 @@ Reference: A122 history, long, minute replay: +$3,872 (2010-20) / +$3,876 (2021-
 100K MNQ full session (A125): 16 sessions, net $-2,138 ($-11,227 per 84; history long +$6.4-7.2k per 84, fresh windows).
 
 100K MGC London (A125): 20 sessions, net $-2,138 ($-8,981 per 84; history long +$3.5-6.1k per 84, fresh windows).
+
+100K MGC full session (A125): 16 sessions, net $-1,782 ($-9,356 per 84; history long +$6.1-10.2k per 84, fresh windows).
 
 | Date | Event | $ | Account balance (P&L) |
 |---|---|---|---|

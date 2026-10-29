@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T03:17-04:00",
+ "updated": "2026-10-29T03:54-04:00",
  "first": "2026-09-30",
  "last": "2026-10-28",
  "sessions": 21,
@@ -162,5 +162,11 @@
   "net": -2138.4,
   "net_per_84": -8981.28,
   "accounts_per_payout": 6.0
+ },
+ "100K MGC full session": {
+  "sessions": 16,
+  "net": -1782.0,
+  "net_per_84": -9355.5,
+  "accounts_per_payout": 5.0
  }
 }

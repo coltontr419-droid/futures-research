@@ -18491,3 +18491,12 @@ free to apply; Apify shares inbound custom-project leads with its best certified
 **§1099 addendum 3 (size by market):** era-swapped, per 84 sessions (other era): MNQ full session 25K +$1.1-1.6k, 50K +$3.2-3.9k, **100K +$8.1-8.7k (23-24× its fee)**, 150K +$7.7-8.0k;
 MGC London 25K +$1.2-1.3k, 50K +$2.4-2.5k, **100K +$4.3-5.1k (12-14×)**, 150K +$4.2-4.3k. The 100K is the best size per slot and per dollar on every market tested.
 Script: scripts/a131_sizes_by_market.py.
+
+## §1107 — A132: gold on the full session (entry 18:00 ET / 5:00 PM CT) beats gold London and keeps every entry at a human hour (S10)
+
+**No trial.** 100K Fast Track, era-swapped, per 84 sessions (other era): **MGC full session 18:00-16:55 ET long +$8,037 / +$7,769 (1.8-2.0 accounts per payout), short
++$9,221 / +$9,163**; MGC evening 21:00-16:55 long +$7.3k / +$6.4k, short +$6.0k / +$5.7k (London 03:00-11:30 was +$4.3-5.1k, §1099). Fresh 84-session windows, MGC full long
+(take $800 / stop $4,000): mean +$6.1k (2011-20, P>0 91%) / +$10.2k (2021-26, P>0 86%). Window-outcome correlation: vs MNQ RTH −0.28 / −0.28 (no window negative on both),
+vs MNQ full +0.39 / −0.15 (both negative 1-4%). **A five-slot plan with every entry at a human hour:** MNQ day (8:30 AM CT) + MNQ full session (5:01 PM CT) + MGC full
+session (5:01 PM CT), one side per market (opposite sides across accounts would be hedging). The 2:00 AM CT London entry (needs a bot → Bulenox approval) is no longer needed.
+Script: scripts/a132_mgc_full_session.py.
