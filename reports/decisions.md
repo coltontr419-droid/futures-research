@@ -18324,3 +18324,11 @@ at zero edge:** DARWIN returns are risk-normalised (leverage cannot buy variance
 fee ≈ 15% × 3% × €30-80k ≈ €130-360 per allocation. Even at an optimistic 30% monthly allocation rate that is ≈ €40-110/month per subscription against
 €45, and extra subscriptions need uncorrelated DARWINs. Below the bar before any data; a real edge would be traded directly instead. Closed.
 Sources: darwinexzero.document360.io (DarwinIA SILVER, performance fees), luxalgo.com (restricted countries), mql5.com blog 776722 (rating weights, €45).
+
+## §1094 — Screen: RL-environment bounties (Prime Intellect Environments Hub) and selling environments to AI labs — closed: semi-automated, below the $10k bar (S11)
+
+**No trial (desk, 2026-10-29).** Prime Intellect pays per accepted environment: open-access bounties $100-500, application-only tasks reportedly $1-5k
+(third-party), with 400+ contributors and 2,500+ environments already built. Most of the build could be done by code, but every bounty needs the user to apply,
+submit and go through human review, so the user's §feedback rule puts the bar at $10k/month; the pool (≈ hundreds of thousands of dollars across the
+whole ecosystem) and per-item pay make that unreachable. Direct sales to AI labs need a company and sales relationships. Closed.
+Sources: primeintellect.ai/blog/scaling-environments-program, zylos.ai research 2026-07-15.
