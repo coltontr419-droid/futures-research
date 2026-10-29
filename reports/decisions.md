@@ -18984,3 +18984,12 @@ X (the miner only reads the post text the validator sends).
 maximum clique) is added. One solver farm can serve all UIDs (a public fork hashes graphs to share work). Upgraded from "not competitive" to a live candidate.
 Other flat-payout subnets (chain, TAO $239; p10/p50/p90 per miner UID, burn): SN33 ReadyAI $142/$198/$240, $10; SN32 ItsAI $146/$225/$261, $8; SN22 Desearch
 $47/$196/$245, $5; SN13 Data Universe $51/$117/$127, $5; SN5 Hone $991/$1,069/$1,132, $109 (coldkey concentration being checked).
+
+## §1173 — SN33 ReadyAI: another flat LLM-tagging payout; a three-subnet stack on one server (S11)
+
+**No trial (desk).** ReadyAI miners tag windows of conversations with an LLM (GPT-4o default; OpenAI-compatible overrides) and are scored by cosine distance to the
+validator's own full-conversation tags; output is published as a Hugging Face dataset. Chain: median UID ≈ $198 a month, p10 $142, registration ≈ $10. With SN101
+(§1171) and SN50 (§1164-§1170), a stack of ≈ 10 UIDs each on one VPS ≈ $2.8-3.7k + ≈ $2.0k + ≈ $2.0-2.2k ≈ **$7-8k a month at today's prices** if our UIDs earn
+near the medians (SN101 and SN33 are flat; SN50 backtested at/above median on crypto). Registration ≈ $60 + $100 + $2,000. LLM costs ≈ cents to a few dollars a day.
+Terms: for LLM-tagging subnets whose outputs become public training data, use OpenAI or open-weight models (not Claude) to stay clear of Anthropic's competing-model
+restriction; the user picks the provider and holds the key.
