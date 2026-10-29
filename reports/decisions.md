@@ -18588,3 +18588,12 @@ not. **Data:** `pack.npz` adjusted closes (2,012 liquid US names, 2015-01 → 20
 **No trial (discovery fail, §1115).** `stocks/s3_breadth.py`, 1,714 sessions 2016-01 → 2022-12, long on 48% of them. The sign runs the other way (weak breadth → weaker
 next day), but reversing it after seeing it would be a new, data-led hypothesis; not registered. NAAIM exposure index: the site serves the series only through
 scripts (no file link), so it is not used. AAII sentiment: `sentiment.xls` returns 403.
+
+## §1117 — S-family 4 protocol: the off-exchange short-volume ratio (a "DIX"-style dealer-buying gauge) as a next-session sign for MNQ, current regime (S1)
+
+**Written and committed BEFORE any statistic is computed; one trial on the sealed read.** Mechanism claimed by SqueezeMetrics (2017, "Short Is Long"): off-exchange short
+volume is mostly market makers selling into customer buying, so a high ratio marks buying pressure. **Data:** FINRA Reg SHO consolidated daily files
+(`cdn.finra.org/equity/regsho/daily/CNMSshvol{YYYYMMDD}.txt`, published the same evening), 2018-08 →. **Signal at the close of d:** D = Σ ShortVolume × price ÷
+Σ TotalVolume × price over the 500 `pack.npz` names with the largest prior-60-session dollar volume (price = that day's `pack` close); z = D − mean of D over the previous
+60 sessions. **Rule:** z > 0 → long QQQ close d → d+1, else short. **Statistic, costs, placebo:** as §1114. **Split:** discovery 2018-11 → 2022-12; sealed 2023-01 → latest,
+read once. A discovery mean ≤ 0 closes it.
