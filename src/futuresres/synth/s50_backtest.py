@@ -110,13 +110,38 @@ def minutes(asset: str, t0: int, t1: int) -> dict:
     return have
 
 
-def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, slot0: int = 0, k: float = 1.0, stride: int = 5, day0: int = 0) -> np.ndarray:
+def hl1h(asset: str) -> dict:
+    """Hyperliquid 1-hour closes {open_ms: close} (~5,000 h ≈ 208 days), cached."""
+    f = CACHE / f"hl1h_{asset}.json"
+    if f.exists() and time.time() - f.stat().st_mtime < 6 * 3600:
+        return {int(k): v for k, v in json.loads(f.read_text()).items()}
+    now = int(time.time() * 1000)
+    rows = requests.post("https://api.hyperliquid.xyz/info", json={"type": "candleSnapshot", "req": {"coin": HYPERLIQUID[asset], "interval": "1h",
+                         "startTime": now - 5000 * 3600000, "endTime": now}}, timeout=60, impersonate="chrome").json()
+    have = {int(c["t"]): float(c["c"]) for c in rows}; f.write_text(json.dumps(have)); return have
+
+
+def hour_profile(H: dict, t0: int) -> tuple[np.ndarray, np.ndarray]:
+    """Per-5-minute-step vol (log units) by UTC hour, weekday and weekend, from hourly closes strictly before t0 (hour vol / sqrt(12))."""
+    ks = np.array(sorted(k for k in H if k < t0 - 3600000)); v = np.array([H[k] for k in ks]); r = np.diff(np.log(v)); ks = ks[1:]
+    tt = [dt.datetime.fromtimestamp(k / 1000, dt.timezone.utc) for k in ks]; hr = np.array([t.hour for t in tt]); we = np.array([t.weekday() >= 5 for t in tt])
+    prof = lambda mask: np.array([np.sqrt(np.mean(r[(hr == h) & mask] ** 2)) if ((hr == h) & mask).sum() > 3 else np.nan for h in range(24)]) / np.sqrt(12)
+    a, b2 = prof(~we), prof(we)
+    return np.where(np.isnan(a), np.nanmedian(a), a), np.where(np.isnan(b2), np.nanmedian(b2), b2)
+
+
+def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, slot0: int = 0, k: float = 1.0, stride: int = 5, day0: int = 0,
+             hprof: tuple | None = None) -> np.ndarray:
     """1,000 paths of 289 prices at 5-minute steps from the 1-minute closes before t0 (closes end at t0 - 1 min, aligned to 5-minute slots;
     slot0 = t0's 5-minute slot of the UTC day)."""
     r5 = np.diff(np.log(closes[::stride]))                  # 5-minute log returns, oldest first
     if model.startswith("tod"):                              # time-of-day vol profile x EWMA level, bootstrapped standardised shocks
         m = len(r5); slots = (slot0 - m + np.arange(m)) % 288
-        if "_wk" in model:                                   # separate weekday / weekend profiles (day0 = weekday of t0's UTC day, Mon=0)
+        if "_lh" in model and hprof is not None:            # long hourly weekday/weekend profile (Hyperliquid 1 h candles, ~200 days)
+            dow = (day0 + (slot0 - m + np.arange(m)) // 288) % 7; wkd = dow >= 5
+            P_wd = np.repeat(hprof[0], 12); P_we = np.repeat(hprof[1], 12); prof_hist = np.where(wkd, P_we[slots], P_wd[slots])
+            fdow = (day0 + (slot0 + np.arange(steps)) // 288) % 7; fs = (slot0 + np.arange(steps)) % 288; fut_prof = np.where(fdow >= 5, P_we[fs], P_wd[fs])
+        elif "_wk" in model:                                 # separate weekday / weekend profiles (day0 = weekday of t0's UTC day, Mon=0)
             dow = (day0 + (slot0 - m + np.arange(m)) // 288) % 7; wkd = dow >= 5
             def mk(mask):
                 pr = np.array([np.sqrt(np.mean(r5[(slots == j) & mask] ** 2)) if ((slots == j) & mask).any() else np.nan for j in range(288)])
@@ -179,6 +204,7 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
     t_hi = int(dt.datetime.fromisoformat(starts[-1].replace("Z", "+00:00")).timestamp() * 1000)
     hl = asset in HYPERLIQUID
     M = hl5(asset) if hl else minutes(asset, t_lo, t_hi)
+    H = hl1h(asset) if hl else None
     keys = np.array(sorted(M)); vals = np.array([M[k] for k in keys])
     stride, look = (1, 6 * 288) if hl else (5, 31 * 1440)
     rng = np.random.default_rng(1164)
@@ -192,7 +218,8 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
         if i < look:
             continue
         hist = vals[i - look:i]; s0 = float(hist[-1]); slot0 = (t0 // 300000) % 288; day0 = dt.datetime.fromtimestamp(t0 / 1000, dt.timezone.utc).weekday()
-        ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=float(m.split("@")[1]) if "@" in m else 1.0, stride=stride, day0=day0),
+        hp = hour_profile(H, t0) if H else None
+        ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=float(m.split("@")[1]) if "@" in m else 1.0, stride=stride, day0=day0, hprof=hp),
                             np.array(real, float), 300, INTERVALS) for m in models}
         rows.append({"start": st, "field": P[st], **ours})
     out = summarise(rows, models)

@@ -18935,3 +18935,12 @@ Hyperliquid 5-minute feed matches the validator's level and vol; the gap is unif
 emissions ≈ $60.6k/month, four equal competitions): ≈ 0.6% of Crypto-24h + ≈ 0.6% of Crypto-1h + ≈ 0 of Com/Equ and VHFT ≈ **$190 a month per UID** (median UID $201);
 registration ≈ 0.8 TAO ($202) per UID, no duplicate-submission penalty in the code. 10-15 UIDs ≈ $1.9-2.8k/month for ≈ $2-3k of TAO, paid in SN50 alpha (price risk:
 alpha $0.90, TAO $253). Fully automatable after setup (VPS with a public port; wallet keys stay with the user). Kraken lists TAO (Texas availability to confirm).
+
+## §1168 — SN50 equities: longer profiles do not close the gap; live miner forecast module built and format-checked (not deployed) (S11)
+
+**No trial.** Com/Equ-24h: weekday/weekend profiles lift XAU to 0.12% (median UID 0.28%) and SP500 to 0.15% (0.37%); a 200-day hourly profile from Hyperliquid 1 h
+candles adds nothing (SP500 21.0 vs field 15.2); oracle-k bounds SP500 18.5 / XAU 27.1 vs field 14.2 / 21.8, so the deficit is shape or timing, not the vol level. SN50
+alpha $0.86 (90-day range $0.93-1.31), TAO $239 (range $193-301). **`synth/miner_model.py`**: `generate_simulations(asset, start, increment, length)` for every prompt
+type — Crypto-24h todg_12_36_c_ou20 @0.95, Crypto-1h tod1_120_240, Hyperliquid assets todg_12_36_c_wk @1.0 — from live Binance-mirror and Hyperliquid data; output
+in the validator's format (8 significant digits), 1-5 s per forecast with warm caches (first fill ≈ 75 s, so a cache warmer must run). Per-UID estimate now ≈ $220/month
+at today's prices with equities at their current shares.
