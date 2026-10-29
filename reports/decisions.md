@@ -18976,3 +18976,11 @@ only 16 under $100 a month; percentiles 10/25/50/75/90 = $155 / $281 / $291 / $3
 alpha-price changes and the ≈ 4% dilution they cause. Needs: an LLM API key (user's choice of provider; open-weight providers work through the OpenAI-compatible
 URL), a VPS with a public port, the user's wallet. Risks: SN101 alpha price ($0.81) and the subnet's emission share can fall; the scorer can change; posts come from
 X (the miner only reads the post text the validator sends).
+
+## §1172 — SN83 CliqueAI: an 8-core portfolio (6 NuMVC + 2 greedy/DLS-MC seeds, best kept) ties the field's best on 53 of 60 problems at half the time limit (S11)
+
+**No trial.** `synth/clique_portfolio.py`: same 60 problems as §1165; all 7 misses are one vertex short on ≈ 900-vertex graphs. A one-short answer scores ≈ 0.4 of the best
+(exp(−pr/rel)); ≈ 12% misses puts the average optimality ≈ 0.93 — plausibly near the median UID (≈ $509/month, burn ≈ $38) once diversity credit (returning a different
+maximum clique) is added. One solver farm can serve all UIDs (a public fork hashes graphs to share work). Upgraded from "not competitive" to a live candidate.
+Other flat-payout subnets (chain, TAO $239; p10/p50/p90 per miner UID, burn): SN33 ReadyAI $142/$198/$240, $10; SN32 ItsAI $146/$225/$261, $8; SN22 Desearch
+$47/$196/$245, $5; SN13 Data Universe $51/$117/$127, $5; SN5 Hone $991/$1,069/$1,132, $109 (coldkey concentration being checked).
