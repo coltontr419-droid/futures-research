@@ -97,6 +97,52 @@ def sessions(df: pd.DataFrame):
     return H, Lo, C, D
 
 
+STORE_NKD = ROOT / "data" / "forward" / "nkd_1m.parquet"
+TOKYO = zoneinfo.ZoneInfo("Asia/Tokyo")
+
+
+def nkd_dollar_week(df: pd.DataFrame) -> dict | None:
+    """Complete Tokyo sessions (09:00-15:00 JST) from FIRST, each traded with the dollar-week side (D227: the euro's open -> close over the 5 US
+    sessions through the alert day; long if it rose), 2 NKD at $5 a point, take $800 / stop $4,000, A123 minute engine, 3-payout cap as A137."""
+    import futuresres.reporting.a123_fast_track_policy as m
+    from futuresres.reporting.a124_fast_track_sizes import SIZES
+    from curl_cffi import requests
+    T = dict(TERMS, **SIZES["100K"]); m.RT = 4.72
+    q = requests.get("https://query1.finance.yahoo.com/v8/finance/chart/6E=F", params={"interval": "1d", "range": "3mo"}, impersonate="chrome", timeout=30).json()
+    q = q["chart"]["result"][0]; qo = q["indicators"]["quote"][0]
+    eur = {dt.datetime.fromtimestamp(t, NY).date(): (c / o - 1) for t, o, c in zip(q["timestamp"], qo["open"], qo["close"]) if o and c}
+    ed = sorted(d for d in eur if d.weekday() < 5)
+    t = pd.to_datetime(df["ts"], unit="s", utc=True).dt.tz_convert(TOKYO)
+    df = df.assign(day=t.dt.date, hm=t.dt.hour * 100 + t.dt.minute)
+    df = df[(df.hm >= 900) & (df.hm < 1500) & (df.day >= FIRST)]
+    now = dt.datetime.now(TOKYO)
+    bal = pk = cyc = cb = 0.0; npay = 0; bought = 1; paid = 0.0; n = 0
+    for day, g in df.groupby("day"):
+        if g.hm.iloc[0] > 905 or g.hm.iloc[-1] < 1450 or (day == now.date() and now.hour < 15):
+            continue
+        alert = day - dt.timedelta(days=1)
+        while alert.weekday() >= 5:
+            alert -= dt.timedelta(days=1)
+        prior = [d for d in ed if d <= alert][-5:]
+        side = 1.0 if len(prior) < 5 or prior[-1] != alert or sum(eur[d] for d in prior) >= 0 else -1.0
+        e = float(g.open.iloc[0]); h = (g.high.values - e) * 5.0; l = (g.low.values - e) * 5.0; c = (g.close.values - e) * 5.0
+        if side < 0:
+            h, l, c = -l, -h, -c
+        x, blown, pk, _ = m.trade(h, l, c, bal, pk, T, 400.0, 2000.0, 2, None); n += 1
+        if blown:
+            bought += 1; bal = pk = cyc = cb = 0.0; npay = 0; continue
+        bal += x; pk = max(pk, bal); cyc += x; cb = max(cb, x)
+        goal = T["goal1"] if npay == 0 else T["goalN"]; cons = T["cons"][min(npay, 2)]; amt = min(bal - T["lock"] - 0.01, T["caps"][min(npay, 3)])
+        if cyc >= goal and cb <= cons * cyc and amt >= T["pmin"]:
+            bal -= amt; npay += 1; paid += amt * T["split"]; cyc = cb = 0.0
+            if npay >= 3:
+                bought += 1; bal = pk = cyc = cb = 0.0; npay = 0
+    if not n:
+        return None
+    net = paid - bought * T["fee"]
+    return {"sessions": n, "net": round(net, 2), "net_per_84": round(net / n * 84, 2), "open_balance": round(bal, 2), "bought": bought}
+
+
 def main() -> int:
     df = update()
     H, Lo, C, D = sessions(df)
@@ -127,6 +173,15 @@ def main() -> int:
             v, pp = sim2(h2, l2, c2, 800.0, 4000.0, 0, None, dict(TERMS, **SIZES["100K"]))
             out[key] = {"sessions": len(c2), "net": round(v * len(c2) / 84, 2), "net_per_84": round(v, 2), "accounts_per_payout": round(pp, 2)}
             lines += [f"{key} (A125): {len(c2)} sessions, net ${out[key]['net']:+,.0f} (${v:+,.0f} per 84; history long {ref} per 84, fresh windows).", ""]
+    # A144 (§1161), added 2026-10-29 as a separate variant: the 100K NKD Tokyo slot (2 contracts) with the bot's dollar-week side
+    try:
+        r = nkd_dollar_week(update(STORE_NKD, "https://query1.finance.yahoo.com/v8/finance/chart/NKD=F"))
+        if r:
+            out["100K NKD Tokyo dollar-week"] = r
+            lines += [f"100K NKD Tokyo, dollar-week side (A144): {r['sessions']} sessions, net ${r['net']:+,.0f} (${r['net_per_84']:+,.0f} per 84; history 2025-26 "
+                      f"+$7.1k per 84, fresh windows).", ""]
+    except Exception as e:                                       # the NKD variant never blocks the registered ones
+        lines += [f"100K NKD Tokyo dollar-week: skipped ({type(e).__name__}: {e})", ""]
     (ROOT / "reports" / "a122_forward.json").write_text(json.dumps(out, indent=1) + "\n")
     lines += ["| Date | Event | $ | Account balance (P&L) |", "|---|---|---|---|"]
     fm = lambda v: "" if v is None else f"{v:+,.0f}"

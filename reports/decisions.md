@@ -18886,3 +18886,9 @@ long +$947 / short +$8,360 / rule +$7,127.** Reading: in the regime where D227 w
 
 **No trial (desk).** FutureTools AI (pay-per-task in USDC on Base/Solana), ClawTasks (decentralised), SwarmDock (subscription), Virtuals Revenue Network (agent commerce
 protocol), roborent.cc (USDT): crypto-settled or not per-task developer pay; excluded (no crypto). Nothing USD-denominated and per-task found.
+
+## §1163 — Forward test: the A144 NKD dollar-week slot added as a separate variant (registered variants unchanged) (S10)
+
+**No trial.** `reporting/a122_forward.py` now also replays the 100K NKD Tokyo slot (Yahoo NKD=F 1-minute, 09:00-15:00 JST, 2 contracts, take $800 / stop $4,000, the
+dollar-week side from Yahoo 6E=F daily, A137's 3-payout cap) from 2026-09-30 in every daily run; a failure in this variant never blocks the others. First read
+(2026-10-29, 20 sessions): 3 accounts bought, net −$1,069, the open account +$3,162. Read with the other variants at 60 sessions.
