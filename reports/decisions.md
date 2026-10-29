@@ -18953,3 +18953,14 @@ Equity perps on Hyperliquid stay unexplained. **Other subnets:** SN5 Hone (media
 terminal tasks — it needs a frontier coding agent, and Hone produces RL training signal, so using Claude's outputs there may conflict with Anthropic's terms on
 building competing models: not pursued without the user's decision. SN32 ItsAI (AI-text detection, ≈ $242 / $16) needs a SOTA detector (the field reports ≈ 98%
 accuracy): GPU model work, skipped. SN83 §1165.
+
+## §1170 — SN50: what real operators earn; Synth Ultra (the VHFT quarter) mapped; HYPE behind (S11)
+
+**No trial.** (1) **Operators today** (Synth leaderboard, alpha $0.862, 20 tempos/day): coldkeys with 20 UIDs earn ≈ $7,866 / 6,427 / 6,390 / 6,352 / 3,676 / 3,051 a month
+($153-393 per UID); one single-UID coldkey ≈ $4,066 (most likely the top Synth Ultra model). Our backtested ≈ $200-220 per UID sits among the mid operators.
+(2) **Synth Ultra** (github synthdataco/synth-ultra): 25% of miner emissions, split equally over BTC/ETH/SOL/XRP (each ≈ $3.8k a month); a Docker model, run by Synth
+on live Binance spot + futures order-book/trade data (and Bybit trades), predicts 100 percentiles of the spot microprice 10 s ahead in < 5 ms, scored by pinball
+CRPS; ≈ 9 scored participants; **one slot per operator** (code and forecasts are compared), needs a registered SN50 UID, an application signed by the hotkey, an
+email and a Discord name, manual approval. No latency race on our side. Recording live Binance spot and futures book tickers (public streams reachable from
+here) to build and score a model (`synth/ultra_record.py`, `ultra_eval.py`). (3) HYPE Crypto-24h: behind on Hyperliquid or Binance history (72 vs 60; 103 vs 84);
+weight 0.48, left on the Hyperliquid model.

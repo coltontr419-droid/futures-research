@@ -1,6 +1,6 @@
 """Record Binance spot best bid/ask (book ticker) and aggregate trades for Synth Ultra model tests (decisions.md §1170). Public market-data mirror.
 
-    python -m futuresres.synth.ultra_record <minutes> <symbols e.g. btcusdt,ethusdt>
+    python -m futuresres.synth.ultra_record <minutes> <symbols e.g. btcusdt,ethusdt> [spot|futures]
 """
 
 from __future__ import annotations
@@ -16,13 +16,14 @@ from curl_cffi.requests import Session
 OUT = Path(__file__).resolve().parents[3] / "data" / "ultra"
 
 
-def main(minutes: float, symbols: list[str]) -> None:
+def main(minutes: float, symbols: list[str], venue: str = "spot") -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     streams = "/".join(f"{s}@bookTicker/{s}@aggTrade" for s in symbols)
-    f = gzip.open(OUT / f"rec_{int(time.time())}.jsonl.gz", "wt"); end = time.time() + minutes * 60; last = {}
+    host = "wss://data-stream.binance.vision" if venue == "spot" else "wss://fstream.binance.com"
+    f = gzip.open(OUT / f"{'rec' if venue == 'spot' else 'fut'}_{int(time.time())}.jsonl.gz", "wt"); end = time.time() + minutes * 60; last = {}
     while time.time() < end:
         try:
-            ws = Session(impersonate="chrome").ws_connect(f"wss://data-stream.binance.vision/stream?streams={streams}", timeout=30)
+            ws = Session(impersonate="chrome").ws_connect(f"{host}/stream?streams={streams}", timeout=30)
             while time.time() < end:
                 d = json.loads(ws.recv()[0]); now = int(time.time() * 1000); s = d["stream"]; x = d["data"]
                 if s.endswith("bookTicker"):
@@ -38,4 +39,4 @@ def main(minutes: float, symbols: list[str]) -> None:
 
 
 if __name__ == "__main__":
-    main(float(sys.argv[1]), sys.argv[2].split(","))
+    main(float(sys.argv[1]), sys.argv[2].split(","), sys.argv[3] if len(sys.argv) > 3 else "spot")
