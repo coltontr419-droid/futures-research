@@ -18634,3 +18634,10 @@ targets without a drift (relative spreads).
 **No trial (overlay of a confirmed rule).** `scripts/a139_d68_overlay.py`, a123 minute engine, take $800 / stop $4,000, 7 MNQ, drift removed, per 84 sessions: **2015-20
 always long +$7,553 (2.03 accounts/payout) vs overlay +$8,506 (1.80); 2021-26 +$7,809 (2.24) vs +$7,804 (2.28).** 2015-20 overlaps D68's own discovery years (2018-22),
 so only 2021-26 is a fair read, and it is flat. Not adopted.
+
+## §1124 — A140: every Fast Track size under the 3-payout transition cap — 100K stays best (S10)
+
+**No trial.** `scripts/a140_cap_sizes.py` (A135 engine, each account ends at its 3rd payout and is re-bought; take 0.2 × drawdown, stop = drawdown; 45% off; per 84 sessions,
+2015-20 / 2021-26; MGC 2011-20 / 2021-26): **MNQ day 25K +$1.3k / +$0.7k, 50K +$3.7k / +$3.3k, 100K +$6.1k / +$6.3k, 150K +$5.9k / +$4.9k; MNQ full 100K +$6.6k / +$6.8k vs
+150K +$6.1k / +$6.0k; MGC full 100K +$6.5k / +$5.8k vs 150K +$6.6k / +$4.3k.** The 150K's larger first goal ($9k) takes longer to reach under a cap of three payouts.
+100K remains the size.
