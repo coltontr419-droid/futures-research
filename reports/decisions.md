@@ -18687,3 +18687,11 @@ A day with several auctions takes the mean across them. **Trade:** ZN next weekd
 **No trial.** `scripts/a141_entry_time.py` (A135 engine, 3-payout cap, take $800 / stop $4,000, 7 MNQ, flat 16:00 ET; per 84 sessions, 2015-20 / 2021-26): **08:30 +$4.9k / +$5.5k;
 09:30 +$6.1k / +$6.3k; 10:00 +$5.7k / +$4.7k; 11:00 +$4.8k / +$7.5k; 13:00 +$4.6k / +$3.9k.** 09:30 is best on the worse era and steady across both; 11:00's 2021-26
 figure does not hold in 2015-20. No change.
+
+## §1132 — Desk closes (overnight criterion): paid communities/newsletters (Whop, Substack), browser extensions, print-on-demand, bank sign-up bonuses, rig-count and NAAIM data (S11)
+
+**No trial.** (1) **Whop / Substack / paid Discord** for signals or tools: income scales with an audience the user would have to build and serve (≫ 10% effort), and selling
+futures signals to the public sits under CFTC/NFA adviser rules unless purely impersonal; closed. (2) **Browser extensions / micro-SaaS:** the same distribution wall as
+the Shopify/Discord app stores (§1062); closed. (3) **Print-on-demand:** design and listing churn is manual and the marketplaces are flooded by AI images; closed.
+(4) **Bank/brokerage sign-up bonuses:** one-off per institution, manual, and a reward-program variant (user excluded 10-27); closed. (5) **Baker Hughes rig count:**
+history only through scraping or paid APIs (ICE, OilPriceAPI), weekly and slow-moving; not pursued. **NAAIM:** §1116.
