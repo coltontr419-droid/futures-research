@@ -18616,3 +18616,8 @@ purchase and 804,296 sale filings by officers/directors; 814 discovery weeks, lo
 
 **No trial (discovery fail, §1113).** `stocks/s1_shortint.py`, 211 FINRA settlement dates (the API serves 2018-01 → 2026-10-15, not 2018-12 as probed), so after the
 24-report warm-up the discovery window ran 2019-01 → 2022-12 (95 periods) instead of 2020-12 → 2022-12; noted, not material to a negative mean. Short 53% of periods.
+
+## §1121 — S-family 2 discovery: the equity put/call ratio is not a contrarian next-session sign for MNQ — −5.73 bp a session against always long, t −2.18; closed (S1)
+
+**No trial (discovery fail, §1114).** `stocks/s2_putcall.py`, 5,028 CBOE days (2006-11-01 → 2026-10-28; CSV to 2019-10-04, daily JSON after), 3,989 discovery sessions
+2007-03 → 2022-12. The short sessions give up QQQ's drift; the ratio adds nothing next-day.
