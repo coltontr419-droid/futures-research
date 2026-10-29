@@ -18753,3 +18753,9 @@ the help-center terms and the A124 fees. Still confirm the code at checkout.
 = 8 cells (d10 bps, d12.COST). Drift-neutral reading: each cell's mean is compared with the same market's mean on all other days (excess = cell − that mean, sign-
 matched). **Discovery** 2010-03 → 2022-12: carry if excess > 0 and t > 1.96 (t of the cell's event returns minus the other-day mean). **Sealed** 2023-01 → 2026-08 once per
 carried cell: CONFIRM needs net t > 1.645, against-always-long t > 1.645, placebo (random Wednesdays, 2,000 draws) ≥ 95th.
+
+## §1141 — Family 181: VIX-settlement days — 0 of 8 carried; the day after leans short (ES −16.1 bp vs other days, t 1.91; NQ −18.7, t 1.78), just under the bar (S1)
+
+**No trial.** `reporting/d181_vixexp.py`, `reports/d181_discovery.json`, 154 expiries 2010-03 → 2022-12. Expiry day itself: ES −7.0 bp (t −0.92), NQ −5.0 (t −0.57) against other
+days. The next session is weaker in both indices, short excess t 1.91 / 1.78 (net +8.5 / +10.6 bp a trade), below the pre-registered 1.96. Not carried, not re-registered
+(a re-test on the same discovery data would be data-led); noted only.

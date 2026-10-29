@@ -1,0 +1,76 @@
+{
+ "cells": [
+  {
+   "target": "ES",
+   "day": "expiry_day",
+   "side": "long",
+   "n": 154,
+   "excess_bps": -7.01,
+   "t": -0.92,
+   "net_bps": -1.71
+  },
+  {
+   "target": "ES",
+   "day": "expiry_day",
+   "side": "short",
+   "n": 154,
+   "excess_bps": 7.01,
+   "t": 0.92,
+   "net_bps": -0.09
+  },
+  {
+   "target": "ES",
+   "day": "next_day",
+   "side": "long",
+   "n": 154,
+   "excess_bps": -16.07,
+   "t": -1.91,
+   "net_bps": -10.34
+  },
+  {
+   "target": "ES",
+   "day": "next_day",
+   "side": "short",
+   "n": 154,
+   "excess_bps": 16.07,
+   "t": 1.91,
+   "net_bps": 8.54
+  },
+  {
+   "target": "NQ",
+   "day": "expiry_day",
+   "side": "long",
+   "n": 154,
+   "excess_bps": -4.97,
+   "t": -0.57,
+   "net_bps": 1.5
+  },
+  {
+   "target": "NQ",
+   "day": "expiry_day",
+   "side": "short",
+   "n": 154,
+   "excess_bps": 4.97,
+   "t": 0.57,
+   "net_bps": -2.5
+  },
+  {
+   "target": "NQ",
+   "day": "next_day",
+   "side": "long",
+   "n": 154,
+   "excess_bps": -18.72,
+   "t": -1.78,
+   "net_bps": -11.6
+  },
+  {
+   "target": "NQ",
+   "day": "next_day",
+   "side": "short",
+   "n": 154,
+   "excess_bps": 18.72,
+   "t": 1.78,
+   "net_bps": 10.6
+  }
+ ]
+}
