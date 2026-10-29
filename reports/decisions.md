@@ -18681,3 +18681,9 @@ A day with several auctions takes the mean across them. **Trade:** ZN next weekd
 
 **No trial.** `reporting/d178_auctions.py`, 1,721 Fiscal Data coupon auctions (2009 →), 1,093 auction days in discovery 2010-2022. Bid-to-cover follow +0.53 (t 0.57), fade
 −1.33; indirect share follow −1.38, fade +0.58. The auction is priced by the close.
+
+## §1131 — A141: Fast Track 100K MNQ day slot by entry time — the 09:30 ET open stays the choice (S10)
+
+**No trial.** `scripts/a141_entry_time.py` (A135 engine, 3-payout cap, take $800 / stop $4,000, 7 MNQ, flat 16:00 ET; per 84 sessions, 2015-20 / 2021-26): **08:30 +$4.9k / +$5.5k;
+09:30 +$6.1k / +$6.3k; 10:00 +$5.7k / +$4.7k; 11:00 +$4.8k / +$7.5k; 13:00 +$4.6k / +$3.9k.** 09:30 is best on the worse era and steady across both; 11:00's 2021-26
+figure does not hold in 2015-20. No change.
