@@ -18313,3 +18313,14 @@ for the 1st payout, $1k min, $2k max for payouts 1-3 then $2.5k, consistency 20/
 re-buy after failure unlimited, counts toward the 5 Masters, user-built bot allowed for **+$100/month**. Re-fit (funded grid, era-swapped):
 take $650 / stop $2,000 chosen everywhere; later-payout goal none or $2k: +$3,698 / +$5,324 (bot fee per user) and +$3,362 / +$4,988 (per
 account); later goal $3k (unconfirmed, worst): +$3,076 / +$4,335 and +$2,740 / +$3,999. ≈ $3.4-6.7k/month over 5 slots. Next: the bot.
+
+## §1093 — Screen: Darwinex Zero / DarwinIA SILVER (performance fees on allocated capital, bots allowed, US not restricted) — closed: capped by subscription vs a 15% fee on risk-normalised returns (S11)
+
+**No trial (desk, 2026-10-29).** Shape fits §1053 (someone else's capital, code allowed): Darwinex Zero is a simulated account (€45/month+, EAs allowed, the
+US is not on the restricted list per third parties); DARWINs rated ≥ 75 each month (22% current-month return, 67% six-month return, 11% max drawdown) get
+a SILVER allocation of €30k (minimum) up to €375k (top rank), held 3 months, up to 3 overlapping; the trader earns 15% of the allocation's profit above a
+high-water mark, quarterly; one free €25k booster if nothing is allocated in the first 6 months; DARWINs from the same user must correlate < 0.5. **Ceiling
+at zero edge:** DARWIN returns are risk-normalised (leverage cannot buy variance), so a 3-month allocation's expected positive return ≈ 0.4 × σ(3 mo) ≈ 3%;
+fee ≈ 15% × 3% × €30-80k ≈ €130-360 per allocation. Even at an optimistic 30% monthly allocation rate that is ≈ €40-110/month per subscription against
+€45, and extra subscriptions need uncorrelated DARWINs. Below the bar before any data; a real edge would be traded directly instead. Closed.
+Sources: darwinexzero.document360.io (DarwinIA SILVER, performance fees), luxalgo.com (restricted countries), mql5.com blog 776722 (rating weights, €45).
