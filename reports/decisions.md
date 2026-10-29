@@ -18479,3 +18479,12 @@ published forbids a stop equal to the drawdown or one trade a day. **Implication
 copier costs $100/month and still needs approval), and before scaling past one account ask Bulenox support in writing whether (a) a daily bracket whose stop equals the
 drawdown and (b) identical brackets across up to five Fast Track accounts are acceptable, and how a flip day is defined. Payout-denial risk is not in any of the
 §1095-§1103 numbers.
+
+## §1106 — Overnight desk closes (≥ $2k/month, ≤ 10% effort, legit, small start) (S11)
+
+**No trial.** (1) **Texas property-tax protest service** (automated evidence packets for owners): agents need a TDLR property-tax-consultant registration, and protests
+run to a once-a-year deadline (≈ May 15) — seasonal, excluded (user, year-round only). (2) **GPU/compute rental** (Vast.ai-type): ≈ $100-200/month per $1.5k GPU — capital-bound.
+(3) **AI-training data work** (Mercor/Outlier/Alignerr-type expert tasks): human labour, AI use banned. (4) **Data-for-AI licensing** (Troveo/Wirestock-type): needs owned
+footage/photos. (5) **DePIN / data-sharing nodes** (Grass, Hivemapper …): crypto payouts — excluded. (6) **Alt-data sales of our job-posting scrapes to funds**: needs
+1-2 years of history and enterprise sales — not small-start. (7) **Apify $1M Challenge**: ended 2026-01-31, no 2026 edition. (8) **Apify Solution Provider programme**:
+free to apply; Apify shares inbound custom-project leads with its best certified partners (20% platform commission on deals) — logged as a user action, not a stream.
