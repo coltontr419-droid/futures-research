@@ -1,0 +1,32 @@
+{
+ "cells": [
+  {
+   "target": "ZN",
+   "rule": "follow",
+   "n": 180,
+   "mean_bps": 3.73,
+   "t": 1.38
+  },
+  {
+   "target": "ZN",
+   "rule": "fade",
+   "n": 180,
+   "mean_bps": -4.53,
+   "t": -1.68
+  },
+  {
+   "target": "ES",
+   "rule": "follow",
+   "n": 180,
+   "mean_bps": -16.47,
+   "t": -1.29
+  },
+  {
+   "target": "ES",
+   "rule": "fade",
+   "n": 180,
+   "mean_bps": 14.67,
+   "t": 1.15
+  }
+ ]
+}

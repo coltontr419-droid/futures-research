@@ -18716,3 +18716,7 @@ fade −0.045 (t −2.77): the gross effect is near zero on either side and cost
 unclear, so a value dated d is used only for the session after next (d+2). **Event:** |ΔTP10| > 2 × sd of the previous 60 daily changes. **Cells:** ZN and ES, d+2 open →
 close (d10 bps, d12.COST); **follow** = side −sign(ΔTP) (a rising premium continues to weigh on bonds and stocks), **fade** = the opposite: 4 cells. **Discovery**
 2010-03 → 2022-12, carry if mean > 0 and t > 1.96; **sealed** 2023-01 → 2026-08, strict rule as §1125.
+
+## §1136 — Family 180: term-premium shocks — 0 of 4 carried (ZN follow +3.73 bp, t 1.38; ES fade +14.7 bp, t 1.15; 180 events) (S1)
+
+**No trial.** `reporting/d180_termprem.py`, `reports/d180_discovery.json`. Below the carry bar; closed.
