@@ -1,0 +1,76 @@
+{
+ "cells": [
+  {
+   "target": "ES",
+   "sessions": 1,
+   "side": "long",
+   "n": 154,
+   "excess_bps": -3.78,
+   "t": -0.48,
+   "net_bps": 1.37
+  },
+  {
+   "target": "ES",
+   "sessions": 1,
+   "side": "short",
+   "n": 154,
+   "excess_bps": 3.78,
+   "t": 0.48,
+   "net_bps": -3.17
+  },
+  {
+   "target": "ES",
+   "sessions": 5,
+   "side": "long",
+   "n": 154,
+   "excess_bps": 16.64,
+   "t": 0.87,
+   "net_bps": 38.64
+  },
+  {
+   "target": "ES",
+   "sessions": 5,
+   "side": "short",
+   "n": 154,
+   "excess_bps": -16.64,
+   "t": -0.87,
+   "net_bps": -47.64
+  },
+  {
+   "target": "NQ",
+   "sessions": 1,
+   "side": "long",
+   "n": 154,
+   "excess_bps": 7.26,
+   "t": 0.77,
+   "net_bps": 13.14
+  },
+  {
+   "target": "NQ",
+   "sessions": 1,
+   "side": "short",
+   "n": 154,
+   "excess_bps": -7.26,
+   "t": -0.77,
+   "net_bps": -14.14
+  },
+  {
+   "target": "NQ",
+   "sessions": 5,
+   "side": "long",
+   "n": 154,
+   "excess_bps": 37.95,
+   "t": 1.79,
+   "net_bps": 65.95
+  },
+  {
+   "target": "NQ",
+   "sessions": 5,
+   "side": "short",
+   "n": 154,
+   "excess_bps": -37.95,
+   "t": -1.79,
+   "net_bps": -70.95
+  }
+ ]
+}

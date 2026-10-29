@@ -18766,3 +18766,8 @@ days. The next session is weaker in both indices, short excess t 1.91 / 1.78 (ne
 expiration = third Friday (prior trading day if a holiday). **Cells:** ES, NQ × {the next session open → close, the next 5 sessions summed} × {long, short} = 8 cells,
 read exactly as §1140 (drift-neutral excess against all other sessions or non-overlapping 5-session blocks; discovery 2010-03 → 2022-12, carry if excess > 0 and t > 1.96;
 sealed 2023-01 → 2026-08 with the strict rule; placebo = random Fridays).
+
+## §1143 — Family 182: no post-OPEX unwind — 0 of 8 carried; if anything the week after is stronger (NQ long +38 bp vs other weeks, t 1.79) (S1)
+
+**No trial.** `reporting/d182_postopex.py`, `reports/d182_discovery.json`, 154 expirations 2010-2022. The popular "weak week after OPEX" is the wrong sign here; the long side
+falls short of the bar. Closed.
