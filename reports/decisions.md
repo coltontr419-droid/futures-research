@@ -18488,3 +18488,6 @@ run to a once-a-year deadline (≈ May 15) — seasonal, excluded (user, year-ro
 footage/photos. (5) **DePIN / data-sharing nodes** (Grass, Hivemapper …): crypto payouts — excluded. (6) **Alt-data sales of our job-posting scrapes to funds**: needs
 1-2 years of history and enterprise sales — not small-start. (7) **Apify $1M Challenge**: ended 2026-01-31, no 2026 edition. (8) **Apify Solution Provider programme**:
 free to apply; Apify shares inbound custom-project leads with its best certified partners (20% platform commission on deals) — logged as a user action, not a stream.
+**§1099 addendum 3 (size by market):** era-swapped, per 84 sessions (other era): MNQ full session 25K +$1.1-1.6k, 50K +$3.2-3.9k, **100K +$8.1-8.7k (23-24× its fee)**, 150K +$7.7-8.0k;
+MGC London 25K +$1.2-1.3k, 50K +$2.4-2.5k, **100K +$4.3-5.1k (12-14×)**, 150K +$4.2-4.3k. The 100K is the best size per slot and per dollar on every market tested.
+Script: scripts/a131_sizes_by_market.py.
