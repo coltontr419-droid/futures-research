@@ -18695,3 +18695,12 @@ futures signals to the public sits under CFTC/NFA adviser rules unless purely im
 the Shopify/Discord app stores (§1062); closed. (3) **Print-on-demand:** design and listing churn is manual and the marketplaces are flooded by AI images; closed.
 (4) **Bank/brokerage sign-up bonuses:** one-off per institution, manual, and a reward-program variant (user excluded 10-27); closed. (5) **Baker Hughes rig count:**
 history only through scraping or paid APIs (ICE, OilPriceAPI), weekly and slow-moving; not pursued. **NAAIM:** §1116.
+
+## §1133 — D-series family 179 protocol: weekly momentum/reversal in commodity futures, cross-sectional and own-market (KAIST short-term commodity momentum) (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Universe: GC, SI, HG, CL, NG, ZC, ZS, ZW (d10 daily open → close, bps; overnight and roll gaps
+excluded). Each market's weekly return = sum of its open → close moves Mon-Fri, in risk units (÷ its daily sd over the previous 60 sessions × √5). **Cells:**
+(1) cross-sectional: next week long the top 2 and short the bottom 2 by last week's risk-unit return — **follow**; (2) the same **fade**; (3) own-market: each market takes
+the sign of its own last week, pooled equal-risk — **follow**; (4) the same **fade**. 4 cells; weekly return in risk units net of d12.COST × 5 per leg. **Discovery**
+2010-03 → 2022-12: carry if mean > 0 and t > 1.96. **Sealed** 2023-01 → 2026-08, once per carried cell: CONFIRM needs t > 1.645 and circular-shift placebo ≥ 95th
+(the cells are market-neutral or two-sided, so the always-long leg of §119 is the pooled-long benchmark: the cell must also beat it with t > 1.645).
