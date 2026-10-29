@@ -18466,3 +18466,16 @@ the best cells sit at 18-25% (50K take 0.15-0.2 dd: 19-25%; 100K take 0.15-0.2 d
 Script: scripts/a130_first_payout_grid.py.
 **§1098 addendum 3 (commissions):** Bulenox's rate sheet (bulenox.com/legal/Bulenox-Rates.pdf, 2026-10-29): MNQ $0.61 per side ($1.22 round trip), MGC $0.76 ($1.52), MES $0.61.
 §1095-§1103 charged $2.32 round trip per contract, so every Fast Track figure is slightly conservative (≈ $7-8 per 7-contract day on the 100K).
+
+## §1105 — Bulenox due diligence for the Fast Track plan: pays in most cases; denial risks are discretionary (flip days), and any bot needs written approval (S10)
+
+**Desk, 2026-10-29.** Reputation: Trustpilot 4.5-4.8 across mirrors, many reports of repeated payouts; PropFirmCircle lists it "Not Recommended" (34+ trader reports of
+vague, unevenly applied rules) but "not a scam". Recurring denial reason: the **flipping / flip-day rule** in the Master Agreement (not in the help center): third parties
+describe ≤ 2 "insignificant activity" days per rolling 10 trading days, no published thresholds; consequences warnings → payout review/denial → closure. The plan trades
+the same full size every day, so its days are not minimal-activity days, but its time-exit days (≈ 3-6% on MNQ, ≈ 20% on MGC London) can end near flat. **Terms of Use
+(bulenox.com/legal/Terms_of_Use.pdf), "Algorithms and Auto Trading":** no scalping algorithms or rapid-trade bots; "any third-party algorithm, automated trading software …
+must be reviewed and approved by the Bulenox management team before use"; the $100/month third-party API / trade-copier fee "does not constitute approval". Nothing
+published forbids a stop equal to the drawdown or one trade a day. **Implication:** run the plan with manual brackets (≤ 10% effort: one order per account per day; a
+copier costs $100/month and still needs approval), and before scaling past one account ask Bulenox support in writing whether (a) a daily bracket whose stop equals the
+drawdown and (b) identical brackets across up to five Fast Track accounts are acceptable, and how a flip day is defined. Payout-denial risk is not in any of the
+§1095-§1103 numbers.
