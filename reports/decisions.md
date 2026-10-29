@@ -18403,3 +18403,7 @@ the forward test. Script: scripts/a125_fast_track_markets.py.
 **§1099 addendum (forward):** `a122_forward.py` now also replays the 100K on MNQ full session and MGC London from Yahoo NQ=F / GC=F (data/forward/gc_1m.parquet).
 First read (2026-10-01 → 10-28): MNQ full 16 sessions −$2,138 (6 accounts, no payout), MGC London 20 sessions −$2,138 (6 accounts) — session ranges match the history
 (median $1,034 vs $1,033 and $466 vs $489 per contract), so this is outcome, not data; too few sessions to read (the §1095 60-session rule applies to each).
+**§1098 addendum (sensitivity of the 100K to its unverified terms; MNQ RTH long, take $800 / stop = drawdown; per 84 sessions pre / post):** base +$7,553 / +$7,809;
+caps $2k/$2.5k +$5,739 / +$5,893; caps $3k/$3.5k +$9,134 / +$9,039; **later payout goal $6k (every cycle) +$3,179 / +$3,540**; consistency 30% flat unchanged;
+**list price $648 (no discount) +$4,733 / +$4,453**; **drawdown $3,000** +$3,578 / +$2,406; caps $2k + later goal $6k + list price +$811 / +$618. What decides the size choice,
+in order: the later payout goal, the discount, the drawdown, then the caps. Script: scripts/a124_sensitivity.py.
