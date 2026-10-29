@@ -1,0 +1,126 @@
+// A121 (decisions.md 1092): Bulenox Fast Track 50K — one MNQ bracket a day, with the Fast Track account rules simulated on top.
+// Use on MNQ1! (or the front MNQ contract), 1- or 5-minute chart, Regular + extended hours.
+// Green label = payout (amount before split), red label = account blown (a new one is bought next day).
+//@version=5
+strategy("Fast Track MNQ bracket", overlay=true, pyramiding=0, process_orders_on_close=true,
+     default_qty_type=strategy.fixed, default_qty_value=3, commission_type=strategy.commission.cash_per_contract,
+     commission_value=1.16, initial_capital=50000, max_labels_count=500)
+
+grpT = "Trade"
+side   = input.string("Long", "Side (same on every account)", options=["Long", "Short"], group=grpT)
+qty    = input.int(3, "Contracts (MNQ)", minval=1, group=grpT)
+tpPts  = input.float(108.25, "Take profit (points)", group=grpT)
+slPts  = input.float(333.25, "Stop (points)", group=grpT)
+tz     = input.string("America/New_York", "Time zone for the times below", group=grpT)
+entryHM = input.int(930, "Entry (HHMM, bar closing at this time)", group=grpT)
+flatHM  = input.int(1600, "Flatten (HHMM)", group=grpT)
+
+grpA = "Fast Track account (50K)"
+fee     = input.float(268.40, "Account price", group=grpA)
+dd      = input.float(2000, "Trailing drawdown (intraday)", group=grpA)
+lockAt  = input.float(100, "Drawdown locks at (profit)", group=grpA)
+goal1   = input.float(3000, "Profit for the 1st payout", group=grpA)
+goalN   = input.float(0, "Profit since last payout, later payouts", group=grpA)
+pmin    = input.float(1000, "Minimum payout", group=grpA)
+cap13   = input.float(2000, "Maximum payout, payouts 1-3", group=grpA)
+cap4    = input.float(2500, "Maximum payout, payout 4+", group=grpA)
+split   = input.float(0.90, "Your split", group=grpA)
+monthly = input.float(100, "Bot fee per month (0 if manual)", group=grpA)
+
+// ---- the trade
+hm(t) => hour(t, tz) * 100 + minute(t, tz)
+dir = side == "Long" ? 1 : -1
+wkday = dayofweek(time_close, tz) != dayofweek.saturday and dayofweek(time_close, tz) != dayofweek.sunday
+var int entryDay = na
+
+if hm(time_close) == entryHM and wkday and strategy.position_size == 0
+    strategy.entry("FT", dir == 1 ? strategy.long : strategy.short, qty)
+    entryDay := dayofmonth(time_close, tz)
+strategy.exit("FT x", "FT", profit=tpPts / syminfo.mintick, loss=slPts / syminfo.mintick)
+// flatten at the set time, or on the next day if a short session never reached it
+if strategy.position_size != 0 and (hm(time_close) == flatHM or dayofmonth(time_close, tz) != entryDay)
+    strategy.close_all("Flatten")
+
+// ---- the account (P&L relative to the $50,000 start)
+var float bal = 0.0
+var float pk = 0.0
+var int   npay = 0
+var float cyc = 0.0          // profit since the last payout
+var float cbest = 0.0        // best day since the last payout
+var bool  dead = false       // blown during the open trade; the rest of that trade is ignored
+var int   bought = 1
+var int   payouts = 0
+var float paid = 0.0
+var int   lastClosed = 0
+var int   t0 = na
+t0 := na(t0) ? time : t0
+
+resetAccount() =>
+    label.new(bar_index, high, "blown", color=color.red, textcolor=color.white, style=label.style_label_down, size=size.tiny)
+
+flr = math.min(pk - dd, lockAt)
+pos = strategy.position_size
+if pos != 0 and not dead
+    q = math.abs(pos)
+    avg = strategy.position_avg_price
+    fav = math.min(dir == 1 ? high - avg : avg - low, tpPts)
+    adv = math.max(dir == 1 ? low - avg : avg - high, -slPts)
+    pk := math.max(pk, bal + fav * q * syminfo.pointvalue)            // intraday trailing: the open profit lifts the peak
+    flr := math.min(pk - dd, lockAt)
+    if bal + adv * q * syminfo.pointvalue <= flr
+        dead := true
+        resetAccount()
+        bought += 1
+        bal := 0.0
+        pk := 0.0
+        npay := 0
+        cyc := 0.0
+        cbest := 0.0
+
+if strategy.closedtrades > lastClosed
+    pnl = strategy.closedtrades.profit(strategy.closedtrades - 1)
+    lastClosed := strategy.closedtrades
+    if dead
+        dead := false
+    else
+        bal += pnl
+        pk := math.max(pk, bal)
+        flr := math.min(pk - dd, lockAt)
+        if bal <= flr
+            resetAccount()
+            bought += 1
+            bal := 0.0
+        pk := 0.0
+        npay := 0
+        cyc := 0.0
+        cbest := 0.0
+        else
+            cyc += pnl
+            cbest := math.max(cbest, pnl)
+            goal = npay == 0 ? goal1 : goalN
+            cons = npay == 0 ? 0.20 : npay == 1 ? 0.25 : 0.30
+            amt = math.min(bal - lockAt, npay < 3 ? cap13 : cap4)
+            if cyc >= goal and cyc > 0 and cbest <= cons * cyc and amt >= pmin
+                bal -= amt
+                npay += 1
+                payouts += 1
+                paid += amt * split
+                cyc := 0.0
+                cbest := 0.0
+                label.new(bar_index, low, "$" + str.tostring(amt, "#,###"), color=color.green, textcolor=color.white,
+                     style=label.style_label_up, size=size.tiny)
+
+// ---- summary
+months = (time - t0) / (1000.0 * 60 * 60 * 24 * 30.44)
+fees = bought * fee + monthly * months
+var table tb = table.new(position.top_right, 2, 8, bgcolor=color.new(color.black, 15), border_width=1)
+if barstate.islast
+    rows = array.from("Months tested", "Accounts bought", "Payouts", "Accounts per payout", "Paid to you (after split)",
+         "Fees (accounts + bot)", "Net", "Net per month (1 slot)")
+    vals = array.from(str.tostring(months, "#.0"), str.tostring(bought), str.tostring(payouts),
+         payouts > 0 ? str.tostring(bought / payouts, "#.00") : "-", "$" + str.tostring(paid, "#,###"),
+         "$" + str.tostring(fees, "#,###"), "$" + str.tostring(paid - fees, "#,###"),
+         "$" + str.tostring(months > 0 ? (paid - fees) / months : 0, "#,###"))
+    for i = 0 to 7
+        table.cell(tb, 0, i, array.get(rows, i), text_color=color.white, text_halign=text.align_left, text_size=size.small)
+        table.cell(tb, 1, i, array.get(vals, i), text_color=color.white, text_halign=text.align_right, text_size=size.small)
