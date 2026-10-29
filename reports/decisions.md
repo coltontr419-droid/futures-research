@@ -18460,3 +18460,7 @@ positive long-run EV with a front-loaded ruin risk — a $1-1.5k start fails bef
 the top two of the levels; quantt.co.uk's 2026 review: typical reported earnings modest. Glassdoor's "$10-19k a month" rests on 3 self-reports (2024) that read like staff roles.
 With machine-generated alphas crowding the correlation check (§970), an automated miner plausibly reaches the lower paid levels, not Grandmaster. Stays a parked
 add-on (free, user's account), not a ≥ $2k stream.
+**§1103 addendum (can a bracket lift the first-payout odds?):** P(one account reaches its first payout), take ∈ {0.1…0.6} × dd, stop ∈ {0.6, 0.8, 1.0} × dd, 2015-20 / 2021-26:
+the best cells sit at 18-25% (50K take 0.15-0.2 dd: 19-25%; 100K take 0.15-0.2 dd: 18-25%), the chosen plans at 18-20%; large takes fall to 7-12%. At zero edge, reaching
++1.5 × the drawdown before −1 × with a ratcheting floor and a 20% consistency cap is ≈ 1-in-5 for any bracket — the start-up risk is structural, not a tuning gap.
+Script: scripts/a130_first_payout_grid.py.
