@@ -18745,3 +18745,11 @@ policy (the Oct-2025 trade-up change); closed. Nothing new clears the bar.
 **No trial.** eltraderfinanciado.com's Bulenox launch page (header updated 2026-10-13): Fast Track 25K/50K/100K/150K list $338/$488/$648/$788, with the 45% code
 (ETFPROMO) $185.90/$268.40/$356.40/$433.40, activation included; Momentum $94-$358 list (the "$94" seen in a search snippet is Momentum, not Fast Track). Matches
 the help-center terms and the A124 fees. Still confirm the code at checkout.
+
+## §1140 — D-series family 181 protocol: VIX-settlement Wednesdays (SOQ at the open; Griffin & Shams 2018) in ES and NQ (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Untested here. **Dates:** each month's VIX expiry = the third Friday of the following month − 30 days
+(a Wednesday), moved to the prior weekday if that is not a d10 trading day, 2010-03 →. **Cells:** ES, NQ × {expiry-day open → close, next-day open → close} × {long, short}
+= 8 cells (d10 bps, d12.COST). Drift-neutral reading: each cell's mean is compared with the same market's mean on all other days (excess = cell − that mean, sign-
+matched). **Discovery** 2010-03 → 2022-12: carry if excess > 0 and t > 1.96 (t of the cell's event returns minus the other-day mean). **Sealed** 2023-01 → 2026-08 once per
+carried cell: CONFIRM needs net t > 1.645, against-always-long t > 1.645, placebo (random Wednesdays, 2,000 draws) ≥ 95th.
