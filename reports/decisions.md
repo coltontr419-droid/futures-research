@@ -18526,3 +18526,12 @@ MNQ full +$8.1k / +$8.7k → +$6.6k / +$6.8k → +$5.8k / +$5.5k → +$5.0k / +$
 3rd payout: +$3.4-4.4k. Reading: the cap costs ≈ 20%; a long freeze of new activations after a transition costs up to ≈ 55%; all cases stay positive. The live Funded
 Account's own payouts (unknown terms) are left out. Open question for Bulenox support: how long a transition takes, and whether Fast Track accounts bought while a Funded
 Account is active stay frozen.
+
+## §1110 — A136: the 100K Fast Track on more Bulenox-listed CME markets (NKD, 6E, 6A, 6B, 6J) — positive except 6J, all weaker than MNQ/MGC full sessions (S10)
+
+**No trial.** A21 HistData minute windows (NKD Tokyo 09:00-15:00 JST = 7 PM-1 AM CT; FX London 08:00-16:00 = 2-10 AM CT), whole contracts, Bulenox rate sheet ($4.72 round
+trip per full FX contract — ten micros at $1.00 each cost more per notional; NKD assumed the same), take/stop as fractions of $4,000, era-swapped, per 84 sessions (other
+era): **NKD (2 contracts) long +$4,344 / +$4,513, short +$8,540 / +$4,514; 6E (4) long +$4,243 / +$5,490, short +$3.3-3.5k; 6A (7) long +$3,399 / +$5,036, short +$5,274 /
++$4,517; 6B (6) +$3.4-3.7k; 6J (2) ≈ 0** (+$5 / +$466). A first run with ten-to-one micros at $0.15 a round trip overstated FX; corrected here. Reading: NKD (7 PM CT
+entry) is a usable fourth market at a human hour; FX works but its windows open at 2 AM CT (needs a scheduled order or an approved bot). The five-slot core stays MNQ day,
+MNQ full, MGC full (+$7.8-8.7k each). Script: scripts/a136_more_markets.py.
