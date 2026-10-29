@@ -18388,3 +18388,15 @@ Short side is weaker at every size (100K +$2.2-3.5k, P>0 67-71%); keep long. The
 cap, so ≈ $3.4k of room stays after the payout (the 50K leaves ≈ $1.4k), and the price per $ of drawdown is lower ($0.089 vs $0.134). ≈ $1.6-1.9k a month per slot, 5 slots
 ≈ $8-9.5k a month in backtests (same-side, perfectly correlated slots; the worst 84-session window buys ≈ 24 accounts). **Open:** the 100K payout caps, later goal and
 consistency must be verified in Bulenox's help center/checkout before buying. The forward test now also logs the 100K (first read 09-30 → 10-28: −$713, no payout yet).
+
+## §1099 — A125: the 100K Fast Track on other markets and sessions — positive everywhere, and gold vs MNQ slots are uncorrelated (S10)
+
+**No trial.** Same engine/terms as §1098 (100K, $356, take as a fraction of the $4,000 drawdown, stop $4,000), chosen on one era, scored on the other, A08 minute
+paths (drift removed): MGC London 03:00-11:30 long +$4,267 / +$5,115 per 84 sessions, short +$4,467 / +$3,924; MNQ evening 21:00-16:55 long +$6,719 / +$5,437,
+short +$8,065 / +$5,014; MNQ full session 18:00-16:55 long +$8,708 / +$8,074, short +$8,537 / +$8,006 (take 0.2 dd chosen in most cells). Fresh 84-session
+windows (take $800 / stop $4,000, long): MNQ RTH +$6.4k (P>0 80-93%, worst −$8.6k); MNQ full +$6.4-7.2k (81-87%, worst −$5.9k); MGC London +$3.5-6.1k (77-81%,
+worst −$5.2k). **Cross-slot:** correlation of window outcomes MNQ RTH vs MGC London −0.05 (2010-20) / −0.49 (2021-26), no matched window negative on both;
+MNQ RTH vs MNQ full −0.29 / +0.21. Five slots split across MNQ RTH, MNQ full session and MGC London (same side within a market, so no cross-account hedging)
+cut the joint bad-run risk that §1098's five identical slots carry: ≈ $6-7k a month in backtests. Execution: MNQ RTH 09:30 ET and MGC 03:00 ET / MNQ 18:00 ET
+entries are one bracket each; the 03:00 entry needs a scheduled order or the +$100/month bot. Caveats as §1098 (100K caps unverified); MGC/MNQ-full not yet in
+the forward test. Script: scripts/a125_fast_track_markets.py.
