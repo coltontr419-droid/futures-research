@@ -18917,3 +18917,10 @@ Our C solvers on 60 problems (30% of the time limit, one core): DLS-MC 32 ties /
 seeds fix some misses but one 900-vertex problem every miner solves at 79 stays at 77; a beam-greedy copy of a public fork's method is worse (73-74). A public fork shows
 operators hash graphs (bliss canonical form) to share work across their many UIDs. Median UID ≈ $509/month, burn ≈ $38: attractive only with a top-tier solver; parked
 behind SN50. Code: `synth/dlsmc.c`, `dlsmc2.c`, `numvc.c`, `beam.c`, `clique_bench.py`.
+
+## §1166 — SN50 Crypto-24h on ETH, SOL, XRP (out of sample: parameters chosen on BTC) — above the median miner on every asset (S11)
+
+**No trial.** `synth/s50_backtest.py`, last 10 days (240 prompts per asset), variant todg_12_36_c@0.9 (chosen on BTC's last 3 days): softmax share **ETH 0.50% vs the
+median UID's 0.36%, SOL 0.53% vs 0.21%, XRP 0.43% vs 0.28%** (BTC 0.54% vs 0.33%). Averaged scores 38.6-41.2 vs field medians 43.3-44.8. HYPE (Hyperliquid feed) not yet
+tested. Crypto-24h is one quarter of miner emissions (≈ $15k/month): ≈ 0.5% of it ≈ $75/month per UID. Crypto-1h backtest (`synth/s50_1h.py`, vol term verified against
+upstream to 1e-12) running.

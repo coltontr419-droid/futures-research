@@ -39,3 +39,17 @@ def crps_sum(paths: np.ndarray, real: np.ndarray, time_increment: int, intervals
             c = c / real[0, -1] * 10_000
         total += float(c.sum())
     return total
+
+
+def block_vol(p: np.ndarray, block: int) -> np.ndarray:
+    r = np.diff(p, axis=1) / p[:, :-1] * 10_000
+    nb = r.shape[1] // block
+    return r[:, : nb * block].reshape(r.shape[0], nb, block).std(axis=2, ddof=1)
+
+
+def vol_crps(paths: np.ndarray, real: np.ndarray, time_increment: int, blocks: dict[str, tuple[int, float]]) -> float:
+    real = np.asarray(real, float).reshape(1, -1); total = 0.0
+    for _, (sec, weight) in blocks.items():
+        b = int(sec / time_increment)
+        total += weight * float(crps_cols(block_vol(paths, b), block_vol(real, b)[0]).sum())
+    return total
