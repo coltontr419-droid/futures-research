@@ -18964,3 +18964,15 @@ CRPS; ≈ 9 scored participants; **one slot per operator** (code and forecasts a
 email and a Discord name, manual approval. No latency race on our side. Recording live Binance spot and futures book tickers (public streams reachable from
 here) to build and score a model (`synth/ultra_record.py`, `ultra_eval.py`). (3) HYPE Crypto-24h: behind on Hyperliquid or Binance history (72 vs 60; 103 vs 84);
 weight 0.48, left on the Hyperliquid model.
+
+## §1171 — SN101 Tag101 (tagging X posts): a flat payout where a reference miner should sit near the median — ≈ $280-370 per UID a month for a $6 registration (S11)
+
+**No trial (desk + chain).** Task: return K short tags for a post (validators pull posts from a public whitelist of AI-related X accounts); each tag is scored on
+cluster support among miners (log-scaled distinct-miner count), proximity to its cluster's centre, stability, validity and label fitness — a consensus score.
+Identical tag sets are scaled down only when ~50 miners share one (c = 50, p = 5.5). Reference miner (`tasks/sn101_reference/core/miner.py`): one OpenAI-compatible
+chat call (gpt-4o-mini by default; `OPENAI_BASE_URL` and `OPENAI_MODEL` are configurable), 3 tags as a JSON array — ≈ $0.0001 a call. **Chain (TAO $239): 247 miners,
+only 16 under $100 a month; percentiles 10/25/50/75/90 = $155 / $281 / $291 / $369 / $373; total ≈ $71.5k a month; registration burn 0.025 TAO (≈ $6).** SN101 pool
+3,452 TAO (≈ $0.82M) — selling a few $k a month moves it ≈ 0.3%. Reading: a miner with a decent LLM should earn near the median; 10 UIDs ≈ $2.8-3.7k a month before
+alpha-price changes and the ≈ 4% dilution they cause. Needs: an LLM API key (user's choice of provider; open-weight providers work through the OpenAI-compatible
+URL), a VPS with a public port, the user's wallet. Risks: SN101 alpha price ($0.81) and the subnet's emission share can fall; the scorer can change; posts come from
+X (the miner only reads the post text the validator sends).
