@@ -18857,3 +18857,9 @@ plan-adjacent market. Cells, reading and splits exactly as §1154 with ZN in pla
 
 **No trial.** `reporting/d187_znfnd.py`, `reports/d187_discovery.json`, 51 FNDs 2010-2022. The gold pattern does not generalise; with §1155's sealed reversal, the FND
 mechanism is closed.
+
+## §1158 — D-series family 188 protocol: crude oil contract expiry (expiring-month liquidation) in CL (S1)
+
+**Written and committed BEFORE any CL statistic is computed; N 1,565.** Untested here (families 70/Z09 tested the GSCI roll on business days 5-9, not the CL expiry). **Dates:**
+CME rule — trading ends 3 business days before the 25th calendar day of each month (4 if the 25th is not a business day), from d10's CL trading days. **Cells:** CL ×
+{the 3 sessions before expiry, expiry day, the day after} × {long, short} = 6 cells, open → close, read exactly as §1154.
