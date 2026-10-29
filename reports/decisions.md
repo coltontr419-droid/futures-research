@@ -18759,3 +18759,10 @@ carried cell: CONFIRM needs net t > 1.645, against-always-long t > 1.645, placeb
 **No trial.** `reporting/d181_vixexp.py`, `reports/d181_discovery.json`, 154 expiries 2010-03 → 2022-12. Expiry day itself: ES −7.0 bp (t −0.92), NQ −5.0 (t −0.57) against other
 days. The next session is weaker in both indices, short excess t 1.91 / 1.78 (net +8.5 / +10.6 bp a trade), below the pre-registered 1.96. Not carried, not re-registered
 (a re-test on the same discovery data would be data-led); noted only.
+
+## §1142 — D-series family 182 protocol: the sessions after monthly SPX options expiration (the "post-OPEX unwind") in ES and NQ (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** K6 (§962) tested the week INTO expiration; the week after was not tested. **Dates:** monthly
+expiration = third Friday (prior trading day if a holiday). **Cells:** ES, NQ × {the next session open → close, the next 5 sessions summed} × {long, short} = 8 cells,
+read exactly as §1140 (drift-neutral excess against all other sessions or non-overlapping 5-session blocks; discovery 2010-03 → 2022-12, carry if excess > 0 and t > 1.96;
+sealed 2023-01 → 2026-08 with the strict rule; placebo = random Fridays).
