@@ -18907,3 +18907,13 @@ a time-of-day vol profile × fast EWMA level (half-life 0.5-1 h, reverting to th
 **BTC, last 10 days (240 prompts; the variants were chosen on the last 3): our averaged score 29.8-30.4 vs the field's median UID 33.1; softmax share 0.49-0.55% of the
 competition vs the median UID's 0.33%.** ≈ $75/month per UID from Crypto-24h alone at today's prices; other assets and the other three competitions not yet built.
 Registration ≈ 0.8 TAO ($202) per UID. Next: ETH/SOL/XRP/HYPE, then Crypto-1h and Com/Equ-24h; CliqueAI benchmark in parallel.
+
+## §1165 — SN83 CliqueAI (maximum clique) benchmarked on 513 logged problems: the field is strong; our solvers tie the best on ≈ 70-85% — not yet competitive (S11)
+
+**No trial (measurement).** Data: the validator's public W&B history (anonymous GraphQL + parquet export; 15 chunks, 513 problems with graphs and every miner's answer;
+`synth/clique_data.py`). Graphs are dense (density 0.70-0.95, 290-900 vertices, time limits 6-30 s), all distinct (no repeated degree sequences). On a typical problem
+90-100% of miners reach the best size; on ≈ 1 in 4 only 4-20% do, and those decide ratings (a smaller clique scores ≈ 1/3 of the best via exp(−pr/rel)).
+Our C solvers on 60 problems (30% of the time limit, one core): DLS-MC 32 ties / 28 short; greedy+DLS-MC 33 / 27; **NuMVC on the complement 43 / 17**; 8 parallel NuMVC
+seeds fix some misses but one 900-vertex problem every miner solves at 79 stays at 77; a beam-greedy copy of a public fork's method is worse (73-74). A public fork shows
+operators hash graphs (bliss canonical form) to share work across their many UIDs. Median UID ≈ $509/month, burn ≈ $38: attractive only with a top-tier solver; parked
+behind SN50. Code: `synth/dlsmc.c`, `dlsmc2.c`, `numvc.c`, `beam.c`, `clique_bench.py`.
