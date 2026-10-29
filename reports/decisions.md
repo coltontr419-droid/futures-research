@@ -18332,3 +18332,26 @@ Sources: darwinexzero.document360.io (DarwinIA SILVER, performance fees), luxalg
 submit and go through human review, so the user's §feedback rule puts the bar at $10k/month; the pool (≈ hundreds of thousands of dollars across the
 whole ecosystem) and per-item pay make that unreachable. Direct sales to AI labs need a company and sales relationships. Closed.
 Sources: primeintellect.ai/blog/scaling-environments-program, zylos.ai research 2026-07-15.
+
+## §1095 — A122: Bulenox Fast Track replayed minute by minute (exact intraday trailing) on 2010-26, plus a daily forward test from 2026-09-30 (S10)
+
+**No trial (a fidelity check of §1092's lead, same trade and user-verified terms; no parameter chosen).** User question 2026-10-29: does the test account for the
+intraday trailing drawdown? §1092's engine raised the peak by each trade's best open profit but tested the floor only on the closing balance, so a trade that ran
+up, dipped through the raised floor and recovered counted as surviving. `reporting/a122_fast_track_minute.py` walks every 1-minute bar of the trade in the worst
+order (raise the peak by the bar's high, test the low against the floor, then the stop, then the take). One slot, continuous timeline, re-buy next session,
+$268.40, 90% split, no bot fee, 3 MNQ long at the 09:30 open, take 108.25 / stop 333.25 pts, A23 MNQ RTH minute paths (drift removed).
+
+| era, side | minute replay: per 84 sessions (accounts per payout) | §1092 shortcut, same timeline |
+|---|---|---|
+| 2010-20 long | **+$3,872** (3.38) | +$5,146 (2.33) |
+| 2010-20 short | +$2,748 (3.92) | +$4,548 (2.50) |
+| 2021-26 long | **+$3,876** (3.69) | +$5,749 (2.57) |
+| 2021-26 short | +$4,888 (3.19) | +$6,476 (2.14) |
+
+The shortcut overstated value by ≈ 25-40% (≈ 40% more accounts blown); the lead stays positive in every cell. A later-payout goal of $2,000 never binds (the 25-30%
+consistency already needs ≈ $2.6k a cycle). Most blow-ups follow a payout: the payout takes the balance down to the +$100 locked floor, leaving ≈ $1.4k of room against
+a $2k stop. **Forward test:** `reporting/a122_forward.py` pulls Yahoo NQ=F 1-minute bars (≈ 30 days kept; first available day 2026-09-30, after the A23 history's
+2026-08-27 end), stores them in data/forward/, and replays every complete session with the same engine in real dollars (no drift removed). Timer
+`futres-a122fwd.timer` (Mon-Fri 16:30 CT, persistent). First read (21 sessions, 09-30 → 10-28): 3 accounts, 1 payout ($2,000), net +$995 (+$3,979 per 84).
+**Pre-registered read** when the NKD payout arrives (or at 60 sessions): a red flag if net per 84 sessions < $0 or accounts per payout > 6; otherwise consistent with
+the history. Not a confirmation either way (one path, ~3 months).

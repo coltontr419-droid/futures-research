@@ -1,0 +1,178 @@
+{
+ "pre long minute laterGoal=0": {
+  "sessions": 1251,
+  "bought": 206,
+  "payouts": 61,
+  "paid": 112950.0,
+  "fees": 55290.4,
+  "net": 57659.6,
+  "net_per_84": 3871.63,
+  "per_payout": 3.38,
+  "open_balance": 642.54
+ },
+ "pre long minute laterGoal=2000": {
+  "sessions": 1251,
+  "bought": 206,
+  "payouts": 61,
+  "paid": 112950.0,
+  "fees": 55290.4,
+  "net": 57659.6,
+  "net_per_84": 3871.63,
+  "per_payout": 3.38,
+  "open_balance": 642.54
+ },
+ "pre long A121-shortcut laterGoal=0": {
+  "sessions": 1251,
+  "bought": 147,
+  "payouts": 63,
+  "paid": 116100.0,
+  "fees": 39454.8,
+  "net": 76645.2,
+  "net_per_84": 5146.44,
+  "per_payout": 2.33,
+  "open_balance": -143.95
+ },
+ "pre long A121-shortcut laterGoal=2000": {
+  "sessions": 1251,
+  "bought": 147,
+  "payouts": 63,
+  "paid": 116100.0,
+  "fees": 39454.8,
+  "net": 76645.2,
+  "net_per_84": 5146.44,
+  "per_payout": 2.33,
+  "open_balance": -143.95
+ },
+ "pre short minute laterGoal=0": {
+  "sessions": 1251,
+  "bought": 208,
+  "payouts": 53,
+  "paid": 96750.0,
+  "fees": 55827.2,
+  "net": 40922.8,
+  "net_per_84": 2747.81,
+  "per_payout": 3.92,
+  "open_balance": 4113.21
+ },
+ "pre short minute laterGoal=2000": {
+  "sessions": 1251,
+  "bought": 208,
+  "payouts": 53,
+  "paid": 96750.0,
+  "fees": 55827.2,
+  "net": 40922.8,
+  "net_per_84": 2747.81,
+  "per_payout": 3.92,
+  "open_balance": 4113.21
+ },
+ "pre short A121-shortcut laterGoal=0": {
+  "sessions": 1251,
+  "bought": 145,
+  "payouts": 58,
+  "paid": 106650.0,
+  "fees": 38918.0,
+  "net": 67732.0,
+  "net_per_84": 4547.95,
+  "per_payout": 2.5,
+  "open_balance": 5045.02
+ },
+ "pre short A121-shortcut laterGoal=2000": {
+  "sessions": 1251,
+  "bought": 145,
+  "payouts": 58,
+  "paid": 106650.0,
+  "fees": 38918.0,
+  "net": 67732.0,
+  "net_per_84": 4547.95,
+  "per_payout": 2.5,
+  "open_balance": 5045.02
+ },
+ "post long minute laterGoal=0": {
+  "sessions": 1387,
+  "bought": 288,
+  "payouts": 78,
+  "paid": 141300.0,
+  "fees": 77299.2,
+  "net": 64000.8,
+  "net_per_84": 3876.04,
+  "per_payout": 3.69,
+  "open_balance": 1927.62
+ },
+ "post long minute laterGoal=2000": {
+  "sessions": 1387,
+  "bought": 288,
+  "payouts": 78,
+  "paid": 141300.0,
+  "fees": 77299.2,
+  "net": 64000.8,
+  "net_per_84": 3876.04,
+  "per_payout": 3.69,
+  "open_balance": 1927.62
+ },
+ "post long A121-shortcut laterGoal=0": {
+  "sessions": 1387,
+  "bought": 213,
+  "payouts": 83,
+  "paid": 152100.0,
+  "fees": 57169.2,
+  "net": 94930.8,
+  "net_per_84": 5749.23,
+  "per_payout": 2.57,
+  "open_balance": 1927.62
+ },
+ "post long A121-shortcut laterGoal=2000": {
+  "sessions": 1387,
+  "bought": 213,
+  "payouts": 83,
+  "paid": 152100.0,
+  "fees": 57169.2,
+  "net": 94930.8,
+  "net_per_84": 5749.23,
+  "per_payout": 2.57,
+  "open_balance": 1927.62
+ },
+ "post short minute laterGoal=0": {
+  "sessions": 1387,
+  "bought": 271,
+  "payouts": 85,
+  "paid": 153450.0,
+  "fees": 72736.4,
+  "net": 80713.6,
+  "net_per_84": 4888.21,
+  "per_payout": 3.19,
+  "open_balance": 815.48
+ },
+ "post short minute laterGoal=2000": {
+  "sessions": 1387,
+  "bought": 271,
+  "payouts": 85,
+  "paid": 153450.0,
+  "fees": 72736.4,
+  "net": 80713.6,
+  "net_per_84": 4888.21,
+  "per_payout": 3.19,
+  "open_balance": 815.48
+ },
+ "post short A121-shortcut laterGoal=0": {
+  "sessions": 1387,
+  "bought": 180,
+  "payouts": 84,
+  "paid": 155250.0,
+  "fees": 48312.0,
+  "net": 106938.0,
+  "net_per_84": 6476.42,
+  "per_payout": 2.14,
+  "open_balance": 1781.22
+ },
+ "post short A121-shortcut laterGoal=2000": {
+  "sessions": 1387,
+  "bought": 180,
+  "payouts": 84,
+  "paid": 155250.0,
+  "fees": 48312.0,
+  "net": 106938.0,
+  "net_per_84": 6476.42,
+  "per_payout": 2.14,
+  "open_balance": 1781.22
+ }
+}
