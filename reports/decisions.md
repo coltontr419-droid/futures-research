@@ -18575,3 +18575,10 @@ after the close. **Signal:** P = 5-session mean of the ratio ÷ its 60-session m
 session close-to-close, else short. **Target:** QQQ adjusted close d → d+1 (MNQ proxy). **Statistic (strict rule §119):** x = (rule − always long) × r; CONFIRM needs t > 1.645,
 circular-shift placebo ≥ 95th (2,000 shifts), mean x > 0. Costs: 0.25 MNQ point a side on each flip (≈ 0.003% at NQ 20k), charged to x. **Split:** discovery 2007-03 → 2022-12;
 sealed 2023-01 → latest, read once. A discovery mean ≤ 0 closes it.
+
+## §1115 — S-family 3 protocol: market breadth (share of liquid stocks above their 50-session mean) as a contrarian next-session sign for MNQ, current regime (S1)
+
+**Written and committed BEFORE any statistic is computed; one trial on the sealed read.** Family 159 (§558) tested the RSP − SPY *return* spread; the breadth *level* was
+not. **Data:** `pack.npz` adjusted closes (2,012 liquid US names, 2015-01 → 2026-10). **Signal at the close of d:** B = share of names (with 50 prior closes) above their
+50-session mean; z = B − mean of B over the previous 250 sessions. **Rule:** z < 0 (washed out) → long QQQ close d → d+1, else short. **Statistic, costs, placebo:** as §1114.
+**Split:** discovery 2016-01 → 2022-12; sealed 2023-01 → latest, read once. A discovery mean ≤ 0 closes it.
