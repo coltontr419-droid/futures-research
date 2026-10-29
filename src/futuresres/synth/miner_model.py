@@ -22,6 +22,7 @@ import futuresres.synth.s50_1h as b1
 LIVE = b24.CACHE / "live"
 MODEL_24H_CRYPTO = ("todg_12_36_c_ou20", 0.95)
 MODEL_24H_HL = ("todg_12_36_c_wk", 1.0)
+MODEL_24H_YP = {"XAU": ("todg_12_36_c_yp", 1.0)}               # Yahoo 60-day weekday profile (decisions.md §1169)
 MODEL_1H = ("tod1_120_240", 1.0)
 
 
@@ -57,8 +58,11 @@ def generate_simulations(asset: str, start_time: str, time_increment: int, time_
         paths = b1.ensemble(hist, float(hist[-1]), (t0 // 60000) % 1440, MODEL_1H[0], rng, MODEL_1H[1], n=num_simulations, steps=steps)
     elif asset in b24.HYPERLIQUID:                                # Com/Equ-24h and HYPE (5-minute Hyperliquid candles)
         M = b24.hl5(asset); keys = sorted(M); hist = np.array([M[k] for k in keys])[-6 * 288:]
-        paths = b24.ensemble(hist, float(hist[-1]), MODEL_24H_HL[0], rng, n=num_simulations, steps=steps, slot0=(t0 // 300000) % 288, k=MODEL_24H_HL[1],
-                             stride=1, day0=t0d.weekday())
+        model, k = MODEL_24H_YP.get(asset, MODEL_24H_HL); hp = None
+        if asset in MODEL_24H_YP:
+            h = b24.hour_profile(b24.hl1h(asset), t0); hp = (h[0], h[1], b24.yahoo_profile(b24.yahoo5(asset), t0))
+        paths = b24.ensemble(hist, float(hist[-1]), model, rng, n=num_simulations, steps=steps, slot0=(t0 // 300000) % 288, k=k,
+                             stride=1, day0=t0d.weekday(), hprof=hp)
     else:                                                         # Crypto-24h
         hist = _binance_minutes(asset, 32)[-31 * 1440:]
         paths = b24.ensemble(hist, float(hist[-1]), MODEL_24H_CRYPTO[0], rng, n=num_simulations, steps=steps, slot0=(t0 // 300000) % 288, k=MODEL_24H_CRYPTO[1])

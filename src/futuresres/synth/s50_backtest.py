@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[3]
 CACHE = ROOT / "data" / "synth"
 API = "https://api.synthdata.co"
 INTERVALS = {"5min": 300, "30min": 1800, "3hour": 10800, "24hour_abs": 86400}
-BINANCE = {"BTC": "BTCUSDT", "ETH": "ETHUSDT", "SOL": "SOLUSDT", "XRP": "XRPUSDT"}
+BINANCE = {"BTC": "BTCUSDT", "ETH": "ETHUSDT", "SOL": "SOLUSDT", "XRP": "XRPUSDT", "HYPE": "HYPEUSDT"}   # HYPE: validator scores Hyperliquid spot; Binance carries the history
 HYPERLIQUID = {"HYPE": "@107", "XAU": "xyz:GOLD", "NVDAX": "xyz:NVDA", "TSLAX": "xyz:TSLA", "AAPLX": "xyz:AAPL", "GOOGLX": "xyz:GOOGL", "SP500": "xyz:SP500",
                "SPCX": "xyz:SPCX", "WTIOIL": "xyz:CL"}                     # the validator's feeds (synth/miner/price_simulation.py)
 
@@ -230,7 +230,7 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
     starts = sorted(P)
     t_lo = int(dt.datetime.fromisoformat(starts[0].replace("Z", "+00:00")).timestamp() * 1000) - 32 * 86400000
     t_hi = int(dt.datetime.fromisoformat(starts[-1].replace("Z", "+00:00")).timestamp() * 1000)
-    hl = asset in HYPERLIQUID
+    hl = asset in HYPERLIQUID and asset not in BINANCE
     M = hl5(asset) if hl else minutes(asset, t_lo, t_hi)
     H = hl1h(asset) if hl else None
     Y = yahoo5(asset) if asset in YAHOO else None
