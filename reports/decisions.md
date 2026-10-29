@@ -18852,3 +18852,8 @@ test is undefined for a long-only cell). Six events a year at ≈ $14 per MGC co
 
 **Written and committed BEFORE any ZN statistic is computed; N 1,565.** The same liquidation-and-recovery mechanism as §1154, applied to the other physically delivered
 plan-adjacent market. Cells, reading and splits exactly as §1154 with ZN in place of GC (6 cells).
+
+## §1157 — Family 187: no first-notice liquidation in ZN — 0 of 6 carried (the sessions before FND lean UP, +12.0 bp vs other blocks, t 1.87) (S1)
+
+**No trial.** `reporting/d187_znfnd.py`, `reports/d187_discovery.json`, 51 FNDs 2010-2022. The gold pattern does not generalise; with §1155's sealed reversal, the FND
+mechanism is closed.
