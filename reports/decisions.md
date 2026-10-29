@@ -18611,3 +18611,8 @@ A discovery mean ≤ 0 closes it.
 
 **No trial (discovery fail, §1118).** `stocks/s5_insideragg.py`, 83 SEC quarters (2006Q1 → 2026Q3; 2026Q2-Q3 from I-family 1's copies, the SEC URL now 404s), 330,761
 purchase and 804,296 sale filings by officers/directors; 814 discovery weeks, long on 47%. The short weeks give up QQQ's drift and the sign adds nothing back.
+
+## §1120 — S-family 1 discovery: aggregate short interest does not time MNQ — −0.586% a half-month against always long, t −0.93; closed (S1)
+
+**No trial (discovery fail, §1113).** `stocks/s1_shortint.py`, 211 FINRA settlement dates (the API serves 2018-01 → 2026-10-15, not 2018-12 as probed), so after the
+24-report warm-up the discovery window ran 2019-01 → 2022-12 (95 periods) instead of 2020-12 → 2022-12; noted, not material to a negative mean. Short 53% of periods.
