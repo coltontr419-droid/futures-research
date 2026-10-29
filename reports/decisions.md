@@ -18621,3 +18621,10 @@ purchase and 804,296 sale filings by officers/directors; 814 discovery weeks, lo
 
 **No trial (discovery fail, §1114).** `stocks/s2_putcall.py`, 5,028 CBOE days (2006-11-01 → 2026-10-28; CSV to 2019-10-04, daily JSON after), 3,989 discovery sessions
 2007-03 → 2022-12. The short sessions give up QQQ's drift; the ratio adds nothing next-day.
+
+## §1122 — S-family 4 discovery: the off-exchange short-volume ratio does not time MNQ — −7.22 bp a session, t −1.01; closed. S-series reading (S1)
+
+**No trial (discovery fail, §1117).** `stocks/s4_shortvol.py`, 2,069 FINRA CNMS days (2018-08 → 2026-10), 1,048 discovery sessions, long on 54%.
+**S-series reading (§1113-§1122):** five free sentiment/positioning gauges (short interest, put/call, breadth, short volume, insider buying), each as a long/short
+sign for MNQ against always long: all five negative in discovery. Paying the short side's drift is the bar none clears. No more index-timing gauges; the next tests use
+targets without a drift (relative spreads).
