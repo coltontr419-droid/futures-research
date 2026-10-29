@@ -18668,3 +18668,11 @@ the continuous contract's roll gaps are excluded), cost d12.COST × 5. **Cells:*
 ## §1128 — Family 177: the gas-storage surprise does not carry into NG's next week — follow +6.3 bp (t 0.20), fade −19.8 bp (t −0.62); 0 of 2 carried (S1)
 
 **No trial.** `reporting/d177_ngstorage.py`, `reports/d177_discovery.json`, 415 release weeks 2015-2022. The weekly surprise is priced on release day.
+
+## §1129 — D-series family 178 protocol: Treasury coupon-auction strength as a next-session sign for ZN (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Auction outcomes have not been a predictor here (K4 used only the auction calendar). **Data:** Fiscal
+Data `auctions_query` (free, no key): Notes and Bonds, 2009 →. Each auction's term bucket = years in `security_term` rounded (a 9-Year 10-Month reopening is the 10-year).
+**Strength measures:** (a) bid-to-cover − mean of the previous 6 auctions in the same bucket; (b) indirect share (indirect accepted ÷ total accepted) − the same mean.
+A day with several auctions takes the mean across them. **Trade:** ZN next weekday open → close (d10 bps), cost d12.COST; strong (> 0) → long for **follow**, short for
+**fade**: 2 measures × 2 rules = 4 cells. **Discovery** 2010-01 → 2022-12: carry if mean > 0, t > 1.96. **Sealed** 2023-01 → 2026-08, strict rule as §1125.
