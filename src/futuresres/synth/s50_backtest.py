@@ -26,6 +26,27 @@ CACHE = ROOT / "data" / "synth"
 API = "https://api.synthdata.co"
 INTERVALS = {"5min": 300, "30min": 1800, "3hour": 10800, "24hour_abs": 86400}
 BINANCE = {"BTC": "BTCUSDT", "ETH": "ETHUSDT", "SOL": "SOLUSDT", "XRP": "XRPUSDT"}
+HYPERLIQUID = {"HYPE": "@107", "XAU": "xyz:GOLD", "NVDAX": "xyz:NVDA", "TSLAX": "xyz:TSLA", "AAPLX": "xyz:AAPL", "GOOGLX": "xyz:GOOGL", "SP500": "xyz:SP500",
+               "SPCX": "xyz:SPCX", "WTIOIL": "xyz:CL"}                     # the validator's feeds (synth/miner/price_simulation.py)
+
+
+def hl5(asset: str) -> dict:
+    """Hyperliquid 5-minute closes {open_ms: close}: the API serves the latest ~5,000 candles (~17 days); merged into a growing cache."""
+    f = CACHE / f"hl5_{asset}.json"
+    have = {int(k): v for k, v in json.loads(f.read_text()).items()} if f.exists() else {}
+    now = int(time.time() * 1000)
+    for back in (17, 9, 1):
+        t0 = now - back * 86400000
+        try:
+            rows = requests.post("https://api.hyperliquid.xyz/info", json={"type": "candleSnapshot", "req": {"coin": HYPERLIQUID[asset], "interval": "5m",
+                                 "startTime": t0, "endTime": min(now, t0 + 9 * 86400000)}}, timeout=60, impersonate="chrome").json()
+            for c in rows:
+                have[int(c["t"])] = float(c["c"])
+        except Exception:
+            pass
+        time.sleep(0.5)
+    CACHE.mkdir(parents=True, exist_ok=True); f.write_text(json.dumps(have))
+    return have
 
 
 def get(url, params=None, required=True):
@@ -53,7 +74,7 @@ def prompts(asset: str, days: int):
     for h in range(days * 24):
         a = end - dt.timedelta(hours=h + 1); b = end - dt.timedelta(hours=h)
         rows = get(f"{API}/validation/scores/historical", {"from": a.strftime("%Y-%m-%dT%H:%M:%SZ"), "to": b.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                                                            "asset": asset, "time_increment": 300, "time_length": 86400})
+                                                            "asset": asset, "time_increment": 300, "time_length": 86400}, required=False) or []
         for r in rows:
             st = (dt.datetime.fromisoformat(r["scored_time"].replace("Z", "+00:00")) - dt.timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
             out.setdefault(st, {})[str(r["miner_uid"])] = r["crps"]
@@ -89,14 +110,26 @@ def minutes(asset: str, t0: int, t1: int) -> dict:
     return have
 
 
-def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, slot0: int = 0, k: float = 1.0) -> np.ndarray:
+def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, slot0: int = 0, k: float = 1.0, stride: int = 5, day0: int = 0) -> np.ndarray:
     """1,000 paths of 289 prices at 5-minute steps from the 1-minute closes before t0 (closes end at t0 - 1 min, aligned to 5-minute slots;
     slot0 = t0's 5-minute slot of the UTC day)."""
-    r5 = np.diff(np.log(closes[::5]))                       # 5-minute log returns, oldest first
+    r5 = np.diff(np.log(closes[::stride]))                  # 5-minute log returns, oldest first
     if model.startswith("tod"):                              # time-of-day vol profile x EWMA level, bootstrapped standardised shocks
         m = len(r5); slots = (slot0 - m + np.arange(m)) % 288
-        prof = np.array([np.sqrt(np.mean(r5[slots == j] ** 2)) for j in range(288)]); prof = np.convolve(np.r_[prof[-2:], prof, prof[:2]], np.ones(5) / 5, "valid")
-        z_hist = r5 / prof[slots]
+        if "_wk" in model:                                   # separate weekday / weekend profiles (day0 = weekday of t0's UTC day, Mon=0)
+            dow = (day0 + (slot0 - m + np.arange(m)) // 288) % 7; wkd = dow >= 5
+            def mk(mask):
+                pr = np.array([np.sqrt(np.mean(r5[(slots == j) & mask] ** 2)) if ((slots == j) & mask).any() else np.nan for j in range(288)])
+                pr = np.where(np.isnan(pr), np.nanmedian(pr), pr)
+                if "_ns" in model:                           # no smoothing: keeps one-slot spikes such as the US cash open
+                    return pr
+                return np.convolve(np.r_[pr[-2:], pr, pr[:2]], np.ones(5) / 5, "valid")
+            P_wd, P_we = mk(~wkd), mk(wkd); prof_hist = np.where(wkd, P_we[slots], P_wd[slots])
+            fdow = (day0 + (slot0 + np.arange(steps)) // 288) % 7; fut_prof = np.where(fdow >= 5, P_we[(slot0 + np.arange(steps)) % 288], P_wd[(slot0 + np.arange(steps)) % 288])
+        else:
+            prof = np.array([np.sqrt(np.mean(r5[slots == j] ** 2)) for j in range(288)]); prof = np.convolve(np.r_[prof[-2:], prof, prof[:2]], np.ones(5) / 5, "valid")
+            prof_hist = prof[slots]; fut_prof = prof[(slot0 + np.arange(steps)) % 288]
+        z_hist = r5 / np.maximum(prof_hist, 1e-12)
         hl = 72.0 if model.startswith("tod_6h") else 288.0
         dec = 288.0
         if model.startswith("todg"):                         # todg_<half-life steps>_<decay steps>
@@ -104,7 +137,7 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
         w = 0.5 ** (np.arange(m)[::-1] / hl); level = np.sqrt((w * z_hist ** 2).sum() / w.sum())
         long = np.sqrt(np.mean(z_hist[-2016:] ** 2)); decay = np.exp(-np.arange(steps) / dec)         # level reverts to the 7-day mean over ~a day
         lev = long + (level - long) * decay
-        fut = prof[(slot0 + np.arange(steps)) % 288] * lev * k
+        fut = fut_prof * lev * k
         pool = z_hist[-8640:] / np.sqrt(np.mean(z_hist[-8640:] ** 2))
         if "_c" in model:                                    # conditional shape: residuals standardised by a causal local EWMA level as well
             a = 1 - 0.5 ** (1 / 12.0); v = np.empty(m); acc = np.mean(z_hist[:288] ** 2)
@@ -112,6 +145,11 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
                 v[t] = acc; acc = (1 - a) * acc + a * z_hist[t] ** 2
             zc = z_hist / np.sqrt(v); pool = zc[-8640:] / np.sqrt(np.mean(zc[-8640:] ** 2))
         z = rng.choice(pool, (n, steps)) * fut[None, :]
+        if "_ou" in model:                                  # mean reversion of log price toward the start: x_{t+1} = (1 - theta) x_t + z_t
+            th = float(model.split("_ou")[1].split("_")[0]) / 1e4; x = np.zeros((n, steps + 1))
+            for t in range(steps):
+                x[:, t + 1] = (1 - th) * x[:, t] + z[:, t]
+            return s0 * np.exp(x)
         if model.startswith("tod_mix"):                     # vol-of-vol: each path draws its own level multiplier (mean-one lognormal)
             vv = float(model.split("_")[-1]) / 100.0
             z = z * np.exp(rng.normal(-0.5 * vv ** 2, vv, (n, 1)))
@@ -139,8 +177,10 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
     starts = sorted(P)
     t_lo = int(dt.datetime.fromisoformat(starts[0].replace("Z", "+00:00")).timestamp() * 1000) - 32 * 86400000
     t_hi = int(dt.datetime.fromisoformat(starts[-1].replace("Z", "+00:00")).timestamp() * 1000)
-    M = minutes(asset, t_lo, t_hi)
+    hl = asset in HYPERLIQUID
+    M = hl5(asset) if hl else minutes(asset, t_lo, t_hi)
     keys = np.array(sorted(M)); vals = np.array([M[k] for k in keys])
+    stride, look = (1, 6 * 288) if hl else (5, 31 * 1440)
     rng = np.random.default_rng(1164)
     rows = []
     for st in starts:
@@ -148,11 +188,12 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
         if not real or len(real) < 289 or len(P[st]) < 100:
             continue
         t0 = int(dt.datetime.fromisoformat(st.replace("Z", "+00:00")).timestamp() * 1000)
-        i = np.searchsorted(keys, t0 - 60000, side="right")         # closes strictly before t0 - 1 min (bar open <= t0 - 2 min)
-        if i < 31 * 1440:
+        i = np.searchsorted(keys, t0 - (300000 if hl else 60000), side="right")   # last bar whose close is known at t0
+        if i < look:
             continue
-        hist = vals[i - 31 * 1440:i]; s0 = float(hist[-1]); slot0 = (t0 // 300000) % 288
-        ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=float(m.split("@")[1]) if "@" in m else 1.0), np.array(real, float), 300, INTERVALS) for m in models}
+        hist = vals[i - look:i]; s0 = float(hist[-1]); slot0 = (t0 // 300000) % 288; day0 = dt.datetime.fromtimestamp(t0 / 1000, dt.timezone.utc).weekday()
+        ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=float(m.split("@")[1]) if "@" in m else 1.0, stride=stride, day0=day0),
+                            np.array(real, float), 300, INTERVALS) for m in models}
         rows.append({"start": st, "field": P[st], **ours})
     out = summarise(rows, models)
     (CACHE / f"bt_{asset}_{days}.json").write_text(json.dumps({"summary": out, "n_prompts": len(rows)}, indent=1))

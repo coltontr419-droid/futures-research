@@ -18924,3 +18924,14 @@ behind SN50. Code: `synth/dlsmc.c`, `dlsmc2.c`, `numvc.c`, `beam.c`, `clique_ben
 median UID's 0.36%, SOL 0.53% vs 0.21%, XRP 0.43% vs 0.28%** (BTC 0.54% vs 0.33%). Averaged scores 38.6-41.2 vs field medians 43.3-44.8. HYPE (Hyperliquid feed) not yet
 tested. Crypto-24h is one quarter of miner emissions (≈ $15k/month): ≈ 0.5% of it ≈ $75/month per UID. Crypto-1h backtest (`synth/s50_1h.py`, vol term verified against
 upstream to 1e-12) running.
+
+## §1167 — SN50: Crypto-1h above median; a mild mean reversion helps Crypto-24h; equities (NVDA) far behind; per-UID economics (S11)
+
+**No trial.** (1) **Crypto-1h** (`synth/s50_1h.py`, 3 days, ~435 prompts, β 0.3): variant tod1_120_240 (minute-of-day profile × EWMA level half-life 2 h reverting over 4 h)
+share **BTC 0.55% vs the median UID's 0.34%, SOL 0.85% vs 0.33%** (ETH pending). (2) **Crypto-24h + mean reversion:** realized 3 h / 24 h variance is only 0.57-0.79 of
+36 / 288 five-minute variances (BTC, ETH); an OU pull toward the start (θ = 0.002 per 5 min) lifts BTC from 0.53% to 0.58-0.62% (10 days). (3) **Com/Equ-24h, NVDA:**
+our score 54 vs the field median's 35 (share 0.01% vs 0.23%); not fixed by vol scale (oracle-k bound 50), weekday/weekend profiles, OU, or an unsmoothed profile; the
+Hyperliquid 5-minute feed matches the validator's level and vol; the gap is uniform across hours and days. Open. (4) **Per-UID economics at today's prices** (miner
+emissions ≈ $60.6k/month, four equal competitions): ≈ 0.6% of Crypto-24h + ≈ 0.6% of Crypto-1h + ≈ 0 of Com/Equ and VHFT ≈ **$190 a month per UID** (median UID $201);
+registration ≈ 0.8 TAO ($202) per UID, no duplicate-submission penalty in the code. 10-15 UIDs ≈ $1.9-2.8k/month for ≈ $2-3k of TAO, paid in SN50 alpha (price risk:
+alpha $0.90, TAO $253). Fully automatable after setup (VPS with a public port; wallet keys stay with the user). Kraken lists TAO (Texas availability to confirm).
