@@ -18414,3 +18414,11 @@ loss limit (Option 2 does). Master-level session rules: session 5:00 PM-4:00 PM 
 comply. The cash-on-hand scaling table (100K: 3 minis up to $2,000 profit) does not bind 7 MNQ (0.7 mini). Up to 5 Master-level accounts; ≥ 1 trade a week (inactivity rule).
 Only the discount is unverified (the user paid 45% off on the 50K; the site's always-on coupon "applies the best available discount"); at list price the 100K is
 +$4.7k / +$4.5k per 84 sessions.
+
+## §1100 — A126: Fast Track Option 2 (EOD drawdown + daily loss limit) — worse than Option 1 at every size and market; keep Option 1 (S10)
+
+**No trial.** EOD floor (peak of closing balances − drawdown, lock at +$100), the stop bounded by the DLL (50K $1,200, 100K $2,500, 150K $3,300), Option 2 contract
+limits not binding at these sizes; grid take ∈ {0.1…0.45} × dd, stop ∈ {0.25…1.0} × dd within the DLL; chosen on one era, scored on the other. Per 84 sessions
+(other era): 100K MNQ RTH +$3,028 / +$2,445 (Option 1: +$7,809 / +$7,553); 100K MNQ full +$2,544 / +$3,105; 100K MGC London +$2,513 / +$1,536; 50K +$1.8-3.0k;
+150K +$2.0-3.8k. The DLL forces a stop of ≈ half the drawdown, which costs more than the EOD floor saves. Option 1 (intraday trailing, no DLL) stays.
+Script: scripts/a126_fast_track_option2.py.
