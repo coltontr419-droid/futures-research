@@ -18806,3 +18806,9 @@ sealed 2023-01 → 2026-08 strict rule; placebo = random Wednesdays).
 ## §1148 — Family 183: FOMC minutes days — 0 of 6 carried (best ES long +8.9 bp vs other days, t 1.13; 98 days) (S1)
 
 **No trial.** `reporting/d183_minutes.py`, `reports/d183_discovery.json`. Closed.
+
+## §1149 — D-series family 184 protocol: WASDE release days (12:00 ET) in corn, soybeans and wheat (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Untested here. **Dates:** USDA ESMIS WASDE listing (692 releases, 1973 →; `data/wasde/dates.txt`).
+**Cells:** ZC, ZS, ZW × {long, short}, release-day open → close = 6 cells, read as §1140 (drift-neutral excess vs all other days; discovery 2010-03 → 2022-12, carry if
+excess > 0 and t > 1.96; sealed 2023-01 → 2026-08 strict rule; placebo = random days of the same weekday mix — here random trading days).
