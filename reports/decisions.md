@@ -18944,3 +18944,12 @@ alpha $0.86 (90-day range $0.93-1.31), TAO $239 (range $193-301). **`synth/miner
 type — Crypto-24h todg_12_36_c_ou20 @0.95, Crypto-1h tod1_120_240, Hyperliquid assets todg_12_36_c_wk @1.0 — from live Binance-mirror and Hyperliquid data; output
 in the validator's format (8 significant digits), 1-5 s per forecast with warm caches (first fill ≈ 75 s, so a cache warmer must run). Per-UID estimate now ≈ $220/month
 at today's prices with equities at their current shares.
+
+## §1169 — SN50 Com/Equ: a 60-day Yahoo profile brings gold (XAU) to near the median; SP500 and NVDA stay well behind. Other subnets screened (S11)
+
+**No trial.** Weekday 5-minute vol profile from Yahoo (60 days; GC=F for XAU, ^GSPC/ES=F for SP500, NVDA for NVDAX) with weekends/gaps from the Hyperliquid 1 h profile:
+**XAU 25.8 vs the field median 24.8, share 0.24% vs the median UID's 0.28%** (was 0.12%); SP500 21.5-23.7 vs 15.2 (no gain; both ES=F and ^GSPC); NVDA 58.8 vs 35.0 (worse).
+Equity perps on Hyperliquid stay unexplained. **Other subnets:** SN5 Hone (median UID ≈ $1,130/month) pays only for full passes of hidden test suites on real SWE /
+terminal tasks — it needs a frontier coding agent, and Hone produces RL training signal, so using Claude's outputs there may conflict with Anthropic's terms on
+building competing models: not pursued without the user's decision. SN32 ItsAI (AI-text detection, ≈ $242 / $16) needs a SOTA detector (the field reports ≈ 98%
+accuracy): GPU model work, skipped. SN83 §1165.

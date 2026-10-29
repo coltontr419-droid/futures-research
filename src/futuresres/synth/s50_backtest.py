@@ -121,6 +121,29 @@ def hl1h(asset: str) -> dict:
     have = {int(c["t"]): float(c["c"]) for c in rows}; f.write_text(json.dumps(have)); return have
 
 
+YAHOO = {"SP500": "^GSPC", "XAU": "GC=F", "WTIOIL": "CL=F", "NVDAX": "NVDA", "TSLAX": "TSLA", "AAPLX": "AAPL", "GOOGLX": "GOOGL"}
+
+
+def yahoo5(asset: str) -> dict:
+    """Yahoo 5-minute closes {open_ms: close} (~60 days, pre/post included), cached 6 h."""
+    f = CACHE / f"y5_{asset}.json"
+    if f.exists() and time.time() - f.stat().st_mtime < 6 * 3600:
+        return {int(k): v for k, v in json.loads(f.read_text()).items()}
+    r = requests.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{YAHOO[asset]}", params={"interval": "5m", "range": "60d", "includePrePost": "true"},
+                     timeout=60, impersonate="chrome").json()["chart"]["result"][0]
+    have = {int(t) * 1000: c for t, c in zip(r["timestamp"], r["indicators"]["quote"][0]["close"]) if c}
+    f.write_text(json.dumps(have)); return have
+
+
+def yahoo_profile(Y: dict, t0: int) -> np.ndarray:
+    """Weekday per-5-minute-slot vol from Yahoo bars before t0 (consecutive bars only), lightly smoothed; NaN where Yahoo has no bars."""
+    ks = np.array(sorted(k for k in Y if k < t0)); v = np.log(np.array([Y[k] for k in ks]))
+    ok = np.diff(ks) == 300000; r = np.diff(v)[ok]; ts = ks[1:][ok]
+    slot = (ts // 300000) % 288; wd = np.array([dt.datetime.fromtimestamp(t / 1000, dt.timezone.utc).weekday() < 5 for t in ts])
+    pr = np.array([np.sqrt(np.mean(r[(slot == j) & wd] ** 2)) if ((slot == j) & wd).sum() >= 10 else np.nan for j in range(288)])
+    return pr
+
+
 def hour_profile(H: dict, t0: int) -> tuple[np.ndarray, np.ndarray]:
     """Per-5-minute-step vol (log units) by UTC hour, weekday and weekend, from hourly closes strictly before t0 (hour vol / sqrt(12))."""
     ks = np.array(sorted(k for k in H if k < t0 - 3600000)); v = np.array([H[k] for k in ks]); r = np.diff(np.log(v)); ks = ks[1:]
@@ -137,7 +160,12 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
     r5 = np.diff(np.log(closes[::stride]))                  # 5-minute log returns, oldest first
     if model.startswith("tod"):                              # time-of-day vol profile x EWMA level, bootstrapped standardised shocks
         m = len(r5); slots = (slot0 - m + np.arange(m)) % 288
-        if "_lh" in model and hprof is not None:            # long hourly weekday/weekend profile (Hyperliquid 1 h candles, ~200 days)
+        if "_yp" in model and hprof is not None and len(hprof) == 3:   # weekday 5-min profile from Yahoo (60 days), gaps/weekends from the HL hourly profile
+            dow = (day0 + (slot0 - m + np.arange(m)) // 288) % 7; wkd = dow >= 5
+            P_wd = np.where(np.isnan(hprof[2]), np.repeat(hprof[0], 12), hprof[2]); P_we = np.repeat(hprof[1], 12)
+            prof_hist = np.where(wkd, P_we[slots], P_wd[slots])
+            fdow = (day0 + (slot0 + np.arange(steps)) // 288) % 7; fs = (slot0 + np.arange(steps)) % 288; fut_prof = np.where(fdow >= 5, P_we[fs], P_wd[fs])
+        elif "_lh" in model and hprof is not None:            # long hourly weekday/weekend profile (Hyperliquid 1 h candles, ~200 days)
             dow = (day0 + (slot0 - m + np.arange(m)) // 288) % 7; wkd = dow >= 5
             P_wd = np.repeat(hprof[0], 12); P_we = np.repeat(hprof[1], 12); prof_hist = np.where(wkd, P_we[slots], P_wd[slots])
             fdow = (day0 + (slot0 + np.arange(steps)) // 288) % 7; fs = (slot0 + np.arange(steps)) % 288; fut_prof = np.where(fdow >= 5, P_we[fs], P_wd[fs])
@@ -205,6 +233,7 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
     hl = asset in HYPERLIQUID
     M = hl5(asset) if hl else minutes(asset, t_lo, t_hi)
     H = hl1h(asset) if hl else None
+    Y = yahoo5(asset) if asset in YAHOO else None
     keys = np.array(sorted(M)); vals = np.array([M[k] for k in keys])
     stride, look = (1, 6 * 288) if hl else (5, 31 * 1440)
     rng = np.random.default_rng(1164)
@@ -219,6 +248,8 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
             continue
         hist = vals[i - look:i]; s0 = float(hist[-1]); slot0 = (t0 // 300000) % 288; day0 = dt.datetime.fromtimestamp(t0 / 1000, dt.timezone.utc).weekday()
         hp = hour_profile(H, t0) if H else None
+        if hp is not None and Y is not None:
+            hp = (hp[0], hp[1], yahoo_profile(Y, t0))
         ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=float(m.split("@")[1]) if "@" in m else 1.0, stride=stride, day0=day0, hprof=hp),
                             np.array(real, float), 300, INTERVALS) for m in models}
         rows.append({"start": st, "field": P[st], **ours})
