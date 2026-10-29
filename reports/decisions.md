@@ -18863,3 +18863,7 @@ mechanism is closed.
 **Written and committed BEFORE any CL statistic is computed; N 1,565.** Untested here (families 70/Z09 tested the GSCI roll on business days 5-9, not the CL expiry). **Dates:**
 CME rule — trading ends 3 business days before the 25th calendar day of each month (4 if the 25th is not a business day), from d10's CL trading days. **Cells:** CL ×
 {the 3 sessions before expiry, expiry day, the day after} × {long, short} = 6 cells, open → close, read exactly as §1154.
+
+## §1159 — Family 188: CL expiry — 0 of 6 carried (best: short the 3 sessions before, +18.8 bp vs other blocks, t 0.56; 154 expiries) (S1)
+
+**No trial.** `reporting/d188_clexp.py`, `reports/d188_discovery.json`. Expiry-week liquidation is not visible in front-month open → close moves. Closed.
