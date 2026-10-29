@@ -1,0 +1,58 @@
+{
+ "cells": [
+  {
+   "target": "GC",
+   "event": "og_expiry",
+   "side": "long",
+   "n": 154,
+   "excess_bps": 0.5,
+   "t": 0.1,
+   "net_bps": -1.56
+  },
+  {
+   "target": "GC",
+   "event": "og_expiry",
+   "side": "short",
+   "n": 154,
+   "excess_bps": -0.5,
+   "t": -0.1,
+   "net_bps": -0.04
+  },
+  {
+   "target": "GC",
+   "event": "og_next",
+   "side": "long",
+   "n": 154,
+   "excess_bps": -10.02,
+   "t": -1.8,
+   "net_bps": -11.59
+  },
+  {
+   "target": "GC",
+   "event": "og_next",
+   "side": "short",
+   "n": 154,
+   "excess_bps": 10.02,
+   "t": 1.8,
+   "net_bps": 9.99
+  },
+  {
+   "target": "ZN",
+   "event": "coupon_15th",
+   "side": "long",
+   "n": 154,
+   "excess_bps": 2.19,
+   "t": 0.91,
+   "net_bps": 2.28
+  },
+  {
+   "target": "ZN",
+   "event": "coupon_15th",
+   "side": "short",
+   "n": 154,
+   "excess_bps": -2.19,
+   "t": -0.91,
+   "net_bps": -3.08
+  }
+ ]
+}

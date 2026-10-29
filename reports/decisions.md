@@ -18829,3 +18829,7 @@ way: the fixed bracket stays (simpler, and the forward test is registered on it)
 **Written and committed BEFORE any statistic is computed; N 1,563.** Neither calendar is in the archive. **Dates:** OG monthly expiry = the 4th-last d10 trading day of
 each month; coupon day = the 15th, or the next d10 trading day. **Cells:** GC × {expiry day, next day} × {long, short} and ZN coupon day × {long, short} = 6 cells,
 read as §1140 (drift-neutral excess; discovery 2010-03 → 2022-12, carry if excess > 0 and t > 1.96; sealed strict rule; placebo random trading days).
+
+## §1153 — Family 185: gold options expiry and coupon day — 0 of 6 carried (GC day after expiry short +10.0 bp vs other days, t 1.80; ZN 15th long +2.2, t 0.91) (S1)
+
+**No trial.** `reporting/d185_ogcoupon.py`, `reports/d185_discovery.json`, 154 events each. Under the bar; closed.
