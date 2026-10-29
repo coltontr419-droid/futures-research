@@ -18771,3 +18771,11 @@ sealed 2023-01 → 2026-08 with the strict rule; placebo = random Fridays).
 
 **No trial.** `reporting/d182_postopex.py`, `reports/d182_discovery.json`, 154 expirations 2010-2022. The popular "weak week after OPEX" is the wrong sign here; the long side
 falls short of the bar. Closed.
+
+## §1144 — Fast Track ticket and payout module for the bot (bot/fasttrack.py), written and tested, NOT deployed (S10)
+
+**No trial.** To run the Fast Track plan at ≤ 10% effort once the user funds it: `bot/fasttrack.py` holds the 100K terms, the three human-hour slots (MNQ day 8:30 AM CT,
+MNQ full and MGC full 5:01 PM CT; 7 contracts, take $800 / stop $4,000, long), `ticket()` (skips a closed account, warns that a full stop ends it) and `payout()`
+(eligibility, amount, the reason when not eligible, and a flag when the next payout is the 3rd — the transition point). `tests/test_bot_fasttrack.py` (4 tests) checks
+it against the A123/A124 engine's payout rule on 5,000 random states. Not wired into `futures_bot.py`, and nothing is copied to the droplet without the user's OK.
+Bulenox needs written approval for any automated order placement (§1105), so the tickets are for manual brackets.
