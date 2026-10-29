@@ -18664,3 +18664,7 @@ placebo 17th → REJECT.** The S-series gauges carry nothing into the other mark
 in the previous 5 years. **Trade:** the 5 weekdays after the release Thursday (Fri → Thu), summed open → close returns of NG (d10 series, bps; open → close only, so
 the continuous contract's roll gaps are excluded), cost d12.COST × 5. **Cells:** follow fundamentals (u > 0 → short, else long) and fade (opposite): 2 cells. **Discovery**
 2015-01 → 2022-12: carry if mean > 0, t > 1.96. **Sealed** 2023-01 → 2026-08 once per carried cell, strict rule as §1125.
+
+## §1128 — Family 177: the gas-storage surprise does not carry into NG's next week — follow +6.3 bp (t 0.20), fade −19.8 bp (t −0.62); 0 of 2 carried (S1)
+
+**No trial.** `reporting/d177_ngstorage.py`, `reports/d177_discovery.json`, 415 release weeks 2015-2022. The weekly surprise is priced on release day.
