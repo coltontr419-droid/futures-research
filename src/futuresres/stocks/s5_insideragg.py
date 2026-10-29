@@ -41,11 +41,14 @@ def fetch() -> None:
             q = f"{y}q{qn}"
             if q in C["done"] or dt.date(y, 3 * qn - 2, 1) > today:
                 continue
-            zp = OUT / f"{q}.zip"
-            r = requests.get(URL.format(q), headers=UA, timeout=300)
-            if r.status_code != 200:
-                print(q, r.status_code, flush=True); continue
-            zp.write_bytes(r.content); del r
+            zp = OUT / f"{q}.zip"; local = ROOT / "data" / "stocks" / "i1" / f"{q}.zip"   # I-family 1's copies (SEC 404s on recent quarters)
+            if local.exists():
+                zp.write_bytes(local.read_bytes())
+            else:
+                r = requests.get(URL.format(q), headers=UA, timeout=300)
+                if r.status_code != 200:
+                    print(q, r.status_code, flush=True); continue
+                zp.write_bytes(r.content); del r
             z = zipfile.ZipFile(zp)
             sub = {}
             for s in rows(z, "SUBMISSION.tsv"):

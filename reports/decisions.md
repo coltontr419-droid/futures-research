@@ -18606,3 +18606,8 @@ directors only, open-market non-derivative trades: code P (buy) and S (sale). **
 date, over the last 20 sessions; z = b − mean of the weekly b over the previous 52 weeks. **Rule:** z > 0 (insiders buying more than usual) → long QQQ Friday close → next
 Friday close, else short. **Statistic, placebo:** as §1114, on weeks; cost charged on flips. **Split:** discovery 2007-06 → 2022-12; sealed 2023-01 → latest, read once.
 A discovery mean ≤ 0 closes it.
+
+## §1119 — S-family 5 discovery: aggregate insider buying does not time MNQ — −0.366% a week against always long, t −3.01; closed (S1)
+
+**No trial (discovery fail, §1118).** `stocks/s5_insideragg.py`, 83 SEC quarters (2006Q1 → 2026Q3; 2026Q2-Q3 from I-family 1's copies, the SEC URL now 404s), 330,761
+purchase and 804,296 sale filings by officers/directors; 814 discovery weeks, long on 47%. The short weeks give up QQQ's drift and the sign adds nothing back.
