@@ -18709,3 +18709,10 @@ the sign of its own last week, pooled equal-risk — **follow**; (4) the same **
 
 **No trial.** `reporting/d179_cmdmom.py`, 667 discovery weeks 2010-2022. Cross-sectional follow +0.0105 (t 0.51), fade −0.049 (t −2.37); own-market follow +0.0059 (t 0.36),
 fade −0.045 (t −2.77): the gross effect is near zero on either side and costs decide the sign. (The script's placebo flips signs rather than shifting; never reached.)
+
+## §1135 — D-series family 180 protocol: ACM 10-year term-premium shocks as signs for ZN and ES two sessions later (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,563.** Untested here. **Data:** NY Fed `ACMTermPremium.xls` daily ACMTP10 (1961 →). The publication lag is
+unclear, so a value dated d is used only for the session after next (d+2). **Event:** |ΔTP10| > 2 × sd of the previous 60 daily changes. **Cells:** ZN and ES, d+2 open →
+close (d10 bps, d12.COST); **follow** = side −sign(ΔTP) (a rising premium continues to weigh on bonds and stocks), **fade** = the opposite: 4 cells. **Discovery**
+2010-03 → 2022-12, carry if mean > 0 and t > 1.96; **sealed** 2023-01 → 2026-08, strict rule as §1125.
