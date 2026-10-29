@@ -18555,3 +18555,14 @@ reserve, 40% consistency, caps $1,000-2,000, 90%; each Master ends at its 3rd pa
 Per 84 sessions (other era): **50K at 89% off ($19 + $148 activation) +$765 / +$750**; 25K at 89% off +$362 / +$6; 100K at 89% off −$54 / +$81; 150K at 89% off −$680 / −$448;
 at 45% off or list every size is −$1.7k to +$0.1k. The Master's 10-day cycle, reserve and low caps leave little per pass, and the activation fee is paid on every pass.
 Fast Track 100K (§1098: +$7.6-7.8k; with the 3-payout cap +$5.8-6.8k) dominates.
+
+## §1113 — S-family 1 protocol: aggregate short interest as a half-monthly sign for MNQ (Rapach, Ringgenberg & Zhou 2016), current regime (S1)
+
+**Written and committed BEFORE any statistic is computed; N 1,562 → one trial on the sealed read.** Overnight search (user 2026-10-29: ≥ $2k/month, ≤ 10% effort). Why this
+fits: it trades MNQ (small margin, prop-account eligible), once per half-month, fully automatable; no aggregate equity short-interest series has been tested here (CFTC
+positioning was, §604). **Data:** FINRA `consolidatedShortInterest` (free API, no key; history starts 2018-12), every settlement date, restricted to the `pack.npz` liquid
+names. **Signal:** S = log(equal-weighted mean days-to-cover) across names with ADV > 0, minus its mean over the previous 24 reports (causal detrend). **Timing:** FINRA
+publishes ≈ 7 business days after settlement, so S is usable at the close of the 10th `pack.npz` session after the settlement date; held to the next report's usable close.
+**Rule:** S > 0 (short interest high) → short MNQ, else long (the paper's sign). **Target:** QQQ adjusted close-to-close over each holding period. **Statistic (strict rule
+§119):** x = (rule − always long) × r; CONFIRM needs t > 1.645, circular-shift placebo ≥ 95th (2,000 shifts of the signal series), and mean x > 0. **Split:** discovery
+2020-12 → 2022-12 (first 24 reports are warm-up); sealed 2023-01 → latest, read once. A discovery mean ≤ 0 closes it without a sealed read.
