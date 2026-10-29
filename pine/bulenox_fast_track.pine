@@ -7,7 +7,7 @@ strategy("Fast Track bracket (Bulenox)", overlay=true, pyramiding=0, process_ord
      commission_value=0.61, initial_capital=50000, max_labels_count=500)
 
 grpP = "Plan"
-plan = input.string("100K · MNQ day session", "Plan preset (sets everything below unless Custom)", options=["50K · MNQ day session", "100K · MNQ day session", "100K · MNQ full session", "100K · MGC London", "Custom"], group=grpP)
+plan = input.string("100K · MNQ day session", "Plan preset (sets everything below unless Custom)", options=["50K · MNQ day session", "100K · MNQ day session", "100K · MNQ full session", "100K · MGC full session", "100K · MGC London", "Custom"], group=grpP)
 
 grpT = "Trade (used when the plan is Custom)"
 cSide   = input.string("Long", "Side (same on every account)", options=["Long", "Short"], group=grpT)
@@ -36,10 +36,10 @@ cap13 = acct == "25K" ? 1000 : acct == "50K" ? 2000 : acct == "100K" ? 2500 : 30
 cap4  = acct == "25K" ? 1250 : acct == "50K" ? 2500 : acct == "100K" ? 3000 : 3500
 side   = plan == "Custom" ? cSide : "Long"
 qty    = plan == "Custom" ? cQty : plan == "50K · MNQ day session" ? 3 : 7
-tpPts  = plan == "Custom" ? cTp : plan == "50K · MNQ day session" ? 108.25 : plan == "100K · MGC London" ? 11.4 : 57.25
-slPts  = plan == "Custom" ? cSl : plan == "50K · MNQ day session" ? 333.25 : plan == "100K · MGC London" ? 57.1 : 285.75
-entryHM = plan == "Custom" ? cEntry : plan == "100K · MNQ full session" ? 1801 : plan == "100K · MGC London" ? 300 : 930
-flatHM  = plan == "Custom" ? cFlat : plan == "100K · MNQ full session" ? 1655 : plan == "100K · MGC London" ? 1130 : 1600
+tpPts  = plan == "Custom" ? cTp : plan == "50K · MNQ day session" ? 108.25 : (plan == "100K · MGC London" or plan == "100K · MGC full session") ? 11.4 : 57.25
+slPts  = plan == "Custom" ? cSl : plan == "50K · MNQ day session" ? 333.25 : (plan == "100K · MGC London" or plan == "100K · MGC full session") ? 57.1 : 285.75
+entryHM = plan == "Custom" ? cEntry : (plan == "100K · MNQ full session" or plan == "100K · MGC full session") ? 1801 : plan == "100K · MGC London" ? 300 : 930
+flatHM  = plan == "Custom" ? cFlat : (plan == "100K · MNQ full session" or plan == "100K · MGC full session") ? 1655 : plan == "100K · MGC London" ? 1130 : 1600
 
 // ---- the trade
 hm(t) => hour(t, tz) * 100 + minute(t, tz)
