@@ -19128,3 +19128,12 @@ SN101 (m* hotkeys) and SN33 (r* hotkeys): one embed with a section per subnet + 
 **§1187 addendum (16:54 UTC):** ReadyAI miners publish a dummy axon (192.0.2.1:1234) to the metagraph by design and put the real endpoint, encrypted for
 validators, in an on-chain commitment built from `--axon.ip/--axon.port`. Without `--axon.ip` the commitment carried the bind address (`[::]`), unreachable;
 services now pass `--axon.ip 157.230.91.2`, and the logs confirm "Real endpoint: 157.230.91.2:8095/8096 … commitment published successfully" at block 9397972.
+
+## §1189 Synth (SN50) launch kit — built, not deployed (2026-10-30)
+
+`deploy/sn50/`: `run_miner.py` swaps `synth.miner.simulations.generate_simulations` for `futuresres.synth.miner_model.generate_simulations`
+(same signature) before running the stock `neurons/miner.py`, which imports the name at run time, so the swap takes. `cache_warmer.py` refreshes the
+Binance-minute, Hyperliquid and Yahoo caches every 4 min. `install.sh <ip>` installs into /opt/synth (synth-subnet clone + venv, our five modules under
+/opt/synth/ours/src, where `s50_backtest.CACHE` resolves to /opt/synth/ours/data/synth with no override) and writes `synth-cache` + `synth-s1..s5`
+units (ports 8101-8105, each conditional on its hotkey file). Smoke test of the packaged layout: BTC 24 h, 1,000 paths, 72 s cold / 1.0 s warm;
+XAU 6 s cold / 4.1 s warm. Cold start exceeds a validator's wait, hence the warmer. Launch needs ≈ 0.8 TAO per slot (register + immunity); not started.
