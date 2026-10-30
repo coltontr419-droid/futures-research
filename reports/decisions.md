@@ -19059,3 +19059,12 @@ so an operator solves each task once and submits it from all its UIDs — hence 
 UIDs at the field's pass rate; cost ≈ tasks/day × agent cost per task (unknown: plausibly $0.05-0.30 with an open model) — ≈ $3-18k a month for an operator that
 answers everything, nearly independent of how many UIDs it runs. Viable only with several UIDs and a cheap model at the field's pass rate. Burn 0.432 TAO (≈ $100).
 Unknowns to measure before any spend: our agent's pass rate on the two retired fixtures (Docker, pinned image) and its tokens per task.
+
+## §1181 — SN101: m1 (UID 104) scores ≈ 0 regardless of its answers; moved to port 8093 to isolate the cause (S11)
+
+**No trial (live diagnosis).** At 15:00 UTC m1 still earned ≈ $0.7/month (validator weight ≈ 0.002% vs the median 0.38-0.41%) ≈ 4 h after its tagger change,
+while m2 (UID 181) sat at ≈ 0.08-0.10%. Both receive the same tasks (31 of 31-32 task IDs in common over 2 h) and answer them; on-chain axons are correct
+(157.230.91.2:8091 / :8092); the validator code has no per-IP rule; Tag101's scoreboard endpoint refuses miners (403). Decisive clue: at the first hourly read
+both ran identical stock code on identical tasks, yet m2 earned 0.61 α/tempo and m1 0.0002 — slot/hotkey/port-specific, not answer-specific. The only
+differences: hotkey, UID, port (8091 is Bittensor's default). Test: m1 moved to port 8093 at block 9397584 (≈ 15:40 UTC), nothing else changed. If m1 recovers
+→ port; if not → UID/hotkey (next: re-register a fresh hotkey, ≈ 0.04 TAO, or ask Tag101's Discord).
