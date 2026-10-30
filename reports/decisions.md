@@ -19107,3 +19107,13 @@ and penalties copied; 10-line windows with 2-line overlap). Mean score / paired 
 t 2.98), default_mini 0.488 (+0.035, t 2.30), default_4o 0.453. Cubed weights → ≈ +60% for central15 vs a stock miner, ≈ $280-310/month at today's median if the
 field is mostly stock. Runs on gpt-4o-mini (cheaper than the stock GPT-4o). Caveats: the real validator adds an enrichment step; live pay decides. Launch recipe for
 ReadyAI UIDs: central15.
+
+## §1186 — SN33 ReadyAI pre-installed on the droplet (not registered, not started) with the central15 patch (S11)
+
+**No trial.** /opt/readyai: repo 37b4474, Python 3.12 venv (CPU torch 2.15 instead of the pinned 2.1.1, which has no 3.12 wheel; typing-extensions/setuptools
+upgraded for torch), W&B key saved by the user (/opt/readyai/wandb.env), OpenAI key shared from /opt/tag101/openai.env. `deploy/sn33/central15.py` replaces only
+LlmLib.conversation_to_metadata in the miner process: 25 candidates from gpt-4o-mini → the backend's own batch embeddings (text-embedding-3-large, 1,536 dims
+as the validator uses) → 15 nearest the centroid; coding conversations and any error fall back to stock. Offline check on a sample window: 15 theme-level tags
+vs the stock prompt's 10 single nouns; ≈ 295 MB RSS per process → 2 miners fit next to Tag101 and the futures bot (2 GB swap). Services readyai-r1/r2 (ports
+8095/8096, hotkeys r1/r2, MemoryMax 550 MB, disabled; start only when the hotkey file exists). Launch steps: user creates hotkeys r1/r2, registers on netuid 33
+(≈ 0.04-0.05 TAO each), copies them; then enable the services and add SN33 to the Discord watch.
