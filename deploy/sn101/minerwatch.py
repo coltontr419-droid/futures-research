@@ -1,17 +1,20 @@
-"""SN101 miner watch for Discord (futures-research decisions.md §1176). Posts through the bot's REST API (no gateway connection).
+"""Bittensor miner watch for Discord (futures-research decisions.md §1176, §1187). Posts through the bot's REST API (no gateway connection).
 
     python minerwatch.py health   # every 5 min: red embed once per incident (service down / no tasks for 20 min / repeated errors)
-    python minerwatch.py report   # every 4 h: green embed, miners ranked, $/month estimate, total earned
+    python minerwatch.py report   # every 4 h: green embed, one line per miner per subnet, $/month and earned, combined totals
     python minerwatch.py test     # one test post
 
+Miners are discovered from the wallet: every hotkey whose name starts with a subnet's prefix (m = Tag101, r = ReadyAI) and holds a UID there.
 Config: /opt/tag101/discord.env (DISCORD_BOT_TOKEN), CHANNEL below; state in /opt/tag101/watch_state.json.
 """
 
 from __future__ import annotations
 
 import datetime as dt
+import glob
 import hashlib
 import json
+import os
 import subprocess
 import sys
 import urllib.request
@@ -20,8 +23,14 @@ sys.path.insert(0, "/opt/tag101")
 from chainrpc import rpc, subnet, tx  # noqa: E402
 
 CHANNEL = "1565694815595925534"
-NETUID = 101
 WALLET = "/root/.bittensor/wallets/main/hotkeys"
+SUBNETS = {   # netuid: hotkey prefix, systemd unit pattern, log text of one answered task, display name, minutes without a task before alerting
+    101: {"prefix": "m", "unit": "tag101-{name}", "solved": "MINER_SOLVED_TASK", "name": "Tag101", "quiet_min": 20},
+    33: {"prefix": "r", "unit": "readyai-{name}", "solved": "Successfully mined", "name": "ReadyAI", "quiet_min": 90},
+}
+STATE = "/opt/tag101/watch_state.json"
+RED, GREEN = 0xE53935, 0x43A047
+UA = "DiscordBot (https://github.com/coltontr419-droid/futures-research, 1.0)"
 
 
 def _pub(name: str) -> bytes:
@@ -29,27 +38,27 @@ def _pub(name: str) -> bytes:
     return bytes.fromhex(p[2:] if p.startswith("0x") else p)
 
 
-def _uid(hk: bytes):
-    """The hotkey's UID on NETUID (Uids double map: netuid Identity, hotkey Blake2_128Concat), or None if not registered."""
-    key = tx(b"SubtensorModule") + tx(b"Uids") + NETUID.to_bytes(2, "little") + hashlib.blake2b(hk, digest_size=16).digest() + hk
+def _uid(netuid: int, hk: bytes):
+    """The hotkey's UID on netuid (Uids double map: netuid Identity, hotkey Blake2_128Concat), or None if not registered."""
+    key = tx(b"SubtensorModule") + tx(b"Uids") + netuid.to_bytes(2, "little") + hashlib.blake2b(hk, digest_size=16).digest() + hk
     v = rpc("state_getStorage", ["0x" + key.hex()])
     return int.from_bytes(bytes.fromhex(v[2:])[:2], "little") if v else None
 
 
-def miners() -> dict[str, int]:
-    """Every m<N> hotkey in the wallet that holds a UID on NETUID, so new miners show up without editing this file."""
-    import glob
-    import os
+def _local(prefix: str) -> list[str]:
+    names = [os.path.basename(f)[:-len("pub.txt")] for f in glob.glob(f"{WALLET}/{prefix}*pub.txt")]
+    names = [n for n in names if n[len(prefix):].isdigit()]
+    return sorted(names, key=lambda n: int(n[len(prefix):]))
+
+
+def miners(netuid: int) -> dict[str, int]:
+    """Every <prefix><N> hotkey in the wallet that holds a UID on netuid, so new miners show up without editing this file."""
     out = {}
-    for f in sorted(glob.glob(f"{WALLET}/m*pub.txt"), key=lambda p: int("".join(c for c in os.path.basename(p) if c.isdigit()) or 0)):
-        name = os.path.basename(f)[:-len("pub.txt")]
-        uid = _uid(_pub(name))
+    for name in _local(SUBNETS[netuid]["prefix"]):
+        uid = _uid(netuid, _pub(name))
         if uid is not None:
             out[name] = uid
     return out
-STATE = "/opt/tag101/watch_state.json"
-RED, GREEN = 0xE53935, 0x43A047
-UA = "DiscordBot (https://github.com/coltontr419-droid/futures-research, 1.0)"
 
 
 def token() -> str:
@@ -85,64 +94,71 @@ def now() -> str:
 
 
 def health() -> None:
-    import glob
-    import os
-    s = state(); problems = {}
-    try:
-        MINERS = miners()
-    except Exception:                                   # chain unreachable: still check every local miner service
-        MINERS = {os.path.basename(f)[:-len("pub.txt")]: "?" for f in glob.glob(f"{WALLET}/m*pub.txt")}
-    for name in MINERS:
-        unit = f"tag101-{name}"
-        active = sh(f"systemctl is-active {unit}").strip()
-        log = sh(f"journalctl -u {unit} --since '-20 min' --no-pager")
-        solved = log.count("MINER_SOLVED_TASK"); errors = sum(log.count(k) for k in ("Traceback", "ERROR", "RateLimit", "insufficient_quota"))
-        up_long = sh(f"systemctl show {unit} -p ActiveEnterTimestampMonotonic").strip().split("=")[-1]
-        boot = float(open("/proc/uptime").read().split()[0]); started = int(up_long or 0) / 1e6
-        recent_start = (boot - started) < 25 * 60 if started else False
-        why = []
-        if active != "active":
-            why.append(f"service is **{active}**")
-        elif solved == 0 and not recent_start:
-            why.append("answered **no tasks** in the last 20 minutes")
-        if errors >= 5:
-            why.append(f"**{errors} errors** in the last 20 minutes")
-        if why:
-            problems[name] = why
+    s = state(); problems = {}; uids = {}
+    for netuid, cfg in SUBNETS.items():
+        try:
+            found = miners(netuid)
+        except Exception:                               # chain unreachable: still check every local miner service
+            found = {n: "?" for n in _local(cfg["prefix"])}
+        for name, uid in found.items():
+            unit = cfg["unit"].format(name=name); key = f"{netuid}:{name}"; uids[key] = (cfg["name"], name, uid)
+            active = sh(f"systemctl is-active {unit}").strip()
+            q = cfg["quiet_min"]; log = sh(f"journalctl -u {unit} --since '-{q} min' --no-pager")
+            solved = log.count(cfg["solved"]); errors = sum(log.count(k) for k in ("Traceback", "ERROR", "RateLimit", "insufficient_quota"))
+            up_long = sh(f"systemctl show {unit} -p ActiveEnterTimestampMonotonic").strip().split("=")[-1]
+            boot = float(open("/proc/uptime").read().split()[0]); started = int(up_long or 0) / 1e6
+            recent_start = (boot - started) < (q + 5) * 60 if started else False
+            why = []
+            if active != "active":
+                why.append(f"service is **{active}**")
+            elif solved == 0 and not recent_start:
+                why.append(f"answered **no tasks** in the last {q} minutes")
+            if errors >= 5:
+                why.append(f"**{errors} errors** in the last {q} minutes")
+            if why:
+                problems[key] = why
     alerted = set(s.get("alerted", []))
     new = {k: v for k, v in problems.items() if k not in alerted}
     if new:
-        lines = [f"**{k}** (UID {MINERS[k]}): " + "; ".join(v) for k, v in new.items()]
-        post({"title": "⚠️ Miner problem — SN101 (Tag101)", "color": RED, "description": "\n".join(lines),
+        lines = [f"**{uids[k][0]} {uids[k][1].upper()}** (UID {uids[k][2]}): " + "; ".join(v) for k, v in new.items()]
+        post({"title": "⚠️ Miner problem", "color": RED, "description": "\n".join(lines),
               "footer": {"text": f"droplet 157.230.91.2 · {now()} · auto-restart is on; Claude checks next session"}})
     s["alerted"] = sorted(problems)                     # cleared once healthy, so a later failure alerts again
     save(s)
 
 
-def hotkey_alpha(pub_hex: str) -> float:
+def hotkey_alpha(netuid: int, pub_hex: str) -> float:
     hk = bytes.fromhex(pub_hex[2:] if pub_hex.startswith("0x") else pub_hex)
-    key = tx(b"SubtensorModule") + tx(b"TotalHotkeyAlpha") + hashlib.blake2b(hk, digest_size=16).digest() + hk + NETUID.to_bytes(2, "little")
+    key = tx(b"SubtensorModule") + tx(b"TotalHotkeyAlpha") + hashlib.blake2b(hk, digest_size=16).digest() + hk + netuid.to_bytes(2, "little")
     v = rpc("state_getStorage", ["0x" + key.hex()])
     return int.from_bytes(bytes.fromhex(v[2:])[:8], "little") / 1e9 if v else 0.0
 
 
 def report() -> None:
-    em, vp, burn, price, tempo = subnet(NETUID)
     try:
         tao = json.load(urllib.request.urlopen("https://api.coingecko.com/api/v3/simple/price?ids=bittensor&vs_currencies=usd", timeout=20))["bittensor"]["usd"]
     except Exception:
         tao = float("nan")
-    per_month = lambda e: e * (7200 / (tempo + 1)) * price * tao * 30
-    field = sorted(((e, u) for u, e in enumerate(em) if not (u < len(vp) and vp[u])), reverse=True)
-    rank = {u: i + 1 for i, (_, u) in enumerate(field)}; med = per_month(field[len(field) // 2][0])
-    lines = []; total_m = total_usd = 0.0
-    for name, uid in miners().items():                  # M1, M2, ... in hotkey order; new miners appear automatically
-        a = hotkey_alpha(json.load(open(f"{WALLET}/{name}pub.txt"))["publicKey"]); m = per_month(em[uid]); usd = a * price * tao
-        total_m += m; total_usd += usd
-        lines.append(f"**{name.upper()}** ({rank.get(uid, '?')}/{len(field)}): **${m:,.0f}/month**  Earned: **${usd:,.2f}**")
-    lines.append(f"**Combined Totals**: **${total_m:,.0f}/month**  Earned: **${total_usd:,.2f}**")
-    post({"title": "✅ SN101 (Tag101) — 4-hour earnings", "color": GREEN, "description": "\n".join(lines),
-          "footer": {"text": f"median slot ${med:,.0f}/month · TAO ${tao:,.2f} · α ${price * tao:.3f} · {now()}"}})
+    lines = []; grand_m = grand_usd = 0.0; foot = []
+    for netuid, cfg in SUBNETS.items():
+        found = miners(netuid)
+        if not found:
+            continue
+        em, vp, burn, price, tempo = subnet(netuid)
+        per_month = lambda e: e * (7200 / (tempo + 1)) * price * tao * 30
+        field = sorted(((e, u) for u, e in enumerate(em) if not (u < len(vp) and vp[u])), reverse=True)
+        rank = {u: i + 1 for i, (_, u) in enumerate(field)}; med = per_month(field[len(field) // 2][0])
+        lines.append(f"__**{cfg['name']}**__")
+        sub_m = sub_usd = 0.0
+        for name, uid in found.items():                 # M1, M2 / R1, R2 ... in hotkey order; new miners appear automatically
+            a = hotkey_alpha(netuid, json.load(open(f"{WALLET}/{name}pub.txt"))["publicKey"]); m = per_month(em[uid]); usd = a * price * tao
+            sub_m += m; sub_usd += usd
+            lines.append(f"**{name.upper()}** ({rank.get(uid, '?')}/{len(field)}): **${m:,.0f}/month**  Earned: **${usd:,.2f}**")
+        grand_m += sub_m; grand_usd += sub_usd
+        foot.append(f"{cfg['name']} median ${med:,.0f}/mo")
+    lines.append(f"\n**Combined Totals**: **${grand_m:,.0f}/month**  Earned: **${grand_usd:,.2f}**")
+    post({"title": "✅ Miner earnings — 4-hour report", "color": GREEN, "description": "\n".join(lines),
+          "footer": {"text": " · ".join(foot + [f"TAO ${tao:,.2f}", now()])}})
 
 
 if __name__ == "__main__":
