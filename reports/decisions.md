@@ -19002,3 +19002,13 @@ and UID 181 (m2) for 0.0456 TAO** (balance 0.3209 → 0.2372). PrizePicks bot re
 MemoryMax 450 MB each (≈ 79 MB used), gpt-4o-mini via the user's OpenAI key (saved on the server by the user; reference tagger verified). Both miners announced at
 block 9393227. Hourly chain logger `tag101-earnings.timer` → /opt/tag101/earnings.csv (our UIDs vs the subnet median; first row: median ≈ $311 a month at TAO
 $228.68). Read: compare each UID's emission with the median after the debiased-EMA ramp (days); go/no-go on ReadyAI and one Synth UID in 1-2 weeks.
+
+## §1175 — SN101 day 1: both UIDs below the median; cause = the repeated-set penalty on reference tags; m1 switched to an "uncommon set" tagger (A/B vs m2) (S11)
+
+**No trial (live).** By 11:00 UTC 10-30 both UIDs had answered every task (≈ 166 each since midnight) but earned little: m2 peaked at $294/month (04:00) and slid to
+$106; m1 ≈ $0.4. All 8 validators agree (per-validator weight: median miner ≈ 0.44%, UID 181 ≈ 0.11-0.14%, UID 104 ≈ 0.001%). Cause found in the scorer
+(`tasks/sn101_reference/core/scoring/tag_scorer.py`): each miner's score is multiplied by 1 / (1 + (k/50)^5.5), k = miners whose tokenised tag SET is identical;
+the stock reference prompt (gpt-4o-mini, 3 tags) gives the same obvious sets as everyone else running it. Fix (`/opt/tag101/repo/tasks/ourtags.py`, loaded with
+`--task.miner_module tag101.tasks.ourtags`, TAG_SEED per miner): the model ranks 6 candidate tags; submit the top one plus 2 seeded-random picks from ranks 2-5 —
+every tag on-consensus, the set rarely identical to anyone's. Deployed on m1 at ≈ 11:40 UTC; m2 stays on the reference for comparison. m1's 24 h immunity ends
+≈ 01:00 UTC 10-31.
