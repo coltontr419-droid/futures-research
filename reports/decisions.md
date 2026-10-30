@@ -18993,3 +18993,12 @@ validator's own full-conversation tags; output is published as a Hugging Face da
 near the medians (SN101 and SN33 are flat; SN50 backtested at/above median on crypto). Registration ≈ $60 + $100 + $2,000. LLM costs ≈ cents to a few dollars a day.
 Terms: for LLM-tagging subnets whose outputs become public training data, use OpenAI or open-weight models (not Claude) to stay clear of Anthropic's competing-model
 restriction; the user picks the provider and holds the key.
+
+## §1174 — SN101 Tag101 live test started: 2 UIDs on the futures droplet (S11)
+
+**No trial (live test).** User 2026-10-29: start small. Wallet created by the user on the laptop (coldkey stays there); registered **UID 104 (hotkey m1) for 0.0366 TAO
+and UID 181 (m2) for 0.0456 TAO** (balance 0.3209 → 0.2372). PrizePicks bot removed from the droplet at the user's request (code backup kept). Tag101 installed in
+/opt/tag101 (CPU-only torch; fastapi/uvicorn/spaCy model added — missing from the package's dependency list); services tag101-m1 (port 8091) and tag101-m2 (8092),
+MemoryMax 450 MB each (≈ 79 MB used), gpt-4o-mini via the user's OpenAI key (saved on the server by the user; reference tagger verified). Both miners announced at
+block 9393227. Hourly chain logger `tag101-earnings.timer` → /opt/tag101/earnings.csv (our UIDs vs the subnet median; first row: median ≈ $311 a month at TAO
+$228.68). Read: compare each UID's emission with the median after the debiased-EMA ramp (days); go/no-go on ReadyAI and one Synth UID in 1-2 weeks.
