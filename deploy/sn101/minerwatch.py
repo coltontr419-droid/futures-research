@@ -133,13 +133,13 @@ def report() -> None:
     except Exception:
         tao = float("nan")
     per_month = lambda e: e * (7200 / (tempo + 1)) * price * tao * 30
-    miners = sorted(((e, u) for u, e in enumerate(em) if not (u < len(vp) and vp[u])), reverse=True)
-    rank = {u: i + 1 for i, (_, u) in enumerate(miners)}; med = per_month(miners[len(miners) // 2][0])
+    field = sorted(((e, u) for u, e in enumerate(em) if not (u < len(vp) and vp[u])), reverse=True)
+    rank = {u: i + 1 for i, (_, u) in enumerate(field)}; med = per_month(field[len(field) // 2][0])
     lines = []; total_m = total_usd = 0.0
     for name, uid in miners().items():                  # M1, M2, ... in hotkey order; new miners appear automatically
         a = hotkey_alpha(json.load(open(f"{WALLET}/{name}pub.txt"))["publicKey"]); m = per_month(em[uid]); usd = a * price * tao
         total_m += m; total_usd += usd
-        lines.append(f"**{name.upper()}** ({rank.get(uid, '?')}/{len(miners)}): **${m:,.0f}/month**  Total Earned: **${usd:,.2f}**")
+        lines.append(f"**{name.upper()}** ({rank.get(uid, '?')}/{len(field)}): **${m:,.0f}/month**  Total Earned: **${usd:,.2f}**")
     lines.append(f"**Combined Totals**: **${total_m:,.0f}/month**  Total Earned: **${total_usd:,.2f}**")
     post({"title": "✅ SN101 (Tag101) — 4-hour earnings", "color": GREEN, "description": "\n".join(lines),
           "footer": {"text": f"median slot ${med:,.0f}/month · TAO ${tao:,.2f} · α ${price * tao:.3f} · {now()}"}})
