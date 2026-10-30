@@ -19028,3 +19028,14 @@ the validator's TagScorer against a synthetic crowd (reference prompt sampled re
 `miner_model.generate_simulations` output for every LF asset (13, 5-min/24 h) and HF asset (5, 1-min/1 h) passes `synth/validator/response_validation_v2.validate_responses`
 — **18/18 CORRECT, 0.6-4.7 s each with warm caches**; cold caches take ≈ 75 s (SOL/XRP 24 h, HYPE 1 h), so a cache warmer is required before deployment. The
 miner integration is one line: neurons/miner.py imports `generate_simulations` from synth.miner.simulations; ours has the same signature.
+
+## §1178 — Full subnet screen (128 subnets; median miner UID ≥ $80/month) and the first lab read (S11)
+
+**No trial.** `synth/subnet_screen.py` → `reports/subnet_screen.json` (TAO $233; p10 / median / p90 per miner UID, burn, pool, operators, top-5 share): Hone SN5
+$944 / $1,053 / $1,098, burn $105, 42 operators; CliqueAI SN83 $142 / $519 / $1,187, $23, top-5 84%; REAX SN92 $37 / $497 / $2,596, $116; Tag101 SN101 $196 / $315 / $331,
+$7; RedTeam SN61 $0 / $293 / $535, $4, 248 operators; MVTRX SN79 $53 / $253 / $444, $22 (simulated dTAO exchange); Synth SN50 $60 / $203 / $367, $186; ReadyAI SN33
+$134 / $194 / $235, $10; Desearch SN22 $69 / $185 / $220, $2; SayGM SN28 $0 / $179 / $8,970 (resells Claude/GPT/Gemini access — provider terms, skip); Data Universe
+SN13 $46 / $121 / $124 (scrapes X — skip); AlphaRidge SN45 $55 / $94 / $129. Next to study: Hone (open-weight coding model only, for terms reasons), then MVTRX.
+**Lab** (`deploy/sn101/lab_score.py`, validator's TagScorer, half-size crowd of 109 with the repeated-set threshold scaled to match; runs on the droplet at Nice 15,
+600 MB, 10 s/post — the ARM laptop is too slow): first post — entities-first prompt 256% of the crowd median, m1's uncommon-set tagger 189%, gpt-4.1-mini 170%,
+stock reference 5%. One post only; full run at ≈ 40 posts.
