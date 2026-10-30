@@ -14,6 +14,19 @@ from .framework import TaskHandler
 
 N_CANDIDATES = int(os.getenv("TAG_CANDIDATES", "6"))
 SEED = os.getenv("TAG_SEED", "0")
+POST_LOG = os.getenv("TAG_POST_LOG", "")          # scoring lab: append {post, candidates, submitted} per task (decisions.md 1177)
+
+
+def _log(post: str, ranked: list[str], tags: list[str]) -> None:
+    if not POST_LOG:
+        return
+    try:
+        import json
+        import time
+        with open(POST_LOG, "a") as f:
+            f.write(json.dumps({"t": int(time.time()), "post": post, "candidates": ranked, "tags": tags}) + "\n")
+    except Exception:
+        pass
 
 
 def solve_problem(envelope, chain_runtime) -> dict[str, Any]:
@@ -28,10 +41,13 @@ def solve_problem(envelope, chain_runtime) -> dict[str, Any]:
         if t and t not in seen:
             seen.add(t); ranked.append(t)
     if len(ranked) <= k:
+        _log(post, ranked, ranked)
         return {"tags": ranked}
     rng = random.Random(hashlib.sha256(f"{SEED}|{post}".encode()).digest())
     rest = ranked[1:min(len(ranked), 5)]
-    return {"tags": [ranked[0]] + rng.sample(rest, min(k - 1, len(rest)))}
+    tags = [ranked[0]] + rng.sample(rest, min(k - 1, len(rest)))
+    _log(post, ranked, tags)
+    return {"tags": tags}
 
 
 def handler() -> TaskHandler:
