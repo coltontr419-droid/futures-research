@@ -19039,3 +19039,11 @@ SN13 $46 / $121 / $124 (scrapes X — skip); AlphaRidge SN45 $55 / $94 / $129. N
 **Lab** (`deploy/sn101/lab_score.py`, validator's TagScorer, half-size crowd of 109 with the repeated-set threshold scaled to match; runs on the droplet at Nice 15,
 600 MB, 10 s/post — the ARM laptop is too slow): first post — entities-first prompt 256% of the crowd median, m1's uncommon-set tagger 189%, gpt-4.1-mini 170%,
 stock reference 5%. One post only; full run at ≈ 40 posts.
+
+## §1179 — SN101 lab on 27 real posts: the entities-first prompt scores best; m2 switched to it (S11)
+
+**No trial.** `deploy/sn101/lab_score.py` (validator's TagScorer; half-size crowd 109, repeated-set threshold scaled; crowd per post = stock-prompt answers ×75,
+entities-first ×12, normal-spacing ×12, gpt-4.1-mini ×10). Mean score per strategy over 27 posts: **entity3 0.734**, uncommon_ent6 0.668, uncommon_space6 0.639,
+uncommon_ref6 0.638 (m1 since §1175), space3 0.613, ref_41mini 0.569, **reference 0.479 (m2 until now)**. (The "vs crowd median" ratio is unstable because the
+duplicate-heavy crowd's median is often ≈ 0.) The prompt matters more than the model. m2 switched at ≈ 15:20 UTC to TAG_MODE=entity3 (posts logged to
+posts_m2.jsonl); live A/B now m1 uncommon-set vs m2 entities-first. Caveat: the crowd is a stand-in; live emission decides.
