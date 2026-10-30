@@ -19078,3 +19078,10 @@ smoothed over ≈ 3 simulated hours) and **skill** (mark-to-market P&L minus ave
 dashboards (taos.simulate.trading) show per-miner activity. Miners need ≈ 1 GB RAM each; strategy work needs the simulator (validators run 32 GB / 16 cores).
 Chain: median miner UID ≈ $253/month, p10 $53, burn ≈ $22, 45 operators (top-5 46%). Fit: our market-making / short-term research; cost: a bigger server and
 real strategy development. Order of additions: Tag101 (fixing) → ReadyAI → Synth → MVTRX → Hone.
+
+## §1183 — SN101 lab round 2 (38 posts): no variant beats the plain entities-first prompt; it stays the recipe (S11)
+
+**No trial.** `deploy/sn101/crowd2.py` + `lab_score.py`, same stand-in crowds as round 1. Mean score: **entity3 0.709**, entity3 at temperature 0 0.705, one entity +
+two topics 0.685, one-or-two-word tags 0.681, ask-6-keep-top-3 0.679, entity3 on gpt-4.1-mini 0.666, strict entity/entity/topic 0.662, ask-6-uncommon-pick 0.645.
+Spread ≤ 8%, about the noise. m2 already runs entity3; m1 moves to it after its port test (§1181) reads out; new UIDs get it (our own few copies stay far below
+the ≈ 50-identical-set penalty range).
