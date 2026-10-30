@@ -19125,3 +19125,6 @@ swap; the coldkey decryption needs a burst of RAM); free balance 0.1268 TAO. Rea
 by the laptop's btcli 9.23.2 / wallet 4.1.0). Services readyai-r1/r2 running (≈ 276 MB each; droplet ≈ 0.9 GB free). `deploy/sn101/minerwatch.py` now covers
 SN101 (m* hotkeys) and SN33 (r* hotkeys): one embed with a section per subnet + combined totals; health uses a per-subnet quiet window (Tag101 20 min, ReadyAI
 90 min until its task rate is known).
+**§1187 addendum (16:54 UTC):** ReadyAI miners publish a dummy axon (192.0.2.1:1234) to the metagraph by design and put the real endpoint, encrypted for
+validators, in an on-chain commitment built from `--axon.ip/--axon.port`. Without `--axon.ip` the commitment carried the bind address (`[::]`), unreachable;
+services now pass `--axon.ip 157.230.91.2`, and the logs confirm "Real endpoint: 157.230.91.2:8095/8096 … commitment published successfully" at block 9397972.
