@@ -19163,3 +19163,17 @@ logged posts it gave 3 tags every time. Deployed on m1 (UID 104) at 20:34 UTC 10
 Backup: /root/backups/ourtags-2026-10-30-pre-extract.py. Read: after ≈ 01:00 UTC 10-31 (inherited history gone) compare hourly gap
 ln(usd_month / median) / 10 slopes: m2 (entity3 replacing stock, ≈ equal per §1190) should be flat; if extract sits in the band, m1's gap rises
 ≈ 0.012/h (its pay ≈ +12%/h, ≈ 2× in 6 h). Flat m1 → extract no better; Tag101 work stops pending the Discord question.
+
+## §1192 — ReadyAI scaling prep: the stock miner busy-loops (≈ 40% CPU each); fix + usage logging built; field ceiling ≈ $280/slot (S11)
+
+**No trial (desk + live read, 21:30 UTC 10-30).** (1) CPU: each ReadyAI miner holds ≈ 35-50% of the droplet's single core while idle (top, 3 × 5 s).
+Cause: `BaseMinerNeuron.run` waits for `block - metagraph.last_update[uid] >= epoch_length`, always true for a miner (miners never set weights), so it
+calls `sync()` (registration check + full metagraph resync + save_state) back to back. Fix in `deploy/sn33/run_miner.py`: `sync()` throttled to once per
+SYNC_SECONDS (300); only the run-loop thread calls it (validators reach the axon independently). (2) Cost: ReadyAI sends five task types, not only
+tagging — since 17:00 UTC r1/r2 received conversation_tagging 14/9, skill_generation 7/9, skill_coverage_evaluation 10/3, named_entities 1/0,
+webpage_metadata 0/1; skill generation chains several long-output calls. No upstream token logging, so the launcher now wraps the OpenAI client's
+chat/embedding `create` and appends the reported tokens per call to USAGE_LOG (dry-run on the droplet: patched, one embed row logged). (3) Memory:
+r1/r2 ≈ 280-370 MB RSS each, m1 ≈ 390 MB (spaCy), m2 ≈ 100 MB; ≈ 660 MB available of 1.97 GB. (4) Chain (TAO $234.5): wallet free 0.1268 TAO;
+ReadyAI burn 0.0413 TAO ($10); ReadyAI pay is flat — top $283/month, 10th-best percentile $234, median $194, 75th-from-top $181; ours $110/$109
+(rank 236/248, still filling its EMA: α 0.1 per observation, reset on new hotkey, cubed after normalisation). Ceiling for a stock-quality slot ≈ the
+median; the top of the field is only ≈ 1.45× it. Deployment of (1)+(2) awaits the user's OK (restarts r1/r2).
