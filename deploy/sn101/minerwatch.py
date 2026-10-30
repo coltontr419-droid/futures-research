@@ -139,8 +139,8 @@ def report() -> None:
     for name, uid in miners().items():                  # M1, M2, ... in hotkey order; new miners appear automatically
         a = hotkey_alpha(json.load(open(f"{WALLET}/{name}pub.txt"))["publicKey"]); m = per_month(em[uid]); usd = a * price * tao
         total_m += m; total_usd += usd
-        lines.append(f"**{name.upper()}** ({rank.get(uid, '?')}/{len(field)}): **${m:,.0f}/month**  Total Earned: **${usd:,.2f}**")
-    lines.append(f"**Combined Totals**: **${total_m:,.0f}/month**  Total Earned: **${total_usd:,.2f}**")
+        lines.append(f"**{name.upper()}** ({rank.get(uid, '?')}/{len(field)}): **${m:,.0f}/month**  Earned: **${usd:,.2f}**")
+    lines.append(f"**Combined Totals**: **${total_m:,.0f}/month**  Earned: **${total_usd:,.2f}**")
     post({"title": "✅ SN101 (Tag101) — 4-hour earnings", "color": GREEN, "description": "\n".join(lines),
           "footer": {"text": f"median slot ${med:,.0f}/month · TAO ${tao:,.2f} · α ${price * tao:.3f} · {now()}"}})
 
