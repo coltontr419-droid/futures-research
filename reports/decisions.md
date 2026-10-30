@@ -19117,3 +19117,11 @@ as the validator uses) → 15 nearest the centroid; coding conversations and any
 vs the stock prompt's 10 single nouns; ≈ 295 MB RSS per process → 2 miners fit next to Tag101 and the futures bot (2 GB swap). Services readyai-r1/r2 (ports
 8095/8096, hotkeys r1/r2, MemoryMax 550 MB, disabled; start only when the hotkey file exists). Launch steps: user creates hotkeys r1/r2, registers on netuid 33
 (≈ 0.04-0.05 TAO each), copies them; then enable the services and add SN33 to the Discord watch.
+
+## §1187 — SN33 ReadyAI live: 2 UIDs (r1 = UID 168, r2 = UID 132) on central15; Discord watch covers both subnets (S11)
+
+**No trial (live).** User registered r1 (0.0401 TAO) and r2 (≈ 0.06 TAO) from the laptop after closing VS Code (btcli was OOM-killed twice: 2.7 GB laptop, no
+swap; the coldkey decryption needs a burst of RAM); free balance 0.1268 TAO. ReadyAI's venv needed bittensor-wallet 4.1.0 (4.0.1 cannot parse keyfiles written
+by the laptop's btcli 9.23.2 / wallet 4.1.0). Services readyai-r1/r2 running (≈ 276 MB each; droplet ≈ 0.9 GB free). `deploy/sn101/minerwatch.py` now covers
+SN101 (m* hotkeys) and SN33 (r* hotkeys): one embed with a section per subnet + combined totals; health uses a per-subnet quiet window (Tag101 20 min, ReadyAI
+90 min until its task rate is known).
