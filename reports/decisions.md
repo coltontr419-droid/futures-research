@@ -19047,3 +19047,15 @@ entities-first ×12, normal-spacing ×12, gpt-4.1-mini ×10). Mean score per str
 uncommon_ref6 0.638 (m1 since §1175), space3 0.613, ref_41mini 0.569, **reference 0.479 (m2 until now)**. (The "vs crowd median" ratio is unstable because the
 duplicate-heavy crowd's median is often ≈ 0.) The prompt matters more than the model. m2 switched at ≈ 15:20 UTC to TAG_MODE=entity3 (posts logged to
 posts_m2.jsonl); live A/B now m1 uncommon-set vs m2 entities-first. Caveat: the crowd is a stand-in; live emission decides.
+
+## §1180 — SN5 Hone deep look: flat ≈ $1,050 per UID because pay ∝ pass rate and farms submit one answer from many UIDs; the cost of solving every task decides it (S11)
+
+**No trial (desk).** Repo hone-subnet-org/hone-subnet (53454a9). Tasks: real repositories with planted defects or terminal incident tasks, graded in a pinned Docker
+sandbox by hidden checks; the answer is a unified diff or a Bash script plus a trajectory; the demo miner is an agent with read-only workspace tools (≤ 48 calls)
+on an OpenAI-compatible endpoint — default **Kimi K3 (open-weight) on Amazon Bedrock**, so an open model fits the terms constraint. **Pay:** a full pass earns
+1 (≥ 0.95 with a light speed tiebreak), a fail 0; each UID's weight = mean payment over its last ≤ 100 tasks, L1-normalised — linear in pass rate. **Volume:**
+one task per validator every 38 blocks (≈ 7.6 min) to 128 of 256 miners; 11 validators → up to ≈ 2,000 tasks a day; byte-identical submissions are graded once,
+so an operator solves each task once and submits it from all its UIDs — hence the flat p10 $944 / median $1,053 / p90 $1,098. **Economics:** income ≈ $1,050 ×
+UIDs at the field's pass rate; cost ≈ tasks/day × agent cost per task (unknown: plausibly $0.05-0.30 with an open model) — ≈ $3-18k a month for an operator that
+answers everything, nearly independent of how many UIDs it runs. Viable only with several UIDs and a cheap model at the field's pass rate. Burn 0.432 TAO (≈ $100).
+Unknowns to measure before any spend: our agent's pass rate on the two retired fixtures (Docker, pinned image) and its tokens per task.
