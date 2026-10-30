@@ -19020,3 +19020,11 @@ token in /opt/tag101/discord.env (saved by the user, never seen). `minerwatch-he
 solved task in 20 min, ignoring the first 25 min after a restart; ≥ 5 errors in 20 min), state in watch_state.json; `minerwatch-report.timer` at :05 every 4 h UTC —
 green embed with miners ranked by $/month, rank among all miner UIDs, % of median, earned α (TotalHotkeyAlpha) and $. Test post and first report sent 10-30 ≈ 12:00
 UTC; health check ran clean.
+
+## §1177 — SN101 scoring lab started (post logging on m1); SN50 forecasts pass Synth's own response validator on all 18 prompt types (S11)
+
+**No trial.** (1) m1's tagger now appends {post, ranked candidates, submitted tags} per task to /opt/tag101/posts.jsonl (TAG_POST_LOG) for an offline study with
+the validator's TagScorer against a synthetic crowd (reference prompt sampled repeatedly + other prompt styles/models). (2) `synth/miner_check.py`: our
+`miner_model.generate_simulations` output for every LF asset (13, 5-min/24 h) and HF asset (5, 1-min/1 h) passes `synth/validator/response_validation_v2.validate_responses`
+— **18/18 CORRECT, 0.6-4.7 s each with warm caches**; cold caches take ≈ 75 s (SOL/XRP 24 h, HYPE 1 h), so a cache warmer is required before deployment. The
+miner integration is one line: neurons/miner.py imports `generate_simulations` from synth.miner.simulations; ours has the same signature.
