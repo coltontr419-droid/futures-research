@@ -19068,3 +19068,13 @@ while m2 (UID 181) sat at ≈ 0.08-0.10%. Both receive the same tasks (31 of 31-
 both ran identical stock code on identical tasks, yet m2 earned 0.61 α/tempo and m1 0.0002 — slot/hotkey/port-specific, not answer-specific. The only
 differences: hotkey, UID, port (8091 is Bittensor's default). Test: m1 moved to port 8093 at block 9397584 (≈ 15:40 UTC), nothing else changed. If m1 recovers
 → port; if not → UID/hotkey (next: re-register a fresh hotkey, ≈ 0.04 TAO, or ask Tag101's Discord).
+
+## §1182 — SN79 MVTRX (simulated-exchange trading) screened: a real strategy competition, fourth in line (S11)
+
+**No trial (desk).** Repo taos-im/sn-79 (0.6.6). Miners run trading agents over 128 simulated limit-order books (C++ MAXE engine) against background agents;
+≈ 95% of rewards from trading, split equally into **making** (spread captured on maker fills on both sides of a book, judged by the price shortly afterwards;
+smoothed over ≈ 3 simulated hours) and **skill** (mark-to-market P&L minus average inventory × the book's move — de-beta'd alpha — on a minimum number of books);
+≈ 5% for optional GenTRX gradient training (GPU helps). Latency is penalised; a capital-turnover cap limits volume; new simulation configs ≈ weekly; public
+dashboards (taos.simulate.trading) show per-miner activity. Miners need ≈ 1 GB RAM each; strategy work needs the simulator (validators run 32 GB / 16 cores).
+Chain: median miner UID ≈ $253/month, p10 $53, burn ≈ $22, 45 operators (top-5 46%). Fit: our market-making / short-term research; cost: a bigger server and
+real strategy development. Order of additions: Tag101 (fixing) → ReadyAI → Synth → MVTRX → Hone.
