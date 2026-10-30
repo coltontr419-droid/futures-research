@@ -19097,3 +19097,13 @@ normalised → **cubed** (nonlinear_power 3): a 10% better score earns ≈ 33% m
 Plan for a ReadyAI slot: (1) a few tags the validator would also produce (avoid the no-match penalty) plus several distinct tags close to the conversation's
 centre (the top-3 unique term is 55%); (2) pick tags by our own text-embedding-3-large cosine to the centroid of a broad candidate set; (3) an offline lab on
 ReadyAI's public Hugging Face conversations with GPT-4o full-conversation tags as the stand-in ground truth. Needs the bigger server for live slots (8 GB).
+
+## §1185 — SN33 ReadyAI lab (19 conversations, 38 windows): 25 candidates → keep the 15 nearest their centroid beats the stock GPT-4o miner by 17% (t 4.8) ≈ +60% weight after cubing (S11)
+
+**No trial.** `deploy/sn33/readyai_lab.py` on the droplet (user's OpenAI key; ReadyAI's own podcast transcripts from Hugging Face, small_dataset; first 150 lines
+as the conversation; stand-in ground truth = GPT-4o with the subnet's tagging prompt on the full conversation; text-embedding-3-large; the evaluator's formula
+and penalties copied; 10-line windows with 2-line overlap). Mean score / paired difference vs the stock GPT-4o miner on the same windows: **central15 0.530
+(+0.077, t 4.80, 31/38 wins)**, central10 0.523 (+0.069, t 4.14), broad_mini 0.523 (+0.069, t 4.52), cands_all20 0.519 (+0.065, t 4.28), central5 0.504 (+0.050,
+t 2.98), default_mini 0.488 (+0.035, t 2.30), default_4o 0.453. Cubed weights → ≈ +60% for central15 vs a stock miner, ≈ $280-310/month at today's median if the
+field is mostly stock. Runs on gpt-4o-mini (cheaper than the stock GPT-4o). Caveats: the real validator adds an enrichment step; live pay decides. Launch recipe for
+ReadyAI UIDs: central15.
