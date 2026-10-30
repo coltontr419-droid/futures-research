@@ -21,8 +21,32 @@ from chainrpc import rpc, subnet, tx  # noqa: E402
 
 CHANNEL = "1565694815595925534"
 NETUID = 101
-MINERS = {"m1": 104, "m2": 181}
 WALLET = "/root/.bittensor/wallets/main/hotkeys"
+
+
+def _pub(name: str) -> bytes:
+    p = json.load(open(f"{WALLET}/{name}pub.txt"))["publicKey"]
+    return bytes.fromhex(p[2:] if p.startswith("0x") else p)
+
+
+def _uid(hk: bytes):
+    """The hotkey's UID on NETUID (Uids double map: netuid Identity, hotkey Blake2_128Concat), or None if not registered."""
+    key = tx(b"SubtensorModule") + tx(b"Uids") + NETUID.to_bytes(2, "little") + hashlib.blake2b(hk, digest_size=16).digest() + hk
+    v = rpc("state_getStorage", ["0x" + key.hex()])
+    return int.from_bytes(bytes.fromhex(v[2:])[:2], "little") if v else None
+
+
+def miners() -> dict[str, int]:
+    """Every m<N> hotkey in the wallet that holds a UID on NETUID, so new miners show up without editing this file."""
+    import glob
+    import os
+    out = {}
+    for f in sorted(glob.glob(f"{WALLET}/m*pub.txt"), key=lambda p: int("".join(c for c in os.path.basename(p) if c.isdigit()) or 0)):
+        name = os.path.basename(f)[:-len("pub.txt")]
+        uid = _uid(_pub(name))
+        if uid is not None:
+            out[name] = uid
+    return out
 STATE = "/opt/tag101/watch_state.json"
 RED, GREEN = 0xE53935, 0x43A047
 UA = "DiscordBot (https://github.com/coltontr419-droid/futures-research, 1.0)"
@@ -61,7 +85,13 @@ def now() -> str:
 
 
 def health() -> None:
+    import glob
+    import os
     s = state(); problems = {}
+    try:
+        MINERS = miners()
+    except Exception:                                   # chain unreachable: still check every local miner service
+        MINERS = {os.path.basename(f)[:-len("pub.txt")]: "?" for f in glob.glob(f"{WALLET}/m*pub.txt")}
     for name in MINERS:
         unit = f"tag101-{name}"
         active = sh(f"systemctl is-active {unit}").strip()
@@ -105,19 +135,14 @@ def report() -> None:
     per_month = lambda e: e * (7200 / (tempo + 1)) * price * tao * 30
     miners = sorted(((e, u) for u, e in enumerate(em) if not (u < len(vp) and vp[u])), reverse=True)
     rank = {u: i + 1 for i, (_, u) in enumerate(miners)}; med = per_month(miners[len(miners) // 2][0])
-    rows = []
-    for name, uid in MINERS.items():
-        pub = json.load(open(f"{WALLET}/{name}pub.txt"))["publicKey"]
-        a = hotkey_alpha(pub); m = per_month(em[uid])
-        rows.append((m, name, uid, a))
-    rows.sort(reverse=True)
-    total_m = sum(r[0] for r in rows); total_a = sum(r[3] for r in rows)
-    fields = [{"name": f"#{i + 1} · {name} (UID {uid})",
-               "value": f"Rank **{rank.get(uid, '?')}** / {len(miners)}\n**${m:,.0f}/mo** ({m / med * 100 if med else 0:.0f}% of median)\nEarned {a:,.2f} α ≈ ${a * price * tao:,.2f}",
-               "inline": True} for i, (m, name, uid, a) in enumerate(rows)]
-    fields += [{"name": "Combined", "value": f"**${total_m:,.0f}/month** at current rate\nEarned so far: {total_a:,.2f} α ≈ **${total_a * price * tao:,.2f}**", "inline": False},
-               {"name": "Prices", "value": f"TAO ${tao:,.2f} · SN101 α {price:.5f} TAO (${price * tao:.3f}) · median slot ${med:,.0f}/mo", "inline": False}]
-    post({"title": "✅ SN101 (Tag101) — 4-hour earnings", "color": GREEN, "fields": fields, "footer": {"text": now()}})
+    lines = []; total_m = total_usd = 0.0
+    for name, uid in miners().items():                  # M1, M2, ... in hotkey order; new miners appear automatically
+        a = hotkey_alpha(json.load(open(f"{WALLET}/{name}pub.txt"))["publicKey"]); m = per_month(em[uid]); usd = a * price * tao
+        total_m += m; total_usd += usd
+        lines.append(f"**{name.upper()}** ({rank.get(uid, '?')}/{len(miners)}): **${m:,.0f}/month**  Total Earned: **${usd:,.2f}**")
+    lines.append(f"**Combined Totals**: **${total_m:,.0f}/month**  Total Earned: **${total_usd:,.2f}**")
+    post({"title": "✅ SN101 (Tag101) — 4-hour earnings", "color": GREEN, "description": "\n".join(lines),
+          "footer": {"text": f"median slot ${med:,.0f}/month · TAO ${tao:,.2f} · α ${price * tao:.3f} · {now()}"}})
 
 
 if __name__ == "__main__":
