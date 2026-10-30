@@ -19085,3 +19085,15 @@ real strategy development. Order of additions: Tag101 (fixing) → ReadyAI → S
 two topics 0.685, one-or-two-word tags 0.681, ask-6-keep-top-3 0.679, entity3 on gpt-4.1-mini 0.666, strict entity/entity/topic 0.662, ask-6-uncommon-pick 0.645.
 Spread ≤ 8%, about the noise. m2 already runs entity3; m1 moves to it after its port test (§1181) reads out; new UIDs get it (our own few copies stay far below
 the ≈ 50-identical-set penalty range).
+
+## §1184 — SN33 ReadyAI scoring study: cosine to the validator's own full-conversation tags, cubed weights, a 25% owner burn since 10-27 (S11)
+
+**No trial (desk).** Repo afterpartyai/bittensor-conversation-genome-project (37b4474). The validator tags the FULL conversation itself (GPT-4o default) and
+averages those tags' embeddings (OpenAI text-embedding-3-large) into one "neighbourhood" vector; a miner sees only a window. Each miner tag scores its cosine to
+that vector (≤ 20 tags scored, ≥ 3 required); score = 0.55 × mean of the top 3 UNIQUE tags (not exactly in the validator's set) + 0.25 × mean + 0.10 × median +
+0.10 × max; penalties: no exact matches × 0.9, < 1-3 unique tags × 0.85-0.95, max < 0.2 × 0.5, < 2 tags × 0.2. Validator EMA (half alpha on zero rewards) →
+normalised → **cubed** (nonlinear_power 3): a 10% better score earns ≈ 33% more weight, so the flat payout reflects a field of near-identical default miners.
+**Owner burn: 25% of emissions since 2026-10-27** (today's chain medians already reflect it, ≈ $194). Other task types exist (webpage metadata, skill coverage).
+Plan for a ReadyAI slot: (1) a few tags the validator would also produce (avoid the no-match penalty) plus several distinct tags close to the conversation's
+centre (the top-3 unique term is 55%); (2) pick tags by our own text-embedding-3-large cosine to the centroid of a broad candidate set; (3) an offline lab on
+ReadyAI's public Hugging Face conversations with GPT-4o full-conversation tags as the stand-in ground truth. Needs the bigger server for live slots (8 GB).
