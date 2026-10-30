@@ -19012,3 +19012,11 @@ the stock reference prompt (gpt-4o-mini, 3 tags) gives the same obvious sets as 
 `--task.miner_module tag101.tasks.ourtags`, TAG_SEED per miner): the model ranks 6 candidate tags; submit the top one plus 2 seeded-random picks from ranks 2-5 —
 every tag on-consensus, the set rarely identical to anyone's. Deployed on m1 at ≈ 11:40 UTC; m2 stays on the reference for comparison. m1's 24 h immunity ends
 ≈ 01:00 UTC 10-31.
+
+## §1176 — SN101 Discord miner watch live (S11)
+
+**No trial.** `deploy/sn101/minerwatch.py` on the droplet (/opt/tag101): posts to the user's #miners channel (ID 1565694815595925534) through the bot's REST API;
+token in /opt/tag101/discord.env (saved by the user, never seen). `minerwatch-health.timer` every 5 min — red embed once per incident (service not active; no
+solved task in 20 min, ignoring the first 25 min after a restart; ≥ 5 errors in 20 min), state in watch_state.json; `minerwatch-report.timer` at :05 every 4 h UTC —
+green embed with miners ranked by $/month, rank among all miner UIDs, % of median, earned α (TotalHotkeyAlpha) and $. Test post and first report sent 10-30 ≈ 12:00
+UTC; health check ran clean.
