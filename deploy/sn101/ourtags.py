@@ -15,6 +15,18 @@ from .framework import TaskHandler
 N_CANDIDATES = int(os.getenv("TAG_CANDIDATES", "6"))
 SEED = os.getenv("TAG_SEED", "0")
 POST_LOG = os.getenv("TAG_POST_LOG", "")          # scoring lab: append {post, candidates, submitted} per task (decisions.md 1177)
+MODE = os.getenv("TAG_MODE", "uncommon")          # "uncommon" (§1175) or "entity3": entities-first prompt, best in the lab (§1179)
+
+ENTITY_SYSTEM = ("Generate topic tags for a social post. Prefer the specific named entities (people, companies, models, products), then the main topic. "
+                 "Use short noun phrases with normal spacing, lower case. Return only a JSON array of lower-case strings. Output exactly {n} tags.\n")
+ENTITY_USER = "Create tags for the post. Return a JSON array only, with no duplicates or extra text.\nPost:\n{post}\n"
+
+
+def _entity_tags(post: str, n: int) -> list[str]:
+    m = base.ReferenceMiner(n_tags=n, timeout_sec=int(base.SN101_TIME_LIMIT))
+    payload = {"model": m.model, "messages": [{"role": "system", "content": ENTITY_SYSTEM.format(n=n)},
+                                              {"role": "user", "content": ENTITY_USER.format(post=post.strip())}]}
+    return m._parse_tags(m._call_chat_completions(payload))
 
 
 def _log(post: str, ranked: list[str], tags: list[str]) -> None:
@@ -32,6 +44,15 @@ def _log(post: str, ranked: list[str], tags: list[str]) -> None:
 def solve_problem(envelope, chain_runtime) -> dict[str, Any]:
     post = str(dict(envelope.payload).get("text", ""))
     k = int(base.SN101_MAX_TAGS)
+    if MODE == "entity3":
+        try:
+            tags = list(dict.fromkeys(t for t in _entity_tags(post, k) if t))[:k]
+        except Exception:
+            return base.solve_problem(envelope, chain_runtime)
+        if tags:
+            _log(post, tags, tags)
+            return {"tags": tags}
+        return base.solve_problem(envelope, chain_runtime)
     try:
         cands = base.ReferenceMiner(n_tags=N_CANDIDATES, timeout_sec=int(base.SN101_TIME_LIMIT)).generate_tags(post)
     except Exception:
