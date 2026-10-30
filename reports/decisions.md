@@ -19137,3 +19137,18 @@ Binance-minute, Hyperliquid and Yahoo caches every 4 min. `install.sh <ip>` inst
 /opt/synth/ours/src, where `s50_backtest.CACHE` resolves to /opt/synth/ours/data/synth with no override) and writes `synth-cache` + `synth-s1..s5`
 units (ports 8101-8105, each conditional on its hotkey file). Smoke test of the packaged layout: BTC 24 h, 1,000 paths, 72 s cold / 1.0 s warm;
 XAU 6 s cold / 4.1 s warm. Cold start exceeds a validator's wait, hence the warmer. Launch needs ≈ 0.8 TAO per slot (register + immunity); not started.
+
+## §1190 — SN101: why both UIDs earn little — softmax pay, inherited UID history, and our answers ≈ 0.28 below the field (S11)
+
+**No trial (live diagnosis).** From Tag101 1.1.1 source: validators score with `rolling_ma_softmax` (not the EMA assumed in §1175/§1177): per-UID mean raw
+reward over the last 24 h (missing rounds count as 0), then softmax with β = 10; weights = stake-weighted mean of the validators' softmaxed scoreboards
+(owner validator UID 0 holds ≈ 84% of validator alpha stake). Rounds every 15 min. So ln(w_i / w_j) / 10 = mean-raw-score gap. On-chain incentive inverted
+(18:10 UTC): 75% of the 248 miners sit within 0.04 of the best (the 117-UID operator −0.021..−0.036; ≈ 40 small operators similar); UID 181 (m2) −0.23,
+UID 104 (m1) −0.57. The scoreboard's raw history is keyed by UID and never reset when the hotkey changes, so each new registrant inherits the pruned
+occupant's last-24 h rewards: this, not the port, explains §1181 (m1's UID inherited ≈ 0, m2's ≈ median; port test moot). m2's slide fits
+avg(t) = prior·(1 − t/24) + ours·t/24 with ours ≈ prior − 0.28 (predicted −0.12 / −0.198 vs the median at 11:00 / 18:03 UTC; observed −0.10 / −0.197),
+the same line through the stock (to 15:20) and entity3 periods — entity3 changed nothing visible. The lab crowd (§1177-§1179) is therefore not the live
+crowd. Validator reach confirmed (25-min SYN capture): owner 54.177.95.135, 34.70.162.213 (UID 61) and two more IPs (≈ UIDs 56/60) hit both miners every
+≈ 15 min; the 4 near-zero-stake validators send nothing (irrelevant to weights). Inherited history rolls off ≈ 01:00 UTC 10-31 (registration block
+9393200/9393207); afterwards the hourly weight change measures our current answers directly (Δgap/h ≈ 4·(new − dropped)/96 for the owner validator).
+Projection with today's answers: m2 ≈ $15-20/month. Next: a live arm with a different answer style on m1 (pending the user's approval), read by slope.
