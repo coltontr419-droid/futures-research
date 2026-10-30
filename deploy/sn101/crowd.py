@@ -16,7 +16,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 KEY = [ln.split("=", 1)[1].strip() for ln in open("/opt/tag101/openai.env") if ln.startswith("OPENAI_API_KEY=")][0]
-POSTS = "/opt/tag101/posts.jsonl"
+POSTS = "/opt/tag101/posts_all.jsonl"                 # m1 + m2 post logs, concatenated
 OUT = "/opt/tag101/lab_crowd.jsonl"
 
 REF_SYSTEM = "Generate topic tags for a social post.\nReturn only a JSON array of lower-case strings.\nOutput exactly {n} tags.\n"
