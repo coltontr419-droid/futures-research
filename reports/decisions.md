@@ -19152,3 +19152,14 @@ crowd. Validator reach confirmed (25-min SYN capture): owner 54.177.95.135, 34.7
 ≈ 15 min; the 4 near-zero-stake validators send nothing (irrelevant to weights). Inherited history rolls off ≈ 01:00 UTC 10-31 (registration block
 9393200/9393207); afterwards the hourly weight change measures our current answers directly (Δgap/h ≈ 4·(new − dropped)/96 for the owner validator).
 Projection with today's answers: m2 ≈ $15-20/month. Next: a live arm with a different answer style on m1 (pending the user's approval), read by slope.
+
+## §1191 — SN101 live arm: m1 → "extract" (literal spans, no LLM) (S11)
+
+**No trial (live arm, user-approved).** Hypothesis from §1190: ≈ 40 independent operators land within 0.04 of the best, so the field's answer is probably
+the post's own words, which every extractor converges on; our LLM tags drift into paraphrase. `TAG_MODE=extract` (`deploy/sn101/ourtags.py`): spaCy
+en_core_web_sm on the post (RT prefix, URLs, @/# stripped): named entities in order of appearance, then noun chunks (proper-noun chunks first, longest
+first), determiners/stopwords trimmed, generic words dropped, lower case, no overlapping tags; fewer than 3 → entity3 fallback. No OpenAI cost. On 14
+logged posts it gave 3 tags every time. Deployed on m1 (UID 104) at 20:34 UTC 10-30 via drop-in `tag101-m1.service.d/mode.conf`; m2 stays entity3.
+Backup: /root/backups/ourtags-2026-10-30-pre-extract.py. Read: after ≈ 01:00 UTC 10-31 (inherited history gone) compare hourly gap
+ln(usd_month / median) / 10 slopes: m2 (entity3 replacing stock, ≈ equal per §1190) should be flat; if extract sits in the band, m1's gap rises
+≈ 0.012/h (its pay ≈ +12%/h, ≈ 2× in 6 h). Flat m1 → extract no better; Tag101 work stops pending the Discord question.
