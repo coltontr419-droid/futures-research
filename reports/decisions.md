@@ -19369,3 +19369,20 @@ unchanged), comparison at 23:35 UTC (/opt/mvtrx/live_compare6.txt).
 max position 69 units. Pull threshold 2 → 1 tick live from 23:10 UTC (comparison 00:45 UTC). Each of our three live restarts today
 (20:26, 21:55, 23:10 UTC) was followed by the validator's simulation clock stalling ≥ 10 min (axon re-published → our agent re-initialised
 with a large catch-up state); live restarts are now kept to a minimum — variants go to the lab sim, one winner per (re)registration.
+
+## §1207 — SN79 live: the post-restart "validator stalls" were our miner; fixed. Our answers are ~4× slower than the field's (S11)
+
+**The stall was ours (corrects the §1206 addendum).** py-spy on the live miner 13 min after the 23:08 UTC restart: 99% CPU inside
+`AgentEventHistory.append` (taos/im/protocol/events.py), not waiting on the validator. On restart the base agent reloads every order /
+cancel / trade it ever logged to CSV (`load_event_history`: 1.49 M rows, 77 MB since 10-31 11:50 UTC), then the first state trims to the
+60-min lookback by popping the dict's oldest key one at a time; CPython re-scans the deleted slots on every `next(iter(d))`, so the trim is
+quadratic and grew with each restart. While it ran we answered nothing. Fix (`deploy/sn79/fix_trim.sh`, applied 23:22 UTC): the trim is one
+linear dict rebuild, and the CSV directory was moved to /opt/mvtrx/csv_archive/. The miner answered its first state 20 s after restart.
+Live restarts are cheap again; the "keep restarts minimal" rule from §1206 no longer applies.
+**Speed.** Validators delay each miner's instructions by an exponential curve over the 3 s timeout (10 ms floor, 1 s cap; taos/im/validator/
+delays.py): field median ≈ 0.06 s → 10.7 ms; ours ≈ 0.24 s logged decompress (p50 0.237, p90 0.364 s) and ≈ 0.9 s per state in total by
+py-spy → ≈ 13-40 ms. Every miner that answers faster acts on the same state before us — a bot that sees our stale quote lifts it before our
+cancel lands, consistent with the bots' 19% of fills at −6.25 ticks. Profile of a state: decompress 65% (mostly pydantic building every
+book level's order list and the accounts), base-agent update + CSV logging 15%, QuoteAgent 19%. `--agent.params lazy_load=1` skips the
+eager build (QuoteAgent reads only fields the Lazy* objects expose). Also: every instruction after a book's first gets +5-25 ms, so
+QuoteAgent now cancels the side its prediction says is exposed first. Both go live after the pull=1.0 comparison at 00:45 UTC.

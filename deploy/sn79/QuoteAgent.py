@@ -192,7 +192,8 @@ class QuoteAgent(FinanceAgent):
             want.pop(OrderDirection.BUY, None)             # price about to fall: do not leave a bid to be hit
         if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
-        for o in acct.orders:
+        # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
+        for o in sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)):
             if want.get(o.side) == o.price:
                 want.pop(o.side)                      # already resting at the target price: keep its queue place
             else:
