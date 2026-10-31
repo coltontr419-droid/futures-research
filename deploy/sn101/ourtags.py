@@ -16,7 +16,8 @@ from .framework import TaskHandler
 N_CANDIDATES = int(os.getenv("TAG_CANDIDATES", "6"))
 SEED = os.getenv("TAG_SEED", "0")
 POST_LOG = os.getenv("TAG_POST_LOG", "")          # scoring lab: append {post, candidates, submitted} per task (decisions.md 1177)
-MODE = os.getenv("TAG_MODE", "uncommon")          # "uncommon" (§1175), "entity3": entities-first prompt (§1179), "extract": literal spans (§1191)
+MODE = os.getenv("TAG_MODE", "uncommon")          # "uncommon" (§1175), "entity3" (§1179), "extract" (§1191), "modal" (§1204)
+MODAL_SAMPLES = int(os.getenv("TAG_MODAL_SAMPLES", "8"))
 
 ENTITY_SYSTEM = ("Generate topic tags for a social post. Prefer the specific named entities (people, companies, models, products), then the main topic. "
                  "Use short noun phrases with normal spacing, lower case. Return only a JSON array of lower-case strings. Output exactly {n} tags.\n")
@@ -68,6 +69,21 @@ def _extract_tags(post: str, n: int) -> list[str]:
     return out[:n]
 
 
+def _modal_tags(post: str, n: int) -> list[str]:
+    """The crowd's most likely answer: sample the stock reference prompt MODAL_SAMPLES times in parallel and keep the n most frequent tags
+    (ties: earliest first appearance). Tag101 pays for landing in the consensus clusters (§1190)."""
+    from collections import Counter
+    from concurrent.futures import ThreadPoolExecutor
+    m = base.ReferenceMiner(n_tags=n, timeout_sec=int(base.SN101_TIME_LIMIT))
+    with ThreadPoolExecutor(MODAL_SAMPLES) as ex:
+        outs = list(ex.map(lambda _: m.generate_tags(post), range(MODAL_SAMPLES)))
+    order, counts = {}, Counter()
+    for tags in outs:
+        for t in dict.fromkeys(x.strip().lower() for x in tags if x and x.strip()):
+            counts[t] += 1; order.setdefault(t, len(order))
+    return sorted(counts, key=lambda t: (-counts[t], order[t]))[:n]
+
+
 def _log(post: str, ranked: list[str], tags: list[str]) -> None:
     if not POST_LOG:
         return
@@ -83,6 +99,19 @@ def _log(post: str, ranked: list[str], tags: list[str]) -> None:
 def solve_problem(envelope, chain_runtime) -> dict[str, Any]:
     post = str(dict(envelope.payload).get("text", ""))
     k = int(base.SN101_MAX_TAGS)
+    if MODE == "reference":                           # the stock reference miner unchanged (on whatever OPENAI_MODEL the unit sets), §1204
+        out = base.solve_problem(envelope, chain_runtime)
+        _log(post, ["reference"], out.get("tags", []))
+        return out
+    if MODE == "modal":
+        try:
+            tags = _modal_tags(post, k)
+        except Exception:
+            tags = []
+        if tags:
+            _log(post, ["modal"], tags)
+            return {"tags": tags}
+        return base.solve_problem(envelope, chain_runtime)
     if MODE == "extract":
         try:
             tags = _extract_tags(post, k)

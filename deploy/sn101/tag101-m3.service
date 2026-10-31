@@ -1,0 +1,23 @@
+[Unit]
+Description=Bittensor SN101 (Tag101) miner m3, strategy modal on gpt-4o-mini (futures-research decisions.md 1204)
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/root/.bittensor/wallets/main/hotkeys/m3
+ConditionPathExists=/opt/tag101/openai.env
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/tag101
+EnvironmentFile=/opt/tag101/openai.env
+Environment=OPENAI_MODEL=gpt-4o-mini
+Environment=TAG_SEED=m3
+Environment=TAG_MODE=modal
+Environment=TAG_POST_LOG=/opt/tag101/posts_m3.jsonl
+ExecStart=/opt/tag101/venv/bin/tag101-miner --netuid 101 --subtensor.network finney --wallet.name main --wallet.hotkey m3 --wallet.path /root/.bittensor/wallets --axon.port 8098 --axon.external_ip 157.230.91.2 --axon.external_port 8098 --task.miner_module tag101.tasks.ourtags --logging.info
+Restart=always
+RestartSec=30
+MemoryMax=450M
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

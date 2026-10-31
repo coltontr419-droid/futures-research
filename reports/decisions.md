@@ -19315,3 +19315,13 @@ own fetch script, `deploy/sn61/bex_manifests.py`): page-world script on all site
 nobody can pass and its 60% weight redistributes to ADA-3. ADA-3: detect AdsPower, Dolphin Anty, GoLogin, Multilogin, Octo (plus
 headless) from page JS at ≥ 0.9 without flagging humans, original vs ≈ 137 accepted solutions — needs the five paid desktop products to
 study and is capped at one slot (≈ $370/month). Parked.
+
+## §1204 — SN101 Tag101 revisit: three-strategy live experiment prepared (modal, stock on gpt-5-mini, extract) (S11)
+
+**Prepared, not launched.** Our earlier answers scored ≈ 0.28 below a tight field (§1190) and the lab cannot model the crowd, so the field is
+measured live: three fresh UIDs (registration 0.027 TAO ≈ $6 each), each a different hypothesis about what the consensus rewards, read
+against each other on chain at ≈ 20-24 h when each UID's 24 h window holds only its own answers (inherited history gone), just before the
+immunity deadline. m3 = modal (stock prompt sampled 8× on gpt-4o-mini, the 3 most frequent tags), m4 = stock reference unchanged on
+gpt-5-mini, m5 = extract (spaCy literal spans, §1191). Units tag101-m3/m4/m5 (ports 8098-8100) on the futures droplet; `ourtags.py`
+gains `modal` and a pass-through `reference` mode. Smoke test on one post: 1.8 / 2.7 / 6.2 s (limit 120 s). Silent-loss check: Tag101's
+time limit is 120 s and our answers took 1-7 s, so the ReadyAI timeout failure (§1201) does not apply here.
