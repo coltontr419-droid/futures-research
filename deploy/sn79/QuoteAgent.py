@@ -40,6 +40,8 @@ class QuoteAgent(FinanceAgent):
         self._mids, self._sflow = {}, {}                   # per book: {sec: mid} (last 125 s), {sec: signed taker qty} (last 6 s)
         self.trend_z = float(getattr(c, "trend_z", 0.0))   # >0: when the 120 s move exceeds TREND_Z standard deviations and inventory
                                                            # fights it, quote only the side that unwinds (§1194: losses sit on trending books)
+        self.pull = float(getattr(c, "pull", 0.0))         # >0: drop the quote on the side the model says the price will cross (|pred| > PULL ticks):
+                                                           # live, other miners snipe stale quotes at −8 ticks each (§1199)
         self.toxic = float(getattr(c, "toxic", 0.0))       # >0: pause a book while our fills' 30 s markout EMA is below −TOXIC ticks
         self.toxic_pause = int(getattr(c, "toxic_pause", 180))   # sim seconds the book stays paused
         self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
@@ -132,6 +134,7 @@ class QuoteAgent(FinanceAgent):
         if self.flow:
             fair += self.flow * spread * self._flow_signal(book_id, book)
         trend = 0.0
+        pred = 0.0
         if self.model is not None:
             pred = self._predict(book_id, book, self._sec, mid)
             fair += self.alpha_k * pred
@@ -154,6 +157,10 @@ class QuoteAgent(FinanceAgent):
             want[OrderDirection.BUY] = bid_px
         if inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:
             want[OrderDirection.SELL] = ask_px
+        if self.pull and pred > self.pull * tick:
+            want.pop(OrderDirection.SELL, None)            # price about to rise: do not leave an offer for a sniper to lift
+        elif self.pull and pred < -self.pull * tick:
+            want.pop(OrderDirection.BUY, None)             # price about to fall: do not leave a bid to be hit
         if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         for o in acct.orders:
