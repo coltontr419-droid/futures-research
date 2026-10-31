@@ -40,6 +40,9 @@ class QuoteAgent(FinanceAgent):
         self._mids, self._sflow = {}, {}                   # per book: {sec: mid} (last 125 s), {sec: signed taker qty} (last 6 s)
         self.trend_z = float(getattr(c, "trend_z", 0.0))   # >0: when the 120 s move exceeds TREND_Z standard deviations and inventory
                                                            # fights it, quote only the side that unwinds (§1194: losses sit on trending books)
+        self.toxic = float(getattr(c, "toxic", 0.0))       # >0: pause a book while our fills' 30 s markout EMA is below −TOXIC ticks
+        self.toxic_pause = int(getattr(c, "toxic_pause", 180))   # sim seconds the book stays paused
+        self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
 
     def respond_simulation(self, state):
@@ -79,6 +82,25 @@ class QuoteAgent(FinanceAgent):
              imb(1), imb(5), micro]
         m = self.model
         return sum(w * (v - mu) / sd for w, v, mu, sd in zip(m["w"], x, m["mu"], m["sd"]) if sd > 0)
+
+    def _toxic_update(self, book_id, book, sec, mid, tick):
+        """Track our own maker fills on this book; 30 s later mark them against the mid and keep an EMA; pause the book when it is bad."""
+        pend = self._pending.setdefault(book_id, [])
+        for e in book.events or []:
+            if getattr(e, "y", "") == "t" and e.Ma == self.uid:
+                pend.append((e.timestamp // 1_000_000_000 + 30, 1 if e.side == 1 else -1, e.price))
+        keep = []
+        for due, side, price in pend:
+            if due <= sec:
+                mo = side * (mid - price) / tick
+                self._mo[book_id] = 0.8 * self._mo.get(book_id, 0.0) + 0.2 * mo
+            else:
+                keep.append((due, side, price))
+        self._pending[book_id] = keep
+        if self._mo.get(book_id, 0.0) < -self.toxic:
+            self._paused[book_id] = sec + self.toxic_pause
+            self._mo[book_id] = 0.0                        # fresh start after the pause
+        return self._paused.get(book_id, 0) > sec
 
     def _flow_signal(self, book_id, book):
         """Signed taker volume this update (side 0 = taker bought), smoothed; +1 = persistent buying pressure."""
@@ -124,6 +146,10 @@ class QuoteAgent(FinanceAgent):
         ask_px = round(round(ask_px / tick) * tick, pd)
         qty = round(max(self.size * wealth0 / mid, self.min_order_size(book_id)), vd)
         want = {}
+        if self.toxic and self._toxic_update(book_id, book, self._sec, mid, tick):
+            for o in acct.orders:                          # book paused: pull our quotes and stay out
+                response.cancel_order(book_id, o.id)
+            return
         if inv < self.max_inv and acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY) >= qty * bid_px:
             want[OrderDirection.BUY] = bid_px
         if inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:
