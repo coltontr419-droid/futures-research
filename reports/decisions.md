@@ -19218,3 +19218,12 @@ least-frequently-found maximum clique (`deploy/sn83/multi_bench.py`, `portfolio.
 already covers most of them, and big operators spread their many UIDs across distinct cliques; a newcomer's answer usually duplicates one.
 Closing the gap needs full enumeration of each problem's maximum cliques to find unclaimed ones — parked. Live miner wrapper ready
 (`deploy/sn83/our_miner.py`: one solve per graph per box, a different clique per UID).
+
+## §1196 — SN101 Tag101: both UIDs pruned when immunity ended; services stopped; the watch now alerts on deregistration (S11)
+
+**No trial (live).** UIDs 104 (m1) and 181 (m2) left the metagraph soon after ≈ 01:00 UTC 10-31, when their 24 h immunity (registered blocks
+9393200/9393207) ended: at $6.8 and $24 per month they were the lowest non-immune miners and were pruned by the next registrations. The extract
+arm (§1191) never got its clean read. Cost ≈ 0.046 TAO. Not re-entering: a new UID inherits the pruned occupant's last 24 h (§1190) and must
+clear the pruning line within a day against a field ≈ 0.28 raw score above our answers. The minerwatch health check only inspected miners the
+chain still listed, so a pruned miner vanished silently; it now remembers each "netuid:name" → UID and posts a red alert when one is no longer
+registered (state key "registered"). tag101-m1/m2 disabled (code and units kept); droplet memory available ≈ 980 MB.

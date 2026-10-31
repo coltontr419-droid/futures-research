@@ -95,11 +95,19 @@ def now() -> str:
 
 def health() -> None:
     s = state(); problems = {}; uids = {}
+    registered = s.get("registered", {}); lost = []      # "netuid:name" -> UID, remembered so a pruned miner raises an alert (§1196)
     for netuid, cfg in SUBNETS.items():
         try:
             found = miners(netuid)
         except Exception:                               # chain unreachable: still check every local miner service
             found = {n: "?" for n in _local(cfg["prefix"])}
+        else:
+            for key in [k for k in registered if k.startswith(f"{netuid}:")]:
+                name = key.split(":", 1)[1]
+                if found.get(name) != registered[key]:
+                    lost.append(f"**{cfg['name']} {name.upper()}** (UID {registered[key]}): **deregistered** (pushed out of the subnet)")
+                    del registered[key]
+            registered.update({f"{netuid}:{n}": u for n, u in found.items()})
         for name, uid in found.items():
             unit = cfg["unit"].format(name=name); key = f"{netuid}:{name}"; uids[key] = (cfg["name"], name, uid)
             active = sh(f"systemctl is-active {unit}").strip()
@@ -119,11 +127,12 @@ def health() -> None:
                 problems[key] = why
     alerted = set(s.get("alerted", []))
     new = {k: v for k, v in problems.items() if k not in alerted}
-    if new:
-        lines = [f"**{uids[k][0]} {uids[k][1].upper()}** (UID {uids[k][2]}): " + "; ".join(v) for k, v in new.items()]
+    if new or lost:
+        lines = lost + [f"**{uids[k][0]} {uids[k][1].upper()}** (UID {uids[k][2]}): " + "; ".join(v) for k, v in new.items()]
         post({"title": "⚠️ Miner problem", "color": RED, "description": "\n".join(lines),
               "footer": {"text": f"droplet 157.230.91.2 · {now()} · auto-restart is on; Claude checks next session"}})
     s["alerted"] = sorted(problems)                     # cleared once healthy, so a later failure alerts again
+    s["registered"] = registered
     save(s)
 
 
