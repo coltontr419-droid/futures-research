@@ -19341,3 +19341,7 @@ the median everywhere: Crypto-24h BTC 0.022% vs 0.177%, ETH 0.054% vs 0.072%, SO
 best volatile-window share 0.074% (todg_12_144_c_ou20@1.0) — still far below the median — and every slower variant gives up most of the
 calm-window edge (0.68% → 0.23-0.39%). The gap is structural (regime adaptation), not a parameter; a GARCH-style / regime-aware volatility
 model validated on both windows is the next step if Synth is revisited. No registration (0.8 TAO).
+**§1205 addendum (21:00 UTC):** GARCH-style per-path variance (`todv_<hl>_<L lookback>_<α>_<β>`, `s50_backtest.ensemble`: each path's variance
+h' = (1−α−β)L² + α·e² + β·h in time-of-day-profile units, h₀ = the EWMA level², L = recent level) on BTC: volatile 5 days best 0.035%
+(todv_12_288_0.05_0.94_c, CRPS 64.1 vs median 53.4) vs current 0.017%; calm 10 days 0.25-0.48% vs current 0.62% (median 0.33%). Volatility
+dynamics are not the gap; next: per-prompt diagnosis (drift / a few big days / start-price timing).

@@ -187,6 +187,8 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
         dec = 288.0
         if model.startswith("todg"):                         # todg_<half-life steps>_<decay steps>
             hl, dec = (float(x) for x in model.split("_")[1:3])
+        if model.startswith("todv"):                         # todv_<half-life>_<long lookback steps>_<alpha>_<beta> (§1207)
+            hl, lb, ga, gb = (float(x) for x in model.split("_")[1:5])
         w = 0.5 ** (np.arange(m)[::-1] / hl); level = np.sqrt((w * z_hist ** 2).sum() / w.sum())
         long = np.sqrt(np.mean(z_hist[-2016:] ** 2)); decay = np.exp(-np.arange(steps) / dec)         # level reverts to the 7-day mean over ~a day
         lev = long + (level - long) * decay
@@ -198,6 +200,13 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
                 v[t] = acc; acc = (1 - a) * acc + a * z_hist[t] ** 2
             zc = z_hist / np.sqrt(v); pool = zc[-8640:] / np.sqrt(np.mean(zc[-8640:] ** 2))
         z = rng.choice(pool, (n, steps)) * fut[None, :]
+        if model.startswith("todv"):                         # GARCH-style per-path variance in profile units: h' = (1-a-b)L^2 + a e^2 + b h,
+            L2 = np.mean(z_hist[-int(lb):] ** 2)             # L = recent (lb steps) level, h0 = current EWMA level^2; e = the path's own shock
+            h = np.full(n, level ** 2); eps = rng.choice(pool, (n, steps)); z = np.empty((n, steps))
+            for t in range(steps):
+                e = eps[:, t] * np.sqrt(h)
+                z[:, t] = e * fut_prof[t] * k
+                h = (1 - ga - gb) * L2 + ga * e ** 2 + gb * h
         if "_ou" in model:                                  # mean reversion of log price toward the start: x_{t+1} = (1 - theta) x_t + z_t
             th = float(model.split("_ou")[1].split("_")[0]) / 1e4; x = np.zeros((n, steps + 1))
             for t in range(steps):
