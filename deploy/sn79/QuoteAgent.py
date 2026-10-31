@@ -40,6 +40,8 @@ class QuoteAgent(FinanceAgent):
         self._mids, self._sflow = {}, {}                   # per book: {sec: mid} (last 125 s), {sec: signed taker qty} (last 6 s)
         self.trend_z = float(getattr(c, "trend_z", 0.0))   # >0: when the 120 s move exceeds TREND_Z standard deviations and inventory
                                                            # fights it, quote only the side that unwinds (§1194: losses sit on trending books)
+        self.back = int(getattr(c, "back", 0))             # >0: rest BACK ticks behind the best price on both sides: snipers take the
+                                                           # touch; fills that reach deeper come from large sweeps that tend to revert (§1199)
         self.pull = float(getattr(c, "pull", 0.0))         # >0: drop the quote on the side the model says the price will cross (|pred| > PULL ticks):
                                                            # live, other miners snipe stale quotes at −8 ticks each (§1199)
         self.toxic = float(getattr(c, "toxic", 0.0))       # >0: pause a book while our fills' 30 s markout EMA is below −TOXIC ticks
@@ -145,6 +147,9 @@ class QuoteAgent(FinanceAgent):
         inside = spread > 2.5 * tick and not self.join
         bid_px = min(bid + tick if inside else bid, fair - self.edge * tick, ask - tick)
         ask_px = max(ask - tick if inside else ask, fair + self.edge * tick, bid + tick)
+        if self.back:
+            bid_px = min(bid_px, bid - self.back * tick)
+            ask_px = max(ask_px, ask + self.back * tick)
         bid_px = round(round(bid_px / tick) * tick, pd)
         ask_px = round(round(ask_px / tick) * tick, pd)
         qty = round(max(self.size * wealth0 / mid, self.min_order_size(book_id)), vd)
