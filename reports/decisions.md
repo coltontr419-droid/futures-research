@@ -19227,3 +19227,15 @@ arm (§1191) never got its clean read. Cost ≈ 0.046 TAO. Not re-entering: a ne
 clear the pruning line within a day against a field ≈ 0.28 raw score above our answers. The minerwatch health check only inspected miners the
 chain still listed, so a pruned miner vanished silently; it now remembers each "netuid:name" → UID and posts a red alert when one is no longer
 registered (state key "registered"). tag101-m1/m2 disabled (code and units kept); droplet memory available ≈ 980 MB.
+
+## §1197 — SN79 MVTRX live: x1 = UID 93 (QuoteAgent, 60 s predictor ×2) on mvtrx-lab, 2026-10-31 11:50 UTC (S11)
+
+**Live (user-registered, ≈ 0.08 TAO).** Lab evidence (§1194 + overnight runs 7-8): predictor ×2 earns making credit 75-115 in all 6 simulated
+markets (no-predictor baseline 25) and alpha positive in 3 of 6 (+186, +181, +83/+26; −174, −787, −153/−185); two copies in one market earn
+about as much each as one alone (making 104/105), so a second UID should roughly double the take; the trend guard (quote only the unwinding
+side when the 120 s move exceeds 0.5-1 sd against inventory) is worse in both run-7 markets and is dropped. Service mvtrx-x1 (axon 8101,
+external 157.245.86.147, Restart=always); first minute: validator state every ≈ 3-5 s, 127 simulation fills in 3 min, 9% CPU, 290 MB.
+Startup banner "SETTLEMENT NOT READY … grant a Staking proxy from your coldkey to the exchange's delegate" concerns the MVTRX exchange
+mechanism (real alpha settlement), not yet a scored mainnet mechanism per the 0.6.6 README; NOT granted (it would give a third party
+authority over the coldkey's stake). minerwatch tracks SN79 via the chain only (remote box): report + push-out alert; earnings logged
+hourly. Immunity 24 h. Plan: ≥ median (≈ $235/month) over about a week → second UID on the same box.
