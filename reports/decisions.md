@@ -19301,3 +19301,17 @@ pools need ≈ $250-350/month of rented GPU against a $362 median — no. SN61 R
 browser extensions are active, MCC over 6 rounds, ≥ 0.8; ada_detection 40%: detecting commercial anti-detect browsers, ≥ 0.9), with
 originality comparison between submissions — next desk study. SN22 Desearch — median $196 flat, 28 operators (top 5 62%) — low. SN45
 AlphaRidge — median $94 — no.
+
+## §1203 — SN61 RedTeam: BEX Tracer's 0.8 bar is unreachable by honest detection; pay comes from ADA-3 (crowded, needs 5 commercial products) — parked (S11)
+
+**No trial (desk).** Chain: 137 paid miners — one outlier UID ≈ $33k/month (≈ 40% of miner pay), the other 136 $260-515 (median ≈ $372);
+105 at zero. Rules (RedTeam core + bex-tracer-challenge): one paid UID per entity (shared IP, coldkey or Docker username → best only);
+accepted if raw score ≥ challenge_min_acceptable_score (bex 0.8, ada 0.9) and similarity to every accepted submission ≤ 0.6; softmax T 0.2
+among accepted; score stable 10 days, zero by day 15; one commit per challenge per 24 h, revealed ≈ 24 h later; submissions are Docker
+images. BEX Tracer: 12 of 89 extensions enabled per round, MCC over all 89; with no false positives MCC = √(TP·77 / (12·(89 − TP))),
+so 0.8 needs ≈ 8 of 12 detected each round (≈ two-thirds of the pool page-visible). Manifests of all 89 (downloaded with the challenge's
+own fetch script, `deploy/sn61/bex_manifests.py`): page-world script on all sites 2, content script on all sites 24, network rules only 9
+(several off by default), site-specific only 11, no page access 43 → perfect detection of everything visible gives MCC ≈ 0.55-0.60, so
+nobody can pass and its 60% weight redistributes to ADA-3. ADA-3: detect AdsPower, Dolphin Anty, GoLogin, Multilogin, Octo (plus
+headless) from page JS at ≥ 0.9 without flagging humans, original vs ≈ 137 accepted solutions — needs the five paid desktop products to
+study and is capped at one slot (≈ $370/month). Parked.
