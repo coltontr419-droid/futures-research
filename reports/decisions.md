@@ -19251,3 +19251,18 @@ answers in 115 s ($0.21) and fails all 6 checks; DeepSeek times out. Low: both t
 require token logprobs (`TRACE_EVIDENCE_REQUIRED = False`). Economics even at a pass: ≈ 1,000 tasks/UID/day × $0.2-0.5 (Kimi) ≈ $6-15k/month
 to answer everything, viable only spread over many $108 UIDs — not a small start. Parked; revisit only with a Bedrock-speed endpoint and a
 cheaper passing model.
+
+## §1199 — SN79 live: our lab-fitted predictor is BACKWARDS in the live market (momentum, not reversal); live A/B under way (S11)
+
+**Live diagnosis.** Dashboard after ≈ 75 min: UID 93 fills the most of any miner (912 in the window, all 128 books) but making captured 0 and
+de-beta alpha −1,565 (rank 240/256). Live tape (QuoteAgent tape=, 17 sim min, 20.5k of our fills, `markouts.py`): our maker fills mark
+−0.4 / −2.0 / −3.2 ticks at 5 / 30 / 60 s; other miners' +0.7 / +1.1 / +1.2 — we are picked off, they are not. Cause (live features vs the
+forward mid): the live market TRENDS (ret120 IC +0.33, ret30 +0.30, imbalance L1 +0.23 vs the 60 s move) where the lab mean-reverts; our live
+model60 (fit on lab run 4) has live IC −0.22 at 60 s (top-bottom decile −3.1 ticks), so it leaned our quotes against the trend. The lab
+also cannot show it: run 10 (2 markets) — join-only and a toxic-book filter (pause a book while our 30 s markout EMA < −3 ticks) cut making
+55-90% without improving alpha; the live settings stay best in the lab. A predictor fitted on the first half of the live tape holds on the
+second half: IC +0.23 / +0.21 / +0.17 at 5 / 30 / 60 s (top-bottom decile +2.6 / +6.0 / +4.9 ticks). Live sequence (user pre-approved
+low-risk MVTRX tests): 14:01 UTC join=1 (model60 ×2), 14:06 UTC alpha_k=0 + join (baseline), 15:05 UTC model30_live ×1 + join (scheduled),
+16:05 UTC markout comparison of the three tapes (scheduled, /opt/mvtrx/live_compare.txt). ReadyAI skill-coverage lab (`deploy/sn33/skill_lab.py`,
+validator path: gpt-5.2 judge + SkillCoverageScoringMechanism, all sections): on 3 logged tasks the live stock answer (luna, 2 tests/section)
+scores 0.585, best of four; 4 tests/section −20%, gpt-5.2 −6%, both −23% — no fixable gap found there.
