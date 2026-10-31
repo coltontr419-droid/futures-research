@@ -1,4 +1,4 @@
-"""Offline MVTRX scorer for the lab (futures-research decisions.md §1193). Replays a QuoteAgent tape through the validator's own
+"""Offline MVTRX scorer for the lab (futures-research decisions.md §1194). Replays a QuoteAgent tape through the validator's own
 de-beta code (taos.im.validator.debeta, offline paths): two-sided spread capture vs the centred mid (CAPTURE_W prints a side), making =
 sum over books of 2·min(buy, sell) capture, and per-book alpha = MTM P&L − mean inventory × book drift, with kappa across books.
 Every miner-side agent (id >= 0) in the tape is scored, so the example agents in the same run are the comparison.

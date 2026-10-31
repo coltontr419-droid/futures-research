@@ -1,4 +1,4 @@
-"""MVTRX (SN79) market maker for the lab (futures-research decisions.md §1193).
+"""MVTRX (SN79) market maker for the lab (futures-research decisions.md §1194).
 
 Per book, every state update: fair = mid + MICRO·(microprice − mid) [+ FUND·(fundamental − mid) when the book publishes one]
 − SKEW·(inventory as a fraction of the book's starting wealth)·spread. Quote one post-only order a side, at the best price or one tick
@@ -31,6 +31,10 @@ class QuoteAgent(FinanceAgent):
         self.edge = int(getattr(c, "edge", 1))
         self.max_inv = float(getattr(c, "max_inv", 0.25))
         self.expiry = int(getattr(c, "expiry", 60_000_000_000))
+        self.join = int(getattr(c, "join", 0))          # 1: never step inside the best price, only join it
+        self.flow = float(getattr(c, "flow", 0.0))       # fair += FLOW·spread·(signed taker-flow EMA / its absolute EMA), in [-1, 1]
+        self.flow_decay = float(getattr(c, "flow_decay", 0.9))
+        self._flow, self._absflow = {}, {}
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
 
     def respond_simulation(self, state):
@@ -46,6 +50,15 @@ class QuoteAgent(FinanceAgent):
             except Exception:
                 continue
         return response
+
+    def _flow_signal(self, book_id, book):
+        """Signed taker volume this update (side 0 = taker bought), smoothed; +1 = persistent buying pressure."""
+        net = sum(e.quantity * (1 if e.side == 0 else -1) for e in (book.events or []) if getattr(e, "y", "") == "t")
+        gross = sum(e.quantity for e in (book.events or []) if getattr(e, "y", "") == "t")
+        d = self.flow_decay
+        self._flow[book_id] = d * self._flow.get(book_id, 0.0) + (1 - d) * net
+        self._absflow[book_id] = d * self._absflow.get(book_id, 0.0) + (1 - d) * gross
+        return self._flow[book_id] / self._absflow[book_id] if self._absflow[book_id] > 0 else 0.0
 
     def _quote(self, response, book_id, book, acct):
         pd, vd = self.price_decimals(book_id), self.volume_decimals(book_id)
@@ -65,7 +78,9 @@ class QuoteAgent(FinanceAgent):
         fundamental = getattr(book, "fundamental", None) or getattr(book, "f", None)
         if self.fund and fundamental:
             fair += self.fund * (fundamental - mid)
-        inside = spread > 2.5 * tick
+        if self.flow:
+            fair += self.flow * spread * self._flow_signal(book_id, book)
+        inside = spread > 2.5 * tick and not self.join
         bid_px = min(bid + tick if inside else bid, fair - self.edge * tick, ask - tick)
         ask_px = max(ask - tick if inside else ask, fair + self.edge * tick, bid + tick)
         bid_px = round(round(bid_px / tick) * tick, pd)
