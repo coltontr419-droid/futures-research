@@ -261,9 +261,12 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
             hp = (hp[0], hp[1], yahoo_profile(Y, t0))
         ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=float(m.split("@")[1]) if "@" in m else 1.0, stride=stride, day0=day0, hprof=hp),
                             np.array(real, float), 300, INTERVALS) for m in models}
-        rows.append({"start": st, "field": P[st], **ours})
+        rl = np.log(np.array(real, float)); rows.append({"start": st, "field": P[st], **ours, "_move24": float(rl[-1] - rl[0]),
+                                                          "_rv": float(np.sqrt(np.sum(np.diff(rl) ** 2)))})
     out = summarise(rows, models)
     (CACHE / f"bt_{asset}_{days}.json").write_text(json.dumps({"summary": out, "n_prompts": len(rows)}, indent=1))
+    (CACHE / f"rows_{asset}_{days}.json").write_text(json.dumps([{k: v for k, v in r.items() if k != "field"} | {"_field_median": float(np.median(
+        [v for v in r["field"].values() if v > 0]))} for r in rows]))      # per-prompt diagnosis (§1205)
     return out
 
 

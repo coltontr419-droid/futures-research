@@ -19345,3 +19345,10 @@ model validated on both windows is the next step if Synth is revisited. No regis
 h' = (1−α−β)L² + α·e² + β·h in time-of-day-profile units, h₀ = the EWMA level², L = recent level) on BTC: volatile 5 days best 0.035%
 (todv_12_288_0.05_0.94_c, CRPS 64.1 vs median 53.4) vs current 0.017%; calm 10 days 0.25-0.48% vs current 0.62% (median 0.33%). Volatility
 dynamics are not the gap; next: per-prompt diagnosis (drift / a few big days / start-price timing).
+**§1205 addendum 2 (21:25 UTC), per-prompt diagnosis (BTC, last 5 days, `rows_BTC_5.json`):** the price cache has no gaps; our start price
+matches the validator's (mean |diff| 2-7 bp, max 37 bp); Synth's scoring code is unchanged since our copy. In RAW CRPS we are at the field
+median every day (ratio 1.00-1.01 on 10-25…10-29, 1.03 on 10-30). The field sits within ≈ 1-3% raw CRPS; the per-prompt transform (cap at the
+90th percentile, minus the best) and softmax β 0.15 turn that into a steep payout: ≈ 1-3% worse than the median → ≈ 0.1× median pay (this
+window), a few % better → ≈ 2× (the calm window). Our model is a median-level forecaster with regime-dependent pay; no structural fault.
+Expected value of a 0.8 TAO slot ≈ break-even at current accuracy — hold; revisit only with a consistent few-% CRPS improvement (e.g. order
+book / funding inputs).
