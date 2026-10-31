@@ -19287,3 +19287,5 @@ low effort + priority tier 8.4 / 10.8; + enrichment calls in parallel 5.4 / 6.6 
 conversations × 2 windows, gpt-5.2 ground truth): central15 low+priority 0.544 vs central15 default 0.536 (+1.5%, t 1.2) vs stock gpt-5.2
 0.526 (−1.9%). The fix is in `deploy/sn33/central15.py` (low effort + priority for the tagging calls; ConversationTaggingTask.mine runs the
 enrichment calls concurrently); tested on logged tasks: 4.4-5.5 s. ReadyAI stays closed (§1200) unless the user re-enters a slot with this fix.
+**§1201 addendum (16:36 UTC):** user re-entered ReadyAI with the speed fix: hotkey r3 = UID 107 (port 8097, gpt-5.2, central15 low+priority,
+parallel enrichment; unit `deploy/sn33/readyai-r3.service`). r1/r2 left to prune and auto-stop (§1200). Wallet topped up ≈ $50 (≈ 0.21 TAO).
