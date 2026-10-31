@@ -19177,3 +19177,18 @@ r1/r2 ≈ 280-370 MB RSS each, m1 ≈ 390 MB (spaCy), m2 ≈ 100 MB; ≈ 660 MB 
 ReadyAI burn 0.0413 TAO ($10); ReadyAI pay is flat — top $283/month, 10th-best percentile $234, median $194, 75th-from-top $181; ours $110/$109
 (rank 236/248, still filling its EMA: α 0.1 per observation, reset on new hotkey, cubed after normalisation). Ceiling for a stock-quality slot ≈ the
 median; the top of the field is only ≈ 1.45× it. Deployment of (1)+(2) awaits the user's OK (restarts r1/r2).
+
+## §1193 — ReadyAI: validators grade with gpt-5.2; our miners moved from gpt-4o-mini to gpt-5.2 (central15 kept) (S11)
+
+**No trial (lab + live change, user-approved).** Live read 00:00 UTC 10-31: r1/r2 ≈ $117/month at 7.6 h, near the bottom of their age cohort
+(immune miners: median $129 at 6-9 h, $191 at 21-24 h); the lowest non-immune miner earns $172, so on that path immunity ends (≈ 16:40 UTC) near
+the pruning line. Cause found in the code: on mainnet every validator is locked to the in-code default LLM (`llm_factory.configure_llm_override_lockdown`
+→ `LlmOpenAI(ignore_model_override=True)`, DEFAULT_MODEL "gpt-5.2"), so the ground truth for every tag-similarity task (conversation tagging,
+skill_generation, webpage metadata) is gpt-5.2's tags; our services set OPENAI_MODEL=gpt-4o-mini. skill_generation gives the miner the same
+1,000-character skill text the validator tagged (`SkillGenerationTaskBundle._generate_metadata`), so a default miner nearly reproduces the answer key.
+Lab round 2 (`deploy/sn33/lab52.py`, 20 conversations × 2 windows, ground truth = gpt-5.2 on the full conversation, the evaluator's formula):
+central15 on gpt-5.2 **+9.3% vs live** (cubed +30%, paired t 4.1); stock prompt on gpt-5.2 +1.5% (t 0.6); live central15 on mini = baseline; stock
+on mini −8.2% (t −5.4). Our live setup ≈ a default miner on conversations; central15 was compensating for the weaker model. Deployed 00:45 UTC:
+drop-in `readyai-rN.service.d/model.conf` OPENAI_MODEL=gpt-5.2, central15 unchanged (skill and combine paths stay stock = the validator's own
+pipeline). Wallet/W&B: validator per-UID scores go to W&B afterparty/conversationgenome, which is private (403). Cost of gpt-5.2 to be read from
+the usage log. Earlier the same evening: stock miners busy-loop on sync() (§1192 fix live).
