@@ -38,6 +38,8 @@ class QuoteAgent(FinanceAgent):
         self.alpha_k = float(getattr(c, "alpha_k", 0.0))   # fair += ALPHA_K × the model's predicted 60 s mid change (signal_fit.py export)
         self.model = json.load(open(str(c.model))) if getattr(c, "model", "") else None
         self._mids, self._sflow = {}, {}                   # per book: {sec: mid} (last 125 s), {sec: signed taker qty} (last 6 s)
+        self.trend_z = float(getattr(c, "trend_z", 0.0))   # >0: when the 120 s move exceeds TREND_Z standard deviations and inventory
+                                                           # fights it, quote only the side that unwinds (§1194: losses sit on trending books)
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
 
     def respond_simulation(self, state):
@@ -107,9 +109,14 @@ class QuoteAgent(FinanceAgent):
             fair += self.fund * (fundamental - mid)
         if self.flow:
             fair += self.flow * spread * self._flow_signal(book_id, book)
+        trend = 0.0
         if self.model is not None:
             pred = self._predict(book_id, book, self._sec, mid)
             fair += self.alpha_k * pred
+            mids = self._mids.get(book_id, {})
+            if self.trend_z and self._sec - 120 in mids:
+                i = self.model["names"].index("ret120")
+                trend = (mid - mids[self._sec - 120] - self.model["mu"][i]) / self.model["sd"][i]
         inside = spread > 2.5 * tick and not self.join
         bid_px = min(bid + tick if inside else bid, fair - self.edge * tick, ask - tick)
         ask_px = max(ask - tick if inside else ask, fair + self.edge * tick, bid + tick)
@@ -121,6 +128,8 @@ class QuoteAgent(FinanceAgent):
             want[OrderDirection.BUY] = bid_px
         if inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:
             want[OrderDirection.SELL] = ask_px
+        if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
+            want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         for o in acct.orders:
             if want.get(o.side) == o.price:
                 want.pop(o.side)                      # already resting at the target price: keep its queue place

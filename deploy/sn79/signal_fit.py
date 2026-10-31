@@ -2,25 +2,25 @@
 import json, sys
 from collections import defaultdict
 import numpy as np
-path = sys.argv[1]
-quotes, flow = defaultdict(dict), defaultdict(lambda: defaultdict(float))
-for line in open(path):
-    r = json.loads(line); sec = r["ts"] // 1_000_000_000
-    if "p" in r: flow[r["book"]][sec] += r["q"] * (1 if r["s"] == 0 else -1)
-    elif "bids" in r and r["bids"] and r["asks"]: quotes[r["book"]][sec] = r
-NAMES = ["flow5", "ret5", "ret30", "ret120", "imb1", "imb5", "micro"]
 rows = []
-for book, q in quotes.items():
-    secs = sorted(q); mid = {s: (q[s]["bid"] + q[s]["ask"]) / 2 for s in secs}
-    for s in secs:
-        if s - 120 not in mid: continue
-        b, a = q[s]["bids"], q[s]["asks"]
-        imb = lambda k: (sum(x[1] for x in b[:k]) - sum(x[1] for x in a[:k])) / (sum(x[1] for x in b[:k]) + sum(x[1] for x in a[:k]))
-        micro = (b[0][0] * a[0][1] + a[0][0] * b[0][1]) / (b[0][1] + a[0][1]) - mid[s]
-        x = [sum(flow[book].get(s - j, 0.0) for j in range(5)), mid[s] - mid.get(s - 5, mid[s]), mid[s] - mid.get(s - 30, mid[s]),
-             mid[s] - mid[s - 120], imb(1), imb(5), micro]
-        ys = [mid.get(s + h, np.nan) - mid[s] for h in (5, 30, 60)]
-        rows.append([s] + x + ys)
+for path in sys.argv[1].split(","):                   # several tapes: features per tape (each run restarts its clock), then stacked
+  quotes, flow = defaultdict(dict), defaultdict(lambda: defaultdict(float))
+  for line in open(path):
+      r = json.loads(line); sec = r["ts"] // 1_000_000_000
+      if "p" in r: flow[r["book"]][sec] += r["q"] * (1 if r["s"] == 0 else -1)
+      elif "bids" in r and r["bids"] and r["asks"]: quotes[r["book"]][sec] = r
+  for book, q in quotes.items():
+      secs = sorted(q); mid = {s: (q[s]["bid"] + q[s]["ask"]) / 2 for s in secs}
+      for s in secs:
+          if s - 120 not in mid: continue
+          b, a = q[s]["bids"], q[s]["asks"]
+          imb = lambda k: (sum(x[1] for x in b[:k]) - sum(x[1] for x in a[:k])) / (sum(x[1] for x in b[:k]) + sum(x[1] for x in a[:k]))
+          micro = (b[0][0] * a[0][1] + a[0][0] * b[0][1]) / (b[0][1] + a[0][1]) - mid[s]
+          x = [sum(flow[book].get(s - j, 0.0) for j in range(5)), mid[s] - mid.get(s - 5, mid[s]), mid[s] - mid.get(s - 30, mid[s]),
+               mid[s] - mid[s - 120], imb(1), imb(5), micro]
+          ys = [mid.get(s + h, np.nan) - mid[s] for h in (5, 30, 60)]
+          rows.append([s] + x + ys)
+NAMES = ["flow5", "ret5", "ret30", "ret120", "imb1", "imb5", "micro"]
 A = np.array(rows, dtype=float); A = A[np.argsort(A[:, 0])]
 MU, SD = A[:, 1:8].mean(0), A[:, 1:8].std(0)
 X = A[:, 1:8]; X = (X - MU) / SD; X = np.c_[np.ones(len(X)), X]
