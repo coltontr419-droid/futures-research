@@ -56,4 +56,34 @@ if USAGE_LOG:
     Completions.create = _logged(Completions.create, "chat")
     Embeddings.create = _logged(Embeddings.create, "embed")
 
+# Task log (decisions.md §1198): every task's input and our answer, per task type, to build a lab for the non-tagging types.
+TASK_LOG = os.getenv("TASK_LOG", "")
+if TASK_LOG:
+    import importlib
+    import json
+    import threading
+
+    _tlock = threading.Lock()
+    for _mod, _cls in (("ConversationTaggingTask", "ConversationTaggingTask"), ("SkillGenerationTask", "SkillGenerationTask"),
+                       ("SkillCoverageEvaluationTask", "SkillCoverageEvaluationTask"), ("NamedEntitiesExtrationTask", "NamedEntitiesExtractionTask"),
+                       ("WebpageMetadataGenerationTask", "WebpageMetadataGenerationTask"), ("SurveyTaggingTask", "SurveyTaggingTask")):
+        try:
+            cls = getattr(importlib.import_module(f"conversationgenome.task.{_mod}"), _cls)
+        except Exception:
+            continue
+
+        def _wrap(orig):
+            async def mine(self):
+                out = await orig(self)
+                try:
+                    row = {"t": int(time.time()), "type": getattr(self, "type", ""), "input": self.input.model_dump(mode="json") if self.input else None,
+                           "output": out}
+                    with _tlock, open(TASK_LOG, "a") as f:
+                        f.write(json.dumps(row, default=str) + "\n")
+                except Exception:
+                    pass
+                return out
+            return mine
+        cls.mine = _wrap(cls.mine)
+
 runpy.run_path("/opt/readyai/repo/neurons/miner.py", run_name="__main__")
