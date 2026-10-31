@@ -19266,3 +19266,12 @@ low-risk MVTRX tests): 14:01 UTC join=1 (model60 ×2), 14:06 UTC alpha_k=0 + joi
 16:05 UTC markout comparison of the three tapes (scheduled, /opt/mvtrx/live_compare.txt). ReadyAI skill-coverage lab (`deploy/sn33/skill_lab.py`,
 validator path: gpt-5.2 judge + SkillCoverageScoringMechanism, all sections): on 3 logged tasks the live stock answer (luna, 2 tests/section)
 scores 0.585, best of four; 4 tests/section −20%, gpt-5.2 −6%, both −23% — no fixable gap found there.
+
+## §1200 — SN33 ReadyAI closed: slots settle ≈ $135 vs a ≈ $170 pruning line, and gpt-5.2 costs ≈ $28/slot/month (S11)
+
+**Closed.** r1/r2 at 23.5 h: $134 / $139 per month (climbing ≈ 3-5 $/h as the gpt-4o-mini-era scores wash out of each validator's EMA),
+against a lowest non-immune of ≈ $167-172 and a typical new miner at ≈ $187-194 by 21-24 h; immunity ends ≈ 16:40 UTC. OpenAI spend on
+gpt-5.2 for the two slots ≈ $1.85 on 10-31 (≈ $28 per slot per month) against ≈ $135 earned. The skill-coverage lab (§1199) found no fixable
+gap; a fresh slot is estimated at ≈ $150-175 at 24 h, a coin flip at best with a thin margin after model cost. The wallet (0.047 TAO) is
+kept for MVTRX. `/opt/readyai/stop_when_pruned.sh` disables each readyai-rN service within 5 min of deregistration (log
+/opt/readyai/closed.log); code, task logs and lab kept.
