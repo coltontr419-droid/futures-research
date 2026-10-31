@@ -18,6 +18,52 @@ import json
 from taos.common.agents import launch
 from taos.im.agents import FinanceAgent
 from taos.im.protocol.models import OrderDirection, STP, TimeInForce
+from taos.im.agents import ExchangeStateUpdate, UnifiedAccount
+from taos.im.utils import duration_from_timestamp
+import bittensor as bt
+
+
+class _Ev:
+    """An event / order from the raw wire dict (raw=1, §1207) under QuoteAgent's field names, built once with plain attributes: the
+    pydantic build of the whole state (~9k resting orders + ~8k events) is most of our answer time, and the validator delays us by it."""
+    __slots__ = ("y", "timestamp", "id", "price", "quantity", "side", "Ma", "Ta", "Mf", "Tf")
+
+    def __init__(self, d):
+        g = d.get
+        self.y, self.timestamp, self.id, self.price, self.quantity, self.side = g("y"), g("t"), g("i"), g("p"), g("q"), g("s")
+        self.Ma, self.Ta, self.Mf, self.Tf = g("Ma"), g("Ta"), g("Mf"), g("Tf")
+
+
+class _Lv:
+    __slots__ = ("price", "quantity")
+
+    def __init__(self, d):
+        self.price, self.quantity = d["p"], d["q"]
+
+
+class _Bal:
+    __slots__ = ("total", "free", "reserved", "initial")
+
+    def __init__(self, d):
+        self.total, self.free, self.reserved, self.initial = d.get("t"), d.get("f"), d.get("r"), d.get("i")
+
+
+class _RawBook:
+    __slots__ = ("bids", "asks", "events", "fundamental")
+
+    def __init__(self, d):
+        self.bids = [_Lv(x) for x in d.get("b") or []]
+        self.asks = [_Lv(x) for x in d.get("a") or []]
+        self.events = [_Ev(x) for x in d.get("e") or []]
+        self.fundamental = d.get("f")
+
+
+class _RawAccount:
+    __slots__ = ("base_balance", "quote_balance", "orders")
+
+    def __init__(self, d):
+        self.base_balance, self.quote_balance = _Bal(d.get("bb") or {}), _Bal(d.get("qb") or {})
+        self.orders = [_Ev(x) for x in d.get("o") or []]
 
 
 class QuoteAgent(FinanceAgent):
@@ -51,13 +97,40 @@ class QuoteAgent(FinanceAgent):
         self.toxic_pause = int(getattr(c, "toxic_pause", 180))   # sim seconds the book stays paused
         self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
+        self.lean = int(getattr(c, "lean", 0))             # 1: skip the base agent's state history, CSV event log and debug text (§1207, speed)
+        self.cancel_first = int(getattr(c, "cancel_first", 0))   # 1: cancel the side the prediction says is exposed first (§1207)
+        self.raw = int(getattr(c, "raw", 0))               # 1 (with lean=1 lazy_load=1): read books / our accounts from the raw wire dicts, §1207
+        self._books = None
+
+    def update(self, state):
+        """lean=1: only what QuoteAgent reads (config, our accounts, our notices). The base update copies every state into a
+        history, writes every order / cancel / trade to CSV (reloaded on restart, §1207) and formats a debug dump of every book;
+        QuoteAgent uses none of it and the validator delays our orders by how long we take."""
+        if not self.lean or isinstance(state, ExchangeStateUpdate):
+            return super().update(state)
+        self.simulation_config = state.config
+        raw_books = getattr(state.books, "_raw_books", None)
+        if self.raw and raw_books is not None:            # lazy_load=1 left the wire dicts in place
+            self._books = {bid: _RawBook(d) for bid, d in raw_books.items()}
+            self.accounts = {int(bid): _RawAccount(d) for bid, d in state.accounts._raw_accounts[self.uid].items()}
+        else:
+            self._books = None
+            self.accounts = {bid: UnifiedAccount(a) for bid, a in state.accounts[self.uid].items()}
+        self.events = list(state.notices[self.uid])
+        self._exchange_mode = False
+        for e in self.events:
+            if e.type in ("EVENT_SIMULATION_START", "ESS"):
+                self.onStart(e)
+            elif e.type in ("EVENT_SIMULATION_END", "ESE"):
+                self.onEnd(e)
+        bt.logging.info(f"VALIDATOR : {state.dendrite.hotkey} | SIMULATION TIME : {duration_from_timestamp(state.timestamp)} (T={state.timestamp})")
 
     def respond_simulation(self, state):
         response = self.make_response()
         self._sec = state.timestamp // 1_000_000_000
         if self.tape is not None:
             self._record(state)
-        for book_id, book in (state.books or {}).items():
+        for book_id, book in (self._books if self._books is not None else state.books or {}).items():
             acct = self.accounts.get(book_id)
             if acct is None or not book.bids or not book.asks:
                 continue
@@ -193,7 +266,8 @@ class QuoteAgent(FinanceAgent):
         if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
-        for o in sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)):
+        orders = sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)) if self.cancel_first else acct.orders
+        for o in orders:
             if want.get(o.side) == o.price:
                 want.pop(o.side)                      # already resting at the target price: keep its queue place
             else:
@@ -204,7 +278,7 @@ class QuoteAgent(FinanceAgent):
 
     def _record(self, state):
         ts = state.timestamp
-        for book_id, book in (state.books or {}).items():
+        for book_id, book in (self._books if self._books is not None else state.books or {}).items():
             for e in book.events or []:
                 if getattr(e, "y", "") == "t":
                     self.tape.write(json.dumps({"ts": e.timestamp, "book": book_id, "id": e.id, "p": e.price, "q": e.quantity, "s": e.side,

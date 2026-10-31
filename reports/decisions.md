@@ -19386,3 +19386,13 @@ cancel lands, consistent with the bots' 19% of fills at −6.25 ticks. Profile o
 book level's order list and the accounts), base-agent update + CSV logging 15%, QuoteAgent 19%. `--agent.params lazy_load=1` skips the
 eager build (QuoteAgent reads only fields the Lazy* objects expose). Also: every instruction after a book's first gets +5-25 ms, so
 QuoteAgent now cancels the side its prediction says is exposed first. Both go live after the pull=1.0 comparison at 00:45 UTC.
+**§1207 addendum (23:50 UTC), speed measured on live states.** Three live requests captured passively (tcpdump on the axon port,
+`pcap_req.py`) and replayed through QuoteAgent (`replay.py`, median of 15 runs): 128 books × 21 levels a side with ≈ 70 resting orders
+inside the levels and ≈ 64 events per book → ≈ 9k orders + 8k events built as pydantic objects per state. Network is not the gap: 570 kB
+requests arrive in 3-14 ms over a kept-alive connection from the validator (Chicago, 18.5 ms RTT); replies are ≈ 5 kB; our server time
+is 290-390 ms per request. Dashboard (record:miner_call_time_avg_5m): ours 0.53 s, rank 249 / 256; field median 0.12 s, p10 0.06 s.
+Replay per state: current 0.237 s (decompress 0.147 + agent 0.087); lean=1 0.183 s; lazy_load=1 alone BREAKS QuoteAgent (lazy cancel
+events have no `side`; the per-book try/except swallowed it → 4 orders instead of 1038) — never deploy lazy_load without raw;
+**raw=1 lean=1 lazy_load=1 0.080 s** (decompress 0.027 + agent 0.050), orders and tape byte-identical to the current setup. The 00:45 UTC
+live test is therefore the full speed package (`switch_fast.sh`) — one variable (speed), behaviour verified identical; cancel_first
+(param, default off) is a later test of its own.
