@@ -1,0 +1,13 @@
+[Unit]
+Description=MVTRX rolling live retrain of the 30 s predictor (futures-research decisions.md 1199)
+[Service]
+Type=oneshot
+Nice=10
+ExecStart=/opt/mvtrx/venv/bin/python /opt/mvtrx/retrain_live.py
+[Unit]
+Description=MVTRX rolling live retrain every 3 h
+[Timer]
+OnCalendar=*-*-* 00/3:20:00
+Persistent=false
+[Install]
+WantedBy=timers.target
