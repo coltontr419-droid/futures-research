@@ -35,10 +35,14 @@ class QuoteAgent(FinanceAgent):
         self.flow = float(getattr(c, "flow", 0.0))       # fair += FLOW·spread·(signed taker-flow EMA / its absolute EMA), in [-1, 1]
         self.flow_decay = float(getattr(c, "flow_decay", 0.9))
         self._flow, self._absflow = {}, {}
+        self.alpha_k = float(getattr(c, "alpha_k", 0.0))   # fair += ALPHA_K × the model's predicted 60 s mid change (signal_fit.py export)
+        self.model = json.load(open(str(c.model))) if getattr(c, "model", "") else None
+        self._mids, self._sflow = {}, {}                   # per book: {sec: mid} (last 125 s), {sec: signed taker qty} (last 6 s)
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
 
     def respond_simulation(self, state):
         response = self.make_response()
+        self._sec = state.timestamp // 1_000_000_000
         if self.tape is not None:
             self._record(state)
         for book_id, book in (state.books or {}).items():
@@ -50,6 +54,29 @@ class QuoteAgent(FinanceAgent):
             except Exception:
                 continue
         return response
+
+    def _predict(self, book_id, book, sec, mid):
+        """The signal_fit features, live: taker flow 5 s, returns 5/30/120 s, depth imbalance L1/L5, microprice − mid (§1194)."""
+        mids = self._mids.setdefault(book_id, {}); fl = self._sflow.setdefault(book_id, {})
+        mids[sec] = mid
+        for e in book.events or []:
+            if getattr(e, "y", "") == "t":
+                s = e.timestamp // 1_000_000_000
+                fl[s] = fl.get(s, 0.0) + e.quantity * (1 if e.side == 0 else -1)
+        for d, keep in ((mids, 125), (fl, 6)):
+            for s in [s for s in d if s < sec - keep]:
+                del d[s]
+        if sec - 120 not in mids:
+            return 0.0
+        b, a = book.bids, book.asks
+        def imb(k):
+            bq, aq = sum(l.quantity for l in b[:k]), sum(l.quantity for l in a[:k])
+            return (bq - aq) / (bq + aq) if bq + aq else 0.0
+        micro = (b[0].price * a[0].quantity + a[0].price * b[0].quantity) / (b[0].quantity + a[0].quantity) - mid
+        x = [sum(fl.get(sec - j, 0.0) for j in range(5)), mid - mids.get(sec - 5, mid), mid - mids.get(sec - 30, mid), mid - mids[sec - 120],
+             imb(1), imb(5), micro]
+        m = self.model
+        return sum(w * (v - mu) / sd for w, v, mu, sd in zip(m["w"], x, m["mu"], m["sd"]) if sd > 0)
 
     def _flow_signal(self, book_id, book):
         """Signed taker volume this update (side 0 = taker bought), smoothed; +1 = persistent buying pressure."""
@@ -80,6 +107,9 @@ class QuoteAgent(FinanceAgent):
             fair += self.fund * (fundamental - mid)
         if self.flow:
             fair += self.flow * spread * self._flow_signal(book_id, book)
+        if self.model is not None:
+            pred = self._predict(book_id, book, self._sec, mid)
+            fair += self.alpha_k * pred
         inside = spread > 2.5 * tick and not self.join
         bid_px = min(bid + tick if inside else bid, fair - self.edge * tick, ask - tick)
         ask_px = max(ask - tick if inside else ask, fair + self.edge * tick, bid + tick)
