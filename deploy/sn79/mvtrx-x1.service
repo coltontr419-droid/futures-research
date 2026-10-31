@@ -1,0 +1,13 @@
+[Unit]
+Description=Bittensor SN79 (MVTRX) miner x1, QuoteAgent with the 60 s predictor x2 (futures-research decisions.md 1197)
+After=network-online.target
+ConditionPathExists=/root/.bittensor/wallets/main/hotkeys/x1
+[Service]
+WorkingDirectory=/opt/mvtrx/repo/taos/im/neurons
+Environment=BT_NO_PARSE_CLI_ARGS=false
+ExecStart=/opt/mvtrx/venv/bin/python miner.py --netuid 79 --subtensor.chain_endpoint wss://entrypoint-finney.opentensor.ai:443 --wallet.path /root/.bittensor/wallets --wallet.name main --wallet.hotkey x1 --axon.port 8101 --axon.external_ip 157.245.86.147 --axon.external_port 8101 --logging.info --agent.path /opt/mvtrx/agents --agent.name QuoteAgent --agent.params size=0.01 skew=2.0 max_inv=0.25 edge=1 model=/opt/mvtrx/agents/model60.json alpha_k=2.0
+Restart=always
+RestartSec=30
+MemoryMax=3G
+[Install]
+WantedBy=multi-user.target

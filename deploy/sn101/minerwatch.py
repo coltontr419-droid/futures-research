@@ -27,6 +27,7 @@ WALLET = "/root/.bittensor/wallets/main/hotkeys"
 SUBNETS = {   # netuid: hotkey prefix, systemd unit pattern, log text of one answered task, display name, minutes without a task before alerting
     101: {"prefix": "m", "unit": "tag101-{name}", "solved": "MINER_SOLVED_TASK", "name": "Tag101", "quiet_min": 20},
     33: {"prefix": "r", "unit": "readyai-{name}", "solved": "Successfully mined", "name": "ReadyAI", "quiet_min": 90},
+    79: {"prefix": "x", "name": "MVTRX", "remote": True},   # runs on mvtrx-lab: chain checks only (push-out alert, report); systemd restarts it there
 }
 STATE = "/opt/tag101/watch_state.json"
 RED, GREEN = 0xE53935, 0x43A047
@@ -108,6 +109,8 @@ def health() -> None:
                     lost.append(f"**{cfg['name']} {name.upper()}** (UID {registered[key]}): **deregistered** (pushed out of the subnet)")
                     del registered[key]
             registered.update({f"{netuid}:{n}": u for n, u in found.items()})
+        if cfg.get("remote"):
+            continue
         for name, uid in found.items():
             unit = cfg["unit"].format(name=name); key = f"{netuid}:{name}"; uids[key] = (cfg["name"], name, uid)
             active = sh(f"systemctl is-active {unit}").strip()
