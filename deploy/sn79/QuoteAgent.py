@@ -40,6 +40,8 @@ class QuoteAgent(FinanceAgent):
         self._mids, self._sflow = {}, {}                   # per book: {sec: mid} (last 125 s), {sec: signed taker qty} (last 6 s)
         self.trend_z = float(getattr(c, "trend_z", 0.0))   # >0: when the 120 s move exceeds TREND_Z standard deviations and inventory
                                                            # fights it, quote only the side that unwinds (§1194: losses sit on trending books)
+        self.max_units = float(getattr(c, "max_units", 0.0))   # >0: hard position cap per book in base units (max_inv is a share of wealth and
+                                                               # barely binds live: positions reached 285 units, §1199)
         self.back = int(getattr(c, "back", 0))             # >0: rest BACK ticks behind the best price on both sides: snipers take the
                                                            # touch; fills that reach deeper come from large sweeps that tend to revert (§1199)
         self.pull = float(getattr(c, "pull", 0.0))         # >0: drop the quote on the side the model says the price will cross (|pred| > PULL ticks):
@@ -158,6 +160,11 @@ class QuoteAgent(FinanceAgent):
             for o in acct.orders:                          # book paused: pull our quotes and stay out
                 response.cancel_order(book_id, o.id)
             return
+        units = acct.base_balance.total - base0
+        if self.max_units and units >= self.max_units:
+            inv = max(inv, self.max_inv)                   # at the long cap: no more bids
+        if self.max_units and units <= -self.max_units:
+            inv = min(inv, -self.max_inv)                  # at the short cap: no more offers
         if inv < self.max_inv and acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY) >= qty * bid_px:
             want[OrderDirection.BUY] = bid_px
         if inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:

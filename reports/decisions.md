@@ -19325,3 +19325,8 @@ immunity deadline. m3 = modal (stock prompt sampled 8× on gpt-4o-mini, the 3 mo
 gpt-5-mini, m5 = extract (spaCy literal spans, §1191). Units tag101-m3/m4/m5 (ports 8098-8100) on the futures droplet; `ourtags.py`
 gains `modal` and a pass-through `reference` mode. Smoke test on one post: 1.8 / 2.7 / 6.2 s (limit 120 s). Silent-loss check: Tag101's
 time limit is 120 s and our answers took 1-7 s, so the ReadyAI timeout failure (§1201) does not apply here.
+**§1199 addendum (20:30 UTC):** live comparisons, markouts at 30 / 60 s (ours vs other miners): pull rule −2.0 / −2.6 (vs +0.5 / +0.3);
+pull + inventory cap 5% (skew 6) −1.0 / −1.5 (vs +1.3 / +1.5), background-taker fills turn positive (+0.25), bots still take 20% at −6.0;
+quoting 2 ticks behind the best −4.8 / −6.7 (vs +0.9 / +0.9), bots take 35% at −10.6 — resting deeper only gets filled by flow already
+moving through levels: reverted. Positions still reach ≈ 285 units under the 5%-of-wealth cap, so a hard cap of 20 units per book
+(`max_units`) is live from 20:30 UTC (pull + join + cap), comparison at 22:00 UTC (/opt/mvtrx/live_compare5.txt).
