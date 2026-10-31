@@ -38,7 +38,7 @@ async def attempt(fixture: Path, workspace: Path, model: str) -> dict:
     identity = SimpleNamespace(**ident)
     request = SimpleNamespace(identity=identity, workspace=SimpleNamespace(sha256=ident.get("workspace_sha256", "")))
     settings = SimpleNamespace(bedrock_api_key=key(), bedrock_base_url="https://openrouter.ai/api/v1", bedrock_model=model,
-                               bedrock_max_tokens=16_384, bedrock_temperature=1.0, bedrock_reasoning_effort="high",
+                               bedrock_max_tokens=16_384, bedrock_temperature=1.0, bedrock_reasoning_effort=os.getenv("EFFORT", "high"),
                                bedrock_request_timeout_s=280.0, bedrock_max_retries=2, miner_max_workspace_tool_calls=48)
     miner = DemoMiner.__new__(DemoMiner)
     miner.settings = settings
@@ -61,7 +61,7 @@ async def attempt(fixture: Path, workspace: Path, model: str) -> dict:
     finally:
         await miner.client.aclose()
     pin, pout = PRICES.get(model, (0.0, 0.0))
-    out = {"model": model, "fixture": fixture.name, "seconds": round(time.monotonic() - t0, 1), "model_calls": usage["calls"], "tool_calls": tools,
+    out = {"model": model, "effort": os.getenv("EFFORT", "high"), "fixture": fixture.name, "seconds": round(time.monotonic() - t0, 1), "model_calls": usage["calls"], "tool_calls": tools,
            "tokens_in": usage["in"], "tokens_out": usage["out"], "cost_usd": round(usage["in"] * pin / 1e6 + usage["out"] * pout / 1e6, 4), "error": err}
     if patch and not err:
         with tempfile.NamedTemporaryFile("wb", suffix=".ans", delete=False, dir="/opt/hone/work") as f:

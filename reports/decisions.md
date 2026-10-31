@@ -19239,3 +19239,15 @@ Startup banner "SETTLEMENT NOT READY … grant a Staking proxy from your coldkey
 mechanism (real alpha settlement), not yet a scored mainnet mechanism per the 0.6.6 README; NOT granted (it would give a third party
 authority over the coldkey's stake). minerwatch tracks SN79 via the chain only (remote box): report + push-out alert; earnings logged
 hourly. Immunity 24 h. Plan: ≥ median (≈ $235/month) over about a week → second UID on the same box.
+
+## §1198 — SN5 Hone cost / pass trial: 0 passes in 9 attempts over OpenRouter; parked. SN32 ItsAI pays miners nothing (S11)
+
+**No trial (measurement).** SN32 ItsAI: all 252 miners at zero emission (only 3 validators paid) — closed. Hone (chain: median $1,076/UID flat,
+burn 0.45 TAO): the reference demo miner's own agent loop (`DemoMiner._generate`, read-only workspace tools, 48-call budget, ≈ 260 s of model
+time inside the live 280 s window) driven offline on the retired yaml-cpp fixture through OpenRouter (`deploy/sn5/hone_trial.py`), graded in the
+pinned sandbox (`scripts/try_task.py grade`, unprivileged user; reference.diff passes 6/6). High reasoning effort (reference default): GLM 5.3
+Flash, DeepSeek V4.1 Flash ×3, Kimi K3 — all time out with no answer (13-44 model calls, 0.25-1.5 M input tokens, $0.02-0.35). Medium: Kimi
+answers in 115 s ($0.21) and fails all 6 checks; DeepSeek times out. Low: both time out (Kimi $0.52). Total ≈ $1.25. Validators do not yet
+require token logprobs (`TRACE_EVIDENCE_REQUIRED = False`). Economics even at a pass: ≈ 1,000 tasks/UID/day × $0.2-0.5 (Kimi) ≈ $6-15k/month
+to answer everything, viable only spread over many $108 UIDs — not a small start. Parked; revisit only with a Bedrock-speed endpoint and a
+cheaper passing model.
