@@ -19352,3 +19352,15 @@ median every day (ratio 1.00-1.01 on 10-25…10-29, 1.03 on 10-30). The field si
 window), a few % better → ≈ 2× (the calm window). Our model is a median-level forecaster with regime-dependent pay; no structural fault.
 Expected value of a 0.8 TAO slot ≈ break-even at current accuracy — hold; revisit only with a consistent few-% CRPS improvement (e.g. order
 book / funding inputs).
+
+## §1206 — SN79 live: the bots that pick us off trade on visible order flow; an order-flow predictor beats ours out of sample (S11)
+
+**Live analysis.** Books are independent (median cross-book correlation of 10 s returns +0.002; other books' last 5 s move → this book's next
+30 s: IC +0.01), and the 5 s before a bot fill on our quote show no larger visible move than before a background fill (+0.45 vs +0.55 ticks),
+so the bots neither use other books nor merely react faster. QuoteAgent now records per book per update the new bid / ask size, the size
+placed within 2 ticks of the touch, and cancelled size (tape "of" lines, `orderflow.py`): near-touch new-order imbalance (5 s) has rank IC
++0.23 / +0.27 with the next 5 / 30 s move, above the taker flow we use (+0.25 / +0.18); before bot fills the 5 s taker flow in the bot's
+direction is ≈ 3.7× that before background fills (+288 vs +78) and net order-flow imbalance is −0.39 vs +0.13. `fit_orderflow.py` (the live
+features of QuoteAgent._predict + of_new / of_near / of_cancel), 18 sim min, fit on the first 75% by time, held-out 30 s IC +0.353 vs
+the deployed model's +0.252 (top-bottom decile +12.1 ticks) → model30_of.json, live from 22:01 UTC (pull + join + cap + 20 units
+unchanged), comparison at 23:35 UTC (/opt/mvtrx/live_compare6.txt).
