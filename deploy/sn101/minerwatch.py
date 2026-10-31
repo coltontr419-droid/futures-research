@@ -112,7 +112,9 @@ def health() -> None:
             unit = cfg["unit"].format(name=name); key = f"{netuid}:{name}"; uids[key] = (cfg["name"], name, uid)
             active = sh(f"systemctl is-active {unit}").strip()
             q = cfg["quiet_min"]; log = sh(f"journalctl -u {unit} --since '-{q} min' --no-pager")
-            solved = log.count(cfg["solved"]); errors = sum(log.count(k) for k in ("Traceback", "ERROR", "RateLimit", "insufficient_quota"))
+            solved = log.count(cfg["solved"])
+            log = "\n".join(l for l in log.splitlines() if "UnknownSynapseError" not in l)   # internet port scans (robots.txt, favicon.ico, ...)
+            errors = sum(log.count(k) for k in ("Traceback", "ERROR", "RateLimit", "insufficient_quota"))
             up_long = sh(f"systemctl show {unit} -p ActiveEnterTimestampMonotonic").strip().split("=")[-1]
             boot = float(open("/proc/uptime").read().split()[0]); started = int(up_long or 0) / 1e6
             recent_start = (boot - started) < (q + 5) * 60 if started else False
