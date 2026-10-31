@@ -19330,3 +19330,14 @@ pull + inventory cap 5% (skew 6) −1.0 / −1.5 (vs +1.3 / +1.5), background-ta
 quoting 2 ticks behind the best −4.8 / −6.7 (vs +0.9 / +0.9), bots take 35% at −10.6 — resting deeper only gets filled by flow already
 moving through levels: reverted. Positions still reach ≈ 285 units under the 5%-of-wealth cap, so a hard cap of 20 units per book
 (`max_units`) is live from 20:30 UTC (pull + join + cap), comparison at 22:00 UTC (/opt/mvtrx/live_compare5.txt).
+
+## §1205 — SN50 Synth refresh: the model wins in calm markets and loses in volatile ones — no slot for now (S11)
+
+**No trial (backtest).** Exact backtest (Synth API per-prompt CRPS of every miner + realized paths, our forecasts scored with the subnet's
+code). Replaying the cached 10-day window (to ≈ 10-29) with today's code reproduces the earlier result: todg_12_36_c_ou20@0.95 share 0.64%
+vs median UID 0.33% — pipeline sound. The last 5 days were ≈ 2× as volatile (CRPS scale 53-76 vs 29-33) and the same model falls BELOW
+the median everywhere: Crypto-24h BTC 0.022% vs 0.177%, ETH 0.054% vs 0.072%, SOL 0.059% vs 0.061%, XRP 0.015% vs 0.051%; Crypto-1h BTC
+0.155% vs 0.467%. Variant grid on BTC (decay of the EWMA level toward the 7-day level 3 h → 12 h / 24 h, scale 0.95 → 1.0, OU on/off):
+best volatile-window share 0.074% (todg_12_144_c_ou20@1.0) — still far below the median — and every slower variant gives up most of the
+calm-window edge (0.68% → 0.23-0.39%). The gap is structural (regime adaptation), not a parameter; a GARCH-style / regime-aware volatility
+model validated on both windows is the next step if Synth is revisited. No registration (0.8 TAO).
