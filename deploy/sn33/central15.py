@@ -32,7 +32,27 @@ def central_tags(cands: list[str], vectors: list) -> list[str]:
     return [pairs[i][0] for i in np.argsort(-sims)[:K]]
 
 
+FAST = {"reasoning_effort": "low", "service_tier": "priority"}
+
+
+def _fast(self):
+    """Low effort + priority tier for this instance's calls; returns the previous settings."""
+    prev = {k: getattr(self, k, None) for k in FAST}
+    for k, v in FAST.items():
+        setattr(self, k, v)
+    return prev
+
+
 def conversation_to_metadata(self, conversation, generateEmbeddings=False):
+    prev = _fast(self)
+    try:
+        return _central(self, conversation, generateEmbeddings)
+    finally:
+        for k, v in prev.items():
+            setattr(self, k, v)
+
+
+def _central(self, conversation, generateEmbeddings=False):
     try:
         if conversation.input_categories and "coding" in conversation.input_categories:
             return _stock(self, conversation, generateEmbeddings)
@@ -50,3 +70,38 @@ def conversation_to_metadata(self, conversation, generateEmbeddings=False):
 
 
 LlmLib.conversation_to_metadata = conversation_to_metadata
+
+# Parallel enrichment (§1201): same calls and combine step as ConversationTaggingTask.mine, the per-line calls run concurrently.
+from concurrent.futures import ThreadPoolExecutor  # noqa: E402
+
+from conversationgenome.llm.llm_factory import get_llm_backend  # noqa: E402
+from conversationgenome.task.ConversationTaggingTask import ConversationTaggingTask  # noqa: E402
+from conversationgenome.api.models.conversation import Conversation  # noqa: E402
+
+
+async def _mine(self) -> dict:
+    llml = get_llm_backend()
+    conversation = Conversation(guid=self.input.guid, lines=self.input.data.window, miner_task_prompt=self.prompt_chain[0].prompt_template,
+                                input_categories=self.input.input_categories)
+    result = llml.conversation_to_metadata(conversation=conversation, generateEmbeddings=False)
+    enrichment_lines = self.input.data.enrichment_lines or []
+    if not enrichment_lines:
+        return {"tags": result.tags, "vectors": result.vectors}
+    prev = _fast(llml)
+    try:
+        call = lambda content: llml.enrichment_to_metadata(content, generateEmbeddings=False, input_categories=self.input.input_categories)
+        with ThreadPoolExecutor(min(8, len(enrichment_lines))) as ex:
+            outs = list(ex.map(call, [content for _, content in enrichment_lines]))
+        all_tags = ([result.tags] if result and result.tags else []) + [o.tags for o in outs if o and o.tags]
+        if not all_tags:
+            return {"tags": result.tags, "vectors": result.vectors}
+        combined = llml.combine_metadata_tags(all_tags, generateEmbeddings=False)
+    finally:
+        for k, v in prev.items():
+            setattr(llml, k, v)
+    if combined:
+        return {"tags": combined.tags, "vectors": combined.vectors}
+    return {"tags": result.tags, "vectors": result.vectors}
+
+
+ConversationTaggingTask.mine = _mine

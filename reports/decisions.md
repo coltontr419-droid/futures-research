@@ -19275,3 +19275,15 @@ gpt-5.2 for the two slots ≈ $1.85 on 10-31 (≈ $28 per slot per month) agains
 gap; a fresh slot is estimated at ≈ $150-175 at 24 h, a coin flip at best with a thin margin after model cost. The wallet (0.047 TAO) is
 kept for MVTRX. `/opt/readyai/stop_when_pruned.sh` disables each readyai-rN service within 5 min of deregistration (log
 /opt/readyai/closed.log); code, task logs and lab kept.
+
+## §1201 — SN33 ReadyAI: the missing ≈ 12% was timeouts — 28% of our conversation answers exceeded the validator's 12 s; fixed (not deployed)
+
+**Lab.** Validators dispatch each task with `timeout=task.timeout` (12 s default; 24 s for skill coverage). Since the gpt-5.2 switch our
+conversation_tagging answers took median 10.1 s, p90 12.9 s, and 21 of 74 (28%) exceeded 12 s — scored zero; other task types were well
+inside their limits. Conversation tagging is ≈ 40% of tasks, so ≈ 11-12% of all tasks scored zero, matching the ≈ 12% shortfall (§1193,
+§1200). Cause: central15's two sequential calls plus the stock code's sequential per-enrichment-line calls and combine (up to 6 calls).
+`deploy/sn33/speed_lab.py` (12 logged live tasks, 2-6 enrichment lines): stock 9.2 s median / 11.1 s max; central15 as live 9.9 / 12.3;
+low effort + priority tier 8.4 / 10.8; + enrichment calls in parallel 5.4 / 6.6 (0 of 12 over 10 s). Quality (`lab_low.py`, 20 fresh
+conversations × 2 windows, gpt-5.2 ground truth): central15 low+priority 0.544 vs central15 default 0.536 (+1.5%, t 1.2) vs stock gpt-5.2
+0.526 (−1.9%). The fix is in `deploy/sn33/central15.py` (low effort + priority for the tagging calls; ConversationTaggingTask.mine runs the
+enrichment calls concurrently); tested on logged tasks: 4.4-5.5 s. ReadyAI stays closed (§1200) unless the user re-enters a slot with this fix.
