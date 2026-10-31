@@ -37,6 +37,7 @@ class QuoteAgent(FinanceAgent):
         self._flow, self._absflow = {}, {}
         self.alpha_k = float(getattr(c, "alpha_k", 0.0))   # fair += ALPHA_K × the model's predicted 60 s mid change (signal_fit.py export)
         self.model = json.load(open(str(c.model))) if getattr(c, "model", "") else None
+        self._oflow = {}                                    # per book: {sec: order-flow sums} (last 6 s), §1206
         self._mids, self._sflow = {}, {}                   # per book: {sec: mid} (last 125 s), {sec: signed taker qty} (last 6 s)
         self.trend_z = float(getattr(c, "trend_z", 0.0))   # >0: when the 120 s move exceeds TREND_Z standard deviations and inventory
                                                            # fights it, quote only the side that unwinds (§1194: losses sit on trending books)
@@ -69,12 +70,24 @@ class QuoteAgent(FinanceAgent):
     def _predict(self, book_id, book, sec, mid):
         """The signal_fit features, live: taker flow 5 s, returns 5/30/120 s, depth imbalance L1/L5, microprice − mid (§1194)."""
         mids = self._mids.setdefault(book_id, {}); fl = self._sflow.setdefault(book_id, {})
+        ofl = self._oflow.setdefault(book_id, {})       # {sec: [new bid, new ask, near-touch new bid, near-touch new ask, cancelled bid, cancelled ask]}
         mids[sec] = mid
+        tick = 10.0 ** -self.price_decimals(book_id)
+        b0, a0 = book.bids[0].price, book.asks[0].price
+        row = ofl.setdefault(sec, [0.0] * 6)
         for e in book.events or []:
-            if getattr(e, "y", "") == "t":
+            kind = getattr(e, "y", "")
+            if kind == "t":
                 s = e.timestamp // 1_000_000_000
                 fl[s] = fl.get(s, 0.0) + e.quantity * (1 if e.side == 0 else -1)
-        for d, keep in ((mids, 125), (fl, 6)):
+            elif kind == "o" and e.price is not None:
+                bid_side = e.side == 0
+                row[0 if bid_side else 1] += e.quantity
+                if (bid_side and e.price >= b0 - 2 * tick) or (not bid_side and e.price <= a0 + 2 * tick):
+                    row[2 if bid_side else 3] += e.quantity
+            elif kind == "c" and e.side is not None:
+                row[4 if e.side == 0 else 5] += e.quantity or 0.0
+        for d, keep in ((mids, 125), (fl, 6), (ofl, 6)):
             for s in [s for s in d if s < sec - keep]:
                 del d[s]
         if sec - 120 not in mids:
@@ -84,9 +97,13 @@ class QuoteAgent(FinanceAgent):
             bq, aq = sum(l.quantity for l in b[:k]), sum(l.quantity for l in a[:k])
             return (bq - aq) / (bq + aq) if bq + aq else 0.0
         micro = (b[0].price * a[0].quantity + a[0].price * b[0].quantity) / (b[0].quantity + a[0].quantity) - mid
-        x = [sum(fl.get(sec - j, 0.0) for j in range(5)), mid - mids.get(sec - 5, mid), mid - mids.get(sec - 30, mid), mid - mids[sec - 120],
-             imb(1), imb(5), micro]
+        o5 = [sum(ofl.get(sec - j, [0.0] * 6)[i] for j in range(5)) for i in range(6)]
+        ratio = lambda x, y: (x - y) / (x + y) if x + y > 0 else 0.0
+        feats = {"flow5": sum(fl.get(sec - j, 0.0) for j in range(5)), "ret5": mid - mids.get(sec - 5, mid), "ret30": mid - mids.get(sec - 30, mid),
+                 "ret120": mid - mids[sec - 120], "imb1": imb(1), "imb5": imb(5), "micro": micro,
+                 "of_new": ratio(o5[0], o5[1]), "of_near": ratio(o5[2], o5[3]), "of_cancel": ratio(o5[5], o5[4])}   # §1206 order flow
         m = self.model
+        x = [feats[n] for n in m["names"]]
         return sum(w * (v - mu) / sd for w, v, mu, sd in zip(m["w"], x, m["mu"], m["sd"]) if sd > 0)
 
     def _toxic_update(self, book_id, book, sec, mid, tick):
@@ -192,6 +209,19 @@ class QuoteAgent(FinanceAgent):
                     self.tape.write(json.dumps({"ts": e.timestamp, "book": book_id, "id": e.id, "p": e.price, "q": e.quantity, "s": e.side,
                                                 "Ma": e.Ma, "Ta": e.Ta, "Mf": e.Mf, "Tf": e.Tf}) + "\n")
             if book.bids and book.asks:
+                b0, a0 = book.bids[0].price, book.asks[0].price
+                tick = 10.0 ** -self.price_decimals(book_id)
+                of = {"nb": 0.0, "na": 0.0, "nb2": 0.0, "na2": 0.0, "cb": 0.0, "ca": 0.0}   # new / near-touch (<= 2 ticks) / cancelled size
+                for e in book.events or []:
+                    kind = getattr(e, "y", "")
+                    if kind == "o" and e.price is not None:
+                        side = "b" if e.side == 0 else "a"
+                        of["n" + side] += e.quantity
+                        if (side == "b" and e.price >= b0 - 2 * tick) or (side == "a" and e.price <= a0 + 2 * tick):
+                            of["n" + side + "2"] += e.quantity
+                    elif kind == "c" and e.side is not None:
+                        of["c" + ("b" if e.side == 0 else "a")] += e.quantity or 0.0
+                self.tape.write(json.dumps({"ts": ts, "book": book_id, "of": {k: round(v, 4) for k, v in of.items()}}) + "\n")
                 self.tape.write(json.dumps({"ts": ts, "book": book_id, "bid": book.bids[0].price, "ask": book.asks[0].price,
                                             "bids": [[l.price, l.quantity] for l in book.bids[:5]], "asks": [[l.price, l.quantity] for l in book.asks[:5]],
                                             "fund": getattr(book, "fundamental", None) or getattr(book, "f", None)}) + "\n")
