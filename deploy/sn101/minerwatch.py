@@ -26,7 +26,8 @@ CHANNEL = "1565694815595925534"
 WALLET = "/root/.bittensor/wallets/main/hotkeys"
 SUBNETS = {   # netuid: hotkey prefix, systemd unit pattern, log text of one answered task, display name, minutes without a task before alerting
     101: {"prefix": "m", "unit": "tag101-{name}", "solved": "MINER_SOLVED_TASK", "name": "Tag101", "quiet_min": 20},
-    33: {"prefix": "r", "unit": "readyai-{name}", "solved": "Successfully mined", "name": "ReadyAI", "quiet_min": 90},
+    33: {"prefix": "r", "unit": "readyai-{name}", "solved": "Successfully mined", "name": "ReadyAI", "quiet_min": 90,
+         "slow": ("conversation_tagging", 10.0)},
     79: {"prefix": "x", "name": "MVTRX", "remote": True},   # runs on mvtrx-lab: chain checks only (push-out alert, report); systemd restarts it there
 }
 STATE = "/opt/tag101/watch_state.json"
@@ -128,6 +129,18 @@ def health() -> None:
                 why.append(f"answered **no tasks** in the last {q} minutes")
             if errors >= 5:
                 why.append(f"**{errors} errors** in the last {q} minutes")
+            if cfg.get("slow"):                         # answers near the validator's timeout score zero (§1201): alert before it costs us
+                kind, limit = cfg["slow"]
+                stamped = sh(f"journalctl -u {unit} --since '-{q} min' --no-pager -o short-unix")
+                start, times = None, []
+                for line in stamped.splitlines():
+                    if f"received task of type {kind}" in line:
+                        start = float(line.split()[0])
+                    elif f"Successfully mined {kind}" in line and start is not None:
+                        times.append(float(line.split()[0]) - start); start = None
+                slow = [t for t in times if t > limit]
+                if slow:
+                    why.append(f"**{len(slow)} of {len(times)} {kind} answers over {limit:g} s** (validator limit 12 s; slowest {max(slow):.1f} s)")
             if why:
                 problems[key] = why
     alerted = set(s.get("alerted", []))
