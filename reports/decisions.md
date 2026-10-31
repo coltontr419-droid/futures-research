@@ -19364,3 +19364,8 @@ direction is ≈ 3.7× that before background fills (+288 vs +78) and net order-
 features of QuoteAgent._predict + of_new / of_near / of_cancel), 18 sim min, fit on the first 75% by time, held-out 30 s IC +0.353 vs
 the deployed model's +0.252 (top-bottom decile +12.1 ticks) → model30_of.json, live from 22:01 UTC (pull + join + cap + 20 units
 unchanged), comparison at 23:35 UTC (/opt/mvtrx/live_compare6.txt).
+**§1206 addendum (23:15 UTC):** live order-flow model (22:00-23:10 UTC, 17 sim min): our markouts −0.35 / −0.17 ticks at 30 / 60 s
+(20-unit-cap tape −1.29 / −1.25; other miners +1.30 / +1.76); background-taker fills +1.01 (≈ the field); bot takers still 19% at −6.25;
+max position 69 units. Pull threshold 2 → 1 tick live from 23:10 UTC (comparison 00:45 UTC). Each of our three live restarts today
+(20:26, 21:55, 23:10 UTC) was followed by the validator's simulation clock stalling ≥ 10 min (axon re-published → our agent re-initialised
+with a large catch-up state); live restarts are now kept to a minimum — variants go to the lab sim, one winner per (re)registration.
