@@ -19289,3 +19289,15 @@ conversations × 2 windows, gpt-5.2 ground truth): central15 low+priority 0.544 
 enrichment calls concurrently); tested on logged tasks: 4.4-5.5 s. ReadyAI stays closed (§1200) unless the user re-enters a slot with this fix.
 **§1201 addendum (16:36 UTC):** user re-entered ReadyAI with the speed fix: hotkey r3 = UID 107 (port 8097, gpt-5.2, central15 low+priority,
 parallel enrichment; unit `deploy/sn33/readyai-r3.service`). r1/r2 left to prune and auto-stop (§1200). Wallet topped up ≈ $50 (≈ 0.21 TAO).
+
+## §1202 — Subnet screen refresh: REAX CPU pool crowded (no), RedTeam the next desk study, Desearch/AlphaRidge low (S11)
+
+**No trial (desk).** Chain 10-31 (TAO $236): SN92 REAX — burn 0.5 TAO ($118), median $362, top-10% $2,279, 135 operators (top 5 21%),
+total miner pay ≈ $436k/month; miners serve pinned models verified in logit space; pools gpu 80% (s1-fast/s1-pro, NVIDIA ≥ 24 GB) /
+lite 15% / cpu 5% (Gutsy 0.8B Q8 GGUF, 812 MB, ≥ 4 cores, 4 GB, llama.cpp). Commitments: s1-cpu served by 175 hotkeys (172 hotkeys are
+multi-model), and REAX's DESIGN-POOLS says the cpu tier actually receives ≈ 1.2% → ≈ $5k/month over 175 slots ≈ $30 per slot — no; the GPU
+pools need ≈ $250-350/month of rented GPU against a $362 median — no. SN61 RedTeam — burn ≈ $1, immunity 48 h, 253 operators (top 5 3%),
+105 of 242 miners at zero, median of the paid ≈ $262: active challenges are defensive (bex_tracer 60%: JavaScript identifying which of 89
+browser extensions are active, MCC over 6 rounds, ≥ 0.8; ada_detection 40%: detecting commercial anti-detect browsers, ≥ 0.9), with
+originality comparison between submissions — next desk study. SN22 Desearch — median $196 flat, 28 operators (top 5 62%) — low. SN45
+AlphaRidge — median $94 — no.
