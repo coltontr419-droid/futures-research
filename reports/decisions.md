@@ -19192,3 +19192,29 @@ on mini −8.2% (t −5.4). Our live setup ≈ a default miner on conversations;
 drop-in `readyai-rN.service.d/model.conf` OPENAI_MODEL=gpt-5.2, central15 unchanged (skill and combine paths stay stock = the validator's own
 pipeline). Wallet/W&B: validator per-UID scores go to W&B afterparty/conversationgenome, which is private (403). Cost of gpt-5.2 to be read from
 the usage log. Earlier the same evening: stock miners busy-loop on sync() (§1192 fix live).
+
+## §1194 — SN79 MVTRX lab: simulator built; passive making is adversely selected; a 60 s book predictor holds out of sample (S11)
+
+**No trial (lab).** DO droplet mvtrx-lab (4 vCPU / 8 GB, user-created) runs the 0.6.6 simulator (16 books, blockCount 1, checkpoints off) with our
+QuoteAgent and an offline scorer replaying the tape through the validator's de-beta code (`deploy/sn79/score_tape.py`). Live economics (chain):
+median $235/month, top $550-880, burn ≈ $22; pay = proportional making (Σ_books 2·min(buy, sell) capture) + proportional positive de-beta alpha
+on ≥ 20 books; the public Grafana (taos.simulate.trading) shows positive-skill miners (126 of 248) take 71% of pay and the median miner has
+negative alpha. Runs 2-3 (1 h, 4 variants): every passive maker loses ≈ 0.03 per fill to adverse selection whatever its inventory limit,
+join rule or flow lean; tightening inventory only cuts fills and kills making credit (A 78.8 → 0). Signal scan on 55 min of 5-level depth
+(run 4, `signal_scan.py`): taker flow 5 s IC +0.275 at 5 s; 120 s return IC −0.126 at 60 s (reversal, −10.9 ticks top vs bottom decile at 30 s);
+5-level imbalance +0.107 at 60 s. Combined linear predictor (`signal_fit.py`), fitted on the first half, tested on the second: 60 s IC +0.159,
+top-vs-bottom decile +20.6 ticks (median spread 2 ticks). Wired into QuoteAgent (model=, alpha_k=); run 5 tests it in a fresh market.
+
+## §1195 — SN83 CliqueAI refresh: our solver now ties the best size on 93/98 live problems, but the field wins on answer diversity — parked (S11)
+
+**No trial (measurement).** Chain: burn $24, median UID $521/month, top-10% ≥ $1,263, 25 operators (top 5 hold 84% of UIDs). Scoring
+(CliqueAI v0.0.17 `scoring/clique_scoring.py`): reward = optimality·(1 + difficulty) + diversity, optimality = exp(−pr/rel) (pr = share of
+responders strictly larger), diversity = 1 / (responders returning the identical clique); EMA α 0.01; weights min-max → sigmoid at the median.
+98 newest logged problems (10-27, W&B toptensor-ai/CliqueAI, which also logs every responder's hotkey, coldkey and reward); our answer
+inserted into the real responder set (`synth/clique_rank.py`). Single portfolio answer: 87/98 best size, diversity 0.61 vs field 0.85 → mean
+reward 2.35, beats 2% of hotkeys (field median 2.64). A 200-step plateau walk moves cliques by ≈ 1 node and barely helps (2.353). 8 restarts,
+least-frequently-found maximum clique (`deploy/sn83/multi_bench.py`, `portfolio.py`): 93/98 best size, optimality 0.974 (field 0.981), diversity
+0.566 → 2.385, still 2nd percentile; 65% of our answers coincide with ≥ 1 logged answer. The maximum cliques share a large core, the field
+already covers most of them, and big operators spread their many UIDs across distinct cliques; a newcomer's answer usually duplicates one.
+Closing the gap needs full enumeration of each problem's maximum cliques to find unclaimed ones — parked. Live miner wrapper ready
+(`deploy/sn83/our_miner.py`: one solve per graph per box, a different clique per UID).
