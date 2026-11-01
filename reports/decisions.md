@@ -19550,3 +19550,10 @@ earlier +0.25 target (mid-based) is below the median, and credit is capped by tw
 two-sided diagnostics: sides are never missing; on 21 of 32 books (base, edge 2) / 20 (edge 3) / 15 (flow pull) one side's captured spread
 nets ≤ 0 (bot / sweep fills on that side), so Σ 2·min is negative (−13.4 / −9.0 / −6.6) except flow pull (+0.9; 17 books both positive).
 Two-sided capture and quality share one cause — bot fills — so run 2 targets bot fills only, judged on quality and two-sided together.
+**§1209 addendum 5 (23:51 UTC), run 1 ended early, run 2 live.** Run 1 at 36 sim min (23:40 UTC): markout vs base edge 2 +0.49 ± 0.50,
+edge 3 +0.43 ± 0.56, flow pull +1.00 ± 0.53 (≈ 1.9 SE, best in both readouts); EXACT quality 0 / 0.013 / 0 / **0.133** (field median 0.46);
+credit 0 / 0 / 0 / 0.3 on a quarter of the books (×4 ≈ 1.2 vs field median 7.2); books with both sides positive 12 / 11 / 11 / 16 of 32. Flow
+pull's captured spread ×4 ≈ 61 ≈ the field median (54), so the gap is quality alone. User call: no point waiting for the 01:00 readout — the
+slot is losing ground either way. Edge arms dropped (gains halved into noise, R/C ≈ 0). Run 2 started 23:51 UTC: base = run 1 + flow pull
+0.3 / 10 s / 3 s; arms size 0.005 / flow_pull 0.2 / pull 0.5; verified live: the size arm's orders average 250 notional vs 491-498 on the
+others. Readouts (read_arms.sh → /opt/mvtrx/arms2_readouts.txt) 01:15 / 02:35 / 03:55 UTC.
