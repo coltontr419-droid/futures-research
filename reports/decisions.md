@@ -19402,3 +19402,9 @@ no gain: pulling earlier does not keep the bots off us, consistent with our canc
 test changes speed only. `switch_fast.sh` live at 00:46 UTC (raw=1 lean=1 lazy_load=1, tape live_tape_x1_fast.jsonl): decompress 0.03-0.04 s
 (was 0.20-0.45), server time per request 115-120 ms by packet capture (was 290-390), quoting and fills normal. Read: dashboard call time
 and the bot share / bot markout of our fills after ≈ 80 min (~02:10 UTC).
+**§1207 addendum 3 (02:15 UTC 11-01), comparison 8: speed alone does not stop the bots.** Dashboard call time 0.44 → 0.16-0.18 s (rank 196
+/ 256, median 0.122; sim delay ≈ 12.4 ms vs the median's 11.6, was ≈ 19.6). Fast path vs pull 1.0 baseline (20 vs 23 sim min): 30 / 60 s
+markouts −0.26 / −0.50 vs −0.43 / −0.77 ticks (others +1.23 / +1.04); miner takers 22% of our fills (was 20%) at −4.74 (was −5.67);
+total miner-taker loss ≈ −16%; background fills +1.00 (+0.89). The bots hit us as often as before — they win on information (one-sided
+near-touch order flow before their fills, §1206), not on reaching the book first; faster cancels only trim the loss per hit. Fast path
+stays on. Next: pull / back off the exposed side on strongly one-sided near-touch order flow (threshold from the pre-bot-fill flow).
