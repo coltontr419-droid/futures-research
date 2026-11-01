@@ -19425,3 +19425,10 @@ deployed (5 s window, no cooldown, 0.3) kept −0.16 (76% kept); 10 s window + 3
 fills but reaches ≈ break-even, not the field's +1.2, and costs maker volume (which is part of the pay). QuoteAgent `flow_win` /
 `flow_cool` (defaults = the live behaviour, byte-identical on replay); `switch_backoff.sh` (10 s / 3 s) and `switch_cancelfirst.sh` staged
 for after comparison 9 — one change per run.
+**§1207 addendum 7 (03:15 UTC), where the field's edge comes from (`field_split.py`, fast tape).** Other miners are bot-taken exactly as
+often as we are (22% vs 22%); bot fills cost them −2.92 vs our −5.35, background fills earn +2.30 vs our +0.97; median fill size 9-12 vs
+our 1.6. By distance from the pre-fill mid, at the SAME distance their fills are far better (< 1 tick: +2.53 / +2.20 vs our −0.29 / −0.80;
+1-2 ticks: +1.98 / +2.09 vs +0.31 / −0.03) — not a wider-quote effect: they are filled on the side the price then moves toward (better
+fair value / lean). The books' published fundamental has 30 s rank IC +0.23 alone but adds nothing to the order-flow model out of sample
+(`fit_fund.py`, cap 0.2 / 0.5 / 2.0: +0.356 / +0.352 / +0.334 vs deployed +0.359): collinear with ret120 / imbalance. Next candidate: lean
+harder on the prediction (alpha_k > 1, quote one-sided on stronger predictions), after the flow back-off and cancel_first runs.
