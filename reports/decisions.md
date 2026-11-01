@@ -19540,3 +19540,6 @@ making_exact per arm. Lever: cut bot / full-size fills, not average quality.
 worst books would turn quality positive in hindsight (pull 1.0: 0.160 / 0.270; fast: 0 / 0.162), but the worst books differ completely
 between tapes, and per-book R does not persist (`book_persistence.py`, rank correlation between consecutive tapes +0.12 / +0.04 / +0.07).
 Bots hit whichever books are moving, not particular books. No book filter.
+**§1209 addendum 3 (21:45 UTC), run 2 staged.** Candidate arms aimed at bot / full-size fills: size 0.005 (half), flow_pull 0.2 (10 s, 3 s),
+prediction pull 0.5 tick; replay: parse cleanly, only their own books change. Generic `switch_arms.sh <tape> "<arms>" ["<base params>"]` and
+`read_arms.sh <tape> <n> "<labels>" <out>` (per-arm markouts + exact making credit) staged on mvtrx-lab; final choice after run 1's readouts.
