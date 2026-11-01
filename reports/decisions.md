@@ -19475,3 +19475,8 @@ put us at the back of crowded levels; the background fills we used to get at lon
 offline estimates (snap_stack / backoff_scan / pull_scan) scored "remove these fills" on the existing fills and could not see that a change
 alters which fills we get — tape analysis locates losses but does not predict live effects; only live A/B does. Reverted to fast (+ qlog)
 at 08:34 UTC. UID 93 immunity ends ≈ 11:50 UTC; no profitable setup → recommend no re-registration for now.
+**§1207 addendum 14 (08:45 UTC), last tests on UID 93 (user: keep testing while the slot lasts).** Picked from live evidence only: fresh fast
+baseline (live_tape_x1_fast2, 08:34-09:15 UTC); 09:15 edge=2 (the field captures +3.05 ticks from the mid on fills vs our +2.24, and
+earns +2.30 on background fills vs our +0.95 — quote no closer than 2 ticks to fair), comparison 13 at 10:35; 10:37 fast + cancel_first=1
+(changes cancel timing only, not which fills we get), comparison 14 at 11:57 if the slot survives immunity end (≈ 11:50 UTC). Judged by
+the gap to the field in the same window. Scheduled on mvtrx-lab (`step_edge2.sh`, `step_cancelfirst.sh`, `compare_pair.sh`).
