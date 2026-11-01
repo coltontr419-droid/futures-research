@@ -36,18 +36,22 @@ def bodies(path):
         if data:
             streams[(ip[12:16], sp)][seq] = data
     for segs in streams.values():
-        buf = b""; nxt = None
+        parts = []; nxt = None                       # join once: growing one bytes object packet by packet is quadratic on a 130 MB stream
         for s in sorted(segs):
             d = segs[s]
             if nxt is not None and s < nxt:
                 d = d[nxt - s:]
-            buf += d; nxt = max(nxt or 0, s + len(segs[s]))
-        while b"\r\n\r\n" in buf:
-            head, rest = buf.split(b"\r\n\r\n", 1)
-            cl = [int(l.split(b":")[1]) for l in head.split(b"\r\n") if l.lower().startswith(b"content-length")]
-            if not cl or len(rest) < cl[0]:
+            parts.append(d); nxt = max(nxt or 0, s + len(segs[s]))
+        buf = b"".join(parts); pos = 0
+        while True:
+            h = buf.find(b"\r\n\r\n", pos)
+            if h < 0:
                 break
-            body, buf = rest[:cl[0]], rest[cl[0]:]
+            head = buf[pos:h]
+            cl = [int(l.split(b":")[1]) for l in head.split(b"\r\n") if l.lower().startswith(b"content-length")]
+            if not cl or h + 4 + cl[0] > len(buf):
+                break
+            body = buf[h + 4:h + 4 + cl[0]]; pos = h + 4 + cl[0]
             if head.startswith(b"POST /MarketSimulationStateUpdate"):
                 yield body
 
@@ -73,9 +77,9 @@ def main(pcap, me):
             where = {}
             for side_key, side in (("b", 0), ("a", 1)):
                 for li, lv in enumerate(pb.get(side_key) or []):
-                    ahead = 0.0
-                    for o in lv.get("o") or []:
-                        where[o.get("i")] = (ahead / lv["q"] if lv["q"] else None, (prev_ts - o.get("t", prev_ts)) / 1e9, li)
+                    ahead = 0.0; orders = lv.get("o") or []
+                    for o in orders:
+                        where[o.get("i")] = (ahead / lv["q"] if lv["q"] else None, (prev_ts - o.get("t", prev_ts)) / 1e9, li, len(orders) == 1)
                         ahead += o.get("q") or 0.0
             for e in bk.get("e") or []:
                 if e.get("y") != "t" or e.get("Ma") is None or e["Ma"] < 0:
@@ -85,7 +89,7 @@ def main(pcap, me):
                     continue
                 maker = 1 if e["s"] == 1 else -1
                 w = where.get(e.get("Mi"))
-                rows.append((e["Ma"], *(w if w else (None, None, None)), maker * (ml[i][1] - e["p"]) / TICK))
+                rows.append((e["Ma"], *(w[:3] if w else (None, None, None)), maker * (ml[i][1] - e["p"]) / TICK, w[3] if w else None))
     by = defaultdict(list)
     for r in rows:
         by[r[0]].append(r)
@@ -101,6 +105,9 @@ def main(pcap, me):
               f"share ahead median {np.median(sh) if len(sh) else float('nan'):.2f} | age median {np.median(age) if len(age) else float('nan'):5.1f} s | "
               f"front-half fills {front.mean() if len(sh) else float('nan'):4.0%} at {mk[front].mean() if front.any() else float('nan'):+.2f}, "
               f"back-half {mk[~front].mean() if (~front).any() else float('nan'):+.2f} | level≥1 at fill {np.mean(lvl >= 1) if len(lvl) else float('nan'):.0%}")
+        al = np.array([bool(r[5]) for r in known])
+        if len(al):
+            print(f"{'':>12}  alone at its price {al.mean():4.0%} (markout {mk[al].mean() if al.any() else float('nan'):+.2f}) vs sharing {mk[~al].mean() if (~al).any() else float('nan'):+.2f}")
     show("ours", by.get(me, []))
     for u in top:
         show(f"uid {u}", by[u])

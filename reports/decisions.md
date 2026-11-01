@@ -19451,3 +19451,12 @@ orders, the size queued ahead of it at its price (levels carry their orders in q
 the maker order id `Mi`. Replay of the 3 captured live states (23:34 UTC, the pull-1.0 agent): instructions byte-identical; **median 81%
 of a level's size sat ahead of our orders** (mean 58%) — e.g. 815 of 837 units ahead. Back of the queue confirmed directly. `swept.py`
 added to comparison 10 (fast baseline: 62.4% of our fills swept vs 41.2% for the field). `switch_qlog.sh` staged for after comparison 10.
+**§1207 addendum 11 (04:30 UTC), queue study → we quote at prices nobody else holds.** `queue_study.py` on a 15-min passive capture
+(211 states, 03:46-04:01 UTC, sticky live): for every maker fill, the filled order looked up in the previous state. Ours: 902 fills,
+markout −2.01, median share ahead 0.00, age 5 s. Top makers: age 6-14 s, share ahead 0.02-0.24 (order age / queue depth are not the
+difference — the earlier 36-state hint of 30 s ages was noise). Front-half fills: ours −2.43 vs field +1.19 — queue position alone does
+not explain it. **54% of our fills came when ours was the only order at its price, at −3.87 ticks; sharing a level −0.01.** The field
+is alone on 8% of fills (+0.59), top makers 1-15%. Our price is fair ± edge rounded to the tick, which lands in gaps between the field's
+levels; only sweeps reach it. Replay: 23% of the live agent's new orders go to prices with no existing level. QuoteAgent `snap=1`: quote
+only at the nearest price another maker holds (bid down / ask up; our own size excluded) — replay: snap=0 byte-identical, snap=1 100% at
+existing levels. `switch_params.sh` staged; next live test = snap=1 (+ qlog=1) on whichever setup wins comparison 10.

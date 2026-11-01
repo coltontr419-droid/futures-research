@@ -14,6 +14,7 @@ validator's own capture code.
 """
 
 import json
+from collections import defaultdict
 
 from taos.common.agents import launch
 from taos.im.agents import FinanceAgent
@@ -108,6 +109,7 @@ class QuoteAgent(FinanceAgent):
         self.sticky = int(getattr(c, "sticky", 0))         # >0: keep a resting order when the target moves up to STICKY ticks more aggressive than
                                                            # it — a re-placed order joins the back of the queue and fills only when the level is
                                                            # being swept: 62% of our fills vs 41% of the field's, at −3 ticks (§1207)
+        self.snap = int(getattr(c, "snap", 0))             # 1: move each quote to the nearest price another maker already holds (never alone)
         self.qlog = int(getattr(c, "qlog", 0))             # 1 (raw mode, tape on): log each of our orders' size ahead in its queue per update
         self.raw = int(getattr(c, "raw", 0))               # 1 (with lean=1 lazy_load=1): read books / our accounts from the raw wire dicts, §1207
         self._books = None
@@ -256,6 +258,13 @@ class QuoteAgent(FinanceAgent):
             ask_px = max(ask_px, ask + self.back * tick)
         bid_px = round(round(bid_px / tick) * tick, pd)
         ask_px = round(round(ask_px / tick) * tick, pd)
+        if self.snap:                                      # quote only at prices other makers already hold (§1207): 54% of our fills came alone at a
+            ours = defaultdict(float)                      # price nobody else quoted, at −3.87 ticks; sharing a level ≈ break-even
+            for o in acct.orders:
+                ours[(int(o.side), o.price)] += o.quantity or 0.0
+            held = lambda side, lv: lv.quantity - ours.get((side, lv.price), 0.0) > 1e-9
+            bid_px = max((l.price for l in book.bids if l.price <= bid_px + tick / 2 and held(0, l)), default=None)
+            ask_px = min((l.price for l in book.asks if l.price >= ask_px - tick / 2 and held(1, l)), default=None)
         qty = round(max(self.size * wealth0 / mid, self.min_order_size(book_id)), vd)
         want = {}
         if self.toxic and self._toxic_update(book_id, book, self._sec, mid, tick):
@@ -267,9 +276,9 @@ class QuoteAgent(FinanceAgent):
             inv = max(inv, self.max_inv)                   # at the long cap: no more bids
         if self.max_units and units <= -self.max_units:
             inv = min(inv, -self.max_inv)                  # at the short cap: no more offers
-        if inv < self.max_inv and acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY) >= qty * bid_px:
+        if bid_px is not None and inv < self.max_inv and acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY) >= qty * bid_px:
             want[OrderDirection.BUY] = bid_px
-        if inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:
+        if ask_px is not None and inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:
             want[OrderDirection.SELL] = ask_px
         if self.pull and pred > self.pull * tick:
             want.pop(OrderDirection.SELL, None)            # price about to rise: do not leave an offer for a sniper to lift
