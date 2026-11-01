@@ -19441,3 +19441,8 @@ field's; we are filled at the back of the queue, i.e. when the level is being co
 by a tick. `sticky=N`: keep a resting order up to N ticks less aggressive than the target (cancel at once if the target moves away);
 replay: sticky=0 byte-identical, sticky=1 cuts instructions 433 → 289 on 3 states. `switch_sticky.sh` staged — first in the queue after
 comparison 9 (ahead of the flow back-off and cancel_first).
+**§1207 addendum 9 (03:42 UTC), comparison 9: flow pull dropped.** Fast vs fast + flow_pull 0.3 (22 vs 18 sim min): our 30 s markout −0.46
+vs −0.65, but the field fell in the second window (+1.11 → +0.38), so the gap to the field narrowed −1.57 → −1.03; our fills per sim
+minute fell ≈ 37% (311 → 197; maker volume is part of the pay); miner takers 24% at −6.81, background +1.31. Not a clear win → removed.
+`sticky=1` live 03:41 UTC on the fast path (no flow_pull; tape live_tape_x1_sticky.jsonl); comparison 10 at 05:01 UTC. Judge sequential
+runs against the field in the same window, not in absolute terms — the market regime moves between windows.
