@@ -83,3 +83,22 @@ if "--books" in sys.argv:                                   # per-book split of 
         kept = rows[drop:]; kR = sum(x[0] for x in kept); kC = sum(x[1] for x in kept)
         print(f"  drop the {drop:2d} worst-R books: C {kC:7.1f} R {kR:7.1f} quality {max(0.0, min(1.0, kR / kC)) if kC > 0 else 0:.3f}")
     print("  worst 10 books (R, C, book):", [(round(r, 1), round(c, 1), b) for r, c, b in rows[:10]])
+
+# two-sided diagnostics (§1209): why Σ_book 2·min(buy, sell) is small — per arm, over our books: both sides positive / one side missing /
+# one side negative, how much positive capture the min throws away, and how much the quality-scaled credit would be if each book's sides
+# were equal (the ceiling from evening out the sides alone)
+for k in range(n):
+    b_, s_, _, _ = group(me, k)
+    books = set(b_) | set(s_); both = miss = neg = 0; lost = 0.0; pos_tot = 0.0; mins = 0.0
+    for bk in books:
+        x, y = b_.get(bk), s_.get(bk)
+        if x is None or y is None:
+            miss += 1
+        elif x > 0 and y > 0:
+            both += 1
+        else:
+            neg += 1
+        xv, yv = x or 0.0, y or 0.0
+        pos_tot += max(xv, 0.0) + max(yv, 0.0); mins += 2 * min(xv, yv); lost += max(xv, 0.0) + max(yv, 0.0) - 2 * max(min(xv, yv), 0.0)
+    print(f"  two-sided{'' if n == 1 else f' arm {k}'}: books {len(books)} | both sides positive {both} | one side missing {miss} | "
+          f"one side ≤ 0 {neg} | positive capture {pos_tot:.1f}, kept by the per-book min {max(mins, 0.0):.1f} (Σ2·min {mins:+.1f})")

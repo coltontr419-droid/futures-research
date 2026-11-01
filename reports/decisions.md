@@ -19543,3 +19543,10 @@ Bots hit whichever books are moving, not particular books. No book filter.
 **§1209 addendum 3 (21:45 UTC), run 2 staged.** Candidate arms aimed at bot / full-size fills: size 0.005 (half), flow_pull 0.2 (10 s, 3 s),
 prediction pull 0.5 tick; replay: parse cleanly, only their own books change. Generic `switch_arms.sh <tape> "<arms>" ["<base params>"]` and
 `read_arms.sh <tape> <n> "<labels>" <out>` (per-arm markouts + exact making credit) staged on mvtrx-lab; final choice after run 1's readouts.
+**§1209 addendum 4 (22:35 UTC), first arms readout + two-sided diagnosis.** Run 1 at 18 sim min (22:20 UTC): markout vs base edge 2
++0.73 ± 0.58, edge 3 +1.02 ± 0.65, flow pull +1.33 ± 0.67; EXACT quality base 0 (R/C −2.49), edge 2 0 (−0.47), edge 3 0 (−0.26), flow
+pull **+0.27** (first positive exact quality), credit 0.2 (field median 1.9). On the exact basis the field's quality median is ≈ 0.47, so the
+earlier +0.25 target (mid-based) is below the median, and credit is capped by two-sided capture. making_exact.py now prints per-arm
+two-sided diagnostics: sides are never missing; on 21 of 32 books (base, edge 2) / 20 (edge 3) / 15 (flow pull) one side's captured spread
+nets ≤ 0 (bot / sweep fills on that side), so Σ 2·min is negative (−13.4 / −9.0 / −6.6) except flow pull (+0.9; 17 books both positive).
+Two-sided capture and quality share one cause — bot fills — so run 2 targets bot fills only, judged on quality and two-sided together.
