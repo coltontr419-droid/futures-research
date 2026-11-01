@@ -19432,3 +19432,12 @@ our 1.6. By distance from the pre-fill mid, at the SAME distance their fills are
 fair value / lean). The books' published fundamental has 30 s rank IC +0.23 alone but adds nothing to the order-flow model out of sample
 (`fit_fund.py`, cap 0.2 / 0.5 / 2.0: +0.356 / +0.352 / +0.334 vs deployed +0.359): collinear with ret120 / imbalance. Next candidate: lean
 harder on the prediction (alpha_k > 1, quote one-sided on stronger predictions), after the flow back-off and cancel_first runs.
+**§1207 addendum 8 (03:05 UTC): the loss is queue position.** `lean_scan.py` (model30_of recomputed per book-second from the tapes): 75%
+of our fills are on the side the model favours (field 57%) — we already lean more; one-sided quoting at lower thresholds only moves the
+second-half markout −0.83 → −0.67. At the same signed prediction the field's fills earn 2-4 ticks more (> +2: +4.91 vs our +0.87).
+Sweep test (best price on the filled side worse than our fill price 1 s later): 61-62% of our fills vs 41% of the field's; markout of
+swept fills −2.9 / −3.0 (field −1.8 / −2.0), of the rest **+3.5 / +3.8 (field +3.2 / +3.4)**. Our unswept fills are as good as the
+field's; we are filled at the back of the queue, i.e. when the level is being consumed. QuoteAgent re-placed any order whose target moved
+by a tick. `sticky=N`: keep a resting order up to N ticks less aggressive than the target (cancel at once if the target moves away);
+replay: sticky=0 byte-identical, sticky=1 cuts instructions 433 → 289 on 3 states. `switch_sticky.sh` staged — first in the queue after
+comparison 9 (ahead of the flow back-off and cancel_first).

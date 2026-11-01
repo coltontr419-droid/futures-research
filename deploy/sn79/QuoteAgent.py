@@ -104,6 +104,9 @@ class QuoteAgent(FinanceAgent):
         self.flow_win = int(getattr(c, "flow_win", 5))     # seconds of near-touch order flow behind flow_pull
         self.flow_cool = int(getattr(c, "flow_cool", 0))   # seconds a side stays pulled after flow_pull last fired (backoff_scan.py: 10 s window +
         self._pull_until = {}                              # 3 s cooldown ≈ break-even out of sample vs −0.16 for 5 s / none)
+        self.sticky = int(getattr(c, "sticky", 0))         # >0: keep a resting order when the target moves up to STICKY ticks more aggressive than
+                                                           # it — a re-placed order joins the back of the queue and fills only when the level is
+                                                           # being swept: 62% of our fills vs 41% of the field's, at −3 ticks (§1207)
         self.raw = int(getattr(c, "raw", 0))               # 1 (with lean=1 lazy_load=1): read books / our accounts from the raw wire dicts, §1207
         self._books = None
 
@@ -283,8 +286,10 @@ class QuoteAgent(FinanceAgent):
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
         orders = sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)) if self.cancel_first else acct.orders
         for o in orders:
-            if want.get(o.side) == o.price:
-                want.pop(o.side)                      # already resting at the target price: keep its queue place
+            px = want.get(o.side)
+            behind = None if px is None else round(((px - o.price) if o.side == OrderDirection.BUY else (o.price - px)) / tick, 6)
+            if px == o.price or (self.sticky and behind is not None and 0 <= behind <= self.sticky):
+                want.pop(o.side)                      # at the target, or up to STICKY ticks less aggressive: keep its queue place (§1207)
             else:
                 response.cancel_order(book_id, o.id)
         for side, px in want.items():
