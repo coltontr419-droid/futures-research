@@ -19396,3 +19396,9 @@ events have no `side`; the per-book try/except swallowed it → 4 orders instead
 **raw=1 lean=1 lazy_load=1 0.080 s** (decompress 0.027 + agent 0.050), orders and tape byte-identical to the current setup. The 00:45 UTC
 live test is therefore the full speed package (`switch_fast.sh`) — one variable (speed), behaviour verified identical; cancel_first
 (param, default off) is a later test of its own.
+**§1207 addendum 2 (00:50 UTC 11-01).** Comparison 7 (/opt/mvtrx/live_compare7.txt): pull 1.0 tick (23:22-00:45 UTC, 23 sim min) vs pull 2:
+30 / 60 s markouts −0.42 / −0.73 vs −0.36 / −0.18 ticks (others +1.16 / +1.44); miner takers 20% of our fills at −5.68 vs 19% at −6.24 —
+no gain: pulling earlier does not keep the bots off us, consistent with our cancels arriving after their orders. pull 1.0 kept so the next
+test changes speed only. `switch_fast.sh` live at 00:46 UTC (raw=1 lean=1 lazy_load=1, tape live_tape_x1_fast.jsonl): decompress 0.03-0.04 s
+(was 0.20-0.45), server time per request 115-120 ms by packet capture (was 290-390), quoting and fills normal. Read: dashboard call time
+and the bot share / bot markout of our fills after ≈ 80 min (~02:10 UTC).
