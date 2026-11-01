@@ -19526,3 +19526,13 @@ print mark): our R/C fast −0.002, pull 1.0 +0.071, edge 2 +0.043, cancel_first
 field median +0.15…+0.26. Our two-sided capture ≈ 280 (field median ≈ 85, p90 ≈ 250-320), so credit = capture × R/C: pull 1.0 → rank 87
 / 162, ≈ 0.4% of the pool ≈ $125/month; R/C 0.25 at our volume ≈ 1.3% ≈ $400-450/month. Objective changes from the unweighted 30 s
 markout to R/C at 20 s (capped, capture-weighted — far less noisy). Arms readouts now include R/C per arm.
+**§1209 addendum (21:35 UTC), CORRECTION — exact replica.** `making_exact.py` runs the validator's own accumulate_book_capture over each book's
+full trade stream with the live dials (centred window 15 prints, realized horizon 20 s, min order size 0.25, fee weight 0.005, votes off,
+taker legs removed), then markout_quality and the two-sided credit exactly as reward.making_basis_sums. The mid-based R/C above was wrong:
+captured and realized are measured against a print-centred mid (W prints either side), not the quote mid. Exact: our quality is 0 on every
+tape — fast C 9.0 / R −27.1, pull 1.0 19.8 / −18.8, edge 2 1.4 / −12.6, cancel_first 10.8 / −3.8, sticky and snap negative C, arms1 (all
+four arms, first 30 min) C −0.3…3.5 / R −1.3…−4.1 → credit 0, matching the dashboard's 0; the field's quality median 0.38-0.50, captured
+C median ≈ 20-28 (ours ≈ field median on pull 1.0). By class (pull 1.0 tape; other fills' maker id masked so they still print into the
+mid): background-taken C 37.9 / R +4.5 → quality +0.12; bot-taken C −18.1 / R −23.0; fills ≤ 1.6 units C 13.1 / R +0.4 (+0.03), full-size
+fills C 6.7 / R −19.1. Our background fills alone would be paid; bot fills (negative even at the fill) erase them. Arms readouts now use
+making_exact per arm. Lever: cut bot / full-size fills, not average quality.
