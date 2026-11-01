@@ -19502,3 +19502,12 @@ disabled on the futures droplet), keep testing MVTRX and re-register. x1 re-regi
 20:51 UTC on fast + cancel_first + qlog (tape live_tape_x1_base3). `compare_pair.sh` now takes the UID from UID_X (default 41; it had 93
 hard-coded). Next: edge=2 at 21:35 UTC (tape live_tape_x1_edge2b), comparison 15 at 22:55 UTC. Immunity ≈ 24 h → ≈ 15 more single-change
 live tests; offline estimates no longer pick tests (§1207 addendum 13).
+**§1207 addendum 17 (21:00 UTC 11-01), per-book A/B replaces sequential runs.** Noise (fast tape, 6,602 fills / 21 sim min): per-fill sd of
+the 30 s markout 19.4 ticks, book-clustered SE of a run's mean 0.47 → SE of a difference between two sequential 80-min runs ≈ 0.66 ticks
+(40 min ≈ 0.93, 20 min ≈ 1.32), before any regime shift between windows (the same fast setup read −1.57 and −3.46 vs the field in two
+windows). Several earlier 0.5-1.5-tick "wins" were inside the noise; sticky / snap were not. Shorter runs rejected. QuoteAgent `arms`
+(e.g. `edge:2/edge:3/flow_pull:0.3+flow_win:10+flow_cool:3`; no "=" since the miner's param parser splits on it): book n runs arm
+n mod (K + 1), arm 0 = configured params; replay: no arms and identity arms byte-identical to the live agent, real arms change only
+books outside arm 0. `compare_arms.py`: per-arm markout, difference vs arm 0 with a book-clustered SE, swept / bot-taken share, field
+markout on the same books. Run 1 live 20:57 UTC on UID 41 (tape live_tape_x1_arms1): base (fast + cancel_first) / edge 2 / edge 3 /
+flow pull 10 s 3 s 0.3; readouts at 22:20, 23:40, 01:00 UTC → /opt/mvtrx/arms1_readouts.txt. The scheduled sequential edge=2 run cancelled.

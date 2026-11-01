@@ -110,7 +110,20 @@ class QuoteAgent(FinanceAgent):
                                                            # it — a re-placed order joins the back of the queue and fills only when the level is
                                                            # being swept: 62% of our fills vs 41% of the field's, at −3 ticks (§1207)
         self.snap = int(getattr(c, "snap", 0))             # 1: move each quote to the nearest price another maker already holds (never alone)
-        self.qlog = int(getattr(c, "qlog", 0))             # 1 (raw mode, tape on): log each of our orders' size ahead in its queue per update
+        self.qlog = int(getattr(c, "qlog", 0))
+        # arms="edge:2/edge:3/flow_pull:0.3+flow_win:10+flow_cool:3": per-book A/B in one run (no "=" — the miner's param parser splits on it).
+        # Arm 0 is the configured params; arm k (1..K) overrides on books with book_id mod (K + 1) == k. Same window for every arm (§1207).
+        self._arms = [{}]
+        for spec in str(getattr(c, "arms", "") or "").split("/"):
+            if spec.strip():
+                ov = {}
+                for kv in spec.split("+"):
+                    k, v = kv.split(":")
+                    cur = getattr(self, k)                 # unknown names fail loudly at start-up
+                    ov[k] = type(cur)(float(v)) if isinstance(cur, (int, float)) and not isinstance(cur, bool) else v
+                self._arms.append(ov)
+        if len(self._arms) == 1:
+            self._arms = []             # 1 (raw mode, tape on): log each of our orders' size ahead in its queue per update
         self.raw = int(getattr(c, "raw", 0))               # 1 (with lean=1 lazy_load=1): read books / our accounts from the raw wire dicts, §1207
         self._books = None
 
@@ -222,6 +235,20 @@ class QuoteAgent(FinanceAgent):
         return self._flow[book_id] / self._absflow[book_id] if self._absflow[book_id] > 0 else 0.0
 
     def _quote(self, response, book_id, book, acct):
+        """arms (§1207): book n runs arm n mod (arms + 1); arm 0 = the configured params, arm k applies its overrides for this book only."""
+        ov = self._arms[int(book_id) % len(self._arms)] if self._arms else None
+        if not ov:
+            return self._quote_inner(response, book_id, book, acct)
+        saved = {k: getattr(self, k) for k in ov}
+        try:
+            for k, v in ov.items():
+                setattr(self, k, v)
+            return self._quote_inner(response, book_id, book, acct)
+        finally:
+            for k, v in saved.items():
+                setattr(self, k, v)
+
+    def _quote_inner(self, response, book_id, book, acct):
         pd, vd = self.price_decimals(book_id), self.volume_decimals(book_id)
         tick = 10.0 ** -pd
         bid, ask = book.bids[0].price, book.asks[0].price
