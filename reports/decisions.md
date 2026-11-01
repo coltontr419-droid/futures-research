@@ -19536,3 +19536,7 @@ C median ≈ 20-28 (ours ≈ field median on pull 1.0). By class (pull 1.0 tape;
 mid): background-taken C 37.9 / R +4.5 → quality +0.12; bot-taken C −18.1 / R −23.0; fills ≤ 1.6 units C 13.1 / R +0.4 (+0.03), full-size
 fills C 6.7 / R −19.1. Our background fills alone would be paid; bot fills (negative even at the fill) erase them. Arms readouts now use
 making_exact per arm. Lever: cut bot / full-size fills, not average quality.
+**§1209 addendum 2 (21:45 UTC), book selection is a dead end.** Exact per-book realized R (making_exact.py --books): dropping the 30-40
+worst books would turn quality positive in hindsight (pull 1.0: 0.160 / 0.270; fast: 0 / 0.162), but the worst books differ completely
+between tapes, and per-book R does not persist (`book_persistence.py`, rank correlation between consecutive tapes +0.12 / +0.04 / +0.07).
+Bots hit whichever books are moving, not particular books. No book filter.

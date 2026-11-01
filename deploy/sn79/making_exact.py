@@ -15,7 +15,7 @@ from taos.im.validator.debeta import accumulate_book_capture, balanced_reward_pe
 
 tape, me = sys.argv[1], int(sys.argv[2]); n = int(sys.argv[3]) if len(sys.argv) > 3 else 1
 # optional 4th arg: keep only our fills of one class (others lose their maker id but still print into the mid): bot | bg | small | large
-only = sys.argv[4] if len(sys.argv) > 4 else ""
+only = sys.argv[4] if len(sys.argv) > 4 and not sys.argv[4].startswith("--") else ""
 def keep(r):
     if r.get("Ma") != me or not only:
         return True
@@ -70,3 +70,16 @@ crs = sorted(v[3] for v in field.values())
 print(f"field: {len(field)} makers | quality median {qs[len(qs) // 2]:.3f} (p25 {qs[len(qs) // 4]:.3f}, p75 {qs[3 * len(qs) // 4]:.3f}) | "
       f"credit median {crs[len(crs) // 2]:.1f}, p90 {crs[int(len(crs) * .9)]:.1f}")
 json.dump({str(u): {"C": v[0], "R": v[1], "q": v[2], "credit": v[3]} for u, v in field.items()}, open("/tmp/making_exact_field.json", "w"))
+
+if "--books" in sys.argv:                                   # per-book split of our captured / realized (exact), for book selection
+    rows = []
+    for b in sorted(set(mb.get(me, {})) | set(ms.get(me, {}))):
+        c = mb.get(me, {}).get(b, 0.0) + ms.get(me, {}).get(b, 0.0); r = rb.get(me, {}).get(b, 0.0) + rs.get(me, {}).get(b, 0.0)
+        rows.append((r, c, b))
+    rows.sort()
+    R = sum(x[0] for x in rows); C = sum(x[1] for x in rows)
+    print(f"our books {len(rows)}: total C {C:.1f}, R {R:.1f}")
+    for drop in (0, 5, 10, 20, 30, 40):
+        kept = rows[drop:]; kR = sum(x[0] for x in kept); kC = sum(x[1] for x in kept)
+        print(f"  drop the {drop:2d} worst-R books: C {kC:7.1f} R {kR:7.1f} quality {max(0.0, min(1.0, kR / kC)) if kC > 0 else 0:.3f}")
+    print("  worst 10 books (R, C, book):", [(round(r, 1), round(c, 1), b) for r, c, b in rows[:10]])
