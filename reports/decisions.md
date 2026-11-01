@@ -19460,3 +19460,10 @@ is alone on 8% of fills (+0.59), top makers 1-15%. Our price is fair ± edge rou
 levels; only sweeps reach it. Replay: 23% of the live agent's new orders go to prices with no existing level. QuoteAgent `snap=1`: quote
 only at the nearest price another maker holds (bid down / ask up; our own size excluded) — replay: snap=0 byte-identical, snap=1 100% at
 existing levels. `switch_params.sh` staged; next live test = snap=1 (+ qlog=1) on whichever setup wins comparison 10.
+**§1207 addendum 12 (04:35 UTC), snap stacking estimate + overnight chain.** `snap_stack.py` (shared / alone from the tape's top-5 depth
+before each fill): shared-price fills +0.40 / +0.85 / +0.75 on the order-flow / pull-1.0 / fast tapes, alone −2.45 / −3.91 / −3.89
+(≈ 26% of fills); the sticky tape is worse — alone 34% at −4.98, all −1.74 (sticky keeps orders at prices the field left). On shared fills
+only, second half pooled: no flow rule +0.51; + flow pull 5 s / 0.3 +1.14 (76% kept); 10 s / 3 s cooldown / 0.3 +1.32 (67% kept) — at
+the field's level. Upper bounds. Chain scheduled on mvtrx-lab (runs with the laptop closed): 05:03 UTC fast + snap=1 + qlog=1 (sticky
+removed; tape live_tape_x1_snap), comparison 11 at 06:23 (fast vs snap), 06:25 + flow_pull 0.3 / flow_win 10 / flow_cool 3 (tape
+live_tape_x1_snapflow), comparison 12 at 07:45 (snap vs snapflow); stays on snapflow afterwards. Configs dry-run verified.
