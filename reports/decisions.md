@@ -19419,3 +19419,9 @@ live_tape_x1_flowpull.jsonl); comparison 9 at 03:40 UTC (/opt/mvtrx/live_compare
 0.2 / 0.4 — near the deployed 0.3), scored on the second half: blocked fills −1.11 / −2.49…−2.73 / −2.29…−2.33 ticks (the signal holds),
 kept fills +0.02 / −0.13 / −0.34 vs all −0.28 / −0.73 / −0.80. Realistic gain ≈ +0.4-0.6 ticks per fill — about a third of the gap to
 the field (+1.2), probably not break-even on its own. Expect comparison 9 to beat the fast path but stay slightly negative.
+**§1207 addendum 6 (02:55 UTC), stronger back-off (`backoff_scan.py`, second half of each tape, pooled; no rule −0.62 ticks per fill):**
+deployed (5 s window, no cooldown, 0.3) kept −0.16 (76% kept); 10 s window + 3 s cooldown + 0.3 kept +0.05 (67%); 5 s + 10 s cooldown
++ 0.4 +0.08 (38%); the variant best on the first halves (10 s / 10 s / 0.3) −0.01 (49%). Flow pulling can remove most of the adverse
+fills but reaches ≈ break-even, not the field's +1.2, and costs maker volume (which is part of the pay). QuoteAgent `flow_win` /
+`flow_cool` (defaults = the live behaviour, byte-identical on replay); `switch_backoff.sh` (10 s / 3 s) and `switch_cancelfirst.sh` staged
+for after comparison 9 — one change per run.

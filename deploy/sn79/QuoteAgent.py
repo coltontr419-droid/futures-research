@@ -101,6 +101,9 @@ class QuoteAgent(FinanceAgent):
         self.cancel_first = int(getattr(c, "cancel_first", 0))   # 1: cancel the side the prediction says is exposed first (§1207)
         self.flow_pull = float(getattr(c, "flow_pull", 0.0))   # >0: drop our offer while near-touch new-order imbalance (5 s) > FLOW_PULL, our
         self._near = {}                                    # bid while < -FLOW_PULL; fills there average −2 ticks from anyone (pull_scan.py, §1207)
+        self.flow_win = int(getattr(c, "flow_win", 5))     # seconds of near-touch order flow behind flow_pull
+        self.flow_cool = int(getattr(c, "flow_cool", 0))   # seconds a side stays pulled after flow_pull last fired (backoff_scan.py: 10 s window +
+        self._pull_until = {}                              # 3 s cooldown ≈ break-even out of sample vs −0.16 for 5 s / none)
         self.raw = int(getattr(c, "raw", 0))               # 1 (with lean=1 lazy_load=1): read books / our accounts from the raw wire dicts, §1207
         self._books = None
 
@@ -162,10 +165,10 @@ class QuoteAgent(FinanceAgent):
                     row[2 if bid_side else 3] += e.quantity
             elif kind == "c" and e.side is not None:
                 row[4 if e.side == 0 else 5] += e.quantity or 0.0
-        for d, keep in ((mids, 125), (fl, 6), (ofl, 6)):
+        for d, keep in ((mids, 125), (fl, 6), (ofl, max(6, self.flow_win + 1))):
             for s in [s for s in d if s < sec - keep]:
                 del d[s]
-        nb2, na2 = (sum(ofl.get(sec - j, [0.0] * 6)[i] for j in range(5)) for i in (2, 3))
+        nb2, na2 = (sum(ofl.get(sec - j, [0.0] * 6)[i] for j in range(self.flow_win)) for i in (2, 3))
         self._near[book_id] = (nb2 - na2) / (nb2 + na2) if nb2 + na2 > 0 else 0.0   # near-touch new-order imbalance, 5 s (flow_pull)
         if sec - 120 not in mids:
             return 0.0
@@ -267,11 +270,14 @@ class QuoteAgent(FinanceAgent):
             want.pop(OrderDirection.SELL, None)            # price about to rise: do not leave an offer for a sniper to lift
         elif self.pull and pred < -self.pull * tick:
             want.pop(OrderDirection.BUY, None)             # price about to fall: do not leave a bid to be hit
-        near = self._near.get(book_id, 0.0)
+        near = self._near.get(book_id, 0.0); until = self._pull_until.setdefault(book_id, {})
         if self.flow_pull and near > self.flow_pull:
-            want.pop(OrderDirection.SELL, None)            # new orders crowding the bid near the touch: our offer is the one that gets lifted
+            until[OrderDirection.SELL] = self._sec + self.flow_cool   # new orders crowding the bid near the touch: our offer gets lifted
         elif self.flow_pull and near < -self.flow_pull:
-            want.pop(OrderDirection.BUY, None)
+            until[OrderDirection.BUY] = self._sec + self.flow_cool
+        for side, t in until.items():
+            if self._sec <= t:
+                want.pop(side, None)
         if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
