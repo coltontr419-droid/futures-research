@@ -19497,3 +19497,8 @@ label fitness 0.83 / 0.89 / 0.85, format pass 100%, answers with an own-tag pair
 Our answers are grounded, well-formed and non-redundant; the deficit is signal / coverage against the consensus of a crowd dominated by
 one ≈ 117-UID operator, which cannot be seen — strategies can only be tested blind at ≈ $5 + 24 h per registration. Recommendation: stop.
 ReadyAI r3 pruned 11-01 (≈ $120 vs bar ≈ $161). Tag101 m3-m5 lose immunity ≈ 20:02 UTC.
+**§1207 addendum 16 (20:55 UTC 11-01), re-registered; ReadyAI / Tag101 services off.** User: stop Tag101 and ReadyAI (readyai-r3, tag101-m3/m4/m5
+disabled on the futures droplet), keep testing MVTRX and re-register. x1 re-registered by the user (burn ≈ 0.095 TAO) → UID 41, live
+20:51 UTC on fast + cancel_first + qlog (tape live_tape_x1_base3). `compare_pair.sh` now takes the UID from UID_X (default 41; it had 93
+hard-coded). Next: edge=2 at 21:35 UTC (tape live_tape_x1_edge2b), comparison 15 at 22:55 UTC. Immunity ≈ 24 h → ≈ 15 more single-change
+live tests; offline estimates no longer pick tests (§1207 addendum 13).
