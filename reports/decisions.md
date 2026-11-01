@@ -19446,3 +19446,8 @@ vs −0.65, but the field fell in the second window (+1.11 → +0.38), so the ga
 minute fell ≈ 37% (311 → 197; maker volume is part of the pay); miner takers 24% at −6.81, background +1.31. Not a clear win → removed.
 `sticky=1` live 03:41 UTC on the fast path (no flow_pull; tape live_tape_x1_sticky.jsonl); comparison 10 at 05:01 UTC. Judge sequential
 runs against the field in the same window, not in absolute terms — the market regime moves between windows.
+**§1207 addendum 10 (03:55 UTC), queue position measured directly.** QuoteAgent `qlog=1` (raw mode): per update, for each of our resting
+orders, the size queued ahead of it at its price (levels carry their orders in queue order) → tape "queue" lines; trade lines now carry
+the maker order id `Mi`. Replay of the 3 captured live states (23:34 UTC, the pull-1.0 agent): instructions byte-identical; **median 81%
+of a level's size sat ahead of our orders** (mean 58%) — e.g. 815 of 837 units ahead. Back of the queue confirmed directly. `swept.py`
+added to comparison 10 (fast baseline: 62.4% of our fills swept vs 41.2% for the field). `switch_qlog.sh` staged for after comparison 10.

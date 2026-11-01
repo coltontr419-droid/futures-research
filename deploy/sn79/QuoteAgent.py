@@ -26,12 +26,12 @@ import bittensor as bt
 class _Ev:
     """An event / order from the raw wire dict (raw=1, §1207) under QuoteAgent's field names, built once with plain attributes: the
     pydantic build of the whole state (~9k resting orders + ~8k events) is most of our answer time, and the validator delays us by it."""
-    __slots__ = ("y", "timestamp", "id", "price", "quantity", "side", "Ma", "Ta", "Mf", "Tf")
+    __slots__ = ("y", "timestamp", "id", "price", "quantity", "side", "Ma", "Ta", "Mf", "Tf", "Mi")
 
     def __init__(self, d):
         g = d.get
         self.y, self.timestamp, self.id, self.price, self.quantity, self.side = g("y"), g("t"), g("i"), g("p"), g("q"), g("s")
-        self.Ma, self.Ta, self.Mf, self.Tf = g("Ma"), g("Ta"), g("Mf"), g("Tf")
+        self.Ma, self.Ta, self.Mf, self.Tf, self.Mi = g("Ma"), g("Ta"), g("Mf"), g("Tf"), g("Mi")
 
 
 class _Lv:
@@ -49,9 +49,10 @@ class _Bal:
 
 
 class _RawBook:
-    __slots__ = ("bids", "asks", "events", "fundamental")
+    __slots__ = ("bids", "asks", "events", "fundamental", "raw_b", "raw_a")
 
     def __init__(self, d):
+        self.raw_b, self.raw_a = d.get("b") or [], d.get("a") or []    # levels with their resting orders in queue order (qlog)
         self.bids = [_Lv(x) for x in d.get("b") or []]
         self.asks = [_Lv(x) for x in d.get("a") or []]
         self.events = [_Ev(x) for x in d.get("e") or []]
@@ -107,6 +108,7 @@ class QuoteAgent(FinanceAgent):
         self.sticky = int(getattr(c, "sticky", 0))         # >0: keep a resting order when the target moves up to STICKY ticks more aggressive than
                                                            # it — a re-placed order joins the back of the queue and fills only when the level is
                                                            # being swept: 62% of our fills vs 41% of the field's, at −3 ticks (§1207)
+        self.qlog = int(getattr(c, "qlog", 0))             # 1 (raw mode, tape on): log each of our orders' size ahead in its queue per update
         self.raw = int(getattr(c, "raw", 0))               # 1 (with lean=1 lazy_load=1): read books / our accounts from the raw wire dicts, §1207
         self._books = None
 
@@ -302,7 +304,7 @@ class QuoteAgent(FinanceAgent):
             for e in book.events or []:
                 if getattr(e, "y", "") == "t":
                     self.tape.write(json.dumps({"ts": e.timestamp, "book": book_id, "id": e.id, "p": e.price, "q": e.quantity, "s": e.side,
-                                                "Ma": e.Ma, "Ta": e.Ta, "Mf": e.Mf, "Tf": e.Tf}) + "\n")
+                                                "Ma": e.Ma, "Ta": e.Ta, "Mf": e.Mf, "Tf": e.Tf, "Mi": getattr(e, "Mi", None)}) + "\n")
             if book.bids and book.asks:
                 b0, a0 = book.bids[0].price, book.asks[0].price
                 tick = 10.0 ** -self.price_decimals(book_id)
@@ -320,6 +322,21 @@ class QuoteAgent(FinanceAgent):
                 self.tape.write(json.dumps({"ts": ts, "book": book_id, "bid": book.bids[0].price, "ask": book.asks[0].price,
                                             "bids": [[l.price, l.quantity] for l in book.bids[:5]], "asks": [[l.price, l.quantity] for l in book.asks[:5]],
                                             "fund": getattr(book, "fundamental", None) or getattr(book, "f", None)}) + "\n")
+            acct = self.accounts.get(book_id) if self.qlog else None
+            if acct is not None and getattr(book, "raw_b", None) is not None:   # qlog=1 (raw mode): where each of our orders sits in its queue
+                q = []
+                for o in acct.orders:
+                    for lv in (book.raw_b if o.side == OrderDirection.BUY else book.raw_a):
+                        if lv["p"] == o.price:
+                            ahead = 0.0
+                            for x in lv.get("o") or []:
+                                if x.get("i") == o.id:
+                                    break
+                                ahead += x.get("q") or 0.0
+                            q.append([int(o.side), o.price, round(ahead, 4), round(lv["q"], 4), o.id])
+                            break
+                if q:
+                    self.tape.write(json.dumps({"ts": ts, "book": book_id, "queue": q}) + "\n")
         self.tape.flush()
 
     @staticmethod
