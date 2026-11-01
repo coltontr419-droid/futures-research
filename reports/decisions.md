@@ -19415,3 +19415,7 @@ background alike (it is not a bot detector: one-sided near-touch flow predicts a
 gone with no replacement. Other features weaker (taker flow, new-order imbalance) or harmful (cancel imbalance). QuoteAgent `flow_pull`
 (replay: off = byte-identical to the live agent; 0.3 drops ≈ 17% of instructions) live 02:20 UTC on the fast path (tape
 live_tape_x1_flowpull.jsonl); comparison 9 at 03:40 UTC (/opt/mvtrx/live_compare9.txt).
+**§1207 addendum 5 (02:35 UTC), flow pull out of sample (`pull_oos.py`):** threshold picked on the first half of each tape's fills (0.3 /
+0.2 / 0.4 — near the deployed 0.3), scored on the second half: blocked fills −1.11 / −2.49…−2.73 / −2.29…−2.33 ticks (the signal holds),
+kept fills +0.02 / −0.13 / −0.34 vs all −0.28 / −0.73 / −0.80. Realistic gain ≈ +0.4-0.6 ticks per fill — about a third of the gap to
+the field (+1.2), probably not break-even on its own. Expect comparison 9 to beat the fast path but stay slightly negative.
