@@ -19480,3 +19480,20 @@ baseline (live_tape_x1_fast2, 08:34-09:15 UTC); 09:15 edge=2 (the field captures
 earns +2.30 on background fills vs our +0.95 — quote no closer than 2 ticks to fair), comparison 13 at 10:35; 10:37 fast + cancel_first=1
 (changes cancel timing only, not which fills we get), comparison 14 at 11:57 if the slot survives immunity end (≈ 11:50 UTC). Judged by
 the gap to the field in the same window. Scheduled on mvtrx-lab (`step_edge2.sh`, `step_cancelfirst.sh`, `compare_pair.sh`).
+**§1207 addendum 15 (19:20 UTC 11-01), last MVTRX tests; slot gone.** Gap to the field in the same window: fresh fast baseline −1.99 vs +1.47
+(−3.46; short window), edge=2 −1.07 vs +1.02 (−2.09), cancel_first −1.73 vs −0.11 (−1.62). Neither beats the earlier fast result (−1.57); all
+lose money. UID 93 pruned after immunity (no states since). MVTRX closed without a profitable setup: best = fast path, ≈ 1.6 ticks per
+fill behind the field.
+
+## §1208 — SN101 Tag101 audit: our tags pass every crowd-independent check; the loss is consensus with an unseen crowd (S11)
+
+**No trial (desk + live read).** Scorer (tag101 c3d788b): TagScore = mean(signal, validity, utility); miner score = best TagScore per
+qualifying cluster (≥ 3 distinct miners) over the top-3 clusters / 3 × max; all tags of all miners on a post are clustered into 3-8 clusters
+(agglomerative, cosine, average linkage, 0.30 threshold then clamped); repeated-set penalty only bites near 50 identical sets. The crowd's
+answers are not observable (task server exposes no public endpoints; /tasks/report needs a validator signature; scoreboards are aggregate).
+`tag_audit.py` (validator code, run on mvtrx-lab) on 200 posts all three live strategies answered: validity m3 0.87 / m4 0.87 / m5 0.99,
+label fitness 0.83 / 0.89 / 0.85, format pass 100%, answers with an own-tag pair ≥ 0.70 cosine 6 / 4 / 2%, glued hashtag-style tags
+17 / 2 / 1% (gpt-4o-mini's stock-prompt style, inherited by modal). Live at 19:00 UTC: m5 $21, m4 $12, m3 $10 /month vs median $290.
+Our answers are grounded, well-formed and non-redundant; the deficit is signal / coverage against the consensus of a crowd dominated by
+one ≈ 117-UID operator, which cannot be seen — strategies can only be tested blind at ≈ $5 + 24 h per registration. Recommendation: stop.
+ReadyAI r3 pruned 11-01 (≈ $120 vs bar ≈ $161). Tag101 m3-m5 lose immunity ≈ 20:02 UTC.
