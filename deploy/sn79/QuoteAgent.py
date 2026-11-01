@@ -99,6 +99,8 @@ class QuoteAgent(FinanceAgent):
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
         self.lean = int(getattr(c, "lean", 0))             # 1: skip the base agent's state history, CSV event log and debug text (§1207, speed)
         self.cancel_first = int(getattr(c, "cancel_first", 0))   # 1: cancel the side the prediction says is exposed first (§1207)
+        self.flow_pull = float(getattr(c, "flow_pull", 0.0))   # >0: drop our offer while near-touch new-order imbalance (5 s) > FLOW_PULL, our
+        self._near = {}                                    # bid while < -FLOW_PULL; fills there average −2 ticks from anyone (pull_scan.py, §1207)
         self.raw = int(getattr(c, "raw", 0))               # 1 (with lean=1 lazy_load=1): read books / our accounts from the raw wire dicts, §1207
         self._books = None
 
@@ -163,6 +165,8 @@ class QuoteAgent(FinanceAgent):
         for d, keep in ((mids, 125), (fl, 6), (ofl, 6)):
             for s in [s for s in d if s < sec - keep]:
                 del d[s]
+        nb2, na2 = (sum(ofl.get(sec - j, [0.0] * 6)[i] for j in range(5)) for i in (2, 3))
+        self._near[book_id] = (nb2 - na2) / (nb2 + na2) if nb2 + na2 > 0 else 0.0   # near-touch new-order imbalance, 5 s (flow_pull)
         if sec - 120 not in mids:
             return 0.0
         b, a = book.bids, book.asks
@@ -263,6 +267,11 @@ class QuoteAgent(FinanceAgent):
             want.pop(OrderDirection.SELL, None)            # price about to rise: do not leave an offer for a sniper to lift
         elif self.pull and pred < -self.pull * tick:
             want.pop(OrderDirection.BUY, None)             # price about to fall: do not leave a bid to be hit
+        near = self._near.get(book_id, 0.0)
+        if self.flow_pull and near > self.flow_pull:
+            want.pop(OrderDirection.SELL, None)            # new orders crowding the bid near the touch: our offer is the one that gets lifted
+        elif self.flow_pull and near < -self.flow_pull:
+            want.pop(OrderDirection.BUY, None)
         if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first

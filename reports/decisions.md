@@ -19408,3 +19408,10 @@ markouts −0.26 / −0.50 vs −0.43 / −0.77 ticks (others +1.23 / +1.04); mi
 total miner-taker loss ≈ −16%; background fills +1.00 (+0.89). The bots hit us as often as before — they win on information (one-sided
 near-touch order flow before their fills, §1206), not on reaching the book first; faster cancels only trim the loss per hit. Fast path
 stays on. Next: pull / back off the exposed side on strongly one-sided near-touch order flow (threshold from the pre-bot-fill flow).
+**§1207 addendum 4 (02:20 UTC 11-01), flow pull.** `pull_scan.py` over our 19,038 maker fills on 3 live tapes: rule = drop our offer while
+near-touch new-order imbalance (5 s before, bid − ask) > THR, our bid while < −THR. At THR 0.3 it blocks ≈ 29% of fills — bot and
+background alike (it is not a bot detector: one-sided near-touch flow predicts a bad fill from anyone) — whose 30 s markout is −1.84 /
+−2.65 / −2.10 ticks per tape; the kept fills are +0.24 / +0.48 / +0.25 (all three tapes turn positive). Upper bound: blocked fills assumed
+gone with no replacement. Other features weaker (taker flow, new-order imbalance) or harmful (cancel imbalance). QuoteAgent `flow_pull`
+(replay: off = byte-identical to the live agent; 0.3 drops ≈ 17% of instructions) live 02:20 UTC on the fast path (tape
+live_tape_x1_flowpull.jsonl); comparison 9 at 03:40 UTC (/opt/mvtrx/live_compare9.txt).
