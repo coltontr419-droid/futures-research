@@ -19511,3 +19511,18 @@ n mod (K + 1), arm 0 = configured params; replay: no arms and identity arms byte
 books outside arm 0. `compare_arms.py`: per-arm markout, difference vs arm 0 with a book-clustered SE, swept / bot-taken share, field
 markout on the same books. Run 1 live 20:57 UTC on UID 41 (tape live_tape_x1_arms1): base (fast + cancel_first) / edge 2 / edge 3 /
 flow pull 10 s 3 s 0.3; readouts at 22:20, 23:40, 01:00 UTC → /opt/mvtrx/arms1_readouts.txt. The scheduled sequential edge=2 run cancelled.
+
+## §1209 — SN79: we were optimizing the wrong number — the making pool pays on capped realized spread, where we sit near zero (S11)
+
+**No trial (desk + public gauges).** The validator publishes ≈ 90 per-miner gauges (miner_gauges{miner_gauge_name=…} on the public Grafana).
+UID 93 at 11:30 UTC 11-01 vs the field median: two-sided maker notional 13.4M (p90 11.0M), time at best 534k s (p90 200k), daily maker
+volume 0.36M (0.19M) — top-decile making — but debeta_making_realized 0 / captured 0 / making_share 0 (median 42 / 140 / 0.0038), skill
+−0.65 (+0.25), trading_score 0, incentive 0. Mechanism (taos/im/validator/debeta.py): making credit = Σ_book 2·min(buy, sell) captured
+spread × markout_quality, quality = clamp(R / C, 0, 1); per maker fill c = (mid − p)·q at the fill, r = (mark 20 s of sim time later − p)·q
+**capped to ±|c|**, R and C summed over all fills (making_basis = realized, making_horizon_s = 20). Pool = debeta_weight 1 × w_make 0.5 =
+half of trading emission (SN79 miners ≈ $65k/month in total → ≈ $32k/month pool), split ∝ credit; the other half pays on directional
+skill (ours negative). The cap removes the tail losses that dominated our markout means. `rc_quality.py` (mid-based approximation of the
+print mark): our R/C fast −0.002, pull 1.0 +0.071, edge 2 +0.043, cancel_first +0.048, sticky −0.081, snap −0.137, snap+flow −0.046;
+field median +0.15…+0.26. Our two-sided capture ≈ 280 (field median ≈ 85, p90 ≈ 250-320), so credit = capture × R/C: pull 1.0 → rank 87
+/ 162, ≈ 0.4% of the pool ≈ $125/month; R/C 0.25 at our volume ≈ 1.3% ≈ $400-450/month. Objective changes from the unweighted 30 s
+markout to R/C at 20 s (capped, capture-weighted — far less noisy). Arms readouts now include R/C per arm.
