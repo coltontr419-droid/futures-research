@@ -19467,3 +19467,11 @@ only, second half pooled: no flow rule +0.51; + flow pull 5 s / 0.3 +1.14 (76% k
 the field's level. Upper bounds. Chain scheduled on mvtrx-lab (runs with the laptop closed): 05:03 UTC fast + snap=1 + qlog=1 (sticky
 removed; tape live_tape_x1_snap), comparison 11 at 06:23 (fast vs snap), 06:25 + flow_pull 0.3 / flow_win 10 / flow_cool 3 (tape
 live_tape_x1_snapflow), comparison 12 at 07:45 (snap vs snapflow); stays on snapflow afterwards. Configs dry-run verified.
+**§1207 addendum 13 (08:40 UTC 11-01), overnight chain: every change since the fast path did worse live.** Gap of our 30 s markout to
+the field in the same window: fast −0.46 vs +1.11 (−1.57; 62% of our fills swept, 22% bot-taken, 6,852 fills / 22 sim min); sticky −1.81
+vs +1.08 (−2.89; 64%, 32%, 4,493); snap −2.75 vs +0.68 (−3.43; 72%, 37%, 3,520); snap + flow pull 10 s / 3 s / 0.3 −1.42 vs +0.92
+(−2.34; 67%, 38%, 1,702). qlog: snapped quotes sat at the touch 74% of the time (as fast) with a median 76% of the level ahead — snap
+put us at the back of crowded levels; the background fills we used to get at lone prices vanished and bots took a larger share. The
+offline estimates (snap_stack / backoff_scan / pull_scan) scored "remove these fills" on the existing fills and could not see that a change
+alters which fills we get — tape analysis locates losses but does not predict live effects; only live A/B does. Reverted to fast (+ qlog)
+at 08:34 UTC. UID 93 immunity ends ≈ 11:50 UTC; no profitable setup → recommend no re-registration for now.
