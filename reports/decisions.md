@@ -19557,3 +19557,11 @@ pull's captured spread ×4 ≈ 61 ≈ the field median (54), so the gap is quali
 slot is losing ground either way. Edge arms dropped (gains halved into noise, R/C ≈ 0). Run 2 started 23:51 UTC: base = run 1 + flow pull
 0.3 / 10 s / 3 s; arms size 0.005 / flow_pull 0.2 / pull 0.5; verified live: the size arm's orders average 250 notional vs 491-498 on the
 others. Readouts (read_arms.sh → /opt/mvtrx/arms2_readouts.txt) 01:15 / 02:35 / 03:55 UTC.
+**§1209 addendum 6 (01:17 UTC 11-02), survival bar measured; arms dropped.** Live gauges + validator code: combined = w_make·rank(making
+among positives) + (1−w_make)·rank(skill among positives); non-positive skill ranks 0 and does NOT subtract; making_floor_scale defaults to
+0 (off), so making as small as 1.6 ranks > 0. 253 of 257 uids score > 0; UID 41 is one of 4 at exactly 0, so ANY sustained positive making
+clears the bottom. Run 2 at 18 sim min: EXACT quality base 0.425 / size 0.005 0.428 / flow_pull 0.2 0.314 / pull 0.5 0.396 (field median
+0.487 — near the field for the first time); two-sided Σ2·min +1.2 / −3.1 / −4.9 / −5.1 (both sides positive on 16 / 13 / 15 / 10 of 32).
+balanced_reward_per_book clamps the TOTAL over books, so the three arms' negatives summed our live making to −11.9 → 0. Arms stopped:
+flow pull 0.3 / 10 s / 3 s on all books (tape live_tape_x1_base3, readouts 02:40 / 04:00 UTC → base3_readouts.txt). Arms resume only once
+the live making gauge is positive, and then on fewer books.
