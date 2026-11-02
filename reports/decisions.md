@@ -19673,3 +19673,18 @@ copy of r3: port 8095, logs tasks_r1b, disabled until registered; old unit in /r
 in-window credit median is 0 because the per-book min clamps one-sided books; 3 sim h at that pace ≈ 450 vs yesterday's field p90 442).
 User re-registered x1 (burn 0.111 TAO) → **UID 213**, started ≈ 21:45 UTC on size 0.06 / max_inv 0.3 / max_units 60 (same tape file);
 window_est.sh now scores uid 213 and reads its gauges.
+**§1211 addendum 5 (23:40 UTC 11-02), MVTRX fees, the pay split, and a taking test that failed live.** Fees (validator debeta.py: "a rebate
+is a negative fee and adds"; 300k trades of the previous sim day): makers PAY a median +22 bp (p95 +67), takers RECEIVE a median −20 bp
+rebate (89% of taker fees negative) — the dynamic fee policy is inverted; but "de-beta does not" count fees, so fees do not enter the
+skill pool. Public gauges (all 257 miners): debeta_w_make 0.5 for everyone → combined = ½ making rank + ½ skill rank; skill 141 positive /
+19 zero / 96 negative; UID 213 skill −0.24 (rank 0), making 32.9 after 50 min (positive-maker p10 / median 43 / 195). Miners as takers
+(`taker_profile.py`): previous full sim day +4.98 ticks per trade at 30 s (109 of 150 takers positive), a 20-min window −1.56.
+`taker_bt.py` (live model30_of recomputed per book-second, IOC at the NEXT second's opposite best, 10 units, 30 s cooldown, gross = what
+de-beta sees): previous day (32 books) |pred| > 3 +1.14 (halves +1.27 / +1.08, t 6.4), ≤ 2 ≈ 0; out of sample on three 11-01 tapes,
+> 4: +2.38 / +3.53 / +5.56 (t 7.5 / 9.1 / 3.9), > 5: +3.52 / +5.27 / +7.65. QuoteAgent gains `take` / `take_size` / `take_cool` (IOC at the
+opposite best, capped by the top level and max_units, STP cancel-oldest; replay_take.py: take=0 byte-identical to the live agent over
+491 instructions; forced ±5-tick predictions → one IOC per book, ≤ 10 units). Live on UID 213 at take=4: 744 takes in 9.9 sim min on 99
+books (≈ 30× the replay's rate) at **−0.56 ticks gross (t −2.0, 959 fills)** → switched off (~23:35 UTC; agent keeps the code, take=0).
+Hypothesis: at size 0.06 our own 10-unit quotes and takes are a visible part of the order flow the predictor reads (of_new / of_near /
+flow5), inflating |pred| — which would also contaminate fair value (alpha_k 1) and the pull rule, a candidate for the size test's quality
+drop (0.35 → 0.15). Next: exclude our own events from the order-flow features, then re-test.

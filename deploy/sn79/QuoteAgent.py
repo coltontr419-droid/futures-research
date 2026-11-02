@@ -95,6 +95,12 @@ class QuoteAgent(FinanceAgent):
                                                            # touch; fills that reach deeper come from large sweeps that tend to revert (§1199)
         self.pull = float(getattr(c, "pull", 0.0))         # >0: drop the quote on the side the model says the price will cross (|pred| > PULL ticks):
                                                            # live, other miners snipe stale quotes at −8 ticks each (§1199)
+        self.take = float(getattr(c, "take", 0.0))         # >0: also TAKE when |pred| > TAKE ticks: IOC at the opposite best price (§1211 add. 5:
+                                                           # out of sample the 30 s gross edge is +2.4..+5.6 ticks per trade at 4 ticks; de-beta
+                                                           # skill counts gross alpha, fees excluded; taker legs do not enter the making credit)
+        self.take_size = float(getattr(c, "take_size", 10.0))   # units per take, capped by the top level's size and the position cap
+        self.take_cool = int(getattr(c, "take_cool", 30))       # sim seconds between takes on one book
+        self._last_take = {}
         self.toxic = float(getattr(c, "toxic", 0.0))       # >0: pause a book while our fills' 30 s markout EMA is below −TOXIC ticks
         self.toxic_pause = int(getattr(c, "toxic_pause", 180))   # sim seconds the book stays paused
         self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
@@ -307,6 +313,17 @@ class QuoteAgent(FinanceAgent):
             want[OrderDirection.BUY] = bid_px
         if ask_px is not None and inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:
             want[OrderDirection.SELL] = ask_px
+        if self.take and abs(pred) > self.take * tick and self._sec - self._last_take.get(book_id, -10 ** 9) >= self.take_cool:
+            side = OrderDirection.BUY if pred > 0 else OrderDirection.SELL
+            room = (self.max_units - units if side == OrderDirection.BUY else self.max_units + units) if self.max_units else self.take_size
+            q = round(min(self.take_size, qa if side == OrderDirection.BUY else qb, max(room, 0.0)), vd)
+            px = ask if side == OrderDirection.BUY else bid
+            funded = (acct.quote_balance.free >= q * px) if side == OrderDirection.BUY else (acct.base_balance.free >= q)
+            if q >= self.min_order_size(book_id) and funded:
+                response.limit_order(book_id=book_id, direction=side, quantity=q, price=px, stp=STP.CANCEL_OLDEST, postOnly=False,
+                                     timeInForce=TimeInForce.IOC)
+                self._last_take[book_id] = self._sec
+                want.pop(OrderDirection.SELL if side == OrderDirection.BUY else OrderDirection.BUY, None)   # never rest on the side we take
         if self.pull and pred > self.pull * tick:
             want.pop(OrderDirection.SELL, None)            # price about to rise: do not leave an offer for a sniper to lift
         elif self.pull and pred < -self.pull * tick:
