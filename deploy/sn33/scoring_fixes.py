@@ -205,6 +205,20 @@ def judge_and_keep(llml, skill, section_map, tests, timeout=None):
     return out
 
 
+MAX_SKILL_CHARS = 6000                                              # the validator truncates the skill document here before judging
+
+
+def with_contract(answer):
+    """Append each test's claim to the skill document as an explicit behaviour contract (sc_decomp.py: judged accuracy 0.59 → 0.79,
+    no zero-score tasks, +25% final). The judge accepts only claims it can verify from the document; the contract states them."""
+    lines = [f"- {t.get('description', '').strip()}: {t.get('assertion', '').strip()}" for ts in (answer.get("section_tests") or {}).values()
+             for t in ts if (t.get("assertion") or "").strip()]
+    skill = (answer.get("skill") or "").rstrip()
+    if not skill or not lines:
+        return answer
+    return {**answer, "skill": (skill + "\n\n## Behavior contract\n" + "\n".join(lines))[:MAX_SKILL_CHARS]}
+
+
 _cov_fast = SkillCoverageEvaluationTask._mine_fast
 
 
@@ -222,6 +236,7 @@ def _cov_fast_fixed(self, llml, seed, section_map):
                 except Exception as e:                              # includes the deadline: send the anchored answer
                     bt.logging.info(f"scoring_fixes: judge pass skipped ({type(e).__name__})")
             out = {**out, "section_tests": {k: [{x: t[x] for x in t if not x.startswith("_")} for t in v] for k, v in new.items()}}
+            out = with_contract(out)
     except Exception as e:
         bt.logging.error(f"scoring_fixes skill_coverage fallback: {e}")
     return out

@@ -19635,3 +19635,14 @@ on gpt-4o-mini, rmse 0.043** (0.031 with the held-out run); every mixture fits w
 verbatim gpt-4o-mini −0.034 / −0.050, gpt-4o −0.057, gpt-4.1-mini −0.122 (old strategies −0.27..−0.36). Lowest prunable SN101 slot
 $240 ≈ −0.02 → predicted ≈ $175-205: much closer, still under the line. `ourtags.py` TAG_MODE=verbatim; tag101-m3 drop-in set to
 verbatim (log posts_m3v.jsonl), DISABLED until the user re-registers m3 (burn 0.033 TAO; SN33 0.045).
+**§1211 addendum 1 (20:30 UTC 11-02), Tag101 m3 live + skill coverage contract.** User re-registered m3 → SN101 **UID 210** (verbatim, live
+19:09 UTC; the crawler's axon announcement 403 is harmless, validator tasks arrive). Selection rules on top of verbatim (`crowd_fit_add2.py`,
+`crowd_fit_select.py`: 5 draws / one 6-phrase answer, MiniLM): first draw −0.012, central-3-of-5 −0.012, modal −0.019, 3 of a 6-phrase
+answer −0.274; the plain recipe's three independent draws read −0.048 / −0.037 / −0.012 (SE ≈ 0.01 each) → recipe ≈ −0.03 ± 0.015 ≈ $200-230
+vs the $240 line; selection adds nothing beyond draw noise, m3 unchanged. ReadyAI skill coverage decomposed (`sc_decomp.py`, deployed
+anchor + own-judge logic, validator pipeline): when a section's tests pass the judge it scores ≈ 0.9, but the gpt-5.2 judge accepts only
+≈ 50-60% of our assertions, ≈ 1 of the 3 scored sections has none (scores 0), and accuracy < 0.5 costs ×0.7. Fix: append the kept tests'
+claims to the skill document as a "Behavior contract" section (no model call; ≤ 6000 chars, the validator's truncation): **+25% (t 1.8,
+n 16) and +44% (t 3.9, n 22 fresh)**; judged accuracy 0.49-0.59 → 0.79-0.82, zero sections 0.94-1.05 → 0.27-0.50, skill-coverage term
+0.55 → 0.77. Deployed 20:28 UTC (scoring_fixes.with_contract; backup /root/backups/scoring_fixes-2026-11-02-pre-contract.py). UID 39 at
+19:00 UTC: $124 = 0.69× median (0.61× at 16:00), one hour after the 18:00 deploy.
