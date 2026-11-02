@@ -1,5 +1,5 @@
 [Unit]
-Description=Bittensor SN33 (ReadyAI) miner r3, central15 + speed fix on gpt-5.2 (futures-research decisions.md 1201)
+Description=Bittensor SN33 (ReadyAI) miner r3, central15 + speed fix + scoring fixes on gpt-5.2 (futures-research decisions.md 1201, 1210)
 After=network-online.target
 Wants=network-online.target
 ConditionPathExists=/root/.bittensor/wallets/main/hotkeys/r3
@@ -11,8 +11,8 @@ EnvironmentFile=/opt/tag101/openai.env
 EnvironmentFile=/opt/readyai/wandb.env
 Environment=LLM_TYPE_OVERRIDE=openai
 Environment=OPENAI_MODEL=gpt-5.2
-Environment=TASK_LOG=/opt/readyai/tasks_r3.jsonl
-Environment=USAGE_LOG=/opt/readyai/usage_r3.jsonl
+Environment=TASK_LOG=/opt/readyai/tasks_r3b.jsonl
+Environment=USAGE_LOG=/opt/readyai/usage_r3b.jsonl
 ExecStart=/opt/readyai/venv/bin/python /opt/readyai/run_miner.py --netuid 33 --subtensor.network finney --wallet.name main --wallet.hotkey r3 --wallet.path /root/.bittensor/wallets --axon.ip 157.230.91.2 --axon.port 8097 --axon.external_ip 157.230.91.2 --axon.external_port 8097 --logging.info
 Restart=always
 RestartSec=30

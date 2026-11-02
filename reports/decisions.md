@@ -19577,3 +19577,24 @@ so a new tape repeats the previous run's last ~40 sim min (base3 starts at sim m
 fills before it lose their maker id). Validator-window estimate (all tapes, deduped): 01:23 → 02:50 UTC R −11.4 → −7.3, Σ2·min −23.1 →
 −7.9, books both-sides-positive 51 → 57 of 128. Base period alone (since 1280.6, ≈ 19 sim min): R/C +0.209, Σ2·min −15.3 (sides short and
 noisy per book). window_est.sh prints both; the 04:00 base3 readout timer stopped.
+
+## §1210 — SN33 ReadyAI re-entry: the validator's scoring code read line by line; skill coverage +37-46%, tagging +4% (S11)
+
+**Trial (lab, then live re-entry, user-approved 11-02 04:50 UTC).** r3 settled ≈ $120 vs a ≈ $161 pruning line after the gpt-5.2 and speed
+fixes (§1200-§1201). Pay = EMA of absolute per-task scores, normalized and cubed, so +10% raw ≈ +33% pay. Read against the validator code:
+(1) conversation_tagging scores each tag by cosine to the MEAN embedding of the ground-truth tags (gpt-5.2 on the FULL conversation +
+gpt-5.2 tags of each enrichment snippet, combined); 0.55·top-3 unique + 0.25 mean + 0.10 median + 0.10 max; validate_tag_set keeps a
+tag only if its cleaned form (Utils.get_safe_tag) equals a tag we sent, so punctuated tags ("end-to-end testing") were silently dropped
+(10% of ours; 8% on skill_generation), and ≥ 20 tags are randomly sampled to 20. `lab_final.py` (20 conversations × 2 windows,
+synthesized enrichment, the repo's own LlmLib on gpt-5.2, scored after validate_tag_set): live 0.522; pre-cleaned +2.2% (t 0.8);
+pre-cleaned + 12 nearest own centroid **+3.9%** (t 1.8); 6-8 tags −2%, 4 tags −24% (unique top-3 starves). (2) skill_coverage
+(36% of tasks): section score = mean of the top-2 judged-correct tests' cosine to the embedding of "{title}: {description}" — text the
+miner receives — with 3 random sections scored, too_few_tests (< 5 over those 3) ×0.5, near-duplicate (any pair ≥ 0.95) ×0.5, and an
+LLM judge on assertions only. `sc_headroom.py`: live section coverage 0.554 vs 0.890 with the section text as description.
+`sc_lab2.py` (all 47 logged r3 tasks through format_results + the scoring mechanism, real gpt-5.2 judge, paired sections): live 0.395
+(19% zeros: judge failed every assertion), anchored **0.542 (+37%, t 4.4)**, anchored + self-judge **0.575 (+46%, t 4.9)**.
+Task-mix weighted ≈ +13-15% raw → ≈ +44-53% pay → r3 ≈ $175-185 vs the $161 line. Patch `deploy/sn33/scoring_fixes.py`
+(imported by run_miner.py after central15): tagging pre-clean + trim to 12; skill_generation pre-clean; skill coverage anchor (test 2
+nearest the section with cosine to test 1 < 0.94) + our own judge pass at low effort / priority (≈ 5 s; abandoned at 21 s of the 24 s
+limit). Timing: generation ≈ 8 s + anchor ≈ 2 s + judge ≈ 5 s. run_miner.py logs time-to-answer (dt). Re-entry: hotkey r3 (SN33 burn
+0.045 TAO), unit readyai-r3 enabled, logs tasks_r3b / usage_r3b.

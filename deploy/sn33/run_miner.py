@@ -14,6 +14,7 @@ import central15  # noqa: E402,F401  (patches LlmLib.conversation_to_metadata)
 
 sys.path.insert(0, "/opt/readyai/repo")
 from conversationgenome.base.miner import BaseMinerNeuron  # noqa: E402
+import scoring_fixes  # noqa: E402,F401  (§1210: answers shaped to the validator's scoring code; after central15)
 
 SYNC_SECONDS = float(os.getenv("SYNC_SECONDS", "300"))
 _sync = BaseMinerNeuron.sync
@@ -74,9 +75,10 @@ if TASK_LOG:
 
         def _wrap(orig):
             async def mine(self):
+                t0 = time.time()
                 out = await orig(self)
                 try:
-                    row = {"t": int(time.time()), "type": getattr(self, "type", ""), "input": self.input.model_dump(mode="json") if self.input else None,
+                    row = {"t": int(time.time()), "dt": round(time.time() - t0, 2), "type": getattr(self, "type", ""), "input": self.input.model_dump(mode="json") if self.input else None,
                            "output": out}
                     with _tlock, open(TASK_LOG, "a") as f:
                         f.write(json.dumps(row, default=str) + "\n")
