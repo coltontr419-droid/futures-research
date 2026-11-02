@@ -21,10 +21,19 @@ def keep(r):
         return True
     bot = r.get("Ta") is not None and r["Ta"] >= 0
     return {"bot": bot, "bg": not bot, "small": r["q"] <= 1.6, "large": r["q"] > 1.6}[only]
-trades = defaultdict(list)
+# --since <sim minutes>: our fills before that time lose their maker id (they still print into the mid) — scores one setup's period alone.
+# Trades are de-duplicated by (book, id): each tape opens with the validator's backlog, so concatenated tapes overlap (§1209 addendum 8).
+since = float(sys.argv[sys.argv.index("--since") + 1]) * 6e10 if "--since" in sys.argv else None
+trades, seen = defaultdict(list), set()
 for line in open(tape):
     r = json.loads(line)
     if "p" in r:
+        key = (r["book"], r.get("id"), r["ts"])
+        if key in seen:
+            continue
+        seen.add(key)
+        if since is not None and r["ts"] < since and r.get("Ma") == me:
+            r["Ma"] = -1
         trades[r["book"]].append({"p": r["p"], "q": r["q"], "s": r["s"], "Ma": r.get("Ma", -1) if keep(r) else -1, "Ta": r.get("Ta", -1),
                                   "Mf": r.get("Mf") or 0.0, "t": r["ts"], "i": r.get("id")})
 cb, cs, rb, rs = (defaultdict(dict) for _ in range(4)); tb, ts = {}, {}   # the validator pre-creates every uid's entry

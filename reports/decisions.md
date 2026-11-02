@@ -19571,3 +19571,9 @@ summed over the whole window before the min. `window_est.sh` (hourly at :20 → 
 all tapes since registration plus the live gauges. 01:23 UTC: R −11.4 (R/C −0.15, quality 0), Σ2·min −23.1 over 128 books (51 both
 sides positive), live making 0. At run 2 base's rate on all books (R ≈ +15.6, Σ2·min ≈ +4.8 per 18 sim min) R turns positive in ≈ 1-2
 wall hours and Σ2·min in ≈ 6 (sooner as run 1's fills age out from ≈ 10:30 UTC) — before immunity ends ≈ 20:50 UTC, if the rate holds.
+**§1209 addendum 8 (02:50 UTC), tapes overlap; validator window improving.** Each tape opens with the validator's backlog of recent trades,
+so a new tape repeats the previous run's last ~40 sim min (base3 starts at sim min 1222.5, run 2 ran 1262-1280.5): the 02:40 base3 readout
+(Σ2·min −128.7) mixed run-2 fills in and is void. making_exact.py now de-duplicates by (book, id, ts) and takes `--since <sim min>` (our
+fills before it lose their maker id). Validator-window estimate (all tapes, deduped): 01:23 → 02:50 UTC R −11.4 → −7.3, Σ2·min −23.1 →
+−7.9, books both-sides-positive 51 → 57 of 128. Base period alone (since 1280.6, ≈ 19 sim min): R/C +0.209, Σ2·min −15.3 (sides short and
+noisy per book). window_est.sh prints both; the 04:00 base3 readout timer stopped.
