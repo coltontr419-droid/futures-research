@@ -79,6 +79,9 @@ from conversationgenome.task.ConversationTaggingTask import ConversationTaggingT
 from conversationgenome.api.models.conversation import Conversation  # noqa: E402
 
 
+PARTS = {}          # id(task) -> (raw window tags, raw enrichment tags): scoring_fixes picks the final answer from the wider pool (§1211)
+
+
 async def _mine(self) -> dict:
     llml = get_llm_backend()
     conversation = Conversation(guid=self.input.guid, lines=self.input.data.window, miner_task_prompt=self.prompt_chain[0].prompt_template,
@@ -93,6 +96,7 @@ async def _mine(self) -> dict:
         with ThreadPoolExecutor(min(8, len(enrichment_lines))) as ex:
             outs = list(ex.map(call, [content for _, content in enrichment_lines]))
         all_tags = ([result.tags] if result and result.tags else []) + [o.tags for o in outs if o and o.tags]
+        PARTS[id(self)] = (list(result.tags) if result and result.tags else [], [t for o in outs if o and o.tags for t in o.tags])
         if not all_tags:
             return {"tags": result.tags, "vectors": result.vectors}
         combined = llml.combine_metadata_tags(all_tags, generateEmbeddings=False)

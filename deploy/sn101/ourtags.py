@@ -16,12 +16,23 @@ from .framework import TaskHandler
 N_CANDIDATES = int(os.getenv("TAG_CANDIDATES", "6"))
 SEED = os.getenv("TAG_SEED", "0")
 POST_LOG = os.getenv("TAG_POST_LOG", "")          # scoring lab: append {post, candidates, submitted} per task (decisions.md 1177)
-MODE = os.getenv("TAG_MODE", "uncommon")          # "uncommon" (§1175), "entity3" (§1179), "extract" (§1191), "modal" (§1204)
+MODE = os.getenv("TAG_MODE", "uncommon")          # "uncommon" (§1175), "entity3" (§1179), "extract" (§1191), "modal" (§1204), "verbatim" (§1211)
 MODAL_SAMPLES = int(os.getenv("TAG_MODAL_SAMPLES", "8"))
 
 ENTITY_SYSTEM = ("Generate topic tags for a social post. Prefer the specific named entities (people, companies, models, products), then the main topic. "
                  "Use short noun phrases with normal spacing, lower case. Return only a JSON array of lower-case strings. Output exactly {n} tags.\n")
 ENTITY_USER = "Create tags for the post. Return a JSON array only, with no duplicates or extra text.\nPost:\n{post}\n"
+
+
+VERBATIM_SYSTEM = ("Generate topic tags for a social post: the {n} most important key phrases, copied word for word from the post. Return only a JSON "
+                   "array of lower-case strings.\nOutput exactly {n} tags.\n")     # crowd_fit_gen.py VERBATIM: the best-fitting live crowd (§1211)
+
+
+def _verbatim_tags(post: str, n: int) -> list[str]:
+    m = base.ReferenceMiner(n_tags=n, timeout_sec=int(base.SN101_TIME_LIMIT))
+    payload = {"model": m.model, "messages": [{"role": "system", "content": VERBATIM_SYSTEM.format(n=n)},
+                                              {"role": "user", "content": ENTITY_USER.format(post=post.strip())}]}
+    return [str(t) for t in m._parse_tags(m._call_chat_completions(payload)) if str(t).strip()][:n]
 
 
 def _entity_tags(post: str, n: int) -> list[str]:
@@ -110,6 +121,15 @@ def solve_problem(envelope, chain_runtime) -> dict[str, Any]:
             tags = []
         if tags:
             _log(post, ["modal"], tags)
+            return {"tags": tags}
+        return base.solve_problem(envelope, chain_runtime)
+    if MODE == "verbatim":
+        try:
+            tags = list(dict.fromkeys(_verbatim_tags(post, k)))
+        except Exception:
+            tags = []
+        if len(tags) >= k:
+            _log(post, ["verbatim"], tags)
             return {"tags": tags}
         return base.solve_problem(envelope, chain_runtime)
     if MODE == "extract":

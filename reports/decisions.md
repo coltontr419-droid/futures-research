@@ -19605,3 +19605,33 @@ But skill coverage time-to-answer was median 16.9 s, max 20.9 s (the judge pass 
 includes network, so COVERAGE_DEADLINE_S 21 → 15 (unit env; the judge pass is skipped when late, anchoring always runs). MVTRX UID 41 overnight
 (window_est): live making 3.3 → 26.0 (08:20 → 12:20 UTC), making rank 0.013 → 0.051, window R/C 0.12 → 0.22; on-chain incentive 0.00005 vs the
 lowest non-immune 0.0024 (one validator still scores 0); immunity ends ≈ 20:40 UTC.
+
+## §1211 — SN33 ReadyAI: two lab-verified fixes live (skill generation pooled, tagging steered to the enrichment); SN101 Tag101's crowd fits a "verbatim key phrases" field (S11)
+
+**No trial (live diagnosis + labs; user-approved deploys).** Context 16:00 UTC 11-02: MVTRX UID 41 $7/mo vs lowest PRUNABLE $140 (the §1209
+"any positive making survives" bar was wrong: every $0 uid was a still-immune newcomer), pruned after 20:40 UTC; ReadyAI UID 39 at 11 h =
+0.61× median, the same as the unfixed UID 107 at that age (lowest prunable $153). On-chain weights: all 7 active SN33 validators rate
+UID 39 at 0.62-0.70× the median — reach is fine, quality is the gap (pay ∝ raw³: 0.61 ≈ −15% raw). Task mix since 04:53 UTC: tagging 63% /
+skill generation 20% / skill coverage 17%. OpenAI credits ran out 17:11 UTC (my crowd-fit generation, ≈ 8k calls); the user added $10.
+(1) **skill_generation** — the ground truth is skill_to_metadata (gpt-5.2) on skill_markdown[:1000] with the task's input_categories,
+then combine_metadata_tags; the miner's window is rewritten to that same text, so the lab rebuilds the ground truth exactly.
+`deploy/sn33/lab_skillgen.py` (36 logged tasks, one fresh ground truth each, validate_tag_set + the scoring formula): live 0.450
+(17% zeros: 3 credit-outage empties, 3 short answers of 2-6 narrow tool names cut below 3 tags), fresh stock 0.568, **3 stock samples
+pooled, 15 nearest the pool's centroid 0.613 (+36% vs live, t 4.2; +8% vs stock, never empty)**. Deployed 17:56 UTC (scoring_fixes,
+3 parallel samples, 9 s cutoff; 3.1-4.5 s per answer on logged tasks vs the 12 s timeout).
+(2) **conversation_tagging** — the validator's search queries are written from the FULL conversation, so the enrichment lines the miner
+receives are its only view of the hidden part of the ground truth. `lab_enr.py` (lab_final setup): the 12 tags nearest the centroid of
+the enrichment tags, chosen from the combined answer + the raw window and enrichment tags (which combine drops): **+23.6% (t 3.1, n 23)**,
+fresh seed **+21.8% (t 3.3, n 33)**; K 15 +22.5%, enrichment tags only +20.8%, re-ranking the combined answer alone ±5%. Deployed 18:00
+UTC (central15 keeps the raw parts in PARTS[id(task)], scoring_fixes.near_enrichment; 5.3-7.5 s on 6 logged live tasks; falls back
+to trim_central). Caveat: lab enrichment is synthesized from the full conversation; live snippets are real search results.
+Backups /root/backups/{scoring_fixes,central15}-2026-11-02-pre-*.py. Lab-predicted combined ≈ +0.2 raw ≈ +70-90% pay — the first lab
+gain large enough to clear the median; read on chain before trusting it (every earlier lab gain failed to show live).
+(3) **Tag101 crowd fit** (`deploy/sn101/crowd_fit_{gen,score,add}.py`): 10 generators (model × prompt) × 8 samples on 120 posts m3/m4/m5
+all answered; each hypothesis = a 240-miner crowd + our live answers through the validator's TagScorer. With the clone penalty on, every
+crowd was an artefact (3-6 distinct sets per 8 draws → 40-80 copies each); penalty off (a real field varies its sets): single crowds
+miss the live gaps (m3 −0.34, m4 −0.32, m5 −0.27, stock/entity ≈ −0.28) by rmse 0.10-0.17 except **"key phrases copied word for word"
+on gpt-4o-mini, rmse 0.043** (0.031 with the held-out run); every mixture fits worse (0.12-0.20). Held-out candidates in that crowd:
+verbatim gpt-4o-mini −0.034 / −0.050, gpt-4o −0.057, gpt-4.1-mini −0.122 (old strategies −0.27..−0.36). Lowest prunable SN101 slot
+$240 ≈ −0.02 → predicted ≈ $175-205: much closer, still under the line. `ourtags.py` TAG_MODE=verbatim; tag101-m3 drop-in set to
+verbatim (log posts_m3v.jsonl), DISABLED until the user re-registers m3 (burn 0.033 TAO; SN33 0.045).

@@ -56,10 +56,31 @@ def trim_central(llml, tags, k=TAG_K):
 _conv_mine = ConversationTaggingTask.mine
 
 
+def near_enrichment(llml, combined, window, etags, k=TAG_K):
+    """The k tags nearest the centroid of the enrichment tags, from the pool of the combined answer + the raw window and enrichment tags
+    (lab_enr.py: +23.6%, paired t 3.1 vs trim_central). The validator's search queries are written from the FULL conversation, so the
+    enrichment is the miner's only view of the part of the ground truth the 10-line window misses."""
+    pool = safe_tags(list(combined) + list(window) + list(etags)); etags = set(safe_tags(etags))
+    if len(pool) <= k or not etags:
+        return None
+    vecs = dict((t, np.asarray(v, dtype=float)) for t, v in zip(pool, llml.get_vector_embeddings_batch(pool)) if v)
+    ev = [vecs[t] for t in etags if t in vecs]
+    if len(vecs) < k or not ev:
+        return None
+    centre = np.mean(ev, axis=0)
+    return sorted(vecs, key=lambda t: -_cos(vecs[t], centre))[:k]
+
+
 async def _conv_mine_fixed(self):
     out = await _conv_mine(self)
+    import central15
+    parts = central15.PARTS.pop(id(self), None)
     try:
         tags = safe_tags(out.get("tags"))
+        if parts and len(tags) >= 5:
+            picked = near_enrichment(get_llm_backend(), tags, *parts)
+            if picked:
+                return {"tags": picked, "vectors": None}
         if len(tags) >= 5:
             return {"tags": trim_central(get_llm_backend(), tags), "vectors": None}
     except Exception as e:
@@ -73,15 +94,58 @@ ConversationTaggingTask.mine = _conv_mine_fixed
 _skill_mine = SkillGenerationTask.mine
 
 
+SKILL_SAMPLES, SKILL_K, SKILL_DEADLINE_S = 3, 15, 9.0              # the validator's timeout for this task is 12 s; one stock answer ≈ 3.6 s
+_SKILL_POOL = ThreadPoolExecutor(SKILL_SAMPLES)
+
+
+def _skill_stock(llml, content, cats):
+    """SkillGenerationTask.mine for one window line (the validator's own skill_to_metadata + combine), with one retry on an empty reply."""
+    for _ in range(2):
+        r = llml.skill_to_metadata(content, generateEmbeddings=False, input_categories=cats)
+        if r and r.tags:
+            comb = llml.combine_metadata_tags([r.tags], generateEmbeddings=False)
+            return comb.tags if comb and comb.tags else r.tags
+    return []
+
+
+def pool_nearest(llml, samples, k=SKILL_K):
+    """Pool the samples, pre-clean, keep the k tags nearest the pool's centroid (lab_skillgen.py: +8% vs one stock answer, never empty)."""
+    pool = safe_tags([t for s in samples for t in s])
+    if len(pool) <= k:
+        return pool
+    vecs = llml.get_vector_embeddings_batch(pool)
+    pairs = [(t, np.asarray(v, dtype=float)) for t, v in zip(pool, vecs) if v]
+    if len(pairs) < k:
+        return pool[:k]
+    centre = np.mean([v for _, v in pairs], axis=0)
+    return [t for t, _ in sorted(pairs, key=lambda p: -_cos(p[1], centre))[:k]]
+
+
 async def _skill_mine_fixed(self):
-    out = await _skill_mine(self)
+    """skill_generation, round 5 (§1211): the ground truth is skill_to_metadata on the same 1000-character markdown the miner receives, so
+    the lab is exact here. 3 stock samples in parallel, pooled, 15 nearest the pool's centroid; a short single answer (2-6 narrow tool names)
+    was cut below 3 tags by validate_tag_set and scored 0 on 3 of 33 live tasks."""
+    t0 = time.time()
     try:
-        tags = safe_tags(out.get("tags"))
-        if len(tags) >= 3:
-            return {"tags": tags, "vectors": out.get("vectors")}
+        llml = get_llm_backend()
+        content = "\n".join(c for _, c in self.input.data.window)
+        futs = [_SKILL_POOL.submit(_skill_stock, llml, content, self.input.input_categories) for _ in range(SKILL_SAMPLES)]
+        samples = []
+        for f in futs:
+            try:
+                samples.append(f.result(timeout=max(0.1, SKILL_DEADLINE_S - (time.time() - t0))))
+            except Exception:
+                pass
+        samples = [s for s in samples if s]
+        if samples:
+            tags = pool_nearest(llml, samples) if time.time() - t0 < SKILL_DEADLINE_S else safe_tags(samples[0])
+            if len(tags) >= 3:
+                return {"tags": tags, "vectors": None}
     except Exception as e:
         bt.logging.error(f"scoring_fixes skill_generation fallback: {e}")
-    return out
+    out = await _skill_mine(self)
+    tags = safe_tags(out.get("tags"))
+    return {"tags": tags, "vectors": out.get("vectors")} if len(tags) >= 3 else out
 
 
 SkillGenerationTask.mine = _skill_mine_fixed
