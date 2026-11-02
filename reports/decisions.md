@@ -19668,3 +19668,8 @@ Quality (`lab_enr.py`, seed 3033, n 22): no combine 0.6414 vs wider pool 0.6416 
 first two runs' +22-24%; pooled ≈ +18%). Deployed 20:52 UTC: TAG_NO_COMBINE=1 on readyai-r3 and the standby readyai-r1 (r1 rebuilt as a
 copy of r3: port 8095, logs tasks_r1b, disabled until registered; old unit in /root/backups/readyai-r1-old). Tag101 m4 drop-in = verbatim
 (gpt-4o-mini, posts_m4v.jsonl), disabled. Saving ≈ 10-15% of the slot's OpenAI cost, answers ≈ 2 s faster.
+**§1211 addendum 4 (21:50 UTC 11-02), MVTRX re-registered on the size config.** UID 41 was pruned ≈ 21:20 UTC, one hour into the size test
+(that hour, exact making code: quality 0.351, two-sided 99, credit 34.8 → rank 2 of 251 in-window; short windows flatter us — the field's
+in-window credit median is 0 because the per-book min clamps one-sided books; 3 sim h at that pace ≈ 450 vs yesterday's field p90 442).
+User re-registered x1 (burn 0.111 TAO) → **UID 213**, started ≈ 21:45 UTC on size 0.06 / max_inv 0.3 / max_units 60 (same tape file);
+window_est.sh now scores uid 213 and reads its gauges.
