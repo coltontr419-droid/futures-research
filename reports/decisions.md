@@ -19598,3 +19598,10 @@ Task-mix weighted ≈ +13-15% raw → ≈ +44-53% pay → r3 ≈ $175-185 vs the
 nearest the section with cosine to test 1 < 0.94) + our own judge pass at low effort / priority (≈ 5 s; abandoned at 21 s of the 24 s
 limit). Timing: generation ≈ 8 s + anchor ≈ 2 s + judge ≈ 5 s. run_miner.py logs time-to-answer (dt). Re-entry: hotkey r3 (SN33 burn
 0.045 TAO), unit readyai-r3 enabled, logs tasks_r3b / usage_r3b.
+**§1210 addendum (12:59 UTC 11-02), first night + deadline cut.** UID 39 (registered 04:53 UTC) earned ≈ $7/month until 09:00 UTC (validators
+catching up), then $92-98 by 12:00 — 0.53× the field median, vs old r3's 0.55× at the same effective age: no visible gain yet (5 of 29 tasks
+were skill coverage). Fixes verified in tasks_r3b: every coverage answer anchored (7/7 sections, 2 tests each), tags 8-12 cleaned, 0 timeouts.
+But skill coverage time-to-answer was median 16.9 s, max 20.9 s (the judge pass is slower live than in the test) against a 24 s timeout that
+includes network, so COVERAGE_DEADLINE_S 21 → 15 (unit env; the judge pass is skipped when late, anchoring always runs). MVTRX UID 41 overnight
+(window_est): live making 3.3 → 26.0 (08:20 → 12:20 UTC), making rank 0.013 → 0.051, window R/C 0.12 → 0.22; on-chain incentive 0.00005 vs the
+lowest non-immune 0.0024 (one validator still scores 0); immunity ends ≈ 20:40 UTC.
