@@ -78,6 +78,7 @@ def main(n, per):
             variants["enr centre, wider pool"] = near(wide, enr_c)
             variants["wider pool, K 15"] = sorted(have(wide), key=lambda t: -float(unit(vec[t]) @ enr_c))[:15]
             variants["enrichment tags only"] = near(etags, enr_c)
+            variants["no combine (window + enrichment)"] = near(list(dict.fromkeys(win + etags)), enr_c)
             for name, tags in variants.items():
                 scored = llml.validate_tag_set(tags) or []
                 res.setdefault(name, []).append(LF.score(gt, centre, scored, vec))

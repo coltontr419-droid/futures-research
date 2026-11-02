@@ -19655,3 +19655,16 @@ the MOST fills (31,934) at 1.61 units → 91k volume. At our quality, credit ×k
 positive-maker median 157). Re-registration plan: size 0.01 → 0.06 (≈ 10 units, the field's range) with max_units 20 → 120, everything
 else as the last live config; judge by window making_exact the first hours. Risks: quality was 0 on the new sim day (R/C −0.28); the skill
 pool (≤ 0 ranks 0) and the rank → incentive map are unmeasured.
+**§1211 addendum 3 (20:55 UTC 11-02), MVTRX size test live; ReadyAI cost cut.** MVTRX UID 41 (still registered after immunity) restarted
+20:22 UTC with size 0.01 → 0.06, max_inv 0.05 → 0.3 (the wealth cap would have blocked after one 10-unit fill), max_units 20 → 60; tape
+live_tape_x1_size6.jsonl; window_est.sh rewritten for that tape with --since 96.6 (the last sim minute of the old tape), transient timer
+mvtrx-window-est (*:20) recreated; backup /opt/mvtrx/tape.conf.base3.bak. First 15 min: 2,117 fills on 127 books, median 4.0 units,
+volume 21k (≈ ¼ of the previous whole sim day), other-miner takers 24%; 24 books moved > 50 units since the restart (the cap counts from
+the sim-day start, so this may be legitimate — check). ReadyAI cost per slot (usage log, list prices, since 18:00 UTC): tagging $0.0115 /
+task (6 calls, priority tier), skill generation $0.0086, skill coverage $0.0251 → ≈ $1.6-1.9/day list, ≈ $2 with priority. central15
+gains TAG_NO_COMBINE (skip combine_metadata_tags; scoring_fixes picks from window + enrichment tags) and TAG_NO_PRIORITY. Timing on 6 logged
+tasks: live 5.3-7.5 s; no combine + priority 3.7-5.5 s (×2 runs); no combine, standard tier 4.8-10.1 s → priority stays (late = 0).
+Quality (`lab_enr.py`, seed 3033, n 22): no combine 0.6414 vs wider pool 0.6416 (both +11% vs the old trim, t 2.4 — smaller than the
+first two runs' +22-24%; pooled ≈ +18%). Deployed 20:52 UTC: TAG_NO_COMBINE=1 on readyai-r3 and the standby readyai-r1 (r1 rebuilt as a
+copy of r3: port 8095, logs tasks_r1b, disabled until registered; old unit in /root/backups/readyai-r1-old). Tag101 m4 drop-in = verbatim
+(gpt-4o-mini, posts_m4v.jsonl), disabled. Saving ≈ 10-15% of the slot's OpenAI cost, answers ≈ 2 s faster.

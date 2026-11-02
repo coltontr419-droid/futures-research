@@ -33,6 +33,9 @@ def central_tags(cands: list[str], vectors: list) -> list[str]:
 
 
 FAST = {"reasoning_effort": "low", "service_tier": "priority"}
+if os.getenv("TAG_NO_PRIORITY"):                       # §1211 add. 3: standard tier (≈ half the price) once the combine call is gone
+    FAST = {"reasoning_effort": "low", "service_tier": None}
+NO_COMBINE = bool(os.getenv("TAG_NO_COMBINE"))          # §1211 add. 3: scoring_fixes picks from window + enrichment tags; combine adds a call
 
 
 def _fast(self):
@@ -97,6 +100,8 @@ async def _mine(self) -> dict:
             outs = list(ex.map(call, [content for _, content in enrichment_lines]))
         all_tags = ([result.tags] if result and result.tags else []) + [o.tags for o in outs if o and o.tags]
         PARTS[id(self)] = (list(result.tags) if result and result.tags else [], [t for o in outs if o and o.tags for t in o.tags])
+        if NO_COMBINE and all_tags:
+            return {"tags": list(dict.fromkeys(t for ts in all_tags for t in ts)), "vectors": None}
         if not all_tags:
             return {"tags": result.tags, "vectors": result.vectors}
         combined = llml.combine_metadata_tags(all_tags, generateEmbeddings=False)
