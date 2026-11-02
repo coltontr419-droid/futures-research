@@ -19565,3 +19565,9 @@ clears the bottom. Run 2 at 18 sim min: EXACT quality base 0.425 / size 0.005 0.
 balanced_reward_per_book clamps the TOTAL over books, so the three arms' negatives summed our live making to −11.9 → 0. Arms stopped:
 flow pull 0.3 / 10 s / 3 s on all books (tape live_tape_x1_base3, readouts 02:40 / 04:00 UTC → base3_readouts.txt). Arms resume only once
 the live making gauge is positive, and then on fewer books.
+**§1209 addendum 7 (01:23 UTC), the validator's window still holds our losses.** kappa.lookback = 3 h SIM time (≈ 13 wall hours at the
+live pace, 18 sim min per ~80 wall min), so every fill since UID 41 registered (20:51 UTC) is still scored, and the per-book sides are
+summed over the whole window before the min. `window_est.sh` (hourly at :20 → /opt/mvtrx/window_readouts.txt) runs making_exact over
+all tapes since registration plus the live gauges. 01:23 UTC: R −11.4 (R/C −0.15, quality 0), Σ2·min −23.1 over 128 books (51 both
+sides positive), live making 0. At run 2 base's rate on all books (R ≈ +15.6, Σ2·min ≈ +4.8 per 18 sim min) R turns positive in ≈ 1-2
+wall hours and Σ2·min in ≈ 6 (sooner as run 1's fills age out from ≈ 10:30 UTC) — before immunity ends ≈ 20:50 UTC, if the rate holds.
