@@ -19646,3 +19646,12 @@ claims to the skill document as a "Behavior contract" section (no model call; �
 n 16) and +44% (t 3.9, n 22 fresh)**; judged accuracy 0.49-0.59 → 0.79-0.82, zero sections 0.94-1.05 → 0.27-0.50, skill-coverage term
 0.55 → 0.77. Deployed 20:28 UTC (scoring_fixes.with_contract; backup /root/backups/scoring_fixes-2026-11-02-pre-contract.py). UID 39 at
 19:00 UTC: $124 = 0.69× median (0.61× at 16:00), one hour after the 18:00 deploy.
+**§1211 addendum 2 (21:10 UTC 11-02), MVTRX stopped; size is the untested lever.** User: stop MVTRX (mvtrx-x1 + mvtrx-window-est.timer
+disabled on mvtrx-lab; UID 41 past immunity at $8 vs $140 lowest prunable; tape kept). `deploy/sn79/maker_profile.py` on the previous sim
+day (making_exact, our base period from sim min 1280.6: our C 216 / R/C 0.365 / credit 25 rank 145 of 256; field quality median 0.518,
+credit median 54): across 178 makers, total maker volume vs quality Spearman −0.01, median fill size vs quality +0.29 — **size does not
+cost quality**; volume vs credit +0.88. Top credit makers: ≈ 9,500 fills, 210-320k volume, fill size 3 or 12, quality 0.49-0.59. We had
+the MOST fills (31,934) at 1.61 units → 91k volume. At our quality, credit ×k: ×3 → 76 (24% of positive makers below), ×6 → 151 (49%;
+positive-maker median 157). Re-registration plan: size 0.01 → 0.06 (≈ 10 units, the field's range) with max_units 20 → 120, everything
+else as the last live config; judge by window making_exact the first hours. Risks: quality was 0 on the new sim day (R/C −0.28); the skill
+pool (≤ 0 ranks 0) and the rank → incentive map are unmeasured.
