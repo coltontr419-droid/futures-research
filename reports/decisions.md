@@ -19784,3 +19784,9 @@ No multi-UID / clone / same-IP rule in the validator (coldkeys only reported). B
 165 MB. Registration burn 0.0874 TAO vs free coldkey balance 0.0891 TAO — exactly one registration. Prepared: /etc/systemd/system/
 mvtrx-x2.service (DISABLED, ConditionPathExists hotkey x2; port 8102; tape live_tape_x2.jsonl; same params and skip list as x1) and
 window_est_x2.sh (UID2 env). Gate: register only if the noon readouts confirm the calm-books making + skill on UID 213.
+**§1211 addendum 17 (05:45 UTC 11-03), MVTRX steady-state estimate; Tag101 bench analysis ready.** Last 30 sim min (185.5-215.5, all
+post-switch), making_exact: quality 0.536 (field median 0.479), credit 143.1 (field p90 45.8) → rank 4 of 254. Over a clean 3-sim-h window
+≈ 6× → credit ≈ 800-900 vs field p90 ≈ 275 → making rank ≈ 0.95-1; with the kappa estimate, combined ≈ 0.9 (field p90 0.57). Window clean
+≈ sim 363 ≈ noon CT at ≈ 12 sim min per wall hour; pay lags. Sim-day reset at sim 1440 is ≈ 4 days out. `bench_analyze.py`: per weight
+update, UID 210's gap change minus the field's median change, summed per mode slot → per-round level vs the rolled-off rounds. Dry run
+05:45 UTC: verbatim (4 h before) −0.261, generic (1.1 h, 4 updates) −0.652 — early and noisy.
