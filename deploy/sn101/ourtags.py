@@ -41,6 +41,11 @@ PROMPT_MODES = {
                 "category names many posts share (for example: artificial intelligence, ai agents, large language models, startups, "
                 "open source, robotics). Prefer widely used category names over details specific to this post. Return only a JSON array of "
                 "lower-case strings.\nOutput exactly {n} tags.\n"),
+    "genre": ("Label a social post from an AI-focused account with {n} short tags for what KIND of post it is (for example: product launch, "
+              "research paper, benchmark result, opinion, tutorial, event announcement, hiring, funding news, open source release). Return only "
+              "a JSON array of lower-case strings.\nOutput exactly {n} tags.\n"),
+    "summary": ("Describe what a social post is about with {n} descriptive phrases of 3-6 words each. Return only a JSON array of lower-case "
+                "strings.\nOutput exactly {n} tags.\n"),
     "keywords": ("Give the {n} most important single-word keywords of a social post (one word each, no phrases). Return only a JSON array of "
                  "lower-case strings.\nOutput exactly {n} tags.\n"),
 }
@@ -156,6 +161,10 @@ def solve_problem(envelope, chain_runtime) -> dict[str, Any]:
             _log(post, ["modal"], tags)
             return {"tags": tags}
         return base.solve_problem(envelope, chain_runtime)
+    if MODE == "fixed":                                # the same broad set for every post: tests whether the consensus is post-independent
+        tags = ["artificial intelligence", "machine learning", "large language models"][:k]
+        _log(post, ["fixed"], tags)
+        return {"tags": tags}
     if MODE in PROMPT_MODES or MODE == "hashtag":
         try:
             tags = _hashtag_tags(post, k) if MODE == "hashtag" else _prompt_tags(post, k, PROMPT_MODES[MODE])

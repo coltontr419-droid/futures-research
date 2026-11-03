@@ -19764,3 +19764,8 @@ Schedule (transient timers, bench_switch.sh writes mode.conf + restarts in the g
 gap of UID 210 hourly at :05 (bench_reads.txt; baseline 04:07 −0.06688) plus the archive afterwards at any resolution; a mode's own-round
 level ≈ 24·ΔG/h + the rolled-off occupant level, compared across modes (the occupant term cancels). Backup
 /root/backups/ourtags-2026-11-03-pre-bench.py, tag101-m3-mode.conf.pre-bench.
+**§1211 addendum 14 (04:30 UTC 11-03), bench widened to 7 families in 2-h slots (user away until ≈ noon CT, asked for more families).** New
+modes `genre` (kind of post: product launch, research paper, …), `summary` (3-6-word descriptive phrases), `fixed` (the same 3 broad AI
+tags for every post — tests a post-independent consensus). Schedule (UTC): 04:22 generic (live, switch logged 04:22:09 block 9423005),
+06:22 keywords, 08:22 hashtag, 10:22 fixed, 12:22 genre, 14:22 summary, 16:22 verbatim control → immunity end ≈ 19:09. 2 h = 32 rounds,
+enough for the ≈ 0.2-0.3 per-round effect that would close the gap.
