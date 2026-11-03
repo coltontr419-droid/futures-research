@@ -19756,3 +19756,11 @@ rate. Each validator queries ALL miners every 15 min and scores only its own rou
 54.177.95.135 (val 0, 62.5% of stake), 34.70.162.213 (val 61, 11.3%) and two without published axons (192.150.253.122, 54.228.70.29);
 missing validators hold ≤ ≈ 25% → at most ≈ −0.03 of the gap. Closed: the deficit is answer quality vs the consensus. The 403 on m3's
 startup axon announcement is harmless (public axon used).
+**§1211 addendum 13 (04:10 UTC 11-03), Tag101 overnight bench on m3 (user: yes).** Six LLM post-specific styles (uncommon, entity3, extract,
+modal, verbatim, reference) all landed ≈ 0.3 below the median live, so the field is likely outside that family. New ourtags modes:
+`generic` (broad shared category names), `keywords` (single words), `hashtag` (literal #tags / @handles / $tickers, topped up with entities).
+Schedule (transient timers, bench_switch.sh writes mode.conf + restarts in the gap after a burst; switches logged to bench_log.txt):
+04:22 generic, 07:22 keywords, 10:22 hashtag, 13:22 UTC verbatim (control) until m3's immunity ends ≈ 19:09 UTC. Read: aggregate 24 h mean
+gap of UID 210 hourly at :05 (bench_reads.txt; baseline 04:07 −0.06688) plus the archive afterwards at any resolution; a mode's own-round
+level ≈ 24·ΔG/h + the rolled-off occupant level, compared across modes (the occupant term cancels). Backup
+/root/backups/ourtags-2026-11-03-pre-bench.py, tag101-m3-mode.conf.pre-bench.
