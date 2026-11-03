@@ -19698,3 +19698,19 @@ the tape replays), 207 fills at **+0.11 gross (size-weighted +0.31), t 0.2** →
 aggregation; regime). MVTRX 23:20 UTC readout: quality 0.203, credit 61.4 (rank 13/254 in-window), live making rank 0.024 → 0.188, skill
 −0.24 → 0.0, combined 0.094. ReadyAI 00:00 UTC: $137 = 0.75× median, validators 0.69-0.75 (line ≈ 0.84). Tag101 m3 00:00 UTC: $221 vs
 lowest prunable $229 (incentive 0.00334 vs median 0.00371; mostly inherited history at 5 h).
+
+**§1211 addendum 7 (03:30 UTC 11-03), why all three slots fail — dug one at a time at the user's request.** (1) SN33 ReadyAI: weights are
+RANK-based (ValidatorLib.get_raw_weights: transposed cubic over rank, 0.001-0.003 — the EMA's "cubed" only orders); `deploy/sn33/sn_ranks.py`:
+UID 39 ranks 221/242 at the four largest validators (identical rankings, ≈ 75% of stake), prune line (UID 149) 13 places up; all 25 below us
+are < 24 h newcomers and 12 of the 13 between us and the line are 9-18 h newcomers → last among established miners. The fixes moved the
+plateau from ≈ 11 to ≈ 22 places from the bottom (UID 107 → 39) but only past newcomers. Field: operators with 19-23 UIDs per coldkey,
+a registration every ≈ 24 min. W&B project 403; conversations come from a validator-only API — no legitimate view of the field's answers.
+Recommendation: do not re-register. (2) SN101 Tag101 m3 UID 210: 236/241, 3 places below the line (UID 226, $233); TagScorer is consensus
+clustering over all miners' tags, coldkey 5GRj7u8J holds 115 of 185 established UIDs; verbatim m3 fell $220 → $184 as inherited history
+rolled off → our own answers score below the pruned previous occupant; the crowd fit was wrong. (Startup axon announcement 403 is harmless:
+task rate unchanged, ≈ 16/h.) (3) SN79 MVTRX UID 213 (`deploy/sn79/mvtrx_trend.py`, making_exact on 10-sim-min slices): quality +0.29 at
+sim 120-130, negative 130-170 (the taking test ran sim 131.2-147.5), +0.30 at 170-180; field steady 0.40-0.47 per slice, our flow balanced,
+no drift — so it is us. Losses concentrate in books: dropping the 40 worst-R books lifts quality 0.066 → 0.350 keeping 89% of C; the worst
+books carry 2-3× the median book's fills and often negative captured (stale quotes picked off). Out of sample (books ranked on sim < 150,
+scored on ≥ 150; `making_exact_dump.py` BOOKS_OUT): drop 20 / 30 / 40 → 0.128 / 0.183 / 0.222 vs 0.033 kept-all; random 30-book drops
+median 0.034, p95 0.117 → per-book toxicity persists. Next lever: skip the persistently toxic books (static list or online per-book R).
