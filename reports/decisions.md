@@ -19727,3 +19727,11 @@ skipped books' inventory swings from the de-beta skill P&L. `replay_flat.py`: wi
 first 90 sim s — 252 maker fills, none on skipped books; 46 taker fills (199 units), all on skipped books. Backups QuoteAgent.pre-flat.py,
 tape.conf.skip.bak. Next: measure skill in the clean post-skip window; re-tune `toxic` on the live tape (split-half) for an adaptive list;
 explain the 0-62 / 102-118 concentration.
+**§1211 addendum 10 (03:15 UTC 11-03), the bad books are a market regime; quote only the 40 calmest.** Book-id groups on the size6 tape:
+ids 0-62 spread 6 c, 10-s mid vol 3.4, our fills median 347, R −4.0 / book; ids 63-101 spread 2 c, vol 0.5, fills 71, R +10.8; ids
+102-127 4-decimal prices, vol 4.4, R −3.6 with NEGATIVE captured. Held-out half (books chosen on sim < 150, scored with making_exact on
+≥ 150, our fills on dropped books de-attributed): keep all 0.033 / credit 7.1 (rank 89); drop 40 worst-R 0.222 / 54.7 (rank 7); the 40
+calmest by first-half 10-s |Δmid| 0.527 / 142.5 (rank 1 of 254, two-sided 270 vs 218). Ids 63-101 alone 0.562 keeping 83% of C. Live
+03:13:40 UTC: skip_books.txt = all books but the 40 calmest by full-tape volatility (36 of 40 shared with the first-half list), skip_flat
+unwinds the other 88; after the restart 26 maker fills in 25 sim s, none on skipped books. Previous list: /opt/mvtrx/skip_books_worst40.txt.
+The sim may redraw book regimes at the sim-day reset (sim min 1440) — then recompute the list (or move to an online volatility rule).
