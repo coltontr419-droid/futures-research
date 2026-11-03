@@ -19769,3 +19769,11 @@ modes `genre` (kind of post: product launch, research paper, …), `summary` (3-
 tags for every post — tests a post-independent consensus). Schedule (UTC): 04:22 generic (live, switch logged 04:22:09 block 9423005),
 06:22 keywords, 08:22 hashtag, 10:22 fixed, 12:22 genre, 14:22 summary, 16:22 verbatim control → immunity end ≈ 19:09. 2 h = 32 rounds,
 enough for the ≈ 0.2-0.3 per-round effect that would close the gap.
+**§1211 addendum 15 (05:00 UTC 11-03), MVTRX skill on the calm-books setup.** Skill = kappa_of_alpha over per-book alpha (MTM P&L − mean
+inventory × drift; MAD-normalised mean with a cubed downside penalty), ranked among POSITIVE skills only (lowest positive ranks 0). Live
+gauges: skill_coverage_factor 1.0 for every miner (field p10 coverage 32 books) → quoting 40 books costs nothing; ours skill 0 with
+net alpha −2,158 (field median +230), weakest-3 −0.70, notional 42M (field median 4.5M) — the toxic stretch, 10× our size, still in the
+3-sim-h window. `skill_est.py` (alpha is invariant to the starting inventory, so a period can be scored from the tape alone): last 10 sim
+min, 32 of 33 quoted books positive, kappa +5.66; last 20 sim min, 35 of 38 positive, kappa +3.17 (field skill median 0.06, p90 2.12). If
+it holds once the window is clean, skill ranks near the top of the positives as well as making → combined toward the top-10% band
+(top-10% miners: combined 0.46, making rank 0.48, skill rank 0.43; pay ≥ $401/mo, mean $470).
