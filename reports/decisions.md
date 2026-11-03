@@ -19893,3 +19893,14 @@ XRP 91.7 vs 74.5 (0.006% vs 0.084%); current todg_12_36 and GARCH todv worse. Ra
 10-29 1.005 / 0.995, 10-30 1.028 / 1.060, 10-31 1.098 / 1.117, 11-01 1.020 / 1.040, 11-02 1.003 / 1.009; the worst prompts are 50-100 bp days.
 Same as §1205: at the median in raw terms, slow on regime shifts, and the steep payout turns 1-10% into ≈ 0.1× pay. Bar to register: a
 consistent 3-5% raw improvement incl. volatile days. Next: implied volatility (Deribit DVOL / option prices) as the level input.
+
+## §1215 — SN50 Synth step 2 (user: yes): Deribit DVOL as a regime multiplier makes the volatile window WORSE — Synth stays parked (S11)
+
+**No trial (backtest).** `data/synth/dvol.json` (Deribit public get_volatility_index_data, hourly, 08-25 → 11-03, BTC and ETH; SOL / XRP use
+BTC's). `s50_backtest.iv_ratio`: the last DVOL hour closed before t0 ÷ the mean of the prior 7 days; model suffix `_iv<γ>` scales the path
+volatility by ratio^γ. Share vs median UID, volatile 5 days (to 11-03), base / γ 0.5 / 1 / 1.5: BTC 0.017 / 0.011 / 0.010 / 0.009% (median 0.21%),
+ETH 0.020 / 0.015 / 0.013 / 0.010% (0.198%), SOL 0.106 / 0.069 / 0.046 / 0.025% (0.19%), XRP 0.006 / 0.004 / 0.002 / 0.002% (0.083%). Calm 10 days
+(to 10-29): γ 0.5 helps BTC 0.341 → 0.366% and ETH 0.238 → 0.262%, hurts SOL / XRP. Widening with implied vol hurts on the volatile days → our
+forecasts there are already too WIDE (the EWMA level jumps after a big move and the market calms faster), not too slow; a forward-looking vol
+input cannot fix overreaction. The fast variant todg_12_36_c_ou20_iv1@0.95 wins the calm window (BTC 0.604%, ETH 0.599%, SOL 0.513% vs medians
+0.33 / 0.36 / 0.21%) and loses the volatile one — the §1205 coin flip. Parked; MVTRX first.

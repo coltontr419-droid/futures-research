@@ -234,6 +234,24 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
     return paths
 
 
+_DVOL = None
+
+
+def iv_ratio(asset: str, t0: int, days: float = 7.0) -> float:
+    """Deribit DVOL (30-day implied vol, hourly; data/synth/dvol.json) regime ratio at t0: the last hourly close known before t0 divided by
+    the mean of the closes over the previous `days` (§1215). SOL / XRP / others use BTC's. 1.0 when unavailable."""
+    global _DVOL
+    if _DVOL is None:
+        f = CACHE / "dvol.json"
+        _DVOL = {c: sorted((int(k), v) for k, v in d.items()) for c, d in json.loads(f.read_text()).items()} if f.exists() else {}
+    ser = _DVOL.get(asset if asset in ("BTC", "ETH") else "BTC")
+    if not ser:
+        return 1.0
+    known = [v for ts, v in ser if ts + 3600000 <= t0]
+    hist = [v for ts, v in ser if t0 - days * 86400000 <= ts + 3600000 <= t0]
+    return known[-1] / (sum(hist) / len(hist)) if known and hist else 1.0
+
+
 def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0.9", "tod_6h@1.1")) -> dict:
     P = prompts(asset, days)
     starts = sorted(P)
@@ -259,7 +277,9 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
         hp = hour_profile(H, t0) if H else None
         if hp is not None and Y is not None:
             hp = (hp[0], hp[1], yahoo_profile(Y, t0))
-        ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=float(m.split("@")[1]) if "@" in m else 1.0, stride=stride, day0=day0, hprof=hp),
+        ivr = iv_ratio(asset, t0)
+        kk = lambda m: (float(m.split("@")[1]) if "@" in m else 1.0) * (ivr ** float(m.split("_iv")[1].split("@")[0].split("_")[0]) if "_iv" in m else 1.0)
+        ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=kk(m), stride=stride, day0=day0, hprof=hp),
                             np.array(real, float), 300, INTERVALS) for m in models}
         rl = np.log(np.array(real, float)); rows.append({"start": st, "field": P[st], **ours, "_move24": float(rl[-1] - rl[0]),
                                                           "_rv": float(np.sqrt(np.sum(np.diff(rl) ** 2)))})
