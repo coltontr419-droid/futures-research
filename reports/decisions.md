@@ -19851,3 +19851,13 @@ Tilt (`tilt_bp` / `tilt_notional`, QuoteAgent.tilt.py): on quoted books the inve
 making inventory alpha ≈ −1 bp ≈ −$6; the sleeve measurements give ≈ $1.2 per unit per window on $300 books → ≈ $5k targets (≈ 17 / 170
 units on $300 / $30 books, ≈ 10% of book wealth). replay_tilt.py: off = live agent (1,262 instructions); on (5 bp) targets on all 128
 books (67 long / 19 short), placements 541 → 521, net buy notional shifted +$9.6k.
+
+## §1212 — Subnet re-screen 11-03 (user: look for other subnets): nothing new beyond the §1164-§1205 list; CliqueAI's diversity gap is the one open lead (S11)
+
+**No trial (desk).** `deploy/subnet_scan.py` (chain, 126 subnets, TAO ≈ $226): 103 pay the median miner $0; median > $100 only on SN82 Noah
+(31 miners, burn 9.8 TAO), SN5 Hone $1,020 (line $617, burn 0.225), SN83 CliqueAI $439 (p90 $1,155, burn 0.10), SN101, SN79, SN32 ItsAI,
+SN33, SN92 REAX, SN22 Desearch, SN61 RedTeam, SN50 Synth $163, SN13. All were studied before: Synth §1164-§1170 + §1205 (median-level
+forecaster, regime-dependent, ≈ break-even per 0.8 TAO slot — hold), Hone §1180 (needs a frontier coding agent, $3-18k/month to answer
+everything; Claude-output terms question; open-weight only), CliqueAI §1165/§1172/§1195 (size ties 93/98 but diversity 0.57 vs 0.85 →
+2nd percentile; open item: enumerate each problem's maximum cliques and return an unclaimed one). Code lives in src/futuresres/synth/
+(clique_*.py, numvc.c, dlsmc2.c, s50_*.py) and /opt/clique on the lab box — not in a top-level synth/ folder.
