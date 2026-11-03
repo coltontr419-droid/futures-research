@@ -19818,3 +19818,18 @@ units needed to clear the hurdle: infeasible; on skipped books the ratio is size
 `sleeve_q` / `sleeve_step` / `sleeve_cool`: with skip_flat, on skipped books steer to ±sleeve_q by the fundamental gap via IOCs (making on
 calm books unchanged). `replay_sleeve.py`: off = live agent (926 instructions); on (5 bp, q 10) only IOCs ≤ 10 units on skipped books,
 calm-book orders identical; targets 56 long / 16 short / 16 in band. Copy at deploy/sn79/QuoteAgent.sleeve.py.
+**§1211 addendum 21 (20:30 UTC 11-03), sleeve live on x1; the validator's per-book VOLUME CAP found.** Sleeve deployed on x1 19:38 UTC
+(sleeve_bp 5, q 10; first sim minute 139 IOCs on 53 skipped books, then ≈ 2/min). But x1's maker fills had been falling since sim ≈ 340
+(≈ 120-150 per 5 sim min → 15-30), before x2 or the sleeve. Diagnosis (temporary `dbg=1` logging: per book inventory, balances, wanted
+sides, open orders): x1 wanted both sides on 16 of 20 books, had 0 open orders, balances frozen — its placements never reached the book.
+Cause, taos/im/validator/query.py ≈ l. 573: once a miner's traded notional on a book over `trade_volume_assessment_period` (24 sim h)
+reaches capital_turnover_cap (10) × miner wealth (≈ $50k → $500k per book), every non-cancel instruction on that book is DROPPED, silently
+for the miner. x1 had used a median $499k on all 40 calm books (15 over) — the 0.994 making rank was a burst at ≈ 4.6× the sustainable
+pace; x2 reached $321k on its hottest book in ≈ 30 sim min. Fixes, all replay-identical when off: books split between UIDs (x1:
+skip_x1.txt, x2: skip_x2.txt, 20 calm books each; x1's sleeve restricted by `sleeve_file` to the original 88 volatile books, so our two
+UIDs never trade with each other); max_units 40 → 100 (one $30-book order is ≈ 100 units); `fit_qty` (quote the affordable part);
+`pace_cap` / `pace_win` / `pace_k`: quote a book only while our trailing-24-sim-h notional < pace_cap (450k) and the trailing 90-sim-min
+notional < pace_cap × 5400 / 86400 (even spending), seeded from the tape at start (x2 1,787 fills, x1 32,955). x1's calm books stay capped
+until that volume ages out (days at the sim's pace); x2 is mostly paced out after its first burst. Sustainable making per UID ≈ 20 books ×
+$62.5k per 3-h window ≈ $1.25M ≈ 1/9 of x1's burst → credit ≈ 90 vs 800 → making rank ≈ 0.4-0.6, not 0.99. Backups QuoteAgent.pre-*.py,
+tape.conf.{calm,sleeve}.bak, mvtrx-x2.service.bak.

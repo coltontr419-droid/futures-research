@@ -110,7 +110,37 @@ class QuoteAgent(FinanceAgent):
         self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
         sf = str(getattr(c, "skip_file", "") or "")         # file of book ids we never quote on: books whose fills stay picked off (§1211 add. 7:
         self.skip = {int(x) for x in open(sf).read().split()} if sf else set()
-        self.skip_flat = int(getattr(c, "skip_flat", 0))   # 1: on skipped books, unwind the position with IOC takes (taker fills never enter the
+        self.skip_flat = int(getattr(c, "skip_flat", 0))
+        self.fit_qty = int(getattr(c, "fit_qty", 0))
+        # pace (§1211 add. 21): the validator drops a miner's placements on a book once its traded notional over the last 24 sim h reaches
+        # capital_turnover_cap (10) × miner wealth (≈ $500k per book). Quote a book only while the trailing PACE_PERIOD sum < PACE_CAP and the
+        # trailing PACE_WIN sum < PACE_CAP × PACE_WIN / PACE_PERIOD × PACE_K (even spending). Seeded from our own tape at start-up.
+        self.pace_cap = float(getattr(c, "pace_cap", 0.0)); self.pace_period = int(getattr(c, "pace_period", 86400))
+        self.pace_win = int(getattr(c, "pace_win", 5400)); self.pace_k = float(getattr(c, "pace_k", 1.0))
+        self._pace, self._pace_seen = defaultdict(list), set()
+        if self.pace_cap and getattr(c, "tape", ""):
+            try:
+                rows = []
+                for line in open(str(c.tape)):
+                    if '"p":' in line and str(self.uid) in line:
+                        r = json.loads(line)
+                        if r.get("Ma") == self.uid or r.get("Ta") == self.uid:
+                            rows.append((r["ts"] // 1_000_000_000, r["book"], r["p"] * r["q"], (r["book"], r.get("id"), r["ts"])))
+                end = max((x[0] for x in rows), default=0)
+                for sec, bk, v, key in rows:
+                    if sec > end - self.pace_period and key not in self._pace_seen:
+                        self._pace_seen.add(key); self._pace[bk].append((sec, v))
+                bt.logging.info(f"PACE seeded {sum(len(v) for v in self._pace.values())} own fills on {len(self._pace)} books from the tape")
+            except Exception as e:
+                bt.logging.warning(f"PACE seed failed: {e}")
+        self.dbg = int(getattr(c, "dbg", 0)); self._dbg_at = {}   # 1: log per quoted book once a minute (inventory, balances, wanted sides)      # 1: quote the affordable part of the order instead of skipping the side (§1211 add. 21)
+        self.sleeve_bp = float(getattr(c, "sleeve_bp", 0.0))   # >0 (with skip_flat): on skipped books steer the position to ±SLEEVE_Q by the sign of
+        self.sleeve_q = float(getattr(c, "sleeve_q", 10.0))     # (fundamental − mid)/mid beyond ±SLEEVE_BP (hysteresis), checked every SLEEVE_STEP
+        self.sleeve_step = int(getattr(c, "sleeve_step", 10))   # sim s, one IOC per SLEEVE_COOL s: de-beta skill counts held inventory × Δmid
+        self.sleeve_cool = int(getattr(c, "sleeve_cool", 5))    # and its 2.3 bp hurdle is per own notional (§1211 add. 20)
+        self._sleeve, self._sleeve_at = {}, {}
+        sb = str(getattr(c, "sleeve_file", "") or "")       # book ids the sleeve may trade (others in skip just unwind); unset = every skipped book
+        self.sleeve_books = {int(x) for x in open(sb).read().split()} if sb else None   # 1: on skipped books, unwind the position with IOC takes (taker fills never enter the
                                                            # making pool, takers get a fee rebate) — one take per take_cool, ≤ take_size, ≤ top level   # books ranked on one half lift the other half 0.03 → 0.22)
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
         self.lean = int(getattr(c, "lean", 0))             # 1: skip the base agent's state history, CSV event log and debug text (§1207, speed)
@@ -175,6 +205,13 @@ class QuoteAgent(FinanceAgent):
                 bt.logging.info(f"OWN FLOW: our share of order/cancel events {n / t:.1%} by count, {q / max(qt, 1e-9):.1%} by size")
         if self.tape is not None:
             self._record(state)
+        if self.pace_cap:
+            for book_id, book in (self._books if self._books is not None else state.books or {}).items():
+                for e in book.events or []:
+                    if getattr(e, "y", "") == "t" and (e.Ma == self.uid or e.Ta == self.uid):
+                        key = (int(book_id), e.id, e.timestamp)
+                        if key not in self._pace_seen:
+                            self._pace_seen.add(key); self._pace[int(book_id)].append((e.timestamp // 1_000_000_000, e.price * e.quantity))
         for book_id, book in (self._books if self._books is not None else state.books or {}).items():
             acct = self.accounts.get(book_id)
             if acct is None or not book.bids or not book.asks:
@@ -232,6 +269,25 @@ class QuoteAgent(FinanceAgent):
         m = self.model
         x = [feats[n] for n in m["names"]]
         return sum(w * (v - mu) / sd for w, v, mu, sd in zip(m["w"], x, m["mu"], m["sd"]) if sd > 0)
+
+    def onOrderRejected(self, event):
+        """dbg: count the exchange's placement rejections by message, logged once a minute (§1211 add. 21)."""
+        if not getattr(self, "dbg", 0):
+            return
+        from collections import Counter
+        self._rej = getattr(self, "_rej", Counter()); self._rej[str(getattr(event, "message", "?"))] += 1
+        if self._sec - getattr(self, "_rej_at", -10 ** 9) >= 60:
+            self._rej_at = self._sec; bt.logging.info(f"DBG REJECTS {dict(self._rej)}"); self._rej.clear()
+
+    def _paced_out(self, book_id):
+        h = self._pace.get(book_id)
+        if not h:
+            return False
+        lo = self._sec - self.pace_period
+        if h[0][0] <= lo:
+            self._pace[book_id] = h = [x for x in h if x[0] > lo]
+        day = sum(v for _, v in h); recent = sum(v for t, v in h if t > self._sec - self.pace_win)
+        return day >= self.pace_cap or recent >= self.pace_cap * self.pace_win / self.pace_period * self.pace_k
 
     def _toxic_update(self, book_id, book, sec, mid, tick):
         """Track our own maker fills on this book; 30 s later mark them against the mid and keep an EMA; pause the book when it is bad."""
@@ -325,15 +381,27 @@ class QuoteAgent(FinanceAgent):
             for o in acct.orders:                          # skipped book: pull our quotes and stay out
                 response.cancel_order(book_id, o.id)
             units = acct.base_balance.total - base0
-            if self.skip_flat and abs(units) >= self.min_order_size(book_id) and self._sec - self._last_take.get(book_id, -10 ** 9) >= self.take_cool:
-                side = OrderDirection.SELL if units > 0 else OrderDirection.BUY
-                q = round(min(abs(units), self.take_size, qb if side == OrderDirection.SELL else qa), vd)
+            target, cool = 0.0, self.take_cool
+            if self.sleeve_bp and fundamental and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
+                if self._sec - self._sleeve_at.get(book_id, -10 ** 9) >= self.sleeve_step:
+                    u = (fundamental - mid) / mid * 1e4; cur = self._sleeve.get(book_id, 0.0)
+                    self._sleeve[book_id] = self.sleeve_q if u > self.sleeve_bp else (-self.sleeve_q if u < -self.sleeve_bp else cur)
+                    self._sleeve_at[book_id] = self._sec
+                target, cool = self._sleeve.get(book_id, 0.0), self.sleeve_cool
+            gap = target - units
+            if self.skip_flat and abs(gap) >= self.min_order_size(book_id) and self._sec - self._last_take.get(book_id, -10 ** 9) >= cool:
+                side = OrderDirection.BUY if gap > 0 else OrderDirection.SELL
+                q = round(min(abs(gap), self.take_size, qb if side == OrderDirection.SELL else qa), vd)
                 px = bid if side == OrderDirection.SELL else ask
                 funded = (acct.base_balance.free >= q) if side == OrderDirection.SELL else (acct.quote_balance.free >= q * px)
                 if q >= self.min_order_size(book_id) and funded:
                     response.limit_order(book_id=book_id, direction=side, quantity=q, price=px, stp=STP.CANCEL_OLDEST, postOnly=False,
                                          timeInForce=TimeInForce.IOC)
                     self._last_take[book_id] = self._sec
+            return
+        if self.pace_cap and self._paced_out(int(book_id)):
+            for o in acct.orders:                          # over the volume pace on this book: pull our quotes and wait
+                response.cancel_order(book_id, o.id)
             return
         if self.toxic and self._toxic_update(book_id, book, self._sec, mid, tick):
             for o in acct.orders:                          # book paused: pull our quotes and stay out
@@ -344,10 +412,21 @@ class QuoteAgent(FinanceAgent):
             inv = max(inv, self.max_inv)                   # at the long cap: no more bids
         if self.max_units and units <= -self.max_units:
             inv = min(inv, -self.max_inv)                  # at the short cap: no more offers
-        if bid_px is not None and inv < self.max_inv and acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY) >= qty * bid_px:
-            want[OrderDirection.BUY] = bid_px
-        if ask_px is not None and inv > -self.max_inv and acct.base_balance.free + self._reserved(acct, OrderDirection.SELL) >= qty:
-            want[OrderDirection.SELL] = ask_px
+        sq = {}                                           # per-side quantity (fit_qty: the affordable part of qty, §1211 add. 21)
+        if bid_px is not None and inv < self.max_inv:
+            room = (acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY)) / bid_px
+            q = qty if room >= qty else (round(room * 0.98, vd) if self.fit_qty else 0.0)
+            if q >= self.min_order_size(book_id) and q > 0:
+                want[OrderDirection.BUY] = bid_px; sq[OrderDirection.BUY] = q
+        if ask_px is not None and inv > -self.max_inv:
+            room = acct.base_balance.free + self._reserved(acct, OrderDirection.SELL)
+            q = qty if room >= qty else (round(room * 0.98, vd) if self.fit_qty else 0.0)
+            if q >= self.min_order_size(book_id) and q > 0:
+                want[OrderDirection.SELL] = ask_px; sq[OrderDirection.SELL] = q
+        if self.dbg and self._sec - self._dbg_at.get(book_id, -10 ** 9) >= 60:
+            self._dbg_at[book_id] = self._sec
+            bt.logging.info(f"DBG book {book_id} mid {mid:.4f} units {units:.1f} inv {inv:+.3f} qty {qty} qfree {acct.quote_balance.free:.1f} "
+                            f"bfree {acct.base_balance.free:.1f} base0 {base0:.1f} wealth0 {wealth0:.0f} bid_px {bid_px} ask_px {ask_px} want {sorted(int(k) for k in want)} pred {pred:+.2f} open {len(acct.orders)} {[(int(o.side), o.price, round(o.quantity or 0, 1)) for o in acct.orders][:4]}")
         if self.take and abs(pred) > self.take * tick and self._sec - self._last_take.get(book_id, -10 ** 9) >= self.take_cool:
             side = OrderDirection.BUY if pred > 0 else OrderDirection.SELL
             room = (self.max_units - units if side == OrderDirection.BUY else self.max_units + units) if self.max_units else self.take_size
@@ -383,7 +462,7 @@ class QuoteAgent(FinanceAgent):
             else:
                 response.cancel_order(book_id, o.id)
         for side, px in want.items():
-            response.limit_order(book_id=book_id, direction=side, quantity=qty, price=px, stp=STP.CANCEL_BOTH, postOnly=True,
+            response.limit_order(book_id=book_id, direction=side, quantity=sq.get(side, qty), price=px, stp=STP.CANCEL_BOTH, postOnly=True,
                                  timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry)
 
     def _record(self, state):
