@@ -19867,3 +19867,8 @@ min — the sim runs ≈ 12 sim min per wall hour) on volatile books: quality 0.
 books idle (paced out after the first burst). x1: its 34 budget-left volatile books split — 20 with the most headroom ($116-216k used)
 for paced making at edge 1 (skip_x1.txt = all but those), 14 for the sleeve (sleeve_books_x1.txt); disjoint from x2's 94. First sim
 minute after the 21:20:44 restart: 89 maker fills on 18 books, 0 trades with x2.
+**§1211 addendum 25 (21:50 UTC 11-03), scaling helper.** `deploy/sn79/add_uid.sh <hotkey> <port> [skip_file]` on the lab box: refuses
+without the hotkey file; writes mvtrx-<hk>.service from x2's unit (paced making, fit_qty, max_units 100; edge arms and sleeve removed;
+own tape), a readout script, looks up the UID; with START=1 enables the unit and an hourly readout timer. Overlapping making books
+between our UIDs are fine (two passive post-only quotes cannot cross); IOC trading (sleeve / unwind) must stay on books no other UID of
+ours quotes. x1's dbg logging removed (restart 21:50 UTC).
