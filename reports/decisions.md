@@ -19843,3 +19843,11 @@ at ≈ $499k and 38 of 88 volatile books ≥ $450k → x1 = skill only: no makin
 trade each other; after the fix 0). x2 quotes the other 94 books, paced, with arms=edge:4/edge:8 (book mod 3 → edge 1 / 4 / 8 ticks: 1
 tick is 0.33 bp on a $300 book); first 45 sim s: 265 maker fills on 41 books, 179 / 74 / 12 by arm. window_est_x2.sh scores 3 arms.
 Next: fundamental-tilted inventory on x2's making books (the 124/126 pattern) once the edge arms read.
+**§1211 addendum 23 (21:20 UTC 11-03), early edge read; fundamental tilt for making books built (not deployed).** x2's first 14 sim min
+(394-408) by arm, making_exact with the other group's fills de-attributed: volatile books quality 0.25 / 0.08 / 0.41 (edge 1 / 4 / 8),
+calm 0.57 / 0.56 / 0.62 — paced making on volatile books is positive (it was negative at full speed); samples tiny (C 7-24 per arm).
+Tilt (`tilt_bp` / `tilt_notional`, QuoteAgent.tilt.py): on quoted books the inventory target is ±tilt_notional $ by the fundamental gap
+(hysteresis, every sleeve_step) and skew + unit caps act around it. Sizing: at the paced ≈ $62k per book per window the hurdle is ≈ $14;
+making inventory alpha ≈ −1 bp ≈ −$6; the sleeve measurements give ≈ $1.2 per unit per window on $300 books → ≈ $5k targets (≈ 17 / 170
+units on $300 / $30 books, ≈ 10% of book wealth). replay_tilt.py: off = live agent (1,262 instructions); on (5 bp) targets on all 128
+books (67 long / 19 short), placements 541 → 521, net buy notional shifted +$9.6k.
