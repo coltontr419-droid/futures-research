@@ -19861,3 +19861,9 @@ forecaster, regime-dependent, ≈ break-even per 0.8 TAO slot — hold), Hone §
 everything; Claude-output terms question; open-weight only), CliqueAI §1165/§1172/§1195 (size ties 93/98 but diversity 0.57 vs 0.85 →
 2nd percentile; open item: enumerate each problem's maximum cliques and return an unclaimed one). Code lives in src/futuresres/synth/
 (clique_*.py, numvc.c, dlsmc2.c, s50_*.py) and /opt/clique on the lab box — not in a top-level synth/ folder.
+**§1211 addendum 24 (21:30 UTC 11-03), edge read 2 and x1 back to making (user: go).** x2 since the restart (sim 405.2-413.5, only 8 sim
+min — the sim runs ≈ 12 sim min per wall hour) on volatile books: quality 0.29 / 0.08 / 0.20 (edge 1 / 4 / 8; first read 0.25 / 0.08 /
+0.41) — paced making on volatile books stays positive at every width; edge 4 worst twice; no winner yet (≈ 20 units of C per cell). Calm
+books idle (paced out after the first burst). x1: its 34 budget-left volatile books split — 20 with the most headroom ($116-216k used)
+for paced making at edge 1 (skip_x1.txt = all but those), 14 for the sleeve (sleeve_books_x1.txt); disjoint from x2's 94. First sim
+minute after the 21:20:44 restart: 89 maker fills on 18 books, 0 trades with x2.
