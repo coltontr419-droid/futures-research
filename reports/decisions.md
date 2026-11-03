@@ -19833,3 +19833,13 @@ notional < pace_cap × 5400 / 86400 (even spending), seeded from the tape at sta
 until that volume ages out (days at the sim's pace); x2 is mostly paced out after its first burst. Sustainable making per UID ≈ 20 books ×
 $62.5k per 3-h window ≈ $1.25M ≈ 1/9 of x1's burst → credit ≈ 90 vs 800 → making rank ≈ 0.4-0.6, not 0.99. Backups QuoteAgent.pre-*.py,
 tape.conf.{calm,sleeve}.bak, mvtrx-x2.service.bak.
+**§1211 addendum 22 (20:45 UTC 11-03), how top makers live with the cap; x2 becomes a broad paced maker with an edge A/B.** Field gauges
+(`field_makers.py`): the top makers quote ALL 128 books — 162: credit 838 on 22.8M notional; 124: 691 on 10.9M, skill 1.46 (61 books
+kept); 126: 517 on 7.9M, skill 1.79 (73 kept); 18: 460 on 8.8M, skill 0.51, combined 0.655 (best). ≈ 8M per 3-h window over 128 books ≈
+$62k per book ≈ the per-book cap pace. UID 213's credit per $M (70.6) is the best of the top group — its only problem was concentration on
+40 books. Makers do earn skill: at ≈ $62k per book the 2.3 bp hurdle is ≈ $14 of inventory alpha per book. x1 is boxed in: 40 calm books
+at ≈ $499k and 38 of 88 volatile books ≥ $450k → x1 = skill only: no making (skip all), sleeve on its 34 volatile books with < $300k used
+(sleeve_books_x1.txt); with sleeve_file set the agent now does NOTHING on other books (6 of 46 unwind IOCs had hit x2 — our UIDs must not
+trade each other; after the fix 0). x2 quotes the other 94 books, paced, with arms=edge:4/edge:8 (book mod 3 → edge 1 / 4 / 8 ticks: 1
+tick is 0.33 bp on a $300 book); first 45 sim s: 265 maker fills on 41 books, 179 / 74 / 12 by arm. window_est_x2.sh scores 3 arms.
+Next: fundamental-tilted inventory on x2's making books (the 124/126 pattern) once the edge arms read.

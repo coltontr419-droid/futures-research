@@ -380,6 +380,8 @@ class QuoteAgent(FinanceAgent):
         if int(book_id) in self.skip:
             for o in acct.orders:                          # skipped book: pull our quotes and stay out
                 response.cancel_order(book_id, o.id)
+            if self.sleeve_books is not None and int(book_id) not in self.sleeve_books:
+                return                                     # sleeve_file set: trade only the sleeve books (another UID of ours quotes the rest)
             units = acct.base_balance.total - base0
             target, cool = 0.0, self.take_cool
             if self.sleeve_bp and fundamental and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
