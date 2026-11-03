@@ -1,0 +1,13 @@
+[Unit]
+Description=Bittensor SN79 (MVTRX) miner x2, QuoteAgent calm-books setup (futures-research decisions.md 1211 add. 16)
+After=network-online.target
+ConditionPathExists=/root/.bittensor/wallets/main/hotkeys/x2
+[Service]
+WorkingDirectory=/opt/mvtrx/repo/taos/im/neurons
+Environment=BT_NO_PARSE_CLI_ARGS=false
+ExecStart=/opt/mvtrx/venv/bin/python miner.py --netuid 79 --subtensor.chain_endpoint wss://entrypoint-finney.opentensor.ai:443 --wallet.path /root/.bittensor/wallets --wallet.name main --wallet.hotkey x2 --axon.port 8102 --axon.external_ip 157.245.86.147 --axon.external_port 8102 --logging.info --agent.path /opt/mvtrx/agents --agent.name QuoteAgent --agent.params size=0.06 skew=6.0 max_inv=0.3 edge=1 model=/opt/mvtrx/agents/model30_of.json alpha_k=1.0 tape=/opt/mvtrx/live_tape_x2.jsonl join=1 pull=1.0 max_units=40 lean=1 raw=1 lazy_load=1 qlog=1 cancel_first=1 flow_pull=0.3 flow_win=10 flow_cool=3 own_ex=1 skip_file=/opt/mvtrx/skip_books.txt skip_flat=1
+Restart=always
+RestartSec=30
+MemoryMax=3G
+[Install]
+WantedBy=multi-user.target

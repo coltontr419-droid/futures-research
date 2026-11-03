@@ -19777,3 +19777,10 @@ net alpha −2,158 (field median +230), weakest-3 −0.70, notional 42M (field m
 min, 32 of 33 quoted books positive, kappa +5.66; last 20 sim min, 35 of 38 positive, kappa +3.17 (field skill median 0.06, p90 2.12). If
 it holds once the window is clean, skill ranks near the top of the positives as well as making → combined toward the top-10% band
 (top-10% miners: combined 0.46, making rank 0.48, skill rank 0.43; pay ≥ $401/mo, mean $470).
+**§1211 addendum 16 (05:20 UTC 11-03), second MVTRX UID planned (not registered; user chose to prepare).** Additive, not a split: on the 40
+calm books UID 213 is 3.7% of miner-maker volume (median 4.0% per book, ≈ 113 other maker uids per book) over the last 20 sim min, so a
+second UID mostly takes flow from other makers; skill (kappa, MAD-normalised) is scale-invariant, so it does not halve; pay is per-uid rank.
+No multi-UID / clone / same-IP rule in the validator (coldkeys only reported). Box: load 0.09, 0.9 of 7.9 GB used, the agent ≈ 7% CPU /
+165 MB. Registration burn 0.0874 TAO vs free coldkey balance 0.0891 TAO — exactly one registration. Prepared: /etc/systemd/system/
+mvtrx-x2.service (DISABLED, ConditionPathExists hotkey x2; port 8102; tape live_tape_x2.jsonl; same params and skip list as x1) and
+window_est_x2.sh (UID2 env). Gate: register only if the noon readouts confirm the calm-books making + skill on UID 213.
