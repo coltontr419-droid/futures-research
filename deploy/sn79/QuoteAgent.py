@@ -109,7 +109,9 @@ class QuoteAgent(FinanceAgent):
         self.toxic_pause = int(getattr(c, "toxic_pause", 180))   # sim seconds the book stays paused
         self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
         sf = str(getattr(c, "skip_file", "") or "")         # file of book ids we never quote on: books whose fills stay picked off (§1211 add. 7:
-        self.skip = {int(x) for x in open(sf).read().split()} if sf else set()   # books ranked on one half lift the other half 0.03 → 0.22)
+        self.skip = {int(x) for x in open(sf).read().split()} if sf else set()
+        self.skip_flat = int(getattr(c, "skip_flat", 0))   # 1: on skipped books, unwind the position with IOC takes (taker fills never enter the
+                                                           # making pool, takers get a fee rebate) — one take per take_cool, ≤ take_size, ≤ top level   # books ranked on one half lift the other half 0.03 → 0.22)
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
         self.lean = int(getattr(c, "lean", 0))             # 1: skip the base agent's state history, CSV event log and debug text (§1207, speed)
         self.cancel_first = int(getattr(c, "cancel_first", 0))   # 1: cancel the side the prediction says is exposed first (§1207)
@@ -322,6 +324,16 @@ class QuoteAgent(FinanceAgent):
         if int(book_id) in self.skip:
             for o in acct.orders:                          # skipped book: pull our quotes and stay out
                 response.cancel_order(book_id, o.id)
+            units = acct.base_balance.total - base0
+            if self.skip_flat and abs(units) >= self.min_order_size(book_id) and self._sec - self._last_take.get(book_id, -10 ** 9) >= self.take_cool:
+                side = OrderDirection.SELL if units > 0 else OrderDirection.BUY
+                q = round(min(abs(units), self.take_size, qb if side == OrderDirection.SELL else qa), vd)
+                px = bid if side == OrderDirection.SELL else ask
+                funded = (acct.base_balance.free >= q) if side == OrderDirection.SELL else (acct.quote_balance.free >= q * px)
+                if q >= self.min_order_size(book_id) and funded:
+                    response.limit_order(book_id=book_id, direction=side, quantity=q, price=px, stp=STP.CANCEL_OLDEST, postOnly=False,
+                                         timeInForce=TimeInForce.IOC)
+                    self._last_take[book_id] = self._sec
             return
         if self.toxic and self._toxic_update(book_id, book, self._sec, mid, tick):
             for o in acct.orders:                          # book paused: pull our quotes and stay out

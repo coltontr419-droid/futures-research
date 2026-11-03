@@ -19719,3 +19719,11 @@ out); list = the 40 worst-R books over the whole size6 tape (`deploy/sn79/skip_b
 The list sits entirely in books 0-62 and 102-118 — none in 63-101: unexplained, check. UID 213 restarted 02:55:31 UTC (sim ≈ 183 min,
 backups /opt/mvtrx/QuoteAgent.pre-skip.py, tape.conf.size6own.bak); first minute: 45 fills, 0 on skipped books. Judge on the hourly
 readouts (the bad sim 130-170 stretch leaves the 3-sim-h window ≈ sim 310-350).
+**§1211 addendum 9 (03:05 UTC 11-03), skipped books unwound by IOC (user: go ahead).** QuoteAgent `skip_flat=1`: on a skipped book, after
+pulling our quotes, one IOC at the opposite best per take_cool (30 sim s) for min(|position|, take_size 10, top level) on the reducing side —
+taker fills never enter the making pool (maker-only pair) and takers get a fee rebate, so the unwind cannot dilute R/C; it removes the
+skipped books' inventory swings from the de-beta skill P&L. `replay_flat.py`: without the new params the agent equals the pre-skip agent
+(987 instructions); with them, the only non-cancel instructions on skipped books are 37 IOCs (one per book, ≤ 10 units). Live 03:05:07 UTC:
+first 90 sim s — 252 maker fills, none on skipped books; 46 taker fills (199 units), all on skipped books. Backups QuoteAgent.pre-flat.py,
+tape.conf.skip.bak. Next: measure skill in the clean post-skip window; re-tune `toxic` on the live tape (split-half) for an adaptive list;
+explain the 0-62 / 102-118 concentration.
