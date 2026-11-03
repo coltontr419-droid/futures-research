@@ -108,6 +108,8 @@ class QuoteAgent(FinanceAgent):
         self.toxic = float(getattr(c, "toxic", 0.0))       # >0: pause a book while our fills' 30 s markout EMA is below −TOXIC ticks
         self.toxic_pause = int(getattr(c, "toxic_pause", 180))   # sim seconds the book stays paused
         self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
+        sf = str(getattr(c, "skip_file", "") or "")         # file of book ids we never quote on: books whose fills stay picked off (§1211 add. 7:
+        self.skip = {int(x) for x in open(sf).read().split()} if sf else set()   # books ranked on one half lift the other half 0.03 → 0.22)
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
         self.lean = int(getattr(c, "lean", 0))             # 1: skip the base agent's state history, CSV event log and debug text (§1207, speed)
         self.cancel_first = int(getattr(c, "cancel_first", 0))   # 1: cancel the side the prediction says is exposed first (§1207)
@@ -317,6 +319,10 @@ class QuoteAgent(FinanceAgent):
             ask_px = min((l.price for l in book.asks if l.price >= ask_px - tick / 2 and held(1, l)), default=None)
         qty = round(max(self.size * wealth0 / mid, self.min_order_size(book_id)), vd)
         want = {}
+        if int(book_id) in self.skip:
+            for o in acct.orders:                          # skipped book: pull our quotes and stay out
+                response.cancel_order(book_id, o.id)
+            return
         if self.toxic and self._toxic_update(book_id, book, self._sec, mid, tick):
             for o in acct.orders:                          # book paused: pull our quotes and stay out
                 response.cancel_order(book_id, o.id)

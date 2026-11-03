@@ -19714,3 +19714,8 @@ no drift — so it is us. Losses concentrate in books: dropping the 40 worst-R b
 books carry 2-3× the median book's fills and often negative captured (stale quotes picked off). Out of sample (books ranked on sim < 150,
 scored on ≥ 150; `making_exact_dump.py` BOOKS_OUT): drop 20 / 30 / 40 → 0.128 / 0.183 / 0.222 vs 0.033 kept-all; random 30-book drops
 median 0.034, p95 0.117 → per-book toxicity persists. Next lever: skip the persistently toxic books (static list or online per-book R).
+**§1211 addendum 8 (02:55 UTC 11-03), skip list live (user: go).** QuoteAgent `skip_file` (book ids never quoted: pull our orders and stay
+out); list = the 40 worst-R books over the whole size6 tape (`deploy/sn79/skip_books_213.txt`; in-sample quality 0.343 without them).
+The list sits entirely in books 0-62 and 102-118 — none in 63-101: unexplained, check. UID 213 restarted 02:55:31 UTC (sim ≈ 183 min,
+backups /opt/mvtrx/QuoteAgent.pre-skip.py, tape.conf.size6own.bak); first minute: 45 fills, 0 on skipped books. Judge on the hourly
+readouts (the bad sim 130-170 stretch leaves the 3-sim-h window ≈ sim 310-350).
