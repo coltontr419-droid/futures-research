@@ -101,6 +101,10 @@ class QuoteAgent(FinanceAgent):
         self.take_size = float(getattr(c, "take_size", 10.0))   # units per take, capped by the top level's size and the position cap
         self.take_cool = int(getattr(c, "take_cool", 30))       # sim seconds between takes on one book
         self._last_take = {}
+        self.own_ex = int(getattr(c, "own_ex", 0))         # 1: the order-flow features skip OUR orders / cancels (by order id) and our takes:
+                                                           # at size 0.06 our own flow drove |pred| (§1211 add. 5: 30× the replay's takes)
+        self._own_hist, self._own = [], set()
+        self.own_stats = [0, 0, 0.0, 0.0]                  # [our o/c events skipped, all o/c events, our size, all size] (diagnostic)
         self.toxic = float(getattr(c, "toxic", 0.0))       # >0: pause a book while our fills' 30 s markout EMA is below −TOXIC ticks
         self.toxic_pause = int(getattr(c, "toxic_pause", 180))   # sim seconds the book stays paused
         self._pending, self._mo, self._paused = {}, {}, {}  # per book: [(due sec, side, price)], markout EMA (ticks), paused until sec
@@ -159,6 +163,12 @@ class QuoteAgent(FinanceAgent):
     def respond_simulation(self, state):
         response = self.make_response()
         self._sec = state.timestamp // 1_000_000_000
+        if self.own_ex:                                    # ids of our resting orders in this and the last 2 states: an order we placed rests
+            self._own_hist.append({o.id for a in self.accounts.values() for o in (a.orders or [])})   # at least one state before its cancel
+            self._own_hist = self._own_hist[-3:]; self._own = set().union(*self._own_hist)
+            if self._sec % 60 == 0 and self.own_stats[1]:
+                n, t, q, qt = self.own_stats
+                bt.logging.info(f"OWN FLOW: our share of order/cancel events {n / t:.1%} by count, {q / max(qt, 1e-9):.1%} by size")
         if self.tape is not None:
             self._record(state)
         for book_id, book in (self._books if self._books is not None else state.books or {}).items():
@@ -181,6 +191,13 @@ class QuoteAgent(FinanceAgent):
         row = ofl.setdefault(sec, [0.0] * 6)
         for e in book.events or []:
             kind = getattr(e, "y", "")
+            if self.own_ex and kind in ("o", "c"):
+                self.own_stats[1] += 1; self.own_stats[3] += e.quantity or 0.0
+                if e.id in self._own:
+                    self.own_stats[0] += 1; self.own_stats[2] += e.quantity or 0.0
+                    continue
+            if kind == "t" and self.own_ex and e.Ta == self.uid:
+                continue
             if kind == "t":
                 s = e.timestamp // 1_000_000_000
                 fl[s] = fl.get(s, 0.0) + e.quantity * (1 if e.side == 0 else -1)

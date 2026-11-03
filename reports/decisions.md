@@ -19688,3 +19688,13 @@ books (≈ 30× the replay's rate) at **−0.56 ticks gross (t −2.0, 959 fills
 Hypothesis: at size 0.06 our own 10-unit quotes and takes are a visible part of the order flow the predictor reads (of_new / of_near /
 flow5), inflating |pred| — which would also contaminate fair value (alpha_k 1) and the pull rule, a candidate for the size test's quality
 drop (0.35 → 0.15). Next: exclude our own events from the order-flow features, then re-test.
+**§1211 addendum 6 (00:30 UTC 11-03), own-flow filter; taking closed.** QuoteAgent `own_ex=1`: the order-flow features skip order / cancel
+events whose id is one of our resting orders in the last 3 states, and trades where we are the taker (replay_own.py: own_ex=0 byte-
+identical over 988 instructions). Live at size 0.06 our own orders are only **0.5% of order / cancel size** (0.8-0.9% by count) — the
+"our quotes contaminate the predictor" hypothesis (addendum 5) is wrong for making; the quality drop has another cause. Take retest with
+own_ex=1 (from sim min 143.4): rate unchanged (≈ 75 takes per sim minute — the live model simply exceeds 4 ticks far more often than in
+the tape replays), 207 fills at **+0.11 gross (size-weighted +0.31), t 0.2** → zero edge live vs +2.4..+5.6 replayed; take OFF for good
+(own_ex stays). The replay-to-live gap is unexplained (candidates: the live state's event set differs from the tape's per-second "of"
+aggregation; regime). MVTRX 23:20 UTC readout: quality 0.203, credit 61.4 (rank 13/254 in-window), live making rank 0.024 → 0.188, skill
+−0.24 → 0.0, combined 0.094. ReadyAI 00:00 UTC: $137 = 0.75× median, validators 0.69-0.75 (line ≈ 0.84). Tag101 m3 00:00 UTC: $221 vs
+lowest prunable $229 (incentive 0.00334 vs median 0.00371; mostly inherited history at 5 h).
