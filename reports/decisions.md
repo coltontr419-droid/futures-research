@@ -19806,3 +19806,15 @@ exhaust the block limits") with nothing executed; per-hotkey `stake remove --wal
 unstaked r3 + m3 and registered x2 → **UID 247** (free balance after 0.0506 TAO; 7 stake positions left). mvtrx-x2 enabled 18:28 UTC
 (calm-books params, port 8102, tape live_tape_x2.jsonl), first fills within 2 min; readout window_est_x2.sh hourly at :25 (UID2=247 →
 window_readouts_x2.txt).
+**§1211 addendum 20 (19:40 UTC 11-03), a skill sleeve from the published fundamental — built, replay-checked, not deployed.**
+`skill_val.py` re-implements the validator's alpha (Σ pre-print inventory × Δmid − mean inventory × drift, mark "mid"; notional = our fills
+at fill price; hurdle 2.3 bp; kappa_floored) and reproduces the live gauge: 1 book kept, negative; our calm making books median −1.0 bp of
+notional. The order-flow predictor as a sleeve (`skill_sleeve.py`, |pred| > 2-6 ticks, hold 30-120 s) is ≈ 40× short: α/notional
+median +0.05 bp. Positions by the published fundamental (`fund_sleeve*.py`: ±Q when (fund − mid)/mid > ±θ, hysteresis, checked every 10 s)
+pass on both halves: θ 5 bp, delay 2 s — all books kept 41 (35 positive) kappa +0.80 / 37 (31) +2.26; delay 5 s 41 (33) +0.66 / 39 (32)
++2.01; REVERSED signal 41 (6) −0.41 / 37 (6) −0.39; calm books 29 (27) +1.15 / 29 (26) +1.84; skipped books 12 (8) +0.75 / 8 (5) +3.29.
+Sizing (`fund_size.py`): on calm books 1 unit earns ≈ $0.095 alpha per book per ≈ 140 sim min against ≈ $220k making notional → ≈ 1,500
+units needed to clear the hurdle: infeasible; on skipped books the ratio is size-free (sleeve notional only). QuoteAgent `sleeve_bp` /
+`sleeve_q` / `sleeve_step` / `sleeve_cool`: with skip_flat, on skipped books steer to ±sleeve_q by the fundamental gap via IOCs (making on
+calm books unchanged). `replay_sleeve.py`: off = live agent (926 instructions); on (5 bp, q 10) only IOCs ≤ 10 units on skipped books,
+calm-book orders identical; targets 56 long / 16 short / 16 in band. Copy at deploy/sn79/QuoteAgent.sleeve.py.
