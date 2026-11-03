@@ -19790,3 +19790,14 @@ post-switch), making_exact: quality 0.536 (field median 0.479), credit 143.1 (fi
 ≈ sim 363 ≈ noon CT at ≈ 12 sim min per wall hour; pay lags. Sim-day reset at sim 1440 is ≈ 4 days out. `bench_analyze.py`: per weight
 update, UID 210's gap change minus the field's median change, summed per mode slot → per-round level vs the rolled-off rounds. Dry run
 05:45 UTC: verbatim (4 h before) −0.261, generic (1.1 h, 4 updates) −0.652 — early and noisy.
+**§1211 addendum 18 (18:15 UTC 11-03), noon read.** MVTRX UID 213 overnight (hourly readouts): credit 282 → 792 (rank 5-6 of 256), quality
+0.21 → 0.33 (window still holds part of the pre-switch stretch), live making rank 0.79 → 0.994, combined 0.39 → 0.497; pay $41 → $183/mo
+and rising (lags). Skill stays 0: live skill_books_kept 1, net alpha −176. Cause: the validator's per-book alpha is the inventory PATH
+INTEGRAL Σ inventory × Δmark (debeta.py ≈ l. 1556) minus mean inventory × drift — the spread earned at the fill is NOT in it — and since
+0.6.2 a book counts only if |alpha| ≥ 2.3 bp of our filled notional on it (skill_hurdle_bps; floor_scale 0). skill_est.py counted cash, so
+its kappa +3…+5.7 was making profit, not skill (withdrawn). A making-only UID tops out at combined ≈ 0.5 (field pay at combined 0.45-0.50
+≈ $306 median). Skill needs held inventory that predicts the mark by ≥ 2.3 bp of notional on ≥ 4 books, and making volume inflates the
+notional — a separate problem. Tag101 bench (bench_analyze.py, per-round level vs the rolled-off rounds, field-shift corrected): verbatim
+before −0.26, generic −0.41, keywords −0.80, hashtag −0.20, fixed −0.23, genre −1.04, summary −0.17, verbatim control −0.31 — no family
+near the ≈ 0 needed; a constant answer (fixed) scores like our LLM answers. Tag101 closed; m3 left to prune (immunity ends ≈ 19:09 UTC).
+ReadyAI UID 39 deregistered 05:07 UTC; stop_when_pruned.sh only covered r1/r2, so readyai-r3 was stopped and disabled by hand 18:10 UTC.
