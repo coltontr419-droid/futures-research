@@ -19883,3 +19883,13 @@ depth 3 on 59/98, depth 1-2 on 17 — chosen without the logged answers. Scored 
 (field p10 2.518, median 2.652) → still beats 2% of hotkeys. Our pick equals a logged answer on 66/98 (base 65/98); short of the best size on
 4/98; field mean diversity 0.843, optimality 0.977. The maximum-clique space is already covered by the field (multi-UID operators spread
 across it), so a newcomer cannot buy uniqueness with a different search. CliqueAI closed.
+
+## §1214 — SN50 Synth refresh 11-03 (user: start step 1): still a median-level forecaster that loses on volatile days (S11)
+
+**No trial (backtest).** `s50_backtest.py`, Crypto-24h, last 5 days (≈ 121 prompts per asset; old 5-day caches archived as
+scores_*_5.until20261031.json; Binance cache 09-16 → 11-03, no gaps > 5 min). Best variant todg_12_144_c_ou20@1.0: transformed score
+BTC 68.3 vs field median 50.2 (share 0.014% vs median UID 0.21%), ETH 78.5 vs 64.2 (0.023% vs 0.198%), SOL 72.1 vs 67.7 (0.099% vs 0.19%),
+XRP 91.7 vs 74.5 (0.006% vs 0.084%); current todg_12_36 and GARCH todv worse. Raw CRPS ÷ field median by day (BTC / ETH): 10-28 1.009 / 0.994,
+10-29 1.005 / 0.995, 10-30 1.028 / 1.060, 10-31 1.098 / 1.117, 11-01 1.020 / 1.040, 11-02 1.003 / 1.009; the worst prompts are 50-100 bp days.
+Same as §1205: at the median in raw terms, slow on regime shifts, and the steep payout turns 1-10% into ≈ 0.1× pay. Bar to register: a
+consistent 3-5% raw improvement incl. volatile days. Next: implied volatility (Deribit DVOL / option prices) as the level input.
