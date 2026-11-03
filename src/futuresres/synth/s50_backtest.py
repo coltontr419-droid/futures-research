@@ -207,6 +207,9 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
                 e = eps[:, t] * np.sqrt(h)
                 z[:, t] = e * fut_prof[t] * k
                 h = (1 - ga - gb) * L2 + ga * e ** 2 + gb * h
+        if "_vv" in model:                                  # per-path vol-of-vol (§1216): each path draws a mean-one lognormal level multiplier,
+            vv = float(model.split("_vv")[1].split("_")[0].split("@")[0]) / 100.0   # fattening the 24 h tails (realized 24 h tails 0.15-0.19 vs 0.10)
+            z = z * np.exp(rng.normal(-0.5 * vv ** 2, vv, (n, 1)))
         if "_ou" in model:                                  # mean reversion of log price toward the start: x_{t+1} = (1 - theta) x_t + z_t
             th = float(model.split("_ou")[1].split("_")[0]) / 1e4; x = np.zeros((n, steps + 1))
             for t in range(steps):

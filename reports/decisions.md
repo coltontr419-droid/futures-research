@@ -19904,3 +19904,15 @@ ETH 0.020 / 0.015 / 0.013 / 0.010% (0.198%), SOL 0.106 / 0.069 / 0.046 / 0.025% 
 forecasts there are already too WIDE (the EWMA level jumps after a big move and the market calms faster), not too slow; a forward-looking vol
 input cannot fix overreaction. The fast variant todg_12_36_c_ou20_iv1@0.95 wins the calm window (BTC 0.604%, ETH 0.599%, SOL 0.513% vs medians
 0.33 / 0.36 / 0.21%) and loses the volatile one — the §1205 coin flip. Parked; MVTRX first.
+
+## §1216 — SN50 Synth deep dive (user: keep diving): horizon calibration, vol-of-vol, and Crypto-1h still above the median (S11)
+
+**No trial (backtest).** (1) `s50_calib.py` (PIT of realized changes inside our 1,000 paths, non-overlapping intervals): 5 min ≈ calibrated
+(central-50% hit 0.48-0.55, tails 0.12); 30 min-3 h TOO WIDE (central 0.55-0.69, worst ETH volatile 3 h 0.68; tails ≤ 0.10); 24 h tails too
+thin on volatile days (0.15-0.19 vs 0.10) with drift bias (ETH below-median 0.38). (2) `_vv<pct>` (per-path mean-one lognormal level) in
+`ensemble`: vv25_ou40 lifts the calm window BTC 0.356 → 0.449% (median 0.331) and ETH 0.262 → 0.330% (0.362); no variant helps the volatile
+window (all 0.004-0.019% vs ≈ 0.20%) and stronger OU hurts it → the volatile loss is trend (paths pulled to the start while prices ran), not width.
+(3) Crypto-1h refresh (`s50_1h.py tod1_120_240`, last 3 days ≈ 435 prompts, old caches archived): share BTC 0.482% vs median UID 0.368%,
+ETH 0.312 vs 0.343, SOL 0.929 vs 0.364, XRP 0.289 vs 0.373 — ≈ 1.4× the median on average through the volatile days. Per-UID ≈ $100-200/month
+(1h ≈ $100, 24 h ≈ $0-80, Com/Equ ≈ 0), registration ≈ 0.8 TAO; no duplicate-submission penalty (§1167) → scales linearly with UIDs. Next:
+vol-of-vol on the 1-h model, a trend-regime drift for 24 h, HYPE.
