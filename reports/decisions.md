@@ -19801,3 +19801,8 @@ notional — a separate problem. Tag101 bench (bench_analyze.py, per-round level
 before −0.26, generic −0.41, keywords −0.80, hashtag −0.20, fixed −0.23, genre −1.04, summary −0.17, verbatim control −0.31 — no family
 near the ≈ 0 needed; a constant answer (fixed) scores like our LLM answers. Tag101 closed; m3 left to prune (immunity ends ≈ 19:09 UTC).
 ReadyAI UID 39 deregistered 05:07 UTC; stop_when_pruned.sh only covered r1/r2, so readyai-r3 was stopped and disabled by hand 18:10 UTC.
+**§1211 addendum 19 (18:30 UTC 11-03), x2 live.** Unstake: btcli's batch unstake-all failed twice (MEV-shield "not decrypted", then "would
+exhaust the block limits") with nothing executed; per-hotkey `stake remove --wallet-hotkey <h> --all --no-mev-protection` works. User
+unstaked r3 + m3 and registered x2 → **UID 247** (free balance after 0.0506 TAO; 7 stake positions left). mvtrx-x2 enabled 18:28 UTC
+(calm-books params, port 8102, tape live_tape_x2.jsonl), first fills within 2 min; readout window_est_x2.sh hourly at :25 (UID2=247 →
+window_readouts_x2.txt).
