@@ -19743,3 +19743,16 @@ corr 0.68-0.73, 32-35 of the next slice's calm 40). `calm_k` / `calm_hl` (QuoteA
 10 s in CENTS (the bp version failed: 9-23/40 overlap), half-life 300 sim s, quote only the calm_k lowest, re-chosen every 60 sim s after
 warm-up; `calm_sim.py` replays the tape's books through it: 32-36 / 40 overlap with the validated static list from 5 sim min on. Off:
 identical to the live agent (926 instructions). For the sim-day reset or if prices are redrawn; live agent unchanged.
+**§1211 addendum 12 (04:00 UTC 11-03), deeper dig on ReadyAI and Tag101 (user asked) — three leads tested, all closed.** (1) ReadyAI
+newcomer curve (sn_ranks.py CURVE=1, val 209): competitors' new UIDs (one every ≈ 24 min, rotating coldkeys) sit at ranks 26-160 by 13-23 h;
+ours at 22.5 h = 22 — bottom of its age cohort. Sampling is uniform (get_random_uids over serving uids) and response time is not scored, so
+the gap is per-task score. Windows of one conversation share the enrichment set and reach several miners (our single UID saw a second window
+of 11 of 125 conversations) — but `lab_pool.py` (10 conversations, answers from 1 / 2 / 5 windows): +0.7% (t 0.6) / +0.2% (t 0.2): pooling is
+not the field's edge. (2) Tag101: m3 answers every round it is sent (4 posts per 15 min since 19:28 UTC, no gaps) and m2/m4/m5 got the same
+rate. Each validator queries ALL miners every 15 min and scores only its own rounds; weights = stake-weighted average of validators' boards
+(aggregate_validator_scores), so a validator that never reaches us would zero our share of its stake. Archive weights (`sn101_hist.py`,
+`sn101_perval.py`): UID 210's 24 h mean gap −0.007 → −0.067 over 4 h, identical at all 8 validators (aggregate); implied own-round level
+≈ −0.3 vs median (crowd sim: per-round crowd mean 0.82). SYN capture on port 8098 for one 15-min cycle: 4 validators connect —
+54.177.95.135 (val 0, 62.5% of stake), 34.70.162.213 (val 61, 11.3%) and two without published axons (192.150.253.122, 54.228.70.29);
+missing validators hold ≤ ≈ 25% → at most ≈ −0.03 of the gap. Closed: the deficit is answer quality vs the consensus. The 403 on m3's
+startup axon announcement is harmless (public axon used).
