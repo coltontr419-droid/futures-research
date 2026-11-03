@@ -19735,3 +19735,11 @@ calmest by first-half 10-s |Δmid| 0.527 / 142.5 (rank 1 of 254, two-sided 270 v
 03:13:40 UTC: skip_books.txt = all books but the 40 calmest by full-tape volatility (36 of 40 shared with the first-half list), skip_flat
 unwinds the other 88; after the restart 26 maker fills in 25 sim s, none on skipped books. Previous list: /opt/mvtrx/skip_books_worst40.txt.
 The sim may redraw book regimes at the sim-day reset (sim min 1440) — then recompute the list (or move to an online volatility rule).
+**§1211 addendum 11 (03:45 UTC 11-03), the "calm" books are the ≈ $30 books; online selection built (not deployed).** Prices: ids 0-62
+≈ $297-302, ids 63-101 ≈ $29.3-29.9 (one at $308), ids 102-127 ≈ $304-311 (4-decimal). Per bp the groups are equally volatile; per
+cent (= per tick on 2-decimal books) the $30 books move 0.24 vs 2.1-2.7 — a large-tick market (1 c = 3.4 bp, spread 1-2 ticks) where
+queue position protects a maker, vs small-tick $300 books where we are picked off. Book volatility ranks persist (10-sim-min slices: rank
+corr 0.68-0.73, 32-35 of the next slice's calm 40). `calm_k` / `calm_hl` (QuoteAgent.calm.py, patch add_calm.py): EMA of |Δmid| over
+10 s in CENTS (the bp version failed: 9-23/40 overlap), half-life 300 sim s, quote only the calm_k lowest, re-chosen every 60 sim s after
+warm-up; `calm_sim.py` replays the tape's books through it: 32-36 / 40 overlap with the validated static list from 5 sim min on. Off:
+identical to the live agent (926 instructions). For the sim-day reset or if prices are redrawn; live agent unchanged.
