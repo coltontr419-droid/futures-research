@@ -19872,3 +19872,14 @@ without the hotkey file; writes mvtrx-<hk>.service from x2's unit (paced making,
 own tape), a readout script, looks up the UID; with START=1 enables the unit and an hourly readout timer. Overlapping making books
 between our UIDs are fine (two passive post-only quotes cannot cross); IOC trading (sleeve / unwind) must stay on books no other UID of
 ours quotes. x1's dbg logging removed (restart 21:50 UTC).
+
+## §1213 — SN83 CliqueAI diversity: full enumeration infeasible, vertex-deletion answers still claimed — CLOSED (S11)
+
+**No trial (offline, 98 logged problems from 10-27).** (1) `deploy/sn83/enum_maxclique.c` (bitset B&B, greedy-colouring bound, enumerates
+every clique of the known maximum size) found none within half the time limit on any problem: maximum cliques have 21-109 vertices in
+dense graphs of 290-900 (median n 692, ω 39.5). (2) `clique_delete.py`: from our 8-restart answer delete its 1/2/3 highest-degree
+vertices, re-solve with NuMVC (3 seeds each, 0.4 × time limit), keep a full-size clique from the deepest deletion — reaches the size at
+depth 3 on 59/98, depth 1-2 on 17 — chosen without the logged answers. Scored with clique_rank.py: mean reward 2.394 vs 2.386 base
+(field p10 2.518, median 2.652) → still beats 2% of hotkeys. Our pick equals a logged answer on 66/98 (base 65/98); short of the best size on
+4/98; field mean diversity 0.843, optimality 0.977. The maximum-clique space is already covered by the field (multi-UID operators spread
+across it), so a newcomer cannot buy uniqueness with a different search. CliqueAI closed.
