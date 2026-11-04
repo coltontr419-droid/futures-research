@@ -112,6 +112,9 @@ class QuoteAgent(FinanceAgent):
         self.skip = {int(x) for x in open(sf).read().split()} if sf else set()
         self.skip_flat = int(getattr(c, "skip_flat", 0))
         self.fit_qty = int(getattr(c, "fit_qty", 0))
+        self.tilt_bp = float(getattr(c, "tilt_bp", 0.0))   # >0: on quoted books the inventory target is ±TILT_NOTIONAL $ by the sign of (fundamental − mid)
+        self.tilt_notional = float(getattr(c, "tilt_notional", 5000.0))   # beyond ±TILT_BP (hysteresis, re-checked every sleeve_step); skew and the
+        self._tilt, self._tilt_at = {}, {}                 # unit caps act around it — de-beta skill on making books (§1211 add. 23)
         # pace (§1211 add. 21): the validator drops a miner's placements on a book once its traded notional over the last 24 sim h reaches
         # capital_turnover_cap (10) × miner wealth (≈ $500k per book). Quote a book only while the trailing PACE_PERIOD sum < PACE_CAP and the
         # trailing PACE_WIN sum < PACE_CAP × PACE_WIN / PACE_PERIOD × PACE_K (even spending). Seeded from our own tape at start-up.
@@ -345,6 +348,16 @@ class QuoteAgent(FinanceAgent):
         if wealth0 <= 0:
             return
         inv = (acct.base_balance.total - base0) * mid / wealth0
+        tgt_units = 0.0
+        if self.tilt_bp:
+            f0 = getattr(book, "fundamental", None) or getattr(book, "f", None)
+            if f0:
+                if self._sec - self._tilt_at.get(book_id, -10 ** 9) >= self.sleeve_step:
+                    u = (f0 - mid) / mid * 1e4; cur = self._tilt.get(book_id, 0.0)
+                    self._tilt[book_id] = 1.0 if u > self.tilt_bp else (-1.0 if u < -self.tilt_bp else cur)
+                    self._tilt_at[book_id] = self._sec
+                tgt_units = self._tilt.get(book_id, 0.0) * self.tilt_notional / mid
+                inv = (acct.base_balance.total - base0 - tgt_units) * mid / wealth0
         fair = mid + self.micro * (micro - mid) - self.skew * inv * spread
         fundamental = getattr(book, "fundamental", None) or getattr(book, "f", None)
         if self.fund and fundamental:
@@ -409,7 +422,7 @@ class QuoteAgent(FinanceAgent):
             for o in acct.orders:                          # book paused: pull our quotes and stay out
                 response.cancel_order(book_id, o.id)
             return
-        units = acct.base_balance.total - base0
+        units = acct.base_balance.total - base0 - tgt_units
         if self.max_units and units >= self.max_units:
             inv = max(inv, self.max_inv)                   # at the long cap: no more bids
         if self.max_units and units <= -self.max_units:

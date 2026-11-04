@@ -19916,3 +19916,21 @@ window (all 0.004-0.019% vs ≈ 0.20%) and stronger OU hurts it → the volatile
 ETH 0.312 vs 0.343, SOL 0.929 vs 0.364, XRP 0.289 vs 0.373 — ≈ 1.4× the median on average through the volatile days. Per-UID ≈ $100-200/month
 (1h ≈ $100, 24 h ≈ $0-80, Com/Equ ≈ 0), registration ≈ 0.8 TAO; no duplicate-submission penalty (§1167) → scales linearly with UIDs. Next:
 vol-of-vol on the 1-h model, a trend-regime drift for 24 h, HYPE.
+
+## §1217 — SN50 Com/Equ: session-aware model with session shock pools puts SP500 above the median and NVDA at 4.7×; MVTRX x2 → edge 1 + tilt (S11)
+
+**No trial (backtest) + MVTRX param change.** (1) Com/Equ 5-day baseline (old todg_*_yp/_wk models): SP500 share 0.114% vs median UID 0.341%
+(L 25.4 vs 18.1), AAPLX 0 (L 158 vs 116, best ≈ 10), XAU 0.10 vs 0.28, GOOGLX 0.002 vs 0.16, TSLAX 0.002 vs 0.34, NVDAX 0.004 vs 0.16, WTIOIL
+0.05 vs 0.19, SPCX 0. (2) `s50_session.py` (realized 5-min vol by New-York session from the validator's Hyperliquid feed; PIT by horizon ×
+session): SP500 cash 6.2 bp / closed 3.4 / weekend 2.3 (weekend median |Δ| 0.4 bp); our model far too NARROW in cash hours (3 h central 0.18,
+tails 0.46) and far too WIDE on weekends (central 0.75-0.79, tails ≤ 0.04); NVDAX the same. (3) `ses_ensemble` (model `ses…`): weekday
+volatility per New-York 5-min slot (unsmoothed, keeps the open), one weekend level, from 16 days of the validator's own feed; `_lv<hl>`
+recent cash level, `_vv`, `_sp` session-specific bootstrap pools (weekend shocks from weekend bars), `_cd<pct>` per-path cash-hour drift.
+5-day results (share vs median UID): SP500 old 0.034 → ses 0.078 → ses_lv40 0.10 → **ses_sp 0.269, ses_sp_cd20 0.402** (median 0.34; L 19.2 vs
+20.3); NVDAX old 0.002 → ses 0.019 → **ses_sp 0.733** (median 0.156; L 46 vs 57); AAPLX L 121-149 vs median ≈ 125 (the median UID earns 0 there
+too; best ≈ 10). Thin (≈ 50 prompts per asset) and several variants tried on one window — running all 8 assets on the 5-day and an earlier
+10-day window before choosing. (4) Crypto-1h grid (vv / ou on tod1_120_240): no consistent gain (BTC vv25 0.453 → 0.505, ETH vv15 0.277 →
+0.318, SOL 0.897 → 0.754) — the base model stays. (5) MVTRX x2: edge A/B over all books (window to 23:25 UTC): credit 24.5 / 20.0 / 12.7,
+quality 0.50 / 0.33 / 0.37 (edge 1 / 4 / 8) → edge 1 everywhere; fundamental tilt live on x2 (tilt_bp 5, tilt_notional 5000), replay off =
+previous live agent (864 instructions); restart 00:19 UTC 11-04. x2 is mostly paced out after its first-hour burst: at ≈ 12 sim min per
+wall hour a 90-sim-min pace window refills over ≈ 7.5 wall hours.

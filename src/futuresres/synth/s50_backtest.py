@@ -153,6 +153,64 @@ def hour_profile(H: dict, t0: int) -> tuple[np.ndarray, np.ndarray]:
     return np.where(np.isnan(a), np.nanmedian(a), a), np.where(np.isnan(b2), np.nanmedian(b2), b2)
 
 
+def _et_session(ms: int) -> int:
+    """0 = US cash hours (09:30-16:00 New York, Mon-Fri), 1 = weekday closed, 2 = weekend (§1217)."""
+    from zoneinfo import ZoneInfo
+    t = dt.datetime.fromtimestamp(ms / 1000, ZoneInfo("America/New_York"))
+    if t.weekday() >= 5:
+        return 2
+    m = t.hour * 60 + t.minute
+    return 0 if 570 <= m < 960 else 1
+
+
+def ses_ensemble(closes: np.ndarray, s0: float, model: str, rng, t0: int, n=1000, steps=288, k: float = 1.0) -> np.ndarray:
+    """'ses' (§1217): session-aware 5-minute model for Hyperliquid equity / commodity perps. Weekday volatility per New-York 5-minute slot
+    (unsmoothed: keeps the cash open), weekends one level; profiles and the bootstrap pool from the validator's own feed (`closes`, 5-min,
+    ending at t0). Options: _vv<pct> per-path vol-of-vol; _lv<hl> scales by the recent cash-session level vs the profile (EWMA half-life in
+    cash bars)."""
+    from zoneinfo import ZoneInfo
+    NY = ZoneInfo("America/New_York")
+    r5 = np.diff(np.log(closes)); m = len(r5)
+    ts = t0 - (m - np.arange(m)) * 300000
+    def key(ms):
+        t = dt.datetime.fromtimestamp(ms / 1000, NY)
+        return -1 if t.weekday() >= 5 else (t.hour * 60 + t.minute) // 5
+    kh = np.array([key(int(x)) for x in ts]); kf = np.array([key(int(t0 + j * 300000)) for j in range(steps)])
+    prof = np.full(288, np.nan)
+    for j in range(288):
+        x = r5[kh == j]
+        if len(x) >= 3: prof[j] = np.sqrt(np.mean(x ** 2))
+    prof = np.where(np.isnan(prof), np.nanmedian(prof), prof)
+    wk = r5[kh == -1]; wlev = np.sqrt(np.mean(wk ** 2)) if len(wk) > 20 else np.nanmedian(prof) * 0.4
+    sig_h = np.where(kh == -1, wlev, prof[np.maximum(kh, 0)]); z = r5 / np.maximum(sig_h, 1e-12)
+    lev = 1.0
+    if "_lv" in model:
+        hl = float(model.split("_lv")[1].split("_")[0]); cash = np.array([_et_session(int(x)) == 0 for x in ts])
+        zc = z[cash]
+        if len(zc) > 30:
+            w = 0.5 ** (np.arange(len(zc))[::-1] / hl); lev = float(np.sqrt((w * zc ** 2).sum() / w.sum()))
+    fut = np.where(kf == -1, wlev, prof[np.maximum(kf, 0)]) * k
+    fut = np.where(kf == -1, fut, fut * lev)
+    pool = z[-6000:] / np.sqrt(np.mean(z[-6000:] ** 2))
+    if "_sp" in model:                                     # session-specific shock pools (§1217): weekend shocks from weekend bars (mostly flat
+        sh = np.array([_et_session(int(x)) for x in ts])   # with rare jumps), cash from cash bars, closed from closed bars
+        sf = np.array([_et_session(int(t0 + j * 300000)) for j in range(steps)]); inc = np.empty((n, steps))
+        for sess in (0, 1, 2):
+            zp = z[sh == sess]; zp = zp / np.sqrt(np.mean(zp ** 2)) if len(zp) > 50 else pool; cols = np.where(sf == sess)[0]
+            if len(cols): inc[:, cols] = rng.choice(zp, (n, len(cols))) * fut[None, cols]
+    else:
+        inc = rng.choice(pool, (n, steps)) * fut[None, :]
+    if "_cd" in model:                                     # per-path drift during cash hours: d ~ N(0, cd/100 × the bar's sd) per path, so
+        cd = float(model.split("_cd")[1].split("_")[0].split("@")[0]) / 100.0   # some paths trend through the session (3-h cash spread)
+        sf = np.array([_et_session(int(t0 + j * 300000)) for j in range(steps)])
+        d = rng.normal(0, cd, (n, 1)) * fut[None, :] * (sf == 0)[None, :]
+        inc = inc + d
+    if "_vv" in model:
+        vv = float(model.split("_vv")[1].split("_")[0]) / 100.0
+        inc = inc * np.exp(rng.normal(-0.5 * vv ** 2, vv, (n, 1)))
+    return s0 * np.exp(np.concatenate([np.zeros((n, 1)), np.cumsum(inc, axis=1)], axis=1))
+
+
 def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, slot0: int = 0, k: float = 1.0, stride: int = 5, day0: int = 0,
              hprof: tuple | None = None) -> np.ndarray:
     """1,000 paths of 289 prices at 5-minute steps from the 1-minute closes before t0 (closes end at t0 - 1 min, aligned to 5-minute slots;
@@ -266,6 +324,8 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
     Y = yahoo5(asset) if asset in YAHOO else None
     keys = np.array(sorted(M)); vals = np.array([M[k] for k in keys])
     stride, look = (1, 6 * 288) if hl else (5, 31 * 1440)
+    if hl and any(m.startswith("ses") for m in models):
+        look = 16 * 288                                      # the session model needs ≥ 2 weekends of the validator's feed (§1217)
     rng = np.random.default_rng(1164)
     rows = []
     for st in starts:
@@ -282,7 +342,9 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
             hp = (hp[0], hp[1], yahoo_profile(Y, t0))
         ivr = iv_ratio(asset, t0)
         kk = lambda m: (float(m.split("@")[1]) if "@" in m else 1.0) * (ivr ** float(m.split("_iv")[1].split("@")[0].split("_")[0]) if "_iv" in m else 1.0)
-        ours = {m: crps_sum(ensemble(hist, s0, m.split("@")[0], rng, slot0=slot0, k=kk(m), stride=stride, day0=day0, hprof=hp),
+        ens = lambda m: (ses_ensemble(hist, s0, m.split("@")[0], rng, t0, k=kk(m)) if m.startswith("ses") else
+                         ensemble(hist[-6 * 288:] if hl else hist, s0, m.split("@")[0], rng, slot0=slot0, k=kk(m), stride=stride, day0=day0, hprof=hp))
+        ours = {m: crps_sum(ens(m),
                             np.array(real, float), 300, INTERVALS) for m in models}
         rl = np.log(np.array(real, float)); rows.append({"start": st, "field": P[st], **ours, "_move24": float(rl[-1] - rl[0]),
                                                           "_rv": float(np.sqrt(np.sum(np.diff(rl) ** 2)))})

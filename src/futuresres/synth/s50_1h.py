@@ -61,6 +61,14 @@ def ensemble(closes: np.ndarray, s0: float, slot0: int, model: str, rng, k: floa
     zc = z / np.sqrt(v); pool = zc[-20160:] / np.sqrt(np.mean(zc[-20160:] ** 2))
     fut = prof[(slot0 + np.arange(steps)) % 1440] * lev * k
     inc = rng.choice(pool, (n, steps)) * fut[None, :]
+    if "_vv" in model:                                       # per-path vol-of-vol (§1216): mean-one lognormal level multiplier per path
+        vv = float(model.split("_vv")[1].split("_")[0]) / 100.0
+        inc = inc * np.exp(rng.normal(-0.5 * vv ** 2, vv, (n, 1)))
+    if "_ou" in model:                                       # mean reversion of log price toward the start, theta per minute (×1e-4)
+        th = float(model.split("_ou")[1].split("_")[0]) / 1e4; x = np.zeros((n, steps + 1))
+        for t in range(steps):
+            x[:, t + 1] = (1 - th) * x[:, t] + inc[:, t]
+        return s0 * np.exp(x)
     return s0 * np.exp(np.concatenate([np.zeros((n, 1)), np.cumsum(inc, axis=1)], axis=1))
 
 
