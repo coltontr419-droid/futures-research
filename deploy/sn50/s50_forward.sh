@@ -8,7 +8,7 @@ PY=/opt/synth/venv/bin/python
 FAST=todg_12_36_c_ou20@0.95; SLOW=todg_12_144_c_ou20@1.0; VV=todg_12_144_c_vv25_ou40@1.0
 C24="$SLOW,$VV,mix:$FAST|$SLOW,mix:$FAST|$SLOW|0.3,mix:$VV|$SLOW"
 CE="todg_12_36_c_yp@1.0,ses_sp@1.0,ses_sp_yc@1.0,ses_sp_yc@1.1,ses_sp_cd20@1.0,mix:todg_12_36_c_yp@1.0|ses_sp_yc@1.0"
-C1="tod1_120_240"
+C1="tod1_120_240,tod1_30_60_vv25"
 for a in BTC ETH SOL XRP HYPE; do
   rm -f data/synth/scores_${a}_$N.json data/synth/scores1h_${a}_$N.json
   echo "== 24h $a" >> $LOG; nice $PY -m futuresres.synth.s50_backtest $a $N "$C24" >> $LOG 2>&1

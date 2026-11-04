@@ -39,8 +39,8 @@ def main(log: str, files: list[str]) -> None:
     ours = ours_by_step(log)
     per_hk, ours_hi, ours_lo, n = defaultdict(list), [], [], 0
     for f in files:
-        t = pq.read_table(f, columns=["_step", "difficulty", "miner_ans", "miner_hotkeys", "miner_rewards", "adjacency_list"]).to_pylist()
-        for r in t:
+        cols = ["_step", "difficulty", "miner_ans", "miner_hotkeys", "miner_rewards", "adjacency_list"]
+        for r in (row for b in pq.ParquetFile(f).iter_batches(batch_size=2, columns=cols) for row in b.to_pylist()):   # graphs are large: stream
             step = int(r["_step"])
             if step not in ours or not r["miner_ans"] or not r["miner_rewards"]:
                 continue

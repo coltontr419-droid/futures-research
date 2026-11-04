@@ -20090,6 +20090,6 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   +2.1 bp at 10 s (74% hit) and +2.0 bp at 15 min. skill_val replica: positive for 114/238/120 with kept counts similar to the gauges.
 - Naive 60-s fade backtest (mid-to-mid, no own impact): +0.3 to +1.2 bp/notional median per book, few books past the 2.3 bp hurdle.
   The top UIDs reach +1.3 to +3.1, so either better timing or own impact (which the validator counts). This is decided live.
-- LIVE TEST on x1 from 19:58 UTC: rev_look=60 rev_hold=180 rev_usd=1000 sleeve_bp=4 sleeve_step=20 on 40 books (skip_x1 = sleeve_books_x1),
+- LIVE TEST on x1 from 19:37 UTC: rev_look=60 rev_hold=180 rev_usd=1000 sleeve_bp=4 sleeve_step=20 on 40 books (skip_x1 = sleeve_books_x1),
   making on the other 88. Backups: QuoteAgent.pre-rev.py, skip_x1.pre-rev.txt, sleeve_books_x1.pre-rev.txt, tape.conf.pre-rev.
   Replay check: rev off identical to live (926 instructions), rev on only IOC on the sleeve books.
