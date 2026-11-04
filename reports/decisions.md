@@ -20093,3 +20093,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - LIVE TEST on x1 from 19:37 UTC: rev_look=60 rev_hold=180 rev_usd=1000 sleeve_bp=4 sleeve_step=20 on 40 books (skip_x1 = sleeve_books_x1),
   making on the other 88. Backups: QuoteAgent.pre-rev.py, skip_x1.pre-rev.txt, sleeve_books_x1.pre-rev.txt, tape.conf.pre-rev.
   Replay check: rev off identical to live (926 instructions), rev on only IOC on the sleeve books.
+- §1223 add. 1 (20:38 UTC): top-taker rules from 36,100 trades: hold median 630 s (p75 1,440), fade signal strongest at 300 s lookback
+  (68% against; median prior move 2.9 bp), clip median $1,013, own impact only +0.34 bp then drift +1.65 bp (64% hit). They mostly trade the
+  calm ~$30 books (spread 6.8 bp). x1 test switched to rev_look=300 rev_hold=600 sleeve_bp=3 on the same 40 books (backup tape.conf.rev60).
+  First 14 sim min of the 60-s version: reversal books α ≈ 0 (3 kept of 22), making books net α −32 (13 kept), so the making books drag skill.
