@@ -20055,3 +20055,15 @@ max_units 100 → 40 (smaller making inventory → its losing |alpha| stays unde
 kappa); x1 sleeve_bp 5 → 0 (sleeve off, positions unwound). Plan: replace x1 with a fresh UID on the x2 template once x2's skill turns
 positive. Synth forward day 2: Crypto-1h above the median on all five assets again (BTC 0.43 / 0.378, ETH 0.476 / 0.306, SOL 1.372 / 0.261,
 XRP 0.26 / 0.215, HYPE 0.406 / 0.262); Crypto-24h weighted 0.054% vs 0.361%.
+
+## §1221 — SN50 Synth miner staged on the lab box (disabled), all 18 prompt types pass Synth's validator; funding status (S11)
+
+**No trial (staging).** synth-subnet acc8579 (latest, 10-28) in /opt/synth/synth-subnet with the shared /opt/synth/venv (bittensor 10.4.1);
+neurons/miner.py imports generate_simulations from futuresres.synth.miner_model (copy at deploy/sn50/miner.patched.py). miner_model now uses
+the forward test's frozen 24 h crypto model (todg_12_144_c_ou20 @ 1.0; 1 h tod1_120_240 unchanged) and an optional Com/Equ session model via
+SYNTH_CE_MODEL (e.g. ses_sp_yc@1.0; empty keeps the per-asset defaults). `synth_vcheck.py`: all 18 prompt types (Crypto-1h × 5, Crypto-24h × 5,
+Com/Equ × 8) → validate_responses "CORRECT"; 0.3-3 s warm, ≈ 6-7 s cold. synth-s1.service (hotkey s1, axon 8103, validator_min_stake 65000,
+ConditionPathExists hotkey s1) and synth-warm.timer (every 15 min, one small forecast per asset and horizon) created DISABLED. To go live: the
+user creates hotkey s1, copies it (and s1pub.txt to the droplet for reports), registers on netuid 50 (0.8 TAO), then enable synth-warm.timer
+and synth-s1. Funding 11-04: free 0.051 TAO + ≈ 0.11 TAO unstakable (9 small positions) ≈ 0.16 TAO; SN79 burn 0.153 TAO (x1 replacement
+just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar (≥ 5 days, Crypto-1h + one more competition ≥ median).

@@ -1,0 +1,13 @@
+[Unit]
+Description=Bittensor SN50 (Synth) miner s1 with the futures-research forecaster (decisions.md 1221)
+After=network-online.target
+ConditionPathExists=/root/.bittensor/wallets/main/hotkeys/s1
+[Service]
+WorkingDirectory=/opt/synth/synth-subnet
+Environment=PYTHONPATH=/opt/synth/src:/opt/synth/synth-subnet
+ExecStart=/opt/synth/venv/bin/python neurons/miner.py --netuid 50 --subtensor.network finney --wallet.path /root/.bittensor/wallets --wallet.name main --wallet.hotkey s1 --axon.port 8103 --axon.external_ip 157.245.86.147 --axon.external_port 8103 --blacklist.validator_min_stake 65000 --logging.info
+Restart=always
+RestartSec=30
+MemoryMax=2G
+[Install]
+WantedBy=multi-user.target
