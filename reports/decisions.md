@@ -20097,3 +20097,8 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   (68% against; median prior move 2.9 bp), clip median $1,013, own impact only +0.34 bp then drift +1.65 bp (64% hit). They mostly trade the
   calm ~$30 books (spread 6.8 bp). x1 test switched to rev_look=300 rev_hold=600 sleeve_bp=3 on the same 40 books (backup tape.conf.rev60).
   First 14 sim min of the 60-s version: reversal books α ≈ 0 (3 kept of 22), making books net α −32 (13 kept), so the making books drag skill.
+- §1223 add. 2: their REAL trades scored with the backtest formula match skill_val (114 +1.27/+1.29, 238 +1.89/+1.87), so the scale is right.
+  The lever is FEWER bets per book: the hurdle is per book, so 2-4 larger bets per book swing past ±2.3 bp, and a positive mean makes most of
+  those passes positive. 400 MB backtest, all books: thr 8 / look 300 / hold 1200 / one bet per 1200 s → pass 27%, fail 9% (net +23 books),
+  median +1.33 (cf. UIDs 42/114: 30-35% pass, live skill > 2). thr 3 / re-check 20 s → 1%/2%. x1 switched to sleeve_bp=8 sleeve_step=1200
+  rev_hold=1200 (backup tape.conf.rev300). Calm-only books are no better than the others for this rule.
