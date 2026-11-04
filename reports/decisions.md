@@ -20036,3 +20036,11 @@ ranks 4-12. Archive history (`reax_hist.py`, 15 daily snapshots): alpha per day 
 (public sources, mid-2026): RTX PRO 6000 96 GB ≈ $1.09-2.09/h, H100 80 GB ≈ $1.49-2.99/h → margin ≈ $1.1-1.8k per hotkey per month at
 today's price. Capital + token-price bet (unlike MVTRX / Synth); possible pilot: one rented 96 GB GPU for a week + one UID (0.5 TAO), alpha
 sold regularly — user's decision. Before a pilot: the day −4 pay drop, reax-selfcheck on the rented card, the multi-model rules' status.
+**§1220 addendum (06:30 UTC 11-04), the inference pool is shrinking — REAX moved to WATCH (user: run the count now).** `reax_count.py`
+(archive, every 2 days, top 3 excluded): UIDs earning ≥ 8 alpha/day 137 (day −14) → 65-78 (days −12…−6) → 29-41 (days −4…0); their total
+1,681 → 1,192-1,605 → 436-858 alpha/day; median per strong UID 10.5 → 10-12 → 16-24; other paid UIDs' total 547 → 278-477. About four days
+ago the inference pools' total roughly halved while the reax-spec generalist (model-TRAINING) winners took ≈ 1,000 alpha/day (≈ $150k/month
+for 3 UIDs) — the subnet is shifting emissions from serving to training (GENERALIST-RELEASE.md / SPECIALIST-TRACKS.md / COMPETITIONS.md).
+The per-UID rise (≈ 20 alpha/day ≈ $2.9k) comes from fewer UIDs splitting a smaller pool; a new full-stack hotkey would take ≈ 1/39 of
+≈ 730 alpha/day and the pool may keep shrinking. REAX inference → watch (pilot only after ≥ 2 weeks of a stable inference pool); the training
+competition is winner-take-most against established teams — not a fit now.
