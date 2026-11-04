@@ -20044,3 +20044,14 @@ for 3 UIDs) — the subnet is shifting emissions from serving to training (GENER
 The per-UID rise (≈ 20 alpha/day ≈ $2.9k) comes from fewer UIDs splitting a smaller pool; a new full-stack hotkey would take ≈ 1/39 of
 ≈ 730 alpha/day and the pool may keep shrinking. REAX inference → watch (pilot only after ≥ 2 weeks of a stable inference pool); the training
 competition is winner-take-most against established teams — not a fit now.
+**§1211 addendum 30 (17:55 UTC 11-04), overnight: the calm-book sleeve is positive in every read; x2's making books cancel it; x1 fell to 0.**
+skill_reads.txt (2-h, last 30 sim min): x2 sleeve books kept 1/1, 1/1, 3/3, 5/5 (kappa +8.13), 3/3, 3/3 — all positive, median α/notional
++1.8…+2.7 bp; x2 making books kept 6 (6 −), 1 (1 −), 6 (3 −), 12 (11 −), 6 (4 −), 3 (3 −) → live skill 0 (losing kept books dominate kappa's
+cubed downside). x1 live: skill 0.27 → 0.32 → 0.45 (rank 0.61) by 10:20 UTC, then 0 from 12:20; making 41 → 10.5 → 0 (10:20). Exact making on
+x1's last 90 sim min (570-660): captured 7.2 vs field median 241, R −0.7, 25 of 30 books one side ≤ 0 → credit 0 — paced volatile-book making
+is worthless for x1; its de-meaned reversed sleeve traded 100-150 times per 10 sim min and turned negative (failed). x1 pay $264 (11:00 UTC)
+→ $121 (17:00), prune line ≈ $100. No sim reset (sim time continuous), x1 present 1.0, still UID 213. Changes 17:53 UTC: x2 skew 6 → 10,
+max_units 100 → 40 (smaller making inventory → its losing |alpha| stays under the 2.3 bp hurdle, leaving the sleeve's positive books to set
+kappa); x1 sleeve_bp 5 → 0 (sleeve off, positions unwound). Plan: replace x1 with a fresh UID on the x2 template once x2's skill turns
+positive. Synth forward day 2: Crypto-1h above the median on all five assets again (BTC 0.43 / 0.378, ETH 0.476 / 0.306, SOL 1.372 / 0.261,
+XRP 0.26 / 0.215, HYPE 0.406 / 0.262); Crypto-24h weighted 0.054% vs 0.361%.
