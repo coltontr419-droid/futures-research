@@ -20020,3 +20020,19 @@ commercial anti-detect browsers via the challenge's verification / bot-runner se
 burned). FlowRadar v2 and AB Sniffer are documented but not active. BEX Tracer (60%) stays skipped (browser-extension fingerprinting doubles
 as user tracking); ADA is defensive but needs paid anti-detect browsers to develop against and a 0.9 bar. Parked; the weekly screen now
 logs SN61's active challenges and weights so FlowRadar going live is caught.
+
+## §1220 — SN92 REAX: verified inference pools; full-stack GPU hotkeys earn ≈ $2.6k/month, token down 35% in 14 days — top lead outside MVTRX/Synth, needs capital (S11)
+
+**No trial (desk + chain).** reaxlabs/reax-subnet (identity on chain): miners serve pinned reference models in a runtime sidecar;
+validators recompute answers on the same model and compare in logit space (correctness is a gate); inside a pool weight ∝ ema ×
+min(cap, verified capacity / target) from unannounced probes (a struck probe → capacity 0). Pools 80 / 15 / 5 by tier: s1-pro (now
+mammoth-1, 48 GB+, 10/s unit, 16 units cap) and s1-fast (Plumb-4B, 24 GB+, 40/s unit, 16 units), s1-lite (Plumb-4B Q8, ≥ 8 GB GPU, 4 units)
+and s1-cpu (Gutsy 0.8B Q8, 4 cores / 4 GB, 4 units); in lite / cpu a coldkey's 3rd+ hotkeys count 0.7× each (≈ 4.33 max); fast / pro linear.
+A hotkey may serve several pools (multi-model commitments `reax-s1m/1:…`). Chain (TAO $227, REAX 0.02158 TAO, pool 3,648 TAO): miners paid
+≈ $300k/month; top 3 = $57k / $57k (`reax-spec/1:generalist` model-training competition) and $39k (lite + cpu). By commitment: cpu-only 10
+UIDs median $14; lite-only 19 UIDs median $183; s1-pro-only 36 UIDs ≈ $3; full stacks (pro / fast + lite + cpu) ≈ $3.1-3.65k each at
+ranks 4-12. Archive history (`reax_hist.py`, 15 daily snapshots): alpha per day of ranks 4-60 median 12-18 (stable), REAX price 0.0333 →
+0.0216 TAO (−35%), total miner alpha 2,944 → ≈ 2,000 per day since day −4 (cause to find). Today ≈ $2,600/month per strong UID. GPU rental
+(public sources, mid-2026): RTX PRO 6000 96 GB ≈ $1.09-2.09/h, H100 80 GB ≈ $1.49-2.99/h → margin ≈ $1.1-1.8k per hotkey per month at
+today's price. Capital + token-price bet (unlike MVTRX / Synth); possible pilot: one rented 96 GB GPU for a week + one UID (0.5 TAO), alpha
+sold regularly — user's decision. Before a pilot: the day −4 pay drop, reax-selfcheck on the rented card, the multi-model rules' status.
