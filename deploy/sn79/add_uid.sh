@@ -1,6 +1,7 @@
 #!/bin/sh
 # Add an MVTRX miner UID on this box (decisions.md §1211 add. 25): ./add_uid.sh <hotkey> <port> [skip_file]
 #   needs /root/.bittensor/wallets/main/hotkeys/<hotkey> (copied from the laptop) and a registered UID on netuid 79.
+#   ALSO copy hotkeys/<hotkey>pub.txt to futures-droplet:/root/.bittensor/wallets/main/hotkeys/ so the earnings check and Discord report see it.
 #   Creates mvtrx-<hotkey>.service from mvtrx-x2.service (paced making, fit_qty, max_units 100; no edge arms, no sleeve),
 #   its own tape, and an hourly readout at :<RO_MIN> (default 30). Does NOT start anything unless START=1.
 set -e
