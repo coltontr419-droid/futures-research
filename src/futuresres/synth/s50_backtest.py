@@ -163,7 +163,18 @@ def _et_session(ms: int) -> int:
     return 0 if 570 <= m < 960 else 1
 
 
-def ses_ensemble(closes: np.ndarray, s0: float, model: str, rng, t0: int, n=1000, steps=288, k: float = 1.0) -> np.ndarray:
+def yahoo_ny_shape(Y: dict, t0: int) -> np.ndarray:
+    """Weekday volatility SHAPE per New-York 5-minute slot (288) from Yahoo bars before t0 (≤ 60 days, consecutive bars, DST-correct);
+    NaN where Yahoo has fewer than 10 bars (overnight for cash-only symbols) (§1218)."""
+    from zoneinfo import ZoneInfo
+    NY = ZoneInfo("America/New_York")
+    ks = np.array(sorted(k for k in Y if k < t0)); v = np.log(np.array([Y[k] for k in ks]))
+    ok = np.diff(ks) == 300000; r = np.diff(v)[ok]; ts = ks[1:][ok]
+    slot = np.array([(lambda t: -1 if t.weekday() >= 5 else (t.hour * 60 + t.minute) // 5)(dt.datetime.fromtimestamp(x / 1000, NY)) for x in ts])
+    return np.array([np.sqrt(np.mean(r[slot == j] ** 2)) if (slot == j).sum() >= 10 else np.nan for j in range(288)])
+
+
+def ses_ensemble(closes: np.ndarray, s0: float, model: str, rng, t0: int, n=1000, steps=288, k: float = 1.0, Y: dict | None = None) -> np.ndarray:
     """'ses' (§1217): session-aware 5-minute model for Hyperliquid equity / commodity perps. Weekday volatility per New-York 5-minute slot
     (unsmoothed: keeps the cash open), weekends one level; profiles and the bootstrap pool from the validator's own feed (`closes`, 5-min,
     ending at t0). Options: _vv<pct> per-path vol-of-vol; _lv<hl> scales by the recent cash-session level vs the profile (EWMA half-life in
@@ -181,6 +192,12 @@ def ses_ensemble(closes: np.ndarray, s0: float, model: str, rng, t0: int, n=1000
         x = r5[kh == j]
         if len(x) >= 3: prof[j] = np.sqrt(np.mean(x ** 2))
     prof = np.where(np.isnan(prof), np.nanmedian(prof), prof)
+    if "_yc" in model and Y:                               # cash-hour SHAPE from 60 days of Yahoo (stable), LEVEL from the validator's feed (§1218)
+        ys = yahoo_ny_shape(Y, t0); cash = np.arange(114, 192)
+        good = cash[~np.isnan(ys[cash])]
+        if len(good) > 40:
+            hl_cash = np.sqrt(np.mean(r5[np.isin(kh, good)] ** 2)); ylev = np.sqrt(np.mean(ys[good] ** 2))
+            prof[good] = ys[good] / ylev * hl_cash
     wk = r5[kh == -1]; wlev = np.sqrt(np.mean(wk ** 2)) if len(wk) > 20 else np.nanmedian(prof) * 0.4
     sig_h = np.where(kh == -1, wlev, prof[np.maximum(kh, 0)]); z = r5 / np.maximum(sig_h, 1e-12)
     lev = 1.0
@@ -268,8 +285,14 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
         if "_vv" in model:                                  # per-path vol-of-vol (§1216): each path draws a mean-one lognormal level multiplier,
             vv = float(model.split("_vv")[1].split("_")[0].split("@")[0]) / 100.0   # fattening the 24 h tails (realized 24 h tails 0.15-0.19 vs 0.10)
             z = z * np.exp(rng.normal(-0.5 * vv ** 2, vv, (n, 1)))
-        if "_ou" in model:                                  # mean reversion of log price toward the start: x_{t+1} = (1 - theta) x_t + z_t
-            th = float(model.split("_ou")[1].split("_")[0]) / 1e4; x = np.zeros((n, steps + 1))
+        hot = level > 1.15 * long                            # volatile regime: the recent level well above the 7-day level (§1218)
+        if "_mo" in model and hot:                           # momentum: drift per step = mo/100 × the last 3 h's mean 5-minute log return
+            mo = float(model.split("_mo")[1].split("_")[0].split("@")[0]) / 100.0
+            z = z + mo * float(np.mean(r5[-36:]))
+        if "_ouc" in model and hot:                          # conditional mean reversion: off in the volatile regime
+            model = model.replace("_ouc", "_nou")
+        if "_ou" in model and "_nou" not in model:          # mean reversion of log price toward the start: x_{t+1} = (1 - theta) x_t + z_t
+            th = float(model.split("_ou")[1].split("_")[0].replace("c", "")) / 1e4; x = np.zeros((n, steps + 1))
             for t in range(steps):
                 x[:, t + 1] = (1 - th) * x[:, t] + z[:, t]
             return s0 * np.exp(x)
@@ -325,7 +348,7 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
     keys = np.array(sorted(M)); vals = np.array([M[k] for k in keys])
     stride, look = (1, 6 * 288) if hl else (5, 31 * 1440)
     if hl and any(m.startswith("ses") for m in models):
-        look = 16 * 288                                      # the session model needs ≥ 2 weekends of the validator's feed (§1217)
+        look = int(__import__('os').environ.get('SES_LOOK', '16')) * 288   # the session model needs ≥ 1-2 weekends of the validator's feed (§1217)
     rng = np.random.default_rng(1164)
     rows = []
     for st in starts:
@@ -342,7 +365,7 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
             hp = (hp[0], hp[1], yahoo_profile(Y, t0))
         ivr = iv_ratio(asset, t0)
         kk = lambda m: (float(m.split("@")[1]) if "@" in m else 1.0) * (ivr ** float(m.split("_iv")[1].split("@")[0].split("_")[0]) if "_iv" in m else 1.0)
-        ens = lambda m: (ses_ensemble(hist, s0, m.split("@")[0], rng, t0, k=kk(m)) if m.startswith("ses") else
+        ens = lambda m: (ses_ensemble(hist, s0, m.split("@")[0], rng, t0, k=kk(m), Y=Y) if m.startswith("ses") else
                          ensemble(hist[-6 * 288:] if hl else hist, s0, m.split("@")[0], rng, slot0=slot0, k=kk(m), stride=stride, day0=day0, hprof=hp))
         ours = {m: crps_sum(ens(m),
                             np.array(real, float), 300, INTERVALS) for m in models}

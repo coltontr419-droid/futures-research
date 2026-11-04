@@ -19934,3 +19934,23 @@ too; best ≈ 10). Thin (≈ 50 prompts per asset) and several variants tried on
 quality 0.50 / 0.33 / 0.37 (edge 1 / 4 / 8) → edge 1 everywhere; fundamental tilt live on x2 (tilt_bp 5, tilt_notional 5000), replay off =
 previous live agent (864 instructions); restart 00:19 UTC 11-04. x2 is mostly paced out after its first-hour burst: at ≈ 12 sim min per
 wall hour a 90-sim-min pace window refills over ≈ 7.5 wall hours.
+
+## §1218 — SN50: combined Com/Equ score, the earlier window, the volatile-day hunt closed, and a daily forward test on frozen models (S11)
+
+**No trial.** (1) `s50_combined.py` rebuilds the validator's competition score (asset-weighted average of per-prompt transformed scores,
+softmax β): Com/Equ 5 days — old 71.8 vs field median 47.4 (rank 246/257), ses_sp 58.6 (198), ses_sp_cd20 57.8 (197), ses_sp@1.1 56.7
+(196/257): below the median; SP500 / XAU / NVDAX wins are outweighed by TSLAX (77 vs 41), GOOGLX (71 vs 40), WTIOIL. (2) Earlier 10-day window
+(to 10-29, ≈ 165 prompts per asset, SES_LOOK=9 because Hyperliquid serves ≈ 17 days of 5-min bars): SP500 old 0.137 / ses_sp 0.101 /
+ses_sp_cd20 0.067 (median 0.348), XAU 0.171 / 0.086 / 0.091 (0.238), NVDAX 0.007 / 0.017 / 0.016 (0.248). `_yc` (cash-hour shape from 60 days
+of Yahoo in New-York slots, level from the feed): SP500 0.136 / 0.120, XAU 0.086 / 0.108, NVDAX 0.024 / 0.950 (earlier / recent) — NVDAX swings
+from 10× below to 6× above the median between windows: Com/Equ cannot be validated on two short windows with capped history. With 9 days of
+history the recent-window SP500 ses_sp share falls 0.29 → 0.14: history length matters. (3) Crypto-24h volatile days: regime-conditional OU
+(`_ouc`, off when the EWMA level > 1.15 × the 7-day level) ≈ no change; momentum (`_mo`, drift from the last 3 h when hot) collapses the volatile
+window (0.000-0.003%); faster level half-life (3 / 6 steps) worse on both windows. Five explanations ruled out (implied vol, vol-of-vol,
+momentum, conditional OU, faster memory); the loss sits in a two-day episode — parked. Monte-Carlo noise: the same model gives BTC-calm 0.366
+and 0.425 in two runs (1,000 paths) → differences < ≈ 0.05 pp are noise. (4) **Forward test** (`deploy/sn50/s50_forward.sh`, lab box
+/opt/synth with its own venv, transient timer synth-forward daily 06:30 UTC): scores the last day's real prompts with models frozen 11-04 —
+24 h crypto todg_12_144_c_ou20@1.0 and todg_12_144_c_vv25_ou40@1.0, 1 h tod1_120_240, Com/Equ todg_12_36_c_yp@1.0 / ses_sp@1.0 / ses_sp_yc@1.0
+— archiving per-prompt rows by date (data/synth/forward/<date>/) and combined competition scores; it also grows the Hyperliquid 5-min cache.
+First run started 01:40 UTC 11-04. Register a Synth UID only on ≥ 5 forward days with the 1-h and at least one other competition at or above
+the median.
