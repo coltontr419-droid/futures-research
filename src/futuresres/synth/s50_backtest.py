@@ -292,9 +292,12 @@ def ensemble(closes: np.ndarray, s0: float, model: str, rng, n=1000, steps=288, 
             vv = float(model.split("_vv")[1].split("_")[0].split("@")[0]) / 100.0   # fattening the 24 h tails (realized 24 h tails 0.15-0.19 vs 0.10)
             z = z * np.exp(rng.normal(-0.5 * vv ** 2, vv, (n, 1)))
         hot = level > 1.15 * long                            # volatile regime: the recent level well above the 7-day level (§1218)
-        if "_mo" in model and hot:                           # momentum: drift per step = mo/100 × the last 3 h's mean 5-minute log return
+        if "_mo" in model and "_moa" not in model and hot:                           # momentum: drift per step = mo/100 × the last 3 h's mean 5-minute log return
             mo = float(model.split("_mo")[1].split("_")[0].split("@")[0]) / 100.0
             z = z + mo * float(np.mean(r5[-36:]))
+        if "_moa" in model:                                  # ALWAYS-ON momentum (§1224): same drift as _mo without the hot-regime gate
+            moa = float(model.split("_moa")[1].split("_")[0].split("@")[0]) / 100.0
+            z = z + moa * float(np.mean(r5[-36:]))
         if "_ouc" in model and hot:                          # conditional mean reversion: off in the volatile regime
             model = model.replace("_ouc", "_nou")
         if "_ou" in model and "_nou" not in model:          # mean reversion of log price toward the start: x_{t+1} = (1 - theta) x_t + z_t

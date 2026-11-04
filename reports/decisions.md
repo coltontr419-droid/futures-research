@@ -20111,3 +20111,13 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   +0.20 (238, live 3.21) … +4.35 (42, live 2.30). User approved a skill-only UID (reusing hotkey x2). /opt/mvtrx/go_skill.sh: x2 = skill-only
   taker on all 128 books with the lock handshake (taker); x1 = making on all 128, no taking, handshake maker. Replay of the skill-only config:
   120 placements, all IOC, none post-only. Backups: QuoteAgent.pre-golive.py, mvtrx-x2.service.pre-skill, tape.conf.pre-golive.
+
+## §1224 — SN82 Noah deep dive (2026-11-04 evening, user asked): a capital-for-yield loop, not mining; parked until MVTRX earnings exist (S11)
+- Repo Vora-Inc/NOAH (fa9c0c2, 11-04): no miner software or GPU. Pay = √(age-decayed NOAH contribution credit) × multiplier, where multiplier =
+  min((PCI/0.5)², 2) and PCI = contributions / spendable earnings. Contributions to the Ark (coldkey 5EL1nNeb…, delegated to hotkey 5DLQGc9D…)
+  are PERMANENT, and 50% of all earnings must keep flowing back. Starter entry (from 11-03) gives ~5 NOAH per coldkey, lifetime, from a 0.25% pool.
+- Chain 11-04: miner pool 1,282 NOAH/day ≈ $350k/month (NOAH 0.0387 TAO, TAO $235). 30 paid UIDs, 45-50 NOAH/day each; two coldkeys
+  (12 and 11 UIDs) take ~85%. Ark holds 53,436 NOAH ≈ $486k. Burn 8.4 TAO ≈ $2k per UID.
+- Rough estimate (assumes ~1,700 credit per established UID): 100 NOAH in → ~11 NOAH/day, net ~5.5 after paybacks (≈ $1.5k/month), upfront ≈ $2.9k,
+  payback ~2 months; 400 in → net ≈ $3k/month for ≈ $5.6k. Risks: NOAH has no use outside the loop (price rests on contributors; the two big wallets
+  earn ~$300k/month); contributions are lost; the credit level isn't verified (needs a scan of all receipts). Earlier memory of "needs a GPU" was wrong.
