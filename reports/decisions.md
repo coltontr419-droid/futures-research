@@ -19983,3 +19983,11 @@ control, few books → live test only on x1 (declining, sleeve earning nothing):
 `sleeve_sign` (off = live agent, 1,006 instructions); x1 sleeve_prop=10 sleeve_dm=1800 sleeve_sign=-1 from 04:33:54 UTC. Judge with
 skillread.sh after ≈ 3-4 wall hours. If the calm-book sleeve is the only robust skill source, a fresh UID (full calm budget) can run making +
 a calm-book sleeve — a reason to replace x1.
+**§1211 addendum 28 (04:40 UTC 11-04), calm-book sleeve on x2 (user: the same constraint applies to any UID — test on x2).** The hurdle
+(2.3 bp of our notional per book) makes a sleeve on a MAKING book a sizing problem, not a blocker: under pacing ≈ $56k per calm book per
+window → hurdle ≈ $13; sleeve ≈ $0.12 per unit per window on a $30 book plus making's ≈ −$6 → ≈ 150 units (≈ 9% of book wealth). The
+simpler design used here: sleeve-ONLY calm books (no making notional, so the hurdle is size-free; calm backtest kappa +6.4 / +6.6, all kept
+positive). x2: sleeve books = every fifth calm book [32, 64, 69, 74, 79, 84, 89, 94] (fixed rule), raw-gap proportional sleeve (sleeve_prop 20,
+sleeve_q 50, take_size 25), making on its other 86 books; tilt removed (its kept books were mostly negative and would drag kappa). Sleeve
+books are quoted by no other UID of ours (x1 quotes no calm books). Live 04:39:51 UTC: first 45 sim s 27 sleeve IOCs, all on sleeve books,
+none against x1; 16 maker fills elsewhere. Scaling rule: every UID = making on most calm books + its own disjoint set of sleeve-only calm books.
