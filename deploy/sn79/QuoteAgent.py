@@ -14,6 +14,7 @@ validator's own capture code.
 """
 
 import json
+import os
 from collections import defaultdict
 
 from taos.common.agents import launch
@@ -146,6 +147,10 @@ class QuoteAgent(FinanceAgent):
         self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
         self._mid_hist, self._rev = {}, {}
+        self.lock_dir = str(getattr(c, "lock_dir", "") or "")   # §1223: our UIDs must never trade with each other. A taker UID writes
+        self.lock_max = float(getattr(c, "lock_max", 120.0))       # lock_<book>_<maker side> before its IOC; the maker UID pulls that side and
+        self._lock_at = {}                                          # writes ack_<book>_<side> only once it has NO order left there; the taker
+                                                                    # fires only on an ack at least as new as its lock, releases when done or after LOCK_MAX s
         self.sleeve_prop = float(getattr(c, "sleeve_prop", 0.0))   # >0: proportional sleeve — target = sleeve_q × clip(gap_bp / sleeve_prop, ±1),
         self.sleeve_band = float(getattr(c, "sleeve_band", 0.2))
         self.sleeve_dm = float(getattr(c, "sleeve_dm", 0.0))      # >0: use the gap minus its own EMA (half-life sleeve_dm sim s) — volatile books sit
@@ -436,8 +441,12 @@ class QuoteAgent(FinanceAgent):
                     self._sleeve_at[book_id] = self._sec
                 target, cool = self._sleeve.get(book_id, 0.0), self.sleeve_cool
             gap = target - units
+            if self.lock_dir and abs(gap) < self.min_order_size(book_id):
+                self._lock_release(book_id)
             if self.skip_flat and abs(gap) >= self.min_order_size(book_id) and self._sec - self._last_take.get(book_id, -10 ** 9) >= cool:
                 side = OrderDirection.BUY if gap > 0 else OrderDirection.SELL
+                if self.lock_dir and not self._lock_ok(book_id, OrderDirection.SELL if side == OrderDirection.BUY else OrderDirection.BUY):
+                    return                                 # waiting for the maker UID to clear that side of the book
                 q = round(min(abs(gap), self.take_size, qb if side == OrderDirection.SELL else qa), vd)
                 px = bid if side == OrderDirection.SELL else ask
                 funded = (acct.base_balance.free >= q) if side == OrderDirection.SELL else (acct.quote_balance.free >= q * px)
@@ -499,6 +508,17 @@ class QuoteAgent(FinanceAgent):
                 want.pop(side, None)
         if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
+        if self.lock_dir:
+            for side in (OrderDirection.BUY, OrderDirection.SELL):
+                lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}"
+                if os.path.exists(lk):
+                    want.pop(side, None)                   # a taker UID of ours is about to trade into this side: stay off it
+                    if not any(o.side == side for o in acct.orders):
+                        with open(ak + ".tmp", "w") as fh:
+                            fh.write(str(self._sec))
+                        os.replace(ak + ".tmp", ak)
+                elif os.path.exists(ak):
+                    os.remove(ak)
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
         orders = sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)) if self.cancel_first else acct.orders
         for o in orders:
@@ -552,6 +572,31 @@ class QuoteAgent(FinanceAgent):
                 if q:
                     self.tape.write(json.dumps({"ts": ts, "book": book_id, "queue": q}) + "\n")
         self.tape.flush()
+
+    def _lock_ok(self, book_id, maker_side):
+        """Taker half of the handshake: request the lock, and report whether the maker UID has acknowledged it (no orders left there)."""
+        lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(maker_side)}", f"{self.lock_dir}/ack_{book_id}_{int(maker_side)}"
+        key = (book_id, int(maker_side))
+        if key not in self._lock_at or not os.path.exists(lk):
+            with open(lk + ".tmp", "w") as fh:
+                fh.write(str(self._sec))
+            os.replace(lk + ".tmp", lk); self._lock_at[key] = self._sec
+            return False
+        if self._sec - self._lock_at[key] > self.lock_max:
+            self._lock_release(book_id)                    # maker never cleared: give the side back, try again later
+            return False
+        try:
+            return float(open(ak).read()) >= self._lock_at[key]
+        except (OSError, ValueError):
+            return False
+
+    def _lock_release(self, book_id):
+        for side in (OrderDirection.BUY, OrderDirection.SELL):
+            self._lock_at.pop((book_id, int(side)), None)
+            try:
+                os.remove(f"{self.lock_dir}/lock_{book_id}_{int(side)}")
+            except OSError:
+                pass
 
     @staticmethod
     def _reserved(acct, side):

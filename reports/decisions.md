@@ -20102,3 +20102,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   those passes positive. 400 MB backtest, all books: thr 8 / look 300 / hold 1200 / one bet per 1200 s → pass 27%, fail 9% (net +23 books),
   median +1.33 (cf. UIDs 42/114: 30-35% pass, live skill > 2). thr 3 / re-check 20 s → 1%/2%. x1 switched to sleeve_bp=8 sleeve_step=1200
   rev_hold=1200 (backup tape.conf.rev300). Calm-only books are no better than the others for this rule.
+- §1223 add. 3: maker/taker LOCK handshake (lock_dir, lock_max) so a skill-only taker UID and x1 (maker) can share all 128 books without ever
+  trading with each other: taker writes lock_<book>_<maker side>, maker pulls that side and writes ack only once its account shows no order
+  there, taker fires only on an ack ≥ its lock time, releases when at target or after lock_max s. Replay: off identical to live (926);
+  maker never places on a locked side and acks; taker fires 0 IOCs without acks (82 with). NOT deployed (needs the second UID).
