@@ -373,7 +373,13 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
         kk = lambda m: (float(m.split("@")[1]) if "@" in m else 1.0) * (ivr ** float(m.split("_iv")[1].split("@")[0].split("_")[0]) if "_iv" in m else 1.0)
         ens = lambda m: (ses_ensemble(hist, s0, m.split("@")[0], rng, t0, k=kk(m), Y=Y) if m.startswith("ses") else
                          ensemble(hist[-6 * 288:] if hl else hist, s0, m.split("@")[0], rng, slot0=slot0, k=kk(m), stride=stride, day0=day0, hprof=hp))
-        ours = {m: crps_sum(ens(m),
+        def ensx(m):                                         # "mix:A|B[|wA]" — a mixture: wA of the paths from model A, the rest from B (§1222)
+            if not m.startswith("mix:"):
+                return ens(m)
+            parts = m[4:].split("|"); wa = float(parts[2]) if len(parts) > 2 else 0.5
+            pa, pb = ens(parts[0]), ens(parts[1]); na = int(round(wa * len(pa)))
+            return np.concatenate([pa[:na], pb[:len(pb) - na]], axis=0)
+        ours = {m: crps_sum(ensx(m),
                             np.array(real, float), 300, INTERVALS) for m in models}
         rl = np.log(np.array(real, float)); rows.append({"start": st, "field": P[st], **ours, "_move24": float(rl[-1] - rl[0]),
                                                           "_rv": float(np.sqrt(np.sum(np.diff(rl) ** 2)))})

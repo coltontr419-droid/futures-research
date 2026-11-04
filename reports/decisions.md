@@ -20067,3 +20067,13 @@ ConditionPathExists hotkey s1) and synth-warm.timer (every 15 min, one small for
 user creates hotkey s1, copies it (and s1pub.txt to the droplet for reports), registers on netuid 50 (0.8 TAO), then enable synth-warm.timer
 and synth-s1. Funding 11-04: free 0.051 TAO + ≈ 0.11 TAO unstakable (9 small positions) ≈ 0.16 TAO; SN79 burn 0.153 TAO (x1 replacement
 just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar (≥ 5 days, Crypto-1h + one more competition ≥ median).
+
+## §1222 — SN50 forward test expanded to all 3 competitions (2026-11-04)
+- Goal: by the 5-day bar (~11-08/09) know $/month per UID for every competition, not only Crypto-1h.
+- Crypto-24h variants (frozen): SLOW todg_12_144_c_ou20@1.0, VV todg_12_144_c_vv25_ou40@1.0, mix FAST|SLOW 50/50 and 30/70, mix VV|SLOW.
+  `mix:A|B[|wA]` = wA of the paths from A, the rest from B (the fast model wins on calm 10-d windows, loses badly on the volatile 5-d one).
+- Com/Eq variants (frozen): todg_12_36_c_yp, ses_sp, ses_sp_yc @1.0 and @1.1, ses_sp_cd20, mix todg_12_36_c_yp|ses_sp_yc.
+- Crypto-1h tod1_120_240 now scored at competition level too (rows1h_/scores1h_ archived; s50_combined S50_PREFIX=1h).
+- s50_rollup.py pools every forward folder, dedups (asset, prompt, model), rebuilds each competition's score and prints $/month per UID
+  from ≈ $53k/3 per competition. Runs daily after the forward test → data/synth/forward/rollup.txt.
+- 2026-11-03-backfill (2 days) is IN-SAMPLE: the variants were picked on those prompts. Only folders from 11-05 on are true forward days.

@@ -96,6 +96,7 @@ def main(asset: str, days: int, models=("tod1_30_60", "tod1_60_120", "tod1_15_30
     from futuresres.synth.s50_backtest import summarise
     out = summarise(rows, models, beta=0.3)
     (CACHE / f"bt1h_{asset}_{days}.json").write_text(json.dumps({"summary": out, "n_prompts": len(rows)}, indent=1))
+    (CACHE / f"rows1h_{asset}_{days}.json").write_text(json.dumps([{k: v for k, v in r.items() if k != "field"} for r in rows]))   # for s50_combined (§1222)
     return out
 
 

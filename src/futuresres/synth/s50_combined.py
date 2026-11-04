@@ -14,8 +14,9 @@ W = {"SP500": 3.437935601155441, "AAPLX": 2.0916380815843123, "XAU": 1.737092259
 num, den, ours_num, ours_den, n = defaultdict(float), defaultdict(float), 0.0, 0.0, 0
 for arg in sys.argv[4:]:
     asset = arg.split(":")[0]; w = float(arg.split(":")[1]) if ":" in arg else W[asset]
-    field = json.loads((CACHE / f"scores_{asset}_{days}.json").read_text())
-    rows = {r["start"]: r for r in json.loads((CACHE / f"rows_{asset}_{days}.json").read_text())}
+    pre = __import__("os").environ.get("S50_PREFIX", "")            # "1h" → the Crypto-1h files (scores1h_ / rows1h_) (§1222)
+    field = json.loads((CACHE / f"scores{pre}_{asset}_{days}.json").read_text())
+    rows = {r["start"]: r for r in json.loads((CACHE / f"rows{pre}_{asset}_{days}.json").read_text())}
     for st, r in rows.items():
         if st not in field or model not in r: continue
         uids = list(field[st]); f = np.array([field[st][u] for u in uids], float); allv = np.append(f, r[model]); ok = allv > 0
