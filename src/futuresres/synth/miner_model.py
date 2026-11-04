@@ -20,9 +20,11 @@ import futuresres.synth.s50_backtest as b24
 import futuresres.synth.s50_1h as b1
 
 LIVE = b24.CACHE / "live"
-MODEL_24H_CRYPTO = ("todg_12_36_c_ou20", 0.95)
+MODEL_24H_CRYPTO = ("todg_12_144_c_ou20", 1.0)                  # the forward test's frozen 24 h model (decisions.md §1218)
 MODEL_24H_HL = ("todg_12_36_c_wk", 1.0)
 MODEL_24H_YP = {"XAU": ("todg_12_36_c_yp", 1.0)}               # Yahoo 60-day weekday profile (decisions.md §1169)
+CE_MODEL = __import__("os").environ.get("SYNTH_CE_MODEL", "")       # e.g. "ses_sp_yc@1.0": the session model for Com/Equ (§1217) once the forward
+                                                                  # test favours it; empty keeps the per-asset defaults above
 MODEL_1H = ("tod1_120_240", 1.0)
 
 
@@ -56,6 +58,11 @@ def generate_simulations(asset: str, start_time: str, time_increment: int, time_
     if time_length == 3600:                                       # Crypto-1h (1-minute steps)
         hist = _binance_minutes(asset, 32)[-31 * 1440:]
         paths = b1.ensemble(hist, float(hist[-1]), (t0 // 60000) % 1440, MODEL_1H[0], rng, MODEL_1H[1], n=num_simulations, steps=steps)
+    elif asset in b24.HYPERLIQUID and CE_MODEL.startswith("ses") and asset != "HYPE":   # session model (§1217), 16 days of the feed
+        M = b24.hl5(asset); keys = sorted(M); hist = np.array([M[k] for k in keys])[-16 * 288:]
+        Y = b24.yahoo5(asset) if asset in b24.YAHOO else None
+        paths = b24.ses_ensemble(hist, float(hist[-1]), CE_MODEL.split("@")[0], rng, t0, n=num_simulations, steps=steps,
+                                 k=float(CE_MODEL.split("@")[1]) if "@" in CE_MODEL else 1.0, Y=Y)
     elif asset in b24.HYPERLIQUID:                                # Com/Equ-24h and HYPE (5-minute Hyperliquid candles)
         M = b24.hl5(asset); keys = sorted(M); hist = np.array([M[k] for k in keys])[-6 * 288:]
         model, k = MODEL_24H_YP.get(asset, MODEL_24H_HL); hp = None
