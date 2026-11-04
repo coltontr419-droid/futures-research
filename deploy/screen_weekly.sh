@@ -14,3 +14,6 @@ for n, x in sorted(cur.items(), key=lambda kv: -kv[1]["med"]):
     if ok(x) and (p is None or not ok(p)): print(f"  NEW PASS  SN{n} {x['name'][:20]}: median \${x['med']:.0f} p90 \${x['p90']:.0f} line \${x['line']:.0f} burn {x['burn']:.3f} top wallet {x['topck']:.0%}")
     elif p and p["med"] > 30 and abs(x["med"] / p["med"] - 1) > 0.5: print(f"  MOVED     SN{n} {x['name'][:20]}: median \${p['med']:.0f} -> \${x['med']:.0f}")
 PY
+# SN61 RedTeam: which challenges are active and their reward weights (decisions.md §1219 add. 2) — watch for FlowRadar going live
+curl -sL https://raw.githubusercontent.com/RedTeamSubnet/RedTeam/main/src/redteam_core/challenge_pool/active_challenges.yaml \
+  | grep -E "^[a-z_0-9]+:$|challenge_incentive_weight" | paste - - | sed "s/^/  SN61 active: /" >> screens/changes.txt

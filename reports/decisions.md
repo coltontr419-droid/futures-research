@@ -20014,3 +20014,9 @@ inference limits) — the best fit, but its flowradar-challenge repo is not publ
 automation frameworks, public repo + testing manual); ADA Detection (identify commercial anti-detect browsers; testing needs paid licences);
 BEX Tracer (extension fingerprinting — skipped, user tracking); Humanize Behaviour (human-mimicking bots — skipped, detection evasion).
 Next: per-challenge emission split and competitor counts (dashboard.theredteam.io), FlowRadar data access, AB Sniffer repo.
+**§1219 addendum 2 (06:05 UTC 11-04), RedTeam's live reward split — parked.** RedTeam 4.10.10 (10-13) `challenge_pool/active_challenges.yaml`
+lists only bex_tracer_v1 (challenge_incentive_weight 0.6, min acceptable 0.8) and ada_detection_v3 (0.4, min acceptable 0.9; tested against
+commercial anti-detect browsers via the challenge's verification / bot-runner servers); config ALPHA_BURN_WEIGHT 0.5 (half of miner weight
+burned). FlowRadar v2 and AB Sniffer are documented but not active. BEX Tracer (60%) stays skipped (browser-extension fingerprinting doubles
+as user tracking); ADA is defensive but needs paid anti-detect browsers to develop against and a 0.9 bar. Parked; the weekly screen now
+logs SN61's active challenges and weights so FlowRadar going live is caught.
