@@ -19991,3 +19991,16 @@ positive). x2: sleeve books = every fifth calm book [32, 64, 69, 74, 79, 84, 89,
 sleeve_q 50, take_size 25), making on its other 86 books; tilt removed (its kept books were mostly negative and would drag kappa). Sleeve
 books are quoted by no other UID of ours (x1 quotes no calm books). Live 04:39:51 UTC: first 45 sim s 27 sleeve IOCs, all on sleeve books,
 none against x1; 16 maker fills elsewhere. Scaling rule: every UID = making on most calm books + its own disjoint set of sleeve-only calm books.
+
+## §1219 — Subnets to prepare while income builds (user: get ahead of the income) + a weekly screen (S11)
+
+**No trial (desk).** From the 11-03 scan, not studied before: SN61 RedTeam (median $167, p90 $400, 230 wallets, top wallet 1% — scored
+per miner; public repo is the validator only; read docs.theredteam.io next); SN123 MANTIS (median $65, p90 $191; miners upload small signal
+vectors every ≈ 60 s to their own Cloudflare R2 bucket, timelock-encrypted, for challenges — 1-h direction across assets, hit-first, breakout,
+4-h cross-sectional rank, 8-h funding-rate change — scored by AUC gates and marginal contribution to a walk-forward meta-model: measurable
+offline, but contribution-based, so a duplicate UID adds ≈ nothing → one-UID side stream); SN22 Desearch (search / summaries, ≈ 50% of the
+score from X results → paid X API, LLM-judged; burn 0.009 TAO; poor fit); SN92 REAX (median $188, p90 $2,940; nothing public found yet).
+Tag101 / ReadyAI not reopened with capital: more UIDs fix feedback speed but not the hidden-target problem, and winning Tag101 by UID count
+would mean outvoting the incumbent's consensus (sybil-style; declined). `deploy/screen_weekly.sh` (lab box, transient timer subnet-screen,
+Mondays 14:00 UTC): re-runs subnet_scan.py, keeps screens/scan_<date>.json, appends NEW PASS (median > $100, top wallet < 50%) and MOVED
+(median ± 50%) to screens/changes.txt; baseline scan 2026-11-03.
