@@ -19961,3 +19961,12 @@ vs 0.348 — above on all five (≈ 148 prompts each). Crypto-24h ou20: BTC 0.21
 combined score failed only on this run (rows moved before combining; fixed for the timer runs). Off-hours OU (`_oux`, 5-day): TSLAX 72.6 →
 66.1, GOOGLX 49.1 → 46.1 at oux5, but SP500 18.5 → 23-31 and NVDAX 41.5 → 51-78 — rejected; TSLAX / GOOGLX / WTIOIL stay ≈ 70-90% behind
 (hypothesis: the field uses the live underlying markets — extended-hours stocks, oil futures). `fwd_read.py` summarises a day's run.log.
+**§1211 addendum 26 (04:25 UTC 11-04), first live skill read: the tilt and the sleeve do not produce counted skill yet.** `skillread.sh`
+(skill_val.py on the live tapes; the sim runs ≈ 18 sim min per wall hour, now sim ≈ 500): x2 (tilt since sim ≈ 428), last 30 / 45 sim
+min — 12 books clear the 2.3 bp hurdle, 2 / 1 positive, Σα −199 / −192, kappa −0.56 / −0.72: held making inventory loses and the static
+±$5k tilt does not offset it. x1's 18 volatile making books 14-17 kept, mixed (5 / 9, 9 / 8), kappa −0.19 / −0.03. x1's sleeve books: 0
+books — the validator's per-book inventory is the sum of OUR FILLS INSIDE ITS WINDOW (no account balances), so a position built before the
+window and held without trading is invisible; skill needs positions re-established within each window (flatten and re-enter on a schedule).
+x2 quality split on calm books (whole tape): all 0.503 (credit 72.8), bot-taken 0.760, background-taken 0.325, small fills negligible —
+no cheap quality lever (the §1209 "bot fills lose" finding does not hold on the calm books). x2 03:25 UTC: credit 98.5 (our est. 105.8),
+making rank 0.32, combined 0.16; x1 03:20: making 180, rank 0.53, combined 0.267.
