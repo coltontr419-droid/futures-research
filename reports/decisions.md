@@ -20106,3 +20106,8 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   trading with each other: taker writes lock_<book>_<maker side>, maker pulls that side and writes ack only once its account shows no order
   there, taker fires only on an ack ≥ its lock time, releases when at target or after lock_max s. Replay: off identical to live (926);
   maker never places on a locked side and acks; taker fires 0 IOCs without acks (82 with). NOT deployed (needs the second UID).
+- §1223 add. 4 (go-live prepared 17:00 CT): 3-sim-hour backtest (the validator's kappa lookback) with the validator's kappa_of_alpha:
+  ours 12 bp / look 600 / hold 2400 / one bet per book per sim hour → 60 kept (38% pass / 16% fail), kappa +0.59; top UIDs on the same proxy
+  +0.20 (238, live 3.21) … +4.35 (42, live 2.30). User approved a skill-only UID (reusing hotkey x2). /opt/mvtrx/go_skill.sh: x2 = skill-only
+  taker on all 128 books with the lock handshake (taker); x1 = making on all 128, no taking, handshake maker. Replay of the skill-only config:
+  120 placements, all IOC, none post-only. Backups: QuoteAgent.pre-golive.py, mvtrx-x2.service.pre-skill, tape.conf.pre-golive.
