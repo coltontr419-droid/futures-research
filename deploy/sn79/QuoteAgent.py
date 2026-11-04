@@ -142,6 +142,10 @@ class QuoteAgent(FinanceAgent):
         self.sleeve_step = int(getattr(c, "sleeve_step", 10))   # sim s, one IOC per SLEEVE_COOL s: de-beta skill counts held inventory × Δmid
         self.sleeve_cool = int(getattr(c, "sleeve_cool", 5))    # and its 2.3 bp hurdle is per own notional (§1211 add. 20)
         self._sleeve, self._sleeve_at = {}, {}
+        self.rev_look = float(getattr(c, "rev_look", 0.0))       # >0: REVERSAL sleeve (§1223) on the sleeve books — when mid moved ≥ SLEEVE_BP over the
+        self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
+        self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
+        self._mid_hist, self._rev = {}, {}
         self.sleeve_prop = float(getattr(c, "sleeve_prop", 0.0))   # >0: proportional sleeve — target = sleeve_q × clip(gap_bp / sleeve_prop, ±1),
         self.sleeve_band = float(getattr(c, "sleeve_band", 0.2))
         self.sleeve_dm = float(getattr(c, "sleeve_dm", 0.0))      # >0: use the gap minus its own EMA (half-life sleeve_dm sim s) — volatile books sit
@@ -403,7 +407,21 @@ class QuoteAgent(FinanceAgent):
                 return                                     # sleeve_file set: trade only the sleeve books (another UID of ours quotes the rest)
             units = acct.base_balance.total - base0
             target, cool = 0.0, self.take_cool
-            if self.sleeve_bp and fundamental and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
+            if self.rev_look > 0 and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
+                h = self._mid_hist.setdefault(book_id, [])
+                h.append((self._sec, mid))
+                while len(h) > 1 and h[1][0] <= self._sec - self.rev_look:
+                    h.pop(0)                               # h[0] = the newest sample at least REV_LOOK old
+                tgt, at = self._rev.get(book_id, (0.0, -10 ** 9))
+                if self._sec - at >= self.rev_hold:
+                    tgt = 0.0
+                if h[0][0] <= self._sec - self.rev_look and self._sec - at >= self.sleeve_step:
+                    r = (mid - h[0][1]) / h[0][1] * 1e4
+                    if abs(r) >= self.sleeve_bp:
+                        tgt, at = (-1.0 if r > 0 else 1.0) * self.rev_usd / mid, self._sec
+                self._rev[book_id] = (tgt, at)
+                target, cool = tgt, self.sleeve_cool
+            elif self.sleeve_bp and fundamental and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
                 if self._sec - self._sleeve_at.get(book_id, -10 ** 9) >= self.sleeve_step:
                     u = (fundamental - mid) / mid * 1e4; cur = self._sleeve.get(book_id, 0.0)
                     if self.sleeve_dm > 0:

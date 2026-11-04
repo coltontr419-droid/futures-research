@@ -20077,3 +20077,19 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - s50_rollup.py pools every forward folder, dedups (asset, prompt, model), rebuilds each competition's score and prints $/month per UID
   from ≈ $53k/3 per competition. Runs daily after the forward test → data/synth/forward/rollup.txt.
 - 2026-11-03-backfill (2 days) is IN-SAMPLE: the variants were picked on those prompts. Only folders from 11-05 on are true forward days.
+
+## §1223 — MVTRX: skill is paid above the median, and the top skill UIDs are 60-s faders (2026-11-04)
+- Validator (reward.py allocate_trading): making is paid PROPORTIONALLY to captured-spread credit; skill is paid on a Pareto ladder with a
+  soft floor at the median of positive skill (tapered to 0 below). Newcomer EMA: standing tracks live performance (alpha = 1/(k+1)).
+  Check: emission score ≈ 4.5e-6 × making credit (x2 230 → 0.0010; x1 700 → 0.0033). Prune floor ≈ 0.0015.
+- x2 pruned 11-04 18:52 UTC: the book SPLIT left x2 on low-volume calm books (~230 credit) and x1 on volatile books (~0 credit), so both were weak.
+  Multi-UID owners (41/16/15/13/12 UIDs) stack every UID on the SAME books (124-127 of 128 overlap) and each earns 165-420 credit,
+  because the volume cap is per UID per book. A stacked second UID needs all taking off on both (no self-trades).
+- Two owners (10 UIDs each) get the TOP scores with zero making credit, from skill alone. Top-20 live-skill UIDs: pure takers, ~$1k clips, 40-90 books.
+  They trade AGAINST the prior 60 s move 70% of the time and ignore the fundamental gap (52%) and order flow (49%). Mid moves their way
+  +2.1 bp at 10 s (74% hit) and +2.0 bp at 15 min. skill_val replica: positive for 114/238/120 with kept counts similar to the gauges.
+- Naive 60-s fade backtest (mid-to-mid, no own impact): +0.3 to +1.2 bp/notional median per book, few books past the 2.3 bp hurdle.
+  The top UIDs reach +1.3 to +3.1, so either better timing or own impact (which the validator counts). This is decided live.
+- LIVE TEST on x1 from 19:58 UTC: rev_look=60 rev_hold=180 rev_usd=1000 sleeve_bp=4 sleeve_step=20 on 40 books (skip_x1 = sleeve_books_x1),
+  making on the other 88. Backups: QuoteAgent.pre-rev.py, skip_x1.pre-rev.txt, sleeve_books_x1.pre-rev.txt, tape.conf.pre-rev.
+  Replay check: rev off identical to live (926 instructions), rev on only IOC on the sleeve books.
