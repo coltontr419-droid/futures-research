@@ -19954,3 +19954,10 @@ and 0.425 in two runs (1,000 paths) → differences < ≈ 0.05 pp are noise. (4)
 — archiving per-prompt rows by date (data/synth/forward/<date>/) and combined competition scores; it also grows the Hyperliquid 5-min cache.
 First run started 01:40 UTC 11-04. Register a Synth UID only on ≥ 5 forward days with the 1-h and at least one other competition at or above
 the median.
+**§1218 addendum (02:40 UTC 11-04), forward day 1 (prompts scored in the 24 h to 01:40 UTC 11-04, models frozen beforehand).** Crypto-1h
+tod1_120_240 share vs median UID: BTC 0.742 vs 0.261 (2.8×), ETH 0.691 vs 0.256, SOL 1.385 vs 0.246 (5.6×), XRP 0.324 vs 0.286, HYPE 0.411
+vs 0.348 — above on all five (≈ 148 prompts each). Crypto-24h ou20: BTC 0.217 vs 0.278, SOL 1.005 vs 0.265, ETH 0.033 vs 0.404, XRP 0.004 vs
+0.071, HYPE 0.003 vs 0.364 (vv25_ou40 not better). Com/Equ combined (83 prompts): old rank 243, ses_sp / ses_sp_yc 201 of 257. The 24 h
+combined score failed only on this run (rows moved before combining; fixed for the timer runs). Off-hours OU (`_oux`, 5-day): TSLAX 72.6 →
+66.1, GOOGLX 49.1 → 46.1 at oux5, but SP500 18.5 → 23-31 and NVDAX 41.5 → 51-78 — rejected; TSLAX / GOOGLX / WTIOIL stay ≈ 70-90% behind
+(hypothesis: the field uses the live underlying markets — extended-hours stocks, oil futures). `fwd_read.py` summarises a day's run.log.

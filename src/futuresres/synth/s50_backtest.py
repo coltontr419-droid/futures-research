@@ -225,6 +225,12 @@ def ses_ensemble(closes: np.ndarray, s0: float, model: str, rng, t0: int, n=1000
     if "_vv" in model:
         vv = float(model.split("_vv")[1].split("_")[0]) / 100.0
         inc = inc * np.exp(rng.normal(-0.5 * vv ** 2, vv, (n, 1)))
+    if "_oux" in model:                                    # mean reversion OUTSIDE cash hours only (§1218): closed / weekend perps oscillate around a
+        th = float(model.split("_oux")[1].split("_")[0].split("@")[0]) / 1e3   # stable reference; theta per 5-min step (×1e-3) toward the start
+        sf = np.array([_et_session(int(t0 + j * 300000)) for j in range(steps)]); x = np.zeros((n, steps + 1))
+        for t in range(steps):
+            x[:, t + 1] = (1 - (th if sf[t] != 0 else 0.0)) * x[:, t] + inc[:, t]
+        return s0 * np.exp(x)
     return s0 * np.exp(np.concatenate([np.zeros((n, 1)), np.cumsum(inc, axis=1)], axis=1))
 
 
