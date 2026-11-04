@@ -20004,3 +20004,13 @@ Tag101 / ReadyAI not reopened with capital: more UIDs fix feedback speed but not
 would mean outvoting the incumbent's consensus (sybil-style; declined). `deploy/screen_weekly.sh` (lab box, transient timer subnet-screen,
 Mondays 14:00 UTC): re-runs subnet_scan.py, keeps screens/scan_<date>.json, appends NEW PASS (median > $100, top wallet < 50%) and MOVED
 (median ± 50%) to screens/changes.txt; baseline scan 2026-11-03.
+**§1219 addendum (05:45 UTC 11-04), SN61 RedTeam read (user: start on RedTeam; MANTIS dropped — median too small).** RedTeam (Innerworks, a
+bot / fraud-detection company): miners submit a solution as a private Docker Hub image referenced in active_commit.yaml (≈ 24 h commit
+cooldown; each new commit stops the previous one's rewards); validation → originality comparison (similarity to all accepted + same-day
+earlier submissions; penalty = highest similarity) → central scoring; final score = raw − similarity penalty, decaying over ≈ 10-15 days;
+miners get 41% of emissions by stake-weighted validator scores. Active challenges: FlowRadar v2 (train.py + submissions.py, train on the
+mandatory 100,000 × 110 v2_train_data.csv, classify 400,000 test flows, F1 on the VPN class; no pretrained weights; training / model-size /
+inference limits) — the best fit, but its flowradar-challenge repo is not public (data access to confirm); AB Sniffer (JS detection of
+automation frameworks, public repo + testing manual); ADA Detection (identify commercial anti-detect browsers; testing needs paid licences);
+BEX Tracer (extension fingerprinting — skipped, user tracking); Humanize Behaviour (human-mimicking bots — skipped, detection evasion).
+Next: per-challenge emission split and competitor counts (dashboard.theredteam.io), FlowRadar data access, AB Sniffer repo.
