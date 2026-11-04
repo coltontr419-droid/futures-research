@@ -142,6 +142,12 @@ class QuoteAgent(FinanceAgent):
         self.sleeve_step = int(getattr(c, "sleeve_step", 10))   # sim s, one IOC per SLEEVE_COOL s: de-beta skill counts held inventory × Δmid
         self.sleeve_cool = int(getattr(c, "sleeve_cool", 5))    # and its 2.3 bp hurdle is per own notional (§1211 add. 20)
         self._sleeve, self._sleeve_at = {}, {}
+        self.sleeve_prop = float(getattr(c, "sleeve_prop", 0.0))   # >0: proportional sleeve — target = sleeve_q × clip(gap_bp / sleeve_prop, ±1),
+        self.sleeve_band = float(getattr(c, "sleeve_band", 0.2))
+        self.sleeve_dm = float(getattr(c, "sleeve_dm", 0.0))      # >0: use the gap minus its own EMA (half-life sleeve_dm sim s) — volatile books sit
+        self.sleeve_sign = float(getattr(c, "sleeve_sign", 1.0))  # hundreds of bp from the fundamental; -1 trades WITH the deviation (§1211 add. 27)
+        self._gap_ema = {}   # changed only when it moves > sleeve_band × sleeve_q (§1211 add. 27): de-beta
+                                                                   # alpha comes from position CHANGES (a held position strips to zero)
         sb = str(getattr(c, "sleeve_file", "") or "")       # book ids the sleeve may trade (others in skip just unwind); unset = every skipped book
         self.sleeve_books = {int(x) for x in open(sb).read().split()} if sb else None   # 1: on skipped books, unwind the position with IOC takes (taker fills never enter the
                                                            # making pool, takers get a fee rebate) — one take per take_cool, ≤ take_size, ≤ top level   # books ranked on one half lift the other half 0.03 → 0.22)
@@ -400,7 +406,15 @@ class QuoteAgent(FinanceAgent):
             if self.sleeve_bp and fundamental and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
                 if self._sec - self._sleeve_at.get(book_id, -10 ** 9) >= self.sleeve_step:
                     u = (fundamental - mid) / mid * 1e4; cur = self._sleeve.get(book_id, 0.0)
-                    self._sleeve[book_id] = self.sleeve_q if u > self.sleeve_bp else (-self.sleeve_q if u < -self.sleeve_bp else cur)
+                    if self.sleeve_dm > 0:
+                        e = self._gap_ema.get(book_id, u); e = e + (1 - 0.5 ** (self.sleeve_step / self.sleeve_dm)) * (u - e)
+                        self._gap_ema[book_id] = e; u = u - e
+                    u = u * self.sleeve_sign
+                    if self.sleeve_prop > 0:
+                        tgt = self.sleeve_q * max(-1.0, min(1.0, u / self.sleeve_prop))
+                        self._sleeve[book_id] = tgt if abs(tgt - cur) >= self.sleeve_band * self.sleeve_q else cur
+                    else:
+                        self._sleeve[book_id] = self.sleeve_q if u > self.sleeve_bp else (-self.sleeve_q if u < -self.sleeve_bp else cur)
                     self._sleeve_at[book_id] = self._sec
                 target, cool = self._sleeve.get(book_id, 0.0), self.sleeve_cool
             gap = target - units

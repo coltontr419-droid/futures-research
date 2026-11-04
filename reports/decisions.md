@@ -19970,3 +19970,16 @@ window and held without trading is invisible; skill needs positions re-establish
 x2 quality split on calm books (whole tape): all 0.503 (credit 72.8), bot-taken 0.760, background-taken 0.325, small fills negligible —
 no cheap quality lever (the §1209 "bot fills lose" finding does not hold on the calm books). x2 03:25 UTC: credit 98.5 (our est. 105.8),
 making rank 0.32, combined 0.16; x1 03:20: making 180, rank 0.53, combined 0.267.
+**§1211 addendum 27 (04:35 UTC 11-04), why the sleeve never counted, and a live test of the de-meaned reversed sleeve on x1.** Validator code:
+per-book inventory IS carried across batches (debeta.py ≈ l. 1516), but alpha = Σ inv × Δmark − mean inv × drift strips a constant position
+to exactly zero, and hurdle_filter needs OUR notional on the book in the window > 0 → only position CHANGES inside the window count.
+x1's live sleeve traded 40 times at sim 390-405, once at 420-435, then never: its 14 books sit +377 bp from the fundamental (within-book
+gap sd 10.7 bp; calm books +3.5 / 2.4; other volatile +47.5 / 3.7), so a ±5 bp threshold never flips and a proportional target saturates.
+Backtests on the x1 tape (validator alpha, delay 2 s, halves): proportional 20 bp all books 35 (31 +) kappa +0.91 / 18 (18 +) +4.16, calm
+books 22 (22 +) +6.40 / 12 (12 +) +6.64 — the fundamental sleeve works where the gap oscillates around zero (the calm books); de-meaned gap
+(minus its own 30-min EMA) FAILS (kappa −0.40 / −0.58), and its REVERSED control is positive on both halves (all +0.79 / +1.37, x1's 14 books
+4 (2 +) +0.59 / 4 (3 +) +1.93): on volatile books the price keeps moving away from the fundamental when the gap deviates. Picked after seeing a
+control, few books → live test only on x1 (declining, sleeve earning nothing): QuoteAgent `sleeve_prop` / `sleeve_band` / `sleeve_dm` /
+`sleeve_sign` (off = live agent, 1,006 instructions); x1 sleeve_prop=10 sleeve_dm=1800 sleeve_sign=-1 from 04:33:54 UTC. Judge with
+skillread.sh after ≈ 3-4 wall hours. If the calm-book sleeve is the only robust skill source, a fresh UID (full calm budget) can run making +
+a calm-book sleeve — a reason to replace x1.
