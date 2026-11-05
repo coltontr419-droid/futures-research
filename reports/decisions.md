@@ -20244,3 +20244,8 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   one bet per book per sleeve_step, hold rev_hold. Replay: off = identical to live (120 placements); on = 0 errors, 128 books tracked.
   Deployed agent file (x2 unaffected until a restart; off = identical). x3 unit = hotkey x1, port 8101, variant M1 (rev_hold 600, one bet per
   book per 3600 s, $1k clips), own tape live_tape_x1.jsonl; waits for registration. User: x2 stays on V0 and lives or dies on its own.
+- §1231 add. 3 (06:50 UTC 11-05): local eval, batch 436e959b, 30 tasks: champion 0.483 / 16 nonzero / $5.57 | A (Claude → DeepSeek, gpt-oss)
+  0.517 / 17 / $5.66 (no loss from dropping Claude) | C (A + GLM-5.2 driver) 0.117 / 4 / $4.81 → the gpt-6.1-terra driver carries the score;
+  GLM is barely cheaper and far worse. Cheaper-entry next: keep terra, trim spend (SPEND_STOP / MAX_TURNS) — variant B, ~$5.
+- §1222 roll-up 11-05 (first true forward day + 2 in-sample days): Crypto-1h tod1_120_240 rank 213/257 ≈ $52/month; Crypto-24h ≈ $1-2 (rank 225-250;
+  the new @0.85 narrower model is worst, rank 250); Com/Eq $0 → ≈ $54/month per UID vs a 0.8 TAO (~$190) burn. Synth stays unregistered.
