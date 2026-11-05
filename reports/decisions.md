@@ -20290,3 +20290,9 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   disk went from 64% → 42%, 90 GB free; re-pullable). Nightly mvtrx-taperotate.timer (09:07 UTC): a live tape over 2 GB keeps its last 1 GB
   as .prev and is truncated in place (the agent opens tapes with mode "a"). add_maker_uid.sh: one-command maker-only UID from x3's unit
   (dry run on a throwaway name: unit written with the right hotkey/port/lock_dir; refuses to start unregistered).
+- §1236 add. 1: model warm start. RevFeatures.preload(tape, mb) replays the tail of a live market tape on the box through update() (the parity-
+  tested path); QuoteAgent rev_preload=<tape> rev_preload_mb (default 300). Frozen-tape check vs a 690 MB-history reference: 150 MB in 15 s →
+  forecast corr 0.9997 (max diff 0.27 bp); 300 MB in 39 s → 1.0000 (0.06 bp). A first test on the live, growing tape read 0.61-0.78 only because the
+  reference read further ahead (latest depth/spread values). Guard: time going backwards (sim restart, or an old recorded replay) drops a book's
+  history. Replay: off identical; on 0 errors. add_skill_uid.sh M1 now includes rev_preload (x1's tape) + lock_dir. x1 itself is NOT restarted
+  (user's untouched test); it gets preload on its next restart.

@@ -154,6 +154,14 @@ class QuoteAgent(FinanceAgent):
             _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
             from revfeat import RevFeatures
             self._rf = RevFeatures(self.rev_model)
+            pre = str(getattr(c, "rev_preload", "") or "")   # §1236: warm start from a live market tape on this box
+            if pre:
+                try:
+                    n = self._rf.preload(pre, mb=int(getattr(c, "rev_preload_mb", 300)), own_uid=getattr(self, "uid", None))
+                    bt.logging.info(f"REV PRELOAD: {n} snapshots from {pre}, {len(self._rf.books)} books warm")
+                except Exception as ex:
+                    bt.logging.warning(f"REV PRELOAD failed ({type(ex).__name__}: {ex}); warming up live")
+                    self._rf = RevFeatures(self.rev_model)
         self._mid_hist, self._rev = {}, {}
         self.lock_dir = str(getattr(c, "lock_dir", "") or "")   # §1223: our UIDs must never trade with each other. A taker UID writes
         self.lock_max = float(getattr(c, "lock_max", 120.0))       # lock_<book>_<maker side> before its IOC; the maker UID pulls that side and

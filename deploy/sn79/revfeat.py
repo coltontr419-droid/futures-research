@@ -64,10 +64,38 @@ class RevFeatures:
             s = self.books[b] = {"mid": _Series(), "fund": _Series(), "flow": _Sums(), "book": _Sums(), "big": _Sums(), "sizes": deque(maxlen=3000), "p95": None, "p95_at": -10 ** 9}
         return s
 
+    def preload(self, tape_path, mb=150, own_uid=None):
+        """Warm start (decisions.md §1236): replay the last MB of a live market tape on this box through update() exactly as
+        revfeat_parity.py does (trades filed under their own second, 'of' per snapshot second), so features are ready at once."""
+        import os
+        if not tape_path or not os.path.exists(tape_path):
+            return 0
+        pend_tr, pend_of, n = {}, {}, 0
+        with open(tape_path, "rb") as fh:
+            fh.seek(0, 2); size = fh.tell(); fh.seek(max(0, size - mb * 1_000_000)); fh.readline()
+            for l in fh:
+                try:
+                    r = json.loads(l)
+                except ValueError:
+                    continue
+                b = r.get("book"); t = r.get("ts", 0) // 1_000_000_000
+                if "p" in r:
+                    pend_tr.setdefault(b, []).append((t, r["p"], r["q"], r.get("Ta")))
+                elif "of" in r:
+                    o = r["of"]; pend_of[(b, t)] = pend_of.get((b, t), 0.0) + (o.get("nb", 0) - o.get("na", 0)) - (o.get("cb", 0) - o.get("ca", 0))
+                elif "bid" in r and r.get("bid") and r.get("ask"):
+                    m = (r["bid"] + r["ask"]) / 2; bd = sum(q for _, q in r.get("bids", [])); ad = sum(q for _, q in r.get("asks", []))
+                    self.update(b, t, m, r.get("fund"), (bd - ad) / (bd + ad) if bd + ad else 0.0, (r["ask"] - r["bid"]) / m * 1e4,
+                                pend_tr.pop(b, ()), pend_of.pop((b, t), 0.0), own_uid=own_uid); n += 1
+        return n
+
     def update(self, b, t, mid, fund, imb, spread, trades=(), of=0.0, own_uid=None):
         """t: sim second; trades: iterable of (second, price, qty, taker_uid) since the last update (each filed under its own second);
         of: new-minus-cancelled book flow in second t."""
         s = self._bk(b)
+        last = s["mid"].d[-1][0] if s["mid"].d else None
+        if last is not None and t < last - 60:                 # sim restarted (time went backwards): drop this book's history
+            del self.books[b]; s = self._bk(b)
         s["mid"].set(t, mid)
         if fund:
             s["fund"].set(t, fund)

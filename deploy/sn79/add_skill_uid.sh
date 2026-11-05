@@ -22,7 +22,7 @@ case $VAR in              # sleeve_bp (trigger bp) rev_look (s) rev_hold (s) sle
   N5) P="sleeve_bp=9 rev_look=450 rev_hold=1200 sleeve_step=1800";;
   N2) P="sleeve_bp=12 rev_look=750 rev_hold=3000 sleeve_step=3600";;
   N1) P="sleeve_bp=10 rev_look=450 rev_hold=1800 sleeve_step=2700";;
-  M1) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_hold=600 sleeve_step=3600";;   # §1233 fitted predictor, top 2% forecasts
+  M1) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_preload=/opt/mvtrx/live_tape_x1.jsonl rev_hold=600 sleeve_step=3600 lock_dir=/opt/mvtrx/locks lock_max=120";;   # §1233 fitted predictor, top 2% forecasts
   *) echo "unknown variant $VAR"; exit 1;;
 esac
 [ -f /root/.bittensor/wallets/main/hotkeys/$HK ] || { echo "hotkey file missing: copy hotkeys/$HK from the laptop first"; exit 1; }
