@@ -147,6 +147,13 @@ class QuoteAgent(FinanceAgent):
         self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
         self.rev_imb = float(getattr(c, "rev_imb", -9.0))        # §1230: enter only when top-5 depth imbalance × our direction ≥ REV_IMB (off at -9)
+        self.rev_model = str(getattr(c, "rev_model", "") or "")  # §1233: path to the fitted predictor (rev_model.json); set = model entries
+        self._rf = None
+        if self.rev_model:
+            import os as _os, sys as _sys
+            _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+            from revfeat import RevFeatures
+            self._rf = RevFeatures(self.rev_model)
         self._mid_hist, self._rev = {}, {}
         self.lock_dir = str(getattr(c, "lock_dir", "") or "")   # §1223: our UIDs must never trade with each other. A taker UID writes
         self.lock_max = float(getattr(c, "lock_max", 120.0))       # lock_<book>_<maker side> before its IOC; the maker UID pulls that side and
@@ -224,7 +231,7 @@ class QuoteAgent(FinanceAgent):
                 bt.logging.info(f"OWN FLOW: our share of order/cancel events {n / t:.1%} by count, {q / max(qt, 1e-9):.1%} by size")
         if self._sec - getattr(self, "_ioc_logged", -10 ** 9) >= 60 and getattr(self, "_ioc_n", 0):
             self._ioc_logged = self._sec            # §1223 add. 6: x2 runs without a tape, so log its IOC flow once per sim minute
-            bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}")
+            bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}; model entries {getattr(self, '_model_n', 0)}")
         if self.tape is not None:
             self._record(state)
         if self.pace_cap:
@@ -421,7 +428,30 @@ class QuoteAgent(FinanceAgent):
                 return                                     # sleeve_file set: trade only the sleeve books (another UID of ours quotes the rest)
             units = acct.base_balance.total - base0
             target, cool = 0.0, self.take_cool
-            if self.rev_look > 0 and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
+            if self._rf is not None and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
+                trades, of = [], 0.0                            # §1233: feed this step's events, then trade the forecast's sign when it is strong
+                for e in book.events or []:
+                    kind = getattr(e, "y", "")
+                    if kind == "t":
+                        trades.append(((e.timestamp // 1_000_000_000) if e.timestamp else self._sec, e.price, e.quantity, getattr(e, "Ta", None)))
+                    elif kind == "o" and getattr(e, "price", None) is not None:
+                        of += (e.quantity or 0.0) if e.side == 0 else -(e.quantity or 0.0)
+                    elif kind == "c" and getattr(e, "side", None) is not None:
+                        of -= (e.quantity or 0.0) if e.side == 0 else -(e.quantity or 0.0)
+                bd = sum(l.quantity or 0.0 for l in (book.bids or [])[:5]); ad = sum(l.quantity or 0.0 for l in (book.asks or [])[:5])
+                self._rf.update(int(book_id), self._sec, mid, fundamental, (bd - ad) / (bd + ad) if bd + ad else 0.0, (ask - bid) / mid * 1e4,
+                                trades, of, own_uid=self.uid)
+                tgt, at = self._rev.get(book_id, (0.0, -10 ** 9))
+                if self._sec - at >= self.rev_hold:
+                    tgt = 0.0
+                if self._sec - at >= self.sleeve_step:
+                    pr = self._rf.predict(int(book_id), self._sec)
+                    if pr is not None and abs(pr) >= self._rf.th:
+                        tgt, at = (1.0 if pr > 0 else -1.0) * self.rev_usd / mid, self._sec
+                        self._model_n = getattr(self, "_model_n", 0) + 1
+                self._rev[book_id] = (tgt, at)
+                target, cool = tgt, self.sleeve_cool
+            elif self.rev_look > 0 and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
                 h = self._mid_hist.setdefault(book_id, [])
                 h.append((self._sec, mid))
                 while len(h) > 1 and h[1][0] <= self._sec - self.rev_look:

@@ -20235,3 +20235,12 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   model top 2% |forecast| +4.24 bp / 72%, 95 books pass 42% fail 5% | top 0.5% +5.95 bp / 76%, 53 books pass 53% fail 6%.
 - Next: a second unseen slice (ending 900 MB back), then a live implementation + replay check. Live test after x2's V0 verdict (or on a new UID).
   Remember §1199: an offline-fit predictor was backwards live.
+- §1233 add. 1 (07:00 UTC): second unseen slice (ending 900 MB back) confirms: corr +0.22 / +0.17; top 2% +5.30 bp, 67% hit, books pass 47% fail 7%;
+  top 0.5% +7.23 bp, 72%; S5 +0.62 bp. Model exported (predexport.py → agents/rev_model.json, threshold |forecast| ≥ 3.19 bp = top 2% of train).
+  Live features in revfeat.py, shared with revfeat_parity.py: replaying the tape through the live code reproduces the training forecast at
+  corr 0.997, 1,919 vs 1,907 entries, 1,872 identical. Bugs found and fixed on the way: trades filed under the snapshot second (dropped),
+  flow means folded before the second's trades (always 0), flow scale before warm-up (exploded) → 600 s warm-up.
+- QuoteAgent rev_model=<json>: feeds each step's events and book to RevFeatures, enters sign(forecast) × rev_usd when |forecast| ≥ threshold,
+  one bet per book per sleeve_step, hold rev_hold. Replay: off = identical to live (120 placements); on = 0 errors, 128 books tracked.
+  Deployed agent file (x2 unaffected until a restart; off = identical). x3 unit = hotkey x1, port 8101, variant M1 (rev_hold 600, one bet per
+  book per 3600 s, $1k clips), own tape live_tape_x1.jsonl; waits for registration. User: x2 stays on V0 and lives or dies on its own.
