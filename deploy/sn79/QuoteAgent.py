@@ -221,6 +221,9 @@ class QuoteAgent(FinanceAgent):
             if self._sec % 60 == 0 and self.own_stats[1]:
                 n, t, q, qt = self.own_stats
                 bt.logging.info(f"OWN FLOW: our share of order/cancel events {n / t:.1%} by count, {q / max(qt, 1e-9):.1%} by size")
+        if self._sec % 60 == 0 and self._sec != getattr(self, "_ioc_logged", -1) and getattr(self, "_ioc_n", 0):
+            self._ioc_logged = self._sec            # §1223 add. 6: x2 runs without a tape, so log its IOC flow once per sim minute
+            bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}")
         if self.tape is not None:
             self._record(state)
         if self.pace_cap:
@@ -454,6 +457,7 @@ class QuoteAgent(FinanceAgent):
                     response.limit_order(book_id=book_id, direction=side, quantity=q, price=px, stp=STP.CANCEL_OLDEST, postOnly=False,
                                          timeInForce=TimeInForce.IOC)
                     self._last_take[book_id] = self._sec
+                    self._ioc_n = getattr(self, "_ioc_n", 0) + 1; self._ioc_usd = getattr(self, "_ioc_usd", 0.0) + q * px
             return
         if self.pace_cap and self._paced_out(int(book_id)):
             for o in acct.orders:                          # over the volume pace on this book: pull our quotes and wait

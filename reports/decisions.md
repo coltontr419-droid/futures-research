@@ -20124,3 +20124,17 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - §1223 add. 5 (01:00 UTC 11-05): x2 (UID 169) crashed 2,214 times/hour in _record (tape writer): its event stream delivers pydantic
   Cancellation objects with no .side, so respond_simulation aborted and sent NO orders on those steps (x1 unaffected). Fix: x2 tape off (x1's
   tape has every trade), getattr guard in _record. x2 restarted 00:59 UTC, 0 errors after. x2's live skill read before this is understated.
+- §1223 add. 6 (01:07 UTC 11-05): x1 (UID 213) PRUNED. Its service is stopped. x2's lock handshake is off (no maker left to ack). An x2 tape
+  re-enable crashed in the framework's lazy loader ('list' object has no attribute 'get', 18 in 2 min), so x2 runs with no tape; an
+  "IOC FLOW" log line gives its order flow. Each restart wipes 600 sim s of mid history (~33 wall min with no bets); x2 last restarted 01:22 UTC.
+
+## §1225 — SN5 Hone trial 5: first passes on both task types with open-weight models via OpenRouter (2026-11-05 01:30 UTC)
+- Cerebras (free tier): qwen-3.8-27b and gpt-oss-120b are fast (835 / 1,240 tok/s) but qwen overruns 32k replies, the free
+  tokens-per-minute limits throttle the agent, and the ~$5 credit ran out. 0 passes.
+- OpenRouter, fastest host per model, logprobs off, 32k reply limit, 6 correction rounds, 2 attempts × 2 retired fixtures:
+  GLM-5.2 passed yaml-cpp 6/6 TWICE (224 s, 124 s; $1.04, $0.81; 1.8-2.0M tokens in, ~40 steps), terminal failed / no answer.
+  DeepSeek V4 Pro 0813 passed the terminal task 6/6 once (168 s, $0.22), timed out on yaml-cpp twice. MiniMax M3 and gpt-oss-120b: 0/4 each.
+  Total ≈ $6 of the key's $18.61.
+- Economics: ~$0.9 per bug-fix attempt × ~2,000 tasks/day ≈ $30-50k/month, more than 30 UIDs earn (~$1,050 each). Levers: prompt caching (the
+  re-sent conversation dominates input), fewer steps, routing by task type (GLM for patches, DeepSeek for terminal). Next: ~20 public
+  SWE-bench / Terminal-Bench style tasks for a real pass rate and average cost.
