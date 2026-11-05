@@ -20249,3 +20249,8 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   GLM is barely cheaper and far worse. Cheaper-entry next: keep terra, trim spend (SPEND_STOP / MAX_TURNS) — variant B, ~$5.
 - §1222 roll-up 11-05 (first true forward day + 2 in-sample days): Crypto-1h tod1_120_240 rank 213/257 ≈ $52/month; Crypto-24h ≈ $1-2 (rank 225-250;
   the new @0.85 narrower model is worst, rank 250); Com/Eq $0 → ≈ $54/month per UID vs a 0.8 TAO (~$190) burn. Synth stays unregistered.
+- §1231 add. 4 (07:35 UTC 11-05): CORRECTED ECONOMICS. Each selected validator runs the artifact separately on our provider keys
+  (mining-runbook "Account for repeated execution"); batch 436e959b ran on 4 validators. At variant B's $0.155/task: main round 30 × 4 =
+  120 runs ≈ $18.6/day ≈ $560/month vs ≈ $590 pay → ≈ break-even; qualifying only 40 runs ≈ $186/month vs $0-236 → mostly a loss.
+  Worth mining only at ~3× lower cost for the same score, a novelty bonus (×3 notable → ≈ $1.2k/month net), or the champion title (+10 pts).
+  Plan: finish B's clean rerun (spend/score curve), then park Harnyx as novel-agent R&D; MVTRX stays the main line.
