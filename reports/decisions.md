@@ -20258,3 +20258,12 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   So the champion's spend can be cut ~14% and runtime ~16% with no score loss (0.48-0.52 across champion/A/B, ±noise). Cost curve:
   champion $0.186/task, A $0.189, B $0.159, C (GLM driver) $0.160 but score 0.117. With 4 validators, B's main-tier cost ≈ $570/month ≈ the
   ≈ $590 pay → Harnyx PARKED as novel-agent R&D; revisit only with an approach ~3× cheaper or clearly better (novelty / title).
+
+## §1234 — x3's fitted predictor works LIVE: skill 0.58 (above the 0.49 median), entries +3.5 bp / 64% hit (2026-11-05 16:25 UTC) (S11)
+- x3 = UID 114, rev_model since 06:36 UTC: live debeta_skill 0.581, kept 41, combined 0.307, score 0.0008 (EMA catching up); 202 model entries,
+  862 IOCs, $474k, 0 errors. x3exec.py on its own tape, 266 entries: mid our way +1.09 bp at 60 s (64% hit), +3.47 bp at 600 s (64% hit),
+  no adverse pre-fill drift (−0.6 bp in the last 5 s), half spread 1.95 bp. Matches the offline test (+4.2-5.3 bp, 67-72%): the edge is real live.
+- x2 (V0) at the same time: skill 0.225, kept 48, combined 0.177, score 0.0001.
+- Harnyx D (context diet: KEEP_TURNS 3, smaller pages/search): 0.46 at $5.34 — MORE expensive than B ($4.78): trimming the re-sent context
+  breaks prompt caching (cached input is what kept terra cheap). E ran out of OpenRouter credit (952 × 402) → invalid. Cheap route closed;
+  Harnyx stays parked. OpenRouter balance ≈ $0.
