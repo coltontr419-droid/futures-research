@@ -382,10 +382,17 @@ def main(asset: str, days: int, models=("boot_7d", "tod_1d", "tod_6h", "tod_6h@0
             parts = m[4:].split("|"); wa = float(parts[2]) if len(parts) > 2 else 0.5
             pa, pb = ens(parts[0]), ens(parts[1]); na = int(round(wa * len(pa)))
             return np.concatenate([pa[:na], pb[:len(pb) - na]], axis=0)
-        ours = {m: crps_sum(ensx(m),
-                            np.array(real, float), 300, INTERVALS) for m in models}
-        rl = np.log(np.array(real, float)); rows.append({"start": st, "field": P[st], **ours, "_move24": float(rl[-1] - rl[0]),
-                                                          "_rv": float(np.sqrt(np.sum(np.diff(rl) ** 2)))})
+        paths = {m: ensx(m) for m in models}
+        ours = {m: crps_sum(paths[m], np.array(real, float), 300, INTERVALS) for m in models}
+        rl = np.log(np.array(real, float)); row = {"start": st, "field": P[st], **ours, "_move24": float(rl[-1] - rl[0]),
+                                                   "_rv": float(np.sqrt(np.sum(np.diff(rl) ** 2)))}
+        if __import__("os").environ.get("S50_PIT"):           # calibration (§1229): where the realized log return sits in our paths, and our width
+            for m in models:
+                lp = np.log(paths[m])
+                for h in (12, 72, 288):
+                    f = lp[:, h] - lp[:, 0]; r = rl[h] - rl[0]
+                    row[f"_pit_{m}_{h}"] = float(np.mean(f < r)); row[f"_sd_{m}_{h}"] = float(np.std(f))
+        rows.append(row)
     out = summarise(rows, models)
     (CACHE / f"bt_{asset}_{days}.json").write_text(json.dumps({"summary": out, "n_prompts": len(rows)}, indent=1))
     (CACHE / f"rows_{asset}_{days}.json").write_text(json.dumps([{k: v for k, v in r.items() if k != "field"} | {"_field_median": float(np.median(

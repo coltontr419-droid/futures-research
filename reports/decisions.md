@@ -20168,3 +20168,11 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   Second tier (≥ 15% overlap with a first-tier variant): N10 +0.43, N5 +0.36, N2 +0.34, N1 +0.27; weak: N6 +0.17, N7 +0.25 (33% with V0).
   Stack order for registration: V0 (x2), V4, V1, V3, V6, N3, N4, N9, N8, V5 = 10 low-overlap UIDs; then the second tier → 14.
   Beyond that: split each variant across even/odd books (halves never overlap; each keeps ~20-30 books, near the bar). add_skill_uid.sh knows all.
+
+## §1229 — Synth tail check: our 24 h forecasts are calibrated on average; the big-move-day loss is not a fixable width error (2026-11-05 04:05 UTC) (S11)
+- S50_PIT=1 in s50_backtest (realized log return's percentile inside our 1,000 paths at 1 h / 6 h / 24 h, plus forecast sd), 10 days × BTC/ETH/SOL/XRP,
+  fast todg_12_36_c_ou20@0.95 and slow todg_12_144_c_ou20@1.0.
+- All prompts: realized lands in our outer 10% (5% each side) 8-12% of the time at every horizon for BTC/ETH/XRP (calibrated); SOL 5-7% (slightly too wide).
+- Big-move third: 24 h tail hits 25-36%, |move|/sd ≈ 1.2-1.5. That's expected when conditioning on the realized move (any calibrated
+  forecast shows it), so it is not evidence of narrow tails. Widening would cost the other two thirds; IV scaling (§1211) didn't help.
+- Read: Synth's big-move losses come from moves that aren't predictable from price history at prompt time. No width fix; at most a small SOL narrowing (k ≈ 0.9) to test in the forward run.
