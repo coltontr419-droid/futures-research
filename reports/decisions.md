@@ -20138,3 +20138,8 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Economics: ~$0.9 per bug-fix attempt × ~2,000 tasks/day ≈ $30-50k/month, more than 30 UIDs earn (~$1,050 each). Levers: prompt caching (the
   re-sent conversation dominates input), fewer steps, routing by task type (GLM for patches, DeepSeek for terminal). Next: ~20 public
   SWE-bench / Terminal-Bench style tasks for a real pass rate and average cost.
+- §1226 (02:10 UTC 11-05): SWE-bench Verified, 10 random tasks (seed 1225), Hone's own agent loop + GLM-5.2 via OpenRouter (fastest host,
+  260 s of model time, 6 correction rounds), graded by the official harness (swebench 5.0.2, dataset SWE-bench/SWE-bench_Verified):
+  RESOLVED 6/10 (8 answered, 2 timeouts at 260 s; 6 of the 8 answers pass). $2.47 total = $0.25 per task, $0.41 per resolved task.
+  Answers took 7-102 s. Caveat: SWE-bench issues are clearer than Hone's vague instructions, so this is GLM's best case on bug fixes.
+  Scripts: deploy/sn5/{pick_tasks.py, prep_ws.sh, swe_agent.py, run_swe.sh, eval.sh} (lab box /opt/swe).
