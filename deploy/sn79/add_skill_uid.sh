@@ -27,7 +27,8 @@ esac
 [ -f /root/.bittensor/wallets/main/hotkeys/$HK ] || { echo "hotkey file missing: copy hotkeys/$HK from the laptop first"; exit 1; }
 U=/etc/systemd/system/mvtrx-$HK.service
 [ -f $U ] && { echo "$U exists"; exit 1; }
-PARAMS="size=0.06 edge=1 lean=1 tape=/opt/mvtrx/live_tape_$HK.jsonl model=/opt/mvtrx/agents/model30_of.json raw=1 lazy_load=1 own_ex=1 skip_file=/opt/mvtrx/books_all.txt sleeve_file=/opt/mvtrx/books_all.txt skip_flat=1 take_size=25 sleeve_cool=5 rev_usd=1000 $P"
+TP=""; [ "${TAPE:-0}" = 1 ] && TP="tape=/opt/mvtrx/live_tape_$HK.jsonl "   # tapes grow GBs/day: one UID (x2) keeps one; TAPE=1 to add
+PARAMS="size=0.06 edge=1 lean=1 ${TP}model=/opt/mvtrx/agents/model30_of.json raw=1 lazy_load=1 own_ex=1 skip_file=/opt/mvtrx/books_all.txt sleeve_file=/opt/mvtrx/books_all.txt skip_flat=1 take_size=25 sleeve_cool=5 rev_usd=1000 $P"
 sed -e "s/--wallet.hotkey x2/--wallet.hotkey $HK/" -e "s/8102/$PORT/g" -e "s|hotkeys/x2$|hotkeys/$HK|" \
     -e "s|--agent.params .*|--agent.params $PARAMS|" -e "s|^Description=.*|Description=Bittensor SN79 (MVTRX) miner $HK, skill-only reversal $VAR (decisions.md 1228)|" \
     /etc/systemd/system/mvtrx-x2.service > $U
