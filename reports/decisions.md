@@ -20286,3 +20286,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   maker wrote acks near the end of _quote, but paced-out / toxic books return early → never acked. Fix: maker-side ack (and cancel of its
   quotes on a locked side) moved to the top of the making path; later code only keeps the locked side out of `want`. Replay: lock off identical,
   maker never quotes a locked side and acks, takers wait for acks. Deployed; only x3 restarted. After: 12 locks / 9 acks, max lock age 2 s.
+- §1236 (19:10 UTC 11-05): housekeeping. Removed the SWE-bench / Terminal-Bench test images and the leftover Harnyx eval container (≈ 33 GB; the
+  disk went from 64% → 42%, 90 GB free; re-pullable). Nightly mvtrx-taperotate.timer (09:07 UTC): a live tape over 2 GB keeps its last 1 GB
+  as .prev and is truncated in place (the agent opens tapes with mode "a"). add_maker_uid.sh: one-command maker-only UID from x3's unit
+  (dry run on a throwaway name: unit written with the right hotkey/port/lock_dir; refuses to start unregistered).
