@@ -496,6 +496,19 @@ class QuoteAgent(FinanceAgent):
                     self._last_take[book_id] = self._sec
                     self._ioc_n = getattr(self, "_ioc_n", 0) + 1; self._ioc_usd = getattr(self, "_ioc_usd", 0.0) + q * px
             return
+        if self.lock_dir:                                  # maker side of the handshake, FIRST (paced-out / toxic books return early below)
+            for side in (OrderDirection.BUY, OrderDirection.SELL):
+                lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}"
+                if os.path.exists(lk):
+                    mine = [o for o in acct.orders if o.side == side]
+                    for o in mine:
+                        response.cancel_order(book_id, o.id)      # pull our quote on the locked side now
+                    if not mine:
+                        with open(ak + ".tmp", "w") as fh:
+                            fh.write(str(self._sec))
+                        os.replace(ak + ".tmp", ak)
+                elif os.path.exists(ak):
+                    os.remove(ak)
         if self.pace_cap and self._paced_out(int(book_id)):
             for o in acct.orders:                          # over the volume pace on this book: pull our quotes and wait
                 response.cancel_order(book_id, o.id)
@@ -551,15 +564,8 @@ class QuoteAgent(FinanceAgent):
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         if self.lock_dir:
             for side in (OrderDirection.BUY, OrderDirection.SELL):
-                lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}"
-                if os.path.exists(lk):
-                    want.pop(side, None)                   # a taker UID of ours is about to trade into this side: stay off it
-                    if not any(o.side == side for o in acct.orders):
-                        with open(ak + ".tmp", "w") as fh:
-                            fh.write(str(self._sec))
-                        os.replace(ak + ".tmp", ak)
-                elif os.path.exists(ak):
-                    os.remove(ak)
+                if os.path.exists(f"{self.lock_dir}/lock_{book_id}_{int(side)}"):
+                    want.pop(side, None)                   # a taker UID of ours is about to trade into this side: stay off it (ack handled above)
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
         orders = sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)) if self.cancel_first else acct.orders
         for o in orders:

@@ -20282,3 +20282,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   lock_dir maker side), live 17:40 UTC; first fills within minutes (97, then 265). Lock handshake turned on for x1 (UID 114) and x2 (UID 169)
   at 17:46 UTC (restart; backups mvtrx-x?.service.pre-lock). selftrade.sh counts x3 fills taken by x1/x2: 0 in the recent tape (1 earlier hit in
   the whole file is probably UID 58's previous owner). Test: does x3's paid score rise faster than x1's (making pays in proportion to credit, no floor)?
+- §1235 add. 2 (18:50 UTC 11-05): handshake stall: 38 lock requests vs 2 acks, locks up to 449 wall s old; x1 placed 14 trades vs 64 wanted. The
+  maker wrote acks near the end of _quote, but paced-out / toxic books return early → never acked. Fix: maker-side ack (and cancel of its
+  quotes on a locked side) moved to the top of the making path; later code only keeps the locked side out of `want`. Replay: lock off identical,
+  maker never quotes a locked side and acks, takers wait for acks. Deployed; only x3 restarted. After: 12 locks / 9 acks, max lock age 2 s.
