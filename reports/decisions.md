@@ -20296,3 +20296,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   reference read further ahead (latest depth/spread values). Guard: time going backwards (sim restart, or an old recorded replay) drops a book's
   history. Replay: off identical; on 0 errors. add_skill_uid.sh M1 now includes rev_preload (x1's tape) + lock_dir. x1 itself is NOT restarted
   (user's untouched test); it gets preload on its next restart.
+- §1236 add. 2 (19:25 UTC 11-05): V0 (and the V/N variant stack built from it, §1228) RETIRED for new UIDs. Its kappa halves out of sample
+  (+0.56 → +0.25), its trades lose raw (−0.5 to −7 bp), and its live skill swings (0.10-0.22 most of 11-05, 0.67 at 19:16 UTC), so its score
+  rests on the drift-strip timing term. New skill UIDs run the fitted model (M1); making runs on maker-only UIDs. Model diversity later =
+  variants of the model (threshold / hold), overlap-checked like §1228. x2 keeps V0 only because the user chose live-or-die.
