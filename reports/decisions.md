@@ -20313,3 +20313,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   First restart (20:20 UTC) ran the PREVIOUS agent file: the preload build had only been copied to /tmp for the replay checks, never
   installed → no warm start, 0 model bets in 13 min. Installed the current agent (preload + ack fix) and restarted at ≈ 20:34 UTC:
   "REV PRELOAD: 487,389 snapshots, 128 books warm". Lesson: after a replay check, install the file and grep the deployed copy before restarting.
+- §1235 add. 3 (21:05 UTC 11-05): x3 making credit flat at ≈ 158 for 1.5 h (rank 132/156; median 374) → ≈ 0.19/tempo at steady state vs a prune
+  line ≈ 0.29-0.31. making_exact.py on x3's fills: captured 506 (field median 292), quality 0.50 (median 0.58), but only 327 of 532 positive
+  capture counted by the per-book min (61%; 26 books one-sided) → credit 163. Balance is the leak (+63% if balanced). x3 → skew 10, max_units 40
+  (x2's 11-03 maker setting: 73% of capture counted). Backup mvtrx-x3.service.pre-skew. Next lever if needed: drop the 20 worst-R books (quality 0.50 → 0.56).
