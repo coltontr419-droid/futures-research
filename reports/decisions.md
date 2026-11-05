@@ -20328,3 +20328,10 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   a forecast ≥ X bp says will lose). Replay: off identical to live (987 instructions); on 0 errors, 128 books fed.
 - LIVE A/B on x3 since 21:03 UTC via arms (book mod 3): arm 0 = control (current x3), arm 1 = guard 2 bp, arm 2 = guard 2 bp + size 0.025 (≈ $500 fills).
   Read with making_exact.py <x1 tape> 58 3 --since <sim min> after ~1-2 h. Backups mvtrx-x3.service.pre-arms, agents/QuoteAgent.pre-mkguard.py.
+
+## §1239 — Model v2.1 (per-book gap deviation) REJECTED; v1 still holds on the newest tape (2026-11-05 21:17 UTC) (S11)
+- predfeat3.py adds gapdev = gap − the book's own 30-min average gap (1,800 s history); v21fit.py drops the raw gap. Train A/B/C (630k rows),
+  test = the latest 760 MB of x1's tape (unseen, later than §1237's D).
+- Forecast corr with the 600 s move: v1 +0.145, v2.1 +0.015 → v2's extra power came from persistent per-book gap levels, not a general signal.
+- Trading (1 bet/book/h): v1 900 s hold: 77 kept/3h, pass 43% fail 9%, kappa +0.30, +3.82 bp, 75% hit | v2.1: 48 kept, 47%/14%, kappa −0.01, −0.67 bp.
+- v1 stays (x1 + maker guard). Note kappa swings a lot between windows (+2.04 on §1237's D vs +0.30 here); raw edge + hit rate are steadier.
