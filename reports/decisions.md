@@ -20309,3 +20309,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   v2 900/3600: only 34 books traded, 38 kept, 88%/0%, +6.88, +10.9 bp | v2 600/3600: 28 kept. v2's top-2% forecasts cluster on the books with a
   persistent large fundamental gap → too few books for the 20-book bar. Follow-up: per-book gap normalisation.
 - Changes: add_skill_uid.sh M1 now rev_hold=900. x1 stays on 600 (user's test); switching it to 900 after tonight costs ~1 min (warm start).
+- §1237 add. 1 (20:35 UTC 11-05): x1 switched to rev_hold=900 + rev_preload (user: yes) after reading 19 kept / skill 0 at 2:16 PM CT.
+  First restart (20:20 UTC) ran the PREVIOUS agent file: the preload build had only been copied to /tmp for the replay checks, never
+  installed → no warm start, 0 model bets in 13 min. Installed the current agent (preload + ack fix) and restarted at ≈ 20:34 UTC:
+  "REV PRELOAD: 487,389 snapshots, 128 books warm". Lesson: after a replay check, install the file and grep the deployed copy before restarting.
