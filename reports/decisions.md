@@ -20254,3 +20254,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   120 runs ≈ $18.6/day ≈ $560/month vs ≈ $590 pay → ≈ break-even; qualifying only 40 runs ≈ $186/month vs $0-236 → mostly a loss.
   Worth mining only at ~3× lower cost for the same score, a novelty bonus (×3 notable → ≈ $1.2k/month net), or the champion title (+10 pts).
   Plan: finish B's clean rerun (spend/score curve), then park Harnyx as novel-agent R&D; MVTRX stays the main line.
+- §1231 add. 5 (07:42 UTC 11-05): clean B rerun (0 errors): 0.500, 16/30 nonzero, $4.78 ($0.159/task, −14% vs champion), 108 s mean (−16%).
+  So the champion's spend can be cut ~14% and runtime ~16% with no score loss (0.48-0.52 across champion/A/B, ±noise). Cost curve:
+  champion $0.186/task, A $0.189, B $0.159, C (GLM driver) $0.160 but score 0.117. With 4 validators, B's main-tier cost ≈ $570/month ≈ the
+  ≈ $590 pay → Harnyx PARKED as novel-agent R&D; revisit only with an approach ~3× cheaper or clearly better (novelty / title).
