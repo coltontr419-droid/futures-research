@@ -20209,3 +20209,12 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   today's 40 × $591 tier reflects an easy batch. Next batch's bar: match 0.388 at ≥ 10% lower cost (or 0.49). The champion is ~5× costlier
   than its peers, so the entry plan is a cheaper variant that holds ≈ 0.39. One-task local check: champion code answered the NPS task correctly
   (matches the reference) for $0.22, yet pairwise judge = 0 (as for all recorded agents on that task); full 30-task local run under way.
+
+## §1232 — S5 has no live raw edge; the top takers' trigger is a combination, not one rule (2026-11-05 06:15 UTC) (S11)
+- x2exec2.py, x2's 381 live S5 ENTRIES (live_tape_x2c): fade a +4.3 bp 300 s move (83% against), no signal lag (+0.0 bp in the last 5 s),
+  half spread paid 2.3 bp, then mid our way +0.06 bp at 60 s and −0.54 bp at 600 s (49% hit) → no raw edge; live skill (0.18 V0, 0.095 S5)
+  comes from the validator's drift strip, not prediction.
+- trigger.py, top-20 skill takers' 28,381 ENTRIES (x1 tape, 600 MB): +2.40 bp at 60 s, +1.69 at 600 s, 58% hit. Agreement: fund change 60 s 46%
+  (agree +2.57 vs disagree +0.87 bp), gap change 10 s 66%, big other trade 5 s 34% (fade), mid 5 s 40% (fade), gap now 51%, flows 45-54%.
+  No single feature separates good from bad entries → fit a multi-feature predictor and test it on an unseen slice (remember §1199: a lab fit
+  was backwards live).
