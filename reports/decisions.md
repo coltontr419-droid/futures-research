@@ -20148,3 +20148,9 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   'Cancellation has no side' tape crash). Balances didn't move between gauge reads 02:10-02:27. Fix: lean=1 + tape on (live_tape_x2c.jsonl),
   swallowed _quote errors are now logged once per sim minute ("QUOTE ERROR"), IOC FLOW log time-based. After the restart: tape writes, 0 errors.
   x2's live record before 02:29 UTC is mostly non-trading; judge x2 from ≈ 03:00 UTC on.
+- §1227 (03:05 UTC 11-05): Terminal-Bench, 10 random easy/medium single-container tasks, security category/tags EXCLUDED (seed 1227), as
+  Hone terminal_script_v1 (the agent reads the task's build files, writes one Bash script; graded in the task container by its own tests).
+  DeepSeek V4 Pro: 2/10 pass (hello-world, ilp-solver); 4 timeouts after only 2-3 steps (slow host), $0.40.
+  GLM-5.2: 3 of the 5 tasks it reached pass (csv-to-parquet, hello-world, prove-plus-comm; attention-mil 10/11 tests), $0.22. The other 5
+  got HTTP 402: the OpenRouter key's $20 limit is used up (account balance ≈ $7.9 left). Read: GLM-5.2 is the stronger model on both
+  Hone task types. Scripts: deploy/sn5/tb/.
