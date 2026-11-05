@@ -20121,3 +20121,6 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Rough estimate (assumes ~1,700 credit per established UID): 100 NOAH in → ~11 NOAH/day, net ~5.5 after paybacks (≈ $1.5k/month), upfront ≈ $2.9k,
   payback ~2 months; 400 in → net ≈ $3k/month for ≈ $5.6k. Risks: NOAH has no use outside the loop (price rests on contributors; the two big wallets
   earn ~$300k/month); contributions are lost; the credit level isn't verified (needs a scan of all receipts). Earlier memory of "needs a GPU" was wrong.
+- §1223 add. 5 (01:00 UTC 11-05): x2 (UID 169) crashed 2,214 times/hour in _record (tape writer): its event stream delivers pydantic
+  Cancellation objects with no .side, so respond_simulation aborted and sent NO orders on those steps (x1 unaffected). Fix: x2 tape off (x1's
+  tape has every trade), getattr guard in _record. x2 restarted 00:59 UTC, 0 errors after. x2's live skill read before this is understated.

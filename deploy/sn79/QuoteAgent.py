@@ -265,7 +265,7 @@ class QuoteAgent(FinanceAgent):
                 row[0 if bid_side else 1] += e.quantity
                 if (bid_side and e.price >= b0 - 2 * tick) or (not bid_side and e.price <= a0 + 2 * tick):
                     row[2 if bid_side else 3] += e.quantity
-            elif kind == "c" and e.side is not None:
+            elif kind == "c" and getattr(e, "side", None) is not None:   # pydantic Cancellation has no side (x2 crash 11-05)
                 row[4 if e.side == 0 else 5] += e.quantity or 0.0
         for d, keep in ((mids, 125), (fl, 6), (ofl, max(6, self.flow_win + 1))):
             for s in [s for s in d if s < sec - keep]:
@@ -550,8 +550,8 @@ class QuoteAgent(FinanceAgent):
                         of["n" + side] += e.quantity
                         if (side == "b" and e.price >= b0 - 2 * tick) or (side == "a" and e.price <= a0 + 2 * tick):
                             of["n" + side + "2"] += e.quantity
-                    elif kind == "c" and e.side is not None:
-                        of["c" + ("b" if e.side == 0 else "a")] += e.quantity or 0.0
+                    elif kind == "c" and getattr(e, "side", None) is not None:   # pydantic Cancellation has no side (x2 crash 11-05)
+                        of["c" + ("b" if e.side == 0 else "a")] += getattr(e, "quantity", 0.0) or 0.0
                 self.tape.write(json.dumps({"ts": ts, "book": book_id, "of": {k: round(v, 4) for k, v in of.items()}}) + "\n")
                 self.tape.write(json.dumps({"ts": ts, "book": book_id, "bid": book.bids[0].price, "ask": book.asks[0].price,
                                             "bids": [[l.price, l.quantity] for l in book.bids[:5]], "asks": [[l.price, l.quantity] for l in book.asks[:5]],
