@@ -20203,3 +20203,9 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Economics per UID at the main tier: ≈ $591 − model/search spend (≈ $0.27 × 30 tasks ≈ $8/day ≈ $240/month at the champion's spend;
   ≈ $3/day if it only qualifies) → net ≈ $350/month; a notable/novel change ×3/×10. Next: reproduce the champion locally, then a ≥ 10%-cheaper,
   equal-score variant (main-tier entry) and real improvements (novelty / title).
+- §1231 add. 1 (06:10 UTC 11-05): batch 436e959b (11-04) comparisons via MCP list_miner_task_batch_artifact_comparisons: 52 of 273 artifacts
+  scored. New champion UID 218 (the public script we run) = 0.388 (F1 0.80, deep 0.21) at selection median cost $4.77/task; #2-#25 = 0.27-0.35
+  at ≈ $0.8/task. The ENTERING incumbent (UID 92) scored only 0.063, so the dethroning bar was ≈ 0.16 and ~51 artifacts got main slots →
+  today's 40 × $591 tier reflects an easy batch. Next batch's bar: match 0.388 at ≥ 10% lower cost (or 0.49). The champion is ~5× costlier
+  than its peers, so the entry plan is a cheaper variant that holds ≈ 0.39. One-task local check: champion code answered the NPS task correctly
+  (matches the reference) for $0.22, yet pairwise judge = 0 (as for all recorded agents on that task); full 30-task local run under way.
