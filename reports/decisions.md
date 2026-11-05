@@ -20143,3 +20143,8 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   RESOLVED 6/10 (8 answered, 2 timeouts at 260 s; 6 of the 8 answers pass). $2.47 total = $0.25 per task, $0.41 per resolved task.
   Answers took 7-102 s. Caveat: SWE-bench issues are clearer than Hone's vague instructions, so this is GLM's best case on bug fixes.
   Scripts: deploy/sn5/{pick_tasks.py, prep_ws.sh, swe_agent.py, run_swe.sh, eval.sh} (lab box /opt/swe).
+- §1223 add. 7 (02:29 UTC 11-05): ROOT CAUSE of x2's missing trades. Its unit lacked lean=1 (x1 had lean=1 raw=1 lazy_load=1), so the agent
+  got pydantic books/events and every _quote call raised; the error was swallowed by `except Exception: continue` (that also explains the
+  'Cancellation has no side' tape crash). Balances didn't move between gauge reads 02:10-02:27. Fix: lean=1 + tape on (live_tape_x2c.jsonl),
+  swallowed _quote errors are now logged once per sim minute ("QUOTE ERROR"), IOC FLOW log time-based. After the restart: tape writes, 0 errors.
+  x2's live record before 02:29 UTC is mostly non-trading; judge x2 from ≈ 03:00 UTC on.

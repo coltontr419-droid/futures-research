@@ -221,7 +221,7 @@ class QuoteAgent(FinanceAgent):
             if self._sec % 60 == 0 and self.own_stats[1]:
                 n, t, q, qt = self.own_stats
                 bt.logging.info(f"OWN FLOW: our share of order/cancel events {n / t:.1%} by count, {q / max(qt, 1e-9):.1%} by size")
-        if self._sec % 60 == 0 and self._sec != getattr(self, "_ioc_logged", -1) and getattr(self, "_ioc_n", 0):
+        if self._sec - getattr(self, "_ioc_logged", -10 ** 9) >= 60 and getattr(self, "_ioc_n", 0):
             self._ioc_logged = self._sec            # §1223 add. 6: x2 runs without a tape, so log its IOC flow once per sim minute
             bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}")
         if self.tape is not None:
@@ -239,7 +239,12 @@ class QuoteAgent(FinanceAgent):
                 continue
             try:
                 self._quote(response, book_id, book, acct)
-            except Exception:
+            except Exception as ex:                        # §1223 add. 7: never swallow silently — count and log once per sim minute
+                self._qerr = getattr(self, "_qerr", 0) + 1
+                if self._sec - getattr(self, "_qerr_at", -10 ** 9) >= 60:
+                    self._qerr_at = self._sec
+                    import traceback
+                    bt.logging.warning(f"QUOTE ERROR x{self._qerr} book {book_id}: {type(ex).__name__}: {ex} | {traceback.format_exc(limit=3)[-400:]}")
                 continue
         return response
 
