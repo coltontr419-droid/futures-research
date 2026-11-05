@@ -20224,3 +20224,14 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   The predictor work continues as a raw-edge upgrade, not a replacement.
 - §1231 add. 2: Harnyx champion code, local eval of batch 436e959b, 30 tasks: mean 0.483 (local pairwise scale), 16/30 nonzero, $5.57 total
   ($0.19/task), 0 errors. Variants A (no Claude) and C (GLM-5.2 driver) running.
+
+## §1233 — MVTRX reversal predictor: a real raw edge on an unseen slice (2026-11-05 06:20 UTC) (S11)
+- predfeat.py: every 5 sim s per book: Δmid 1/5/30/60/300 s, Δfund 1/10/60 s, gap (fund−mid) and its 10 s change, top-5 depth imbalance,
+  spread, other takers' signed flow 10 s, new-minus-cancelled book flow 10 s, big trades 5 s; targets: mid move 60 s / 600 s (bp).
+  TRAIN = x1 tape slice ending 1,800 MB back (252,928 rows); TEST = latest 850 MB (254,976 rows), unseen.
+- predfit.py, ridge on z-scores: test corr +0.25 (60 s) / +0.17 (600 s), above in-sample (+0.20 / +0.12). Weights (600 s, per sd): depth imbalance
+  +0.66, Δfund 60 s +0.48, Δmid 60 s −0.41, gap −0.24, spread +0.24, flow +0.24, gap change +0.20.
+- Trading sim on TEST (one bet per book per hour, 600 s hold, mid-to-mid): S5 +0.97 bp / 57% hit, books pass 23% fail 9% |
+  model top 2% |forecast| +4.24 bp / 72%, 95 books pass 42% fail 5% | top 0.5% +5.95 bp / 76%, 53 books pass 53% fail 6%.
+- Next: a second unseen slice (ending 900 MB back), then a live implementation + replay check. Live test after x2's V0 verdict (or on a new UID).
+  Remember §1199: an offline-fit predictor was backwards live.
