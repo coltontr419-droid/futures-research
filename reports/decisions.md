@@ -20154,3 +20154,12 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   GLM-5.2: 3 of the 5 tasks it reached pass (csv-to-parquet, hello-world, prove-plus-comm; attention-mil 10/11 tests), $0.22. The other 5
   got HTTP 402: the OpenRouter key's $20 limit is used up (account balance ≈ $7.9 left). Read: GLM-5.2 is the stronger model on both
   Hone task types. Scripts: deploy/sn5/tb/.
+
+## §1228 — MVTRX skill-UID variant set for scaling (2026-11-05 03:10 UTC): six low-overlap reversal configs ready (S11)
+- deploy/sn79/variants.py on x1's last 850 MB (181 sim min ≈ the validator's 3 h window), validator kappa_of_alpha on kept books:
+  V0 x2 (12bp/600/2400/3600) kept 49, kappa +0.56 | V1 8bp/600/2400/3600 50, +0.38 | V2 15bp 44, +0.30 | V3 12bp/300/1200/2400 39, +0.34 |
+  V4 12bp/900/3600/3600 55, +0.45 | V5 10bp/1200/3600/5400 70, +0.26 | V6 8bp/300/1200/1200 26, +0.49 | V7 20bp 41, +0.04 (drop) |
+  V8 x2 on even books 20, +0.73 | V9 x2 on odd books 29, +0.46.
+- Entry overlap (same book & direction within ±30 s): V0/V1/V3/V4/V5/V6 pairwise 2-15% → a 6-UID stack that rarely crowds the same trade.
+  V2 overlaps V0 by 32% (second tier). V8/V9 are disjoint halves of V0 (0% overlap) but V8 keeps only 20 books (at the bar).
+- Plan once x2 shows live skill above the median: register UIDs in this order: V4, V1, V5, V3, V6, then new lookbacks (450/750/1500 s) to reach 20+.
