@@ -20163,3 +20163,8 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Entry overlap (same book & direction within ±30 s): V0/V1/V3/V4/V5/V6 pairwise 2-15% → a 6-UID stack that rarely crowds the same trade.
   V2 overlaps V0 by 32% (second tier). V8/V9 are disjoint halves of V0 (0% overlap) but V8 keeps only 20 books (at the bar).
 - Plan once x2 shows live skill above the median: register UIDs in this order: V4, V1, V5, V3, V6, then new lookbacks (450/750/1500 s) to reach 20+.
+- §1228 add. 1: 10 more variants (variants2.py, same 3 h slice). Strong and low-overlap: N3 14bp/1500/4800/5400 kept 63 kappa +0.74 (overlap ≤ 8%),
+  N4 10bp/1800/5400/7200 68, +0.47 (≤ 6%), N9 8bp/900/3600/5400 56, +0.32 (≤ 12%), N8 13bp/1200/2400/4800 56, +0.51 (21% with V5).
+  Second tier (≥ 15% overlap with a first-tier variant): N10 +0.43, N5 +0.36, N2 +0.34, N1 +0.27; weak: N6 +0.17, N7 +0.25 (33% with V0).
+  Stack order for registration: V0 (x2), V4, V1, V3, V6, N3, N4, N9, N8, V5 = 10 low-overlap UIDs; then the second tier → 14.
+  Beyond that: split each variant across even/odd books (halves never overlap; each keeps ~20-30 books, near the bar). add_skill_uid.sh knows all.

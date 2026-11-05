@@ -6,7 +6,7 @@
 #   Our skill UIDs are all takers (IOC only), so they can never trade with each other; variants keep their entries apart (§1228 overlap table).
 set -e
 HK=$1; PORT=$2; VAR=$3
-[ -n "$HK" ] && [ -n "$PORT" ] && [ -n "$VAR" ] || { echo "usage: $0 <hotkey> <port> <variant: V0 V1 V3 V4 V5 V6>"; exit 1; }
+[ -n "$HK" ] && [ -n "$PORT" ] && [ -n "$VAR" ] || { echo "usage: $0 <hotkey> <port> <variant: V0 V4 V1 V3 V6 N3 N4 N9 N8 V5 | 2nd tier N10 N5 N2 N1>"; exit 1; }
 case $VAR in              # sleeve_bp (trigger bp) rev_look (s) rev_hold (s) sleeve_step (one bet per book per s)
   V0) P="sleeve_bp=12 rev_look=600 rev_hold=2400 sleeve_step=3600";;
   V1) P="sleeve_bp=8 rev_look=600 rev_hold=2400 sleeve_step=3600";;
@@ -14,6 +14,14 @@ case $VAR in              # sleeve_bp (trigger bp) rev_look (s) rev_hold (s) sle
   V4) P="sleeve_bp=12 rev_look=900 rev_hold=3600 sleeve_step=3600";;
   V5) P="sleeve_bp=10 rev_look=1200 rev_hold=3600 sleeve_step=5400";;
   V6) P="sleeve_bp=8 rev_look=300 rev_hold=1200 sleeve_step=1200";;
+  N3) P="sleeve_bp=14 rev_look=1500 rev_hold=4800 sleeve_step=5400";;
+  N4) P="sleeve_bp=10 rev_look=1800 rev_hold=5400 sleeve_step=7200";;
+  N8) P="sleeve_bp=13 rev_look=1200 rev_hold=2400 sleeve_step=4800";;
+  N9) P="sleeve_bp=8 rev_look=900 rev_hold=3600 sleeve_step=5400";;
+  N10) P="sleeve_bp=10 rev_look=600 rev_hold=4800 sleeve_step=5400";;
+  N5) P="sleeve_bp=9 rev_look=450 rev_hold=1200 sleeve_step=1800";;
+  N2) P="sleeve_bp=12 rev_look=750 rev_hold=3000 sleeve_step=3600";;
+  N1) P="sleeve_bp=10 rev_look=450 rev_hold=1800 sleeve_step=2700";;
   *) echo "unknown variant $VAR"; exit 1;;
 esac
 [ -f /root/.bittensor/wallets/main/hotkeys/$HK ] || { echo "hotkey file missing: copy hotkeys/$HK from the laptop first"; exit 1; }
