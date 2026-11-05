@@ -147,9 +147,13 @@ class QuoteAgent(FinanceAgent):
         self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
         self.rev_imb = float(getattr(c, "rev_imb", -9.0))        # §1230: enter only when top-5 depth imbalance × our direction ≥ REV_IMB (off at -9)
+        self.mk_model = str(getattr(c, "mk_model", "") or "")    # §1238: maker side — the same predictor guards our quotes
+        self.mk_pull_bp = float(getattr(c, "mk_pull_bp", 0.0))   # >0: pull the quote on the side a forecast ≥ MK_PULL_BP (bp) says will lose
+        self._mk_n = [0, 0]                                      # [quote sides pulled, quote decisions seen]
         self.rev_model = str(getattr(c, "rev_model", "") or "")  # §1233: path to the fitted predictor (rev_model.json); set = model entries
         self._rf = None
-        if self.rev_model:
+        if self.rev_model or self.mk_model:
+            self.rev_model = self.rev_model or self.mk_model
             import os as _os, sys as _sys
             _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
             from revfeat import RevFeatures
@@ -504,6 +508,20 @@ class QuoteAgent(FinanceAgent):
                     self._last_take[book_id] = self._sec
                     self._ioc_n = getattr(self, "_ioc_n", 0) + 1; self._ioc_usd = getattr(self, "_ioc_usd", 0.0) + q * px
             return
+        if self._rf is not None and self.mk_model:              # §1238: feed the predictor on EVERY book each step (before paced/toxic returns)
+            trades, of = [], 0.0
+            for e in book.events or []:
+                kind = getattr(e, "y", "")
+                if kind == "t":
+                    trades.append(((e.timestamp // 1_000_000_000) if e.timestamp else self._sec, e.price, e.quantity, getattr(e, "Ta", None)))
+                elif kind == "o" and getattr(e, "price", None) is not None:
+                    of += (e.quantity or 0.0) if e.side == 0 else -(e.quantity or 0.0)
+                elif kind == "c" and getattr(e, "side", None) is not None:
+                    of -= (e.quantity or 0.0) if e.side == 0 else -(e.quantity or 0.0)
+            bd5 = sum(l.quantity or 0.0 for l in (book.bids or [])[:5]); ad5 = sum(l.quantity or 0.0 for l in (book.asks or [])[:5])
+            fnd = getattr(book, "fundamental", None) or getattr(book, "f", None)
+            self._rf.update(int(book_id), self._sec, mid, fnd, (bd5 - ad5) / (bd5 + ad5) if bd5 + ad5 else 0.0, (ask - bid) / mid * 1e4,
+                            trades, of, own_uid=self.uid)
         if self.lock_dir:                                  # maker side of the handshake, FIRST (paced-out / toxic books return early below)
             for side in (OrderDirection.BUY, OrderDirection.SELL):
                 lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}"
@@ -556,6 +574,16 @@ class QuoteAgent(FinanceAgent):
                                      timeInForce=TimeInForce.IOC)
                 self._last_take[book_id] = self._sec
                 want.pop(OrderDirection.SELL if side == OrderDirection.BUY else OrderDirection.BUY, None)   # never rest on the side we take
+        if self._rf is not None and self.mk_model:              # §1238 guard (features fed at the top of the making path)
+            if self.mk_pull_bp > 0:
+                fc = self._rf.predict(int(book_id), self._sec); self._mk_n[1] += 1
+                if fc is not None and fc >= self.mk_pull_bp and want.pop(OrderDirection.SELL, None) is not None:
+                    self._mk_n[0] += 1                         # model expects the price to rise: an offer here gets lifted and loses
+                elif fc is not None and fc <= -self.mk_pull_bp and want.pop(OrderDirection.BUY, None) is not None:
+                    self._mk_n[0] += 1
+                if self._sec - getattr(self, "_mk_logged", -10 ** 9) >= 60:
+                    self._mk_logged = self._sec
+                    bt.logging.info(f"MK GUARD: pulled {self._mk_n[0]} quote sides of {self._mk_n[1]} decisions")
         if self.pull and pred > self.pull * tick:
             want.pop(OrderDirection.SELL, None)            # price about to rise: do not leave an offer for a sniper to lift
         elif self.pull and pred < -self.pull * tick:

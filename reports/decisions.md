@@ -20317,3 +20317,14 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   line ≈ 0.29-0.31. making_exact.py on x3's fills: captured 506 (field median 292), quality 0.50 (median 0.58), but only 327 of 532 positive
   capture counted by the per-book min (61%; 26 books one-sided) → credit 163. Balance is the leak (+63% if balanced). x3 → skew 10, max_units 40
   (x2's 11-03 maker setting: 73% of capture counted). Backup mvtrx-x3.service.pre-skew. Next lever if needed: drop the 20 worst-R books (quality 0.50 → 0.56).
+
+## §1238 — Maker study: top makers avoid being picked off (small fills); our model flags the losing fills → maker guard A/B live on x3 (2026-11-05 21:03 UTC) (S11)
+- makerstudy.py on today's frozen x1 tape (157 makers with ≥ 100 fills; markout = mid move in the maker's favour after the fill):
+  TOP quartile: fill $469, half spread +2.67 bp, markout 20 s −0.27 → keeps 90% | MEDIAN: $1,095, +3.23, −0.64 → 77% | BOTTOM: $1,813, +3.14, −1.50 → 52% |
+  x3: $1,193, +1.55, −0.65 → 58%. The top makers win on adverse selection (small fills), not on width.
+- All 452,542 maker fills scored by our v1 forecast at the fill (f × maker side): AGAINST (< −2 bp, 10.9% of fills) markout −2.72 bp, keeps 8% |
+  neutral 80.4% −0.86 bp, 78% | WITH (> +2 bp) 8.7% +0.21 bp, 111%. Pulling the side the model says loses removes the worst ~11% of fills.
+- Agent: mk_model (feeds RevFeatures on every book before the paced/toxic returns, warm-started via rev_preload) + mk_pull_bp (pull the quote side
+  a forecast ≥ X bp says will lose). Replay: off identical to live (987 instructions); on 0 errors, 128 books fed.
+- LIVE A/B on x3 since 21:03 UTC via arms (book mod 3): arm 0 = control (current x3), arm 1 = guard 2 bp, arm 2 = guard 2 bp + size 0.025 (≈ $500 fills).
+  Read with making_exact.py <x1 tape> 58 3 --since <sim min> after ~1-2 h. Backups mvtrx-x3.service.pre-arms, agents/QuoteAgent.pre-mkguard.py.
