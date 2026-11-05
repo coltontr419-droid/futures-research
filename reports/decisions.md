@@ -20278,3 +20278,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Recommendation: never combine. For a fast-paying second miner use a MAKER-ONLY UID on all books (making pays in proportion to credit, outside
   the skill floor; the old x1 reached ≈ 700 credit / score 0.0033 ≈ 2× the floor within ~15 h), with the §1223 lock handshake so our model
   UIDs' IOCs never hit its quotes. Model UIDs stay pure takers.
+- §1235 add. 1 (17:46 UTC 11-05): x3 = UID 58 registered, MAKER-ONLY on all books (old-x1 all-book making params, pacing, no taking,
+  lock_dir maker side), live 17:40 UTC; first fills within minutes (97, then 265). Lock handshake turned on for x1 (UID 114) and x2 (UID 169)
+  at 17:46 UTC (restart; backups mvtrx-x?.service.pre-lock). selftrade.sh counts x3 fills taken by x1/x2: 0 in the recent tape (1 earlier hit in
+  the whole file is probably UID 58's previous owner). Test: does x3's paid score rise faster than x1's (making pays in proportion to credit, no floor)?
