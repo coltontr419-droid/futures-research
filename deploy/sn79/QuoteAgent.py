@@ -146,6 +146,7 @@ class QuoteAgent(FinanceAgent):
         self.rev_look = float(getattr(c, "rev_look", 0.0))       # >0: REVERSAL sleeve (§1223) on the sleeve books — when mid moved ≥ SLEEVE_BP over the
         self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
+        self.rev_imb = float(getattr(c, "rev_imb", -9.0))        # §1230: enter only when top-5 depth imbalance × our direction ≥ REV_IMB (off at -9)
         self._mid_hist, self._rev = {}, {}
         self.lock_dir = str(getattr(c, "lock_dir", "") or "")   # §1223: our UIDs must never trade with each other. A taker UID writes
         self.lock_max = float(getattr(c, "lock_max", 120.0))       # lock_<book>_<maker side> before its IOC; the maker UID pulls that side and
@@ -430,8 +431,9 @@ class QuoteAgent(FinanceAgent):
                     tgt = 0.0
                 if h[0][0] <= self._sec - self.rev_look and self._sec - at >= self.sleeve_step:
                     r = (mid - h[0][1]) / h[0][1] * 1e4
-                    if abs(r) >= self.sleeve_bp:
-                        tgt, at = (-1.0 if r > 0 else 1.0) * self.rev_usd / mid, self._sec
+                    d = -1.0 if r > 0 else 1.0
+                    if abs(r) >= self.sleeve_bp and (self.rev_imb <= -1.0 or d * self._depth_imb(book) >= self.rev_imb):
+                        tgt, at = d * self.rev_usd / mid, self._sec
                 self._rev[book_id] = (tgt, at)
                 target, cool = tgt, self.sleeve_cool
             elif self.sleeve_bp and fundamental and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
@@ -581,6 +583,12 @@ class QuoteAgent(FinanceAgent):
                 if q:
                     self.tape.write(json.dumps({"ts": ts, "book": book_id, "queue": q}) + "\n")
         self.tape.flush()
+
+    @staticmethod
+    def _depth_imb(book):
+        """(bid depth − ask depth) / total over the top 5 levels: > 0 means more resting buyers (§1230)."""
+        bd = sum(l.quantity or 0.0 for l in (book.bids or [])[:5]); ad = sum(l.quantity or 0.0 for l in (book.asks or [])[:5])
+        return (bd - ad) / (bd + ad) if bd + ad > 0 else 0.0
 
     def _lock_ok(self, book_id, maker_side):
         """Taker half of the handshake: request the lock, and report whether the maker UID has acknowledged it (no orders left there)."""

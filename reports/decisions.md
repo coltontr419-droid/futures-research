@@ -20176,3 +20176,13 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Big-move third: 24 h tail hits 25-36%, |move|/sd ≈ 1.2-1.5. That's expected when conditioning on the realized move (any calibrated
   forecast shows it), so it is not evidence of narrow tails. Widening would cost the other two thirds; IV scaling (§1211) didn't help.
 - Read: Synth's big-move losses come from moves that aren't predictable from price history at prompt time. No width fix; at most a small SOL narrowing (k ≈ 0.9) to test in the forward run.
+
+## §1230 — MVTRX: the top skill takers fade SMALL moves with depth on their side; x2 switched to S5 (2026-11-05 04:18 UTC) (S11)
+- featstudy.py (3 h slice): our V0 entries LOSE raw (−7.1 bp over the hold, 38% hit); they score only because the validator strips each book's
+  drift. The top-20 skill takers' 68,552 trades gain +2.4 bp in 10 min (60% hit): median move 5 bp (ours 12+), smaller moves better (+3.0 vs +1.6 bp),
+  and top-5 depth imbalance on their side helps (+3.0 bp / 65% hit vs +1.5 / 56%).
+- variants3.py, validator kappa, studied slice → UNSEEN earlier slice (ending 900 MB back): V0 +0.56 → +0.25; V0+depth +0.61 → +0.18;
+  S5 4bp/300/600/3600 + depth ≥ 0.17: +1.01 (31 kept) → +0.49 (37 kept); S4 5bp/300/900/2400+depth +0.78 → +0.44; S3 6bp/…/1800 +7.92 → +2.13 but 16 kept (< 20).
+- Agent: rev_imb (depth filter, off by default; off = identical to live in replay). x2 switched to S5 at 04:18 UTC (sleeve_bp=4 rev_look=300
+  rev_hold=600 sleeve_step=3600 rev_imb=0.17); backup mvtrx-x2.service.pre-s5, QuoteAgent.pre-imb.py. Live skill before the switch: 0.18 (28 kept).
+- Hone cost note: input is ~2% of GLM's bill; we paid ~2.4× list via fastest-host routing → for live use price-sorted routing with a speed floor.
