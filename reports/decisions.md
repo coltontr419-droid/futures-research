@@ -20300,3 +20300,12 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   (+0.56 → +0.25), its trades lose raw (−0.5 to −7 bp), and its live skill swings (0.10-0.22 most of 11-05, 0.67 at 19:16 UTC), so its score
   rests on the drift-strip timing term. New skill UIDs run the fitted model (M1); making runs on maker-only UIDs. Model diversity later =
   variants of the model (threshold / hold), overlap-checked like §1228. x2 keeps V0 only because the user chose live-or-die.
+
+## §1237 — Model v2 + settings sweep on TODAY's unseen x1 tape: v1 holds (kappa +2.0), 15-min hold is better; v2 too narrow (2026-11-05 20:07 UTC) (S11)
+- predfeat2.py (tape path + 300/600/900 s targets): slices A/B/C of the old x1 tape (745k rows) train v2; D = today's x1 tape (218k rows, unseen).
+- Forecast corr with the 600 s move on D: v1 +0.179, v2 +0.232. v2 weights: gap −1.28 (dominant), depth imbalance +0.72, Δmid 300 s +0.61, Δfund 60 s +0.45.
+- Sweep on D (2% threshold, kept books per 3 sim h, pass/fail, validator kappa, raw move, hit):
+  v1 600/3600 (x1 now): 67, 45%/5%, +2.04, +5.69 bp, 77% | v1 900/3600: 81, 55%/6%, +2.57, +7.69 bp, 82% (best) | v1 300/3600: 56, +1.81 |
+  v2 900/3600: only 34 books traded, 38 kept, 88%/0%, +6.88, +10.9 bp | v2 600/3600: 28 kept. v2's top-2% forecasts cluster on the books with a
+  persistent large fundamental gap → too few books for the 20-book bar. Follow-up: per-book gap normalisation.
+- Changes: add_skill_uid.sh M1 now rev_hold=900. x1 stays on 600 (user's test); switching it to 900 after tonight costs ~1 min (warm start).
