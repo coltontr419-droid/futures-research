@@ -20267,3 +20267,14 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Harnyx D (context diet: KEEP_TURNS 3, smaller pages/search): 0.46 at $5.34 — MORE expensive than B ($4.78): trimming the re-sent context
   breaks prompt caching (cached input is what kept terra cheap). E ran out of OpenRouter credit (952 × 402) → invalid. Cheap route closed;
   Harnyx stays parked. OpenRouter balance ≈ $0.
+
+## §1235 — Making + model in ONE UID hurts the model's skill; keep them on separate UIDs (2026-11-05 17:27 UTC) (S11)
+- mkmodel.py over the old x1's making period (UID 213 maker fills, 1,127 on 56 books) = the predictor's unseen test slice (205 model entries on
+  102 books); per-book alpha net of drift, 2.3 bp hurdle, validator kappa_of_alpha:
+  MODEL alone 34 kept (25+/9−), median +0.96 bp, kappa +0.99 | MAKING alone 23 kept (8+/15−), −1.03, kappa −0.14 |
+  BOTH on the same books 35 kept (21+/14−), +0.42, kappa +0.48 (HALVED) | SPLIT (making only where the model never traded) = model alone (+0.99).
+- Making inventory is adversely selected, so on a shared book it drags the model's alpha. A static split leaves the model too few books:
+  half the books → ~17 kept per window, under the 20-book bar. And this slice had only 56 making books; making on all books would hurt more.
+- Recommendation: never combine. For a fast-paying second miner use a MAKER-ONLY UID on all books (making pays in proportion to credit, outside
+  the skill floor; the old x1 reached ≈ 700 credit / score 0.0033 ≈ 2× the floor within ~15 h), with the §1223 lock handshake so our model
+  UIDs' IOCs never hit its quotes. Model UIDs stay pure takers.
