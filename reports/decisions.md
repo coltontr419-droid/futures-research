@@ -20341,3 +20341,11 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   several makers. Replay: off identical (926); maker acks + heartbeat; no live maker → 82/82 IOCs; live maker no ack → 0; acked → 82; two live
   makers, one acked → 0. Bug caught in replay: a mixed-role agent waited on its own heartbeat → own uid excluded. Installed; restarts of
   x3 → x1/x2 together after the x3 A/B read.
+- §1238 add. 1 (23:47 UTC 11-05): x3 A/B VERDICT with ≈ 45 sim min (989.4 → ≈ 1035 sim min), validator-exact per arm:
+  arm 0 control: captured 161.9, quality 0.519, two-sided 79.6, credit 41.3 | arm 1 guard 2 bp: 154.4, 0.345, 50.7, 17.5 |
+  arm 2 guard + size 0.025: 108.0, 0.481, 46.7, 22.4. The first read (16 sim min) had favoured arm 1 by noise. The guard HURTS quality
+  live; the field-level finding (fills the model is against keep 8%) does not transfer to our own quoting (a lone remaining quote in moving
+  moments gets picked off too). Smaller fills cut volume more than they raise quality. → x3 back to control on all books (skew 10,
+  max_units 40, no arms, no guard) at 23:48 UTC. Guard code stays (off by default). Making credit at the switch: 294.5.
+- x2 (UID 169) PRUNED ≈ 23:40 UTC 11-05 after its 24 h immunity (paid score 0.0001, emission 0.019 vs line 0.29), the expected outcome.
+  Its service is stopped and disabled.
