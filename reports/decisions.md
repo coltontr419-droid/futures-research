@@ -20335,3 +20335,9 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Forecast corr with the 600 s move: v1 +0.145, v2.1 +0.015 → v2's extra power came from persistent per-book gap levels, not a general signal.
 - Trading (1 bet/book/h): v1 900 s hold: 77 kept/3h, pass 43% fail 9%, kappa +0.30, +3.82 bp, 75% hit | v2.1: 48 kept, 47%/14%, kappa −0.01, −0.67 bp.
 - v1 stays (x1 + maker guard). Note kappa swings a lot between windows (+2.04 on §1237's D vs +0.30 here); raw edge + hit rate are steadier.
+- §1240 (21:45 UTC 11-05): maker heartbeat + per-maker acks. Makers (any UID not skipping all 128 books) write lock_dir/maker_<uid>.hb (sim second)
+  every state; takers handshake only while some OTHER maker's heartbeat is within lock_hb_s (30 sim s); with none alive they trade at once
+  (no stall if x3 dies or restarts). Acks are per maker (ack_<book>_<side>_<uid>); a taker fires only when EVERY live maker acked → safe with
+  several makers. Replay: off identical (926); maker acks + heartbeat; no live maker → 82/82 IOCs; live maker no ack → 0; acked → 82; two live
+  makers, one acked → 0. Bug caught in replay: a mixed-role agent waited on its own heartbeat → own uid excluded. Installed; restarts of
+  x3 → x1/x2 together after the x3 A/B read.

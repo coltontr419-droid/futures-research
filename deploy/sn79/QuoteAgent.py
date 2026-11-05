@@ -168,6 +168,7 @@ class QuoteAgent(FinanceAgent):
                     self._rf = RevFeatures(self.rev_model)
         self._mid_hist, self._rev = {}, {}
         self.lock_dir = str(getattr(c, "lock_dir", "") or "")   # §1223: our UIDs must never trade with each other. A taker UID writes
+        self.lock_hb_s = float(getattr(c, "lock_hb_s", 30.0))     # §1240: a maker heartbeat older than this (sim s) = that maker is down
         self.lock_max = float(getattr(c, "lock_max", 120.0))       # lock_<book>_<maker side> before its IOC; the maker UID pulls that side and
         self._lock_at = {}                                          # writes ack_<book>_<side> only once it has NO order left there; the taker
                                                                     # fires only on an ack at least as new as its lock, releases when done or after LOCK_MAX s
@@ -235,6 +236,12 @@ class QuoteAgent(FinanceAgent):
     def respond_simulation(self, state):
         response = self.make_response()
         self._sec = state.timestamp // 1_000_000_000
+        if self.lock_dir and len(self.skip) < 128 and self._sec != getattr(self, "_hb_at", None):
+            self._hb_at = self._sec                            # §1240 maker heartbeat: takers only handshake while a maker of ours is alive
+            hb = f"{self.lock_dir}/maker_{self.uid}.hb"
+            with open(hb + ".tmp", "w") as fh:
+                fh.write(str(self._sec))
+            os.replace(hb + ".tmp", hb)
         if self.own_ex:                                    # ids of our resting orders in this and the last 2 states: an order we placed rests
             self._own_hist.append({o.id for a in self.accounts.values() for o in (a.orders or [])})   # at least one state before its cancel
             self._own_hist = self._own_hist[-3:]; self._own = set().union(*self._own_hist)
@@ -524,7 +531,7 @@ class QuoteAgent(FinanceAgent):
                             trades, of, own_uid=self.uid)
         if self.lock_dir:                                  # maker side of the handshake, FIRST (paced-out / toxic books return early below)
             for side in (OrderDirection.BUY, OrderDirection.SELL):
-                lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}"
+                lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}_{self.uid}"
                 if os.path.exists(lk):
                     mine = [o for o in acct.orders if o.side == side]
                     for o in mine:
@@ -662,9 +669,29 @@ class QuoteAgent(FinanceAgent):
         bd = sum(l.quantity or 0.0 for l in (book.bids or [])[:5]); ad = sum(l.quantity or 0.0 for l in (book.asks or [])[:5])
         return (bd - ad) / (bd + ad) if bd + ad > 0 else 0.0
 
+    def _live_makers(self):
+        """UIDs of our makers whose heartbeat is within LOCK_HB_S sim seconds (§1240); re-read at most once per sim second."""
+        if getattr(self, "_lm_at", None) == self._sec:
+            return self._lm
+        out = []
+        for f in os.listdir(self.lock_dir):
+            if f.startswith("maker_") and f.endswith(".hb") and f[6:-3] != str(self.uid):   # never wait on ourselves
+                try:
+                    if self._sec - float(open(f"{self.lock_dir}/{f}").read()) <= self.lock_hb_s:
+                        out.append(f[6:-3])
+                except (OSError, ValueError):
+                    pass
+        self._lm, self._lm_at = out, self._sec
+        return out
+
     def _lock_ok(self, book_id, maker_side):
-        """Taker half of the handshake: request the lock, and report whether the maker UID has acknowledged it (no orders left there)."""
-        lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(maker_side)}", f"{self.lock_dir}/ack_{book_id}_{int(maker_side)}"
+        """Taker half of the handshake: request the lock, and report whether EVERY live maker of ours has acknowledged it (no orders there).
+        No live maker (all heartbeats stale) → no handshake needed: trade at once (§1240)."""
+        makers = self._live_makers()
+        if not makers:
+            self._lock_release(book_id)
+            return True
+        lk = f"{self.lock_dir}/lock_{book_id}_{int(maker_side)}"
         key = (book_id, int(maker_side))
         if key not in self._lock_at or not os.path.exists(lk):
             with open(lk + ".tmp", "w") as fh:
@@ -675,7 +702,7 @@ class QuoteAgent(FinanceAgent):
             self._lock_release(book_id)                    # maker never cleared: give the side back, try again later
             return False
         try:
-            return float(open(ak).read()) >= self._lock_at[key]
+            return all(float(open(f"{self.lock_dir}/ack_{book_id}_{int(maker_side)}_{u}").read()) >= self._lock_at[key] for u in makers)
         except (OSError, ValueError):
             return False
 
