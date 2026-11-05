@@ -20218,3 +20218,9 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   (agree +2.57 vs disagree +0.87 bp), gap change 10 s 66%, big other trade 5 s 34% (fade), mid 5 s 40% (fade), gap now 51%, flows 45-54%.
   No single feature separates good from bad entries → fit a multi-feature predictor and test it on an unseen slice (remember §1199: a lab fit
   was backwards live).
+- §1232 add. 1 (06:18 UTC): correction. V0's positive skill is NOT a quirk: the validator's skill = P&L minus mean inventory × book drift (position
+  timing relative to one's own average), the subnet's definition; V0 is positive on both backtest slices and was 0.18 live after ~30 min.
+  Switching to S5 mid-test was a mistake (S5 live 0.095 after 2 h). x2 back on V0 at 06:18 UTC (backup mvtrx-x2.service.s5).
+  The predictor work continues as a raw-edge upgrade, not a replacement.
+- §1231 add. 2: Harnyx champion code, local eval of batch 436e959b, 30 tasks: mean 0.483 (local pairwise scale), 16/30 nonzero, $5.57 total
+  ($0.19/task), 0 errors. Variants A (no Claude) and C (GLM-5.2 driver) running.
