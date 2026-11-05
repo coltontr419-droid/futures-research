@@ -20186,3 +20186,20 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - Agent: rev_imb (depth filter, off by default; off = identical to live in replay). x2 switched to S5 at 04:18 UTC (sleeve_bp=4 rev_look=300
   rev_hold=600 sleeve_step=3600 rev_imb=0.17); backup mvtrx-x2.service.pre-s5, QuoteAgent.pre-imb.py. Live skill before the switch: 0.18 (28 kept).
 - Hone cost note: input is ~2% of GLM's bill; we paid ~2.4× list via fastest-host routing → for live use price-sorted routing with a speed floor.
+
+## §1231 — SN67 Harnyx deep look: submit a research agent; ~40 "main participants" earn ≈ $590/month each; offline eval built in (2026-11-05 04:40 UTC) (S11)
+- Repo harnyx/harnyx (b0ac419, 11-04). Miners SUBMIT a Python deep-research agent (miner SDK: llm_chat, search_web, fetch_page through the platform
+  tool proxy, billed to the MINER's own provider keys; per-task session budget $0.50). Validators run it in a sandbox on a DAILY batch
+  (cutoff 15:00 UTC): 10 qualifying + 20 main tasks; score = F1 vs a stronger reference answer + a pairwise judge (Overall = 0.3 F1 + 0.7 judge).
+- Pay (public MCP api.harnyx.ai/mcp get_champion, 11-05): champion UID 218 (Overall 0.388, F1 0.801) ≈ 32% of the pool ≈ $17.8k/month;
+  40 main participants at 1.067% ≈ $591/month each; ~70 more at $39-236; ~160 get $0. Participant weight = stage (top 50% 1 / top 10% 2 /
+  main 5) × novelty (near_duplicate 1 / notable_change 3 / novel 10). Exact duplicates get nothing. Chain: pool ≈ $55k/month, burn 0.072 TAO.
+- Main round: up to 30 per title (F1, Overall) must pass the dethroning comparison against the incumbent on the 10 qualifying tasks:
+  beat it by 10 points, OR match its score ≥ 10% cheaper, OR ≥ 10% and ≥ 1 s faster. Then rank by qualifying score, cost, runtime.
+- The champion's script is public (get_miner_script include_content): 2,720 lines, planner + two research lanes (driver openai/gpt-6.1-terra
+  via OpenRouter, writer deepseek-v4.1-flash), adjudicator, quoted-passage answers; stops at $0.27/task. ~275 artifacts/day.
+- Offline: harnyx-miner-local-eval scores a local agent on any completed public batch. Needs a Chutes key (judge), OpenRouter (agent models)
+  and a search key (champion uses Parallel; Desearch/Exa/Tavily/Firecrawl also supported).
+- Economics per UID at the main tier: ≈ $591 − model/search spend (≈ $0.27 × 30 tasks ≈ $8/day ≈ $240/month at the champion's spend;
+  ≈ $3/day if it only qualifies) → net ≈ $350/month; a notable/novel change ×3/×10. Next: reproduce the champion locally, then a ≥ 10%-cheaper,
+  equal-score variant (main-tier entry) and real improvements (novelty / title).
