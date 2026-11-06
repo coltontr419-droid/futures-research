@@ -20568,3 +20568,39 @@ the top-UID rate). Early: the first 900-s holds were still open.
   h, 5× the even pace of ≈ $18.75k/h). The 90-sim-min window (= 7.5 wall h) was full. Before the ledger, every restart forgot this, and x3
   was on course to hit the hard cap within about a day (the 11-03 x1 failure). Cost: making gauge 385 → ≈ 175, combined 0.227 → 0.094.
   Emission is still rising on the lag: $95.8 at 4 AM, $101.2/month at 5 AM CT, vs the prune line ≈ $110. Immunity ends ≈ 11:40 AM CT.
+
+## §1249 — The top skill miners run our kind of strategy; the difference is how often they re-enter (2026-11-06, 6:30 AM CT)
+
+**Clone (clone.py).** Train: x1's tape, 600 MB ending 250 MB before its end. Test: x3's own tape, last 400 MB; independent, later.
+- Entries (taker trades that grow |inventory|) of the ten top skill-only UIDs: 23,705 train / 8,396 test joined to our 15 features.
+- A ridge-logistic clone predicts **their direction with 85.4% accuracy on test** (train 83.2%, base 51.2%). Per UID 0.78–0.92, except UID 48
+  at 0.52, which runs something else.
+- The dominant weight is dmid300 (z −2.5), then dfund60 −0.8 and dmid60 −0.8: **they fade the last 5 minutes**, as v1 does. v1 agrees with
+  their direction on 63% of test entries.
+- Their entries are right by +1.53 / +1.51 / +1.34 / +0.55 bp at 300 / 600 / 900 / 1800 s, so their hold is ≈ 5–10 min, matching the
+  320–610 s round trips in §1244.
+
+**Paper skill (validator hurdle_filter 2.3 bp + kappa_floored; no own impact, no spread; one position per book, re-entry right after the
+hold). Test slice:**
+- random ≈ 0 everywhere, so the scorer is sane.
+- **v1 beats the clone** at every setting. Best v1: q 0.05 with H 300–900 → kappa 5.7–6.0, 16–17 kept, all positive. The clone's best is
+  1.8.
+- Imitating them does not beat our model; v1's direction is better than the clone's.
+
+**Calibration (same training slice, the M1 live period).**
+- Paper v1 at x1's settings (q 0.02, H 900): 25 kept / 24 positive, median +1.78 bp, kappa +1.11.
+- The validator formula on x1's real fills: 17 kept / 12 positive, median +0.55 bp, kappa +0.41.
+- **The paper scorer is optimistic by ≈ 2–3×**, the same direction as v1's offline-to-live shrink (≈ half). Use it for ranking only, never
+  for levels. Part of the gap is structural: live M1 re-enters a book at most once per sim hour (sleeve_step 3600), while the paper
+  re-enters after each hold.
+
+**Threshold.** v1's threshold 3.19 is now the top 5% of |forecast| on both slices (forecast scale drifted), so live x1 already trades
+≈ q 0.05.
+
+**What differs from the top UIDs** is entry spacing. They are in a position almost continuously: ≈ 1,300 entries per 38 sim min over ≈ 80
+books. M1 bets once per book per sim hour. The §1245 scaled test kept sleeve_step 3600, so "more entries" was never tested; it changed size
+and threshold.
+
+**Proposal for the new x1:** M1 at normal size plus `arms=sleeve_step:900` (re-enter after each 900-s hold on odd books; even books stay
+on M1 at 3600), read per arm with skill_val on book subsets. Arms are generic attribute overrides in _quote, so this works on the taker
+path. Paper on the same slices: step = hold gives kappa ≈ 2–6 vs M1's ≈ 1–2 (optimistic 2–3×). The live A/B decides.
