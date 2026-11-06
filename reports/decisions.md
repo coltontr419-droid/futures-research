@@ -20778,3 +20778,17 @@ fill prices, not direction. Top UIDs have P&L −0.4 to −2.4 bp with alpha +4�
 **Deployed:** rev_model_v3.json (deploy/sn79), ridge on sim min 1161–1259, y600 clipped ±30 bp, threshold 1.52 = top 5% |f| of train (key name kept).
 Parity with the RevFeatures formula 4e-15. x1 restarted 20:58:08 UTC (2:58 PM CT); unit backup mvtrx-x1.service.pre-v3. rev_skip_vol stays
 on, one change at a time. Volatile books may also have edge under v3 (all-book numbers match calm + 4-dec in the last chunk).
+
+**§1252 add. 2 — depth A/B verdict (2026-11-06, 3:04 PM CT, ≈ 42 sim min, 2,038 fills):** no winner. Credit 42.4 / 46.0 / 43.1 (control / edge 3 /
+ladder), quality 0.64 / 0.56 / 0.58, spread kept ≈ 1.0 / 1.2 / 0.95 bp per $, vs top makers' 3.6–4.4. Field credit median in the window 146, p90 802.
+
+Why the ladder failed: on x3's ladder books 75% of fills are still at the touch, because the touch order takes them first, and p90 is 1.28 spreads.
+On the same calm books over the same window, template UIDs 7 / 252 / 144 fill 29–31% at the touch and 62–64% deeper, at a median 7–8.4 bp from the
+mid vs x3's 3.35; p50/p75/p90 ≈ 0.7 / 1.5 / 2.0 spreads (not the 3.5 seen on the volatile-inclusive set, which overstated the depth). On
+4-decimal books they sit INSIDE the touch 50–61% of the time.
+
+x3 stalled again at ≈ 2:50 PM (4 fills in 13 min). It has burned ≈ 2/3 of its 24-sim-h budget on the burst: the oldest fills age out only at
+≈ sim s 133,000, ≈ 3 wall days away.
+
+**Next test (pre-approved param test):** x3 restarted 21:05 UTC, 3:05 PM CT: arms=back:1/back:2 (book mod 3; rest 1 or 2 ticks behind the touch, no
+touch order), pace_k 3 so the test gets data. The 24-h limit stays. Backup mvtrx-x3.service.pre-back.
