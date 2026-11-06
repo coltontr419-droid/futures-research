@@ -20728,3 +20728,24 @@ book). Backup mvtrx-x3.service.pre-pacek. Fills resumed within a minute. A/B dat
 **Design lesson:** the rolling 90-sim-min window (7.5 wall h) is stop-go, not even spending. x3 spends the allowance in a burst, then idles for
 hours; last night's 4-hour gap was the same thing. A replacement maker needs a much shorter pace window or smaller, steadier quoting, or it
 will sit out most of each window.
+
+## §1253 — x1's negative skill is two tail losses and the volatile books; M1 has no edge there (2026-11-06, 11:30 AM CT)
+
+x1 (UID 22) since start: 307 entries on 105 books. skill_val: 38 kept (20 positive, 18 negative), median +0.23 bp, kappa −0.10 (gauge −0.08).
+Decomposition −2.25 bp = own impact +0.11 + rest −1.93 + drift −0.43. The signal is alive: signed mid move +2.05 bp at 300 s (68% hit), +1.99 at
+600 s (62%). But −2.39 at 900 s (60% hit), because two entries on book 31 lost 687 and 508 bp (a 5–7% move). Sum at 900 s: −669 with the
+worst 5, +631 without.
+
+**M1's edge by book regime, two independent live windows (signed mid move bp at 300 / 600 / 900 s):**
+
+| regime | UID 22 today (280 entries) | UID 114 on 11-05 (981 entries, before the §1245 scale-up) |
+|---|---|---|
+| volatile 0–62 | +0.05 / +0.69 / −8.63 (n 116; median +0.8; hit 58 / 51 / 60%) | +0.08 / +0.17 / −0.05 (n 553; hit 52–54%) |
+| calm 63–101 | +4.06 / +3.33 / +3.23 (n 63; hit 75%) | +2.49 / +2.59 / +1.80 (n 174; hit 48–52%, median ≈ +0.2) |
+| 4-decimal 102–127 | +3.32 / +2.73 / +1.27 (n 101; hit 80 / 67 / 50%) | +2.18 / +3.41 / +6.18 (n 254; hit 55–63%) |
+
+In both windows the volatile books carry ≈ 0 mean edge, take 41–56% of entries, and hold the tail risk. Calm and 4-decimal carry all of it.
+The same regime split as the making side (§1247). Calm hit rates differ between windows (75% vs ≈ 50%), so read means, not hit rates. Hold time
+is unsettled: 900 s looks best on 11-05's 4-decimal books, 300–600 s today.
+
+**Proposal (awaiting the user):** restrict x1 to books 63–127 via sleeve_file.
