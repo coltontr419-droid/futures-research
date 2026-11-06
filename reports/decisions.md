@@ -20839,3 +20839,13 @@ would pass the $500k cap in about 30 sim minutes. The 2 tracebacks were the back
 
 **Pacing: go.** Replacement maker prepared on the x3 unit (backup .pre-new): size 0.036 (the top makers' ≈ $1,800 orders, steadier under the bucket), pace_cap 450000, ledger, mk_skip_vol=1,
 mk_thin_ratio 0.77, arms=back:1/back:2. Old ledger and tape archived. Not started; waits for the user's registration.
+
+**§1255 add. 1 (2026-11-06, 4:00 PM CT): pre-registration checks, one old bug found.**
+- **Sim-day reset (≈ 4:40 AM CT):** book groups held through the last reset (per-book price corr 0.99–1.00, spread 0.87–0.95), so the hard-coded ids stand. "Volatile" is a misnomer: 60-s moves are now
+  equal across groups; ids 0–62 are the $300, 2-decimal books. Spreads 2.3 bp ($300), 6.75 ($30), 3.5 (4-dec).
+- **model30_of (10-31) is in dollars, not ticks.** On recent tape: corr +0.08 on the books we quote, top decile +0.2–0.3 bp, −0.7 on the $300 books. Its median forecast is $0.008–0.018 on every
+  book, so on $30 books it shifts fair 2.7 bp for a 0.3 bp signal. `pull` compares it with 1 tick, and a 4-decimal tick is $0.0001: **the rule fires on 100% of forecasts there, so those books
+  only ever quoted one side at a time** (x3's real fills switched side 32% of the time vs 47% on $30 books; 50% = two-sided). On $30 books 39% of forecasts pull a side. This predates x3 and
+  cost two-sided credit on every maker we ran.
+- **Fix:** the new maker runs alpha_k=0, pull=0 (unit backup .pre-nomodel). flow_pull stays. This is a bug removal, not an A/B; the live read will show the effect. A replay could not test it
+  (the captured states are shorter than the model's 120-s warm-up, so the forecast is 0), and an earlier one-sidedness figure from that replay was retracted.
