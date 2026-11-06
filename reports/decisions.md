@@ -20516,3 +20516,30 @@ three agents in one market: real direction (agent 0), random (1, `rev_rand=1`), 
 with skill_val + skill_decomp. Three runs (seeds 1–3, ≈ 25 wall min each) via /opt/mvtrx/labrand_runner.sh →
 /opt/mvtrx/labrand_scores.txt. The scorer's alpha equals Σ (inventory − its mean) × Δmid, so §1244's "drift adjustment" is not a separate
 source; that correction is noted here.
+
+## §1248 — Overnight automation on the lab box (2026-11-05, 11:10 PM CT; laptop closed)
+
+Session crons stop when the laptop sleeps, so overnight work runs on the lab box itself: **mvtrx-overnight.timer** (every 10 min) →
+deploy/sn79/overnight.sh → /opt/mvtrx/overnight_log.txt, with state in /opt/mvtrx/ov_state/. It does four things:
+1. Logs a status line (x1/x3 gauges, errors, flow, memory, lab progress).
+2. Self-trade guard: stops mvtrx-x1 on any self-trade.
+3. When UID 114 is no longer our hotkey (metagraph check): saves the §1245 final read to /opt/mvtrx/x1scale_final.txt (x1scale_read.sh,
+   now 350 MB of tape), stops mvtrx-x1 and drops 114 from our_uids.txt.
+4. When x3's sim minute is ≥ 1112.4 (45 sim min after the §1242 start): making_exact (3 arms, --since 1067.4) on the x1 tape plus x3's own
+   tape → ov_state/ab_final.txt. **Fixed rule:** an arm wins only if credit ≥ 1.15 × control AND R/C ≥ control's. The winner's param (if
+   any) goes on all books, and the §1247 test starts at the same restart: arms=mk_skip_vol:1 (book mod 2; odd volatile books stop making)
+   from the sim minute in ov_state/ab2_since. Unit backup: mvtrx-x3.service.pre-ab2. Parser and unit edit were dry-tested (win / no win /
+   both unit forms).
+
+**x3 restarted 04:56 UTC (10:56 PM CT), A/B arms unchanged.** It now has its own tape (/opt/mvtrx/live_tape_x3.jsonl, added to
+tape_rotate.sh), because x1's tape (the only one) stops when x1 is pruned. It also has `pace_ledger`: /opt/mvtrx/pace_58.ledger was
+pre-filled with x3's 22,072 fills from x1's tape (per-book notional median $230k, max $295k vs the $450k budget). "PACE ledger added 22072
+fills" confirmed at start. Before this, x3's pace had restarted from zero at every restart, because x3 had no tape to seed from. Unit
+backup: mvtrx-x3.service.pre-tape.
+
+**x1 §1245 first read (10.8 sim min):** 120 books, 31 kept (14 positive, 17 negative), −0.18 bp median, kappa −0.17. Decomposition
+−0.28 bp = own impact +0.22 (before +0.10) + rest +0.13 + drift −0.63; true P&L −1.04 bp. Notional $604k in 10.8 sim min (≈ $3.4M/h,
+the top-UID rate). Early: the first 900-s holds were still open.
+
+**Morning:** read overnight_log.txt, x1scale_final.txt, ov_state/ab_final.txt and labrand_scores.txt; read the §1247 A/B per arm (arms 2,
+--since $(cat ov_state/ab2_since)); then disable mvtrx-overnight.timer.
