@@ -20365,3 +20365,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
 - §1240 add. 1 (00:20 UTC 11-06): the self-trade counter showed 1 = an x3 maker fill taken by UID 169 minutes earlier; x2 lost UID 169 when
   pruned (≈ 23:40 UTC) and its service has been stopped since 23:48 UTC → 169 is someone else's miner, not ours. selftrade.sh/.py now read
   our current UIDs and roles from /opt/mvtrx/our_uids.txt (58 maker x3, 114 taker x1) → 0 self-trades in 9,215 x3 fills.
+- §1238 add. 3 (03:30 UTC 11-06): skew A/B verdict, 38 sim min since 1027.7, validator-exact per arm: arm 0 skew 10 / max 40: quality 0.371,
+  two-sided 20.8, credit 7.7 | arm 1 skew 16 / max 25: 0.078, 3.4, 0.3 | arm 2 skew 10 / max 20: 0.246, 10.9, 2.7. Over-skewing / tight
+  inventory caps wreck quality (3-25× gap). x3 back to skew 10 / max_units 40 on all books (no arms) at 03:30 UTC. Skew tuning done in
+  that direction. x3 at 21:00-03:00 UTC: emission 0.104 → 0.147/tempo ($39 → $57/month), credit 321; projected over the prune line ≈ 12:00-13:00 UTC.
