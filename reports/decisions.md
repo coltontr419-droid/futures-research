@@ -20615,3 +20615,7 @@ fewer books are kept and all are positive, which makes it a noisy ranking metric
 
 **Decision for the new x1:** plain M1 (proven live: skill 0.58) with pace_ledger. Spacing is tested only as a live arm, and only after the
 new x1 is established above the prune line, so the test cannot cost its survival.
+
+**Housekeeping (2026-11-06 6:25 AM CT):** stopped three leftover transient timers: mvtrx-window-est (UID 213, the 11-02 size test on
+live_tape_x1_size6), mvtrx-window-est-x2 (UID 247) and mvtrx-skillread. They had kept scoring dead UIDs every hour; the running
+making_exact (PID 436079) used ≈ 3 GB on x3's box and was killed by exact PID. Free memory went from 4.2 to 6.8 GB. x3 was unaffected.
