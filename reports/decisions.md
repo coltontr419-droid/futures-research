@@ -20356,3 +20356,9 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   vs a prune line ≈ 0.29 with 6.5 h left). The paid score is a long average of combined score, which is capped at ≈ 0.5 without making, under
   a soft floor at the field median. New UIDs should be makers (x3: ≈ 295 credit within ~6 h) or hybrids (making on all books + the model;
   §1235: the model's kappa halves but stays positive while making pays from day one). x1 left untouched until it is pruned.
+- §1241 CORRECTED (00:05 UTC 11-06): skill-only new UIDs DO establish fast. UIDs 80 (4.1 h old, skill 0.58, combined 0.185) and 160 (5.3 h, 0.65,
+  0.205) earn 0.234 / 0.338 per tempo: their paid score reset to 0.0 at registration (the validator's newcomer rule: a re-occupied slot's EMA
+  is cleared, standing tracks live score) and rose to 0.0024 / 0.0027 within ~3 h. x1's slot 114 NEVER reset: its paid score started at an
+  inherited 0.0013 and decayed 0.0007 → 0.0005 while combined ran 0.16-0.30, i.e. the validator kept the previous owner's long track record
+  (apply_track_record_ema clears a slot only when the uid is in deregs; apparently missed for 114). Not a skill-only limitation.
+  Rule: one hour after any registration, check the paid score went to ≈ 0 then climbs; a slot that keeps an inherited value is stuck.
