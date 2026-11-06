@@ -20484,3 +20484,35 @@ take_size 60, rev_usd 5000, rev_th_k 0.7, pace 450k/5400, pace_ledger=/opt/mvtrx
 **Still open.** The pace budget (≈ $18.75k per book per sim hour) is below the top skill UIDs' observed $22–40k (§1244). Their wealth may be
 higher, or they may run into the cap themselves. If §1245 shows the score scales with size, the remaining room is more books per UID, not
 more per book.
+
+## §1247 — x3 bad books, scaling capacity, and a lab test of what skill rewards (2026-11-05, 10:55 PM CT)
+
+**#1 x3's bad books (making_exact_dump.py --books, 500 MB slice, x3 = 58).**
+- Over the whole slice: quality 0.322. Dropping the 30 worst-R books (in-sample) gives 0.449 with C 882 → 860.
+- Large fills carry almost all of it (C 859 of 882); small fills are irrelevant; bot-taken C 302 at 0.335.
+- **Out of sample** (worst books picked on the first half, scored on the second): 0.330 → 0.358 / 0.365 / 0.367 / 0.375 for 10/20/30/40
+  dropped, vs random drops of the same size at median 0.33 and p95 0.35–0.38. **Individual books do not hold.**
+- The **regime** holds in both halves. Volatile ids 0–62: quality −0.54 / −0.02. Calm 63–101: +0.54 / +0.47. 4-decimal 102–127: +0.14 / +0.41.
+  Without the volatile group, quality would be 0.50 / 0.46. Rough credit effect (C kept × quality): +28% / +2%.
+- New `mk_skip_vol=1` (no making on books 0–62). Replay with x3's params: off identical (517 placements); `arms=mk_skip_vol:1` gives the odd
+  volatile books 0 placements and leaves the even ones (115) and calm/4-dec (297) quoting. The agent is installed; running miners keep
+  their loaded code.
+- Proposed next x3 test, after the §1242 verdict: arms=mk_skip_vol:1 (book mod 2), read per arm with making_exact after ≥ 45 sim min.
+
+**#2 Scaling capacity (lab box, measured).**
+- Per miner: ≈ 320 MB RAM (process tree), 6–13% of one core, ≈ 120 KB/s inbound. Inbound is free on DO; outbound 2 KB/s.
+- One 4 vCPU / 8 GB box ($48/month) fits ≈ 12–15 miners with headroom for analysis, so ≈ $3–4 per miner-month.
+- Registration burn 0.113 TAO now (≈ $23). SN79 targets 1 registration per 360 blocks (72 min) subnet-wide, and the burn rises with
+  demand, so our own registrations push it up. Immunity is 7,200 blocks; there are 256 slots.
+- **Constraint:** the no-self-trade handshake (lock_dir) is files on one box, so all our makers and takers must share one box, or the
+  lock must become networked. One larger box (8 vCPU / 16 GB ≈ $96) would hold ≈ 30.
+- **Unknown, and the real scaling test:** whether a second UID running the same strategy on the same books cannibalizes the first. Makers
+  compete for the same takers, and their credit comes from one pool; takers take the same liquidity. Each UID gets its own volume cap.
+- Rough path to $10k: ≈ 40 UIDs × $250. Cost ≈ $1k of burns plus ≈ $150–200/month of boxes, before re-registrations.
+
+**#3 Lab: does skill reward direction, or size and impact?** The lab sim publishes no fundamental ("fund": null), so the fitted model
+cannot trade there (no forecast). Instead the rule-based reversal (rev_look 300, sleeve_bp 8, hold 900, step 900, $5k, take 60) runs as
+three agents in one market: real direction (agent 0), random (1, `rev_rand=1`), opposite (2, `rev_rand=2`). Same timing and size, scored
+with skill_val + skill_decomp. Three runs (seeds 1–3, ≈ 25 wall min each) via /opt/mvtrx/labrand_runner.sh →
+/opt/mvtrx/labrand_scores.txt. The scorer's alpha equals Σ (inventory − its mean) × Δmid, so §1244's "drift adjustment" is not a separate
+source; that correction is noted here.

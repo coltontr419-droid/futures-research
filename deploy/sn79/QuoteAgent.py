@@ -164,9 +164,12 @@ class QuoteAgent(FinanceAgent):
         self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
         self.rev_th_k = float(getattr(c, "rev_th_k", 1.0))   # §1245: scale the fitted model's entry threshold (<1 = more entries)
+        self.rev_rand = int(getattr(c, "rev_rand", 0))   # §1247 lab: 1 = model timing and size, RANDOM direction; 2 = the OPPOSITE of the model
+        self._rev_rng = __import__("random").Random(int(getattr(c, "rev_seed", 7)))
         self.rev_imb = float(getattr(c, "rev_imb", -9.0))        # §1230: enter only when top-5 depth imbalance × our direction ≥ REV_IMB (off at -9)
         self.mk_model = str(getattr(c, "mk_model", "") or "")    # §1238: maker side — the same predictor guards our quotes
         self.mk_pull_bp = float(getattr(c, "mk_pull_bp", 0.0))   # >0: pull the quote on the side a forecast ≥ MK_PULL_BP (bp) says will lose
+        self.mk_skip_vol = int(getattr(c, "mk_skip_vol", 0))   # §1247: 1 = no making on the volatile books (ids 0-62; quality -0.54 / -0.02 in both tape halves)
         self.mk_min_spread_bp = float(getattr(c, "mk_min_spread_bp", 0.0))   # §1242: >0: no quotes while the book's spread is under this (bp)
         self.mk_thin_ratio = float(getattr(c, "mk_thin_ratio", 0.0))         # §1242: >0: pull our side when its top size < RATIO × the other side's
         self._mkq_n = [0, 0, 0]                                   # [decisions, books skipped for spread, sides pulled as thin]
@@ -501,7 +504,10 @@ class QuoteAgent(FinanceAgent):
                 if self._sec - at >= self.sleeve_step:
                     pr = self._rf.predict(int(book_id), self._sec)
                     if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k:
-                        tgt, at = (1.0 if pr > 0 else -1.0) * self.rev_usd / mid, self._sec
+                        sg = 1.0 if pr > 0 else -1.0
+                        if self.rev_rand == 1: sg = self._rev_rng.choice((1.0, -1.0))
+                        elif self.rev_rand == 2: sg = -sg
+                        tgt, at = sg * self.rev_usd / mid, self._sec
                         self._model_n = getattr(self, "_model_n", 0) + 1
                 self._rev[book_id] = (tgt, at)
                 target, cool = tgt, self.sleeve_cool
@@ -517,6 +523,8 @@ class QuoteAgent(FinanceAgent):
                     r = (mid - h[0][1]) / h[0][1] * 1e4
                     d = -1.0 if r > 0 else 1.0
                     if abs(r) >= self.sleeve_bp and (self.rev_imb <= -1.0 or d * self._depth_imb(book) >= self.rev_imb):
+                        if self.rev_rand == 1: d = self._rev_rng.choice((1.0, -1.0))   # §1247 lab: same timing and size, random / opposite direction
+                        elif self.rev_rand == 2: d = -d
                         tgt, at = d * self.rev_usd / mid, self._sec
                 self._rev[book_id] = (tgt, at)
                 target, cool = tgt, self.sleeve_cool
@@ -618,6 +626,8 @@ class QuoteAgent(FinanceAgent):
                                      timeInForce=TimeInForce.IOC)
                 self._last_take[book_id] = self._sec
                 want.pop(OrderDirection.SELL if side == OrderDirection.BUY else OrderDirection.BUY, None)   # never rest on the side we take
+        if self.mk_skip_vol and int(book_id) < 63:
+            want.clear()
         if self.mk_min_spread_bp > 0 or self.mk_thin_ratio > 0:   # §1242 quote-quality rules (x3 fill study)
             self._mkq_n[0] += 1
             if self.mk_min_spread_bp > 0 and (ask - bid) / mid * 1e4 < self.mk_min_spread_bp:
