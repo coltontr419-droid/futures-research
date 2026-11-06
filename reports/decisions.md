@@ -20543,3 +20543,28 @@ the top-UID rate). Early: the first 900-s holds were still open.
 
 **Morning:** read overnight_log.txt, x1scale_final.txt, ov_state/ab_final.txt and labrand_scores.txt; read the §1247 A/B per arm (arms 2,
 --since $(cat ov_state/ab2_since)); then disable mvtrx-overnight.timer.
+
+**§1248 results (read 2026-11-06 5:16 AM CT):**
+- **x1 §1245 final.** UID 114 was pruned at 06:51 UTC (12:51 AM CT). Over 31.1 sim min of the scaled taker, $1.26M notional: 128 books,
+  28 kept (9 positive, 19 negative), kappa −0.39. Decomposition −0.25 bp = own impact +0.02 + rest −0.19 + drift −0.07; true P&L −1.64 bp.
+  **Worse than the unscaled baseline** (+0.56 bp, kappa +0.28; live skill 0.58 on 11-05). Size did not buy score.
+- **Lab #3** (3 runs, 16 books; rule reversal at the same timing and size; alpha bp / kappa):
+
+  | run | real direction | random | opposite |
+  |---|---|---|---|
+  | 1 | +11.2 / +0.89 | +0.2 / 0.00 | −10.3 / −0.37 |
+  | 2 | +10.2 / +0.57 | +0.3 / +0.01 | −9.5 / −0.43 |
+  | 3 | −1.6 / −0.09 | −2.2 / −0.14 | +1.6 / +0.08 |
+
+  Random direction scores about 0 in every run, and opposite mirrors real. Own impact is at most ±0.8 bp. **The score comes from direction
+  (prediction over the hold), not from size or own impact.** This corrects §1244's "scale is the lever" reading: the top skill UIDs' "rest"
+  component (inventory held while the mid moves their way) is prediction. Their negative fill markouts are the spread they pay. The lab
+  market is simpler than live (16 books, basic background agents), and run 3 reversed.
+- **x3 A/B (§1242) verdict** at sim min 1114.2, by the fixed rule: arm 2 (mk_thin_ratio 0.77) won on credit 8.3 vs control 5.3 (1.57×) and
+  R/C 0.386 vs 0.302; arm 1 credit 5.5, R/C 0.270. The sample is small: about 47 sim min, credit 5–8 per arm, because most of the window
+  fell during pacing (below). x3 restarted 07:22 UTC with mk_thin_ratio=0.77 on all books, and the §1247 arms=mk_skip_vol:1 from sim min 1114.2.
+- **x3 was paced out for about 4 hours.** MK QUALITY decisions grew only ≈ 120 per 10 min from about 1:20 to 5:00 AM CT, then resumed
+  (9,917 → 22,382 by 05:15 CT). The ledger (22k fills) made the agent see x3's real volume: per book ≈ $230k in ≈ 2.3 sim h (≈ $100k/book/sim
+  h, 5× the even pace of ≈ $18.75k/h). The 90-sim-min window (= 7.5 wall h) was full. Before the ledger, every restart forgot this, and x3
+  was on course to hit the hard cap within about a day (the 11-03 x1 failure). Cost: making gauge 385 → ≈ 175, combined 0.227 → 0.094.
+  Emission is still rising on the lag: $95.8 at 4 AM, $101.2/month at 5 AM CT, vs the prune line ≈ $110. Immunity ends ≈ 11:40 AM CT.
