@@ -20832,3 +20832,10 @@ to the prior agent with x1's and a maker's params when not bound (120, 184 place
 
 **Known limits:** the bucket bounds volume, not earnings; order size sets the gaps ($3k orders can idle ≈ 28 sim min on a book at the limit, so smaller orders run steadier). The public
 gauge lags, and if the endpoint fails the watchdog alerts rather than blocks. The sync protects one sim only.
+
+**§1255 end-to-end lab result (2026-11-06, 3:53 PM CT):** a real maker with real fills, 70 sim min on 16 books. Paced by the bucket: 205 fills, $24,137 per book (max $25,521), bound
+$32,562, 0 books over it; longest gap between fills on a book 587–704 sim s, so it traded steadily. Identical unpaced control: 14,328 fills, $1,141,187 per book (max $1,675,606), which
+would pass the $500k cap in about 30 sim minutes. The 2 tracebacks were the background Random agents at sim shutdown, not ours.
+
+**Pacing: go.** Replacement maker prepared on the x3 unit (backup .pre-new): size 0.036 (the top makers' ≈ $1,800 orders, steadier under the bucket), pace_cap 450000, ledger, mk_skip_vol=1,
+mk_thin_ratio 0.77, arms=back:1/back:2. Old ledger and tape archived. Not started; waits for the user's registration.
