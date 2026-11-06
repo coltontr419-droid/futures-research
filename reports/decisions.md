@@ -20749,3 +20749,8 @@ The same regime split as the making side (§1247). Calm hit rates differ between
 is unsettled: 900 s looks best on 11-05's 4-decimal books, 300–600 s today.
 
 **Proposal (awaiting the user):** restrict x1 to books 63–127 via sleeve_file.
+
+**§1253 applied (2026-11-06, 11:31 AM CT, user's go):** new `rev_skip_vol=1` blocks new model entries on books 0–62; open positions there still
+exit. Dropping them from sleeve_file would have stranded positions, because that path returns before the exit logic. Replay: off identical
+(120 placements), on all IOC. x1 restarted 17:31:49 UTC; backups mvtrx-x1.service.pre-rsv, QuoteAgent.pre-rsv.py. x1's prior volatile-book
+score stays in the window, so the effect will take hours to show. Read: skill_val on fills since T ≈ 74,040, and the live gauge.
