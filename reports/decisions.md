@@ -20569,7 +20569,7 @@ the top-UID rate). Early: the first 900-s holds were still open.
   was on course to hit the hard cap within about a day (the 11-03 x1 failure). Cost: making gauge 385 → ≈ 175, combined 0.227 → 0.094.
   Emission is still rising on the lag: $95.8 at 4 AM, $101.2/month at 5 AM CT, vs the prune line ≈ $110. Immunity ends ≈ 11:40 AM CT.
 
-## §1249 — The top skill miners run our kind of strategy; the difference is how often they re-enter (2026-11-06, 6:30 AM CT)
+## §1249 — The top skill miners run our kind of strategy; the difference is how often they re-enter (2026-11-06, ≈ 6:00 AM CT)
 
 **Clone (clone.py).** Train: x1's tape, 600 MB ending 250 MB before its end. Test: x3's own tape, last 400 MB; independent, later.
 - Entries (taker trades that grow |inventory|) of the ten top skill-only UIDs: 23,705 train / 8,396 test joined to our 15 features.
@@ -20603,9 +20603,9 @@ and threshold.
 
 **Proposal for the new x1:** M1 at normal size plus `arms=sleeve_step:900` (re-enter after each 900-s hold on odd books; even books stay
 on M1 at 3600), read per arm with skill_val on book subsets. Arms are generic attribute overrides in _quote, so this works on the taker
-path. Correction (written 6:02 AM): the paper scorer always re-enters after the hold, so it has NOT tested M1's once-per-hour spacing against step = hold. The spacing lever is a hypothesis from the top UIDs' behaviour, not a paper result. The live A/B decides.
+path. Correction (same session): the paper scorer always re-enters after the hold, so it has NOT tested M1's once-per-hour spacing against step = hold. The spacing lever is a hypothesis from the top UIDs' behaviour, not a paper result. The live A/B decides.
 
-**§1249 add. 1 (6:10 AM CT): paper test of entry spacing, inconclusive.** v1 at th 3.19, hold 900, minimum gap between entries per book
+**§1249 add. 1 (≈ 6:00 AM CT): paper test of entry spacing, inconclusive.** v1 at th 3.19, hold 900, minimum gap between entries per book
 3600 / 1800 / 900 s:
 - Train slice: kappa 2.76 / 4.19 / 6.48 (kept 38 / 36 / 26, nearly all positive).
 - Test slice: 0.98 / 0.85 / 0.56 (kept 17 / 17 / 13).
