@@ -20849,3 +20849,6 @@ mk_thin_ratio 0.77, arms=back:1/back:2. Old ledger and tape archived. Not starte
   cost two-sided credit on every maker we ran.
 - **Fix:** the new maker runs alpha_k=0, pull=0 (unit backup .pre-nomodel). flow_pull stays. This is a bug removal, not an A/B; the live read will show the effect. A replay could not test it
   (the captured states are shorter than the model's 120-s warm-up, so the forecast is 0), and an earlier one-sidedness figure from that replay was retracted.
+
+**§1255 add. 2 (2026-11-06, 4:07 PM CT): new maker live.** Hotkey x3 re-registered → **UID 201**; started 22:06:49 UTC (T ≈ 77,400, sim min 1290), immunity to ≈ 4:05 PM CT 11-07. On our_uids.txt ("201 maker x3 77396")
+before the start. size 0.036, alpha_k 0, pull 0, mk_thin_ratio 0.77, mk_skip_vol=1, token bucket, ledger, arms=back:1/back:2. Full A/B verdict ≈ 7:50 PM CT.
