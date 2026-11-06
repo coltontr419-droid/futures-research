@@ -6,7 +6,7 @@
 #   Our skill UIDs are all takers (IOC only), so they can never trade with each other; variants keep their entries apart (§1228 overlap table).
 set -e
 HK=$1; PORT=$2; VAR=$3
-[ -n "$HK" ] && [ -n "$PORT" ] && [ -n "$VAR" ] || { echo "usage: $0 <hotkey> <port> <variant: V0 V4 V1 V3 V6 N3 N4 N9 N8 V5 | 2nd tier N10 N5 N2 N1 | model M1>"; exit 1; }
+[ -n "$HK" ] && [ -n "$PORT" ] && [ -n "$VAR" ] || { echo "usage: $0 <hotkey> <port> <variant: M1S (scaled, §1245) M1 V0 V4 V1 V3 V6 N3 N4 N9 N8 V5 | 2nd tier N10 N5 N2 N1 | model M1>"; exit 1; }
 case $VAR in              # sleeve_bp (trigger bp) rev_look (s) rev_hold (s) sleeve_step (one bet per book per s)
   V0) P="sleeve_bp=12 rev_look=600 rev_hold=2400 sleeve_step=3600";;
   V1) P="sleeve_bp=8 rev_look=600 rev_hold=2400 sleeve_step=3600";;
@@ -23,13 +23,14 @@ case $VAR in              # sleeve_bp (trigger bp) rev_look (s) rev_hold (s) sle
   N2) P="sleeve_bp=12 rev_look=750 rev_hold=3000 sleeve_step=3600";;
   N1) P="sleeve_bp=10 rev_look=450 rev_hold=1800 sleeve_step=2700";;
   M1) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_preload=/opt/mvtrx/live_tape_x1.jsonl rev_hold=900 sleeve_step=3600 lock_dir=/opt/mvtrx/locks lock_max=120";;   # §1233 fitted predictor, top 2% forecasts
+  M1S) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_preload=/opt/mvtrx/live_tape_x1.jsonl rev_hold=900 sleeve_step=3600 lock_dir=/opt/mvtrx/locks lock_max=120 rev_th_k=0.7 pace_cap=450000 pace_win=5400 pace_ledger=/opt/mvtrx/pace_UIDN.ledger"; TS=60; RU=5000;;   # §1245/§1246 scaled taker, paced, ledger per UID
   *) echo "unknown variant $VAR"; exit 1;;
 esac
 [ -f /root/.bittensor/wallets/main/hotkeys/$HK ] || { echo "hotkey file missing: copy hotkeys/$HK from the laptop first"; exit 1; }
 U=/etc/systemd/system/mvtrx-$HK.service
 [ -f $U ] && { echo "$U exists"; exit 1; }
 TP=""; [ "${TAPE:-0}" = 1 ] && TP="tape=/opt/mvtrx/live_tape_$HK.jsonl "   # tapes grow GBs/day: one UID (x2) keeps one; TAPE=1 to add
-PARAMS="size=0.06 edge=1 lean=1 ${TP}model=/opt/mvtrx/agents/model30_of.json raw=1 lazy_load=1 own_ex=1 skip_file=/opt/mvtrx/books_all.txt sleeve_file=/opt/mvtrx/books_all.txt skip_flat=1 take_size=25 sleeve_cool=5 rev_usd=1000 $P"
+PARAMS="size=0.06 edge=1 lean=1 ${TP}model=/opt/mvtrx/agents/model30_of.json raw=1 lazy_load=1 own_ex=1 skip_file=/opt/mvtrx/books_all.txt sleeve_file=/opt/mvtrx/books_all.txt skip_flat=1 take_size=${TS:-25} sleeve_cool=5 rev_usd=${RU:-1000} $P"
 sed -e "s/--wallet.hotkey x2/--wallet.hotkey $HK/" -e "s/8102/$PORT/g" -e "s|hotkeys/x2$|hotkeys/$HK|" \
     -e "s|--agent.params .*|--agent.params $PARAMS|" -e "s|^Description=.*|Description=Bittensor SN79 (MVTRX) miner $HK, skill-only reversal $VAR (decisions.md 1228)|" \
     /etc/systemd/system/mvtrx-x2.service > $U

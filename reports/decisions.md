@@ -20459,3 +20459,28 @@ taker path.
 Start: PACE seeded 3,054 own fills on 127 books; preload 128 books warm. First sim minute: 26 model entries, $36.5k (before: $330k over
 ≈ 6 wall h). Read with /opt/mvtrx/x1scale_read.sh (skill_val + skill_decomp on x1's fills since T 64,561). Baseline on the earlier
 38-sim-min slice: +0.56 bp, kappa +0.28; top skill UIDs +4 to +7 bp, kappa 2.2–4.5.
+
+## §1246 — Pace ledger: a restart no longer forgets volume under the turnover cap (2026-11-05, 10:30 PM CT)
+
+The user asked whether we could hit the volume cap again. Gap found: the pace was seeded only from the live tape, which holds about 20 wall
+hours. The validator's window is 24 sim h, about 5 wall days. So every restart forgot most of the volume that counts toward the cap. With a
+miner that runs for days and gets restarted for tests, this would have hit the cap again. The tape's .prev file was never read either.
+
+**Fix: `pace_ledger=<path>`.** Our own fills are appended live (book, sim sec, notional, id, ts) and loaded at start, de-duplicated against
+the tape seed. Details:
+- "UIDN" in the path becomes our UID, because the cap is per UID and a re-registered hotkey starts clean.
+- At the first step, and whenever the sim clock goes backwards (a new simulation), stored times shift so the newest sits at the current
+  step. This is conservative: the volume is kept, and no gap is assumed.
+
+Tests:
+- Without the param, the replay is identical to the live agent.
+- A ledger with 64 books at $460k and a far-future clock is loaded and shifted; 64 of 64 of those books are paced out and 0 of the other 64.
+- The UIDN path resolves (replay uid 93 → /tmp/pace_93.ledger).
+
+The agent is installed; running x1 and x3 keep their loaded code. add_skill_uid.sh has a new **M1S** variant (the §1245 scaled taker:
+take_size 60, rev_usd 5000, rev_th_k 0.7, pace 450k/5400, pace_ledger=/opt/mvtrx/pace_UIDN.ledger). x3 gets
+`pace_ledger=/opt/mvtrx/pace_UIDN.ledger` at its next restart, after the §1242 A/B verdict.
+
+**Still open.** The pace budget (≈ $18.75k per book per sim hour) is below the top skill UIDs' observed $22–40k (§1244). Their wealth may be
+higher, or they may run into the cap themselves. If §1245 shows the score scales with size, the remaining room is more books per UID, not
+more per book.

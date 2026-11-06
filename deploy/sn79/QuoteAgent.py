@@ -137,6 +137,23 @@ class QuoteAgent(FinanceAgent):
                 bt.logging.info(f"PACE seeded {sum(len(v) for v in self._pace.values())} own fills on {len(self._pace)} books from the tape")
             except Exception as e:
                 bt.logging.warning(f"PACE seed failed: {e}")
+        # §1246: PACE_LEDGER = a file of our own fills (book, sec, notional, key), appended live and loaded at start, so a restart remembers the
+        # validator's whole 24-sim-h volume window (≈ 5 wall days; the tape holds ≈ 20 wall h). If the sim clock is behind the ledger at the first
+        # step (a new simulation), every stored entry is shifted back so the newest sits at that step (conservative: no gap is assumed).
+        self.pace_ledger = str(getattr(c, "pace_ledger", "")).replace("UIDN", str(self.uid));   # UIDN → our uid: the cap is per UID, a new registration starts clean
+        self._pace_shift_done = not self.pace_ledger; self._pace_last = None
+        if self.pace_cap and self.pace_ledger and os.path.exists(self.pace_ledger):
+            try:
+                n0 = sum(len(v) for v in self._pace.values())
+                for line in open(self.pace_ledger):
+                    bk, sec, v, kid, kts = json.loads(line)
+                    key = (bk, kid, kts)
+                    if key not in self._pace_seen:
+                        self._pace_seen.add(key); self._pace[bk].append((sec, v))
+                for bk in self._pace: self._pace[bk].sort()
+                bt.logging.info(f"PACE ledger added {sum(len(v) for v in self._pace.values()) - n0} fills from {self.pace_ledger}")
+            except Exception as e:
+                bt.logging.warning(f"PACE ledger load failed: {e}")
         self.dbg = int(getattr(c, "dbg", 0)); self._dbg_at = {}   # 1: log per quoted book once a minute (inventory, balances, wanted sides)      # 1: quote the affordable part of the order instead of skipping the side (§1211 add. 21)
         self.sleeve_bp = float(getattr(c, "sleeve_bp", 0.0))   # >0 (with skip_flat): on skipped books steer the position to ±SLEEVE_Q by the sign of
         self.sleeve_q = float(getattr(c, "sleeve_q", 10.0))     # (fundamental − mid)/mid beyond ±SLEEVE_BP (hysteresis), checked every SLEEVE_STEP
@@ -264,6 +281,20 @@ class QuoteAgent(FinanceAgent):
                         key = (int(book_id), e.id, e.timestamp)
                         if key not in self._pace_seen:
                             self._pace_seen.add(key); self._pace[int(book_id)].append((e.timestamp // 1_000_000_000, e.price * e.quantity))
+                            if self.pace_ledger:
+                                try:
+                                    with open(self.pace_ledger, "a") as fh:
+                                        fh.write(json.dumps([int(book_id), e.timestamp // 1_000_000_000, e.price * e.quantity, e.id, e.timestamp]) + "\n")
+                                except Exception:
+                                    pass
+            newest = max((h[-1][0] for h in self._pace.values() if h), default=None)
+            if newest is not None and (not self._pace_shift_done or (self._pace_last is not None and self._sec < self._pace_last - 60)):
+                if newest > self._sec + 60:                  # the sim clock went backwards (new simulation): keep the volume, shift its times
+                    d = self._sec - newest
+                    for bk in self._pace: self._pace[bk] = [(t + d, v) for t, v in self._pace[bk]]
+                    bt.logging.info(f"PACE clock shift {d} s")
+                self._pace_shift_done = True
+            self._pace_last = self._sec
         for book_id, book in (self._books if self._books is not None else state.books or {}).items():
             acct = self.accounts.get(book_id)
             if acct is None or not book.bids or not book.asks:
