@@ -14,7 +14,7 @@ SM=$(simmin)
 # 1. status
 {
   echo "== $(now) | sim min ${SM:-?}"
-  for u in 114:x1 58:x3; do
+  for u in 22:x1 58:x3; do
     systemctl is-active -q mvtrx-${u##*:} || { echo "  ${u##*:}: service not active"; continue; }
     printf "  %s " "${u##*:}"; UIDQ=${u%%:*} /opt/mvtrx/x1_gauge.sh
     st=$(systemctl show mvtrx-${u##*:} -p ActiveEnterTimestamp --value)

@@ -122,6 +122,7 @@ class QuoteAgent(FinanceAgent):
         self.pace_cap = float(getattr(c, "pace_cap", 0.0)); self.pace_period = int(getattr(c, "pace_period", 86400))
         self.pace_win = int(getattr(c, "pace_win", 5400)); self.pace_k = float(getattr(c, "pace_k", 1.0))
         self._pace, self._pace_seen = defaultdict(list), set()
+        pace_since = float(getattr(c, "pace_since", 0))   # sim s of our registration: the tape can hold a previous owner's fills on this UID (§1250)
         if self.pace_cap and getattr(c, "tape", ""):
             try:
                 rows = []
@@ -132,7 +133,7 @@ class QuoteAgent(FinanceAgent):
                             rows.append((r["ts"] // 1_000_000_000, r["book"], r["p"] * r["q"], (r["book"], r.get("id"), r["ts"])))
                 end = max((x[0] for x in rows), default=0)
                 for sec, bk, v, key in rows:
-                    if sec > end - self.pace_period and key not in self._pace_seen:
+                    if sec > end - self.pace_period and sec >= pace_since and key not in self._pace_seen:
                         self._pace_seen.add(key); self._pace[bk].append((sec, v))
                 bt.logging.info(f"PACE seeded {sum(len(v) for v in self._pace.values())} own fills on {len(self._pace)} books from the tape")
             except Exception as e:

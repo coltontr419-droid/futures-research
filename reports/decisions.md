@@ -20619,3 +20619,22 @@ new x1 is established above the prune line, so the test cannot cost its survival
 **Housekeeping (2026-11-06 6:25 AM CT):** stopped three leftover transient timers: mvtrx-window-est (UID 213, the 11-02 size test on
 live_tape_x1_size6), mvtrx-window-est-x2 (UID 247) and mvtrx-skillread. They had kept scoring dead UIDs every hour; the running
 making_exact (PID 436079) used ≈ 3 GB on x3's box and was killed by exact PID. Free memory went from 4.2 to 6.8 GB. x3 was unaffected.
+
+## §1250 — New x1 = UID 22 on plain M1; a re-used UID's tape history belongs to its previous owner (2026-11-06, 7:30 AM CT)
+
+The user registered hotkey x1 → **UID 22**. Started 13:25:02 UTC (7:25 AM CT, T = 71,209 sim s) on the §1249 decision: plain M1 (unit from
+mvtrx-x1.service.pre-scale) + pace_cap 450000 / pace_win 5400 / pace_ledger. rev_preload now reads x3's tape, because x1's tape went stale
+when UID 114 stopped. The scaled unit is kept as mvtrx-x1.service.scaled-114.
+
+**Two false readings from the first start, same cause.** Every UID on the tape is whoever held it at the time, so UID 22's earlier fills
+belong to its previous owner.
+1. selftrade.sh reported 1 self-trade. The fills were at sim s 64,008 and 64,091, ≈ 2 sim h before our start, previous owner vs x3. The
+   watchdog stops x1 on any self-trade, so it would have killed the new miner within 10 minutes; I paused the timer first.
+2. PACE seeded 5,975 "own" fills on 128 books, which could have paced x1 out for hours, as x3 was last night.
+
+**Fixes.**
+- `pace_since=<sim s>`: the tape seed ignores fills before our registration.
+- our_uids.txt takes an optional 4th field (start sim s), and selftrade.py ignores fills before it (now "22 taker x1 71209").
+- overnight.sh logs UID 22. The timer was restarted after x1 came back: PACE seeded 28 own fills on 15 books, 0 self-trades.
+
+**Rule for every future UID:** set pace_since and the our_uids start time at first start. add_skill_uid.sh does not do this yet.
