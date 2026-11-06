@@ -20787,8 +20787,14 @@ On the same calm books over the same window, template UIDs 7 / 252 / 144 fill 29
 mid vs x3's 3.35; p50/p75/p90 ≈ 0.7 / 1.5 / 2.0 spreads (not the 3.5 seen on the volatile-inclusive set, which overstated the depth). On
 4-decimal books they sit INSIDE the touch 50–61% of the time.
 
-x3 stalled again at ≈ 2:50 PM (4 fills in 13 min). It has burned ≈ 2/3 of its 24-sim-h budget on the burst: the oldest fills age out only at
+CORRECTED: x3 did not stall at ≈ 2:50 PM; it was pruned (see add. 3). Pacing was not the cause of that gap. It had burned ≈ 2/3 of its 24-sim-h budget on the burst: the oldest fills age out only at
 ≈ sim s 133,000, ≈ 3 wall days away.
 
-**Next test (pre-approved param test):** x3 restarted 21:05 UTC, 3:05 PM CT: arms=back:1/back:2 (book mod 3; rest 1 or 2 ticks behind the touch, no
+**Next test, NEVER RAN (x3 was already pruned, add. 3):** x3 restarted 21:05 UTC, 3:05 PM CT: arms=back:1/back:2 (book mod 3; rest 1 or 2 ticks behind the touch, no
 touch order), pace_k 3 so the test gets data. The 24-h limit stays. Backup mvtrx-x3.service.pre-back.
+
+**§1252 add. 3 — x3 (UID 58) pruned ≈ 20:52 UTC (2:52 PM CT), 3 h 12 min after immunity ended.** Pay at the end $87.6/month. Found at 3:12 PM CT: the 3:05
+restart crash-looped on "not registered". The tape's last write was 20:52:52, so the 3:04 "verdict" was the same data as the 2:51 read, and the stall I blamed on
+pacing was the pruning. I did not check registration before restarting or reading. mvtrx-x3 stopped and disabled; 58 removed from our_uids.txt; x1's rev_preload
+now points at x1's own tape. No fills were lost to the mistake. The depth A/B stands at ≈ 41 sim min as its final read. The back:1/back:2 test is untested and
+goes to a replacement maker.
