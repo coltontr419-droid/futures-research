@@ -20876,3 +20876,15 @@ plus skill_val per arm. The live A/B decides; a clean answer was preferred over 
 
 **§1256 add. 3 (2026-11-06, 4:29 PM CT):** auditing the alerts when the user asked what was set up: a self-trade only wrote a non-ALERT log line, a stopped service was not flagged, and a dead watchdog was invisible. Fixed: self-trade, service down, and errors since last start now ALERT; each tick's
 ALERT lines are captured exactly (not tail -14); a HEARTBEAT line each tick lets the droplet post if the watchdog stops for 30+ min.
+
+## §1257 — Which maker fills keep the spread (2026-11-06, 4:35 PM CT)
+
+whokeeps.py on x3's saved tape, sim min 1159 on: top template UIDs (144, 252, 7, 31; $19.9M) vs old x3 ($5.8M). Print-centred capture stand-in: x3 reads +0.95 bp, matching the exact ≈ 1.0; the template reads +2.13 vs exact 3.6–4.4, so it runs low there, and slices are for comparison only. The realized / quality column is not
+trustworthy (x3 reads 0.90 vs exact 0.58).
+
+- **Depth pays.** Template captured bp: inside +0.85, touch +1.40, just behind +2.24, deep +2.79, very deep (> 2.5 spreads) +4.15. Volume mix 8 / 41 / 23 / 15 / 14%. $30 books: touch +1.80, behind +3.40, deep +3.06. Old x3 had 88% at the touch.
+- **But depth is not all of it.** At the same depth x3 kept far less: $30 behind +1.50 vs +3.40; deep overall +0.99 vs +2.79. 4-dec touch +0.48 vs +0.95, consistent with the one-sided bug (§1255 add. 1).
+- **Who hits you matters more than sweep size.** Template: miner takers +2.95 bp (42% of volume) vs background +1.55. Old x3: miner +0.75 vs background +1.14. Sweep size shows no clear pattern. Template fills are better placed against the miner takers.
+- **$300 books are not bad for them.** 46% of template volume, +2.20 bp; x3 kept +0.35 there. mk_skip_vol may be the right rule for how x3 quoted, not for those books as such. One tick is only 0.33 bp there, so back:1/back:2 cannot reach them.
+
+**Implication if back:1/back:2 stays flat:** next maker test = rest in spreads rather than ticks, ≈ 1–1.5 spreads from the mid with no touch order, including the $300 books. Not started; x3's A/B needs clean data.
