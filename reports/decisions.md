@@ -20604,3 +20604,14 @@ and threshold.
 **Proposal for the new x1:** M1 at normal size plus `arms=sleeve_step:900` (re-enter after each 900-s hold on odd books; even books stay
 on M1 at 3600), read per arm with skill_val on book subsets. Arms are generic attribute overrides in _quote, so this works on the taker
 path. Correction (written 6:02 AM): the paper scorer always re-enters after the hold, so it has NOT tested M1's once-per-hour spacing against step = hold. The spacing lever is a hypothesis from the top UIDs' behaviour, not a paper result. The live A/B decides.
+
+**§1249 add. 1 (6:10 AM CT): paper test of entry spacing, inconclusive.** v1 at th 3.19, hold 900, minimum gap between entries per book
+3600 / 1800 / 900 s:
+- Train slice: kappa 2.76 / 4.19 / 6.48 (kept 38 / 36 / 26, nearly all positive).
+- Test slice: 0.98 / 0.85 / 0.56 (kept 17 / 17 / 13).
+
+The two independent slices disagree on direction, so the paper gives no reliable evidence that faster re-entry helps. kappa also jumps when
+fewer books are kept and all are positive, which makes it a noisy ranking metric on 1–2 sim-h slices.
+
+**Decision for the new x1:** plain M1 (proven live: skill 0.58) with pace_ledger. Spacing is tested only as a live arm, and only after the
+new x1 is established above the prune line, so the test cannot cost its survival.
