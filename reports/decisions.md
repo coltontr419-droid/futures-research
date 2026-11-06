@@ -20349,3 +20349,10 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   max_units 40, no arms, no guard) at 23:48 UTC. Guard code stays (off by default). Making credit at the switch: 294.5.
 - x2 (UID 169) PRUNED ≈ 23:40 UTC 11-05 after its 24 h immunity (paid score 0.0001, emission 0.019 vs line 0.29), the expected outcome.
   Its service is stopped and disabled.
+- §1238 add. 2 (23:51 UTC 11-05): x3 skew A/B via arms (book mod 3): arm 0 control skew 10 / max_units 40, arm 1 skew 16 / max_units 25,
+  arm 2 skew 10 / max_units 20. Start T = 61,660 sim s (1,027.7 sim min); judge with making_exact.py … 58 3 --since 1027.7 after ≥ 45 sim min.
+  Backup mvtrx-x3.service.pre-skewab.
+- §1241: SKILL-ONLY NEW UIDs DON'T SURVIVE their 24 h immunity on SN79 (x1: live skill 0.45-0.87, edge +3.5 bp/bet, yet emission 0.005/tempo
+  vs a prune line ≈ 0.29 with 6.5 h left). The paid score is a long average of combined score, which is capped at ≈ 0.5 without making, under
+  a soft floor at the field median. New UIDs should be makers (x3: ≈ 295 credit within ~6 h) or hybrids (making on all books + the model;
+  §1235: the model's kappa halves but stays positive while making pays from day one). x1 left untouched until it is pruned.
