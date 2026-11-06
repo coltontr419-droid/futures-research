@@ -20893,3 +20893,7 @@ trustworthy (x3 reads 0.90 vs exact 0.58).
 served by a dedicated taker", and skill_p11_strength applies a matching factor to skill. Capture is zero-sum per fill, so the maker's gain is the taker's cost. Top makers' p11 factor is 0.96–0.98: their miner flow comes from many takers. The no-self-trade rule stands.
 
 **Coverage rule found in the FAQ:** skill is scaled by min(1, books filled / (0.625 × 128 = 80)). rev_skip_vol leaves x1 at 65 books once the earlier volatile fills age out of the window: factor ≈ 0.81 (gauge 1.0 today, 121 books still counted). The volatile filter has a cost that §1253 missed; the next x1 should keep ≥ 80 books.
+
+**§1257 add. 2 (2026-11-06, 4:45 PM CT): filter stays on x1.** The user's condition for removing rev_skip_vol: certain, data-backed improvement on the live miner. Walk-forward refits showed $300 books at +2.5–5 bp, 66–70% right. But the deployed v3 itself, on tape after its training (only sim min 1275–1283): $300 −0.05 / −1.31 / −1.92 bp at
+300 / 600 / 900 s (183 rows, 29 books, 83% of books positive at 600 s, so a few books drove the mean); $30 +0.91 / +0.53 / +1.03 (258 rows). Eight sim minutes is far too little, but it does not confirm the case, so the condition is not met. Live entries on x1 so far: +1.52 bp at 600 s (56%), +1.36 at 900 s (45%), n 227–260; calm +1.37 at 600 s, 4-dec +0.05.
+Re-run v3live.py once ≥ 40 sim min of post-training tape exists (≈ 8 PM CT).
