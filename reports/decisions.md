@@ -20378,3 +20378,28 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   Replay: off identical to live (987); arms on 0 errors (32 tight skips, 218 thin sides pulled; placements 438 vs 517).
 - LIVE A/B on x3 since T = 64,042 sim s (1,067.4 sim min; x3 restart 03:30 UTC = 9:30 PM CT per systemd): arm 0 control (skew 10 / max 40), arm 1 mk_min_spread_bp 1.05,
   arm 2 mk_thin_ratio 0.77. Judge after ≥ 45 sim min. Backup mvtrx-x3.service.pre-mkq, agents/QuoteAgent.pre-mkq.py.
+
+## §1243 — Field comparison (2026-11-05, 10 PM CT): pay by miner type; x3's gap is quality, not volume
+
+**Correction to my 9:55 PM read.** I had joined on-chain emission (bittensor metagraph SN79, read-only) to the live gauges for only a handful
+of miners and concluded that the combined score held makers back. With all 256 UIDs joined, that is wrong. Maker-only miners (skill ≤ 0,
+credit > 50): n 73, median $209/month, 39 at $200+. Skill-only: n 101, median $194, 48 at $200+. Both: n 63, median $227, 43 at $200+.
+Maker-only pay by gauge credit: under 300 → $196 (4 of 13 at $200+); 300–450 → $181 (5/13); 450–600 → $191 (9/24); 600–800 → $238 (17/19);
+800+ → $353 (4/4). Rough target: about 600 gauge credit for a reliable $200+. x3 (357 credit, $63) is low because its paid average is
+still catching up.
+
+**Credit decomposition (making_exact.py, same 500 MB tape slice, validator code)** for x3 vs six top maker-only UIDs:
+
+| uid | captured C | R/C quality | two-sided Σ2·min | books one side ≤ 0 | credit (rank) |
+|---|---|---|---|---|---|
+| 58 (x3) | 850 | **0.317** | 522 | **30** | 166 (89) |
+| 144 | 1591 | 0.717 | 1235 | 2 | 885 (1) |
+| 76 | 1532 | 0.618 | 999 | 4 | 618 (3) |
+| 42 | 1082 | 0.665 | 911 | 3 | 606 (4) |
+| 252 | 769 | 0.726 | 555 | 6 | 403 (8) |
+| 127 | 831 | 0.604 | 600 | 7 | 362 (17) |
+| 107 | 575 | 0.691 | 412 | 12 | 285 (36) |
+
+Field: quality median 0.606. x3 captures as much as the top makers. It loses on R/C, and on 30 books its realized capture on one side is
+≤ 0. At field-median quality, x3's credit would roughly double (522 × 0.6 ≈ 315 on this slice). **Next step:** raise quality, which is what
+the §1242 A/B targets. If neither arm moves R/C much, the next study is the 30 books with a non-positive side.
