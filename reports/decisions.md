@@ -20688,3 +20688,30 @@ across price levels; if width wins, the next step is an edge in bp.
 preload from x3's tape, and M1 carries pace + ledger. add_maker_uid.sh strips test arms and x3's tape from the copied unit (TAPE=1 for
 its own). Syntax-checked; sim_now tested on the box (73,298). Note: M1/M1S read x3's tape, which stops if x3 is pruned; x1's own tape is the
 fallback then.
+
+## §1252 — Top makers run a depth ladder; x3 only sits at the touch (2026-11-06, 10:36 AM CT)
+
+**quotemap.py** (x3 tape, sim min 1159 on): every maker fill against the last book snapshot.
+
+| uid | at touch | deeper | inside | dist from mid, median (mean) bp | dist / spread p50 / p75 / p90 |
+|---|---|---|---|---|---|
+| 58 (x3) | 91% | 9% | 0% | 1.00 (1.52) | 0.50 / 0.50 / 0.50 |
+| 144 | 36% | 50% | 15% | 3.31 (4.61) | 0.50 / 1.30 / 3.28 |
+| 252 | 31% | 52% | 17% | 3.33 (5.02) | 0.64 / 1.50 / 3.50 |
+| 31 | 32% | 51% | 16% | 3.38 (4.93) | 0.61 / 1.50 / 3.50 |
+| 7 | 33% | 52% | 15% | 3.38 (5.52) | 0.60 / 1.49 / 3.50 |
+| 42 | 53% | 17% | 30% | 0.67 (1.38) | 0.50 / 0.50 / 0.75 (small $145 fills) |
+
+Calm books: x3 3.3 bp from the mid, the template makers 6.7 bp. $150+ books: x3 0.67, the template 1.35–1.5 (mean 3.2–4.2). The percentiles
+fall on 0.5 / 1.5 / 3.5 spreads, which suggests **a ladder of resting orders**, not one wider quote (inferred from fills, not observed
+directly): sweeps reach the deep levels, which keep far more spread. The earlier x3 study already showed fills near the touch give up most
+of the spread.
+
+**Built `mk_lad1` / `mk_lad2`:** extra post-only orders that many spreads from the mid, rounded outward, on each side still wanted. Every pull
+above them (thin rule, flow pull, lock handshake) removes them, so the self-trade rule still holds. Replay: off identical (184 placements);
+on 778 placements, all post-only, no errors. Ladders reprice with the mid, so instruction volume is ≈ 4×. Replaces the planned bp width.
+
+**Live:** x3 restarted 16:35:27 UTC (10:35 AM CT, sim min ≈ 1224), pre-approved param test: arms=edge:3/mk_lad1:1.5+mk_lad2:3.5 (book mod 3).
+The edge:6 arm, 9 minutes old, was replaced. Backup mvtrx-x3.service.pre-lad, agent QuoteAgent.pre-lad.py. First minute: 0 errors, 0
+self-trades. Full verdict needs ≥ 45 sim min (≈ 2:20 PM CT); x3 may be pruned first. Risk: deep fills come from sweeps and can carry
+inventory and adverse selection, so judge quality as well as credit.

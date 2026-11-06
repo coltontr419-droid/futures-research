@@ -14,6 +14,7 @@ validator's own capture code.
 """
 
 import json
+import math
 import os
 from collections import defaultdict
 
@@ -171,6 +172,7 @@ class QuoteAgent(FinanceAgent):
         self.mk_model = str(getattr(c, "mk_model", "") or "")    # §1238: maker side — the same predictor guards our quotes
         self.mk_pull_bp = float(getattr(c, "mk_pull_bp", 0.0))   # >0: pull the quote on the side a forecast ≥ MK_PULL_BP (bp) says will lose
         self.mk_skip_vol = int(getattr(c, "mk_skip_vol", 0))   # §1247: 1 = no making on the volatile books (ids 0-62; quality -0.54 / -0.02 in both tape halves)
+        self.mk_lad1 = float(getattr(c, "mk_lad1", 0.0)); self.mk_lad2 = float(getattr(c, "mk_lad2", 0.0))   # §1252: >0: extra resting orders this many spreads from the mid, on every side we quote (top makers fill at 0.5 / 1.5 / 3.5 spreads)
         self.mk_min_spread_bp = float(getattr(c, "mk_min_spread_bp", 0.0))   # §1242: >0: no quotes while the book's spread is under this (bp)
         self.mk_thin_ratio = float(getattr(c, "mk_thin_ratio", 0.0))         # §1242: >0: pull our side when its top size < RATIO × the other side's
         self._mkq_n = [0, 0, 0]                                   # [decisions, books skipped for spread, sides pulled as thin]
@@ -671,7 +673,19 @@ class QuoteAgent(FinanceAgent):
                     want.pop(side, None)                   # a taker UID of ours is about to trade into this side: stay off it (ack handled above)
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
         orders = sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)) if self.cancel_first else acct.orders
+        extra = {}
+        if self.mk_lad1 > 0 or self.mk_lad2 > 0:           # §1252 ladder: only on sides still wanted, so every pull above (lock handshake included) removes it
+            for side in want:
+                lv = set()
+                for k in (self.mk_lad1, self.mk_lad2):
+                    if k > 0:
+                        n = (mid - k * (ask - bid)) / tick if side == OrderDirection.BUY else (mid + k * (ask - bid)) / tick
+                        p = round(math.floor(n + 1e-9) * tick if side == OrderDirection.BUY else math.ceil(n - 1e-9) * tick, pd)
+                        if p != want[side] and p > 0: lv.add(p)
+                extra[side] = lv
         for o in orders:
+            if o.price in extra.get(o.side, ()):
+                extra[o.side].discard(o.price); continue   # ladder level already resting: keep its queue place
             px = want.get(o.side)
             behind = None if px is None else round(((px - o.price) if o.side == OrderDirection.BUY else (o.price - px)) / tick, 6)
             if px == o.price or (self.sticky and behind is not None and 0 <= behind <= self.sticky):
@@ -681,6 +695,10 @@ class QuoteAgent(FinanceAgent):
         for side, px in want.items():
             response.limit_order(book_id=book_id, direction=side, quantity=sq.get(side, qty), price=px, stp=STP.CANCEL_BOTH, postOnly=True,
                                  timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry)
+        for side, lv in extra.items():
+            for p in sorted(lv):
+                response.limit_order(book_id=book_id, direction=side, quantity=sq.get(side, qty), price=p, stp=STP.CANCEL_BOTH, postOnly=True,
+                                     timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry)
 
     def _record(self, state):
         ts = state.timestamp
