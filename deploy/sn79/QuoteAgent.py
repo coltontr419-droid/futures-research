@@ -121,10 +121,19 @@ class QuoteAgent(FinanceAgent):
         # capital_turnover_cap (10) × miner wealth (≈ $500k per book). Quote a book only while the trailing PACE_PERIOD sum < PACE_CAP and the
         # trailing PACE_WIN sum < PACE_CAP × PACE_WIN / PACE_PERIOD × PACE_K (even spending). Seeded from our own tape at start-up.
         self.pace_cap = float(getattr(c, "pace_cap", 0.0)); self.pace_period = int(getattr(c, "pace_period", 86400))
-        self.pace_win = int(getattr(c, "pace_win", 5400)); self.pace_k = float(getattr(c, "pace_k", 1.0))
+        # §1255 TOKEN BUCKET, replacing the 90-sim-min window (which allowed a burst, then hours idle). Each book earns budget at RATE = PACE_CAP /
+        # PACE_PERIOD per sim s, holds at most PACE_BURST sim s of it, and fills spend it (it may go negative). We quote / open only with a positive
+        # balance. So over any PACE_PERIOD a book trades at most PACE_CAP + burst + one order set: < the validator's hard cap, for any fill pattern.
+        # There is deliberately NO multiplier: the old pace_k override was how this got loosened by hand. pace_win / pace_k are ignored.
+        self.pace_burst = float(getattr(c, "pace_burst", 900.0)); self.pace_rate = self.pace_cap / self.pace_period if self.pace_cap else 0.0
+        self._tok = {}                                     # book -> [balance $, last sim s]
+        self._val_vol = {}                                 # book -> the validator's traded_volume for this account, logged next to our ledger
+        self._pace_logged = -10 ** 9
+        if getattr(c, "pace_k", None) is not None or getattr(c, "pace_win", None) is not None:
+            bt.logging.warning("pace_win / pace_k are ignored: pacing is a token bucket now (decisions.md §1255)")
         self._pace, self._pace_seen = defaultdict(list), set()
         pace_since = float(getattr(c, "pace_since", 0))   # sim s of our registration: the tape can hold a previous owner's fills on this UID (§1250)
-        if self.pace_cap and getattr(c, "tape", ""):
+        if self.pace_cap and getattr(c, "tape", "") and not getattr(c, "pace_ledger", ""):   # §1255: a ledger is the record; the tape holds a re-used UID's previous owner
             try:
                 rows = []
                 for line in open(str(c.tape)):
@@ -147,15 +156,24 @@ class QuoteAgent(FinanceAgent):
         if self.pace_cap and self.pace_ledger and os.path.exists(self.pace_ledger):
             try:
                 n0 = sum(len(v) for v in self._pace.values())
+                off = 0; prev = None                       # lines are in append order: a sim reset shows as time jumping back; keep the timeline continuous
                 for line in open(self.pace_ledger):
                     bk, sec, v, kid, kts = json.loads(line)
+                    if prev is not None and sec + off < prev - 3600:
+                        off = prev - sec
+                    prev = sec + off
                     key = (bk, kid, kts)
                     if key not in self._pace_seen:
-                        self._pace_seen.add(key); self._pace[bk].append((sec, v))
+                        self._pace_seen.add(key); self._pace[bk].append((sec + off, v))
                 for bk in self._pace: self._pace[bk].sort()
                 bt.logging.info(f"PACE ledger added {sum(len(v) for v in self._pace.values()) - n0} fills from {self.pace_ledger}")
             except Exception as e:
                 bt.logging.warning(f"PACE ledger load failed: {e}")
+        if self.pace_cap:
+            for bk, h in self._pace.items():                # replay the history through the bucket, so a restart resumes the same balance
+                h.sort()
+                for sec, v in h:
+                    self._tok_spend(bk, sec, v)
         self.dbg = int(getattr(c, "dbg", 0)); self._dbg_at = {}   # 1: log per quoted book once a minute (inventory, balances, wanted sides)      # 1: quote the affordable part of the order instead of skipping the side (§1211 add. 21)
         self.sleeve_bp = float(getattr(c, "sleeve_bp", 0.0))   # >0 (with skip_flat): on skipped books steer the position to ±SLEEVE_Q by the sign of
         self.sleeve_q = float(getattr(c, "sleeve_q", 10.0))     # (fundamental − mid)/mid beyond ±SLEEVE_BP (hysteresis), checked every SLEEVE_STEP
@@ -288,6 +306,7 @@ class QuoteAgent(FinanceAgent):
                         key = (int(book_id), e.id, e.timestamp)
                         if key not in self._pace_seen:
                             self._pace_seen.add(key); self._pace[int(book_id)].append((e.timestamp // 1_000_000_000, e.price * e.quantity))
+                            self._tok_spend(int(book_id), e.timestamp // 1_000_000_000, e.price * e.quantity)
                             if self.pace_ledger:
                                 try:
                                     with open(self.pace_ledger, "a") as fh:
@@ -299,9 +318,13 @@ class QuoteAgent(FinanceAgent):
                 if newest > self._sec + 60:                  # the sim clock went backwards (new simulation): keep the volume, shift its times
                     d = self._sec - newest
                     for bk in self._pace: self._pace[bk] = [(t + d, v) for t, v in self._pace[bk]]
+                    for st in self._tok.values(): st[1] += d
                     bt.logging.info(f"PACE clock shift {d} s")
                 self._pace_shift_done = True
             self._pace_last = self._sec
+            if self._sec - self._pace_logged >= 60:
+                self._pace_logged = self._sec
+                self._pace_status()
         for book_id, book in (self._books if self._books is not None else state.books or {}).items():
             acct = self.accounts.get(book_id)
             if acct is None or not book.bids or not book.asks:
@@ -374,15 +397,67 @@ class QuoteAgent(FinanceAgent):
         if self._sec - getattr(self, "_rej_at", -10 ** 9) >= 60:
             self._rej_at = self._sec; bt.logging.info(f"DBG REJECTS {dict(self._rej)}"); self._rej.clear()
 
-    def _paced_out(self, book_id):
+    def _tok_accrue(self, book_id, sec):
+        st = self._tok.get(book_id)
+        burst = self.pace_rate * self.pace_burst
+        if st is None:
+            st = self._tok[book_id] = [burst, sec]
+        dt = sec - st[1]
+        if dt > 0:                                         # time never runs backwards here: a new simulation shifts the stored times instead
+            st[0] = min(burst, st[0] + dt * self.pace_rate); st[1] = sec
+        return st
+
+    def _tok_spend(self, book_id, sec, value):
+        self._tok_accrue(book_id, sec)[0] -= value
+
+    def _pace_day(self, book_id):
         h = self._pace.get(book_id)
         if not h:
-            return False
+            return 0.0
         lo = self._sec - self.pace_period
         if h[0][0] <= lo:
             self._pace[book_id] = h = [x for x in h if x[0] > lo]
-        day = sum(v for _, v in h); recent = sum(v for t, v in h if t > self._sec - self.pace_win)
-        return day >= self.pace_cap or recent >= self.pace_cap * self.pace_win / self.pace_period * self.pace_k
+        return sum(v for _, v in h)
+
+    def _paced_out(self, book_id):
+        return self._tok_accrue(book_id, self._sec)[0] <= 0 or self._pace_day(book_id) >= self.pace_cap
+
+    def _pace_sync(self):
+        """§1255: pace_sync.py writes the validator's own per-book daily_volume next to the ledger. Where it exceeds what we counted (fills during a restart
+        or a missed step), charge the difference once, in the ledger too, so nothing the validator counts is ever invisible to the bucket."""
+        if not self.pace_ledger:
+            return
+        path = os.path.join(os.path.dirname(self.pace_ledger), f"pace_sync_{self.uid}.json")
+        try:
+            data = json.load(open(path))
+        except Exception:
+            return
+        n = 0
+        for bk, v in data.items():
+            b = int(bk); gap = float(v) - self._pace_day(b)
+            if gap > 1000.0:
+                key = (b, f"sync{self._sec}", self._sec)
+                if key in self._pace_seen:
+                    continue
+                self._pace_seen.add(key); self._pace[b].append((self._sec, gap)); self._tok_spend(b, self._sec, gap); n += 1
+                try:
+                    with open(self.pace_ledger, "a") as fh:
+                        fh.write(json.dumps([b, self._sec, gap, key[1], self._sec]) + "\n")
+                except Exception:
+                    pass
+        if n:
+            bt.logging.warning(f"PACE SYNC: charged {n} books for volume the validator counted and our ledger had missed")
+
+    def _pace_status(self):
+        """One line per sim minute (§1255): a miner that stops trading for pacing, or nears the cap, must be visible, never silent."""
+        self._pace_sync()
+        books = sorted(self._pace)
+        days = sorted(self._pace_day(b) for b in books) or [0.0]
+        out = sum(1 for b in books if self._paced_out(b))
+        worst = max(books, key=self._pace_day, default=None)
+        vv = self._val_vol.get(worst) if worst is not None else None
+        bt.logging.info(f"PACE STATUS: {out} of {len(books)} traded books blocked | 24h notional median ${days[len(days) // 2]:,.0f} max ${days[-1]:,.0f} of ${self.pace_cap:,.0f}"
+                        f" | worst book {worst} ledger ${days[-1]:,.0f} validator traded_volume {vv}")
 
     def _toxic_update(self, book_id, book, sec, mid, tick):
         """Track our own maker fills on this book; 30 s later mark them against the mid and keep an EMA; pause the book when it is bad."""
@@ -427,6 +502,11 @@ class QuoteAgent(FinanceAgent):
                 setattr(self, k, v)
 
     def _quote_inner(self, response, book_id, book, acct):
+        if self.pace_cap:
+            try:
+                self._val_vol[int(book_id)] = acct.traded_volume
+            except Exception:
+                pass
         pd, vd = self.price_decimals(book_id), self.volume_decimals(book_id)
         tick = 10.0 ** -pd
         bid, ask = book.bids[0].price, book.asks[0].price

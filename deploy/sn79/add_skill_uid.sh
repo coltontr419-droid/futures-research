@@ -22,8 +22,8 @@ case $VAR in              # sleeve_bp (trigger bp) rev_look (s) rev_hold (s) sle
   N5) P="sleeve_bp=9 rev_look=450 rev_hold=1200 sleeve_step=1800";;
   N2) P="sleeve_bp=12 rev_look=750 rev_hold=3000 sleeve_step=3600";;
   N1) P="sleeve_bp=10 rev_look=450 rev_hold=1800 sleeve_step=2700";;
-  M1) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_preload=/opt/mvtrx/live_tape_x3.jsonl rev_hold=900 sleeve_step=3600 lock_dir=/opt/mvtrx/locks lock_max=120 pace_cap=450000 pace_win=5400 pace_ledger=/opt/mvtrx/pace_UIDN.ledger";;   # §1233 fitted predictor, top 2% forecasts
-  M1S) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_preload=/opt/mvtrx/live_tape_x3.jsonl rev_hold=900 sleeve_step=3600 lock_dir=/opt/mvtrx/locks lock_max=120 rev_th_k=0.7 pace_cap=450000 pace_win=5400 pace_ledger=/opt/mvtrx/pace_UIDN.ledger"; TS=60; RU=5000;;   # §1245/§1246 scaled taker, paced, ledger per UID
+  M1) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_preload=/opt/mvtrx/live_tape_x1.jsonl rev_hold=900 sleeve_step=3600 lock_dir=/opt/mvtrx/locks lock_max=120 pace_cap=450000 pace_ledger=/opt/mvtrx/pace_UIDN.ledger";;   # §1233 fitted predictor, top 2% forecasts
+  M1S) P="sleeve_bp=12 rev_model=/opt/mvtrx/agents/rev_model.json rev_preload=/opt/mvtrx/live_tape_x1.jsonl rev_hold=900 sleeve_step=3600 lock_dir=/opt/mvtrx/locks lock_max=120 rev_th_k=0.7 pace_cap=450000 pace_ledger=/opt/mvtrx/pace_UIDN.ledger"; TS=60; RU=5000;;   # §1245/§1246 scaled taker, paced, ledger per UID
   *) echo "unknown variant $VAR"; exit 1;;
 esac
 [ -f /root/.bittensor/wallets/main/hotkeys/$HK ] || { echo "hotkey file missing: copy hotkeys/$HK from the laptop first"; exit 1; }
@@ -44,6 +44,7 @@ echo "unit $U | variant $VAR | uid $UID_"
 sim_now() { for j in x3 x1; do journalctl -u mvtrx-$j --since "-10min" --no-pager | grep -o "T=[0-9]*" | tail -1 | cut -c3- | awk '{print int($1/1000000000)}' | grep . && return; done; }
 if [ "$UID_" -ge 0 ]; then
   SIM=$(sim_now); [ -n "$SIM" ] || { echo "no live sim time found: set pace_since and our_uids.txt by hand"; exit 1; }
+  [ -f /opt/mvtrx/pace_$UID_.ledger ] && mv /opt/mvtrx/pace_$UID_.ledger /opt/mvtrx/pace_$UID_.ledger.old.$SIM   # the cap resets on a new registration
   sed -i "s|--agent.params \(.*\)|--agent.params \1 pace_since=$SIM|" $U
   sed -i "/^$UID_ /d" /opt/mvtrx/our_uids.txt; echo "$UID_ taker $HK $SIM" >> /opt/mvtrx/our_uids.txt
 fi

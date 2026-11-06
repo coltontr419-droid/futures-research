@@ -14,7 +14,7 @@ U=/etc/systemd/system/mvtrx-$HK.service
 # no test arms and no shared tape: arms stay on the UID under test; each maker writes its own tape only with TAPE=1 (tapes grow GBs/day)
 TP=""; [ "${TAPE:-0}" = 1 ] && TP=" tape=/opt/mvtrx/live_tape_$HK.jsonl"
 sed -e "s/--wallet.hotkey x3/--wallet.hotkey $HK/" -e "s/8103/$PORT/g" -e "s|hotkeys/x3$|hotkeys/$HK|" \
-    -e "s| arms=[^ ]*||" -e "s| tape=/opt/mvtrx/live_tape_x3.jsonl|$TP|" \
+    -e "s| arms=[^ ]*||" -e "s| tape=/opt/mvtrx/live_tape_x3.jsonl|$TP|" -e "s| pace_win=[^ ]*||" -e "s| pace_k=[^ ]*||" -e "s| pace_since=[^ ]*||" \
     -e "s|^Description=.*|Description=Bittensor SN79 (MVTRX) miner $HK, MAKER-ONLY on all books, lock-handshake maker side (decisions.md 1235)|" \
     /etc/systemd/system/mvtrx-x3.service > $U
 UID_=$(/opt/mvtrx/venv/bin/python -c "
@@ -25,6 +25,7 @@ print(m.hotkeys.index(hk) if hk in m.hotkeys else -1)" 2>/dev/null | tail -1)
 sim_now() { for j in x3 x1; do journalctl -u mvtrx-$j --since "-10min" --no-pager | grep -o "T=[0-9]*" | tail -1 | cut -c3- | awk '{print int($1/1000000000)}' | grep . && return; done; }
 if [ "$UID_" -ge 0 ]; then                    # §1250: ignore the previous owner's fills on a re-used UID
   SIM=$(sim_now); [ -n "$SIM" ] || { echo "no live sim time found: set pace_since and our_uids.txt by hand"; exit 1; }
+  [ -f /opt/mvtrx/pace_$UID_.ledger ] && mv /opt/mvtrx/pace_$UID_.ledger /opt/mvtrx/pace_$UID_.ledger.old.$SIM   # the cap resets on a new registration
   sed -i "s|--agent.params \\(.*\\)|--agent.params \\1 pace_since=$SIM|" $U
   sed -i "/^$UID_ /d" /opt/mvtrx/our_uids.txt; echo "$UID_ maker $HK $SIM" >> /opt/mvtrx/our_uids.txt
 fi

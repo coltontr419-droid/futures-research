@@ -20798,3 +20798,37 @@ restart crash-looped on "not registered". The tape's last write was 20:52:52, so
 pacing was the pruning. I did not check registration before restarting or reading. mvtrx-x3 stopped and disabled; 58 removed from our_uids.txt; x1's rev_preload
 now points at x1's own tape. No fills were lost to the mistake. The depth A/B stands at ≈ 41 sim min as its final read. The back:1/back:2 test is untested and
 goes to a replacement maker.
+
+## §1255 — Volume pacing rebuilt: a token bucket, the validator's own figure, and a standing watchdog (2026-11-06, 3:30 PM CT)
+
+The user: pacing has failed too many times; hitting the cap must never be an issue again; fix it before registering a new maker.
+
+**The rule, from the validator's code (repo at published head 9133060):** query.py drops every non-cancel instruction on a book when volume_sums ≥ capital_turnover_cap (10)
+× miner_wealth. volume_sums = maker + taker + self notional per UID per book, over trade_volume_assessment_period (86,400 sim s), sampled at 600 s. A sim boundary SHIFTS the
+timestamps and keeps the volume (my notes implied a reset). Only deregistration clears it (reset_agent_histories). "accrued for a new uid" is dead code. miner_wealth is per book.
+Live confirmation: 1,751 book/UID pairs across the field at ≥ $490k, top $527k. x3 was never dropped (public `dropped` gauge 0).
+
+**How pacing failed:** none at first (11-03); taker path unpaced; restart forgot history; x3 had no tape to seed from and ran 5× fast for 11 h unnoticed; previous owner's fills seeded in;
+the 90-sim-min window was stop-go by design; I loosened it by hand with pace_k; and 44 minutes of zero fills went unseen.
+
+**Rebuilt (QuoteAgent.py):**
+- **Token bucket per book** replaces the rolling window: earns pace_cap / 86,400 ($5.21 per sim s), holds 900 sim s at most, fills spend it, and it may go negative. Quoting or opening
+  needs a positive balance; exits still go. Long-run rate is exact whatever the fills, so 24 h ≤ $450k + burst $4.7k + one order set. The 24-h sum stays as a backstop.
+- **No override:** pace_win and pace_k are ignored, with a warning. Removed from the setup scripts.
+- **Ledger is the record** (tape seed off when a ledger exists). Replay through the bucket at start, so a restart resumes the same balance. A sim reset no longer corrupts it.
+- **PACE STATUS** every sim minute: books blocked, 24-h median and max, and the validator figure.
+- **Account.traded_volume arrives as None** in the state we receive, so it is unusable. **Public `agent_gauges{daily_volume}` per book is the validator's figure.** On x1 it matches the
+  ledger (book 123 $7,756 both after sync; the ledger leads by the gauge's lag), so the ledger errs safe. Two sim_ids report; we trade one (the other reads 0).
+- **pace_sync.py** (every 10 min): writes that figure to pace_sync_<uid>.json. The agent charges any excess over $1,000 once, into the ledger too. This covers fills missed during
+  restarts. Agents read it once per sim minute.
+- **Watchdog is now standing** (overnight.sh): registration of every UID in our_uids.txt, sync, and ALERT lines to alerts.txt for: not registered, ≥ 90% of the cap, any dropped
+  instruction, no fills (45 min maker, 180 min taker).
+- Setup scripts archive any old ledger for a re-used UID.
+
+**Tests (test_pace.py, the agent's real methods, all pass):** filled whenever open for 3 sim days: worst 24 h $454,952 ($3k orders), $466,633 ($10k), $493,153 (one $50k sweep each
+time), all under $500k. Longest idle on one book 1,688 sim s ($3k orders) vs 5,396 for the old window. $450,003 of budget usable in a day. Restart same balance; restart cannot reopen a
+spent book; sim reset gives no free budget; restart after a sim reset keeps all volume; pace_k cannot loosen it; validator charge applied once and survives restart. Replay: identical
+to the prior agent with x1's and a maker's params when not bound (120, 184 placements).
+
+**Known limits:** the bucket bounds volume, not earnings; order size sets the gaps ($3k orders can idle ≈ 28 sim min on a book at the limit, so smaller orders run steadier). The public
+gauge lags, and if the endpoint fails the watchdog alerts rather than blocks. The sync protects one sim only.
