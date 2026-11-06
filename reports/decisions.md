@@ -20603,4 +20603,4 @@ and threshold.
 
 **Proposal for the new x1:** M1 at normal size plus `arms=sleeve_step:900` (re-enter after each 900-s hold on odd books; even books stay
 on M1 at 3600), read per arm with skill_val on book subsets. Arms are generic attribute overrides in _quote, so this works on the taker
-path. Paper on the same slices: step = hold gives kappa ≈ 2–6 vs M1's ≈ 1–2 (optimistic 2–3×). The live A/B decides.
+path. Correction (written 6:02 AM): the paper scorer always re-enters after the hold, so it has NOT tested M1's once-per-hour spacing against step = hold. The spacing lever is a hypothesis from the top UIDs' behaviour, not a paper result. The live A/B decides.
