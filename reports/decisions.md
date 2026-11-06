@@ -20656,3 +20656,35 @@ quoting) to ≈ 1218, about 59 sim min of active quoting. x3 on mk_thin_ratio 0.
 - Status at 10:09 AM: x3 emission 0.244 ($96.8/month, falling from $102.9 at 6 AM), making gauge 96, combined 0.066, immunity ends ≈ 11:40.
   x1 UID 22: paid score 0.0 and emission 0.0018 at 2 h 45 min, so no inherited value. Skill gauge −0.08 with 37 kept, early in a window
   that spans ≈ 15 wall h.
+
+## §1251 — Maker credit per dollar: x3's gap is captured spread, so edge width goes live (2026-11-06, 10:26 AM CT)
+
+The §1247 verdict was applied on the user's yes: x3 runs mk_skip_vol=1 on all books (restart 16:22:55 UTC; backup mvtrx-x3.service.pre-skipall).
+
+**Credit per dollar (makereff.py + making_exact, x3 tape, sim min 1159 to ≈ 1220):**
+
+| | $M | credit/$M | captured bp of notional | quality | two-sided share | median fill |
+|---|---|---|---|---|---|---|
+| x3 | 2.46 | **17.8** | **0.66** | 0.58 | 0.46 | $1,257 |
+| field median (> $0.1M) | | 133 (p75 187, p90 218) | | 0.67 | | |
+| UID 144 | 3.61 | 263 | 4.41 | 0.78 | 0.77 | $1,789 |
+| UID 252 | 2.67 | 219 | 3.96 | 0.80 | 0.69 | $1,791 |
+| UID 7 | 2.48 | 235 | 4.04 | 0.77 | 0.76 | $1,788 |
+| UID 31 | 2.63 | 225 | 3.64 | 0.76 | 0.81 | $1,788 |
+| UID 42 | 4.57 | 151 | 2.83 | 0.70 | 0.76 | $145 |
+
+x3 trades the same dollars as these makers. It keeps 5–7× less spread per dollar, and that, more than quality, explains its credit. Several
+top makers fill at ≈ $1,788 (one template, likely one operator). Others (UIDs 188, 79) trade $11–20M in the window, far over the even pace.
+
+**Likely cause (code):** quotes are `fair ± edge × tick` with edge 1. A tick is ≈ 0.33 bp on a $300 book, while median spreads are 5.7 bp on
+calm books, 3.7 on 4-decimal and 2.3 on volatile, so x3 sits close to fair and gives the spread away. The only earlier edge test (§1211 add.
+24) was on volatile books with ≈ 20 units of C per cell, never conclusive.
+
+**Live test (pre-approved param test): arms=edge:3/edge:6** from 16:26:13 UTC (10:26 AM CT, sim min ≈ 1222, book mod 3: arm 0 edge 1).
+Backup mvtrx-x3.service.pre-edge. Needs ≥ 45 sim min (≈ 2:15 PM CT); x3 may be pruned first, so early reads count. Fixed ticks are uneven
+across price levels; if width wins, the next step is an edge in bp.
+
+**Scripts:** add_skill_uid.sh and add_maker_uid.sh now set pace_since and the our_uids start time from a live sim clock (§1250). M1 and M1S
+preload from x3's tape, and M1 carries pace + ledger. add_maker_uid.sh strips test arms and x3's tape from the copied unit (TAPE=1 for
+its own). Syntax-checked; sim_now tested on the box (73,298). Note: M1/M1S read x3's tape, which stops if x3 is pruned; x1's own tape is the
+fallback then.
