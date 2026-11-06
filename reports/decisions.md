@@ -20873,3 +20873,6 @@ three, and the edge per entry mostly holds; unlike the v1 test (§1249 add. 1), 
 
 **§1256 add. 2 (2026-11-06, 4:26 PM CT): x1 re-entry A/B live, user's choice of half-and-half.** arms=sleeve_step:900 on x1 (book mod 2: odd books re-enter every 900 sim s, even stay at 3600). Restart 22:25:12 UTC, T = 77,635. Unit backup .pre-step. Read: /opt/mvtrx/x1arm.py (signed mid move by arm)
 plus skill_val per arm. The live A/B decides; a clean answer was preferred over a slim chance of saving this slot before immunity ends (≈ 7:20 AM CT 11-07), since x1 needs ≈ 230× its pay by then.
+
+**§1256 add. 3 (2026-11-06, 4:35 PM CT):** auditing the alerts when the user asked what was set up: a self-trade only wrote a non-ALERT log line, a stopped service was not flagged, and a dead watchdog was invisible. Fixed: self-trade, service down, and errors since last start now ALERT; each tick's
+ALERT lines are captured exactly (not tail -14); a HEARTBEAT line each tick lets the droplet post if the watchdog stops for 30+ min.

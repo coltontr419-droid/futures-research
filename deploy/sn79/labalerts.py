@@ -19,4 +19,8 @@ else:
         k = re.sub(r"[\d,.$]+", "#", line)
         if now - st.get(k, 0) > RE:
             mw.post({"title": "MVTRX alert", "description": line[6:], "color": 15158332}); st[k] = now
+if out.returncode == 0:                     # the watchdog's heartbeat: a dead watchdog must be noticed from outside the box
+    beats = [int(l.split()[1]) for l in out.stdout.splitlines() if l.startswith("HEARTBEAT")]
+    if beats and now - max(beats) > 1800 and now - st.get("_beat", 0) > RE:
+        mw.post({"title": "MVTRX watchdog stopped", "description": f"No heartbeat for {int((now - max(beats)) / 60)} minutes: the lab box's checks are not running.", "color": 15158332}); st["_beat"] = now
 tmp = S + ".tmp"; json.dump(st, open(tmp, "w")); os.replace(tmp, S)
