@@ -20888,3 +20888,8 @@ trustworthy (x3 reads 0.90 vs exact 0.58).
 - **$300 books are not bad for them.** 46% of template volume, +2.20 bp; x3 kept +0.35 there. mk_skip_vol may be the right rule for how x3 quoted, not for those books as such. One tick is only 0.33 bp there, so back:1/back:2 cannot reach them.
 
 **Implication if back:1/back:2 stays flat:** next maker test = rest in spreads rather than ticks, ≈ 1–1.5 spreads from the mid with no touch order, including the $300 books. Not started; x3's A/B needs clean data.
+
+**§1257 add. 1 (2026-11-06, ≈ 4:40 PM CT): trading between our own UIDs stays ruled out.** The user asked whether our takers could feed our makers. FAQ, README and code contain no written ban, but the scorer is built against it: debeta.py calls it a "feeder ring"; P11 (p11_strength default 1.0) "removes the making credit of a maker
+served by a dedicated taker", and skill_p11_strength applies a matching factor to skill. Capture is zero-sum per fill, so the maker's gain is the taker's cost. Top makers' p11 factor is 0.96–0.98: their miner flow comes from many takers. The no-self-trade rule stands.
+
+**Coverage rule found in the FAQ:** skill is scaled by min(1, books filled / (0.625 × 128 = 80)). rev_skip_vol leaves x1 at 65 books once the earlier volatile fills age out of the window: factor ≈ 0.81 (gauge 1.0 today, 121 books still counted). The volatile filter has a cost that §1253 missed; the next x1 should keep ≥ 80 books.
