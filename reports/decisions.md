@@ -20638,3 +20638,21 @@ belong to its previous owner.
 - overnight.sh logs UID 22. The timer was restarted after x1 came back: PACE seeded 28 own fills on 15 books, 0 self-trades.
 
 **Rule for every future UID:** set pace_since and the our_uids start time at first start. add_skill_uid.sh does not do this yet.
+
+**§1247 A/B read (2026-11-06 10:10 AM CT; the 8:45 read was missed because the session slept).** Read from sim min 1159 (when x3 resumed
+quoting) to ≈ 1218, about 59 sim min of active quoting. x3 on mk_thin_ratio 0.77 throughout.
+
+| arm | books | C | R/C | two-sided | credit | one side missing | one side ≤ 0 |
+|---|---|---|---|---|---|---|---|
+| 0: volatile quoting | 64 | 88.7 | 0.535 | 34.7 | 18.6 | 2 | 15 |
+| 1: odd volatile skipped | 33 | 72.7 | 0.642 | 40.3 | 25.9 | 0 | 7 |
+
+- Arm 1 wins on credit (+39%, on half the books) and quality. Its 0.642 is near the field median (0.671).
+- **The one-sidedness fear is not confirmed:** only 2 of 97 books had a side missing. The earlier 14 of 62 came from the idle period. Quality
+  also rose from 0.32 to 0.54–0.64 under the rule.
+- **The credit slide is pacing, not the rules.** 97 of 128 books sit over the 90-sim-min limit ($28,125; recent median $29,249), so x3 now
+  trades at the even pace, after its burst used $249k of the $450k per-book budget. Field captured C in the window: median 263, p75 740; x3
+  161.
+- Status at 10:09 AM: x3 emission 0.244 ($96.8/month, falling from $102.9 at 6 AM), making gauge 96, combined 0.066, immunity ends ≈ 11:40.
+  x1 UID 22: paid score 0.0 and emission 0.0018 at 2 h 45 min, so no inherited value. Skill gauge −0.08 with 37 kept, early in a window
+  that spans ≈ 15 wall h.
