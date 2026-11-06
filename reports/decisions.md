@@ -20403,3 +20403,40 @@ still catching up.
 Field: quality median 0.606. x3 captures as much as the top makers. It loses on R/C, and on 30 books its realized capture on one side is
 ≤ 0. At field-median quality, x3's credit would roughly double (522 × 0.6 ≈ 315 on this slice). **Next step:** raise quality, which is what
 the §1242 A/B targets. If neither arm moves R/C much, the next study is the 30 books with a non-positive side.
+
+## §1244 — Skill side (2026-11-05, 10:10 PM CT): the top skill miners' score is not trading profit
+
+Same 200 MB tape slice (38 sim min), x1 (114) vs ten top skill-only UIDs (skill gauge 3–4.3, $430–740/month).
+
+**Behaviour (skillcmp.py).** All are pure takers: ~1,250–1,500 fills per 38 sim min, median fill $490–1,000, 62–86 books, mean |inventory|
+about $130–170k, round trip about 320–610 s, notional $1.8–3.5M/h. Their fills' mid markouts are negative at 30, 120 and 600 s (about −0.7 to
+−2.7 bp; UID 48 is the exception at +1.5 to +2.1). x1: 267 fills, median $268, mean |inv| $3.6k, notional $0.14M/h (15× less).
+
+**Score (skill_val.py, validator formula).** Top UIDs: 44–71 books kept by the hurdle, almost all positive (UID 8: 64 of 64), α/notional median
++3.1 to +3.9 bp, kappa +2.2 to +4.5. x1: 45 kept (26 positive, 19 negative), +0.42 bp, kappa +0.28.
+
+**Decomposition (skill_decomp.py).** The scorer's alpha is Σ inventory × Δmid − mean inventory × drift. It never charges the fill price.
+
+| uid | alpha bp | own impact (first mid move after own print) | rest of holding | drift adjustment | true P&L at fill prices |
+|---|---|---|---|---|---|
+| 8 | +4.18 | +1.20 | +1.41 | +1.57 | −0.41 |
+| 103 | +7.25 | +1.87 | +3.62 | +1.76 | −2.39 |
+| 48 | +5.12 | +1.08 | +3.83 | +0.21 | +1.56 |
+| 181 | +4.16 | +0.52 | +1.97 | +1.66 | −0.64 |
+| 114 (x1) | +0.56 | +0.10 | +0.51 | −0.00 | −0.53 |
+
+**Reading.** The top skill miners mostly score high while losing money at fill prices (3 of 4 checked). The score comes from three parts:
+1. the mid moving after their own taking (their own impact);
+2. holding sizeable inventory while the mid moves their way;
+3. the drift adjustment, which is positive when mean inventory leans against the book's drift over the window.
+
+x1 is small on all three because its size and inventory are about 40× smaller. A better predictor is not the main lever. Scale is: bigger
+fills, real inventory held for minutes, and a lean against the drift.
+
+**Caveats.**
+- 38 sim min, scored from inventory 0; the validator's window and starting state differ.
+- Unknown whether a sim-account drawdown from negative P&L is penalised.
+- The subnet owner could patch the scorer to charge fill prices, so this is not durable by design.
+
+**Next step:** an offline replay of x1's taker with 3–5× size and longer holds through skill_val.py before tomorrow's x1 registration.
+Live is the only true test. Our UIDs must still never trade each other (the handshake covers it).
