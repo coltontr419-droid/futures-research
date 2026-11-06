@@ -20349,7 +20349,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   max_units 40, no arms, no guard) at 23:48 UTC. Guard code stays (off by default). Making credit at the switch: 294.5.
 - x2 (UID 169) PRUNED ≈ 23:40 UTC 11-05 after its 24 h immunity (paid score 0.0001, emission 0.019 vs line 0.29), the expected outcome.
   Its service is stopped and disabled.
-- §1238 add. 2 (23:51 UTC 11-05): x3 skew A/B via arms (book mod 3): arm 0 control skew 10 / max_units 40, arm 1 skew 16 / max_units 25,
+- §1238 add. 2 (00:12 UTC 11-06 = 6:12 PM CT; first logged as 23:51 by mistake): x3 skew A/B via arms (book mod 3): arm 0 control skew 10 / max_units 40, arm 1 skew 16 / max_units 25,
   arm 2 skew 10 / max_units 20. Start T = 61,660 sim s (1,027.7 sim min); judge with making_exact.py … 58 3 --since 1027.7 after ≥ 45 sim min.
   Backup mvtrx-x3.service.pre-skewab.
 - §1241: SKILL-ONLY NEW UIDs DON'T SURVIVE their 24 h immunity on SN79 (x1: live skill 0.45-0.87, edge +3.5 bp/bet, yet emission 0.005/tempo
@@ -20362,3 +20362,6 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   inherited 0.0013 and decayed 0.0007 → 0.0005 while combined ran 0.16-0.30, i.e. the validator kept the previous owner's long track record
   (apply_track_record_ema clears a slot only when the uid is in deregs; apparently missed for 114). Not a skill-only limitation.
   Rule: one hour after any registration, check the paid score went to ≈ 0 then climbs; a slot that keeps an inherited value is stuck.
+- §1240 add. 1 (00:20 UTC 11-06): the self-trade counter showed 1 = an x3 maker fill taken by UID 169 minutes earlier; x2 lost UID 169 when
+  pruned (≈ 23:40 UTC) and its service has been stopped since 23:48 UTC → 169 is someone else's miner, not ours. selftrade.sh/.py now read
+  our current UIDs and roles from /opt/mvtrx/our_uids.txt (58 maker x3, 114 taker x1) → 0 self-trades in 9,215 x3 fills.
