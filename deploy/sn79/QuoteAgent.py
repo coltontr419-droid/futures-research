@@ -149,6 +149,9 @@ class QuoteAgent(FinanceAgent):
         self.rev_imb = float(getattr(c, "rev_imb", -9.0))        # §1230: enter only when top-5 depth imbalance × our direction ≥ REV_IMB (off at -9)
         self.mk_model = str(getattr(c, "mk_model", "") or "")    # §1238: maker side — the same predictor guards our quotes
         self.mk_pull_bp = float(getattr(c, "mk_pull_bp", 0.0))   # >0: pull the quote on the side a forecast ≥ MK_PULL_BP (bp) says will lose
+        self.mk_min_spread_bp = float(getattr(c, "mk_min_spread_bp", 0.0))   # §1242: >0: no quotes while the book's spread is under this (bp)
+        self.mk_thin_ratio = float(getattr(c, "mk_thin_ratio", 0.0))         # §1242: >0: pull our side when its top size < RATIO × the other side's
+        self._mkq_n = [0, 0, 0]                                   # [decisions, books skipped for spread, sides pulled as thin]
         self._mk_n = [0, 0]                                      # [quote sides pulled, quote decisions seen]
         self.rev_model = str(getattr(c, "rev_model", "") or "")  # §1233: path to the fitted predictor (rev_model.json); set = model entries
         self._rf = None
@@ -581,6 +584,18 @@ class QuoteAgent(FinanceAgent):
                                      timeInForce=TimeInForce.IOC)
                 self._last_take[book_id] = self._sec
                 want.pop(OrderDirection.SELL if side == OrderDirection.BUY else OrderDirection.BUY, None)   # never rest on the side we take
+        if self.mk_min_spread_bp > 0 or self.mk_thin_ratio > 0:   # §1242 quote-quality rules (x3 fill study)
+            self._mkq_n[0] += 1
+            if self.mk_min_spread_bp > 0 and (ask - bid) / mid * 1e4 < self.mk_min_spread_bp:
+                want.clear(); self._mkq_n[1] += 1                # tight book: our fills here keep < 0% of the spread
+            elif self.mk_thin_ratio > 0 and qb and qa:
+                if qb < self.mk_thin_ratio * qa and want.pop(OrderDirection.BUY, None) is not None:
+                    self._mkq_n[2] += 1                          # thin bid queue vs the ask: the bid gets run over
+                if qa < self.mk_thin_ratio * qb and want.pop(OrderDirection.SELL, None) is not None:
+                    self._mkq_n[2] += 1
+            if self._sec - getattr(self, "_mkq_logged", -10 ** 9) >= 60:
+                self._mkq_logged = self._sec
+                bt.logging.info(f"MK QUALITY: {self._mkq_n[0]} decisions, {self._mkq_n[1]} skipped tight, {self._mkq_n[2]} thin sides pulled")
         if self._rf is not None and self.mk_model:              # §1238 guard (features fed at the top of the making path)
             if self.mk_pull_bp > 0:
                 fc = self._rf.predict(int(book_id), self._sec); self._mk_n[1] += 1
