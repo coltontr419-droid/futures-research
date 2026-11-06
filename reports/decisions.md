@@ -20715,3 +20715,16 @@ on 778 placements, all post-only, no errors. Ladders reprice with the mid, so in
 The edge:6 arm, 9 minutes old, was replaced. Backup mvtrx-x3.service.pre-lad, agent QuoteAgent.pre-lad.py. First minute: 0 errors, 0
 self-trades. Full verdict needs ≥ 45 sim min (≈ 2:20 PM CT); x3 may be pruned first. Risk: deep fills come from sweeps and can carry
 inventory and adverse selection, so judge quality as well as credit.
+
+**§1252 add. 1 (2026-11-06, 11:20 AM CT): x3 was fully paced out; the ladder had no data.** x3 made zero fills from its 10:35 AM restart to
+11:19 AM (last fill sim s 73,049). All 39 calm and 26 4-decimal books were over the 90-sim-min limit ($28,125; recent medians $29,441 and
+$28,758), and x3 no longer quotes the other 63. The clue: MK QUALITY showed 13,021 decisions and 0 thin sides pulled, because the only
+unpaced books were the volatile ones, where want is already empty. They would have come back at ≈ sim min 1248–1259 (≈ 12:50 PM CT), likely
+after pruning. Earlier "credit is flat" reads hid this.
+
+**Fix:** pace_k=2 (90-min limit $56,250), restart 17:19:58 UTC (11:20 AM CT, sim min 1232). The 24-sim-h cap of $450k stays (≈ $250k used per
+book). Backup mvtrx-x3.service.pre-pacek. Fills resumed within a minute. A/B data now starts at sim min 1232; full verdict ≈ 3:05 PM CT.
+
+**Design lesson:** the rolling 90-sim-min window (7.5 wall h) is stop-go, not even spending. x3 spends the allowance in a burst, then idles for
+hours; last night's 4-hour gap was the same thing. A replacement maker needs a much shorter pace window or smaller, steadier quoting, or it
+will sit out most of each window.
