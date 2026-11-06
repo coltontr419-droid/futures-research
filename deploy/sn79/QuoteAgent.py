@@ -146,6 +146,7 @@ class QuoteAgent(FinanceAgent):
         self.rev_look = float(getattr(c, "rev_look", 0.0))       # >0: REVERSAL sleeve (§1223) on the sleeve books — when mid moved ≥ SLEEVE_BP over the
         self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
+        self.rev_th_k = float(getattr(c, "rev_th_k", 1.0))   # §1245: scale the fitted model's entry threshold (<1 = more entries)
         self.rev_imb = float(getattr(c, "rev_imb", -9.0))        # §1230: enter only when top-5 depth imbalance × our direction ≥ REV_IMB (off at -9)
         self.mk_model = str(getattr(c, "mk_model", "") or "")    # §1238: maker side — the same predictor guards our quotes
         self.mk_pull_bp = float(getattr(c, "mk_pull_bp", 0.0))   # >0: pull the quote on the side a forecast ≥ MK_PULL_BP (bp) says will lose
@@ -468,7 +469,7 @@ class QuoteAgent(FinanceAgent):
                     tgt = 0.0
                 if self._sec - at >= self.sleeve_step:
                     pr = self._rf.predict(int(book_id), self._sec)
-                    if pr is not None and abs(pr) >= self._rf.th:
+                    if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k:
                         tgt, at = (1.0 if pr > 0 else -1.0) * self.rev_usd / mid, self._sec
                         self._model_n = getattr(self, "_model_n", 0) + 1
                 self._rev[book_id] = (tgt, at)
@@ -507,6 +508,8 @@ class QuoteAgent(FinanceAgent):
                 self._lock_release(book_id)
             if self.skip_flat and abs(gap) >= self.min_order_size(book_id) and self._sec - self._last_take.get(book_id, -10 ** 9) >= cool:
                 side = OrderDirection.BUY if gap > 0 else OrderDirection.SELL
+                if self.pace_cap and abs(target) > abs(units) and self._paced_out(int(book_id)):
+                    return                                 # §1245: over the volume pace on this book — no new exposure; exits still go
                 if self.lock_dir and not self._lock_ok(book_id, OrderDirection.SELL if side == OrderDirection.BUY else OrderDirection.BUY):
                     return                                 # waiting for the maker UID to clear that side of the book
                 q = round(min(abs(gap), self.take_size, qb if side == OrderDirection.SELL else qa), vd)

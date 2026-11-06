@@ -20440,3 +20440,22 @@ fills, real inventory held for minutes, and a lean against the drift.
 
 **Next step:** an offline replay of x1's taker with 3–5× size and longer holds through skill_val.py before tomorrow's x1 registration.
 Live is the only true test. Our UIDs must still never trade each other (the handshake covers it).
+
+## §1245 — x1 scaled taker live test (2026-11-06 04:11:51 UTC = 10:11 PM CT 11-05, T = 64,561 sim s)
+
+The user's call: test the §1244 lever on x1 live in its last ≈ 2.4 h, before it is pruned around 12:35 AM CT, so tomorrow's new x1 does not
+risk it. Changes (QuoteAgent.py):
+- **`rev_th_k`** scales the fitted model's entry threshold.
+- **Pace gate on the taker path:** once a book is over the volume pace, new exposure there is refused; exits always go. This guards the
+  validator's capital_turnover_cap (10 × wealth ≈ $500k per book per 24 sim h ≈ 5 wall days; over it every non-cancel instruction on that
+  book is silently dropped, §1211 add. 21). That cap killed the old x1's momentum on 11-03, which the user recalled. At pace_cap 450k with
+  pace_win 5400, the budget is ≈ $28k per book per 90 sim min, which leaves room to flatten.
+
+Replay: the old settings are identical to the old agent (120 placements, all IOC). x1 params: take_size 25 → 60, rev_usd 1000 → 5000,
+rev_th_k 0.7, pace_cap 450000, pace_win 5400. The unit is backed up as mvtrx-x1.service.pre-scale and the agent as QuoteAgent.pre-scale.py.
+The agent file is shared with x3, which keeps running its loaded code; the change is identical with these params unset, and x3 takes no
+taker path.
+
+Start: PACE seeded 3,054 own fills on 127 books; preload 128 books warm. First sim minute: 26 model entries, $36.5k (before: $330k over
+≈ 6 wall h). Read with /opt/mvtrx/x1scale_read.sh (skill_val + skill_decomp on x1's fills since T 64,561). Baseline on the earlier
+38-sim-min slice: +0.56 bp, kappa +0.28; top skill UIDs +4 to +7 bp, kappa 2.2–4.5.
