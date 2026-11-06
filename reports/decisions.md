@@ -20367,7 +20367,7 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   our current UIDs and roles from /opt/mvtrx/our_uids.txt (58 maker x3, 114 taker x1) → 0 self-trades in 9,215 x3 fills.
 - §1238 add. 3 (03:30 UTC 11-06): skew A/B verdict, 38 sim min since 1027.7, validator-exact per arm: arm 0 skew 10 / max 40: quality 0.371,
   two-sided 20.8, credit 7.7 | arm 1 skew 16 / max 25: 0.078, 3.4, 0.3 | arm 2 skew 10 / max 20: 0.246, 10.9, 2.7. Over-skewing / tight
-  inventory caps wreck quality (3-25× gap). x3 back to skew 10 / max_units 40 on all books (no arms) at 03:30 UTC. Skew tuning done in
+  inventory caps wreck quality (3-25× gap). x3 back to skew 10 / max_units 40 on all books (no arms) at ≈ 03:25 UTC. Skew tuning done in
   that direction. x3 at 21:00-03:00 UTC: emission 0.104 → 0.147/tempo ($39 → $57/month), credit 321; projected over the prune line ≈ 12:00-13:00 UTC.
 
 ## §1242 — x3 fill study: tight-spread fills and thin-queue fills carry the losses → quality-rule A/B live (2026-11-06 03:50 UTC) (S11)
@@ -20376,5 +20376,5 @@ just fits), SN50 burn 0.8 TAO (≈ 0.64 short). Register only at the forward bar
   Our-side / other-side top size: < 0.77 → kept 29% | 0.77-5.78 → 51% | > 5.78 → 60%. 60-s volatility: weak (46/49/41%).
 - Agent: mk_min_spread_bp (no quotes while spread < X bp) and mk_thin_ratio (pull our side when its top size < ratio × the other side's).
   Replay: off identical to live (987); arms on 0 errors (32 tight skips, 218 thin sides pulled; placements 438 vs 517).
-- LIVE A/B on x3 since T = 64,042 sim s (1,067.4 sim min, ≈ 9:50 PM CT): arm 0 control (skew 10 / max 40), arm 1 mk_min_spread_bp 1.05,
+- LIVE A/B on x3 since T = 64,042 sim s (1,067.4 sim min; x3 restart 03:30 UTC = 9:30 PM CT per systemd): arm 0 control (skew 10 / max 40), arm 1 mk_min_spread_bp 1.05,
   arm 2 mk_thin_ratio 0.77. Judge after ≥ 45 sim min. Backup mvtrx-x3.service.pre-mkq, agents/QuoteAgent.pre-mkq.py.
