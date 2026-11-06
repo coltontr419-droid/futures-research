@@ -20754,3 +20754,27 @@ is unsettled: 900 s looks best on 11-05's 4-decimal books, 300–600 s today.
 exit. Dropping them from sleeve_file would have stranded positions, because that path returns before the exit logic. Replay: off identical
 (120 placements), on all IOC. x1 restarted 17:31:49 UTC; backups mvtrx-x1.service.pre-rsv, QuoteAgent.pre-rsv.py. x1's prior volatile-book
 score stays in the window, so the effect will take hours to show. Read: skill_val on fills since T ≈ 74,040, and the live gauge.
+
+## §1254 — v1 had gone stale; a walk-forward refit restores the edge on unseen data; v3 live on x1 (2026-11-06, 3:00 PM CT)
+
+The user's go after x1's entries since the §1253 filter turned negative (145 entries: −0.99 bp, 38% right at 300 s; calm −1 bp, 27%). That third
+window contradicts §1253's "calm + 4-dec hold the edge". The user also asked why x1 must score if top miners lose money: the scorer ignores
+fill prices, not direction. Top UIDs have P&L −0.4 to −2.4 bp with alpha +4–7 bp; x1 has P&L −3.7 and alpha −2.3 bp.
+
+**Walk-forward (refit.py, x3 tape, 300 MB chunks; top 5% |forecast| rows, train-set threshold; signed mid move bp / hit at 300 / 600 / 900 s):**
+
+| chunk (sim min) | v1 frozen | refit y600 (fit on earlier chunks only) | top skill UIDs |
+|---|---|---|---|
+| 1100–1141 | +1.45/61% +1.44/56% +1.40/56% | (no prior chunk) | +1.54/65% +1.35/63% +1.31/63% |
+| 1161–1199 | +2.64/56% +3.09/60% +3.38/62% | **+4.32/71% +4.40/68% +4.67/66%** | +1.56/60% +1.82/61% +1.72/59% |
+| 1219–1259 | +1.35/57% +0.13/52% −0.17/51% | **+3.32/73% +2.83/69% +2.90/68%** | +2.24/58% +1.94/58% +2.13/62% |
+
+- Calm + 4-dec in the last chunk: v1 +0.11 / −0.32 / −0.39; refit +3.15 / +3.20 / +3.34.
+- The top UIDs stayed right, so **the market did not change; v1 decayed.** Raw reversal alone: ≈ +0.3–0.9 bp in the last chunk, so the model adds to it.
+- v1 was fit ≈ 1.5 sim days back. The refit used ≈ 1.3–2.7 sim h of history. Expect the same decay: **the model needs a routine refit.**
+- Caveats: two test chunks only; rows, not live entries (clustered); no spread, no own impact. Offline-to-live shrink has been ≈ half, and M1's hit
+  rates swung ±20 points between windows, so these hit rates will not all carry over.
+
+**Deployed:** rev_model_v3.json (deploy/sn79), ridge on sim min 1161–1259, y600 clipped ±30 bp, threshold 1.52 = top 5% |f| of train (key name kept).
+Parity with the RevFeatures formula 4e-15. x1 restarted 20:58:08 UTC (2:58 PM CT); unit backup mvtrx-x1.service.pre-v3. rev_skip_vol stays
+on, one change at a time. Volatile books may also have edge under v3 (all-book numbers match calm + 4-dec in the last chunk).
