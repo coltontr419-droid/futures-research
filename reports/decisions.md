@@ -20866,3 +20866,7 @@ copied into the droplet's known_hosts. Test message sent. futures-bot untouched.
 well below the offline 70%. Pay fell to $0.4/month as the v1 period ages through the score.
 
 **x3 UID 201 at 10 min:** 99 fills, books $1.8k median, $6.5k max, 3 of 30 traded books blocked, 0 errors, 0 self-trades, both UIDs registered on the watchdog.
+
+**§1256 add. 1 (2026-11-06, 4:19 PM CT):** first gate run, shadow: running v3 +2.25 bp / 61% vs candidate +2.20 / 62% on chunk 3: refused, as designed. That chunk overlaps v3's training data for now, which flatters the running model and errs toward keeping it.
+Faster re-entry, walk-forward (fit on earlier chunks, books ≥ 63, hold 900; step 3600 / 900 s): kappa 1.02 / 1.08, 1.63 / 7.66, 1.15 / 7.87; mean entry +2.9 / +2.8, +4.2 / +3.5, +3.8 / +3.3 bp; entries about double; kept books 33 / 23, 30 / 23, 29 / 22, nearly all positive at 900 s. Better or equal in all
+three, and the edge per entry mostly holds; unlike the v1 test (§1249 add. 1), the two windows do not conflict. Two caveats: kappa jumps when all kept books are positive, and the scorer is 2–3× optimistic. Fewer kept books is the cost.
