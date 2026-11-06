@@ -20852,3 +20852,17 @@ mk_thin_ratio 0.77, arms=back:1/back:2. Old ledger and tape archived. Not starte
 
 **§1255 add. 2 (2026-11-06, 4:07 PM CT): new maker live.** Hotkey x3 re-registered → **UID 201**; started 22:06:49 UTC (T ≈ 77,400, sim min 1290), immunity to ≈ 4:05 PM CT 11-07. On our_uids.txt ("201 maker x3 77396")
 before the start. size 0.036, alpha_k 0, pull 0, mk_thin_ratio 0.77, mk_skip_vol=1, token bucket, ledger, arms=back:1/back:2. Full A/B verdict ≈ 7:50 PM CT.
+
+## §1256 — Alerts reach Discord; gated routine refit in shadow; first v3 read (2026-11-06, 4:20 PM CT)
+
+**Alerts:** labalerts.py + labalerts.timer on the futures droplet (5 min) post new ALERT lines from the lab box to #miners with the existing bot; the same alert (numbers ignored) repeats at most every 6 h, and an unreachable
+box posts its own alert. The droplet reads through a dedicated key (lab_alerts) with a forced command on the lab box: only `tail -n 60 /opt/mvtrx/alerts.txt`, no pty or forwarding (verified: asking for another file returned the alerts). The lab's real host key was
+copied into the droplet's known_hosts. Test message sent. futures-bot untouched.
+
+**Routine refit (autorefit.sh / autorefit.py, mvtrx-autorefit.timer, 02/10/18:37 UTC):** three 300 MB chunks; candidate fit on chunks 1–2; scored with the running model on chunk 3 on books ≥ 63, top 5% rows. Passes only if ≥ 0.5 bp better than the running model at
+600 s, ≥ +1 bp, ≥ 55% right. Final model refit on chunks 2–3. **Shadow until /opt/mvtrx/autorefit_on exists:** logs to autorefit_log.txt, deploys nothing. When on: swaps the unit, restarts x1, rolls back with an ALERT if x1 fails.
+
+**First v3 read (x1, 78 wall min, 276 fills that grew inventory, signed mid move):** +0.60 bp at 300 s (48%), +1.27 at 600 s (52%, n 201), +2.83 at 900 s (56%, n 82). Calm: +2.89 at 600 s, +3.45 at 900 s. Compare the stretch before v3: −0.33 at 600 s (48%). Thin and early; hit rates are
+well below the offline 70%. Pay fell to $0.4/month as the v1 period ages through the score.
+
+**x3 UID 201 at 10 min:** 99 fills, books $1.8k median, $6.5k max, 3 of 30 traded books blocked, 0 errors, 0 self-trades, both UIDs registered on the watchdog.
