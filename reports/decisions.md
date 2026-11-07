@@ -20942,3 +20942,5 @@ control projects to ≈ 280 per 3 sim h on 65 books, and ≈ 560 on 128 if the $
 **§1257 add. 3 (2026-11-06, 8:42 PM CT): filter stays, $300 books not supported for x1.** Deployed v3 on 56 sim min after its training (sim min 1275–1331), top 5% rows, 300 / 600 / 900 s: $300 +1.24 / −0.07 / −1.37 bp (663 rows, 53 books, 61% at 600 s); $30 +1.30 / +1.46 / +1.57 (1,831 rows); 4-dec +2.47 / +1.99 / +1.87 (73 rows). The refits' $300 edge does not hold for the deployed model past 5 minutes. The rule of keeping ≥ 80 books for skill still applies to the next x1; choosing which $300 books needs its own test.
 
 **§1256 add. 4 (2026-11-06, 8:46 PM CT):** mvtrx-autorefit.timer stopped and disabled on the user's call, so nothing can change x1 during the exit test. It was in shadow and had deployed nothing (two runs, both refused). Scripts stay on the box; re-enable with `systemctl enable --now mvtrx-autorefit.timer`.
+
+**§1256 add. 5 (2026-11-06, 8:48 PM CT):** auto-refit timer back on at the user's request, in shadow (no autorefit_on file): it logs candidates and changes nothing on x1.
