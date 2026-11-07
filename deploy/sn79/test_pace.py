@@ -92,4 +92,10 @@ for bk in a._pace:
         for st in a._tok.values(): st[1] += dd
 want = 5000.0 * len(rows)
 check("restart after a sim reset keeps all the volume", abs(a._pace_day(70) - want) < 1, f"counted ${a._pace_day(70):,.0f} of ${want:,.0f}")
+a = agent(new_path, pace_cap=450000, rev_tp_bp=4.0); a._rev_px[5] = 100.0
+check("target: long closes at +4 bp", a._rev_take(5, 10.0, 100.04) and not a._rev_take(5, 10.0, 100.03), "100.04 yes, 100.03 no")
+check("target: short closes at +4 bp", a._rev_take(5, -10.0, 99.96) and not a._rev_take(5, -10.0, 99.97), "99.96 yes, 99.97 no")
+check("target: flat position does nothing", not a._rev_take(5, 0.0, 200.0), "tgt 0")
+o = agent(new_path, pace_cap=450000); o._rev_px[5] = 100.0
+check("target off: never fires", not o._rev_take(5, 10.0, 200.0), "rev_tp_bp 0")
 print("ALL PASS" if not bad else f"{bad} FAILED")

@@ -184,6 +184,7 @@ class QuoteAgent(FinanceAgent):
         self.rev_hold = float(getattr(c, "rev_hold", 180.0))     # last REV_LOOK sim s, steer the position to −sign(move) × REV_USD of notional, hold
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
         self.rev_skip_vol = int(getattr(c, "rev_skip_vol", 0))   # §1253: 1 = no NEW model entries on the volatile books (ids 0-62); open positions still exit
+        self.rev_tp_bp = float(getattr(c, "rev_tp_bp", 0.0)); self._rev_px = {}   # §1258: >0: close a model position once the mid has moved this many bp in its favour; while one is open no new signal replaces it
         self.rev_th_k = float(getattr(c, "rev_th_k", 1.0))   # §1245: scale the fitted model's entry threshold (<1 = more entries)
         self.rev_rand = int(getattr(c, "rev_rand", 0))   # §1247 lab: 1 = model timing and size, RANDOM direction; 2 = the OPPOSITE of the model
         self._rev_rng = __import__("random").Random(int(getattr(c, "rev_seed", 7)))
@@ -397,6 +398,13 @@ class QuoteAgent(FinanceAgent):
         if self._sec - getattr(self, "_rej_at", -10 ** 9) >= 60:
             self._rej_at = self._sec; bt.logging.info(f"DBG REJECTS {dict(self._rej)}"); self._rej.clear()
 
+    def _rev_take(self, book_id, tgt, mid):
+        """§1258: True when an open model position has reached its profit target."""
+        m0 = self._rev_px.get(book_id)
+        if not self.rev_tp_bp or not tgt or not m0:
+            return False
+        return (1.0 if tgt > 0 else -1.0) * (mid - m0) / m0 * 1e4 >= self.rev_tp_bp
+
     def _tok_accrue(self, book_id, sec):
         st = self._tok.get(book_id)
         burst = self.pace_rate * self.pace_burst
@@ -585,13 +593,16 @@ class QuoteAgent(FinanceAgent):
                 tgt, at = self._rev.get(book_id, (0.0, -10 ** 9))
                 if self._sec - at >= self.rev_hold:
                     tgt = 0.0
-                if self._sec - at >= self.sleeve_step:
+                if self._rev_take(book_id, tgt, mid):
+                    tgt = 0.0
+                if self._sec - at >= self.sleeve_step and not (self.rev_tp_bp and tgt):
                     pr = self._rf.predict(int(book_id), self._sec)
                     if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k and not (self.rev_skip_vol and int(book_id) < 63):
                         sg = 1.0 if pr > 0 else -1.0
                         if self.rev_rand == 1: sg = self._rev_rng.choice((1.0, -1.0))
                         elif self.rev_rand == 2: sg = -sg
                         tgt, at = sg * self.rev_usd / mid, self._sec
+                        self._rev_px[book_id] = mid
                         self._model_n = getattr(self, "_model_n", 0) + 1
                 self._rev[book_id] = (tgt, at)
                 target, cool = tgt, self.sleeve_cool

@@ -20907,3 +20907,6 @@ roundtrip.py on x1's tape (400 MB): each UID's positions rebuilt flat to flat. C
 still under the 2.3 bp hurdle. How top UIDs reach 3.6+ bp of notional from +2–5 bp positions remains open; scale-in and long holds with little notional are the next things to measure.
 
 **Proposal (awaiting the user):** build `rev_tp_bp` (close a position once the mid has moved that far in its favour) and test it live as a 2×2 with re-entry on book mod 4.
+
+**§1258 add. 1 (2026-11-06, 6:35 PM CT): 2×2 live on x1.** `rev_tp_bp` built (close a model position once the mid has moved that far in its favour; no new signal replaces an open position in those arms). Replay: off identical (120, 184 placements); target logic unit-tested. Restart 00:34:05 UTC, T = 79,225: arms=sleeve_step:900/rev_tp_bp:4+rev_hold:3600/sleeve_step:900+rev_tp_bp:4+rev_hold:3600
+(book mod 4: A hourly + 15-min clock exit; B 15-min re-entry; C hourly + 4 bp target with 1 h stop; D both). Backups mvtrx-x1.service.pre-tp, QuoteAgent.pre-tp.py. Re-entry data restarted. Read: x1arm.py. Early re-entry read before the restart (72 entries each): 15-min +0.75 / +1.87 bp at 600 / 900 s, hourly −1.58 / −3.16.
