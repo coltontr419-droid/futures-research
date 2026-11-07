@@ -21074,3 +21074,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Code: mk_vol_size (order size on books 0–62; QuoteAgent.py, backup agents/QuoteAgent.pre-vol.py); test_pace ALL PASS. Unit (backup .pre-vol): mk_skip_vol=0 mk_vol_size=0.06 (≈ $3k).
 - Restarted 1:21 PM CT at sim 2:03 (T ≈ 7,380); registration checked 1:20. Trend-pull A/B (§1271, book mod 2) continues on all books; its verdict is read on books ≥ 63 only.
 - Read: m300copy.py <x3 tape> 201 7380 ($300 rows: net @120 s vs the fleet's +3.1 bp) + making_exact credit/quality on books 0–62.
+
+## §1276 — 2026-11-07 1:49 PM CT — x3: thin-side rule off on the $300 books (user go)
+- First $300 read (1:45 PM, ≈ 6 sim min, 313 fills): net +0.46 bp per fill at 120 s, mid after −0.56 bp vs the long-lived fleet's +3.1 / +0.76.
+  MK QUALITY: 83% of quote sides pulled as thin (28% before) — the §1242 thin rule (from x3's calm-book fills) leaves x3 one-sided on the lumpy $300 books;
+  the fleet is two-sided on 70–77% of its books. 88/128 books paced out after the $300 books spent their starting allowance ($470k): the bucket working.
+- Code: mk_thin_vol_off (QuoteAgent.py, backup agents/QuoteAgent.pre-thin.py); test_pace ALL PASS. Unit (backup .pre-thin): mk_thin_vol_off=1.
+- Restarted 1:49 PM CT at sim 2:08:46 (T ≈ 7,730); registration checked 1:48. Read: m300copy.py <x3 tape> 201 7730 + MK QUALITY share.

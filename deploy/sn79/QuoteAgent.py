@@ -217,6 +217,7 @@ class QuoteAgent(FinanceAgent):
         # §1271 trend pull: when a book's mid has moved ≥ MK_TREND_BP over the last MK_TREND_WIN sim s, stop quoting the side facing the move
         # (rising: no offer; falling: no bid). 25 of x3's 65 books lost on the side facing their trend (median move 156 bp). 0 = off.
         self.mk_trend_bp = float(getattr(c, "mk_trend_bp", 0.0)); self.mk_trend_win = int(getattr(c, "mk_trend_win", 300)); self._mk_mid = {}; self._mkt_n = [0, 0]
+        self.mk_thin_vol_off = int(getattr(c, "mk_thin_vol_off", 0))   # §1276: 1 = no thin-side pulls on the $300 books (ids 0-62)
         self.mk_vol_size = float(getattr(c, "mk_vol_size", 0.0))   # §1275: >0: maker order size (fraction of wealth) on the $300 books (ids 0-62) instead of SIZE
         self.mk_skip_vol = int(getattr(c, "mk_skip_vol", 0))   # §1247: 1 = no making on the volatile books (ids 0-62; quality -0.54 / -0.02 in both tape halves)
         self.mk_lad1 = float(getattr(c, "mk_lad1", 0.0)); self.mk_lad2 = float(getattr(c, "mk_lad2", 0.0))   # §1252: >0: extra resting orders this many spreads from the mid, on every side we quote (top makers fill at 0.5 / 1.5 / 3.5 spreads)
@@ -843,7 +844,7 @@ class QuoteAgent(FinanceAgent):
             self._mkq_n[0] += 1
             if self.mk_min_spread_bp > 0 and (ask - bid) / mid * 1e4 < self.mk_min_spread_bp:
                 want.clear(); self._mkq_n[1] += 1                # tight book: our fills here keep < 0% of the spread
-            elif self.mk_thin_ratio > 0 and qb and qa:
+            elif self.mk_thin_ratio > 0 and qb and qa and not (self.mk_thin_vol_off and int(book_id) < 63):   # §1276: off on the $300 books (fleet quotes two-sided there)
                 if qb < self.mk_thin_ratio * qa and want.pop(OrderDirection.BUY, None) is not None:
                     self._mkq_n[2] += 1                          # thin bid queue vs the ask: the bid gets run over
                 if qa < self.mk_thin_ratio * qb and want.pop(OrderDirection.SELL, None) is not None:
