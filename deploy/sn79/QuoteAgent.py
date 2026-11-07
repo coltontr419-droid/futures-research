@@ -218,6 +218,10 @@ class QuoteAgent(FinanceAgent):
         # (rising: no offer; falling: no bid). 25 of x3's 65 books lost on the side facing their trend (median move 156 bp). 0 = off.
         self.mk_trend_bp = float(getattr(c, "mk_trend_bp", 0.0)); self.mk_trend_win = int(getattr(c, "mk_trend_win", 300)); self._mk_mid = {}; self._mkt_n = [0, 0]
         self.mk_vol_lad = [int(x) for x in str(getattr(c, "mk_vol_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1278: ticks behind the touch, e.g. 2:5:10
+        self.mk_vol_lazy = int(getattr(c, "mk_vol_lazy", 0))      # §1281: 1 = fleet pattern on the $300 books (one size, leave orders in place, penny wide spreads)
+        self.mk_vol_penny = int(getattr(c, "mk_vol_penny", 5))    # §1281: quote one tick inside when the spread is ≥ this many ticks (fleet: 5+)
+        self.mk_vol_keep = int(getattr(c, "mk_vol_keep", 20))     # §1281: keep resting orders up to this many ticks behind the target
+        self.mk_vol_max = int(getattr(c, "mk_vol_max", 8))        # §1281: at most this many resting orders per side
         self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
         self.mk_vol_lad_size = float(getattr(c, "mk_vol_lad_size", 0.07))   # §1278: ladder order size on the $300 books (fraction of wealth; fleet ≈ $3.6k there)
         self.mk_thin_vol_off = int(getattr(c, "mk_thin_vol_off", 0))   # §1276: 1 = no thin-side pulls on the $300 books (ids 0-62)
@@ -446,6 +450,46 @@ class QuoteAgent(FinanceAgent):
         self._rev_px[book_id] = (self._rev_px.get(book_id, mid) * (n - 1) + mid) / n
         self._legs_n = getattr(self, "_legs_n", 0) + 1
         return tgt + sg * self.rev_usd / mid
+
+    def _vol_lazy(self, response, book_id, orders, want, vq, tick, pd):
+        """§1281: the long-lived fleet's $300-book pattern, inferred from its fills. One order size (MK_VOL_LAD_SIZE, ≈ $3.6k) placed at the touch
+        (WANT, computed without our own size) or one tick INSIDE when the spread is ≥ MK_VOL_PENNY ticks; when the price moves away the order is LEFT
+        in place (kept up to MK_VOL_KEEP ticks behind the target, at most MK_VOL_MAX per side, deepest cancelled first). Same 5-instruction budget and
+        priority as _vol_ladder: exposed cancels, new touch orders, over-limit / too-deep cancels."""
+        B, S = OrderDirection.BUY, OrderDirection.SELL
+        tgt = dict(want)
+        if B in tgt and S in tgt and self.mk_vol_penny and round((tgt[S] - tgt[B]) / tick) >= self.mk_vol_penny:
+            tgt[B] = round(tgt[B] + tick, pd); tgt[S] = round(tgt[S] - tick, pd)
+        n = sum(1 for i in (response.instructions or []) if getattr(i, "bookId", None) == book_id)
+        urgent, stale, have, rest = [], [], set(), {B: [], S: []}
+        for o in orders:
+            px = tgt.get(o.side)
+            if px is None:
+                urgent.append(o); continue
+            behind = round(((px - o.price) if o.side == B else (o.price - px)) / tick, 6)
+            if behind < 0:
+                urgent.append(o)                          # ahead of the target (the touch moved against it): exposed
+            elif behind > self.mk_vol_keep:
+                stale.append(o)
+            else:
+                rest[o.side].append((behind, o))
+                if behind == 0: have.add(o.side)
+        for side, lst in rest.items():                    # over MK_VOL_MAX resting on a side (room kept for a new touch order): cancel the deepest first
+            lst.sort(key=lambda x: x[0])
+            limit = self.mk_vol_max - (1 if side in tgt and side not in have else 0)
+            if len(lst) > limit:
+                stale.extend(o for _, o in reversed(lst[limit:]))
+        for o in urgent:
+            if n >= self.mk_max_ins: return
+            response.cancel_order(book_id, o.id); n += 1
+        for side, px in tgt.items():
+            if side in have: continue
+            if n >= self.mk_max_ins: return
+            response.limit_order(book_id=book_id, direction=side, quantity=vq, price=px, stp=STP.CANCEL_BOTH, postOnly=True,
+                                 timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry); n += 1
+        for o in stale:
+            if n >= self.mk_max_ins: return
+            response.cancel_order(book_id, o.id); n += 1
 
     def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd):
         """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
@@ -938,7 +982,10 @@ class QuoteAgent(FinanceAgent):
                 extra[side] = lv
         if self.mk_vol_lad and int(book_id) < 63:          # §1278 $300-book ladder (long-lived fleet), §1279: resting ladder + the validator's per-book instruction limit
             vq = round(max(self.mk_vol_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
-            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd)
+            if self.mk_vol_lazy:
+                self._vol_lazy(response, book_id, orders, want, vq, tick, pd)
+            else:
+                self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd)
             return
         for o in orders:
             if o.price in extra.get(o.side, {}):

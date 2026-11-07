@@ -217,4 +217,37 @@ for step in range(4):
     for i in r.instructions:
         if i.kind == "place": nid += 1; o.append(_O(nid, i.side, i.price))
 check("ladder: fills in all 3 levels per side within a few steps", sorted(x.price for x in o) == [298.9, 298.95, 298.98, 299.0, 299.1, 299.12, 299.15, 299.2], f"{sorted(x.price for x in o)}")
+
+# §1281 fleet pattern on the $300 books (_vol_lazy)
+Z = agent(new_path, pace_cap=450000, mk_vol_lad="2", mk_vol_lazy=1, mk_vol_penny=5, mk_vol_keep=20, mk_vol_max=8)
+rng = random.Random(9); worst = 0; urgent_ok = True; cap_ok = True
+for trial in range(3000):
+    bid = round(299 + rng.randint(-50, 50) * tick, 2); ask = round(bid + rng.randint(1, 10) * tick, 2)
+    want = {}
+    if rng.random() < 0.9: want[Bd] = bid
+    if rng.random() < 0.9: want[Sd] = ask
+    orders = [_O(i, rng.choice((Bd, Sd)), round(bid + rng.randint(-25, 25) * tick, 2)) for i in range(rng.randint(0, 14))]
+    r = _Resp(); Z._vol_lazy(r, 7, orders, dict(want), 12.0, tick, 2); worst = max(worst, len(r.instructions))
+    pen = Bd in want and Sd in want and round((ask - bid) / tick) >= 5
+    tb = {Bd: round(bid + tick, 2) if pen else bid, Sd: round(ask - tick, 2) if pen else ask}
+    ahead = {o.id for o in orders if (o.side not in want) or (o.side == Bd and o.price > tb[Bd]) or (o.side == Sd and o.price < tb[Sd])}
+    kinds = [(i.kind, i.oid in ahead if i.kind == "cancel" else None) for i in r.instructions]
+    fnu = next((k for k, x in enumerate(kinds) if not (x[0] == "cancel" and x[1])), len(kinds))
+    if any(x[0] == "cancel" and x[1] for x in kinds[fnu:]): urgent_ok = False
+    if len(r.instructions) < 5:                           # budget not binding: resting count per side must end ≤ 8
+        cancelled = {i.oid for i in r.instructions if i.kind == "cancel"}; placed = [i for i in r.instructions if i.kind == "place"]
+        for sd in (Bd, Sd):
+            left = sum(1 for o in orders if o.side == sd and o.id not in cancelled) + sum(1 for i in placed if i.side == sd)
+            if sd in want and left > 8: cap_ok = False
+check("fleet pattern: never more than 5 instructions per book", worst <= 5, f"worst {worst} over 3,000 random books")
+check("fleet pattern: exposed orders cancelled first", urgent_ok, "priority kept")
+check("fleet pattern: at most 8 resting orders per side", cap_ok, "when the budget allows")
+r = _Resp(); Z._vol_lazy(r, 7, [], {Bd: 299.00, Sd: 299.06}, 12.0, tick, 2)
+check("fleet pattern: spread 6 ticks → one tick inside on both sides", sorted((i.side == Sd, i.price) for i in r.instructions) == [(False, 299.01), (True, 299.05)], f"{[(i.price) for i in r.instructions]}")
+r = _Resp(); Z._vol_lazy(r, 7, [], {Bd: 299.00, Sd: 299.03}, 12.0, tick, 2)
+check("fleet pattern: spread 3 ticks → at the touch", sorted(i.price for i in r.instructions) == [299.0, 299.03], f"{[(i.price) for i in r.instructions]}")
+r = _Resp(); Z._vol_lazy(r, 7, [_O(1, Bd, 298.95), _O(2, Bd, 298.80), _O(3, Sd, 299.20)], {Bd: 299.00, Sd: 299.03}, 12.0, tick, 2)
+check("fleet pattern: orders left behind (5 and 20 ticks bid, 17 ticks ask) rest; new touch orders only", [(i.kind, i.price) for i in r.instructions] == [("place", 299.0), ("place", 299.03)], f"{[(i.kind, i.price) for i in r.instructions]}")
+r = _Resp(); Z._vol_lazy(r, 7, [_O(1, Bd, 298.78)], {Bd: 299.00, Sd: 299.03}, 12.0, tick, 2)
+check("fleet pattern: 22 ticks behind → cancelled after the touch orders", [(i.kind) for i in r.instructions] == ["place", "place", "cancel"], f"{[(i.kind, i.price) for i in r.instructions]}")
 print("ALL PASS" if not bad else f"{bad} FAILED")

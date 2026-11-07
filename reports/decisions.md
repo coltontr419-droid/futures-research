@@ -21118,3 +21118,16 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - §1271 verdict (calm books only, since 11:02 AM, past 45 sim min): credit control 24.4 vs trend pull 20.1 (−18%); quality 0.546 vs 0.564; books with one side ≤ 0
   10 vs 13. The quality gain does not pay for the lost capture. Removed arms=mk_trend_bp:25 (unit backup .pre-notrend); all books run the same settings again.
 - Restarted 4:01 PM CT at sim 2:35:52 (T ≈ 9,350); registration checked 4:00. The $300 ladder (§1278-1279) continues unchanged; read with spreadpick.py / m300copy.py from T 8,971.
+
+## §1281 — 2026-11-07 4:22 PM CT — x3 $300 books: the fleet's exact pattern (user: "make exactly the same as the fleet")
+- 4:15 PM ladder read (190 fills since 3:29): +0.87 bp per fill (touch +1.04, 1-2 behind +0.84, 3-6 +0.30, 7+ −2.12); dropped gauge 17 in the first post-fix window.
+- fleetx.py (current sim; fleet 5F1F2JMu UIDs 255,216,111,252,87,7,102, ages 14–27.5 d, 5,153 $300 fills; x3 215 fills since T 8,971):
+  inside 1 tick 15.9% — only when the spread is ≥ 5 ticks (x3 never); depth decays smoothly 0: 30%, 1: 12%, 2: 6%, 3–6: 13%, 7–20: ≈ 16% (x3 spikes at 2/5/10);
+  fill size $1.7k at the touch rising to $3.6k deep (x3 ≈ $1.7k flat); |position| median $3.1k / p90 $8.0k (x3 $3.5k / $9.9k); fills that grow inventory
+  +3.34 bp (x3 +0.14).
+- Inferred (fills only; resting orders are anonymous): ONE order size ≈ $3.6k at the touch (or 1 tick inside when the spread is ≥ 5 ticks), LEFT in place as the
+  price moves — touch orders get nibbled ($1.7k fills), deep ones swept whole ($3.6k).
+- Code: _vol_lazy (mk_vol_lazy=1, mk_vol_penny=5, mk_vol_keep=20, mk_vol_max=8, size mk_vol_lad_size=0.072 ≈ $3.6k); same 5-instruction budget and priority.
+  test_pace: 7 new checks (≤ 5 instructions over 3,000 random books, exposed cancels first, ≤ 8 resting per side, penny at 6 ticks, touch at 3, orders rest,
+  > 20 ticks cancelled) — ALL PASS. Backups agents/QuoteAgent.pre-lazy.py, unit .pre-lazy.
+- Restarted 4:22 PM CT at sim 2:40:15 (T ≈ 9,615); registration checked 4:22. Read: fleetx.py / spreadpick.py / m300copy.py <x3 tape> 201 9615.
