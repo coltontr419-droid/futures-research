@@ -21142,3 +21142,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   median α falls +2.19/+1.75/+1.08, ≈ 0 at 5 s; 247 kappa 0.96/0.83/0.50. Realistic x1 delay ≈ 0.5–1 s (state every sim second).
   Paced + capped at 0.5–1 s: 44 kappa 0.20–0.22 (K 1, $30k; K 0.5, $15k), 247 kappa 0.27–0.44. All FAIL the half-kappa bar → no live change.
   Cause: the sources trade faster than our $450k pace; throttled books scatter α and kappa (the cross-book measure) collapses.
+
+## §1283 — 2026-11-07 5:05–5:17 PM CT — x1 diagnosis; CORRECTION to skill_val.py replays
+- Offline gated refit (manual, three 178 MB current-sim chunks; autorefit skipped at 12:37 PM: 283 MB < 800 MB): candidate FAILS (−5.35 bp at 600 s, hit 31%);
+  running v4 still +1.89 bp, hit 54.5% on the newest chunk (calm books). So v4's direction calls are not decayed on calm books. (Earlier claim that the
+  shadow compared against v3 was wrong: autorefit.sh reads the model from x1's unit; the v3 log lines predate the v4 switch.)
+- BUG: skill_val.py took "the last N sim min" back from the tape's max ts — x3's tape still begins with PRE-RESET lines (ts ≈ 77,000–86,400 s), so every
+  replay on live_tape_x3.jsonl scored the OLD sim; for re-registered slots (194) that was the slot's PREVIOUS owner. Invalid: §1277's "x1 +4.98 bp,
+  37/42 positive" and today's 5:08/5:14 PM x1 replays. Fixed (current sim only). mirror_val / fleetx / spreadpick / m300copy / earners already filtered ts < 60000 s.
+- Corrected x1 (current sim): last 60 sim min 48 kept (31+/17−), median +0.50 bp, kappa −0.02; last 170 min 66 kept (32+/34−), median −0.02 bp, kappa −0.18
+  (calm books −0.83 bp median, $300 books +0.73). Matches the gauge (−0.015). Losses spread over books that trended 330–430 bp. x1 has no edge now.
+- No live change (user: x1 unchanged today unless a tested copy passes; §1282 copies failed).
