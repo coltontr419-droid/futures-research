@@ -21081,3 +21081,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   the fleet is two-sided on 70–77% of its books. 88/128 books paced out after the $300 books spent their starting allowance ($470k): the bucket working.
 - Code: mk_thin_vol_off (QuoteAgent.py, backup agents/QuoteAgent.pre-thin.py); test_pace ALL PASS. Unit (backup .pre-thin): mk_thin_vol_off=1.
 - Restarted 1:49 PM CT at sim 2:08:46 (T ≈ 7,730); registration checked 1:48. Read: m300copy.py <x3 tape> 201 7730 + MK QUALITY share.
+
+## §1277 — 2026-11-07 2:20–2:30 PM CT — long-lived takers studied; x1's live score already beats them
+- Long-lived pure takers (age ≥ 7 d): UID 94 (17.6 d, $263/month, coldkey 5GQxEX39), UID 186 (7.5 d, $253/month, 5ECmATkL). UID 9 (11.6 d) mostly taker but
+  validator-style skill +0.07 bp → not a source. Position shape (legs.py) ≈ what x1 already does: ~72–80% of adds at ~the same price, partial exits, +6–7.6 bp at reduction (pre-reset).
+- Pre-reset validator-style skill (skill_val.py, last 200 sim min): 94 median +3.55 bp, 66/83 kept positive; 186 +2.73 bp, 48/57. They skip the tightest books
+  (traded spread median 3.6 bp vs untraded 2.4 bp); 94 traded 113, 186 101 of 128 books.
+- Validator gauges 2:29 PM CT (the real measure): live combined_score x1 0.44 (skill 1.37, 64 books) vs 94 0.32, 186 0.00; paid score x1 0.0004 vs 94 0.0041, 186 0.0040.
+  The paid score of a young UID ≈ plain mean of all rounds since registration (alpha = max(time decay, 1/(k+1))), so x1's pay lags its live score.
+- Decision: keep x1's copy setup; judge on the validator gauges (tpread4 per-book median α is not aligned with the validator: it starts each book from the
+  test-start inventory). Optional later test: skip books with spread < ≈2.5 bp, as 94/186 do.
