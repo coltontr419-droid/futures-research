@@ -21162,3 +21162,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Rolled back under the standing low-risk-change approval (user away): unit back to mk_vol_size=0.034 mk_vol_lad=2:5:10 mk_vol_lad_size=0.07 (§1279), the
   fleet-pattern params removed (unit backup .pre-rollback; code unchanged, mk_vol_lazy defaults to 0). Restarted 5:24 PM CT at sim 2:52:27 (T ≈ 10,347);
   registration checked 5:24. Judge: combined score back to ≈ 0.63 within ≈ 1 h.
+
+## §1285 — 2026-11-07 5:27 PM CT — x1's real entries with fixed-hold exits (offline; not deployed)
+- holdval.py (validator math, current sim): x1's actual entries, each closed H s later. 90 / 170 sim min windows, kept books / kappa:
+  actual 59/−0.24, 67/−0.18 | 300 s 10/−0.20, 11/−0.13 | 600 s 10/+1.92, 20/+1.18 | 900 s 20/−0.14, 32/+0.06 | 1800 s 44/−0.52, 47/+0.11 | 3600 s 76/−0.41, 76/−0.22.
+- 600 s (the model's horizon) wins on both windows but on 10–20 kept books (coverage wants ≈ 80) with weak neighbours (300 / 900 s) → a single-point
+  result; not deployed (user away; offline wins have failed live 3×). Robust part: holding ≥ 1 h is worst. Candidate for a live A/B with the user's yes.
