@@ -21153,3 +21153,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Corrected x1 (current sim): last 60 sim min 48 kept (31+/17−), median +0.50 bp, kappa −0.02; last 170 min 66 kept (32+/34−), median −0.02 bp, kappa −0.18
   (calm books −0.83 bp median, $300 books +0.73). Matches the gauge (−0.015). Losses spread over books that trended 330–430 bp. x1 has no edge now.
 - No live change (user: x1 unchanged today unless a tested copy passes; §1282 copies failed).
+
+## §1284 — 2026-11-07 5:24 PM CT — x3 rolled back to the §1279 resting ladder (fleet pattern hurt the live score)
+- Validator gauge, x3 combined score: 0.63–0.66 every 10 min from 12:23 to 4:13 PM (through $300 on, thin off, ladder, ladder fix, trend off);
+  after the 4:22 PM §1281 fleet pattern: 0.606, 0.469, 0.497, 0.550, 0.280, 0.634, 0.163 — skill swinging +0.03…+3.39 (was a steady +3.5…+4).
+  Its fill read was also dominated by extreme sweeps (fills 40 ticks deep, ±600 bp moves on single fills): $3.6k orders resting deep on the $300 books
+  make x3's inventory swing.
+- Rolled back under the standing low-risk-change approval (user away): unit back to mk_vol_size=0.034 mk_vol_lad=2:5:10 mk_vol_lad_size=0.07 (§1279), the
+  fleet-pattern params removed (unit backup .pre-rollback; code unchanged, mk_vol_lazy defaults to 0). Restarted 5:24 PM CT at sim 2:52:27 (T ≈ 10,347);
+  registration checked 5:24. Judge: combined score back to ≈ 0.63 within ≈ 1 h.
