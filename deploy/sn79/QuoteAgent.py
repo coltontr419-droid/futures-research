@@ -130,6 +130,13 @@ class QuoteAgent(FinanceAgent):
         # balance. So over any PACE_PERIOD a book trades at most PACE_CAP + burst + one order set: < the validator's hard cap, for any fill pattern.
         # There is deliberately NO multiplier: the old pace_k override was how this got loosened by hand. pace_win / pace_k are ignored.
         self.pace_burst = float(getattr(c, "pace_burst", 900.0)); self.pace_rate = self.pace_cap / self.pace_period if self.pace_cap else 0.0
+        # §1270 front-loaded start: a book with NO volume history starts with PACE_START dollars instead of a full burst, so a fresh UID can trade
+        # faster while it climbs. The bucket never refills above the normal burst, so the extra is spent once. Choose pace_cap + pace_start + burst
+        # under the validator's cap; use pace_steady to lower the refill rate while pace_cap stays the 24-h backstop (e.g. pace_cap 450,000, pace_steady 350,000, pace_start 100,000). Default 0: unchanged behaviour.
+        self.pace_start = float(getattr(c, "pace_start", 0.0))
+        self.pace_steady = float(getattr(c, "pace_steady", 0.0))   # §1270: >0: the refill rate's daily amount, separate from the 24-h backstop pace_cap
+        if self.pace_cap and self.pace_steady > 0:
+            self.pace_rate = self.pace_steady / self.pace_period
         self._tok = {}                                     # book -> [balance $, last sim s]
         self._val_vol = {}                                 # book -> the validator's traded_volume for this account, logged next to our ledger
         self._pace_logged = -10 ** 9
@@ -460,10 +467,12 @@ class QuoteAgent(FinanceAgent):
         st = self._tok.get(book_id)
         burst = self.pace_rate * self.pace_burst
         if st is None:
-            st = self._tok[book_id] = [burst, sec]
+            st = self._tok[book_id] = [max(burst, self.pace_start), sec]
         dt = sec - st[1]
         if dt > 0:                                         # time never runs backwards here: a new simulation shifts the stored times instead
-            st[0] = min(burst, st[0] + dt * self.pace_rate); st[1] = sec
+            if st[0] < burst:                              # refill only up to the normal burst; a larger starting balance is spent, never topped up
+                st[0] = min(burst, st[0] + dt * self.pace_rate)
+            st[1] = sec
         return st
 
     def _tok_spend(self, book_id, sec, value):

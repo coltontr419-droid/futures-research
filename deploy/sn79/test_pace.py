@@ -122,4 +122,20 @@ check("winners: short adds on a favourable drop", w._rev_leg(9, -10.0, 99.95) < 
 check("winners: no add on an adverse move", w._rev_leg(9, -10.0 - 1000 / 99.95, 100.10) == -10.0 - 1000 / 99.95, "adverse")
 o = agent(new_path, pace_cap=450000); o._rf = RF(5.0); o._sec = 10; o._rev_px[7] = 100.0; o._rev_n[7] = 1; o._rev_last[7] = 100.0
 check("legs off: never adds", o._rev_leg(7, 10.0, 90.0) == 10.0, "rev_legs 1")
+for kw in ({}, {"order": 10000.0}, {"order": 50000.0, "sides": 1}):
+    a = agent(new_path, pace_cap=450000, pace_steady=350000, pace_start=100000); w, d3, idle, n = attack(a, True, **kw)
+    check(f"front-loaded start (steady 350k + start 100k, backstop 450k), {kw or 'typical'}", w < CAP, f"worst 24h ${w:,.0f} of ${CAP:,.0f} | last day ${d3:,.0f} | {n} fills")
+a = agent(new_path, pace_cap=380000, pace_start=100000); w, d3, idle, n = attack(a, True, days=1)
+a2 = agent(new_path, pace_cap=450000); w2, d32, idle2, n2 = attack(a2, True, days=1, seed=1)
+b = agent(new_path, pace_cap=450000, pace_steady=350000, pace_start=100000); b._sec = 0; spent = 0.0; t = 0
+while not b._paced_out(70) and t < 3600: b._sec = t; fill(b, 70, t, 3000.0, True); spent += 3000.0; t += 1
+c_ = agent(new_path, pace_cap=450000); c_._sec = 0; spent2 = 0.0; t = 0
+while not c_._paced_out(70) and t < 3600: c_._sec = t; fill(c_, 70, t, 3000.0, True); spent2 += 3000.0; t += 1
+check("front-loaded start lets a fresh book trade more at once", spent > 10 * spent2, f"before the first block: ${spent:,.0f} vs ${spent2:,.0f} with the normal start")
+check("start is not refilled", b._tok_accrue(70, 10 ** 6)[0] <= 350000 / 86400 * 900 + 1, f"balance after a long wait ${b._tok_accrue(70, 10 ** 6)[0]:,.0f} (normal burst cap)")
+d = tempfile.mkdtemp(); L = os.path.join(d, "pace_UIDN.ledger"); open(os.path.join(d, "pace_93.ledger"), "w").write(json.dumps([70, 100, 50000.0, 1, 1]) + "\n")
+r = agent(new_path, pace_cap=450000, pace_steady=350000, pace_start=100000, pace_ledger=L); r._sec = 200
+a = agent(new_path, pace_cap=450000, pace_steady=350000, pace_start=100000); w, d1, idle, n = attack(a, True, days=1)
+check("front-loaded: first day's total is not cut", d1 > 400000, f"first 24 h traded ${d1:,.0f} (normal start: ≈ $450k)")
+check("a restart does not re-grant the start to a book with history", r._tok_accrue(70, 200)[0] < 100000 - 40000, f"balance ${r._tok_accrue(70, 200)[0]:,.0f}")
 print("ALL PASS" if not bad else f"{bad} FAILED")
