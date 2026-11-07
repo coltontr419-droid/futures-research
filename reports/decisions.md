@@ -21023,3 +21023,12 @@ The user asked how the refit avoids overfitting. Answer: a small regularised lin
 - Still shadow: no /opt/mvtrx/autorefit_on.
 
 **Dry run on x1 since T 3,767 (164 opening entries), signed mid move at 300 / 600 / 900 s:** A clock (50) −0.52 / −4.07 / +3.29, 46% right at 600; B losers (57) −2.32 / −4.45 / −6.78; C winners (57) +1.52 / +2.15 / +0.74. All entries at 900 s: see livecheck output. **This corrects my 10:36 AM "v4 is working":** tpread3's +6.8 bp for A is consistent with the +3.3 at 900 s (its exit horizon), but at 600 s the same entries are negative, and the samples (≈ 50 per group) are too small and noisy to call the entry edge positive.
+
+## §1269 — Why x3's credit is low (analysis only, no miner change) (2026-11-07, 10:53 AM CT)
+
+New-sim window (sim min ≈ 60–90), making_exact + makereff on x3's tape:
+- x3: captured C 73.1, **quality 0.695 (field median 0.579, now above)**, two-sided 28.1, credit 19.5 (field median 24.2, p90 86.5). Two-sided share (credit / quality / C) **0.38 vs top 0.67–0.85**; 22 of 65 books with one side ≤ 0, 5 with a side missing. Credit ≈ 32/$M vs field median 55 and top 66–97; spread kept ≈ 1.2 bp vs top 1.5–2.0.
+- **Per fill, x3 now looks like the top makers.** Mid move 20 s after (net): buys −1.04 / sells −0.47 bp vs top −0.67…−0.93 / −0.13…+0.09. Next fill within 60 s on the same side: 78% vs 66–73%. Per-book $ balance 0.62 vs 0.59–0.90. The §1262 adverse-selection gap has mostly closed since the quote-model bug fix and the move to calm + 4-dec books.
+- **Volume and age differ.** Public daily_volume per UID: 60 and 118 (registered 14 h ago) have 52 and 73 books at ≈ $500k, i.e. they burst early and now sit capped on those books ($47M and $54M total). 215 and 53 (4–5 h old) have p90 ≈ $54–61k per book, about 3× our steady rate, totals $5–6M, close to x3's $5.1M. In the window: x3 449 fills vs 1,100–5,600.
+- **Levers, in order:** (1) per-dollar credit (≈ 3× gap: spread kept ≈ 1.7×, two-sided share ≈ 1.9×; why so many x3 books go one-sided negative is open); (2) volume early in a slot's life: fresh top UIDs spend 3× our steady pace while they climb, and some burst to the cap.
+- **Option for the user (not done): a front-loaded budget for a new UID.** Lower the steady rate slightly and start each book with a larger bucket, e.g. pace_cap 380k + a $100k starting bucket ≤ $480k per 24 h, still under the $500k cap. Must be re-proven with test_pace before use.
