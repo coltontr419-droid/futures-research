@@ -20929,3 +20929,5 @@ Target 8 bp with no stop gives the top UIDs' fingerprint (62–71 kept, nearly a
 My parked-losers idea is only a small part: α exceeds raw P&L by ≤ 0.65 bp; the main gain is bigger moves per notional. Open positions charge one leg of notional, which flatters the wider targets. Paper runs 2–3× optimistic and has misled twice today.
 
 **Proposal (awaiting the user):** re-arm x1's 18-minute-old test as A clock control, B 4 bp, C 8 bp, D 8 bp no stop.
+
+**§1259 add. 1 (2026-11-06, 6:55 PM CT):** x1 re-armed on the user's go; restart 00:55:01 UTC, T = 79,473. Book mod 4: A clock control (hourly); B +4 bp, 1 h stop; C +8 bp, 1 h stop; D +8 bp, no stop; re-entry after a close (sleeve_step 900) on B–D. Unit backup .pre-tp8. Read x1arm.py (T0 79,480). The restart closes positions, so a "no stop" position only lasts until the next restart.
