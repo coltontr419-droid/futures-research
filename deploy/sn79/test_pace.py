@@ -138,4 +138,45 @@ r = agent(new_path, pace_cap=450000, pace_steady=350000, pace_start=100000, pace
 a = agent(new_path, pace_cap=450000, pace_steady=350000, pace_start=100000); w, d1, idle, n = attack(a, True, days=1)
 check("front-loaded: first day's total is not cut", d1 > 400000, f"first 24 h traded ${d1:,.0f} (normal start: ≈ $450k)")
 check("a restart does not re-grant the start to a book with history", r._tok_accrue(70, 200)[0] < 100000 - 40000, f"balance ${r._tok_accrue(70, 200)[0]:,.0f}")
+
+# §1273 copy mode
+class RFt:
+    def __init__(self, p): self.p = p; self.th = 1.0
+    def predict(self, b, t): return self.p
+k = agent(new_path, pace_cap=450000, rev_copy=1, rev_usd=1500, rev_max_usd=15000, rev_tp_bp=6.0, rev_slice=0.1, rev_slice_cool=120, sleeve_step=900); k._rf = RFt(5.0); k._sec = 0
+t_, a_ = k._rev_copy_step(3, 0.0, -10 ** 9, 100.0, 5.0); check("copy: a signal on a flat book opens REV_USD", abs(t_ * 100 - 1500) < 1e-6 and k._rev_px[3] == 100.0, f"${t_ * 100:,.0f}")
+k._sec = 900; t2_, a_ = k._rev_copy_step(3, t_, a_, 99.0, 5.0); check("copy: an agreeing signal adds, average follows", abs(t2_ - (15 + 1500 / 99)) < 1e-9 and abs(k._rev_px[3] - (100 * 15 + 99 * 1500 / 99) / (15 + 1500 / 99)) < 1e-9, f"avg {k._rev_px[3]:.3f}")
+k._rf = RFt(-5.0); t3_, a3_ = k._rev_copy_step(3, t2_, a_, 99.0, -5.0); check("copy: an opposite signal is ignored (no stop)", t3_ == t2_, "held")
+x_ = t2_; k._rf = RFt(5.0)
+for i in range(30): k._sec = 2000 + 900 * i; x_, a_ = k._rev_copy_step(3, x_, a_, 99.5, 5.0)
+check("copy: never above REV_MAX_USD", x_ * 99.5 <= 15000 + 1e-6, f"${x_ * 99.5:,.0f}")
+m0 = k._rev_px[3]; up = m0 * 1.0007; k._sec = 40000; y_, _ = k._rev_copy_step(3, x_, a_, up, None); check("copy: slice 10% at +7 bp", abs(y_ - 0.9 * x_) < 1e-9 and k._rev_px[3] == m0, "average unchanged")
+k._sec = 40060; z_, _ = k._rev_copy_step(3, y_, a_, up, None); check("copy: slices wait REV_SLICE_COOL", z_ == y_, "60 s later: no slice")
+k._sec = 40000 + 121 * 40
+for i in range(60): k._sec += 121; z_, _ = k._rev_copy_step(3, z_, a_, up, None)
+check("copy: slices run down to flat", z_ == 0.0 and 3 not in k._rev_px, "flat")
+k._sec = 50000; w_, _ = k._rev_copy_step(3, 10.0, a_, m0 * 1.0005, None) if k._rev_px.setdefault(3, m0) else None; check("copy: no slice under the target", w_ == 10.0, "+5 bp")
+def copy_attack(seed, days=3, step=5, sstep=60, swing=12.0, trend=0.0):
+    """Full path on one book: signals every check, price swinging ±SWING bp so slices fire constantly, IOC clips of $700 filled instantly,
+    the agent's own pace gate on new exposure only; exits always go. Returns worst rolling 24h $."""
+    a = agent(new_path, pace_cap=450000, rev_copy=1, rev_usd=1500, rev_max_usd=15000, rev_tp_bp=6.0, rev_slice=0.1, rev_slice_cool=120, sleeve_step=sstep, rev_clip_usd=700)
+    a._rf = RFt(5.0); rng = random.Random(seed); b = 70; tgt, at = 0.0, -10 ** 9; units = 0.0; fills = collections.deque(); roll = worst = 0.0; tot = 0.0
+    for t in range(0, days * DAY, step):
+        a._sec = t
+        if trend: mid = 100.0 * (1 + trend / 1e4) ** (t / 60) * (1 + rng.uniform(-1, 1) / 1e4); a._rf.p = rng.choice((5.0, 0.0))   # steady rise + flickering signal: slices and rebuilds trade separately
+        else: mid = 100.0 * (1 + swing / 1e4 * (1 if (t // 300) % 2 else -1)) * (1 + rng.uniform(-2, 2) / 1e4); a._rf.p = rng.choice((5.0, 5.0, -5.0))
+        tgt, at = a._rev_copy_step(b, tgt, at, mid, a._rf.p if t - at >= sstep else None)
+        gap = tgt - units
+        if abs(gap) * mid < 1: continue
+        if abs(tgt) > abs(units) and a._paced_out(b): continue
+        q = min(abs(gap), 700 / mid); units += q if gap > 0 else -q; v = q * mid; fill(a, b, t, v, True); fills.append((t, v)); roll += v; tot += v
+        while fills and fills[0][0] <= t - DAY: roll -= fills.popleft()[1]
+        worst = max(worst, roll)
+    return worst, tot
+for sd, sw in ((1, 12.0), (2, 30.0), (3, 7.0)):
+    w, tot = copy_attack(sd, swing=sw)
+    check(f"copy full path, signals every 60 s, price swinging ±{sw:.0f} bp", w < CAP, f"worst 24h ${w:,.0f} of ${CAP:,.0f} | 3-day total ${tot:,.0f}")
+for sd, tr in ((4, 3.0), (5, 10.0), (6, 1.0)):
+    w, tot = copy_attack(sd, trend=tr, sstep=65)   # 65 s vs the 120-s slice clock: slice and re-add land on different steps, so both trade
+    check(f"copy full path, MAX CHURN (steady rise {tr:.0f} bp/min: slice every 120 s, rebuild every 60 s)", w < CAP and tot > 3 * 300000, f"worst 24h ${w:,.0f} of ${CAP:,.0f} | 3-day total ${tot:,.0f} (must show the gate is what holds it)")
 print("ALL PASS" if not bad else f"{bad} FAILED")

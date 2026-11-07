@@ -21050,3 +21050,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Exit: in ~10% slices (p75 25–50%), first slice at median +5.3 to +7.4 bp vs average; 83–95% of first exits in profit; full exits ≈ 1%.
 - No stop, no clock: at tape end ~105–128 positions each, open ~3.3 sim h, mark median ≈ +0.5 bp, 37–54% underwater.
 - Read: the skill comes from inventory that is cut in slices after favourable moves and rebuilt by bursts on signals, on every book, all day. Next: copy-exact x1 arm (partial exits at +6 bp, 10% slices, max position per book, no stop) after the §1270 read. Rule saved: study top miners' exact behaviour before any test (user 11-07).
+
+## §1273 — 2026-11-07 11:26 AM CT — x1 COPY test live (user: cut §1270 short, it was built on the wrong idea; check caps first)
+- §1270 final read at 11:25 AM CT (37 sim min, /opt/mvtrx/x1legs_final.txt): median α per book A clock −0.92, B losers +0.56, C winners −0.01 bp; kept 22/12/12 — none near the top takers.
+- Caps: top takers trade a median $270–905k per book per 24 sim h (some books > $2M, i.e. they hit the $500k cap). We keep pace_cap 450k (busy books get slowed, never capped).
+  Max position per book median $7–25k. New tests (test_pace.py, ALL PASS): copy logic (open, add, average, opposite signal ignored, max, 10% slice at +6, cool, run-down);
+  full-path volume attack incl. forced max churn (flickering signal on a steady rise, 3 days): worst 24h $452k of $500k — the pace gate binds, exits included.
+- Code (QuoteAgent.py, backup agents/QuoteAgent.pre-copy.py; unit backup mvtrx-x1.service.pre-copy): rev_copy=1 rev_usd=1500 rev_max_usd=15000 rev_tp_bp=6 rev_slice=0.1
+  rev_slice_cool=120 rev_clip_usd=700 sleeve_step=600; arms=rev_max_usd:7500 (book mod 2: A max $15k, B max $7.5k, both inside the observed $7–25k).
+- Restarted 11:26 AM CT at sim 1:38 (T = 5,880), registration checked 11:25. Read: tpread4.py (books kept / positive / median α per arm). Old inventory is flattened as exits.

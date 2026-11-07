@@ -201,6 +201,13 @@ class QuoteAgent(FinanceAgent):
         # The profit target (rev_tp_bp) is then measured from the average leg price. Legs are new exposure, so pacing blocks them; exits always go.
         self.rev_legs = int(getattr(c, "rev_legs", 1)); self.rev_leg_bp = float(getattr(c, "rev_leg_bp", 6.0)); self.rev_leg_dir = int(getattr(c, "rev_leg_dir", -1))
         self._rev_n, self._rev_last = {}, {}
+        # §1273 COPY mode (top skill takers, legs.py / legs2.py): each model signal that agrees with the open position (or a flat book) adds a burst of
+        # REV_USD, up to REV_MAX_USD per book, sent as IOC clips of ≤ REV_CLIP_USD; while the mid is ≥ REV_TP_BP in favour of the AVERAGE entry,
+        # sell REV_SLICE of the position at most once per REV_SLICE_COOL sim s; a remainder under REV_USD/2 closes. Opposite signals are ignored
+        # (no stop), no clock exit. Adds are new exposure (paced); slices are exits (always go).
+        self.rev_copy = int(getattr(c, "rev_copy", 0)); self.rev_max_usd = float(getattr(c, "rev_max_usd", 15000.0))
+        self.rev_clip_usd = float(getattr(c, "rev_clip_usd", 0.0)); self.rev_slice = float(getattr(c, "rev_slice", 0.1))
+        self.rev_slice_cool = float(getattr(c, "rev_slice_cool", 120.0)); self._slice_at = {}
         self.rev_th_k = float(getattr(c, "rev_th_k", 1.0))   # §1245: scale the fitted model's entry threshold (<1 = more entries)
         self.rev_rand = int(getattr(c, "rev_rand", 0))   # §1247 lab: 1 = model timing and size, RANDOM direction; 2 = the OPPOSITE of the model
         self._rev_rng = __import__("random").Random(int(getattr(c, "rev_seed", 7)))
@@ -317,7 +324,7 @@ class QuoteAgent(FinanceAgent):
                 bt.logging.info(f"OWN FLOW: our share of order/cancel events {n / t:.1%} by count, {q / max(qt, 1e-9):.1%} by size")
         if self._sec - getattr(self, "_ioc_logged", -10 ** 9) >= 60 and getattr(self, "_ioc_n", 0):
             self._ioc_logged = self._sec            # §1223 add. 6: x2 runs without a tape, so log its IOC flow once per sim minute
-            bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}; model entries {getattr(self, '_model_n', 0)}")
+            bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}; model entries {getattr(self, '_model_n', 0)}; copy slices {getattr(self, "_slice_n", 0)}")
         if self.tape is not None:
             self._record(state)
         if self.pace_cap:
@@ -435,6 +442,26 @@ class QuoteAgent(FinanceAgent):
         self._legs_n = getattr(self, "_legs_n", 0) + 1
         return tgt + sg * self.rev_usd / mid
 
+    def _rev_copy_step(self, book_id, tgt, at, mid, pr):
+        """§1273: one step of the copy mode. pr = the model forecast if a signal check is due (else None). Returns (target units, signal time)."""
+        if tgt and self._sec - self._slice_at.get(book_id, -10 ** 9) >= self.rev_slice_cool and self._rev_take(book_id, tgt, mid):
+            tgt = tgt * (1.0 - self.rev_slice); self._slice_at[book_id] = self._sec
+            self._slice_n = getattr(self, "_slice_n", 0) + 1
+            if abs(tgt) * mid < self.rev_usd / 2:
+                tgt = 0.0
+        if not tgt:
+            self._rev_px.pop(book_id, None)
+        if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k and not (self.rev_skip_vol and int(book_id) < 63):
+            sg = 1.0 if pr > 0 else -1.0
+            if not tgt or (tgt > 0) == (sg > 0):
+                add = min(self.rev_usd, self.rev_max_usd - abs(tgt) * mid) / mid
+                if add * mid >= self.rev_usd / 2:
+                    m0 = self._rev_px.get(book_id)
+                    self._rev_px[book_id] = mid if not (m0 and tgt) else (m0 * abs(tgt) + mid * add) / (abs(tgt) + add)
+                    tgt = tgt + sg * add; at = self._sec
+                    self._model_n = getattr(self, "_model_n", 0) + 1
+        return tgt, at
+
     def _rev_take(self, book_id, tgt, mid):
         """§1258: True when an open model position has reached its profit target."""
         m0 = self._rev_px.get(book_id)
@@ -453,7 +480,7 @@ class QuoteAgent(FinanceAgent):
         for name in ("_ioc_logged", "_mkq_logged", "_mk_logged", "_mkt_logged", "_qerr_at", "_rej_at", "_pace_logged", "_hb_at"):
             if isinstance(getattr(self, name, None), (int, float)):
                 setattr(self, name, getattr(self, name) + d)
-        for name in ("_last_take", "_sleeve_at", "_tilt_at", "_dbg_at", "_lock_at"):
+        for name in ("_last_take", "_sleeve_at", "_tilt_at", "_dbg_at", "_lock_at", "_slice_at"):
             dd = getattr(self, name, None)
             if isinstance(dd, dict):
                 for k in list(dd): dd[k] = dd[k] + d
@@ -654,24 +681,28 @@ class QuoteAgent(FinanceAgent):
                 self._rf.update(int(book_id), self._sec, mid, fundamental, (bd - ad) / (bd + ad) if bd + ad else 0.0, (ask - bid) / mid * 1e4,
                                 trades, of, own_uid=self.uid)
                 tgt, at = self._rev.get(book_id, (0.0, -10 ** 9))
-                if self._sec - at >= self.rev_hold:
-                    tgt = 0.0
-                if self._rev_take(book_id, tgt, mid):
-                    tgt = 0.0
-                if not tgt:
-                    self._rev_n.pop(book_id, None)
-                elif self.rev_legs > 1:
-                    tgt = self._rev_leg(book_id, tgt, mid)
-                if self._sec - at >= self.sleeve_step and not (self.rev_tp_bp and tgt):
-                    pr = self._rf.predict(int(book_id), self._sec)
-                    if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k and not (self.rev_skip_vol and int(book_id) < 63):
-                        sg = 1.0 if pr > 0 else -1.0
-                        if self.rev_rand == 1: sg = self._rev_rng.choice((1.0, -1.0))
-                        elif self.rev_rand == 2: sg = -sg
-                        tgt, at = sg * self.rev_usd / mid, self._sec
-                        self._rev_px[book_id] = mid
-                        self._rev_n[book_id] = 1; self._rev_last[book_id] = mid
-                        self._model_n = getattr(self, "_model_n", 0) + 1
+                if self.rev_copy:
+                    pr = self._rf.predict(int(book_id), self._sec) if self._sec - at >= self.sleeve_step else None
+                    tgt, at = self._rev_copy_step(book_id, tgt, at, mid, pr)
+                else:
+                    if self._sec - at >= self.rev_hold:
+                        tgt = 0.0
+                    if self._rev_take(book_id, tgt, mid):
+                        tgt = 0.0
+                    if not tgt:
+                        self._rev_n.pop(book_id, None)
+                    elif self.rev_legs > 1:
+                        tgt = self._rev_leg(book_id, tgt, mid)
+                    if self._sec - at >= self.sleeve_step and not (self.rev_tp_bp and tgt):
+                        pr = self._rf.predict(int(book_id), self._sec)
+                        if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k and not (self.rev_skip_vol and int(book_id) < 63):
+                            sg = 1.0 if pr > 0 else -1.0
+                            if self.rev_rand == 1: sg = self._rev_rng.choice((1.0, -1.0))
+                            elif self.rev_rand == 2: sg = -sg
+                            tgt, at = sg * self.rev_usd / mid, self._sec
+                            self._rev_px[book_id] = mid
+                            self._rev_n[book_id] = 1; self._rev_last[book_id] = mid
+                            self._model_n = getattr(self, "_model_n", 0) + 1
                 self._rev[book_id] = (tgt, at)
                 target, cool = tgt, self.sleeve_cool
             elif self.rev_look > 0 and (self.sleeve_books is None or int(book_id) in self.sleeve_books):
@@ -714,8 +745,8 @@ class QuoteAgent(FinanceAgent):
                     return                                 # §1245: over the volume pace on this book — no new exposure; exits still go
                 if self.lock_dir and not self._lock_ok(book_id, OrderDirection.SELL if side == OrderDirection.BUY else OrderDirection.BUY):
                     return                                 # waiting for the maker UID to clear that side of the book
-                q = round(min(abs(gap), self.take_size, qb if side == OrderDirection.SELL else qa), vd)
                 px = bid if side == OrderDirection.SELL else ask
+                q = round(min(abs(gap), self.take_size, qb if side == OrderDirection.SELL else qa, self.rev_clip_usd / px if self.rev_clip_usd else 1e18), vd)
                 funded = (acct.base_balance.free >= q) if side == OrderDirection.SELL else (acct.quote_balance.free >= q * px)
                 if q >= self.min_order_size(book_id) and funded:
                     response.limit_order(book_id=book_id, direction=side, quantity=q, price=px, stp=STP.CANCEL_OLDEST, postOnly=False,
