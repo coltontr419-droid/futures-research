@@ -43,5 +43,6 @@ for l in open("/opt/mvtrx/our_uids.txt"):
         print(f"  {p[2]} UID {p[0]} registered" if m.hotkeys[int(p[0])] == hk else f"ALERT {p[2]} UID {p[0]}: NOT REGISTERED (pruned)")
 PY
 python3 /opt/mvtrx/pace_sync.py >> $L 2>&1
+nice -n 15 python3 /opt/mvtrx/livecheck.py >> $L 2>&1   # §1268: live rollback of an auto-refit model
 tail -n +$((N0 + 1)) $L | grep "^ALERT" | sort -u >> /opt/mvtrx/alerts.txt
 echo "HEARTBEAT $(date +%s)" >> /opt/mvtrx/alerts.txt

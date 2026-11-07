@@ -21013,3 +21013,13 @@ The user registered hotkey x1 (cost 0.1222 TAO) → **UID 194** (a slot that had
 - **Unit:** v4, all 128 books (rev_skip_vol removed), no tape (x3's tape covers the market; rev_preload reads it), pace + ledger, pace_since = 3617; arms (book mod 3): A single entry, clock exit (hold 900, step 3600); B 4 legs, add at −6 bp, +8 bp target, no stop; C 4 legs, add at +4 bp, +8 bp target, no stop; B and C step 900. Started 13:59:27 UTC.
 - **Two bugs caught at start.** (1) The old x3's (UID 58) heartbeat file still said sim s 76,468. After the reset its age was negative, which counted as "alive", so x1 waited on a dead maker: 2 IOCs in 8 minutes with 78 targets open. File deleted at 14:09 (fills jumped 3 → 107 within a minute). Code: a maker counts as alive only if 0 ≤ age ≤ lock_hb_s and its file was touched in the last 120 wall s. Replay identical, tests pass; x1 restarted 14:10:28 UTC, T = 3,767. (2) our_uids.txt had x3's start as 77,396 (pre-reset), which would have hidden its new fills from the self-trade check; set to 0.
 - **Read:** tpread3.py (positions opened after T 3,767 only, x3's tape, new-sim times only).
+
+## §1268 — Auto-refit safeguards: two passes in a row, live rollback; x1's v4 entries are noisy (2026-11-07, 10:44 AM CT)
+
+The user asked how the refit avoids overfitting. Answer: a small regularised linear model, and a gate on a chunk it never saw. Real risks: it bets that recent behaviour persists; the deployed model is refit including the test chunk, so it is itself untested; and the running model has seen part of the gate chunk.
+- **Two passes in a row** before any swap (autorefit_pass marker).
+- **livecheck.py, every watchdog tick:** after an auto-swap (autorefit_deployed.json), the taker's real opening entries since the swap; with ≥ 150 measured and a mean below 0 bp at 900 s (the strategy's horizon), restore the previous model, restart, ALERT. First set to 600 s / 100 entries, changed on the reading below.
+- **autorefit.sh reads x3's tape, current simulation only** (x1 has no tape; mixed sims broke the 10:48Z run).
+- Still shadow: no /opt/mvtrx/autorefit_on.
+
+**Dry run on x1 since T 3,767 (164 opening entries), signed mid move at 300 / 600 / 900 s:** A clock (50) −0.52 / −4.07 / +3.29, 46% right at 600; B losers (57) −2.32 / −4.45 / −6.78; C winners (57) +1.52 / +2.15 / +0.74. All entries at 900 s: see livecheck output. **This corrects my 10:36 AM "v4 is working":** tpread3's +6.8 bp for A is consistent with the +3.3 at 900 s (its exit horizon), but at 600 s the same entries are negative, and the samples (≈ 50 per group) are too small and noisy to call the entry edge positive.
