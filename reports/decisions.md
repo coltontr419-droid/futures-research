@@ -20931,3 +20931,10 @@ My parked-losers idea is only a small part: α exceeds raw P&L by ≤ 0.65 bp; t
 **Proposal (awaiting the user):** re-arm x1's 18-minute-old test as A clock control, B 4 bp, C 8 bp, D 8 bp no stop.
 
 **§1259 add. 1 (2026-11-06, 6:55 PM CT):** x1 re-armed on the user's go; restart 00:55:01 UTC, T = 79,473. Book mod 4: A clock control (hourly); B +4 bp, 1 h stop; C +8 bp, 1 h stop; D +8 bp, no stop; re-entry after a close (sleeve_step 900) on B–D. Unit backup .pre-tp8. Read x1arm.py (T0 79,480). The restart closes positions, so a "no stop" position only lasts until the next restart.
+
+**§1252 add. 4 / x3 UID 201 A/B (2026-11-06, 7:06 PM CT):** back:1/back:2 dropped ≈ 45 min before the formal read on a decisive gap. At ≈ 36 sim min: touch 37.7 C, credit 18.8 (53/$M), 3 of 22 bad books; back:1 credit 1.3 (6/$M), 14 of 21 bad; back:2 credit 0.2 (1/$M), 8 of 15 bad. Same-window field credit median 23.3, p90 130.5. The behind-touch books fill too little to be two-sided. My 60–70 credit estimate (10 sim min, mixed arms) was too low:
+control projects to ≈ 280 per 3 sim h on 65 books, and ≈ 560 on 128 if the $300 books earn alike (unproven). Budget used exactly: $1.22M per sim h.
+
+**Limits audit (the user's condition):** volume bucket is per book; max_instructions_per_book 100 and maxOpenOrders 100 vs ≈ 2 orders per book; x3 dropped 0, refused 0. scoring.max_inactive_books: 0.375 of books are excluded from scoring as the lowest performers.
+
+**Live:** restart 01:06:09 UTC, T = 79,607 (sim min 1326.8), arms=mk_skip_vol:0 (book mod 2): all calm and 4-dec books at the touch; odd $300 books quoting, even skipped. Backup .pre-300. 562 fills reloaded, fills resumed, 0 errors. Read: making_exact 2 arms --since 1327.
