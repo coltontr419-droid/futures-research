@@ -20954,3 +20954,9 @@ nextx1.py: scorer's alpha on the 5-s mid path, target 8 bp, three tests: fit 2 �
 - **Books:** adding the 20 $300 books strongest on the PRIOR chunk: kept 40 → 51, 40 → 55, 30 → 41, median unchanged (+2.71, +2.94, +2.05). All books: kept 77, 84, 63, median +2.64, +2.85, +2.21. **With the target exit, even the deployed v3 is not hurt by $300 books**, unlike the fixed-horizon read in §1257 add. 2 and 3. That clears the 80-book coverage rule at no paper cost.
 
 **Candidate for the next x1:** fresh refit, top 5–10% entries, 8 bp target, ≥ 85 books (65 + the 20 $300 books strongest on recent tape, or all), only if the live exit test supports the target. The 3.6+ bp gap is smaller on paper (+2.0 to +2.9 median, kept 41–84 vs top 62–71). Still unexplained at full size.
+
+## §1261 — Exit + book test live on x1 (2026-11-06, 9:00 PM CT)
+
+The user challenged stopping for the night: top UIDs trade 80+ books, x1 56. x1 re-armed: restart 03:00:05 UTC, T = 81,009, book mod 4: A clock, 65 books; B +8 bp no stop, 65; C +8 bp no stop, with $300 books; D +4 bp 1 h stop, with $300 books. rev_skip_vol:0 on C and D gives ≈ 97 books, past the 80-book coverage rule. Not certain: the deployed v3 shows no $300 edge past 5 min on a clock exit, and x3's $300 test is weak; the case is §1260's paper and x1 having nothing to lose. Unit backup .pre-300test.
+**Clean read (the user's request):** tpread2.py replays all x1 fills before T1, then ignores those positions and the fills closing them; only positions opened after the start count (47 old fills dropped at first read).
+Prior test's final read, kept in exit_test1_final.txt (25.6 sim min, about 20 positions per group): all-position mean A −0.68, B +2.10, C +0.58, D +1.12 bp; median α −0.16, +1.31, +1.23, +0.35. Target groups led the control.
