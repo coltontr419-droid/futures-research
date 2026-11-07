@@ -20969,3 +20969,9 @@ Ruled out: fill size (all books: at $1–2k, top +5.89 vs x3 +1.47 after 20 s); 
 **Public gauges, x3 vs 144 / 252 / 7 / 31:** call_time median 0.213 s vs 0.069–0.109; placements_sent 657 vs ≈ 5,000–6,000; cancels_sent 651 vs ≈ 3,100; at-best seconds 20,574 vs 37,000–46,000; best size 0.89M vs 1.4–1.7M; fills in the sample period 65 vs 30–55. **They respond 2–3× faster, reprice about 8× more often, and fill less per quote.** A stale quote is what gets picked off. x3 at the touch also spends its budget at once and then sits out, while quotes behind the touch keep them in the book without spending.
 
 **Next:** measure where x3's 0.2 s goes (tape, qlog, per-book work) and cut it; then check why it reprices so rarely.
+
+## §1263 — x3 speed: first cuts (2026-11-06, 9:27 PM CT)
+
+Handler profile on captured states (x3's params, 24 steps): `_Ev` build ≈ 22% + event/book wrappers ≈ 44% together, `_record` (tape) ≈ 20%, `_predict` ≈ 13%. Parse + decompress ≈ 30 ms. The live gauge reads 213 ms vs ≈ 95 ms of agent work, so ≈ 120 ms is outside this code (axon, network, reply).
+Removing the model would SILENTLY disable flow_pull: `_near` is computed inside `_predict`. Keep it, or move that calculation first.
+Done: top 5 levels only (nothing reads deeper); x3's tape off (x1's tape records the same market, x3 fills included). Replay identical for maker (865 instructions) and taker (1,002). Handler median 65 → 52 ms, p90 141 → 60 ms. x3 restarted 9:27 PM CT; x1 not restarted. Unit backup .pre-notape. If x1 is pruned its tape stops: x3 must get its tape back, or there is no market tape.

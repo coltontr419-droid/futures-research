@@ -51,13 +51,16 @@ class _Bal:
         self.total, self.free, self.reserved, self.initial = d.get("t"), d.get("f"), d.get("r"), d.get("i")
 
 
+_LEVELS = 5
+
+
 class _RawBook:
     __slots__ = ("bids", "asks", "events", "fundamental", "raw_b", "raw_a")
 
     def __init__(self, d):
         self.raw_b, self.raw_a = d.get("b") or [], d.get("a") or []    # levels with their resting orders in queue order (qlog)
-        self.bids = [_Lv(x) for x in d.get("b") or []]
-        self.asks = [_Lv(x) for x in d.get("a") or []]
+        self.bids = [_Lv(x) for x in self.raw_b[:_LEVELS]]             # §1263: only the top 5 levels are ever read; building all of them was ≈ 10% of the handler
+        self.asks = [_Lv(x) for x in self.raw_a[:_LEVELS]]
         self.events = [_Ev(x) for x in d.get("e") or []]
         self.fundamental = d.get("f")
 
