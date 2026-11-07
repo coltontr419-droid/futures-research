@@ -21113,3 +21113,8 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   cancels, touch orders, stale cancels, missing ladder levels (nearest first). test_pace: 5 new checks (worst 5 instructions over 2,000 random books,
   exposed cancels first, no re-pricing, all 3 levels per side fill in) — ALL PASS.
 - Restarted 3:29 PM CT at sim 2:29:31 (T ≈ 8,971); registration checked 3:29.
+
+## §1280 — 2026-11-07 4:01 PM CT — trend pull dropped (user go)
+- §1271 verdict (calm books only, since 11:02 AM, past 45 sim min): credit control 24.4 vs trend pull 20.1 (−18%); quality 0.546 vs 0.564; books with one side ≤ 0
+  10 vs 13. The quality gain does not pay for the lost capture. Removed arms=mk_trend_bp:25 (unit backup .pre-notrend); all books run the same settings again.
+- Restarted 4:01 PM CT at sim 2:35:52 (T ≈ 9,350); registration checked 4:00. The $300 ladder (§1278-1279) continues unchanged; read with spreadpick.py / m300copy.py from T 8,971.
