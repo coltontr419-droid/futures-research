@@ -20938,3 +20938,5 @@ control projects to ≈ 280 per 3 sim h on 65 books, and ≈ 560 on 128 if the $
 **Limits audit (the user's condition):** volume bucket is per book; max_instructions_per_book 100 and maxOpenOrders 100 vs ≈ 2 orders per book; x3 dropped 0, refused 0. scoring.max_inactive_books: 0.375 of books are excluded from scoring as the lowest performers.
 
 **Live:** restart 01:06:09 UTC, T = 79,607 (sim min 1326.8), arms=mk_skip_vol:0 (book mod 2): all calm and 4-dec books at the touch; odd $300 books quoting, even skipped. Backup .pre-300. 562 fills reloaded, fills resumed, 0 errors. Read: making_exact 2 arms --since 1327.
+
+**§1257 add. 3 (2026-11-06, 8:42 PM CT): filter stays, $300 books not supported for x1.** Deployed v3 on 56 sim min after its training (sim min 1275–1331), top 5% rows, 300 / 600 / 900 s: $300 +1.24 / −0.07 / −1.37 bp (663 rows, 53 books, 61% at 600 s); $30 +1.30 / +1.46 / +1.57 (1,831 rows); 4-dec +2.47 / +1.99 / +1.87 (73 rows). The refits' $300 edge does not hold for the deployed model past 5 minutes. The rule of keeping ≥ 80 books for skill still applies to the next x1; choosing which $300 books needs its own test.
