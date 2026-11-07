@@ -21131,3 +21131,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   test_pace: 7 new checks (≤ 5 instructions over 3,000 random books, exposed cancels first, ≤ 8 resting per side, penny at 6 ticks, touch at 3, orders rest,
   > 20 ticks cancelled) — ALL PASS. Backups agents/QuoteAgent.pre-lazy.py, unit .pre-lazy.
 - Restarted 4:22 PM CT at sim 2:40:15 (T ≈ 9,615); registration checked 4:22. Read: fleetx.py / spreadpick.py / m300copy.py <x3 tape> 201 9615.
+
+## §1282 — 2026-11-07 4:55–5:05 PM CT — copy the best takers' exact trades? Replay says no (x1 unchanged)
+- Long-lived pure takers are NOT strong today: validator live skill over 7 h, UID 94 (17.6 d) +0.23…+0.44 then 0.08; UID 186 (7.5 d) −0.08…−0.24 all day.
+  Field median taker skill ROSE (+0.14 → +0.95) while x1 fell (1.96 at 1 PM → −0.05 at 5 PM): x1's slide is its own (likely v4 decay), not the market.
+- Steady all-day high-skill takers are young: 247 (0.6 d, +3.84), 103 (0.6 d), 44 (4.1 d, +2.55, lowest +1.81, $854/month), 14 (1.7 d), 13/64 (churn fleet).
+  User: copy 44, 247 as backup; go live only if positive. Bar set BEFORE the test: copy keeps ≥ half the source's kappa, median α > 0, ≥ 40 kept books.
+- mirror_val.py (validator skill math of skill_val.py; copy = each source trade repeated after DELAY at K × size, |pos| cap, our pace bucket; current sim, last 150 sim min):
+  sources: 44 kappa +1.67 (median +2.90 bp, 49 kept), 247 +1.72 (+3.22, 91 kept). Unpaced full-size copies: 44 keeps kappa 1.69/1.70/1.74 at 0.5/1/2 s,
+  median α falls +2.19/+1.75/+1.08, ≈ 0 at 5 s; 247 kappa 0.96/0.83/0.50. Realistic x1 delay ≈ 0.5–1 s (state every sim second).
+  Paced + capped at 0.5–1 s: 44 kappa 0.20–0.22 (K 1, $30k; K 0.5, $15k), 247 kappa 0.27–0.44. All FAIL the half-kappa bar → no live change.
+  Cause: the sources trade faster than our $450k pace; throttled books scatter α and kappa (the cross-book measure) collapses.
