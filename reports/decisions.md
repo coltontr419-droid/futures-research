@@ -21091,3 +21091,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   The paid score of a young UID ≈ plain mean of all rounds since registration (alpha = max(time decay, 1/(k+1))), so x1's pay lags its live score.
 - Decision: keep x1's copy setup; judge on the validator gauges (tpread4 per-book median α is not aligned with the validator: it starts each book from the
   test-start inventory). Optional later test: skip books with spread < ≈2.5 bp, as 94/186 do.
+
+## §1278 — 2026-11-07 2:53 PM CT — x3 $300-book depth ladder, copied from the long-lived fleet (user go)
+- §1276 read 2:45 PM (159 fills): net +0.65 bp per fill at 120 s, mid after −0.32 bp vs the fleet's +3.1 / +0.76.
+- Study (spreadpick.py, current sim; 5F1F2JMu UIDs 255,216,111,252,87,7,102, ages 14–27.5 d): no spread filter (their fills' spread median 2.0 vs book 2.3 bp).
+  Depth of their $300 fills: inside 17% / touch 31% / 1–2 behind 20% / 3–6 behind 13% / 7+ behind 20% (ticks); median fill $2.3k / $1.7k / $2.4k / $3.6k / $3.6k;
+  net per fill at 120 s +2.05 / +2.56 / +2.65 / +3.14 / +5.22 bp. x3: touch 71% (+0.61 bp), 1–2 behind 22% (+1.50), 3–6 behind 7% (+0.23); fills at tight spreads (median 1.35 bp).
+  Why §1252's ladder lost: full-size touch order took 75% of fills; the fleet's touch order is the SMALL one.
+- Code: mk_vol_lad (ticks behind our touch price, $300 books only) + mk_vol_lad_size; ladder levels now carry their own size (QuoteAgent.py, backup agents/QuoteAgent.pre-lad.py); test_pace ALL PASS.
+  Unit (backup .pre-lad): mk_vol_size=0.034 (≈ $1.7k touch) mk_vol_lad=2:5:10 mk_vol_lad_size=0.07 (≈ $3.5k each) dbg=1.
+- Restarted 2:53 PM CT at sim 2:22:08 (T ≈ 8,528); registration checked 2:53. First fills: 32% behind the touch (2 ticks 19%, 5–6 ticks) — ladder live.
+  Read: spreadpick.py <x3 tape> 201 8528 (depth table: net per fill by depth vs the fleet) + m300copy.py <x3 tape> 201 8528.

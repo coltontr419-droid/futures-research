@@ -217,6 +217,8 @@ class QuoteAgent(FinanceAgent):
         # §1271 trend pull: when a book's mid has moved ≥ MK_TREND_BP over the last MK_TREND_WIN sim s, stop quoting the side facing the move
         # (rising: no offer; falling: no bid). 25 of x3's 65 books lost on the side facing their trend (median move 156 bp). 0 = off.
         self.mk_trend_bp = float(getattr(c, "mk_trend_bp", 0.0)); self.mk_trend_win = int(getattr(c, "mk_trend_win", 300)); self._mk_mid = {}; self._mkt_n = [0, 0]
+        self.mk_vol_lad = [int(x) for x in str(getattr(c, "mk_vol_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1278: ticks behind the touch, e.g. 2:5:10
+        self.mk_vol_lad_size = float(getattr(c, "mk_vol_lad_size", 0.07))   # §1278: ladder order size on the $300 books (fraction of wealth; fleet ≈ $3.6k there)
         self.mk_thin_vol_off = int(getattr(c, "mk_thin_vol_off", 0))   # §1276: 1 = no thin-side pulls on the $300 books (ids 0-62)
         self.mk_vol_size = float(getattr(c, "mk_vol_size", 0.0))   # §1275: >0: maker order size (fraction of wealth) on the $300 books (ids 0-62) instead of SIZE
         self.mk_skip_vol = int(getattr(c, "mk_skip_vol", 0))   # §1247: 1 = no making on the volatile books (ids 0-62; quality -0.54 / -0.02 in both tape halves)
@@ -885,16 +887,23 @@ class QuoteAgent(FinanceAgent):
         extra = {}
         if self.mk_lad1 > 0 or self.mk_lad2 > 0:           # §1252 ladder: only on sides still wanted, so every pull above (lock handshake included) removes it
             for side in want:
-                lv = set()
+                lv = {}
                 for k in (self.mk_lad1, self.mk_lad2):
                     if k > 0:
                         n = (mid - k * (ask - bid)) / tick if side == OrderDirection.BUY else (mid + k * (ask - bid)) / tick
                         p = round(math.floor(n + 1e-9) * tick if side == OrderDirection.BUY else math.ceil(n - 1e-9) * tick, pd)
-                        if p != want[side] and p > 0: lv.add(p)
+                        if p != want[side] and p > 0: lv[p] = sq.get(side, qty)
                 extra[side] = lv
+        if self.mk_vol_lad and int(book_id) < 63:          # §1278 $300-book ladder (long-lived fleet): levels MK_VOL_LAD ticks behind our touch price, size MK_VOL_LAD_SIZE
+            vq = round(max(self.mk_vol_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
+            for side, px in want.items():
+                lv = extra.setdefault(side, {})
+                for k in self.mk_vol_lad:
+                    p = round(px - k * tick if side == OrderDirection.BUY else px + k * tick, pd)
+                    if p > 0: lv[p] = vq
         for o in orders:
-            if o.price in extra.get(o.side, ()):
-                extra[o.side].discard(o.price); continue   # ladder level already resting: keep its queue place
+            if o.price in extra.get(o.side, {}):
+                extra[o.side].pop(o.price); continue       # ladder level already resting: keep its queue place
             px = want.get(o.side)
             behind = None if px is None else round(((px - o.price) if o.side == OrderDirection.BUY else (o.price - px)) / tick, 6)
             if px == o.price or (self.sticky and behind is not None and 0 <= behind <= self.sticky):
@@ -906,7 +915,7 @@ class QuoteAgent(FinanceAgent):
                                  timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry)
         for side, lv in extra.items():
             for p in sorted(lv):
-                response.limit_order(book_id=book_id, direction=side, quantity=sq.get(side, qty), price=p, stp=STP.CANCEL_BOTH, postOnly=True,
+                response.limit_order(book_id=book_id, direction=side, quantity=lv[p], price=p, stp=STP.CANCEL_BOTH, postOnly=True,
                                      timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry)
 
     def _record(self, state):
