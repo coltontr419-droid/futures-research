@@ -104,4 +104,22 @@ check("clock reset shifts a position's entry time", a._rev[5] == (3.0, 86000 + d
 check("clock reset shifts take / pull / log stamps", a._last_take[5] == 86290 + d and a._pull_until[5][0] == 86303 + d and a._ioc_logged == 86250 + d, "shifted")
 check("clock reset clears per-second history", a._mids == {}, "cleared")
 a._sec = 25; a._clock_check(); check("normal steps do nothing", a._rev[5] == (3.0, 86000 + d), "unchanged")
+class RF:
+    def __init__(self, p): self.p = p
+    def predict(self, b, t): return self.p
+a = agent(new_path, pace_cap=450000, rev_legs=4, rev_leg_bp=6.0, rev_leg_dir=-1, rev_tp_bp=8.0); a._rf = RF(5.0); a._sec = 10
+a._rev_px[7] = 100.0; a._rev_n[7] = 1; a._rev_last[7] = 100.0; t1 = 10.0
+check("losers: no add before the move", a._rev_leg(7, t1, 99.95) == t1, "−5 bp")
+t2 = a._rev_leg(7, t1, 99.94); check("losers: add at −6 bp", abs(t2 - (t1 + 1000 / 99.94)) < 1e-9 and a._rev_n[7] == 2, f"target {t2:.2f}")
+check("losers: average price follows", abs(a._rev_px[7] - (100.0 + 99.94) / 2) < 1e-9, f"avg {a._rev_px[7]:.3f}")
+check("losers: target measured from the average", a._rev_take(7, t2, (100.0 + 99.94) / 2 * 1.00081) and not a._rev_take(7, t2, 100.04), "+8 bp from avg")
+a._rf = RF(-5.0); check("losers: no add when the model has turned", a._rev_leg(7, t2, 99.88) == t2, "model against")
+a._rf = RF(5.0); x = t2
+for p in (99.88, 99.82, 99.76, 99.70): x = a._rev_leg(7, x, p)
+check("losers: never more than 4 legs", a._rev_n[7] == 4 and abs(x - (t1 + 1000 / 99.94 + 1000 / 99.88 + 1000 / 99.82)) < 1e-6, f"legs {a._rev_n[7]}")
+w = agent(new_path, pace_cap=450000, rev_legs=3, rev_leg_bp=4.0, rev_leg_dir=1, rev_tp_bp=8.0); w._rf = RF(-5.0); w._sec = 10; w._rev_px[9] = 100.0; w._rev_n[9] = 1; w._rev_last[9] = 100.0
+check("winners: short adds on a favourable drop", w._rev_leg(9, -10.0, 99.95) < -10.0 and w._rev_n[9] == 2, "−4 bp for a short")
+check("winners: no add on an adverse move", w._rev_leg(9, -10.0 - 1000 / 99.95, 100.10) == -10.0 - 1000 / 99.95, "adverse")
+o = agent(new_path, pace_cap=450000); o._rf = RF(5.0); o._sec = 10; o._rev_px[7] = 100.0; o._rev_n[7] = 1; o._rev_last[7] = 100.0
+check("legs off: never adds", o._rev_leg(7, 10.0, 90.0) == 10.0, "rev_legs 1")
 print("ALL PASS" if not bad else f"{bad} FAILED")

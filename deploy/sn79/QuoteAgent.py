@@ -16,6 +16,7 @@ validator's own capture code.
 import json
 import math
 import os
+import time
 from collections import defaultdict
 
 from taos.common.agents import launch
@@ -188,6 +189,11 @@ class QuoteAgent(FinanceAgent):
         self.rev_usd = float(getattr(c, "rev_usd", 1000.0))      # REV_HOLD sim s, then back to flat (the top live-skill UIDs are 60-s faders)
         self.rev_skip_vol = int(getattr(c, "rev_skip_vol", 0))   # §1253: 1 = no NEW model entries on the volatile books (ids 0-62); open positions still exit
         self.rev_tp_bp = float(getattr(c, "rev_tp_bp", 0.0)); self._rev_px = {}   # §1258: >0: close a model position once the mid has moved this many bp in its favour; while one is open no new signal replaces it
+        # §1267 scale-in: up to REV_LEGS equal clips of REV_USD per position. A new leg is added when the price has moved REV_LEG_BP from the last leg:
+        # REV_LEG_DIR −1 = against us ("add to losers"), +1 = in our favour ("add to winners"), and only while the model still points the same way.
+        # The profit target (rev_tp_bp) is then measured from the average leg price. Legs are new exposure, so pacing blocks them; exits always go.
+        self.rev_legs = int(getattr(c, "rev_legs", 1)); self.rev_leg_bp = float(getattr(c, "rev_leg_bp", 6.0)); self.rev_leg_dir = int(getattr(c, "rev_leg_dir", -1))
+        self._rev_n, self._rev_last = {}, {}
         self.rev_th_k = float(getattr(c, "rev_th_k", 1.0))   # §1245: scale the fitted model's entry threshold (<1 = more entries)
         self.rev_rand = int(getattr(c, "rev_rand", 0))   # §1247 lab: 1 = model timing and size, RANDOM direction; 2 = the OPPOSITE of the model
         self._rev_rng = __import__("random").Random(int(getattr(c, "rev_seed", 7)))
@@ -401,6 +407,23 @@ class QuoteAgent(FinanceAgent):
         self._rej = getattr(self, "_rej", Counter()); self._rej[str(getattr(event, "message", "?"))] += 1
         if self._sec - getattr(self, "_rej_at", -10 ** 9) >= 60:
             self._rej_at = self._sec; bt.logging.info(f"DBG REJECTS {dict(self._rej)}"); self._rej.clear()
+
+    def _rev_leg(self, book_id, tgt, mid):
+        """§1267: add one more equal clip to an open model position when the price has moved REV_LEG_BP from the last leg in the chosen direction
+        and the model still agrees; the average price for the target follows."""
+        n = self._rev_n.get(book_id, 1); last = self._rev_last.get(book_id)
+        if n >= self.rev_legs or not last:
+            return tgt
+        sg = 1.0 if tgt > 0 else -1.0; move = sg * (mid - last) / last * 1e4
+        if not (move <= -self.rev_leg_bp if self.rev_leg_dir < 0 else move >= self.rev_leg_bp):
+            return tgt
+        pr = self._rf.predict(int(book_id), self._sec) if self._rf is not None else None
+        if pr is None or pr * sg <= 0:
+            return tgt
+        n += 1; self._rev_n[book_id] = n; self._rev_last[book_id] = mid
+        self._rev_px[book_id] = (self._rev_px.get(book_id, mid) * (n - 1) + mid) / n
+        self._legs_n = getattr(self, "_legs_n", 0) + 1
+        return tgt + sg * self.rev_usd / mid
 
     def _rev_take(self, book_id, tgt, mid):
         """§1258: True when an open model position has reached its profit target."""
@@ -623,6 +646,10 @@ class QuoteAgent(FinanceAgent):
                     tgt = 0.0
                 if self._rev_take(book_id, tgt, mid):
                     tgt = 0.0
+                if not tgt:
+                    self._rev_n.pop(book_id, None)
+                elif self.rev_legs > 1:
+                    tgt = self._rev_leg(book_id, tgt, mid)
                 if self._sec - at >= self.sleeve_step and not (self.rev_tp_bp and tgt):
                     pr = self._rf.predict(int(book_id), self._sec)
                     if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k and not (self.rev_skip_vol and int(book_id) < 63):
@@ -631,6 +658,7 @@ class QuoteAgent(FinanceAgent):
                         elif self.rev_rand == 2: sg = -sg
                         tgt, at = sg * self.rev_usd / mid, self._sec
                         self._rev_px[book_id] = mid
+                        self._rev_n[book_id] = 1; self._rev_last[book_id] = mid
                         self._model_n = getattr(self, "_model_n", 0) + 1
                 self._rev[book_id] = (tgt, at)
                 target, cool = tgt, self.sleeve_cool
@@ -875,7 +903,8 @@ class QuoteAgent(FinanceAgent):
         for f in os.listdir(self.lock_dir):
             if f.startswith("maker_") and f.endswith(".hb") and f[6:-3] != str(self.uid):   # never wait on ourselves
                 try:
-                    if self._sec - float(open(f"{self.lock_dir}/{f}").read()) <= self.lock_hb_s:
+                    p = f"{self.lock_dir}/{f}"; age = self._sec - float(open(p).read())
+                    if 0 <= age <= self.lock_hb_s and time.time() - os.path.getmtime(p) < 120:   # §1267: a dead maker's file (or one from before a sim reset) must not count as alive
                         out.append(f[6:-3])
                 except (OSError, ValueError):
                     pass
