@@ -250,4 +250,33 @@ r = _Resp(); Z._vol_lazy(r, 7, [_O(1, Bd, 298.95), _O(2, Bd, 298.80), _O(3, Sd, 
 check("fleet pattern: orders left behind (5 and 20 ticks bid, 17 ticks ask) rest; new touch orders only", [(i.kind, i.price) for i in r.instructions] == [("place", 299.0), ("place", 299.03)], f"{[(i.kind, i.price) for i in r.instructions]}")
 r = _Resp(); Z._vol_lazy(r, 7, [_O(1, Bd, 298.78)], {Bd: 299.00, Sd: 299.03}, 12.0, tick, 2)
 check("fleet pattern: 22 ticks behind → cancelled after the touch orders", [(i.kind) for i in r.instructions] == ["place", "place", "cancel"], f"{[(i.kind, i.price) for i in r.instructions]}")
+
+# §1286 copy-hold arm: each burst exits REV_COPY_HOLD after entry
+h = agent(new_path, pace_cap=450000, rev_copy=1, rev_usd=1500, rev_max_usd=15000, rev_tp_bp=0.0, rev_copy_hold=600, sleeve_step=300); h._rf = RFt(5.0)
+h._sec = 0; t_, a_ = h._rev_copy_step(3, 0.0, -10 ** 9, 100.0, 5.0)
+h._sec = 300; t_, a_ = h._rev_copy_step(3, t_, a_, 100.0, 5.0)
+check("hold: two bursts open", abs(t_ * 100 - 3000) < 1e-6 and len(h._legs[3]) == 2, f"${t_ * 100:,.0f}, legs {len(h._legs[3])}")
+h._sec = 599; t2, _ = h._rev_copy_step(3, t_, a_, 100.0, None); check("hold: nothing exits before 600 s", t2 == t_, "599 s")
+h._sec = 600; t3, _ = h._rev_copy_step(3, t_, a_, 100.0, None); check("hold: first burst exits at 600 s", abs(t3 * 100 - 1500) < 1e-6 and len(h._legs[3]) == 1, f"${t3 * 100:,.0f}")
+h._sec = 900; t4, _ = h._rev_copy_step(3, t3, a_, 100.0, None); check("hold: second burst exits at 900 s → flat", t4 == 0.0 and 3 not in h._legs, "flat")
+h._sec = 86300; t5, a5 = h._rev_copy_step(4, 0.0, -10 ** 9, 100.0, 5.0); h._sec_prev = 86300; h._sec = 50; h._clock_check()
+check("hold: clock reset shifts leg times", abs(h._legs[4][0][0] - (86300 + 50 - 86300)) < 1e-9, f"leg at {h._legs[4][0][0]}")
+h._sec = 649; t6, _ = h._rev_copy_step(4, t5, a5, 100.0, None); h._sec = 650; t7, _ = h._rev_copy_step(4, t6, a5, 100.0, None)
+check("hold: after the reset the leg still exits 600 s after entry", t6 != 0.0 and t7 == 0.0, "exit at 650 (entry 50)")
+def hold_attack(seed, days=3, step=5):
+    a = agent(new_path, pace_cap=450000, rev_copy=1, rev_usd=1500, rev_max_usd=15000, rev_tp_bp=0.0, rev_copy_hold=600, sleeve_step=60, rev_clip_usd=700)
+    a._rf = RFt(5.0); rng = random.Random(seed); b = 70; tgt, at = 0.0, -10 ** 9; units = 0.0; fills = collections.deque(); roll = worst = 0.0; tot = 0.0
+    for t in range(0, days * DAY, step):
+        a._sec = t; mid = 100.0 * (1 + rng.uniform(-3, 3) / 1e4); a._rf.p = rng.choice((5.0, -5.0, 0.0))
+        tgt, at = a._rev_copy_step(b, tgt, at, mid, a._rf.p if t - at >= 60 else None)
+        gap = tgt - units
+        if abs(gap) * mid < 1: continue
+        if abs(tgt) > abs(units) and a._paced_out(b): continue
+        q = min(abs(gap), 700 / mid); units += q if gap > 0 else -q; v = q * mid; fill(a, b, t, v, True); fills.append((t, v)); roll += v; tot += v
+        while fills and fills[0][0] <= t - DAY: roll -= fills.popleft()[1]
+        worst = max(worst, roll)
+    return worst, tot
+for sd in (11, 12):
+    w, tot = hold_attack(sd)
+    check("hold: 3-day full path, signals every 60 s, exits every 600 s", w < CAP and tot > 3 * 300000, f"worst 24h ${w:,.0f} of ${CAP:,.0f} | 3-day ${tot:,.0f}")
 print("ALL PASS" if not bad else f"{bad} FAILED")

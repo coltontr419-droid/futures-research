@@ -21168,3 +21168,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   actual 59/−0.24, 67/−0.18 | 300 s 10/−0.20, 11/−0.13 | 600 s 10/+1.92, 20/+1.18 | 900 s 20/−0.14, 32/+0.06 | 1800 s 44/−0.52, 47/+0.11 | 3600 s 76/−0.41, 76/−0.22.
 - 600 s (the model's horizon) wins on both windows but on 10–20 kept books (coverage wants ≈ 80) with weak neighbours (300 / 900 s) → a single-point
   result; not deployed (user away; offline wins have failed live 3×). Robust part: holding ≥ 1 h is worst. Candidate for a live A/B with the user's yes.
+
+## §1286 — 2026-11-07 5:35 PM CT — x1 live A/B: 10-minute exit vs the copied hold (user go)
+- From §1285 (600 s exit best on both windows, but thin). Code: rev_copy_hold — each $1,500 burst is a leg that leaves the target REV_COPY_HOLD sim s after
+  it was added; legs shift on a sim-clock reset (QuoteAgent.py, backup agents/QuoteAgent.pre-hold.py). test_pace: 8 new checks (legs exit in order at
+  600 s, reset shift, 3-day full-path attack worst 24h $452.6k / $453.3k of $500k) — ALL PASS.
+- Unit (backup .pre-hold): arms=rev_copy_hold:600+rev_tp_bp:0 → EVEN books = arm A (as before: max $15k, 10% slices at +6 bp, no time exit),
+  ODD books = arm B (same entries, max $15k, no slices, each burst exits after 600 s). (The old $7.5k arm is gone.)
+- Restarted 5:35 PM CT at sim 2:54:33 (T ≈ 10,473); registration checked 5:34. Restart cleared targets: old positions are flattened first (exits).
+- Read: skill_val.py <x3 tape> 194 <elapsed sim min> /opt/mvtrx/odd_books.txt → "calm" row = arm A (even), "skipped" row = arm B (odd); plus the validator gauge.
+  Judge at ≥ 45 sim min (≈ 9:30 PM CT): arm B must beat arm A on kappa with ≥ 30 kept books.

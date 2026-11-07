@@ -208,6 +208,7 @@ class QuoteAgent(FinanceAgent):
         self.rev_copy = int(getattr(c, "rev_copy", 0)); self.rev_max_usd = float(getattr(c, "rev_max_usd", 15000.0))
         self.rev_clip_usd = float(getattr(c, "rev_clip_usd", 0.0)); self.rev_slice = float(getattr(c, "rev_slice", 0.1))
         self.rev_slice_cool = float(getattr(c, "rev_slice_cool", 120.0)); self._slice_at = {}
+        self.rev_copy_hold = float(getattr(c, "rev_copy_hold", 0.0)); self._legs = {}   # §1286: >0: each burst exits this many sim s after entry
         self.rev_th_k = float(getattr(c, "rev_th_k", 1.0))   # §1245: scale the fitted model's entry threshold (<1 = more entries)
         self.rev_rand = int(getattr(c, "rev_rand", 0))   # §1247 lab: 1 = model timing and size, RANDOM direction; 2 = the OPPOSITE of the model
         self._rev_rng = __import__("random").Random(int(getattr(c, "rev_seed", 7)))
@@ -533,14 +534,22 @@ class QuoteAgent(FinanceAgent):
                                      timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry); n += 1; keep[side].append(k)
 
     def _rev_copy_step(self, book_id, tgt, at, mid, pr):
-        """§1273: one step of the copy mode. pr = the model forecast if a signal check is due (else None). Returns (target units, signal time)."""
+        """§1273: one step of the copy mode. pr = the model forecast if a signal check is due (else None). Returns (target units, signal time).
+        §1286 REV_COPY_HOLD > 0: every burst is a leg that is taken out of the target REV_COPY_HOLD sim s after it was added (the model's horizon)."""
+        if self.rev_copy_hold > 0 and tgt:
+            lg = self._legs.setdefault(book_id, [])
+            while lg and lg[0][0] <= self._sec - self.rev_copy_hold:
+                _, u = lg.pop(0)
+                tgt = tgt - u if (tgt > 0) == (u > 0) else tgt
+                if (tgt > 0) != (u > 0) or abs(tgt) * mid < self.rev_usd / 4: tgt = 0.0
+            if not lg: tgt = 0.0
         if tgt and self._sec - self._slice_at.get(book_id, -10 ** 9) >= self.rev_slice_cool and self._rev_take(book_id, tgt, mid):
             tgt = tgt * (1.0 - self.rev_slice); self._slice_at[book_id] = self._sec
             self._slice_n = getattr(self, "_slice_n", 0) + 1
             if abs(tgt) * mid < self.rev_usd / 2:
                 tgt = 0.0
         if not tgt:
-            self._rev_px.pop(book_id, None)
+            self._rev_px.pop(book_id, None); self._legs.pop(book_id, None)
         if pr is not None and abs(pr) >= self._rf.th * self.rev_th_k and not (self.rev_skip_vol and int(book_id) < 63):
             sg = 1.0 if pr > 0 else -1.0
             if not tgt or (tgt > 0) == (sg > 0):
@@ -549,6 +558,7 @@ class QuoteAgent(FinanceAgent):
                     m0 = self._rev_px.get(book_id)
                     self._rev_px[book_id] = mid if not (m0 and tgt) else (m0 * abs(tgt) + mid * add) / (abs(tgt) + add)
                     tgt = tgt + sg * add; at = self._sec
+                    if self.rev_copy_hold > 0: self._legs.setdefault(book_id, []).append((self._sec, sg * add))
                     self._model_n = getattr(self, "_model_n", 0) + 1
         return tgt, at
 
@@ -578,6 +588,8 @@ class QuoteAgent(FinanceAgent):
             for side in list(sides): sides[side] = sides[side] + d
         rv = getattr(self, "_rev", {})
         for k in list(rv): rv[k] = (rv[k][0], rv[k][1] + d)
+        for k, lg in getattr(self, "_legs", {}).items():   # §1286 copy-hold legs
+            lg[:] = [(t + d, u) for t, u in lg]
         for name in ("_mids", "_sflow", "_oflow", "_mid_hist", "_pending", "_mk_mid"):
             dd = getattr(self, name, None)
             if isinstance(dd, dict): dd.clear()
