@@ -21043,3 +21043,10 @@ New-sim window (sim min ≈ 60–90), making_exact + makereff on x3's tape:
 
 The user's call: start now rather than after x3 clears the prune line. Until 4:05 PM x3 is immune, and pay follows a slow average, so a few hours' test barely moves it; the risk is a slower climb, limited to half the books. `mk_trend_bp` / `mk_trend_win`: when a book's mid has moved ≥ X bp over the last W sim s, stop quoting the side facing the move. Sizing from x3's calm + 4-dec books (new sim): |5-min move| p50 6.7, p75 16.5, p85 24.8, p90 30.3 bp, so X = 25, W = 300 (fires ≈ 15% of the time). Replay: off identical (952 instructions); forced on, it pulls (28 of 768). Cap tests pass. x3 restarted 17:02:47 UTC, T = 5,735: arms=mk_trend_bp:25 (book mod 2: odd books pull). Backup .pre-trend. Read: making_exact 2 arms --since 96 on x3's tape (new sim only), plus one-sided books per arm.
 The front-loaded budget (§1270) is saved for the next new maker (memory). Watchdog: chain keepalive timeouts no longer count as agent errors (x1 logged one at ≈ 10:59 AM; harmless).
+
+## §1272 — 2026-11-07 11:11 AM CT — how the top skill takers build and unwind positions (legs.py, legs2.py; pre-reset tape, UIDs 103,122,8,181,197,120,195,191,203)
+- Entry: ~$650–880 clips fired in bursts (median gap 0 s), 6–16 bursts per position; peak position $7–22k per book; in 107–128 books at once.
+- Adds on price moves are rare: 75–89% of adds are at ~the same price; adds against the position 5–18% (median −2 bp), in favour 5–9%. Not a "scale in on −6 bp" pattern.
+- Exit: in ~10% slices (p75 25–50%), first slice at median +5.3 to +7.4 bp vs average; 83–95% of first exits in profit; full exits ≈ 1%.
+- No stop, no clock: at tape end ~105–128 positions each, open ~3.3 sim h, mark median ≈ +0.5 bp, 37–54% underwater.
+- Read: the skill comes from inventory that is cut in slices after favourable moves and rebuilt by bursts on signals, on every book, all day. Next: copy-exact x1 arm (partial exits at +6 bp, 10% slices, max position per book, no stop) after the §1270 read. Rule saved: study top miners' exact behaviour before any test (user 11-07).
