@@ -286,6 +286,7 @@ class QuoteAgent(FinanceAgent):
     def respond_simulation(self, state):
         response = self.make_response()
         self._sec = state.timestamp // 1_000_000_000
+        self._clock_check()
         if self.lock_dir and len(self.skip) < 128 and self._sec != getattr(self, "_hb_at", None):
             self._hb_at = self._sec                            # §1240 maker heartbeat: takers only handshake while a maker of ours is alive
             hb = f"{self.lock_dir}/maker_{self.uid}.hb"
@@ -407,6 +408,30 @@ class QuoteAgent(FinanceAgent):
         if not self.rev_tp_bp or not tgt or not m0:
             return False
         return (1.0 if tgt > 0 else -1.0) * (mid - m0) / m0 * 1e4 >= self.rev_tp_bp
+
+    def _clock_check(self):
+        """§1265: a sim-day reset sends the clock from ≈ 86,400 back to ≈ 0. Every "last time I did X" stamp then sat in the future, so checks like
+        `now - last >= step` never passed again: x1 stopped entering AND exiting for 3.5 h on 11-07. Shift every stored stamp by the jump and clear
+        per-second histories (they describe the old market). The pace ledger and bucket shift themselves (they keep the volume, §1255)."""
+        prev = getattr(self, "_sec_prev", None); self._sec_prev = self._sec
+        if prev is None or self._sec >= prev - 60:
+            return
+        d = self._sec - prev
+        for name in ("_ioc_logged", "_mkq_logged", "_mk_logged", "_qerr_at", "_rej_at", "_pace_logged", "_hb_at"):
+            if isinstance(getattr(self, name, None), (int, float)):
+                setattr(self, name, getattr(self, name) + d)
+        for name in ("_last_take", "_sleeve_at", "_tilt_at", "_dbg_at", "_lock_at"):
+            dd = getattr(self, name, None)
+            if isinstance(dd, dict):
+                for k in list(dd): dd[k] = dd[k] + d
+        for k, sides in getattr(self, "_pull_until", {}).items():
+            for side in list(sides): sides[side] = sides[side] + d
+        rv = getattr(self, "_rev", {})
+        for k in list(rv): rv[k] = (rv[k][0], rv[k][1] + d)
+        for name in ("_mids", "_sflow", "_oflow", "_mid_hist", "_pending"):
+            dd = getattr(self, name, None)
+            if isinstance(dd, dict): dd.clear()
+        bt.logging.warning(f"CLOCK RESET: sim time went back {-d} s; all stored times shifted, per-second histories cleared (decisions.md §1265)")
 
     def _tok_accrue(self, book_id, sec):
         st = self._tok.get(book_id)

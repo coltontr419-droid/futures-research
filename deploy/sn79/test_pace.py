@@ -98,4 +98,10 @@ check("target: short closes at +4 bp", a._rev_take(5, -10.0, 99.96) and not a._r
 check("target: flat position does nothing", not a._rev_take(5, 0.0, 200.0), "tgt 0")
 o = agent(new_path, pace_cap=450000); o._rev_px[5] = 100.0
 check("target off: never fires", not o._rev_take(5, 10.0, 200.0), "rev_tp_bp 0")
+a = agent(new_path, pace_cap=450000); a._sec = 86300; a._clock_check(); a._rev = {5: (3.0, 86000)}; a._last_take = {5: 86290}; a._pull_until = {5: {0: 86303}}; a._ioc_logged = 86250; a._mids = {5: {86299: 1.0}}
+a._sec = 20; a._clock_check(); d = 20 - 86300
+check("clock reset shifts a position's entry time", a._rev[5] == (3.0, 86000 + d) and a._sec - a._rev[5][1] == 300, f"age after reset {a._sec - a._rev[5][1]} s (was 300)")
+check("clock reset shifts take / pull / log stamps", a._last_take[5] == 86290 + d and a._pull_until[5][0] == 86303 + d and a._ioc_logged == 86250 + d, "shifted")
+check("clock reset clears per-second history", a._mids == {}, "cleared")
+a._sec = 25; a._clock_check(); check("normal steps do nothing", a._rev[5] == (3.0, 86000 + d), "unchanged")
 print("ALL PASS" if not bad else f"{bad} FAILED")
