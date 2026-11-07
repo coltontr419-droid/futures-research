@@ -7,7 +7,7 @@
 exec 9>/tmp/overnight.lock; flock -n 9 || exit 0
 S=/opt/mvtrx/ov_state; L=/opt/mvtrx/overnight_log.txt; mkdir -p $S
 now() { echo "$(date -u +%H:%MZ) / $(TZ=America/Chicago date +%I:%M%p) CT"; }
-simmin() { journalctl -u mvtrx-x1 --since "-15min" --no-pager | grep -o "SIMULATION TIME : [0-9:]*" | tail -1 | awk -F'[ :]+' '{print $3*60+$4+$5/60}'; }
+simmin() { journalctl -u mvtrx-x3 --since "-15min" --no-pager | grep -o "SIMULATION TIME : [0-9:]*" | tail -1 | awk -F'[ :]+' '{print $3*60+$4+$5/60}'; }
 SM=$(simmin)
 N0=$(wc -l < $L)
 
