@@ -217,6 +217,7 @@ class QuoteAgent(FinanceAgent):
         # §1271 trend pull: when a book's mid has moved ≥ MK_TREND_BP over the last MK_TREND_WIN sim s, stop quoting the side facing the move
         # (rising: no offer; falling: no bid). 25 of x3's 65 books lost on the side facing their trend (median move 156 bp). 0 = off.
         self.mk_trend_bp = float(getattr(c, "mk_trend_bp", 0.0)); self.mk_trend_win = int(getattr(c, "mk_trend_win", 300)); self._mk_mid = {}; self._mkt_n = [0, 0]
+        self.mk_vol_size = float(getattr(c, "mk_vol_size", 0.0))   # §1275: >0: maker order size (fraction of wealth) on the $300 books (ids 0-62) instead of SIZE
         self.mk_skip_vol = int(getattr(c, "mk_skip_vol", 0))   # §1247: 1 = no making on the volatile books (ids 0-62; quality -0.54 / -0.02 in both tape halves)
         self.mk_lad1 = float(getattr(c, "mk_lad1", 0.0)); self.mk_lad2 = float(getattr(c, "mk_lad2", 0.0))   # §1252: >0: extra resting orders this many spreads from the mid, on every side we quote (top makers fill at 0.5 / 1.5 / 3.5 spreads)
         self.mk_min_spread_bp = float(getattr(c, "mk_min_spread_bp", 0.0))   # §1242: >0: no quotes while the book's spread is under this (bp)
@@ -324,7 +325,7 @@ class QuoteAgent(FinanceAgent):
                 bt.logging.info(f"OWN FLOW: our share of order/cancel events {n / t:.1%} by count, {q / max(qt, 1e-9):.1%} by size")
         if self._sec - getattr(self, "_ioc_logged", -10 ** 9) >= 60 and getattr(self, "_ioc_n", 0):
             self._ioc_logged = self._sec            # §1223 add. 6: x2 runs without a tape, so log its IOC flow once per sim minute
-            bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}; model entries {getattr(self, '_model_n', 0)}; copy slices {getattr(self, "_slice_n", 0)}")
+            bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}; model entries {getattr(self, '_model_n', 0)}; copy slices {getattr(self, '_slice_n', 0)}")
         if self.tape is not None:
             self._record(state)
         if self.pace_cap:
@@ -658,7 +659,8 @@ class QuoteAgent(FinanceAgent):
             held = lambda side, lv: lv.quantity - ours.get((side, lv.price), 0.0) > 1e-9
             bid_px = max((l.price for l in book.bids if l.price <= bid_px + tick / 2 and held(0, l)), default=None)
             ask_px = min((l.price for l in book.asks if l.price >= ask_px - tick / 2 and held(1, l)), default=None)
-        qty = round(max(self.size * wealth0 / mid, self.min_order_size(book_id)), vd)
+        sz = self.mk_vol_size if (self.mk_vol_size > 0 and int(book_id) < 63) else self.size   # §1275: own size on the $300 books (long-lived fleet quotes ≈ $3k there)
+        qty = round(max(sz * wealth0 / mid, self.min_order_size(book_id)), vd)
         want = {}
         if int(book_id) in self.skip:
             for o in acct.orders:                          # skipped book: pull our quotes and stay out

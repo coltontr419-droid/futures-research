@@ -21059,3 +21059,18 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Code (QuoteAgent.py, backup agents/QuoteAgent.pre-copy.py; unit backup mvtrx-x1.service.pre-copy): rev_copy=1 rev_usd=1500 rev_max_usd=15000 rev_tp_bp=6 rev_slice=0.1
   rev_slice_cool=120 rev_clip_usd=700 sleeve_step=600; arms=rev_max_usd:7500 (book mod 2: A max $15k, B max $7.5k, both inside the observed $7–25k).
 - Restarted 11:26 AM CT at sim 1:38 (T = 5,880), registration checked 11:25. Read: tpread4.py (books kept / positive / median α per arm). Old inventory is flattened as exits.
+
+## §1274 — 2026-11-07 noon–1:10 PM CT — who lasts, and why (validator code + chain + tape; no changes)
+- New-UID score is age-annealed (reward.apply_track_record_ema: alpha = max(time decay, 1/(k+1))): a young UID's score follows its live trading; the validator
+  resets a slot's history on deregistration (no inheritance). Hitting the volume cap only DROPS that book's instructions (query.py) — no score penalty.
+- Two kinds of top earners: churn fleets (5G3oVFjL, 5G9URk3b, 5DkwcgDZ: UIDs 0.3–2.5 d old, $17–105k per book per sim h, i.e. budget spent in ≈ 1 wall day;
+  the 5G9URk3b UIDs we copied in §1272 all changed owner within a day) vs LONG-LIVED fleets (5F1F2JMu: 32 UIDs, 14–27 d, $245–295/month each, pure makers on
+  ≈ 127 books, ≈ $14k per book per sim h ≈ cap-safe; 5CwEDyDy 23–33 d). UIDs aged 14–33 d: 25, median $254/month. Registration burn 0.1435 TAO ≈ $32.
+- User rule (1:20 PM CT): copy only long-lived UIDs (≥ 7–14 d), never churn-and-burn fleets. Original goal and rules unchanged.
+
+## §1275 — 2026-11-07 1:21 PM CT — x3 quotes the $300 books, copying the long-lived fleet (user go)
+- Study (m300copy.py, current sim, 1.1 sim h; 5F1F2JMu UIDs 255,216,111,252,87,7,102 aged 14–27.5 d): on the $300 books they fill at the touch (1.16 half-spreads),
+  median fill ≈ $3,018, mid after 120 s +0.76 bp in their favour, net +3.1 bp per fill at 120 s, 6.3 fills per book per sim h per UID; calm $1,800 (= x3).
+- Code: mk_vol_size (order size on books 0–62; QuoteAgent.py, backup agents/QuoteAgent.pre-vol.py); test_pace ALL PASS. Unit (backup .pre-vol): mk_skip_vol=0 mk_vol_size=0.06 (≈ $3k).
+- Restarted 1:21 PM CT at sim 2:03 (T ≈ 7,380); registration checked 1:20. Trend-pull A/B (§1271, book mod 2) continues on all books; its verdict is read on books ≥ 63 only.
+- Read: m300copy.py <x3 tape> 201 7380 ($300 rows: net @120 s vs the fleet's +3.1 bp) + making_exact credit/quality on books 0–62.
