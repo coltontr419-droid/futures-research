@@ -20897,3 +20897,13 @@ served by a dedicated taker", and skill_p11_strength applies a matching factor t
 **§1257 add. 2 (2026-11-06, 4:45 PM CT): filter stays on x1.** The user's condition for removing rev_skip_vol: certain, data-backed improvement on the live miner. Walk-forward refits showed $300 books at +2.5–5 bp, 66–70% right. But the deployed v3 itself, on tape after its training (only sim min 1275–1283): $300 −0.05 / −1.31 / −1.92 bp at
 300 / 600 / 900 s (183 rows, 29 books, 83% of books positive at 600 s, so a few books drove the mean); $30 +0.91 / +0.53 / +1.03 (258 rows). Eight sim minutes is far too little, but it does not confirm the case, so the condition is not met. Live entries on x1 so far: +1.52 bp at 600 s (56%), +1.36 at 900 s (45%), n 227–260; calm +1.37 at 600 s, 4-dec +0.05.
 Re-run v3live.py once ≥ 40 sim min of post-training tape exists (≈ 8 PM CT).
+
+## §1258 — Why top skill UIDs out-score x1: they close winners; x1 exits on a clock (2026-11-06, 6:32 PM CT)
+
+roundtrip.py on x1's tape (400 MB): each UID's positions rebuilt flat to flat. Closed round trips: top UIDs +4.5 to +10.8 bp, 85–100% wins, keeping 55–84% of the best excursion (x1 +0.30 bp, 54%, 5%). UID 48 is the outlier (+2.33, 55%). **That win rate is partly survivorship:** they hold ≈ 76–103 open positions at any time, median age
+≈ 30–60 min, half under water. Closed + open marked to mid: +2.2 to +4.7 bp, 68–83% wins (x1 +0.37, 55%; UID 48 +0.93, 54%). Still 6–12× x1. Same positions at a fixed +300 / +900 s: +2.1 to +5.5 bp, so entries are also better than x1's, and exits roughly add half again on closed trips. Other differences: 6–12 legs per position (scale-in), and positions on ≈ 97 books at once vs x1's 48.
+
+**Exit replay on x1's real 157 opening entries since v3 (mid-to-mid, ±50 clip):** target 2–8 bp with a 900–3600 s stop gives +1.26 to +2.04 bp, with 2 bp reaching 82–87% wins and 4 bp / 3600 s the best at +2.04, vs +0.37 now. Robust across the grid. Caveats: small sample, same entries used to look, no own impact at exit, and it does not close the whole gap: RT ≈ +2 bp is ≈ 1 bp of notional,
+still under the 2.3 bp hurdle. How top UIDs reach 3.6+ bp of notional from +2–5 bp positions remains open; scale-in and long holds with little notional are the next things to measure.
+
+**Proposal (awaiting the user):** build `rev_tp_bp` (close a position once the mid has moved that far in its favour) and test it live as a 2×2 with re-entry on book mod 4.
