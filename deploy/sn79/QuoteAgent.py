@@ -218,6 +218,7 @@ class QuoteAgent(FinanceAgent):
         # (rising: no offer; falling: no bid). 25 of x3's 65 books lost on the side facing their trend (median move 156 bp). 0 = off.
         self.mk_trend_bp = float(getattr(c, "mk_trend_bp", 0.0)); self.mk_trend_win = int(getattr(c, "mk_trend_win", 300)); self._mk_mid = {}; self._mkt_n = [0, 0]
         self.mk_vol_lad = [int(x) for x in str(getattr(c, "mk_vol_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1278: ticks behind the touch, e.g. 2:5:10
+        self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
         self.mk_vol_lad_size = float(getattr(c, "mk_vol_lad_size", 0.07))   # §1278: ladder order size on the $300 books (fraction of wealth; fleet ≈ $3.6k there)
         self.mk_thin_vol_off = int(getattr(c, "mk_thin_vol_off", 0))   # §1276: 1 = no thin-side pulls on the $300 books (ids 0-62)
         self.mk_vol_size = float(getattr(c, "mk_vol_size", 0.0))   # §1275: >0: maker order size (fraction of wealth) on the $300 books (ids 0-62) instead of SIZE
@@ -445,6 +446,47 @@ class QuoteAgent(FinanceAgent):
         self._rev_px[book_id] = (self._rev_px.get(book_id, mid) * (n - 1) + mid) / n
         self._legs_n = getattr(self, "_legs_n", 0) + 1
         return tgt + sg * self.rev_usd / mid
+
+    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd):
+        """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
+        when the touch moves, so they keep their queue place). The validator accepts only MK_MAX_INS instructions per book per reply (default 5;
+        the rest are DROPPED), so instructions go in priority order: (1) cancel orders ahead of the target or on a pulled side, (2) touch orders,
+        (3) cancel orders too far behind, (4) missing ladder levels, nearest first."""
+        B, S = OrderDirection.BUY, OrderDirection.SELL
+        tgt = dict(want); span = max(self.mk_vol_lad) + 2
+        n = sum(1 for i in (response.instructions or []) if getattr(i, "bookId", None) == book_id)
+        urgent, stale, keep = [], [], {B: [], S: []}
+        for o in orders:
+            px = tgt.get(o.side)
+            if px is None:
+                urgent.append(o); continue
+            behind = round(((px - o.price) if o.side == B else (o.price - px)) / tick, 6)
+            if behind == 0 and o.side in want:
+                want.pop(o.side)                          # touch order already resting at the target
+            elif 1 <= behind <= span:
+                keep[o.side].append(behind)               # resting ladder order: keep its queue place
+            elif behind < 0:
+                urgent.append(o)                          # ahead of the target: exposed, cancel first
+            else:
+                stale.append(o)
+        for o in urgent:
+            if n >= self.mk_max_ins: break
+            response.cancel_order(book_id, o.id); n += 1
+        for side, px in want.items():
+            if n >= self.mk_max_ins: break
+            response.limit_order(book_id=book_id, direction=side, quantity=sq.get(side, qty), price=px, stp=STP.CANCEL_BOTH, postOnly=True,
+                                 timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry); n += 1
+        for o in stale:
+            if n >= self.mk_max_ins: break
+            response.cancel_order(book_id, o.id); n += 1
+        for k in sorted(self.mk_vol_lad):
+            for side, px in tgt.items():
+                if n >= self.mk_max_ins: return
+                if any(abs(b - k) <= 1 for b in keep[side]): continue
+                p = round(px - k * tick if side == B else px + k * tick, pd)
+                if p <= 0: continue
+                response.limit_order(book_id=book_id, direction=side, quantity=vq, price=p, stp=STP.CANCEL_BOTH, postOnly=True,
+                                     timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry); n += 1; keep[side].append(k)
 
     def _rev_copy_step(self, book_id, tgt, at, mid, pr):
         """§1273: one step of the copy mode. pr = the model forecast if a signal check is due (else None). Returns (target units, signal time)."""
@@ -894,13 +936,10 @@ class QuoteAgent(FinanceAgent):
                         p = round(math.floor(n + 1e-9) * tick if side == OrderDirection.BUY else math.ceil(n - 1e-9) * tick, pd)
                         if p != want[side] and p > 0: lv[p] = sq.get(side, qty)
                 extra[side] = lv
-        if self.mk_vol_lad and int(book_id) < 63:          # §1278 $300-book ladder (long-lived fleet): levels MK_VOL_LAD ticks behind our touch price, size MK_VOL_LAD_SIZE
+        if self.mk_vol_lad and int(book_id) < 63:          # §1278 $300-book ladder (long-lived fleet), §1279: resting ladder + the validator's per-book instruction limit
             vq = round(max(self.mk_vol_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
-            for side, px in want.items():
-                lv = extra.setdefault(side, {})
-                for k in self.mk_vol_lad:
-                    p = round(px - k * tick if side == OrderDirection.BUY else px + k * tick, pd)
-                    if p > 0: lv[p] = vq
+            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd)
+            return
         for o in orders:
             if o.price in extra.get(o.side, {}):
                 extra[o.side].pop(o.price); continue       # ladder level already resting: keep its queue place

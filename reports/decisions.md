@@ -21102,3 +21102,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   Unit (backup .pre-lad): mk_vol_size=0.034 (≈ $1.7k touch) mk_vol_lad=2:5:10 mk_vol_lad_size=0.07 (≈ $3.5k each) dbg=1.
 - Restarted 2:53 PM CT at sim 2:22:08 (T ≈ 8,528); registration checked 2:53. First fills: 32% behind the touch (2 ticks 19%, 5–6 ticks) — ladder live.
   Read: spreadpick.py <x3 tape> 201 8528 (depth table: net per fill by depth vs the fleet) + m300copy.py <x3 tape> 201 8528.
+
+## §1279 — 2026-11-07 3:29 PM CT — x3 ladder: the validator keeps only 5 instructions per book per step
+- ALERT from 2:57 PM: validator "dropped" gauge for x3 12 → 248, starting with the §1278 ladder. Cause (query.py + config): max_instructions_per_book
+  default 5 — touch ×2 + ladder ×6 + cancels went over, the excess was dropped (no cap / no penalty; orders just never reached the book). Only 1% of
+  ladder fills came from the 10-tick level. First ladder read (3:26 PM, 1.57 sim h tape since T 8,528): $300 net +1.48 bp per fill (was +0.65);
+  by depth touch +1.44, 1-2 behind +0.63, 3-6 behind +3.20 bp.
+- Fix: _vol_ladder (QuoteAgent.py, backup agents/QuoteAgent.pre-lad2.py): ladder orders REST anywhere 1..12 ticks behind the touch target (no re-pricing
+  when the touch moves → they keep their queue place) and every $300 book spends at most mk_max_ins=5 instructions per step, in priority order: exposed
+  cancels, touch orders, stale cancels, missing ladder levels (nearest first). test_pace: 5 new checks (worst 5 instructions over 2,000 random books,
+  exposed cancels first, no re-pricing, all 3 levels per side fill in) — ALL PASS.
+- Restarted 3:29 PM CT at sim 2:29:31 (T ≈ 8,971); registration checked 3:29.

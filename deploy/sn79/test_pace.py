@@ -179,4 +179,42 @@ for sd, sw in ((1, 12.0), (2, 30.0), (3, 7.0)):
 for sd, tr in ((4, 3.0), (5, 10.0), (6, 1.0)):
     w, tot = copy_attack(sd, trend=tr, sstep=65)   # 65 s vs the 120-s slice clock: slice and re-add land on different steps, so both trade
     check(f"copy full path, MAX CHURN (steady rise {tr:.0f} bp/min: slice every 120 s, rebuild every 60 s)", w < CAP and tot > 3 * 300000, f"worst 24h ${w:,.0f} of ${CAP:,.0f} | 3-day total ${tot:,.0f} (must show the gate is what holds it)")
+
+# §1279 $300-book ladder: resting levels + the validator's 5-instructions-per-book limit
+class _Ins:
+    def __init__(s, kind, book, side=None, price=None, oid=None): s.kind, s.bookId, s.side, s.price, s.oid = kind, book, side, price, oid
+class _Resp:
+    def __init__(s): s.instructions = []
+    def limit_order(s, book_id, direction, quantity, price, **k): s.instructions.append(_Ins("place", book_id, direction, price))
+    def cancel_order(s, book_id, order_id): s.instructions.append(_Ins("cancel", book_id, oid=order_id))
+class _O:
+    def __init__(s, i, side, price): s.id, s.side, s.price = i, side, price
+L = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_lad_size=0.07)
+Bd, Sd = L._vol_ladder.__globals__["OrderDirection"].BUY, L._vol_ladder.__globals__["OrderDirection"].SELL
+rng = random.Random(5); worst = 0; urgent_ok = True; tick = 0.01
+for trial in range(2000):
+    bid = round(299 + rng.randint(-50, 50) * tick, 2); ask = round(bid + rng.randint(1, 8) * tick, 2)
+    want = {}
+    if rng.random() < 0.9: want[Bd] = bid
+    if rng.random() < 0.9: want[Sd] = ask
+    orders = [_O(i, rng.choice((Bd, Sd)), round(bid + rng.randint(-20, 20) * tick, 2)) for i in range(rng.randint(0, 9))]
+    r = _Resp(); L._vol_ladder(r, 7, orders, dict(want), {}, 5.0, 10.0, tick, 2)
+    worst = max(worst, len(r.instructions))
+    ahead = {o.id for o in orders if (o.side not in want) or (o.side == Bd and o.price > want[Bd]) or (o.side == Sd and o.price < want[Sd])}
+    kinds = [(i.kind, i.oid in ahead if i.kind == "cancel" else None) for i in r.instructions]
+    first_non_urgent = next((k for k, x in enumerate(kinds) if not (x[0] == "cancel" and x[1])), len(kinds))
+    if any(x[0] == "cancel" and x[1] for x in kinds[first_non_urgent:]): urgent_ok = False
+check("ladder: never more than 5 instructions per book (validator limit)", worst <= 5, f"worst {worst} over 2,000 random books")
+check("ladder: exposed orders (ahead of the touch / pulled side) are cancelled first", urgent_ok, "priority order kept")
+r = _Resp(); orders = [_O(1, Bd, 298.98), _O(2, Bd, 298.95), _O(3, Bd, 298.90), _O(4, Sd, 299.12), _O(5, Sd, 299.15), _O(6, Sd, 299.20)]
+L._vol_ladder(r, 7, orders, {Bd: 299.00, Sd: 299.10}, {}, 5.0, 10.0, tick, 2)
+check("ladder: resting levels are not re-priced when the touch is where we want it", [i.kind for i in r.instructions] == ["place", "place"], f"{[(i.kind, i.price) for i in r.instructions]}")
+r = _Resp(); L._vol_ladder(r, 7, [_O(1, Bd, 298.98), _O(2, Bd, 298.95), _O(3, Bd, 298.90)], {Bd: 299.01}, {}, 5.0, 10.0, tick, 2)
+check("ladder: touch moves 1 tick up → ladder rests, only the new touch order", [(i.kind, i.price) for i in r.instructions] == [("place", 299.01)], f"{[(i.kind, i.price) for i in r.instructions]}")
+o = []; nid = 100
+for step in range(4):
+    r = _Resp(); L._vol_ladder(r, 7, list(o), {Bd: 299.00, Sd: 299.10}, {}, 5.0, 10.0, tick, 2)
+    for i in r.instructions:
+        if i.kind == "place": nid += 1; o.append(_O(nid, i.side, i.price))
+check("ladder: fills in all 3 levels per side within a few steps", sorted(x.price for x in o) == [298.9, 298.95, 298.98, 299.0, 299.1, 299.12, 299.15, 299.2], f"{sorted(x.price for x in o)}")
 print("ALL PASS" if not bad else f"{bad} FAILED")
