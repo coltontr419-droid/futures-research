@@ -18,7 +18,7 @@ N0=$(wc -l < $L)
     systemctl is-active -q mvtrx-${u##*:} || { echo "ALERT ${u##*:} UID ${u%%:*}: service is DOWN"; continue; }
     printf "  %s " "${u##*:}"; UIDQ=${u%%:*} /opt/mvtrx/x1_gauge.sh
     st=$(systemctl show mvtrx-${u##*:} -p ActiveEnterTimestamp --value)
-    ne=$(journalctl -u mvtrx-${u##*:} --since "$st" --no-pager | grep -c "QUOTE ERROR\|Traceback")
+    J=$(journalctl -u mvtrx-${u##*:} --since "$st" --no-pager); ne=$(( $(echo "$J" | grep -c "QUOTE ERROR\|Traceback") - $(echo "$J" | grep -c "keepalive ping timeout") ))   # chain-connection keepalive timeouts are not agent errors
     [ "$ne" -gt 0 ] && echo "ALERT ${u##*:} UID ${u%%:*}: $ne errors since its last start"
     echo "    errors since start $ne | $(journalctl -u mvtrx-${u##*:} --since "-15min" --no-pager | grep -E "IOC FLOW|MK QUALITY" | tail -1 | cut -c60-200)"
   done
