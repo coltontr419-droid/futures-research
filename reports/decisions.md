@@ -20944,3 +20944,13 @@ control projects to ≈ 280 per 3 sim h on 65 books, and ≈ 560 on 128 if the $
 **§1256 add. 4 (2026-11-06, 8:46 PM CT):** mvtrx-autorefit.timer stopped and disabled on the user's call, so nothing can change x1 during the exit test. It was in shadow and had deployed nothing (two runs, both refused). Scripts stay on the box; re-enable with `systemctl enable --now mvtrx-autorefit.timer`.
 
 **§1256 add. 5 (2026-11-06, 8:48 PM CT):** auto-refit timer back on at the user's request, in shadow (no autorefit_on file): it logs candidates and changes nothing on x1.
+
+## §1260 — Next x1 design, walk-forward on paper (2026-11-06, 8:53 PM CT)
+
+nextx1.py: scorer's alpha on the 5-s mid path, target 8 bp, three tests: fit 2 → 3, fit 3 → 4, and the deployed v3 → newest chunk (sim min ≈ 1291–1336). Compare rows, not levels; open positions charge one notional leg; paper runs 2–3× optimistic.
+- **Entry threshold (books ≥ 63), kept / median bp:** top 5%: 38 / +2.78, 50 / +3.95, 28 / +2.51. Top 10%: 40 / +2.73, 40 / +2.78, 30 / +1.96. Top 20%: 30 / +1.68, 31 / +2.10, 26 / +1.63. Top 30%: 28 / +1.75, 27 / +1.60, 24 / +1.62. **Loosening past 10% loses:** more positions do not explain the top UIDs.
+- **Scale-in (1, 3, 6 legs): no consistent gain.** Mixed across tests; it lowers notional, which flatters α. Not the missing piece.
+- **Target 6, 8, 12, 16 bp:** 8 is best or tied on kept books; 6 best in one median. The answer is flat from 6 to 16.
+- **Books:** adding the 20 $300 books strongest on the PRIOR chunk: kept 40 → 51, 40 → 55, 30 → 41, median unchanged (+2.71, +2.94, +2.05). All books: kept 77, 84, 63, median +2.64, +2.85, +2.21. **With the target exit, even the deployed v3 is not hurt by $300 books**, unlike the fixed-horizon read in §1257 add. 2 and 3. That clears the 80-book coverage rule at no paper cost.
+
+**Candidate for the next x1:** fresh refit, top 5–10% entries, 8 bp target, ≥ 85 books (65 + the 20 $300 books strongest on recent tape, or all), only if the live exit test supports the target. The 3.6+ bp gap is smaller on paper (+2.0 to +2.9 median, kept 41–84 vs top 62–71). Still unexplained at full size.
