@@ -20910,3 +20910,22 @@ still under the 2.3 bp hurdle. How top UIDs reach 3.6+ bp of notional from +2–
 
 **§1258 add. 1 (2026-11-06, 6:35 PM CT): 2×2 live on x1.** `rev_tp_bp` built (close a model position once the mid has moved that far in its favour; no new signal replaces an open position in those arms). Replay: off identical (120, 184 placements); target logic unit-tested. Restart 00:34:05 UTC, T = 79,225: arms=sleeve_step:900/rev_tp_bp:4+rev_hold:3600/sleeve_step:900+rev_tp_bp:4+rev_hold:3600
 (book mod 4: A hourly + 15-min clock exit; B 15-min re-entry; C hourly + 4 bp target with 1 h stop; D both). Backups mvtrx-x1.service.pre-tp, QuoteAgent.pre-tp.py. Re-entry data restarted. Read: x1arm.py. Early re-entry read before the restart (72 entries each): 15-min +0.75 / +1.87 bp at 600 / 900 s, hourly −1.58 / −3.16.
+
+## §1259 — Top takers use no stop-loss; a wider target reproduces their score pattern on paper (2026-11-06, 6:53 PM CT)
+
+The user asked whether top takers use stops. **No fixed stop visible.** Closed losers are small and few (median −1.7 to −3.5 bp, worst −8 to −28), but open positions sit at −30 to −93 bp, dips reach −864 bp on positions still open, and 8–20% of positions go past −10 bp, 2–6% past −20. Closed winners had dipped −4 to −7 bp (p10), up to −150. Losers are held much longer than winners on most UIDs (e.g. 2,766 vs 562 s).
+They wait; the small closed "losers" look like scratches, not stops.
+
+**Hypothesis tested (parked.py, walk-forward, scorer's alpha on the 5-s mid path; one position per book; fit chunk 3 → test 4 / fit 2 → test 3; all books):**
+
+| exit | kept / positive | median α bp | total α | raw P&L |
+|---|---|---|---|---|
+| clock 900 s (x1 today) | 55/55, 45/41 | +2.18, +1.43 | +2.95, +1.61 | +3.00, +1.89 |
+| target 2 bp | 29/29, 15/15 | +1.70, +1.56 | +2.10, +2.00 | +2.06, +1.88 |
+| target 4 bp | 84/82, 59/58 | +2.53, +2.25 | +2.92, +2.64 | +2.83, +2.43 |
+| target 8 bp, no stop | **90/87, 82/81** | **+3.86, +2.87** | +3.94, +3.69 | +3.29, +3.36 |
+
+Target 8 bp with no stop gives the top UIDs' fingerprint (62–71 kept, nearly all positive, +3.1 to +3.9 bp median). Books ≥ 63: 50/47, 38/37 kept. The 1 h stop never binds within these 40-sim-min chunks, so stop vs no stop is untested here.
+My parked-losers idea is only a small part: α exceeds raw P&L by ≤ 0.65 bp; the main gain is bigger moves per notional. Open positions charge one leg of notional, which flatters the wider targets. Paper runs 2–3× optimistic and has misled twice today.
+
+**Proposal (awaiting the user):** re-arm x1's 18-minute-old test as A clock control, B 4 bp, C 8 bp, D 8 bp no stop.

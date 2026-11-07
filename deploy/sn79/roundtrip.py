@@ -38,7 +38,8 @@ for (u, b), fs in F.items():
                 e = cur["en"] / cur["eq"]; x = cur["ex"] / cur["xq"]; sg = cur["sg"]; a, mm = M[b]; i, j = bisect.bisect_left(a, cur["t0"]), bisect.bisect_left(a, t)
                 fx = lambda s: (sg * (mid(b, cur["t0"] + s) - e) / e * 1e4) if mid(b, cur["t0"] + s) is not None else None
                 ex = max((sg * (v - e) / e * 1e4 for v in mm[i:j + 1]), default=0)
-                R[u].append(dict(hold=t - cur["t0"], ret=sg * (x - e) / e * 1e4, peak=cur["peak"], n=cur["n"], f300=fx(300), f900=fx(900), mfe=ex))
+                mae = min((sg * (v - e) / e * 1e4 for v in mm[i:j + 1]), default=0)
+                R[u].append(dict(hold=t - cur["t0"], ret=sg * (x - e) / e * 1e4, peak=cur["peak"], n=cur["n"], f300=fx(300), f900=fx(900), mfe=ex, mae=mae))
             cur = None; inv = 0.0
             if new * inv != 0: pass
             if abs(new) > 1e-9:
@@ -47,7 +48,8 @@ for (u, b), fs in F.items():
             inv = new
     if cur is not None and abs(inv) > 1e-9:
         e = cur['en'] / cur['eq']; a, mm = M[b]; lm = mm[-1] if mm else e
-        O[u].append(dict(age=a[-1] - cur['t0'] if a else 0, ret=cur['sg'] * (lm - e) / e * 1e4, val=abs(inv) * lm))
+        i0 = bisect.bisect_left(a, cur['t0'])
+        O[u].append(dict(age=a[-1] - cur['t0'] if a else 0, ret=cur['sg'] * (lm - e) / e * 1e4, val=abs(inv) * lm, mae=min((cur['sg'] * (v - e) / e * 1e4 for v in mm[i0:]), default=0)))
 print("uid  fills  roundtrips | hold median s | $ peak median | legs | RT move bp: mean(±50) median hit | same at +300 s, +900 s from entry | best excursion mean | kept of best | $-wtd RT bp")
 for u in sorted(R, key=lambda u: (u == 22, u)):
     X = R[u]; n = len(X)
@@ -60,3 +62,11 @@ print("open at the end of the slice, marked to the last mid: uid | open books | 
 for u in sorted(O, key=lambda u: (u == 22, u)):
     Y = O[u]; X = R.get(u, []); c = lambda v: max(-50, min(50, v)); A = [c(x["ret"]) for x in X] + [c(y["ret"]) for y in Y]
     print(f"{u:4d} | {len(Y):3d} | {st.median(y['age'] for y in Y):6.0f} | {st.mean(c(y['ret']) for y in Y):+6.2f} {sum(y['ret'] < 0 for y in Y) / len(Y):4.0%} | {st.mean(A):+6.2f} {sum(a > 0 for a in A) / len(A):4.0%}  (n {len(A)})")
+
+print("STOPS? closed positions: uid | losers n, share | loser exit bp p50 p10 worst | hold s losers vs winners | worst dip of closed WINNERS p50 p10 worst | open positions: worst mark, dip p10 worst | positions past -10 / -20 / -50 bp at any time")
+for u in sorted(R, key=lambda u: (u == 22, u)):
+    X = R[u]; Y = O.get(u, [])
+    if len(X) < 10: continue
+    L = sorted(x["ret"] for x in X if x["ret"] <= 0); W = [x for x in X if x["ret"] > 0]; q = lambda v, p: sorted(v)[int(len(v) * p)] if v else 0
+    allm = [x["mae"] for x in X] + [y["mae"] for y in Y]; n = len(allm)
+    print(f"{u:4d} | {len(L):3d} {len(L) / len(X):4.0%} | {q(L, .5):+7.1f} {q(L, .1):+7.1f} {min(L, default=0):+7.1f} | {st.median([x['hold'] for x in X if x['ret'] <= 0] or [0]):5.0f} / {st.median(x['hold'] for x in W):5.0f} | {q([x['mae'] for x in W], .5):+6.1f} {q([x['mae'] for x in W], .1):+6.1f} {min((x['mae'] for x in W), default=0):+7.1f} | {min((y['ret'] for y in Y), default=0):+7.1f}, {q([y['mae'] for y in Y], .1):+6.1f} {min((y['mae'] for y in Y), default=0):+7.1f} | {sum(m < -10 for m in allm) / n:4.0%} {sum(m < -20 for m in allm) / n:4.0%} {sum(m < -50 for m in allm) / n:4.0%}")
