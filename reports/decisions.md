@@ -21309,3 +21309,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - §1297 add. (9:28 AM CT, user): "volume check failed" alert removed from Discord as well (pace_sync.py logs it; backup pace_sync.py.bak-volalert). Remaining
   pace_sync alerts: book within 10% of the hard cap; no fills lately. Note: the near-cap alert uses the same dashboard API, so it is silent while the API is down —
   the in-agent pace gate (ledger, 450k vs 500k) is what enforces the cap regardless.
+
+## §1298 — 2026-11-08 9:32 AM CT — launch_maker.sh: the new-UID checklist as one command
+- /opt/mvtrx/launch_maker.sh <name> (repo deploy/sn79/launch_maker.sh): (1) fresh chain check that the hotkey holds a UID on SN79 (else stop),
+  (2) our_uids.txt "<uid> maker <name> <current sim s>" BEFORE start (backup .bak-launch-<name>), (3) moves an old pace ledger for that UID aside and removes a stale
+  heartbeat, (4) enables + starts mvtrx-<name>, (5) verifies active / heartbeat / errors / paced books. Dry check: refuses x3 (unregistered) without changes.
+  Units ready: mvtrx-x1 (8101), mvtrx-x3 (8103) = x2's setup. Droplet already has x1–x4 pub files (earnings + push-out alerts discover them).
