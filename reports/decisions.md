@@ -21425,3 +21425,15 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   last earnings row 11-03 19:00 UTC → it had been pruned and ran for nothing ≈ 5 days.
 - `systemctl disable --now tag101-m3.service tag101-bench-read.timer` (bench-read was a transient timer → gone). KEPT: tag101-earnings.timer (earnings_all.py writes
   the MVTRX rows of /opt/tag101/earnings_all.csv), minerwatch/labalerts. futures-bot untouched and active.
+
+## §1310 — 2026-11-08 3:30 PM CT — does the long-lived fleet pull? (pullprobe.py, tape only, no live change)
+- Fleet = coldkey 5F1F2JMu: 38 UIDs, 21 of them < 6 days old (the fleet rotates too); study uses the 17 aged 12.5–28.6 d (7,31,40,52,59,87,102,111,133,134,147,156,
+  210,216,241,252,255). Tape since sim s 22,000 (≈ 10:25 AM CT), $300 + calm books; kept = book mid 20 s later vs fill (not the validator's print mark).
+- Method check: x2/x4 run flow_pull 0.3 (near-touch new-order imbalance, 10 s, side off 3 s) → only 3.2–3.4% ($300) / 1.1–1.2% (calm) of their $ in that state. ✔
+- FLEET DOES NOT USE IT: 44.1% of its $300 $ and 23.3% of calm $ fill exactly when our rule has us off that side, and those fills are as good or better
+  ($300 kept +2.14 vs +1.91 rest; calm +6.45 vs +6.09). Thin-queue state (own top < 0.77 × other): fleet 47.9% / 39.6% of $, kept +2.08 / +6.69 → no thin rule either.
+- ORDER AGE (fill's maker order id Mi vs our own orders' ids per book — ids are per-book counters, monotone: 7 inversions in 23,655; a global map was wrong,
+  27% inversions): calm fleet median 110 s, 63% > 60 s, 12% > 300 s; x2 6.4 s / x4 3.0 s, 0% > 60 s — our orders never live past 60 s (expiry=60 s GTT) → re-placed
+  at the back of the queue every minute at most. $300: fleet median 9.8 s, 0% > 60 s (reprices fast there too); x2 4.6 s, x4 1.7 s.
+- Candidates (user decides; one at a time on all books): (1) flow_pull off; (2) longer expiry on calm books. Caveat: the fleet profiting in a state doesn't prove
+  our fills there would be as good.

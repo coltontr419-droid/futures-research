@@ -56,7 +56,7 @@ Re-read this file before every action.
   a change that clearly hurts.
 - Commits: `git -c user.name=DevColton -c user.email=noreply@example.invalid commit`, message ends with
   `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`; push after each commit; never force-push; never stage `.env` or `data/`.
-  Log every decision/result as a new § in `reports/decisions.md` (next free number: **§1309**).
+  Log every decision/result as a new § in `reports/decisions.md` (next free number: **§1310**; check the last § in the file).
 - Remote Python via ssh heredocs breaks on quotes — write a script file locally, `scp` it, run it.
 - After every restart verify `ActiveEnterTimestamp` changed (a syntax error once silently skipped a restart).
 
