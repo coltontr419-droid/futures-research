@@ -21334,3 +21334,16 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   anchor to a typical spread rather than the live one). Not applied to x2.
 - Rollback (standing rule; x4's protection ends ≈ 7:05 PM): mk_calm_hs removed — x4 = x2's unit + tape (backup .pre-calmrollback). Registration checked;
   restarted 12:23 PM CT; clean; tape recording. Pay noon: x2 $89.2, x4 $83.7.
+
+## §1301 — 2026-11-08 1:37–1:43 PM CT — prune risk high; quality gap by book group; x4 tests the thin rule on the $300 books only
+- Chain 1:37 PM: if protection ended now both would be the LOWEST unprotected (x2 $93, x4 $88; lowest unprotected $99, 102, 107, 107, 108, 110…).
+  Protection left: x2 5.0 h (≈ 6:40 PM), x4 5.4 h (≈ 7:05 PM). x2 projected ≈ $110–115 at 6:40 PM if the +$4–5/h climb holds — roughly even odds; x4 worse.
+- Since 11:20 we trade MORE than the fleet (x2 $38–61k per sim min vs 216 ≈ $33–35k) but capture less than half the spread: making_exact since 11:20 x2 C 89 /
+  quality 0.46 / two-sided 42 / credit 19 vs 216 153 / 0.78 / 84 / 66. The §1293 batched cancels did NOT remove deep capture (x2 $300 fills ≥ 3 ticks behind
+  0.95 → 1.89 per sim min after 8:38, edge +2.1 → +2.5). x2's quality ≈ 0.45 all along; the overnight "on pace" read (§1290) rested on a too-short window.
+- Validator-exact quality by group since 6:17 AM (making_exact on group-filtered tape): $300 x2 0.26 vs 216 0.65 (captured 83 vs 101); calm 0.61 vs 0.86
+  (144 vs 281); 4-dec ≈ 0 vs 0.52 (13 vs 42). The $300 books are the main drag. Overnight hint: x4 with the thin rule ON kept 0.44 of its $300 edge vs x2's 0.07.
+- Test (user: "run tests on x4 while we still have it"): mk_thin_only_vol (the thin rule applies only on books 0–62; QuoteAgent.py, backups agents/QuoteAgent.pre-tv.py,
+  repo QuoteAgent.pre-thinvol.py); test_pace ALL PASS; rule check: $300 True, calm False, 4-dec False. x4 unit: mk_thin_ratio 0.77, mk_thin_vol_off 0,
+  mk_thin_only_vol 1 (backup .pre-thinvol). Registration checked; restarted 1:42 PM CT at sim 6:45:49 (T ≈ 24,349); clean; tape recording. x2 = control.
+- Read ≈ 3:00 PM and ≈ 3:45 PM: making_exact on $300-filtered tape since 24,349 for 58 vs 212 (quality, two-sided, credit) + all books + gauges.

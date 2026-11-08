@@ -223,6 +223,7 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_penny = int(getattr(c, "mk_vol_penny", 5))    # §1281: quote one tick inside when the spread is ≥ this many ticks (fleet: 5+)
         self.mk_vol_keep = int(getattr(c, "mk_vol_keep", 20))     # §1281: keep resting orders up to this many ticks behind the target
         self.mk_vol_max = int(getattr(c, "mk_vol_max", 8))        # §1281: at most this many resting orders per side
+        self.mk_thin_only_vol = int(getattr(c, "mk_thin_only_vol", 0))   # §1301: 1 = the thin-side rule applies ONLY on the $300 books (ids 0-62); calm/4-dec stay two-sided
         self.mk_calm_hs = float(getattr(c, "mk_calm_hs", 0.0))   # §1295: >0: calm books (63-101) quote this many half-spreads from the mid (fleet 1.67); 0 = off
         self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
         self.mk_vol_lad_size = float(getattr(c, "mk_vol_lad_size", 0.07))   # §1278: ladder order size on the $300 books (fraction of wealth; fleet ≈ $3.6k there)
@@ -986,7 +987,7 @@ class QuoteAgent(FinanceAgent):
             self._mkq_n[0] += 1
             if self.mk_min_spread_bp > 0 and (ask - bid) / mid * 1e4 < self.mk_min_spread_bp:
                 want.clear(); self._mkq_n[1] += 1                # tight book: our fills here keep < 0% of the spread
-            elif self.mk_thin_ratio > 0 and qb and qa and not (self.mk_thin_vol_off and int(book_id) < 63):   # §1276: off on the $300 books (fleet quotes two-sided there)
+            elif self.mk_thin_ratio > 0 and qb and qa and not (self.mk_thin_vol_off and int(book_id) < 63) and not (self.mk_thin_only_vol and int(book_id) >= 63):   # §1301: thin rule on the $300 books only   # §1276: off on the $300 books (fleet quotes two-sided there)
                 if qb < self.mk_thin_ratio * qa and want.pop(OrderDirection.BUY, None) is not None:
                     self._mkq_n[2] += 1                          # thin bid queue vs the ask: the bid gets run over
                 if qa < self.mk_thin_ratio * qb and want.pop(OrderDirection.SELL, None) is not None:
