@@ -21357,3 +21357,15 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   §1207: 62% of our fills came at the back of a swept level vs 41% for the field). sticky acts on calm books (the $300 books use _vol_ladder's own keep logic).
 - Registration checked; both restarted 1:50 PM CT (sim 6:47:15, T ≈ 24,435); clean; no 4-dec fills since. Read: /opt/mvtrx/qread.sh (making_exact per group;
   x4 per arm vs x2 vs fleet 216) at ≈ 2:50 PM and ≈ 3:30 PM.
+
+## §1303 — 2026-11-08 2:02 PM CT — every-route fill probe (user rule saved: check every route before acting); calm-book ladder built
+- Memory: feedback-search-every-route.md (don't stop at the first find; measure every candidate cause deeply before acting).
+- fillprobe.py (x2 vs fleet 5F1F2JMu 7 UIDs, since 6:17 AM): CALM — fleet edge +7.46 / kept +6.04 vs x2 +3.31 / +2.33 (kept÷edge 0.81 vs 0.70): the gap is WHERE fills
+  happen. x2 91% of calm $ at the touch; fleet touch 38%, 1–2 behind 46% (edge +8.7), 3+ behind 14% (+13.2); fleet fills at 1-tick spreads still +9.5 bp edge =
+  deep resting orders being swept → the fleet runs touch + resting ladder (§1295 failed because it MOVED the touch order back). $300 — fleet kept÷edge 1.22 vs x2
+  0.51 in EVERY bucket (size, depth, spread, inventory); fleet 27% of $ right after the price ran into the order (kept +2.75) vs x2 10%; x2 70% of $ with no prior
+  move (kept÷edge 0.37 = informed takes); fleet quotes inside on 20% of $300 $ (kept÷edge 1.67), x2 never; fleet order size $2–4k for 84% of $ vs x2 $1–2k.
+  Loss concentration (x2 $300: 5 books = 92% of negative kept) does NOT persist (bookpersist.py: worst-7 overlap 1 book; first half's worst 7 made +$7 next) → rejected.
+- Built: calm-book ladder — mk_calm_lad (ticks behind) + mk_calm_lad_size reuse _vol_ladder (levels now a parameter; level-coverage tolerance = half the smallest gap:
+  1:2:4 → 0, 2:5:10 → 1) (QuoteAgent.py, backup repo QuoteAgent.pre-calmlad.py). test_pace: 2 new checks (touch + 1/2/4 both sides; ≤ 5 instructions over 1,500
+  random books) + all earlier ladder checks — ALL PASS. To deploy on x4 right after the 2:50 PM sticky-arm read.

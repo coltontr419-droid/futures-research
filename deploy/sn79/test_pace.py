@@ -301,4 +301,19 @@ check("calm: never more aggressive than the normal target", (nb, na) == (29.97, 
 nb, na = cz._calm_px(30.00, 30.02, 0.01, 2, None, 30.02)
 check("calm: a pulled side stays pulled", nb is None and na == 30.03, f"{nb} / {na}")
 off = agent(new_path, pace_cap=450000); check("calm: off by default", off.mk_calm_hs == 0.0, "0")
+
+# §1303 calm-book ladder reuses _vol_ladder with its own levels
+CL = agent(new_path, pace_cap=450000, mk_calm_lad="1:2:4", mk_calm_lad_size=0.036)
+o = []; nid = 500
+for step in range(4):
+    r = _Resp(); CL._vol_ladder(r, 80, list(o), {Bd: 30.00, Sd: 30.02}, {}, 60.0, 60.0, tick, 2, levels=CL.mk_calm_lad)
+    for i in r.instructions:
+        if i.kind == "place": nid += 1; o.append(_O(nid, i.side, i.price))
+check("calm ladder: touch + 1/2/4 ticks behind on both sides", sorted(x.price for x in o) == [29.96, 29.98, 29.99, 30.0, 30.02, 30.03, 30.04, 30.06], f"{sorted(x.price for x in o)}")
+worst = 0
+for trial in range(1500):
+    bid = round(30 + rng.randint(-30, 30) * tick, 2); ask = round(bid + rng.randint(1, 6) * tick, 2)
+    orders = [_O(i, rng.choice((Bd, Sd)), round(bid + rng.randint(-12, 12) * tick, 2)) for i in range(rng.randint(0, 10))]
+    r = _Resp(); CL._vol_ladder(r, 80, orders, {Bd: bid, Sd: ask}, {}, 60.0, 60.0, tick, 2, levels=CL.mk_calm_lad); worst = max(worst, len(r.instructions))
+check("calm ladder: never more than 5 instructions per book", worst <= 5, f"worst {worst} over 1,500 random books")
 print("ALL PASS" if not bad else f"{bad} FAILED")

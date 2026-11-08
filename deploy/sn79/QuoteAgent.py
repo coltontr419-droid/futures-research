@@ -223,6 +223,8 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_penny = int(getattr(c, "mk_vol_penny", 5))    # §1281: quote one tick inside when the spread is ≥ this many ticks (fleet: 5+)
         self.mk_vol_keep = int(getattr(c, "mk_vol_keep", 20))     # §1281: keep resting orders up to this many ticks behind the target
         self.mk_vol_max = int(getattr(c, "mk_vol_max", 8))        # §1281: at most this many resting orders per side
+        self.mk_calm_lad = [int(x) for x in str(getattr(c, "mk_calm_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1303: calm-book ladder, ticks behind the touch (e.g. 1:2:4)
+        self.mk_calm_lad_size = float(getattr(c, "mk_calm_lad_size", 0.036))   # §1303: calm ladder order size (fleet calm fills mostly $1-2k)
         self.mk_thin_only_vol = int(getattr(c, "mk_thin_only_vol", 0))   # §1301: 1 = the thin-side rule applies ONLY on the $300 books (ids 0-62); calm/4-dec stay two-sided
         self.mk_calm_hs = float(getattr(c, "mk_calm_hs", 0.0))   # §1295: >0: calm books (63-101) quote this many half-spreads from the mid (fleet 1.67); 0 = off
         self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
@@ -526,13 +528,14 @@ class QuoteAgent(FinanceAgent):
             if n >= self.mk_max_ins: return
             response.cancel_order(book_id, o.id); n += 1
 
-    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd):
+    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None):
         """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
         when the touch moves, so they keep their queue place). The validator accepts only MK_MAX_INS instructions per book per reply (default 5;
         the rest are DROPPED), so instructions go in priority order: (1) cancel orders ahead of the target or on a pulled side, (2) touch orders,
         (3) cancel orders too far behind, (4) missing ladder levels, nearest first."""
         B, S = OrderDirection.BUY, OrderDirection.SELL
-        tgt = dict(want); span = max(self.mk_vol_lad) + 2
+        levels = levels or self.mk_vol_lad
+        tgt = dict(want); span = max(levels) + 2
         n = sum(1 for i in (response.instructions or []) if getattr(i, "bookId", None) == book_id)
         urgent, stale, keep = [], [], {B: [], S: []}
         for o in orders:
@@ -558,10 +561,11 @@ class QuoteAgent(FinanceAgent):
         for o in stale:
             if n >= self.mk_max_ins: break
             response.cancel_order(book_id, o.id); n += 1
-        for k in sorted(self.mk_vol_lad):
+        lv = sorted(levels); tol = min((y - x for x, y in zip(lv, lv[1:])), default=2) // 2   # §1303: 1:2:4 → 0 (adjacent levels), 2:5:10 → 1
+        for k in lv:
             for side, px in tgt.items():
                 if n >= self.mk_max_ins: return
-                if any(abs(b - k) <= 1 for b in keep[side]): continue
+                if any(abs(b - k) <= tol for b in keep[side]): continue
                 p = round(px - k * tick if side == B else px + k * tick, pd)
                 if p <= 0: continue
                 response.limit_order(book_id=book_id, direction=side, quantity=vq, price=p, stp=STP.CANCEL_BOTH, postOnly=True,
@@ -1041,6 +1045,10 @@ class QuoteAgent(FinanceAgent):
                 self._vol_lazy(response, book_id, orders, want, vq, tick, pd)
             else:
                 self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd)
+            return
+        if self.mk_calm_lad and 63 <= int(book_id) < 102:  # §1303 calm-book ladder: the fleet's calm volume is 60% from orders resting 1+ ticks behind the touch
+            vq = round(max(self.mk_calm_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
+            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, levels=self.mk_calm_lad)
             return
         for o in orders:
             if o.price in extra.get(o.side, {}):
