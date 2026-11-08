@@ -394,6 +394,46 @@ w = {Bd: 298.97, Sd: 299.08}; r = _RespE(); IW._vol_ladder(r, 7, [], w, {}, 5.0,
 pl = [i.price for i in r.instructions if i.kind == "place"]
 check("inside fix: a skewed-back bid stays back; the ask still steps inside", 298.97 in pl and 299.07 in pl, f"{pl}")
 
+# §1317 calm hold + soft pace gate (fleet calm orders rest ≈ 107 s and are filled as the price comes to them)
+PH = agent(new_path, pace_cap=450000, pace_steady=450000, pace_start=100000, mk_calm_lad="1:2:3", mk_pace_hold=5000, mk_calm_hold=2)
+bk = _Bk([(30.00, 9.0), (29.99, 5.0)], [(30.02, 9.0)])
+ords = [_OQ(1, Bd, 30.00, 3.0), _OQ(2, Bd, 29.99, 3.0), _OQ(3, Bd, 29.98, 3.0), _OQ(4, Sd, 30.02, 3.0), _OQ(5, Sd, 30.04, 3.0), _OQ(6, Bd, 30.01, 3.0)]
+dr = sorted(o.id for o in PH._pace_hold_drop(bk, ords, 0.01))
+check("soft gate: pulls touch + inside orders only, deep ones stay", dr == [1, 4, 6], f"drop {dr}")
+PH._sec = 1000; PH._tok[80] = [-100.0, 1000]
+check("soft gate: calm book, small debt → hold", PH._pace_hold_ok(80) is True, "bucket -100")
+PH._tok[80] = [-6000.0, 1000]; check("soft gate: debt past −mk_pace_hold → full cancel", PH._pace_hold_ok(80) is False, "bucket -6000")
+PH._tok[7] = [-100.0, 1000]; check("soft gate: $300 book → full cancel", PH._pace_hold_ok(7) is False, "book 7")
+PH._tok[81] = [-100.0, 1000]; PH._pace[81] = [(900, 450000.0)]; check("soft gate: 24-h ledger at pace_cap → full cancel", PH._pace_hold_ok(81) is False, "ledger 450k")
+check("soft gate + hold: off by default", agent(new_path, pace_cap=450000).mk_pace_hold == 0 and agent(new_path, pace_cap=450000).mk_calm_hold == 0, "0")
+# hold: target moved 1 tick behind our resting touch bid → keep it, no new touch bid; 3 ticks → cancel
+o = [_OQ(10, Bd, 30.00, 3.0)]; r = _RespE(); w = {Bd: 29.99, Sd: 30.02}
+PH._vol_ladder(r, 80, list(o), w, {}, 60.0, 60.0, 0.01, 2, levels=PH.mk_calm_lad, hold=2, obest=(30.00, 30.02))
+check("hold: target 1 tick behind → resting bid kept, no new touch bid", not any(i.kind == "cancel" for i in r.instructions) and 29.99 not in [i.price for i in r.instructions if i.kind == "place"], f"{[(i.kind, i.price) for i in r.instructions]}")
+r = _RespE(); w = {Bd: 29.97, Sd: 30.02}
+PH._vol_ladder(r, 80, list(o), w, {}, 60.0, 60.0, 0.01, 2, levels=PH.mk_calm_lad, hold=2, obest=(30.00, 30.02))
+check("hold: target 3 ticks behind → cancelled", any(i.kind == "cancel" for i in r.instructions), f"{[(i.kind, i.price) for i in r.instructions]}")
+o2 = [_OQ(11, Bd, 30.01, 3.0)]; r = _RespE(); w = {Bd: 30.00, Sd: 30.02}
+PH._vol_ladder(r, 80, list(o2), w, {}, 60.0, 60.0, 0.01, 2, levels=PH.mk_calm_lad, hold=2, obest=(30.00, 30.02))
+check("hold: an order inside the others' best is not held", any(i.kind == "cancel" for i in r.instructions), f"{[(i.kind, i.price) for i in r.instructions]}")
+# CAP: adversary fills every order whenever the gate is open AND drains the resting deep orders (3 per side x $1.8k) every second the soft gate holds
+def attack_hold(a, days=3, seed=3, order=1800.0):
+    rng = random.Random(seed); b = 80; fills = collections.deque(); roll = worst = 0.0
+    for t in range(0, days * DAY, 1):
+        a._sec = t
+        if a._paced_out(b):
+            if not a._pace_hold_ok(b): continue
+            v = 6 * order                                       # worst case: every resting deep order filled at once
+        else:
+            v = order * rng.uniform(1.0, 2.0) * 2
+        fill(a, b, t, v, True); fills.append((t, v)); roll += v
+        while fills and fills[0][0] <= t - DAY: roll -= fills.popleft()[1]
+        worst = max(worst, roll)
+    return worst
+for sd in (3, 4):
+    w_ = attack_hold(agent(new_path, pace_cap=450000, pace_steady=450000, pace_start=100000, mk_pace_hold=5000, mk_calm_hold=2), seed=sd)
+    check(f"CAP soft gate (seed {sd}): worst rolling 24 h under $500k", w_ < 500000, f"${w_:,.0f}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

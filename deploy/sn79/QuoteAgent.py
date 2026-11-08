@@ -232,6 +232,10 @@ class QuoteAgent(FinanceAgent):
         self.mk_dec_size = float(getattr(c, "mk_dec_size", 0.0))      # §1313: >0: fleet-style quoting on the 4-dec books (102-127), order size (fraction of wealth; fleet ≈ $4.5k ≈ 0.09)
         self.mk_dec_inside = int(getattr(c, "mk_dec_inside", 1))      # §1313: ticks ahead of OTHER makers' best price (fleet: 1-2 ticks = 51% of its 4-dec $); our own orders never count
         self.mk_dec_deep = float(getattr(c, "mk_dec_deep", 0.27))     # §1313: one deep order this many spreads behind the touch (fleet median 0.27, IQR 0.13-0.49)
+        self.mk_calm_hold = int(getattr(c, "mk_calm_hold", 0))       # §1317: >0: calm ladder keeps a resting order up to this many ticks AHEAD of the target (fair / skew moved)
+                                                                      # if it is not inside the others' best — fleet orders rest ≈ 107 s and get filled as the price comes to them
+        self.mk_pace_hold = float(getattr(c, "mk_pace_hold", 0.0))   # §1317: >0: a paced-out CALM book keeps its orders ≥ 1 tick behind the others' best (touch / inside orders go,
+                                                                      # nothing new is placed) while the bucket is above −this $ and the 24-h ledger is under pace_cap
         self.mk_thin_only_vol = int(getattr(c, "mk_thin_only_vol", 0))   # §1301: 1 = the thin-side rule applies ONLY on the $300 books (ids 0-62); calm/4-dec stay two-sided
         self.mk_calm_hs = float(getattr(c, "mk_calm_hs", 0.0))   # §1295: >0: calm books (63-101) quote this many half-spreads from the mid (fleet 1.67); 0 = off
         self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
@@ -566,7 +570,7 @@ class QuoteAgent(FinanceAgent):
             want[B], want[S] = ob, oa
         return max(3, round(self.mk_dec_deep * (oa - ob) / tick)) if self.mk_dec_deep > 0 else None
 
-    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None, tol=None, obest=None):
+    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None, tol=None, obest=None, hold=0):
         """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
         when the touch moves, so they keep their queue place). The validator accepts only MK_MAX_INS instructions per book per reply (default 5;
         the rest are DROPPED), so instructions go in priority order: (1) cancel orders ahead of the target or on a pulled side, (2) touch orders,
@@ -593,6 +597,9 @@ class QuoteAgent(FinanceAgent):
                 want.pop(o.side)                          # touch order already resting at the target
             elif 1 <= behind <= span:
                 keep[o.side].append(behind)               # resting ladder order: keep its queue place
+            elif behind < 0 and hold and behind >= -hold and o.side in want and obest is not None and (
+                    (o.side == B and obest[0] is not None and o.price <= obest[0] + 1e-12) or (o.side == S and obest[1] is not None and o.price >= obest[1] - 1e-12)):
+                want.pop(o.side)                          # §1317: the target moved behind it by ≤ HOLD ticks and it is not inside the others' best: keep it as our touch order
             elif behind < 0:
                 urgent.append(o)                          # ahead of the target: exposed, cancel first
             else:
@@ -703,6 +710,17 @@ class QuoteAgent(FinanceAgent):
         if h[0][0] <= lo:
             self._pace[book_id] = h = [x for x in h if x[0] > lo]
         return sum(v for _, v in h)
+
+    def _pace_hold_ok(self, book_id):
+        """§1317: may a paced-out book keep its deep resting orders? Calm books only, bucket above −MK_PACE_HOLD, 24-h ledger under pace_cap (hard backstop)."""
+        return (self.mk_pace_hold > 0 and 63 <= int(book_id) < 102 and self._pace_day(book_id) < self.pace_cap
+                and self._tok_accrue(book_id, self._sec)[0] > -self.mk_pace_hold)
+
+    def _pace_hold_drop(self, book, orders, tick):
+        """§1317: orders to pull on a soft-gated book: anything AT or INSIDE the others' best (the touch); orders ≥ 1 tick behind it stay resting."""
+        ob, oa = self._others_best(book, orders)
+        return [o for o in orders if (o.side == OrderDirection.BUY and (ob is None or o.price > ob - tick / 2))
+                or (o.side == OrderDirection.SELL and (oa is None or o.price < oa + tick / 2))]
 
     def _paced_out(self, book_id):
         return self._tok_accrue(book_id, self._sec)[0] <= 0 or self._pace_day(book_id) >= self.pace_cap
@@ -980,6 +998,9 @@ class QuoteAgent(FinanceAgent):
                 elif os.path.exists(ak):
                     os.remove(ak)
         if self.pace_cap and self._paced_out(int(book_id)):
+            if self._pace_hold_ok(int(book_id)):           # §1317 soft gate (calm): deep orders stay resting, touch / inside orders go, nothing new
+                self._cancel_all(response, book_id, self._pace_hold_drop(book, acct.orders, tick))
+                return
             self._cancel_all(response, book_id, acct.orders)   # over the volume pace on this book: pull our quotes and wait (§1293)
             return
         if self.toxic and self._toxic_update(book_id, book, self._sec, mid, tick):
@@ -1108,7 +1129,8 @@ class QuoteAgent(FinanceAgent):
             return
         if self.mk_calm_lad and 63 <= int(book_id) < 102:  # §1303 calm-book ladder: the fleet's calm volume is 60% from orders resting 1+ ticks behind the touch
             vq = round(max(self.mk_calm_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
-            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, levels=self.mk_calm_lad, expiry=self.mk_calm_expiry or None)
+            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, levels=self.mk_calm_lad, expiry=self.mk_calm_expiry or None,
+                             hold=self.mk_calm_hold, obest=self._others_best(book, acct.orders) if self.mk_calm_hold else None)
             return
         for o in orders:
             if o.price in extra.get(o.side, {}):

@@ -21510,3 +21510,20 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   re-pricing rule change, not an expiry change. Next candidate (offline study first: what moves our target — touch moves vs skew vs fair).
 - x4 calm fills in the old flow-pull state: 23% of $, kept +1.63 vs +2.94 rest (n 25, too small to judge).
 - $300 since 3:35 includes the bug stretch: −0.35 ± 0.23 (1.5) — not used; the clean $300 read is from sim 25,844 at ≈ 4:55 PM CT.
+
+## §1317 — 2026-11-08 4:46 PM CT — how the fleet re-prices calm orders vs ours; hold + soft pace gate built (off; for x4 after the $300 read)
+- repricestudy.py (calm books, sim 22,000–26,600; fleet = 17 UIDs 12.5–28.6 d): FLEET places at the touch 28% / 1 behind 33% / 2 behind 23% / 3+ 14% of $,
+  order age at fill median 107 s (IQR 30–220), the own-side best moved TOWARD/through the order before the fill 37%, no move 41%, away 21% → it lays a 0–3-tick
+  ladder and waits for the price to come to it. x4: placed at touch 69% / 1 behind 24%, age median 4 s, no move 90%; x2: touch 83%, 7 s, 85% → we are hit
+  seconds after joining (informed fills).
+- What ends our calm orders: the PACE GATE first (≈ 90 of 128 books blocked at any time, PACE STATUS; a blocked book cancels everything), then re-pricing on
+  fair (micro price) / inventory-skew moves (an order ahead of the target is cancelled at once). The 500 s expiry never binds (§1316).
+- Built (QuoteAgent.py md5 50af05a3, NOT deployed; backup repo QuoteAgent.pre-hold.py), calm books only, off by default:
+  mk_calm_hold N — keep a resting order up to N ticks AHEAD of the target (the fair / skew moved) as our touch order if it is not inside the others' best;
+  mk_pace_hold $X — soft pace gate: a paced-out calm book pulls only its touch / inside orders (vs the others' best), keeps orders ≥ 1 tick behind resting and
+  places nothing, while the bucket > −$X and the 24-h ledger < pace_cap; else full cancel as before. Ladder 1:2:3 (fleet's 1/2/3-tick placements) = a param.
+- test_pace: 11 new checks (drop list = touch + inside only; hold/full-cancel switches incl. ledger at pace_cap and $300 books; hold keeps / cancels / never
+  holds an order inside the others' best; off by default) + CAP attack with an adversary filling all 6 deep orders ($10.8k) EVERY second the soft gate holds:
+  worst rolling 24 h $460.7k / $460.5k < $500k — ALL PASS.
+- Plan (user asked to match the fleet): after the $300 read (≈ 4:55 PM), x4: mk_calm_lad 1:2:3 + mk_calm_hold 2 + mk_pace_hold 5000; 1-hour all-books read
+  (calm group) ≈ 6:00 PM CT.
