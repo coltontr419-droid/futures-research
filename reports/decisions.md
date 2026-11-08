@@ -21419,3 +21419,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (confirms the §1307 correction); calm +0.45 ± 0.32 (1.4) → not significant. Sanity: fleet 216 vs x2 since 6:17 AM separates at 6.1 ($300) and 5.8 (calm) widths.
 - Built for the next x4 test: mk_tflow_usd / mk_tflow_win — on $300 books pull the bid while 10-s taker flow buys more than $X (pull the ask while it sells), from the
   agent's own per-second trade flow (kept ≥ window) (QuoteAgent.py, backup repo QuoteAgent.pre-tflow.py). test_pace: 3 new checks — ALL PASS. Default off.
+
+## §1309 — 2026-11-08 3:25 PM CT — Tag101 leftovers disabled on the futures droplet (user yes)
+- tag101-m3 (hotkey m3 5FA4YBDT) was still running although Tag101 closed 11-03 (§1211 add. 18); chain check: m3 holds NO UID on SN101 (UID 210 now 5Gs3CDjh);
+  last earnings row 11-03 19:00 UTC → it had been pruned and ran for nothing ≈ 5 days.
+- `systemctl disable --now tag101-m3.service tag101-bench-read.timer` (bench-read was a transient timer → gone). KEPT: tag101-earnings.timer (earnings_all.py writes
+  the MVTRX rows of /opt/tag101/earnings_all.csv), minerwatch/labalerts. futures-bot untouched and active.
