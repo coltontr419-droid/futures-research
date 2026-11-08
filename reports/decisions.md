@@ -21379,3 +21379,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Staged x4 config (after the 2:50 read): no arms; calm mk_calm_lad 1:2:4 size 0.036; $300 mk_vol_inside 5 + the thin rule (mk_thin_only_vol 1); 4-dec skipped.
   Caveat: the $300 read will show thin rule + inside together (thin already on); the calm-ladder read is clean.
 - Slip: an interrupted read's cleanup used pgrep -f with a pattern that matched its own ssh command and killed it (exit 255; nothing else hit). Logged in mvtrx-lessons.
+
+## §1305 — 2026-11-08 2:15 PM CT — book state before $300 fills (stateprobe.py, offline; no live change)
+- x2 vs fleet since 6:17 AM, $300 books (share of $ / kept÷edge): our touch queue < 0.5 × the other side's — x2 35% / 0.28, fleet 41% / 1.05; queue > 2× — 47% / 0.62
+  vs 41% / 1.42; 10 s trade flow hitting the OTHER side — x2 44% / 0.25, fleet 32% / 1.04; flow hitting OUR side — 34% / 0.74 vs 54% / 1.40; < 1 s since the last
+  trade — 52% / 0.40 vs 54% / 1.33.
+- Reads: (1) our worst $300 fills are on a thin queue → exactly what the thin rule pulls → the running x4 test (thin rule on $300 only) is aimed right; (2) second
+  candidate = a TRADE-flow pull (step off a side while recent trades hit the other side); (3) the fleet does well in every state → also check the size of the incoming
+  trades that fill each (sweeps vs small informed takes) — next offline route.
