@@ -21233,3 +21233,7 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Registration checked 12:50 AM; restarted 12:51 AM CT at sim 4:19:24 (test window from sim min 260). Clean start, self-trades 0.
 - Server-side reads (mktest_read.sh, transient timers): 4:30 AM and 7:00 AM CT → /opt/mvtrx/mktest_read_<HHMM>.txt + a Discord alert. Compare credit over the same
   window: x2 / x4 vs fleet 216, 252, 87 and x3.
+- §1290 add. (12:54 AM CT, user): ALL makers back on all books ("that's what the fleet does"; x3 back as it was so it isn't pushed). x3 unit restored —
+  identical to its pre-split unit (backup .pre-allbooks); registration checked 12:54; restarted 12:54 AM CT; quoting and filling. The book split (§1289) is undone.
+- PRUNE RISK: x3 ≈ $52/month = 2nd lowest of 195 unprotected UIDs (lowest UID 123 $52; then $59, $61, $66). Registrations ≈ 2–3/h prune the lowest.
+  With x2/x4 also on all books, the §1289 overlap (x3's skill) may persist. Offered: pause x4 (or x2) to cut overlap while x3 recovers — user's call.
