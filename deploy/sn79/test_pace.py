@@ -335,6 +335,48 @@ r = _RespE(); IN0 = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_cal
 ex = {getattr(i, "expiry", None) for i in r.instructions if i.kind == "place"}
 check("calm expiry: $300 ladder keeps 60 s", ex == {IN0.expiry}, f"{ex}")
 
+# §1313 fleet-style 4-dec quoting: ahead of the OTHERS' best (never our own), one deep order, ≤ 5 instructions
+class _Lv:
+    def __init__(s, price, quantity): s.price, s.quantity = price, quantity
+class _Bk:
+    def __init__(s, bids, asks): s.bids, s.asks = [_Lv(*x) for x in bids], [_Lv(*x) for x in asks]
+class _OQ:
+    def __init__(s, i, side, price, quantity): s.id, s.side, s.price, s.quantity = i, side, price, quantity
+DC = agent(new_path, pace_cap=450000, mk_dec_size=0.09, mk_dec_inside=1, mk_dec_deep=0.27); t4 = 0.0001
+bk = _Bk([(298.0000, 5.0), (297.9990, 8.0)], [(298.1000, 4.0)])
+check("dec: others' best ignores none of theirs", DC._others_best(bk, []) == (298.0, 298.1), f"{DC._others_best(bk, [])}")
+bk = _Bk([(298.0001, 5.0), (298.0000, 8.0)], [(298.1000, 4.0)])
+check("dec: our own best bid is removed from the others' best", DC._others_best(bk, [_OQ(1, Bd, 298.0001, 5.0)]) == (298.0, 298.1), f"{DC._others_best(bk, [_OQ(1, Bd, 298.0001, 5.0)])}")
+w = {Bd: 298.0, Sd: 298.1}; k = DC._dec_targets(_Bk([(298.0, 5.0)], [(298.1, 4.0)]), [], w, t4, 4)
+check("dec: one tick ahead of the others on both sides; deep = 0.27 spreads", w == {Bd: 298.0001, Sd: 298.0999} and k == 270, f"{w} k {k}")
+w = {Bd: 297.95, Sd: 298.1}; DC._dec_targets(_Bk([(298.0, 5.0)], [(298.1, 4.0)]), [], w, t4, 4)
+check("dec: a side skewed behind the touch stays put", w[Bd] == 297.95 and w[Sd] == 298.0999, f"{w}")
+w = {Bd: 298.0, Sd: 298.0002}; k = DC._dec_targets(_Bk([(298.0, 5.0)], [(298.0002, 4.0)]), [], w, t4, 4)
+check("dec: 2-tick spread → no move, falls back", k is None and w == {Bd: 298.0, Sd: 298.0002}, f"{w} {k}")
+# no walking: our order becomes the best each round; the target must stay the same price
+orders = []; prices = []
+for rnd in range(6):
+    bb = sorted([(298.0, 5.0)] + [(o.price, o.quantity) for o in orders if o.side == Bd], key=lambda x: -x[0])
+    aa = sorted([(298.1, 4.0)] + [(o.price, o.quantity) for o in orders if o.side == Sd], key=lambda x: x[0])
+    bk = _Bk(bb, aa); w = {Bd: bb[0][0], Sd: aa[0][0]}; k = DC._dec_targets(bk, orders, w, t4, 4)
+    r = _RespE(); DC._vol_ladder(r, 110, list(orders), w, {}, 15.0, 15.0, t4, 4, levels=[k], tol=max(1, k // 2))
+    for i in r.instructions:
+        if i.kind == "place": orders.append(_OQ(1000 + len(orders), Bd if i.price < 298.05 else Sd, i.price, 15.0))
+    prices.append(max(o.price for o in orders if o.side == Bd))
+check("dec: never steps inside its own order (no walk)", len(set(prices)) == 1 and prices[0] == 298.0001 and len(orders) == 4, f"best bids {prices}, orders {len(orders)}")
+deep = sorted(o.price for o in orders if o.side == Bd)[0]
+check("dec: deep bid 270 ticks behind the touch target", abs(deep - (298.0001 - 0.027)) < 1e-9, f"{deep}")
+worst = 0
+for trial in range(1500):
+    bid = round(298 + rng.randint(-500, 500) * t4, 4); ask = round(bid + rng.randint(3, 1500) * t4, 4)
+    ords = [_OQ(i, rng.choice((Bd, Sd)), round(bid + rng.randint(-600, 600) * t4, 4), 15.0) for i in range(rng.randint(0, 8))]
+    w = {Bd: bid, Sd: ask}; k = DC._dec_targets(_Bk([(bid, 5.0)], [(ask, 5.0)]), ords, w, t4, 4)
+    if k is None: continue
+    r = _RespE(); DC._vol_ladder(r, 110, ords, w, {}, 15.0, 15.0, t4, 4, levels=[k], tol=max(1, k // 2)); worst = max(worst, len(r.instructions))
+    assert all(i.price is None or i.price > 0 for i in r.instructions)
+check("dec: never more than 5 instructions per book", worst <= 5, f"worst {worst} over 1,500 random books")
+off = agent(new_path, pace_cap=450000); check("dec: off by default", off.mk_dec_size == 0.0, "0")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

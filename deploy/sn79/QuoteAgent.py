@@ -229,6 +229,9 @@ class QuoteAgent(FinanceAgent):
         self.mk_calm_lad = [int(x) for x in str(getattr(c, "mk_calm_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1303: calm-book ladder, ticks behind the touch (e.g. 1:2:4)
         self.mk_calm_lad_size = float(getattr(c, "mk_calm_lad_size", 0.036))   # §1303: calm ladder order size (fleet calm fills mostly $1-2k)
         self.mk_calm_expiry = int(float(getattr(c, "mk_calm_expiry", 0)) * 1_000_000_000)   # §1311: >0: calm-book (63-101) ladder orders expire after this many sim s (fleet: max 500 s, §1311); 0 = EXPIRY
+        self.mk_dec_size = float(getattr(c, "mk_dec_size", 0.0))      # §1313: >0: fleet-style quoting on the 4-dec books (102-127), order size (fraction of wealth; fleet ≈ $4.5k ≈ 0.09)
+        self.mk_dec_inside = int(getattr(c, "mk_dec_inside", 1))      # §1313: ticks ahead of OTHER makers' best price (fleet: 1-2 ticks = 51% of its 4-dec $); our own orders never count
+        self.mk_dec_deep = float(getattr(c, "mk_dec_deep", 0.27))     # §1313: one deep order this many spreads behind the touch (fleet median 0.27, IQR 0.13-0.49)
         self.mk_thin_only_vol = int(getattr(c, "mk_thin_only_vol", 0))   # §1301: 1 = the thin-side rule applies ONLY on the $300 books (ids 0-62); calm/4-dec stay two-sided
         self.mk_calm_hs = float(getattr(c, "mk_calm_hs", 0.0))   # §1295: >0: calm books (63-101) quote this many half-spreads from the mid (fleet 1.67); 0 = off
         self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
@@ -537,7 +540,33 @@ class QuoteAgent(FinanceAgent):
             if n >= self.mk_max_ins: return
             response.cancel_order(book_id, o.id); n += 1
 
-    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None):
+    @staticmethod
+    def _others_best(book, orders):
+        """§1313: best bid / ask held by OTHER participants (our own resting quantity removed level by level), so stepping inside never chases our own order."""
+        ours = defaultdict(float)
+        for o in orders:
+            ours[(int(o.side), o.price)] += o.quantity or 0.0
+        ob = next((l.price for l in (book.bids or []) if (l.quantity or 0.0) - ours.get((0, l.price), 0.0) > 1e-9), None)
+        oa = next((l.price for l in (book.asks or []) if (l.quantity or 0.0) - ours.get((1, l.price), 0.0) > 1e-9), None)
+        return ob, oa
+
+    def _dec_targets(self, book, orders, want, tick, pd):
+        """§1313 fleet 4-dec pattern: a side still wanted AT the touch moves MK_DEC_INSIDE ticks ahead of the others' best (never crossing); a side the
+        inventory skew already put behind the touch stays where it is. Returns the deep level in ticks (MK_DEC_DEEP spreads, ≥ 3) or None."""
+        B, S = OrderDirection.BUY, OrderDirection.SELL
+        ob, oa = self._others_best(book, orders)
+        if ob is None or oa is None or oa - ob < 3 * tick - 1e-12:
+            return None
+        n = self.mk_dec_inside * tick
+        if B in want and want[B] >= ob - 1e-12:
+            want[B] = round(min(ob + n, oa - tick), pd)
+        if S in want and want[S] <= oa + 1e-12:
+            want[S] = round(max(oa - n, ob + tick), pd)
+        if B in want and S in want and want[B] >= want[S] - 1e-12:
+            want[B], want[S] = ob, oa
+        return max(3, round(self.mk_dec_deep * (oa - ob) / tick)) if self.mk_dec_deep > 0 else None
+
+    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None, tol=None):
         """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
         when the touch moves, so they keep their queue place). The validator accepts only MK_MAX_INS instructions per book per reply (default 5;
         the rest are DROPPED), so instructions go in priority order: (1) cancel orders ahead of the target or on a pulled side, (2) touch orders,
@@ -546,7 +575,7 @@ class QuoteAgent(FinanceAgent):
         levels = levels or self.mk_vol_lad
         if inside and B in want and S in want and round((want[S] - want[B]) / tick) >= inside:   # §1304 fleet: one tick INSIDE the spread when it is ≥ INSIDE ticks wide
             want[B] = round(want[B] + tick, pd); want[S] = round(want[S] - tick, pd)
-        tgt = dict(want); span = max(levels) + 2
+        tgt = dict(want); span = max(levels) + (2 if tol is None else max(2, tol))   # §1313: a wide tolerance widens the keep window too
         n = sum(1 for i in (response.instructions or []) if getattr(i, "bookId", None) == book_id)
         urgent, stale, keep = [], [], {B: [], S: []}
         for o in orders:
@@ -572,7 +601,8 @@ class QuoteAgent(FinanceAgent):
         for o in stale:
             if n >= self.mk_max_ins: break
             response.cancel_order(book_id, o.id); n += 1
-        lv = sorted(levels); tol = min((y - x for x, y in zip(lv, lv[1:])), default=2) // 2   # §1303: 1:2:4 → 0 (adjacent levels), 2:5:10 → 1
+        lv = sorted(levels)
+        if tol is None: tol = min((y - x for x, y in zip(lv, lv[1:])), default=2) // 2   # §1303: 1:2:4 → 0 (adjacent levels), 2:5:10 → 1
         for k in lv:
             for side, px in tgt.items():
                 if n >= self.mk_max_ins: return
@@ -810,6 +840,7 @@ class QuoteAgent(FinanceAgent):
             bid_px = max((l.price for l in book.bids if l.price <= bid_px + tick / 2 and held(0, l)), default=None)
             ask_px = min((l.price for l in book.asks if l.price >= ask_px - tick / 2 and held(1, l)), default=None)
         sz = self.mk_vol_size if (self.mk_vol_size > 0 and int(book_id) < 63) else self.size   # §1275: own size on the $300 books (long-lived fleet quotes ≈ $3k there)
+        if self.mk_dec_size > 0 and int(book_id) >= 102: sz = self.mk_dec_size   # §1313: fleet 4-dec order size
         qty = round(max(sz * wealth0 / mid, self.min_order_size(book_id)), vd)
         want = {}
         if int(book_id) in self.skip:
@@ -1056,6 +1087,11 @@ class QuoteAgent(FinanceAgent):
                         p = round(math.floor(n + 1e-9) * tick if side == OrderDirection.BUY else math.ceil(n - 1e-9) * tick, pd)
                         if p != want[side] and p > 0: lv[p] = sq.get(side, qty)
                 extra[side] = lv
+        if self.mk_dec_size > 0 and int(book_id) >= 102:  # §1313 4-dec books, long-lived fleet pattern: just ahead of the others' best + one deep order
+            k = self._dec_targets(book, acct.orders, want, tick, pd)
+            if k:
+                self._vol_ladder(response, book_id, orders, want, sq, qty, qty, tick, pd, levels=[k], tol=max(1, k // 2))
+                return
         if self.mk_vol_lad and int(book_id) < 63:          # §1278 $300-book ladder (long-lived fleet), §1279: resting ladder + the validator's per-book instruction limit
             vq = round(max(self.mk_vol_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
             if self.mk_vol_lazy:

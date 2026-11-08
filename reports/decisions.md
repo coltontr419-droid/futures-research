@@ -21460,3 +21460,17 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - 4-dec: fleet quotes INSIDE the spread for 65% of its $ (touch 9%, 5+ behind 24%) at ≈ $4.5k per order, kept +1.18 bp; ours (touch, $1.76k) +0.25 / −0.09 → our
   ≈ 0 quality there came from touch quoting; a fleet-style 4-dec setup (inside + $4.5k) is a new candidate (needs code: inside quoting only exists on $300 books).
 - Prior results to weigh: $3.6k orders alone did not raise edge (§1294, with flow_pull + thin rule still on); fleet-pattern lazy orders cut skill (§1284).
+
+## §1313 — 2026-11-08 4:00 PM CT — fleet 4-dec pattern measured; fleet-style 4-dec quoting built (off); $300 inside quoting chases our own order (bug found)
+- decprobe.py (17 long-lived fleet UIDs, sim 22,000–25,700): 4-dec spreads ≈ 1,000 ticks (p10 571, p90 1,400; ≈ $0.10 ≈ 3.3 bp on ≈ $298). Fleet 4-dec $: 1–2 ticks
+  ahead of the best 51% (kept +1.04/+1.47 bp), further inside 14% (median 8% of the spread), touch 9%, 20+ ticks behind 23% (median 0.27 spreads, IQR 0.13–0.49);
+  filled $ per order ≈ $3.9–5.4k everywhere.
+- Built (QuoteAgent.py md5 0b40ebb0, NOT deployed; backup repo QuoteAgent.pre-dec.py): mk_dec_size (4-dec order size, fraction of wealth; fleet ≈ 0.09), mk_dec_inside
+  (ticks ahead of the OTHER makers' best — _others_best removes our own resting quantity level by level), mk_dec_deep (one deep order at k = 0.27 spreads behind the
+  touch target, keep tolerance k/2 via the new _vol_ladder tol parameter); a side the inventory skew already put behind the touch is not moved; spread < 3 ticks →
+  normal path. test_pace: 9 new checks incl. "never steps inside its own order" and ≤ 5 instructions over 1,500 random books — ALL PASS. Needs skip_file without
+  the 4-dec books to take effect.
+- BUG in the live $300 inside quoting (mk_vol_inside, §1304, on x4 since 2:50 PM): the main path's "best" includes our own order, so after we penny, the next round
+  pennies OURSELVES. walk300.py (real _vol_ladder): an 8-tick spread walks to 4 ticks; we end 2 ticks ahead of the others instead of 1 with 5 bid orders. Tape check
+  (selfpenny.py, x4 queue records) inconclusive (sparse queue logging; no visible collapse to 4-tick spreads). Fix = use _others_best for the $300 inside move too;
+  not applied mid-test — proposed with the 4:35 PM read.
