@@ -21495,3 +21495,18 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   when no maker was running — exactly tonight's case); (b) waits for "PACE STATUS" (≈ every 6 min) as well as "MK QUALITY" (not logged with the thin rule off),
   up to 10 min; (c) if the tape was not written for ≥ 2 min, adds tape= to the new unit so the tape never stays blind. sh -n OK; dry run on unregistered x3
   stopped at step 1 with no changes (our_uids md5 unchanged).
+
+## §1316 — 2026-11-08 4:40 PM CT — fleet-copy test: CALM read (3:35–4:36 PM, sim 25,620–26,334); abtest.py rebuilt
+- abtest.py (the fill-level tool the rules cite, §1307) was never saved anywhere → rebuilt (deploy/sn79/abtest.py): dollar-weighted edge / kept bp per maker fill
+  (book mid at the prior second; kept = mid 20 s later), 1-sim-min block bootstrap of the A − B kept difference. Sanity, same window: fleet 216 vs x2 calm +3.86 ±
+  0.66 (5.9 widths), $300 +1.02 ± 0.23 (4.5).
+- CALM, x4 (fleet copy: no flow_pull, calm expiry 500 s, ladder 1:2:4) vs x2: kept +2.65 vs +1.71 bp, diff +0.94 ± 0.39 → 2.4 noise widths (90 / 97 fills).
+  vfill (validator-style marks): quality 1.66 vs 1.19, +0.47 ± 0.70 (0.7) on a small captured base (≈ 15 each) → per the rules the fill-level read leads.
+  Same pair earlier: 2:50–3:35 (ladder, pull ON) −0.12 ± 0.61 (0.2); 1:50–2:50 (sticky arms, no ladder) +0.55 ± 0.28 (2.0). Before/after diff-in-diff
+  (+1.06 ± 0.72, 1.5 widths) is not conclusive alone. Verdict: KEEP on calm (beats the control at 2.4 widths, no sign of harm); a partial fix only — the fleet
+  is still +3.9 bp ahead of x2 per calm fill.
+- ORDER AGE (pullprobe, same window): x4 calm median 8.0 s, 5% > 60 s, 0% > 300 s vs fleet 68.5 s / 54% / 4% → the 500 s expiry is NOT what limits our order
+  life: the agent re-prices (cancel + replace) its calm orders every few seconds as the touch / fair / skew move. Holding orders like the fleet needs a
+  re-pricing rule change, not an expiry change. Next candidate (offline study first: what moves our target — touch moves vs skew vs fair).
+- x4 calm fills in the old flow-pull state: 23% of $, kept +1.63 vs +2.94 rest (n 25, too small to judge).
+- $300 since 3:35 includes the bug stretch: −0.35 ± 0.23 (1.5) — not used; the clean $300 read is from sim 25,844 at ≈ 4:55 PM CT.
