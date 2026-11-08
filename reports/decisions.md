@@ -21178,3 +21178,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Restarted 5:35 PM CT at sim 2:54:33 (T ≈ 10,473); registration checked 5:34. Restart cleared targets: old positions are flattened first (exits).
 - Read: skill_val.py <x3 tape> 194 <elapsed sim min> /opt/mvtrx/odd_books.txt → "calm" row = arm A (even), "skipped" row = arm B (odd); plus the validator gauge.
   Judge at ≥ 45 sim min (≈ 9:30 PM CT): arm B must beat arm A on kappa with ≥ 30 kept books.
+
+## §1287 — 2026-11-07 6:38 PM CT — second maker x2 (UID 212) live with x3's frozen setup
+- User registered hotkey x2 (5H94z1K2, the Nov 3 hotkey) → UID 212; x4 not registered (short on TAO). Unit mvtrx-x2 = x3's unit with hotkey x2, port 8102,
+  no tape, no dbg (old unit saved as /opt/mvtrx/mvtrx-x2.service.old-2026-11-03); mvtrx-x4 prepared (port 8104), disabled.
+- Registration checked 6:38 PM (x1 194, x2 212, x3 201 ours); our_uids.txt += "212 maker x2 0" (backup .bak-x2); started 6:38 PM CT (sim 3:07:29).
+  First minute: quoting, heartbeat maker_212.hb in the lock dir (x1's handshake covers it), only the startup staking-proxy banner.
+- Overlap measurement: x3 pay before x2 = $155.4 (5 PM), $158.0 (6 PM); live combined 0.62. Watch x3's live score and hourly pay over the next hours.
+- Stake on our hotkeys (chain, 6:37 PM): SN79 x3 6.704 α, x1 1.025 α, x2 0.203 α (+ SN101 0.021 α) ≈ 0.0235 TAO total at 0.002959 TAO/α.
+  Withdrawal command given to the user (btcli 9.23.2, read from source, not run): btcli stake remove --wallet.name main --all-hotkeys --all.
