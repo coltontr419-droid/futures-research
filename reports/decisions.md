@@ -21325,3 +21325,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Fix: pace_steady 350000 → 450000 (pace_start 100000 KEPT: removing it would make the restart replay charge the spent start and block both makers for hours;
   pace_cap 450000 backstop kept). Cap test for this exact combination (captest450.py): worst 24h $454.6k typical / $465.1k $10k orders / $478.8k $50k sweeps,
   first 24 h $451.0k — all < $500k. Units x1–x4 (backups .pre-steady450); registration checked; x2 + x4 restarted 11:20 AM CT; clean; paced books 58 / 44 of 128.
+
+## §1300 — 2026-11-08 12:19 PM CT — calm-book distance test LOST; x4 rolled back
+- m300copy.py since sim s 21,243 (≈ 37 sim min), calm books: x4 (1.67 hs) fills at 2.00 half-spreads, spread at fill 3.5 bp, edge +5.32, mid after 120 s −2.48,
+  net +2.84 bp, 1.2 fills/book/sim h; x2 (touch) 1.00, 6.7 bp, +3.39, −1.04, net +2.36, 1.8; fleet 1.67, 6.8 bp, +8.09, −1.50, net +6.59, 1.3.
+  Per book x4 ≈ 3.4 vs x2 ≈ 4.2; gauge making x4 241 vs x2 298 (fleet 216 472, 87 344). x4's deep orders get hit when the spread is TIGHT and the price is running
+  through them; the fleet's deep fills come at normal spreads with less adverse move — distance alone does not copy it (they may sit deep only at some times, or
+  anchor to a typical spread rather than the live one). Not applied to x2.
+- Rollback (standing rule; x4's protection ends ≈ 7:05 PM): mk_calm_hs removed — x4 = x2's unit + tape (backup .pre-calmrollback). Registration checked;
+  restarted 12:23 PM CT; clean; tape recording. Pay noon: x2 $89.2, x4 $83.7.
