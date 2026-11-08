@@ -21405,3 +21405,7 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Deployed on x4, EVERY book, no arms (user): calm ladder mk_calm_lad 1:2:4 size 0.036 + $300 mk_vol_inside 5 + thin rule on $300 (mk_thin_only_vol 1) + 4-dec
   skipped (unit backup .pre-combo; agent md5 bfc802b9cdd5 = repo). Registration checked; restarted 2:50 PM CT at sim 6:58:37 (T ≈ 25,117). Clean; calm fills at 1/2/4
   ticks behind already. Read ≈ 3:50 PM (qread.sh 25117) per group vs x2.
+- §1307 CORRECTION (2:56 PM CT): the "thin rule lifts $300 quality to the fleet's level" claim was wrong — it rested on making_exact's R/C over a tiny captured base
+  (x4 $300 C 9.4). Fill-level test 1:50–2:50 PM with block-bootstrap noise (abtest.py): $300 kept per fill x4 +0.75 vs x2 +0.69 bp, diff +0.07 ± 0.24 (0.3 noise
+  widths) → NO effect; calm x4 vs x2 +0.43 ± 0.27 (1.6 widths, not significant); sticky vs no sticky within x4 calm +0.41 ± 0.46 (0.9) → noise. Neither is a large fix.
+  Reads now lead with the fill-level difference ± noise; the validator's R/C ratio only when the captured base is large.
