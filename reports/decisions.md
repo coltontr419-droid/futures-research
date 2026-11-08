@@ -21306,3 +21306,6 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   window ran out. Fix: overnight.sh stamps each ALERT line with its epoch ("ALERT <epoch> text"); labalerts.py (droplet, backup labalerts.py.bak-ts) posts only
   lines stamped after the last one posted (state _last_ts); unstamped legacy lines are ignored; the 6-h repeat window still applies per text. Watchdog + forwarder
   ran clean; offline check of the filter passed. Heartbeat / box-unreachable alerts unchanged.
+- §1297 add. (9:28 AM CT, user): "volume check failed" alert removed from Discord as well (pace_sync.py logs it; backup pace_sync.py.bak-volalert). Remaining
+  pace_sync alerts: book within 10% of the hard cap; no fills lately. Note: the near-cap alert uses the same dashboard API, so it is silent while the API is down —
+  the in-agent pace gate (ledger, 450k vs 500k) is what enforces the cap regardless.
