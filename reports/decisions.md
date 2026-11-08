@@ -21409,3 +21409,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (x4 $300 C 9.4). Fill-level test 1:50–2:50 PM with block-bootstrap noise (abtest.py): $300 kept per fill x4 +0.75 vs x2 +0.69 bp, diff +0.07 ± 0.24 (0.3 noise
   widths) → NO effect; calm x4 vs x2 +0.43 ± 0.27 (1.6 widths, not significant); sticky vs no sticky within x4 calm +0.41 ± 0.46 (0.9) → noise. Neither is a large fix.
   Reads now lead with the fill-level difference ± noise; the validator's R/C ratio only when the captured base is large.
+
+## §1308 — 2026-11-08 3:00 PM CT — prune check; validator-style per-fill A/B tool; trade-flow pull built
+- Rank 3:00 PM (chain, scaled to x2 = $92.3): lowest unprotected $97, 99, 99, 101, 102, 108, 111, 113; x2 ≈ $92 (3.6 h left), x4 ≈ $88 (4.1 h) — both below ALL 195
+  unprotected; pay flat to slightly down → both likely pruned; one-miner-per-day plan is the likely next step.
+- Why the two quality measures disagreed: the validator marks fills against PRINT-centred mids (size-weighted ±15 prints) and realizes at the first print ≥ 20 s later
+  vs background-sided prints (Ma or Ta < 0), not the book mid. vfill.py replicates that per fill (simplified: no size floors, no 0–1 clamp → absolute levels run above
+  making_exact; use it for A/B only) with a 1-sim-min block bootstrap. 1:50–2:50 PM: $300 x4 1.28 vs x2 1.13, +0.15 ± 0.43 (0.4 widths) → thin rule no effect
+  (confirms the §1307 correction); calm +0.45 ± 0.32 (1.4) → not significant. Sanity: fleet 216 vs x2 since 6:17 AM separates at 6.1 ($300) and 5.8 (calm) widths.
+- Built for the next x4 test: mk_tflow_usd / mk_tflow_win — on $300 books pull the bid while 10-s taker flow buys more than $X (pull the ask while it sells), from the
+  agent's own per-second trade flow (kept ≥ window) (QuoteAgent.py, backup repo QuoteAgent.pre-tflow.py). test_pace: 3 new checks — ALL PASS. Default off.

@@ -329,4 +329,11 @@ r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00}, {}, 5.0, 10.0, tick, 2, insi
 check("inside: one side pulled → no inside move", all(i.price != 299.01 for i in r.instructions if i.kind == "place"), "bid stays 299.00")
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2)
 check("inside: off unless asked", all(i.price not in (299.01, 299.05) for i in r.instructions if i.kind == "place"), "default 0")
+
+# §1308 trade-flow pull helper
+TF = agent(new_path, pace_cap=450000, mk_tflow_usd=1000, mk_tflow_win=10); TF._sec = 100
+TF._sflow = {7: {91: 5.0, 95: 3.0, 99: 2.0, 85: 50.0}}
+check("trade flow: sums only the last 10 sim s, in $", abs(TF._tflow_usd(7, 300.0) - 3000.0) < 1e-6, f"${TF._tflow_usd(7, 300.0):,.0f} (85 s is outside)")
+TF._sflow = {7: {95: -4.0}}; check("trade flow: sellers give a negative sum", TF._tflow_usd(7, 300.0) < 0, f"${TF._tflow_usd(7, 300.0):,.0f}")
+check("trade flow: off by default", agent(new_path, pace_cap=450000).mk_tflow_usd == 0.0, "0")
 print("ALL PASS" if not bad else f"{bad} FAILED")

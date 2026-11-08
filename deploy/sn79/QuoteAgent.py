@@ -223,6 +223,8 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_penny = int(getattr(c, "mk_vol_penny", 5))    # §1281: quote one tick inside when the spread is ≥ this many ticks (fleet: 5+)
         self.mk_vol_keep = int(getattr(c, "mk_vol_keep", 20))     # §1281: keep resting orders up to this many ticks behind the target
         self.mk_vol_max = int(getattr(c, "mk_vol_max", 8))        # §1281: at most this many resting orders per side
+        self.mk_tflow_usd = float(getattr(c, "mk_tflow_usd", 0.0))   # §1308: >0: on $300 books pull the bid while 10 s taker flow buys > this $ (pull the ask while it sells)
+        self.mk_tflow_win = int(getattr(c, "mk_tflow_win", 10))        # §1308: trade-flow window, sim s
         self.mk_vol_inside = int(getattr(c, "mk_vol_inside", 0))   # §1304: >0: $300-book touch orders one tick inside the spread when it is ≥ this many ticks (fleet: 5)
         self.mk_calm_lad = [int(x) for x in str(getattr(c, "mk_calm_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1303: calm-book ladder, ticks behind the touch (e.g. 1:2:4)
         self.mk_calm_lad_size = float(getattr(c, "mk_calm_lad_size", 0.036))   # §1303: calm ladder order size (fleet calm fills mostly $1-2k)
@@ -423,7 +425,7 @@ class QuoteAgent(FinanceAgent):
                     row[2 if bid_side else 3] += e.quantity
             elif kind == "c" and getattr(e, "side", None) is not None:   # pydantic Cancellation has no side (x2 crash 11-05)
                 row[4 if e.side == 0 else 5] += e.quantity or 0.0
-        for d, keep in ((mids, 125), (fl, 6), (ofl, max(6, self.flow_win + 1))):
+        for d, keep in ((mids, 125), (fl, max(6, self.mk_tflow_win + 1)), (ofl, max(6, self.flow_win + 1))):   # §1308: trade flow kept for the trade-flow pull window
             for s in [s for s in d if s < sec - keep]:
                 del d[s]
         nb2, na2 = (sum(ofl.get(sec - j, [0.0] * 6)[i] for j in range(self.flow_win)) for i in (2, 3))
@@ -469,6 +471,11 @@ class QuoteAgent(FinanceAgent):
         self._rev_px[book_id] = (self._rev_px.get(book_id, mid) * (n - 1) + mid) / n
         self._legs_n = getattr(self, "_legs_n", 0) + 1
         return tgt + sg * self.rev_usd / mid
+
+    def _tflow_usd(self, book_id, mid):
+        """§1308: signed taker $ over the last MK_TFLOW_WIN sim seconds (+ = takers buying, i.e. hitting the asks), from the per-second _sflow history."""
+        fl = self._sflow.get(book_id, {})
+        return sum(v for s, v in fl.items() if s > self._sec - self.mk_tflow_win) * mid
 
     def _calm_px(self, bid, ask, tick, pd, bid_px, ask_px):
         """§1295: quote prices MK_CALM_HS half-spreads from the mid, rounded AWAY from the mid, never more aggressive than the normal target
@@ -1024,6 +1031,12 @@ class QuoteAgent(FinanceAgent):
         for side, t in until.items():
             if self._sec <= t:
                 want.pop(side, None)
+        if self.mk_tflow_usd > 0 and int(book_id) < 63:   # §1308 trade-flow pull ($300 books): x2's worst fills (44% of $, kept÷edge 0.25) came while trades hit the OTHER side
+            tf = self._tflow_usd(book_id, mid)            # + = takers buying (hitting the asks) over the last MK_TFLOW_WIN sim s
+            if tf > self.mk_tflow_usd and want.pop(OrderDirection.BUY, None) is not None:
+                self._tf_n = getattr(self, "_tf_n", 0) + 1
+            elif tf < -self.mk_tflow_usd and want.pop(OrderDirection.SELL, None) is not None:
+                self._tf_n = getattr(self, "_tf_n", 0) + 1
         if self.trend_z and abs(trend) > self.trend_z and trend * inv < 0:
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         if self.lock_dir:
