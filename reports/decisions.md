@@ -21192,3 +21192,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   the $100k start minus what it already spent (≈ $3k median after 4 min). Restarted 6:42 PM (registration checked 6:42); ledger 313 fills reloaded;
   first status 0 of 82 traded books paced. mvtrx-x4 unit given the same settings (still disabled). Backups /opt/mvtrx/mvtrx-x{2,4}.service.pre-front.
   Note for the overlap read: x2 now trades faster than x3 early on, so any early dip in x3 is an upper bound on the overlap cost.
+- §1287 add. 2 (6:48–6:52 PM CT): FALSE self-trade stop of x1. The watchdog stopped mvtrx-x1 at 6:48 PM for 4 "self-trades" (x1 taking UID 212's quotes) at sim s
+  9,068 / 9,987 / 10,298 / 10,696 — all BEFORE x2 started (sim s 11,249): UID 212's previous owner. Cause: our_uids.txt got "212 maker x2 0" instead of the
+  start sim s (the §1250 pitfall). Fixed to "212 maker x2 11249" (backup .bak-selftrade) → selftrade.py 0; registration checked; x1 restarted 6:51 PM CT
+  (arms unchanged; its in-memory targets reset, positions re-flattened). No real self-trade occurred.
+- Unstake (user ran it): "Batch unstake-all failed: … shield extrinsic (the protected extrinsic wasn't decrypted)" = btcli's MEV protection; retry with
+  --no-mev-protection (flag present in btcli 9.23.2 source; ≈ 0.0235 TAO at stake, so front-running risk is negligible).
