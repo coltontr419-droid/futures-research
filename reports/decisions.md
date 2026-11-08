@@ -21271,3 +21271,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   four pull-all paths (QuoteAgent.py, backups agents/QuoteAgent.pre-bc.py, repo QuoteAgent.pre-batchcancel.py). test_pace: 3 new checks (8 orders → 1 instruction,
   1 → plain cancel, 0 → nothing) — ALL PASS. Registration checked 8:38 AM; x2 + x4 restarted 8:38 AM CT (tests unchanged); clean, tape recording (x4).
 - Pay 8 AM CT: x2 $63.0 (7 AM $63.1), x4 $60.3 (7 AM $60.4) — flat for the first time; gauges making x2 335, x4 292 (fleet 87 332, 216 439).
+
+## §1294 — 2026-11-08 8:50 AM CT — test winner = thin rule off; pay is NOT stale; the remaining gap = calm-book quoting distance
+- Pay "stale" 7→8 AM was hourly-snapshot noise: paid score rises steadily (x4 0.0001 at 8 PM → 0.0013 at 8:50 AM, ≈ +0.0001/h; x2 0.0014). Fleet 87 paid 0.0033
+  (≈ $208), 216 0.0045 ($272). Projection: x2 ≈ 0.0024 at 6:40 PM ≈ $110–150/month vs a prune line ≈ $90–100 — likely clear, not by much; x4 similar.
+- Test winner (gauges + qualgap.py on 30 sim min of fresh tape since sim s 19,330): x2 (thin rule off) making 336 vs x4 ($3.6k) 291; two-sided books x2 73%,
+  x4 45%, fleet 61%; edge per fill x2 +1.90 / x4 +1.80 vs fleet +3.53 bp (kept after 20 s 0.99 / 0.99 vs 2.96). Bigger orders did not raise the edge.
+  → x4 switched to x2's setup (size 0.036, mk_vol_size 0.034, mk_thin_ratio 0; tape kept; unit backup .pre-winner); registration checked; restarted 8:54 AM CT.
+- Remaining gap (m300copy.py since sim s 19,330; fleet 7 UIDs 14–28 d vs x2): CALM books — fleet fills sit 1.67 half-spreads from the mid (behind the touch),
+  edge +7.80 bp, net @120 s +6.43, 1.4 fills/book/sim h per UID; x2 at the touch (1.00), +3.19, +1.90, 1.0. $300 books — fleet fill $2.9k (x2 $1.1k), mid after
+  +0.47 bp at 30 s (x2 −0.60). Next candidate: calm-book quotes at ≈ 1.7 half-spreads from the mid (new code), on ONE maker with the other as control — user's yes.
