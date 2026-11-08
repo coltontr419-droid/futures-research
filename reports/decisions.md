@@ -21205,3 +21205,7 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (not loaded): fresh ledger. Unit mvtrx-x4 (x3 setup, port 8104, no tape, pace_cap 450k + pace_steady 350k + pace_start 100k). Registration checked
   7:05 PM; started 7:05 PM CT (sim 3:12:2x). First minute: quoting, maker_58.hb in the lock dir, only the startup banner, self-trades 0.
 - Overlap read now covers two new makers (x2 from 6:38 PM, x4 from 7:05 PM) against x3's before-level (live combined 0.62; pay $155–158/month).
+- §1288 add. (7:12 PM CT, user go): x4pub.txt (public key only) copied to the futures droplet's wallet so minerwatch/earnings_all.py (discovery by
+  <prefix><N>pub.txt) see it: miners(79) = {x1: 194, x2: 212, x3: 201, x4: 58}. Hourly earnings log + 4-hourly Discord report + push-out alerts cover all four
+  (x2 already in the 01:00 UTC row; x4 from 02:00 UTC). Nothing else on the droplet touched.
+- First overlap signal: x3 pay $158.0 (00:00 UTC) → $134.0 (01:00 UTC, first hour with x2); one hour, could be noise — tracking.
