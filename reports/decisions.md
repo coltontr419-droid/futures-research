@@ -21387,3 +21387,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Reads: (1) our worst $300 fills are on a thin queue → exactly what the thin rule pulls → the running x4 test (thin rule on $300 only) is aimed right; (2) second
   candidate = a TRADE-flow pull (step off a side while recent trades hit the other side); (3) the fleet does well in every state → also check the size of the incoming
   trades that fill each (sweeps vs small informed takes) — next offline route.
+
+## §1306 — 2026-11-08 2:18–2:21 PM CT — the $300 quality gap is the fleet's BEHAVIOUR (presence), not size, state, fair value, a liquidity wall or book choice
+- takersize.py ($300, since 6:17 AM): fleet fills come more from $10k+ incoming sweeps (59% of $ vs x2 37%), but it keeps more at EVERY incoming size (k÷e 1.13–1.72
+  vs x2 0.35–0.86); x2 worst: $3–10k incoming (0.35) and 2–3 levels swept (0.32). Calm: fleet's edge higher at every size (fits the ladder finding).
+- fundprobe.py: no lean toward the sim's fundamental (fleet 50% / 46% of $ toward / against fair, same as x2; outcome flat across the gap) → closed.
+- Maker-volume share since 6:17 AM: $300 books fleet 7% / other miners 23% / background 69% → no "liquidity wall" → closed.
+- pairbook.py: on the 60 $300 books both traded, the fleet kept more per $ on 57 (+1.98 vs +0.70 bp) → behaviour, not book selection → closed.
+- Conclusion: the fleet is PRESENT at better times — per UID about half our $300 fill rate (≈ 7 vs 12–21 fills per sim min) with ≈ 3× the kept per fill; it avoids the
+  bad fills, likely via pull rules. Queue: thin rule on $300 (live, read 2:50) → combined calm ladder + $300 inside (2:55) → a trade-flow pull (step off a side while
+  recent trades hit the other side; that bucket is 44% of x2's $300 $ at k÷e 0.25).
