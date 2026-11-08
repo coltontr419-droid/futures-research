@@ -21544,3 +21544,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   mk_calm_lad 1:2:4 → 1:2:3, + mk_calm_hold 2, + mk_pace_hold 5000 (§1317). Restarted 4:55:56 PM CT (sim ≈ 26,565); ActiveEnterTimestamp changed.
   Calm read ≈ 5:56 PM CT: abtest/vfill 26565 → now, x4 vs x2, + repricestudy (order age / placement vs fleet).
 - Prune check 4:57 PM: lowest unprotected 1.08 / 1.08 / 1.12 × x2; x4 0.93 × x2; 195 unprotected; ≈ 2.5 registrations/h. Pay 4 PM: x2 $90.1, x4 $84.6.
+
+## §1320 — 2026-11-08 5:01 PM CT — user away (laptop closed): server-side reads scheduled; user's point on history
+- User: x2/x4 ran non-fleet strategies + the self-penny bug since last night, so their emission vs the line understates a fresh fleet-copy UID. Agreed in part:
+  the paid score ≈ the mean of all rounds since registration, so 0.86–0.93× mostly reflects that history; the per-fill gap measured on the CURRENT setup
+  (calm kept +2.65 vs fleet +5.6, $300 +0.47 vs +1.75) is real today. Judge the next UID at 6 h / 24 h vs the line (target ≥ 2×).
+- Session crons stop while the laptop is closed → transient timers on the lab box run awayread.sh (deploy/sn79): 5:57 PM CT "read" (calm hold/soft-gate read
+  since 26,565, $300 2-hour read since 25,844, fleet sanity, order life, errors, pace) and prune/registration/wallet snapshots at 6:45, 7:15, 8:00 PM CT →
+  /opt/mvtrx/away_<tag>.txt + an "ALERT <epoch>" line (Discord #miners). No live changes while away (rules); a pruned miner is cleaned up on return.
