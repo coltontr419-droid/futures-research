@@ -21198,3 +21198,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (arms unchanged; its in-memory targets reset, positions re-flattened). No real self-trade occurred.
 - Unstake (user ran it): "Batch unstake-all failed: … shield extrinsic (the protected extrinsic wasn't decrypted)" = btcli's MEV protection; retry with
   --no-mev-protection (flag present in btcli 9.23.2 source; ≈ 0.0235 TAO at stake, so front-running risk is negligible).
+
+## §1288 — 2026-11-07 7:05 PM CT — third maker x4 (UID 58) live: x3's setup + the front-loaded budget
+- User created hotkey x4 (5E1bojcP) and registered it → UID 58 (our old x3 slot, pruned 11-06). Hotkey file (only) copied laptop → server, chmod 600.
+- New-UID checklist step 1 FIRST: our_uids.txt += "58 maker x4 11544" (start sim s; backup .bak-x4) → selftrade.py 0. Old ledger only as pace_58.ledger.old
+  (not loaded): fresh ledger. Unit mvtrx-x4 (x3 setup, port 8104, no tape, pace_cap 450k + pace_steady 350k + pace_start 100k). Registration checked
+  7:05 PM; started 7:05 PM CT (sim 3:12:2x). First minute: quoting, maker_58.hb in the lock dir, only the startup banner, self-trades 0.
+- Overlap read now covers two new makers (x2 from 6:38 PM, x4 from 7:05 PM) against x3's before-level (live combined 0.62; pay $155–158/month).
