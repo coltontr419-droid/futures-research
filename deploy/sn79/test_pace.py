@@ -316,4 +316,17 @@ for trial in range(1500):
     orders = [_O(i, rng.choice((Bd, Sd)), round(bid + rng.randint(-12, 12) * tick, 2)) for i in range(rng.randint(0, 10))]
     r = _Resp(); CL._vol_ladder(r, 80, orders, {Bd: bid, Sd: ask}, {}, 60.0, 60.0, tick, 2, levels=CL.mk_calm_lad); worst = max(worst, len(r.instructions))
 check("calm ladder: never more than 5 instructions per book", worst <= 5, f"worst {worst} over 1,500 random books")
+
+# §1304 $300 inside quoting inside _vol_ladder
+IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
+r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)
+pl = sorted((i.side == Sd, i.price) for i in r.instructions if i.kind == "place")
+check("inside: 6-tick spread → touch orders one tick inside", (False, 299.01) in pl and (True, 299.05) in pl, f"{pl}")
+r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.03}, {}, 5.0, 10.0, tick, 2, inside=5)
+pl = sorted((i.side == Sd, i.price) for i in r.instructions if i.kind == "place")
+check("inside: 3-tick spread → stays at the touch", (False, 299.0) in pl and (True, 299.03) in pl, f"{pl}")
+r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00}, {}, 5.0, 10.0, tick, 2, inside=5)
+check("inside: one side pulled → no inside move", all(i.price != 299.01 for i in r.instructions if i.kind == "place"), "bid stays 299.00")
+r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2)
+check("inside: off unless asked", all(i.price not in (299.01, 299.05) for i in r.instructions if i.kind == "place"), "default 0")
 print("ALL PASS" if not bad else f"{bad} FAILED")

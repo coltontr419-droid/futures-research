@@ -21369,3 +21369,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Built: calm-book ladder — mk_calm_lad (ticks behind) + mk_calm_lad_size reuse _vol_ladder (levels now a parameter; level-coverage tolerance = half the smallest gap:
   1:2:4 → 0, 2:5:10 → 1) (QuoteAgent.py, backup repo QuoteAgent.pre-calmlad.py). test_pace: 2 new checks (touch + 1/2/4 both sides; ≤ 5 instructions over 1,500
   random books) + all earlier ladder checks — ALL PASS. To deploy on x4 right after the 2:50 PM sticky-arm read.
+
+## §1304 — 2026-11-08 2:12 PM CT — $300 inside quoting built; combined all-books test staged for after the 2:50 read
+- User: combine the calm ladder and $300 inside quoting in ONE test on EVERY book of x4 (no book split; splits caused problems before), right AFTER the 2:50 read
+  (current tests keep running until then). Rule saved: every problem and solution goes to memory permanently (mvtrx-lessons.md + feedback-record-every-lesson.md).
+- Built: mk_vol_inside → _vol_ladder moves the $300 touch orders one tick inside when both sides are wanted and the spread is ≥ N ticks (fleet's trigger 5); ladder
+  levels follow the moved touch (QuoteAgent.py, backup repo QuoteAgent.pre-inside.py). test_pace: 4 new checks (6-tick spread → inside; 3-tick → touch; one side
+  pulled → no move; off by default) — ALL PASS.
+- Staged x4 config (after the 2:50 read): no arms; calm mk_calm_lad 1:2:4 size 0.036; $300 mk_vol_inside 5 + the thin rule (mk_thin_only_vol 1); 4-dec skipped.
+  Caveat: the $300 read will show thin rule + inside together (thin already on); the calm-ladder read is clean.
+- Slip: an interrupted read's cleanup used pgrep -f with a pattern that matched its own ssh command and killed it (exit 255; nothing else hit). Logged in mvtrx-lessons.
