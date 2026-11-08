@@ -21397,3 +21397,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Conclusion: the fleet is PRESENT at better times — per UID about half our $300 fill rate (≈ 7 vs 12–21 fills per sim min) with ≈ 3× the kept per fill; it avoids the
   bad fills, likely via pull rules. Queue: thin rule on $300 (live, read 2:50) → combined calm ladder + $300 inside (2:55) → a trade-flow pull (step off a side while
   recent trades hit the other side; that bucket is 44% of x2's $300 $ at k÷e 0.25).
+
+## §1307 — 2026-11-08 2:49–2:52 PM CT — 2:50 read; combined all-books test live on x4
+- Read since 1:50 PM (≈ 11 sim min; per arm too thin, as the noise check predicted — 1/3 of books per arm): x4 $300 books (all arms = thin rule on) C 9.4 / R 6.2 →
+  quality 0.66 vs x2 0.37 (C 13.7) vs fleet 216 0.63 → the thin rule lifts $300 quality to the fleet's level at the cost of less capture. Calm: x4 sticky arms 1+2 C 17.0 /
+  R 10.9 → 0.64 vs arm 0 (no sticky) 0.33 vs x2 0.40 → sticky positive but small sample. Rule saved: 1-wall-hour tests for large effects (feedback-test-duration.md).
+- Deployed on x4, EVERY book, no arms (user): calm ladder mk_calm_lad 1:2:4 size 0.036 + $300 mk_vol_inside 5 + thin rule on $300 (mk_thin_only_vol 1) + 4-dec
+  skipped (unit backup .pre-combo; agent md5 bfc802b9cdd5 = repo). Registration checked; restarted 2:50 PM CT at sim 6:58:37 (T ≈ 25,117). Clean; calm fills at 1/2/4
+  ticks behind already. Read ≈ 3:50 PM (qread.sh 25117) per group vs x2.
