@@ -21347,3 +21347,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   repo QuoteAgent.pre-thinvol.py); test_pace ALL PASS; rule check: $300 True, calm False, 4-dec False. x4 unit: mk_thin_ratio 0.77, mk_thin_vol_off 0,
   mk_thin_only_vol 1 (backup .pre-thinvol). Registration checked; restarted 1:42 PM CT at sim 6:45:49 (T ≈ 24,349); clean; tape recording. x2 = control.
 - Read ≈ 3:00 PM and ≈ 3:45 PM: making_exact on $300-filtered tape since 24,349 for 58 vs 212 (quality, two-sided, credit) + all books + gauges.
+
+## §1302 — 2026-11-08 1:50 PM CT — 4-dec books skipped on both makers; x4 runs three quality arms at once
+- Why 4-dec / $300 books drag: the validator's making quality is ONE number per miner (total R ÷ total C over all books) multiplying every book's two-sided
+  capture. x2 since 6:17 AM: calm alone credit 65.0 (q 0.61); all books 64.9 (q 0.45) — the $300 + 4-dec books add nothing net. Projections: 4-dec skipped
+  ≈ 74 (+13%); $300 at the fleet's 0.65 ≈ 90 (+38%). Volume is not scored; pace/cap are per book; 102 books still ≫ the 80-book skill-coverage bar.
+- Change: skip_file=books_skip_4dec.txt (102–127) on x2 AND x4 (backups .pre-skip4dec). x4 also arms=sticky:2/sticky:5 → book mod 3: arm 0 = base (thin rule on
+  $300 only), arm 1 = + sticky 2 ticks, arm 2 = + sticky 5 ticks (keep a resting order when the target moves up to N ticks more aggressive — keeps its queue place;
+  §1207: 62% of our fills came at the back of a swept level vs 41% for the field). sticky acts on calm books (the $300 books use _vol_ladder's own keep logic).
+- Registration checked; both restarted 1:50 PM CT (sim 6:47:15, T ≈ 24,435); clean; no 4-dec fills since. Read: /opt/mvtrx/qread.sh (making_exact per group;
+  x4 per arm vs x2 vs fleet 216) at ≈ 2:50 PM and ≈ 3:30 PM.
