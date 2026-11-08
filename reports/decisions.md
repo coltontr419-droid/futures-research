@@ -21450,3 +21450,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   $300 ladder 2:5:10, sizes, pace (cap/steady 450k, start 100k, ledger), 4-dec skipped (fleet quotes 4-dec, but our 4-dec quality ≈ 0 and its behaviour there is
   unmeasured — the one deliberate difference). Registration checked 3:34 PM; restarted 3:34:58 PM CT (sim ≈ 25,620); ActiveEnterTimestamp changed; clean; filling; tape on.
 - x2 unchanged (control; still runs flow_pull 0.3, thin off, 60 s expiry, no ladder on calm, no inside). Read ≈ 4:35 PM CT: vfill.py 25620 <now> x4=58 x2=212 + gauges.
+
+## §1312 — 2026-11-08 3:41 PM CT — fleet-gap audit: every remaining observable difference (fleetgap.py, tape only, no live change)
+- Long-lived fleet (17 UIDs 12.5–28.6 d) vs x2 / x4, sim 22,000–25,691 (≈ 10:25 AM–3:40 PM CT; x2/x4 4-dec data is from before 1:50 PM, when they still quoted it).
+- $300: fleet uses ONE order size ≈ $3.6k (filled $ per order median 3,560 = p90 3,603) vs ours touch $1.7k + ladder $3.5k; fleet fill depth inside 25% / touch 21% /
+  1–4 behind 38% / 5+ 17% vs x2 14 / 45 / 34 / 7; fleet 397 fills/UID/sim h vs ours ≈ 1,150 (fewer, bigger fills); $ per book per sim h fleet 14.6k vs ours ≈ 22k
+  (our pace_start credit is still front-loading; bucket keeps ≤ 450k / 24 h); when loaded, fleet fills cut the position 64% vs x2 54% / x4 44%; kept +2.00 vs +0.63 / +0.76.
+- Calm: same order size ($1.8k); fleet depth touch 41% / 1 behind 33% / 2: 16% / 3: 6% / 4: 1% → looks like a 1:2:3 ladder (ours 1:2:4); kept +6.12 vs +2.30 / +2.41.
+- 4-dec: fleet quotes INSIDE the spread for 65% of its $ (touch 9%, 5+ behind 24%) at ≈ $4.5k per order, kept +1.18 bp; ours (touch, $1.76k) +0.25 / −0.09 → our
+  ≈ 0 quality there came from touch quoting; a fleet-style 4-dec setup (inside + $4.5k) is a new candidate (needs code: inside quoting only exists on $300 books).
+- Prior results to weigh: $3.6k orders alone did not raise edge (§1294, with flow_pull + thin rule still on); fleet-pattern lazy orders cut skill (§1284).
