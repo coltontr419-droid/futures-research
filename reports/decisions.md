@@ -21290,3 +21290,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   repo QuoteAgent.pre-calm.py). On a 2-tick calm spread this is one tick behind the touch. test_pace: 5 new checks — ALL PASS.
 - x4 unit: mk_calm_hs=1.67 (backup .pre-calm); everything else = x2 (thin rule off, size 0.036). Registration checked 9:04 AM; restarted 9:04 AM CT
   (sim 5:54:03, T ≈ 21,243). x2 unchanged = control. Read ≈ 12:30 PM: m300copy.py / qualgap.py since 21,243 (calm rows) + gauges (making, live, paid score).
+
+## §1296 — 2026-11-08 9:18 AM CT — audit after the prunes; leftovers fixed; scaling prep
+- Audit: x2/x4 active, x1/x3 disabled; units as intended (both thin rule off, size 0.036, all books, front-loaded budget; x4 also mk_calm_hs 1.67 + tape); deployed
+  agent md5 = repo (435d575f36f2); our_uids = 212, 58; tape rotation truncates in place (x4 keeps appending). Validator "dropped" gauge now 0 for both (§1293 fix confirmed).
+- Fixed: mvtrx-autorefit.timer stopped + disabled (no taker left; its next run would read a model from x1's maker unit and fail); overnight.sh simmin() now reads
+  mvtrx-x4's log (backup overnight.sh.bak-simmin).
+- Scaling prep: the x1 and x3 hotkeys are unregistered and reusable — mvtrx-x1 (port 8101) and mvtrx-x3 (port 8103, old unit backup .pre-reuse) = x2's unit with
+  their hotkey/port; both DISABLED until the user registers. Burn 0.1367 TAO each. New-UID checklist: our_uids line with the start sim s BEFORE start.
