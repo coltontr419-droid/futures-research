@@ -21315,3 +21315,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (2) our_uids.txt "<uid> maker <name> <current sim s>" BEFORE start (backup .bak-launch-<name>), (3) moves an old pace ledger for that UID aside and removes a stale
   heartbeat, (4) enables + starts mvtrx-<name>, (5) verifies active / heartbeat / errors / paced books. Dry check: refuses x3 (unregistered) without changes.
   Units ready: mvtrx-x1 (8101), mvtrx-x3 (8103) = x2's setup. Droplet already has x1–x4 pub files (earnings + push-out alerts discover them).
+
+## §1299 — 2026-11-08 11:20 AM CT — the making-credit dip = the front-loaded budget's lower steady rate; steady pace back to 450k
+- Gauges: making x2 343 → 296–302, x4 306 → 270–273 between 10:14 and 11:14 AM while the fleet held (216 442–454, 87 328–338). Not overlap (making is not split
+  between makers, §1289) and not the §1293 batched cancels: fillrate.py (current sim) — x2 fills/$ per sim min unchanged across 8:38 (23.5 / $29.3k → 23.2 / $29.1k).
+- Cause: PACE. x2 had ≈ 110 of 128 books paced out all morning, trading ≈ $13.6k per book per sim h = its front-loaded steady rate (pace_steady 350k/day ≈ $14.6k/sim h).
+  Fleet per UID ≈ $36k per sim min ≈ $16.9k per book per sim h ≈ $405k per book per day. The $100k start inflated the first sim hours' making credit; as those hours
+  left the scoring window the credit settled to the 350k steady level (the dip).
+- Fix: pace_steady 350000 → 450000 (pace_start 100000 KEPT: removing it would make the restart replay charge the spent start and block both makers for hours;
+  pace_cap 450000 backstop kept). Cap test for this exact combination (captest450.py): worst 24h $454.6k typical / $465.1k $10k orders / $478.8k $50k sweeps,
+  first 24 h $451.0k — all < $500k. Units x1–x4 (backups .pre-steady450); registration checked; x2 + x4 restarted 11:20 AM CT; clean; paced books 58 / 44 of 128.
