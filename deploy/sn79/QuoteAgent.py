@@ -376,6 +376,19 @@ class QuoteAgent(FinanceAgent):
                     import traceback
                     bt.logging.warning(f"QUOTE ERROR x{self._qerr} book {book_id}: {type(ex).__name__}: {ex} | {traceback.format_exc(limit=3)[-400:]}")
                 continue
+        try:                                               # §1292: which books send > 5 instructions in one reply (the validator drops the excess)
+            from collections import Counter
+            cnt = Counter(getattr(i, "bookId", None) for i in (response.instructions or []))
+            over = {b: n for b, n in cnt.items() if n > 5}
+            if over:
+                self._ins_over = getattr(self, "_ins_over", Counter()); self._ins_over.update({("$300" if b < 63 else "calm" if b < 102 else "4dec"): n - 5 for b, n in over.items()})
+                self._ins_ex = getattr(self, "_ins_ex", {}); self._ins_ex.update({b: [type(i).__name__ for i in response.instructions if getattr(i, "bookId", None) == b] for b in list(over)[:1]})
+            if self._sec - getattr(self, "_ins_logged", -10 ** 9) >= 60 and getattr(self, "_ins_over", None):
+                self._ins_logged = self._sec
+                bt.logging.info(f"INS OVER 5: excess by book group {dict(self._ins_over)} | example {self._ins_ex}")
+                self._ins_over.clear(); self._ins_ex = {}
+        except Exception:
+            pass
         return response
 
     def _predict(self, book_id, book, sec, mid):

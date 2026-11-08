@@ -21248,3 +21248,15 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Overnight gauges (6:08 AM): x2 (thin rule off) making 313, x4 ($3.6k orders) 276, vs fleet 216 501, 252 387, 87 357 (10:36 UTC: 478 / 387 / 357).
   x2/x4 ≈ 11 h old vs the ≈ 15 wall h making window, and the tests began at 12:51 AM, so their gauges mix pre-test and test periods.
   Pay 6 AM CT: x2 $56.6, x4 $54.6, x1 $28.7 (x1 was $0.4 at midnight).
+
+## §1292 — 2026-11-08 7:20 AM CT — x1 converted to a maker; instruction counter; quality-gap study (first pass)
+- User: (1) scale more makers tonight if x2/x4 hold up; (2) test winner read ≈ 10 AM; (3) quality study by 10 AM; (4) switch x1 to a maker now (it would be pruned
+  as a taker anyway); (5) find the dropped instructions.
+- (5) QuoteAgent.py: after each reply, log once per sim minute "INS OVER 5" with the excess by book group and an example instruction list (backup
+  agents/QuoteAgent.pre-ins.py / repo QuoteAgent.pre-inscount.py); test_pace ALL PASS. Live on x1 first (x2/x4 pick it up at their next restart).
+- (4) x1 (UID 194) unit = x2's unit (thin rule off, all books, size 0.036, pace_cap 450k / steady 350k / start 100k) with hotkey x1, port 8101 (backup
+  /opt/mvtrx/mvtrx-x1.service.pre-maker); our_uids "194 maker x1 3617" (backup .bak-x1maker); ledger kept (17,246 fills reloaded). Registration checked 7:19 AM;
+  restarted 7:20 AM CT. No taker of ours remains → self-trades are impossible (makers' post-only orders cannot fill each other); guard reads 0.
+- (3) qualgap.py, first pass, 13 sim min since sim s 19,330 (fleet 5F1F2JMu 7 UIDs 14–28 d vs x2, x4): edge at fill fleet +3.63 bp vs x2 +2.00 / x4 +1.94;
+  mid 20 s later −0.56 vs −1.04 / −0.84; kept÷edge 0.84 vs 0.48 / 0.57. Calm books edge +7.31 vs +3.44 / +3.07; fills 1–2 behind the touch edge +5.74 vs +1.89.
+  $300 books kept +1.69 vs +0.09 / +0.64. Two-sided books 38% vs x2 39% / x4 10% (x4 keeps the thin rule). Rerun with ≈ 45 sim min at 10 AM.
