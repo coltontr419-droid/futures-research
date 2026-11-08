@@ -21222,3 +21222,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   locks acked by all three makers incl. skipped books; x1 still trading; self-trades 0; no errors.
 - x1 A/B (§1286) verdict, 80 sim min (validator math): arm A (even, copy setup) 11 kept, kappa +0.49; arm B (odd, 10-min exit) 5 kept, kappa −0.33. B fails;
   both far below 30 kept books. x1 pay ≈ $0.4/month at midnight: no working taker strategy now. Options for the user (no change tonight).
+
+## §1290 — 2026-11-08 12:51 AM CT — overnight making-credit tests on x2 and x4 (all books), goal: the long-lived fleet's making credit
+- Study (making_exact.py = validator code, current sim): fleet UID 216 (5F1F2JMu, 14–27 d) over sim min 78–258: captured 961, quality 0.75, two-sided 711,
+  credit 533 (gauge 508). x3 same window: 467 / 0.45 / 338 / credit 153 (gauge 147). Last 58 sim min: x2 credit 120 (captured 336, quality 0.48) vs 216 113 —
+  x2 was on pace; the gauge gap (170 vs 508) is mostly window fill (x2 is ~1 sim h old). Fleet's edge over x3: ≈ 2× two-sided capture (x3's thin rule pulls
+  ≈ 60% of quote sides) and quality 0.75 vs 0.45.
+- User: one test each on x2 and x4, ALL books, read by morning. x2: mk_thin_ratio 0 (thin rule off everywhere). x4: size 0.072 + mk_vol_size 0.072 (fleet order
+  ≈ $3.6k everywhere). Both skip_file → books_none.txt; pacing unchanged (cap-safe). x3 unchanged (frozen, book % 3 == 0). Backups /opt/mvtrx/mvtrx-x{2,4}.service.pre-mktest.
+- Registration checked 12:50 AM; restarted 12:51 AM CT at sim 4:19:24 (test window from sim min 260). Clean start, self-trades 0.
+- Server-side reads (mktest_read.sh, transient timers): 4:30 AM and 7:00 AM CT → /opt/mvtrx/mktest_read_<HHMM>.txt + a Discord alert. Compare credit over the same
+  window: x2 / x4 vs fleet 216, 252, 87 and x3.
