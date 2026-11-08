@@ -566,14 +566,20 @@ class QuoteAgent(FinanceAgent):
             want[B], want[S] = ob, oa
         return max(3, round(self.mk_dec_deep * (oa - ob) / tick)) if self.mk_dec_deep > 0 else None
 
-    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None, tol=None):
+    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None, tol=None, obest=None):
         """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
         when the touch moves, so they keep their queue place). The validator accepts only MK_MAX_INS instructions per book per reply (default 5;
         the rest are DROPPED), so instructions go in priority order: (1) cancel orders ahead of the target or on a pulled side, (2) touch orders,
         (3) cancel orders too far behind, (4) missing ladder levels, nearest first."""
         B, S = OrderDirection.BUY, OrderDirection.SELL
         levels = levels or self.mk_vol_lad
-        if inside and B in want and S in want and round((want[S] - want[B]) / tick) >= inside:   # §1304 fleet: one tick INSIDE the spread when it is ≥ INSIDE ticks wide
+        if inside and obest is not None and B in want and S in want:   # §1314: step inside the OTHER makers' best, never our own order (the §1304 version
+            ob, oa = obest                                                # pennied itself round after round: 8-tick spreads walked to 4, walk300.py)
+            if ob is not None and oa is not None and round((oa - ob) / tick) >= inside:
+                nb = round(ob + tick, pd) if want[B] >= ob - 1e-12 else want[B]   # a side the skew put behind the touch stays put
+                na = round(oa - tick, pd) if want[S] <= oa + 1e-12 else want[S]
+                if nb < na - 1e-12: want[B], want[S] = nb, na
+        elif inside and B in want and S in want and round((want[S] - want[B]) / tick) >= inside:   # §1304 fleet: one tick INSIDE the spread when it is ≥ INSIDE ticks wide
             want[B] = round(want[B] + tick, pd); want[S] = round(want[S] - tick, pd)
         tgt = dict(want); span = max(levels) + (2 if tol is None else max(2, tol))   # §1313: a wide tolerance widens the keep window too
         n = sum(1 for i in (response.instructions or []) if getattr(i, "bookId", None) == book_id)
@@ -1097,7 +1103,8 @@ class QuoteAgent(FinanceAgent):
             if self.mk_vol_lazy:
                 self._vol_lazy(response, book_id, orders, want, vq, tick, pd)
             else:
-                self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, inside=self.mk_vol_inside)
+                self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, inside=self.mk_vol_inside,
+                                 obest=self._others_best(book, acct.orders) if self.mk_vol_inside else None)
             return
         if self.mk_calm_lad and 63 <= int(book_id) < 102:  # §1303 calm-book ladder: the fleet's calm volume is 60% from orders resting 1+ ticks behind the touch
             vq = round(max(self.mk_calm_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)

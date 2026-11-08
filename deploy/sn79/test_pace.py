@@ -377,6 +377,23 @@ for trial in range(1500):
 check("dec: never more than 5 instructions per book", worst <= 5, f"worst {worst} over 1,500 random books")
 off = agent(new_path, pace_cap=450000); check("dec: off by default", off.mk_dec_size == 0.0, "0")
 
+# §1314 $300 inside quoting must step inside the OTHERS' best, not our own order (no walk over rounds)
+IW = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5); ords = []; best = []
+for rnd in range(8):
+    bb = sorted([(299.00, 5.0)] + [(o.price, o.quantity) for o in ords if o.side == Bd], key=lambda x: -x[0])
+    aa = sorted([(299.08, 5.0)] + [(o.price, o.quantity) for o in ords if o.side == Sd], key=lambda x: x[0])
+    bk = _Bk(bb, aa); w = {Bd: bb[0][0], Sd: aa[0][0]}
+    r = _RespE(); IW._vol_ladder(r, 7, list(ords), w, {}, 5.0, 10.0, tick, 2, inside=5, obest=IW._others_best(bk, ords))
+    for i in r.instructions:
+        if i.kind == "place": ords.append(_OQ(5000 + len(ords), Bd if i.price < 299.04 else Sd, i.price, 5.0))
+    best.append((max(o.price for o in ords if o.side == Bd), min(o.price for o in ords if o.side == Sd)))
+check("inside fix: one tick ahead of the others every round (no walk)", set(best) == {(299.01, 299.07)}, f"{sorted(set(best))}")
+w = {Bd: 299.00, Sd: 299.03}; r = _RespE(); IW._vol_ladder(r, 7, [], w, {}, 5.0, 10.0, tick, 2, inside=5, obest=(299.00, 299.03))
+check("inside fix: 3-tick spread → stays at the touch", (299.0 in [i.price for i in r.instructions]) and (299.03 in [i.price for i in r.instructions]), f"{[i.price for i in r.instructions]}")
+w = {Bd: 298.97, Sd: 299.08}; r = _RespE(); IW._vol_ladder(r, 7, [], w, {}, 5.0, 10.0, tick, 2, inside=5, obest=(299.00, 299.08))
+pl = [i.price for i in r.instructions if i.kind == "place"]
+check("inside fix: a skewed-back bid stays back; the ask still steps inside", 298.97 in pl and 299.07 in pl, f"{pl}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

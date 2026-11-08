@@ -21474,3 +21474,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   pennies OURSELVES. walk300.py (real _vol_ladder): an 8-tick spread walks to 4 ticks; we end 2 ticks ahead of the others instead of 1 with 5 bid orders. Tape check
   (selfpenny.py, x4 queue records) inconclusive (sparse queue logging; no visible collapse to 4-tick spreads). Fix = use _others_best for the $300 inside move too;
   not applied mid-test — proposed with the 4:35 PM read.
+
+## §1314 — 2026-11-08 3:54 PM CT — $300 inside-quoting self-penny bug fixed live on x4 (user); read windows split
+- User: fix the §1313 bug now if its effect can be told apart from the fleet-copy test, else wait. It can: the bug only touches the $300 books (inside quoting runs
+  only there), so the calm read keeps its window (3:35 PM →, sim 25,620) and the $300 read restarts at the fix (sim 25,844 → +1 wall hour ≈ 4:55 PM CT);
+  3:35–3:54 $300 data = fleet copy WITH the bug (separate, short).
+- Fix: _vol_ladder(obest=…) — when obest (others' best from _others_best) is given, the inside move goes one tick ahead of the OTHER makers' best when their spread
+  is ≥ INSIDE ticks; a side the skew put behind the touch stays; the main $300 call passes obest. Old path kept only for calls without obest (tests).
+  QuoteAgent.py md5 e03a3f4f (= repo; backups agents/QuoteAgent.pre-insidefix.py / repo QuoteAgent.pre-insidefix.py; includes the §1313 4-dec code, off).
+  test_pace: 3 new checks (no walk over 8 rounds: always 299.01/299.07; 3-tick spread stays; skewed-back bid stays) — ALL PASS.
+- Registration checked 3:53 PM; x4 restarted 3:54:09 PM CT (unit unchanged); ActiveEnterTimestamp changed. x2 unchanged (does not use inside quoting).
