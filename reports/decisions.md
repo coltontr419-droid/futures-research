@@ -21298,3 +21298,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   mvtrx-x4's log (backup overnight.sh.bak-simmin).
 - Scaling prep: the x1 and x3 hotkeys are unregistered and reusable — mvtrx-x1 (port 8101) and mvtrx-x3 (port 8103, old unit backup .pre-reuse) = x2's unit with
   their hotkey/port; both DISABLED until the user registers. Burn 0.1367 TAO each. New-UID checklist: our_uids line with the start sim s BEFORE start.
+
+## §1297 — 2026-11-08 9:25 AM CT — Discord alert cleanup (user)
+- Removed from Discord: "the validator dropped N instructions" (pace_sync.py now logs it as a status line; backup pace_sync.py.bak-alerts) and
+  "NOT REGISTERED (pruned)" (overnight.sh logs it only; the droplet's minerwatch push-out alert covers it; backup overnight.sh.bak-alerts).
+- Ghost alerts ("x3 no fills" after x3 was pruned): labalerts.py read the last 60 lines of alerts.txt with a 6-h repeat window, so old lines were re-posted once their
+  window ran out. Fix: overnight.sh stamps each ALERT line with its epoch ("ALERT <epoch> text"); labalerts.py (droplet, backup labalerts.py.bak-ts) posts only
+  lines stamped after the last one posted (state _last_ts); unstamped legacy lines are ignored; the 6-h repeat window still applies per text. Watchdog + forwarder
+  ran clean; offline check of the filter passed. Heartbeat / box-unreachable alerts unchanged.
