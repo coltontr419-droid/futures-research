@@ -21534,3 +21534,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - → A fleet-pattern miner clears the line by ≈ 2–3.5× within its first day and the long-lived ones hold ≥ 1.9× → matching their behaviour would mean surviving
   for weeks; we are ≈ 2.5× short of that today. Caveat: we see only their fills (not their orders), so a full copy can't be verified directly; judge by our
   emission ÷ line at 6 h / 24 h on the next registration (target ≥ 2).
+
+## §1319 — 2026-11-08 4:56 PM CT — $300 read of the fleet copy (3:54–4:54 PM); calm hold + soft pace gate live on x4; 5 PM prune check
+- $300, x4 (fleet copy: no flow_pull, no thin rule, inside 5 via the others' best) vs x2, sim 25,844–26,546 (≈ 1 wall hour): abtest kept +0.47 vs +0.96 bp,
+  diff −0.49 ± 0.25 (1.9 widths, x4 worse, under the bar); vfill quality 1.07 vs 0.87, +0.19 ± 0.40 (0.5) on a small base (C ≈ 17). With-bug stretch 3:35–3:54:
+  −0.03 ± 0.27 (0.1). Sanity fleet 216 vs x2: +0.79 ± 0.19 (4.1). → Neither a clear win nor a clear loss; kept (fleet behaviour); the $300 read continues
+  unchanged into a 2nd hour (the calm deploy does not touch the $300 path) → re-read ≈ 5:55 PM.
+- Deployed on x4 (registration checked 4:54 PM; agent md5 50af05a3 = repo, backup agents/QuoteAgent.pre-hold.py; unit backup mvtrx-x4.service.pre-hold):
+  mk_calm_lad 1:2:4 → 1:2:3, + mk_calm_hold 2, + mk_pace_hold 5000 (§1317). Restarted 4:55:56 PM CT (sim ≈ 26,565); ActiveEnterTimestamp changed.
+  Calm read ≈ 5:56 PM CT: abtest/vfill 26565 → now, x4 vs x2, + repricestudy (order age / placement vs fleet).
+- Prune check 4:57 PM: lowest unprotected 1.08 / 1.08 / 1.12 × x2; x4 0.93 × x2; 195 unprotected; ≈ 2.5 registrations/h. Pay 4 PM: x2 $90.1, x4 $84.6.
