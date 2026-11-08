@@ -465,6 +465,15 @@ class QuoteAgent(FinanceAgent):
         self._legs_n = getattr(self, "_legs_n", 0) + 1
         return tgt + sg * self.rev_usd / mid
 
+    def _cancel_all(self, response, book_id, orders):
+        """§1293: pull several of our orders with ONE CancelOrders instruction. One cancel per order went over the validator's 5 instructions per book
+        per reply on the $300 ladder books (7-8 cancels when a book paced out) — the excess was dropped and those orders stayed on the book."""
+        ids = [o.id for o in (orders or [])]
+        if len(ids) == 1:
+            response.cancel_order(book_id, ids[0])
+        elif ids:
+            response.cancel_orders(book_id, ids)
+
     def _vol_lazy(self, response, book_id, orders, want, vq, tick, pd):
         """§1281: the long-lived fleet's $300-book pattern, inferred from its fills. One order size (MK_VOL_LAD_SIZE, ≈ $3.6k) placed at the touch
         (WANT, computed without our own size) or one tick INSIDE when the spread is ≥ MK_VOL_PENNY ticks; when the price moves away the order is LEFT
@@ -777,8 +786,7 @@ class QuoteAgent(FinanceAgent):
         qty = round(max(sz * wealth0 / mid, self.min_order_size(book_id)), vd)
         want = {}
         if int(book_id) in self.skip:
-            for o in acct.orders:                          # skipped book: pull our quotes and stay out
-                response.cancel_order(book_id, o.id)
+            self._cancel_all(response, book_id, acct.orders)   # skipped book: pull our quotes and stay out (§1293: one instruction)
             if self.lock_dir and len(self.skip) < 128:     # §1289 a MAKER on a book it does not quote (book split between our makers): still clear our
                 for side in (OrderDirection.BUY, OrderDirection.SELL):   # taker's locks, or x1 would wait on every book some maker skips
                     lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}_{self.uid}"
@@ -900,8 +908,7 @@ class QuoteAgent(FinanceAgent):
                 lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}_{self.uid}"
                 if os.path.exists(lk):
                     mine = [o for o in acct.orders if o.side == side]
-                    for o in mine:
-                        response.cancel_order(book_id, o.id)      # pull our quote on the locked side now
+                    self._cancel_all(response, book_id, mine)     # pull our quotes on the locked side now (§1293: one instruction)
                     if not mine:
                         with open(ak + ".tmp", "w") as fh:
                             fh.write(str(self._sec))
@@ -909,12 +916,10 @@ class QuoteAgent(FinanceAgent):
                 elif os.path.exists(ak):
                     os.remove(ak)
         if self.pace_cap and self._paced_out(int(book_id)):
-            for o in acct.orders:                          # over the volume pace on this book: pull our quotes and wait
-                response.cancel_order(book_id, o.id)
+            self._cancel_all(response, book_id, acct.orders)   # over the volume pace on this book: pull our quotes and wait (§1293)
             return
         if self.toxic and self._toxic_update(book_id, book, self._sec, mid, tick):
-            for o in acct.orders:                          # book paused: pull our quotes and stay out
-                response.cancel_order(book_id, o.id)
+            self._cancel_all(response, book_id, acct.orders)   # book paused: pull our quotes and stay out (§1293)
             return
         units = acct.base_balance.total - base0 - tgt_units
         if self.max_units and units >= self.max_units:

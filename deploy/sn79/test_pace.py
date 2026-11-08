@@ -279,4 +279,14 @@ def hold_attack(seed, days=3, step=5):
 for sd in (11, 12):
     w, tot = hold_attack(sd)
     check("hold: 3-day full path, signals every 60 s, exits every 600 s", w < CAP and tot > 3 * 300000, f"worst 24h ${w:,.0f} of ${CAP:,.0f} | 3-day ${tot:,.0f}")
+
+# §1293 batched cancel: pulling many orders is ONE instruction
+class _RespB:
+    def __init__(s): s.instructions = []
+    def cancel_order(s, book_id, order_id): s.instructions.append(("one", book_id, order_id))
+    def cancel_orders(s, book_id, order_ids): s.instructions.append(("many", book_id, tuple(order_ids)))
+cb = agent(new_path, pace_cap=450000); r = _RespB(); cb._cancel_all(r, 7, [_O(i, Bd, 299.0) for i in range(8)])
+check("batched cancel: 8 orders → 1 instruction", len(r.instructions) == 1 and r.instructions[0][0] == "many" and len(r.instructions[0][2]) == 8, f"{len(r.instructions)} instruction(s)")
+r = _RespB(); cb._cancel_all(r, 7, [_O(1, Bd, 299.0)]); check("batched cancel: 1 order → plain cancel", r.instructions == [("one", 7, 1)], f"{r.instructions}")
+r = _RespB(); cb._cancel_all(r, 7, []); check("batched cancel: no orders → nothing", r.instructions == [], "none")
 print("ALL PASS" if not bad else f"{bad} FAILED")

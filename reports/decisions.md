@@ -21260,3 +21260,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - (3) qualgap.py, first pass, 13 sim min since sim s 19,330 (fleet 5F1F2JMu 7 UIDs 14–28 d vs x2, x4): edge at fill fleet +3.63 bp vs x2 +2.00 / x4 +1.94;
   mid 20 s later −0.56 vs −1.04 / −0.84; kept÷edge 0.84 vs 0.48 / 0.57. Calm books edge +7.31 vs +3.44 / +3.07; fills 1–2 behind the touch edge +5.74 vs +1.89.
   $300 books kept +1.69 vs +0.09 / +0.64. Two-sided books 38% vs x2 39% / x4 10% (x4 keeps the thin rule). Rerun with ≈ 45 sim min at 10 AM.
+
+## §1293 — 2026-11-08 8:37 AM CT — x1 pruned as a new maker; dropped-instruction source found and fixed (batched cancels)
+- x1 (UID 194) pruned ≈ 7:58 AM CT, 38 min after its maker conversion (past protection, pay fading from its taker days; a fresh maker starts low).
+  Cleanup: mvtrx-x1 stopped + disabled; our_uids "194 maker x1 3617" removed (backup .bak-x1pruned); maker_194.hb removed; selftrade.py 0. Live: x2 (212), x4 (58).
+- §1292 counter (x1, before the prune): every excess is on $300 books and is 7–8 CancelOrders instructions in one reply = the pull-all paths (book paced out /
+  paused / skipped / locked side) cancelling the ladder's up-to-8 resting orders one by one; the validator kept 5, DROPPED the rest — so those orders stayed on a
+  book that was supposed to be paused (a hole in the pace, bounded by our 450k-vs-500k margin).
+- Fix: _cancel_all → ONE response.cancel_orders(book_id, ids) (a single CancelOrdersInstruction with many cancellations; checked in protocol/response.py) in the
+  four pull-all paths (QuoteAgent.py, backups agents/QuoteAgent.pre-bc.py, repo QuoteAgent.pre-batchcancel.py). test_pace: 3 new checks (8 orders → 1 instruction,
+  1 → plain cancel, 0 → nothing) — ALL PASS. Registration checked 8:38 AM; x2 + x4 restarted 8:38 AM CT (tests unchanged); clean, tape recording (x4).
+- Pay 8 AM CT: x2 $63.0 (7 AM $63.1), x4 $60.3 (7 AM $60.4) — flat for the first time; gauges making x2 335, x4 292 (fleet 87 332, 216 439).
