@@ -21527,3 +21527,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   worst rolling 24 h $460.7k / $460.5k < $500k — ALL PASS.
 - Plan (user asked to match the fleet): after the $300 read (≈ 4:55 PM), x4: mk_calm_lad 1:2:3 + mk_calm_hold 2 + mk_pace_hold 5000; 1-hour all-books read
   (calm group) ≈ 6:00 PM CT.
+
+## §1318 — 2026-11-08 4:52 PM CT — do fleet-pattern UIDs survive from day one? (fleetage.py, chain, read-only)
+- Emission ÷ the prune line (lowest unprotected UID = 1.00): fleet 5F1F2JMu UIDs aged 0.7–1 d 2.06 / 2.42 / 2.50 / 6.20; 1–2 d (8) median 3.48 (min 2.98);
+  2–6 d (8) median 2.14 (min 1.65); 12–28 d (17) median 2.42 (min 1.89). Field median 2.30. Ours at ≈ 1 d: x2 0.93, x4 0.86. The fleet added a UID ≈ 30 min ago (135).
+- → A fleet-pattern miner clears the line by ≈ 2–3.5× within its first day and the long-lived ones hold ≥ 1.9× → matching their behaviour would mean surviving
+  for weeks; we are ≈ 2.5× short of that today. Caveat: we see only their fills (not their orders), so a full copy can't be verified directly; judge by our
+  emission ÷ line at 6 h / 24 h on the next registration (target ≥ 2).
