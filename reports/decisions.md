@@ -21237,3 +21237,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   identical to its pre-split unit (backup .pre-allbooks); registration checked 12:54; restarted 12:54 AM CT; quoting and filling. The book split (§1289) is undone.
 - PRUNE RISK: x3 ≈ $52/month = 2nd lowest of 195 unprotected UIDs (lowest UID 123 $52; then $59, $61, $66). Registrations ≈ 2–3/h prune the lowest.
   With x2/x4 also on all books, the §1289 overlap (x3's skill) may persist. Offered: pause x4 (or x2) to cut overlap while x3 recovers — user's call.
+
+## §1291 — 2026-11-08 6:17 AM CT — x3 (UID 201) PRUNED ≈ 1:49 AM CT; cleanup; overnight test status
+- x3 was 2nd lowest unprotected at 12:56 AM ($52); its tape stopped at 07:49 UTC (1:49 AM CT) = pruned (the x3 hotkey holds no UID now). Since x3 was the only
+  tape recorder, the tape (self-trade guard, x1's preload, the §1290 reads) stopped too: the 4:30 AM read covers only sim min 260 → ≈ 265 (credits tiny for
+  everyone, fleet included) — not usable. 7:00 AM read cancelled (window would straddle a 4.5 h tape gap).
+- Cleanup (safety): mvtrx-x3 stopped + disabled; "201 maker x3 0" removed from our_uids.txt (backup .bak-x3pruned) so the new owner's fills are not counted as
+  ours; maker_201.hb removed. Tape moved to x4 (tape=/opt/mvtrx/live_tape_x3.jsonl, same file; unit backup .pre-tape); registration checked; x4 restarted
+  6:17 AM CT; tape recording again; selftrade.py 0. Self-trades between 1:49 and 6:17 AM could not be checked (handshake was on throughout).
+- Overnight gauges (6:08 AM): x2 (thin rule off) making 313, x4 ($3.6k orders) 276, vs fleet 216 501, 252 387, 87 357 (10:36 UTC: 478 / 387 / 357).
+  x2/x4 ≈ 11 h old vs the ≈ 15 wall h making window, and the tests began at 12:51 AM, so their gauges mix pre-test and test periods.
+  Pay 6 AM CT: x2 $56.6, x4 $54.6, x1 $28.7 (x1 was $0.4 at midnight).
