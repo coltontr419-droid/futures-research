@@ -21187,3 +21187,8 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Overlap measurement: x3 pay before x2 = $155.4 (5 PM), $158.0 (6 PM); live combined 0.62. Watch x3's live score and hourly pay over the next hours.
 - Stake on our hotkeys (chain, 6:37 PM): SN79 x3 6.704 α, x1 1.025 α, x2 0.203 α (+ SN101 0.021 α) ≈ 0.0235 TAO total at 0.002959 TAO/α.
   Withdrawal command given to the user (btcli 9.23.2, read from source, not run): btcli stake remove --wallet.name main --all-hotkeys --all.
+- §1287 add. (6:42 PM CT, user go): x2 switched to the front-loaded budget (pace_cap 450000 + pace_steady 350000 + pace_start 100000; the §1255 tests:
+  worst 24 h ≈ $451–458k of $500k). Not too late: on restart the ledger is replayed through the bucket from each book's first fill, so every book gets
+  the $100k start minus what it already spent (≈ $3k median after 4 min). Restarted 6:42 PM (registration checked 6:42); ledger 313 fills reloaded;
+  first status 0 of 82 traded books paced. mvtrx-x4 unit given the same settings (still disabled). Backups /opt/mvtrx/mvtrx-x{2,4}.service.pre-front.
+  Note for the overlap read: x2 now trades faster than x3 early on, so any early dip in x3 is an upper bound on the overlap cost.
