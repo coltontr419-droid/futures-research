@@ -21437,3 +21437,16 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   at the back of the queue every minute at most. $300: fleet median 9.8 s, 0% > 60 s (reprices fast there too); x2 4.6 s, x4 1.7 s.
 - Candidates (user decides; one at a time on all books): (1) flow_pull off; (2) longer expiry on calm books. Caveat: the fleet profiting in a state doesn't prove
   our fills there would be as good.
+
+## §1311 — 2026-11-08 3:35 PM CT — x4 combined test stopped early; x4 now copies the long-lived fleet as closely as measured (user)
+- User: stop any test part the fleet doesn't do; copy the fleet as exactly as possible. From §1310: fleet uses neither our flow_pull nor the thin rule; its calm orders
+  live up to ≈ 500 s (p99 408 s, max 500 s; 17 UIDs aged 12.5–28.6 d), its $300 orders ≤ 63 s (= our 60 s expiry).
+- Combined test final read (vfill.py, 2:50–3:35 PM, sim 25,117–25,640, ≈ 45 wall min): $300 x4 (thin rule + inside 5) quality 1.67 vs x2 0.02, +1.65 ± 0.70 (2.4 noise
+  widths) on a small captured base (C ≈ 10 each); calm +0.61 ± 13.9 (no information). The thin rule alone showed nothing 1:50–2:50 (§1307/§1308), so the $300 gain
+  most likely comes from inside quoting (a fleet behaviour, kept). Treat as tentative (small base, 45 min).
+- Code: mk_calm_expiry (sim s; calm-book ladder orders only; 0 = normal 60 s expiry) (QuoteAgent.py md5 b51d3ebc, backups agents/QuoteAgent.pre-calmexp.py /
+  repo QuoteAgent.pre-calmexp.py). test_pace: 3 new checks (calm 500 s; off by default 60 s; $300 keeps 60 s) — ALL PASS.
+- x4 unit (backup mvtrx-x4.service.pre-fleetcopy): flow_pull 0.3 → 0, mk_thin_ratio 0.77 → 0, + mk_calm_expiry=500; kept: calm ladder 1:2:4 size 0.036, $300 inside 5,
+  $300 ladder 2:5:10, sizes, pace (cap/steady 450k, start 100k, ledger), 4-dec skipped (fleet quotes 4-dec, but our 4-dec quality ≈ 0 and its behaviour there is
+  unmeasured — the one deliberate difference). Registration checked 3:34 PM; restarted 3:34:58 PM CT (sim ≈ 25,620); ActiveEnterTimestamp changed; clean; filling; tape on.
+- x2 unchanged (control; still runs flow_pull 0.3, thin off, 60 s expiry, no ladder on calm, no inside). Read ≈ 4:35 PM CT: vfill.py 25620 <now> x4=58 x2=212 + gauges.

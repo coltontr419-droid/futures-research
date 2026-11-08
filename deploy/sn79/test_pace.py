@@ -317,6 +317,24 @@ for trial in range(1500):
     r = _Resp(); CL._vol_ladder(r, 80, orders, {Bd: bid, Sd: ask}, {}, 60.0, 60.0, tick, 2, levels=CL.mk_calm_lad); worst = max(worst, len(r.instructions))
 check("calm ladder: never more than 5 instructions per book", worst <= 5, f"worst {worst} over 1,500 random books")
 
+# §1311 calm-book order expiry (fleet calm orders rest up to ≈ 500 s; ours expired at 60 s)
+class _InsE:
+    def __init__(s, kind, price, expiry): s.kind, s.price, s.expiry = kind, price, expiry
+class _RespE:
+    def __init__(s): s.instructions = []
+    def limit_order(s, book_id, direction, quantity, price, **k): s.instructions.append(_InsE("place", price, k.get("expiryPeriod")))
+    def cancel_order(s, book_id, order_id): s.instructions.append(_InsE("cancel", None, None))
+CE = agent(new_path, pace_cap=450000, mk_calm_lad="1:2:4", mk_calm_lad_size=0.036, mk_calm_expiry=500)
+r = _RespE(); CE._vol_ladder(r, 80, [], {Bd: 30.00, Sd: 30.02}, {}, 60.0, 60.0, tick, 2, levels=CE.mk_calm_lad, expiry=CE.mk_calm_expiry or None)
+ex = {getattr(i, "expiry", None) for i in r.instructions if i.kind == "place"}
+check("calm expiry: every calm ladder order gets 500 s", ex == {500_000_000_000}, f"{ex}")
+r = _RespE(); CL._vol_ladder(r, 80, [], {Bd: 30.00, Sd: 30.02}, {}, 60.0, 60.0, tick, 2, levels=CL.mk_calm_lad, expiry=CL.mk_calm_expiry or None)
+ex = {getattr(i, "expiry", None) for i in r.instructions if i.kind == "place"}
+check("calm expiry: off by default → the normal 60 s", ex == {CL.expiry} and CL.mk_calm_expiry == 0, f"{ex}")
+r = _RespE(); IN0 = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_calm_expiry=500); IN0._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.03}, {}, 5.0, 10.0, tick, 2)
+ex = {getattr(i, "expiry", None) for i in r.instructions if i.kind == "place"}
+check("calm expiry: $300 ladder keeps 60 s", ex == {IN0.expiry}, f"{ex}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

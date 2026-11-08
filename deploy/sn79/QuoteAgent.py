@@ -228,6 +228,7 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_inside = int(getattr(c, "mk_vol_inside", 0))   # §1304: >0: $300-book touch orders one tick inside the spread when it is ≥ this many ticks (fleet: 5)
         self.mk_calm_lad = [int(x) for x in str(getattr(c, "mk_calm_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1303: calm-book ladder, ticks behind the touch (e.g. 1:2:4)
         self.mk_calm_lad_size = float(getattr(c, "mk_calm_lad_size", 0.036))   # §1303: calm ladder order size (fleet calm fills mostly $1-2k)
+        self.mk_calm_expiry = int(float(getattr(c, "mk_calm_expiry", 0)) * 1_000_000_000)   # §1311: >0: calm-book (63-101) ladder orders expire after this many sim s (fleet: max 500 s, §1311); 0 = EXPIRY
         self.mk_thin_only_vol = int(getattr(c, "mk_thin_only_vol", 0))   # §1301: 1 = the thin-side rule applies ONLY on the $300 books (ids 0-62); calm/4-dec stay two-sided
         self.mk_calm_hs = float(getattr(c, "mk_calm_hs", 0.0))   # §1295: >0: calm books (63-101) quote this many half-spreads from the mid (fleet 1.67); 0 = off
         self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
@@ -536,7 +537,7 @@ class QuoteAgent(FinanceAgent):
             if n >= self.mk_max_ins: return
             response.cancel_order(book_id, o.id); n += 1
 
-    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0):
+    def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None):
         """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
         when the touch moves, so they keep their queue place). The validator accepts only MK_MAX_INS instructions per book per reply (default 5;
         the rest are DROPPED), so instructions go in priority order: (1) cancel orders ahead of the target or on a pulled side, (2) touch orders,
@@ -567,7 +568,7 @@ class QuoteAgent(FinanceAgent):
         for side, px in want.items():
             if n >= self.mk_max_ins: break
             response.limit_order(book_id=book_id, direction=side, quantity=sq.get(side, qty), price=px, stp=STP.CANCEL_BOTH, postOnly=True,
-                                 timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry); n += 1
+                                 timeInForce=TimeInForce.GTT, expiryPeriod=expiry or self.expiry); n += 1
         for o in stale:
             if n >= self.mk_max_ins: break
             response.cancel_order(book_id, o.id); n += 1
@@ -579,7 +580,7 @@ class QuoteAgent(FinanceAgent):
                 p = round(px - k * tick if side == B else px + k * tick, pd)
                 if p <= 0: continue
                 response.limit_order(book_id=book_id, direction=side, quantity=vq, price=p, stp=STP.CANCEL_BOTH, postOnly=True,
-                                     timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry); n += 1; keep[side].append(k)
+                                     timeInForce=TimeInForce.GTT, expiryPeriod=expiry or self.expiry); n += 1; keep[side].append(k)
 
     def _rev_copy_step(self, book_id, tgt, at, mid, pr):
         """§1273: one step of the copy mode. pr = the model forecast if a signal check is due (else None). Returns (target units, signal time).
@@ -1064,7 +1065,7 @@ class QuoteAgent(FinanceAgent):
             return
         if self.mk_calm_lad and 63 <= int(book_id) < 102:  # §1303 calm-book ladder: the fleet's calm volume is 60% from orders resting 1+ ticks behind the touch
             vq = round(max(self.mk_calm_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
-            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, levels=self.mk_calm_lad)
+            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, levels=self.mk_calm_lad, expiry=self.mk_calm_expiry or None)
             return
         for o in orders:
             if o.price in extra.get(o.side, {}):
