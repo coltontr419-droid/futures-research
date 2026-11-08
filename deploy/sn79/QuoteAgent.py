@@ -766,6 +766,17 @@ class QuoteAgent(FinanceAgent):
         if int(book_id) in self.skip:
             for o in acct.orders:                          # skipped book: pull our quotes and stay out
                 response.cancel_order(book_id, o.id)
+            if self.lock_dir and len(self.skip) < 128:     # §1289 a MAKER on a book it does not quote (book split between our makers): still clear our
+                for side in (OrderDirection.BUY, OrderDirection.SELL):   # taker's locks, or x1 would wait on every book some maker skips
+                    lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}_{self.uid}"
+                    if os.path.exists(lk):
+                        if not any(o.side == side for o in acct.orders):   # ack only once nothing of ours rests on that side
+                            with open(ak + ".tmp", "w") as fh:
+                                fh.write(str(self._sec))
+                            os.replace(ak + ".tmp", ak)
+                    elif os.path.exists(ak):
+                        os.remove(ak)
+                return                                     # a maker never trades the books it skips
             if self.sleeve_books is not None and int(book_id) not in self.sleeve_books:
                 return                                     # sleeve_file set: trade only the sleeve books (another UID of ours quotes the rest)
             units = acct.base_balance.total - base0

@@ -21209,3 +21209,16 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   <prefix><N>pub.txt) see it: miners(79) = {x1: 194, x2: 212, x3: 201, x4: 58}. Hourly earnings log + 4-hourly Discord report + push-out alerts cover all four
   (x2 already in the 01:00 UTC row; x4 from 02:00 UTC). Nothing else on the droplet touched.
 - First overlap signal: x3 pay $158.0 (00:00 UTC) → $134.0 (01:00 UTC, first hour with x2); one hour, could be noise — tracking.
+
+## §1289 — 2026-11-08 12:22 AM CT — makers split the books (overlap); x1 A/B verdict
+- Overnight (laptop closed 7:40 PM – 12:15 AM, briefs missed): x3 pay $158 (6 PM) → 134 → 120 → 85 → 65 → $56 (12 AM); x2 $0 → $19.8, x4 $0 → $17.8 — three makers
+  $94/month < x3 alone before. Gauges: making credit healthy on all (x3 146, x2 162, x4 153) but SKILL collapsed: x3 +2…+4 → +0.3…+0.8, x2/x4 −0.3…−0.6;
+  live combined x3 0.62 → 0.28–0.36, x2/x4 0.10–0.15. Field makers (175) median combined steady 0.33–0.38, fleet 5F1F2JMu steady 0.37–0.41 → not the market:
+  our overlap. x3's above-median standing came from skill (inventory timing), lost when three identical makers absorbed the same flow on the same books.
+- User: give each maker its own books (no time to test recovery first). Code: a maker on a skipped book still ACKs our taker's locks once nothing of its own rests
+  on that side (else x1 would wait on every book a maker skips) and returns (QuoteAgent.py, backup agents/QuoteAgent.pre-split.py); test_pace ALL PASS.
+  skip files books_skip_mod3_<r>.txt: x3 quotes book % 3 == 0, x2 == 1, x4 == 2 (42–43 books each, every group mixed). Unit backups /opt/mvtrx/mvtrx-x{2,3,4}.service.pre-split.
+- Registration checked 12:22 AM; x3/x2/x4 restarted 12:22 AM CT (sim ≈ 15,1xx s). Verified: every maker fill since the split on its own books (0 on others);
+  locks acked by all three makers incl. skipped books; x1 still trading; self-trades 0; no errors.
+- x1 A/B (§1286) verdict, 80 sim min (validator math): arm A (even, copy setup) 11 kept, kappa +0.49; arm B (odd, 10-min exit) 5 kept, kappa −0.33. B fails;
+  both far below 30 kept books. x1 pay ≈ $0.4/month at midnight: no working taker strategy now. Options for the user (no change tonight).
