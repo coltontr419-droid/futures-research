@@ -21485,7 +21485,7 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   test_pace: 3 new checks (no walk over 8 rounds: always 299.01/299.07; 3-tick spread stays; skewed-back bid stays) — ALL PASS.
 - Registration checked 3:53 PM; x4 restarted 3:54:09 PM CT (unit unchanged); ActiveEnterTimestamp changed. x2 unchanged (does not use inside quoting).
 
-## §1315 — 2026-11-08 4:05 PM CT — tonight's prep: prune trend, wallet short for a registration, next-miner units = fleet copy, launcher fixed
+## §1315 — 2026-11-08 4:01 PM CT — tonight's prep: prune trend, wallet short for a registration, next-miner units = fleet copy, launcher fixed
 - Chain 3:59 PM: lowest unprotected 1.05 / 1.08 / 1.12 × x2 (3:16 PM: 1.10); x4 0.94 × x2; 195 unprotected; 60 registrations in 24 h (≈ 2.5/h) → each of ours is
   likely pruned within ≈ 30 min of its protection ending (x2 ≈ 6:35 PM, x4 ≈ 7:05 PM CT) unless it passes the lowest.
 - Registration cost 0.1173 TAO; coldkey free balance 0.0138 TAO → the user must top up ≥ ≈ 0.104 TAO before the one-miner-per-day plan can start.
