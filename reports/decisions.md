@@ -21461,7 +21461,7 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   ≈ 0 quality there came from touch quoting; a fleet-style 4-dec setup (inside + $4.5k) is a new candidate (needs code: inside quoting only exists on $300 books).
 - Prior results to weigh: $3.6k orders alone did not raise edge (§1294, with flow_pull + thin rule still on); fleet-pattern lazy orders cut skill (§1284).
 
-## §1313 — 2026-11-08 4:00 PM CT — fleet 4-dec pattern measured; fleet-style 4-dec quoting built (off); $300 inside quoting chases our own order (bug found)
+## §1313 — 2026-11-08 3:49 PM CT — fleet 4-dec pattern measured; fleet-style 4-dec quoting built (off); $300 inside quoting chases our own order (bug found)
 - decprobe.py (17 long-lived fleet UIDs, sim 22,000–25,700): 4-dec spreads ≈ 1,000 ticks (p10 571, p90 1,400; ≈ $0.10 ≈ 3.3 bp on ≈ $298). Fleet 4-dec $: 1–2 ticks
   ahead of the best 51% (kept +1.04/+1.47 bp), further inside 14% (median 8% of the spread), touch 9%, 20+ ticks behind 23% (median 0.27 spreads, IQR 0.13–0.49);
   filled $ per order ≈ $3.9–5.4k everywhere.
