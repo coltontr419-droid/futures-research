@@ -21281,3 +21281,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Remaining gap (m300copy.py since sim s 19,330; fleet 7 UIDs 14–28 d vs x2): CALM books — fleet fills sit 1.67 half-spreads from the mid (behind the touch),
   edge +7.80 bp, net @120 s +6.43, 1.4 fills/book/sim h per UID; x2 at the touch (1.00), +3.19, +1.90, 1.0. $300 books — fleet fill $2.9k (x2 $1.1k), mid after
   +0.47 bp at 30 s (x2 −0.60). Next candidate: calm-book quotes at ≈ 1.7 half-spreads from the mid (new code), on ONE maker with the other as control — user's yes.
+
+## §1295 — 2026-11-08 9:04 AM CT — x4 tests the fleet's calm-book distance (user go); x2 = control
+- From §1294: on calm books (63–101) the long-lived fleet's fills sit 1.67 half-spreads from the mid (edge +7.8 bp, net +6.4, 1.4 fills/book/sim h per UID)
+  vs ours at the touch (+3.2, +1.9, 1.0).
+- Code: mk_calm_hs → _calm_px: calm-book quotes at mid ∓ k half-spreads, rounded away from the mid with a 5%-of-a-tick tolerance (1.67 × a 6-tick spread = 5.01
+  ticks → 5), never more aggressive than the normal target, a pulled side stays pulled; default 0 = off (QuoteAgent.py, backups agents/QuoteAgent.pre-calm2.py,
+  repo QuoteAgent.pre-calm.py). On a 2-tick calm spread this is one tick behind the touch. test_pace: 5 new checks — ALL PASS.
+- x4 unit: mk_calm_hs=1.67 (backup .pre-calm); everything else = x2 (thin rule off, size 0.036). Registration checked 9:04 AM; restarted 9:04 AM CT
+  (sim 5:54:03, T ≈ 21,243). x2 unchanged = control. Read ≈ 12:30 PM: m300copy.py / qualgap.py since 21,243 (calm rows) + gauges (making, live, paid score).

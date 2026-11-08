@@ -223,6 +223,7 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_penny = int(getattr(c, "mk_vol_penny", 5))    # §1281: quote one tick inside when the spread is ≥ this many ticks (fleet: 5+)
         self.mk_vol_keep = int(getattr(c, "mk_vol_keep", 20))     # §1281: keep resting orders up to this many ticks behind the target
         self.mk_vol_max = int(getattr(c, "mk_vol_max", 8))        # §1281: at most this many resting orders per side
+        self.mk_calm_hs = float(getattr(c, "mk_calm_hs", 0.0))   # §1295: >0: calm books (63-101) quote this many half-spreads from the mid (fleet 1.67); 0 = off
         self.mk_max_ins = int(getattr(c, "mk_max_ins", 5))   # §1279: the validator keeps only this many instructions per book per reply (max_instructions_per_book, default 5)
         self.mk_vol_lad_size = float(getattr(c, "mk_vol_lad_size", 0.07))   # §1278: ladder order size on the $300 books (fraction of wealth; fleet ≈ $3.6k there)
         self.mk_thin_vol_off = int(getattr(c, "mk_thin_vol_off", 0))   # §1276: 1 = no thin-side pulls on the $300 books (ids 0-62)
@@ -464,6 +465,16 @@ class QuoteAgent(FinanceAgent):
         self._rev_px[book_id] = (self._rev_px.get(book_id, mid) * (n - 1) + mid) / n
         self._legs_n = getattr(self, "_legs_n", 0) + 1
         return tgt + sg * self.rev_usd / mid
+
+    def _calm_px(self, bid, ask, tick, pd, bid_px, ask_px):
+        """§1295: quote prices MK_CALM_HS half-spreads from the mid, rounded AWAY from the mid, never more aggressive than the normal target
+        (bid_px / ask_px). Long-lived fleet 5F1F2JMu on calm books: fills 1.67 half-spreads out, edge +7.8 bp vs our +3.2 at the touch."""
+        mid = (bid + ask) / 2; hs = (ask - bid) / 2; k = self.mk_calm_hs
+        tb = round(math.floor((mid - k * hs) / tick + 0.05) * tick, pd); ta = round(math.ceil((mid + k * hs) / tick - 0.05) * tick, pd)   # 5% of a tick: 5.01 ticks counts as 5
+        nb = None if bid_px is None else (min(bid_px, tb) if tb > 0 else bid_px)
+        na = None if ask_px is None else max(ask_px, ta)
+        self._calm_n = getattr(self, "_calm_n", 0) + 1
+        return nb, na
 
     def _cancel_all(self, response, book_id, orders):
         """§1293: pull several of our orders with ONE CancelOrders instruction. One cancel per order went over the validator's 5 instructions per book
@@ -926,6 +937,8 @@ class QuoteAgent(FinanceAgent):
             inv = max(inv, self.max_inv)                   # at the long cap: no more bids
         if self.max_units and units <= -self.max_units:
             inv = min(inv, -self.max_inv)                  # at the short cap: no more offers
+        if self.mk_calm_hs > 0 and 63 <= int(book_id) < 102:   # §1295 calm books: rest MK_CALM_HS half-spreads from the mid like the long-lived fleet (1.67)
+            bid_px, ask_px = self._calm_px(bid, ask, tick, pd, bid_px, ask_px)
         sq = {}                                           # per-side quantity (fit_qty: the affordable part of qty, §1211 add. 21)
         if bid_px is not None and inv < self.max_inv:
             room = (acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY)) / bid_px
