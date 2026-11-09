@@ -21578,3 +21578,15 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Candidates (largest first): (1) calm: rest orders 1–3 behind EARLY and KEEP them (priority at crowded levels), touch only at wider spreads (fleet's touch $
   is 28–42%; its 1-tick-spread fills are deep orders); (2) NO-CHASE on all books: when the own-side best moved away > X bp in the last N s, keep the old price
   (order left behind) instead of re-joining; (3) inside quoting / flow pull on $300 (§1321, unclear). Each needs code + test_pace; 1-hour all-books test.
+
+## §1323 — 2026-11-08 6:30 PM CT — the two §1322 fixes live on x4 (user: before it gets pruned)
+- Code (QuoteAgent.py md5 3cad84cf = repo; backups agents/QuoteAgent.pre-nochase.py / repo QuoteAgent.pre-nochase.py), off by default:
+  mk_nochase_bp X / mk_nochase_s N — records the book's best each sim second; if the bid ROSE (ask fell) by > X bp over the last N s, our bid is capped at the
+  bid of N s ago (ask floored at the ask then): our order stays where the price was instead of re-joining the moved best (all quoted books; applied before the
+  $300/calm ladder routing, so the $300 inside step treats a capped side as "behind the touch" and leaves it); history cleared on a sim-day reset.
+  mk_calm_touch_min T — calm books place NO touch order while the others' spread is < T ticks (a resting one is cancelled; ladder 1/2/3 behind stays).
+- test_pace: 8 new checks (rise → bid capped, ask not; fall → ask floored; flat unchanged; no history → unchanged; off by default; no-touch cancels the touch and
+  places only ladder levels; ≤ 5 instructions over 1,500 random books; reset clears the history) + all cap tests — ALL PASS.
+- x4 unit (backup mvtrx-x4.service.pre-nochase): + mk_nochase_bp=1 mk_nochase_s=10 mk_calm_touch_min=3 (all earlier fleet-copy settings kept). Registration checked
+  6:29 PM; restarted 6:29:48 PM CT (sim ≈ 27,703); ActiveEnterTimestamp changed. Read: abtest/vfill/why300 from 27,703 vs x2 as long as x4 lives (protection
+  ends ≈ 7:05 PM; ≈ 2.5 prunes/h after that) — read at ≈ 7:00 PM and every ≈ 20 min after; a short read will be noisy (say so).

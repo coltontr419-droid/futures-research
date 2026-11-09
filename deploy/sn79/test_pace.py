@@ -434,6 +434,37 @@ for sd in (3, 4):
     w_ = attack_hold(agent(new_path, pace_cap=450000, pace_steady=450000, pace_start=100000, mk_pace_hold=5000, mk_calm_hold=2), seed=sd)
     check(f"CAP soft gate (seed {sd}): worst rolling 24 h under $500k", w_ < 500000, f"${w_:,.0f}")
 
+# §1323 no-chase + calm no-touch
+NC = agent(new_path, pace_cap=450000, mk_nochase_bp=1.0, mk_nochase_s=10)
+for sec in range(100, 111):
+    NC._sec = sec; w = {Bd: 299.00 + (0.05 if sec >= 108 else 0.0), Sd: 299.08 + (0.05 if sec >= 108 else 0.0)}
+    n = NC._nochase(7, w, w[Bd], w[Sd], (w[Bd] + w[Sd]) / 2, 2)
+check("no-chase: bid rose 5 ticks (1.7 bp) in 10 s → our bid stays at the old best; the ask is not capped", w[Bd] == 299.0 and w[Sd] == 299.13 and n == 1, f"{w} n {n}")
+NF = agent(new_path, pace_cap=450000, mk_nochase_bp=1.0, mk_nochase_s=10)
+for sec in range(100, 111):
+    NF._sec = sec; w = {Bd: 299.00, Sd: 299.08}; n = NF._nochase(7, w, 299.00, 299.08, 299.04, 2)
+check("no-chase: flat book → unchanged", w == {Bd: 299.0, Sd: 299.08} and n == 0, f"{w}")
+NA = agent(new_path, pace_cap=450000, mk_nochase_bp=1.0, mk_nochase_s=10)
+for sec in range(100, 111):
+    NA._sec = sec; b_ = 299.00 - (0.05 if sec >= 108 else 0.0); w = {Bd: b_, Sd: b_ + 0.08}; n = NA._nochase(7, w, b_, b_ + 0.08, b_ + 0.04, 2)
+check("no-chase: ask fell 5 ticks → our ask stays at the old best; the bid is not capped", w[Sd] == 299.08 and w[Bd] == 298.95 and n == 1, f"{w} n {n}")
+NY = agent(new_path, pace_cap=450000, mk_nochase_bp=1.0, mk_nochase_s=10); NY._sec = 100; w = {Bd: 299.05, Sd: 299.13}
+check("no-chase: no history 10 s back yet → unchanged", NY._nochase(7, w, 299.05, 299.13, 299.09, 2) == 0 and w[Bd] == 299.05, f"{w}")
+check("no-chase + no-touch: off by default", agent(new_path, pace_cap=450000).mk_nochase_bp == 0 and agent(new_path, pace_cap=450000).mk_calm_touch_min == 0, "0")
+CT = agent(new_path, pace_cap=450000, mk_calm_lad="1:2:3", mk_calm_touch_min=3)
+r = _RespE(); CT._vol_ladder(r, 80, [_OQ(20, Bd, 30.00, 3.0)], {Bd: 30.00, Sd: 30.02}, {}, 60.0, 60.0, 0.01, 2, levels=CT.mk_calm_lad, no_touch=True)
+pl = sorted(i.price for i in r.instructions if i.kind == "place"); cn = sum(1 for i in r.instructions if i.kind == "cancel")
+check("calm no-touch: resting touch bid cancelled, only ladder orders placed (none at 30.00 / 30.02)", cn == 1 and 30.0 not in pl and 30.02 not in pl and 29.99 in pl and 30.03 in pl, f"cancel {cn} place {pl}")
+worst = 0
+for trial in range(1500):
+    bid = round(30 + rng.randint(-30, 30) * 0.01, 2); ask = round(bid + rng.randint(1, 6) * 0.01, 2)
+    ords = [_OQ(i, rng.choice((Bd, Sd)), round(bid + rng.randint(-8, 8) * 0.01, 2), 3.0) for i in range(rng.randint(0, 10))]
+    r = _RespE(); CT._vol_ladder(r, 80, ords, {Bd: bid, Sd: ask}, {}, 60.0, 60.0, 0.01, 2, levels=CT.mk_calm_lad, no_touch=rng.random() < 0.5, hold=2, obest=(bid, ask))
+    worst = max(worst, len(r.instructions))
+check("calm no-touch + hold: never more than 5 instructions per book", worst <= 5, f"worst {worst} over 1,500 random books")
+had = bool(NC._bbo); NC._sec_prev = 86000; NC._sec = 50; NC._clock_check()
+check("no-chase: a sim-day reset clears the best-price history", had and not NC._bbo, f"had {had}, after {dict(NC._bbo)}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)
