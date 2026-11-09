@@ -21805,3 +21805,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   its loaded f31e1325 code until its next restart (the new file only adds ladder knobs; behaviour unchanged otherwise).
 - mvtrx-x1 unit (disabled; backup mvtrx-x1.service.pre-lps5): + live_params_s=5 (switches apply within ≈ 25 wall s instead of up to ≈ 2.5 min).
 - Next live tests ($300, after the pull test ends 11:00): skew 10 → 5; mk_vol_size 0.034 → 0.07; mk_nochase_bp 1 → 0.5 — each as 2 h of 30-min A/B windows.
+
+## §1347 — 2026-11-09 9:05 AM CT — expected multiple after the head start leaves: ≈ 1.2–1.3× the prune line
+- making_exact.py (validator code) on the last 1 sim h (sim 35,239–38,839 ≈ 4–9 AM CT, steady pace): x3 captured 289 / two-sided 196 / quality 0.578 / credit 113.5
+  (rank 106); fleet 87 (15.5 d) 313 / 201 / 0.718 / 144.4; fleet 216 (28 d) 339 / 226 / 0.920 / 208.4. → x3 trades and captures like the fleet; the gap is QUALITY
+  (kept ÷ captured), mostly the $300 kept-per-fill gap.
+- Steady pay estimate: x3 ≈ 0.54× fleet 216's credit (216 ≈ 2.3× line) and ≈ 0.79× fleet 87's → ≈ 1.2–1.3× the line once the head start leaves the window (live
+  score ≈ 11 AM–4 PM; pay lags as a running mean: ≈ 1.6–2.0× at 7:46 PM, drifting to ≈ 1.2–1.3× over 1–2 days) — the fleet's own 3–7-day cohort sits ≈ 1.3×.
+  Lever: quality 0.58 → 0.72 (fleet 87) ≈ +25% credit ≈ 1.5× the line.
