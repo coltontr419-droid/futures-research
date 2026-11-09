@@ -21599,3 +21599,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   control now → read as fleet − x4 kept gap after 6:29:48 PM (sim 27,703) vs the same gap 4:56–6:29 PM (sim 26,565–27,703) (diff-in-diff; noisy).
 - x4 PACE STATUS after the deploy: 86 of 128 books blocked (90 before).
 - mvtrx-x1 / mvtrx-x3 (DISABLED) now = x4's full current params minus tape (fleet copy + hold + soft gate + 1:2:3 + no-chase + calm no-touch; backups mvtrx-x{1,3}.service.pre-nochase); launch_maker.sh adds tape= if the tape is idle.
+- User 6:40 PM: hold the next registration until x4 is pushed out; then read everything from x4's tests and put the winners on the new miner (mvtrx-x3 unit) before registering.
