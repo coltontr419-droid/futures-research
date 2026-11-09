@@ -21748,3 +21748,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   policy (not visible). Validator 5E7RbxVy reports call_time 0 and "timeouts 100" for x3 AND fleet 216 → a reporting quirk, not ours.
 - Other gauges worth using: debeta_at_best_seconds (x3 91.9k ≈ fleet 51.7k–121k), debeta_presence_share (1 for all), debeta_best_size, debeta_bg_share
   (x3 0.54 vs fleet 0.56–0.83), placements_sent / cancels_sent. Open: what else differs per $300 fill (next: queue position at the fill from x3's queue records).
+
+## §1341 — 2026-11-09 6:20 AM CT — morning summary (deploy/sn79/MORNING_2026-11-09.md); clean 3-hour read of the full setup
+- Server-side morning read (morningread.sh, 6:15 AM; x3 unchanged since 2:44:57 AM; sim 34,155–36,618): fleet − x3 kept gap $300 1.11 ± 0.24 (x3 +0.94 vs +2.05),
+  calm 0.60 ± 0.24 (+4.10 vs +4.71), 4-dec 0.50 ± 0.22 (+0.93 vs +1.43). Calm order age p75 76 s. $300 after-move (≥ 3 ticks) placements 13% of $.
+- Survival 10.5 h: emission ÷ prune line 1.48 (field median 1.75, fleet 216 1.97). Gauges: x3 making 707 / combined 0.389 vs 216 534 / 0.338. 0 errors / INS OVER /
+  self-trades. Recommendation in the summary: leave x3 untouched through protection (≈ 7:46 PM); keep researching the $300 gap offline.
