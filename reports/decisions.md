@@ -21674,3 +21674,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   only orders within tol of a level (others between the touch and the level are cancelled as stale); 4-dec books with a too-tight spread pull everything with
   ONE cancel_orders. test_pace: real-cancel pile-up test (fixed: max 2 per side; live agent FAILS with 10) + 7 stale orders → ≤ 5 instructions — ALL PASS.
 - Registration gate passed; x3 restarted 10:23:31 PM CT (sim ≈ 30,570); test-2 read moved to 11:27 PM CT. Dropped gauge was 0 throughout.
+
+## §1333 — 2026-11-08 10:25 PM CT — x3's $300 gap broken down (why300b.py, sim 28,750–30,570, vs the 17 long-lived fleet UIDs)
+- x3 $300 kept +0.60 (edge +1.31, move −0.71) vs fleet +1.86 (+1.67, +0.19). Biggest leak: 44% of x3's $300 $ comes from orders placed right after the own-side best
+  moved AWAY ≥ 3 ticks: kept −0.05 (move −1.25); fleet 24% of $ there at +1.87. → test 3 (no-chase, history-fixed) targets it.
+- Placement: x3 joins the touch on 53% of $ (fleet 16%); the fleet sits one tick inside when wide (29%) or 5+ behind (27%, kept +2.92; x3 9%). Even x3's flat-placed
+  fills keep less (+1.18 vs +1.95). → candidate test 5: $300 no-touch at tight spreads (the calm no-touch won by 3.0 widths, §1331).
+- Pull: fleet fills 43% of its $300 $ in the flow-pull state (kept +2.04, its best bucket); x3 (pull on, $300) 1%. Whether the $300 pull should stay is open (x2 vs x4
+  said it helped in x4's setup, §1326); test after no-chase.
+- INS OVER since the §1332 fix: 0. Fill counts: x3 5,583 $300 fills vs 4,114 for all 17 fleet UIDs in the window (the $100k head start: constant re-placing).
