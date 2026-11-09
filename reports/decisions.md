@@ -21552,3 +21552,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Session crons stop while the laptop is closed → transient timers on the lab box run awayread.sh (deploy/sn79): 5:57 PM CT "read" (calm hold/soft-gate read
   since 26,565, $300 2-hour read since 25,844, fleet sanity, order life, errors, pace) and prune/registration/wallet snapshots at 6:45, 7:15, 8:00 PM CT →
   /opt/mvtrx/away_<tag>.txt + an "ALERT <epoch>" line (Discord #miners). No live changes while away (rules); a pruned miner is cleaned up on return.
+
+## §1321 — 2026-11-08 6:08 PM CT — away read (5:57 PM): calm hold/soft gate inconclusive; $300 fleet copy borderline worse; prune check
+- CALM since 4:56 PM (hold 2 + soft gate 5000 + ladder 1:2:3), x4 vs x2: abtest kept +2.49 vs +1.82, +0.67 ± 0.38 (1.8 widths); vfill 1.15 vs 1.63, −0.49 ± 0.49
+  (1.0) → the measures disagree in sign; no verdict. Order life improved: x4 calm age median 17 s (p75 42) vs 4–8 s before; placed touch 69% / 1 behind 17% /
+  3+ 12%; price moved toward the order before the fill 15% (fleet 46%, age median 140 s). Still far from the fleet (fleet vs x2 calm +4.75 ± 0.45, 10.6 widths).
+- $300 fleet copy, 2 hours (since 3:54 PM): abtest −0.40 ± 0.20 (2.0 widths, x4 worse); vfill −0.24 ± 0.36 (0.7). Borderline loser on the fill-level measure only.
+  NOT rolled back while the user is away (not clearly hurting on both measures; x4 likely pruned within ≈ 1–1.5 h). The $300 difference vs x2 = flow_pull off
+  + inside quoting 5 (thin rule is off on both) → for the next miner: keep inside quoting off on $300 until tested alone, decide flow_pull with the user.
+- Prune 6:08 PM: lowest unprotected 1.08 / 1.11 / 1.13 × x2 (a 0.81 UID seen at 5:57 was pruned since); x4 0.91 × x2; x2 protection ends ≈ 6:35 PM. Pay 6 PM:
+  x2 $90.4, x4 $82.3. Burn 0.1167 TAO; wallet 0.0138 TAO. Dashboard gauges blank at 6 PM (API down; miners fine). One UnknownSynapseError (an empty request to
+  x4's axon at 5:36 PM) = external probe, harmless.
