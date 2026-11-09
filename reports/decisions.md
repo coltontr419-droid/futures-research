@@ -21730,3 +21730,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   multi-hour read of the full setup); future calm reads skip the first ≈ 20 min after a restart or run ≥ 2 h.
 - Survival (survive.py) at 6.9 h: emission ÷ prune line 1.21 (5.8 h: 1.03); field median 1.97; fleet 216 2.16. Gauge 2:26 AM: making 589 / combined 0.377 vs 216 515 / 0.352.
 - Final overnight setup: $300 x2-style + flow pull on $300 + no-chase (all books); calm fleet copy + no-touch < 3 ticks + hold 2 + soft gate 5000; 4-dec fleet quoting.
+
+## §1339 — 2026-11-09 5:13 AM CT — user closing the laptop; morning read moved server-side
+- Survival at 9.1 h: emission ÷ prune line 1.82 (vs the second-lowest unprotected UID ≈ 1.41; the lowest sits far below the rest); field median 2.29; fleet 216 2.59.
+  Gauge 4:50 AM: x3 making 664 / combined 0.409 vs 216 468 / 0.327. x3 unchanged since 2:44:57 AM; 0 errors, 0 INS OVER.
+- Laptop closing = session crons stop → the 6:15 AM summary read now runs on the lab box (transient timer mvtrx-morningread, 12:15 UTC → morningread.sh →
+  /opt/mvtrx/morning_read.txt + ALERT line to Discord). The MORNING_2026-11-09.md write-up is done when the session resumes. Watchdog mvtrx-overnight.timer active.
