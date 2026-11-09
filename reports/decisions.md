@@ -21883,3 +21883,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Making profit (kept × size, 20 s mark): fleet 17 UIDs $36,805 (≈ $2,165/UID), 16% inside event periods from 272 fills (≈ 16 per UID); x3 $1,225, 14% inside events
   from 17 fills. → x3's presence in events ≈ a fleet UID's; the book-45 miss (§1351) was one case, not a pattern. The fleet out-earns x3 ≈ 1.8× per UID both inside
   and outside events (≈ the 0.54 credit ratio, §1347) → the gap is everyday fill quality. "Stub" far-out orders parked (small vs the main gap).
+
+## §1356 — 2026-11-09 2:15 PM CT — validator score anatomy (factors.py, share.py): no hidden penalty; pay ∝ smoothed making share; skill side pays most
+- All published factors x3 vs fleet (validator 5EWwdZB7): p11 0.978 (fleet 0.94–0.98), s3 1, presence 1, pnl 1, making_basis 1, w_make 0.5, coverage 120 books (fleet
+  128). combined_score = debeta_score = 0.5 × debeta_making_rank (skill 0) — a display/rank number.
+- Pay: score ≈ making_share / 2 for makers; making_share sums to 1 over makers, ≈ proportional to making credit (corr 0.78 linear > √ 0.64) but SMOOTHED over a longer
+  horizon: published ÷ current share = x3 1.89 (head start in its history), 216 1.10, 52 1.33, 87 2.83, 7 4.17, 113 0.70. (A "compressed share" reading at 2:05 PM
+  was wrong — it was this lag.)
+- Pool split: 145 makers 0.537 of score (avg 0.0037); 111 non-makers 0.460 (avg 0.0041); top earners are skill miners (score ≈ 0.013–0.014, skill 1.5–2.0) ≈ 4× a maker.
+- x3 forecast refined: current making share 0.00369 → ≈ 0.0030 when credit settles at ≈ 335 → ≈ $185/mo ≈ 1.4–1.5× the prune line ($128). Scaling headroom (§1353) stands.
