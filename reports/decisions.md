@@ -21770,3 +21770,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   A/B/A/B 30-min windows (A = off 6:47, B = on 7:17, A 7:47, B 8:17, END 8:47 CT) via server-side timers (liveswitch.sh → live_params_64.json + liveswitch_log.txt
   with the sim s of each switch); read 8:50 CT server-side (abread.sh → abwin.py: per-window fleet − x3 gap, pooled A vs B with a window bootstrap → ab_read.txt
   + ALERT). The first 20 min after the restart are excluded by design.
+
+## §1343 — 2026-11-09 6:45 AM CT — one validator only; x3 $300 queue position; next live-test candidates
+- Validators: only UID 0 (hotkey 5EWwdZB7) holds a permit + stake on SN79 (100%); x3's journal shows only 5EWwdZB7 rounds (792 in an hour). The dashboard's
+  5E7RbxVy series (call_time 0, timeouts 100) is an old sim (sim_id 20261107_0534) → ignore it in every gauge query (filter wallet 5EWwdZB7).
+- Response time: x3 0.21 s vs fleet 0.06–0.16 s ≈ +2 ms delay under the default curve (§1340) — parked (small); optimise only in a later restart.
+- queuepos.py ($300, sim 34,155 →, x3 queue records, 455 of 672 fills): 66% of x3's $300 $ fills while it is FIRST in line (nothing ahead) kept +0.84 vs +0.95 with
+  < $5k ahead, +0.95 $5–20k, +1.21 $20k+ → being alone at the front is mildly worse (fits "we are the first order an informed taker hits"), not the main cause.
+  Fleet queue position is not observable.
+- Next live-reload test candidates on $300 (no restarts needed now), after the pull ABAB: skew 10 → 5 (inventory lean shifts our quotes), mk_vol_size 0.034 →
+  0.07 (fleet's one size ≈ $3.6k), stronger no-chase (mk_nochase_bp 1 → 0.5).
