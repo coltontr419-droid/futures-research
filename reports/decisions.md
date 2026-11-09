@@ -21900,3 +21900,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   does not keep more books quoting). Calm −0.64 ± 0.65, 4-dec +0.03 (noise). → off (END at 3:15 already wrote touch_min 0 + skew 5).
 - Test 3 live since 3:20 PM (mk_nochase_bp 1 → 0.5, skew 5), read 5:23 PM.
 - Survival 19.7 h: emission ÷ prune line 3.39 (lowest unprotected 1.00, next 1.25, 1.32; field median 3.21; fleet 216 3.42). Gauge making 434 / combined 0.194.
+
+## §1358 — 2026-11-09 3:55 PM CT — $300 depth profile (depth300.py) → test 5 = ladder 2:5:10:20; gated restart + test 5 scheduled server-side
+- $300 kept (capped ±20) by depth behind the own-side best, sim 34,155 → now. Fleet: inside 24% +1.4 | touch 26% +1.5 | 1: 16% +1.6 | 2: 10% +1.9 | 3–4: 10% +2.0 |
+  5–6: 5% +2.4 | 7–9: 4% +2.9 | 10–14: 3% +3.6 | 15–24: 2% +5.0 | 25–49: 1% +6.0. x3: inside 8% +1.4 | touch 48% +0.9 | 1: 10% +1.1 | 2: 15% +1.0 | 3–4: 9% +1.5 |
+  5–6: 5% +1.2 | 7–9: 2% +1.0 | 10–14: 1% +1.7 | 15+: ≈ 0. → the fleet keeps more the deeper it sits and has 6% of $ at 10+ ticks; x3's deepest level is 10.
+- restart_x3.sh (gated: regcheck exit code + agent md5 88322390; adds live_params_s=5; verifies ActiveEnterTimestamp; ALERTs) at 5:26 PM CT (after test 3's read).
+- Test 5: $300 ladder A = 2:5:10:20 vs B = 2:5:10 (skew 5, no-chase 1, touch_min 0; live list knob mk_vol_lad), 5:50 / 6:20 / 6:50 / 7:20 / END 7:50 PM CT,
+  read 7:53 PM (abread_lad.sh → ab_read_lad.txt, capped, blocked counts). If test 3 (no-chase 0.5) wins, apply it after test 5.
