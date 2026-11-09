@@ -21780,3 +21780,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   Fleet queue position is not observable.
 - Next live-reload test candidates on $300 (no restarts needed now), after the pull ABAB: skew 10 → 5 (inventory lean shifts our quotes), mk_vol_size 0.034 →
   0.07 (fleet's one size ≈ $3.6k), stronger no-chase (mk_nochase_bp 1 → 0.5).
+
+## §1344 — 2026-11-09 6:55 AM CT — pay vs the fleet (fleetpay.py) + scaling plan draft (deploy/sn79/SCALING_PLAN_2026-11-09.md)
+- earnings_all.py formula on all UIDs (TAO $217.82, alpha 0.003016, tempo 360): x3 $183/mo at 10.8 h (rank 166/256); prune line $128 (x3 1.43×); field median $216.
+  Fleet 5F1F2JMu 41 UIDs $9,736/mo (top $506, median $232). By age: 0–1 d $0–229; 1–3 d $257–506 (head start); 3–7 d $147–193 (post-head-start dip);
+  14+ d $182–298 (median $231). → x3 already ≈ the fleet's settled bottom at < 11 h; expect the same dip (≈ $170, ≈ 1.2–1.3× the line) before settling.
+- Scaling draft: ≈ $25 per registration, ≈ 15–20 more UIDs per $48 box; 10 UIDs ≈ $1.7–2.3k/mo, 45 ≈ $7.7–10.4k/mo if they perform like x3/fleet (unproven
+  beyond one UID; fixed pool). Gate: x3 survives protection and holds ≥ 1.3× the line through its dip; then one UID/day, then 5 at a time.
