@@ -21600,3 +21600,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - x4 PACE STATUS after the deploy: 86 of 128 books blocked (90 before).
 - mvtrx-x1 / mvtrx-x3 (DISABLED) now = x4's full current params minus tape (fleet copy + hold + soft gate + 1:2:3 + no-chase + calm no-touch; backups mvtrx-x{1,3}.service.pre-nochase); launch_maker.sh adds tape= if the tape is idle.
 - User 6:40 PM: hold the next registration until x4 is pushed out; then read everything from x4's tests and put the winners on the new miner (mvtrx-x3 unit) before registering.
+
+## §1325 — 2026-11-08 7:14 PM CT — first no-chase / calm no-touch read (x4 vs fleet, diff-in-diff; ≈ 45 wall min, sim 27,703–28,248)
+- Calm: fleet − x4 kept gap 2.24 ± 0.37 bp (4:56–6:29) → 1.18 ± 0.59 (after) = closer by 1.06 ± 0.70 (1.5 widths, not significant); x4 calm edge at fill
+  +3.97 → +5.26 bp (no-touch moves fills behind the touch, as intended).
+- $300: gap 1.19 ± 0.20 → 1.67 ± 0.32 = worse by 0.48 ± 0.38 (1.3 widths, noise). x4's "price moved away > 1 bp in the 10 s before the fill" share 24% → 22%
+  (kept +0.69 → −0.59): no-chase did NOT cut that bucket. Open question (keep searching): that bucket is mid-based — a mid move can come from the OTHER side
+  (spread widening) without our order chasing; the cap acts on our own side's best only. Next: measure chasing directly (our order's price vs the own-side best
+  N s before ITS placement, from order ids) before judging no-chase.
+- x4 still registered at 7:14 PM (protection ended ≈ 7:05).
