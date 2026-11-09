@@ -21736,3 +21736,15 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   Gauge 4:50 AM: x3 making 664 / combined 0.409 vs 216 468 / 0.327. x3 unchanged since 2:44:57 AM; 0 errors, 0 INS OVER.
 - Laptop closing = session crons stop → the 6:15 AM summary read now runs on the lab box (transient timer mvtrx-morningread, 12:15 UTC → morningread.sh →
   /opt/mvtrx/morning_read.txt + ALERT line to Discord). The MORNING_2026-11-09.md write-up is done when the session resumes. Watchdog mvtrx-overnight.timer active.
+
+## §1340 — 2026-11-09 6:25 AM CT — remaining $300 gap: not order size, not depth, (probably) not latency; next-miner unit = x3's setup
+- mvtrx-x1 unit (DISABLED; backup mvtrx-x1.service.pre-x3copy) = x3's full current params minus tape, so a new registration starts with every winner.
+- size300.py ($300, sim 34,155–36,619, x3 undisturbed): fleet orders mostly $2.5–4.5k (88% of $) vs x3 mostly < $2.5k (79%) — but the fleet's SMALL orders still keep
+  +1.76 vs ours +0.98, and at every depth the fleet keeps ≈ 1 bp more (5+ behind +3.98 vs +0.80; touch +2.07 vs +0.92) → neither size nor depth explains it; the
+  gap is uniform, with the price moving against our fills (−0.6) and with theirs (+0.2).
+- Latency (validator code taos/im/validator/delays.py): base delay = min_delay + (e^{5t}−1)/(e^5−1)·(max−min), t = process_time / timeout (defaults: 10 ms, 1 s,
+  timeout 3 s, policy curve) + a random 5–25 ms on every instruction after a book's first. Public gauges (validator 5EWwdZB7): call_time_median x3 0.212 s vs fleet
+  216 0.061 / 87 0.129 / 241 0.158 → x3 slowest, but ≈ 12.8 vs 10.7 ms base delay under the default curve (≈ 2 ms) → not the main cause unless mainnet uses another
+  policy (not visible). Validator 5E7RbxVy reports call_time 0 and "timeouts 100" for x3 AND fleet 216 → a reporting quirk, not ours.
+- Other gauges worth using: debeta_at_best_seconds (x3 91.9k ≈ fleet 51.7k–121k), debeta_presence_share (1 for all), debeta_best_size, debeta_bg_share
+  (x3 0.54 vs fleet 0.56–0.83), placements_sent / cancels_sent. Open: what else differs per $300 fill (next: queue position at the fill from x3's queue records).
