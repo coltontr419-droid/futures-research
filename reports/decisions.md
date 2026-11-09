@@ -21609,3 +21609,23 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (spread widening) without our order chasing; the cap acts on our own side's best only. Next: measure chasing directly (our order's price vs the own-side best
   N s before ITS placement, from order ids) before judging no-chase.
 - x4 still registered at 7:14 PM (protection ended ≈ 7:05).
+
+## §1326 — 2026-11-08 7:29 PM CT — $300 underperformance traced to after-move placements; no-chase history bug found and fixed
+- why300b.py (placement vs the own-side best 1 s before EACH order's placement, from order ids): x4 since the fleet copy, $300 fills placed while the best was
+  flat/came toward kept +1.00 (≈ x2 +0.93) but those placed right after the own-side best moved AWAY (49% of $) kept +0.14 / +0.28 (x2 +1.14 / +1.35, 39%; fleet
+  +1.87 / +1.66) — bad in every placement type (inside −0.05, touch −0.55, behind +0.39; move after ≈ −1 bp). After moves the fleet places DEEP (14% of $ 1–5+
+  behind vs 4% inside/touch); x4 re-quoted inside/at the touch. x2's pull (flow_pull 0.3) kept it out of those states (4% of $ in pull state).
+- No-chase barely fired: its best-price history was recorded only on QUOTED rounds, and ≈ 86/128 books are paced out at any time → no history when a book came
+  back (exactly when new orders go in). Fix: _bbo_rec() records every book every round BEFORE the pace gate (QuoteAgent.py md5 8a1caf86, backup repo
+  QuoteAgent.pre-bborec.py); test "history kept through a pace block → first quote capped" + all — ALL PASS. Deployed 7:31 PM onto an already-pruned x4 (§1327).
+
+## §1327 — 2026-11-08 7:35 PM CT — x4 (UID 58) PRUNED ≈ 7:16 PM CT; both makers gone; final read of all x4 tests
+- Tape last write 7:16:31 PM CT = x4 pruned (its hotkey holds no UID). 7:31 PM I restarted x4 although the deploy's fresh check printed NOT REGISTERED (the one-liner
+  printed, did not stop) → regcheck.py now EXITS 1 when a hotkey is not registered (call it without a pipe in gates). Cleanup: mvtrx-x4 stopped + disabled;
+  our_uids.txt empty (backup .bak-x4pruned); maker_58.hb removed. No MVTRX miner is live; the tape is blind until the next miner records it.
+- FINAL READ (fill-level kept bp; ≥ 2 noise widths = real):
+  CALM fleet copy (no flow_pull, 500 s expiry, ladder) vs x2: +0.94 ± 0.39 (2.4) → WIN. Hold + soft gate + 1:2:3 vs x2: +0.64 ± 0.38 (1.7), vfill −0.25 ± 0.32 →
+  no gain beyond the copy (it captured ≈ 50% more: C 36.3 vs 23.6). Calm no-touch (< 3-tick spreads) + no-chase: fleet gap 2.24 → 1.18 (1.5), edge +3.97 → +5.26 →
+  promising, unproven.
+  $300 fleet copy (no flow_pull + inside 5) vs x2: −0.49 ± 0.25 (1.9), −0.40 ± 0.20 over 2 h (2.0), −0.50 ± 0.26 (1.9) → consistent LOSER (≈ −0.45 bp): restore x2's
+  $300 behaviour (flow_pull on, no inside). No-chase never ran properly (bug) → untested.

@@ -549,14 +549,20 @@ class QuoteAgent(FinanceAgent):
             if n >= self.mk_max_ins: return
             response.cancel_order(book_id, o.id); n += 1
 
-    def _nochase(self, book_id, want, bid, ask, mid, pd):
-        """§1323: record the book's best each sim second; if the bid rose (ask fell) by > MK_NOCHASE_BP over the last MK_NOCHASE_S s, cap our bid at the
-        bid of then (floor our ask at the ask of then): we stay where the price was instead of chasing it. Returns the number of sides capped."""
+    def _bbo_rec(self, book_id, bid, ask):
+        """§1326: the best bid/ask per sim second for every book, recorded EVERY round before the pace gate (paced-out books had no history, so the
+        cap never fired when a book came back — exactly when new orders go in). Keeps the newest sample at least MK_NOCHASE_S old at h[0]."""
         h = self._bbo.setdefault(book_id, [])
         if not h or h[-1][0] != self._sec:
             h.append((self._sec, bid, ask))
         while len(h) > 1 and h[1][0] <= self._sec - self.mk_nochase_s:
-            h.pop(0)                                       # h[0] = the newest sample at least MK_NOCHASE_S old (if any)
+            h.pop(0)
+        return h
+
+    def _nochase(self, book_id, want, bid, ask, mid, pd):
+        """§1323: record the book's best each sim second; if the bid rose (ask fell) by > MK_NOCHASE_BP over the last MK_NOCHASE_S s, cap our bid at the
+        bid of then (floor our ask at the ask of then): we stay where the price was instead of chasing it. Returns the number of sides capped."""
+        h = self._bbo_rec(book_id, bid, ask)
         if h[0][0] > self._sec - self.mk_nochase_s:
             return 0
         _, b0, a0 = h[0]; lim = self.mk_nochase_bp * mid / 1e4; n = 0
@@ -1011,6 +1017,8 @@ class QuoteAgent(FinanceAgent):
             fnd = getattr(book, "fundamental", None) or getattr(book, "f", None)
             self._rf.update(int(book_id), self._sec, mid, fnd, (bd5 - ad5) / (bd5 + ad5) if bd5 + ad5 else 0.0, (ask - bid) / mid * 1e4,
                             trades, of, own_uid=self.uid)
+        if self.mk_nochase_bp > 0:
+            self._bbo_rec(int(book_id), bid, ask)           # §1326: history for EVERY book every round, before the pace gate
         if self.lock_dir:                                  # maker side of the handshake, FIRST (paced-out / toxic books return early below)
             for side in (OrderDirection.BUY, OrderDirection.SELL):
                 lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}_{self.uid}"

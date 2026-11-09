@@ -465,6 +465,13 @@ check("calm no-touch + hold: never more than 5 instructions per book", worst <= 
 had = bool(NC._bbo); NC._sec_prev = 86000; NC._sec = 50; NC._clock_check()
 check("no-chase: a sim-day reset clears the best-price history", had and not NC._bbo, f"had {had}, after {dict(NC._bbo)}")
 
+# §1326 no-chase history is recorded while a book is paced out (via _bbo_rec), so the cap fires on the first quote after the block
+NP = agent(new_path, pace_cap=450000, mk_nochase_bp=1.0, mk_nochase_s=10)
+for sec in range(100, 115):
+    NP._sec = sec; NP._bbo_rec(7, 299.00 + (0.05 if sec >= 110 else 0.0), 299.08 + (0.05 if sec >= 110 else 0.0))   # paced out: only recorded
+NP._sec = 115; w = {Bd: 299.05, Sd: 299.13}; n = NP._nochase(7, w, 299.05, 299.13, 299.09, 2)
+check("no-chase: history kept through a pace block → first quote after it is capped", w[Bd] == 299.0 and n == 1, f"{w} n {n}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)
