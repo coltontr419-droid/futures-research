@@ -21847,3 +21847,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   the time → it misses the rare dislocations where makers earn the most. Next test (replaces "$300 size up", which would burn the budget faster): spend less on
   ordinary $300 flow so more books stay quoting — $300 no-touch on tight spreads (mk_vol_touch_min, built, live knob) and/or a smaller $300 touch size; measure
   the share of books blocked + kept per fill; the event payoff itself needs long runs.
+
+## §1352 — 2026-11-09 12:25 PM CT — test queue re-ordered (user): "spend less on ordinary $300 fills" replaces size-up as test 2; size-up moved to the middle
+- Test 2 = $300 no-touch while the others' spread < 6 ticks (mk_vol_touch_min 6, live knob in the running f31e1325; ladder 2:5:10 kept) — x3 joins the $300 touch on
+  ≈ 45% of $ vs the fleet's 23%; aim: spend less budget on ordinary fills so fewer books are pace-blocked (§1351). A = touch_min 6 / B = 0, both with pull 0.3 and
+  skew 10 (kept separate from the skew test): A 1:15, B 1:45, A 2:15, B 2:45, END 3:15 PM CT (liveswitch_vt.sh → liveswitch_vt_log.txt); read 3:18 PM
+  (abread_vt.sh → ab_read_vt.txt: abwin + PACE STATUS blocked counts per window; ALERT).
+- Queue: 1 skew 5 vs 10 (running, read 1:13 PM) → 2 $300 no-touch < 6 → 3 no-chase trigger 1 → 0.5 bp → 4 one restart (live ladders + live_params_s 5) →
+  5 $300 ladder depth (deeper levels; flash events §1351) → 6 $300 order size 0.034 → 0.07 (moved here) → 7 calm ladder 1:2:4 → 1:2:3 → 8 4-dec tuning →
+  9 $300 pull off/on long re-test.
