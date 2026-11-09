@@ -8,6 +8,9 @@ Re-read this file before every action.
 - **Check every route before acting.** Don't stop at the first finding. List every candidate cause, measure each against the data
   (by book group, depth, size, spread, timing, inventory, per book, per window) before naming a cause or changing anything. The
   previous session repeatedly acted on its first explanation and had to retract it.
+- **Keep searching until there is nothing else to find** (user 11-08 6:10 PM): when researching issues/improvements, don't stop at the first
+  problem found — it could cover up a bigger one that would help more. List what's left to check after every finding and keep going until every
+  route is measured; report the full list, ranked by size.
 - **Record every problem and every solution permanently in memory, as it happens.** Append a line (problem → cause → fix/rule, with
   the decisions.md §) to `memory/mvtrx-lessons.md` in the same turn. Re-read the relevant lessons before similar actions.
 - **Copy successful miners first.** Before any MVTRX strategy test, measure what the top UIDs actually do from their real trades/fills

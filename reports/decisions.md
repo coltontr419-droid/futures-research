@@ -21563,3 +21563,18 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Prune 6:08 PM: lowest unprotected 1.08 / 1.11 / 1.13 × x2 (a 0.81 UID seen at 5:57 was pruned since); x4 0.91 × x2; x2 protection ends ≈ 6:35 PM. Pay 6 PM:
   x2 $90.4, x4 $82.3. Burn 0.1167 TAO; wallet 0.0138 TAO. Dashboard gauges blank at 6 PM (API down; miners fine). One UnknownSynapseError (an empty request to
   x4's axon at 5:36 PM) = external probe, harmless.
+
+## §1322 — 2026-11-08 6:22 PM CT — WHY our fills keep less than the fleet's: every tape route (whygap.py, why300.py, whotakes.py; x2 vs 17 long-lived fleet UIDs, sim 22,000→now)
+- Rule added (user 6:10 PM): keep searching until nothing else can be found; the first problem can hide a bigger one (CLAUDE.md + feedback-search-every-route.md).
+- Decomposition gap = WHERE (mix) + HOW (same bucket). Calm gap +3.64 bp, $300 +1.20 bp. NOT the cause (mix ≈ 0 and same-bucket gap everywhere): taker type
+  (background vs miner), incoming trade size, spread at fill, fill clustering, inventory direction; no specific sniper (the same taker UIDs 68/158/146 hit both;
+  ours lose, the fleet's win). PAIRED same book + same sim minute: $300 fleet +1.21 bp (71% of cells), calm +3.01 (85%) → not book/time selection.
+- kept = edge at fill + mid move after: CALM fleet +6.52 − 0.64 vs us +2.98 − 0.75 → the calm gap is EDGE (where in the book), not adverse selection.
+  Fleet 56% of calm $ fills 1–3 ticks behind the touch (edge +7.5 to +11.2) at CROWDED levels ($10k+ resting — its 17 UIDs stack the same prices; 82% of its
+  calm $ vs 33% of ours); 90% of ours at the touch, 21% at 1-tick spreads (edge ≈ 2). Our deep orders sit BEHIND the fleet's older orders in time priority.
+  $300 fleet +1.70 + 0.22 vs us +1.29 − 0.57 → the $300 gap is mostly the MOVE AFTER: we CHASE. 33% of our $300 $ fills right after the own-side best moved
+  away (> 1 bp in 10 s) and we re-joined at the new best: kept +0.03, move after −1.35; the fleet has 13% there. The fleet's best bucket = price ran INTO its
+  resting order (26% of $, kept +2.47, reverts +0.95); ours 10%. Mechanism: join=1 re-prices to the best every round, so we buy after rises / sell after falls.
+- Candidates (largest first): (1) calm: rest orders 1–3 behind EARLY and KEEP them (priority at crowded levels), touch only at wider spreads (fleet's touch $
+  is 28–42%; its 1-tick-spread fills are deep orders); (2) NO-CHASE on all books: when the own-side best moved away > X bp in the last N s, keep the old price
+  (order left behind) instead of re-joining; (3) inside quoting / flow pull on $300 (§1321, unclear). Each needs code + test_pace; 1-hour all-books test.
