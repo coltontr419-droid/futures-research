@@ -21787,3 +21787,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   14+ d $182–298 (median $231). → x3 already ≈ the fleet's settled bottom at < 11 h; expect the same dip (≈ $170, ≈ 1.2–1.3× the line) before settling.
 - Scaling draft: ≈ $25 per registration, ≈ 15–20 more UIDs per $48 box; 10 UIDs ≈ $1.7–2.3k/mo, 45 ≈ $7.7–10.4k/mo if they perform like x3/fleet (unproven
   beyond one UID; fixed pool). Gate: x3 survives protection and holds ≥ 1.3× the line through its dip; then one UID/day, then 5 at a time.
+- §1344 correction (user, 7:00 AM): a new UID replaces the pruned lowest miner (all 256 slots always full), so most of its pay comes from that slot; proportional dilution of our other UIDs ≈ 0.1% per new UID (≈ 5% at 45). Real scaling risks: fill competition among identical makers (fleet proves 41 coexist at ≈ $237) and a creeping prune line.

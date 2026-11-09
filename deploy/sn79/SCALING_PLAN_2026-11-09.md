@@ -31,8 +31,11 @@
 | 10 | $1,700 | $2,300 | 1 | ≈ $225 |
 | 20 | $3,400 | $4,600 | 2 (+$48/mo) | ≈ $475 |
 | 45 | $7,650 | $10,350 | 3 (+$96/mo) | ≈ $1,100 |
-Caveats: pay comes from a fixed pool (≈ $62k/month for all miners); more of our UIDs take share from others, and the prune line can rise. Identical makers on
-the same books do not split making credit (§1289), but the pay estimate is unproven beyond one UID. Each UID must survive its first 24 h on its own.
+Caveats (corrected 7:00 AM after the user's point): all 256 slots are always full, so a new UID REPLACES the pruned, lowest-paid miner (≈ $128) — most of
+its pay comes from that slot, not from our other UIDs. Shares are proportional, so a better replacement dilutes everyone slightly: ≈ +$72 on a ≈ $62k pool ≈
+0.1% per new UID; ≈ 5% per UID at 45 UIDs. Real risks: (1) our own identical makers compete for the same fills (the fleet runs 41 identical UIDs at ≈ $237
+each, so it works at that size; our makers are volume-capped; unproven for us beyond 2–3) and (2) the prune line creeps up as our UIDs take the bottom slots.
+Each UID must survive its first 24 h on its own.
 
 ## Proposed order (your call)
 1. **Gate:** x3 survives past protection (≈ 7:46 PM today) AND holds ≥ 1.3× the prune line through its dip (watch for 2–3 days).
