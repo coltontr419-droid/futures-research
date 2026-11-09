@@ -21719,3 +21719,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   ticks): fleet inside 22.5% / touch 14% of $ vs x3 inside 8.7% / touch 30.5% → "no touch at tight spreads" would change little; test instead $300 inside quoting
   at ≥ 5 ticks (mk_vol_inside=5, others'-best fix §1314) now with no-chase + the $300 pull. Unit backup mvtrx-x3.service.pre-inside2; gate passed; restarted
   1:39:24 AM CT (sim ≈ 33,011). Read 2:42 AM. ($300 no-touch code stays built, unused.)
+
+## §1338 — 2026-11-09 2:50 AM CT — test 5 ($300 inside quoting) rolled back; restart penalty on calm; survival 1.21×; no more restarts until morning
+- Test 5, 1:39–2:42 AM CT (sim 33,011–33,835): $300 fleet − x3 gap 0.69 ± 0.17 → 0.91 ± 0.20 (worse 0.22 ± 0.26, noise); inside share at spreads 5+ 8.7% → 18.4%
+  (fleet 23%) but x3 $300 kept +0.99 → +0.80. Second weak negative for $300 inside quoting (x4 §1326 ≈ −0.45 with confounds) → ROLLED BACK (unit restored from
+  mvtrx-x3.service.pre-inside2; the test unit kept as .inside2-rolledback); gate passed; restarted 2:44:57 AM CT (sim ≈ 33,856); filling, 0 errors.
+- RESTART PENALTY (calm): every restart cancels and re-places all orders (queue priority lost) — what the calm hold needs. First ≈ 20 min after a restart vs the rest
+  of the hour: test 4 gap 0.53 ± 0.29 vs 0.18 ± 0.33 (order age p75 14 s vs 312 s); test 5 1.79 ± 0.64 vs 0.79 ± 0.53. Suggestive (≈ 1.5 widths pooled), clear
+  mechanism. The calm 0.44 → 1.38 swing in the test-5 hour is likely this, not test 5 (which did not touch calm). → x3 runs UNCHANGED until the morning (clean
+  multi-hour read of the full setup); future calm reads skip the first ≈ 20 min after a restart or run ≥ 2 h.
+- Survival (survive.py) at 6.9 h: emission ÷ prune line 1.21 (5.8 h: 1.03); field median 1.97; fleet 216 2.16. Gauge 2:26 AM: making 589 / combined 0.377 vs 216 515 / 0.352.
+- Final overnight setup: $300 x2-style + flow pull on $300 + no-chase (all books); calm fleet copy + no-touch < 3 ticks + hold 2 + soft gate 5000; 4-dec fleet quoting.
