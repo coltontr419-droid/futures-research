@@ -21797,3 +21797,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - abwin.py bug: `for _ in 2000` (not range) crashed the 8:50 summary line; the window-level bootstrap was also meaningless with 2 windows per side → rewritten as a
   fill-level 1-sim-min block bootstrap of the pooled A vs B diff-in-diff.
 - Survival 8:47 AM (13.0 h): emission ÷ prune line 2.01 (field median 2.09, fleet 216 2.33). Gauges x3 803 / 0.408 vs 216 563 / 0.336. Switches all applied ≤ 1 min.
+
+## §1346 — 2026-11-09 9:10 AM CT — volume safety check; live ladder levels built and installed (x3 keeps its loaded code); x1 unit live_params_s 5
+- Pace: x3 busiest book $159,367 of $450,000 (validator traded volume agrees, pace_sync_64.json); 104/128 books paced after the head start. Safe.
+- Code (QuoteAgent.py md5 = deployed agents/QuoteAgent.py; backups agents/QuoteAgent.pre-livelad.py / repo QuoteAgent.pre-livelad.py): LIVE_LISTS mk_calm_lad /
+  mk_vol_lad live-changeable as "a:b:c" (ticks 1–20, ≤ 4 levels, no duplicates; bad values ignored). test_pace: 3 new checks + all — ALL PASS. Running x3 keeps
+  its loaded f31e1325 code until its next restart (the new file only adds ladder knobs; behaviour unchanged otherwise).
+- mvtrx-x1 unit (disabled; backup mvtrx-x1.service.pre-lps5): + live_params_s=5 (switches apply within ≈ 25 wall s instead of up to ≈ 2.5 min).
+- Next live tests ($300, after the pull test ends 11:00): skew 10 → 5; mk_vol_size 0.034 → 0.07; mk_nochase_bp 1 → 0.5 — each as 2 h of 30-min A/B windows.

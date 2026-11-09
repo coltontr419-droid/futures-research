@@ -532,6 +532,17 @@ LP._sec = 50; LP._live_reload()                                # sim-day reset: 
 check("live: works after a sim-day reset (clock back)", LP.flow_pull == 0.3, f"flow_pull {LP.flow_pull}")
 check("live: off by default", agent(new_path, pace_cap=450000).live_params == "", "''")
 
+# §1346 live ladder levels
+LL = agent(new_path, pace_cap=450000, mk_calm_lad="1:2:4", mk_vol_lad="2:5:10", live_params=lpf, live_params_s=30)
+_tm.sleep(0.01); json.dump({"mk_calm_lad": "1:2:3", "mk_vol_lad": "3:6:10"}, open(lpf, "w")); os.utime(lpf, None)
+LL._sec = 5000; LL._live_reload()
+check("live ladders: applied as sorted int lists", LL.mk_calm_lad == [1, 2, 3] and LL.mk_vol_lad == [3, 6, 10], f"{LL.mk_calm_lad} {LL.mk_vol_lad}")
+_tm.sleep(0.01); json.dump({"mk_calm_lad": "1:2:3:4:5", "mk_vol_lad": "0:40"}, open(lpf, "w")); os.utime(lpf, None)
+LL._sec = 5100; LL._live_reload()
+check("live ladders: > 4 levels or out-of-range ticks ignored", LL.mk_calm_lad == [1, 2, 3] and LL.mk_vol_lad == [3, 6, 10], f"{LL.mk_calm_lad} {LL.mk_vol_lad}")
+r = _RespE(); LL._vol_ladder(r, 80, [], {Bd: 30.00, Sd: 30.02}, {}, 60.0, 60.0, 0.01, 2, levels=LL.mk_calm_lad)
+check("live ladders: new calm levels used by the ladder (≤ 5 instructions)", len(r.instructions) <= 5 and 29.99 in [i.price for i in r.instructions], f"{[i.price for i in r.instructions]}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

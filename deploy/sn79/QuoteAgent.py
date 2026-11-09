@@ -563,6 +563,7 @@ class QuoteAgent(FinanceAgent):
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
                   "mk_dec_deep": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float}
+    LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
                    "mk_dec_size": (0.0, 0.12), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0)}
 
@@ -589,6 +590,18 @@ class QuoteAgent(FinanceAgent):
             return
         changed, ignored = [], []
         for k, v in data.items():
+            if k in self.LIVE_LISTS:
+                lo_, hi_, mx = self.LIVE_LISTS[k]
+                try:
+                    lv = [int(x) for x in str(v).replace(",", ":").split(":") if str(x).strip()]
+                except ValueError:
+                    ignored.append(k); continue
+                if not lv or len(lv) > mx or any(not (lo_ <= x <= hi_) for x in lv) or len(set(lv)) != len(lv):
+                    ignored.append(f"{k}(bad levels)"); continue
+                lv = sorted(lv); old = getattr(self, k, None)
+                if old != lv:
+                    setattr(self, k, lv); changed.append(f"{k} {old}→{lv}")
+                continue
             typ = self.LIVE_KNOBS.get(k)
             if typ is None:
                 ignored.append(k); continue
