@@ -21629,3 +21629,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   promising, unproven.
   $300 fleet copy (no flow_pull + inside 5) vs x2: −0.49 ± 0.25 (1.9), −0.40 ± 0.20 over 2 h (2.0), −0.50 ± 0.26 (1.9) → consistent LOSER (≈ −0.45 bp): restore x2's
   $300 behaviour (flow_pull on, no inside). No-chase never ran properly (bug) → untested.
+
+## §1328 — 2026-11-08 7:45 PM CT — flow pull on $300 only (code); x3 unit = proven-only launch setup (DISABLED, awaiting the user)
+- flow_pull_vol_only (1 = flow_pull acts only on books 0–62): QuoteAgent.py md5 1b1425b9 = deployed agents/QuoteAgent.py (backups agents/QuoteAgent.pre-fpvol.py /
+  repo QuoteAgent.pre-fpvol.py); test_pace 3 new checks + all — ALL PASS. No miner was running.
+- mvtrx-x3 unit (backup mvtrx-x3.service.pre-launchcfg) = PROVEN winners only: $300 like x2 (flow_pull 0.3 on $300 via flow_pull_vol_only, no inside quoting,
+  thin off, ladder 2:5:10); calm = the fleet copy that won (no pull, expiry 500 s, ladder 1:2:4); 4-dec skipped; pace cap/steady 450k + start 100k + ledger.
+  NOT included (tests to run one at a time, 1 h each, judged vs the fleet gap since launch): calm no-touch < 3 ticks (promising), no-chase (fixed, untested),
+  hold + soft gate (neutral), ladder 1:2:3, fleet 4-dec quoting. launch_maker.sh adds tape= (tape idle).

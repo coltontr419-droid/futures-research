@@ -472,6 +472,14 @@ for sec in range(100, 115):
 NP._sec = 115; w = {Bd: 299.05, Sd: 299.13}; n = NP._nochase(7, w, 299.05, 299.13, 299.09, 2)
 check("no-chase: history kept through a pace block → first quote after it is capped", w[Bd] == 299.0 and n == 1, f"{w} n {n}")
 
+# §1328 flow pull on the $300 books only: check the gating expression the main path uses
+FV = agent(new_path, pace_cap=450000, flow_pull_vol_only=1)
+on = lambda a, b: bool(a.flow_pull and not (a.flow_pull_vol_only and b >= 63))
+check("flow_pull_vol_only: on for $300 books, off for calm / 4-dec", on(FV, 7) and not on(FV, 80) and not on(FV, 110), "7 on, 80/110 off")
+check("flow_pull_vol_only: off by default (pull everywhere as before)", on(agent(new_path, pace_cap=450000), 80), "80 on")
+src = open(new_path).read()
+check("flow_pull_vol_only: main path uses the same gate", "fp_on = self.flow_pull and not (self.flow_pull_vol_only and int(book_id) >= 63)" in src and "if fp_on and near > self.flow_pull" in src, "gate present")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

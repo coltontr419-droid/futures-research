@@ -239,6 +239,8 @@ class QuoteAgent(FinanceAgent):
         self.mk_nochase_s = int(getattr(c, "mk_nochase_s", 10))        # quote at the best of MK_NOCHASE_S ago instead (order left behind, like the fleet's) — §1322:
                                                                         # 33% of our $300 $ filled right after re-joining a moved best (kept ≈ 0, move after −1.35 bp)
         self.mk_calm_touch_min = int(getattr(c, "mk_calm_touch_min", 0))   # §1323: >0: calm books place NO touch order while the others' spread is < this many ticks
+        self.flow_pull_vol_only = int(getattr(c, "flow_pull_vol_only", 0))   # §1328: 1 = flow_pull acts only on the $300 books (0-62): there it kept x2 out of the
+                                                                              # after-move states (x4 without it lost ≈ 0.45 bp/fill); on calm books no pull won (+0.94)
         self._bbo = {}                                                      # (only the ladder behind it) — fleet calm edge comes from orders 1-3 behind the touch
                                                                       # nothing new is placed) while the bucket is above −this $ and the 24-h ledger is under pace_cap
         self.mk_thin_only_vol = int(getattr(c, "mk_thin_only_vol", 0))   # §1301: 1 = the thin-side rule applies ONLY on the $300 books (ids 0-62); calm/4-dec stay two-sided
@@ -1117,9 +1119,10 @@ class QuoteAgent(FinanceAgent):
         elif self.pull and pred < -self.pull * tick:
             want.pop(OrderDirection.BUY, None)             # price about to fall: do not leave a bid to be hit
         near = self._near.get(book_id, 0.0); until = self._pull_until.setdefault(book_id, {})
-        if self.flow_pull and near > self.flow_pull:
+        fp_on = self.flow_pull and not (self.flow_pull_vol_only and int(book_id) >= 63)
+        if fp_on and near > self.flow_pull:
             until[OrderDirection.SELL] = self._sec + self.flow_cool   # new orders crowding the bid near the touch: our offer gets lifted
-        elif self.flow_pull and near < -self.flow_pull:
+        elif fp_on and near < -self.flow_pull:
             until[OrderDirection.BUY] = self._sec + self.flow_cool
         for side, t in until.items():
             if self._sec <= t:
