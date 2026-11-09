@@ -21837,3 +21837,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   $300 $1.01M, calm $0.64M, 4-dec $0.49M per sim h → a full steady window ≈ $6.44M.
 - Projection at constant quality (credit ∝ window volume, from 481 now): +1 h ≈ 409, +2 h (≈ 1:45 PM CT) ≈ 344, then flat ≈ 330–342 → x3's steady making ≈ 335
   ≈ ½ of fleet 216 (650–670) ≈ fleet 87 — consistent with §1347 (≈ 1.2–1.3× the line once pay catches up). Only quality can raise it now (volume is at the cap pace).
+
+## §1351 — 2026-11-09 12:00 PM CT — the fleet's 9:30–11:00 $300 "spike" = a flash dislocation on books 45/47 that x3 missed (pace-blocked) (spike300.py)
+- Fleet $300 kept before 1.85 bp (move after ±1.3) vs 9:30–11:00 5.65 bp (move ±4.8); its 5+-behind fills +18.1 bp. 69% of the spike profit from 2 books: 45 ($1,925,
+  kept +272 bp/fill) and 47 ($1,257, +53 bp). Book 45 mid: 298.7 → 337.65 (sim ≈ 39,874, +13%) → 272.2 (≈ 39,960, −9%) within ≈ 100 sim s; the fleet (118 fills,
+  295.3–328.2) sold into the spike before it reverted. x3: 0 fills on book 45 in sim 38,900–40,400 (137 fills / $163k there otherwise) — most likely PACE-BLOCKED
+  (a paced-out $300 book cancels everything; 106–108 of 128 books blocked at any time).
+- Structural finding: x3 burns its per-book budget on ordinary fills (≈ $22k per $300 book per sim h vs the fleet's ≈ $14.6k) and is absent from most books most of
+  the time → it misses the rare dislocations where makers earn the most. Next test (replaces "$300 size up", which would burn the budget faster): spend less on
+  ordinary $300 flow so more books stay quoting — $300 no-touch on tight spreads (mk_vol_touch_min, built, live knob) and/or a smaller $300 touch size; measure
+  the share of books blocked + kept per fill; the event payoff itself needs long runs.
