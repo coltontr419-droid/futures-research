@@ -21638,3 +21638,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   NOT included (tests to run one at a time, 1 h each, judged vs the fleet gap since launch): calm no-touch < 3 ticks (promising), no-chase (fixed, untested),
   hold + soft gate (neutral), ladder 1:2:3, fleet 4-dec quoting. launch_maker.sh adds tape= (tape idle).
 - User 7:47 PM: launch x3 with the PROVEN-only setup (as staged); then 1-hour tests one at a time: calm no-touch → no-chase → hold + soft gate → 4-dec fleet quoting, each judged vs the fleet gap since launch.
+
+## §1329 — 2026-11-08 7:55 PM CT — x3 = UID 64 LIVE (proven-only setup)
+- User registered hotkey x3 → UID 64 (block 9,465,415 ≈ 7:46 PM CT; protection ≈ 24 h → ≈ 7:46 PM CT 11-09). Agent md5 1b1425b9 = repo. Unit = §1328 proven-only:
+  $300 like x2 (flow_pull 0.3 on $300 only, no inside, thin off, ladder 2:5:10), calm fleet copy (no pull, expiry 500 s, ladder 1:2:4), 4-dec skipped,
+  pace cap/steady 450k + start 100k + fresh ledger.
+- launch_maker.sh x3 (all §1315 fallbacks used): registration ✔; no running maker / no fresh tape → start sim s read from x3 itself → our_uids "64 maker x3 28750";
+  no old ledger; tape idle 2,270 s → tape= added to mvtrx-x3 (it records /opt/mvtrx/live_tape_x3.jsonl); started 7:54:22 PM CT; active, heartbeat, 0 errors.
+  x3pub.txt already on the droplet.
+- Plan (user): first hour = BASELINE (fleet − x3 kept gap, per group, sim 28,750 → ≈ 29,440); then 1-hour tests in order: calm no-touch → no-chase → hold + soft
+  gate → 4-dec fleet quoting, each judged as the change in the fleet gap vs the previous hour (diff-in-diff). Survival yardstick: emission ÷ prune line at 6 h /
+  24 h (target ≥ 2×, §1318).
