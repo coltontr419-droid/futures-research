@@ -1,6 +1,8 @@
 """§1342: A/B over alternating windows on ONE miner (live switches, no restarts): per window the fleet − us kept gap per book group; pooled A vs B with a
 window-level bootstrap.  python3 abwin.py <tape> <switch log> fleet=<uids> us=<uid>   (log lines: 'HH:MM:SS sim <s> <label> <json>'; label A/B/END)"""
 import json, sys, collections, random, statistics as stt
+CLIP = float([a for a in sys.argv if a.startswith("--clip=")][0].split("=")[1]) if any(a.startswith("--clip=") for a in sys.argv) else 1e9
+sys.argv = [a for a in sys.argv if not a.startswith("--clip=")]
 tape, logf = sys.argv[1], sys.argv[2]; G = {a.split("=")[0]: {int(u) for u in a.split("=")[1].split(",")} for a in sys.argv[3:5]}
 who = {u: g for g, us in G.items() for u in us}
 W = [(int(l.split()[2]), l.split()[3]) for l in open(logf) if " sim " in l]
@@ -20,7 +22,7 @@ cell = collections.defaultdict(lambda: [0.0, 0.0, 0])
 for t, b, p, q, s, g in F:
     m0 = SN[b].get(int(t) - 1); m1 = SN[b].get(int(t) + 20)
     if m0 is None or m1 is None: continue
-    k = (1 if s == 1 else -1) * (m1 - p) / m0 * 1e4; grp = "$300" if b < 63 else "calm" if b < 102 else "4-dec"
+    k = max(-CLIP, min(CLIP, (1 if s == 1 else -1) * (m1 - p) / m0 * 1e4)); grp = "$300" if b < 63 else "calm" if b < 102 else "4-dec"
     wi = next((i for i, (a, z, _) in enumerate(wins) if a <= t < z), None)
     if wi is None: continue
     c = cell[(wi, grp, g)]; c[0] += k * p * q; c[1] += p * q; c[2] += 1
@@ -32,7 +34,7 @@ for t, b, p, q, s_, g in F:
     wi = next((i for i, (a_, z, _) in enumerate(wins) if a_ <= t < z), None)
     if wi is None: continue
     grp = "$300" if b < 63 else "calm" if b < 102 else "4-dec"
-    rows[(wins[wi][2], grp, g)].append((int(t // 60), p * q, (1 if s_ == 1 else -1) * (m1 - p) / m0 * 1e4))
+    rows[(wins[wi][2], grp, g)].append((int(t // 60), p * q, max(-CLIP, min(CLIP, (1 if s_ == 1 else -1) * (m1 - p) / m0 * 1e4))))
 def kept(v): d = sum(x[1] for x in v); return sum(x[1] * x[2] for x in v) / d if d else float("nan")
 def boot(v):
     bl = collections.defaultdict(list)

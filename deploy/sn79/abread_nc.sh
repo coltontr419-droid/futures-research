@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /opt/mvtrx; { echo "== $(TZ=America/Chicago date) \$300 no-chase 0.5 bp (A) vs 1 bp (B) ABAB read (pull 0.3, skew 5)"; cat liveswitch_nc_log.txt; (ulimit -v 3000000; nice -n 10 python3 abwin.py live_tape_x3.jsonl liveswitch_nc_log.txt fleet=7,31,40,52,59,87,102,111,133,134,147,156,210,216,241,252,255 us=64 --clip=20) 2>&1; echo "-- books blocked by the pace gate (PACE STATUS, wall time UTC):"; journalctl -u mvtrx-x3 --since "21:15" --until "23:25" --no-pager -o short-iso | grep -o "^[0-9T:-]*\|PACE STATUS: [0-9]* of [0-9]*" | paste - - ; } > /opt/mvtrx/ab_read_nc.txt 2>&1
+echo "ALERT $(date +%s) \$300 no-chase ABAB read done: /opt/mvtrx/ab_read_nc.txt" >> /opt/mvtrx/alerts.txt

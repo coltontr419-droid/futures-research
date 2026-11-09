@@ -21866,3 +21866,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   is where pay converges.
 - Verdict: at today's quality x3 sits just above ≈ 69 weaker unprotected miners — borderline for 40 UIDs (buffer ≈ 29). At live ≈ 0.30 (fleet 87's level) ≈ 139
   below → room for 40 with a ≈ 100 buffer. → improve quality on x3 first ($300 tests), then scale in steps, re-checking rank each step.
+
+## §1354 — 2026-11-09 1:30 PM CT — skew 5 WINS (event-capped read); flash events need capped reads; test 3 (no-chase 0.5) scheduled
+- Skew ABAB 11:10–1:10 PM (A = 5, B = 10, pull 0.3): uncapped, window 0 had x3 $300 kept +9.54 bp (x3 caught a flash dislocation this time) → pooled +6.20 ± 4.12
+  (1.5 w). abwin.py --clip=20 (each fill's kept capped at ±20 bp; flash events no longer dominate): $300 x3 kept A 1.33 / 1.10 vs B 0.41 / 0.81 → pooled gap
+  closed by +0.96 ± 0.46 (2.1 widths) → WIN; calm +1.03 ± 0.70 (1.5) and 4-dec +0.84 ± 0.59 (1.4), same direction. → skew 5 adopted.
+- Pull ABAB re-read capped: +0.16 ± 0.28 (0.6 w) → still no effect (pull stays on).
+- Server timers: 3:15 PM END of test 2 writes {pull 0.3, skew 5, touch_min 0} (the original END timer stopped); test-2 read 3:18 PM now capped; TEST 3 no-chase
+  trigger A = 0.5 bp vs B = 1 bp (skew 5, touch_min 0) 3:20 / 3:50 / 4:20 / 4:50 / END 5:20 PM, read 5:23 PM (abread_nc.sh → ab_read_nc.txt, capped). If test 2
+  wins, switch $300 no-touch back on after test 3.
+- mvtrx-x1 unit (disabled; backup .pre-skew5): skew 10 → 5.
