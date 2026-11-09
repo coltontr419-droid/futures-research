@@ -21893,3 +21893,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Pool split: 145 makers 0.537 of score (avg 0.0037); 111 non-makers 0.460 (avg 0.0041); top earners are skill miners (score ≈ 0.013–0.014, skill 1.5–2.0) ≈ 4× a maker.
 - x3 forecast refined: current making share 0.00369 → ≈ 0.0030 when credit settles at ≈ 335 → ≈ $185/mo ≈ 1.4–1.5× the prune line ($128). Scaling headroom (§1353) stands.
 - User 2:20 PM: skill miners are revisited only after the makers run well with little prune risk and are scaling (later this week if needed); target = many maker UIDs + many skill UIDs (separate UIDs).
+
+## §1357 — 2026-11-09 3:30 PM CT — test 2 ($300 no-touch < 6 ticks) REJECTED; test 3 (no-chase 0.5 bp) running
+- ABAB 1:15–3:15 PM (skew 10, pull 0.3; capped ±20 bp): x3 $300 kept A (no-touch) 0.29 / 0.92 vs B 0.61 / 1.50 → pooled A +0.60 vs B +1.05; gap −0.43 ± 0.39 (1.1 w)
+  — worse in both pairs. Pace-blocked books (PACE STATUS every ≈ 4.5 min): A windows 97–111 of 128, B windows 97–109 → NO budget saving (skipping $300 touch orders
+  does not keep more books quoting). Calm −0.64 ± 0.65, 4-dec +0.03 (noise). → off (END at 3:15 already wrote touch_min 0 + skew 5).
+- Test 3 live since 3:20 PM (mk_nochase_bp 1 → 0.5, skew 5), read 5:23 PM.
+- Survival 19.7 h: emission ÷ prune line 3.39 (lowest unprotected 1.00, next 1.25, 1.32; field median 3.21; fleet 216 3.42). Gauge making 434 / combined 0.194.
