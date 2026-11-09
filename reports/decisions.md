@@ -21707,3 +21707,15 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (no-chase caps 4-dec targets after moves, so the 1-tick-ahead step is skipped). OPEN: if the 4-dec gap stays wide, test no-chase on $300 only.
 - Gauges 12:25 AM: x3 making 521 / combined 0.386 vs fleet 216 489 / 0.358 (x3 ≥ a long-lived fleet UID for the first time; head start still in the window).
 - Test 4: + mk_calm_hold=2 mk_pace_hold=5000 (ladder kept 1:2:4; unit backup mvtrx-x3.service.pre-hold2); gate passed; restarted 12:32:33 AM CT (sim ≈ 32,154). Read 1:35 AM.
+
+## §1337 — 2026-11-09 1:39 AM CT — test 4 (calm hold + soft gate) WINS; 6-h survival check; test 5 = $300 inside quoting (fixed)
+- Test 4, 12:32–1:35 AM CT (sim 32,154–32,974): calm fleet − x3 gap 1.33 ± 0.27 (2-hour average before; last hour 1.65) → 0.44 ± 0.21 = closed by 0.89 ± 0.34 bp (2.6
+  widths) → WIN, kept. x3 calm kept +4.69 (fleet +5.13); order age at fill median 4 → 10 s, p75 13 → 61 s; price came toward the order before the fill 25% of $.
+  $300 0.69 ± 0.17 (steady); 4-dec 0.15 ± 0.27 (38 fills) — the §1336 4-dec worry looks like head-start noise; closed unless it reappears.
+- 6-h survival (survive.py, UID 64 at 5.8 h): emission ÷ prune line 1.03 (lowest unprotected 1.00, 1.08, 1.17 …; field median 2.14; fleet 216 2.34). Live combined
+  ≈ fleet's (0.38 vs 0.36) but chain emission lags (paid score = average of all rounds since registration; 0.0025 vs fleet 0.0041, rising ≈ 0.0003 per 50 min).
+  24-h check ≈ 7:46 PM CT is the one that decides.
+- Test 5 choice (spread300.py, sim 28,750–32,974): fleet $300 touch fills are spread evenly over spreads (≈ 2% of $ each); the difference is at WIDE spreads (5+
+  ticks): fleet inside 22.5% / touch 14% of $ vs x3 inside 8.7% / touch 30.5% → "no touch at tight spreads" would change little; test instead $300 inside quoting
+  at ≥ 5 ticks (mk_vol_inside=5, others'-best fix §1314) now with no-chase + the $300 pull. Unit backup mvtrx-x3.service.pre-inside2; gate passed; restarted
+  1:39:24 AM CT (sim ≈ 33,011). Read 2:42 AM. ($300 no-touch code stays built, unused.)
