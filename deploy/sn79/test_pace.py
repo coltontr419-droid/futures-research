@@ -511,6 +511,27 @@ pl = sorted(i.price for i in r.instructions if i.kind == "place"); cn = sum(1 fo
 check("vol no-touch: touch bid cancelled, only 2/5/10 ladder placed", cn == 1 and 299.0 not in pl and 299.03 not in pl and 298.98 in pl and 299.05 in pl, f"cancel {cn} place {pl}")
 check("vol no-touch: off by default", agent(new_path, pace_cap=450000).mk_vol_touch_min == 0, "0")
 
+# §1342 live settings reload: whitelisted quoting knobs only; pacing/cap never; bad files change nothing
+import tempfile as _tf, time as _tm
+lpd = _tf.mkdtemp(); lpf = os.path.join(lpd, "lp.json")
+LP = agent(new_path, pace_cap=450000, pace_steady=450000, live_params=lpf, live_params_s=30)
+LP._sec = 1000; LP._live_reload()
+check("live: no file → nothing changes", LP.flow_pull == 0.3, f"flow_pull {LP.flow_pull}")
+json.dump({"flow_pull": 0, "mk_vol_inside": 5, "pace_cap": 999999, "pace_steady": 900000, "mk_vol_size": 0.5, "mk_calm_expiry": 300}, open(lpf, "w"))
+LP._sec = 1040; LP._live_reload()
+check("live: whitelisted knobs applied", LP.flow_pull == 0.0 and LP.mk_vol_inside == 5 and LP.mk_calm_expiry == 300_000_000_000, f"flow_pull {LP.flow_pull} inside {LP.mk_vol_inside} expiry {LP.mk_calm_expiry}")
+check("live: pacing / cap settings can NOT change", LP.pace_cap == 450000 and LP.pace_rate == 450000 / 86400, f"pace_cap {LP.pace_cap} rate {LP.pace_rate:.3f}")
+check("live: out-of-range size ignored", getattr(LP, "mk_vol_size", 0.0) != 0.5, f"mk_vol_size {getattr(LP, 'mk_vol_size', None)}")
+_tm.sleep(0.01); open(lpf, "w").write("{broken"); os.utime(lpf, None)
+LP._sec = 1080; LP._live_reload()
+check("live: broken file → values unchanged", LP.flow_pull == 0.0 and LP.mk_vol_inside == 5, f"flow_pull {LP.flow_pull} inside {LP.mk_vol_inside}")
+_tm.sleep(0.01); json.dump({"flow_pull": 0.3}, open(lpf, "w")); os.utime(lpf, None)
+LP._sec = 1090; LP._live_reload()
+check("live: not re-read sooner than live_params_s", LP.flow_pull == 0.0, f"flow_pull {LP.flow_pull} at +10 s")
+LP._sec = 50; LP._live_reload()                                # sim-day reset: clock went back
+check("live: works after a sim-day reset (clock back)", LP.flow_pull == 0.3, f"flow_pull {LP.flow_pull}")
+check("live: off by default", agent(new_path, pace_cap=450000).live_params == "", "''")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

@@ -1,0 +1,39 @@
+"""§1342: A/B over alternating windows on ONE miner (live switches, no restarts): per window the fleet − us kept gap per book group; pooled A vs B with a
+window-level bootstrap.  python3 abwin.py <tape> <switch log> fleet=<uids> us=<uid>   (log lines: 'HH:MM:SS sim <s> <label> <json>'; label A/B/END)"""
+import json, sys, collections, random, statistics as stt
+tape, logf = sys.argv[1], sys.argv[2]; G = {a.split("=")[0]: {int(u) for u in a.split("=")[1].split(",")} for a in sys.argv[3:5]}
+who = {u: g for g, us in G.items() for u in us}
+W = [(int(l.split()[2]), l.split()[3]) for l in open(logf) if " sim " in l]
+wins = [(W[i][0], W[i + 1][0], W[i][1]) for i in range(len(W) - 1) if W[i][1] in ("A", "B")]
+T0, T1 = wins[0][0], wins[-1][1]; SN = collections.defaultdict(dict); F = []
+for l in open(tape, "rb"):
+    i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
+    if t >= 60000 or t < T0 - 5 or t > T1 + 30: continue
+    j = l.find(b'"book": '); b = int(l[j + 8:l.index(b",", j)])
+    if b'"Mi"' in l:
+        r = json.loads(l)
+        if r["Ma"] in who and r["Ma"] != r["Ta"] and T0 <= t < T1: F.append((t, b, r["p"], r["q"], r["s"], who[r["Ma"]]))
+    elif b'"bids"' in l:
+        r = json.loads(l)
+        if r["bids"] and r["asks"]: SN[b][int(t)] = (r["bid"] + r["ask"]) / 2
+cell = collections.defaultdict(lambda: [0.0, 0.0, 0])
+for t, b, p, q, s, g in F:
+    m0 = SN[b].get(int(t) - 1); m1 = SN[b].get(int(t) + 20)
+    if m0 is None or m1 is None: continue
+    k = (1 if s == 1 else -1) * (m1 - p) / m0 * 1e4; grp = "$300" if b < 63 else "calm" if b < 102 else "4-dec"
+    wi = next((i for i, (a, z, _) in enumerate(wins) if a <= t < z), None)
+    if wi is None: continue
+    c = cell[(wi, grp, g)]; c[0] += k * p * q; c[1] += p * q; c[2] += 1
+rng = random.Random(5)
+for grp in ("$300", "calm", "4-dec"):
+    gaps = {"A": [], "B": []}
+    for wi, (a, z, lab) in enumerate(wins):
+        f, u = cell.get((wi, grp, "fleet")), cell.get((wi, grp, "us"))
+        if f and u and f[1] and u[1]:
+            gp = f[0] / f[1] - u[0] / u[1]; gaps[lab].append(gp)
+            print(f"  {grp:5s} window {wi} [{lab}] sim {a}-{z}: us kept {u[0] / u[1]:+.2f} (n {u[2]}) fleet {f[0] / f[1]:+.2f} → gap {gp:+.2f}")
+    if gaps["A"] and gaps["B"]:
+        d = stt.mean(gaps["B"]) - stt.mean(gaps["A"])
+        bs = [stt.mean([rng.choice(gaps["B"]) for _ in gaps["B"]]) - stt.mean([rng.choice(gaps["A"]) for _ in gaps["A"]]) for _ in 2000]
+        se = stt.pstdev(bs)
+        print(f"== {grp}: mean gap A {stt.mean(gaps['A']):+.2f} | B {stt.mean(gaps['B']):+.2f} | A closes the gap by {d:+.2f} ± {se:.2f} → {abs(d) / se if se else float('nan'):.1f} widths (window bootstrap; few windows → wide)")

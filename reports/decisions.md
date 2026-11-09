@@ -21754,3 +21754,19 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   calm 0.60 ± 0.24 (+4.10 vs +4.71), 4-dec 0.50 ± 0.22 (+0.93 vs +1.43). Calm order age p75 76 s. $300 after-move (≥ 3 ticks) placements 13% of $.
 - Survival 10.5 h: emission ÷ prune line 1.48 (field median 1.75, fleet 216 1.97). Gauges: x3 making 707 / combined 0.389 vs 216 534 / 0.338. 0 errors / INS OVER /
   self-trades. Recommendation in the summary: leave x3 untouched through protection (≈ 7:46 PM); keep researching the $300 gap offline.
+
+## §1342 — 2026-11-09 6:35 AM CT — live settings reload (no-restart tests); one restart to install it; $300 pull on/off ABAB test scheduled
+- User: test on the $300 books without disturbing standing orders; survival not required (x3 is a test subject; if it survives, scale UIDs on its strategy).
+  $300 orders turn over in seconds anyway; the restart is what hurts (it resets every book's queue, §1338) → build a live reload, one last restart.
+- Code (QuoteAgent.py md5 f31e1325 = deployed; backups agents/QuoteAgent.pre-livereload.py / repo QuoteAgent.pre-livereload.py): live_params=<json> (UIDN → uid),
+  re-read every live_params_s = 30 sim s when its mtime changes; applies ONLY whitelisted quoting knobs (LIVE_KNOBS: flow_pull, flow_pull_vol_only, flow_win,
+  flow_cool, mk_vol_inside, mk_vol_touch_min, mk_nochase_bp/_s, mk_calm_touch_min, mk_calm_hold, mk_pace_hold, sizes, mk_dec_*, mk_thin_*, skew,
+  mk_calm_expiry) with type casts and range limits (LIVE_LIMITS); pacing / cap / ledger knobs and ladders are NEVER live-changeable; a bad file changes nothing;
+  every change logged "LIVE PARAMS applied: …". test_pace: 8 new checks (no file; applied; pacing can NOT change; out-of-range ignored; broken file; re-read
+  interval; works after a sim-day reset; off by default) — ALL PASS.
+- Deployed: /opt/mvtrx/live_params_64.json = {} ; unit + live_params=/opt/mvtrx/live_params_UIDN.json (backup mvtrx-x3.service.pre-livereload); gate passed;
+  restarted 6:27:03 AM CT (sim ≈ 36,774); "LIVE PARAMS applied: no change" logged.
+- Test: $300 flow pull OFF vs ON (calm already has no pull; the fleet does not pull — 43% of its $300 $ fills in the pull state at its best kept, §1333) as
+  A/B/A/B 30-min windows (A = off 6:47, B = on 7:17, A 7:47, B 8:17, END 8:47 CT) via server-side timers (liveswitch.sh → live_params_64.json + liveswitch_log.txt
+  with the sim s of each switch); read 8:50 CT server-side (abread.sh → abwin.py: per-window fleet − x3 gap, pooled A vs B with a window bootstrap → ab_read.txt
+  + ALERT). The first 20 min after the restart are excluded by design.

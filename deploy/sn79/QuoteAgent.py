@@ -241,6 +241,9 @@ class QuoteAgent(FinanceAgent):
         self.mk_calm_touch_min = int(getattr(c, "mk_calm_touch_min", 0))   # §1323: >0: calm books place NO touch order while the others' spread is < this many ticks
         self.flow_pull_vol_only = int(getattr(c, "flow_pull_vol_only", 0))   # §1328: 1 = flow_pull acts only on the $300 books (0-62): there it kept x2 out of the
         self.mk_vol_touch_min = int(getattr(c, "mk_vol_touch_min", 0))   # §1334: >0: $300 books place NO touch order while the others' spread is < this many ticks
+        self.live_params = str(getattr(c, "live_params", "") or "").replace("UIDN", str(getattr(self, "uid", "")))   # §1342: JSON file re-read live (no restart)
+        self.live_params_s = int(getattr(c, "live_params_s", 30))       # §1342: sim seconds between checks of the file's mtime
+        self._lp_mtime = None; self._lp_at = -10 ** 9
                                                                           # (fleet joins the $300 touch on only 16% of its $ vs x3 53%; ladder 2:5:10 stays)
                                                                               # after-move states (x4 without it lost ≈ 0.45 bp/fill); on calm books no pull won (+0.94)
         self._bbo = {}                                                      # (only the ladder behind it) — fleet calm edge comes from orders 1-3 behind the touch
@@ -344,6 +347,8 @@ class QuoteAgent(FinanceAgent):
         response = self.make_response()
         self._sec = state.timestamp // 1_000_000_000
         self._clock_check()
+        if self.live_params:
+            self._live_reload()
         if self.lock_dir and len(self.skip) < 128 and self._sec != getattr(self, "_hb_at", None):
             self._hb_at = self._sec                            # §1240 maker heartbeat: takers only handshake while a maker of ours is alive
             hb = f"{self.lock_dir}/maker_{self.uid}.hb"
@@ -552,6 +557,54 @@ class QuoteAgent(FinanceAgent):
         for o in stale:
             if n >= self.mk_max_ins: return
             response.cancel_order(book_id, o.id); n += 1
+
+    # §1342 live settings: quoting knobs only. Pacing / cap / ledger settings are NEVER live-changeable (cap safety); list parameters (ladders) neither.
+    LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int,
+                  "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
+                  "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
+                  "mk_dec_deep": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float}
+    LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
+                   "mk_dec_size": (0.0, 0.12), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0)}
+
+    def _live_reload(self):
+        """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
+        Anything else in the file is ignored; a bad file changes nothing. Every change is logged."""
+        if self._sec - self._lp_at < self.live_params_s and self._lp_at <= self._sec:
+            return
+        self._lp_at = self._sec
+        try:
+            m = os.path.getmtime(self.live_params)
+        except OSError:
+            return
+        if m == self._lp_mtime:
+            return
+        self._lp_mtime = m
+        try:
+            with open(self.live_params) as fh:
+                data = json.load(fh)
+            if not isinstance(data, dict):
+                raise ValueError("not a JSON object")
+        except Exception as e:
+            bt.logging.warning(f"LIVE PARAMS: {self.live_params} unreadable ({e}) — nothing changed")
+            return
+        changed, ignored = [], []
+        for k, v in data.items():
+            typ = self.LIVE_KNOBS.get(k)
+            if typ is None:
+                ignored.append(k); continue
+            try:
+                nv = typ(v)
+            except (TypeError, ValueError):
+                ignored.append(k); continue
+            lo, hi = self.LIVE_LIMITS.get(k, (None, None))
+            if lo is not None and not (lo <= nv <= hi):
+                ignored.append(f"{k}(out of range)"); continue
+            if k == "mk_calm_expiry":
+                nv = int(nv * 1_000_000_000)                 # stored in ns
+            old = getattr(self, k, None)
+            if old != nv:
+                setattr(self, k, nv); changed.append(f"{k} {old}→{nv}")
+        bt.logging.info(f"LIVE PARAMS applied: {', '.join(changed) or 'no change'}" + (f" | ignored: {', '.join(ignored)}" if ignored else ""))
 
     def _bbo_rec(self, book_id, bid, ask):
         """§1326: the best bid/ask per sim second for every book, recorded EVERY round before the pace gate (paced-out books had no history, so the
