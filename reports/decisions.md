@@ -21829,3 +21829,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Pay 11 AM: x3 $223.4/mo (field median $215.6). Survival 15.9 h: emission ÷ prune line 2.43 (field median 2.38, fleet 216 2.56). Live making 510 / combined 0.301
   (dip under way; fleet 216 673 / 0.353). 0 errors, 0 INS OVER since 6:27 AM. Skew test (§1348) running since 11:10 (skew 10 → 5 applied 11:10:39).
 - Session restarted ≈ 11:35 AM: session crons were lost; the 30-min brief re-created. Briefs 9:43–11:13 missed (laptop closed).
+
+## §1350 — 2026-11-09 11:50 AM CT — head start still in the making window, and where credit settles (windowproj.py)
+- Making window = scoring.kappa.lookback = 10,800 sim s (3 sim h). Pace ledger pace_64.ledger [book, start, notional, id, ts_ns]; sim clock ≈ 782 sim s per wall h
+  (from the ABAB switch log).
+- Window now (sim 30,151–40,951): $300 $3.29M, calm $2.13M, 4-dec $3.96M (its head start, opened 10:20 PM, is the biggest leftover) = $9.38M. Steady rate:
+  $300 $1.01M, calm $0.64M, 4-dec $0.49M per sim h → a full steady window ≈ $6.44M.
+- Projection at constant quality (credit ∝ window volume, from 481 now): +1 h ≈ 409, +2 h (≈ 1:45 PM CT) ≈ 344, then flat ≈ 330–342 → x3's steady making ≈ 335
+  ≈ ½ of fleet 216 (650–670) ≈ fleet 87 — consistent with §1347 (≈ 1.2–1.3× the line once pay catches up). Only quality can raise it now (volume is at the cap pace).
