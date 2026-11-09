@@ -21637,3 +21637,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   thin off, ladder 2:5:10); calm = the fleet copy that won (no pull, expiry 500 s, ladder 1:2:4); 4-dec skipped; pace cap/steady 450k + start 100k + ledger.
   NOT included (tests to run one at a time, 1 h each, judged vs the fleet gap since launch): calm no-touch < 3 ticks (promising), no-chase (fixed, untested),
   hold + soft gate (neutral), ladder 1:2:3, fleet 4-dec quoting. launch_maker.sh adds tape= (tape idle).
+- User 7:47 PM: launch x3 with the PROVEN-only setup (as staged); then 1-hour tests one at a time: calm no-touch → no-chase → hold + soft gate → 4-dec fleet quoting, each judged vs the fleet gap since launch.
