@@ -21914,3 +21914,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   and kept behind the touch ≈ the fleet's; the remaining calm gap is AT the touch (+3.3 vs +4.0).
 - Queue change: test 7 "calm ladder 1:2:3" dropped (fills at 3–4 ticks are 3% of $ → nothing to gain); replaced by calm no-touch threshold 3 → 4 ticks (live knob
   mk_calm_touch_min; the < 3 version won by 3.0 widths, §1331).
+
+## §1360 — 2026-11-09 5:50 PM CT — test 3 (no-chase 0.5 bp) no effect; gated restart done; test 5 (ladder 2:5:10:20) starting
+- ABAB 3:20–5:20 PM (skew 5, capped): x3 $300 kept A (0.5 bp) 0.58 / 1.25 vs B (1 bp) 1.29 / 0.79 → pooled −0.17 ± 0.33 (0.5 w); calm +0.50 ± 0.69, 4-dec +0.39 ± 0.77
+  → no effect; mk_nochase_bp stays 1.
+- restart_x3.sh 5:26 PM: registered, agent 88322390, live_params_s 5 added; restarted 5:26:17 PM CT (ActiveEnterTimestamp changed); the live file re-applied skew 5
+  at start; 0 errors / INS OVER since.
+- Today's tally: wins kept — skew 5 (+0.96, 2.1 w); no effect — pull off/on, no-chase 0.5; lost — $300 no-touch < 6. Test 5 5:50–7:50 PM, read 7:53 PM.
