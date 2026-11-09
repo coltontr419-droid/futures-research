@@ -21649,3 +21649,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Plan (user): first hour = BASELINE (fleet − x3 kept gap, per group, sim 28,750 → ≈ 29,440); then 1-hour tests in order: calm no-touch → no-chase → hold + soft
   gate → 4-dec fleet quoting, each judged as the change in the fleet gap vs the previous hour (diff-in-diff). Survival yardstick: emission ÷ prune line at 6 h /
   24 h (target ≥ 2×, §1318).
+
+## §1330 — 2026-11-08 9:16 PM CT — x3 baseline read; test 1 (calm no-touch) live
+- BASELINE (proven-only setup, 7:55–9:14 PM CT, sim 28,750–29,734; 19 min longer than planned — no turn fired at 8:55): fleet − x3 kept per fill: $300 +1.31 ± 0.08 bp
+  (fleet +1.92 vs x3 +0.61; 5,402 x3 fills), calm +2.19 ± 0.16 (+4.65 vs +2.46; 2,841 fills). Gauge 9:15 PM: making 355, combined 0.236 (the $100k pace start
+  front-loads the first hours — x3 out-filled the 17 fleet UIDs combined in the first hour; that fades as books hit their steady pace, 61/102 blocked at 9:14).
+- Test 1: + mk_calm_touch_min=3 (unit backup mvtrx-x3.service.pre-notouch); registration gate passed; restarted 9:15:57 PM CT (sim ≈ 29,740); ActiveEnterTimestamp
+  changed. Read ≈ 10:16 PM CT: change in the calm gap vs 2.19 ± 0.16 (and $300 as a check: no change expected). Caveat: the pace front-load fading is a time trend
+  that also moves the gap.
