@@ -480,6 +480,28 @@ check("flow_pull_vol_only: off by default (pull everywhere as before)", on(agent
 src = open(new_path).read()
 check("flow_pull_vol_only: main path uses the same gate", "fp_on = self.flow_pull and not (self.flow_pull_vol_only and int(book_id) >= 63)" in src and "if fp_on and near > self.flow_pull" in src, "gate present")
 
+# §1332 4-dec: a touch order left behind by a price move must NOT be kept as a ladder order (pile-up); real cancel ids applied
+class _RespC:
+    def __init__(s): s.instructions = []
+    def limit_order(s, book_id, direction, quantity, price, **k): s.instructions.append(("place", direction, price))
+    def cancel_order(s, book_id, order_id): s.instructions.append(("cancel", order_id, None))
+    def cancel_orders(s, book_id, ids): s.instructions.append(("cancels", list(ids), None))
+DP = agent(new_path, pace_cap=450000, mk_dec_size=0.09, mk_dec_inside=1, mk_dec_deep=0.27); ords = []; nid = 9000
+for rnd in range(10):                                     # the others' best rises 20 ticks per round; we are never filled
+    ob = round(298.0 + rnd * 0.002, 4); oa = round(ob + 0.1, 4)
+    bk = _Bk(sorted([(ob, 5.0)] + [(o.price, o.quantity) for o in ords if o.side == Bd], key=lambda x: -x[0]), sorted([(oa, 5.0)] + [(o.price, o.quantity) for o in ords if o.side == Sd], key=lambda x: x[0]))
+    w = {Bd: bk.bids[0].price, Sd: bk.asks[0].price}; k = DP._dec_targets(bk, ords, w, 0.0001, 4)
+    r = _RespC(); DP._vol_ladder(r, 110, list(ords), w, {}, 15.0, 15.0, 0.0001, 4, levels=[k], tol=max(1, k // 2))
+    gone = {x for kind, a_, _ in r.instructions if kind == "cancel" for x in [a_]} | {x for kind, a_, _ in r.instructions if kind == "cancels" for x in a_}
+    ords = [o for o in ords if o.id not in gone]
+    for kind, d, px in r.instructions:
+        if kind == "place": nid += 1; ords.append(_OQ(nid, d, px, 15.0))
+per_side = max(sum(1 for o in ords if o.side == Bd), sum(1 for o in ords if o.side == Sd))
+check("4-dec: no pile-up of left-behind touch orders over 10 rising rounds", per_side <= 3, f"max {per_side} resting orders per side")
+cn = _RespE(); o7 = [_OQ(i, Bd, round(298.0 - i * 0.0010, 4), 15.0) for i in range(7)]
+DP._vol_ladder(cn, 110, o7, {Bd: 298.0, Sd: 298.1}, {}, 15.0, 15.0, 0.0001, 4, levels=[270], tol=135)
+check("4-dec: 7 stale orders → at most 5 instructions in one reply", len(cn.instructions) <= 5, f"{len(cn.instructions)} instructions")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

@@ -629,8 +629,9 @@ class QuoteAgent(FinanceAgent):
                 urgent.append(o)                          # §1323: no touch order on this book right now
             elif behind == 0 and o.side in want:
                 want.pop(o.side)                          # touch order already resting at the target
-            elif 1 <= behind <= span:
-                keep[o.side].append(behind)               # resting ladder order: keep its queue place
+            elif 1 <= behind <= span and (tol is None or any(abs(behind - lv_) <= tol for lv_ in levels)):
+                keep[o.side].append(behind)               # resting ladder order: keep its queue place (§1332: with a wide tolerance only near a level —
+                                                          # 4-dec touch orders left behind by a move piled up, 7 on one book, 8 instructions)
             elif behind < 0 and hold and behind >= -hold and o.side in want and obest is not None and (
                     (o.side == B and obest[0] is not None and o.price <= obest[0] + 1e-12) or (o.side == S and obest[1] is not None and o.price >= obest[1] - 1e-12)):
                 want.pop(o.side)                          # §1317: the target moved behind it by ≤ HOLD ticks and it is not inside the others' best: keep it as our touch order
@@ -1157,7 +1158,9 @@ class QuoteAgent(FinanceAgent):
             k = self._dec_targets(book, acct.orders, want, tick, pd)
             if k:
                 self._vol_ladder(response, book_id, orders, want, sq, qty, qty, tick, pd, levels=[k], tol=max(1, k // 2))
-                return
+            else:
+                self._cancel_all(response, book_id, acct.orders)   # §1332: spread too tight for the fleet pattern: pull all with ONE instruction
+            return
         if self.mk_vol_lad and int(book_id) < 63:          # §1278 $300-book ladder (long-lived fleet), §1279: resting ladder + the validator's per-book instruction limit
             vq = round(max(self.mk_vol_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)
             if self.mk_vol_lazy:

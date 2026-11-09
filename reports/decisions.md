@@ -21665,3 +21665,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   touch when the spread is ≥ 3 ticks. Gauges 10:19 PM: making 420, combined 0.303 (fleet 216: 484 / 0.370). Pay 10 PM: $0.1 (young UID).
 - Test 2 (user moved it up): skip_file books_skip_4dec → books_none (empty, checked) + mk_dec_size 0.09 / mk_dec_inside 1 / mk_dec_deep 0.27 (unit backup
   mvtrx-x3.service.pre-dec); registration gate passed; restarted 10:20:23 PM CT (sim ≈ 30,530). Read 11:23 PM CT (one-shot cron).
+
+## §1332 — 2026-11-08 10:23 PM CT — 4-dec order pile-up bug found 3 min into test 2; fixed; test-2 window restarted
+- INS OVER on book 122 (4-dec) at 10:22 PM: 7 cancels + 1 place in one reply. Cause: with the wide 4-dec keep tolerance (k/2 ≈ 135 ticks, span ≈ 1.5 k) every touch
+  order left behind by a price move was KEPT as if it were a ladder order and a new touch order placed → orders piled up (real-cancel test: 10 per side after
+  10 rising rounds on the live agent); when the spread then fell below 3 ticks the fallback base path cancelled them one by one (8 instructions > 5).
+- Fix (QuoteAgent.py md5 dd1e5d40 = deployed; backups agents/QuoteAgent.pre-decfix.py / repo QuoteAgent.pre-decfix.py): with a tolerance given, _vol_ladder keeps
+  only orders within tol of a level (others between the touch and the level are cancelled as stale); 4-dec books with a too-tight spread pull everything with
+  ONE cancel_orders. test_pace: real-cancel pile-up test (fixed: max 2 per side; live agent FAILS with 10) + 7 stale orders → ≤ 5 instructions — ALL PASS.
+- Registration gate passed; x3 restarted 10:23:31 PM CT (sim ≈ 30,570); test-2 read moved to 11:27 PM CT. Dropped gauge was 0 throughout.
