@@ -21876,3 +21876,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   trigger A = 0.5 bp vs B = 1 bp (skew 5, touch_min 0) 3:20 / 3:50 / 4:20 / 4:50 / END 5:20 PM, read 5:23 PM (abread_nc.sh → ab_read_nc.txt, capped). If test 2
   wins, switch $300 no-touch back on after test 3.
 - mvtrx-x1 unit (disabled; backup .pre-skew5): skew 10 → 5.
+
+## §1355 — 2026-11-09 1:50 PM CT — flash events sized (flashcount.py): ≈ 15% of making profit for BOTH; §1351's "x3 is absent from events" corrected
+- Sim 34,155–42,601 (≈ 10.8 wall h), events = mid ≥ 2% off its 300-s median: concentrated in 5 $300 books in a turbulent regime (mainly 12 and 45, repeated ±10% swings;
+  the detector's "435 events" counts seconds of turbulence, not distinct shocks).
+- Making profit (kept × size, 20 s mark): fleet 17 UIDs $36,805 (≈ $2,165/UID), 16% inside event periods from 272 fills (≈ 16 per UID); x3 $1,225, 14% inside events
+  from 17 fills. → x3's presence in events ≈ a fleet UID's; the book-45 miss (§1351) was one case, not a pattern. The fleet out-earns x3 ≈ 1.8× per UID both inside
+  and outside events (≈ the 0.54 credit ratio, §1347) → the gap is everyday fill quality. "Stub" far-out orders parked (small vs the main gap).
