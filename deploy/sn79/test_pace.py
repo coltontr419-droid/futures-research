@@ -502,6 +502,15 @@ cn = _RespE(); o7 = [_OQ(i, Bd, round(298.0 - i * 0.0010, 4), 15.0) for i in ran
 DP._vol_ladder(cn, 110, o7, {Bd: 298.0, Sd: 298.1}, {}, 15.0, 15.0, 0.0001, 4, levels=[270], tol=135)
 check("4-dec: 7 stale orders → at most 5 instructions in one reply", len(cn.instructions) <= 5, f"{len(cn.instructions)} instructions")
 
+# §1334 $300 no-touch: gate expression + ladder-only behaviour on a $300 book
+VT = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_touch_min=4)
+src = open(new_path).read()
+check("vol no-touch: main path gate present", "nt_v = bool(self.mk_vol_touch_min and ob_v" in src and "no_touch=nt_v" in src, "gate")
+r = _RespE(); VT._vol_ladder(r, 7, [_OQ(30, Bd, 299.00, 5.0)], {Bd: 299.00, Sd: 299.03}, {}, 5.0, 10.0, 0.01, 2, no_touch=True)
+pl = sorted(i.price for i in r.instructions if i.kind == "place"); cn = sum(1 for i in r.instructions if i.kind == "cancel")
+check("vol no-touch: touch bid cancelled, only 2/5/10 ladder placed", cn == 1 and 299.0 not in pl and 299.03 not in pl and 298.98 in pl and 299.05 in pl, f"cancel {cn} place {pl}")
+check("vol no-touch: off by default", agent(new_path, pace_cap=450000).mk_vol_touch_min == 0, "0")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

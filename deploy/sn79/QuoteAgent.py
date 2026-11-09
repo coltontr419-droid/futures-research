@@ -240,6 +240,8 @@ class QuoteAgent(FinanceAgent):
                                                                         # 33% of our $300 $ filled right after re-joining a moved best (kept ≈ 0, move after −1.35 bp)
         self.mk_calm_touch_min = int(getattr(c, "mk_calm_touch_min", 0))   # §1323: >0: calm books place NO touch order while the others' spread is < this many ticks
         self.flow_pull_vol_only = int(getattr(c, "flow_pull_vol_only", 0))   # §1328: 1 = flow_pull acts only on the $300 books (0-62): there it kept x2 out of the
+        self.mk_vol_touch_min = int(getattr(c, "mk_vol_touch_min", 0))   # §1334: >0: $300 books place NO touch order while the others' spread is < this many ticks
+                                                                          # (fleet joins the $300 touch on only 16% of its $ vs x3 53%; ladder 2:5:10 stays)
                                                                               # after-move states (x4 without it lost ≈ 0.45 bp/fill); on calm books no pull won (+0.94)
         self._bbo = {}                                                      # (only the ladder behind it) — fleet calm edge comes from orders 1-3 behind the touch
                                                                       # nothing new is placed) while the bucket is above −this $ and the 24-h ledger is under pace_cap
@@ -1166,8 +1168,10 @@ class QuoteAgent(FinanceAgent):
             if self.mk_vol_lazy:
                 self._vol_lazy(response, book_id, orders, want, vq, tick, pd)
             else:
-                self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, inside=self.mk_vol_inside,
-                                 obest=self._others_best(book, acct.orders) if self.mk_vol_inside else None)
+                ob_v = self._others_best(book, acct.orders) if (self.mk_vol_inside or self.mk_vol_touch_min) else None
+            nt_v = bool(self.mk_vol_touch_min and ob_v and ob_v[0] is not None and ob_v[1] is not None and round((ob_v[1] - ob_v[0]) / tick) < self.mk_vol_touch_min)
+            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, inside=0 if nt_v else self.mk_vol_inside,
+                                 obest=ob_v if self.mk_vol_inside else None, no_touch=nt_v)
             return
         if self.mk_calm_lad and 63 <= int(book_id) < 102:  # §1303 calm-book ladder: the fleet's calm volume is 60% from orders resting 1+ ticks behind the touch
             vq = round(max(self.mk_calm_lad_size * wealth0 / mid, self.min_order_size(book_id)), vd)

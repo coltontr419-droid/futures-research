@@ -21684,3 +21684,8 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   said it helped in x4's setup, §1326); test after no-chase.
 - INS OVER since the §1332 fix: 0. Fill counts: x3 5,583 $300 fills vs 4,114 for all 17 fleet UIDs in the window (the $100k head start: constant re-placing).
 - User ≈ 10:30 PM: after test 2 the user is away until morning; pre-approved any x3 changes I see fit (judged in the morning); spending/keys still need a yes. Overnight queue: no-chase → hold + soft gate → $300 no-touch → next by the data.
+
+## §1334 — 2026-11-08 10:35 PM CT — $300 no-touch built (off; test 5 candidate)
+- mk_vol_touch_min T: $300 books place NO touch order while the others' spread is < T ticks (ladder 2:5:10 stays; inside quoting is skipped on those rounds).
+  QuoteAgent.py md5 df70f19e (staged as /opt/mvtrx/agents/QuoteAgent.voltouch.py; behaviour identical to the live dd1e5d40 with the new setting off; backup repo
+  QuoteAgent.pre-voltouch.py). test_pace 3 new checks + all — ALL PASS. Goes live with the test-3 restart. Pick T from the fleet's $300 touch-fill spreads first.
