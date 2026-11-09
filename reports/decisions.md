@@ -21590,3 +21590,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - x4 unit (backup mvtrx-x4.service.pre-nochase): + mk_nochase_bp=1 mk_nochase_s=10 mk_calm_touch_min=3 (all earlier fleet-copy settings kept). Registration checked
   6:29 PM; restarted 6:29:48 PM CT (sim ≈ 27,703); ActiveEnterTimestamp changed. Read: abtest/vfill/why300 from 27,703 vs x2 as long as x4 lives (protection
   ends ≈ 7:05 PM; ≈ 2.5 prunes/h after that) — read at ≈ 7:00 PM and every ≈ 20 min after; a short read will be noisy (say so).
+
+## §1324 — 2026-11-08 6:37 PM CT — x2 (UID 212) PRUNED ≈ 6:35 PM CT; cleanup; x4's no-chase read now uses the fleet as benchmark
+- 6:36 PM chain: x2 NOT REGISTERED (its hotkey holds no UID) right after its protection ended. Cleanup (safety): mvtrx-x2 stopped + disabled; "212 maker x2 11249"
+  removed from our_uids.txt (backup .bak-x2pruned; now only "58 maker x4 11544"); locks/maker_212.hb removed; selftrade 0. Stale ack_* files of old UIDs
+  (194/201/212) left (harmless without takers).
+- x4 (UID 58): registered, protection ends ≈ 7:05 PM; 0.91 × x2's last emission vs lowest unprotected 1.11× → likely next. The no-chase test (§1323) has no
+  control now → read as fleet − x4 kept gap after 6:29:48 PM (sim 27,703) vs the same gap 4:56–6:29 PM (sim 26,565–27,703) (diff-in-diff; noisy).
+- x4 PACE STATUS after the deploy: 86 of 128 books blocked (90 before).
