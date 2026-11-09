@@ -21908,3 +21908,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - restart_x3.sh (gated: regcheck exit code + agent md5 88322390; adds live_params_s=5; verifies ActiveEnterTimestamp; ALERTs) at 5:26 PM CT (after test 3's read).
 - Test 5: $300 ladder A = 2:5:10:20 vs B = 2:5:10 (skew 5, no-chase 1, touch_min 0; live list knob mk_vol_lad), 5:50 / 6:20 / 6:50 / 7:20 / END 7:50 PM CT,
   read 7:53 PM (abread_lad.sh → ab_read_lad.txt, capped, blocked counts). If test 3 (no-chase 0.5) wins, apply it after test 5.
+
+## §1359 — 2026-11-09 4:05 PM CT — calm depth profile (depthcalm.py): x3 ≈ fleet behind the touch; test 7 changed
+- Calm kept (capped) by depth: fleet touch 57% +4.0 | 1: 28% +5.9 | 2: 8% +7.0 | 3–4: 3% +5.8; x3 touch 62% +3.3 | 1: 21% +5.6 | 2: 11% +6.9 | 3–4: 3% +5.4 → placement mix
+  and kept behind the touch ≈ the fleet's; the remaining calm gap is AT the touch (+3.3 vs +4.0).
+- Queue change: test 7 "calm ladder 1:2:3" dropped (fills at 3–4 ticks are 3% of $ → nothing to gain); replaced by calm no-touch threshold 3 → 4 ticks (live knob
+  mk_calm_touch_min; the < 3 version won by 3.0 widths, §1331).
