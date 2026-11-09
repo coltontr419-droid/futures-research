@@ -21658,3 +21658,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   changed. Read ≈ 10:16 PM CT: change in the calm gap vs 2.19 ± 0.16 (and $300 as a check: no change expected). Caveat: the pace front-load fading is a time trend
   that also moves the gap.
 - User 9:50 PM: 4-dec fleet quoting moved up to test 2 (the only real volume lever: the cap is per book and 26 books are skipped); order now no-touch → 4-dec → no-chase → hold + soft gate. Making credit peaks then falls back as the $100k head start leaves the ≈ 3-sim-h scoring window (≈ 10–11 AM CT 11-09); the steady pace (450k/day) is already the cap rate, so volume can't hold the peak.
+
+## §1331 — 2026-11-08 10:20 PM CT — test 1 (calm no-touch) WINS; test 2 (fleet 4-dec quoting) live
+- Test 1, 9:16–10:18 PM CT (sim 29,740–30,515), fleet − x3 kept gap: calm 2.19 ± 0.16 (baseline) → 0.38 ± 0.59 = closed by +1.81 ± 0.61 bp (3.0 widths) → WIN, kept.
+  x3 calm kept +2.46 → +3.87, edge +3.20 → +4.80. $300 unchanged (1.31 → 1.36 ± 0.19), as expected. Calm orders still young (median 3 s) and 76% placed at the
+  touch when the spread is ≥ 3 ticks. Gauges 10:19 PM: making 420, combined 0.303 (fleet 216: 484 / 0.370). Pay 10 PM: $0.1 (young UID).
+- Test 2 (user moved it up): skip_file books_skip_4dec → books_none (empty, checked) + mk_dec_size 0.09 / mk_dec_inside 1 / mk_dec_deep 0.27 (unit backup
+  mvtrx-x3.service.pre-dec); registration gate passed; restarted 10:20:23 PM CT (sim ≈ 30,530). Read 11:23 PM CT (one-shot cron).
