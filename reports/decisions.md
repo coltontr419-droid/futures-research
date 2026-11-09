@@ -21698,3 +21698,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Test 3: agent df70f19e (= repo; staged voltouch build — identical behaviour with the new $300 no-touch off; backup agents/QuoteAgent.pre-voltouch.py) + unit
   mk_nochase_bp=1 mk_nochase_s=10 (backup mvtrx-x3.service.pre-nochase2); registration gate passed; restarted 11:28:21 PM CT (sim ≈ 31,351). Read 12:31 AM CT.
 - From here the user is asleep; overnight changes pre-approved (memory feedback-overnight-2026-11-08.md). Queue: no-chase → hold + soft gate → $300 no-touch.
+
+## §1336 — 2026-11-09 12:32 AM CT — test 3 (no-chase) WINS on $300; test 4 (calm hold + soft gate) live
+- Test 3, 11:28 PM–12:31 AM CT (sim 31,351–32,136), fleet − x3 kept gap: $300 1.34 ± 0.18 → 0.70 ± 0.15 = closed by 0.64 ± 0.23 bp (2.8 widths) → WIN, kept.
+  x3 $300 kept +0.58 → +1.17; share of $300 $ placed right after the best moved away ≥ 3 ticks 44% → 10% (exactly the targeted leak, §1333).
+  Calm 0.96 → 1.65 ± 0.40 (worse 0.69 ± 0.54, 1.3 widths, 110 fills = noise). 4-dec 0.68 → 1.21 ± 0.19 (worse 0.53 ± 0.21, 2.5 widths) BUT confounded: the test-2 hour
+  was mostly head-start fills on the freshly opened books (1,018 vs 91 fills) and the fleet's own 4-dec kept rose 1.40 → 1.62; a plausible mechanism exists
+  (no-chase caps 4-dec targets after moves, so the 1-tick-ahead step is skipped). OPEN: if the 4-dec gap stays wide, test no-chase on $300 only.
+- Gauges 12:25 AM: x3 making 521 / combined 0.386 vs fleet 216 489 / 0.358 (x3 ≥ a long-lived fleet UID for the first time; head start still in the window).
+- Test 4: + mk_calm_hold=2 mk_pace_hold=5000 (ladder kept 1:2:4; unit backup mvtrx-x3.service.pre-hold2); gate passed; restarted 12:32:33 AM CT (sim ≈ 32,154). Read 1:35 AM.
