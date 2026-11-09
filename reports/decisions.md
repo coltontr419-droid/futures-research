@@ -21598,3 +21598,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - x4 (UID 58): registered, protection ends ≈ 7:05 PM; 0.91 × x2's last emission vs lowest unprotected 1.11× → likely next. The no-chase test (§1323) has no
   control now → read as fleet − x4 kept gap after 6:29:48 PM (sim 27,703) vs the same gap 4:56–6:29 PM (sim 26,565–27,703) (diff-in-diff; noisy).
 - x4 PACE STATUS after the deploy: 86 of 128 books blocked (90 before).
+- mvtrx-x1 / mvtrx-x3 (DISABLED) now = x4's full current params minus tape (fleet copy + hold + soft gate + 1:2:3 + no-chase + calm no-touch; backups mvtrx-x{1,3}.service.pre-nochase); launch_maker.sh adds tape= if the tape is idle.
