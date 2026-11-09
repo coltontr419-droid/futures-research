@@ -21683,3 +21683,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Pull: fleet fills 43% of its $300 $ in the flow-pull state (kept +2.04, its best bucket); x3 (pull on, $300) 1%. Whether the $300 pull should stay is open (x2 vs x4
   said it helped in x4's setup, §1326); test after no-chase.
 - INS OVER since the §1332 fix: 0. Fill counts: x3 5,583 $300 fills vs 4,114 for all 17 fleet UIDs in the window (the $100k head start: constant re-placing).
+- User ≈ 10:30 PM: after test 2 the user is away until morning; pre-approved any x3 changes I see fit (judged in the morning); spending/keys still need a yes. Overnight queue: no-chase → hold + soft gate → $300 no-touch → next by the data.
