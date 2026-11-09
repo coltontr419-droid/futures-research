@@ -21892,3 +21892,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   was wrong — it was this lag.)
 - Pool split: 145 makers 0.537 of score (avg 0.0037); 111 non-makers 0.460 (avg 0.0041); top earners are skill miners (score ≈ 0.013–0.014, skill 1.5–2.0) ≈ 4× a maker.
 - x3 forecast refined: current making share 0.00369 → ≈ 0.0030 when credit settles at ≈ 335 → ≈ $185/mo ≈ 1.4–1.5× the prune line ($128). Scaling headroom (§1353) stands.
+- User 2:20 PM: skill miners are revisited only after the makers run well with little prune risk and are scaling (later this week if needed); target = many maker UIDs + many skill UIDs (separate UIDs).
