@@ -21689,3 +21689,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - mk_vol_touch_min T: $300 books place NO touch order while the others' spread is < T ticks (ladder 2:5:10 stays; inside quoting is skipped on those rounds).
   QuoteAgent.py md5 df70f19e (staged as /opt/mvtrx/agents/QuoteAgent.voltouch.py; behaviour identical to the live dd1e5d40 with the new setting off; backup repo
   QuoteAgent.pre-voltouch.py). test_pace 3 new checks + all — ALL PASS. Goes live with the test-3 restart. Pick T from the fleet's $300 touch-fill spreads first.
+
+## §1335 — 2026-11-08 11:28 PM CT — test 2 (fleet 4-dec quoting) KEPT; test 3 (no-chase) live
+- Test 2, 10:23–11:27 PM CT (sim 30,570–31,339), vs the 17 long-lived fleet UIDs: 4-dec x3 kept +0.72 bp (1,018 fills; edge +1.55) vs fleet +1.40 (gap 0.68 ± 0.10);
+  calm gap 0.38 → 0.96 ± 0.36 (worse by 0.58 ± 0.69, 0.8 widths = noise); $300 1.36 → 1.34 (no change). Gauges: making 420 → 488, combined 0.303 → 0.374 (part = the
+  $100k head start on the 26 newly quoted books, will fade). INS OVER 0, dropped 0, 4-dec resting orders per side max 4 / mean 1.9 (pile-up fixed). → KEEP:
+  positive fills, no measurable harm, more books = more cap budget (the volume lever, §1330).
+- Test 3: agent df70f19e (= repo; staged voltouch build — identical behaviour with the new $300 no-touch off; backup agents/QuoteAgent.pre-voltouch.py) + unit
+  mk_nochase_bp=1 mk_nochase_s=10 (backup mvtrx-x3.service.pre-nochase2); registration gate passed; restarted 11:28:21 PM CT (sim ≈ 31,351). Read 12:31 AM CT.
+- From here the user is asleep; overnight changes pre-approved (memory feedback-overnight-2026-11-08.md). Queue: no-chase → hold + soft gate → $300 no-touch.
