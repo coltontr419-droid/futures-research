@@ -21813,3 +21813,8 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Steady pay estimate: x3 ≈ 0.54× fleet 216's credit (216 ≈ 2.3× line) and ≈ 0.79× fleet 87's → ≈ 1.2–1.3× the line once the head start leaves the window (live
   score ≈ 11 AM–4 PM; pay lags as a running mean: ≈ 1.6–2.0× at 7:46 PM, drifting to ≈ 1.2–1.3× over 1–2 days) — the fleet's own 3–7-day cohort sits ≈ 1.3×.
   Lever: quality 0.58 → 0.72 (fleet 87) ≈ +25% credit ≈ 1.5× the line.
+
+## §1348 — 2026-11-09 9:15 AM CT — user closing the laptop; next live test scheduled server-side: skew 5 vs 10 (pull on)
+- Skew (inventory lean, all books) A = 5 vs B = 10 (current), flow_pull held at 0.3 so it does not mix with the pull test: A 11:10, B 11:40, A 12:10, B 12:40, END
+  1:10 PM CT (liveswitch_skew.sh → liveswitch_skew_log.txt; separate log so abwin does not pool the two tests), read 1:13 PM CT (abread_skew.sh → ab_read_skew.txt
+  + ALERT). END restores skew 10 / pull 0.3. If the pull test (read 11:03) says pull OFF wins, apply it after the skew test with the user.
