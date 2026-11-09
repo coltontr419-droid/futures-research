@@ -21657,3 +21657,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Test 1: + mk_calm_touch_min=3 (unit backup mvtrx-x3.service.pre-notouch); registration gate passed; restarted 9:15:57 PM CT (sim ≈ 29,740); ActiveEnterTimestamp
   changed. Read ≈ 10:16 PM CT: change in the calm gap vs 2.19 ± 0.16 (and $300 as a check: no change expected). Caveat: the pace front-load fading is a time trend
   that also moves the gap.
+- User 9:50 PM: 4-dec fleet quoting moved up to test 2 (the only real volume lever: the cap is per book and 26 books are skipped); order now no-touch → 4-dec → no-chase → hold + soft gate. Making credit peaks then falls back as the $100k head start leaves the ≈ 3-sim-h scoring window (≈ 10–11 AM CT 11-09); the steady pace (450k/day) is already the cap rate, so volume can't hold the peak.
