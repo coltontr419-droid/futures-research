@@ -21818,3 +21818,14 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Skew (inventory lean, all books) A = 5 vs B = 10 (current), flow_pull held at 0.3 so it does not mix with the pull test: A 11:10, B 11:40, A 12:10, B 12:40, END
   1:10 PM CT (liveswitch_skew.sh → liveswitch_skew_log.txt; separate log so abwin does not pool the two tests), read 1:13 PM CT (abread_skew.sh → ab_read_skew.txt
   + ALERT). END restores skew 10 / pull 0.3. If the pull test (read 11:03) says pull OFF wins, apply it after the skew test with the user.
+
+## §1349 — 2026-11-09 11:40 AM CT — $300 pull ABAB final (8 windows): no clear effect → pull stays ON; x3 above the field median; skew test running
+- 8 windows (6:47–11:00 CT): x3's own $300 kept, pull OFF 1.50 / 1.39 / 1.47 / 1.03 vs ON 0.88 / 1.10 / 1.05 / 1.36 (paired A−B +0.62, +0.29, +0.42, −0.33; mean +0.25,
+  ≈ 1.2 widths). Pooled diff-in-diff vs the fleet +0.41 ± 1.74 (0.2 w) — the fleet's $300 kept SPIKED to +3.84 / +7.14 / +5.94 in 9:30–11:00 (x3 ≈ +1) and swamped the
+  gap read. Calm −0.17 ± 0.50, 4-dec +0.26 ± 0.27. → no clear effect: keep pull ON (status quo). Lesson: with ABAB alternation x3's own kept per paired window is
+  the drift-controlled measure; the fleet gap adds the fleet's own events.
+- Open (keep searching): what happened 9:30–11:00 — the fleet kept +4–7 bp per $300 fill while x3 kept ≈ +1 (event / big move where the fleet's deep resting orders
+  paid off?).
+- Pay 11 AM: x3 $223.4/mo (field median $215.6). Survival 15.9 h: emission ÷ prune line 2.43 (field median 2.38, fleet 216 2.56). Live making 510 / combined 0.301
+  (dip under way; fleet 216 673 / 0.353). 0 errors, 0 INS OVER since 6:27 AM. Skew test (§1348) running since 11:10 (skew 10 → 5 applied 11:10:39).
+- Session restarted ≈ 11:35 AM: session crons were lost; the 30-min brief re-created. Briefs 9:43–11:13 missed (laptop closed).
