@@ -21933,3 +21933,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   4-dec +0.09 ± 1.19; blocked books 86–106 of 128 in both. A 20-tick level fills rarely (mostly in flash moves) — 2 h cannot show its value; no harm. Rule → ladder
   stays 2:5:10; candidate for a long overnight run.
 - 24-h protection ended ≈ 7:46 PM; regcheck 7:56 PM: x3 REGISTERED (2.02× the prune line at 6:56 PM).
+
+## §1363 — 2026-11-09 8:05 PM CT — overnight test queue started (user approved; awake for the first two)
+- `LAD=2:5:10 sh /opt/mvtrx/overnight_queue.sh "2026-11-10 02:05"` (registration gate passed): calm no-touch 4 vs 3 — 8:05–10:05 PM CT, read 10:08;
+  $300 size 0.07 vs 0.034 — 10:15 PM–12:15 AM, read 12:18 AM; 4-dec inside 2 vs 1 — 12:25–2:25 AM, read 2:28 AM; $300 pull off vs on 8 windows — 2:35–6:35 AM,
+  read 6:38 AM. All capped (±20 bp) reads → /opt/mvtrx/ab_read_<name>.txt + Discord ALERT. Base: pull 0.3, skew 5, touch_min 0, no-chase 1, ladder 2:5:10.
+- The 3:07 AM CT tape rotation falls inside the pull test → abread_pull8.sh reads live_tape_x3.jsonl.prev + the live tape (temp concat, deleted after).

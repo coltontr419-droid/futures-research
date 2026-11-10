@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /opt/mvtrx; { echo "== $(TZ=America/Chicago date) overnight test pull8 (A: , "flow_pull": 0 | B: , "flow_pull": 0.3)"; cat liveswitch_pull8_log.txt; cat live_tape_x3.jsonl.prev live_tape_x3.jsonl > /tmp/pull8_tape.jsonl 2>/dev/null; (ulimit -v 3000000; nice -n 10 python3 abwin.py /tmp/pull8_tape.jsonl liveswitch_pull8_log.txt fleet=7,31,40,52,59,87,102,111,133,134,147,156,210,216,241,252,255 us=64 --clip=20) 2>&1; } > /opt/mvtrx/ab_read_pull8.txt 2>&1; rm -f /tmp/pull8_tape.jsonl
+echo "ALERT $(date +%s) overnight test pull8 read done: /opt/mvtrx/ab_read_pull8.txt" >> /opt/mvtrx/alerts.txt
