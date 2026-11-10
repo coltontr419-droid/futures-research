@@ -21927,3 +21927,9 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   (30-min windows, capped reads, ALERTs): calm no-touch 4 vs 3 → $300 size 0.07 vs 0.034 → 4-dec inside 2 vs 1 → $300 pull off vs on (8 windows), each on the base
   (pull 0.3, skew 5, touch_min 0, no-chase 1, ladder LAD). Test 5 (ladder 2:5:10:20) switch applied 5:50:27 PM (17 s after the file — live_params_s 5 works).
 - Survival 6:24 PM (22.6 h): x3 emission ÷ prune line 1.92 (field median 1.99, fleet 216 2.02; lowest unprotected 1.00–1.17); pay 6 PM $199.7/mo (field median $203.2) → clears the bottom group when protection ends ≈ 7:46 PM.
+
+## §1362 — 2026-11-09 7:57 PM CT — test 5 ($300 ladder 2:5:10:20) no effect; x3 past protection, still registered
+- ABAB 5:50–7:50 PM (skew 5, no-chase 1; capped): x3 $300 kept A 0.64 / 0.98 vs B 0.34 / 1.17 → pooled 0.78 vs 0.78; gap +0.09 ± 0.27 (0.3 w); calm +0.23 ± 0.43,
+  4-dec +0.09 ± 1.19; blocked books 86–106 of 128 in both. A 20-tick level fills rarely (mostly in flash moves) — 2 h cannot show its value; no harm. Rule → ladder
+  stays 2:5:10; candidate for a long overnight run.
+- 24-h protection ended ≈ 7:46 PM; regcheck 7:56 PM: x3 REGISTERED (2.02× the prune line at 6:56 PM).
