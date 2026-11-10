@@ -21921,3 +21921,8 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - restart_x3.sh 5:26 PM: registered, agent 88322390, live_params_s 5 added; restarted 5:26:17 PM CT (ActiveEnterTimestamp changed); the live file re-applied skew 5
   at start; 0 errors / INS OVER since.
 - Today's tally: wins kept — skew 5 (+0.96, 2.1 w); no effect — pull off/on, no-chase 0.5; lost — $300 no-touch < 6. Test 5 5:50–7:50 PM, read 7:53 PM.
+
+## §1361 — 2026-11-09 6:05 PM CT — overnight test queue prepared (NOT scheduled; needs the user's approval tonight)
+- deploy/sn79/overnight_queue.sh (copied to /opt/mvtrx): `LAD=<test-5 winner> sh /opt/mvtrx/overnight_queue.sh "<start UTC>"` creates server timers for 4 ABAB tests
+  (30-min windows, capped reads, ALERTs): calm no-touch 4 vs 3 → $300 size 0.07 vs 0.034 → 4-dec inside 2 vs 1 → $300 pull off vs on (8 windows), each on the base
+  (pull 0.3, skew 5, touch_min 0, no-chase 1, ladder LAD). Test 5 (ladder 2:5:10:20) switch applied 5:50:27 PM (17 s after the file — live_params_s 5 works).
