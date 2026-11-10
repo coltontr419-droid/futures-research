@@ -22000,3 +22000,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   {pull 0, skew 5, ladder 2:5:10:20, inside 5} at start. Unit files synced to the live settings (x3 backup .pre-unitsync; x1 .pre-inside5) so a cold start matches.
 - Test fund8: fundamental lean fund 0.3 (A) vs 0 (B) on that base, 8 windows 11:20 AM–3:20 PM CT (liveswitch_fund8.sh), read 3:23 PM (abread_fund8.sh → ab_read_fund8.txt
   + ALERT). Motivation §1368 (the fleet's fills cluster after the fundamental moved its way).
+
+## §1372 — 2026-11-10 12:35 PM CT — x3 vs fleet UID 216 (last sim hour, sim 57,189–60,789): ≈ 65% of 216's live making; the $300 books drag the miner-wide quality
+- Gauges: making x3 ≈ 360 vs 216 ≈ 555; paid score 0.0024 vs 0.0032; vs the prune line 1.88× vs 2.44×.
+- Per fill vs 216 (capped): $300 +0.84 vs +1.85 (−1.0, 4.6 w; fills 733 vs 383); calm +4.61 vs +6.44 (−1.8, 2.6 w; 377 vs 344); 4-dec +0.85 vs +3.04 (−2.2, 3.4 w; 151 vs
+  235). 216 is above the fleet average on calm (x3 ≈ the average, §1366).
+- making_exact by group: $300 x3 C 38.5 / two-sided 14.5 / quality 0.30 / credit 4.3 vs 216 50.9 / 20.5 / 0.59 / 12.2; calm 127.8 / 90.2 / 0.77 / 69.1 vs 141.5 / 100.7 /
+  0.79 / 80.0; 216's 4-dec had a negative-captured hour (all-books totals not comparable this window).
+- Quality is ONE number per miner (§1302): x3 takes 2× 216's $300 fills at half the quality → overall 0.62 vs calm-alone 0.77 → the $300 books cost x3 credit twice.
+  Rough: no $300 making → overall quality ≈ 0.77 → ≈ +8% total credit despite losing the $300 credit. Plan: (1) a "$300 off / selective" switch judged by
+  miner-wide credit (add mk_skip_vol to LIVE_KNOBS → one restart); (2) study 216's calm behaviour vs the rest of the fleet; (3) fundamental tilt (running); (4) long 4-dec.
