@@ -22044,3 +22044,18 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   - calm: −0.33 ± 0.79 (noise). 4-dec: −0.51 ± 0.35 (1.5 widths, ≈ 45 fills per arm) — lean against.
   - Verdict: no clear result. Rule 2 would adopt the fleet-like fund 0.3 for $300, but it costs 15% of $300 fills and leans worse on 4-dec.
     Deferred: decide after skip8 — if $300 OFF wins, fund on $300 is moot; if $300 stays ON, re-test fund 0.3 for 2 h on the then-current base.
+
+## §1376 — 2026-11-10 ≈ 3:50 PM CT — why fleet UID 216's live making fell (≈ 670 → ≈ 460 today)
+Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reproduces the gauges: 705 vs gauge 671, 463 vs 462):
+| window (sim) | UID | captured C | quality R/C | two-sided (2·min buy,sell) | credit |
+|---|---|---|---|---|---|
+| morning 44,800–55,600 | 216 | 1,076 | 0.891 | 792 | 705 |
+| now 52,500–63,300 | 216 | 803 | 0.957 | 484 | 463 |
+| morning | x3 64 | 746 | 0.640 | 590 | 378 |
+| now | x3 64 | 747 | 0.630 | 585 | 369 |
+- 216 did NOT get worse per fill (quality rose to 0.96). Its drop is volume (−25%) and above all balance: its fills became one-sided per book
+  (two-sided share 0.74 → 0.60), so 2·min(buy, sell) fell 39%. The long-lived fleet's median captured volume per hour also fell ≈ 40% over the tape
+  (why216.py), so it is mostly the market/fleet, not a 216 strategy change. x3 stayed flat (balance 0.79 both windows — skew 5 keeps it two-sided).
+- Our whole gap to 216 is QUALITY: x3 now has MORE two-sided volume than 216 (585 vs 484) but keeps 0.63 of it vs 216's 0.96.
+  x3 at 216's quality would score ≈ 560 (top ≈ 15%). Field quality median 0.68 → x3 is below the median on quality, above on volume.
+- So x3's "76% of 216" is 216 falling, not x3 rising; the lever stays the $300 adverse move (quality), which skip8 tests directly.
