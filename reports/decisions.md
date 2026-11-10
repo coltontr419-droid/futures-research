@@ -21939,3 +21939,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   $300 size 0.07 vs 0.034 — 10:15 PM–12:15 AM, read 12:18 AM; 4-dec inside 2 vs 1 — 12:25–2:25 AM, read 2:28 AM; $300 pull off vs on 8 windows — 2:35–6:35 AM,
   read 6:38 AM. All capped (±20 bp) reads → /opt/mvtrx/ab_read_<name>.txt + Discord ALERT. Base: pull 0.3, skew 5, touch_min 0, no-chase 1, ladder 2:5:10.
 - The 3:07 AM CT tape rotation falls inside the pull test → abread_pull8.sh reads live_tape_x3.jsonl.prev + the live tape (temp concat, deleted after).
+
+## §1364 — 2026-11-09 9:05 PM CT — CORRECTION of §1356's pay forecast: x3 settles ≈ $100–110/mo ≈ the prune line, not $185
+- User asked why credit/pay still fall > 24 h after the head start. Live making credit (3-sim-h window ≈ 14 wall h) is at its steady level (377–440, ≈ the §1350
+  projection). PAY follows the smoothed making_share, whose memory is much longer than 24 h: x3 published ÷ current share 1.81 at 9 PM (1.89 at 2 PM); 216 1.07; 52 1.82.
+- §1356 error: "current share 0.00369 → paid ≈ 0.0030 → $185" forgot that score ≈ making_share / 2. Correct: x3 current share 0.00332 → score ≈ 0.00166 → pay ≈ $103
+  (pay $187 now at score 0.00303). Cross-check: x3 ≈ 0.53× fleet 216's current share; 216 pays ≈ 1.93× the line → x3 → ≈ 1.0× the line.
+- Pay path (earnings log, CT): noon $231 → 3 PM $224 → 6 PM $200 → 9 PM $187, ≈ −$5/h, slowing (time constant ≈ 16 h est.) → ≈ $140 by 9 AM 11-10, ≈ $120 by 9 PM 11-10
+  → near the bottom in ≈ 1–2 days unless quality improves. Scaling on x3's current setup is premature (a new UID would land in the same spot).
+- Pace: 24-h notional median per book $184k → $198k (6–9 PM), blocked 94–102 of 128 — under the 450k cap.
