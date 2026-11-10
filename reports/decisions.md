@@ -22045,7 +22045,7 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   - Verdict: no clear result. Rule 2 would adopt the fleet-like fund 0.3 for $300, but it costs 15% of $300 fills and leans worse on 4-dec.
     Deferred: decide after skip8 — if $300 OFF wins, fund on $300 is moot; if $300 stays ON, re-test fund 0.3 for 2 h on the then-current base.
 
-## §1376 — 2026-11-10 ≈ 3:50 PM CT — why fleet UID 216's live making fell (≈ 670 → ≈ 460 today)
+## §1376 — 2026-11-10 3:39 PM CT — why fleet UID 216's live making fell (≈ 670 → ≈ 460 today)
 Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reproduces the gauges: 705 vs gauge 671, 463 vs 462):
 | window (sim) | UID | captured C | quality R/C | two-sided (2·min buy,sell) | credit |
 |---|---|---|---|---|---|
