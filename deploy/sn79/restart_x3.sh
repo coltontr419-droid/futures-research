@@ -1,8 +1,8 @@
 #!/bin/sh
-# §1358: gated restart of x3 to load the live-ladder agent (88322390) with live_params_s=5. Refuses unless registered. Logs to restart_x3.log.
+# §1358: gated restart of x3 to load the live agent (c0a67078: live ladders + fund) with live_params_s=5. Refuses unless registered. Logs to restart_x3.log.
 cd /opt/mvtrx; L=/opt/mvtrx/restart_x3.log; echo "== $(TZ=America/Chicago date)" >> $L
 cd /tmp && /opt/mvtrx/venv/bin/python /opt/mvtrx/regcheck.py x3=64 >> $L 2>&1 || { echo "NOT REGISTERED - no restart" >> $L; echo "ALERT $(date +%s) x3 restart skipped: not registered" >> /opt/mvtrx/alerts.txt; exit 1; }
-cd /opt/mvtrx; M=$(md5sum agents/QuoteAgent.py | cut -c1-8); [ "$M" = "88322390" ] || { echo "agent md5 $M != 88322390 - no restart" >> $L; exit 1; }
+cd /opt/mvtrx; M=$(md5sum agents/QuoteAgent.py | cut -c1-8); [ "$M" = "c0a67078" ] || { echo "agent md5 $M != c0a67078 - no restart" >> $L; exit 1; }
 U=/etc/systemd/system/mvtrx-x3.service; cp $U mvtrx-x3.service.pre-lps5
 grep -q "live_params_s=" $U || sed -i "s| live_params=/opt/mvtrx/live_params_UIDN.json | live_params=/opt/mvtrx/live_params_UIDN.json live_params_s=5 |" $U
 grep -o "live_params_s=[0-9]*" $U >> $L

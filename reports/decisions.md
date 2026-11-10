@@ -21991,3 +21991,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Test: $300 mk_vol_inside 5 (A) vs 0 (B) on that base, 8 windows 6:50–10:50 AM CT (liveswitch_inside8.sh), read 10:53 AM (abread_inside8.sh → ab_read_inside8.txt + ALERT).
 - Pay (CT): 4 AM $169 → 5 AM $164 → 6 AM $160; survival 35.0 h 1.59× (lowest 1.00–1.04, field median 2.10, fleet 216 2.06).
 - deploy/sn79/MORNING_2026-11-10.md written.
+
+## §1371 — 2026-11-10 11:00 AM CT — $300 inside quoting tie → ADOPTED (rule 2); gated restart to the live-fund build; fundamental-lean test scheduled
+- inside8 (6:50–10:50 AM, capped): x3 $300 kept A (inside 5) 1.13 / 1.24 / 0.70 / 0.58 vs B 1.08 / 0.93 / 0.66 / 0.95 → pooled 0.91 vs 0.90; gap −0.06 ± 0.22 (0.3 w);
+  fills A 153 / 90 / 125 / 117 (485) vs B 109 / 99 / 110 / 112 (430) ≈ +13% at the same quality; calm +0.32 ± 0.57, 4-dec +0.18 ± 0.47 → TIE → rule 2 (fleet quotes
+  inside on ≈ 25% of its $300 $, §1358): mk_vol_inside 5 applied 10:55:51 AM (live).
+- restart_x3.sh md5 check → c0a67078; gated restart 10:56:03 AM CT (registered, agent c0a67078 with live fund/micro, live_params_s 5); the live file re-applied
+  {pull 0, skew 5, ladder 2:5:10:20, inside 5} at start. Unit files synced to the live settings (x3 backup .pre-unitsync; x1 .pre-inside5) so a cold start matches.
+- Test fund8: fundamental lean fund 0.3 (A) vs 0 (B) on that base, 8 windows 11:20 AM–3:20 PM CT (liveswitch_fund8.sh), read 3:23 PM (abread_fund8.sh → ab_read_fund8.txt
+  + ALERT). Motivation §1368 (the fleet's fills cluster after the fundamental moved its way).
