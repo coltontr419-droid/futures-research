@@ -552,6 +552,14 @@ _tm.sleep(0.01); json.dump({"fund": 3.0}, open(lpf, "w")); os.utime(lpf, None)
 LF._sec = 7100; LF._live_reload()
 check("live fund: out of range (> 1) ignored", LF.fund == 0.5, f"fund {LF.fund}")
 
+# §1373 live $300 off switch
+LS = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
+_tm.sleep(0.01); json.dump({"mk_skip_vol": 1}, open(lpf, "w")); os.utime(lpf, None)
+LS._sec = 8000; LS._live_reload()
+check("live $300 off: mk_skip_vol applied", LS.mk_skip_vol == 1, f"mk_skip_vol {LS.mk_skip_vol}")
+r = _RespE(); LS._vol_ladder(r, 7, [_OQ(1, Bd, 299.0, 5.0), _OQ(2, Sd, 299.06, 5.0)], {}, {}, 5.0, 10.0, 0.01, 2, levels=[2, 5, 10, 20])
+check("live $300 off: an empty want cancels resting $300 orders, places none", sum(1 for i in r.instructions if i.kind == "cancel") == 2 and not any(i.kind == "place" for i in r.instructions), f"{[(i.kind, i.price) for i in r.instructions]}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)

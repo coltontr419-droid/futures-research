@@ -22010,3 +22010,19 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Quality is ONE number per miner (§1302): x3 takes 2× 216's $300 fills at half the quality → overall 0.62 vs calm-alone 0.77 → the $300 books cost x3 credit twice.
   Rough: no $300 making → overall quality ≈ 0.77 → ≈ +8% total credit despite losing the $300 credit. Plan: (1) a "$300 off / selective" switch judged by
   miner-wide credit (add mk_skip_vol to LIVE_KNOBS → one restart); (2) study 216's calm behaviour vs the rest of the fleet; (3) fundamental tilt (running); (4) long 4-dec.
+
+## §1373 — 2026-11-10 1:00 PM CT — fundamental-tilt test cut to 1:20 PM (user); "$300 off" checked for hidden downsides; $300-off test scheduled
+- User: shorten the fund test to end 1:20 PM; test $300 OFF; make sure not quoting $300 has no hidden downside. Fund8 timers 4–7/end/read stopped; END at 1:20 PM
+  (fund 0) and read 1:23 PM (2 A + 2 B windows).
+- Hidden-downside check (validator code): making_share = making_raw / Σ making_raw (reward.py making_pool_inputs) — proportional, NO book-count requirement;
+  coverage_weight applies only to the skill leg (x3 skill 0); the making magnitude floor (0.5 × median positive maker) affects only the rank; S3 tether reads 1.0
+  for every miner (off). P11 (counterparty concentration): x3 top-2 miner takers 1.8% of $ on all books → 3.5% on calm + 4-dec only (216: 1.9% → 3.0%) → still
+  diverse, negligible. REAL downside: flash dislocations happen on $300 books (§1355: ≈ 14–16% of making profit for x3 and the fleet) — "$300 off" forgoes them, and a
+  4-h test may see none (biased toward "off"); the read reports 1%+ one-second $300 mid jumps per arm.
+- Code: mk_skip_vol added to LIVE_KNOBS (QuoteAgent.py md5 52798500 = deployed agents/QuoteAgent.py; backups agents/QuoteAgent.pre-liveskip.py / repo
+  QuoteAgent.pre-liveskipvol.py); test_pace 2 new checks (applied; an empty want cancels resting $300 orders and places none) + all — ALL PASS.
+- abcredit.sh: pooled A vs B windows → making_exact (x3 + fleet 216) = whole-miner credit; dry run on inside8: x3 A 28.8 vs B 29.1 (tie confirmed; the 216 reference
+  is unreliable when windows are pooled).
+- Schedule (server timers): gated restart_x3.sh (md5 52798500) 1:25 PM; skip8 A = mk_skip_vol 1 / B = 0 on the base (pull 0, skew 5, ladder 2:5:10:20, inside 5, fund 0)
+  1:50 / 2:20 / … / END 5:50 PM CT; read 5:55 PM (abread_skip8.sh → ab_read_skip8.txt: whole-miner credit first, per-fill second). Decide by whole-miner credit
+  and flash exposure; if "off" wins, a selective variant (deep $300 levels only) is the follow-up.
