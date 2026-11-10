@@ -21926,3 +21926,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - deploy/sn79/overnight_queue.sh (copied to /opt/mvtrx): `LAD=<test-5 winner> sh /opt/mvtrx/overnight_queue.sh "<start UTC>"` creates server timers for 4 ABAB tests
   (30-min windows, capped reads, ALERTs): calm no-touch 4 vs 3 → $300 size 0.07 vs 0.034 → 4-dec inside 2 vs 1 → $300 pull off vs on (8 windows), each on the base
   (pull 0.3, skew 5, touch_min 0, no-chase 1, ladder LAD). Test 5 (ladder 2:5:10:20) switch applied 5:50:27 PM (17 s after the file — live_params_s 5 works).
+- Survival 6:24 PM (22.6 h): x3 emission ÷ prune line 1.92 (field median 1.99, fleet 216 2.02; lowest unprotected 1.00–1.17); pay 6 PM $199.7/mo (field median $203.2) → clears the bottom group when protection ends ≈ 7:46 PM.
