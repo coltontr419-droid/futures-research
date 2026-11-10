@@ -21953,3 +21953,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - ABAB 8:05–10:05 PM (capped): calm x3 kept A (4) 5.33 / 4.90 vs B (3) 4.41 / 6.06 → +0.01 ± 0.98 (0.0 w); but calm fills A 34 / 43 vs B 85 / 77 per window → threshold 4
   halves calm fills at the same quality = less making credit → keep 3. Calm pooled gap to the fleet ≈ −0.07 bp → x3 ≈ the fleet on calm. $300 −0.23 ± 0.23, 4-dec
   −0.83 ± 0.83 (untouched groups, noise). The live file's END line has no calm key → x3 stays at the last applied value 3.
+
+## §1366 — 2026-11-09 10:20 PM CT — calm books: x3 ≈ the fleet (calmcmp.py + making_exact on calm-only tape)
+- Since the 5:26 PM restart (sim 45,550–49,236 ≈ 4.7 wall h, skew 5), per UID: x3 104 fills / $146k per wall h, edge +5.61, move −1.02, kept +4.59 bp (capped),
+  two-sided 81%, 36 books; fleet (17 UIDs) 111 fills / $165k, +5.52, −0.68, +4.84, 89%, 38 books.
+- Validator-exact calm-only, last 1 sim h: x3 captured 160 / quality 0.717 / credit 91.3 (rank 73); fleet 52 161 / 0.692 / 79.0 (rank 87); fleet 216 250 / 0.798 / 163.7 (37).
+- → calm gap per fill 2.19 bp this morning → ≈ 0.25 now; x3 out-scores fleet 52 on calm. Remaining calm items: two-sidedness 81% vs 89% (credit counts 2·min per book;
+  skew 5 may let inventory drift) and ≈ 12% less calm volume. The main gap is on the $300 books (≈ 1 bp/fill).
