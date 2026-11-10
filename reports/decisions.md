@@ -21968,3 +21968,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Pull off/on 8 windows (2:35–6:35 AM): switches fired and applied (6 "LIVE PARAMS applied: flow_pull" lines by 5:26 AM); read 6:38 AM (reads .prev + live tape).
 - x3 33.7 h: emission ÷ prune line 1.67 (field median 1.92, fleet 216 2.08; lowest 1.00–1.09). Pay (CT): 9 PM $187 → 1 AM $175 → 5 AM $164 (≈ −$3/h, slowing; §1364 path).
 - The session slept ≈ 10:20 PM–5:26 AM (laptop closed): briefs 10:43 PM–4:43 AM missed; server timers ran the queue.
+- User ≈ 6:00 AM 11-10: decision rule 2 — a tie (or a lean toward the fleet below 2 widths) → adopt the long-lived fleet's behaviour; and pre-approval for any x3 changes/tests while away (no spending/keys).
