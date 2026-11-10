@@ -22026,3 +22026,4 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Schedule (server timers): gated restart_x3.sh (md5 52798500) 1:25 PM; skip8 A = mk_skip_vol 1 / B = 0 on the base (pull 0, skew 5, ladder 2:5:10:20, inside 5, fund 0)
   1:50 / 2:20 / … / END 5:50 PM CT; read 5:55 PM (abread_skip8.sh → ab_read_skip8.txt: whole-miner credit first, per-fill second). Decide by whole-miner credit
   and flash exposure; if "off" wins, a selective variant (deep $300 levels only) is the follow-up.
+- §1373 add. (1:05 PM, user): $300-off test read at 2 h (3:53 PM, ab_read_skip8_2h.txt) and decide then if clear; the 4-h read stays as fallback. State handoff: deploy/sn79/STATE_2026-11-10_1PM.md.
