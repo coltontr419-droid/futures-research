@@ -21982,3 +21982,12 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - §1369 (6:10 AM): `fund` (range 0–1) and `micro` (0–1) added to the live whitelist (QuoteAgent.py = deployed agents/QuoteAgent.py; backups agents/QuoteAgent.pre-livefund.py /
   repo QuoteAgent.pre-livefund.py); test_pace 2 new checks + all — ALL PASS. x3 keeps its loaded 88322390 code until the next restart (restart_x3.sh's md5 check must
   be updated to the new md5 before using it). Next restart → a fund-lean A/B (fund 0 vs ≈ 0.3) becomes a live switch.
+
+## §1370 — 2026-11-10 6:45 AM CT — pull ABAB (4 h) tie → pull OFF (rule 2); ladder 2:5:10:20 adopted (rule 2); $300 inside 4-h test running; morning summary
+- 8 windows 2:35–6:35 AM (capped): x3 $300 kept A (off) 0.88 / 0.41 / 0.92 / 0.87 vs B (on) 0.74 / 1.22 / 0.76 / 0.72 → pooled gap −0.05 ± 0.28 (0.2 w); fills A 87 / 116 /
+  108 / 92 vs B 85 / 84 / 80 / 81 (≈ +17% with pull off, same quality); calm −0.24 ± 0.62, 4-dec +1.12 ± 0.79 → TIE → rule 2 (fleet does not pull, §1310): pull OFF.
+- Applied 6:42:44 AM (live switch, registration gate passed): {flow_pull 0, skew 5, touch_min 0, no-chase 1, ladder 2:5:10:20} — ladder adopted under rule 2 (tie §1362,
+  fleet 6% of $300 $ at 10+ ticks §1358). mvtrx-x1 unit (disabled; backup .pre-pull0): flow_pull 0, ladder 2:5:10:20.
+- Test: $300 mk_vol_inside 5 (A) vs 0 (B) on that base, 8 windows 6:50–10:50 AM CT (liveswitch_inside8.sh), read 10:53 AM (abread_inside8.sh → ab_read_inside8.txt + ALERT).
+- Pay (CT): 4 AM $169 → 5 AM $164 → 6 AM $160; survival 35.0 h 1.59× (lowest 1.00–1.04, field median 2.10, fleet 216 2.06).
+- deploy/sn79/MORNING_2026-11-10.md written.
