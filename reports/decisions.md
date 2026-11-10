@@ -21960,3 +21960,11 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Validator-exact calm-only, last 1 sim h: x3 captured 160 / quality 0.717 / credit 91.3 (rank 73); fleet 52 161 / 0.692 / 79.0 (rank 87); fleet 216 250 / 0.798 / 163.7 (37).
 - → calm gap per fill 2.19 bp this morning → ≈ 0.25 now; x3 out-scores fleet 52 on calm. Remaining calm items: two-sidedness 81% vs 89% (credit counts 2·min per book;
   skew 5 may let inventory drift) and ≈ 12% less calm volume. The main gap is on the $300 books (≈ 1 bp/fill).
+
+## §1367 — 2026-11-10 5:30 AM CT — overnight reads: $300 size 0.07 REJECTED; 4-dec inside 2 no information; pull test running; session slept 10:20 PM–5:26 AM
+- $300 size (10:15 PM–12:15 AM, capped): x3 $300 kept A (0.07) 0.96 / 0.83 vs B (0.034) 1.29 / 1.39 → −0.49 ± 0.41 (1.2 w), worse in both pairs; fills A 82 / 91 vs B 63 / 61 →
+  bigger orders = more but worse fills → keep 0.034. Calm +0.05, 4-dec +0.03 (noise).
+- 4-dec inside 2 vs 1 (12:25–2:25 AM): 4-dec fills only 14–25 per window → ±1.36 (no information; kept A +0.77 vs B −0.31); keep 1. 4-dec tests need ≥ 6–8 h.
+- Pull off/on 8 windows (2:35–6:35 AM): switches fired and applied (6 "LIVE PARAMS applied: flow_pull" lines by 5:26 AM); read 6:38 AM (reads .prev + live tape).
+- x3 33.7 h: emission ÷ prune line 1.67 (field median 1.92, fleet 216 2.08; lowest 1.00–1.09). Pay (CT): 9 PM $187 → 1 AM $175 → 5 AM $164 (≈ −$3/h, slowing; §1364 path).
+- The session slept ≈ 10:20 PM–5:26 AM (laptop closed): briefs 10:43 PM–4:43 AM missed; server timers ran the queue.
