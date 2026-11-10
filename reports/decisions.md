@@ -21979,3 +21979,6 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   every bucket x3's move after stays ≈ −0.4…−0.6 vs the fleet ≈ 0, and the fleet's "with" fills keep less (+1.36) than flat (+1.80) → not the kept-gap cause.
   Candidate (restart needed — `fund` is not a live knob): fair += fund × (fundamental − mid); judge under rule 2.
 - Tape rotation ran 3:07 AM but the tape was 1.83 GB (< 2 GB) → no rotation; .prev still = sim 21,888–34,154 (no overlap with the live tape).
+- §1369 (6:10 AM): `fund` (range 0–1) and `micro` (0–1) added to the live whitelist (QuoteAgent.py = deployed agents/QuoteAgent.py; backups agents/QuoteAgent.pre-livefund.py /
+  repo QuoteAgent.pre-livefund.py); test_pace 2 new checks + all — ALL PASS. x3 keeps its loaded 88322390 code until the next restart (restart_x3.sh's md5 check must
+  be updated to the new md5 before using it). Next restart → a fund-lean A/B (fund 0 vs ≈ 0.3) becomes a live switch.

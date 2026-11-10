@@ -543,6 +543,15 @@ check("live ladders: > 4 levels or out-of-range ticks ignored", LL.mk_calm_lad =
 r = _RespE(); LL._vol_ladder(r, 80, [], {Bd: 30.00, Sd: 30.02}, {}, 60.0, 60.0, 0.01, 2, levels=LL.mk_calm_lad)
 check("live ladders: new calm levels used by the ladder (≤ 5 instructions)", len(r.instructions) <= 5 and 29.99 in [i.price for i in r.instructions], f"{[i.price for i in r.instructions]}")
 
+# §1369 live fundamental lean / micro weight (range-checked)
+LF = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
+_tm.sleep(0.01); json.dump({"fund": 0.5, "micro": 0.5}, open(lpf, "w")); os.utime(lpf, None)
+LF._sec = 7000; LF._live_reload()
+check("live fund/micro: applied", LF.fund == 0.5 and LF.micro == 0.5, f"fund {LF.fund} micro {LF.micro}")
+_tm.sleep(0.01); json.dump({"fund": 3.0}, open(lpf, "w")); os.utime(lpf, None)
+LF._sec = 7100; LF._live_reload()
+check("live fund: out of range (> 1) ignored", LF.fund == 0.5, f"fund {LF.fund}")
+
 # §1304 $300 inside quoting inside _vol_ladder
 IN = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=5)
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=5)
