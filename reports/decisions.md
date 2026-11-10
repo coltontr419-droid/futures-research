@@ -21948,3 +21948,8 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - Pay path (earnings log, CT): noon $231 → 3 PM $224 → 6 PM $200 → 9 PM $187, ≈ −$5/h, slowing (time constant ≈ 16 h est.) → ≈ $140 by 9 AM 11-10, ≈ $120 by 9 PM 11-10
   → near the bottom in ≈ 1–2 days unless quality improves. Scaling on x3's current setup is premature (a new UID would land in the same spot).
 - Pace: 24-h notional median per book $184k → $198k (6–9 PM), blocked 94–102 of 128 — under the 450k cap.
+
+## §1365 — 2026-11-09 10:10 PM CT — overnight test 1 (calm no-touch 4 vs 3) REJECTED; calm ≈ the fleet now
+- ABAB 8:05–10:05 PM (capped): calm x3 kept A (4) 5.33 / 4.90 vs B (3) 4.41 / 6.06 → +0.01 ± 0.98 (0.0 w); but calm fills A 34 / 43 vs B 85 / 77 per window → threshold 4
+  halves calm fills at the same quality = less making credit → keep 3. Calm pooled gap to the fleet ≈ −0.07 bp → x3 ≈ the fleet on calm. $300 −0.23 ± 0.23, 4-dec
+  −0.83 ± 0.83 (untouched groups, noise). The live file's END line has no calm key → x3 stays at the last applied value 3.
