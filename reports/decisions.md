@@ -22059,3 +22059,16 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Our whole gap to 216 is QUALITY: x3 now has MORE two-sided volume than 216 (585 vs 484) but keeps 0.63 of it vs 216's 0.96.
   x3 at 216's quality would score ≈ 560 (top ≈ 15%). Field quality median 0.68 → x3 is below the median on quality, above on volume.
 - So x3's "76% of 216" is 216 falling, not x3 rising; the lever stays the $300 adverse move (quality), which skip8 tests directly.
+
+## §1377 — 2026-11-10 3:57–4:02 PM CT — "$300 off" (skip8) stopped at 2 h: clear loss, $300 books back ON; fund tilt re-test started
+- skip8 2-h read (A = $300 off, B = on; 2 half-hours each; flash events 0 in both):
+  - Whole-miner validator-exact credit: A 3.6 vs B 8.3 (UID 216 reference 14.5 vs 15.4, flat). Captured volume halves (35 vs 67) and miner quality does NOT
+    improve (0.61 vs 0.60), so the hypothesis "the $300 books drag the whole miner's quality" is false. Even at quality 1.0, A's two-sided 5.9 < B's credit 8.3.
+  - Per fill (secondary): $300 +0.34 ± 0.37 (0.9 w), calm −0.39 ± 0.71, 4-dec −0.48 ± 0.49 — no clear effect.
+  - Decision: clear loss → keep $300 ON (also what the fleet does). Applied 3:57:42 PM ("LIVE PARAMS applied: mk_skip_vol 1→0"); timers sk8-5..7/end/read stopped.
+    Selective-$300 follow-up dropped (its premise was the quality drag).
+- Whole-miner credit run retroactively on fund8 (fund 0.3 = A, 11:20 AM–1:20 PM): x3 quality A 0.645 vs B 0.482 (216 flat 0.652 / 0.647) — the largest quality
+  move seen — but two-sided A 5.4 vs B 14.9 → credit 3.5 vs 7.2 (216 7.2 vs 12.5: the 1-h pools are noisy — 216's own two-sided swung 11 vs 19 unchanged).
+  Plausible mechanism: leaning on the fundamental makes fills one-sided. Not decidable on 2 h.
+- Started fd9: fund 0.3 (A) vs 0 (B), BABA half-hours 4:05–6:05 PM CT; read 6:08 PM pools fund8 + fd9 (8 half-hours, 4 h) → /opt/mvtrx/ab_read_fd9.txt.
+  Judge on whole-miner credit relative to 216 (x3/216 per arm), per fill second, look at two-sided share. If quality rises but balance falls → follow-up: fund 0.3 + stronger skew.
