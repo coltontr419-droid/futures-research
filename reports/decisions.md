@@ -21969,3 +21969,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
 - x3 33.7 h: emission ÷ prune line 1.67 (field median 1.92, fleet 216 2.08; lowest 1.00–1.09). Pay (CT): 9 PM $187 → 1 AM $175 → 5 AM $164 (≈ −$3/h, slowing; §1364 path).
 - The session slept ≈ 10:20 PM–5:26 AM (laptop closed): briefs 10:43 PM–4:43 AM missed; server timers ran the queue.
 - User ≈ 6:00 AM 11-10: decision rule 2 — a tie (or a lean toward the fleet below 2 widths) → adopt the long-lived fleet's behaviour; and pre-approval for any x3 changes/tests while away (no spending/keys).
+
+## §1368 — 2026-11-10 6:00 AM CT — $300 gap now = adverse move after the fill only; fleet fills follow fundamental moves (fundmove.py); tape rotation fine
+- whygap.py since the 5:26 PM restart (sim 45,550–55,270): $300 gap 0.62 bp (uncapped; 1.31 at yesterday's baseline): edge fleet +1.46 vs x3 +1.37; move after
+  fleet +0.06 vs x3 −0.47 → the remaining gap is the adverse move after our fills; every split (depth, crowding, age, queue, taker, size, spread, cluster, inventory)
+  is "same situation, worse outcome" (mix ≤ 0.08 bp each).
+- Fundamental (snapshot "fund"): $ share by Δfund over 30 s before the fill (signed to the maker side): fleet with 64% / flat 21% / against 15%; x3 35 / 33 / 33
+  (5 s: fleet with 28% / against 2%; x3 6 / 6) → the fleet's fills cluster after the fundamental moved its way — it uses the fundamental; x3 does not. But within
+  every bucket x3's move after stays ≈ −0.4…−0.6 vs the fleet ≈ 0, and the fleet's "with" fills keep less (+1.36) than flat (+1.80) → not the kept-gap cause.
+  Candidate (restart needed — `fund` is not a live knob): fair += fund × (fundamental − mid); judge under rule 2.
+- Tape rotation ran 3:07 AM but the tape was 1.83 GB (< 2 GB) → no rotation; .prev still = sim 21,888–34,154 (no overlap with the live tape).
