@@ -1,6 +1,6 @@
 """§1285: x1's ACTUAL entries with a different exit. Every x1 taker fill that grows |inventory| on a book is an entry; under rule H it is closed
 H sim s later (synthetic exit at the then mid). Fills that shrink |inventory| are dropped (the rule replaces x1's own exits). Scored with the validator
-math of skill_val.py over the last LAST sim min of the CURRENT sim (ts < 60000 s); 'actual' = x1's real inventory path.
+math of skill_val.py over the last LAST sim min of the CURRENT sim (ts < 90000 s); 'actual' = x1's real inventory path.
     python holdval.py <tape> <uid> <last sim min> <holds s, e.g. 300,600,900,1800>"""
 import json, sys, collections, heapq
 sys.path.insert(0, "/opt/mvtrx/repo")
@@ -9,7 +9,7 @@ tape, ME, LAST = sys.argv[1], int(sys.argv[2]), float(sys.argv[3]); HOLDS = [int
 ev = collections.defaultdict(list); seen = set(); tmax = 0
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)])
-    if t >= 60000 * 10 ** 9: continue
+    if t >= 90000 * 10 ** 9: continue
     if b'"bid": ' in l[:80]:
         j = l.find(b'"bids"'); r = json.loads(l[:j].rstrip(b', ') + b"}")
         if r.get("bid") and r.get("ask"): ev[r["book"]].append((t, 0, (r["bid"] + r["ask"]) / 2))

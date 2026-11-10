@@ -8,7 +8,7 @@ G = {a.split("=")[0]: {int(u) for u in a.split("=")[1].split(",")} for a in sys.
 SN = collections.defaultdict(dict); F = []; QID = {}
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 700 or t > T1 + 30: continue
+    if t >= 90000 or t < T0 - 700 or t > T1 + 30: continue
     j = l.find(b'"book": '); b = int(l[j + 8:l.index(b",", j)])
     if not (63 <= b < 102): continue
     r = json.loads(l)

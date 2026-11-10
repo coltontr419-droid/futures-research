@@ -8,7 +8,7 @@ python3 - <<'PY'
 o = open("/tmp/mkt_cur.jsonl", "w")
 for l in open("/opt/mvtrx/live_tape_x3.jsonl"):
     i = l.find('"ts": ')
-    if i >= 0 and int(l[i + 6:l.index(",", i)]) < 60000 * 10 ** 9: o.write(l)
+    if i >= 0 and int(l[i + 6:l.index(",", i)]) < 90000 * 10 ** 9: o.write(l)
 PY
 cd /opt/mvtrx/repo
 for pair in "212 58" "216 252" "201 87"; do

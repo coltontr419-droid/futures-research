@@ -3,7 +3,7 @@ import json, sys, collections
 tape, T0 = sys.argv[1], float(sys.argv[2]); SN = {}; n = collections.Counter(); runs = collections.Counter(); sp_alone = collections.Counter(); sp_all = collections.Counter()
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0: continue
+    if t >= 90000 or t < T0: continue
     if b'"bids"' in l:
         r = json.loads(l)
         if r["book"] < 63 and r["bids"] and r["asks"]: SN[(r["book"], int(t))] = r

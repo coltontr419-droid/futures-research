@@ -1,7 +1,7 @@
 """§1282: would a DELAYED copy of a taker's exact trades keep its skill? Validator math as skill_val.py (per book α = Σ inv × Δmid at prints − mean
 inv × drift, notional = Σ |our trade| × price, 2.3 bp hurdle, kappa floored). The copy: every source trade (Ta == SRC) repeated DELAY sim s later at
 K × its size, |position| capped at MAXUSD per book, new exposure through our pace bucket (450k / 86,400 s, burst 900 s; exits always go).
-Current sim only (ts < 60000 s), last LAST sim min.   python mirror_val.py <tape> <src uid> <last sim min> <delays e.g. 0,2,5,10> [K] [MAXUSD]"""
+Current sim only (ts < 90000 s), last LAST sim min.   python mirror_val.py <tape> <src uid> <last sim min> <delays e.g. 0,2,5,10> [K] [MAXUSD]"""
 import json, sys, collections, heapq
 sys.path.insert(0, "/opt/mvtrx/repo")
 from taos.im.validator.debeta import kappa_floored, hurdle_filter
@@ -10,7 +10,7 @@ K = float(sys.argv[5]) if len(sys.argv) > 5 else 1.0; MAXUSD = float(sys.argv[6]
 ev = collections.defaultdict(list); seen = set(); tmax = 0
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)])
-    if t >= 60000 * 10 ** 9: continue
+    if t >= 90000 * 10 ** 9: continue
     if b'"bid": ' in l[:80]:
         j = l.find(b'"bids"'); r = json.loads(l[:j].rstrip(b', ') + b"}")
         if r.get("bid") and r.get("ask"): ev[r["book"]].append((t, 0, (r["bid"] + r["ask"]) / 2))

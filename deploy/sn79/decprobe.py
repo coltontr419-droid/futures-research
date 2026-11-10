@@ -5,7 +5,7 @@ SN = collections.defaultdict(dict); F = []; SPR = []
 for l in open(tape, "rb"):
     if b'"book": 1' not in l: continue
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 30 or t > T1 + 30: continue
+    if t >= 90000 or t < T0 - 30 or t > T1 + 30: continue
     r = json.loads(l)
     if r.get("book", 0) < 102: continue
     if "Mi" in r:

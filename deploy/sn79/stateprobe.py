@@ -7,7 +7,7 @@ who = {u: g for g, us in G.items() for u in us}
 S = collections.defaultdict(lambda: ([], [])); TR = collections.defaultdict(list); F = []; seen = set()
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < LO - 120: continue
+    if t >= 90000 or t < LO - 120: continue
     if b'"bid": ' in l[:80]:
         r = json.loads(l)
         if r["book"] < 63 and r.get("bids") and r.get("asks"): S[r["book"]][0].append(t); S[r["book"]][1].append((r["bids"], r["asks"]))

@@ -10,7 +10,7 @@ for l in open("/opt/mvtrx/live_tape_x3.jsonl"):
     i = l.find('"ts": ')
     if i < 0: continue
     t = int(l[i + 6:l.index(",", i)])
-    if t >= 60000 * 10**9 or t < T0 * 10**9: continue
+    if t >= 90000 * 10**9 or t < T0 * 10**9: continue
     j = l.find('"book": ')
     if j < 0: continue
     b = int(l[j + 8:l.index(",", j)])

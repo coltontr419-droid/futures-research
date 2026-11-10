@@ -1,5 +1,5 @@
 """§1274: what the top EARNERS do (not the top skill UIDs): per UID, maker vs taker $, books, $ per book per sim h, two-sided making share, and the
-time profile since their first fill on this tape. Current sim only (ts < 60000 s).   python earners.py <tape> <uid,...>"""
+time profile since their first fill on this tape. Current sim only (ts < 90000 s).   python earners.py <tape> <uid,...>"""
 import json, sys, collections, statistics as st
 tape, U = sys.argv[1], [int(u) for u in sys.argv[2].split(",")]; S = set(U)
 mk = collections.defaultdict(float); tk = collections.defaultdict(float); bk = collections.defaultdict(set); side = collections.defaultdict(lambda: [0.0, 0.0])
@@ -7,7 +7,7 @@ first = {}; last = {}; hr = collections.defaultdict(lambda: collections.defaultd
 for l in open(tape, "rb"):
     if b'"Ta": ' not in l: continue
     r = json.loads(l); t = r["ts"] / 1e9
-    if t >= 60000: continue
+    if t >= 90000: continue
     k = (r["book"], r.get("id"))
     if k in seen: continue
     seen.add(k); v = r["q"] * r["p"]

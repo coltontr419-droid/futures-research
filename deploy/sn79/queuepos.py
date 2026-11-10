@@ -5,7 +5,7 @@ tape, T0, T1, UID = sys.argv[1], float(sys.argv[2]), float(sys.argv[3]), int(sys
 SN = collections.defaultdict(dict); Q = collections.defaultdict(list); F = []
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 60 or t > T1 + 30: continue
+    if t >= 90000 or t < T0 - 60 or t > T1 + 30: continue
     j = l.find(b'"book": '); b = int(l[j + 8:l.index(b",", j)])
     if b >= 63: continue
     r = json.loads(l)

@@ -6,7 +6,7 @@ G = {a.split("=")[0]: {int(u) for u in a.split("=")[1].split(",")} for a in sys.
 M = collections.defaultdict(dict); F = []
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 300 or t > T1 + 30: continue
+    if t >= 90000 or t < T0 - 300 or t > T1 + 30: continue
     if b'"bids"' in l:
         r = json.loads(l)
         if r["bids"] and r["asks"]: M[r["book"]][int(t)] = (r["bid"] + r["ask"]) / 2

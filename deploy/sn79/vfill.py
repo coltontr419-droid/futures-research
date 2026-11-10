@@ -9,7 +9,7 @@ P = collections.defaultdict(list); seen = set()
 for l in open(tape, "rb"):
     if b'"Ta": ' not in l: continue
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 300 or t > T1 + 300: continue
+    if t >= 90000 or t < T0 - 300 or t > T1 + 300: continue
     r = json.loads(l); k = (r["book"], r.get("id"), r["ts"])
     if k in seen or r["book"] >= 102: continue
     seen.add(k); P[r["book"]].append((t, r["p"], r["q"], r.get("Ma", -1), r.get("Ta", -1), r["s"]))

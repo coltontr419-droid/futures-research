@@ -10,7 +10,7 @@ wins = [(W[i][0], W[i + 1][0], W[i][1]) for i in range(len(W) - 1) if W[i][1] in
 T0, T1 = wins[0][0], wins[-1][1]; SN = collections.defaultdict(dict); F = []
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 5 or t > T1 + 30: continue
+    if t >= 90000 or t < T0 - 5 or t > T1 + 30: continue
     j = l.find(b'"book": '); b = int(l[j + 8:l.index(b",", j)])
     if b'"Mi"' in l:
         r = json.loads(l)

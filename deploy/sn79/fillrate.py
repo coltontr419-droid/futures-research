@@ -7,7 +7,7 @@ N = collections.defaultdict(float); V = collections.defaultdict(float); tmax = 0
 for l in open(args[0], "rb"):
     if b'"Ma": ' not in l: continue
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T[0]: continue
+    if t >= 90000 or t < T[0]: continue
     r = json.loads(l); kk = (r["book"], r.get("id"), r["ts"])
     if kk in seen: continue
     seen.add(kk); tmax = max(tmax, t)

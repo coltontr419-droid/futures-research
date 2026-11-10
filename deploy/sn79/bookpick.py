@@ -1,7 +1,7 @@
 """§1277: which books do long-lived takers trade, and why? Per UID: books by group ($300 0-62 / calm 63-101 / 4-dec 102-127), and for every book the
 book's median spread (bp), 5-min |move| (bp), print count — traded vs untraded.   python bookpick.py <tape> <uids>"""
 import json, sys, collections, statistics as st, bisect
-tape, U = sys.argv[1], [int(u) for u in sys.argv[2].split(",")]; HI = float(sys.argv[3]) if len(sys.argv) > 3 else 60000   # 1e9 for the pre-reset tape
+tape, U = sys.argv[1], [int(u) for u in sys.argv[2].split(",")]; HI = float(sys.argv[3]) if len(sys.argv) > 3 else 90000   # 1e9 for the pre-reset tape
 SP = collections.defaultdict(list); MID = collections.defaultdict(list); PR = collections.Counter(); T = collections.defaultdict(set); V = collections.defaultdict(float); seen = set()
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9

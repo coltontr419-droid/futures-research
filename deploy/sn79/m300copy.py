@@ -6,7 +6,7 @@ tape, U = sys.argv[1], {int(u) for u in sys.argv[2].split(",")}; LO = float(sys.
 M = collections.defaultdict(lambda: ([], [], [])); F = []; seen = set(); t0 = t1 = None
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000: continue
+    if t >= 90000: continue
     if b'"bid": ' in l[:80]:
         j = l.find(b'"bids"'); r = json.loads(l[:j].rstrip(b', ') + b"}")
         if r.get("bid") and r.get("ask"): m = M[r["book"]]; m[0].append(t); m[1].append((r["bid"] + r["ask"]) / 2); m[2].append(r["ask"] - r["bid"])

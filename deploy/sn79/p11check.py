@@ -6,7 +6,7 @@ cp = {u: {"all": collections.Counter(), "nov": collections.Counter()} for u in U
 for l in open(tape, "rb"):
     if b'"Mi"' not in l: continue
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 or t > T1: continue
+    if t >= 90000 or t < T0 or t > T1: continue
     r = json.loads(l)
     if r["Ma"] not in cp or r["Ma"] == r["Ta"]: continue
     k = "bg" if r["Ta"] < 0 else r["Ta"]; v = r["p"] * r["q"]

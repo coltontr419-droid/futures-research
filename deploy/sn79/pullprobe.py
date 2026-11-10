@@ -10,7 +10,7 @@ for l in open(tape, "rb"):
     i = l.find(b'"ts": ')
     if i < 0: continue
     t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0: continue
+    if t >= 90000 or t < T0: continue
     r = json.loads(l); b = r.get("book")
     if b is None or b >= 102: continue
     if "Mi" in r:

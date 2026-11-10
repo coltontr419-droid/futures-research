@@ -12,7 +12,7 @@ skip = set(map(int, open(sys.argv[4]).read().split())) if len(sys.argv) > 4 and 
 ev, seen, tmax = defaultdict(list), set(), 0
 for line in open(tape):
     r = json.loads(line)
-    if r.get("ts", 0) >= 60000 * 10 ** 9: continue      # §1283: current simulation only — x3's tape still starts with pre-reset lines (ts ≈ 77,000-86,400 s), which
+    if r.get("ts", 0) >= 90000 * 10 ** 9: continue      # §1283: current simulation only — x3's tape still starts with pre-reset lines (ts ≈ 77,000-86,400 s), which
                                                     # made "the last N sim min" the OLD sim and, for re-registered slots, the slot's previous owner
     if "p" in r:
         k = (r["book"], r.get("id"), r["ts"])

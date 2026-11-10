@@ -6,7 +6,7 @@ P = {"before": (37038, 39164), "spike": (39164, 40335)}; T0, T1 = 37038, 40335
 SN = collections.defaultdict(dict); F = []
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 5 or t > T1 + 30: continue
+    if t >= 90000 or t < T0 - 5 or t > T1 + 30: continue
     j = l.find(b'"book": '); b = int(l[j + 8:l.index(b",", j)])
     if b >= 63: continue
     if b'"Mi"' in l:

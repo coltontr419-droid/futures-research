@@ -9,7 +9,7 @@ LO = min(g[2] for g in GR); HI = max(g[3] for g in GR); allu = set().union(*[g[1
 SN = collections.defaultdict(dict); OF = collections.defaultdict(dict); F = []; QID = {}
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < LO - 900 or t > HI + 30: continue
+    if t >= 90000 or t < LO - 900 or t > HI + 30: continue
     j = l.find(b'"book": '); b = int(l[j + 8:l.index(b",", j)])
     r = json.loads(l)
     if "queue" in r:

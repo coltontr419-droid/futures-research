@@ -8,11 +8,11 @@ leg = collections.defaultdict(float); ev = collections.defaultdict(list); seen =
 for l in open("/opt/mvtrx/live_tape_x3.jsonl", "rb"):
     if b'"bid"' in l[:60]:
         i = l.find(b'"bids"'); r = json.loads(l[:i].rstrip(b', ') + b"}")
-        if T1 - 30 <= r["ts"] / 1e9 < 60000 and r.get("bid") and r.get("ask"): ev[r["book"]].append((r["ts"], 0, (r["bid"] + r["ask"]) / 2))
+        if T1 - 30 <= r["ts"] / 1e9 < 90000 and r.get("bid") and r.get("ask"): ev[r["book"]].append((r["ts"], 0, (r["bid"] + r["ask"]) / 2))
     elif b'"p"' in l:
         if b'"Ta": 194,' not in l and b'"ts": ' not in l[:8]: continue
         r = json.loads(l); k = (r["book"], r.get("id"), r["ts"]); t = r["ts"] / 1e9
-        if k in seen or t > 60000 or t < 3000: continue
+        if k in seen or t > 90000 or t < 3000: continue
         if t < T1:
             if r.get("Ta") == U: seen.add(k); leg[r["book"]] += r["q"] if r["s"] == 0 else -r["q"]
         else:

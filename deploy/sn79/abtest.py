@@ -8,7 +8,7 @@ who = {u: g for g, us in G for u in us}
 SN = collections.defaultdict(dict); F = []
 for l in open(tape, "rb"):
     i = l.find(b'"ts": '); t = int(l[i + 6:l.index(b",", i)]) / 1e9
-    if t >= 60000 or t < T0 - 5 or t > T1 + 30: continue
+    if t >= 90000 or t < T0 - 5 or t > T1 + 30: continue
     if b'"Mi"' in l:
         r = json.loads(l)
         if r["Ma"] in who and r["Ma"] != r["Ta"] and T0 <= t < T1: F.append((t, r["book"], r["p"], r["q"], r["s"], who[r["Ma"]]))

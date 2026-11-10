@@ -22034,3 +22034,13 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   x3 fills were normal in all 4 windows (99–139 $300 / 37–64 calm / 17–31 4-dec per ≈ 400 sim s). TODO: rerun abwin for fund8 with a larger memory cap, then decide
   (rule 2). The $300-off test (1:50 PM) uses the same abwin per-fill read → check it works BEFORE 3:53 PM (abcredit is unaffected).
 - False alarm: counted fixed sim windows past the tape's end right after the restart → "0 fills"; the miner was fine (lesson saved).
+
+## §1375 — 2026-11-10 1:31 PM CT — read scripts were blind after sim 60,000; fixed; fund8 (fundamental lean) result
+- Cause of the truncated fund8 read (§1374): every tape script skipped lines with sim ts ≥ 60,000 (an old pre-reset guard). The sim passed 60,000 ≈ 1 PM.
+  Raised to 90,000 in all scripts on the lab box and in the repo (backup pre-guard90.tgz). live_tape_x3 spans sim 34,154–61,660 only, so nothing old leaks in.
+  The skip8 ($300 off) reads at 3:53 / 5:55 PM now use the fixed scripts.
+- fund8 read (fund 0.3 = A vs 0 = B, 4 half-hours, capped per fill):
+  - $300: A closes the gap to the fleet by +0.29 ± 0.28 (1.1 widths) — lean toward the fleet-like fund lean; but 212 vs 249 $300 fills (−15%).
+  - calm: −0.33 ± 0.79 (noise). 4-dec: −0.51 ± 0.35 (1.5 widths, ≈ 45 fills per arm) — lean against.
+  - Verdict: no clear result. Rule 2 would adopt the fleet-like fund 0.3 for $300, but it costs 15% of $300 fills and leans worse on 4-dec.
+    Deferred: decide after skip8 — if $300 OFF wins, fund on $300 is moot; if $300 stays ON, re-test fund 0.3 for 2 h on the then-current base.
