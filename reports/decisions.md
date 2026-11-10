@@ -22027,3 +22027,10 @@ The front-loaded budget (§1270) is saved for the next new maker (memory). Watch
   1:50 / 2:20 / … / END 5:50 PM CT; read 5:55 PM (abread_skip8.sh → ab_read_skip8.txt: whole-miner credit first, per-fill second). Decide by whole-miner credit
   and flash exposure; if "off" wins, a selective variant (deep $300 levels only) is the follow-up.
 - §1373 add. (1:05 PM, user): $300-off test read at 2 h (3:53 PM, ab_read_skip8_2h.txt) and decide then if clear; the 4-h read stays as fallback. State handoff: deploy/sn79/STATE_2026-11-10_1PM.md.
+
+## §1374 — 2026-11-10 1:27 PM CT — gated restart OK (52798500); fund8 read incomplete (abwin stops silently); false alarm on fills
+- restart_x3.sh 1:25:09 PM CT: registered, agent 52798500, ActiveEnterTimestamp changed, "LIVE PARAMS applied: no change" (unit files already match), 0 errors.
+- Fund tilt read (ab_read_fund8.txt, 1:23 PM) printed only "$300 window 0" then nothing, no traceback (also when rerun by hand) — suspect the ulimit -v 3000000 cap;
+  x3 fills were normal in all 4 windows (99–139 $300 / 37–64 calm / 17–31 4-dec per ≈ 400 sim s). TODO: rerun abwin for fund8 with a larger memory cap, then decide
+  (rule 2). The $300-off test (1:50 PM) uses the same abwin per-fill read → check it works BEFORE 3:53 PM (abcredit is unaffected).
+- False alarm: counted fixed sim windows past the tape's end right after the restart → "0 fills"; the miner was fine (lesson saved).
