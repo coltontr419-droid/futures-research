@@ -22159,3 +22159,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Decision (rule 2 tie, per group): $300 + calm adopt UID 46's quoting (mk_vol_inside 0, mk_vol_size 0.022, mk_vol_lad 1:2:4:7 @0.027, mk_calm_lad 1:2:3 @0.02);
   4-dec keeps the 9 PM quoting (dec_inside 1, size 0.09, deep 0.27). Applied 1:55 AM ("LIVE PARAMS applied" OK). T5 confirm will test the package vs the 9 PM base.
 - T3 calmfund scheduled ABBA 2:00–4:00 AM CT, read 4:03 AM.
+
+## §1385 — 2026-11-11 3:25–3:40 AM CT — daily tape rotation would have blinded the A/B reads; fixed
+- Brief 3:25 AM: selftrade.py counted only 143 x3 fills "in the last ~200 MB" (normally ≈ 1,100–1,300). x3 was fine (≈ 25–40 fills/min, 1,765 ON BOOK lines in 10 min,
+  PACE STATUS normal). Cause: mvtrx-taperotate (§1236, 09:07 UTC = 3:07 AM CT daily) moved the last 1 GB to live_tape_x3.jsonl.prev (sim 59,864–71,687) and
+  truncated the live tape (now from sim 71,688). abcredit.sh / abwin reads used ONLY the live tape → the calmfund read (windows from sim 70,895) would have lost 2:00–3:07 AM.
+- Fix: tape_ab.sh builds tape_ab.jsonl = .prev + live; abcredit.sh reads $TAPE (default live tape); abread_calmfund.sh and abtest_sched.sh's read template use it
+  (and delete it after). Syntax-checked. Earlier reads were before the first rotation of the busy tape, so unaffected.

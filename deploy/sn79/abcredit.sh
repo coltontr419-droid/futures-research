@@ -3,11 +3,11 @@
 # as drift reference). Also counts large $300 moves per window (flash-event exposure).   sh abcredit.sh <switch log> <out file>
 LOG=$1; OUT=$2; cd /opt/mvtrx
 python3 - "$LOG" <<'PY'
-import json, sys
+import json, sys, os
 W = [l.split() for l in open(sys.argv[1]) if " sim " in l]; W = [(int(w[2]), w[3]) for w in W]
 wins = [(W[i][0], W[i + 1][0], W[i][1]) for i in range(len(W) - 1) if W[i][1] in ("A", "B")]
 fa, fb = open("/tmp/abc_A.jsonl", "w"), open("/tmp/abc_B.jsonl", "w"); big = {"A": 0, "B": 0}; last = {}
-for l in open("/opt/mvtrx/live_tape_x3.jsonl"):
+for l in open(os.environ.get("TAPE", "/opt/mvtrx/live_tape_x3.jsonl")):
     i = l.find('"ts": ')
     if i < 0: continue
     t = int(l[i + 6:l.index(",", i)]) / 1e9
