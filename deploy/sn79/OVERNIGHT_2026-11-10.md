@@ -40,7 +40,7 @@ MORNING_2026-11-11.md (every test, result, decision, pay before/after).
   Also check the fill-depth match to UID 46 (in spreads, per group) and fill counts per arm.
 - T3 calmfund 2:00–4:00 AM (ABBA) → decide 4:07 AM. profile46 result: tie → $300+calm adopted, 4-dec kept (§1384). ALL remaining tests ABBA (order bias, §1384).
 - T4 skew8 4:15–6:15 AM (ABBA) — fm11 lost, calmfund lost (§1386). Fundamental-lean line closed. (vtm6 dropped — its basis was the start-up UIDs.)
-- T5 confirm 6:30–8:30 AM: all winners vs the 9 PM base (fund/fund_cap/fund_scope/fund_mv 0, skew 5, mk_vol_touch_min 0 + the B quoting above).
+- T5 confirm 6:30–8:30 AM (ABBA, started §1387): all winners vs the 9 PM base (fund/fund_cap/fund_scope/fund_mv 0, skew 5, mk_vol_touch_min 0 + the B quoting above).
 
 ## EXTENSION (user 11:55 PM: away until ≈ 10–11 AM; any changes/tests OK except registering; tests 2 h unless 4 h truly needed)
 - T6 8:45–10:45 AM: chosen at 8:37 from the results (best open lead: refine whichever group gained most in profile46, e.g. 4-dec depth/size or $300 ladder; else calm fund lean dose).

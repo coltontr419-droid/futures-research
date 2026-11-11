@@ -22173,3 +22173,11 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   luck), 4-dec 0.00 ± 0.65. → Loss on credit, no calm effect → fund/fund_cap/fund_scope 0. CONFIRMS §1384: the "+2 calm" of the ABAB tests was order bias.
   The fundamental-lean line is closed (level all books, level capped, move, calm-only: 4 tests, no gain).
 - T4 skew8 (skew 8 vs 5, ABBA 4:15–6:15 AM, read 6:18 AM → /opt/mvtrx/ab_read_skew8.txt).
+
+## §1387 — 2026-11-11 6:22 AM CT — skew8 inconclusive (kept 5); x3 live score drifting since the 1:55 AM quoting change → T5 confirm (ABBA) started
+- skew8 (ABBA 4:15–6:15 AM): x3 credit A 0.0 vs B 1.3 (216 9.0 / 15.5); captured 38.4 / 29.1 (lower than every earlier pooled read, 42–55); two-sided 0.0 / 2.6
+  (earlier reads 5–17). Per fill: $300 −0.06 ± 0.28, calm +0.14 ± 0.67, 4-dec +0.31 ± 0.68 — ties. → not clear → skew 5 kept.
+- bal.py (tape): x3 notional per 391-sim-s block steady ≈ $300k, $300 notional two-sided 17–25% throughout — no collapse in raw trading; the validator's
+  two-sided is CAPTURE-based (2·min of per-side captured spread) → near-0 means one side's fills were marked against x3 on most books in those pools.
+- Live making gauge 330 → 304 since ≈ 1:55 AM (UID 46 quoting on $300 + calm). T5 confirm = exactly that question: A = all overnight winners (current live params)
+  vs B = the 9 PM base, ABBA 6:30–8:30 AM, read 8:33 AM; decision 8:37 AM. A 3-sim-h validator-exact decomposition (now vs 2 sim h earlier) is running (now3h.sh).
