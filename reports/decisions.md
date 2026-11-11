@@ -22184,3 +22184,11 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - §1387 addendum (6:45 AM): now3h.sh — validator-exact last 3 sim h (sim 63,202–74,002): x3 credit 341.7, captured 704, quality 0.604, two-sided 566 (0.80 of captured)
   vs §1380 (sim 56,989–67,789): 344.5 / 731 / 0.597 / 577 (0.79). → x3 UNCHANGED over the validator's real window; the near-0 two-sided of the pooled skew8 read is a
   pooling artifact (two 30-min chunks per arm), and gauge 304 is noise around ≈ 340. (The "earlier" window was cut by the 3:07 AM rotation — .prev starts at sim 59,864 — ignored.)
+
+## §1388 — 2026-11-11 8:37–8:50 AM CT — T5 confirm: overnight package WINS (kept); T6 decin0 started; morning draft; x1 unit ready
+- confirm (ABBA 6:30–8:30 AM; A = $300 UID 46 quoting + calm ladder 1:2:3 @0.02 + 4-dec old; B = 9 PM base): x3 credit A 9.9 vs B 4.5 (216 9.2 / 9.8 → x3/216
+  1.08 vs 0.46); quality 0.642 vs 0.546 (216 0.652 / 0.637); two-sided 15.4 vs 8.2. Per fill: $300 own kept +0.88 vs +0.63 (gap −0.33 ± 0.28), calm +0.89 ± 0.55
+  (ABBA — not order-biased), 4-dec −0.47 ± 0.43 (same 4-dec settings in both arms → noise). → Package KEPT, applied 8:4x AM ("LIVE PARAMS applied" OK).
+- T6 decin0: 4-dec no stepping ahead (mk_dec_inside 0 vs 1, same size), ABBA 8:45–10:45 AM, read 10:48 AM.
+- x1 unit: identical to x3 except hotkey x1 / port 8101 / no tape (x3's tape covers all); agent 23320fda, lock_dir shared, pace 450k; disabled. live_params_<uid>.json to be
+  copied from x3 once the UID is known. MORNING_2026-11-11.md drafted.
