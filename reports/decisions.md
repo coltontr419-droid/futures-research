@@ -22235,3 +22235,5 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - → Fill supply is far above one paced maker's take; identical makers add volume, they don't split a fixed pool. §1289's collapse (11-08) lines up with x3's
   skill loss + the newcomers' head starts, not overlap as such. Scaling on all books without splits looks workable; the x1 test after its head start (≈ 3 PM)
   is the check. Fleet UIDs pace 1.2–1.7× faster than our 450k/24 h bucket (part of their per-UID edge) — any pacing change needs test_pace + the user's yes.
+- §1391 correction (12:45 PM): the "x3 34 fills" block was INCOMPLETE (still in progress). Full blocks after x1's start: x3 122 fills / $126k and 98 / $104k vs 104–139 /
+  $109–157k before → x3 NOT crowded so far; x1 4,919 / $4.0M then 3,547 / $3.1M (≈ 60% of its $100k-per-book start spent). Self-trades 0. Gauges: x3 242, x1 101.
