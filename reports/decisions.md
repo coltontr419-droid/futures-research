@@ -22224,3 +22224,14 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Expectation: x1's start budget is spent within ≈ 2–3 wall h; afterwards both pace at 18.75k/book/sim h. Before x1, x3 was pace-blocked on ≈ 85% of books (fill
   supply > one paced maker), so two paced makers may both fill. Test: x3 fills/credit back to its pre-x1 level after the head start (check ≈ 3 PM and tomorrow AM).
   Fallback if not: book split (each UID half the books) — only helps if competition (not pacing) limits fills.
+
+## §1392 — 2026-11-11 ≈ 12:45 PM CT — how multi-UID owners run 20+ identical makers on the same books (user: book splits can't scale)
+- fleets.py (chain + gauges): 5F1F2JMu 40 UIDs (21 making-only, 22 ≥ 7 d), $7,287/mo total, median $171, making median 384 ≈ x3 alone; 5EA8Kgeh 19 UIDs (median age
+  2.9 d — re-registers for start-up bursts), $8,250 total, median $382; others smaller.
+- fleetcol.py (sim 75,250–78,250, before x1): 10 settled fleet makers (7, 40, 52, 55, 87, 102, 110, 132, 166, 183) each trade 125–128 books (all), $21–31k per book per
+  sim h (x3 $18.2k), fill $ median $1,800 (x3 now $1,016), near-identical depth profiles; 47–71% of each UID's fills land within ±2 sim s of another fleet UID's fill
+  on the same book+side, 61–71% of those at the SAME price → stacked in the same queues, no book split, no staggering. Same-minute fleet UIDs per book: median 2,
+  p90 6, max 10. The 10 together: $231k per book per sim h (≈ 13× x3).
+- → Fill supply is far above one paced maker's take; identical makers add volume, they don't split a fixed pool. §1289's collapse (11-08) lines up with x3's
+  skill loss + the newcomers' head starts, not overlap as such. Scaling on all books without splits looks workable; the x1 test after its head start (≈ 3 PM)
+  is the check. Fleet UIDs pace 1.2–1.7× faster than our 450k/24 h bucket (part of their per-UID edge) — any pacing change needs test_pace + the user's yes.
