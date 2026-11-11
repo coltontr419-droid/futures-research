@@ -22139,3 +22139,11 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Plan: overnight T2 = "profile46" on x3 (live knobs, cap-safe): mk_vol_inside 0, mk_vol_size 0.022, mk_vol_lad 1:2:4:7, mk_vol_lad_size 0.027, mk_calm_lad 1:2:3,
   mk_calm_lad_size 0.02, mk_dec_inside 0, mk_dec_size 0.009, mk_dec_deep 0.27 — vs current. Judged on whole-miner credit + fill-depth match to 46 (in spreads).
   The CLAUDE.md past-cap exception is ON HOLD pending the user (its basis was wrong).
+
+## §1383 — 2026-11-10 11:17 PM CT — fm11 (fundamental MOVE lean) = no effect, kept OFF; restart onto 23320fda; T2 profile46 scheduled
+- fm11 (A = fund_mv 0.5 on $300, B = off; ABAB 9:10–11:10 PM): x3 credit A 7.2 vs B 7.7 (216 reference 16.1 vs 9.8 — too noisy for a ratio); x3 quality 0.646 vs 0.573
+  (216 0.780 / 0.770); two-sided 11.2 vs 13.4. Per fill: $300 −0.10 ± 0.29 (the target — no effect), calm +2.11 ± 1.31 (fund_mv does not touch calm → noise),
+  4-dec −0.85 ± 0.59. → No measurable effect on the $300 adverse move; credit not better → kept OFF (fund_mv 0). APPLY logged 11:17:25 PM.
+  So the Δf signal (§1379) does not convert into kept spread at this size; not pursued further tonight (T4 = skew8).
+- Gated restart 11:17:34 PM CT onto agent 23320fda (fund_scope): registered, timestamp changed, "LIVE PARAMS applied: no change", 0 tracebacks, quoting.
+- T2 profile46 (copy settled UID 46's quoting, §1382) scheduled ABAB 11:45 PM–1:45 AM CT (05:45–07:45 UTC), read 1:48 AM → /opt/mvtrx/ab_read_profile46.txt.
