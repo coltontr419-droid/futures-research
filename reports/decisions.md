@@ -22072,3 +22072,18 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   Plausible mechanism: leaning on the fundamental makes fills one-sided. Not decidable on 2 h.
 - Started fd9: fund 0.3 (A) vs 0 (B), BABA half-hours 4:05–6:05 PM CT; read 6:08 PM pools fund8 + fd9 (8 half-hours, 4 h) → /opt/mvtrx/ab_read_fd9.txt.
   Judge on whole-miner credit relative to 216 (x3/216 per arm), per fill second, look at two-sided share. If quality rises but balance falls → follow-up: fund 0.3 + stronger skew.
+
+## §1378 — 2026-11-10 6:12–6:20 PM CT — fund tilt: replicated quality gain + balance loss → cause found (lean ≈ 4 spreads); fund_cap built; capped test started
+- fd9 read (fund 0.3 = A vs 0 = B), whole-miner credit, x3 relative to UID 216 per arm:
+  | | x3 quality A / B | x3 two-sided A / B | credit x3/216 A | credit x3/216 B |
+  |---|---|---|---|---|
+  | fd9 alone (2 h) | 0.680 / 0.562 | 6.2 / 14.9 | 0.27 | 0.49 |
+  | pooled fund8+fd9 (4 h) | 0.671 / 0.514 | 22.0 / 46.7 | 0.52 | 0.62 |
+  216 quality flat (0.682 / 0.678). Per fill pooled: $300 +0.17 ± 0.18 (1.0 w), calm −0.09 ± 0.52, 4-dec −0.16 ± 0.35. No flash events.
+  → Clear loss on credit (both runs) → keep fund 0. But the quality gain (+0.16, x3 reaches 216's quality) replicated in both runs.
+- Cause (fundshift.py, last ≈ 2 wall h): the lean 0.3·|fundamental − mid| is median 4.1 spreads on $300 books (p90 16.6), 0.15 on calm (p90 54),
+  51 on 4-dec — > 0.5 spread 84% / 22% / 100% of the time. The fair price leaves the book, so x3 quotes one side only (the side the fundamental favours):
+  better fills, no balance. Stronger skew cannot fix a 4-spread shift (rejected the planned "fund + skew" follow-up).
+- Built: `fund_cap` (live knob, 0–5 spreads; 0 = old behaviour): lean clipped to ±fund_cap × spread (_fund_shift helper). test_pace ALL PASS (+6 checks).
+  Agent ce4049c8 (backup agents/QuoteAgent.pre-fundcap.py = 52798500). Gated restart 6:14 PM CT: registered, ActiveEnterTimestamp changed, "LIVE PARAMS applied: no change", 0 tracebacks.
+- Started fc10: A = fund 0.3 + fund_cap 0.5 vs B = fund 0, ABAB half-hours 6:35–8:35 PM CT (21 min after the restart), read 8:38 PM → /opt/mvtrx/ab_read_fc10.txt.

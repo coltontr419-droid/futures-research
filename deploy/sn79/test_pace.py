@@ -552,6 +552,19 @@ _tm.sleep(0.01); json.dump({"fund": 3.0}, open(lpf, "w")); os.utime(lpf, None)
 LF._sec = 7100; LF._live_reload()
 check("live fund: out of range (> 1) ignored", LF.fund == 0.5, f"fund {LF.fund}")
 
+# §1378 fund lean clipped to ±fund_cap × spread
+FC = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30, fund=0.3)
+check("fund cap: off by default (unclipped lean)", abs(FC._fund_shift(310.0, 300.0, 0.02) - 3.0) < 1e-9, f"{FC._fund_shift(310.0, 300.0, 0.02)}")
+_tm.sleep(0.01); json.dump({"fund": 0.3, "fund_cap": 0.5}, open(lpf, "w")); os.utime(lpf, None)
+FC._sec = 7500; FC._live_reload()
+check("fund cap: live-applied", FC.fund_cap == 0.5, f"fund_cap {FC.fund_cap}")
+check("fund cap: big lean clipped to +0.5 spread", abs(FC._fund_shift(310.0, 300.0, 0.02) - 0.01) < 1e-9, f"{FC._fund_shift(310.0, 300.0, 0.02)}")
+check("fund cap: big negative lean clipped to -0.5 spread", abs(FC._fund_shift(290.0, 300.0, 0.02) + 0.01) < 1e-9, f"{FC._fund_shift(290.0, 300.0, 0.02)}")
+check("fund cap: small lean unchanged", abs(FC._fund_shift(300.02, 300.0, 0.06) - 0.006) < 1e-9, f"{FC._fund_shift(300.02, 300.0, 0.06)}")
+_tm.sleep(0.01); json.dump({"fund_cap": 9.0}, open(lpf, "w")); os.utime(lpf, None)
+FC._sec = 7600; FC._live_reload()
+check("fund cap: out of range (> 5) ignored", FC.fund_cap == 0.5, f"fund_cap {FC.fund_cap}")
+
 # §1373 live $300 off switch
 LS = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
 _tm.sleep(0.01); json.dump({"mk_skip_vol": 1}, open(lpf, "w")); os.utime(lpf, None)
