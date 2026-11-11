@@ -586,6 +586,19 @@ _tm.sleep(0.01); json.dump({"fund_mv": 5.0}, open(lpf, "w")); os.utime(lpf, None
 FM._sec = 9100; FM._live_reload()
 check("fund move: out of range (> 2) ignored", FM.fund_mv == 0.3, f"{FM.fund_mv}")
 
+# §1380 fund level lean scope
+FS = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
+check("fund scope: default all books", FS._fund_in_scope(5) and FS._fund_in_scope(80) and FS._fund_in_scope(120), "0")
+_tm.sleep(0.01); json.dump({"fund_scope": 1}, open(lpf, "w")); os.utime(lpf, None)
+FS._sec = 9500; FS._live_reload()
+check("fund scope 1: calm only", FS.fund_scope == 1 and FS._fund_in_scope(63) and FS._fund_in_scope(101) and not FS._fund_in_scope(62) and not FS._fund_in_scope(102), f"{FS.fund_scope}")
+_tm.sleep(0.01); json.dump({"fund_scope": 2}, open(lpf, "w")); os.utime(lpf, None)
+FS._sec = 9600; FS._live_reload()
+check("fund scope 2: $300 only", FS._fund_in_scope(0) and FS._fund_in_scope(62) and not FS._fund_in_scope(63), f"{FS.fund_scope}")
+_tm.sleep(0.01); json.dump({"fund_scope": 7}, open(lpf, "w")); os.utime(lpf, None)
+FS._sec = 9700; FS._live_reload()
+check("fund scope: out of range ignored", FS.fund_scope == 2, f"{FS.fund_scope}")
+
 # §1373 live $300 off switch
 LS = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
 _tm.sleep(0.01); json.dump({"mk_skip_vol": 1}, open(lpf, "w")); os.utime(lpf, None)

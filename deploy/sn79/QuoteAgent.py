@@ -82,6 +82,7 @@ class QuoteAgent(FinanceAgent):
         self.micro = float(getattr(c, "micro", 1.0))
         self.fund = float(getattr(c, "fund", 0.0))
         self.fund_cap = float(getattr(c, "fund_cap", 0.0))   # §1378: >0: the fund lean is clipped to ±fund_cap × the book spread (unclipped it was ≈ 4 spreads on $300 books → one-sided quoting)
+        self.fund_scope = int(getattr(c, "fund_scope", 0))     # §1380: the LEVEL lean (fund) applies to 0 = all books, 1 = calm only (63-101; its side flips ≈ 5×/sim h), 2 = $300 only
         self.fund_mv = float(getattr(c, "fund_mv", 0.0))           # §1379: >0: fair += fund_mv × (fundamental now − FUND_MV_S sim s ago) — a MOVE lean (the level is
         self.fund_mv_s = int(getattr(c, "fund_mv_s", 10))          # offset from mid for hours, §1379); clipped to ±FUND_MV_CAP spreads; $300 books only unless
         self.fund_mv_cap = float(getattr(c, "fund_mv_cap", 1.0))   # FUND_MV_VOL_ONLY = 0 (calm / 4-dec Δf does not predict mid cleanly)
@@ -569,10 +570,10 @@ class QuoteAgent(FinanceAgent):
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
                   "mk_dec_deep": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float,
-                  "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
+                  "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -633,6 +634,10 @@ class QuoteAgent(FinanceAgent):
             lim = self.fund_cap * spread
             sh = max(-lim, min(lim, sh))
         return sh
+
+    def _fund_in_scope(self, book_id):
+        """§1380: FUND_SCOPE 0 = every book, 1 = calm books only (63-101), 2 = $300 books only (0-62)."""
+        return self.fund_scope == 0 or (self.fund_scope == 1 and 63 <= book_id < 102) or (self.fund_scope == 2 and book_id < 63)
 
     def _fund_rec(self, book_id, f):
         """§1379: the fundamental per sim second for every book; keeps the newest sample at least FUND_MV_S old at h[0]."""
@@ -974,7 +979,7 @@ class QuoteAgent(FinanceAgent):
                 inv = (acct.base_balance.total - base0 - tgt_units) * mid / wealth0
         fair = mid + self.micro * (micro - mid) - self.skew * inv * spread
         fundamental = getattr(book, "fundamental", None) or getattr(book, "f", None)
-        if self.fund and fundamental:
+        if self.fund and fundamental and self._fund_in_scope(int(book_id)):
             fair += self._fund_shift(fundamental, mid, spread)
         if self.fund_mv:
             fair += self._fund_mv_shift(int(book_id), spread)

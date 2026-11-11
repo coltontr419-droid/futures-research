@@ -22102,3 +22102,15 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   fair += fund_mv × (fundamental now − 10 s ago), clipped. History recorded every book every round (like _bbo_rec). test_pace ALL PASS (+9 checks).
   Agent b0808f05 (backups pre-fundmv = ce4049c8). Gated restart 8:46:58 PM CT: registered, timestamp changed, "LIVE PARAMS applied: no change", 0 tracebacks.
 - Started fm11: A = fund_mv 0.5 (cap 1 spread) vs B = off, ABAB half-hours 9:10–11:10 PM CT (23 min after the restart), read 11:13 PM → /opt/mvtrx/ab_read_fm11.txt.
+
+## §1380 — 2026-11-10 ≈ 9:05 PM CT — deep dive: why x3 is below the median pay; overnight queue
+- paysplit.py (chain pay + live gauges, all UIDs): field median $212; skill-only median $288 (n 73), skill+making $198 (n 70), making-only $170 (n 106).
+  x3 (making-only) ranks 47 of 88 makers by live making credit. Making-only pay ≈ $0.335 per making point; the field median needs ≈ 632 (x3 ≈ 330).
+- topmk.sh (validator-exact, last 3 sim h): top makers 48/178/119/117/5/146 captured 2,180–2,500 vs x3 737 at the SAME quality (0.60–0.68 vs 0.598);
+  two-sided 0.85–0.90 of captured vs x3 0.79. UID 216: captured 726, quality 0.83 — a low-volume high-quality miner, not a top maker.
+- volbins.py / volper.py: x3 and 216 trade steadily ≈ $17–20k per book per sim hour; the top makers burst ($50–106k/book/sim h for 2–3 sim h, else $3–15k).
+  Several exceed $500k per book on 9.2 sim h of tape (119: 26 books, max $676k) — the cap (§1255) drops new placements only; resting orders keep filling.
+  x3's PACE STATUS: 103–111 of 128 books blocked by its own token bucket at any moment; 24-h ledger median $296k of $450k.
+- Conclusion: the gap is mainly VOLUME (bounded by our cap-safety rule), then balance, then quality. Volume levers need the user's yes (pacing rule).
+- Built fund_scope (live int 0–2: level lean on all / calm only / $300 only); test_pace ALL PASS (+4). Agent 23320fda staged (not loaded).
+  abtest_sched.sh = generic 4-half-hour A/B scheduler. Overnight queue + estimates: deploy/sn79/OVERNIGHT_2026-11-10.md.
