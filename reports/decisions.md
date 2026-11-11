@@ -22166,3 +22166,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   truncated the live tape (now from sim 71,688). abcredit.sh / abwin reads used ONLY the live tape → the calmfund read (windows from sim 70,895) would have lost 2:00–3:07 AM.
 - Fix: tape_ab.sh builds tape_ab.jsonl = .prev + live; abcredit.sh reads $TAPE (default live tape); abread_calmfund.sh and abtest_sched.sh's read template use it
   (and delete it after). Syntax-checked. Earlier reads were before the first rotation of the busy tape, so unaffected.
+
+## §1386 — 2026-11-11 4:07 AM CT — calmfund (calm-only capped level lean) LOST → off; T4 skew8 scheduled (ABBA)
+- calmfund (ABBA 2:00–4:00 AM; read on .prev + live tape, §1385): x3 credit A 6.5 vs B 10.3 (x3/216 0.45 vs 0.58); quality 0.538 vs 0.606; two-sided 12.2 vs 17.0.
+  Per fill: calm −0.18 ± 0.58 (the target — no effect), $300 −1.07 ± 0.56 (not touched by a calm lean → B windows held 48 vs 4 one-second ≥ 1% $300 jumps = flash
+  luck), 4-dec 0.00 ± 0.65. → Loss on credit, no calm effect → fund/fund_cap/fund_scope 0. CONFIRMS §1384: the "+2 calm" of the ABAB tests was order bias.
+  The fundamental-lean line is closed (level all books, level capped, move, calm-only: 4 tests, no gain).
+- T4 skew8 (skew 8 vs 5, ABBA 4:15–6:15 AM, read 6:18 AM → /opt/mvtrx/ab_read_skew8.txt).
