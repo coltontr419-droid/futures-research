@@ -22147,3 +22147,15 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   So the Δf signal (§1379) does not convert into kept spread at this size; not pursued further tonight (T4 = skew8).
 - Gated restart 11:17:34 PM CT onto agent 23320fda (fund_scope): registered, timestamp changed, "LIVE PARAMS applied: no change", 0 tracebacks, quoting.
 - T2 profile46 (copy settled UID 46's quoting, §1382) scheduled ABAB 11:45 PM–1:45 AM CT (05:45–07:45 UTC), read 1:48 AM → /opt/mvtrx/ab_read_profile46.txt.
+
+## §1384 — 2026-11-11 1:52–1:58 AM CT — profile46 (copy settled UID 46) = whole-miner tie; adopted for $300 + calm, 4-dec kept; ABAB order bias found
+- profile46 (ABAB 11:45 PM–1:45 AM): x3 credit A 3.8 vs B 3.6 (captured 42.3 vs 40.6, quality 0.648 vs 0.654, two-sided 5.9 vs 5.4) — tie; 216 reference 14.7 vs 8.3 (noise).
+  Per fill: $300 −0.20 ± 0.43, calm +2.03 ± 0.68 (3.0 w), 4-dec −0.60 ± 0.51.
+- depthab.py (fill depth in SPREADS, A vs B windows): $300 A p75 0.22 / p90 1.00 (UID 46 p90 1.00), 0% ahead of touch vs B 34%; $ 223k vs 198k.
+  calm A ≈ B (the calm TOUCH order uses `size`, not live → still $1.76k). 4-dec A: $440 orders → $ 32k vs 148k (−78%): x3 does not get 46's fill count with small orders.
+- ORDER BIAS: calm per-fill "A +≈ 2" appeared in fc10 (+1.75), fm11 (+2.11 — fm11 does not touch calm!) and profile46 (+2.03), all ABAB; BABA fd9 showed −0.09.
+  ABAB puts A at positions 1,3 and B at 2,4 → a steady drift in the calm gap reads as an A effect. → calm per-fill results from ABAB tests are not trusted;
+  remaining tests run ABBA (cancels a linear drift).
+- Decision (rule 2 tie, per group): $300 + calm adopt UID 46's quoting (mk_vol_inside 0, mk_vol_size 0.022, mk_vol_lad 1:2:4:7 @0.027, mk_calm_lad 1:2:3 @0.02);
+  4-dec keeps the 9 PM quoting (dec_inside 1, size 0.09, deep 0.27). Applied 1:55 AM ("LIVE PARAMS applied" OK). T5 confirm will test the package vs the 9 PM base.
+- T3 calmfund scheduled ABBA 2:00–4:00 AM CT, read 4:03 AM.

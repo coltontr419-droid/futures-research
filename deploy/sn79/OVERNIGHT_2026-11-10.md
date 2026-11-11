@@ -38,7 +38,7 @@ MORNING_2026-11-11.md (every test, result, decision, pay before/after).
 - T2 **profile46** 11:45 PM–1:45 AM → decide 1:52 AM. A = '"mk_vol_inside": 5→0, "mk_vol_size": 0.022, "mk_vol_lad": "1:2:4:7", "mk_vol_lad_size": 0.027, "mk_calm_lad": "1:2:3", "mk_calm_lad_size": 0.02, "mk_dec_inside": 0, "mk_dec_size": 0.009, "mk_dec_deep": 0.27'
   B = the 9 PM quoting '"mk_vol_inside": 5, "mk_vol_size": 0.034, "mk_vol_lad": "2:5:10:20", "mk_vol_lad_size": 0.07, "mk_calm_lad": "1:2:4", "mk_calm_lad_size": 0.036, "mk_dec_inside": 1, "mk_dec_size": 0.09, "mk_dec_deep": 0.27'.
   Also check the fill-depth match to UID 46 (in spreads, per group) and fill counts per arm.
-- T3 calmfund 2:00–4:00 AM → decide 4:07 AM.
+- T3 calmfund 2:00–4:00 AM (ABBA) → decide 4:07 AM. profile46 result: tie → $300+calm adopted, 4-dec kept (§1384). ALL remaining tests ABBA (order bias, §1384).
 - T4 4:15–6:15 AM: fm11 won → fmdose (fund_mv 1.0 vs 0.5); else skew8 (skew 8 vs 5). (vtm6 dropped — its basis was the start-up UIDs.)
 - T5 confirm 6:30–8:30 AM: all winners vs the 9 PM base (fund/fund_cap/fund_scope/fund_mv 0, skew 5, mk_vol_touch_min 0 + the B quoting above).
 
