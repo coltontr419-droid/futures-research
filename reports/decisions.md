@@ -22181,3 +22181,6 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   two-sided is CAPTURE-based (2·min of per-side captured spread) → near-0 means one side's fills were marked against x3 on most books in those pools.
 - Live making gauge 330 → 304 since ≈ 1:55 AM (UID 46 quoting on $300 + calm). T5 confirm = exactly that question: A = all overnight winners (current live params)
   vs B = the 9 PM base, ABBA 6:30–8:30 AM, read 8:33 AM; decision 8:37 AM. A 3-sim-h validator-exact decomposition (now vs 2 sim h earlier) is running (now3h.sh).
+- §1387 addendum (6:45 AM): now3h.sh — validator-exact last 3 sim h (sim 63,202–74,002): x3 credit 341.7, captured 704, quality 0.604, two-sided 566 (0.80 of captured)
+  vs §1380 (sim 56,989–67,789): 344.5 / 731 / 0.597 / 577 (0.79). → x3 UNCHANGED over the validator's real window; the near-0 two-sided of the pooled skew8 read is a
+  pooling artifact (two 30-min chunks per arm), and gauge 304 is noise around ≈ 340. (The "earlier" window was cut by the 3:07 AM rotation — .prev starts at sim 59,864 — ignored.)
