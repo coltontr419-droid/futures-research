@@ -25,5 +25,5 @@ for l in open(os.environ.get("TAPE", "/opt/mvtrx/live_tape_x3.jsonl")):
 print("1%+ one-second $300 mid jumps (flash exposure): A", big["A"], "| B", big["B"], "| windows A", sum(1 for w in wins if w[2] == "A"), "B", sum(1 for w in wins if w[2] == "B"))
 PY
 cd repo
-for lab in A B; do for u in 64 216; do (ulimit -v 2000000; timeout 1500 nice -n 10 /opt/mvtrx/venv/bin/python /opt/mvtrx/making_exact.py /tmp/abc_$lab.jsonl $u 1 --since 0 2>&1 | grep -E "^ours" | head -1 | sed "s/^ours/[$lab] UID $u/" | sed "s/ → rank.*//") & done; wait; done
+for lab in A B; do for u in 64 46 216; do (ulimit -v 2000000; timeout 1500 nice -n 10 /opt/mvtrx/venv/bin/python /opt/mvtrx/making_exact.py /tmp/abc_$lab.jsonl $u 1 --since 0 2>&1 | grep -E "^ours" | head -1 | sed "s/^ours/[$lab] UID $u/" | sed "s/ → rank.*//") & done; wait; done
 rm -f /tmp/abc_A.jsonl /tmp/abc_B.jsonl

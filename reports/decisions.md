@@ -22244,3 +22244,7 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - x2 unit rebuilt as an exact copy of x1 (hotkey x2, port 8102; backup mvtrx-x2.service.pre-x1copy), disabled — ready for a ≈ 7 PM go/no-go.
 - x3 tests (liveswitch scripts write ONLY live_params_64.json): decin0b (re-run of §1389's ruined 4-dec test) ABBA 1:45–3:45 PM; vsize ($300 touch $1.7k vs $1.1k)
   ABBA 4:00–6:00 PM. Decisions 3:52 PM and 6:07 PM (void if flash exposure differs > 3×).
+- §1393 add. (1:50 PM, user): x3 tests are judged against UID 46 ONLY (memory feedback-ref-uid46.md) — no other miners as targets; beyond 46, our own
+  improvements. Reads switched: abwin fleet=46 (per fill), abcredit lists 64 / 46 / 216 (216 = drift check) — abtest_sched.sh, abcredit.sh, abread_decin0b.sh
+  (backups *.pre-46). (The §1392 "$1.8k" size came from settled ≥ 7-d fleet UIDs, but one reference keeps tests clean.) vsize reframed as our own test
+  ($1.7k = x3's old size vs $1.1k = 46's). Note: UID 46 now also earns SKILL (1.40 on 30 books; making 428) → compare making only.

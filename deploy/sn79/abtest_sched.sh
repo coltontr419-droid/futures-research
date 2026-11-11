@@ -15,9 +15,9 @@ systemd-run --quiet --unit mvtrx-$N-end --on-calendar "$TE UTC" /bin/sh /opt/mvt
 cat > abread_$N.sh <<R
 #!/bin/sh
 cd /opt/mvtrx; TP=\$(sh tape_ab.sh); export TAPE=\$TP
-{ echo "== \$(TZ=America/Chicago date) test $N: $DESC — WHOLE-MINER credit vs UID 216 first; per fill second"
+{ echo "== \$(TZ=America/Chicago date) test $N: $DESC — WHOLE-MINER credit (x3 vs reference UID 46; 216 = drift check) first; per fill vs UID 46 second"
   cat liveswitch_${N}_log.txt; echo "-- whole-miner credit:"; sh abcredit.sh liveswitch_${N}_log.txt /dev/null 2>&1
-  echo "-- per fill (capped):"; (ulimit -v 3000000; nice -n 10 python3 abwin.py \$TP liveswitch_${N}_log.txt fleet=7,31,40,52,59,87,102,111,133,134,147,156,210,216,241,252,255 us=64 --clip=20) 2>&1 | grep "^=="; } > /opt/mvtrx/ab_read_$N.txt 2>&1
+  echo "-- per fill (capped):"; (ulimit -v 3000000; nice -n 10 python3 abwin.py \$TP liveswitch_${N}_log.txt fleet=46 us=64 --clip=20) 2>&1 | grep "^=="; } > /opt/mvtrx/ab_read_$N.txt 2>&1
 echo "ALERT \$(date +%s) test $N read done: /opt/mvtrx/ab_read_$N.txt" >> /opt/mvtrx/alerts.txt
 rm -f /opt/mvtrx/tape_ab.jsonl
 R
