@@ -22257,3 +22257,12 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - False alarm: `ls -la | cut -c25-` chopped the tape size (showed "19925133"); stat: live 820,196,006 B, .prev 999,999,731 B — no truncation. selftrade.py's
   "fills in the last ~200 MB" fell because the busier tape packs fewer of our fills per 200 MB.
 - vsize (x3 only; own test): $300 touch 0.034 vs 0.022, ABBA 4:00–6:00 PM, read 6:03 PM (fleet=46 per fill).
+
+## §1395 — 2026-11-11 4:30 PM CT — is UID 216's new skill a viable strategy? No: a market-wide windfall (analysis only, no miner changes)
+- User: is 216's skill strategy viable for weeks (copy it → fewer miners)? (Reminder: make + skill on one miner caused problems before.)
+- skillnow.py (live gauges): 100 of 169 makers (making > 100) have skill > 0 now; fleet settled makers 10 of 11 at 0.26–2.16 with 21–25 skill books kept
+  (yesterday/this morning: skill 0, books kept 13–18). 216 skill 0 for days → 0.82 at 11:24 AM → 2.2–2.8 since. Starts right after the 9–10 AM volatility burst.
+  → For a pure maker, skill = de-beta'd inventory P&L; the burst handed makers positive alpha on many books, lifting them over the 20-book skill bar. Same
+  3-sim-h window + smoothing → expected to fade as the burst rolls out (≈ 14 wall h). 216's pay $196 → $477 is that windfall. Not a copyable strategy.
+- x3 skill books kept 17 (bar 20), x1 10 → just under; books qualify with enough trades in the window — fleet trades 1.2–1.7× per book (pacing; ours is at the
+  cap-safe max). Nothing to build: aiming at skill on makers breaks the user's rule (feedback-no-skill-on-makers.md). Track 216/fleet skill through 11-12.
