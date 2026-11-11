@@ -22204,3 +22204,12 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   → x3's quality ROSE (consistent with the UID 46 quoting) but the burst made it one-sided and the field's captured ballooned (our steady pacing cannot scale into
   high-activity bursts) → share fell. Expected to recover as the burst leaves the 3-sim-h window (≈ 14 wall h). Open idea: let pacing spend more during
   high-activity episodes within the cap (needs a cap-safety design + the user's yes).
+
+## §1390 — 2026-11-11 ≈ 12:15 PM CT — second maker x1 = UID 27 registered (user) and started on x3's setup
+- User registered hotkey x1 → UID 27 (regcheck: x1 27 REGISTERED, x3 64 REGISTERED). Purpose: measure collisions between our identical makers (memory mvtrx-second-miner-plan.md).
+- Started mvtrx-x1 (enabled): agent 23320fda (= x3), live_params_27.json = copy of x3's (UID 46 quoting on $300 + calm ladder 1:2:3 @0.02, 4-dec 1 tick ahead,
+  skew 5, fund leans 0) — "LIVE PARAMS applied" OK; shared lock_dir (anti-self-trade handshake); pace 450k + 100k start; no own tape (x3's covers all).
+  First minutes: 608 ON BOOK lines, 23 fills, pace ledger written, 0 errors.
+- our_uids.txt: "27 maker x1 78259" (start sim). selftrade.py widened: a self-trade is now ANY fill between two of our UIDs (maker-maker included, not only our
+  takers) — 0 so far. Backups *.pre-x1.
+- Watch plan: self-trades (must stay 0), x3's fills/credit vs its pre-x1 level (≈ 340 over 3 sim h), counterparty overlap (P11), x1's start-up curve.
