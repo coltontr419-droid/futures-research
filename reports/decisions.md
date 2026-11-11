@@ -22124,7 +22124,7 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   → Copyable without pacing changes: skip the $300 touch order when the spread is < 6 ticks (mk_vol_touch_min 6; rejected 11-09 on per-fill only).
   Overnight T4 replaced by vtm6 (whole-miner judged). The top makers' 3× volume itself is not copyable under our cap rule (bursts + resting fills past the cap).
 
-## §1382 — 2026-11-10 ≈ 10:40 PM CT — CORRECTION: the "top makers" of §1380–§1381 are 0.4–1.1 days old (start-up burst); the real copy target is long-lived UID 46
+## §1382 — 2026-11-10 9:50 PM CT — CORRECTION: the "top makers" of §1380–§1381 are 0.4–1.1 days old (start-up burst); the real copy target is long-lived UID 46
 - User (≈ 9:55 PM): test trading past the cap on a NEW miner that copies the top makers' quoting; match their quoting before registering.
 - topquote.py / topdepth.py: past-cap fills are minor ($1.4M of $166M); per-UID fill counts/sizes ≈ x3's. ages.py: UIDs 48/178 (coldkey 5EA8Kgeh) and 119/117/5/146
   (5DkwcgDZ) are 0.4–1.1 d old — newborns in their start-up period (x3 scored 707 on day 1). Copying them broke the CLAUDE.md rule (pacing/lifecycle only from

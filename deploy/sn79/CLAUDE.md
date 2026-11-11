@@ -57,7 +57,7 @@ Re-read this file before every action.
 - **Pacing must never let volume hit the validator's cap** (hard requirement).
   **Exception (user 11-10 ≈ 9:55 PM CT):** ONE new test miner may trade past the cap to copy the top makers (UIDs 48/178/119/117/5/146: same quality, 3× volume,
   resting orders keep filling past the cap — §1380-§1382). x3 keeps the cap rule. Before registering it, its quoting must match the top makers' as closely as the tape shows.
-  **ON HOLD (10:40 PM, §1382):** those 'top makers' were 0.4–1.1-day-old start-up UIDs; settled makers never exceed the cap. Ask the user before acting on it.
+  **ON HOLD (9:50 PM, §1382):** those 'top makers' were 0.4–1.1-day-old start-up UIDs; settled makers never exceed the cap. Ask the user before acting on it.
 - No changes to a frozen/above-median miner without approval; no live changes while the user is away except safety and rolling back
   a change that clearly hurts.
 - Commits: `git -c user.name=DevColton -c user.email=noreply@example.invalid commit`, message ends with
