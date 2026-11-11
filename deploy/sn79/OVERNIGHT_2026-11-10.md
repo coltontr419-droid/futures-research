@@ -41,3 +41,7 @@ MORNING_2026-11-11.md (every test, result, decision, pay before/after).
 - T3 calmfund 2:00–4:00 AM → decide 4:07 AM.
 - T4 4:15–6:15 AM: fm11 won → fmdose (fund_mv 1.0 vs 0.5); else skew8 (skew 8 vs 5). (vtm6 dropped — its basis was the start-up UIDs.)
 - T5 confirm 6:30–8:30 AM: all winners vs the 9 PM base (fund/fund_cap/fund_scope/fund_mv 0, skew 5, mk_vol_touch_min 0 + the B quoting above).
+
+## EXTENSION (user 11:55 PM: away until ≈ 10–11 AM; any changes/tests OK except registering; tests 2 h unless 4 h truly needed)
+- T6 8:45–10:45 AM: chosen at 8:37 from the results (best open lead: refine whichever group gained most in profile46, e.g. 4-dec depth/size or $300 ladder; else calm fund lean dose).
+- Final read + summary ≈ 10:50 AM → MORNING_2026-11-11.md updated (the 8:37 draft is written first).
