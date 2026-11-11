@@ -25,8 +25,8 @@ Re-read this file before every action.
   marks). Quote the validator's R/C quality ratio only when the captured base is large (a ratio on a captured base of ≈ 9 units was
   pure noise and was reported as a win — wrong).
 - **When a miner is clearly and steadily above the median, say so plainly and stop changing it** (only safety fixes/rollbacks).
-- **One miner per day plan:** if x2 and x4 are both pruned (likely tonight), register ONE miner per day and run constant tests on it
-  until a strategy can survive for weeks. No scaling until then.
+- **~~One miner per day~~ — RETIRED by the user 11-11:** register more makers whenever the collision checks pass (self-trades 0, existing
+  miners keep their fills/credit — §1391/§1392); each registration still needs the user's yes (spending) and the user runs btcli.
 - **Scaling** only if the makers clearly clear the prune line (user's condition).
 - Explain things in plain terms; keep briefs short. Real clock times only (`TZ=America/Chicago date`); the user is in Texas, **CT = UTC−6**.
   End every message involving runs/tests with an **ETA line in CT**.
