@@ -1,5 +1,7 @@
 # MVTRX overnight queue — 11-10 → 11-11 (user-approved: any x3 changes/tests; no spending/keys)
 
+## CORRECTION (§1382): the 'top makers' below are 0.4–1.1-day-old start-up UIDs — VOID as copy targets. Settled makers (≥ 7 d) median $178, max $219; real target UID 46.
+
 ## Deep dive (§1380): why x3 earns $141/mo vs the $212 field median
 1. The field median is lifted by SKILL miners: skill-only median $288, skill+making $198, **making-only $170** (n 106). x3 is making-only and sits mid-pack
    among makers (rank 47 of 88 by live making credit). Making-only pay ≈ $0.335 per making point; the field median needs ≈ 632 (x3 ≈ 330 → 1.9×).
@@ -19,7 +21,8 @@ Pay estimates assume pay ∝ making credit (x3 now ≈ $141/mo).
 |---|---|---|---|---|
 | T1 fm11 | 9:10–11:10 PM | fundamental MOVE lean on $300 (fund_mv 0.5, 10 s, cap 1) vs off | Δf predicts the next $300 mid (+0.16/−0.14 spread); targets the $300 adverse move | quality +0.03–0.06 → +5–10% → **+$7–14/mo** |
 | — | ≈ 11:20 PM | gated restart onto agent 23320fda (adds fund_scope); keeps the live params after the T1 decision | | |
-| T2 calmfund | 11:45 PM–1:45 AM | level lean on CALM books only (fund 0.3, fund_cap 0.5, fund_scope 1) vs off | fc10: calm +1.75 ± 0.65 bp/fill (2.7 w); calm side flips ≈ 5×/sim h so it should not pin inventory | +5–8% → **+$7–11/mo** |
+| T2 profile46 | 11:45 PM–1:45 AM | COPY SETTLED UID 46's QUOTING (§1382): $300 inside 0, size 0.022, ladder 1:2:4:7 @0.027; calm ladder 1:2:3 @0.02; 4-dec inside 0, size 0.009, deep 0.27 — vs current | UID 46 (7.9 d) trades x3's dollars but captures 2× (smaller orders spread over depth) | up to +40–80% credit if it reproduces 46; realistic **+$15–40/mo** |
+| T2b calmfund | after T2 (T3 slot) | calm-only capped level lean | calm +1.75 bp/fill earlier | **+$7–11/mo** |
 | T3 | 2:00–4:00 AM | if T1 won: dose fund_mv 1.0 vs 0.5 · else: skew 8 vs 5 | dose / balance | +2–5% (**+$3–7**) / −3…+7% (**±$5–10**) |
 | T4 vtm6 | 4:15–6:15 AM | COPY THE TOP MAKERS' SPREAD CHOICE: no $300 touch order when the spread < 6 ticks (≈ ≤ 2 bp; mk_vol_touch_min 6) vs 0 | top makers put 32% of $300 notional at ≤ 2 bp spreads vs x3 45% (burst.py, §1381) and earn 10–37% more capture per $ | +3–6% → **+$4–8/mo** |
 | T5 | 6:30–8:30 AM | confirmation: all overnight winners (A) vs the 9 PM base (B) | total gain, pooled | sum of the above: realistic **+10–25% → $155–175/mo** |

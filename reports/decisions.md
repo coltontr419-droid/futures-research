@@ -22123,3 +22123,19 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   Spread: $300 — x3 45% at ≤ 2 bp spreads vs top makers 32% (216: 46%); 4-dec — x3 24% vs top 16%; calm — top makers concentrate at 5–10 bp (55%), x3 at > 10 bp (49%).
   → Copyable without pacing changes: skip the $300 touch order when the spread is < 6 ticks (mk_vol_touch_min 6; rejected 11-09 on per-fill only).
   Overnight T4 replaced by vtm6 (whole-miner judged). The top makers' 3× volume itself is not copyable under our cap rule (bursts + resting fills past the cap).
+
+## §1382 — 2026-11-10 ≈ 10:40 PM CT — CORRECTION: the "top makers" of §1380–§1381 are 0.4–1.1 days old (start-up burst); the real copy target is long-lived UID 46
+- User (≈ 9:55 PM): test trading past the cap on a NEW miner that copies the top makers' quoting; match their quoting before registering.
+- topquote.py / topdepth.py: past-cap fills are minor ($1.4M of $166M); per-UID fill counts/sizes ≈ x3's. ages.py: UIDs 48/178 (coldkey 5EA8Kgeh) and 119/117/5/146
+  (5DkwcgDZ) are 0.4–1.1 d old — newborns in their start-up period (x3 scored 707 on day 1). Copying them broke the CLAUDE.md rule (pacing/lifecycle only from
+  ≥ 7-d UIDs). §1380's "3× volume / bursts" and §1381's spread-timing finding came from them — VOID as copy targets.
+- paysplit2.py by age: making-only ≥ 7 d: n 19, median $178, p90 $210, max $219 (0–3 d median $181, p90 $355 = start-up). x3 $140 ranks 14 of 20 settled makers.
+  Realistic gap ≈ $40/mo (+27%), not 2–3×. → Recommend NOT registering a past-the-cap miner (none of the settled makers exceed $500k/book: llvol.py).
+- Settled top makers (validator-exact, last 3 sim h): 132 credit 710, 46 628, 3 605, 17/193 498, 21 432 vs x3 345 (216 427). UID 46 (7.9 d) trades the SAME notional
+  as x3 ($172k vs $176k/book on the tape, steady ≈ 16k/sim h) but captures 1,421 vs 731 (quality 0.76 vs 0.60).
+- u46.py: UID 46 depth in SPREADS (median / p90): $300 0.10 / 1.0 (x3 0.00 / 0.63); calm 0.33 / 1.13 (x3 0.00 / 1.50); 4-dec 0.17 / 1.10 (x3 0.00 / 0.30).
+  Order $: $300 touch 907 / ladder 1,349 (x3 1,034 / 1,694); calm ≈ 990 (x3 1,796); 4-dec ≈ 360–420 (x3 ≈ 4,400 at 0.09). 46 never steps ahead on $300 (0%).
+  Fills: 46 ≈ 26.7k vs x3 15.1k on the tape — more, smaller fills spread over depth, same dollars.
+- Plan: overnight T2 = "profile46" on x3 (live knobs, cap-safe): mk_vol_inside 0, mk_vol_size 0.022, mk_vol_lad 1:2:4:7, mk_vol_lad_size 0.027, mk_calm_lad 1:2:3,
+  mk_calm_lad_size 0.02, mk_dec_inside 0, mk_dec_size 0.009, mk_dec_deep 0.27 — vs current. Judged on whole-miner credit + fill-depth match to 46 (in spreads).
+  The CLAUDE.md past-cap exception is ON HOLD pending the user (its basis was wrong).
