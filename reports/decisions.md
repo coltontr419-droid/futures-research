@@ -22087,3 +22087,18 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Built: `fund_cap` (live knob, 0–5 spreads; 0 = old behaviour): lean clipped to ±fund_cap × spread (_fund_shift helper). test_pace ALL PASS (+6 checks).
   Agent ce4049c8 (backup agents/QuoteAgent.pre-fundcap.py = 52798500). Gated restart 6:14 PM CT: registered, ActiveEnterTimestamp changed, "LIVE PARAMS applied: no change", 0 tracebacks.
 - Started fc10: A = fund 0.3 + fund_cap 0.5 vs B = fund 0, ABAB half-hours 6:35–8:35 PM CT (21 min after the restart), read 8:38 PM → /opt/mvtrx/ab_read_fc10.txt.
+
+## §1379 — 2026-11-10 8:45–8:50 PM CT — capped tilt lost; the fundamental LEVEL is the wrong signal, its MOVES predict $300 prices; fund-move lean built + test started
+- fc10 read (A = fund 0.3 + fund_cap 0.5 spread, B = fund 0, ABAB 6:35–8:35 PM): whole-miner credit x3/216 A 5.2/13.8 = 0.38 vs B 8.8/9.0 = 0.98;
+  quality x3 0.583 vs 0.544 (216 0.725 vs 0.644 — no relative gain); two-sided x3 8.9 vs 16.1 (still halved). Per fill: $300 −0.11 ± 0.25, calm +1.75 ± 0.65 (2.7 w),
+  4-dec +1.09 ± 0.66. → Clear loss on credit → keep fund 0 / fund_cap 0. The fundamental LEVEL lean is closed (3 tests: fund8, fd9, fc10).
+- Window-length check (fundflip.py): the short pooled windows (≈ 6 sim min) understate balance for everyone (x3 two-sided 29% there vs 78% over 3 sim h),
+  BUT the fundamental sits on the same side of mid 100% of a 3-sim-h block on $300 and 4-dec books (median 0 side flips per sim hour; calm 5.4/h).
+  So a level lean pins inventory one way for the validator's whole window — the balance loss is real. The level is a near-constant offset from mid.
+- Move signal (fundpred.py, sim 58,000+): on $300 books, Δf over the last 10 s > +0.5 spread → mid moves +0.158 spread over the next 20 s; < −0.5 → −0.139;
+  flat → +0.012 (n 12.6k / 166k / 12.4k). The level predicts only ±0.03–0.04. Calm / 4-dec: a general upward drift swamps it (no clean signal).
+  This matches the fleet's "fills after the fundamental moved its way" (§1368) and targets x3's $300 adverse move.
+- Built: `fund_mv` (live, 0–2), `fund_mv_cap` (live, 0–5 spreads, default 1), `fund_mv_s` (startup, 10 s), `fund_mv_vol_only` (startup, 1 = $300 only):
+  fair += fund_mv × (fundamental now − 10 s ago), clipped. History recorded every book every round (like _bbo_rec). test_pace ALL PASS (+9 checks).
+  Agent b0808f05 (backups pre-fundmv = ce4049c8). Gated restart 8:46:58 PM CT: registered, timestamp changed, "LIVE PARAMS applied: no change", 0 tracebacks.
+- Started fm11: A = fund_mv 0.5 (cap 1 spread) vs B = off, ABAB half-hours 9:10–11:10 PM CT (23 min after the restart), read 11:13 PM → /opt/mvtrx/ab_read_fm11.txt.
