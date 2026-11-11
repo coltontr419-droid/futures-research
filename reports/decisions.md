@@ -22114,3 +22114,12 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Conclusion: the gap is mainly VOLUME (bounded by our cap-safety rule), then balance, then quality. Volume levers need the user's yes (pacing rule).
 - Built fund_scope (live int 0–2: level lean on all / calm only / $300 only); test_pace ALL PASS (+4). Agent 23320fda staged (not loaded).
   abtest_sched.sh = generic 4-half-hour A/B scheduler. Overnight queue + estimates: deploy/sn79/OVERNIGHT_2026-11-10.md.
+
+## §1381 — 2026-11-10 ≈ 9:45 PM CT — pace_cap 490k (user-approved) NOT applied: fails the cap attacks; top-maker timing study
+- test_pace attack suite at other pace_caps (agent 23320fda; hard cap $500k): 490k — $10k orders worst 24 h $506,159 FAIL, one $50k sweep $531,590 FAIL;
+  480k — sweep $523k FAIL; 470k — sweep $509k FAIL; 460k — sweep $502k FAIL; 455k — sweep $498k PASS (by $2k); 450k (live) — sweep $493k, ALL PASS.
+  → 450k is the safe maximum; no change (my 9:05 PM "+9% still under the cap" was wrong — it ignored the sweep case). Told the user.
+- burst.py (sim 52,000+): share of maker notional by state at fill time. Fast markets: no difference (94–98% of everyone's notional in quiet minutes).
+  Spread: $300 — x3 45% at ≤ 2 bp spreads vs top makers 32% (216: 46%); 4-dec — x3 24% vs top 16%; calm — top makers concentrate at 5–10 bp (55%), x3 at > 10 bp (49%).
+  → Copyable without pacing changes: skip the $300 touch order when the spread is < 6 ticks (mk_vol_touch_min 6; rejected 11-09 on per-fill only).
+  Overnight T4 replaced by vtm6 (whole-miner judged). The top makers' 3× volume itself is not copyable under our cap rule (bursts + resting fills past the cap).

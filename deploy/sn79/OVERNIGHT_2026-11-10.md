@@ -10,7 +10,8 @@
    (the cap drops new placements only): UID 119 traded > $500k on 26 books within 9.2 sim h of our tape. x3 paces steadily at ≈ $18k/book/sim h and is
    blocked by its own token bucket on 103–111 of 128 books at any moment (24-h ledger median $296k of its $450k budget).
 4. So the gap = volume (biggest; bounded by our cap-safety rule) × balance × quality. Tests tonight target quality and balance (live, no cap risk).
-   Volume options need the user's yes (pacing rule): (a) pace_cap 450k → 490k (+≈ 9% volume, still under the cap); (b) burst timing study.
+   Volume: pace_cap 490k FAILS the cap attacks (worst $506k / $532k); 455k passes by $2k; 450k is the safe maximum → NO change (§1381, user asked for 490k).
+   Burst timing (burst.py): top makers do NOT trade more in fast markets; they avoid the tightest $300/4-dec spreads (→ T4).
 
 ## Queue (each: 4 half-hours, whole-miner credit vs UID 216 first, per fill second; scheduler: sh /opt/mvtrx/abtest_sched.sh)
 Pay estimates assume pay ∝ making credit (x3 now ≈ $141/mo).
@@ -20,7 +21,7 @@ Pay estimates assume pay ∝ making credit (x3 now ≈ $141/mo).
 | — | ≈ 11:20 PM | gated restart onto agent 23320fda (adds fund_scope); keeps the live params after the T1 decision | | |
 | T2 calmfund | 11:45 PM–1:45 AM | level lean on CALM books only (fund 0.3, fund_cap 0.5, fund_scope 1) vs off | fc10: calm +1.75 ± 0.65 bp/fill (2.7 w); calm side flips ≈ 5×/sim h so it should not pin inventory | +5–8% → **+$7–11/mo** |
 | T3 | 2:00–4:00 AM | if T1 won: dose fund_mv 1.0 vs 0.5 · else: skew 8 vs 5 | dose / balance | +2–5% (**+$3–7**) / −3…+7% (**±$5–10**) |
-| T4 | 4:15–6:15 AM | skew 8 vs 5 (if not run in T3) else fund_mv window 20 s vs 10 s | balance: x3 two-sided 0.79 vs top makers 0.85–0.90 | −3…+7% → **±$5–10/mo** |
+| T4 vtm6 | 4:15–6:15 AM | COPY THE TOP MAKERS' SPREAD CHOICE: no $300 touch order when the spread < 6 ticks (≈ ≤ 2 bp; mk_vol_touch_min 6) vs 0 | top makers put 32% of $300 notional at ≤ 2 bp spreads vs x3 45% (burst.py, §1381) and earn 10–37% more capture per $ | +3–6% → **+$4–8/mo** |
 | T5 | 6:30–8:30 AM | confirmation: all overnight winners (A) vs the 9 PM base (B) | total gain, pooled | sum of the above: realistic **+10–25% → $155–175/mo** |
 Honest ceiling: quality/balance alone cannot reach the $212 median (making-only median is $170); volume or skill is needed beyond that.
 
