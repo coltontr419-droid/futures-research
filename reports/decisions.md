@@ -22248,3 +22248,12 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   improvements. Reads switched: abwin fleet=46 (per fill), abcredit lists 64 / 46 / 216 (216 = drift check) — abtest_sched.sh, abcredit.sh, abread_decin0b.sh
   (backups *.pre-46). (The §1392 "$1.8k" size came from settled ≥ 7-d fleet UIDs, but one reference keeps tests clean.) vsize reframed as our own test
   ($1.7k = x3's old size vs $1.1k = 46's). Note: UID 46 now also earns SKILL (1.40 on 30 books; making 428) → compare making only.
+
+## §1394 — 2026-11-11 3:52 PM CT — decin0b (4-dec no stepping ahead, re-run) LOST → kept 1; vsize started; tape-size false alarm
+- decin0b (ABBA 1:45–3:45 PM; reference UID 46; flash exposure A 0 / B 0 → valid): x3 credit A 0.0 vs B 3.4 (quality 0.119 vs 0.535; captured 24.8 vs 35.8);
+  UID 46 2.7 / 3.3 and 216 2.3 / 1.1 (no big drift). Per fill vs 46: 4-dec −0.40 ± 0.79, calm −0.71 ± 1.00, $300 −0.55 ± 0.47. → Clear whole-miner loss → kept
+  mk_dec_inside 1 (x3 and x1 identical again). Copying 46's 4-dec "rarely step ahead" does not work for x3 (twice: §1384 small sizes, §1394 inside 0).
+- Fill stretches (196 sim s) with x1 at normal pace: x3 81, 100, 129, 90, 107 / x1 98, 109, 99, 101, 107 → x3 within its pre-x1 range (104–139, one 79 before x1).
+- False alarm: `ls -la | cut -c25-` chopped the tape size (showed "19925133"); stat: live 820,196,006 B, .prev 999,999,731 B — no truncation. selftrade.py's
+  "fills in the last ~200 MB" fell because the busier tape packs fewer of our fills per 200 MB.
+- vsize (x3 only; own test): $300 touch 0.034 vs 0.022, ABBA 4:00–6:00 PM, read 6:03 PM (fleet=46 per fill).
