@@ -28,6 +28,8 @@ Re-read this file before every action.
 - **~~One miner per day~~ — RETIRED by the user 11-11:** register more makers whenever the collision checks pass (self-trades 0, existing
   miners keep their fills/credit — §1391/§1392); each registration still needs the user's yes (spending) and the user runs btcli.
 - **Scaling** only if the makers clearly clear the prune line (user's condition).
+- **Makers stay making-only** (user 11-11): no skill legs or directional/inventory strategies on maker UIDs — skill breaks collisions between
+  our identical makers (§1289). Skill miners only once ≥ 20 makers run, on separate UIDs (§1235).
 - Explain things in plain terms; keep briefs short. Real clock times only (`TZ=America/Chicago date`); the user is in Texas, **CT = UTC−6**.
   End every message involving runs/tests with an **ETA line in CT**.
 - **30-minute briefs** for every run/test (recurring CronCreate at :13/:43, short brief, until the final reading is in). Crons are
