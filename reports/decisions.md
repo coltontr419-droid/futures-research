@@ -22213,3 +22213,14 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - our_uids.txt: "27 maker x1 78259" (start sim). selftrade.py widened: a self-trade is now ANY fill between two of our UIDs (maker-maker included, not only our
   takers) — 0 so far. Backups *.pre-x1.
 - Watch plan: self-trades (must stay 0), x3's fills/credit vs its pre-x1 level (≈ 340 over 3 sim h), counterparty overlap (P11), x1's start-up curve.
+
+## §1391 — 2026-11-11 12:20 PM CT — x1's head start crowds x3 at once; history check (§1289); pacing verified
+- User asked: did the last session have our miners quoting against each other? Yes — §1289 (11-08): adding x2 + x4 (identical, same books) cut x3's pay
+  $158 → $56 in 6 h (three makers $94 < x3 alone); self-trades were 0 (lock handshake) — the damage was competition for the same fills (then blamed on x3's
+  skill collapse; x3 is making-only now). The mod-3 book split was undone after 30 min, never measured.
+- x1 (UID 27) head start: pace_start 100,000 per book (bucket starts at max(burst, 100k)); 24-h backstop pace_cap 450k (front-loaded start passes test_pace).
+  First 196 sim s after start (sim 78,259): x1 1,565 fills / $1.28M; x3 34 fills / $27k vs ≈ 104–139 fills / $87–157k per block before → x3 ≈ 25–30%.
+  x1's ledger is recording (pace_27.ledger growing, entries per fill) → cap-safe. Self-trades 0.
+- Expectation: x1's start budget is spent within ≈ 2–3 wall h; afterwards both pace at 18.75k/book/sim h. Before x1, x3 was pace-blocked on ≈ 85% of books (fill
+  supply > one paced maker), so two paced makers may both fill. Test: x3 fills/credit back to its pre-x1 level after the head start (check ≈ 3 PM and tomorrow AM).
+  Fallback if not: book split (each UID half the books) — only helps if competition (not pacing) limits fills.
