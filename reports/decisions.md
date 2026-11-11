@@ -22192,3 +22192,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - T6 decin0: 4-dec no stepping ahead (mk_dec_inside 0 vs 1, same size), ABBA 8:45–10:45 AM, read 10:48 AM.
 - x1 unit: identical to x3 except hotkey x1 / port 8101 / no tape (x3's tape covers all); agent 23320fda, lock_dir shared, pace 450k; disabled. live_params_<uid>.json to be
   copied from x3 once the UID is known. MORNING_2026-11-11.md drafted.
+
+## §1389 — 2026-11-11 10:52 AM CT — T6 decin0 contaminated by a market event; kept mk_dec_inside 1; morning summary final
+- decin0 (ABBA 8:45–10:45 AM; A = 4-dec no stepping ahead, B = 1 tick ahead): flash exposure A 69 vs B 673 one-second ≥ 1% $300 jumps — a big volatility episode in
+  the B hour (9:15–10:15). Whole-miner: x3 A captured −48.6 (quality 0) vs B 85.0 / credit 8.5; 216 A 135.9 vs B 221.1 (≈ 4× normal) → unusable.
+  Per fill: 4-dec −1.11 ± 0.66 (1.7 w, against A), $300 0.00 ± 1.01, calm −0.21 ± 0.66. → Not a tie and contaminated → kept mk_dec_inside 1 (APPLY 10:52:27 AM).
+- Live gauges: ≈ 9 AM both x3 and 216 dropped (validator-side), then 216 recovered (320 → 399) while x3 slid (273 → 254). A 3-sim-h validator-exact re-score is running.
+- MORNING_2026-11-11.md finalised (pay $138/mo at 10:55 AM; prune line $107 → 1.29×). No new test started (user returning; may register x1).
