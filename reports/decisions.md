@@ -22199,3 +22199,8 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   Per fill: 4-dec −1.11 ± 0.66 (1.7 w, against A), $300 0.00 ± 1.01, calm −0.21 ± 0.66. → Not a tie and contaminated → kept mk_dec_inside 1 (APPLY 10:52:27 AM).
 - Live gauges: ≈ 9 AM both x3 and 216 dropped (validator-side), then 216 recovered (320 → 399) while x3 slid (273 → 254). A 3-sim-h validator-exact re-score is running.
 - MORNING_2026-11-11.md finalised (pay $138/mo at 10:55 AM; prune line $107 → 1.29×). No new test started (user returning; may register x1).
+- §1389 addendum (11:15 AM): now3h.sh (sim 66,489–77,289, includes the 9:15–10:15 volatility burst): x3 captured 637 (6:45 AM read: 704), quality 0.838 (0.604),
+  two-sided 349 = 55% (80%), credit 293 (342), field share 0.17% (0.44%); 216 captured 949, quality 0.72, two-sided 64%, credit 439, share 0.25%.
+  → x3's quality ROSE (consistent with the UID 46 quoting) but the burst made it one-sided and the field's captured ballooned (our steady pacing cannot scale into
+  high-activity bursts) → share fell. Expected to recover as the burst leaves the 3-sim-h window (≈ 14 wall h). Open idea: let pacing spend more during
+  high-activity episodes within the cap (needs a cap-safety design + the user's yes).
