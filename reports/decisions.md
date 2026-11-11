@@ -22237,3 +22237,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   is the check. Fleet UIDs pace 1.2–1.7× faster than our 450k/24 h bucket (part of their per-UID edge) — any pacing change needs test_pace + the user's yes.
 - §1391 correction (12:45 PM): the "x3 34 fills" block was INCOMPLETE (still in progress). Full blocks after x1's start: x3 122 fills / $126k and 98 / $104k vs 104–139 /
   $109–157k before → x3 NOT crowded so far; x1 4,919 / $4.0M then 3,547 / $3.1M (≈ 60% of its $100k-per-book start spent). Self-trades 0. Gauges: x3 242, x1 101.
+
+## §1393 — 2026-11-11 1:35 PM CT — user: one-miner-per-day RETIRED; x3 = the test subject (x1 + later untouched); afternoon x3 tests queued
+- User (≈ 1:20 PM): drop the one-miner-per-day rule (CLAUDE.md + memory updated); (≈ 1:25 PM): keep testing on x3 to lift it toward the median; x3 is the test
+  subject; x1 and every later miner stay untouched unless x3 proves a change without a doubt (memory feedback-x3-test-subject.md).
+- x2 unit rebuilt as an exact copy of x1 (hotkey x2, port 8102; backup mvtrx-x2.service.pre-x1copy), disabled — ready for a ≈ 7 PM go/no-go.
+- x3 tests (liveswitch scripts write ONLY live_params_64.json): decin0b (re-run of §1389's ruined 4-dec test) ABBA 1:45–3:45 PM; vsize ($300 touch $1.7k vs $1.1k)
+  ABBA 4:00–6:00 PM. Decisions 3:52 PM and 6:07 PM (void if flash exposure differs > 3×).
