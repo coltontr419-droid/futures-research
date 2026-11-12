@@ -15,7 +15,9 @@ repeated win / the user's OK). Goal: lift x3 above the prune line (≈ 1.2× now
 5. Log a § + lesson, commit/push, update the brief cron's TEST line, mark the item below.
 
 ## Queue (in order)
-1. decdeep — 4-dec deep-only: A '"mk_dec_touch": 0, "mk_dec_deep2": 0.6' vs B '"mk_dec_touch": 1, "mk_dec_deep2": 0'. RUNNING 1:10–3:10 AM.
+0. bmap — book map for the 256-book sim day (§1403): A '"book_map": "calm:63-101;dec:192-255"' vs B '"book_map": ""'. RUNNING 1:30–3:30 AM (decision 3:40).
+   (NOTE §1403: from 11-12 the sim has 256 books — 0–127 $300 2-dec, 128–191 $30 2-dec, 192–255 $311 4-dec; "4-dec" items below now mean books 192–255.)
+1. decdeep — 4-dec deep-only: A '"mk_dec_touch": 0, "mk_dec_deep2": 0.6' vs B '"mk_dec_touch": 1, "mk_dec_deep2": 0'. (cancelled at 1:05 AM before it started — layout change; re-queue after bmap)
 2. vtouch — $300 touch order half size: A '"mk_vol_size": 0.011' vs B '"mk_vol_size": 0.022' (more paced budget to the deep ladder).
 3. decdeep1 — 4-dec deep order further: A '"mk_dec_deep": 0.5' vs B '"mk_dec_deep": 0.27' (UID 46 4-dec depth p75 0.47 spreads).
 4. vlad — $300 ladder deeper: A '"mk_vol_lad": "2:4:7:12"' vs B '"mk_vol_lad": "1:2:4:7"'.

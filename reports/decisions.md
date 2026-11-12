@@ -22332,3 +22332,16 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - X3_TEST_QUEUE.md: decision procedure (edge per $ in the changed group decides; ≥ ≈ 20% up + edge $ not down + per fill not clearly worse = win; thin → extend
   2 h; else keep proven) and the ordered queue: decdeep → vtouch → decdeep1 → vlad → vladsz → decsz. Each decision step starts the next test and creates the next
   decision prompt. x1 never changed.
+
+## §1403 — 2026-11-12 1:00–1:30 AM CT — NEW SIM DAY HAS 256 BOOKS (layout changed); our book groups were wrong on ≈ 90 books; book_map built + tested on x3
+- x3 PACE STATUS after the reset listed 238 traded books (worst book 221). newbooks.py / books2.py (new sim, ts < 30,000): 256 books — 0–127 ≈ $299.5 2-dec (spreads
+  0.7–1.8 bp; the old wide-spread "calm" group is gone), 128–191 ≈ $29.6 2-dec (2-tick = 6.8 bp spreads, NEW), 192–255 ≈ $311 4-dec (0.8–2.7 bp, NEW).
+- Our agent hard-coded groups by id (< 63 vol, 63–101 calm, ≥ 102 dec) → books 102–191 got the 4-dec pattern, which cancels everything when the spread is
+  < 3 ticks → x3 and x1 barely quote ≈ 90 books (x3 ≈ $16–60k per 8 books there vs ≈ $500k+ per 8 on 224–255). Pacing is per book → lost volume / credit.
+- decdeep (4-dec deep-only, would have applied to 154 books) cancelled before it started. My STOP command at 1:05 AM (log not created yet) wrote an EMPTY
+  live_params_64.json for ≈ 1 min — the agent logged "no change" (unreadable file = nothing changes); restored from live_params_27.json (identical proven values).
+- Built book_map (live string, "" = legacy ranges; e.g. "calm:63-101;dec:192-255", unlisted = vol) replacing every hard-coded range (15 sites: sizes, ladders,
+  calm/dec patterns, pulls, fund scopes, ins-over stats); bad specs ignored. test_pace ALL PASS (+4; one source-text check updated). Agent 12372763; gated
+  x3 restart 1:09 AM CT (07:09:00 UTC), "LIVE PARAMS applied", 0 tracebacks. x1 untouched (still legacy ranges in memory).
+- grpcap.py groups by the new layout (LAYOUT=256: $300 0–127 / $30 128–191 / 4dec 192–255).
+- Test bmap on x3: A "calm:63-101;dec:192-255" (102–191 → $300 ladder) vs B "" (legacy), ABBA 1:30–3:30 AM, read 3:33, edge-per-$ 3:36, decision 3:40.

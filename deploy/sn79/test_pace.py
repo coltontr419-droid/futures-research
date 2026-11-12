@@ -478,7 +478,7 @@ on = lambda a, b: bool(a.flow_pull and not (a.flow_pull_vol_only and b >= 63))
 check("flow_pull_vol_only: on for $300 books, off for calm / 4-dec", on(FV, 7) and not on(FV, 80) and not on(FV, 110), "7 on, 80/110 off")
 check("flow_pull_vol_only: off by default (pull everywhere as before)", on(agent(new_path, pace_cap=450000), 80), "80 on")
 src = open(new_path).read()
-check("flow_pull_vol_only: main path uses the same gate", "fp_on = self.flow_pull and not (self.flow_pull_vol_only and int(book_id) >= 63)" in src and "if fp_on and near > self.flow_pull" in src, "gate present")
+check("flow_pull_vol_only: main path uses the same gate", "fp_on = self.flow_pull and not (self.flow_pull_vol_only and self._g(book_id) != \"vol\")" in src and "if fp_on and near > self.flow_pull" in src, "gate present")
 
 # §1332 4-dec: a touch order left behind by a price move must NOT be kept as a ladder order (pile-up); real cancel ids applied
 class _RespC:
@@ -613,6 +613,19 @@ check("dec deep-only: no order at the touch, deep levels placed", 1.0 not in pl 
 _tm.sleep(0.01); json.dump({"mk_dec_touch": 5}, open(lpf, "w")); os.utime(lpf, None)
 DT._sec = 9900; DT._live_reload()
 check("dec touch: out of range ignored", DT.mk_dec_touch == 0, f"{DT.mk_dec_touch}")
+
+# §1403 book_map (layout changes between sim days: 256 books on 11-12)
+BM = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
+check("book_map: legacy ranges by default", [BM._g(b) for b in (0, 62, 63, 101, 102, 127, 200)] == ["vol", "vol", "calm", "calm", "dec", "dec", "dec"], f"{[BM._g(b) for b in (0, 62, 63, 101, 102, 127, 200)]}")
+_tm.sleep(0.01); json.dump({"book_map": "calm:63-101;dec:192-255"}, open(lpf, "w")); os.utime(lpf, None)
+BM._sec = 10000; BM._live_reload()
+check("book_map: live-applied (102-191 → vol, 192-255 dec)", [BM._g(b) for b in (0, 70, 110, 150, 191, 192, 255)] == ["vol", "calm", "vol", "vol", "vol", "dec", "dec"], f"{[BM._g(b) for b in (0, 70, 110, 150, 191, 192, 255)]}")
+_tm.sleep(0.01); json.dump({"book_map": "bogus:1-2"}, open(lpf, "w")); os.utime(lpf, None)
+BM._sec = 10100; BM._live_reload()
+check("book_map: bad spec ignored (map unchanged)", BM._g(150) == "vol" and BM._g(200) == "dec", f"{BM._g(150)} {BM._g(200)}")
+_tm.sleep(0.01); json.dump({"book_map": ""}, open(lpf, "w")); os.utime(lpf, None)
+BM._sec = 10200; BM._live_reload()
+check("book_map: empty → legacy again", BM._g(110) == "dec" and BM._g(70) == "calm", f"{BM._g(110)} {BM._g(70)}")
 
 # §1373 live $300 off switch
 LS = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
