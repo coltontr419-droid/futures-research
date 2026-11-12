@@ -22453,3 +22453,8 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - x2decsz (ABBA 3:01–5:01 PM, flash 0/0): pooled 4-dec A ($1.5k) 252 fills / $242k / edge $18 / +0.74 bp vs B ($4.5k) 130 / $229k / $20 / +0.87 bp; per fill 4-dec −0.16 ±
   0.24; whole-miner 0 / 0 (start burst still in the window). → tie, leaning B → keep mk_dec_size 0.09. Same windows: UID 46 4-dec +1.66–1.81 bp/$ → the gap is
   depth, not size (test 3 decdp running 5:01–7:01 PM; dec4 deep-only re-run after the nine).
+
+## §1418 — 2026-11-12 5:45 PM CT — x2: test 1 (4-dec deep-only) re-runs after test 3; tests 4–8 pushed back 2 h; inventory-lean test dropped
+User asked to re-run test 1 (it ran inside x2's money-losing start burst, but deep-only looked promising: +1.14 vs +0.74 bp). x2dec4b now runs 7:01–9:01 PM CT,
+the $30-book/$300/calm tests follow in 2-h steps, ending 7:01 AM CT 11-13 as before. To keep ≥3 h of clean scoring before x2's protection ends (≈ 12:25 PM CT),
+the lowest-value test (skew 3 vs 5) was dropped from x2's day and moves to the next miner. The 7:08 AM decision and confirmation times are unchanged.
