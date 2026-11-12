@@ -22272,3 +22272,16 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   two-sided 0 in both arms; 46 1.5 / 2.8; 216 3.1 / 0.0) → unreadable. 4-dec per fill +1.06 ± 0.37 (2.9 w) — vsize does not touch 4-dec → noise (ignored).
   → Tie → kept mk_vol_size 0.022. Note: pooled captured per arm has shrunk all afternoon (busier field, x1 sharing) — 2-h pools are getting too thin for
   whole-miner reads; next x3 tests should run 4 h or read whole-miner over a full 3-sim-h window.
+
+## §1397 — 2026-11-11 ≈ 6:20 PM CT — why x3's live score slid (≈ 340 → 171); x2 go/no-go input
+- now3h.sh (sim 71,744–82,544 — window still contains the 9–10 AM burst AND x1's head start): x3 captured 504 (6:45 AM read 704), quality 0.859, two-sided 225
+  (45% of captured; was 80%), credit 193.5, share 0.12%; x1 captured 725, quality 0.388, two-sided 498 (69%), credit 193.2; UID 46 1,356 / 0.648 / 499 / 323;
+  216 839 / 0.694 / 502 / 349.
+- inv.py (notional): x3 $6.58M over the 3 sim h, notional two-sided 90%, 0 books > 80% one-sided → x3 is NOT trading one-sided; since x1 started (sim 78,300+):
+  x3 $2.53M vs x1 $11.25M (x1's $9M head start dominates).
+- Reading: x3's volume per 3 sim h is unchanged (≈ $6.6M, as on 11-10) but captured per $ fell ≈ 30% and the capture-based two-sided fell 80% → 45% (one side
+  of its fills marked against it on many books) — consistent with the burst + a more crowded book (x1's head start at the same prices + the field's skill-windfall
+  activity); x1 is not taking x3's fills (fills per stretch normal) but its head start sits in the same window. Cannot separate the two causes until both leave
+  the 3-sim-h window (≈ 14 wall h → tomorrow ≈ 8–10 AM).
+- Recommendation: NO-GO for x2 tonight — another head start would add a fresh burst to the window while x3 sits ≈ 1.2× the real prune line, and would hide the
+  answer; re-check tomorrow ≈ 9–10 AM with a clean window (x3 credit back toward ≈ 300+ with x1 at steady pace → GO).
