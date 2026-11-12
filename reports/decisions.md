@@ -22285,3 +22285,7 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   the 3-sim-h window (≈ 14 wall h → tomorrow ≈ 8–10 AM).
 - Recommendation: NO-GO for x2 tonight — another head start would add a fresh burst to the window while x3 sits ≈ 1.2× the real prune line, and would hide the
   answer; re-check tomorrow ≈ 9–10 AM with a clean window (x3 credit back toward ≈ 300+ with x1 at steady pace → GO).
+- §1397 add. (6:48 PM go/no-go): NO-GO for x2 tonight. Self-trades 0; combined pay $176 (x3 $124 + x1 $52) > x3 alone $140; but x3 fills per stretch now steady
+  86–98 ($95–129k) vs pre-x1 104–139 (≈ 15–20% lower) while x1 runs 100–125 — a mild fill collision; x3 live making 173 → 153; x3 ≈ 1.2× the real line.
+  Re-check tomorrow ≈ 9–10 AM on a clean window (burst + x1 head start gone): x3 back toward ≈ 300 with ≈ 100+ fills/stretch → GO; else quantify the per-miner
+  cost vs combined gain for the user.
