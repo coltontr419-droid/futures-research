@@ -22361,3 +22361,12 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   (3) x3 trails x1 on $300 because its 24-h ledger is full of 11-11 volume (PACE STATUS 200 of 256 books blocked, median $397k of $450k) while x1 (young,
   $113k) has budget — a pacing-age effect, not x1 taking x3's fills; it fades as 11-11's volume ages out. Also: pace_start gives every never-seen book a $100k
   start budget → both miners burst on books 128–255 after the reset (cap-safe: 24-h backstop 450k).
+
+## §1406 — 2026-11-12 3:40–3:50 AM CT — bmap = CLEAR WIN → book map applied to x3 AND x1 (x1 restarted onto 12372763); decdeep started
+- bmap (ABBA 1:30–3:30 AM, flash 0/0). edge-per-$ (grpcap, x3): $30 books A 178 / 180 fills, $196k / $198k, edge +2.86 / +2.93 bp, edge $ 56 / 58 per half-hour vs
+  B 5 / 8 fills, $16k / $29k, +1.69 / +2.04 bp, $3 / $6; $300 0–127 unchanged (+1.31–1.34 bp, edge $ 19–25 both); 4dec unchanged (+0.45–0.83 bp). Whole-miner
+  x3 A captured 48.2 / R +23.0 vs B 4.1 / −3.2. → CLEAR WIN. (Per-fill "calm −1.15" / "4-dec +0.78" rows use the legacy groups and are ignored.)
+- Applied: x3 via liveswitch_bmap.sh APPLY 3:40 AM ("book_map →calm:63-101;dec:192-255"). x1 (user pre-approval for 256-book fixes): live_params_27.json =
+  x3's full JSON (backup .pre-bmap), restart_x1.sh (copy of restart_x3.sh for x1/27) — registered, ActiveEnterTimestamp 18:12:35 → 09:40:57 UTC, LIVE PARAMS
+  applied incl. book_map, 0 tracebacks, 335 ON BOOK lines; selftrade 0. Both miners now quote all 256 books on the same agent (12372763) and params.
+- decdeep (new 4-dec deep-only) on the new map, ABBA 3:50–5:50 AM, read 5:53, edge-per-$ 5:56, decision 6:00 AM (a win goes to both miners).

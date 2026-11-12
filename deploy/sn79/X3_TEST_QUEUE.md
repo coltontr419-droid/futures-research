@@ -18,8 +18,8 @@ repeated win / the user's OK). Goal: lift x3 above the prune line (≈ 1.2× now
 When x3 shows a clear win on the 256-book layout → APPLY the same live params to x1 too (user pre-approved for 256-book layout fixes), log, tell the user.
 regime46.py (§1404, new sim): $30 books — 46 at the touch on all 64, never ahead, $1.8k fills, edge +4.4 bp vs ours ahead 67–79% (4-dec pattern), $4.5k,
 +2.9 bp on 39–46 books; new 4-dec 192–255 — ours $2.8M each at +0.9 bp vs 46 $0.14M deep (≈ 200–500 ticks) at +2.6 bp; $300 0–127 — 46 depth ≈ 3 ticks +1.5 bp vs ours ≈ 1 tick +1.1.
-0. bmap — A '"book_map": "calm:63-101;dec:192-255"' vs B '"book_map": ""' (102–191 incl. the $30 books → $300 ladder: touch, never ahead, $1.1k ≈ 46). RUNNING 1:30–3:30 AM.
-1. decdeep — new 4-dec books 192–255 deep-only: A '"mk_dec_touch": 0, "mk_dec_deep2": 0.6' vs B '"mk_dec_touch": 1, "mk_dec_deep2": 0' (we pour ≈ $2.8M at +0.9 bp there).
+0. bmap — DONE §1406: CLEAR WIN ($30 books: x3 178–180 fills / $196k / edge $56–58 per half-hour vs 5–8 / $16–29k / $3–6; edge per $ +2.9 vs +1.7–2.0) → applied to x3 AND x1 (x1 restarted onto 12372763, 3:40 AM).
+1. decdeep — RUNNING 3:50–5:50 AM (decision 6:00) — new 4-dec books 192–255 deep-only: A '"mk_dec_touch": 0, "mk_dec_deep2": 0.6' vs B '"mk_dec_touch": 1, "mk_dec_deep2": 0' (we pour ≈ $2.8M at +0.9 bp there).
 2. vlad — $300 ladder deeper (46 depth ≈ 3 ticks): A '"mk_vol_lad": "2:4:7:12"' vs B '"mk_vol_lad": "1:2:4:7"' — now covers 0–191 under the new map.
 3. decdeep1 — 4-dec deep order further: A '"mk_dec_deep": 0.5' vs B '"mk_dec_deep": 0.27'.
 4. vtouch — $300-ladder touch half size: A '"mk_vol_size": 0.011' vs B '"mk_vol_size": 0.022'.
