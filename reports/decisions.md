@@ -22308,3 +22308,13 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - selftrade.py / watchdog skip fills before each UID's start sim (x3 28,750, x1 78,259) → after the reset every new fill would be ignored. simreset_uids.sh (timers
   05:25 + 06:00 UTC) sets the starts to 0 once the live tape shows the new sim (last ts < 20,000), backup our_uids.txt.pre-simreset, alert line.
 - After the reset: decdeep (12:20 AM) and the 9:37 AM check run entirely in the new sim (tape .prev starts at old-sim 59,864+ → no overlap with new-sim times).
+
+## §1400 — 2026-11-12 12:40–12:50 AM CT (11:52 PM step ran 48 min late: laptop off) — vtm no effect → kept; x3 restarted onto 50767f6c; decdeep 1:10–5:10 AM
+- Sim reset handled: simreset_uids.sh 11:25 PM saw tape ts 86,340 (not yet) → no change; 12:00 AM saw ts 854 → our_uids starts set to 0; selftrade 0.
+- vtm (A 7:45–8:45 + 10:15–10:55, B 8:45–10:15; flash 0/0): whole-miner unreadable (x3 two-sided 0 both arms; quality 0.24 / 0.21). $300 per fill vs 46 −0.25 ± 0.32.
+  grpcap per window (x3 $300): A1 edge +1.44 bp / spread at fill 2.1 bp; B +1.39 / 2.2; A2 +1.31 / 1.8 → skipping the touch at tight spreads did NOT move x3's
+  fills to wider spreads or raise edge per $ — it only cut fills (A1 238 vs B 440 per similar time). → kept mk_vol_touch_min 0.
+- Gated restart 12:41:35 AM CT onto agent 50767f6c (mk_dec_touch / mk_dec_deep2, defaults = old): registered, timestamp changed, LIVE PARAMS re-applied, 0 tracebacks,
+  218 ON BOOK lines in the first minute. x1 untouched (old code in memory; identical by default).
+- decdeep scheduled AABBBBAA 1:10–5:10 AM (07:10–11:10 UTC), read 5:13 AM; decision 5:17 AM judged on 4-dec edge per $ / edge $ (grpcap) since pooled
+  whole-miner reads are too thin.
