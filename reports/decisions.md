@@ -22434,3 +22434,13 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Server timers: x2dec4 19:01 UTC → x2skew3 ends 13:01 UTC 11-13 (9 × 2 h ABBA, switches write ONLY live_params_191.json; reads us=191, UIDS "191 46 216",
   edge-per-$ via abgrp_x2.sh with UIDS_EXTRA=191:x2). Decision + confirmation one-shot 7:08 AM CT 11-13; x2 protection ends ≈ 12:25 PM CT 11-13.
 - 12:55 PM 11-12 (§1415 add.): tape_guard2.sh timer (every 15 min, :07): if x1 (tape recorder) is gone → tape_to_x2.sh (tape= to x2, stop/disable x1, drop 27 from our_uids, restart x2), flag tape_moved_to_x2.flag. Dry run: no action.
+
+## §1416 — 2026-11-12 ≈ 2:00 PM CT — x2's start burst LOSES money (score 0); test 1 likely distorted; future miners need a smaller start budget
+- x2 live making 0.0 after 80 min despite ≈ $14M maker volume. making_grp.py (UID 191 from its own start, sim 7,628+): captured 163.8, realized −401.4 → quality 0 →
+  credit 0. By group: $30 C +90.5 / R +40.4; $300 0–101 +176.1 / −183.1; $300 102–127 +46.4 / −43.2; new 4-dec −149.1 / −215.6.
+  (A first read from sim 5,000 mixed in the previous owner of UID 191 — re-scored from x2's start.)
+- Cause: pace_start = $100k per book at once → x2 refilled at the touch as fast as possible ($10.6M on $300 books, $2.9M on 4-dec in ≈ 1 h) and was picked off;
+  only the $30 books stayed positive. Same mechanism as the reset's new-book burst (§1407). Fades as the burst leaves the 3-sim-h window (x2 is protected).
+- x2 test 1 (dec4, 1:01–3:01 PM) runs inside the burst → treat its read as likely distorted (re-run after the nine, per the plan).
+- For the next miner: set pace_start much lower in its unit BEFORE it starts (no restart cost); also in the code batch (new books start small / deep).
+- x1: $107, live 312, 1.21× the line (5 below: 1.00, 1.08, 1.15, 1.16, 1.16).
