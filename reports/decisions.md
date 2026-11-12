@@ -22404,3 +22404,5 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   4-dec test would be unreadable; chose the next-biggest lever: touch order size matching UID 46 ($1.8k fills on the $30 and $300 books vs our $1.1k).
 - Tools: abtest_sched_x1.sh (switches write ONLY live_params_27.json; reads us=27, abcredit UIDS "27 46 216"), abgrp_x1.sh (x1 + 46 rows), abcredit.sh reads
   $UIDS (default unchanged). x1vsize ABBA 10:00 AM–12:00 PM CT, read 12:03, edge-per-$ 12:06, decision 12:10 PM (a win goes to x1 and x3 via live switch).
+- §1412 (9:55 AM): tape_guard.sh on a server timer every 15 min (mvtrx-tapeguard): if regcheck says x3 is gone, runs tape_to_x1.sh once (tape → x1, x3 stopped,
+  gated x1 restart) and sets tape_moved_to_x1.flag. Dry run with x3 registered: exits without action. Covers the laptop-closed case.
