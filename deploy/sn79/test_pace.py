@@ -627,6 +627,23 @@ _tm.sleep(0.01); json.dump({"book_map": ""}, open(lpf, "w")); os.utime(lpf, None
 BM._sec = 10200; BM._live_reload()
 check("book_map: empty → legacy again", BM._g(110) == "dec" and BM._g(70) == "calm", f"{BM._g(110)} {BM._g(70)}")
 
+# §1414 "low" group ($30 books) with its own size / ladder overrides
+LO = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30, mk_vol_size=0.022, mk_vol_lad="1:2:4:7", mk_vol_lad_size=0.027)
+_tm.sleep(0.01); json.dump({"book_map": "calm:63-101;low:128-191;dec:192-255"}, open(lpf, "w")); os.utime(lpf, None)
+LO._sec = 11000; LO._live_reload()
+check("low group: low books quote as vol", LO._g(150) == "vol" and LO._is_low(150) and not LO._is_low(10) and LO._g(200) == "dec", f"{LO._g(150)} {LO._is_low(150)}")
+check("low group: no overrides until set", LO._low_ov(150) is None, f"{LO._low_ov(150)}")
+_tm.sleep(0.01); json.dump({"book_map": "calm:63-101;low:128-191;dec:192-255", "mk_low_size": 0.036, "mk_low_lad": "1:2:3", "mk_low_lad_size": 0.04}, open(lpf, "w")); os.utime(lpf, None)
+LO._sec = 11100; LO._live_reload()
+check("low group: overrides live-applied", LO._low_ov(150) == {"mk_vol_size": 0.036, "mk_vol_lad_size": 0.04, "mk_vol_lad": [1, 2, 3]} and LO._low_ov(10) is None, f"{LO._low_ov(150)}")
+seen = {}
+LO._quote_inner = lambda r, b, bk, ac: seen.update({b: (LO.mk_vol_size, list(LO.mk_vol_lad), LO.mk_vol_lad_size)})
+LO._quote(None, 150, None, None); LO._quote(None, 10, None, None)
+check("low group: overrides only inside a low book, restored after", seen[150] == (0.036, [1, 2, 3], 0.04) and seen[10] == (0.022, [1, 2, 4, 7], 0.027) and LO.mk_vol_size == 0.022, f"{seen}")
+_tm.sleep(0.01); json.dump({"mk_low_size": 0.5}, open(lpf, "w")); os.utime(lpf, None)
+LO._sec = 11200; LO._live_reload()
+check("low group: out-of-range size ignored", LO.mk_low_size == 0.036, f"{LO.mk_low_size}")
+
 # §1373 live $300 off switch
 LS = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
 _tm.sleep(0.01); json.dump({"mk_skip_vol": 1}, open(lpf, "w")); os.utime(lpf, None)

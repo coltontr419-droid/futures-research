@@ -239,6 +239,9 @@ class QuoteAgent(FinanceAgent):
         self.mk_dec_size = float(getattr(c, "mk_dec_size", 0.0))      # §1313: >0: fleet-style quoting on the 4-dec books (102-127), order size (fraction of wealth; fleet ≈ $4.5k ≈ 0.09)
         self.mk_dec_inside = int(getattr(c, "mk_dec_inside", 1))      # §1313: ticks ahead of OTHER makers' best price (fleet: 1-2 ticks = 51% of its 4-dec $); our own orders never count
         self.mk_dec_deep = float(getattr(c, "mk_dec_deep", 0.27))     # §1313: one deep order this many spreads behind the touch (fleet median 0.27, IQR 0.13-0.49)
+        self.mk_low_size = float(getattr(c, "mk_low_size", 0.0))       # §1414: >0: touch size on "low" books ($30 books; book_map group low) instead of MK_VOL_SIZE
+        self.mk_low_lad_size = float(getattr(c, "mk_low_lad_size", 0.0))   # §1414: >0: ladder size on low books instead of MK_VOL_LAD_SIZE
+        self.mk_low_lad = [int(x) for x in str(getattr(c, "mk_low_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1414: ladder ticks on low books ([] = MK_VOL_LAD)
         self.book_map = str(getattr(c, "book_map", "") or "")      # §1403: book groups by id ranges, e.g. "calm:63-101;dec:192-255" (all others = vol); "" = legacy 0-62 vol / 63-101 calm / 102+ dec
         self._bmap = self._parse_book_map(self.book_map)
         self.mk_dec_touch = int(getattr(c, "mk_dec_touch", 1))       # §1398: 0 = NO touch order on the 4-dec books, deep order(s) only (UID 46: 4-dec edge +15.9 bp vs x3 +1.5)
@@ -573,11 +576,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
-    LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
+    LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4), "mk_low_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "mk_dec_touch": (0, 1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -658,7 +661,7 @@ class QuoteAgent(FinanceAgent):
                 continue
             g, rngs = part.split(":", 1)
             g = g.strip()
-            if g not in ("vol", "calm", "dec"):
+            if g not in ("vol", "calm", "dec", "low"):
                 raise ValueError(g)
             for r in rngs.split(","):
                 lo, hi = (int(x) for x in r.split("-")) if "-" in r else (int(r), int(r))
@@ -673,7 +676,22 @@ class QuoteAgent(FinanceAgent):
         b = int(book_id)
         if self._bmap is None:
             return "vol" if b < 63 else ("calm" if b < 102 else "dec")
-        return self._bmap.get(b, "vol")
+        g = self._bmap.get(b, "vol")
+        return "vol" if g == "low" else g
+
+    def _is_low(self, book_id):
+        """§1414: a book mapped to the "low" group ($30 books): quoted like vol, with MK_LOW_* overrides when set."""
+        return self._bmap is not None and self._bmap.get(int(book_id)) == "low"
+
+    def _low_ov(self, book_id):
+        """§1414: the per-book overrides for a low book (only the MK_LOW_* knobs that are set)."""
+        if not self._is_low(book_id):
+            return None
+        ov = {}
+        if self.mk_low_size > 0: ov["mk_vol_size"] = self.mk_low_size
+        if self.mk_low_lad_size > 0: ov["mk_vol_lad_size"] = self.mk_low_lad_size
+        if self.mk_low_lad: ov["mk_vol_lad"] = list(self.mk_low_lad)
+        return ov or None
 
     def _fund_in_scope(self, book_id):
         """§1380: FUND_SCOPE 0 = every book, 1 = calm books only (63-101), 2 = $300 books only (0-62)."""
@@ -985,6 +1003,9 @@ class QuoteAgent(FinanceAgent):
     def _quote(self, response, book_id, book, acct):
         """arms (§1207): book n runs arm n mod (arms + 1); arm 0 = the configured params, arm k applies its overrides for this book only."""
         ov = self._arms[int(book_id) % len(self._arms)] if self._arms else None
+        lo = self._low_ov(book_id)
+        if lo:
+            ov = dict(ov or {}); ov.update(lo)
         if not ov:
             return self._quote_inner(response, book_id, book, acct)
         saved = {k: getattr(self, k) for k in ov}

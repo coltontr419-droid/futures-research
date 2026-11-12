@@ -22416,3 +22416,13 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   $30 40 vs 43, edge per $ equal (≈ 1.3 / 2.9 bp); whole-miner quality A 0.125 vs B 0.205 (thin). → not clear → kept 0.022; re-run later.
 - x1 (now the only miner, protection ended 12:10 PM): pay $106 vs real line $90 (1.18×, ≈ 4 real UIDs below); live making 322 (pay lags, should rise).
   No x1 tests / restarts until it is ≥ 1.5× the line. Next registration (x2 unit ready): recommend after x1 ≥ 1.5× — the user decides.
+
+## §1414 — 2026-11-12 ≈ 12:40 PM CT — x2 test-day plan ready (user registers x2); "low" ($30) book group built; never-crash rule
+- User: x2 will be registered; a full day of 2-h tests scheduled up front (extend inconclusive ones after all ran); tests aiming ABOVE the median; never repeat
+  x3 (alive 2+ days, crashed in one night).
+- Code: "low" group in book_map (the $30 books) — quotes like vol, with live overrides mk_low_size / mk_low_lad / mk_low_lad_size (unset = vol values).
+  test_pace ALL PASS (+5). Agent 7d4dd4f5 (superset; identical by default). x2 runs it from its first minute; x1 keeps 12372763 in memory (no restart).
+- grpcap.py: UIDS_EXTRA env adds names (e.g. "123:x2"). x2_day.sh: base = x1's params + low map pinned, 9 independent ABBA tests (dec4, decsz, decdp, lowsz,
+  lowlad, lowls, vsz, calmv, skew3), each vs the SAME base, plus edge-per-$ reads; start_x2.sh <uid> does registration check, agent swap, our_uids, the
+  schedule and starts mvtrx-x2. Plan: deploy/sn79/X2_DAY_PLAN.md (confirmation test ≈ h 18.75–20.75; ≥ 3 h clean before protection ends).
+- Memory feedback-never-crash-settled.md: test only new miners while protected; settle clean before protection ends; settled miners: no tests / restarts.
