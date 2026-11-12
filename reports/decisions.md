@@ -22448,3 +22448,8 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   `env UIDS_EXTRA=… nice …`; (2) grpcap.py printed only the hard-coded rows x3/x1/46 → now every name in U; UID 64 dropped from U (pruned, new owner).
   Re-read: dec4 A1 (burst) $300 $4.5M edge $552; 4-dec A1 +0.68 bp / A2 +1.14 bp vs B +0.74 / +0.74 bp ($489k A2 vs $1.08–1.77M B) → burst-distorted, promising
   → re-run after the nine (plan).
+
+## §1417 — 2026-11-12 5:15 PM CT — x2 test 2 (4-dec order size $1.5k vs $4.5k) = tie → keep $4.5k
+- x2decsz (ABBA 3:01–5:01 PM, flash 0/0): pooled 4-dec A ($1.5k) 252 fills / $242k / edge $18 / +0.74 bp vs B ($4.5k) 130 / $229k / $20 / +0.87 bp; per fill 4-dec −0.16 ±
+  0.24; whole-miner 0 / 0 (start burst still in the window). → tie, leaning B → keep mk_dec_size 0.09. Same windows: UID 46 4-dec +1.66–1.81 bp/$ → the gap is
+  depth, not size (test 3 decdp running 5:01–7:01 PM; dec4 deep-only re-run after the nine).

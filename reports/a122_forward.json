@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-11T17:30-05:00",
+ "updated": "2026-11-12T17:30-05:00",
  "first": "2026-09-30",
- "last": "2026-11-11",
- "sessions": 31,
+ "last": "2026-11-12",
+ "sessions": 32,
  "bought": 5,
- "payouts": 1,
- "paid": 1800.0,
+ "payouts": 2,
+ "paid": 3600.0,
  "fees": 1342.0,
- "net": 458.0,
- "net_per_84": 1241.03,
- "per_payout": 5.0,
- "open_balance": 2570.16,
+ "net": 2258.0,
+ "net_per_84": 5927.25,
+ "per_payout": 2.5,
+ "open_balance": 1212.7,
  "log": [
   [
    "2026-09-30",
@@ -203,37 +203,49 @@
    "trade",
    642.54,
    2570.16
+  ],
+  [
+   "2026-11-12",
+   "trade",
+   642.54,
+   3212.7
+  ],
+  [
+   "2026-11-12",
+   "payout",
+   2000.0,
+   1212.7
   ]
  ],
  "history_reference": "A122 history, long, minute replay: +$3,872 (2010-20) / +$3,876 (2021-26) per 84 sessions; 3.4-3.7 accounts per payout",
  "100K": {
   "net": 3430.8,
-  "net_per_84": 9296.36,
+  "net_per_84": 9005.85,
   "accounts_per_payout": 1.5
  },
  "100K MNQ full session": {
-  "sessions": 24,
+  "sessions": 25,
   "net": -3564.0,
-  "net_per_84": -12474.0,
+  "net_per_84": -11975.04,
   "accounts_per_payout": 10.0
  },
  "100K MGC London": {
-  "sessions": 30,
-  "net": -601.2,
-  "net_per_84": -1683.36,
-  "accounts_per_payout": 8.0
+  "sessions": 31,
+  "net": -957.6,
+  "net_per_84": -2594.79,
+  "accounts_per_payout": 9.0
  },
  "100K MGC full session": {
-  "sessions": 24,
+  "sessions": 25,
   "net": -2851.2,
-  "net_per_84": -9979.2,
+  "net_per_84": -9580.03,
   "accounts_per_payout": 8.0
  },
  "100K NKD Tokyo dollar-week": {
-  "sessions": 29,
+  "sessions": 30,
   "net": 824.4,
-  "net_per_84": 2387.92,
-  "open_balance": 3162.24,
+  "net_per_84": 2308.32,
+  "open_balance": 3952.8,
   "bought": 4
  }
 }
