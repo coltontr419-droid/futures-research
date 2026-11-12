@@ -22406,3 +22406,13 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   $UIDS (default unchanged). x1vsize ABBA 10:00 AM–12:00 PM CT, read 12:03, edge-per-$ 12:06, decision 12:10 PM (a win goes to x1 and x3 via live switch).
 - §1412 (9:55 AM): tape_guard.sh on a server timer every 15 min (mvtrx-tapeguard): if regcheck says x3 is gone, runs tape_to_x1.sh once (tape → x1, x3 stopped,
   gated x1 restart) and sets tape_moved_to_x1.flag. Dry run with x3 registered: exits without action. Covers the laptop-closed case.
+
+## §1413 — 2026-11-12 ≈ 12:15 PM CT (laptop was closed ≈ 9:55 AM–12:09 PM) — x3 PRUNED ≈ 10:40 AM; tape guard moved the tape to x1; x1 alone, near the line
+- regcheck: x3 64 NOT REGISTERED (UID 64 re-registered by someone else, age 1.6 h at 12:09 PM). tape_guard.sh (§1412) fired at 16:45 UTC (10:45 AM CT): tape= added to
+  x1, x3 stopped + disabled, gated x1 restart 09:40:57 → 16:45:34 UTC, tape_moved_to_x1.flag set. Tape growing (stat +470 kB / 20 s), x1 0 tracebacks.
+- selftrade showed 4: fills between the NEW owner of UID 64 and x1 (our_uids still listed 64) → 64 removed (backup our_uids.txt.pre-x3prune) → 0. Watchdog
+  "x3 service DOWN / no fills" alerts stop with it.
+- x1vsize (x1 $1.8k vs $1.1k touch, ABBA 10:00 AM–12:00 PM): x1's tape-move restart (10:45) landed in B1 → contaminated. Clean pair (B2 vs A2): $300 edge $ 20 vs 26,
+  $30 40 vs 43, edge per $ equal (≈ 1.3 / 2.9 bp); whole-miner quality A 0.125 vs B 0.205 (thin). → not clear → kept 0.022; re-run later.
+- x1 (now the only miner, protection ended 12:10 PM): pay $106 vs real line $90 (1.18×, ≈ 4 real UIDs below); live making 322 (pay lags, should rise).
+  No x1 tests / restarts until it is ≥ 1.5× the line. Next registration (x2 unit ready): recommend after x1 ≥ 1.5× — the user decides.
