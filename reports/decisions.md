@@ -22352,3 +22352,12 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   46 $0.14M at median 202 ticks deep, +2.6 bp. $300 (0–127): x3/x1 depth ≈ 1 tick, +1.1–1.2 bp; 46 ≈ 3 ticks, +1.5 bp.
 - bmap's A (102–191 → $300 ladder: touch, never ahead, $1.1k) ≈ 46's $30-book behaviour. Queue re-ordered: bmap → decdeep (new 4-dec deep-only) → vlad
   (deeper $300 ladder) → decdeep1 → vtouch → sizes; each later test runs on the bmap winner's map. A clear 256-book win goes to x1 too (user pre-approval).
+
+## §1405 — 2026-11-12 ≈ 2:40 AM CT — new sim day, validator-exact by book group: $30 books earn, new 4-dec books lose, x3's $300 hurt by its full pace ledger
+- making_grp.py (new sim 0 → ≈ 2,000 s; C = captured, R = realized): x3 $30 C +44.7 / R +50.8, $300 0–101 +9.6 / −20.2, $300 102–127 −2.3 / −6.6, 4dec 192–255
+  +22.0 / −24.4; x1 $30 +70.0 / +62.5, $300 0–101 +69.1 / +5.7, 102–127 −1.0 / −3.0, 4dec +27.5 / −17.4. Worst books for BOTH: 4-dec 214, 195, 230, 240, 203.
+- (1) The $30 books are where the money is (both miners positive) → bmap's A (touch, never ahead, $1.1k there) points the right way (x3 $30 fills 14 → 118 in the
+  first minutes after the switch). (2) The new 4-dec books lose money for both (≈ $2.8M each at/ahead of the touch) → decdeep (deep-only there) is next.
+  (3) x3 trails x1 on $300 because its 24-h ledger is full of 11-11 volume (PACE STATUS 200 of 256 books blocked, median $397k of $450k) while x1 (young,
+  $113k) has budget — a pacing-age effect, not x1 taking x3's fills; it fades as 11-11's volume ages out. Also: pace_start gives every never-seen book a $100k
+  start budget → both miners burst on books 128–255 after the reset (cap-safe: 24-h backstop 450k).
