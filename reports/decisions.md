@@ -22300,3 +22300,11 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   Agent 50767f6c staged. Plan: 11:52 PM decide vtm → gated x3 restart onto 50767f6c → T2 decdeep (4-dec deep-only 0.27 + 0.6 spreads vs touch + one deep),
   AABBBBAA 12:20–4:20 AM, decision 4:27 AM. x1 untouched (it loads the new file only on its own restart; identical by default).
 - Note: x3's 3-sim-h window for the 9:37 AM collision check will include test arms.
+
+## §1399 — 2026-11-11 7:55 PM CT — sim day resets ≈ 11:10 PM CT tonight: vtm reshaped to end before it; self-trade guard fixed for the reset
+- Sim 83,735 at 7:45 PM; ≈ 782 sim s per wall h → 86,400 → 0 at ≈ 11:10 PM CT. A/B windows are logged in sim seconds, so a window across the reset breaks the reads.
+- vtm reshaped (x3 only): A 7:45–8:45, B 8:45–10:15, A 10:15–10:55 PM, END 10:55, read 10:58 PM (≈ 105 min A / 90 min B, A-B-A order). Timers vtm-5..7/end/read
+  stopped; new vtm-5c / endc / readc. (First attempt read the JSON from already-fired transient units → empty strings → caught and recreated from the switch log.)
+- selftrade.py / watchdog skip fills before each UID's start sim (x3 28,750, x1 78,259) → after the reset every new fill would be ignored. simreset_uids.sh (timers
+  05:25 + 06:00 UTC) sets the starts to 0 once the live tape shows the new sim (last ts < 20,000), backup our_uids.txt.pre-simreset, alert line.
+- After the reset: decdeep (12:20 AM) and the 9:37 AM check run entirely in the new sim (tape .prev starts at old-sim 59,864+ → no overlap with new-sim times).
