@@ -22266,3 +22266,9 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   3-sim-h window + smoothing → expected to fade as the burst rolls out (≈ 14 wall h). 216's pay $196 → $477 is that windfall. Not a copyable strategy.
 - x3 skill books kept 17 (bar 20), x1 10 → just under; books qualify with enough trades in the window — fleet trades 1.2–1.7× per book (pacing; ours is at the
   cap-safe max). Nothing to build: aiming at skill on makers breaks the user's rule (feedback-no-skill-on-makers.md). Track 216/fleet skill through 11-12.
+
+## §1396 — 2026-11-11 6:07 PM CT — vsize ($300 touch $1.7k vs $1.1k) = tie → kept $1.1k (UID 46); x3 and x1 identical again
+- vsize (ABBA 4:00–6:00 PM; reference UID 46; flash exposure 0 / 0): $300 per fill −0.02 ± 0.66 (the target — tie). Whole-miner pools too thin (x3 captured 24.0 / 13.5,
+  two-sided 0 in both arms; 46 1.5 / 2.8; 216 3.1 / 0.0) → unreadable. 4-dec per fill +1.06 ± 0.37 (2.9 w) — vsize does not touch 4-dec → noise (ignored).
+  → Tie → kept mk_vol_size 0.022. Note: pooled captured per arm has shrunk all afternoon (busier field, x1 sharing) — 2-h pools are getting too thin for
+  whole-miner reads; next x3 tests should run 4 h or read whole-miner over a full 3-sim-h window.
