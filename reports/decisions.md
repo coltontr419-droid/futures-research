@@ -22370,3 +22370,11 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   x3's full JSON (backup .pre-bmap), restart_x1.sh (copy of restart_x3.sh for x1/27) — registered, ActiveEnterTimestamp 18:12:35 → 09:40:57 UTC, LIVE PARAMS
   applied incl. book_map, 0 tracebacks, 335 ON BOOK lines; selftrade 0. Both miners now quote all 256 books on the same agent (12372763) and params.
 - decdeep (new 4-dec deep-only) on the new map, ABBA 3:50–5:50 AM, read 5:53, edge-per-$ 5:56, decision 6:00 AM (a win goes to both miners).
+
+## §1407 — 2026-11-12 6:00 AM CT — decdeep too thin (new 4-dec books pace-blocked) → kept; vlad started
+- decdeep (ABBA 3:50–5:50 AM, flash 0/0): x3 4-dec fills per half-hour A 9 / 12, B 14 / 27 ($40–82k) — the new 4-dec books spent their $100k start budgets in the first
+  hours after the reset (pace_start) and are now mostly paced out → no measurable test. Whole-miner A 23.5 vs B 24.9 (tie); 4-dec per fill −0.10 ± 0.32. Kept B
+  (mk_dec_touch 1, deep2 0 — x3 lists them explicitly, x1 by default: identical behaviour). Re-run later today. ($300 per-fill "−1.49" ignored: test cannot touch $300.)
+- Note: the $30 books are now x3's best group: ≈ 180–205 fills, $200–224k, edge +3.0–3.2 bp, edge $ 63–68 per half-hour.
+- vlad on x3: $300 ladder 2:4:7:12 vs 1:2:4:7 (now books 0–191), ABBA 6:10–8:10 AM, read 8:13, edge-per-$ 8:16, decision 8:20 AM (a win goes to both miners —
+  it changes how the new $30 books are quoted).
