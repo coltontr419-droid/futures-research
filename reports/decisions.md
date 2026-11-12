@@ -22433,3 +22433,4 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   UID 191 running, "LIVE PARAMS applied" incl. the low map, ≈ 1,200 ON BOOK lines in the first minutes, 0 tracebacks; selftrade 0 (x1 + x2).
 - Server timers: x2dec4 19:01 UTC → x2skew3 ends 13:01 UTC 11-13 (9 × 2 h ABBA, switches write ONLY live_params_191.json; reads us=191, UIDS "191 46 216",
   edge-per-$ via abgrp_x2.sh with UIDS_EXTRA=191:x2). Decision + confirmation one-shot 7:08 AM CT 11-13; x2 protection ends ≈ 12:25 PM CT 11-13.
+- 12:55 PM 11-12 (§1415 add.): tape_guard2.sh timer (every 15 min, :07): if x1 (tape recorder) is gone → tape_to_x2.sh (tape= to x2, stop/disable x1, drop 27 from our_uids, restart x2), flag tape_moved_to_x2.flag. Dry run: no action.
