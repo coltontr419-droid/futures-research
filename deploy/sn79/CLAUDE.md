@@ -67,6 +67,8 @@ Re-read this file before every action.
   Log every decision/result as a new § in `reports/decisions.md` (next free number: **§1310**; check the last § in the file).
 - Remote Python via ssh heredocs breaks on quotes — write a script file locally, `scp` it, run it.
 - After every restart verify `ActiveEnterTimestamp` changed (a syntax error once silently skipped a restart).
+- **Restart x3 (and any live miner) as rarely as possible** (user 11-12): tests use live-reload knobs only; new code is held and BATCHED — at most
+  one x3 restart per day unless safety. Each restart costs ≈ 20 min of queue position and dents pay.
 
 ## Current state / where to look
 - Full handoff (live state, infrastructure, status checks, subnet mechanics, next steps): `HANDOFF_BITTENSOR_2026-11-08.md` (this folder).
