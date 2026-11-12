@@ -22345,3 +22345,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   x3 restart 1:09 AM CT (07:09:00 UTC), "LIVE PARAMS applied", 0 tracebacks. x1 untouched (still legacy ranges in memory).
 - grpcap.py groups by the new layout (LAYOUT=256: $300 0–127 / $30 128–191 / 4dec 192–255).
 - Test bmap on x3: A "calm:63-101;dec:192-255" (102–191 → $300 ladder) vs B "" (legacy), ABBA 1:30–3:30 AM, read 3:33, edge-per-$ 3:36, decision 3:40.
+
+## §1404 — 2026-11-12 ≈ 1:30 AM CT — user: new-regime tests first; when x3 works on all 256 books put x1 + x3 on it (pre-approved); UID 46 on the new books
+- regime46.py (new sim): $30 books (128–191): x3/x1 on 39–46 books, 67–79% of fills AHEAD of the touch (4-dec pattern on a 2-tick spread), $4.5k fills, edge
+  +2.9 bp; UID 46 on all 64 books at the touch, 0% ahead, $1.8k, +4.4 bp. New 4-dec (192–255): x3/x1 ≈ $2.8M each at +0.9 bp (median depth 0 / −1 ticks);
+  46 $0.14M at median 202 ticks deep, +2.6 bp. $300 (0–127): x3/x1 depth ≈ 1 tick, +1.1–1.2 bp; 46 ≈ 3 ticks, +1.5 bp.
+- bmap's A (102–191 → $300 ladder: touch, never ahead, $1.1k) ≈ 46's $30-book behaviour. Queue re-ordered: bmap → decdeep (new 4-dec deep-only) → vlad
+  (deeper $300 ladder) → decdeep1 → vtouch → sizes; each later test runs on the bmap winner's map. A clear 256-book win goes to x1 too (user pre-approval).

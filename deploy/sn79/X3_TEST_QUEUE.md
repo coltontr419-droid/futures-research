@@ -14,13 +14,14 @@ repeated win / the user's OK). Goal: lift x3 above the prune line (≈ 1.2× now
 4. CronCreate a one-shot decision prompt ≈ 7 min after the new test ends (copy of this step, pointing at this file).
 5. Log a § + lesson, commit/push, update the brief cron's TEST line, mark the item below.
 
-## Queue (in order)
-0. bmap — book map for the 256-book sim day (§1403): A '"book_map": "calm:63-101;dec:192-255"' vs B '"book_map": ""'. RUNNING 1:30–3:30 AM (decision 3:40).
-   (NOTE §1403: from 11-12 the sim has 256 books — 0–127 $300 2-dec, 128–191 $30 2-dec, 192–255 $311 4-dec; "4-dec" items below now mean books 192–255.)
-1. decdeep — 4-dec deep-only: A '"mk_dec_touch": 0, "mk_dec_deep2": 0.6' vs B '"mk_dec_touch": 1, "mk_dec_deep2": 0'. (cancelled at 1:05 AM before it started — layout change; re-queue after bmap)
-2. vtouch — $300 touch order half size: A '"mk_vol_size": 0.011' vs B '"mk_vol_size": 0.022' (more paced budget to the deep ladder).
-3. decdeep1 — 4-dec deep order further: A '"mk_dec_deep": 0.5' vs B '"mk_dec_deep": 0.27' (UID 46 4-dec depth p75 0.47 spreads).
-4. vlad — $300 ladder deeper: A '"mk_vol_lad": "2:4:7:12"' vs B '"mk_vol_lad": "1:2:4:7"'.
-5. vladsz — $300 ladder orders larger: A '"mk_vol_lad_size": 0.04' vs B '"mk_vol_lad_size": 0.027'.
-6. decsz — 4-dec order size: A '"mk_dec_size": 0.06' vs B '"mk_dec_size": 0.09'.
-(Skip an item if an earlier win makes it moot; add items from what the reads show. The 9:37 AM collision check / x2 go-no-go runs in between.)
+## Queue (in order) — NEW-REGIME (256 books) ITEMS FIRST (user 11-12 ≈ 1:20 AM, memory feedback-new-regime-priority.md)
+When x3 shows a clear win on the 256-book layout → APPLY the same live params to x1 too (user pre-approved for 256-book layout fixes), log, tell the user.
+regime46.py (§1404, new sim): $30 books — 46 at the touch on all 64, never ahead, $1.8k fills, edge +4.4 bp vs ours ahead 67–79% (4-dec pattern), $4.5k,
++2.9 bp on 39–46 books; new 4-dec 192–255 — ours $2.8M each at +0.9 bp vs 46 $0.14M deep (≈ 200–500 ticks) at +2.6 bp; $300 0–127 — 46 depth ≈ 3 ticks +1.5 bp vs ours ≈ 1 tick +1.1.
+0. bmap — A '"book_map": "calm:63-101;dec:192-255"' vs B '"book_map": ""' (102–191 incl. the $30 books → $300 ladder: touch, never ahead, $1.1k ≈ 46). RUNNING 1:30–3:30 AM.
+1. decdeep — new 4-dec books 192–255 deep-only: A '"mk_dec_touch": 0, "mk_dec_deep2": 0.6' vs B '"mk_dec_touch": 1, "mk_dec_deep2": 0' (we pour ≈ $2.8M at +0.9 bp there).
+2. vlad — $300 ladder deeper (46 depth ≈ 3 ticks): A '"mk_vol_lad": "2:4:7:12"' vs B '"mk_vol_lad": "1:2:4:7"' — now covers 0–191 under the new map.
+3. decdeep1 — 4-dec deep order further: A '"mk_dec_deep": 0.5' vs B '"mk_dec_deep": 0.27'.
+4. vtouch — $300-ladder touch half size: A '"mk_vol_size": 0.011' vs B '"mk_vol_size": 0.022'.
+5. vladsz — ladder size: A '"mk_vol_lad_size": 0.04' vs B 0.027.  6. decsz — 4-dec size: A '"mk_dec_size": 0.06' vs B 0.09.
+(Every test after bmap runs ON the bmap winner's map. Skip items made moot; add items from the reads. 9:37 AM collision check in between.)
