@@ -22326,3 +22326,9 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Queue (AABBBBAA, 4 h each, lab timers): decdeep 1:10–5:10 AM (+ edge read 5:20); vtouch = $300 touch order 0.011 ($0.55k) vs 0.022 ($1.1k) so more of the
   paced budget goes to the deep ladder, 5:15–9:15 AM (+ edge read 9:25); decdeep1 = 4-dec deep order 0.5 vs 0.27 spreads (UID 46 4-dec depth p75 0.47),
   9:20 AM–1:20 PM (+ edge read 1:30 PM). x1 untouched.
+
+## §1402 — 2026-11-12 ≈ 1:00 AM CT — user: laptop stays open; 2-h x3 tests with decisions in between (x3 near the prune line; scaling will hit settled miners)
+- Cancelled the 4-h server-side queue (§1401; no timer had fired). decdeep rescheduled ABBA 1:10–3:10 AM (read 3:13, edge-per-$ 3:16), decision one-shot 3:20 AM.
+- X3_TEST_QUEUE.md: decision procedure (edge per $ in the changed group decides; ≥ ≈ 20% up + edge $ not down + per fill not clearly worse = win; thin → extend
+  2 h; else keep proven) and the ordered queue: decdeep → vtouch → decdeep1 → vlad → vladsz → decsz. Each decision step starts the next test and creates the next
+  decision prompt. x1 never changed.
