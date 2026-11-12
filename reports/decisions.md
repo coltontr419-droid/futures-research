@@ -22426,3 +22426,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   lowlad, lowls, vsz, calmv, skew3), each vs the SAME base, plus edge-per-$ reads; start_x2.sh <uid> does registration check, agent swap, our_uids, the
   schedule and starts mvtrx-x2. Plan: deploy/sn79/X2_DAY_PLAN.md (confirmation test ≈ h 18.75–20.75; ≥ 3 h clean before protection ends).
 - Memory feedback-never-crash-settled.md: test only new miners while protected; settle clean before protection ends; settled miners: no tests / restarts.
+
+## §1415 — 2026-11-12 12:31 PM CT — x2 = UID 191 started (user registered); 9-test protected day scheduled
+- start_x2.sh 191: registered; agent 7d4dd4f5 swapped in on disk (x1 keeps 12372763 in memory; restart_x1/x3.sh now expect 7d4dd4f5); our_uids "191 maker x2 7628";
+  base live_params_191.json (x1's params + book_map "calm:63-101;low:128-191;dec:192-255", mk_low_* pinned to the vol values); mvtrx-x2 enabled + started:
+  UID 191 running, "LIVE PARAMS applied" incl. the low map, ≈ 1,200 ON BOOK lines in the first minutes, 0 tracebacks; selftrade 0 (x1 + x2).
+- Server timers: x2dec4 19:01 UTC → x2skew3 ends 13:01 UTC 11-13 (9 × 2 h ABBA, switches write ONLY live_params_191.json; reads us=191, UIDS "191 46 216",
+  edge-per-$ via abgrp_x2.sh with UIDS_EXTRA=191:x2). Decision + confirmation one-shot 7:08 AM CT 11-13; x2 protection ends ≈ 12:25 PM CT 11-13.
