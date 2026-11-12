@@ -22384,3 +22384,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   $30 A $413k / $119 / +2.88 vs B $439k / $132 / +3.00. Whole-miner (thin) A credit 8.2 (q 0.475) vs B 3.8 (q 0.331); per fill $300 −0.63 ± 0.47, 4-dec
   ignored (untouched). → not ≥ 20% / edge $ not up → tie → kept B on both miners.
 - vtouch on x3: $300-ladder touch order 0.011 vs 0.022 (books 0–191), ABBA 8:30–10:30 AM, decision 10:40 AM. decdeep waits for the new 4-dec books' budget.
+
+## §1409 — 2026-11-12 9:20–9:30 AM CT — x3 near the prune line (1.25×, 5 below it): x3 tests stopped; fallback ready; morning summary
+- Pay x3 $100 (8:46) → $91 (9:16); real line $73; survive.py: x3 1.25×, lowest five unprotected 1.00 / 1.07 / 1.10 / 1.20 / 1.22, field median 2.45, 216 2.87.
+  Live making x3 135 vs x1 313 (identical params; both ≈ 200 of 256 books blocked; x3 24-h ledger median $408k vs x1 $129k → x3 trades at the refill rate).
+- Stopped vtouch at 9:20 AM (timers stopped; x3 on B = proven, identical to x1) — no more 30-min re-quoting on x3 until it recovers.
+- tape_to_x1.sh (ready, NOT run): only if regcheck says x3 is gone — adds tape= to x1, stops/disables x3, gated x1 restart.
+- MORNING_2026-11-12.md written (recommend: no x2 until x3 ≥ 1.5× the line; fix the new-book start budget at the next batched restart).
