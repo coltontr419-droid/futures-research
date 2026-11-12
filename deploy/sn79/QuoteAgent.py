@@ -239,6 +239,8 @@ class QuoteAgent(FinanceAgent):
         self.mk_dec_size = float(getattr(c, "mk_dec_size", 0.0))      # §1313: >0: fleet-style quoting on the 4-dec books (102-127), order size (fraction of wealth; fleet ≈ $4.5k ≈ 0.09)
         self.mk_dec_inside = int(getattr(c, "mk_dec_inside", 1))      # §1313: ticks ahead of OTHER makers' best price (fleet: 1-2 ticks = 51% of its 4-dec $); our own orders never count
         self.mk_dec_deep = float(getattr(c, "mk_dec_deep", 0.27))     # §1313: one deep order this many spreads behind the touch (fleet median 0.27, IQR 0.13-0.49)
+        self.mk_dec_touch = int(getattr(c, "mk_dec_touch", 1))       # §1398: 0 = NO touch order on the 4-dec books, deep order(s) only (UID 46: 4-dec edge +15.9 bp vs x3 +1.5)
+        self.mk_dec_deep2 = float(getattr(c, "mk_dec_deep2", 0.0))   # §1398: >0: a second deep 4-dec order this many spreads behind the touch
         self.mk_calm_hold = int(getattr(c, "mk_calm_hold", 0))       # §1317: >0: calm ladder keeps a resting order up to this many ticks AHEAD of the target (fair / skew moved)
                                                                       # if it is not inside the others' best — fleet orders rest ≈ 107 s and get filled as the price comes to them
         self.mk_pace_hold = float(getattr(c, "mk_pace_hold", 0.0))   # §1317: >0: a paced-out CALM book keeps its orders ≥ 1 tick behind the others' best (touch / inside orders go,
@@ -569,11 +571,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_dec_touch": (0, 1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -708,6 +710,14 @@ class QuoteAgent(FinanceAgent):
         if B in want and S in want and want[B] >= want[S] - 1e-12:
             want[B], want[S] = ob, oa
         return max(3, round(self.mk_dec_deep * (oa - ob) / tick)) if self.mk_dec_deep > 0 else None
+
+    def _dec_levels(self, k, spread_ticks):
+        """§1398: the 4-dec deep levels in ticks: K (from MK_DEC_DEEP) plus, when MK_DEC_DEEP2 > 0, a second level MK_DEC_DEEP2 spreads back (≥ K + 2)."""
+        lv = [k]
+        if self.mk_dec_deep2 > 0:
+            k2 = max(k + 2, round(self.mk_dec_deep2 * spread_ticks))
+            lv.append(k2)
+        return lv
 
     def _vol_ladder(self, response, book_id, orders, want, sq, qty, vq, tick, pd, levels=None, inside=0, expiry=None, tol=None, obest=None, hold=0, no_touch=False):
         """§1279: $300-book quoting. Touch orders at WANT; ladder orders REST anywhere 1..max(MK_VOL_LAD)+2 ticks behind the touch target (no re-pricing
@@ -1270,7 +1280,9 @@ class QuoteAgent(FinanceAgent):
         if self.mk_dec_size > 0 and int(book_id) >= 102:  # §1313 4-dec books, long-lived fleet pattern: just ahead of the others' best + one deep order
             k = self._dec_targets(book, acct.orders, want, tick, pd)
             if k:
-                self._vol_ladder(response, book_id, orders, want, sq, qty, qty, tick, pd, levels=[k], tol=max(1, k // 2))
+                obd = self._others_best(book, acct.orders); spt = round((obd[1] - obd[0]) / tick) if obd and obd[0] is not None and obd[1] is not None else k
+                lvd = self._dec_levels(k, spt)
+                self._vol_ladder(response, book_id, orders, want, sq, qty, qty, tick, pd, levels=lvd, tol=max(1, k // 2), no_touch=not self.mk_dec_touch)
             else:
                 self._cancel_all(response, book_id, acct.orders)   # §1332: spread too tight for the fleet pattern: pull all with ONE instruction
             return

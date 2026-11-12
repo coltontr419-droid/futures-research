@@ -22289,3 +22289,14 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   86–98 ($95–129k) vs pre-x1 104–139 (≈ 15–20% lower) while x1 runs 100–125 — a mild fill collision; x3 live making 173 → 153; x3 ≈ 1.2× the real line.
   Re-check tomorrow ≈ 9–10 AM on a clean window (burst + x1 head start gone): x3 back toward ≈ 300 with ≈ 100+ fills/stretch → GO; else quantify the per-miner
   cost vs combined gain for the user.
+
+## §1398 — 2026-11-11 ≈ 7:45 PM CT — where UID 46 out-earns x3: edge per $ on $300 and 4-dec; two x3 tests queued (user: keep improving x3)
+- grpcap.py (last 3 sim h; edge = fill vs pre-trade mid): $300 x3 +2.11 bp on $3.27M ($450k/book/24 h, pace-bound, spread at fill 2.3 bp) vs UID 46 +6.10 bp on
+  $2.37M ($300k, 3.2 bp); calm x3 +5.36 vs 46 +5.57 (equal); 4-dec x3 +1.53 bp on $1.46M ($449k, pace-bound) vs 46 +15.85 bp on $0.71M ($219k).
+  → x3 spends its whole volume budget at the touch where edge is thin; 46 trades less, deeper / at wider spreads, 3–10× edge per $. With x3 pace-bound,
+  swapping thin touch fills for deep fills raises captured spread directly.
+- T1 vtm (x3 only, live): $300 mk_vol_touch_min 6 vs 0, AABBBBAA (1-h blocks, 4 h — 2-h pools too thin, §1396) 7:45–11:45 PM, read 11:48 PM.
+- Built mk_dec_touch (0 = 4-dec deep-only) + mk_dec_deep2 (second deep level, spreads) — live knobs, defaults = old behaviour; test_pace ALL PASS (+7).
+  Agent 50767f6c staged. Plan: 11:52 PM decide vtm → gated x3 restart onto 50767f6c → T2 decdeep (4-dec deep-only 0.27 + 0.6 spreads vs touch + one deep),
+  AABBBBAA 12:20–4:20 AM, decision 4:27 AM. x1 untouched (it loads the new file only on its own restart; identical by default).
+- Note: x3's 3-sim-h window for the 9:37 AM collision check will include test arms.

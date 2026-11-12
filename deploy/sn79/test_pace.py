@@ -599,6 +599,21 @@ _tm.sleep(0.01); json.dump({"fund_scope": 7}, open(lpf, "w")); os.utime(lpf, Non
 FS._sec = 9700; FS._live_reload()
 check("fund scope: out of range ignored", FS.fund_scope == 2, f"{FS.fund_scope}")
 
+# §1398 4-dec deep-only + second deep level
+DT = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30, mk_dec_size=0.09, mk_dec_deep=0.27)
+check("dec deep2: off by default → one level", DT._dec_levels(8, 30) == [8], f"{DT._dec_levels(8, 30)}")
+_tm.sleep(0.01); json.dump({"mk_dec_touch": 0, "mk_dec_deep2": 0.6}, open(lpf, "w")); os.utime(lpf, None)
+DT._sec = 9800; DT._live_reload()
+check("dec touch/deep2: live-applied", DT.mk_dec_touch == 0 and DT.mk_dec_deep2 == 0.6, f"{DT.mk_dec_touch} {DT.mk_dec_deep2}")
+check("dec deep2: second level 0.6 spreads back", DT._dec_levels(8, 30) == [8, 18], f"{DT._dec_levels(8, 30)}")
+check("dec deep2: second level at least K+2", DT._dec_levels(8, 10) == [8, 10], f"{DT._dec_levels(8, 10)}")
+r = _Resp(); DT._vol_ladder(r, 110, [], {Bd: 1.0000, Sd: 1.0030}, {}, 5.0, 5.0, 0.0001, 4, levels=[8, 18], tol=4, no_touch=True)
+pl = sorted(round(i.price, 4) for i in r.instructions if i.kind == "place")
+check("dec deep-only: no order at the touch, deep levels placed", 1.0 not in pl and 1.003 not in pl and len(pl) >= 2, f"{pl}")
+_tm.sleep(0.01); json.dump({"mk_dec_touch": 5}, open(lpf, "w")); os.utime(lpf, None)
+DT._sec = 9900; DT._live_reload()
+check("dec touch: out of range ignored", DT.mk_dec_touch == 0, f"{DT.mk_dec_touch}")
+
 # §1373 live $300 off switch
 LS = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
 _tm.sleep(0.01); json.dump({"mk_skip_vol": 1}, open(lpf, "w")); os.utime(lpf, None)
