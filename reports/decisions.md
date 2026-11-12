@@ -22398,3 +22398,9 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   stretch counts and within ≈ 10–25% of each other; x3's $ ≈ 10–20% lower (pacing age: ledger near cap). No sign of x1 starving x3 at the fill level.
 - now3h (3-sim-h validator-exact) skipped: the new sim day started at sim 0, so its window still contains x3's restarts and test arms (§1405/§1409 cover the read).
 - x2: NO-GO now — x3 sits at 1.17× the line; a new miner's start burst adds field volume / pressure. Revisit when x3 ≥ 1.5× (expected as its window clears tonight).
+
+## §1411 — 2026-11-12 9:50 AM CT — user: test on x1 while it is protected; x1vsize ($1.8k touch) 10 AM–12 PM
+- User asked to test on x1 (protected until ≈ 12:10 PM) instead of waiting for x3 to recover. x1's new 4-dec fills are thin too (19–50 per half-hour, paced out) →
+  4-dec test would be unreadable; chose the next-biggest lever: touch order size matching UID 46 ($1.8k fills on the $30 and $300 books vs our $1.1k).
+- Tools: abtest_sched_x1.sh (switches write ONLY live_params_27.json; reads us=27, abcredit UIDS "27 46 216"), abgrp_x1.sh (x1 + 46 rows), abcredit.sh reads
+  $UIDS (default unchanged). x1vsize ABBA 10:00 AM–12:00 PM CT, read 12:03, edge-per-$ 12:06, decision 12:10 PM (a win goes to x1 and x3 via live switch).
