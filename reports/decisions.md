@@ -22391,3 +22391,10 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Stopped vtouch at 9:20 AM (timers stopped; x3 on B = proven, identical to x1) — no more 30-min re-quoting on x3 until it recovers.
 - tape_to_x1.sh (ready, NOT run): only if regcheck says x3 is gone — adds tape= to x1, stops/disables x3, gated x1 restart.
 - MORNING_2026-11-12.md written (recommend: no x2 until x3 ≥ 1.5× the line; fix the new-book start budget at the next batched restart).
+
+## §1410 — 2026-11-12 9:40 AM CT — collision check (new 256-book sim day) + x2: NO-GO for now
+- Registered x3 64 / x1 27. Pay 9:26 AM: x3 $91, x1 $100, together $191 (> x3 alone $140 on 11-11 AM). survive.py: x3 1.17× the line, 5 unprotected below (1.00–1.16).
+- Fills per 196-sim-s stretch (new sim, last 8 complete): x3 261–376 ($199–339k), x1 330–380 ($323–402k) — on 256 books both trade ≈ 2.5–3× the old-layout
+  stretch counts and within ≈ 10–25% of each other; x3's $ ≈ 10–20% lower (pacing age: ledger near cap). No sign of x1 starving x3 at the fill level.
+- now3h (3-sim-h validator-exact) skipped: the new sim day started at sim 0, so its window still contains x3's restarts and test arms (§1405/§1409 cover the read).
+- x2: NO-GO now — x3 sits at 1.17× the line; a new miner's start burst adds field volume / pressure. Revisit when x3 ≥ 1.5× (expected as its window clears tonight).
