@@ -22318,3 +22318,11 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
   218 ON BOOK lines in the first minute. x1 untouched (old code in memory; identical by default).
 - decdeep scheduled AABBBBAA 1:10–5:10 AM (07:10–11:10 UTC), read 5:13 AM; decision 5:17 AM judged on 4-dec edge per $ / edge $ (grpcap) since pooled
   whole-miner reads are too thin.
+
+## §1401 — 2026-11-12 ≈ 1:00 AM CT — server-side test queue while the laptop is closed (x3 only; no decisions until I'm back)
+- Laptop closed → session one-shots (5:17 AM decdeep decision, 9:37 AM collision check) fire only when it reopens. Every test's END restores the proven setting,
+  so x3 sits on proven params between tests; nothing is adopted without a read + decision.
+- abgrp.sh <name>: appends per-window edge per $ (grpcap.py, x3 + UID 46 rows) to ab_read_<name>.txt (the deciding read for book-group tests, §1400).
+- Queue (AABBBBAA, 4 h each, lab timers): decdeep 1:10–5:10 AM (+ edge read 5:20); vtouch = $300 touch order 0.011 ($0.55k) vs 0.022 ($1.1k) so more of the
+  paced budget goes to the deep ladder, 5:15–9:15 AM (+ edge read 9:25); decdeep1 = 4-dec deep order 0.5 vs 0.27 spreads (UID 46 4-dec depth p75 0.47),
+  9:20 AM–1:20 PM (+ edge read 1:30 PM). x1 untouched.
