@@ -22444,3 +22444,7 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - x2 test 1 (dec4, 1:01–3:01 PM) runs inside the burst → treat its read as likely distorted (re-run after the nine, per the plan).
 - For the next miner: set pace_start much lower in its unit BEFORE it starts (no restart cost); also in the code batch (new books start small / deep).
 - x1: $107, live 312, 1.21× the line (5 below: 1.00, 1.08, 1.15, 1.16, 1.16).
+- §1416 add. (3:30 PM): x2 test 1 (dec4) edge rows were empty — two bugs: (1) abgrp_x2.sh put "UIDS_EXTRA=191:x2" after `nice` (nice tried to run it) → now
+  `env UIDS_EXTRA=… nice …`; (2) grpcap.py printed only the hard-coded rows x3/x1/46 → now every name in U; UID 64 dropped from U (pruned, new owner).
+  Re-read: dec4 A1 (burst) $300 $4.5M edge $552; 4-dec A1 +0.68 bp / A2 +1.14 bp vs B +0.74 / +0.74 bp ($489k A2 vs $1.08–1.77M B) → burst-distorted, promising
+  → re-run after the nine (plan).
