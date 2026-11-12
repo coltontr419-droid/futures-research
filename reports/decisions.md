@@ -22378,3 +22378,9 @@ Validator-exact credit (making_exact.py, 3-sim-h windows on live_tape_x3; reprod
 - Note: the $30 books are now x3's best group: ≈ 180–205 fills, $200–224k, edge +3.0–3.2 bp, edge $ 63–68 per half-hour.
 - vlad on x3: $300 ladder 2:4:7:12 vs 1:2:4:7 (now books 0–191), ABBA 6:10–8:10 AM, read 8:13, edge-per-$ 8:16, decision 8:20 AM (a win goes to both miners —
   it changes how the new $30 books are quoted).
+
+## §1408 — 2026-11-12 8:20 AM CT — vlad (deeper $300 ladder) = tie → kept 1:2:4:7; vtouch started
+- vlad (ABBA 6:10–8:10 AM, flash 0/0), pooled edge-per-$ (x3): $300 0–127 A $311k / edge $42 / +1.35 bp vs B $361k / $44 / +1.22 bp (+11% per $, edge $ −4%);
+  $30 A $413k / $119 / +2.88 vs B $439k / $132 / +3.00. Whole-miner (thin) A credit 8.2 (q 0.475) vs B 3.8 (q 0.331); per fill $300 −0.63 ± 0.47, 4-dec
+  ignored (untouched). → not ≥ 20% / edge $ not up → tie → kept B on both miners.
+- vtouch on x3: $300-ladder touch order 0.011 vs 0.022 (books 0–191), ABBA 8:30–10:30 AM, decision 10:40 AM. decdeep waits for the new 4-dec books' budget.

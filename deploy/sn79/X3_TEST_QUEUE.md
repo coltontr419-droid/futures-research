@@ -20,8 +20,8 @@ regime46.py (§1404, new sim): $30 books — 46 at the touch on all 64, never ah
 +2.9 bp on 39–46 books; new 4-dec 192–255 — ours $2.8M each at +0.9 bp vs 46 $0.14M deep (≈ 200–500 ticks) at +2.6 bp; $300 0–127 — 46 depth ≈ 3 ticks +1.5 bp vs ours ≈ 1 tick +1.1.
 0. bmap — DONE §1406: CLEAR WIN ($30 books: x3 178–180 fills / $196k / edge $56–58 per half-hour vs 5–8 / $16–29k / $3–6; edge per $ +2.9 vs +1.7–2.0) → applied to x3 AND x1 (x1 restarted onto 12372763, 3:40 AM).
 1. decdeep — RAN 3:50–5:50 AM: TOO THIN (x3 4-dec fills 9–27 per half-hour — the new 4-dec books are pace-blocked after their start burst) → kept B; RE-RUN when the 4-dec budget has refilled (later 11-12) — new 4-dec books 192–255 deep-only: A '"mk_dec_touch": 0, "mk_dec_deep2": 0.6' vs B '"mk_dec_touch": 1, "mk_dec_deep2": 0' (we pour ≈ $2.8M at +0.9 bp there).
-2. vlad — RUNNING 6:10–8:10 AM (decision 8:20) — $300 ladder deeper (46 depth ≈ 3 ticks): A '"mk_vol_lad": "2:4:7:12"' vs B '"mk_vol_lad": "1:2:4:7"' — now covers 0–191 under the new map.
+2. vlad — DONE §1408: tie ($300 edge/$ +1.35 vs +1.22 bp, edge $ 42 vs 44; $30 +2.88 vs +3.00) → kept 1:2:4:7 — $300 ladder deeper (46 depth ≈ 3 ticks): A '"mk_vol_lad": "2:4:7:12"' vs B '"mk_vol_lad": "1:2:4:7"' — now covers 0–191 under the new map.
 3. decdeep1 — 4-dec deep order further: A '"mk_dec_deep": 0.5' vs B '"mk_dec_deep": 0.27'.
-4. vtouch — $300-ladder touch half size: A '"mk_vol_size": 0.011' vs B '"mk_vol_size": 0.022'.
+4. vtouch — RUNNING 8:30–10:30 AM (decision 10:40) — $300-ladder touch half size: A '"mk_vol_size": 0.011' vs B '"mk_vol_size": 0.022'.
 5. vladsz — ladder size: A '"mk_vol_lad_size": 0.04' vs B 0.027.  6. decsz — 4-dec size: A '"mk_dec_size": 0.06' vs B 0.09.
 (Every test after bmap runs ON the bmap winner's map. Skip items made moot; add items from the reads. 9:37 AM collision check in between.)
