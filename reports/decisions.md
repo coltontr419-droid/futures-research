@@ -22482,3 +22482,14 @@ the 256-book layout (lesson); the 7:08 AM decision now uses pay-weighted edge $ 
   every remaining x2 test (dec4b, lowsz, lowlad, lowls, vsz, low46). On test 3 it already separates: $30 books 46 +1.0…+1.2 bp with 7–11 kept books,
   x2 −0.2 bp with 0. The calm-pattern test (calmv) was replaced by "low46": $30 touch $0.55k + ladder 1:2:3 at $1.8k vs base (5:01–7:01 AM CT).
 - The 7:08 AM decision adds skill: an arm that moves x2's $30 books toward ≥ 10 kept positive books (and kappa > 0) counts as a win even at equal pay-weighted edge.
+
+## §1422 — 2026-11-12 ≈ 8:00 PM CT — Reference switched to UID 252 (user); its owner runs 35 UIDs — what they run
+- User: switch the reference from UID 46 to UID 252 (46 earns mostly 0.6–0.95× the field median; 252 ran 1.23× typical, worst 0.91×, over 7 days at 29.8 d old).
+- 252's coldkey 5F1F2JMu (also 216, 139) runs **35 UIDs** (≈ 14% of the subnet). Pay $35–$251/month, most $115–$235 (≈ 0.5–1.1× median $221).
+- **Core strategy (≈ 25 UIDs, ages 1–32 d): identical-looking pure makers** — no taker volume, ≈ $32–36M/day maker volume once settled (≈ $12–18M at 1 day,
+  $24–27M at 2.5 days), LOW making credit (≈ 10–100 vs x1 265), net alpha positive on the $300 books (+120…+350) and mostly on the $30 books (+10…+270),
+  negative on the 4-dec books (−100…−400) where they make almost no credit (0–24). → identical makers DO collect skill side by side (25 at once), unlike our §1289 fear.
+- **Variants:** 252 (maker $71M/day + taker $3.6M/day; now net α −960, still top pay $241), 251 (taker $22.8M/day), 15 (taker only), 97 / 139 (high-volume makers
+  $84–93M/day; 139 the only one with big making credit 347 and big 4-dec credit 94), 103 ($300-heavy, 576 credit there).
+- x1 by contrast: $17.8M/day maker volume, making 265, net α −217 → $122. The fleet core trades ≈ 2× our volume for ¼ of our making credit but positive alpha.
+- Reads now include 252 (grpcap UIDS_EXTRA, skill_ab uids 191 252 46 216). Caveat: 252 takes; copy its quoting only, never the taker leg.
