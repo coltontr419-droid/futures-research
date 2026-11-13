@@ -22511,3 +22511,12 @@ Pay-weighted (×1.34) 16 vs 24 → B +50% and better edge per $. Skill on 4-dec:
 (252 / 46 no fills, 216 negative) → making decides there. No flash exposure. → keep mk_dec_touch 1, mk_dec_deep2 0. Test 1's promise came from the start burst.
 Reference check from the same read: UID 252 on $300 books +0.59 bp with 11–12 kept positive books per 1-h arm (kappa +1.0…+2.6); x2 0–1 kept, −0.35…−0.45 bp.
 fmv1 (fundamental-move lean) started 9:01:01 PM CT on time.
+
+## §1425 — 2026-11-12 11:20 PM CT — fmv1 (fundamental-move lean 1.0) = no skill change; why; fmv2 replaced by fmvin (lean + inside)
+- Skill per arm ($300): A (lean) −0.22 bp, kept +4 −5, kappa −0.32 vs B −0.12 bp, +3 −5, −0.47; $30 −0.23 vs −0.26. Reference 252 $300 +0.36 / +0.42 bp (8–9 kept +).
+  Pay-weighted edge $ A ≈ 44 vs B ≈ 45 (tie). No flash exposure.
+- fundmove256 per arm (x2, $300): fills after the fundamental moved AGAINST the order 4% / 5% of $ (A) vs 11% (B); moved WITH 10% / 6% (A) vs 13% (B);
+  "flat" 86–89% vs the core fleet's ≈ 50% (fleet: 42–48% WITH, 2–4% AGAINST, same windows). → the lean removes bad fills but adds no good ones.
+- Cause (code): bid_px = min(bid (+tick if inside), fair − edge·tick, ask − tick): the lean can only pull a quote back. With mk_vol_inside on, the favourable side
+  steps one tick in while the lean holds the other side back — the fleet's pattern. → fmv2 (lean 2.0, 3:01–5:01 AM) replaced by **fmvin**: fund_mv 1.0 cap 2 +
+  mk_vol_inside 2 vs all off (re-assert, grpcap, skill reads scheduled). The 5:01 AM "fleet" test already combines lean 1.0 + inside 3 + $2.2k + $30 shape.
