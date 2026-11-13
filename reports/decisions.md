@@ -22532,3 +22532,8 @@ fmv1 (fundamental-move lean) started 9:01:01 PM CT on time.
 - x1 live making fell 245 (9 PM) → 130 (11:37 PM) → 35 (1 AM) → 0 (2 AM–5 AM): captured 98 but realized clamped at 0. Field-wide: only 130 of 255 UIDs have making > 0,
   field median making ≈ 40 (≈ 120 last evening); 216 18, 252 33, 46 50. No flash jumps; big moves after ≈ 3 AM (4-dec median |move| 42 bp per 30 sim min).
   x1 pay still $130 (EMA lag) at 1.29× the prune line; watch through the day.
+
+## §1427 — 2026-11-13 5:20 AM CT — low30f re-read (both tapes): making WIN, skill neutral after reference control
+$30 x2: A (touch $1.6k + one level 1 tick back) edge $ 30 + 30 = 60 on $229k (+2.6 bp, 146 fills) vs B (1:2:4:7) 22 + 26 = 48 on $183k (+2.6 bp, 176 fills) → +25% edge $.
+Skill $30: x2 A −0.01 bp (+4 −3) vs B −0.16 (+1 −3), but the references rose more in the A windows (252 +0.97 vs +0.25, 216 +1.10 vs +0.53) → no relative skill gain.
+Rule from now: skill verdict = Δ(x2) − mean Δ(252, 216) in the same windows. With it: vfleet $300 +0.40 vs refs +0.04 → real skill gain; fmvin $300 −0.06 vs refs ≈ −0.03 → none.
