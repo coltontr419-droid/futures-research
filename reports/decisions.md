@@ -22659,3 +22659,9 @@ User: make sure nothing hidden separates us from 252 / long-lived miners. gdiff.
   likely pruned at the next registration. Tests therefore run as 1-h ABBA with 15-min blocks (abtest_sched_x2_15.sh): x2rest 11:16 AM–12:16 PM (A = FINAL + mk_vol_jump 3 +
   mk_vol_lean_only 1 vs FINAL), reads 12:19 / 12:22 / 12:28 (before protection ends); x2low2 12:16–1:16 PM (mk_low_touch_min 2 vs 0). 15-s re-asserts, grpcap (+252),
   skill reads. Decisions ≈ 12:31 PM and ≈ 1:31 PM.
+
+## §1438 — 2026-11-13 11:25 AM CT — x1 (UID 27) PRUNED; cleaned up; x2 alone (tape + tests)
+x1 was already unregistered when it restarted at 11:00:28 AM CT ("is not registered on netuid 79" at 11:00:37) → pruned between ≈ 10:50 (lowest unprotected, 1.00× the line)
+and 11:00. UID 27 now belongs to a new owner (age 0.5 h at 11:22). mvtrx-x1 stopped + disabled (was restart-looping in "activating"); 27 removed from our_uids.txt (backup
+our_uids.txt.pre-x1prune-1113) so the self-trade monitor no longer watches the new owner; selftrade 0. The tape had already moved to x2 (§1437) → no gap.
+Early presence read during x2rest arm A (rest behind the touch + lean step-in): x2 order_books 39 at 11:22 (24 before), 252 192.
