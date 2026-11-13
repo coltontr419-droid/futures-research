@@ -687,6 +687,20 @@ check("jump: 4-dec skip gate and $30 own touch minimum present in the source",
       'if self.mk_skip_dec and self._g(book_id) == "dec"' in src and "tm_v = self.mk_low_touch_min if self._is_low(int(book_id)) else self.mk_vol_touch_min" in src
       and "self._jumped[int(book_id)].add(OrderDirection.BUY)" in src, "gates")
 
+# §1435 per-side no-touch (lean-only touch on $300 books)
+LO2 = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10")
+check("lean-only: switch defaults off", LO2.mk_vol_lean_only == 0, f"{LO2.mk_vol_lean_only}")
+r = _Resp(); LO2._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, no_touch={Sd})
+pl = sorted((i.side == Sd, i.price) for i in r.instructions if i.kind == "place")
+check("lean-only: no_touch={SELL} keeps the bid touch, drops only the ask touch, ladders on both sides",
+      (False, 299.0) in pl and (True, 299.06) not in pl and any(sd for sd, _ in pl) and (True, 299.08) in pl, f"{pl}")
+r = _Resp(); LO2._vol_ladder(r, 7, [_OQ(1, Sd, 299.06, 5.0)], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, no_touch={Sd})
+check("lean-only: a resting ask AT the touch is cancelled when its side has no touch", any(i.kind == "cancel" for i in r.instructions), f"{[(i.kind, i.price) for i in r.instructions]}")
+r = _Resp(); LO2._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, no_touch=set())
+pl = sorted((i.side == Sd, i.price) for i in r.instructions if i.kind == "place")
+check("lean-only: an empty set changes nothing", (False, 299.0) in pl and (True, 299.06) in pl, f"{pl}")
+check("lean-only: wired on $300 books only, off on $30", "else {OrderDirection.BUY, OrderDirection.SELL} - set(self._jumped.get(int(book_id), ()))" in src and "not self.mk_vol_lean_only or self._is_low(int(book_id))" in src, "wiring")
+
 # §1308 trade-flow pull helper
 TF = agent(new_path, pace_cap=450000, mk_tflow_usd=1000, mk_tflow_win=10); TF._sec = 100
 TF._sflow = {7: {91: 5.0, 95: 3.0, 99: 2.0, 85: 50.0}}

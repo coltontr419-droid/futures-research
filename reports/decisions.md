@@ -22624,3 +22624,20 @@ Lean on x1: NOT yet — the $300 skill gain appeared with and without the lean (
 - Tests on x1 (user: any change allowed): x1jump 10:31 AM–12:31 PM (A lean 1.0 + jump 3 vs B lean 1.0 + jump 0); x1low2 12:31–2:31 PM ($30 touch only when spread ≥ 2 ticks
   vs always). Each with 15-s re-assert, grpcap (+252) and skill reads (UIDs 27 252 46 216). 4-dec off NOT tested: under the fees 4-dec making ≈ 0 and its skill class is
   out of reach, so skipping it changes no pay now — but 4-dec credit is worth ≈ 10× per unit once fees fall; keep quoting it.
+
+## §1435 — 2026-11-13 ≈ 10:50 AM CT — Hidden-difference audit vs 252/216 (all validator gauges): PRESENCE and RESPONSE TIME; lean-only build dc5e46b0; x1 tests re-planned
+User: make sure nothing hidden separates us from 252 / long-lived miners. gdiff.py (every miner_gauge, current run, x1/x2 vs 252/216/46 + field median):
+- **Presence (biggest):** order_books x1 23 / x2 26 vs 252 192 / 216 256 (field 76); open bids/asks ≈ 41–49 vs 188–254; resting notional ≈ $80k vs $560–680k per side;
+  min_roundtrip_volume $0 vs $12.6–22.8k (we have one-sided books → 2·min = 0 making there); yet debeta_at_best_seconds 165k–278k vs 93–96k (we sit AT the touch far more).
+  Cause: pacer token bucket (pace_burst 900 s ≈ $4.7k per book): x1 trades ≈ $200k/book/day (44% of the refill) but PACE STATUS shows 228–238 of 256 books blocked →
+  when a book is live our at-the-touch quotes are hit at many times the fleet's rate, the bucket empties in minutes, the book goes dark. The fleet rests behind the touch on
+  ~all books and steps in with fundamental moves (44% WITH fills), at ≈ the same total $/book. Charging is correct (one spend per fill). Bigger pace_burst would NOT help
+  (attack suite: worst-24h identical for 900–14,400 s; only longer idle cycles) — the fix is quoting, not the bucket.
+- **Response time:** call_time x1 0.41 s / x2 0.41 vs 252 0.15 / 216 0.14 (field median 0.31; p5 0.33 vs 0.07). Delay curve (min 10 ms, max 1 s, timeout 3 s): ≈ 16 ms vs 12 ms
+  sim delay → within each round the fleet's orders reach the book first (queue priority / first to step in). Real but secondary; agent compute optimisation = next build.
+- Smaller: refused 65 vs 0, failures 4 vs 0 (x1 restarts); skill_net_alpha_mark_alt −1,970 vs +753 (median mark, published only). GenTRX 0 for all four. Counterparty factors,
+  presence share, coverage, s3 all equal.
+- Built dc5e46b0 (backup QuoteAgent.pre-leanonly.py): _vol_ladder no_touch accepts a SET of sides (ladder stays on both); live knob mk_vol_lean_only = on $300 books a touch
+  order only on the side the lean jump favours, ladder otherwise. test_pace ALL PASS (+5). x1 restarted 10:32:41 AM CT (lean off as base; 228/256 blocked; 0 errors).
+- x1jump (started 10:31) cancelled (x1 present on ~25 books → test crippled); x1rest 10:51 AM–12:51 PM: A = lean 1.0 + jump 3 + lean-only vs B = at-the-touch, no lean — judged
+  on presence first (order_books gauge, PACE blocked), then $300 skill net of refs, WITH share; x1low2 moved to 12:51–2:51 PM. Decisions ≈ 1:06 PM and ≈ 3:06 PM.
