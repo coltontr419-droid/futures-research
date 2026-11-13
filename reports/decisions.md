@@ -22549,3 +22549,19 @@ Rule from now: skill verdict = Δ(x2) − mean Δ(252, 216) in the same windows.
   x1: 0 making in every class, no skill → its share drains to the UIDs still scoring. Pay is a share of a fixed pot: field median pay steady ($212).
 - Not yet explained: why the validator's realized/quality falls while our own 20-s markouts for the core stay positive (centred-mid capture vs our mid). Next: replicate with the 0.6.7 code.
 - Actions: report to the user; suggest raising it on the MVTRX Discord (user's call); keep the skill-first plan; if x2's confirmation passes, move its $300 settings to x1 by live switch (pre-approved 256-book win rule).
+
+## §1429 — 2026-11-13 ≈ 6:55 AM CT — Deep dive of the "test" branch link: nothing new there; the making collapse = the DYNAMIC MAKER FEE (missed until now)
+- github taos-im/sn-79 branch "test" = main = 20e9785 "0.6.7 final" (11-10) — the version already live; open PRs are from August. Only paid-scoring default changed
+  0.6.6 → 0.6.7: none (mark_mode_alt last → median is published, not paid). Missed until now: the engine's FeePolicy type="dynamic" and the making fee netting.
+- Engine (simulate/trading/src/cpp/matching/DynamicFeePolicy.cpp, config simulation_*.xml): base maker 0, taker 2.3 bp; PER BOOK the passive share of MINER volume
+  (agentId ≥ 0; background excluded) over the book's last 300 trade slots, MTR = passive ÷ (passive + aggressive); target 0.4; above it the maker FEE rises as
+  coef × (MTR − 0.4)^2 toward maxMakerRate 1.5% (150 bp) and takers get the same as a REBATE. → too much miner making vs miner taking on a book = high maker fees.
+- Measured (tape, Mf / notional): current run $300 82 → 109 → 114 bp, $30 119 → 128 bp, 4-dec 38 → 90 → 44 bp (rising through the run); previous runs' $300 mostly
+  20–40 bp (−3…+76). Per book now 100–141 bp; differences between makers on a book = timing.
+- Validator: making credit per maker fill = (mid − price)·q − making_fee_weight × Mf, weight 0.005 (help: "stepped… raised at later boundaries") → at 110–140 bp the
+  netting is 0.55–0.7 bp per fill vs our $300 edge ≈ 1.2–1.3 bp before the 20-s markout → realized ≤ 0 for thin-edge makers → the field-wide making decay (§1428).
+  Fees are NOT in skill (debeta mtm: only the taker's fill-vs-mark charge) → taker rebates pay nothing in scoring; skill unaffected (fleet still paid).
+- What still earns $300 making now: wider/deeper quotes — UID 23 (top $300 maker) 79% of $ ≥ 2 ticks back, edge at fill +2.3 bp vs ours +1.3.
+- Levers: (1) live now: mk_vol_touch_min N (no $300 touch order while the spread < N ticks) + a deeper $300 ladder → more edge per fill; (2) next build: read
+  accounts[book].fees maker_fee_rate each round and require half-spread ≥ 0.005 × rate + margin per book (skip/widen high-fee books); (3) the fee is a field-wide
+  per-book state driven by miner maker/taker mix — skill-first remains the robust path.
