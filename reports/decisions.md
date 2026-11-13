@@ -22520,3 +22520,15 @@ fmv1 (fundamental-move lean) started 9:01:01 PM CT on time.
 - Cause (code): bid_px = min(bid (+tick if inside), fair − edge·tick, ask − tick): the lean can only pull a quote back. With mk_vol_inside on, the favourable side
   steps one tick in while the lean holds the other side back — the fleet's pattern. → fmv2 (lean 2.0, 3:01–5:01 AM) replaced by **fmvin**: fund_mv 1.0 cap 2 +
   mk_vol_inside 2 vs all off (re-assert, grpcap, skill reads scheduled). The 5:01 AM "fleet" test already combines lean 1.0 + inside 3 + $2.2k + $30 shape.
+
+## §1426 — 2026-11-13 ≈ 5:25 AM CT — overnight x2 reads: vfleet skill gain, fmvin no gain; tape rotation broke two reads (fixed); x1 live making 0 (field-wide)
+- vfleet ($300 $2.2k + inside 3 vs $1.1k, never inside): $300 skill A −0.06 bp, kept +3 −4, kappa +0.20 vs B −0.46 bp, +1 −6, −0.42 → skill better;
+  $300 edge $ A 17 + 20 = 37 (+1.0 bp) vs B 23 + 31 = 54 (+1.4 bp) → making edge −31% in the group that pays least (≈ −2 pay units of ≈ 45–60). Likely WIN on skill.
+- fmvin (lean 1.0 + inside 2 vs off): $300 skill A −0.16 bp, +1 −3, −0.53 vs B −0.10 bp, +5 −4, −0.03; edge $ A 38 (+1.0 bp) vs B 51 (+1.3 bp) → LOSS / no gain.
+  So far the only skill gain came with the larger $2.2k orders (vfleet); the lean (alone or with inside) has not moved skill. 1-h-arm skill reads are noisy
+  (252 swings +0.36…+0.83 bp between tests) — the 5–7 AM "fleet" test and the confirmation decide.
+- low30f: its skill read (live tape only) ran after the 3:07 AM CT tape rotation (mvtrx-taperotate, 09:07 UTC daily — missed last night) → empty; its grpcap read ran
+  DURING the rotation → empty rows. skillread_ab.sh now reads .prev + live; both low30f reads re-queued (chained after fmvin's skill read). Lesson recorded.
+- x1 live making fell 245 (9 PM) → 130 (11:37 PM) → 35 (1 AM) → 0 (2 AM–5 AM): captured 98 but realized clamped at 0. Field-wide: only 130 of 255 UIDs have making > 0,
+  field median making ≈ 40 (≈ 120 last evening); 216 18, 252 33, 46 50. No flash jumps; big moves after ≈ 3 AM (4-dec median |move| 42 bp per 30 sim min).
+  x1 pay still $130 (EMA lag) at 1.29× the prune line; watch through the day.
