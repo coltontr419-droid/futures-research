@@ -22493,3 +22493,14 @@ the 256-book layout (lesson); the 7:08 AM decision now uses pay-weighted edge $ 
   $84–93M/day; 139 the only one with big making credit 347 and big 4-dec credit 94), 103 ($300-heavy, 576 credit there).
 - x1 by contrast: $17.8M/day maker volume, making 265, net α −217 → $122. The fleet core trades ≈ 2× our volume for ¼ of our making credit but positive alpha.
 - Reads now include 252 (grpcap UIDS_EXTRA, skill_ab uids 191 252 46 216). Caveat: 252 takes; copy its quoting only, never the taker leg.
+
+## §1423 — 2026-11-12 ≈ 8:30 PM CT — Target skill by copying the 5F1F2JMu core makers; tonight's tests 5–9 replaced
+- profile.py (120 sim min, current sim): core pure makers 216/40/52/134 vs x1/x2. $300: avg fill $2.2k vs $0.85k; ≈ 33% of $ inside the spread vs 0%;
+  mid move after the fill +0.3 / +0.7 / +1.2 bp at 20 s / 2 min / 10 min vs ours −0.6 throughout. $30: fill $1.6k vs $1.1–1.4k, 21–24% of $ one tick back vs 3–4%,
+  edge at fill +3.7…+4.0 vs +2.8, $11–17k per book per sim h vs x1 $30k / x2 $72k. 4-dec: the core barely quotes (mostly deep, $3–5k/book/sim h).
+- fundmove256.py ($300, Δfundamental over the prior 10 s): core 47% of $ filled after the fundamental moved WITH the order, 3% against; us 10% / 13%.
+  Move after fill: core +0.35 bp, us −0.65. → the fleet's skill comes from quoting with fundamental moves. fm11 (§1383) tested fund_mv 0.5 but judged it on
+  making credit (no skill read then) — re-tested now on skill.
+- x2 tests replaced (lowsz/lowlad/lowls/vsz/low46 timers stopped): fmv1 (fund_mv 1.0 cap 2) 9:01 PM, vfleet ($300 $2.2k + inside ≥ 3 ticks) 11:01 PM,
+  low30f ($30 touch $1.6k + level 1 $1.6k) 1:01 AM, fmv2 (fund_mv 2.0 cap 3) 3:01 AM, fleet (all three) 5:01 AM CT; each with grpcap + skill reads.
+  The lean applies to the $300 AND $30 books (book_map "low" maps to "vol" in _fund_mv_shift); the skill read splits them.

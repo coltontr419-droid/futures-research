@@ -24,3 +24,13 @@ reach x1 only at a future planned restart (x1 runs 12372763 in memory).
 Start: `sh /opt/mvtrx/start_x2.sh <uid>` (registration check, agent swap on disk, our_uids, schedules all 9 tests from start + 30 min, starts mvtrx-x2).
 
 From §1421 every test from dec4b on also gets a per-arm SKILL read (skill_ab.py, validator alpha loop, appended ≈ 12 min after the test ends).
+
+## §1423 (11-12 ≈ 8:30 PM CT): tests 5–9 REPLACED by fleet-copy tests (target = SKILL, copy the 5F1F2JMu core pure makers 216/40/52/134; reference 252)
+| # | CT | Test (A vs B) | Why |
+|---|---|---|---|
+| 5 | 9:01–11:01 PM | fmv1: fundamental-move lean 1.0 (cap 2 spreads) vs off | core makers: 47% of $300 $ filled right after the fundamental moved their way, 3% against (us 10% / 13%); price after fill +0.35 bp vs us −0.65 |
+| 6 | 11:01 PM–1:01 AM | vfleet: $300 orders $2.2k + one tick inside when spread ≥ 3 ticks vs $1.1k, never inside | core: avg $300 fill $2.2k (us $0.85k), ≈ 33% of $ inside the spread (us 0%) |
+| 7 | 1:01–3:01 AM | low30f: $30 touch $1.6k + one level 1 tick back $1.6k vs base 1:2:4:7 | core: 21–24% of $30 $ one tick back (us 3–4%), edge +3.8 bp (us +2.8), half our volume per book |
+| 8 | 3:01–5:01 AM | fmv2: lean 2.0 (cap 3) vs off | dose check |
+| 9 | 5:01–7:01 AM | fleet: all three together vs base | preview of the confirmation |
+Judged on the per-arm SKILL block + price move after the fill FIRST, pay-weighted edge $ second. lowsz / lowlad / lowls / vsz / low46 cancelled.
