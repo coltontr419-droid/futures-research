@@ -22504,3 +22504,10 @@ the 256-book layout (lesson); the 7:08 AM decision now uses pay-weighted edge $ 
 - x2 tests replaced (lowsz/lowlad/lowls/vsz/low46 timers stopped): fmv1 (fund_mv 1.0 cap 2) 9:01 PM, vfleet ($300 $2.2k + inside ≥ 3 ticks) 11:01 PM,
   low30f ($30 touch $1.6k + level 1 $1.6k) 1:01 AM, fmv2 (fund_mv 2.0 cap 3) 3:01 AM, fleet (all three) 5:01 AM CT; each with grpcap + skill reads.
   The lean applies to the $300 AND $30 books (book_map "low" maps to "vol" in _fund_mv_shift); the skill read splits them.
+
+## §1424 — 2026-11-12 9:15 PM CT — x2 dec4b (re-run: 4-dec deep-only vs touch + one deep) = LOSS for deep-only → keep the touch
+4-dec x2: A (deep-only) $62k + $97k, edge $ 5 + 7 = 12, +0.78 / +0.75 bp, 76 fills; B (touch + deep) $88k + $114k, edge $ 8 + 10 = 18, +0.92 / +0.87 bp, 127 fills.
+Pay-weighted (×1.34) 16 vs 24 → B +50% and better edge per $. Skill on 4-dec: A −0.40 bp vs B −1.00 bp, but no UID qualifies for skill on 4-dec books
+(252 / 46 no fills, 216 negative) → making decides there. No flash exposure. → keep mk_dec_touch 1, mk_dec_deep2 0. Test 1's promise came from the start burst.
+Reference check from the same read: UID 252 on $300 books +0.59 bp with 11–12 kept positive books per 1-h arm (kappa +1.0…+2.6); x2 0–1 kept, −0.35…−0.45 bp.
+fmv1 (fundamental-move lean) started 9:01:01 PM CT on time.
