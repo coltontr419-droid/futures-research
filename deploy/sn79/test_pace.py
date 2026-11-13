@@ -701,6 +701,64 @@ pl = sorted((i.side == Sd, i.price) for i in r.instructions if i.kind == "place"
 check("lean-only: an empty set changes nothing", (False, 299.0) in pl and (True, 299.06) in pl, f"{pl}")
 check("lean-only: wired on $300 books only, off on $30", "else {OrderDirection.BUY, OrderDirection.SELL} - set(self._jumped.get(int(book_id), ()))" in src and "not self.mk_vol_lean_only or self._is_low(int(book_id))" in src, "wiring")
 
+# §1440 soft pacing (stay present, sizes shrink), fee-aware widening, config cache
+def soft_attack(a, days=3, seed=1, order=3000.0, sides=2, step=1):
+    """attack() with the order size scaled by the soft-pacing factor (as _quote does). Also returns the share of steps the gate was open."""
+    rng = random.Random(seed); b = 70; fills = collections.deque(); roll = worst = 0.0; n = 0; open_ = 0; steps = 0
+    for t in range(0, days * DAY, step):
+        a._sec = t; steps += 1
+        if a._paced_out(b):
+            continue
+        open_ += 1; f = a._pace_factor(b)
+        for _ in range(rng.randint(1, sides)):
+            v = order * f * rng.uniform(.3, 1.0); fill(a, b, t, v, True); fills.append((t, v)); roll += v; n += 1
+        while fills and fills[0][0] <= t - DAY:
+            roll -= fills.popleft()[1]
+        worst = max(worst, roll)
+    return worst, open_ / steps, n
+for name, kw in (("typical $3k orders", {}), ("large $10k orders", {"order": 10000.0}), ("two sides each step", {"sides": 2, "order": 3000.0}), ("one huge $50k sweep each time", {"order": 50000.0, "sides": 1})):
+    sa = agent(new_path, pace_cap=450000, pace_soft=5000, pace_soft_min=0.1); w, op, n = soft_attack(sa, **kw)
+    ha = agent(new_path, pace_cap=450000); wh, oph, nh = soft_attack(ha, **kw)
+    check(f"soft pacing, {name}", w < CAP, f"worst 24h ${w:,.0f} of ${CAP:,.0f} | gate open {op:.0%} of the time (hard pacing {oph:.0%}) | {n} fills")
+def toggle_attack(a, days=3, seed=2, order=10000.0, sides=2):
+    rng = random.Random(seed); b = 70; fills = collections.deque(); roll = worst = 0.0
+    for t in range(0, days * DAY):
+        a._sec = t; a.pace_soft_on = 1 if (t // 3600) % 2 == 0 else 0     # live switch flipped every sim hour
+        if a._paced_out(b): continue
+        f = a._pace_factor(b)
+        for _ in range(rng.randint(1, sides)):
+            v = order * f * rng.uniform(.3, 1.0); fill(a, b, t, v, True); fills.append((t, v)); roll += v
+        while fills and fills[0][0] <= t - DAY: roll -= fills.popleft()[1]
+        worst = max(worst, roll)
+    return worst
+TA = agent(new_path, pace_cap=450000, pace_soft=5000, pace_soft_min=0.05)
+w = toggle_attack(TA); check("soft pacing: live on/off flipped every hour, $10k orders", w < CAP, f"worst 24h ${w:,.0f} of ${CAP:,.0f}")
+TA2 = agent(new_path, pace_cap=450000, pace_soft=5000, pace_soft_min=0.05)
+w = toggle_attack(TA2, order=50000.0, sides=1); check("soft pacing: live on/off flipped every hour, $50k sweeps", w < CAP, f"worst 24h ${w:,.0f} of ${CAP:,.0f}")
+OFF = agent(new_path, pace_cap=450000, pace_soft=5000, pace_soft_min=0.05, pace_soft_on=0)
+check("soft pacing: pace_soft_on 0 → hard behaviour", OFF._pace_factor(73) == 1.0, f"{OFF._pace_factor(73)}")
+SP = agent(new_path, pace_cap=450000, pace_soft=5000, pace_soft_min=0.1); SP._sec = 100
+check("soft pacing: full bucket → full size", abs(SP._pace_factor(71) - 1.0) < 1e-9, f"{SP._pace_factor(71):.2f}")
+SP._tok_spend(71, 100, SP.pace_rate * SP.pace_burst + 5000 - 1.0)
+check("soft pacing: at the floor → minimum size, still open", abs(SP._pace_factor(71) - 0.1) < 1e-6 and not SP._paced_out(71), f"factor {SP._pace_factor(71):.2f} open {not SP._paced_out(71)}")
+SP._tok_spend(71, 100, 10.0)
+check("soft pacing: below the floor → dark", SP._paced_out(71), "paced out")
+HP = agent(new_path, pace_cap=450000)
+check("soft pacing: off by default (factor 1, hard gate at 0)", HP.pace_soft == 0 and HP._pace_factor(72) == 1.0, f"{HP.pace_soft}")
+class _AF:  # account with the raw fee rate
+    fee_m = 0.012
+FE = agent(new_path, pace_cap=450000, mk_fee_k=1.0)
+check("fee-aware: 120 bp maker fee on a $300 book → 2 ticks", FE._fee_ticks(_AF(), 300.0, 0.01) == 2, f"{FE._fee_ticks(_AF(), 300.0, 0.01)}")
+check("fee-aware: off by default", agent(new_path, pace_cap=450000)._fee_ticks(_AF(), 300.0, 0.01) == 0, "0")
+check("fee-aware + speed wiring present", "ft = self._fee_ticks(acct, mid, tick)" in src and "(self.alpha_k or self.pull or self.take or self.trend_z)" in src and "def config_for(self, book_id)" in src, "wiring")
+class _SC:
+    n = 0
+    def config_for_book(self, b): _SC.n += 1; return ("cfg", b)
+CC = agent(new_path, pace_cap=450000); CC.simulation_config = _SC(); CC._sec = 50
+CC.config_for(5); CC.config_for(5); CC.config_for(6)
+c1 = _SC.n; CC._sec = 50 + 700; CC.config_for(5)
+check("speed: config cached per book, refreshed after 600 sim s", c1 == 2 and _SC.n == 3, f"lookups {c1} then {_SC.n}")
+
 # §1308 trade-flow pull helper
 TF = agent(new_path, pace_cap=450000, mk_tflow_usd=1000, mk_tflow_win=10); TF._sec = 100
 TF._sflow = {7: {91: 5.0, 95: 3.0, 99: 2.0, 85: 50.0}}

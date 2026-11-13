@@ -22677,3 +22677,12 @@ Early presence read during x2rest arm A (rest behind the touch + lean step-in): 
 - Why both died: x1 — fee-driven making collapse (its pay was all making) → 0 live score → pay slid below the line within ≈ 14 h. x2 — the 256-book start burst lost money
   (score 0 for its whole protection) and then the fee collapse → $0 pay at protection end → pruned within minutes. A new miner must carry a POSITIVE score well before its
   24-h protection ends: smaller start budget, and skill (fees don't touch skill).
+
+## §1440 — 2026-11-13 ≈ 1:30 PM CT — Prerequisites 1–4 built (soft pacing, fee-aware, speed, start budget); gap list + test schedule; withdrawal commands
+User: do 1–4, deep-dive everything separating us from 252, a 2-h test schedule strictly around that (no repeats of proven items), then withdraw x1–x3 TAO and register.
+- Build 10dc929d (backups QuoteAgent.pre-softfee.py, test_pace.pre-softfee.py): soft pacing (unit pace_soft $ floor, pace_soft_min; live pace_soft_on), fee-aware widening
+  (live mk_fee_k; raw account "f"→"m" maker fee rate), per-book config cache, model skipped when unused. test_pace ALL PASS incl. soft attacks (worst $453–457k), hourly live
+  toggling ($467k; $50k sweeps $492k of $500k — so toggle no faster than 30-min blocks). Flow model (fills ∝ presence, 10–40× refill when present): presence hard 14/8/4% →
+  soft (5k, min 0.05) 100/99/77% at the same ≈ $458k/day. Staged as /opt/mvtrx/agents/QuoteAgent.next-10dc929d.py (not active; no miners run).
+- Gap list, starting settings and the 8-test schedule: deploy/sn79/NEXT_MINER_PLAN.md. Stake now: x3 27.48, x1 9.95, x2 2.91, x4 2.77 α on 79 (≈ 0.133 TAO), m3 0.021 α on 101.
+  Withdrawal = per hotkey `~/btcli/bin/btcli stake remove --wallet.name main --wallet.hotkey <hk> --all --no-mev-protection` (batch failed twice before, §1211 add. 19).
