@@ -22575,3 +22575,21 @@ Rule from now: skill verdict = Δ(x2) − mean Δ(252, 216) in the same windows.
 - **Ubuntu unattended-upgrades → needrestart restarted mvtrx-x1 AND mvtrx-x2 at 06:14 UTC (12:14 AM CT)** (apt-daily-upgrade re-exec'd systemd). x2 was in its
   protection and in vfleet's 2nd B block → vfleet's B arm contaminated; its skill win is provisional. Fixed: /etc/needrestart/conf.d/mvtrx.conf
   `$nrconf{override_rc}{qr(^mvtrx-.*\.service$)} = 0;` (perl -c OK); automatic reboots are not enabled.
+
+## §1431 — 2026-11-13 7:15 AM CT — x2 test day verdicts; confirmation = the full fleet set; x1 fee-resistance test scheduled
+"fleet" (5:01–7:01 AM: lean 1.0 + $300 $2.2k + inside 3 + $30 shape vs base), no flash: SKILL $300 x2 A −0.00 vs B −0.31 bp (kept +4 −1 vs +2 −5, kappa +0.66 vs −0.18),
+refs Δ 252 +0.12 / 216 +0.09 → net +0.20 bp; $30 x2 +0.22 vs −0.13 (kept +3 vs 0), refs Δ −0.04 / −0.14 → net +0.44 bp. Edge $: $300 39 vs 48 (making ≈ 0 field-wide
+under the fees), $30 55 vs 49 (+12%), 4-dec 16 vs 19 (untouched; noise).
+| test | verdict |
+| decsz / decdp | TIE — keep 0.09 / 0.27 |
+| dec4b (4-dec deep-only) | LOSS — keep the 4-dec touch |
+| fmv1 (lean alone) | no skill change (lean only pulls quotes back) |
+| vfleet ($300 $2.2k + inside 3) | skill WIN, provisional (needrestart restart in its B arm) |
+| low30f ($30 shape) | making WIN (+25% $30 edge $), skill neutral vs refs |
+| fmvin (lean + inside 2) | no gain |
+| fleet (all three) | skill WIN on $300 (net +0.20) AND $30 (net +0.44) — the only arm that lifted $30 skill → lean kept in |
+CONFIRMATION x2conf 7:15–9:15 AM CT (ABBA, live, re-assert 13:15:15 UTC, grp 15:21, skill 15:27 UTC): A = base + fund_mv 1.0 cap 2 + mk_vol_size 0.044 + mk_vol_inside 3 +
+mk_low_size 0.033 + mk_low_lad "1" + mk_low_lad_size 0.033; B = base. END restores base at 9:15; final switch at the ≈ 9:30 decision (≈ 2 h 55 m before protection ends).
+x1 (restarted 6:55 AM onto the no-lean version of the same set) → a natural cross-check of the lean. x1 test x1fee 7:31–9:31 AM CT: A = $300 mk_vol_touch_min 6 + mk_vol_lad
+"2:4:7:11" vs B = touch + "1:2:4:7" (fee resistance: maker fee 105–140 bp netted 0.55–0.7 bp per fill); re-assert, grp (abgrp_x1 now with 252) 15:37, skill
+(skillread_ab_x1.sh, UIDs 27 252 46 216) 15:43 UTC.
