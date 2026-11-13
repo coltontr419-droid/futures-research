@@ -22641,3 +22641,11 @@ User: make sure nothing hidden separates us from 252 / long-lived miners. gdiff.
   order only on the side the lean jump favours, ladder otherwise. test_pace ALL PASS (+5). x1 restarted 10:32:41 AM CT (lean off as base; 228/256 blocked; 0 errors).
 - x1jump (started 10:31) cancelled (x1 present on ~25 books → test crippled); x1rest 10:51 AM–12:51 PM: A = lean 1.0 + jump 3 + lean-only vs B = at-the-touch, no lean — judged
   on presence first (order_books gauge, PACE blocked), then $300 skill net of refs, WITH share; x1low2 moved to 12:51–2:51 PM. Decisions ≈ 1:06 PM and ≈ 3:06 PM.
+
+## §1436 — 2026-11-13 ≈ 11:05 AM CT — Where our 0.41 s response time goes (vs the fleet's 0.15 s)
+- Network is NOT it: main validator 5EWwdZB7 (uid 0, Cherry Servers, Chicago) ↔ lab (DigitalOcean, North Bergen NJ) ping 19.4 ms avg.
+- py-spy (installed in /opt/mvtrx/venv; read-only sampling of x2 PID, 20 s @ 100 Hz, 110 busy samples inside forward()): decompress ≈ 20–24%; agent.update ≈ 27%
+  (QuoteAgent.py:346 builds _RawBook/_Ev objects for every event/order of all 256 books — __init__ lines 37/65 ≈ 20%); _quote ≈ 40% of which per-book
+  config_for / price_decimals / min_order_size lookups ≈ 12% and _predict (the alpha model, used only for cancel ordering while alpha_k = 0) ≈ 9%.
+- Next-build speedups (est. −30…40% of handle time): build _Ev lazily (only books we quote / events we read), cache per-book config lookups once per simulation config,
+  skip _predict when alpha_k = 0 and cancel_first is off. Not deployed (x1 is mid-test, x2 settled).
