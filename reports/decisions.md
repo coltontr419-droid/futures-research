@@ -22649,3 +22649,13 @@ User: make sure nothing hidden separates us from 252 / long-lived miners. gdiff.
   config_for / price_decimals / min_order_size lookups ≈ 12% and _predict (the alpha model, used only for cancel ordering while alpha_k = 0) ≈ 9%.
 - Next-build speedups (est. −30…40% of handle time): build _Ev lazily (only books we quote / events we read), cache per-book config lookups once per simulation config,
   skip _predict when alpha_k = 0 and cancel_first is off. Not deployed (x1 is mid-test, x2 settled).
+
+## §1437 — 2026-11-13 ≈ 11:05 AM CT — Tests moved to x2 (user; x1 is the lowest unprotected = next prune); tape moved to x2; 1-h test blocks
+- User ≈ 11:00 AM: x1 will be pruned before the tests finish → move them to x2; away for a few hours; ANY changes/tests allowed.
+- x1 tests (x1rest/x1low2) stopped; tapeguard + tapeguard2 timers stopped/disabled; x1 → base settings (no lean/jump/lean-only), tape= removed from its unit (backup
+  mvtrx-x1.service.pre-notape), restarted 11:00:28 AM CT. x2: registered; tape= added (backup mvtrx-x2.service.pre-tape-1113); restarted 10:59:50 AM CT onto agent
+  dc5e46b0 with its FINAL settings (live_params_191 = FINAL); tape growing from x2; 235 of 256 books blocked at start (ledger carried).
+- **x2's protection ends ≈ 12:25 PM and its pay is $0** (score 0: start burst + fee collapse + 19-h window lag) → it will be the lowest unprotected UID right after and
+  likely pruned at the next registration. Tests therefore run as 1-h ABBA with 15-min blocks (abtest_sched_x2_15.sh): x2rest 11:16 AM–12:16 PM (A = FINAL + mk_vol_jump 3 +
+  mk_vol_lean_only 1 vs FINAL), reads 12:19 / 12:22 / 12:28 (before protection ends); x2low2 12:16–1:16 PM (mk_low_touch_min 2 vs 0). 15-s re-asserts, grpcap (+252),
+  skill reads. Decisions ≈ 12:31 PM and ≈ 1:31 PM.
