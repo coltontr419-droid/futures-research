@@ -22601,3 +22601,11 @@ x2's own kept +5 vs +1, kappa +0.37 vs −0.58. Making: $30 edge $ 65 vs 53 (+23
 → CONFIRMED. FINAL applied 9:29:16 AM CT (log 9:29:32 "LIVE PARAMS applied: fund_mv 0→1.0, fund_mv_cap →2.0, mk_vol_size →0.044, mk_vol_inside →3, mk_low_size →0.033,
 mk_low_lad →[1], mk_low_lad_size →0.033"); backup live_params_191.FINAL-1113.json. x2 SETTLED: no more switches/tests/restarts (protection ends ≈ 12:25 PM CT).
 Lean on x1: NOT yet — the $300 skill gain appeared with and without the lean (vfleet had none), $30 effect is noise; x1 (same set minus the lean) vs x2 is the cross-check.
+
+## §1433 — 2026-11-13 9:45 AM CT — x1fee = LOSS (confounded: touch_min also hit the $30 books); x1 stays on B; making/skill status
+- x1fee (7:31–9:31, no flash): A ($300 mk_vol_touch_min 6 + ladder 2:4:7:11) had ZERO $30 fills — in 7d4dd4f5 _g() maps the "low" group to "vol", so mk_vol_touch_min
+  also removed every $30 touch order (spread 1–2 ticks < 6). $300: edge per $ A +1.23 / +1.21 vs B +1.08 / +1.03 bp at similar volume ($330k vs $348k), skill A −0.08 vs
+  B +0.09 bp (refs Δ ≈ −0.03) → net −0.15. → LOSS as a package; x1 stays on B (END 9:31:19: touch_min 0, ladder 1:2:4:7). The 9:47 decision job was cancelled (done here).
+- Validator now (current run, 5EWwdZB7): field making > 0 for 139 UIDs, median 35. x1 / x2 making 0 in every class (19-h window still holds pre-change fills).
+  Skill per class: x1 $300 net α +29 (9 books), x2 $300 +37 (11 books) — both turned POSITIVE on $300 (last night −15…−154); bar 20 books; 252 +510 (28, skill 4.06),
+  216 +551 (33, 4.59). $30: x1/x2 0. 4-dec: x1 −1,132, x2 −1,573 (4-dec quoting loses alpha AND makes ≈ 0 credit under the fees; per-class pools → it does not block $300 skill).
