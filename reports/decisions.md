@@ -22465,3 +22465,8 @@ the lowest-value test (skew 3 vs 5) was dropped from x2's day and moves to the n
 3. **Half of all pay is the skill pool, and our makers get none of it:** eligible per class with kappa > 0 on ≥ 20 / 10 / 10 books whose alpha (MTM P&L − mean inventory × drift) clears 2.3 bp of the miner's own filled notional; paid ∝ net alpha (≈ $65–85/mo per +1,000). 160 of 256 miners qualify. x1: −154 / +5 / −234. UID 46: +683 / +968 / +4 → ≈ 56% of its pay is skill, while its making credit is BELOW x1's. Our high-volume first-level quoting earns ≈ 1 bp, under the 2.3 bp hurdle.
 4. x2 is already skill-eligible on the $300 books (+298 on 42 books) despite its score 0.
 Consequence: tests judged by edge per $ alone can pick the wrong winner (e.g. the deep-only 4-dec arm may raise edge but cut credit in the most valuable class). The 11-13 decision now weighs each arm by pay-weighted credit per class (making_exact per arm × $/credit per class) and by alpha vs the 2.3 bp hurdle.
+
+## §1420 — 2026-11-12 7:20 PM CT — x2 test 3 (4-dec deep order 0.5 vs 0.27) = TIE → keep 0.27; whole-miner credit read found broken
+4-dec x2: A (0.5) $140k + $119k, edge $ 13 + 10 = 23, +0.94 / +0.88 bp, 161 fills; B (0.27) $142k + $93k, edge $ 13 + 10 = 23, +0.91 / +1.07 bp, 191 fills.
+No flash exposure in either arm. Same pay-weighted edge, same edge per $ → TIE, keep 0.27. The whole-miner credit block reads ≈ 0 two-sided for every UID on
+the 256-book layout (lesson); the 7:08 AM decision now uses pay-weighted edge $ from the grpcap rows instead (class weights ≈ 0.13 : 0.20 : 1.34).
