@@ -22565,3 +22565,13 @@ Rule from now: skill verdict = Δ(x2) − mean Δ(252, 216) in the same windows.
 - Levers: (1) live now: mk_vol_touch_min N (no $300 touch order while the spread < N ticks) + a deeper $300 ladder → more edge per fill; (2) next build: read
   accounts[book].fees maker_fee_rate each round and require half-spread ≥ 0.005 × rate + margin per book (skip/widen high-fee books); (3) the fee is a field-wide
   per-book state driven by miner maker/taker mix — skill-first remains the robust path.
+
+## §1430 — 2026-11-13 ≈ 7:00 AM CT — x1 restarted onto the 256-book build with the overnight winners (user: "make any change you want on x1"); hidden auto-restarts found + blocked
+- User ≈ 6:50 AM: x1's pay will follow its 0 live score anyway → any change allowed (save it or test on it).
+- x1 restart 6:55:52 AM CT (restart_x1.sh: registered, agent 7d4dd4f5, live_params_s 5) with x2's base + vfleet (mk_vol_size 0.044, mk_vol_inside 3) + low30f
+  (mk_low_size 0.033, mk_low_lad "1", mk_low_lad_size 0.033), fund_mv 0; book_map "calm:63-101;low:128-191;dec:192-255" (x1 now has the separate $30 group).
+  Backup live_params_27.pre-restart-1113.json. Pace ledger carried (230 of 256 blocked). The "SETTLEMENT NOT READY" banner prints at every start (5× since 11-11) and
+  fills kept settling — a standard warning.
+- **Ubuntu unattended-upgrades → needrestart restarted mvtrx-x1 AND mvtrx-x2 at 06:14 UTC (12:14 AM CT)** (apt-daily-upgrade re-exec'd systemd). x2 was in its
+  protection and in vfleet's 2nd B block → vfleet's B arm contaminated; its skill win is provisional. Fixed: /etc/needrestart/conf.d/mvtrx.conf
+  `$nrconf{override_rc}{qr(^mvtrx-.*\.service$)} = 0;` (perl -c OK); automatic reboots are not enabled.
