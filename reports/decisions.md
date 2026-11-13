@@ -22665,3 +22665,15 @@ x1 was already unregistered when it restarted at 11:00:28 AM CT ("is not registe
 and 11:00. UID 27 now belongs to a new owner (age 0.5 h at 11:22). mvtrx-x1 stopped + disabled (was restart-looping in "activating"); 27 removed from our_uids.txt (backup
 our_uids.txt.pre-x1prune-1113) so the self-trade monitor no longer watches the new owner; selftrade 0. The tape had already moved to x2 (§1437) → no gap.
 Early presence read during x2rest arm A (rest behind the touch + lean step-in): x2 order_books 39 at 11:22 (24 before), 252 192.
+
+## §1439 — 2026-11-13 ≈ 12:40 PM CT — x2 (UID 191) PRUNED at ≈ 12:30 PM (minutes after protection ended, $0 pay); no miners left; x2rest verdict
+- UID 191 re-registered by hotkey 5C5mUdtFB7 at block 9,499,248 (≈ 12:30 PM CT); our x2 hotkey is in no slot. regcheck.py printed "REGISTERED" at 12:31:07 — it can lag a
+  prune by a minute (chain read vs metagraph). mvtrx-x2 stopped + disabled; all x2 timers stopped; x2low2 + its decision and the brief cron cancelled; our_uids.txt empty.
+  The tape stopped (x2 wrote it); last size 892 MB.
+- x2rest (11:16 AM–12:16 PM, 15-min ABBA, no flash): PRESENCE order_books A 28.1 (20–41) vs B 26.1 (21–35) → NO clear rise; $300 books filled per window A 40/35 vs B 40/51.
+  $300 skill x2 A −0.27 vs B +0.04 bp, refs Δ 252 −0.16 / 216 −0.15 → net −0.16 (no gain); $300 edge per $ A +1.24 vs +1.02 bp (fewer touch fills). → NOT a win.
+  Learning: removing the $300 touch orders did NOT restore presence → the pace stop-go has another driver (ladder / $30 / 4-dec fills, or the 900-s burst vs order size);
+  needs an offline replay of the pacer against the tape before the next miner.
+- Why both died: x1 — fee-driven making collapse (its pay was all making) → 0 live score → pay slid below the line within ≈ 14 h. x2 — the 256-book start burst lost money
+  (score 0 for its whole protection) and then the fee collapse → $0 pay at protection end → pruned within minutes. A new miner must carry a POSITIVE score well before its
+  24-h protection ends: smaller start budget, and skill (fees don't touch skill).
