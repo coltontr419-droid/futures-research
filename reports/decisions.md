@@ -22686,3 +22686,14 @@ User: do 1–4, deep-dive everything separating us from 252, a 2-h test schedule
   soft (5k, min 0.05) 100/99/77% at the same ≈ $458k/day. Staged as /opt/mvtrx/agents/QuoteAgent.next-10dc929d.py (not active; no miners run).
 - Gap list, starting settings and the 8-test schedule: deploy/sn79/NEXT_MINER_PLAN.md. Stake now: x3 27.48, x1 9.95, x2 2.91, x4 2.77 α on 79 (≈ 0.133 TAO), m3 0.021 α on 101.
   Withdrawal = per hotkey `~/btcli/bin/btcli stake remove --wallet.name main --wallet.hotkey <hk> --all --no-mev-protection` (batch failed twice before, §1211 add. 19).
+
+## §1441 — 2026-11-13 1:50 PM CT — New miner UID 174 (hotkey x2) live on build 10dc929d; T1–T7 scheduled
+- User withdrew (per hotkey) and registered hotkey x2 → **UID 174** (block 9,499,598 ≈ 1:42 PM CT; protection 7,200 blocks → ends ≈ 1:42 PM CT 11-14).
+- Lab: agents/QuoteAgent.py = 10dc929d (prior saved as agents/QuoteAgent.dc5e46b0.py); unit mvtrx-x2 (backup mvtrx-x2.service.pre-uid174): pace_start 100000 → 20000,
+  + pace_soft=5000 pace_soft_min=0.05, tape on; live_params_174.json = x2's FINAL (§1432) + pace_soft_on 1, mk_fee_k 0, jump/lean-only/low-touch-min/skip-dec 0
+  (also saved as live_params_174.START.json = the test base). our_uids.txt = "174 maker x2 21458". Started 1:48:47 PM CT: UID 174 registered, live params applied,
+  ≈ 1,770 orders/min, 0 self-trades, tape growing. No old pace ledger for 174.
+- Scripts for UID 174: abtest_sched_n.sh (writes live_params_174.json), abgrp_n.sh (UIDS_EXTRA 174:x2,252:252), skillread_n.sh (174 252 46 216); reads at +3 / +14 / +20 min.
+- Schedule (CT, 2-h ABBA on the start base): T1 nsoft 3:01–5:01 PM, T2 nfee 5:01–7:01, T3 nrest 7:01–9:01, T4 nlow2 9:01–11:01 PM, T5 nskew 11:01 PM–1:01 AM,
+  T6 nlad 1:16–3:16 AM, T7 nin2 3:16–5:16 AM (T6/T7 shifted 15 min so no read overlaps the 3:07 AM tape rotation); decisions ≈ +23 min each; the T7 decision schedules
+  T8 confirmation 6:01–8:01 AM → settle ≈ 8:25 AM (≈ 5 h clean before protection ends); T5 decision = T+12 h survival check (stop testing if live making and skill ≤ 0).
