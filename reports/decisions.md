@@ -22470,3 +22470,15 @@ Consequence: tests judged by edge per $ alone can pick the wrong winner (e.g. th
 4-dec x2: A (0.5) $140k + $119k, edge $ 13 + 10 = 23, +0.94 / +0.88 bp, 161 fills; B (0.27) $142k + $93k, edge $ 13 + 10 = 23, +0.91 / +1.07 bp, 191 fills.
 No flash exposure in either arm. Same pay-weighted edge, same edge per $ → TIE, keep 0.27. The whole-miner credit block reads ≈ 0 two-sided for every UID on
 the 256-book layout (lesson); the 7:08 AM decision now uses pay-weighted edge $ from the grpcap rows instead (class weights ≈ 0.13 : 0.20 : 1.34).
+
+## §1421 — 2026-11-12 ≈ 8:15 PM CT — Maker skill: what it is, who earns it, and a per-arm skill read on x2's tests
+- User asked to target the skill score on our makers. 0.6.7 marks skill at the mid and charges only takers their fill price → a maker's skill is
+  inventory timing (Σ inventory × Δmid − mean inventory × drift); the spread captured at the fill counts only in making.
+- Steady maker skill exists: UIDs 98 / 139 on the $300 books (+2k…+8k all day); 46 / 98 / 139 rose together on the $30 books today (to +0.9k…+1.6k)
+  while x1 sat at +5. UID 46 overall swings ±2.5k within a day (noise). Validator replica (skill_cls.py, 150 sim min): $30 books 46 +2.39 bp on 36
+  kept books, 98 +1.66 bp, x1 −0.44, x2 −0.36 (0 kept). Fill markouts are similar (x1 +2.5 bp at 120 s, 46 +2.9, 98 +3.3); the visible difference
+  is depth: 46 gets 17% of $30 volume one tick behind the touch (+4.4 bp) vs x1 5%, and trades 1/3–1/6 of our volume per book.
+- No directional / fundamental tilt (failed §1375–1379; broke stacking §1289). Instead: skill_ab.py (validator alpha per A/B arm) runs ≈ 12 min after
+  every remaining x2 test (dec4b, lowsz, lowlad, lowls, vsz, low46). On test 3 it already separates: $30 books 46 +1.0…+1.2 bp with 7–11 kept books,
+  x2 −0.2 bp with 0. The calm-pattern test (calmv) was replaced by "low46": $30 touch $0.55k + ladder 1:2:3 at $1.8k vs base (5:01–7:01 AM CT).
+- The 7:08 AM decision adds skill: an arm that moves x2's $30 books toward ≥ 10 kept positive books (and kappa > 0) counts as a win even at equal pay-weighted edge.

@@ -13,7 +13,7 @@ x2 starts on agent 7d4dd4f5 (adds a "low" book group = the $30 books 128–191 w
 | 6 | 10.5–12.5 | $30 books ladder 1:2:3 vs 1:2:4:7 | a tick is 3.4 bp on $30 books — 7 ticks back may be too deep |
 | 7 | 12.5–14.5 | $30 books ladder orders $2.25k vs $1.35k | more of the budget on the best group |
 | 8 | 14.5–16.5 | $300 books touch $1.8k vs $1.1k | UID 46 fill size on $300 |
-| 9 | 16.5–18.5 (5:01–7:01 AM CT) | books 63–101 on the $300 ladder instead of the calm pattern | the old wide-spread calm group no longer exists in the 256-book layout |
+| 9 | 16.5–18.5 (5:01–7:01 AM CT) | $30 books "46 shape": touch $0.55k + ladder 1:2:3 at $1.8k vs base | §1421: 46/98 earn skill on $30 books with more fills one tick back; replaces the calm-pattern test ($300 books pay least per unit) |
 | — | dropped | inventory lean 3 vs 5 | moved to the next miner's test day to keep ≥3 h clean before protection ends |
 | 10 | ≈ 18.75–20.75 | CONFIRMATION: all clear winners together vs the base | decided from tests 1–9 |
 | — | ≈ 20.75–24 | x2 settles on the best proven setup, no changes | clean scoring window before protection ends |
@@ -22,3 +22,5 @@ Each test: 2 h ABBA (30-min blocks), read + edge-per-$ read written on the serve
 Inconclusive tests are re-run (extended) only after all 9 have run. Clear winners on knobs x1 already has → x1 by live switch; winners on the new $30 knobs
 reach x1 only at a future planned restart (x1 runs 12372763 in memory).
 Start: `sh /opt/mvtrx/start_x2.sh <uid>` (registration check, agent swap on disk, our_uids, schedules all 9 tests from start + 30 min, starts mvtrx-x2).
+
+From §1421 every test from dec4b on also gets a per-arm SKILL read (skill_ab.py, validator alpha loop, appended ≈ 12 min after the test ends).
