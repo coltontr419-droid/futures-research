@@ -22537,3 +22537,15 @@ fmv1 (fundamental-move lean) started 9:01:01 PM CT on time.
 $30 x2: A (touch $1.6k + one level 1 tick back) edge $ 30 + 30 = 60 on $229k (+2.6 bp, 146 fills) vs B (1:2:4:7) 22 + 26 = 48 on $183k (+2.6 bp, 176 fills) → +25% edge $.
 Skill $30: x2 A −0.01 bp (+4 −3) vs B −0.16 (+1 −3), but the references rose more in the A windows (252 +0.97 vs +0.25, 216 +1.10 vs +0.53) → no relative skill gain.
 Rule from now: skill verdict = Δ(x2) − mean Δ(252, 216) in the same windows. With it: vfleet $300 +0.40 vs refs +0.04 → real skill gain; fmvin $300 −0.06 vs refs ≈ −0.03 → none.
+
+## §1428 — 2026-11-13 ≈ 6:55 AM CT — Why half the field shows live making 0: the current run's making credit is decaying field-wide
+- Dashboard gauges come from ONE validator (5EWwdZB7…, 255 UIDs; the other exporter has 32) and its current run sim_id 20261112_0530 (started 11-12 ≈ 5:30 AM CT —
+  the first full run on validator 0.6.7 final + the 256-book layout). The old run 20261107_1004 is still exported (frozen) — always filter sim_id.
+- No new validator release (last: 0.6.7 final, 11-10). Not the counterparty rules: bg_share 0.93–0.96, p11 ≈ 1.0, capture_cut_share 0 in every class.
+- Current run, class making credit (3-sim-h window): $300 18,682 (11-12 midnight) → 8,770 → 6,250 → 4,678 (6 PM) → 1,947 (8 PM) → 949 (now); $30 22,325 → 21,668 → 17,930 → 5,382;
+  4-dec 3,325 → 996. UIDs with making > 0: 218 → 186 → 127; median 124 → 103 → 32. Field realized ÷ captured 0.44 → 0.18.
+- Previous run (11-07 → 11-11): 144–192 makers, median 270–440, steady for 5 days → this decay is specific to the current run.
+- Even the 5F1F2JMu core has ≈ 0 $300 making credit now despite the best measured fills (+0.4 bp at 20 s); they are paid from skill (net α +300…+1,000 on $300).
+  x1: 0 making in every class, no skill → its share drains to the UIDs still scoring. Pay is a share of a fixed pot: field median pay steady ($212).
+- Not yet explained: why the validator's realized/quality falls while our own 20-s markouts for the core stay positive (centred-mid capture vs our mid). Next: replicate with the 0.6.7 code.
+- Actions: report to the user; suggest raising it on the MVTRX Discord (user's call); keep the skill-first plan; if x2's confirmation passes, move its $300 settings to x1 by live switch (pre-approved 256-book win rule).
