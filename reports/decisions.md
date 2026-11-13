@@ -22593,3 +22593,11 @@ mk_low_size 0.033 + mk_low_lad "1" + mk_low_lad_size 0.033; B = base. END restor
 x1 (restarted 6:55 AM onto the no-lean version of the same set) → a natural cross-check of the lean. x1 test x1fee 7:31–9:31 AM CT: A = $300 mk_vol_touch_min 6 + mk_vol_lad
 "2:4:7:11" vs B = touch + "1:2:4:7" (fee resistance: maker fee 105–140 bp netted 0.55–0.7 bp per fill); re-assert, grp (abgrp_x1 now with 252) 15:37, skill
 (skillread_ab_x1.sh, UIDs 27 252 46 216) 15:43 UTC.
+
+## §1432 — 2026-11-13 9:30 AM CT — x2 CONFIRMED on the fleet set; x2 settled
+x2conf (7:15–9:15 AM, ABBA, no flash): SKILL $300 x2 A −0.13 vs B −0.40 bp (kept +4 −6 vs +2 −9, kappa −0.08 vs −0.78); refs Δ 252 −0.30 / 216 0.00 → net +0.42 bp
+(third $300 skill gain in a row: vfleet +0.36, fleet +0.20, conf +0.42). $30: x2 −0.24 vs −0.31, refs Δ +0.28 / +0.65 → net −0.39 (fleet test: +0.44) → $30 skill = noise;
+x2's own kept +5 vs +1, kappa +0.37 vs −0.58. Making: $30 edge $ 65 vs 53 (+23%, same +2.96 bp per $); 4-dec 30 vs 18; pay-weighted $30+4dec ≈ 53 vs 35.
+→ CONFIRMED. FINAL applied 9:29:16 AM CT (log 9:29:32 "LIVE PARAMS applied: fund_mv 0→1.0, fund_mv_cap →2.0, mk_vol_size →0.044, mk_vol_inside →3, mk_low_size →0.033,
+mk_low_lad →[1], mk_low_lad_size →0.033"); backup live_params_191.FINAL-1113.json. x2 SETTLED: no more switches/tests/restarts (protection ends ≈ 12:25 PM CT).
+Lean on x1: NOT yet — the $300 skill gain appeared with and without the lean (vfleet had none), $30 effect is noise; x1 (same set minus the lean) vs x2 is the cross-check.
