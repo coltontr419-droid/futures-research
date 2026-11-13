@@ -69,6 +69,12 @@ Re-read this file before every action.
 - After every restart verify `ActiveEnterTimestamp` changed (a syntax error once silently skipped a restart).
 - **Restart x3 (and any live miner) as rarely as possible** (user 11-12): tests use live-reload knobs only; new code is held and BATCHED — at most
   one x3 restart per day unless safety. Each restart costs ≈ 20 min of queue position and dents pay.
+- **Record every test result the moment it lands** (user 11-13: "save that to our files so we never forget it, same rule applies to all other and
+  future tests"): one line in memory `mvtrx-proven-results.md` (PROVEN / DISPROVEN / NOISE + evidence §) AND a § in `reports/decisions.md`, and update
+  `NEXT_MINER_PLAN.md`'s proven list. Strong interim readings count too. Re-read `mvtrx-proven-results.md` before planning any test — never re-test
+  what is proven, never retry what is disproven as-is.
+- **Soft pacing is PROVEN and mandatory** (11-13 T1 on UID 174: soft on ≈ 113 books with resting orders; off → 5 books, 248/256 paced — the stop-go that
+  killed x1/x2). Every miner runs `pace_soft=5000 pace_soft_min=0.05` (agent ≥ 10dc929d); never go back to hard pacing.
 
 ## Current state / where to look
 - Full handoff (live state, infrastructure, status checks, subnet mechanics, next steps): `HANDOFF_BITTENSOR_2026-11-08.md` (this folder).

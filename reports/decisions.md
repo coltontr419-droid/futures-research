@@ -22704,3 +22704,10 @@ base → adopt only CLEAR wins (presence clearly up, or skill net of refs ≥ �
 down > ≈ 10%); ties wait for T8. /opt/mvtrx/rebase_n.sh '<keys>' sets the keys live (live_params_174.json) and in the test base (live_params_174.START.json) and
 rewrites every PENDING n* switch (A/B/END/re-assert, same times) — except keys that test varies itself. Dry run on "mk_fee_k": 1.0 OK (7 tests, nfee's own key left
 alone). Original start base kept as /opt/mvtrx/live_params_174.ORIGINAL.json; T8 = everything adopted vs ORIGINAL. All 7 decision crons recreated with the rule.
+
+## §1443 — 2026-11-13 ≈ 4:05 PM CT — T1 interim: soft pacing is THE presence fix (recorded permanently, user)
+UID 174 T1 (nsoft, ABBA): arm A soft on (3:01–3:31 PM) ≈ 113 books with resting orders, ≈ 137 of 256 paced; arm B soft off (from 3:31 PM) **5 books, 248 of 256 paced**
+(validator order_books gauge + PACE STATUS) — the hard-pacing stop-go that left x1/x2 dark on ≈ 90% of books. The soft floor leaves buckets below zero, so switching it
+off empties the books almost completely. User: save it so we never forget, same rule for all current and future tests → new memory registry mvtrx-proven-results.md
+(PROVEN / DISPROVEN / NOISE with evidence), memory feedback-record-test-results.md, CLAUDE.md rule + "soft pacing mandatory", NEXT_MINER_PLAN.md updated.
+The formal T1 verdict (skill + making per arm) follows at ≈ 5:24 PM.
