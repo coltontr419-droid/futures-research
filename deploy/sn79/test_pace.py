@@ -505,7 +505,7 @@ check("4-dec: 7 stale orders → at most 5 instructions in one reply", len(cn.in
 # §1334 $300 no-touch: gate expression + ladder-only behaviour on a $300 book
 VT = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_touch_min=4)
 src = open(new_path).read()
-check("vol no-touch: main path gate present", "nt_v = bool(self.mk_vol_touch_min and ob_v" in src and "no_touch=nt_v" in src, "gate")
+check("vol no-touch: main path gate present", "nt_v = bool(tm_v and ob_v" in src and "no_touch=nt_v" in src, "gate")
 r = _RespE(); VT._vol_ladder(r, 7, [_OQ(30, Bd, 299.00, 5.0)], {Bd: 299.00, Sd: 299.03}, {}, 5.0, 10.0, 0.01, 2, no_touch=True)
 pl = sorted(i.price for i in r.instructions if i.kind == "place"); cn = sum(1 for i in r.instructions if i.kind == "cancel")
 check("vol no-touch: touch bid cancelled, only 2/5/10 ladder placed", cn == 1 and 299.0 not in pl and 299.03 not in pl and 298.98 in pl and 299.05 in pl, f"cancel {cn} place {pl}")
@@ -664,6 +664,28 @@ r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00}, {}, 5.0, 10.0, tick, 2, insi
 check("inside: one side pulled → no inside move", all(i.price != 299.01 for i in r.instructions if i.kind == "place"), "bid stays 299.00")
 r = _Resp(); IN._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2)
 check("inside: off unless asked", all(i.price not in (299.01, 299.05) for i in r.instructions if i.kind == "place"), "default 0")
+
+# §1434 lean jump / $30 touch minimum / 4-dec off
+JP = agent(new_path, pace_cap=450000, mk_vol_lad="2:5:10", mk_vol_inside=3)
+check("jump: all three switches default off", JP.mk_vol_jump == 0 and JP.mk_low_touch_min == 0 and JP.mk_skip_dec == 0, f"{JP.mk_vol_jump} {JP.mk_low_touch_min} {JP.mk_skip_dec}")
+JP._jumped = {7: {Bd}}
+r = _Resp(); JP._vol_ladder(r, 7, [], {Bd: 299.03, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=3, obest=(299.00, 299.06))
+pl = sorted((i.side == Sd, i.price) for i in r.instructions if i.kind == "place")
+check("jump: a jumped bid keeps its price (not pulled back to one tick inside)", (False, 299.03) in pl and (True, 299.05) in pl, f"{pl}")
+JP._jumped = {7: set()}
+r = _Resp(); JP._vol_ladder(r, 7, [], {Bd: 299.00, Sd: 299.06}, {}, 5.0, 10.0, tick, 2, inside=3, obest=(299.00, 299.06))
+pl = sorted((i.side == Sd, i.price) for i in r.instructions if i.kind == "place")
+check("jump: without a jump the inside step is unchanged (one tick)", (False, 299.01) in pl and (True, 299.05) in pl, f"{pl}")
+JL = agent(new_path, pace_cap=450000, live_params=lpf, live_params_s=30)
+_tm.sleep(0.01); json.dump({"mk_vol_jump": 3, "mk_low_touch_min": 2, "mk_skip_dec": 1}, open(lpf, "w")); os.utime(lpf, None)
+JL._sec = 12000; JL._live_reload()
+check("jump: switches live-applied", JL.mk_vol_jump == 3 and JL.mk_low_touch_min == 2 and JL.mk_skip_dec == 1, f"{JL.mk_vol_jump} {JL.mk_low_touch_min} {JL.mk_skip_dec}")
+_tm.sleep(0.01); json.dump({"mk_vol_jump": 50, "mk_skip_dec": 5}, open(lpf, "w")); os.utime(lpf, None)
+JL._sec = 12100; JL._live_reload()
+check("jump: out-of-range values ignored", JL.mk_vol_jump == 3 and JL.mk_skip_dec == 1, f"{JL.mk_vol_jump} {JL.mk_skip_dec}")
+check("jump: 4-dec skip gate and $30 own touch minimum present in the source",
+      'if self.mk_skip_dec and self._g(book_id) == "dec"' in src and "tm_v = self.mk_low_touch_min if self._is_low(int(book_id)) else self.mk_vol_touch_min" in src
+      and "self._jumped[int(book_id)].add(OrderDirection.BUY)" in src, "gates")
 
 # §1308 trade-flow pull helper
 TF = agent(new_path, pace_cap=450000, mk_tflow_usd=1000, mk_tflow_win=10); TF._sec = 100

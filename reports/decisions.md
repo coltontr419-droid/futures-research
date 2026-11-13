@@ -22609,3 +22609,18 @@ Lean on x1: NOT yet — the $300 skill gain appeared with and without the lean (
 - Validator now (current run, 5EWwdZB7): field making > 0 for 139 UIDs, median 35. x1 / x2 making 0 in every class (19-h window still holds pre-change fills).
   Skill per class: x1 $300 net α +29 (9 books), x2 $300 +37 (11 books) — both turned POSITIVE on $300 (last night −15…−154); bar 20 books; 252 +510 (28, skill 4.06),
   216 +551 (33, 4.59). $30: x1/x2 0. 4-dec: x1 −1,132, x2 −1,573 (4-dec quoting loses alpha AND makes ≈ 0 credit under the fees; per-class pools → it does not block $300 skill).
+
+## §1434 — 2026-11-13 ≈ 10:15 AM CT — 252 checked (solid, pure maker on this run); new build 88ab2eab (lean jump, $30 touch minimum, 4-dec off) on x1; two copy tests
+- Is 252 a solid copy target (user ask)? Yes: 30 d old, steady 1.1–1.25× median all week; on this run 4,738 maker fills and 0 taker fills on our tape (pure maker);
+  $300 skill (validator loop, 120 sim min) +1.36 bp, 24 kept books all positive, kappa +7.35, ELIGIBLE — identical to 216 (+1.42 bp, 25 books). No 4-dec quoting.
+  Same $/book as ours (≈ $37k) → the gap is HOW we quote (x2 −0.02 bp, x1 −0.25 bp). Maker-only and all-fills alpha were identical.
+- profile.py (35 sim min after x2 went final) 252/216 vs x2/x1: $300 fills after the fundamental moved WITH the order 44% vs 8% (x2, lean on) / 10% (x1); AGAINST 2% vs 11% / 17%;
+  2-min markout +0.8 vs −0.4 bp; inside ≈ 34% vs 14%; 1 tick back 7–10% vs 17–22%; avg fill $2.2k vs $1.0k. $30: edge +3.9–4.0 vs +2.9 bp on $11–12k vs $19k per book per sim h.
+- Cause of the WITH gap: our bid_px = min(bid + tick, fair − edge·tick, ask − tick) and _vol_ladder's inside step reset the touch to one tick ahead of the others' best,
+  so the lean can never move a quote more than one tick in. Built 88ab2eab (backup QuoteAgent.pre-jump.py): live knobs mk_vol_jump (0–20 ticks; $300 only, needs the lean:
+  the favourable side steps up to N ticks toward fair, kept by _vol_ladder), mk_low_touch_min ($30's own touch minimum — mk_vol_touch_min no longer leaks onto $30), mk_skip_dec.
+  Defaults 0 = identical behaviour. test_pace ALL PASS (+6 checks). Installed as agents/QuoteAgent.py (prior agents/QuoteAgent.7d4dd4f5.py); restart_x1.sh md5 → 88ab2eab;
+  x1 restarted 10:10:25 AM CT (registered; same settings; 238 of 256 books paced; 0 errors). x2 keeps 7d4dd4f5 in memory (settled; needrestart blocked).
+- Tests on x1 (user: any change allowed): x1jump 10:31 AM–12:31 PM (A lean 1.0 + jump 3 vs B lean 1.0 + jump 0); x1low2 12:31–2:31 PM ($30 touch only when spread ≥ 2 ticks
+  vs always). Each with 15-s re-assert, grpcap (+252) and skill reads (UIDs 27 252 46 216). 4-dec off NOT tested: under the fees 4-dec making ≈ 0 and its skill class is
+  out of reach, so skipping it changes no pay now — but 4-dec credit is worth ≈ 10× per unit once fees fall; keep quoting it.
