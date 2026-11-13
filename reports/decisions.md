@@ -22697,3 +22697,10 @@ User: do 1–4, deep-dive everything separating us from 252, a 2-h test schedule
 - Schedule (CT, 2-h ABBA on the start base): T1 nsoft 3:01–5:01 PM, T2 nfee 5:01–7:01, T3 nrest 7:01–9:01, T4 nlow2 9:01–11:01 PM, T5 nskew 11:01 PM–1:01 AM,
   T6 nlad 1:16–3:16 AM, T7 nin2 3:16–5:16 AM (T6/T7 shifted 15 min so no read overlaps the 3:07 AM tape rotation); decisions ≈ +23 min each; the T7 decision schedules
   T8 confirmation 6:01–8:01 AM → settle ≈ 8:25 AM (≈ 5 h clean before protection ends); T5 decision = T+12 h survival check (stop testing if live making and skill ≤ 0).
+
+## §1442 — 2026-11-13 ≈ 2:15 PM CT — Adopt CLEAR winners live as reads come in (user); rebase_n.sh
+User: add a successful test to the live strategy when its read comes in (live switch, no restart). Risk = adopting a noisy single-read "win" contaminates later tests'
+base → adopt only CLEAR wins (presence clearly up, or skill net of refs ≥ ≈ +0.3 bp in the targeted class with more kept positive books, pay-weighted making not
+down > ≈ 10%); ties wait for T8. /opt/mvtrx/rebase_n.sh '<keys>' sets the keys live (live_params_174.json) and in the test base (live_params_174.START.json) and
+rewrites every PENDING n* switch (A/B/END/re-assert, same times) — except keys that test varies itself. Dry run on "mk_fee_k": 1.0 OK (7 tests, nfee's own key left
+alone). Original start base kept as /opt/mvtrx/live_params_174.ORIGINAL.json; T8 = everything adopted vs ORIGINAL. All 7 decision crons recreated with the rule.
