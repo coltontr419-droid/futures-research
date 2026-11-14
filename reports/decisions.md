@@ -22774,3 +22774,10 @@ R1 nj1 lean-only + jump 1 (5:01–7:01 AM), R2 nlad2 $300 ladder 2:5 (7:01–9:0
 (1:01–3:01 PM), each with re-assert, grpcap, skill and making-quality reads; decision crons 7:45 / 9:45 / 11:45 AM / 1:45 / 3:45 PM (adopt rule §1442; prune handling).
 Problem: the script ran after 11:01 UTC → nj1's first switch fired at schedule time and its re-assert got an EMPTY arm-A JSON (no 0r timer created); the live file stayed
 intact (32 keys) but A1 ran on base until fixed by hand: `liveswitch_nj1.sh A` 5:15:20 AM (applied mk_vol_jump 0→1, lean_only 0→1). Lesson recorded.
+
+## §1452 — 2026-11-14 7:55 AM CT — R1 (nj1: lean-only + jump 1) = TIE, not adopted; timing nearly matches the fleet
+UID 174 R1 (A1 5:15–5:31 only, B 5:31–6:31, A2 6:31–7:01; no flash). $300: A edge per $ +1.29 / +1.28 vs B +1.66 / +1.63 bp; edge $ 14 + 27 = 41 vs 28 + 30 = 58; presence 119–120
+books both. SKILL $300 A −0.37 vs B −0.44, refs Δ 252 +0.13 / 216 −0.11 → net +0.06 (tie), 0 kept books. Validator-0.6.7 making per arm: $300 R A −8.1 vs B −6.7; $30 R −0.6 / +0.2;
+4-dec −4.5 / −5.3; quality 0 both (252 0 / 0.195, 216 0 / 0.327). fundmove256 ($300, A2 vs B): WITH share 41% vs 10% (fleet 47–50%), kept on WITH fills +0.62 vs +0.72 bp
+(fleet +0.88–1.10; T3 jump 3 +0.27), move-after on all our fills −0.55 vs −0.86 (fleet +0.29–0.39). → not a clear win (skill tie, $300 edge per $ and realized slightly worse);
+best skill lead so far (timing ≈ fleet, price cost much smaller than jump 3). Registry updated. UID 174 registered at 7:45 AM; R2 (nlad2) running 7:01–9:01.
