@@ -56,3 +56,6 @@ Stake on the coldkey now (11-13 ≈ 1 PM): x3 27.48, x1 9.95, x2 2.91, x4 2.77 a
 ~/btcli/bin/btcli stake remove --wallet.name main --wallet.hotkey m3 --all --no-mev-protection   # optional: subnet 101 dust
 ~/btcli/bin/btcli wallet balance --wallet.name main
 ```
+
+## Priority (user 11-14 ≈ 12 PM)
+Target $300 SKILL from our own post-only fills (price moving WITH our fills). It is also the making fix (miner-wide quality, §1447). Live-switch ideas tried 11-13/14 did not move it (jumps, ladder, skew, rest-behind); next build: response speed (0.41 → ≤ 0.2 s) and larger minimum soft-paced order size.
