@@ -22752,3 +22752,9 @@ mk_skip_vol 1 (no $300 making) and/or mk_skip_dec 1, judged with this replica's 
   makingread_n.sh → making067_ab.py (validator-0.6.7 markout quality + per-class C / R per arm) at 1:40 AM (staggered: two 4.5-GB reads must not overlap on the 8-GB lab).
   T5 decision cron moved to 1:48 AM (incl. the survival check). Caveat: a 2-h test spans ≈ 20 sim min → per-arm quality is noisy (T3 check: 252 itself reads ≈ 0) → weigh
   per-class R vs 252/216 in the same windows.
+
+## §1449 — 2026-11-13 11:25 PM CT — T4 (nlow2, $30 picky) = LOSS → not adopted
+UID 174 T4 (9:01–11:01 PM, ABBA, no flash). $30: A (mk_low_touch_min 2) $49k + $52k, edge +3.36 / +3.35 bp, edge $ 16 + 18 = 34, 332 fills, 56–60 books; B $114k + $108k,
++2.72 / +2.73 bp, edge $ 31 + 29 = 60, 722 fills, 63–64 books → edge per $ +0.63 bp but edge $ −43% (credit pays on total two-sided capture). $30 SKILL A −0.29 vs B −0.05,
+refs Δ 252 −0.06 / 216 +0.19 → net −0.31. $300 / 4-dec unchanged. → LOSS; mk_low_touch_min stays 0. 252's higher $30 edge per fill is not from skipping tight spreads.
+T5' (ntm6, $300 rest-behind) started 11:01:50 PM. Registry updated.
