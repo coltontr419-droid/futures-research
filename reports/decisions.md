@@ -22726,3 +22726,10 @@ edge $ 47 vs 38 (on $282k vs $425k); $30 +2.69 / +2.54 vs +2.69 / +2.48 bp, edge
 7:25 PM: live (LIVE PARAMS applied mk_fee_k 0.0→1.0) + base + pending tests nrest (4 switches left) / nlow2 / nskew / nlad / nin2; ORIGINAL keeps 0 for T8.
 Caveat: T3 (nrest) first A block 7:01–7:31 had fee_k on only from 7:25 → both T3 arms carry it from 7:31; judge T3 mainly on the later blocks.
 UID 174 at 7:24 PM: $1/month (first pay), skill +0.05, score 0.0001. Registry + plan updated.
+
+## §1446 — 2026-11-13 9:30 PM CT — T3 (nrest, jump 3) = not a win (timing works, price too aggressive); T7 replaced by jump 1
+UID 174 T3 (7:01–9:01 PM, ABBA, no flash; fee_k on in A1 only from 7:25). $300: A edge per $ +1.07 (A1) / +1.27 (A2) vs B +1.63 / +1.65 bp; edge $ 22 / 26 vs 26 / 30;
+SKILL A −0.30 vs B −0.48, refs Δ 252 +0.10 / 216 +0.18 → net +0.04 (tie), 0 kept books both; presence order_books A 158.7 vs B 177.2. fundmove256 ($300; B = sim 25562–26159,
+A2 = 26159–26460): fills after the fundamental moved WITH us 34% (A) vs 10% (B) — fleet 38–50% — but kept +0.27 vs +0.91 bp and move-after −0.26 vs −0.61 (fleet +0.19…+0.46).
+→ NOT adopted (rule: skill tie, presence and edge per $ down). Mechanism confirmed; the 3-tick jump steps in too far. T7 (nin2: inside 2 vs 3) REPLACED by nrest1
+(lean-only + jump 1 vs 0/0), 3:16–5:16 AM, re-assert + reads 11:30 / 11:36 UTC; T7 decision cron recreated (daf38bd6) incl. the T8 confirmation. UID 174 at 9:24 PM: $6/month.
