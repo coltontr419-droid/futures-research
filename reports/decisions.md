@@ -22781,3 +22781,9 @@ books both. SKILL $300 A −0.37 vs B −0.44, refs Δ 252 +0.13 / 216 −0.11 �
 4-dec −4.5 / −5.3; quality 0 both (252 0 / 0.195, 216 0 / 0.327). fundmove256 ($300, A2 vs B): WITH share 41% vs 10% (fleet 47–50%), kept on WITH fills +0.62 vs +0.72 bp
 (fleet +0.88–1.10; T3 jump 3 +0.27), move-after on all our fills −0.55 vs −0.86 (fleet +0.29–0.39). → not a clear win (skill tie, $300 edge per $ and realized slightly worse);
 best skill lead so far (timing ≈ fleet, price cost much smaller than jump 3). Registry updated. UID 174 registered at 7:45 AM; R2 (nlad2) running 7:01–9:01.
+
+## §1453 — 2026-11-14 9:00 AM CT — Why UID 174's skill fell to 0: last night's skill was 4-dec inventory luck, not $300 skill
+Per-class net alpha (agent_class_gauges, 2-h steps): $300 (class 0) −15 / −75 / −34 / −23 / +2 / +4 / +19 / −46 / −24 / −37 (3 PM → 9 AM) — never meaningfully positive;
+$30 0 throughout; 4-dec (class 2) −102 / −18 / +93 / +275 / +3 / −142 / −511 / −549 / −686 / −347. Overall debeta_skill peaked +0.16 at 9 PM (4-dec), went negative from ≈ 1 AM
+and is floored at 0.00 since 5 AM (net α −412). The fleet barely trades 4-dec (252 none today) → no exposure to these swings. User forbids dropping groups → proposal:
+smaller 4-dec orders (mk_dec_size 0.09 → 0.03, live) to cut 4-dec inventory risk; suggested in place of R5 (fee_k 2.0) at 1:01 PM if UID 174 is still registered.
