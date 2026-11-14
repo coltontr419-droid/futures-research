@@ -23,6 +23,7 @@ Build: /opt/mvtrx/agents/QuoteAgent.next-10dc929d.py (NOT active). test_pace ALL
 | Start burst / protection-end death | §1416/§1439 | pace_start 20k; positive score by ≈ T+12 h | unit |
 | 4-dec: 252 does not quote them | profile | keep ours (credit ≈ 10× per unit once fees fall; no pay effect now) | no test |
 **PROVEN 11-13 (T1 interim, UID 174): soft pacing = the presence fix** — on ≈ 113 books with resting orders vs off 5 books (248/256 paced). Registry: memory mvtrx-proven-results.md.
+**PROVEN 11-13 (T2, UID 174): fee-aware quoting mk_fee_k 1.0** — presence +39%, $300 edge per $ ≈ 2×, pay-weighted edge +17%, skill tie; adopted live.
 Already PROVEN (not re-tested): $300 size 0.044 + inside 3 + lean 1.0 (skill +0.36/+0.20/+0.42), $30 shape (+23–25% edge $), 4-dec touch kept, 4-dec size/deep ties.
 
 ## Starting settings (proven base)

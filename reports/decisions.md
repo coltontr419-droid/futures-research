@@ -22718,3 +22718,11 @@ A (soft on) $300 117–120 books, 1,874–3,322 fills, $172–529k, edge +1.00/+
 B (soft off) $300 26 → 0 books, 58 → 0 fills; $30 9 → 6 books; edge $ ≈ 6 → 3. SKILL $300 A −0.05 vs B −0.19 bp (B tiny), refs Δ +0.08 / +0.05 → net +0.08 (tie);
 0 kept positive $300 books in either arm (the gap T3 targets). → CLEAR WIN on presence and making; adopt rule: already in the base (pace_soft_on 1), nothing to apply.
 Registry memory/mvtrx-proven-results.md updated. UID 174 at 6:09 PM: skill +0.015, combined 0.0028 (positive), making 0 (window lag), $0 pay; T2 nfee running (B block).
+
+## §1445 — 2026-11-13 7:25 PM CT — T2 (nfee) = CLEAR WIN → fee-aware quoting mk_fee_k 1.0 ADOPTED live
+UID 174 T2 (5:01–7:01 PM, ABBA, no flash). A (mk_fee_k 1.0) vs B (0): presence order_books mean 167.6 vs 120.7; $300 edge per $ +1.71 / +1.65 vs +0.95 / +0.84 bp,
+edge $ 47 vs 38 (on $282k vs $425k); $30 +2.69 / +2.54 vs +2.69 / +2.48 bp, edge $ 63 vs 56; 4-dec +1.55 / +1.40 vs +1.22 / +0.98 bp, edge $ 27 vs 23; pay-weighted ≈ 54.9 vs
+46.9 (+17%). SKILL $300 A −0.50 vs B −0.13, refs Δ 252 −0.10 / 216 −0.80 → net +0.08; $30 net +0.11 → tie. → CLEAR WIN (presence + making). `rebase_n.sh '"mk_fee_k": 1.0'`
+7:25 PM: live (LIVE PARAMS applied mk_fee_k 0.0→1.0) + base + pending tests nrest (4 switches left) / nlow2 / nskew / nlad / nin2; ORIGINAL keeps 0 for T8.
+Caveat: T3 (nrest) first A block 7:01–7:31 had fee_k on only from 7:25 → both T3 arms carry it from 7:31; judge T3 mainly on the later blocks.
+UID 174 at 7:24 PM: $1/month (first pay), skill +0.05, score 0.0001. Registry + plan updated.
