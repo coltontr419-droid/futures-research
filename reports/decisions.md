@@ -22832,3 +22832,9 @@ the live one): 15 replies, 0 instruction differences, tape identical (17,514 lin
 Left: framework decompress ≈ 90 ms (msgpack → Python objects, already C: 70 ms of it is decoding all books' events/orders) + ≈ 20 ms request parsing. Estimated server
 time ≈ 0.18 s vs ≈ 0.45 s. Cutting decompress needs a custom decoder in the miner (skip/lazy-decode events) — held. Reminder §1263 add. 2: under the validator's curve
 policy the sim-time delay gain is small (≈ 16 → 12 ms); the live read on the next miner decides whether speed moves $300 realized/skill.
+
+## §1460 — 2026-11-14 2:31 PM CT — New miner: hotkey x2 re-registered as UID 179; live on speed build 9f0d07f3 + START + pace_soft_min 0.20
+User registered x2 → UID 179 (regcheck REGISTERED 2:30 PM). Unit mvtrx-x2 reused (backup /opt/mvtrx/mvtrx-x2.service.pre-179): only change pace_soft_min 0.05 → 0.20
+(user yes 11-14); live_params_179.json = START (= 174's live, soft on, mk_fee_k 1.0); new ledger pace_179.ledger (clean cap); tape stays on x2. Started 20:31:04 UTC;
+first states: decompress 0.08–0.11 s, agent update ≈ 2 ms (was 70–160), 0 quote/tape errors, startup reply 1,141 instructions. our_uids.txt = "179 maker x2 36980".
+Plan: 2-h baseline 2:35–4:35 PM (read ≈ 4:41 PM; speed AND the size floor changed together — the read cannot separate them), then the speed-sensitive re-tests.
