@@ -22803,3 +22803,8 @@ net −1.2); quality 0 both. → TIE. UID 174 registered at 9:45; 252 pay $292/m
 UID 174 R3 (9:01–11:01 AM, ABBA, no flash). SKILL $300 A −0.43 vs B −0.50 bp (refs Δ 252 +0.34 / 216 +0.15 → net −0.17); $30 −0.13 vs −0.15 (refs Δ +0.43 / +0.08 → net −0.24);
 4-dec −0.12 vs −0.77 (noise). Validator making: $300 R −7.5 vs −8.4 (252 −6.9 / −9.5, 216 −5.9 / −6.2), $30 +0.8 / +0.3, quality 0. Edge $ per window ≈ equal (A 64 / 62 vs B 64 / 61).
 → not adopted. UID 174 registered at 11:45; 252 $283/month. R4 (inside 2) running 11:01 AM–1:01 PM.
+
+## §1457 — 2026-11-14 1:50 PM CT — R4 (nin2b, $300 inside 2 vs 3) = TIE, not adopted; UID 174 still registered after protection ended
+UID 174 R4 (11:01 AM–1:01 PM, ABBA, no flash). $300 edge per $ A +1.48 / +1.80 vs B +1.65 / +1.78 bp; fills ≈ 1,650–1,690 per window both; SKILL $300 A −0.41 vs B −0.44, refs Δ 252
++0.13 / 216 +0.05 → net −0.06; validator making $300 R −7.2 vs −7.3 (252 −1.0 / −3.7, 216 −0.9 / −1.8 — references improved in A, we did not); quality 0 both. → TIE.
+Registration confirmed 1:45 PM (protection ended ≈ 1:42 PM). 252 $327/month (skill). R5 (fee_k 2.0) running 1:01–3:01 PM.
