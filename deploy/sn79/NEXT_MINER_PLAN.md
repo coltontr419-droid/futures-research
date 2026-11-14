@@ -59,3 +59,9 @@ Stake on the coldkey now (11-13 ≈ 1 PM): x3 27.48, x1 9.95, x2 2.91, x4 2.77 a
 
 ## Priority (user 11-14 ≈ 12 PM)
 Target $300 SKILL from our own post-only fills (price moving WITH our fills). It is also the making fix (miner-wide quality, §1447). Live-switch ideas tried 11-13/14 did not move it (jumps, ladder, skew, rest-behind); next build: response speed (0.41 → ≤ 0.2 s) and larger minimum soft-paced order size.
+
+## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
+No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
+Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?
+Step 2: re-test only the speed-sensitive (race) items, 2 h each: (1) lean-only + jump 1 (timing already 41% vs fleet ≈ 48%), (2) inside at ≥ 2 ticks,
+(3) $300 touch_min 6 (rest-behind). Re-test the 2:5 ladder only if those change.
