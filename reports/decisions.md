@@ -22846,3 +22846,18 @@ Books with our resting orders per state (tape queue lines, speed/presence.py): U
 UID with pace_start 20k presence was ≈ 113 on 11-13 T1, so part of the gap may be age — but the trend was down, not up, so the user's rule applies.
 Unit pace_soft_min 0.20 → 0.05 (backup mvtrx-x2.service.pre-min05), restart 22:40:24 UTC (regcheck REGISTERED; ledger reloaded 7,959 fills; 0 errors).
 The 2:35–4:35 baseline (speed + 0.20 together) is still read as planned; the next presence check confirms recovery on 0.05.
+
+## §1462 — 2026-11-14 4:50 PM CT — Speed baseline (UID 179, 2:35–4:35 PM, sim 37012–38278): SPEED DOES NOT FIX $300 — DISPROVEN as the cause
+Compared with UID 174 on the same START settings (R4 B sim 35152–35741, R5 B 36360–36690), refs 252/216 in each window (speed/profwin.py, skill_ab.py, making067_ab.py
+with synthetic switch log liveswitch_base179_log.txt; note: "174" rows in the 179 window are UID 174's NEW owner — ignore).
+- call_time median 0.531 s (174) → 0.299 / 0.287 / 0.256 / 0.246 s (179, 25 / 55 / 85 / 115 min); 252 0.12–0.14, 216 0.13–0.14.
+- $300 20-s markout: 179 −0.95 bp vs 174 −0.88 / −1.00; refs +0.31/+0.38 vs +0.22/+0.39 and +0.56/+0.02 → unchanged.
+- $300 skill: 179 −0.59 bp (1 kept) vs 174 −0.48 (0 kept); refs +0.31/+0.50 vs +0.27/+0.30 → unchanged / slightly worse. 4-dec −1.26 vs −1.05. $30 −0.18 vs −0.17.
+- making (validator 0.6.7): $300 R −49.4 on C 71.4 (174 −13.8 on 12.3), 4-dec −48.5 on 42.6, $30 +33.0 on 78.3 → quality 0 (refs ≈ 0 too this window).
+- Volume 4× (fill $763 vs $107–145, the 0.20 size floor) → presence fall (§1461).
+NEW GAP (depth split, speed/profdepth.py, $300 by ticks from the touch before the fill; kept = edge + 20-s markout):
+  179: d−1 0% | d0 5% (mo −0.28, kept +0.72) | d1 14% (−0.60, +0.63) | d2 37% (−0.79, +0.80) | d3+ 45% (−1.25, +1.01)
+  252: d−1 27% (mo +0.84, kept +1.59) | d0 44% (+0.44, +1.13) | d1 10% | d2 5% | d3+ 14% (−0.68, +1.42); 216 the same shape (d−1 23%, d0 45%).
+→ The fleet gets ~¼ of its $300 $ by stepping INSIDE the touch, and those fills move its way (+0.8 bp); at the touch it is also positive where we are negative.
+Our fills are every depth kept-positive but mid-markout-negative → the skill gap is WHERE/WHEN they step inside (side choice), not speed or depth alone.
+Next: re-test 1 = $300 lean-only + jump 1 (steps inside on the leaning side) — n179lj ABBA 5:01–7:01 PM CT; reads 7:15/7:21/7:39; decision ≈ 7:47 PM.

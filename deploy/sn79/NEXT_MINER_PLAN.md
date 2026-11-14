@@ -67,6 +67,10 @@ Deploy for the next miner: cp speed/QuoteAgent.speedfinal.py agents/QuoteAgent.p
 live_params = START (soft on, mk_fee_k 1.0). Read call_time_median (gauge, wallet 5EWwdZB7) 30 min after start: target ≤ 0.25 s.
 Untested from R5: mk_fee_k 2.0 vs 1.0 (run after the re-tests).
 
+## Speed baseline verdict (§1462): speed is NOT the $300 cause; the gap is stepping INSIDE the touch on the right side
+Fleet: 23–27% of $300 $ filled inside the previous touch (+0.84 bp markout) + 44% at touch (+0.44); us: 0% inside, 5% at touch (−0.28). Order: re-test 1 lean-only + jump 1
+(n179lj, 11-14 5:01–7:01 PM) → re-test 2 inside 2 → touch_min 6 → fee_k 2.0; then design an inside-step test that copies the fleet's side choice (measure it from the tape first).
+
 ## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
 No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
 Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?
