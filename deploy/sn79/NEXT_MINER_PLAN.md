@@ -39,11 +39,11 @@ Live: x2's FINAL (§1432) = $300 mk_vol_size 0.044, mk_vol_inside 3, fund_mv 1.0
 | T3 T+5–7 h | lean-only + jump 3 vs touch | WITH share, $300 skill net of refs |
 | T4 T+7–9 h | $30 touch-min 2 vs 0 | $30 edge per $, edge $, $30 skill |
 | T5 T+9–11 h | skew 3 vs 5 | skill, inventory |
-| **check T+12 h** | live making and/or skill must be > 0; if not → stop testing, settle on the best-known | survival |
+| (no survival stop) | user 11-14: on a test miner keep testing until pruned — survival is not the objective | — |
 | T6 T+11–13 h | $300 ladder "2:5" vs "1:2:4:7" | $300 skill, avg fill, presence |
 | T7 T+13–15 h | inside 2 vs 3 | $300 skill, inside share |
 | T8 T+15–17 h | CONFIRMATION: all winners vs base | everything |
-| T+17–24 h | settled — no changes (protection ends T+24 h) | — |
+| T+17 h → pruned | keep testing (extensions) — settle only if the user wants the miner kept | — |
 Extensions only after T8. No taking. Each test winner decided by: presence → skill net of refs → pay-weighted making.
 
 ## Withdraw first (user runs these; one hotkey at a time, MEV protection off, no batch)

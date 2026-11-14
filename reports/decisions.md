@@ -22787,3 +22787,9 @@ Per-class net alpha (agent_class_gauges, 2-h steps): $300 (class 0) −15 / −7
 $30 0 throughout; 4-dec (class 2) −102 / −18 / +93 / +275 / +3 / −142 / −511 / −549 / −686 / −347. Overall debeta_skill peaked +0.16 at 9 PM (4-dec), went negative from ≈ 1 AM
 and is floored at 0.00 since 5 AM (net α −412). The fleet barely trades 4-dec (252 none today) → no exposure to these swings. User forbids dropping groups → proposal:
 smaller 4-dec orders (mk_dec_size 0.09 → 0.03, live) to cut 4-dec inventory risk; suggested in place of R5 (fee_k 2.0) at 1:01 PM if UID 174 is still registered.
+
+## §1454 — 2026-11-14 ≈ 9:10 AM CT — Rule: during testing, strategy discovery beats miner survival (user)
+User: "during testing phases miner survivability is not objective, finding a strategy that works is. you stopped testing last night because the survival check was
+negative and it wasted 4 hours of tests for no reason." The 1:48 AM survival stop (§1450) settled UID 174 with a 0 score; no reads 1:48–4:50 AM. Saved: memory
+feedback-testing-over-survival.md, CLAUDE.md rule, NEXT_MINER_PLAN.md (survival stop removed; test miners test until pruned). The pending R3–R5 decision crons already
+continue until prune (they only clean up after a prune).
