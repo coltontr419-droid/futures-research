@@ -22798,3 +22798,8 @@ continue until prune (they only clean up after a prune).
 UID 174 R2 (7:01–9:01 AM, ABBA, no flash). $300 edge per $ A +1.70 / +1.61 vs B +1.65 / +1.66; edge $ 27 + 27 = 54 vs 31 + 33 = 64; books 117 vs 118–119. SKILL $300 A −0.48
 vs B −0.50, refs Δ 252 +0.10 / 216 +0.13 → net −0.10. Validator-0.6.7 making: $300 R A −6.1 vs B −9.1 (252 −1.2 / −6.3, 216 −4.9 / −8.1 → market moved the same way;
 net −1.2); quality 0 both. → TIE. UID 174 registered at 9:45; 252 pay $292/month (mostly skill; its making ≈ 3). R3 (skew) running 9:01–11:01.
+
+## §1456 — 2026-11-14 11:50 AM CT — R3 (nskw, skew 3 vs 5) = TIE / slight loss, not adopted
+UID 174 R3 (9:01–11:01 AM, ABBA, no flash). SKILL $300 A −0.43 vs B −0.50 bp (refs Δ 252 +0.34 / 216 +0.15 → net −0.17); $30 −0.13 vs −0.15 (refs Δ +0.43 / +0.08 → net −0.24);
+4-dec −0.12 vs −0.77 (noise). Validator making: $300 R −7.5 vs −8.4 (252 −6.9 / −9.5, 216 −5.9 / −6.2), $30 +0.8 / +0.3, quality 0. Edge $ per window ≈ equal (A 64 / 62 vs B 64 / 61).
+→ not adopted. UID 174 registered at 11:45; 252 $283/month. R4 (inside 2) running 11:01 AM–1:01 PM.
