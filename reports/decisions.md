@@ -22793,3 +22793,8 @@ User: "during testing phases miner survivability is not objective, finding a str
 negative and it wasted 4 hours of tests for no reason." The 1:48 AM survival stop (§1450) settled UID 174 with a 0 score; no reads 1:48–4:50 AM. Saved: memory
 feedback-testing-over-survival.md, CLAUDE.md rule, NEXT_MINER_PLAN.md (survival stop removed; test miners test until pruned). The pending R3–R5 decision crons already
 continue until prune (they only clean up after a prune).
+
+## §1455 — 2026-11-14 9:50 AM CT — R2 (nlad2, $300 ladder 2:5) = TIE, not adopted
+UID 174 R2 (7:01–9:01 AM, ABBA, no flash). $300 edge per $ A +1.70 / +1.61 vs B +1.65 / +1.66; edge $ 27 + 27 = 54 vs 31 + 33 = 64; books 117 vs 118–119. SKILL $300 A −0.48
+vs B −0.50, refs Δ 252 +0.10 / 216 +0.13 → net −0.10. Validator-0.6.7 making: $300 R A −6.1 vs B −9.1 (252 −1.2 / −6.3, 216 −4.9 / −8.1 → market moved the same way;
+net −1.2); quality 0 both. → TIE. UID 174 registered at 9:45; 252 pay $292/month (mostly skill; its making ≈ 3). R3 (skew) running 9:01–11:01.
