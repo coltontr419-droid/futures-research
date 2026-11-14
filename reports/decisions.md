@@ -22733,3 +22733,13 @@ SKILL A −0.30 vs B −0.48, refs Δ 252 +0.10 / 216 +0.18 → net +0.04 (tie),
 A2 = 26159–26460): fills after the fundamental moved WITH us 34% (A) vs 10% (B) — fleet 38–50% — but kept +0.27 vs +0.91 bp and move-after −0.26 vs −0.61 (fleet +0.19…+0.46).
 → NOT adopted (rule: skill tie, presence and edge per $ down). Mechanism confirmed; the 3-tick jump steps in too far. T7 (nin2: inside 2 vs 3) REPLACED by nrest1
 (lean-only + jump 1 vs 0/0), 3:16–5:16 AM, re-assert + reads 11:30 / 11:36 UTC; T7 decision cron recreated (daf38bd6) incl. the T8 confirmation. UID 174 at 9:24 PM: $6/month.
+
+## §1447 — 2026-11-13 ≈ 10:40 PM CT — Why UID 174 has 0 making credit: the validator's miner-wide quality factor (exact 0.6.7 replica)
+User: should x2 be earning making credit? check only (no miner/test changes). making067.py runs the validator's own accumulate_book_capture (centred window 15, 20-s horizon,
+fee_weight 0.005, taker legs apart) + markout_quality offline on the tape (read-only, nice 15, compact tuples; 120 sim min = sim 19665–26865). Matches the live gauges
+(174 0 / live 0; 252 25.1 / live 36–41; 216 19.9 / live 22–30).
+UID 174: $300 C 57.8 R −117.4 (R/C −2.03); $30 C 258.4 R +118.9 (+0.46), two-sided 194.8; 4-dec C 240.7 R −16.7 → total R −15.2 → quality 0 → every class credit 0.
+252: $300 C 50.3 R −5.7; $30 C 109.9 R +68.5 (two-sided 64.1); no 4-dec → quality 0.392 → $30 credit 25.1. 216: quality 0.301 → $30 credit 19.9.
+markout_quality sums R and C over ALL books (one factor per miner) → our $300 losses wipe a $30 credit that would be ≈ 195 × 0.46 ≈ 90 (≈ 3.6× 252). Our $300 fills
+(≈ 22× 252's count, ≈ $190 avg, at/inside the touch) capture ≈ nothing vs the centred mid and lose at the horizon. Proposed tests (user to approve; nothing changed):
+mk_skip_vol 1 (no $300 making) and/or mk_skip_dec 1, judged with this replica's quality. Registry + pay-structure memory updated.
