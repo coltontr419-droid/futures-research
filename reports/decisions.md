@@ -22743,3 +22743,12 @@ UID 174: $300 C 57.8 R −117.4 (R/C −2.03); $30 C 258.4 R +118.9 (+0.46), two
 markout_quality sums R and C over ALL books (one factor per miner) → our $300 losses wipe a $30 credit that would be ≈ 195 × 0.46 ≈ 90 (≈ 3.6× 252). Our $300 fills
 (≈ 22× 252's count, ≈ $190 avg, at/inside the touch) capture ≈ nothing vs the centred mid and lose at the horizon. Proposed tests (user to approve; nothing changed):
 mk_skip_vol 1 (no $300 making) and/or mk_skip_dec 1, judged with this replica's quality. Registry + pay-structure memory updated.
+
+## §1448 — 2026-11-13 ≈ 10:05 PM CT — User: never drop book groups; T5 replaced by a $300 rest-behind test judged on the validator's quality
+- User rejected stopping $300 / 4-dec making ("dropping a set of books is just overfitting with risks; if 252 uses them then we will too") → memory
+  feedback-no-dropping-books.md. Note: 252 had 0 4-dec fills on 11-13 but traded them on 11-12 → we keep them.
+- Fix the losing group instead: T5 (skew 3 vs 5, never run) REPLACED by ntm6 = mk_vol_touch_min 6 vs 0 ($300-only since 88ab2eab: no $300 touch order while the spread
+  < 6 ticks → only ladder 1:2:4:7 fills), 11:01 PM–1:01 AM CT, base = START (fee_k 1.0). Skew → extension list. Reads: main, grpcap 1:15, skill 1:21, and NEW
+  makingread_n.sh → making067_ab.py (validator-0.6.7 markout quality + per-class C / R per arm) at 1:40 AM (staggered: two 4.5-GB reads must not overlap on the 8-GB lab).
+  T5 decision cron moved to 1:48 AM (incl. the survival check). Caveat: a 2-h test spans ≈ 20 sim min → per-arm quality is noisy (T3 check: 252 itself reads ≈ 0) → weigh
+  per-class R vs 252/216 in the same windows.
