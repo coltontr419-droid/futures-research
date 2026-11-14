@@ -22758,3 +22758,12 @@ UID 174 T4 (9:01–11:01 PM, ABBA, no flash). $30: A (mk_low_touch_min 2) $49k +
 +2.72 / +2.73 bp, edge $ 31 + 29 = 60, 722 fills, 63–64 books → edge per $ +0.63 bp but edge $ −43% (credit pays on total two-sided capture). $30 SKILL A −0.29 vs B −0.05,
 refs Δ 252 −0.06 / 216 +0.19 → net −0.31. $300 / 4-dec unchanged. → LOSS; mk_low_touch_min stays 0. 252's higher $30 edge per fill is not from skipping tight spreads.
 T5' (ntm6, $300 rest-behind) started 11:01:50 PM. Registry updated.
+
+## §1450 — 2026-11-14 1:52 AM CT — T5' ($300 rest-behind) = TIE; T+12 h SURVIVAL CHECK FAILED → tests stopped, UID 174 settled
+- T5' ntm6 (11:01 PM–1:01 AM, ABBA, no flash): $300 edge per $ A +1.81 / +1.79 vs B +1.69 / +1.65 bp; edge $ 58 vs 69; volume $325k vs $410k; presence 118 vs 119 books.
+  Validator-0.6.7 replica per arm: $300 R A −5.4 vs B −7.7 (252 −5.6 / −2.4, 216 −5.6 / −5.3 in the same windows → negative for everyone over ≈ 10-sim-min arms), $30 R +0.3 / −1.4,
+  4-dec −1.2 / −3.3; QUALITY 0 for all three UIDs (arms too short). $300 skill A −0.42 vs B −0.44, refs Δ +0.06 / −0.11 → net +0.05. → TIE, not adopted.
+- SURVIVAL (rule set with the user): UID 174 live making 0 AND skill −0.11 at 1:48 AM; pay $5/month vs prune line $122; protection ends ≈ 1:42 PM CT. → remaining tests stopped
+  (T6 nlad mid-run — its B block had already restored the base ladder at 1:46 — and T7' nrest1; their decision crons cancelled; T8 skipped). FINAL = live_params_174.FINAL-1114.json
+  = START (original + fee-aware mk_fee_k 1.0, soft pacing on); applied 1:51 AM ("no change").
+- Assessment for the user: settling does not raise a 0 score; without making credit (miner-wide quality 0, §1447) or positive skill, UID 174 is likely pruned soon after ≈ 1:42 PM.
