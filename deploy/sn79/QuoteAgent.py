@@ -56,14 +56,21 @@ _LEVELS = 5
 
 
 class _RawBook:
-    __slots__ = ("bids", "asks", "events", "fundamental", "raw_b", "raw_a")
+    __slots__ = ("bids", "asks", "raw_e", "_events", "fundamental", "raw_b", "raw_a")
 
     def __init__(self, d):
         self.raw_b, self.raw_a = d.get("b") or [], d.get("a") or []    # levels with their resting orders in queue order (qlog)
         self.bids = [_Lv(x) for x in self.raw_b[:_LEVELS]]             # §1263: only the top 5 levels are ever read; building all of them was ≈ 10% of the handler
         self.asks = [_Lv(x) for x in self.raw_a[:_LEVELS]]
-        self.events = [_Ev(x) for x in d.get("e") or []]
+        self.raw_e = d.get("e") or []                                   # speed build 11-14: ≈ 27k events per state on 256 books; building an _Ev for
+        self._events = None                                             # each was the biggest cost of the handler. Built only when read (lazy).
         self.fundamental = d.get("f")
+
+    @property
+    def events(self):
+        if self._events is None:
+            self._events = [_Ev(x) for x in self.raw_e]
+        return self._events
 
 
 class _RawAccount:
@@ -322,6 +329,14 @@ class QuoteAgent(FinanceAgent):
         self.sleeve_books = {int(x) for x in open(sb).read().split()} if sb else None   # 1: on skipped books, unwind the position with IOC takes (taker fills never enter the
                                                            # making pool, takers get a fee rebate) — one take per take_cool, ≤ take_size, ≤ top level   # books ranked on one half lift the other half 0.03 → 0.22)
         self.tape = open(str(c.tape), "a") if getattr(c, "tape", "") else None
+        self.quiet_report = int(getattr(c, "quiet_report", 1))  # speed build 11-14: one summary line instead of printing every instruction
+        self.tape_async = int(getattr(c, "tape_async", 1))       # speed build 11-14: write the tape on a background thread AFTER the reply is out
+        self.tape_delay = float(getattr(c, "tape_delay", 0.25))  # (it was ≈ 1/4 of the handler); one FIFO worker keeps the line order exact
+        self._tape_q = None
+        if self.tape is not None and self.tape_async:
+            import queue, threading
+            self._tape_q = queue.Queue()
+            threading.Thread(target=self._tape_worker, daemon=True, name="tape").start()
         self.lean = int(getattr(c, "lean", 0))             # 1: skip the base agent's state history, CSV event log and debug text (§1207, speed)
         self.cancel_first = int(getattr(c, "cancel_first", 0))   # 1: cancel the side the prediction says is exposed first (§1207)
         self.flow_pull = float(getattr(c, "flow_pull", 0.0))   # >0: drop our offer while near-touch new-order imbalance (5 s) > FLOW_PULL, our
@@ -356,6 +371,7 @@ class QuoteAgent(FinanceAgent):
         QuoteAgent uses none of it and the validator delays our orders by how long we take."""
         if not self.lean or isinstance(state, ExchangeStateUpdate):
             return super().update(state)
+        self._busy = True                                 # speed build: the tape worker waits while a state is being handled
         self.simulation_config = state.config
         raw_books = getattr(state.books, "_raw_books", None)
         if self.raw and raw_books is not None:            # lazy_load=1 left the wire dicts in place
@@ -379,6 +395,11 @@ class QuoteAgent(FinanceAgent):
         self._clock_check()
         if self.live_params:
             self._live_reload()
+        if self.lock_dir:                                  # speed build 11-14: list the lock folder once per state (was ≈ 1,500 stat calls)
+            try:
+                self._lockset = set(os.listdir(self.lock_dir))
+            except OSError:
+                self._lockset = set()
         if self.lock_dir and len(self.skip) < 128 and self._sec != getattr(self, "_hb_at", None):
             self._hb_at = self._sec                            # §1240 maker heartbeat: takers only handshake while a maker of ours is alive
             hb = f"{self.lock_dir}/maker_{self.uid}.hb"
@@ -395,10 +416,16 @@ class QuoteAgent(FinanceAgent):
             self._ioc_logged = self._sec            # §1223 add. 6: x2 runs without a tape, so log its IOC flow once per sim minute
             bt.logging.info(f"IOC FLOW: {self._ioc_n} IOCs, ${self._ioc_usd:,.0f} since start; rev targets open {sum(1 for t, _ in self._rev.values() if t)}; model entries {getattr(self, '_model_n', 0)}; copy slices {getattr(self, '_slice_n', 0)}")
         if self.tape is not None:
-            self._record(state)
+            if self._tape_q is not None and self._books is not None:
+                self._tape_q.put((time.monotonic() + self.tape_delay, state.timestamp, self._books, self.accounts))
+            else:
+                self._record(state.timestamp, self._books if self._books is not None else state.books or {}, self.accounts)
         if self.pace_cap:
+            uid = self.uid
             for book_id, book in (self._books if self._books is not None else state.books or {}).items():
-                for e in book.events or []:
+                raw_e = getattr(book, "raw_e", None)          # speed build: scan the raw dicts; build an _Ev only for our own fills
+                evs = (_Ev(x) for x in raw_e if x.get("y") == "t" and (x.get("Ma") == uid or x.get("Ta") == uid)) if raw_e is not None else (book.events or [])
+                for e in evs:
                     if getattr(e, "y", "") == "t" and (e.Ma == self.uid or e.Ta == self.uid):
                         key = (int(book_id), e.id, e.timestamp)
                         if key not in self._pace_seen:
@@ -448,6 +475,7 @@ class QuoteAgent(FinanceAgent):
                 self._ins_over.clear(); self._ins_ex = {}
         except Exception:
             pass
+        self._busy = False
         return response
 
     def _predict(self, book_id, book, sec, mid):
@@ -557,7 +585,7 @@ class QuoteAgent(FinanceAgent):
         tgt = dict(want)
         if B in tgt and S in tgt and self.mk_vol_penny and round((tgt[S] - tgt[B]) / tick) >= self.mk_vol_penny:
             tgt[B] = round(tgt[B] + tick, pd); tgt[S] = round(tgt[S] - tick, pd)
-        n = sum(1 for i in (response.instructions or []) if getattr(i, "bookId", None) == book_id)
+        n = sum(1 for i in (response.instructions or [])[getattr(self, "_ins_base", 0):] if getattr(i, "bookId", None) == book_id)
         urgent, stale, have, rest = [], [], set(), {B: [], S: []}
         for o in orders:
             px = tgt.get(o.side)
@@ -813,7 +841,7 @@ class QuoteAgent(FinanceAgent):
             want = {sd: px for sd, px in want.items() if sd not in nts}
         elif no_touch:
             want = {}                                     # §1323: ladder only — touch orders are not placed (and a resting one is cancelled below)
-        n = sum(1 for i in (response.instructions or []) if getattr(i, "bookId", None) == book_id)
+        n = sum(1 for i in (response.instructions or [])[getattr(self, "_ins_base", 0):] if getattr(i, "bookId", None) == book_id)
         urgent, stale, keep = [], [], {B: [], S: []}
         for o in orders:
             px = tgt.get(o.side)
@@ -1054,6 +1082,7 @@ class QuoteAgent(FinanceAgent):
         lo = self._low_ov(book_id)
         if lo:
             ov = dict(ov or {}); ov.update(lo)
+        self._ins_base = len(getattr(response, "instructions", None) or [])  # speed build: count this book's instructions from here (was a scan of the whole reply per book)
         if not ov:
             return self._quote_inner(response, book_id, book, acct)
         saved = {k: getattr(self, k) for k in ov}
@@ -1153,13 +1182,13 @@ class QuoteAgent(FinanceAgent):
             if self.lock_dir and len(self.skip) < 128:     # §1289 a MAKER on a book it does not quote (book split between our makers): still clear our
                 for side in (OrderDirection.BUY, OrderDirection.SELL):   # taker's locks, or x1 would wait on every book some maker skips
                     lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}_{self.uid}"
-                    if os.path.exists(lk):
+                    if os.path.basename(lk) in self._lockset:
                         if not any(o.side == side for o in acct.orders):   # ack only once nothing of ours rests on that side
                             with open(ak + ".tmp", "w") as fh:
                                 fh.write(str(self._sec))
-                            os.replace(ak + ".tmp", ak)
-                    elif os.path.exists(ak):
-                        os.remove(ak)
+                            os.replace(ak + ".tmp", ak); self._lockset.add(os.path.basename(ak))
+                    elif os.path.basename(ak) in self._lockset:
+                        os.remove(ak); self._lockset.discard(os.path.basename(ak))
                 return                                     # a maker never trades the books it skips
             if self.sleeve_books is not None and int(book_id) not in self.sleeve_books:
                 return                                     # sleeve_file set: trade only the sleeve books (another UID of ours quotes the rest)
@@ -1273,15 +1302,15 @@ class QuoteAgent(FinanceAgent):
         if self.lock_dir:                                  # maker side of the handshake, FIRST (paced-out / toxic books return early below)
             for side in (OrderDirection.BUY, OrderDirection.SELL):
                 lk, ak = f"{self.lock_dir}/lock_{book_id}_{int(side)}", f"{self.lock_dir}/ack_{book_id}_{int(side)}_{self.uid}"
-                if os.path.exists(lk):
+                if os.path.basename(lk) in self._lockset:
                     mine = [o for o in acct.orders if o.side == side]
                     self._cancel_all(response, book_id, mine)     # pull our quotes on the locked side now (§1293: one instruction)
                     if not mine:
                         with open(ak + ".tmp", "w") as fh:
                             fh.write(str(self._sec))
-                        os.replace(ak + ".tmp", ak)
-                elif os.path.exists(ak):
-                    os.remove(ak)
+                        os.replace(ak + ".tmp", ak); self._lockset.add(os.path.basename(ak))
+                elif os.path.basename(ak) in self._lockset:
+                    os.remove(ak); self._lockset.discard(os.path.basename(ak))
         if self.pace_cap and self._paced_out(int(book_id)):
             if self._pace_hold_ok(int(book_id)):           # §1317 soft gate (calm): deep orders stay resting, touch / inside orders go, nothing new
                 self._cancel_all(response, book_id, self._pace_hold_drop(book, acct.orders, tick))
@@ -1386,7 +1415,7 @@ class QuoteAgent(FinanceAgent):
             want.pop(OrderDirection.BUY if inv > 0 else OrderDirection.SELL, None)   # long into a fall / short into a rise: unwind only
         if self.lock_dir:
             for side in (OrderDirection.BUY, OrderDirection.SELL):
-                if os.path.exists(f"{self.lock_dir}/lock_{book_id}_{int(side)}"):
+                if f"lock_{book_id}_{int(side)}" in self._lockset:
                     want.pop(side, None)                   # a taker UID of ours is about to trade into this side: stay off it (ack handled above)
         # the validator adds 5-25 ms to every instruction after a book's first: cancel the side the prediction says is exposed first
         orders = sorted(acct.orders, key=lambda o: (o.side == OrderDirection.SELL) != (pred > 0)) if self.cancel_first else acct.orders
@@ -1451,9 +1480,35 @@ class QuoteAgent(FinanceAgent):
                 response.limit_order(book_id=book_id, direction=side, quantity=lv[p], price=p, stp=STP.CANCEL_BOTH, postOnly=True,
                                      timeInForce=TimeInForce.GTT, expiryPeriod=self.expiry)
 
-    def _record(self, state):
-        ts = state.timestamp
-        for book_id, book in (self._books if self._books is not None else state.books or {}).items():
+    def report(self, state, response):
+        """quiet_report=1: the base report printed every instruction (≈ 600 lines per state) to the journal BEFORE the reply went out —
+        10-30 ms of the answer time and the journal bloat behind the scan hangs. One summary line per sim minute instead."""
+        if not self.quiet_report or isinstance(state, ExchangeStateUpdate):
+            return super().report(state, response)
+        ins = response.instructions or []
+        self._rep_n = getattr(self, "_rep_n", 0) + 1; self._rep_i = getattr(self, "_rep_i", 0) + len(ins)
+        if self._sec - getattr(self, "_rep_at", -10 ** 9) >= 60:
+            self._rep_at = self._sec
+            bt.logging.info(f"REPLIES: {self._rep_n} states, {self._rep_i / self._rep_n:.0f} instructions per reply (quiet_report)")
+            self._rep_n = self._rep_i = 0
+
+    def _tape_worker(self):
+        while True:
+            due, ts, books, accounts = self._tape_q.get()
+            try:
+                wait = due - time.monotonic()
+                if wait > 0:
+                    time.sleep(wait)
+                for _ in range(300):                      # ≤ 3 s: never compete with a handler for the GIL
+                    if not getattr(self, "_busy", False):
+                        break
+                    time.sleep(0.01)
+                self._record(ts, books, accounts)
+            except Exception as ex:
+                bt.logging.warning(f"TAPE worker error: {type(ex).__name__}: {ex}")
+
+    def _record(self, ts, books, accounts):
+        for book_id, book in books.items():
             for e in book.events or []:
                 if getattr(e, "y", "") == "t":
                     self.tape.write(json.dumps({"ts": e.timestamp, "book": book_id, "id": e.id, "p": e.price, "q": e.quantity, "s": e.side,
@@ -1475,7 +1530,7 @@ class QuoteAgent(FinanceAgent):
                 self.tape.write(json.dumps({"ts": ts, "book": book_id, "bid": book.bids[0].price, "ask": book.asks[0].price,
                                             "bids": [[l.price, l.quantity] for l in book.bids[:5]], "asks": [[l.price, l.quantity] for l in book.asks[:5]],
                                             "fund": getattr(book, "fundamental", None) or getattr(book, "f", None)}) + "\n")
-            acct = self.accounts.get(book_id) if self.qlog else None
+            acct = accounts.get(book_id) if self.qlog else None
             if acct is not None and getattr(book, "raw_b", None) is not None:   # qlog=1 (raw mode): where each of our orders sits in its queue
                 q = []
                 for o in acct.orders:

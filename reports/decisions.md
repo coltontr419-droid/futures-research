@@ -22808,3 +22808,27 @@ UID 174 R3 (9:01–11:01 AM, ABBA, no flash). SKILL $300 A −0.43 vs B −0.50 
 UID 174 R4 (11:01 AM–1:01 PM, ABBA, no flash). $300 edge per $ A +1.48 / +1.80 vs B +1.65 / +1.78 bp; fills ≈ 1,650–1,690 per window both; SKILL $300 A −0.41 vs B −0.44, refs Δ 252
 +0.13 / 216 +0.05 → net −0.06; validator making $300 R −7.2 vs −7.3 (252 −1.0 / −3.7, 216 −0.9 / −1.8 — references improved in A, we did not); quality 0 both. → TIE.
 Registration confirmed 1:45 PM (protection ended ≈ 1:42 PM). 252 $327/month (skill). R5 (fee_k 2.0) running 1:01–3:01 PM.
+
+## §1458 — 2026-11-14 2:17 PM CT — UID 174 (x2) PRUNED ≈ 2:09 PM; R5 (nfee2, fee_k 2.0 vs 1.0) NOT READ; lab cleaned
+Journal 20:09:37 UTC: "x2 is not registered on netuid 79"; chain: UID 174 now another hotkey (registered 0.14 h before the 2:17 check). Pruned ≈ 27 min after
+protection ended (≈ 1:42 PM) at $0 pay — as expected. R5 had only one A block (1:01–1:31) and one B block (1:31–2:01) + a partial → under the noise floor, NOT READ
+(fee_k 2.0 stays UNTESTED). Cleanup: mvtrx-x2 stopped + disabled; mvtrx-nfee2-{3,end,read} timers stopped; 174 removed from our_uids.txt (now empty; backup
+our_uids.txt.bak-1114-prune); session crons (R5 decision, 30-min brief) deleted. No miner runs now; the tape stopped with x2. 252 at last read $326/month (skill).
+User decision (11-14 ≈ 2 PM): build response speed BEFORE the next miner; then baseline read + speed-sensitive re-tests (NEXT_MINER_PLAN.md).
+
+## §1459 — 2026-11-14 2:15 PM CT — Speed build 9f0d07f3 (from 10dc929d): agent 200 → 67 ms median, output IDENTICAL; not deployed (no miner)
+Measured on 5 fresh validator requests captured off the wire (tcpdump on :8102 + reassembly → /opt/mvtrx/cap14/req_*.json, 256 books, ≈ 1.7 MB, ≈ 22–27k events,
+29k resting orders per state; bench /opt/mvtrx/speed/bench.py with the live x2 unit params + live_params_174.json). Live cycle before (journal): decompress ≈ 0.10 s,
+update 0.07–0.16, respond 0.22–0.27, instruction printing 0.01–0.03; gauge call_time_median 174 = 0.531 s vs 252 0.128 / 216 0.129.
+Fixes (all exact — no strategy change):
+1. _RawBook.events built lazily (raw dicts kept in raw_e) — the _Ev build of every event was the biggest cost.
+2. Pace fill scan reads the raw dicts; builds an _Ev only for our own fills.
+3. Tape (_record) written by ONE FIFO background thread, 0.25 s after the state and only once the handler is idle (tape_async=1, tape_delay=0.25).
+4. Per-book instruction count (_vol_ladder / _vol_lazy) counts from this book's start index — was a scan of the whole reply for every book (quadratic).
+5. Lock folder listed once per state (set) instead of ≈ 1,500 stat calls; our own ack writes/removes keep the set in sync.
+6. quiet_report=1: one "REPLIES" line per sim minute instead of printing ≈ 600 instructions per state before replying (also stops the journal bloat behind the scan hangs).
+Results: agent handle median 200 → 67 ms (p90 310 → 76) with the tape off the reply path; side by side vs 10dc929d on the same states (equiv.py, lock folder seeded from
+the live one): 15 replies, 0 instruction differences, tape identical (17,514 lines), pace ledger identical, lock folders identical. test_pace.py: ALL PASS (211 / 0).
+Left: framework decompress ≈ 90 ms (msgpack → Python objects, already C: 70 ms of it is decoding all books' events/orders) + ≈ 20 ms request parsing. Estimated server
+time ≈ 0.18 s vs ≈ 0.45 s. Cutting decompress needs a custom decoder in the miner (skip/lazy-decode events) — held. Reminder §1263 add. 2: under the validator's curve
+policy the sim-time delay gain is small (≈ 16 → 12 ms); the live read on the next miner decides whether speed moves $300 realized/skill.

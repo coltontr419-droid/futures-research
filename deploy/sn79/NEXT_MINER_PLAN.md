@@ -60,6 +60,13 @@ Stake on the coldkey now (11-13 ≈ 1 PM): x3 27.48, x1 9.95, x2 2.91, x4 2.77 a
 ## Priority (user 11-14 ≈ 12 PM)
 Target $300 SKILL from our own post-only fills (price moving WITH our fills). It is also the making fix (miner-wide quality, §1447). Live-switch ideas tried 11-13/14 did not move it (jumps, ladder, skew, rest-behind); next build: response speed (0.41 → ≤ 0.2 s) and larger minimum soft-paced order size.
 
+## Speed build READY (11-14 2:15 PM, §1459) — UID 174 pruned ≈ 2:09 PM (§1458)
+Agent 9f0d07f3 (repo deploy/sn79/QuoteAgent.py; lab /opt/mvtrx/speed/QuoteAgent.speedfinal.py; running copy still 10dc929d in /opt/mvtrx/agents, backup
+QuoteAgent.10dc929d.py). Exact same output as 10dc929d; agent 200 → 67 ms. New params (defaults on): tape_async=1 tape_delay=0.25 quiet_report=1.
+Deploy for the next miner: cp speed/QuoteAgent.speedfinal.py agents/QuoteAgent.py; unit = mvtrx-x2 unit with the new hotkey + pace_soft_min 0.20 (user yes 11-14) +
+live_params = START (soft on, mk_fee_k 1.0). Read call_time_median (gauge, wallet 5EWwdZB7) 30 min after start: target ≤ 0.25 s.
+Untested from R5: mk_fee_k 2.0 vs 1.0 (run after the re-tests).
+
 ## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
 No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
 Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?
