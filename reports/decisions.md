@@ -22838,3 +22838,11 @@ User registered x2 → UID 179 (regcheck REGISTERED 2:30 PM). Unit mvtrx-x2 reus
 (user yes 11-14); live_params_179.json = START (= 174's live, soft on, mk_fee_k 1.0); new ledger pace_179.ledger (clean cap); tape stays on x2. Started 20:31:04 UTC;
 first states: decompress 0.08–0.11 s, agent update ≈ 2 ms (was 70–160), 0 quote/tape errors, startup reply 1,141 instructions. our_uids.txt = "179 maker x2 36980".
 Plan: 2-h baseline 2:35–4:35 PM (read ≈ 4:41 PM; speed AND the size floor changed together — the read cannot separate them), then the speed-sensitive re-tests.
+
+## §1461 — 2026-11-14 4:40 PM CT — pace_soft_min 0.20 LOST presence → back to 0.05 (user rule: "if presence dropped, go back to 5%")
+Books with our resting orders per state (tape queue lines, speed/presence.py): UID 174 on 0.05 — sim 34000–35000 median 193 (p10 176), 35000–36000 191 (185),
+36000–36700 206 (198). UID 179 on 0.20 — first 310 sim s 233, next 300 174, sim 37600–38330 136 (p10 126) and still falling; paced-out books 91 → 109 → 121 of 256
+(3:26 → 3:56 → 4:26 PM). Bigger floor orders spend each book's pace budget faster → books block sooner. Caveat: 174's numbers are from a mature UID (≥ 20 h); a young
+UID with pace_start 20k presence was ≈ 113 on 11-13 T1, so part of the gap may be age — but the trend was down, not up, so the user's rule applies.
+Unit pace_soft_min 0.20 → 0.05 (backup mvtrx-x2.service.pre-min05), restart 22:40:24 UTC (regcheck REGISTERED; ledger reloaded 7,959 fills; 0 errors).
+The 2:35–4:35 baseline (speed + 0.20 together) is still read as planned; the next presence check confirms recovery on 0.05.
