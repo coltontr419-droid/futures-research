@@ -22767,3 +22767,10 @@ T5' (ntm6, $300 rest-behind) started 11:01:50 PM. Registry updated.
   (T6 nlad mid-run — its B block had already restored the base ladder at 1:46 — and T7' nrest1; their decision crons cancelled; T8 skipped). FINAL = live_params_174.FINAL-1114.json
   = START (original + fee-aware mk_fee_k 1.0, soft pacing on); applied 1:51 AM ("no change").
 - Assessment for the user: settling does not raise a 0 score; without making credit (miner-wide quality 0, §1447) or positive skill, UID 174 is likely pruned soon after ≈ 1:42 PM.
+
+## §1451 — 2026-11-14 ≈ 5:20 AM CT — Tests resumed on UID 174 until it is pruned (user)
+User ≈ 4:50 AM: "resume all the tests, we're just wasting money if we let it get pruned without testing on it." Scheduled (2-h ABBA, base live_params_174.START.json):
+R1 nj1 lean-only + jump 1 (5:01–7:01 AM), R2 nlad2 $300 ladder 2:5 (7:01–9:01), R3 nskw skew 3 (9:01–11:01), R4 nin2b inside 2 (11:01 AM–1:01 PM), R5 nfee2 fee_k 2.0
+(1:01–3:01 PM), each with re-assert, grpcap, skill and making-quality reads; decision crons 7:45 / 9:45 / 11:45 AM / 1:45 / 3:45 PM (adopt rule §1442; prune handling).
+Problem: the script ran after 11:01 UTC → nj1's first switch fired at schedule time and its re-assert got an EMPTY arm-A JSON (no 0r timer created); the live file stayed
+intact (32 keys) but A1 ran on base until fixed by hand: `liveswitch_nj1.sh A` 5:15:20 AM (applied mk_vol_jump 0→1, lean_only 0→1). Lesson recorded.
