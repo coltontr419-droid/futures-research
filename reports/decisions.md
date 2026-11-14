@@ -22711,3 +22711,10 @@ UID 174 T1 (nsoft, ABBA): arm A soft on (3:01–3:31 PM) ≈ 113 books with rest
 off empties the books almost completely. User: save it so we never forget, same rule for all current and future tests → new memory registry mvtrx-proven-results.md
 (PROVEN / DISPROVEN / NOISE with evidence), memory feedback-record-test-results.md, CLAUDE.md rule + "soft pacing mandatory", NEXT_MINER_PLAN.md updated.
 The formal T1 verdict (skill + making per arm) follows at ≈ 5:24 PM.
+
+## §1444 — 2026-11-13 6:10 PM CT — T1 (nsoft) FINAL: soft pacing = CLEAR WIN (presence + making), skill tie; stays on (already in the base)
+Laptop closed ≈ 5:00–6:09 PM (5:24 decision ran late; server ran T1's end + reads and T2 on time). UID 174 T1 (3:01–5:01 PM, ABBA, no flash), per 30-min window:
+A (soft on) $300 117–120 books, 1,874–3,322 fills, $172–529k, edge +1.00/+1.04 bp; $30 64 books $196–246k; 4-dec 64 books; all-group edge $ 96 / 147.
+B (soft off) $300 26 → 0 books, 58 → 0 fills; $30 9 → 6 books; edge $ ≈ 6 → 3. SKILL $300 A −0.05 vs B −0.19 bp (B tiny), refs Δ +0.08 / +0.05 → net +0.08 (tie);
+0 kept positive $300 books in either arm (the gap T3 targets). → CLEAR WIN on presence and making; adopt rule: already in the base (pace_soft_on 1), nothing to apply.
+Registry memory/mvtrx-proven-results.md updated. UID 174 at 6:09 PM: skill +0.015, combined 0.0028 (positive), making 0 (window lag), $0 pay; T2 nfee running (B block).
