@@ -22861,3 +22861,17 @@ NEW GAP (depth split, speed/profdepth.py, $300 by ticks from the touch before th
 → The fleet gets ~¼ of its $300 $ by stepping INSIDE the touch, and those fills move its way (+0.8 bp); at the touch it is also positive where we are negative.
 Our fills are every depth kept-positive but mid-markout-negative → the skill gap is WHERE/WHEN they step inside (side choice), not speed or depth alone.
 Next: re-test 1 = $300 lean-only + jump 1 (steps inside on the leaning side) — n179lj ABBA 5:01–7:01 PM CT; reads 7:15/7:21/7:39; decision ≈ 7:47 PM.
+
+## §1463 — 2026-11-14 6:25 PM CT — Inside-the-touch study: fee-aware quoting is what keeps our $300 quotes off the touch (EXACT); fee-off alone was a skill tie in T2
+MEASURED (tape, UID 179 B block of n179lj, sim 38868–39151, speed/insidestudy.py; book seen once per sim s):
+- $300 spreads: 1 tick 7%, 2 ticks 6%, 3 ticks 6%, ≥ 4 ticks 80% of book-seconds → there is room to step inside almost always (my 1-tick guess was wrong).
+- $300 maker $ by depth vs the touch 1 s before (20-s markout): 179 inside 1% (+0.57), touch 5% (+0.49), behind 94% (−0.99); 252 inside 44% (+0.43), touch 26% (+0.10),
+  behind 30% (−0.49); 216 inside 32% (+0.48), touch 30% (+0.38), behind 38% (−0.80). Fleet inside fills all at prior spreads ≥ 2 ticks.
+- 8,718 inward touch moves: our order reached the new best price within 6 s only 16% of the time (84% never).
+EXACT code attribution (speed/attrib.py: the real agent on the 5 cap14 states, one rule off at a time; where our $300 quotes rest vs the OTHER makers' best):
+  START: at/inside 1%, strictly inside 1%, median 2 ticks behind | mk_fee_k 0: 70% / 45% / 0 | skew 0, no-chase off, fund_mv 0, pace off: unchanged (1%).
+  → fee-aware (0.005 × ≈ 120 bp × mid ≈ 2 ticks per side) alone holds us 2 ticks behind. It was adopted on edge per $ + presence (T2 §1440), not on skill.
+T2 skill (ab_read_nfee.txt): $300 fee-aware A −0.50 vs off B −0.13 bp; refs Δ 252 −0.10, 216 −0.80 → net ≈ +0.08 = TIE. So fee-off ALONE did not give fleet skill.
+HYPOTHESIS (needs live A/B): the fleet's gain is stepping inside on the RIGHT side. The lean jump (mk_vol_jump) is EXEMPT from the fee push ("a jumped side keeps its
+price"), so re-test 1 (n179lj A = lean-only + jump 1) already tests "inside on the leaning side, fee-free" → keep it; read its depth split at the decision.
+Next candidates if it ties: (a) fee-aware only on the side AGAINST the lean; (b) measure the fleet's side choice for its inside fills (lean vs fundamental / flow / imbalance).
