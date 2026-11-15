@@ -23058,3 +23058,11 @@ pace buckets were at the soft floor (−pace_soft) when A started; refill $5.2/s
 (ladders back on) drains it again. → the 30-min ABBA could never reach the full-size regime. MISS by the interaction rule: "how long until the knob takes effect?".
 Change: cancelled the 12:46 B / 1:16 B / 1:46 A switches; A stays on until the planned end 2:16 PM; decision 2:23 PM compares A (and its last hour) vs the same-base B windows
 before 12:16 and vs 252/216 over the same windows (weaker before/after design — stated). Test order unchanged (user's approved order).
+
+## §1481 — 2026-11-15 1:00 PM CT — Ladder-off cut at 1 h (user); fade lean starts 1:21 PM; size test to be REDONE on the next fresh miner
+12:56 PM (40 min into A): open orders 649, resting $156k → avg ≈ $241 (unchanged since 12:26); presence 212. Ledger growth ≈ $1.6k per book per 30 wall min ≈ $4.6/s ≈ the $5.2/s
+refill → buckets stay near the floor: under soft pacing the steady-state size ≈ refill ÷ (fill rate × full size), so removing ladders cut ORDER COUNT but not the FILL RATE
+enough to grow size. The fleet trades fewer, bigger fills (gauge period 17 fills vs our 1,039; per-window fills on ≈ 46–60 of 128 $300 books vs our ≈ 120).
+User 11-15 ≈ 1:00 PM: "cut the test at an hour long and redo it with the new knowledge if theres no positive sign" → cut 1:16 PM (END → lad_off 0), reads 1:18, read/verdict 1:23;
+next n179fd fade lean (A = fade 1.0 + fund_mv 0 vs base) ABBA 1:21–3:21 PM, reads 3:23, decision 3:28. REDO of the size test: on the next miner from minute one (fresh bucket,
+pace_start 20k → full size at first), aimed at OUR FILL RATE, as a long single-arm run — design to be measured and written into NEXT_MINER_PLAN.md at 1:23 PM.
