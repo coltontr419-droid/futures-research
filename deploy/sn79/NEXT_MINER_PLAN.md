@@ -90,6 +90,12 @@ Freshness doesn't fix our losses (they persist at every order age); testing the 
 A/B + read scripts, clean ledger, gated restart, our_uids.txt) → schedule the next queued test with abtest_sched_<uid>.sh + readchain_<uid>.sh. If UID 179 is pruned first:
 stop mvtrx-x2, empty our_uids.txt, record (newminer.sh re-enables the unit).
 
+## REDO SIZE TEST for the next miner (§1482, user 11-15: "redo it with the new knowledge")
+Fleet: same $ as us, as ONE big fill (≈ $2–3k) per ≈ 5 sim min per active book, ≈ half the books active, fills mostly on orders < 1 s old (brief big step-ins).
+Ours: tiny ($100) fills 2–3×/min on every book → soft pacing shrinks size. Design: mk_lad_off 1 + budget-gated full-size step-ins (only when the bucket affords a
+full fill; cancel if unfilled) + a full-size rest order ≥ 3 ticks back for presence + no size shrinking. Needs code + test_pace + cap checks + interaction check;
+run as a LONG single-arm read from the miner's first minute (fresh bucket pace_start 20k). Compare vs 252/216 over the same windows.
+
 ## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
 No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
 Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?

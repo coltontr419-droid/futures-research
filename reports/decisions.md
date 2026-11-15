@@ -23066,3 +23066,18 @@ enough to grow size. The fleet trades fewer, bigger fills (gauge period 17 fills
 User 11-15 ≈ 1:00 PM: "cut the test at an hour long and redo it with the new knowledge if theres no positive sign" → cut 1:16 PM (END → lad_off 0), reads 1:18, read/verdict 1:23;
 next n179fd fade lean (A = fade 1.0 + fund_mv 0 vs base) ABBA 1:21–3:21 PM, reads 3:23, decision 3:28. REDO of the size test: on the next miner from minute one (fresh bucket,
 pace_start 20k → full size at first), aimed at OUR FILL RATE, as a long single-arm run — design to be measured and written into NEXT_MINER_PLAN.md at 1:23 PM.
+
+## §1482 — 2026-11-15 1:40 PM CT — Ladder-off read (1 h, cut): small POSITIVE sign on $300 skill; fill-rate profile → REDO design for the next miner
+Ladder-off (A, sim 50089–50734) vs before (ladders, sim 49270–49925), speed/dilwin.py + invstudy2.py, 2 windows each (sign, not proof): $300 TOTAL 179 −0.54 / −0.46 → −0.34 / −0.24
+(252 +0.17 / +0.43 → +0.37 / +0.18, flat) → ≈ +0.2 bp better; positions SMALLER ($370–445 → $273–284) and shorter (65 → 33–46 s); $30 unchanged (≈ 0); presence 204–212.
+Keep mk_lad_off 1 in the redo (fleet-like one order per side; fewer deep swept fills).
+FILL-RATE PROFILE (speed/fillrate.py, $300; before / ladder-off): 179 fills 3,853 / 3,071, $410k / $383k, $/fill median $90 / $110, books filled 120, fills per filled book
+per sim min 2.94 / 2.38, on orders < 1 s old 44% / 55%; 252 150 / 157 fills, $362k / $342k, $/fill $3,251 / $2,000, books 69 / 64, 0.20 / 0.23 per book-min, < 1 s 54% / 61%;
+216 158 / 130, $341k / $307k, $2,260 / $3,184, 67 / 60 books, 0.22 / 0.20, 56% / 55%. $30: 179 $250 fills at 1.2/book-min vs fleet ≈ $1.8k at 0.15–0.21.
+→ SAME dollars, different shape: the fleet fills ONE big order (≈ $2–3k) every ≈ 5 sim min on the ≈ half of the books it is active on, mostly on orders placed < 1 s before
+(brief big step-ins); we fill tiny orders 2–3× a minute on every book. One $2.2k fill per ≈ 7 min per book = our bucket refill → the fleet's pattern FITS our pacing; ours
+forces soft pacing to shrink sizes to ≈ $100.
+REDO DESIGN (next miner, long single-arm run from minute one): (1) mk_lad_off 1; (2) step in (touch/inside) only when the book's bucket can afford a full-size fill — a brief
+big step-in, cancelled if not filled; (3) otherwise a full-size order rests a few ticks back (presence, rarely filled); (4) no size shrinking (pacing by gated step-ins, not size);
+(5) code + test_pace incl. cap + interaction check (presence, $30 vol path, lean-only, fee push, timing). Interaction risks to check: resting full-size orders swept in big moves
+(behind fills −1.4 bp today) → keep them ≥ 3 ticks back + short expiry; presence must stay ≳ 180.
