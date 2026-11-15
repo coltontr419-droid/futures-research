@@ -23178,3 +23178,12 @@ our_uids.txt = "255 maker x2 51981". redo_179.sh 255 at sim 51983 (log liveswitc
 after ≈ 300 sim s of history (≈ sim 52290). 30-min brief + per-class redo read + stop rule (cron, :13/:43).
 §1490 add. (3:20 PM): user — no automatic switch-off on the REDO; per-class report every brief, flag sustained underperformance, changes only with the user (memory feedback-no-auto-switchoff).
 §1490 add. 2 (3:25 PM): user — once a WINNING strategy runs, tweak tests on it get an automatic revert-to-winner (trigger defined before each test); until then no auto switch-off.
+
+## §1491 — 2026-11-15 3:55 PM CT — INCIDENT: UID 255 blocked on ALL books ≈ 3:20–3:52 PM by a phantom $500k/book volume (stale validator series) — FIXED
+Symptom (3:47 PM brief): PACE STATUS 256/256 books blocked, 24-h notional median $500,399; 0 instructions per reply; no open orders. Our real volume: ledger fill rows $855,963 total
+= the live validator's total_daily_volume for 255 ($855,963) ≈ $3.3k per book. Cause: pace_sync.py queried agent_gauges daily_volume with NO validator filter and took the MAX per book;
+the stale old-sim validator 5E7RbxVy (lesson 11-07) still publishes UID 255's PREVIOUS owner / old-sim volume ≈ $500k per book; the agent's _pace_sync charged the gap → 256 sync
+rows ($103M) in pace_255.ledger → every book paced out. (pace_sync also printed "near the hard cap" ALERT lines → likely false Discord alerts.)
+Fix: pace_sync.py queries filtered to wallet 5EWwdZB7 (backup pace_sync.py.bak-1115; first patch broke its import line — restored and re-applied); sync rows removed from
+pace_255.ledger (654 fill rows kept; backup pace_255.ledger.bak-phantom); pace_sync_255.json deleted then regenerated (median $1,642, max $21,092); gated restart 21:52:26 UTC →
+"0 of 158 traded books blocked, median $3,304", 643 instructions, GATE step-ins active. The REDO lost ≈ 30 wall min of trading; its read window restarts after ≈ sim 52,700.
