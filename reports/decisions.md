@@ -22944,3 +22944,14 @@ Window sim ≈ 43746–46746 (≈ 50 sim min), all books; pay = metagraph emissi
   0.5–1 s delay and all of it by 5 s (§1282); fitted models decayed and needed refits; the paper scorer was 2–3× optimistic (§1250); the 10× wealth per-book
   volume cap stops a taker's re-entries (§1211, §1245); the best takers were young churn UIDs, long-lived takers weak (§1282).
 → Pure taking pays LESS than making today; the only taker-heavy UIDs near the top are MIXED (maker + selective taking).
+
+## §1471 — 2026-11-15 7:45 AM CT — Shallow ladder (n179sh): TIE, shape unchanged → keep 1:2:4:7 / 1:2:3; the FEE PUSH is why our ladder sits deep; next = fee_k 0.5
+ABBA 5:31–7:31 AM (A sim 45882–46177 + 46750–47043, B 46177–46750). $300 skill A −0.31 vs B −0.41; refs Δ 252 0.00, 216 +0.23 → net −0.02 (tie). Making R A −9.2 vs B −8.1
+(252 −5.4 vs −7.5) → net ≈ −3 (small C). Edge per $ equal. Behind share A 61–67% vs B 64% (unchanged); presence A 202–212 vs B 204 (held).
+WHY no change: ladder levels are counted from the TARGET price, which fee-aware (mk_fee_k 1.0 ≈ 2 ticks at ≈ 120 bp fees) already holds behind the touch → even "1 tick
+back" ≈ 3 ticks behind the touch (srcstudy "3+ back" = 58%). → fee push again (cf. §1463 attribution).
+Next: n179f05 mk_fee_k 0.5 vs 1.0 (push ≈ 1 tick vs 2; 0.5 untested; 0 tied on skill in T2 on 11-13; 2.0 still queued). ABBA 7:46–9:46 AM, chained reads 9:48, decision 9:53.
+SIDE RESULTS (11-15 7:15–7:35 AM, MEASURED): (a) clone of UIDs 60/232's taker direction: 93.4% held-out accuracy (base 56%); rule = fade the last 1–5 min (dmid60 −4.1,
+dmid300 −4.1, dfund60 −0.8 z); as a TAKER on all book-seconds it moves +0.17…+0.42 bp ($300) / +0.11…+0.79 (4-dec) vs a half-spread cost 0.93 / 1.38 → loses; their own
+takes earn +0.8 (timing). (b) fade vs MAKER fills: ours inside agree +0.24/+0.33 vs disagree −0.21/−0.21 (20/120 s); all $300 −0.45 vs −0.93; fleet split similarly (+1.0 vs
++0.4) but does not select by it (≈ 49% agree). → candidate maker knob: step-in side from the fade signal (mk_fade_lean, code + restart).

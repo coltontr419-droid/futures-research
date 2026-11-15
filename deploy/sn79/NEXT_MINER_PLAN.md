@@ -82,6 +82,8 @@ Freshness doesn't fix our losses (they persist at every order age); testing the 
 
 ## Vol ladder size half: tie, kept 0.027 (§1469). Our behind-touch losses = deep ladder levels (≥ 3 ticks back, 58% of behind $) → shallow ladder test n179sh (11-15 5:31 AM).
 
+## Shallow ladder tie (§1471): the fee push sets our depth → testing fee_k 0.5 (n179f05, 11-15 7:46 AM); fade-lean maker knob being built (clone of 60/232: fade 1–5 min moves).
+
 ## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
 No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
 Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?
