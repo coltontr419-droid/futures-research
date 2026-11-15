@@ -22903,3 +22903,10 @@ speed/sidestudy.py, takerstudy.py, sizestudy.py, agestudy.py/agestudy2.py (order
   128-book regime, §1311 — never A/B-tested). Caveat: only FILLED orders' ages are visible (unfilled fleet orders may live longer).
 → NEXT TEST (user: side study → next test): n179cx mk_calm_expiry 30 vs 500 (live knob), ABBA 11:21 PM–1:21 AM CT, reads 1:35/1:41/1:59 AM, decision ≈ 2:07 AM.
   If it helps: vol-book freshness next (needs a mk_vol_expiry live knob — code + equiv + test_pace + restart).
+
+## §1467 — 2026-11-15 12:30 AM CT — mk_vol_expiry live knob built (agent b3a6247c from 9f0d07f3); NOT deployed (waits for the n179cx decision ≈ 2:07 AM)
+$300 VOL books (0–62, 102–127; not calm, not $30/4-dec): touch + ladder orders expire after MK_VOL_EXPIRY sim s; 0 = unit expiry (60 s). Live knob (range 0–3600).
+First version also hit the $30 books (they share the vol path) — caught by an expiry census on a real state (speed/expcheck.py) → restricted with `not _is_low`.
+Checks: equiv.py vs 9f0d07f3 with the knob off — 10 replies, 0 instruction diffs, tape/ledger/locks identical; census with knob 10: vol 10 s, $30 60 s, 4-dec 60 s,
+calm 500 s ✔; test_pace ALL PASS (211/0). equiv timing: the SECOND agent in a run is ≈ 60 ms slower whichever it is (order effect, not the code).
+Lab copy: /opt/mvtrx/speed/QuoteAgent.volexp.py. Deploy = gated restart, only if calm expiry 30 wins or ties.

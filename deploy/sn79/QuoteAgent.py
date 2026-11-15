@@ -243,6 +243,8 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_inside = int(getattr(c, "mk_vol_inside", 0))   # §1304: >0: $300-book touch orders one tick inside the spread when it is ≥ this many ticks (fleet: 5)
         self.mk_calm_lad = [int(x) for x in str(getattr(c, "mk_calm_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1303: calm-book ladder, ticks behind the touch (e.g. 1:2:4)
         self.mk_calm_lad_size = float(getattr(c, "mk_calm_lad_size", 0.036))   # §1303: calm ladder order size (fleet calm fills mostly $1-2k)
+        self.mk_vol_expiry = int(float(getattr(c, "mk_vol_expiry", 0)) * 1_000_000_000)    # §1466: >0: $300 VOL-book (non-calm) touch + ladder orders expire after this many sim s
+                                                                                            # (fleet: its $300 fills are on orders < 1 s old, none > 30 s); 0 = EXPIRY (live knob)
         self.mk_calm_expiry = int(float(getattr(c, "mk_calm_expiry", 0)) * 1_000_000_000)   # §1311: >0: calm-book (63-101) ladder orders expire after this many sim s (fleet: max 500 s, §1311); 0 = EXPIRY
         self.mk_dec_size = float(getattr(c, "mk_dec_size", 0.0))      # §1313: >0: fleet-style quoting on the 4-dec books (102-127), order size (fraction of wealth; fleet ≈ $4.5k ≈ 0.09)
         self.mk_dec_inside = int(getattr(c, "mk_dec_inside", 1))      # §1313: ticks ahead of OTHER makers' best price (fleet: 1-2 ticks = 51% of its 4-dec $); our own orders never count
@@ -620,11 +622,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int, "mk_vol_jump": int, "mk_low_touch_min": int, "mk_skip_dec": int, "mk_vol_lean_only": int, "mk_fee_k": float, "pace_soft_on": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4), "mk_low_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -671,7 +673,7 @@ class QuoteAgent(FinanceAgent):
             lo, hi = self.LIVE_LIMITS.get(k, (None, None))
             if lo is not None and not (lo <= nv <= hi):
                 ignored.append(f"{k}(out of range)"); continue
-            if k == "mk_calm_expiry":
+            if k in ("mk_calm_expiry", "mk_vol_expiry"):
                 nv = int(nv * 1_000_000_000)                 # stored in ns
             if k == "book_map":
                 try:
@@ -1451,7 +1453,7 @@ class QuoteAgent(FinanceAgent):
                 tm_v = self.mk_low_touch_min if self._is_low(int(book_id)) else self.mk_vol_touch_min   # §1434: $30 books have their own touch minimum
                 ob_v = self._others_best(book, acct.orders) if (self.mk_vol_inside or tm_v) else None
             nt_v = bool(tm_v and ob_v and ob_v[0] is not None and ob_v[1] is not None and round((ob_v[1] - ob_v[0]) / tick) < tm_v)
-            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, inside=0 if nt_v else self.mk_vol_inside,
+            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, expiry=(self.mk_vol_expiry or None) if not self._is_low(int(book_id)) else None, inside=0 if nt_v else self.mk_vol_inside,
                                  obest=ob_v if self.mk_vol_inside else None,
                                  no_touch=nt_v if (nt_v or not self.mk_vol_lean_only or self._is_low(int(book_id)))
                                  else {OrderDirection.BUY, OrderDirection.SELL} - set(self._jumped.get(int(book_id), ())))
