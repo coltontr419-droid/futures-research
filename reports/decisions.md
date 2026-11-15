@@ -22932,3 +22932,15 @@ SOURCE of our $300 behind-touch fills (speed/srcstudy.py, B window sim 44435–4
 → 58% of our behind $ are ladder levels ≥ 3 ticks back (vol levels 4/7, calm level 3), swept at ≈ −1.4 bp.
 Next test n179sh: shallow ladder — A = mk_vol_lad "1:2" + mk_calm_lad "1:2" vs B = "1:2:4:7" + "1:2:3" (live lists; every book still quoted). ABBA 5:31–7:31 AM CT,
 reads 7:45/7:51/8:09, decision ≈ 8:17 AM. (2:5 vs 1:2:4:7 tied on 11-14 R2 — a different shape; "1:2" untested.)
+
+## §1470 — 2026-11-15 7:20 AM CT — Taker miners in today's regime (user asked: switch to takers if makers don't progress?) — MEASURED
+Window sim ≈ 43746–46746 (≈ 50 sim min), all books; pay = metagraph emission × price (speed/toppay.py → pay_all.json); speed/takeshare.py, takerrank.py.
+- 252 and 216: 0% taker volume (pure makers) → their skill is all from resting orders.
+- Top 20 earners ($387–794/mo, UID 0 = owner excluded): 17 pure makers, 3 mixed — 191 (30% taker, $478), 146 (22%, $456), 60 (44%, $392); their taker trades'
+  20-s markout +0.05…+0.83 bp. No pure taker in the top 20.
+- 16 of 254 active UIDs are mostly takers (> 50% of $): best 232 ($336, rank 27), then $230/222/218/212…; the only pure taker (108, maker $0) earns $73.
+  Median pay: takers $158 (n 16) vs makers $204 (n 238).
+- History (11-04 → 11-08, 128-book regime): taker UIDs 169/114/22 — scaled taker −0.25 bp (§1245); copying the best takers' trades loses most alpha at a
+  0.5–1 s delay and all of it by 5 s (§1282); fitted models decayed and needed refits; the paper scorer was 2–3× optimistic (§1250); the 10× wealth per-book
+  volume cap stops a taker's re-entries (§1211, §1245); the best takers were young churn UIDs, long-lived takers weak (§1282).
+→ Pure taking pays LESS than making today; the only taker-heavy UIDs near the top are MIXED (maker + selective taking).
