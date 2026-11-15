@@ -22965,3 +22965,14 @@ Planned test: mk_fade_lean 1.0 vs 0 (base lean-only 1 + jump 1), 2-h ABBA, right
 Also (8:00 AM, user Q "why are books kept so low?"): validator skill counts a book only when |alpha| ≥ 2.3 bp of OUR filled notional on it (hurdle_filter, debeta.py),
 then kappa over kept books, 0 below the minimum → our $300 books have 0 kept in every test (per-book −0.3…−0.5 bp, inside the band); the 27 gauge books are mostly
 losing 4-dec books. Not the presence fix (presence 200–210 is fine).
+
+## §1473 — 2026-11-15 8:25 AM CT — Checks #2 and #4 (MEASURED): NOT volume dilution; the fleet's skill comes from HOLDING BIGGER POSITIONS LONGER
+Window sim ≈ 45458–47228 ($300 books; validator alpha loop as skill_ab.py, inventory from 0 at window start): speed/dilution.py, speed/invstudy.py.
+#2 dilution: notional per book median $9k for 179, 252 and 216 alike. Per-book bp: 179 p10 −1.18 / p25 −0.71 / median −0.42 / p75 −0.12 / p90 +0.26, 18% positive,
+kept 0; 252 −2.34 / −1.02 / +0.33 / +1.98 / +3.01, 59% positive, kept +19 −10; 216 −2.30 / −0.94 / +0.50 / +1.72 / +3.51, 59%, kept +18 −10. Same alpha on 1/5 of the
+notional → ours kept +7 −56 → cutting volume only adds negative kept books. → dilution RULED OUT; the gap is sign and spread.
+#4 inventory: mean |inv| per book 179 $892 (p90 $2,064) vs 252 $4,029 (p90 $10,680) / 216 $3,894 (p90 $10,610); position hold median 179 91 s vs 252 742 s / 216 680 s;
+corr(inventory $, next-60-s mid move) 179 +0.057, 252 +0.042, 216 +0.057 → SAME timing edge. The fleet's per-book alpha is large because its positions are ≈ 4.5×
+bigger and ≈ 8× longer-held; with a small positive tilt that gives more positive kept books. Our skew 5 flattens positions in ≈ 1.5 min → |alpha| too small to count.
+NEXT (after n179f05 ≈ 9:53 AM + fade build restart): INVENTORY test skew 1 vs 5 (R3 skew 3 vs 5 tied on 11-14 — too small a step); then mk_fade_lean 1.0 vs 0.
+Remaining checks: #1 $30 skill vs 252, #3 reprice frequency.
