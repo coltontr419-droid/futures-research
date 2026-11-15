@@ -23215,3 +23215,13 @@ Positions (255): $300 mean |inv| $1,807 → $1,394 → $1,154, hold 48–64 s, t
 Health 5:41 PM: 0 errors; presence median 236; 10/255 paced; GATE 4,518 step-in / 2,886 rest; resting $319k on 671 orders (avg ≈ $475, from ≈ $1,530 at 4:17); call 0.342 s.
 Pay: 255 $2/mo (the 4:47 PM $97 was a new-UID head start, not skill); 252 $219. Validator gauges for 255 (net alpha +126, 53 books) still mix the previous owner until ≈ 6:10 PM.
 Tally: $300 3/3 windows ≈ +1.1 bp vs before, ahead of 252 each time (4-window rule: one more needed); $30 ≈ +0.1. Watch: does $300 skill hold as sizes shrink with draining buckets?
+
+## §1495 — 2026-11-15 6:00 PM CT — $30 volume cut (user): mk_lean30_only 1 — no lean → both $30 sides rest 2 ticks back; build 7b78f008 live
+Why (6:00 PM measurement, speed/dilution2.py since the leans): $30 books clearing 2.3 bp: 255 1 (since start 0) vs 252 22 (31); our notional per $30 book $15k (since start $27k) vs 252
+$2k ($4k) — 4–7× — at median ≈ +0.06 bp → the hurdle (relative to our notional) is out of reach. Smaller size wouldn't help (alpha and notional scale together). User: "lets cut the
+30 volume now". $300 at the same read: books clearing 255 11 (10+ / 1−) since leans, 14 (12+ / 2−) since start vs 252 21 (13+ / 8−) / 20 (12+ / 8−); need 20.
+Knob mk_lean30_only (live, 0 = identical): with mk_model_lean_30 on and NO lean on a $30 book, both sides rest MK_LEAN30_BACK (2) ticks back; with a lean, the predicted side stays
+at the touch (§1488). Interaction check: $30 ladder (level 1) → 3 back, presence kept; after a restart no lean for ≈ 300 sim s → no $30 touch orders then (fine); no-chase / fee
+push on the moved target; pacing untouched. Census (speed/l30only.py): no-lean books both sides +3 ticks (was +0); lean books ask +3, bid near the touch. equiv vs 887a18c6 with
+knob off: 0 diffs, tape/ledger/locks identical; test_pace ALL PASS. Gated restart 23:59:03 UTC (ledger reloaded 5,902 fills; 7/256 paced; 704 instructions); switch logged at sim
+53765 (A30). The restart resets price history → both leans resume ≈ sim 54,070; the 4th $300 window is cut short (user accepted).

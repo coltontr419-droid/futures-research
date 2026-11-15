@@ -255,6 +255,8 @@ class QuoteAgent(FinanceAgent):
         self.model_lean_30_file = str(getattr(c, "model_lean_30_file", "/opt/mvtrx/agents/model_lean_30.json"))
         self.mk_lean30_back = int(getattr(c, "mk_lean30_back", 2))       # §1488: $30 spreads are 1–2 ticks (no room to step inside) → the $30 lean keeps the predicted
         self._lean_now = {}                                              # side at the touch and moves the OTHER side MK_LEAN30_BACK ticks back (live)
+        self.mk_lean30_only = int(getattr(c, "mk_lean30_only", 0))       # §1495: 1 = with no $30 lean, BOTH sides rest MK_LEAN30_BACK ticks back (touch only on the predicted
+                                                                          # side when the model leans) — cuts our $30 volume (we trade 4–7× 252's notional per book at ≈ 0 bp)
         try:
             self._ml30 = json.load(open(self.model_lean_30_file))
         except Exception:
@@ -648,11 +650,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int, "mk_vol_jump": int, "mk_low_touch_min": int, "mk_skip_dec": int, "mk_vol_lean_only": int, "mk_fee_k": float, "pace_soft_on": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int, "mk_model_lean": float, "mk_gate_side": int, "max_inv": float, "mk_model_lean_30": float, "mk_lean30_back": int,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int, "mk_model_lean": float, "mk_gate_side": int, "max_inv": float, "mk_model_lean_30": float, "mk_lean30_back": int, "mk_lean30_only": int,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4), "mk_low_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "mk_model_lean": (0.0, 10.0), "mk_gate_side": (0, 1), "max_inv": (0.01, 0.5), "mk_model_lean_30": (0.0, 10.0), "mk_lean30_back": (0, 20), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "mk_model_lean": (0.0, 10.0), "mk_gate_side": (0, 1), "max_inv": (0.01, 0.5), "mk_model_lean_30": (0.0, 10.0), "mk_lean30_back": (0, 20), "mk_lean30_only": (0, 1), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -1509,6 +1511,10 @@ class QuoteAgent(FinanceAgent):
                 want[far] = round(want[far] + self.mk_lean30_back * tick, pd) if far == OrderDirection.SELL else round(want[far] - self.mk_lean30_back * tick, pd)
                 if want[far] <= 0: want.pop(far); sq.pop(far, None)
             self._l30_n = getattr(self, "_l30_n", 0) + 1
+        elif self.mk_model_lean_30 > 0 and self.mk_lean30_only and self.mk_lean30_back > 0 and want and self._is_low(int(book_id)):   # §1495 no lean → both sides back
+            for sd in list(want):
+                want[sd] = round(want[sd] - self.mk_lean30_back * tick, pd) if sd == OrderDirection.BUY else round(want[sd] + self.mk_lean30_back * tick, pd)
+                if want[sd] <= 0: want.pop(sd); sq.pop(sd, None)
         if self.mk_gate > 0 and want and self.pace_cap and self._g(book_id) in ("vol", "calm") and not self._is_low(int(book_id)):   # §1483 gated step-ins
             qfull = round(max(sz * wealth0 / mid, self.min_order_size(book_id)), vd)
             tok = self._tok_accrue(int(book_id), self._sec)[0]
