@@ -22886,3 +22886,20 @@ Adopted A as the new base (tie → copy the long-lived fleet's behaviour: their 
 (applied live 7:49 PM; backup bak-alerts-1114/live_params_179.START.pre-lj.json).
 Next: re-test 2 n179in2 (mk_vol_inside 2 vs 3 on the new base) 8:01–10:01 PM CT; reads 10:15/10:21/10:39 PM (NOTE lines, no Discord); decision ≈ 10:47 PM.
 Then the real lead: measure what the fleet's inside fills line up with (fundamental move, trade flow, book imbalance, microprice) vs ours → a side-choice signal test.
+
+## §1465 — 2026-11-14 10:50 PM CT — Re-test 2 n179in2 ($300 inside 2 vs 3 on the lean-only + jump 1 base): TIE / slight loss → keep 3; closed (2nd tie after R4)
+ABBA 8:01–10:01 PM. $300 skill A −0.42 vs B −0.37; refs Δ 252 +0.19, 216 +0.01 → net −0.15. $300 making R A −8.8 vs B −9.3 (252 −3.0 → +2.9 in A). Edge per $ equal
+(+1.33–1.39). Spreads are exactly 2 ticks only ≈ 6% of the time → small lever. Base unchanged (inside 3).
+
+## §1466 — 2026-11-14 11:00 PM CT — SIDE STUDY (MEASURED, tape sim 39504–41587, fleet also 37012–41587) → no visible side signal; STALENESS is the lead
+speed/sidestudy.py, takerstudy.py, sizestudy.py, agestudy.py/agestudy2.py (order age via per-book order-id → first-seen map from our queue lines; ids are PER BOOK).
+- $300 inside fills, 20-s markout: 179 n 2,596 +0.00 [−0.05, +0.04]; 252 n 474 +0.81 [+0.66, +0.94]; 216 n 442 +0.74 [+0.63, +0.84]. Split by EVERY visible feature
+  (fundamental − mid, its 5-s move, top-5 imbalance, microprice, 5-s return, 10-s trade flow): the fleet stays +0.44…+0.96 on both sides of each; ours −0.15…+0.14.
+  Fleet leans a bit more with fund/micro (66–70% / 56–60% vs our 58% / 41%) → selecting on them is worth ≈ 0.1–0.2 bp, not the 0.7 gap.
+- By taker: miner takers hit 16% of our inside $ (−0.11) vs 7–11% of the fleet's (+0.63/+0.86); background agent types similar mix. By taker trade size: fleet better in
+  EVERY bucket (inside +0.53…+1.30 vs ours −0.42…+0.14); $10k+ sweeps = 51% of our $300 $ (−1.08) vs 50% of the fleet's (+0.09/−0.04).
+- ORDER AGE at fill (all $300): fleet 67–68% of $ on orders < 1 s old (+0.40/+0.58), none > 30 s; ours 44% < 1 s (−0.35), the rest −0.8…−1.1. CALM books (63–101):
+  ours 51% of $ on orders > 10 s (26% > 30 s), all −0.9…−1.0; fleet 75–78% < 1 s (+0.5), none > 30 s. Our calm expiry is 500 s (copied 11-08 from an older fleet in the
+  128-book regime, §1311 — never A/B-tested). Caveat: only FILLED orders' ages are visible (unfilled fleet orders may live longer).
+→ NEXT TEST (user: side study → next test): n179cx mk_calm_expiry 30 vs 500 (live knob), ABBA 11:21 PM–1:21 AM CT, reads 1:35/1:41/1:59 AM, decision ≈ 2:07 AM.
+  If it helps: vol-book freshness next (needs a mk_vol_expiry live knob — code + equiv + test_pace + restart).

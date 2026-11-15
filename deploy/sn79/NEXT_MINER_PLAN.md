@@ -74,6 +74,9 @@ Fleet: 23–27% of $300 $ filled inside the previous touch (+0.84 bp markout) + 
 ## Re-test 1 verdict (§1464): lean-only + jump 1 ADOPTED (tie, copy-fleet); inside fills now 27% like the fleet but markout ≈ 0 vs fleet +0.5–1.0
 Base for the next miner: START + mk_vol_lean_only 1 + mk_vol_jump 1. Next lead after re-test 2: the fleet's SIDE-CHOICE signal for inside steps — user 11-14 8 PM: study right after the re-test 2 read (≈ 10:47 PM), and the side-choice test is the NEXT test (before touch_min 6 / fee_k 2.0).
 
+## Side study (§1466): no visible side signal; fleet $300 fills are FRESH (< 1 s, none > 30 s), ours stale → testing calm expiry 30 vs 500 (n179cx 11-14 11:21 PM)
+Inside 2 vs 3 closed (2 ties, §1465). If calm expiry 30 wins/ties: add a live mk_vol_expiry knob and test $300 vol-book freshness next.
+
 ## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
 No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
 Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?
