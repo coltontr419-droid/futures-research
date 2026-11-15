@@ -22875,3 +22875,14 @@ T2 skill (ab_read_nfee.txt): $300 fee-aware A −0.50 vs off B −0.13 bp; refs 
 HYPOTHESIS (needs live A/B): the fleet's gain is stepping inside on the RIGHT side. The lean jump (mk_vol_jump) is EXEMPT from the fee push ("a jumped side keeps its
 price"), so re-test 1 (n179lj A = lean-only + jump 1) already tests "inside on the leaning side, fee-free" → keep it; read its depth split at the decision.
 Next candidates if it ties: (a) fee-aware only on the side AGAINST the lean; (b) measure the fleet's side choice for its inside fills (lean vs fundamental / flow / imbalance).
+
+## §1464 — 2026-11-14 7:50 PM CT — Re-test 1 n179lj ($300 lean-only + jump 1 vs START, UID 179, speed build): TIE on skill → ADOPTED by the copy-the-fleet rule
+ABBA 5:01–7:01 PM (A sim 38549–38868 + 39504–39820, B 38868–39504). $300 skill A −0.36 vs B −0.61 bp; refs Δ 252 +0.06, 216 +0.21 → net +0.11 (tie). $300 making R
+A −12.0 vs B −8.6 (refs Δ −0.6 / −2.8 → net ≈ −1.7, small C, noise); quality 0 everywhere (refs too). Edge per $ A +1.38/+1.40 vs B +1.87/+1.86. 4-dec/ $30 unaffected (noise).
+DEPTH SPLIT (insidestudy.py per window) — the key result: A puts 27–28% of our $300 $ INSIDE the previous touch (B 1%), matching the fleet's share (252 30–41%,
+216 32–37%), BUT our inside fills' 20-s markout is +0.01 / −0.05 bp vs the fleet's +1.03/+1.02 (A1) and +0.49/+0.45 (A2) in the SAME windows.
+→ MEASURED: stepping inside is not the edge; WHEN/which side is. Our fundamental-move lean picks neutral moments; the fleet's inside steps pick favourable ones.
+Adopted A as the new base (tie → copy the long-lived fleet's behaviour: their fill shape is ~⅓ inside): live_params_179.json + .START.json mk_vol_lean_only 1, mk_vol_jump 1
+(applied live 7:49 PM; backup bak-alerts-1114/live_params_179.START.pre-lj.json).
+Next: re-test 2 n179in2 (mk_vol_inside 2 vs 3 on the new base) 8:01–10:01 PM CT; reads 10:15/10:21/10:39 PM (NOTE lines, no Discord); decision ≈ 10:47 PM.
+Then the real lead: measure what the fleet's inside fills line up with (fundamental move, trade flow, book imbalance, microprice) vs ours → a side-choice signal test.
