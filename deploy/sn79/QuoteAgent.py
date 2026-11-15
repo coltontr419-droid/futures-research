@@ -243,6 +243,9 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_inside = int(getattr(c, "mk_vol_inside", 0))   # §1304: >0: $300-book touch orders one tick inside the spread when it is ≥ this many ticks (fleet: 5)
         self.mk_calm_lad = [int(x) for x in str(getattr(c, "mk_calm_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1303: calm-book ladder, ticks behind the touch (e.g. 1:2:4)
         self.mk_calm_lad_size = float(getattr(c, "mk_calm_lad_size", 0.036))   # §1303: calm ladder order size (fleet calm fills mostly $1-2k)
+        self.mk_fade_lean = float(getattr(c, "mk_fade_lean", 0.0))   # §1472: >0: the $300 lean JUMP side follows the FADE signal −(Δmid 60 s + Δmid 300 s) in bp when
+        self._mh = {}                                                 # |fade| ≥ MK_FADE_LEAN (clone of taker UIDs 60/232, 93% accurate; our inside fills +0.24 vs −0.21 bp
+                                                                      # by fade agreement, §1471) instead of the fundamental move; 0 = fundamental move (live knob)
         self.mk_vol_expiry = int(float(getattr(c, "mk_vol_expiry", 0)) * 1_000_000_000)    # §1466: >0: $300 VOL-book (non-calm) touch + ladder orders expire after this many sim s
                                                                                             # (fleet: its $300 fills are on orders < 1 s old, none > 30 s); 0 = EXPIRY (live knob)
         self.mk_calm_expiry = int(float(getattr(c, "mk_calm_expiry", 0)) * 1_000_000_000)   # §1311: >0: calm-book (63-101) ladder orders expire after this many sim s (fleet: max 500 s, §1311); 0 = EXPIRY
@@ -622,11 +625,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int, "mk_vol_jump": int, "mk_low_touch_min": int, "mk_skip_dec": int, "mk_vol_lean_only": int, "mk_fee_k": float, "pace_soft_on": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4), "mk_low_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -1153,8 +1156,22 @@ class QuoteAgent(FinanceAgent):
         bid_px = round(round(bid_px / tick) * tick, pd)
         ask_px = round(round(ask_px / tick) * tick, pd)
         self._jumped[int(book_id)] = set()
-        if self.mk_vol_jump and fmv and self._g(int(book_id)) == "vol" and not self._is_low(int(book_id)):   # §1434 lean jump
-            if fmv > 0:
+        lean = fmv
+        if self._g(int(book_id)) == "vol" and not self._is_low(int(book_id)):   # §1472: per-second mid history for the fade lean (kept even while off)
+            from collections import deque
+            mh = self._mh.get(int(book_id))
+            if mh is None:
+                mh = self._mh[int(book_id)] = deque()
+            if not mh or mh[-1][0] != self._sec:
+                mh.append((self._sec, mid))
+                while mh and mh[0][0] < self._sec - 305:
+                    mh.popleft()
+            if self.mk_fade_lean > 0:
+                m60 = next((m for t, m in mh if t >= self._sec - 60), None); m300 = mh[0][1] if mh and mh[0][0] <= self._sec - 295 else None
+                fade = -((mid - m60) + (mid - m300)) / mid * 1e4 if (m60 is not None and m300 is not None and mid > 0) else 0.0
+                lean = fade if abs(fade) >= self.mk_fade_lean else 0.0
+        if self.mk_vol_jump and lean and self._g(int(book_id)) == "vol" and not self._is_low(int(book_id)):   # §1434 lean jump (§1472: side from LEAN)
+            if lean > 0:
                 jb = round(math.floor(min(fair - self.edge * tick, ask - tick, bid + self.mk_vol_jump * tick) / tick + 1e-9) * tick, pd)
                 if jb > bid_px + 1e-12:
                     bid_px = jb; self._jumped[int(book_id)].add(OrderDirection.BUY)

@@ -22955,3 +22955,13 @@ SIDE RESULTS (11-15 7:15–7:35 AM, MEASURED): (a) clone of UIDs 60/232's taker 
 dmid300 −4.1, dfund60 −0.8 z); as a TAKER on all book-seconds it moves +0.17…+0.42 bp ($300) / +0.11…+0.79 (4-dec) vs a half-spread cost 0.93 / 1.38 → loses; their own
 takes earn +0.8 (timing). (b) fade vs MAKER fills: ours inside agree +0.24/+0.33 vs disagree −0.21/−0.21 (20/120 s); all $300 −0.45 vs −0.93; fleet split similarly (+1.0 vs
 +0.4) but does not select by it (≈ 49% agree). → candidate maker knob: step-in side from the fade signal (mk_fade_lean, code + restart).
+
+## §1472 — 2026-11-15 8:05 AM CT — mk_fade_lean live knob built (agent e43768f5 from b3a6247c); NOT deployed (deploy at the n179f05 boundary ≈ 9:53 AM)
+$300 VOL books: the lean JUMP side follows fade = −(Δmid 60 s + Δmid 300 s) in bp when |fade| ≥ MK_FADE_LEAN, instead of the fundamental move (fair shift unchanged).
+Mid history (per second, 305 s) is recorded every round even while off, so the knob can be switched on live. Range 0–50; 0 = off.
+Checks: speed/fadetest.py (seeded 10-bp fall → BUY jumps on 50 vol books; rise → SELL on 50; knob 0 → none) ✔; equiv.py vs b3a6247c with knob off — 10 replies,
+0 instruction diffs, tape/ledger/locks identical ✔; test_pace ALL PASS (211/0) ✔. Lab copy /opt/mvtrx/speed/QuoteAgent.fade.py.
+Planned test: mk_fade_lean 1.0 vs 0 (base lean-only 1 + jump 1), 2-h ABBA, right after n179f05.
+Also (8:00 AM, user Q "why are books kept so low?"): validator skill counts a book only when |alpha| ≥ 2.3 bp of OUR filled notional on it (hurdle_filter, debeta.py),
+then kappa over kept books, 0 below the minimum → our $300 books have 0 kept in every test (per-book −0.3…−0.5 bp, inside the band); the 27 gauge books are mostly
+losing 4-dec books. Not the presence fix (presence 200–210 is fine).
