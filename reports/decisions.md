@@ -22990,3 +22990,8 @@ the bucket is low; 24-h notional median ≈ $76k vs cap $450k, fleet average dai
 QUEUE (user 11-15: keep the current schedule, add after): (1) skew 1 vs 5 [scheduled ≈ 10:05 AM], (2) mk_fade_lean 1.0 vs 0, (3) NEW "fewer, bigger orders": a pacing
 change letting order size use ≈ fleet-level daily volume (≈ $270k/book/day) while the cap stays safe — restart-only knobs → build offline + full test_pace incl.
 cap checks before deploying.
+§1474 add. (8:55 AM): per-book initial wealth $49–51k (config miner_wealth 50,000) → validator cap ≈ $500k/book/24 h; our pace_cap 450k is safe. WHY our orders are ≈ $150–215:
+179 has run only ≈ 10,300 sim s; its ≈ $76k/book = ≈ $7.4/s, above the bucket refill $5.2/s (450k/86,400) → buckets sit at the soft floor → size factor = pace_soft_min 0.05
+(4-dec order $215 ≈ 5% of $4.5k). The fleet trades ≈ the same $ as ≈ ONE order per side per book (≈ 333 open orders / ≈ 190 books) of ≈ $2.9k, rarely changed → few big
+fills; we spread the same budget over ≈ 8 ladder orders per book → many tiny fills → tiny positions. Design for queue item (3): one full-size order per side per book
+(ladder off/minimal) + a bucket sized so one fill doesn't drain it (pace_burst / pace_start are restart-only) — build offline + test_pace with cap checks first.
