@@ -23081,3 +23081,14 @@ REDO DESIGN (next miner, long single-arm run from minute one): (1) mk_lad_off 1;
 big step-in, cancelled if not filled; (3) otherwise a full-size order rests a few ticks back (presence, rarely filled); (4) no size shrinking (pacing by gated step-ins, not size);
 (5) code + test_pace incl. cap + interaction check (presence, $30 vol path, lean-only, fee push, timing). Interaction risks to check: resting full-size orders swept in big moves
 (behind fills −1.4 bp today) → keep them ≥ 3 ticks back + short expiry; presence must stay ≳ 180.
+
+## §1483 — 2026-11-15 2:05 PM CT — mk_gate (budget-gated full-size step-ins) built: agent 7f434483 (from 6944797a); verified; not deployed
+Knob mk_gate (ticks, live, 0 = off), $300 vol + calm (not $30 / 4-dec): if the book's pace bucket ≥ one full-size fill ($ = size × wealth): quote touch/inside at FULL size, NOT
+fee-pushed (like a lean-jumped side; never crossing); else rest MK_GATE ticks behind the (fee-pushed) target at the soft size and clear the lean jump. Cap safety unchanged
+(paced_out + 24-h ledger untouched). After a $2.2k fill a book refills in ≈ 420 sim s ≈ the fleet's one fill per ≈ 5 min per book (§1482).
+INTERACTION CHECK: inside quoting (rest mode stays behind; step-in steps inside) OK; lean jump/lean-only (rest clears the jump; with lad_off both sides stay; with ladders +
+lean-only rest = ladder only → run the redo WITH mk_lad_off 1); fee push — FIRST census showed full-size orders still +2 ticks behind the others' best (push applied before the
+gate) → fixed: step-ins exempt from the push; pacing/cap unchanged; timing: acts each round from the current bucket (no refill wait to see both modes); $30/4-dec excluded.
+Checks (speed/gatecheck.py, half the $300 buckets seeded LOW −2k / half FULL 4k, mk_lad_off 1): gate 3 FULL → size median $2,195 at the others' best (+0 ticks), both sides on
+49 books; LOW → $681, +5 ticks back; gate 0 → $2,039 / $679 both +2 ticks. equiv.py vs 6944797a with gate 0: 10 replies, 0 instruction diffs, tape/ledger/locks identical ✔;
+test_pace ALL PASS (211/0) ✔. Lab copy /opt/mvtrx/speed/QuoteAgent.gate.py. REDO TEST = mk_gate 3 + mk_lad_off 1, long single-arm run.
