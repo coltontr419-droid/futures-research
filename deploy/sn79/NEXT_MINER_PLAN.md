@@ -86,6 +86,10 @@ Freshness doesn't fix our losses (they persist at every order age); testing the 
 
 ## KEY GAP (§1473): fleet holds ≈ 4.5× bigger positions ≈ 8× longer with the SAME timing edge → test skew 1 vs 5 (11-15 ≈ 9:55 AM); then fade lean.
 
+## NEXT MINER IN MINUTES (11-15): after the user re-registers x2 → `sh /opt/mvtrx/newminer.sh <uid>` (regcheck, START → live_params_<uid>, UID copies of the
+A/B + read scripts, clean ledger, gated restart, our_uids.txt) → schedule the next queued test with abtest_sched_<uid>.sh + readchain_<uid>.sh. If UID 179 is pruned first:
+stop mvtrx-x2, empty our_uids.txt, record (newminer.sh re-enables the unit).
+
 ## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
 No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
 Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?
