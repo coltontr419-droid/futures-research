@@ -22998,3 +22998,7 @@ fills; we spread the same budget over ≈ 8 ladder orders per book → many tiny
 §1474 CORRECTION (9:10 AM, user Q "edge or luck?"): the $30 "67% books positive" was ONE 30-min window. Eight consecutive 15-sim-min windows (sim 40198–47398, speed/dilwin.py):
 179 positive 42–57% (avg ≈ 49%), median −0.09…+0.05 bp, TOTAL −0.07…+0.19 bp → ≈ zero edge (luck). 252 positive 52–79% in every window, median +0.19…+1.68, TOTAL +0.73…+1.76
 in all 8 → real, steady $30 edge. → our $30 problem is NO EDGE, not only small positions; judge any lift (skew test) across several windows, not one.
+§1473 CHECK ACROSS WINDOWS (9:25 AM, 4 × 15-sim-min windows sim 40173–46473, $300 books; speed/invstudy2.py + dilwin.py): mean |inv| per book 179 $638–743 vs 252 $2,590–2,930
+/ 216 $2,552–3,062 (≈ 4×); hold median 179 70–90 s vs 252 338–450 s / 216 248–570 s (≈ 5×) → CONFIRMED. Timing corr 179 −0.011…+0.054 (avg ≈ +0.03) vs 252 +0.030…+0.086 / 216
++0.043…+0.087 (avg ≈ +0.06) → CORRECTION: the fleet's timing is ≈ 2× ours, not "the same" (one window misled). $300 TOTAL skill 179 −0.35…−0.47 in all 4 (21–31% books
+positive) vs 252 +0.19…+0.83 in all 4. → both levers matter: position size/hold (skew test) AND timing (fade lean).
