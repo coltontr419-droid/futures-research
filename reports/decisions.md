@@ -23198,3 +23198,12 @@ fills/hour 300–1,840, moving with the market. → NO visible strategy change i
 in a day with the behaviour constant (fees / competition / rule updates).
 → A winning strategy is mostly left alone; re-check after each weekly release (Wed ≈ 17:00 UTC) — refit the market model then. Static survival depends on staying above the
 prune line (the fleet loses UIDs).
+
+## §1493 — 2026-11-15 4:50 PM CT — REDO read #1 (leans on, sim 52691–52990, ≈ 5 sim min — ONE window, a sign not a finding)
+$300 (speed/dilwin.py BOOKS=0-127): 255 TOTAL +0.72 bp, 69% of 105 books positive, median +0.61 (before-level UID 179 same base −0.35…−0.54; 252 same window +0.12, 48% positive).
+invstudy2: 255 mean |inv| $1,807 (p90 $5,077), hold 48 s, timing corr +0.144 (179 ≈ +0.03); 252 $1,546, corr +0.181.
+$30 (BOOKS=128-191): 255 TOTAL +0.18, 59% positive, median +0.20 (before −0.13…+0.07); 252 +1.56, 95% positive; 255 |inv| $950 hold 31 s corr +0.102; 252 $793 / 71 s / +0.176.
+Health 4:47 PM: 0 errors; presence median 244; 6/250 paced; GATE 5,282 step-in / 2,218 rest; resting $562k on 648 orders (avg ≈ $867, falling as start buckets drain); call 0.328 s.
+Pay: UID 255 $97/mo ($3.24/day) — FIRST non-zero pay on a test miner in days (score 0.0014 vs 252 0.0041; skill/making gauges still 0 → source unclear, new-UID head start
+possible); 252 $211. Validator gauges for 255 (net alpha −2.5, 50 books) still mix the previous owner's 3-h window.
+Running tally: $300 1 window +1.1…+1.3 bp vs before (net of 252 ≈ +1); $30 1 window ≈ +0.2. Needs ≥ 4 windows.
