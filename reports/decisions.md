@@ -23092,3 +23092,20 @@ gate) → fixed: step-ins exempt from the push; pacing/cap unchanged; timing: ac
 Checks (speed/gatecheck.py, half the $300 buckets seeded LOW −2k / half FULL 4k, mk_lad_off 1): gate 3 FULL → size median $2,195 at the others' best (+0 ticks), both sides on
 49 books; LOW → $681, +5 ticks back; gate 0 → $2,039 / $679 both +2 ticks. equiv.py vs 6944797a with gate 0: 10 replies, 0 instruction diffs, tape/ledger/locks identical ✔;
 test_pace ALL PASS (211/0) ✔. Lab copy /opt/mvtrx/speed/QuoteAgent.gate.py. REDO TEST = mk_gate 3 + mk_lad_off 1, long single-arm run.
+
+## §1484 — 2026-11-15 2:45 PM CT — The subnet's goal and the market's actual model (README, FAQ, simulate/trading/run/config/simulation_0.xml) → strategy implications
+GOAL (README/FAQ): realistic, valuable market DATA from "intelligent, risk-averse, budget-constrained" agents. Making pays two-sided liquidity that is not run over (20-s markout);
+skill pays "profit the market's drift does not explain" (inventory × mid change, drift removed; consistent across books, ≥ 20/10/10 books; qualifying miners share the half by
+net alpha); "pay follows performance, not volume"; "a strategy confined to a few books earns little"; fees + spread paid are in skill P&L (takers); weekly config changes;
+response time → order delay.
+MARKET MODEL ($300 books, simulation_0.xml; 8 × 16 books): fundamental = fBM Hurst 0.729 (persistent), σ 0.0069, jumps λ 2.06e-4 σJ 0.00622, updated every 30 s, published to us;
+1,000 StylizedTraderAgents (Chiarella 2007): sigmaF 1.2 (fundamentalist), sigmaC 1.1 (chartist), sigmaN 0.7 (noise), tau 600 s, tauHist 50 s; 20 HFT market makers (spread 15 bp,
+minSpreadTicks 10, undercutTicks 5, inventory horizon); 1,024 noise traders; 1 ALGO trader per book (large meta-orders, updateInterval 60 s, immediateBase 600); FeePolicy dynamic
+(targetMTR 0.4, maker 0 / taker 2.3 bp base, max 1.5%); minOrderSize 0.25; maxOpenOrders 100; MagneticField + FuturesSignal processes (FuturesTraderAgent count 0).
+MEASURED (speed/takerid.py, last ≈ 1,430 sim s, $300): taker id −1 = the big-sweep taker — median $5,802 per taker-second, 93% of its $ in $10k+ events, 60-s mid move its way
+−0.04 bp → UNINFORMED, impact reverts; miner takers +0.44 bp (informed); other bg ids ≈ $600 events, ±0.2 bp.
+IMPLICATIONS: (1) skill counts only inventory × mid move (maker fill price not credited) → fills that happen while a sweep pushes price through our orders are structurally bad
+for skill; fleet fills = small flow at/inside the touch; supports the redo (one order per side, gated step-ins). (2) The price model is known → build the lean from it
+(fundamental gap + fundamental trend (Hurst 0.73) + ≈ 50-s chartist momentum − sweep reversion), held-out tested vs fade / fund-move leans. (3) Sweeps revert in ≈ 60 s →
+consider holding sweep-acquired inventory ≈ 60 s instead of unwinding. (4) DIS fees reward scarce liquidity — fee-aware already reads per-book maker fees.
+NEXT: offline fit of the model-based predictor (MEASURED, held-out) during the fade test; if it beats the fade it becomes the redo's step-in side; sweep-hold queued.
