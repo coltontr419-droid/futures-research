@@ -3,7 +3,9 @@ import sys, json, collections
 W = [(a, b, n) for a, b, n in (x.split(":") for x in sys.argv[1:])]
 per = collections.defaultdict(set)
 for l in sys.stdin:
-    i = l.find('"ts": '); ts = int(l[i + 6:l.index(",", i)]) // 10**9
+    i = l.find("\"ts\": ")
+    if i < 0 or "," not in l[i:] or "\"book\": " not in l: continue
+    ts = int(l[i + 6:l.index(",", i)]) // 10**9
     j = l.find('"book": '); bk = int(l[j + 8:l.index(",", j)]); per[ts].add(bk)
 for a, b, n in W:
     a, b = int(a), int(b); xs = [len(v) for t, v in per.items() if a <= t < b]

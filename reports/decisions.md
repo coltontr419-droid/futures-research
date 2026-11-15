@@ -22921,3 +22921,14 @@ Restart (gated, regcheck REGISTERED) onto b3a6247c (mk_vol_expiry knob, default 
 Next test chosen from this result: vol-book expiry would most likely tie the same way → test the measured loss bucket instead: $300 VOL ladder size half
 (mk_vol_lad_size 0.0135 vs 0.027; deep behind-touch fills = 62–65% of our $300 $ at −0.9…−1.1 vs fleet 30–38%). n179ls ABBA 2:31–4:31 AM, reads 4:45/4:51/5:09,
 decision ≈ 5:17 AM. vol expiry stays queued (knob live-ready).
+
+## §1469 — 2026-11-15 5:25 AM CT — Vol ladder size half (n179ls): TIE / leaning loss → keep 0.027; behind-fill SOURCE found (deep ladder levels); next = shallow ladder
+ABBA 2:31–4:31 AM (A sim 44149–44435 + 45013–45302, B 44435–45013). $300 skill A −0.42 vs B −0.44; refs Δ 252 +0.42, 216 +0.48 → net −0.43. $300 making R A −8.1 vs
+B −10.2 (252 −3.6 vs −7.5) → net ≈ −1.8. Edge per $ +1.45–1.55 both. Depth split: behind share A 65–67% vs B 65% (unchanged; fleet 23–34%) → size scales every level alike.
+Kept B (tie rule: A did not move our shape toward the fleet's).
+SOURCE of our $300 behind-touch fills (speed/srcstudy.py, B window sim 44435–45013; placement depth from each order's first queue appearance):
+  vol ladder 3+ ticks back 38% (−1.45) | calm ladder 3+ back 20% (−1.39) | calm ladder 1–2 back 16% (−0.75) | vol placed & filled < 1 s 9% (−1.09) |
+  vol ladder 1–2 back 7% (−0.87) | placed at/inside the touch then left behind 5% (−0.54) | calm < 1 s 3%.
+→ 58% of our behind $ are ladder levels ≥ 3 ticks back (vol levels 4/7, calm level 3), swept at ≈ −1.4 bp.
+Next test n179sh: shallow ladder — A = mk_vol_lad "1:2" + mk_calm_lad "1:2" vs B = "1:2:4:7" + "1:2:3" (live lists; every book still quoted). ABBA 5:31–7:31 AM CT,
+reads 7:45/7:51/8:09, decision ≈ 8:17 AM. (2:5 vs 1:2:4:7 tied on 11-14 R2 — a different shape; "1:2" untested.)
