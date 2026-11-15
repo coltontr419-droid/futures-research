@@ -22910,3 +22910,14 @@ First version also hit the $30 books (they share the vol path) — caught by an 
 Checks: equiv.py vs 9f0d07f3 with the knob off — 10 replies, 0 instruction diffs, tape/ledger/locks identical; census with knob 10: vol 10 s, $30 60 s, 4-dec 60 s,
 calm 500 s ✔; test_pace ALL PASS (211/0). equiv timing: the SECOND agent in a run is ≈ 60 ms slower whichever it is (order effect, not the code).
 Lab copy: /opt/mvtrx/speed/QuoteAgent.volexp.py. Deploy = gated restart, only if calm expiry 30 wins or ties.
+
+## §1468 — 2026-11-15 2:10 AM CT — Calm expiry 30 vs 500 s (n179cx): TIE → ADOPTED (copy fleet); freshness is NOT our calm problem; restart onto b3a6247c; next = vol ladder size
+ABBA 11:21 PM–1:21 AM (A sim 42337–42620 + 43194–43480, B 42620–43194). $300 skill A −0.42 vs B −0.49; refs Δ 252 +0.18, 216 +0.01 → net −0.03 (tie). $300 making R
+−10.0 vs −9.6 (252 −5.3 vs −4.5) ≈ 0 net; edge per $ equal (+1.37…+1.48); $30 / 4-dec unchanged.
+Calm-book order age (agestudy2.py): fills on orders > 30 s 28% (B) → 5–6% (A) — the knob works — but markout stays −0.7…−1.3 at EVERY age (fresh < 1 s: A −1.31 / −0.83
+vs B −0.53). → MEASURED: our calm fills lose regardless of order age; the losses moved to 10–30 s orders. Freshness explains the fleet's profile, not our losses.
+Adopted A by the tie rule (fleet: no calm fills on orders > 30 s): live + START mk_calm_expiry 30 (backup bak-alerts-1114/live_params_179.START.pre-cx.json).
+Restart (gated, regcheck REGISTERED) onto b3a6247c (mk_vol_expiry knob, default 0 = identical) in the gap between tests, 08:07:52 UTC; ledger reloaded 57,962 fills.
+Next test chosen from this result: vol-book expiry would most likely tie the same way → test the measured loss bucket instead: $300 VOL ladder size half
+(mk_vol_lad_size 0.0135 vs 0.027; deep behind-touch fills = 62–65% of our $300 $ at −0.9…−1.1 vs fleet 30–38%). n179ls ABBA 2:31–4:31 AM, reads 4:45/4:51/5:09,
+decision ≈ 5:17 AM. vol expiry stays queued (knob live-ready).

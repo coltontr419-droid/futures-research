@@ -77,6 +77,9 @@ Base for the next miner: START + mk_vol_lean_only 1 + mk_vol_jump 1. Next lead a
 ## Side study (§1466): no visible side signal; fleet $300 fills are FRESH (< 1 s, none > 30 s), ours stale → testing calm expiry 30 vs 500 (n179cx 11-14 11:21 PM)
 Inside 2 vs 3 closed (2 ties, §1465). If calm expiry 30 wins/ties: add a live mk_vol_expiry knob and test $300 vol-book freshness next.
 
+## Calm expiry 30 adopted (tie, §1468); agent b3a6247c (mk_vol_expiry knob). Base now: START + lean-only 1 + jump 1 + mk_calm_expiry 30.
+Freshness doesn't fix our losses (they persist at every order age); testing the deep-ladder share next (vol ladder size half, n179ls 11-15 2:31 AM).
+
 ## After the speed build (user Q 11-14 ≈ 2 PM: redo all tests?)
 No. Keep: soft pacing, fee-aware, $30 shape, $300 size + inside 3 + lean, 4-dec touch, $30 picky (lost on volume), skew (inventory, not speed).
 Step 1: short read of the faster build on current settings — does $300 realized / skill improve by itself?
