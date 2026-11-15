@@ -243,6 +243,15 @@ class QuoteAgent(FinanceAgent):
         self.mk_vol_inside = int(getattr(c, "mk_vol_inside", 0))   # §1304: >0: $300-book touch orders one tick inside the spread when it is ≥ this many ticks (fleet: 5)
         self.mk_calm_lad = [int(x) for x in str(getattr(c, "mk_calm_lad", "") or "").replace(":", ",").split(",") if x.strip()]   # §1303: calm-book ladder, ticks behind the touch (e.g. 1:2:4)
         self.mk_calm_lad_size = float(getattr(c, "mk_calm_lad_size", 0.036))   # §1303: calm ladder order size (fleet calm fills mostly $1-2k)
+        self.mk_model_lean = float(getattr(c, "mk_model_lean", 0.0))   # §1486: >0: the $300 lean JUMP side follows the MARKET-MODEL prediction (fundamental gap + trend,
+        self._ml = None                                                  # 50-s / 5-min price reversion; weights in MODEL_LEAN_FILE) when |pred| ≥ MK_MODEL_LEAN × the file's threshold
+        self.model_lean_file = str(getattr(c, "model_lean_file", "/opt/mvtrx/agents/model_lean.json"))   # (top-30% |pred|); overrides fade + fund move; 0 = off (live)
+        try:
+            self._ml = json.load(open(self.model_lean_file))
+        except Exception:
+            self._ml = None
+        self._fh2 = {}                                                   # per-second fundamental history (305 s) for the model lean
+        self.mk_gate_side = int(getattr(c, "mk_gate_side", 0))           # §1486: 1 = gated full-size step-ins only on the LEAN (jumped) side; the other side rests (live)
         self.mk_gate = int(getattr(c, "mk_gate", 0))             # §1483 budget-gated step-ins ($300 vol + calm): if the book's pace bucket can afford a FULL-size fill,
                                                                   # quote touch/inside at full size (no soft shrink); else rest MK_GATE ticks behind the target at the
                                                                   # soft size (presence, rarely filled) until the bucket refills — the fleet's one big fill per ≈ 5 min
@@ -631,11 +640,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int, "mk_vol_jump": int, "mk_low_touch_min": int, "mk_skip_dec": int, "mk_vol_lean_only": int, "mk_fee_k": float, "pace_soft_on": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int, "mk_model_lean": float, "mk_gate_side": int, "max_inv": float,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4), "mk_low_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "mk_model_lean": (0.0, 10.0), "mk_gate_side": (0, 1), "max_inv": (0.01, 0.5), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -1176,10 +1185,33 @@ class QuoteAgent(FinanceAgent):
                 mh.append((self._sec, mid))
                 while mh and mh[0][0] < self._sec - 305:
                     mh.popleft()
+            fv = getattr(book, "fundamental", None)
+            if fv:
+                fh = self._fh2.get(int(book_id))
+                if fh is None:
+                    fh = self._fh2[int(book_id)] = deque()
+                if not fh or fh[-1][0] != self._sec:
+                    fh.append((self._sec, fv))
+                    while fh and fh[0][0] < self._sec - 305:
+                        fh.popleft()
             if self.mk_fade_lean > 0:
                 m60 = next((m for t, m in mh if t >= self._sec - 60), None); m300 = mh[0][1] if mh and mh[0][0] <= self._sec - 295 else None
                 fade = -((mid - m60) + (mid - m300)) / mid * 1e4 if (m60 is not None and m300 is not None and mid > 0) else 0.0
                 lean = fade if abs(fade) >= self.mk_fade_lean else 0.0
+            if self.mk_model_lean > 0 and self._ml and mid > 0:    # §1486 market-model lean (overrides fade / fund move)
+                fh = self._fh2.get(int(book_id)); fv = getattr(book, "fundamental", None)
+                def _at(dq, k):                                    # value at the first sample ≥ now − k, only when the history reaches back ≥ k − 5 s
+                    if not dq or dq[0][0] > self._sec - k + 5: return None
+                    return next((v for t, v in dq if t >= self._sec - k), None)
+                m10, m50, m300 = _at(mh, 10), _at(mh, 50), _at(mh, 300)
+                f30, f60, f300 = _at(fh, 30), _at(fh, 60), _at(fh, 300)
+                lean = 0.0
+                if fv and None not in (m10, m50, m300, f30, f60, f300):
+                    x = {"gap": (fv - mid) / mid * 1e4, "dF30": (fv - f30) / mid * 1e4, "dF60": (fv - f60) / mid * 1e4, "dF300": (fv - f300) / mid * 1e4,
+                         "r10": (mid - m10) / mid * 1e4, "r50": (mid - m50) / mid * 1e4, "r300": (mid - m300) / mid * 1e4}
+                    ml = self._ml
+                    pred = sum(w * (x[nm] - mu) / sd for nm, w, mu, sd in zip(ml["names"], ml["w"], ml["mu"], ml["sd"]) if sd > 0)
+                    lean = pred if abs(pred) >= self.mk_model_lean * ml["thr"] else 0.0
         if self.mk_vol_jump and lean and self._g(int(book_id)) == "vol" and not self._is_low(int(book_id)):   # §1434 lean jump (§1472: side from LEAN)
             if lean > 0:
                 jb = round(math.floor(min(fair - self.edge * tick, ask - tick, bid + self.mk_vol_jump * tick) / tick + 1e-9) * tick, pd)
@@ -1462,16 +1494,25 @@ class QuoteAgent(FinanceAgent):
             qfull = round(max(sz * wealth0 / mid, self.min_order_size(book_id)), vd)
             tok = self._tok_accrue(int(book_id), self._sec)[0]
             self._gate_n = getattr(self, "_gate_n", [0, 0])
+            jd0 = self._jumped.get(int(book_id), set()); gs = bool(self.mk_gate_side) and self._g(book_id) == "vol"   # calm books have no lean jump
             if tok >= qfull * mid:                         # the bucket affords a full fill: full-size step-in
                 self._gate_n[0] += 1
+                if gs:                                     # §1486: only the lean (jumped) side steps in; the other side rests MK_GATE ticks back at the soft size
+                    qrest = round(max(qfull * 0.1, self.min_order_size(book_id)), vd)   # a small rest order (presence) — a full-size deep order is what sweeps hit
+                    for sd in list(want):
+                        if sd in jd0: continue
+                        want[sd] = round(want[sd] - self.mk_gate * tick, pd) if sd == OrderDirection.BUY else round(want[sd] + self.mk_gate * tick, pd)
+                        if want[sd] <= 0: want.pop(sd); sq.pop(sd, None); continue
+                        sq[sd] = min(sq.get(sd, qrest), qrest)
                 for sd in list(want):
+                    if gs and sd not in jd0: continue
                     room = ((acct.quote_balance.free + self._reserved(acct, OrderDirection.BUY)) / want[sd]) if sd == OrderDirection.BUY else (acct.base_balance.free + self._reserved(acct, OrderDirection.SELL))
                     q = qfull if room >= qfull else (round(room * 0.98, vd) if self.fit_qty else 0.0)
                     if q >= self.min_order_size(book_id) and q > 0:
                         sq[sd] = q
                 qty = qfull
                 jd = self._jumped.get(int(book_id), set())
-                if ft:                                     # §1483: a step-in is NOT fee-pushed (like a lean-jumped side) — the fleet steps in at/inside the touch
+                if ft and not gs:                          # §1483: a step-in is NOT fee-pushed (with mk_gate_side only the jumped side steps in — already exempt) (like a lean-jumped side) — the fleet steps in at/inside the touch
                     for sd in list(want):
                         if sd in jd: continue
                         want[sd] = round(want[sd] + ft * tick, pd) if sd == OrderDirection.BUY else round(want[sd] - ft * tick, pd)

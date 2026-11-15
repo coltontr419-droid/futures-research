@@ -23120,3 +23120,17 @@ TEST (held-out): H 60 s MODEL corr +0.299, top-30% |signal| move in its directio
 markout (+0.5…+1.0). MEASURED predictor of MID moves — live must show our fills capture it (adverse selection).
 NEXT: build mk_model_lean (per-second mid + fund history 600 s, 7 features, weights + mu/sd from a JSON file, lean when |pred| ≥ top-30% threshold) → redo = gated full-size
 step-ins on the model's side + position cap + stop rule; full checks first.
+
+## §1486 — 2026-11-15 2:00 PM CT — REDO build 1e4d2a83 (from 7f434483): market-model lean + lean-side-only gated step-ins + small rest side + live max_inv; verified
+Knobs (all live, 0/off = identical): mk_model_lean (× the file's top-30% threshold; weights /opt/mvtrx/agents/model_lean.json = 7-feature ridge fit §1485/§1486: gap, dF30, dF60, dF300,
+r10, r50, r300, H 120 s, thr 0.704 bp; overrides fade + fund move; needs ≥ 300 s of per-second mid + fundamental history — a fresh start leans after ≈ 5 sim min); mk_gate_side 1
+(vol books: full-size step-in only on the lean/jumped side; the other side rests MK_GATE ticks back at 10% size ≈ $220; calm books keep both-sided gating — no lean jump there);
+max_inv now live (0.01–0.5).
+INTERACTION CHECK: fund_mv's fair shift blocks lean jumps (§1477) → the redo runs fund_mv 0 (the model contains the fundamental); calm books never jump → gate_side applies to vol
+only; the rest side was full size when buckets are full (sweep risk) → capped at 10%; fee push: jumped side exempt; lean-only: lad_off 1 keeps both sides; pacing/cap untouched.
+CENSUS (speed/modelcheck.py; seeded mid + fundamental histories → BUY on even / SELL on odd vol books; full buckets): jumps 52, all on the predicted side, 0 wrong; vol predicted side
+$2,196 at −1 tick (inside the others' best); other side $220 at +5 ticks; calm both sides $1,799 at the others' best. Off → identical (equiv.py 0 diffs; tape/ledger/locks) ✔;
+test_pace ALL PASS ✔.
+REDO TEST (after the n179fd decision ≈ 3:28 PM): deploy 1e4d2a83 (gated restart) → LONG single-arm run: mk_lad_off 1, mk_gate 3, mk_gate_side 1, mk_model_lean 1.0, fund_mv 0,
+mk_fade_lean 0, max_inv 0.14 (≈ $7k, the fleet's $300 p90). STOP RULE: if $300 per-15-min skill (dilwin.py) is worse than the same-base before-windows, net of 252/216, for 2
+consecutive windows → revert to base. Reads every 30 min (order size, positions/hold, skill, presence, pace).
