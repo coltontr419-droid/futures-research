@@ -23134,3 +23134,17 @@ test_pace ALL PASS ✔.
 REDO TEST (after the n179fd decision ≈ 3:28 PM): deploy 1e4d2a83 (gated restart) → LONG single-arm run: mk_lad_off 1, mk_gate 3, mk_gate_side 1, mk_model_lean 1.0, fund_mv 0,
 mk_fade_lean 0, max_inv 0.14 (≈ $7k, the fleet's $300 p90). STOP RULE: if $300 per-15-min skill (dilwin.py) is worse than the same-base before-windows, net of 252/216, for 2
 consecutive windows → revert to base. Reads every 30 min (order size, positions/hold, skill, presence, pace).
+
+## §1487 — 2026-11-15 2:30 PM CT — More from the subnet's docs/config/dials (user: "as much information as we can get before we register the new miner")
+PER-CLASS MARKETS (simulation_1/2.xml vs _0): $30 (128–191): stylized sigmaF 1.7 / sigmaC 1.3, tau 62 s (vs 600 s), tauF 3.7; HFT minSpreadTicks 3, undercut 0. 4-dec (192–255): fundamental
+σ 0.0125 (≈ 2×), σJump 0.0113; stylized sigmaF 2.9 / sigmaC 1.5, tau 182 s, tauF 20, r_aversion 40,900; HFT minSpread 2526 (≈ $0.25), undercut 1. → the model lean must be FIT PER CLASS
+(different horizons and pull strengths); the 4-dec books' strong fundamental pull + high volatility may suit a model lean even though 252 skips them.
+AGENT GUIDE: (a) every instruction takes `delay` (0–1 s within the sim interval) — orders/cancels can be scheduled between state updates; MEASURED (speed/subsec.py, $300 fills, last
+≈ 1,770 sim s): fills by 0.1-s bucket — all 18/9/9…%, us 17/10/9…, 252 21/8/9/6/9/12…, 216 22/10/8/6… → no strong clustering, so `delay` is not the fleet's edge (still a tool);
+(b) a LOCAL simulator (agents/proxy, the real C++ engine + same background agents) can pre-test strategies with real market reaction — far better than tape replays (false positives).
+VALIDATOR DIALS (taos/im/config/__init__.py, speed dials.py): w_make 0.50; making_horizon 20 s; making_fee_weight 0.005; making basis "realized"; skill hurdle 2.3 bp; skill_min_books_share
+20/128; skill_max_inactive 0.375; skill_variant "drift" (window's whole drift — a closed position keeps being re-marked); mark_mode mid, fill_charge taker; p11/s3 counterparty discounts;
+conjunction (resting two-sided volume within N × spread of the mid, size ≥ 25% of the book's median fill size) published as debeta_conjunction; skill rank among positives.
+GAUGES (wallet 5EWwdZB7): debeta_skill_net_alpha 179 +427 vs 252 +1,661 / 216 +1,803; num_scored_books 179 11 vs 97 / 115; conjunction 13.2M vs 42.2M / 44.1M; p11/s3/presence 1.0 all.
+→ in the validator's own 3-h window our net alpha is POSITIVE (≈ ¼ of the fleet's) — we earn 0 because only 11 books clear the 2.3-bp hurdle → bigger, well-timed positions (the redo) is
+the right lever. Upstream: origin/test = origin/main = 0.6.7 final (11-10); next weekly release ≈ Wed 11-18 17:00 UTC (may change configs).
