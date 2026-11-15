@@ -23038,3 +23038,9 @@ REDESIGN: A = mk_fade_lean 1.0 + fund_mv 0 (lean source = fade) vs B = base (fun
 census for A's config: 50/50 jumps in the fade direction ✔.
 Other queued tests: mk_skip_dec (cancels 4-dec orders, ≤ 5 per book per reply; coverage ≥ 160 filled books; 4-dec making/skill class → 0, ours negative today) — OK;
 mk_lad_off — checked in §1476 (lean-only keeps both touch orders when the ladder is off).
+
+## §1478 — 2026-11-15 11:05 AM CT — Interim: skew does NOT limit our positions → ladder-off moved up to 12:15 PM (user yes)
+n179sk A1 (skew 1, sim 48634–48950) vs B (skew 5, 48950–49200), speed/invstudy2.py: $300 mean |inv| $354 / hold 58 s vs $382 / 58 s; $30 $303 / 32 s vs $252 / 31 s → no change.
+Our inventory is small because our orders are tiny (≈ $150 at the pace floor, both sides filled), not because skew flattens it. MISS by the new interaction-check rule: I
+didn't check that skew actually constrains our inventory before scheduling (§1473 inferred it from the fleet comparison). User 11-15 11:05 AM: "move ladder-off up to 12:15".
+New order: skew decision 12:08 → restart onto 6944797a → n179 ladder-off (mk_lad_off 1 vs 0) ≈ 12:15 PM → fade lean (A fade 1.0 + fund_mv 0) → 4-dec skip.
