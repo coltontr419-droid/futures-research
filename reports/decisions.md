@@ -23006,3 +23006,8 @@ positive) vs 252 +0.19…+0.83 in all 4. → both levers matter: position size/h
 vs 252 $1,804–1,815 / 216 $1,804–1,812 (≈ identical every window → the fleet looks hard-capped at ≈ $1.81k per $30 book ≈ 3.6% of wealth); hold median 179 32–60 s vs
 252 232–361 s / 216 242–338 s; timing corr 179 +0.016…+0.142 vs 252 −0.022…+0.053 / 216 −0.037…+0.101 → our short-term timing on $30 is as good or better; we exit in
 < 1 min, the fleet holds 4–6× longer → the skew test should be read on $30 separately (several windows); possible follow-up: lower skew + ≈ $1.8k inventory cap on $30.
+§1474 add. #5 (9:55 AM) — 4-dec books: 252 trades none of them (0 maker volume in every read); ours lose (fills −2.8…−3.2 bp at 20 s, skill −1.2…−2 bp, making R negative →
+drags the miner-wide making quality). User: copy 252 if it doesn't drop us under any minimum. Validator check (debeta.py coverage_weight, config): skill coverage scaling only
+below (1 − skill_max_inactive_books 0.375) × 256 = 160 books FILLED; without 4-dec ≤ 192 (252: 186, factor 1.0); per-class skill bar 20/10/10 only decides whether a class counts
+(our 4-dec skill is negative, 252 has none); presence gate = query failures. → QUEUED after the current tests: mk_skip_dec 1 vs 0 (live knob). Queue: skew 1 vs 5 → fade lean
+→ 4-dec skip → one order per side.
