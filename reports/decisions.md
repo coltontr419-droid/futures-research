@@ -23109,3 +23109,14 @@ for skill; fleet fills = small flow at/inside the touch; supports the redo (one 
 (fundamental gap + fundamental trend (Hurst 0.73) + ≈ 50-s chartist momentum − sweep reversion), held-out tested vs fade / fund-move leans. (3) Sweeps revert in ≈ 60 s →
 consider holding sweep-acquired inventory ≈ 60 s instead of unwinding. (4) DIS fees reward scarce liquidity — fee-aware already reads per-book maker fees.
 NEXT: offline fit of the model-based predictor (MEASURED, held-out) during the fade test; if it beats the fade it becomes the redo's step-in side; sweep-hold queued.
+
+## §1485 — 2026-11-15 3:00 PM CT — MODEL-BASED LEAN (market-model features) beats every lean we have, held-out, stable over 4 windows
+speed/modelfit.py: $300 books, sampled every 5 s per book, sim ≈ 45,000–50,982 (149,248 samples), train first 70% / test last 30% by time; ridge λ 10 on z-scored features.
+Weights (z, H 120 s): dF300 +0.41, r300 −0.39, r50 −0.34, gap (fund − mid) +0.33, dF60 +0.21, r10 −0.12, dF30 +0.09, flow60 +0.06, sweep60 +0.04, r600 0.00 — exactly the
+config's model: persistent fundamental (Hurst 0.73) trend +, fundamentalist pull to the gap +, ≈ 50-s / 5-min price reversion −; flows ≈ 0.
+TEST (held-out): H 60 s MODEL corr +0.299, top-30% |signal| move in its direction +0.79 bp (fade +0.141 / +0.37; fund-move dF10 +0.070 / +0.14); H 120 s MODEL +0.307 / +1.04 bp
+(fade +0.095 / +0.29; dF10 +0.076 / +0.21). Four test windows (sim 49197–50982): 60 s corr +0.278 / +0.318 / +0.304 / +0.303, edge +0.77 / +0.87 / +0.79 / +0.77;
+120 s +0.298 / +0.330 / +0.316 / +0.297, +1.05 / +1.16 / +1.05 / +0.94 (fade 120 s +0.28 / +0.57 / +0.19 / +0.11). → robust, 2–4× the current leans; ≈ the fleet's inside-fill
+markout (+0.5…+1.0). MEASURED predictor of MID moves — live must show our fills capture it (adverse selection).
+NEXT: build mk_model_lean (per-second mid + fund history 600 s, 7 features, weights + mu/sd from a JSON file, lean when |pred| ≥ top-30% threshold) → redo = gated full-size
+step-ins on the model's side + position cap + stop rule; full checks first.
