@@ -23019,3 +23019,12 @@ small C, noise. Edge per $ equal; A ≈ 15% more $300 fills. Depth: behind A 66�
 presence A 198–202 vs B 208. → keep fee_k 1.0 (tie rule: A did not move our shape toward the fleet's).
 Restart (gated) onto e43768f5 (mk_fade_lean knob, off) 15:54:56 UTC; ledger reloaded 99,633 fills; 0 errors. Next: n179sk skew 1 vs 5, ABBA 10:01 AM–12:01 PM CT,
 reads 12:03, decision 12:08 PM. Queue: fade lean → 4-dec skip → one order per side.
+
+## §1476 — 2026-11-15 10:45 AM CT — mk_lad_off live knob built (agent 6944797a from e43768f5); deploy at the n179sk boundary (≈ 12:08 PM)
+Why no pacing change is needed: our bucket drains because ladder fills (behind-touch ≈ 65% of $300 $) spend faster than the $5.2/s refill (§1474 add.); without ladders
+we spend less, the bucket refills, orders return to full size (touch ≈ $2.2k ≈ the fleet's ≈ $2.9k).
+mk_lad_off 1: no ladder on $300 vol + calm books (span 0 → resting ladder orders are cancelled as stale, none placed); with lean-only on, touch orders stay on BOTH sides
+when the ladder is off (else books without a lean jump would have no orders — caught before testing). $30 (low) and 4-dec paths unchanged.
+Checks: equiv.py vs e43768f5 with knob off — 0 instruction diffs, tape/ledger/locks identical ✔; test_pace ALL PASS (211/0) ✔; census (speed/ladcheck.py; captured
+states replay the same resting orders so cancels never land offline): new orders touch-only, median $2,198 vs $1,350 ladder; both sides quoted on 115/128 $300 books
+(118 with ladders) ✔. Live, old ladder orders clear over a few states (5 instructions per book per reply).
