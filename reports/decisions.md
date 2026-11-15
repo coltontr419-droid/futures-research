@@ -23011,3 +23011,11 @@ drags the miner-wide making quality). User: copy 252 if it doesn't drop us under
 below (1 − skill_max_inactive_books 0.375) × 256 = 160 books FILLED; without 4-dec ≤ 192 (252: 186, factor 1.0); per-class skill bar 20/10/10 only decides whether a class counts
 (our 4-dec skill is negative, 252 has none); presence gate = query failures. → QUEUED after the current tests: mk_skip_dec 1 vs 0 (live knob). Queue: skew 1 vs 5 → fade lean
 → 4-dec skip → one order per side.
+
+## §1475 — 2026-11-15 10:00 AM CT — fee_k 0.5 vs 1.0 (n179f05): TIE, shape moved AWAY from the fleet → keep 1.0; restart onto e43768f5; skew 1 vs 5 scheduled
+ABBA 7:46–9:46 AM (A sim 47204–47530 + 48170–48474, B 47530–48170). $300 skill A −0.37 vs B −0.39; refs Δ 252 −0.02, 216 +0.13 → net −0.04. $30 skill A +0.09 vs B +0.05 (refs
+−0.20 / −0.50 → net +0.4, single test — noise until repeated). 4-dec −0.78 vs −1.00. Making R $300 −10.5 vs −9.4 (252 −6.9 vs −3.6), $30 +3.1 vs +0.9 (252 +3.2 vs +5.8) —
+small C, noise. Edge per $ equal; A ≈ 15% more $300 fills. Depth: behind A 66–70% vs B 63%, inside A 18–22% vs B 28% (AWAY from the fleet's 17–41% / 35–51%);
+presence A 198–202 vs B 208. → keep fee_k 1.0 (tie rule: A did not move our shape toward the fleet's).
+Restart (gated) onto e43768f5 (mk_fade_lean knob, off) 15:54:56 UTC; ledger reloaded 99,633 fills; 0 errors. Next: n179sk skew 1 vs 5, ABBA 10:01 AM–12:01 PM CT,
+reads 12:03, decision 12:08 PM. Queue: fade lean → 4-dec skip → one order per side.
