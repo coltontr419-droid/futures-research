@@ -23176,3 +23176,4 @@ newminer.sh 255: regcheck REGISTERED; START (= UID 179's base) → live_params_2
 our_uids.txt = "255 maker x2 51981". redo_179.sh 255 at sim 51983 (log liveswitch_redo255_log.txt): LIVE PARAMS applied fund_mv 1.0→0, mk_lad_off 0→1, mk_gate 0→3, mk_gate_side
 0→1, mk_model_lean 0→1.0, mk_model_lean_30 0→1.0, max_inv 0.3→0.14 (mk_lean30_back 2 = default); first GATE line: step-ins active (fresh buckets, pace_start 20k). Leans start
 after ≈ 300 sim s of history (≈ sim 52290). 30-min brief + per-class redo read + stop rule (cron, :13/:43).
+§1490 add. (3:20 PM): user — no automatic switch-off on the REDO; per-class report every brief, flag sustained underperformance, changes only with the user (memory feedback-no-auto-switchoff).
