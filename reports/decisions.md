@@ -23002,3 +23002,7 @@ in all 8 → real, steady $30 edge. → our $30 problem is NO EDGE, not only sma
 / 216 $2,552–3,062 (≈ 4×); hold median 179 70–90 s vs 252 338–450 s / 216 248–570 s (≈ 5×) → CONFIRMED. Timing corr 179 −0.011…+0.054 (avg ≈ +0.03) vs 252 +0.030…+0.086 / 216
 +0.043…+0.087 (avg ≈ +0.06) → CORRECTION: the fleet's timing is ≈ 2× ours, not "the same" (one window misled). $300 TOTAL skill 179 −0.35…−0.47 in all 4 (21–31% books
 positive) vs 252 +0.19…+0.83 in all 4. → both levers matter: position size/hold (skew test) AND timing (fade lean).
+§1474 add. #4b (9:45 AM) — 252's $30 edge, 4 × 15-sim-min windows (speed/invstudy2.py BOOKS=128-191): mean |inv| 179 $370–473 vs 252 $764–1,113 / 216 $812–1,078; p90 179 $827–1,074
+vs 252 $1,804–1,815 / 216 $1,804–1,812 (≈ identical every window → the fleet looks hard-capped at ≈ $1.81k per $30 book ≈ 3.6% of wealth); hold median 179 32–60 s vs
+252 232–361 s / 216 242–338 s; timing corr 179 +0.016…+0.142 vs 252 −0.022…+0.053 / 216 −0.037…+0.101 → our short-term timing on $30 is as good or better; we exit in
+< 1 min, the fleet holds 4–6× longer → the skew test should be read on $30 separately (several windows); possible follow-up: lower skew + ≈ $1.8k inventory cap on $30.
