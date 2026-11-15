@@ -22995,3 +22995,6 @@ cap checks before deploying.
 (4-dec order $215 ≈ 5% of $4.5k). The fleet trades ≈ the same $ as ≈ ONE order per side per book (≈ 333 open orders / ≈ 190 books) of ≈ $2.9k, rarely changed → few big
 fills; we spread the same budget over ≈ 8 ladder orders per book → many tiny fills → tiny positions. Design for queue item (3): one full-size order per side per book
 (ladder off/minimal) + a bucket sized so one fill doesn't drain it (pace_burst / pace_start are restart-only) — build offline + test_pace with cap checks first.
+§1474 CORRECTION (9:10 AM, user Q "edge or luck?"): the $30 "67% books positive" was ONE 30-min window. Eight consecutive 15-sim-min windows (sim 40198–47398, speed/dilwin.py):
+179 positive 42–57% (avg ≈ 49%), median −0.09…+0.05 bp, TOTAL −0.07…+0.19 bp → ≈ zero edge (luck). 252 positive 52–79% in every window, median +0.19…+1.68, TOTAL +0.73…+1.76
+in all 8 → real, steady $30 edge. → our $30 problem is NO EDGE, not only small positions; judge any lift (skew test) across several windows, not one.
