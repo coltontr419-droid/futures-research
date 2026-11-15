@@ -23028,3 +23028,13 @@ when the ladder is off (else books without a lean jump would have no orders — 
 Checks: equiv.py vs e43768f5 with knob off — 0 instruction diffs, tape/ledger/locks identical ✔; test_pace ALL PASS (211/0) ✔; census (speed/ladcheck.py; captured
 states replay the same resting orders so cancels never land offline): new orders touch-only, median $2,198 vs $1,350 ladder; both sides quoted on 115/128 $300 books
 (118 with ladders) ✔. Live, old ladder orders clear over a few states (5 instructions per book per reply).
+
+## §1477 — 2026-11-15 11:05 AM CT — Interaction check (new rule) on the queued FADE-LEAN test → found a blocking conflict; test arms redesigned
+Live settings the fade lean touches: lean-only (no lean → ladder only — same as today with fmv 0, OK), fee push (jumped side exempt, OK), pacing (unchanged, OK), and
+**fund_mv 1.0 (fair += fundamental move)**: the jump price is capped by fair (jb = min(fair − edge, ask − tick, bid + jump)), so a fundamental move AGAINST the fade blocks it.
+Census (speed/fadetest2.py, seeded 10-bp price move + seeded opposite fundamental move over 10 s, fund_mv 1.0): jumps 50 → 4–7 at 2 bp, 0 at 5 bp and 10 bp; with no
+fundamental move 50. The fleet's own taking fades the fundamental too (clone dfund60 −0.8), so the two disagree often → as planned the test would mostly measure nothing.
+REDESIGN: A = mk_fade_lean 1.0 + fund_mv 0 (lean source = fade) vs B = base (fund_mv 1.0, fade 0) — one idea, "lean on the fade instead of the fundamental move";
+census for A's config: 50/50 jumps in the fade direction ✔.
+Other queued tests: mk_skip_dec (cancels 4-dec orders, ≤ 5 per book per reply; coverage ≥ 160 filled books; 4-dec making/skill class → 0, ours negative today) — OK;
+mk_lad_off — checked in §1476 (lean-only keeps both touch orders when the ladder is off).
