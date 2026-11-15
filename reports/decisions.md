@@ -23044,3 +23044,10 @@ n179sk A1 (skew 1, sim 48634–48950) vs B (skew 5, 48950–49200), speed/invstu
 Our inventory is small because our orders are tiny (≈ $150 at the pace floor, both sides filled), not because skew flattens it. MISS by the new interaction-check rule: I
 didn't check that skew actually constrains our inventory before scheduling (§1473 inferred it from the fleet comparison). User 11-15 11:05 AM: "move ladder-off up to 12:15".
 New order: skew decision 12:08 → restart onto 6944797a → n179 ladder-off (mk_lad_off 1 vs 0) ≈ 12:15 PM → fade lean (A fade 1.0 + fund_mv 0) → 4-dec skip.
+
+## §1479 — 2026-11-15 12:12 PM CT — Skew 1 vs 5 (n179sk): TIE → keep 5 (skew is not binding); restart onto 6944797a; ladder-off test scheduled
+ABBA 10:01 AM–12:01 PM (A sim 48634–48950 + 49600–49925, B 48950–49600). $300 skill A −0.42 vs B −0.48; refs Δ 252 +0.07, 216 +0.04 → net ≈ 0. $30 −0.02 both; refs Δ
++0.89 / +0.31 → net ≈ −0.6. 4-dec −1.20 vs −1.10. Making R $300 −11.1 vs −12.1 (252 −5.5 vs −8.4). Positions (invstudy2): $300 A $354–445 / 58–65 s vs B $605 / 90 s;
+$30 A $279–303 / 31–32 s vs B $437 / 31 s → skew 1 did NOT enlarge positions (confirms §1478). Keep skew 5.
+Restart (gated) onto 6944797a (mk_lad_off knob) 18:10:04 UTC; ledger reloaded 111,909 fills; replies OK. Next: n179lo mk_lad_off 1 vs 0, ABBA 12:16–2:16 PM CT,
+reads 2:18, decision 2:23 PM. UID 179's protection ends ≈ 2:30 PM (pay $0 → prune likely soon after). Queue: fade lean → 4-dec skip.
