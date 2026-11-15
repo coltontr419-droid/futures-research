@@ -23207,3 +23207,11 @@ Health 4:47 PM: 0 errors; presence median 244; 6/250 paced; GATE 5,282 step-in /
 Pay: UID 255 $97/mo ($3.24/day) — FIRST non-zero pay on a test miner in days (score 0.0014 vs 252 0.0041; skill/making gauges still 0 → source unclear, new-UID head start
 possible); 252 $211. Validator gauges for 255 (net alpha −2.5, 50 books) still mix the previous owner's 3-h window.
 Running tally: $300 1 window +1.1…+1.3 bp vs before (net of 252 ≈ +1); $30 1 window ≈ +0.2. Needs ≥ 4 windows.
+
+## §1494 — 2026-11-15 5:45 PM CT — REDO reads #1–#3 (leans on): $300 skill POSITIVE and ahead of 252 in 3/3 windows; sizes shrinking as start buckets drain
+Windows (300 sim s each; speed/dilwin.py + invstudy2.py), $300 TOTAL 255 vs 252: 52691–52990 +0.72 vs +0.12 (69% books +); 52990–53290 +0.62 vs +0.34 (56%); 53290–53570 +0.68 vs +0.44
+(61%) — before-level (UID 179, same base) −0.35…−0.54 (21–31% +). $30 TOTAL 255 vs 252: +0.18 vs +1.56; +0.04 vs +0.85; +0.17 vs +0.68 (before −0.13…+0.07).
+Positions (255): $300 mean |inv| $1,807 → $1,394 → $1,154, hold 48–64 s, timing corr +0.144 / +0.088 / +0.051; $30 $950 → $865 → $513, hold 31–71 s.
+Health 5:41 PM: 0 errors; presence median 236; 10/255 paced; GATE 4,518 step-in / 2,886 rest; resting $319k on 671 orders (avg ≈ $475, from ≈ $1,530 at 4:17); call 0.342 s.
+Pay: 255 $2/mo (the 4:47 PM $97 was a new-UID head start, not skill); 252 $219. Validator gauges for 255 (net alpha +126, 53 books) still mix the previous owner until ≈ 6:10 PM.
+Tally: $300 3/3 windows ≈ +1.1 bp vs before, ahead of 252 each time (4-window rule: one more needed); $30 ≈ +0.1. Watch: does $300 skill hold as sizes shrink with draining buckets?
