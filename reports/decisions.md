@@ -22976,3 +22976,17 @@ corr(inventory $, next-60-s mid move) 179 +0.057, 252 +0.042, 216 +0.057 → SAM
 bigger and ≈ 8× longer-held; with a small positive tilt that gives more positive kept books. Our skew 5 flattens positions in ≈ 1.5 min → |alpha| too small to count.
 NEXT (after n179f05 ≈ 9:53 AM + fade build restart): INVENTORY test skew 1 vs 5 (R3 skew 3 vs 5 tied on 11-14 — too small a step); then mk_fade_lean 1.0 vs 0.
 Remaining checks: #1 $30 skill vs 252, #3 reprice frequency.
+
+## §1474 — 2026-11-15 8:40 AM CT — Checks #1 ($30) and #3 (reprice frequency), MEASURED; queue additions after the scheduled tests
+#1 $30 books (128–191), window sim ≈ 45560–47330 (speed/dilution2.py, invstudy2.py with BOOKS=128-191): per-book bp 179 p25 −0.13 / median +0.19 / p75 +0.48 / p90 +0.91,
+67% positive, kept +1 −0, notional/book $9k; 252 −0.81 / +0.96 / +2.02 / +4.10, 67% positive, kept +14 −7, $5k; 216 −0.22 / +0.74 / +2.42 / +4.67, 69%, +17 −6, $5k.
+Inventory: 179 $552 held 60 s; 252 $1,376 held 376 s; 216 $1,139 held 391 s. → on $30 we are as often RIGHT as the fleet but our |alpha| is too small (small,
+short positions on ≈ 2× the notional) → both holding longer and trading less help there.
+#3 validator gauges (wallet 5EWwdZB7, speed/gauges.sh): placements_sent 179 18,918 vs 252 1,297 / 216 7,005 / 60 308; cancels 15,743 vs 834 / 4,712 / 151; open orders
+≈ 1,450 vs 333 / 394 / 11; resting notional $225k vs $960k / $1.06M / $41k (avg order ≈ $155 vs $2,900 / $2,700 / $3,700); fills 1,039 vs 17 / 23 / 68;
+total_inventory_value −$189k vs −$502k / −$493k / −$135k. → WE reprice ≈ 15× more than 252 (the §1262 "fleet reprices 8× more" is stale — old regime).
+The fleet: few large resting orders, rarely changed, few large fills, large positions. Ours: many tiny orders churned constantly (soft pacing shrinks sizes while
+the bucket is low; 24-h notional median ≈ $76k vs cap $450k, fleet average daily maker volume ≈ $270k).
+QUEUE (user 11-15: keep the current schedule, add after): (1) skew 1 vs 5 [scheduled ≈ 10:05 AM], (2) mk_fade_lean 1.0 vs 0, (3) NEW "fewer, bigger orders": a pacing
+change letting order size use ≈ fleet-level daily volume (≈ $270k/book/day) while the cap stays safe — restart-only knobs → build offline + full test_pace incl.
+cap checks before deploying.
