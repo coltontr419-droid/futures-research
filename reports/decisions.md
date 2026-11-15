@@ -23161,3 +23161,12 @@ REDO now = $300 (model lean + gated lean-side step-ins + lad_off + max_inv 0.14)
 LOCAL SIMULATOR (user Q): we used it 10-31 → 11-06 ("lab runs", repo/simulate/trading/build/src/cpp/taosim on mvtrx-lab): it MISLED — the lab market mean-reverted where live
 trended; a lab-fitted model had live IC −0.22 (§1206); the lab published no fundamental then (§1247); no other miners there. Full 256-book layout needs validator-class hardware
 (16 cores, 32–48 GB). Recommendation: no box now — live tests on fresh miners are the measurement; the sim helps mainly with mechanics (our census tools cover that).
+
+## §1489 — 2026-11-15 3:10 PM CT — UID 179 (x2) PRUNED 2:57:55 PM CT (≈ 24.9 h after registration); final reads; next miner prepared
+Journal 20:57:55 UTC "x2 is not registered"; regcheck NOT REGISTERED. Cleanup: mvtrx-x2 stopped + disabled; n179fd end/read timers stopped; our_uids.txt emptied (backup
+our_uids.txt.bak-1115-prune); session crons (3:28 decision, UID-179 briefs) deleted. Fade-lean test n179fd closed at the prune (sim 51819; last A block only ≈ 84 sim s).
+n179fd FINAL (A = mk_fade_lean 1.0 + fund_mv 0 vs B = base): $300 skill A −0.06 vs B −0.50; refs Δ 252 +0.10, 216 +0.40 → net +0.19; $300 making R A −5.8 vs B −10.0 (252 −3.7 vs
+−6.4) → net +1.5; $30 skill −0.03 vs +0.10 (fade not used on $30); 4-dec −0.84 vs −0.98. → LEANING POSITIVE (single test, not proven); superseded by the model lean (§1485/§1488).
+NEXT MINER (user will re-register x2): agents/QuoteAgent.py = 887a18c6 (backup agents/QuoteAgent.6944797a.py); model files in agents/; `sh /opt/mvtrx/newminer.sh <uid>` then
+`sh /opt/mvtrx/redo_179.sh <uid>` (REDO settings on top of START, logged switch liveswitch_redo<uid>_log.txt) → long single-arm run from minute one; the leans start after
+≈ 300 sim s of history; read per class every 30 min with the per-class stop rule (HANDOFF_2026-11-15.md).
