@@ -23051,3 +23051,10 @@ ABBA 10:01 AM–12:01 PM (A sim 48634–48950 + 49600–49925, B 48950–49600).
 $30 A $279–303 / 31–32 s vs B $437 / 31 s → skew 1 did NOT enlarge positions (confirms §1478). Keep skew 5.
 Restart (gated) onto 6944797a (mk_lad_off knob) 18:10:04 UTC; ledger reloaded 111,909 fills; replies OK. Next: n179lo mk_lad_off 1 vs 0, ABBA 12:16–2:16 PM CT,
 reads 2:18, decision 2:23 PM. UID 179's protection ends ≈ 2:30 PM (pay $0 → prune likely soon after). Queue: fade lean → 4-dec skip.
+
+## §1480 — 2026-11-15 12:30 PM CT — Ladder-off test REDESIGNED: A held ON 12:16–2:16 PM (bucket refill takes ≈ 2.5 wall h; ABBA can't show it)
+12:26 PM snapshot (10 min into A): open orders 1,450 → 604, presence 204 (held), but resting notional $144k → avg order ≈ $238, not the ≈ $2.2k full size. Cause: most books'
+pace buckets were at the soft floor (−pace_soft) when A started; refill $5.2/s per book (450k/86,400) → floor → full (−5k → +4.7k) ≈ 1,900 sim s ≈ 2.5 wall h; every B block
+(ladders back on) drains it again. → the 30-min ABBA could never reach the full-size regime. MISS by the interaction rule: "how long until the knob takes effect?".
+Change: cancelled the 12:46 B / 1:16 B / 1:46 A switches; A stays on until the planned end 2:16 PM; decision 2:23 PM compares A (and its last hour) vs the same-base B windows
+before 12:16 and vs 252/216 over the same windows (weaker before/after design — stated). Test order unchanged (user's approved order).
