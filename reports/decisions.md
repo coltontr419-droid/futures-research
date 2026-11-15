@@ -23170,3 +23170,9 @@ n179fd FINAL (A = mk_fade_lean 1.0 + fund_mv 0 vs B = base): $300 skill A −0.0
 NEXT MINER (user will re-register x2): agents/QuoteAgent.py = 887a18c6 (backup agents/QuoteAgent.6944797a.py); model files in agents/; `sh /opt/mvtrx/newminer.sh <uid>` then
 `sh /opt/mvtrx/redo_179.sh <uid>` (REDO settings on top of START, logged switch liveswitch_redo<uid>_log.txt) → long single-arm run from minute one; the leans start after
 ≈ 300 sim s of history; read per class every 30 min with the per-class stop rule (HANDOFF_2026-11-15.md).
+
+## §1490 — 2026-11-15 3:15 PM CT — New miner: x2 re-registered as UID 255; live on 887a18c6 with the REDO from minute one
+newminer.sh 255: regcheck REGISTERED; START (= UID 179's base) → live_params_255.json / .START.json; UID copies of the A/B + read scripts; clean ledger; restart 21:12:50 UTC;
+our_uids.txt = "255 maker x2 51981". redo_179.sh 255 at sim 51983 (log liveswitch_redo255_log.txt): LIVE PARAMS applied fund_mv 1.0→0, mk_lad_off 0→1, mk_gate 0→3, mk_gate_side
+0→1, mk_model_lean 0→1.0, mk_model_lean_30 0→1.0, max_inv 0.3→0.14 (mk_lean30_back 2 = default); first GATE line: step-ins active (fresh buckets, pace_start 20k). Leans start
+after ≈ 300 sim s of history (≈ sim 52290). 30-min brief + per-class redo read + stop rule (cron, :13/:43).
