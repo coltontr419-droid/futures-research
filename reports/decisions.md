@@ -23148,3 +23148,16 @@ conjunction (resting two-sided volume within N × spread of the mid, size ≥ 25
 GAUGES (wallet 5EWwdZB7): debeta_skill_net_alpha 179 +427 vs 252 +1,661 / 216 +1,803; num_scored_books 179 11 vs 97 / 115; conjunction 13.2M vs 42.2M / 44.1M; p11/s3/presence 1.0 all.
 → in the validator's own 3-h window our net alpha is POSITIVE (≈ ¼ of the fleet's) — we earn 0 because only 11 books clear the 2.3-bp hurdle → bigger, well-timed positions (the redo) is
 the right lever. Upstream: origin/test = origin/main = 0.6.7 final (11-10); next weekly release ≈ Wed 11-18 17:00 UTC (may change configs).
+
+## §1488 — 2026-11-15 3:00 PM CT — Per-class model fits; $30 lean added (move the FAR side back — $30 spreads leave no room to step in); build 887a18c6; local-simulator answer
+PER-CLASS FITS (speed/modelfitc.py, same 7 features, held-out 30%, 4 windows): $30 (128–191) H 60 s corr +0.319, top-30% +1.77 bp (windows +1.80 / +2.02 / +1.64 / +1.60); H 120 s
++0.342, +2.42 bp (+2.40 / +2.72 / +2.37 / +2.14); weights gap +0.82 (dominant: fundamentalist 1.7, 62-s horizon), dF60 +0.44, dF300 +0.39, r50 −0.37, r300 −0.26; FADE on $30 is
+WRONG-WAY (−0.53 bp at 120 s). 4-dec (192–255): weak — corr +0.10–0.14, +0.37 / +0.71 bp, ≈ the fade → not used (252 skips 4-dec).
+$30 SPREADS (tape): 1 tick 68%, 2 ticks 32%, 3+ 1% → the lean JUMP can't act there (census: 0 jumps even at a tiny threshold). New knob mk_lean30_back (default 2): with
+mk_model_lean_30 > 0 and |pred| ≥ thr on a $30 book, keep the predicted side at the touch and move the OTHER side MK_LEAN30_BACK ticks back (fade/fund move never used on $30).
+Census (speed/modelcheck30.py, seeded histories): other side +3 ticks back (90 re-placed), predicted side at the touch ($1,653). Off → identical (equiv.py 0 diffs) ✔; test_pace ALL
+PASS ✔. Agent 887a18c6 = /opt/mvtrx/speed/QuoteAgent.model.py; agents/model_lean.json + model_lean_30.json in place.
+REDO now = $300 (model lean + gated lean-side step-ins + lad_off + max_inv 0.14) AND $30 (model lean, far side 2 back) in the same long run, read SEPARATELY per class.
+LOCAL SIMULATOR (user Q): we used it 10-31 → 11-06 ("lab runs", repo/simulate/trading/build/src/cpp/taosim on mvtrx-lab): it MISLED — the lab market mean-reverted where live
+trended; a lab-fitted model had live IC −0.22 (§1206); the lab published no fundamental then (§1247); no other miners there. Full 256-book layout needs validator-class hardware
+(16 cores, 32–48 GB). Recommendation: no box now — live tests on fresh miners are the measurement; the sim helps mainly with mechanics (our census tools cover that).
