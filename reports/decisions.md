@@ -23187,3 +23187,14 @@ rows ($103M) in pace_255.ledger → every book paced out. (pace_sync also printe
 Fix: pace_sync.py queries filtered to wallet 5EWwdZB7 (backup pace_sync.py.bak-1115; first patch broke its import line — restored and re-applied); sync rows removed from
 pace_255.ledger (654 fill rows kept; backup pace_255.ledger.bak-phantom); pace_sync_255.json deleted then regenerated (median $1,642, max $21,092); gated restart 21:52:26 UTC →
 "0 of 158 traded books blocked, median $3,304", 643 instructions, GATE step-ins active. The REDO lost ≈ 30 wall min of trading; its read window restarts after ≈ sim 52,700.
+
+## §1492 — 2026-11-15 4:35 PM CT — 252's lifespan and how often it changes (user: "how often a winning strategy needs to be tweaked to survive")
+CHAIN (speed/fleetage.py, block 9,514,813): UID 252 age 32.66 d, coldkey 5F1F2JMu; the coldkey runs 24 UIDs aged 0.11–35.35 d (216 35.4, 252 32.7, 40 32.2, 52 31.1; 134/147/210 19.5–24.5;
+166/110/132/183 ≈ 12.4–12.5; 225 7.3; 13 UIDs 0.1–5.4 d). Axon version 10005000 = the bittensor library (same on all) → no strategy info. Fleet size over time (past §§):
+32 (11-07) → 38 → 41 (11-10, $9.7k/mo) → 40 (11-11) → 35 (11-12) → 24 (11-15) — shrinking.
+BEHAVIOUR (speed/uidhist.py over 8 tapes 11-05 → 11-15; Nov 8–13 rotated out; speed/uidhist_252.txt): per sim hour median maker fill $1,786–1,806 (= 3.6% of $50k) on 11-05/06/07
+and $1,795–1,803 on 11-14/15; taker trades 0 every hour; maker buy share 46–56%; books filled 91–128 of 128 (old layout) → 150–169 of 256 (new layout, skips the 64 4-dec books);
+fills/hour 300–1,840, moving with the market. → NO visible strategy change in 10 days (likely the whole 32 d); it adapted only to the 128 → 256 layout. Its pay still fell ≈ $330 → $209
+in a day with the behaviour constant (fees / competition / rule updates).
+→ A winning strategy is mostly left alone; re-check after each weekly release (Wed ≈ 17:00 UTC) — refit the market model then. Static survival depends on staying above the
+prune line (the fleet loses UIDs).
