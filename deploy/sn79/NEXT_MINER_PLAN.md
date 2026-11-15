@@ -1,3 +1,5 @@
+# READ deploy/sn79/HANDOFF_2026-11-15.md FIRST (11-15): next miner = agent 887a18c6 + the REDO settings; newminer.sh <uid>.
+
 # Next miner — gap list vs UID 252, build, test schedule, withdrawal (11-13 PM, §1440)
 
 ## Prerequisites 1–4 (done)

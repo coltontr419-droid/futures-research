@@ -84,7 +84,7 @@ Re-read this file before every action.
   killed x1/x2). Every miner runs `pace_soft=5000 pace_soft_min=0.05` (agent ≥ 10dc929d); never go back to hard pacing.
 
 ## Current state / where to look
-- Full handoff (live state, infrastructure, status checks, subnet mechanics, next steps): `HANDOFF_BITTENSOR_2026-11-08.md` (this folder).
+- **Latest handoff: `HANDOFF_2026-11-15.md` (this folder) — read first.** Older: `HANDOFF_2026-11-14.md`, `HANDOFF_BITTENSOR_2026-11-08.md`.
   When it and `~/futures-research/reports/decisions.md` disagree, the newer decisions.md § wins.
 - Memory: `~/.claude/projects/-home-coltontr419/memory/MEMORY.md` → `bittensor-mining-lead.md`, `mvtrx-lessons.md`
   (append every problem/fix), `mvtrx-one-miner-plan.md`, and every `feedback-*.md`.
