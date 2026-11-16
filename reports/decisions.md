@@ -23428,3 +23428,15 @@ Census (speed/restcensus.py, live 255 params, buckets $4,700 / $3,000 / $800): B
 same jumps; books without orders 2 in both. Interaction: gate_rest only moves $300 RESTING orders (no-lean books, non-lean side, low-bucket rest); calm leans stay on (gate_rest > 0);
 $30 untouched; step-ins / fee-push exemption / lean unchanged; rest fills stop draining the bucket → more step-ins; positions stop being unwound by deep rest fills → longer holds
 (user's item 2 partly comes with it — measure hold time). Live knob, no restart / warm-up.
+
+## §1519 — 2026-11-16 8:30 AM CT — SIZE-UP VERDICT: NOT PROVEN for volume (NOISE on edge); rest-30 switched on 8:24:38 (sim 62823)
+regcheck 255 REGISTERED. Pay 255 $19/mo ($0.63/day; $26 at 7:50) vs 252 $161. Validator: 255 skill 0.0 (net alpha +220, kept 35, coverage 255); 252 skill 1.37, net alpha +1,184, kept 99.
+Why skill 0 with net alpha > 0: the validator's kept books still include the 4-dec losers (23 all-negative at 7:15) → kappa ≤ 0; clears as they age out (≈ midday).
+Size-up window 62195–62770 (575 sim s after warm-up; kindsplit / fillrate / skill_cls2 10 min / invstudy2): 255 $300 $99k on 53 books (baseline ≈ $120k per 575 s → volume DOWN ≈ 17%) vs 252
+$385k on 77; inside n24 $34k median $1,068 (max $3,622) +0.21 / +0.48 (baseline +1.22 / +1.34), touch n10 $11k, BEHIND n97 $50k 52% $360 −1.62 / −1.24 vs 252 inside $168k +0.69/+1.06,
+touch $96k, behind $102k depth 3 −0.42/−0.09. Validator-exact last 10 sim min: $300 255 +12.3 (+1.29 bp on $96k) vs 252 +9.3 (+0.24 on $389k); $30 255 +3.1 (+0.61 on $50k) vs 252 +12.7.
+Hold 43 s (n8), corr −0.044 vs 252 150 s, +0.124.
+VERDICT: step-ins at $3.6k need the bucket ≥ $3.6k of ≈ $4.7k, and the deep rest fills (still half our $300 $) keep draining it → fewer step-ins, volume down, not up. Edge per $ not
+damaged on the validator measure (+1.29 bp). NOT PROVEN / NOISE — keep (it is the size 252 uses) and remove the drain: mk_gate_rest 6 → 30 (§1518, user-approved) applied 8:24:38 CT,
+"LIVE PARAMS applied: mk_gate_rest 6→30" 14:25:04 UTC; backup live_params_255.pre-rest30.json. 0 errors; PACE 0/256; GATE 5,691 / 1,509; presence 178; call 0.37 s.
+Rest-30 verdict ≈ 9:35 AM (brief cron 7b074b4b).
