@@ -23440,3 +23440,12 @@ VERDICT: step-ins at $3.6k need the bucket ≥ $3.6k of ≈ $4.7k, and the deep 
 damaged on the validator measure (+1.29 bp). NOT PROVEN / NOISE — keep (it is the size 252 uses) and remove the drain: mk_gate_rest 6 → 30 (§1518, user-approved) applied 8:24:38 CT,
 "LIVE PARAMS applied: mk_gate_rest 6→30" 14:25:04 UTC; backup live_params_255.pre-rest30.json. 0 errors; PACE 0/256; GATE 5,691 / 1,509; presence 178; call 0.37 s.
 Rest-30 verdict ≈ 9:35 AM (brief cron 7b074b4b).
+
+## §1520 — 2026-11-16 8:55 AM CT — Rest-30 first read (220 sim s, 62830–63050): deep losers gone, positions 2× bigger, timing corr turned positive; volume flat so far
+regcheck 255 REGISTERED. Pay 255 $19 vs 252 $163. Validator: 255 skill 0.0, net alpha +211, kept 39, coverage 255; 252 skill 1.59, +1,254, kept 92.
+kindsplit: 255 inside n10 $13k −0.48/+0.32, touch n14 $11k +0.05/+0.41, behind n12 $17k depth median 1 (5+ tick fills gone) −0.37/+0.78 vs 252 inside $59k +0.95/+2.21, touch $35k,
+behind $36k −0.79/−0.54. $300 255 $40k on 16 books (≈ $105k per 575 s — flat vs size-up-only $99k) vs 252 $137k on 38. Validator-exact 4 sim min: $300 255 +5.2 (+1.38 bp, 6+/0−) vs
+252 +13.6 (+0.92 bp). invstudy2: 255 mean |inv| $1,656/book (size-up only $838), corr +0.105 (was −0.044) vs 252 $1,880, +0.067; hold n/a (window too short).
+Presence tool shows 64 books (only $30) — ARTIFACT: the queue tape only logs orders inside the published depth and $300 rest orders now sit ≈ 30 ticks out; validator gauges show
+231 bids / 185 asks, $397k resting (unchanged). Coverage proxy: 220 sim s → $300 16 books filled (9 by step-ins) + $30 9 — too short to judge; watch over the hour.
+Mechanics: 0 errors; PACE 0/256; GATE 5,672 / 1,528; call 0.37 s.
