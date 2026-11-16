@@ -23252,3 +23252,11 @@ live_params_255.json mk_model_lean 2.0 (|pred| ≥ 2 × 0.704 ≈ 1.4 bp ≈ the
 1.0→2.0. Interaction check: books without a jump rest both sides at the 10% size under gate_side (presence kept via lad_off); fewer step-ins → buckets refill → step-ins at full size;
 live switch, no restart (histories kept). Watch: GATE step-in share recovering from ≈ 28%, $300 |inv| toward 252's ≈ $1.4k, $300 fill rate toward 252's ≈ 0.46 per book-min, $300 skill
 and books clearing (bar 20). Briefs now lead with the 255 vs 252 alpha comparison (user).
+
+## §1499 — 2026-11-15 9:00 PM CT — Why 252's skill fell all day (user) — MEASURED, validator history (speed/skillhist.py, query_range, wallet 5EWwdZB7, 30 h hourly)
+252 skill (kappa-type consistency score) 4.09 (11-14 3 PM) → peak 4.44 (11-15 4 AM) → 1.04 (8 AM) → 2.51 (4 PM) → 0.92 (9 PM); 216 moves in step (2.37 → 3.60 → 1.02 → 1.75 → 0.87); field top-10
+mean skill 3.46 → 4.21 → 1.59 → 2.83 → 2.37 → MARKET-wide predictability swings, not a 252 change (its behaviour is constant, §1492). Net alpha (what the skill half pays on): 252 1,871 →
+1,940 (6 AM) → 1,459 (−25%); 216 ≈ flat (1,880 → 1,722); field sum of positive net alpha 312k → 344k → 282–288k. Miners with skill > 0: 172–189 overnight → 213–219 afternoon → more
+qualifiers split the half. TAO $185 → $192, alpha 0.00309 → 0.00303 → prices flat. → 252's pay ≈ $330 → $199 = share dilution (more qualifiers) + its own net-alpha dip (share
+0.58% → 0.51%). UID 255 started 3:12 PM; 252's decline began ≈ 4–5 AM; since 3 PM 252 net alpha −15% while 216 held → small overlap effect on the $30 books possible, not proven.
+→ judge pay by net-alpha share; the skill pool is crowding.
