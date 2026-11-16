@@ -23289,3 +23289,8 @@ Census (speed/gaterest.py; even books seeded BUY, odd no lean; full buckets): vo
 +8 / +9 ticks (fee push 2 + rest 6). equiv vs 7b78f008 with knob 0: 0 diffs, tape/ledger/locks identical; test_pace ALL PASS.
 Gated restart 04:13:55 UTC (ledger 11,019 fills; 7/256 paced; 621 instructions); LIVE PARAMS mk_gate_rest 0→6; logged sim 56427 (A300r). Leans resume ≈ sim 56,730.
 Watch: $300 fill rate → ≈ 0.1–0.15 per book-min, GATE step-in share up, positions toward ≈ $1.4–2k, $300 skill vs 252, coverage (books filled ≥ 160 — debeta_coverage_books).
+
+## §1503 — 2026-11-15 11:00 PM CT — First read after mk_gate_rest 6 + calm leans: $300 fill rate ≈ 252's, buckets refilling, first window +0.68
+Validator: 255 skill 0.0596 (0.012 → 0.040 → 0.060), combined 0.014, net alpha +237, 45 scored books, coverage 256 (≥ 160 ✔); 252 skill 0.95, net alpha +1,222, coverage 185.
+GATE 4,631 step-in / 2,569 rest (64%, from 29%). $300 fillrate sim 56430–56865: 255 99 fills / $56k on 49 books, 0.28 per book-min (from 0.44), $/fill median $425; 252 86 / $184k,
+0.27, $2,018. Window sim 56730–56865 (135 s, short): $300 255 +0.68 (23 books) vs 252 +0.66; $30 +0.42 (4 books). Presence 239; 2/256 paced; 0 errors. Pay 255 $17/mo, 252 $191.
