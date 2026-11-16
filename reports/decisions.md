@@ -23580,3 +23580,10 @@ FREEZE (target ≈ 2:30 PM, done early): /opt/mvtrx/live_params_NEXT.json = live
 mk_gate_rest 30, mk_gate_part 0.5, mk_model_lean 1.5, mk_model_lean_30 0.75, mk_lean30_back 2, mk_lean30_only 1, mk_gate 3, mk_gate_side 1, mk_lad_off 1, max_inv 0.14, fund_mv 0 (+ REDO base).
 newminer.sh (backup newminer.sh.bak-1116): refuses unless agents/QuoteAgent.py md5 = 2ef16f9b; copies live_params_NEXT.json → live_params_<uid>.json / .START.json; old uid default 255 for
 the read-script copies. Repo copies deploy/sn79/speed/live_params_NEXT.json + newminer.sh. 255 keeps running these settings unchanged.
+
+## §1534 — 2026-11-16 1:50 PM CT — Brief (post-freeze, no tests): pay $49 vs prune line $109 → 255 likely pruned after ≈ 3:10 PM; alpha/min still ≈ 2× 252's on $300
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $49 ($1.63/day) vs 252 $200, field median $188, PRUNE LINE $109 (255 at 0.45× it). Validator: 255 skill 0.37, net alpha +408, kept 93 (more than
+252's 84), coverage 249; 252 skill 2.40, +1,474. Validator-exact last 15 sim min: $300 255 +47.9 (+1.46 bp on $328k, 23+/1−) vs 252 +16.8 (+0.32 on $521k); $30 255 +22.2 (+1.26 on $175k, 12+/1−)
+vs 252 +10.3 (+1.15). GATE 5,192 / 2,008 (28% rest); PACE 0/256, worst $87k. 0 errors.
+Pay lags the validator by hours and 255's early-day history (4-dec drag, restarts) still weighs on it → unlikely to clear $109 by ≈ 3:10 PM. Prune plan unchanged: user re-registers x2 →
+newminer.sh <uid> (frozen live_params_NEXT.json + agent 2ef16f9b).
