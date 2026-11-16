@@ -23225,3 +23225,12 @@ at the touch (§1488). Interaction check: $30 ladder (level 1) → 3 back, prese
 push on the moved target; pacing untouched. Census (speed/l30only.py): no-lean books both sides +3 ticks (was +0); lean books ask +3, bid near the touch. equiv vs 887a18c6 with
 knob off: 0 diffs, tape/ledger/locks identical; test_pace ALL PASS. Gated restart 23:59:03 UTC (ledger reloaded 5,902 fills; 7/256 paced; 704 instructions); switch logged at sim
 53765 (A30). The restart resets price history → both leans resume ≈ sim 54,070; the 4th $300 window is cut short (user accepted).
+
+## §1496 — 2026-11-15 6:45 PM CT — REDO $300: 4th positive window (4/4, ahead of 252 each) → meets the 4-window rule; $30 volume cut works (≈ 14× less, ≈ 252's pattern)
+Window 4 (sim 54070–54230, after the 5:59 PM restart; speed/dilwin.py): $300 255 TOTAL +0.61 bp (54% of 74 books +) vs 252 +0.54 → $300 series +0.72 / +0.62 / +0.68 / +0.61, 252
++0.12 / +0.34 / +0.44 / +0.54, before-level (UID 179 same base) −0.35…−0.54. $300 fill rate 0.97 per filled book per sim min (start 3–5; 252 0.46), $/fill median $552 (252 $3,552).
+$30 after mk_lean30_only (speed/fillrate.py, 160 sim s each): before the cut 191 fills / $86k on 60 books, 1.19 per book-min; after 9 fills / $6k on 8 books, 0.42 (252 4 / $7k on 4
+books, 0.38) → ≈ 14× less volume, ≈ 252's pattern; $30 TOTAL +0.22 on 8 books (too few to judge). Health 6:43 PM: 0 errors; presence 232; 13/256 paced; GATE 3,712 / 3,668; resting
+$380k on 625 orders (avg ≈ $606); call 0.349 s. Pay 255 $2/mo (validator net alpha +137 on 37 books — its 3-h window still includes the pre-lean hours); 252 $216.
+→ $300 REDO = first strategy that is consistently positive and ahead of the reference (4/4 windows). Next: does the validator's hurdle count reach 20 $300 books as the window fills
+with lean-on trading; $30 needs time (books clearing at the new volume).
