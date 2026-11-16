@@ -262,6 +262,8 @@ class QuoteAgent(FinanceAgent):
         except Exception:
             self._ml30 = None
         self.mk_gate_side = int(getattr(c, "mk_gate_side", 0))           # §1486: 1 = gated full-size step-ins only on the LEAN (jumped) side; the other side rests (live)
+        self.mk_gate_rest = int(getattr(c, "mk_gate_rest", 0))   # §1502: ticks back for $300 RESTING orders (no-lean books, the non-lean side, low-bucket rest); 0 = MK_GATE.
+                                                                  # Deeper rest → sweeps rarely reach them → fewer, signal-only fills → the bucket sustains full-size step-ins (live)
         self.mk_gate = int(getattr(c, "mk_gate", 0))             # §1483 budget-gated step-ins ($300 vol + calm): if the book's pace bucket can afford a FULL-size fill,
                                                                   # quote touch/inside at full size (no soft shrink); else rest MK_GATE ticks behind the target at the
                                                                   # soft size (presence, rarely filled) until the bucket refills — the fleet's one big fill per ≈ 5 min
@@ -650,11 +652,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int, "mk_vol_jump": int, "mk_low_touch_min": int, "mk_skip_dec": int, "mk_vol_lean_only": int, "mk_fee_k": float, "pace_soft_on": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int, "mk_model_lean": float, "mk_gate_side": int, "max_inv": float, "mk_model_lean_30": float, "mk_lean30_back": int, "mk_lean30_only": int,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int, "mk_model_lean": float, "mk_gate_side": int, "max_inv": float, "mk_model_lean_30": float, "mk_lean30_back": int, "mk_lean30_only": int, "mk_gate_rest": int,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4), "mk_low_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "mk_model_lean": (0.0, 10.0), "mk_gate_side": (0, 1), "max_inv": (0.01, 0.5), "mk_model_lean_30": (0.0, 10.0), "mk_lean30_back": (0, 20), "mk_lean30_only": (0, 1), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "mk_model_lean": (0.0, 10.0), "mk_gate_side": (0, 1), "max_inv": (0.01, 0.5), "mk_model_lean_30": (0.0, 10.0), "mk_lean30_back": (0, 20), "mk_lean30_only": (0, 1), "mk_gate_rest": (0, 30), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -1189,7 +1191,7 @@ class QuoteAgent(FinanceAgent):
         _low = self._is_low(int(book_id))
         if _low:
             lean = 0.0                                     # §1488: $30 books lean only on their own model (never on fade / fund move)
-        if self._g(int(book_id)) == "vol":                 # §1472/§1488: per-second mid history ($300 vol + $30) for the leans (kept even while off)
+        if self._g(int(book_id)) == "vol" or (self._g(int(book_id)) == "calm" and self.mk_gate_rest):   # §1472/§1488/§1502: mid history ($300 vol + $30; calm when mk_gate_rest) for the leans
             from collections import deque
             mh = self._mh.get(int(book_id))
             if mh is None:
@@ -1227,7 +1229,7 @@ class QuoteAgent(FinanceAgent):
                     pred = sum(w * (x[nm] - mu) / sd for nm, w, mu, sd in zip(ml["names"], ml["w"], ml["mu"], ml["sd"]) if sd > 0)
                     lean = pred if abs(pred) >= _k * ml["thr"] else 0.0
         self._lean_now[int(book_id)] = lean if _low else 0.0
-        if self.mk_vol_jump and lean and self._g(int(book_id)) == "vol" and (not _low or self.mk_model_lean_30 > 0):   # §1434 lean jump (§1472 side from LEAN; §1488 $30 too)
+        if self.mk_vol_jump and lean and (self._g(int(book_id)) == "vol" or (self._g(int(book_id)) == "calm" and self.mk_gate_rest)) and (not _low or self.mk_model_lean_30 > 0):   # §1434 lean jump (§1472 side from LEAN; §1488 $30 too)
             if lean > 0:
                 jb = round(math.floor(min(fair - self.edge * tick, ask - tick, bid + self.mk_vol_jump * tick) / tick + 1e-9) * tick, pd)
                 if jb > bid_px + 1e-12:
@@ -1519,14 +1521,14 @@ class QuoteAgent(FinanceAgent):
             qfull = round(max(sz * wealth0 / mid, self.min_order_size(book_id)), vd)
             tok = self._tok_accrue(int(book_id), self._sec)[0]
             self._gate_n = getattr(self, "_gate_n", [0, 0])
-            jd0 = self._jumped.get(int(book_id), set()); gs = bool(self.mk_gate_side) and self._g(book_id) == "vol"   # calm books have no lean jump
+            jd0 = self._jumped.get(int(book_id), set()); gs = bool(self.mk_gate_side) and (self._g(book_id) == "vol" or (self._g(book_id) == "calm" and self.mk_gate_rest))   # §1502: calm leans too when mk_gate_rest
             if tok >= qfull * mid:                         # the bucket affords a full fill: full-size step-in
                 self._gate_n[0] += 1
                 if gs:                                     # §1486: only the lean (jumped) side steps in; the other side rests MK_GATE ticks back at the soft size
                     qrest = round(max(qfull * 0.1, self.min_order_size(book_id)), vd)   # a small rest order (presence) — a full-size deep order is what sweeps hit
                     for sd in list(want):
                         if sd in jd0: continue
-                        want[sd] = round(want[sd] - self.mk_gate * tick, pd) if sd == OrderDirection.BUY else round(want[sd] + self.mk_gate * tick, pd)
+                        want[sd] = round(want[sd] - (self.mk_gate_rest or self.mk_gate) * tick, pd) if sd == OrderDirection.BUY else round(want[sd] + (self.mk_gate_rest or self.mk_gate) * tick, pd)
                         if want[sd] <= 0: want.pop(sd); sq.pop(sd, None); continue
                         sq[sd] = min(sq.get(sd, qrest), qrest)
                 for sd in list(want):
@@ -1546,7 +1548,7 @@ class QuoteAgent(FinanceAgent):
             else:                                          # rest MK_GATE ticks behind the target at the soft size until the bucket refills
                 self._gate_n[1] += 1
                 for sd in list(want):
-                    want[sd] = round(want[sd] - self.mk_gate * tick, pd) if sd == OrderDirection.BUY else round(want[sd] + self.mk_gate * tick, pd)
+                    want[sd] = round(want[sd] - (self.mk_gate_rest or self.mk_gate) * tick, pd) if sd == OrderDirection.BUY else round(want[sd] + (self.mk_gate_rest or self.mk_gate) * tick, pd)
                     if want[sd] <= 0: want.pop(sd); sq.pop(sd, None)
                 self._jumped[int(book_id)] = set()         # a resting side is not a lean jump (keeps the fee/inside logic consistent)
             if self._sec - getattr(self, "_gate_logged", -10 ** 9) >= 60 and sum(self._gate_n):

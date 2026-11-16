@@ -23277,3 +23277,15 @@ Window sim 55552–55852 (dilwin): $300 255 −0.45 (40% +) vs 252 −0.09; $30 
 median −0.49 vs 252 +5 −3; $30 since 54070 255 +20 −8 = 28, $3k/book, median +0.72 vs 252 +17 −6 = 23.
 $300 fillrate since the change: 255 0.44 per book-min (from 0.97), $/fill median $713; 252 0.28, $3,499. Positions: 255 $609 / hold 44 s / corr +0.031 vs 252 $2,144 / +0.156.
 GATE 2,134 step-in / 5,126 rest (29%). Buckets refill ≈ 2.5 wall h after a drain → full-size recovery expected gradually. Flag if $300 stays negative ≈ 1 h+ (no action without the user).
+
+## §1502 — 2026-11-15 10:15 PM CT — $300 rest orders deeper + calm books join the model lean (user yes): build ab404873, mk_gate_rest 6
+Why (user Q "will the budget run out again?"): refill ≈ $312 per book per sim min; a full $2.2k fill per ≈ 7 sim min (≈ 0.14 fills/book-min) is sustainable; we filled 0.44 → the gate
+parks most books at the small soft size (what we see). Fills on unsignalled books' resting orders (sweeps) drain the bucket and lose → make $300 fills come (almost) only from
+signalled step-ins, as on $30.
+Knob mk_gate_rest (ticks; 0 = MK_GATE; live): $300 resting orders (no-lean books, the non-lean side, low-bucket rest) sit MK_GATE_REST ticks behind the target. INTERACTION CHECK
+found: the 39 CALM $300 books (63–101) never lean (lean code was vol-only) → under the gate they stepped in at FULL size on BOTH sides at the touch (census $1.8k at +0) — a large
+part of the $300 drain/sweep losses → with mk_gate_rest > 0 the calm books get the same model lean, jump and lean-side-only gating as vol (the model was fit on all $300 books).
+Census (speed/gaterest.py; even books seeded BUY, odd no lean; full buckets): vol + calm LEAN bid full size ($2,195 / $1,799) at −1 tick; their ask and all no-lean sides $180–220 at
++8 / +9 ticks (fee push 2 + rest 6). equiv vs 7b78f008 with knob 0: 0 diffs, tape/ledger/locks identical; test_pace ALL PASS.
+Gated restart 04:13:55 UTC (ledger 11,019 fills; 7/256 paced; 621 instructions); LIVE PARAMS mk_gate_rest 0→6; logged sim 56427 (A300r). Leans resume ≈ sim 56,730.
+Watch: $300 fill rate → ≈ 0.1–0.15 per book-min, GATE step-in share up, positions toward ≈ $1.4–2k, $300 skill vs 252, coverage (books filled ≥ 160 — debeta_coverage_books).
