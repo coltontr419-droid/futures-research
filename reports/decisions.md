@@ -23587,3 +23587,8 @@ Release watch: none. regcheck 255 REGISTERED. Pay 255 $49 ($1.63/day) vs 252 $20
 vs 252 +10.3 (+1.15). GATE 5,192 / 2,008 (28% rest); PACE 0/256, worst $87k. 0 errors.
 Pay lags the validator by hours and 255's early-day history (4-dec drag, restarts) still weighs on it → unlikely to clear $109 by ≈ 3:10 PM. Prune plan unchanged: user re-registers x2 →
 newminer.sh <uid> (frozen live_params_NEXT.json + agent 2ef16f9b).
+
+## §1535 — 2026-11-16 2:25 PM CT — Prune watch: still registered; pay $66 (prune line $107, 0.62×) and rising; skill 0.58, net alpha +489
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $66/mo ($2.19/day; 1:46 $49) vs 252 $206; prune line $107. Validator: 255 skill 0.58, combined 0.20, net alpha +489, kept 87, coverage 249; 252 skill 2.64,
++1,624, kept 93, coverage 192. Validator-exact last 15 sim min: $300 255 +60.8 (+1.67 bp on $364k, 32+/0−) vs 252 +35.2 (+0.62 on $571k); $30 255 +14.1 (+0.87 on $161k) vs 252 +7.4 (+0.92).
+GATE 5,286 / 1,914 (27% rest); PACE 0/256, worst $89k. 0 errors. No changes (frozen; user not yet answered the optional gate_part 0.3 question).
