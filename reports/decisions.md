@@ -23600,3 +23600,8 @@ lean, rest 30, $30, 4-dec skip, cap safety unchanged. Applied 20:33:41 UTC "mk_g
 GUARD (user 11-15: once a strategy wins, tweak tests carry an automatic revert): /opt/mvtrx/guard_part03.sh (pid 1455335; log guard_part03.log) every 10 min for 100 min: after ≥ 360 sim s, validator-exact
 $300 Σα per sim min (speed/skill_cls2.py) < 3.0 (proven 4.5) or $300 bp/$ < +0.8 → sets mk_gate_part back to 0.5, logs + ALERT. Stops itself if 255 is deregistered or the value changes.
 The frozen live_params_NEXT.json keeps 0.5 unless this clearly wins (Σα/min above 4.5 with bp ≥ +1.2).
+
+## §1537 — 2026-11-16 2:55 PM CT — Prune watch + part-0.3 first read (3.5 sim min): $300 +12.4 = 3.5 Σα/min, +1.51 bp (9+/0−) — too early; pay $66, prune line $119
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $66 vs 252 $206; prune line $119 (0.55×). Validator: 255 skill 0.50, net alpha +476, kept 99 (252 85), coverage 248; 252 skill 2.32, +1,596.
+Part 0.3 since sim 66625 (3.5 sim min; guard log: "sim +110 s - waiting" at 20:43 UTC): validator-exact $300 255 +12.4 (+1.51 bp on $82k, 9+/0−) ≈ 3.5/min (proven 4.5) vs 252 +5.7 (+0.38); $30 255 +1.7
+(+0.43 on $40k). fillrate $300 255 $82k on 39 books (median $978) vs 252 $150k on 44. GATE 6,219 / 981 (14% rest; was 27%). PACE 0/256, worst $91k. 0 errors. Verdict ≈ 3:40 PM.
