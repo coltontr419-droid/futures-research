@@ -23449,3 +23449,17 @@ behind $36k −0.79/−0.54. $300 255 $40k on 16 books (≈ $105k per 575 s — 
 Presence tool shows 64 books (only $30) — ARTIFACT: the queue tape only logs orders inside the published depth and $300 rest orders now sit ≈ 30 ticks out; validator gauges show
 231 bids / 185 asks, $397k resting (unchanged). Coverage proxy: 220 sim s → $300 16 books filled (9 by step-ins) + $30 9 — too short to judge; watch over the hour.
 Mechanics: 0 errors; PACE 0/256; GATE 5,672 / 1,528; call 0.37 s.
+
+## §1521 — 2026-11-16 9:30 AM CT — REST-30 VERDICT: PROVEN on quality (validator $300 +2.37 bp, 16+/1−; skill score off 0); volume still flat → mk_model_lean 2.0 → 1.5 live 9:25:55 (sim 63407)
+regcheck 255 REGISTERED. Pay 255 $20 ($0.67/day) vs 252 $164. Validator: 255 SKILL 0.12 (first > 0 today), combined 0.080, net alpha +346 (8:20 +220), kept 43, coverage 253, open 213/169;
+252 skill 1.40, +1,102, kept 90.
+Rest-30 window 62830–63340 (510 sim s) vs size-up-only 62195–62770: 255 inside n30 $43k median $1,329 +0.35 / +1.21 (was +0.21 / +0.48), touch n18 $15k +0.22 / +0.60, behind n21
+$29k depth 1 −0.38 / +0.47 (was 52% at depth 8, −1.62 / −1.24); 252 inside $168k +0.94 / +1.81, touch $64k, behind $101k −0.65 / −0.23. $300 255 $92k on 41 books (≈ $104k / 575 s —
+FLAT) vs 252 $352k on 76. Validator-exact 8.5 sim min: $300 255 +20.2 (+2.37 bp on $85k, kept 17 = 16+/1−, kappa +5.0) vs 252 +41.7 (+1.15 bp on $361k, 22+/6−); $30 255 +5.3
+(+1.27) vs 252 +8.5 (+1.22). Positions 255 $1,176/book corr +0.114 vs 252 $2,195, +0.111. Books filled 41 $300 (29 by step-ins) + 24 $30 in 510 s.
+VERDICT rest-30: PROVEN (alpha per $ doubled, deep losers gone, timing ≥ 252) — keep. Volume not raised: the binding limit is how often the $300 model leans, not the budget (we use ≈ 30%).
+Lean frequency census (speed/leanfreq.py, live model_lean.json on the tape, 3 windows 57000–59000 / 59000–61000 / 61000–63200): active share / mid move +120 s in the predicted direction:
+k 1.0 28.9/28.1/28.3% +1.27/+1.25/+1.17 bp; 1.25 19.0/18.2/18.8% +1.46/+1.44/+1.28; 1.5 12.1/11.4/11.7% +1.66/+1.65/+1.40; 1.75 7.5/7.0/7.1% +1.82/+1.86/+1.50; 2.0 4.5/4.1/4.3% +2.06/+2.07/+1.66.
+→ 1.5 = 2.7× the step-in chances for −16% edge (≈ 2.3× alpha opportunity). Interaction: mk_model_lean only scales the $300 (vol + calm) lean threshold → jumps / gate_side step-ins;
+$30 own knob (mk_model_lean_30 1.0) untouched; rest 30, size 0.072, rest_frac 0.1, bucket gate, cap safety unchanged; more step-ins → budget may become binding (watch PACE).
+Applied 15:26:19 UTC "mk_model_lean 2.0→1.5"; backup live_params_255.pre-lean15.json; 0 errors. Verdict ≈ 10:30 AM.
