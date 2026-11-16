@@ -23592,3 +23592,11 @@ newminer.sh <uid> (frozen live_params_NEXT.json + agent 2ef16f9b).
 Release watch: none. regcheck 255 REGISTERED. Pay 255 $66/mo ($2.19/day; 1:46 $49) vs 252 $206; prune line $107. Validator: 255 skill 0.58, combined 0.20, net alpha +489, kept 87, coverage 249; 252 skill 2.64,
 +1,624, kept 93, coverage 192. Validator-exact last 15 sim min: $300 255 +60.8 (+1.67 bp on $364k, 32+/0−) vs 252 +35.2 (+0.62 on $571k); $30 255 +14.1 (+0.87 on $161k) vs 252 +7.4 (+0.92).
 GATE 5,286 / 1,914 (27% rest); PACE 0/256, worst $89k. 0 errors. No changes (frozen; user not yet answered the optional gate_part 0.3 question).
+
+## §1536 — 2026-11-16 2:35 PM CT — User: "run the budget-fix if 255 is still alive" → mk_gate_part 0.5 → 0.3 live 14:33:24 CT (sim 66625) WITH an automatic revert guard
+255 REGISTERED at the switch. Census (speed/part3census.py, live 255 params, buckets $2,000 / $1,500 / $1,200 / $800): A (0.5) steps in at $2,000, rests $360 at +29 below $1,800; B (0.3) steps in at $2,000 /
+$1,500 / $1,200 (at −1, same jumps 27 vol + 12–13 calm), rests below $1,080 ($800 → rest, = A). Interaction: only the step-in threshold (smaller step-ins ≥ $1,080 after partial fills); rest size,
+lean, rest 30, $30, 4-dec skip, cap safety unchanged. Applied 20:33:41 UTC "mk_gate_part 0.5→0.3"; backup live_params_255.pre-part03.json.
+GUARD (user 11-15: once a strategy wins, tweak tests carry an automatic revert): /opt/mvtrx/guard_part03.sh (pid 1455335; log guard_part03.log) every 10 min for 100 min: after ≥ 360 sim s, validator-exact
+$300 Σα per sim min (speed/skill_cls2.py) < 3.0 (proven 4.5) or $300 bp/$ < +0.8 → sets mk_gate_part back to 0.5, logs + ALERT. Stops itself if 255 is deregistered or the value changes.
+The frozen live_params_NEXT.json keeps 0.5 unless this clearly wins (Σα/min above 4.5 with bp ≥ +1.2).
