@@ -23371,3 +23371,10 @@ $300: 255 +87.8 (+0.79 bp on $1.11M, kept 38 = 25+/13−, kappa +0.72, ELIGIBLE)
 $30: 255 +78.3 (+1.50 bp on $0.52M, kept 26, kappa +1.19) vs 252 +68.9 (+2.64 on $0.26M) vs 216 +47.6. 4-dec: 255 −392.7 (−2.39 bp on $1.64M, 0+/23−) vs 252 none vs 216 −78.8.
 Totals: 255 −227 → +166 without 4-dec (56% of 252's +297); same $300 edge per $ as 252 — the $300 gap is VOLUME (2.8×). If the size-up brings $300 volume to ≈ $3.1M at
 +0.79 bp → $300 ≈ +248, total ≈ +326 per 90 sim min ≈ 252's level (gauge ≈ +1,100 ≈ 3.7× the 90-min sum → validator window ≈ 5–6 sim h). Use skill_cls2.py as the size-up yardstick.
+
+## §1513 — 2026-11-16 7:25 AM CT — Brief: NET ALPHA +124 (from −31; skip-dec washing out); size-up window so far = restart WARM-UP (no leans for 300 sim s)
+regcheck 255 REGISTERED. Pay 255 $26/mo ($0.88/day); 252 $153. Validator: 255 skill 0.0, kept 44, net alpha +124.3 (6:43 −30.8), coverage 256; 252 skill 1.44, kept 91, +1,142, cov 191.
+Sim 61900–62170 (first 270 sim s after the 6:54 restart): 255 $300 fills = ONLY behind rest fills (n50 $18k, $360, depth 8, mo20 −1.73 / mo60 −1.56), 0 inside/touch; 30 books filled;
+dilwin $300 −1.28 (27% +) vs 252 +0.60; $30 no 255 fills. CAUSE: the model leans need ≥ 295 sim s of mid + fundamental history (_at(mh/fh, 300)) → no lean → no jump → gate_side
+steps in on no side, and $30 lean30_only puts both sides back → after a restart the REDO quotes only deep rest for ≈ 300 sim s (≈ 28 wall min). Real test window starts sim 62195
+(≈ 7:22 AM); verdict moved to 8:27 AM (one-shot 60c4e2ab). Mechanics: 0 errors; PACE 0/256, worst $75k of $450k; GATE 5,848 / 1,352; presence 176; call 0.32 s.
