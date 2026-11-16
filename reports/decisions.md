@@ -23326,3 +23326,9 @@ Hurdle (dilution2) since 56730 (post-fix): $300 255 35 (22+/13−, $7k/book, med
 Since 59680 (≈ 28 sim min): $300 34 (23+/11−) vs 30; $30 24 (16+/8−) vs 19; 4-dec 0+/17−.
 Mechanics: 0 errors; PACE 10/256 blocked; GATE 6,238 / 962 (87%); presence median 233; call 0.41 s; resting $481k on 583 orders. $300 fillrate sim 61080–61380: 255 97 fills / $73k
 on 39 books, 0.50 per filled book-min, $/fill median $574 vs 252 84 / $180k on 52 books, 0.32, $2,370 → our fills are still ≈ 4× smaller than 252's.
+
+## §1508 — 2026-11-16 6:30 AM CT — Brief: flat; net alpha −27; $300 window behind 252 for the first time in 6; 4-dec 0+/25−
+regcheck 255 REGISTERED. Pay 255 $27/mo ($0.89/day); 252 $150. Validator: 255 skill 0.0, kept 46, net alpha −27.4 (6:07 −24.6); 252 skill 1.44, kept 94, net alpha +1,154, coverage 189; 255 coverage 256.
+Window 61180–61540 (dilwin) 255 vs 252: $300 +0.18 (44% +) vs +0.46; $30 +0.69 vs +1.10; 4-dec −1.02 vs 216 −2.66.
+Hurdle since 56730: $300 255 34 (20+/14−, $8k/book, median +0.55) vs 252 41 (23+/18−); $30 28 (22+/6−) vs 34 (24+/10−); 4-dec 25 kept ALL negative.
+Mechanics: 0 errors; PACE 5/256; GATE 6,181 / 1,019 (86%); presence median 234; call 0.39 s; $300 fillrate 61240–61540 255 83 / $61k, $513 median, 0.40 vs 252 89 / $212k, $3,529, 0.35.
