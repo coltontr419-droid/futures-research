@@ -23646,3 +23646,5 @@ Part 0.3, sim 66625–67465 (14.0 sim min): guard log 4.06 → 4.01 → 3.89 /mi
 4.5/min; vs 252 +35.3 (+0.63) = 2.5/min. $300 volume $301k = $21.5k/sim min (0.5: $25.6k) — no gain; GATE rest 11% (0.5: 22–28%) — the extra smaller step-ins don't add fills.
 $30 255 +12.9 (+0.77 on $169k) vs 252 +10.2. PACE 0/256, worst $92k. 0 errors.
 VERDICT: NOISE (slightly below 0.5) → live_params_NEXT.json unchanged (0.5). Recommendation: 255 back to 0.5 (user's call; the guard has not tripped).
+
+## §1543 — 2026-11-16 4:00 PM CT — User: "go ahead" → 255 mk_gate_part 0.3 → 0.5 (applied "0.3→0.5"); 255 settings now identical to live_params_NEXT.json; guard exits on its next check
