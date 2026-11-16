@@ -23387,3 +23387,14 @@ FIELD: making credit > 0 on 122–139 miners; Σ making 8,343 → 12,972 (+55% i
 → CORRECTION of "making ≈ 0 field-wide" (§1429 era): making credit pays ≈ 60% of weight today. 255 making = 0 — the miner-wide markout quality clamp (§1447) was likely zeroed by
 the 4-dec books + swept deep rest; both are gone now (§1509/§1511) → track 255 debeta_making every brief; if it stays 0, making quality is the next lever after the size-up.
 252's pay ≈ $146–153 since 5 AM — levelling with its net alpha.
+
+## §1515 — 2026-11-16 7:55 AM CT — Making credit will NOT rise on its own; making pays the top (young) UIDs $400–970/mo now
+Validator 0.6.7 making replica (speed/making067b.py = making067.py without the old ts < 40000 s filter), last 90 sim min (56928–62328):
+255 C 20.2 / R −56.2 → quality 0; $300 C 8.4 R −20.0, $30 C 13.6 R +14.0, 4-dec C −1.9 R −50.2; TWO-SIDED 0 in every class → credit 0 even at quality 1 (lean-only / one-side step-ins by design).
+252 C −1.5 / R −40.9 → 0 (skill-only, same as us). 216 → 0. 169 quality 0.456, credit $300 58.8 + $30 324.9 (C 1,114, two-sided 713); 133 quality 0.507, credit 50 + 261 + 29.
+Credit = Σ_book 2·min(buy, sell captured) × miner-wide R/C → needs BALANCED two-sided spread capture with positive 20-s realized markout; the $30 books carry most of it.
+Field now (speed/makerages.py): top 25 earners are 0.6–4.8 d old except 222 (21 d); makers 30 $967 (3.2 d), 59 $849, 133 $830 (1.4 d), 113 $587, 169 $442 (0.6 d, net alpha −1,659);
+skill-only young 99 $491 (net alpha +3,190, 2.2 d), 76 $419 (+2,490, 0.8 d). By age: 0–2 d 99 uids (61 makers, median $159 vs skill-only $181); 2–7 d 120 (63, $200 vs $190);
+7–14 d 20 (12, $175 vs $213); ≥ 14 d 17 uids, only 3 makers (median $283), skill-only $153. → making pays most but makers churn (our own makers died at ≈ $200/mo, §1428).
+Recommendation to the user: keep 255 on the skill path (size-up verdict 8:27); study the top makers (30/59/133/113) on the $30 books and the young skill UIDs 99/76 (net alpha 2–3× 252);
+a maker strategy belongs on a SEPARATE UID (rule: makers making-only, skill on separate UIDs, §1235/§1289).
