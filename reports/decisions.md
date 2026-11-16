@@ -23566,3 +23566,17 @@ behind $96k. fillrate $300: 255 $220k on 64 books (≈ $310k per 570 s vs lean-1
 $30: fillrate 255 $91k on 40 books (baseline ≈ $36k per 405 s → ≈ 2.5×) vs 252 $47k on 20; kindsplit2 255 touch 100% $85k +0.03 / +0.42 vs 252 touch $32k −0.81 / −0.23, behind $11k.
 Validator-exact $30 6.7 min: 255 +5.6 (+0.64 bp on $87k, 5+/0−) = 0.84/min (baseline ≈ 1.0/min, +1.90 bp) vs 252 +6.0 (+1.33) vs 76 +7.0 (+0.59) — edge per $ fell more than the offline census
 (−16%) predicted; small sample. PACE 0/256, worst $83k. 0 errors; call 0.37 s. Verdicts ≈ 1:15 PM.
+
+## §1533 — 2026-11-16 1:25 PM CT — VERDICTS: $300 part step-ins PROVEN (+22% Σα/min); $30 lean 0.75 PROVEN on total (+35% Σα/min, bp below target); FROZEN into live_params_NEXT.json; newminer.sh uses it
+Release watch: none. regcheck 255 REGISTERED. PAY 255 $49/mo ($1.63/day; 12:46 $21) vs 252 $200. Validator: 255 skill 0.38, combined 0.168, net alpha +442 (best today), kept 79, coverage 249,
+open 233/185; 252 skill 2.12, +1,362, kept 91.
+Window 65065–65800 (735 sim s, after warm-up). $300: fillrate 255 $314k on 78 books (≈ $243k per 570 s vs lean-1.5 $218k → +12%; the 405-s read overstated it) vs 252 $483k on 93; kindsplit 255
+inside n151 $196k +0.76 / +0.91, touch n30 $40k, behind n56 $77k depth 3 −0.42 / −0.27. Validator-exact 12.2 sim min: $300 255 +55.1 (+1.86 bp on $296k, kept 26 = 25+/1−, kappa +3.32) = 4.5 Σα/min
+(lean 1.5: 3.7 → +22%) vs 252 +34.2 (+0.73) = 2.8/min. Positions $1,977/book (252 $2,247), hold 110 s, corr +0.073 (252 +0.082). GATE 6,247 / 953 (13% rest). → mk_gate_part 0.5 PROVEN, keep.
+$30: fillrate 255 $150k on 52 books (≈ 2.3× the pre-test rate) vs 252 $87k on 34; validator-exact $30 255 +16.5 (+1.13 bp on $146k, 12+/0−, kappa +6.95, ELIGIBLE) = 1.35/min (baseline ≈ 1.0 → +35%)
+vs 252 +12.5 (+1.53) = 1.0/min. bp below the +1.5 target but total up and every kept book positive → mk_model_lean_30 0.75 PROVEN on total, keep; do NOT go to 0.5 (edge fell faster than the census said).
+Coverage proxy 735 s: $300 78 books (71 by step-ins) + $30 52 = 130. PACE 0/256, worst $84k of $450k. 0 errors; call 0.34 s.
+FREEZE (target ≈ 2:30 PM, done early): /opt/mvtrx/live_params_NEXT.json = live_params_255.json now (agent 2ef16f9b): mk_skip_dec 1, mk_vol_size 0.072, mk_calm_size 0.072, mk_rest_frac 0.1,
+mk_gate_rest 30, mk_gate_part 0.5, mk_model_lean 1.5, mk_model_lean_30 0.75, mk_lean30_back 2, mk_lean30_only 1, mk_gate 3, mk_gate_side 1, mk_lad_off 1, max_inv 0.14, fund_mv 0 (+ REDO base).
+newminer.sh (backup newminer.sh.bak-1116): refuses unless agents/QuoteAgent.py md5 = 2ef16f9b; copies live_params_NEXT.json → live_params_<uid>.json / .START.json; old uid default 255 for
+the read-script copies. Repo copies deploy/sn79/speed/live_params_NEXT.json + newminer.sh. 255 keeps running these settings unchanged.

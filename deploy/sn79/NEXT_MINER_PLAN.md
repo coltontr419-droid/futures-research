@@ -28,6 +28,7 @@ Build: /opt/mvtrx/agents/QuoteAgent.next-10dc929d.py (NOT active). test_pace ALL
 **PROVEN 11-13 (T2, UID 174): fee-aware quoting mk_fee_k 1.0** — presence +39%, $300 edge per $ ≈ 2×, pay-weighted edge +17%, skill tie; adopted live.
 Already PROVEN (not re-tested): $300 size 0.044 + inside 3 + lean 1.0 (skill +0.36/+0.20/+0.42), $30 shape (+23–25% edge $), 4-dec touch kept, 4-dec size/deep ties.
 **11-16 (§1506–§1519, UID 255):** 4-dec skip = net alpha −31 → +220 in 1.5 h (4-dec cost −393 per 90 sim min; validator-exact). $300 size-up to $3.6k step-ins NOT PROVEN for volume (bucket drained by deep rest fills, −17% $); edge per $ intact. Deep rest fills 5+ ticks lose −1.7…−2.3 bp, 1–4 ticks +0.78 → rest 30 test live 8:24 AM. Skill leader UID 99 = taker (separate future miner only).
+**11-16 1:25 PM (§1533) FROZEN next-miner settings:** live_params_NEXT.json + agent 2ef16f9b — skip 4-dec, $300 step-ins $3.6k (part ≥ 50% bucket), rest 30 ticks, $300 lean 1.5, $30 lean 0.75. 255 at freeze: pay $49/mo, net alpha +442, $300 +1.86 bp at ≈ 2× 252 alpha/min.
 
 ## Starting settings (proven base)
 Unit: agent 10dc929d, pace_cap 450000, pace_steady 450000, **pace_start 20000, pace_soft 5000, pace_soft_min 0.05**, tape on, live_params_s 5.
