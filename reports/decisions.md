@@ -23398,3 +23398,10 @@ skill-only young 99 $491 (net alpha +3,190, 2.2 d), 76 $419 (+2,490, 0.8 d). By 
 7–14 d 20 (12, $175 vs $213); ≥ 14 d 17 uids, only 3 makers (median $283), skill-only $153. → making pays most but makers churn (our own makers died at ≈ $200/mo, §1428).
 Recommendation to the user: keep 255 on the skill path (size-up verdict 8:27); study the top makers (30/59/133/113) on the $30 books and the young skill UIDs 99/76 (net alpha 2–3× 252);
 a maker strategy belongs on a SEPARATE UID (rule: makers making-only, skill on separate UIDs, §1235/§1289).
+
+## §1516 — 2026-11-16 7:55 AM CT — Brief: net alpha +128; size-up first real 265 sim s (62195–62460) — too short, mixed
+regcheck 255 REGISTERED. Pay 255 $26 ($0.88/day); 252 $154. Validator: 255 skill 0.0 (net alpha +128 but skill still 0 — kept 42), coverage 256; 252 skill 1.66, net alpha +1,243, kept 93, cov 191.
+kindsplit 62195–62460: 255 inside n8 $9k $839 med (max $3,040) mo20 −1.16 / mo60 −1.80; touch n8 $10k −0.58 / +1.06; BEHIND n50 $25k (58%) $360 med (p90 $1,166, max $3,001)
+−1.90 / −1.89 vs 252 inside n19 $44k $3,477 +0.43 / +1.39, touch n29 $59k +0.55 / +1.03, behind n15 $44k −0.35 / −0.24. Totals 255 $46k on 28 books vs 252 $152k on 41 (30%).
+dilwin $300 255 +0.41 (43% +) vs 252 +0.43; $30 +0.99 (10 books) vs +0.42. Behind fills still ≥ half our $300 $ (rest orders + stale step-ins left deep after the price moves).
+Mechanics: 0 errors; PACE 0/256 (worst $75k of $450k); GATE 5,899 / 1,301; presence 177; call 0.36 s.
