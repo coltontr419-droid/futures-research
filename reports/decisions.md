@@ -23307,3 +23307,13 @@ Pay 255 $17/mo ($0.58/day), 252 $192. Validator: 255 skill 0.0637, combined 0.01
 Books clearing 2.3 bp: since 54070 — $300 255 13 (9+/4−) vs 252 27 (16+/11−); $30 255 35 (22+/13−) vs 252 23 (18+/5−). Post-fix (since 56730, ≈ 250 sim s) — $300 255 7 (5+/2−) vs 252 0.
 Window sim 56730–56980: $300 255 +0.82 (52% +, 31 books) vs 252 +0.37; $30 +0.28 (7 books) vs +1.55 (1 book). $300 fillrate post-fix: 255 0.47 per filled book-min, 61 fills / $45k on
 31 books, $/fill median $601; 252 0.37, $94k, $2,676. GATE 4,807 / 2,393 (67% step-in). Presence 241; 5/256 paced; 0 errors; call 0.361.
+
+## §1506 — 2026-11-16 5:20 AM CT — Overnight: $300 AND $30 QUALIFY (27 / 18 books clear); every window positive; 4-dec books drag net alpha negative
+Pay 255 $27/mo ($0.91/day; $17 at 11 PM); 252 $146 (from $192). Validator: 255 skill 0.0, combined 0.0, score 0.0008, net alpha −212 (was +249), 54 books, coverage 256; 252 skill 1.10,
+net alpha +1,190, 96 books. GATE 6,257 / 943 (87% step-ins — buckets refilled). 0 errors; 8/256 paced; presence 238; call 0.39.
+Windows (900 sim s, tape .prev + current; speed/dilwin.py) 255 vs 252: $300 +0.64/+0.49/+0.31/+1.33 vs +0.36/+0.53/+0.23/+0.41 (ahead 3/4); $30 +0.79/+0.70/+0.44/+0.69 vs
++4.20/+4.22/+2.39/+1.60 (252 trades few $30 books per window). 4-dec 255 −1.76 / −1.48 (5–15% books +) vs 216 −3.15 / −0.80.
+Books clearing 2.3 bp, sim 57880–60580 (45 min; speed/dilution2.py): $300 255 27 (19+/8−, $4k/book, median +0.87, 62% +) vs 252 32 (18+/14−) → $300 QUALIFIES (bar 20);
+$30 255 18 (12+/6−, $5k/book) vs 252 19 → QUALIFIES (bar 10); 4-dec 255 32 kept ALL NEGATIVE (0+/32−), $14k/book, median −2.30 bp, 3% + → the validator net alpha turns
+negative from the 4-dec books (we still quote them with the old base; 252 trades none).
+Recommendation to the user: mk_skip_dec 1 now (queued + approved test; coverage stays 192 ≥ 160).
