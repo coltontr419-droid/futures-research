@@ -23557,3 +23557,12 @@ Release watch: none. regcheck 255 REGISTERED. Pay 255 $21 ($0.70/day; 11:20 $11)
 open 231/169; 252 skill 1.29, +1,156, kept 92. Sim 65159 (warm-up ended ≈ 65065). First 90 sim s (fillrate): $300 255 59 fills $72k on 29 books (median $656) vs 252 21 / $72k on 20;
 $30 255 13 / $21k on 13 vs 252 5 / $9k. GATE 6,701 step-in / 499 rest (7% — buckets full after the restart: start balance 20k). PACE 0/256, worst $81k. 0 errors; call 0.33 s.
 No changes (user away; only safety rollbacks allowed).
+
+## §1532 — 2026-11-16 12:50 PM CT — Brief: $300 part step-ins strong (Σα/min 5.1 vs 3.7, +1.79 bp, 16+/0−, volume 83% of 252); $30 lean 0.75: volume ≈ 2.5× but +0.64 bp (total ≈ flat) — early
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $21 vs 252 $190. Validator: 255 skill 0.35, combined 0.177, net alpha +414 (best today), kept 85, coverage 249, open 223/183; 252 skill 1.82, +1,201, kept 95.
+Window 65065–65470 (405 sim s, post warm-up). $300 kindsplit: 255 inside n97 $122k median $810 +0.90 / +1.05, touch n17 $26k, behind n47 $61k depth 3 −0.55 / −0.48 vs 252 inside $87k, touch $66k,
+behind $96k. fillrate $300: 255 $220k on 64 books (≈ $310k per 570 s vs lean-1.5 $218k → 1.42×) vs 252 $266k on 70 (we 83%). Validator-exact 6.7 sim min: $300 255 +34.1 (+1.79 bp on $190k,
+16+/0−) = 5.1 Σα/min (lean 1.5: 3.7 → +38%) vs 252 +12.2 (+0.49) = 1.8/min vs 76 +0.6. GATE 5,605 / 1,595 (22% rest; lean 1.5 33%, 1.25 48%).
+$30: fillrate 255 $91k on 40 books (baseline ≈ $36k per 405 s → ≈ 2.5×) vs 252 $47k on 20; kindsplit2 255 touch 100% $85k +0.03 / +0.42 vs 252 touch $32k −0.81 / −0.23, behind $11k.
+Validator-exact $30 6.7 min: 255 +5.6 (+0.64 bp on $87k, 5+/0−) = 0.84/min (baseline ≈ 1.0/min, +1.90 bp) vs 252 +6.0 (+1.33) vs 76 +7.0 (+0.59) — edge per $ fell more than the offline census
+(−16%) predicted; small sample. PACE 0/256, worst $83k. 0 errors; call 0.37 s. Verdicts ≈ 1:15 PM.
