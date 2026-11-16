@@ -23343,3 +23343,8 @@ Why: since 56730 the 4-dec books cleared 25 books ALL negative (median −2.03 b
 Expectation (rough, by notional × median bp since 56730): 4-dec ≈ 64 × $25k × −2.0 bp outweighs $300 (117 × $8k × +0.55) + $30 (63 × $8k × +1.37) → without them net alpha
 should turn positive once the 4-dec trades roll out of the validator window; skill score back to the 11 PM level (0.06 at net alpha +249, pay ≈ $17–30/mo) — the bigger step
 needs bigger $300 fills (ours $513 vs 252 $3,529).
+
+## §1510 — 2026-11-16 6:45 AM CT — Brief: skip-dec 6 min in (≈ 60 sim s) — 4-dec fills 0; validator not yet moved
+regcheck 255 REGISTERED. Pay 255 $27 ($0.89/day); 252 $150. Validator: 255 skill 0.0, kept 49, net alpha −30.8, coverage 256 (unchanged yet); 252 skill 1.36, kept 92, +1,171, cov 190.
+Window 61540–61774 (dilwin): $300 255 +0.99 (54% +) vs 252 +0.29; $30 +0.46 (8 books) vs +0.95. 4-dec fills since 61725: 0. Hurdle not re-run (only ≈ 60 sim s since the switch).
+Mechanics: 0 errors; PACE 3/256; GATE 6,221 / 979 (86%); call 0.38 s; presence after the switch ≈ 179. $300 fillrate 61540–61774: 255 72 / $53k, median $323, 0.50 vs 252 71 / $185k, $3,535, 0.40.
