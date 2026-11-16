@@ -23378,3 +23378,12 @@ Sim 61900–62170 (first 270 sim s after the 6:54 restart): 255 $300 fills = ONL
 dilwin $300 −1.28 (27% +) vs 252 +0.60; $30 no 255 fills. CAUSE: the model leans need ≥ 295 sim s of mid + fundamental history (_at(mh/fh, 300)) → no lean → no jump → gate_side
 steps in on no side, and $30 lean30_only puts both sides back → after a restart the REDO quotes only deep rest for ≈ 300 sim s (≈ 28 wall min). Real test window starts sim 62195
 (≈ 7:22 AM); verdict moved to 8:27 AM (one-shot 60c4e2ab). Mechanics: 0 errors; PACE 0/256, worst $75k of $450k; GATE 5,848 / 1,352; presence 176; call 0.32 s.
+
+## §1514 — 2026-11-16 7:45 AM CT — Why 252's pay keeps falling (user question): its weight −35% (0.0048 → 0.0031) = pay −30%; its net alpha −33% since 11-15 evening; making pool grew
+speed/payhist.py / payhist2.py / payhist3.py (validator 5EWwdZB7 gauges every 3 h over 30 h; Prometheus via urllib needs a curl User-Agent — python's default gets Cloudflare 1010):
+252 score 0.0047/0.0048/0.0049/0.0046/0.0040/0.0042/0.0038/0.0032/0.0030/0.0029/0.0031 (11-15 1:30 AM → 11-16 7:30 AM); net alpha 1,628–1,800 until 4:30 PM, 1,443 at 7:30 PM, 1,166 from
+10:30 PM on (flat since); skill score noisy 0.8–3.7; combined-score share flat ≈ 0.55–0.6% (except 0.38% at 10:30 PM). Price ≈ flat (pay/score ratio unchanged).
+FIELD: making credit > 0 on 122–139 miners; Σ making 8,343 → 12,972 (+55% in 30 h); Σscore of making>0 miners 0.61 / 0.56 / 0.60, skill-only 0.35 / 0.42 / 0.37 (252 skill-only, making 0).
+→ CORRECTION of "making ≈ 0 field-wide" (§1429 era): making credit pays ≈ 60% of weight today. 255 making = 0 — the miner-wide markout quality clamp (§1447) was likely zeroed by
+the 4-dec books + swept deep rest; both are gone now (§1509/§1511) → track 255 debeta_making every brief; if it stays 0, making quality is the next lever after the size-up.
+252's pay ≈ $146–153 since 5 AM — levelling with its net alpha.
