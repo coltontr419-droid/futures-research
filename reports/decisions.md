@@ -23317,3 +23317,12 @@ Books clearing 2.3 bp, sim 57880–60580 (45 min; speed/dilution2.py): $300 255 
 $30 255 18 (12+/6−, $5k/book) vs 252 19 → QUALIFIES (bar 10); 4-dec 255 32 kept ALL NEGATIVE (0+/32−), $14k/book, median −2.30 bp, 3% + → the validator net alpha turns
 negative from the 4-dec books (we still quote them with the old base; 252 trades none).
 Recommendation to the user: mk_skip_dec 1 now (queued + approved test; coverage stays 192 ≥ 160).
+
+## §1507 — 2026-11-16 6:15 AM CT — Brief: net alpha −212 → −25; $300 still ahead of 252; 4-dec still all-negative (0+/22−); skip_dec awaiting the user
+regcheck x2 255 REGISTERED. Pay 255 $27/mo ($0.90/day, flat vs 5 AM); 252 $151 (from $146). Validator: 255 skill 0.0, books kept 48, combined 0.0, score 0.0008, net alpha −24.6
+(5 AM −212); 252 skill 1.54, kept 88, net alpha +1,114, coverage 189. 255 coverage 256.
+Windows (300 sim s, dilwin) 255 vs 252: $300 60580 +0.97 vs +0.30, 60880 +0.80 vs +0.66; $30 −0.05 vs +0.25, +0.81 vs +1.28; 4-dec 255 −1.19 / −0.77 (17–24% +) vs 216 −1.54 / −1.31.
+Hurdle (dilution2) since 56730 (post-fix): $300 255 35 (22+/13−, $7k/book, median +0.58) vs 252 31 (17+/14−); $30 24 (17+/7−) vs 28 (18+/10−); 4-dec 22 kept ALL negative.
+Since 59680 (≈ 28 sim min): $300 34 (23+/11−) vs 30; $30 24 (16+/8−) vs 19; 4-dec 0+/17−.
+Mechanics: 0 errors; PACE 10/256 blocked; GATE 6,238 / 962 (87%); presence median 233; call 0.41 s; resting $481k on 583 orders. $300 fillrate sim 61080–61380: 255 97 fills / $73k
+on 39 books, 0.50 per filled book-min, $/fill median $574 vs 252 84 / $180k on 52 books, 0.32, $2,370 → our fills are still ≈ 4× smaller than 252's.
