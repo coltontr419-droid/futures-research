@@ -23551,3 +23551,9 @@ backup live_params_255.pre-l30075.json. $30 leans also warm up after the 11:38 r
 6.0, 6.1 → no UID survives ≈ 6 days; they register ≈ 5/day = churn-and-burn. UID 99 (taker, §1517) is a lone UID, 2.4 d — lifecycle unknown.
 Rule (copy-successful-miners): trading behaviour may be copied from any good earner if our cap-safe pacing keeps it intact; pacing / lifecycle only from long-lived UIDs → 76's $30 volume is a
 direction (more volume at good edge, which the $30 lean-0.75 test does within our pacing), NOT a benchmark for survival. The long-lived benchmark stays 252 (33 d; fleet 5F1F2JMu has UIDs 20–36 d).
+
+## §1531 — 2026-11-16 12:20 PM CT — Brief (user away until 1 PM): only 90 sim s past the restart warm-up — no verdict material yet; skill 0.30, net alpha +387, pay $21
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $21 ($0.70/day; 11:20 $11) vs 252 $189. Validator: 255 skill 0.30, combined 0.162, net alpha +387 (11:20 +311), kept 83 (11:20 74), coverage 251,
+open 231/169; 252 skill 1.29, +1,156, kept 92. Sim 65159 (warm-up ended ≈ 65065). First 90 sim s (fillrate): $300 255 59 fills $72k on 29 books (median $656) vs 252 21 / $72k on 20;
+$30 255 13 / $21k on 13 vs 252 5 / $9k. GATE 6,701 step-in / 499 rest (7% — buckets full after the restart: start balance 20k). PACE 0/256, worst $81k. 0 errors; call 0.33 s.
+No changes (user away; only safety rollbacks allowed).
