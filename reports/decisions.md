@@ -23246,3 +23246,9 @@ GATE 2,188 step-in / 5,072 rest (75% → 30% step-ins) → buckets drained → m
 Pay 255 $11/mo (validator net alpha +260, rising); 252 $199. Health 0 errors, presence 236, 6/256 paced, call 0.353.
 → $30: the lean + volume cut copies 252's volume and beats its hurdle count — keep. $300: needs the same lever as $30 (fewer, full-size fills — e.g. a higher $300 lean threshold so
 step-ins are rarer and buckets refill). Proposed to the user; nothing changed (no automatic changes).
+
+## §1498 — 2026-11-15 8:46 PM CT — $300 lean threshold 1.0 → 2.0 (user yes): fewer, full-size $300 step-ins so the pace buckets refill
+live_params_255.json mk_model_lean 2.0 (|pred| ≥ 2 × 0.704 ≈ 1.4 bp ≈ the strongest 10–15% of signals) at sim 55552 (logged A300 in liveswitch_redo255_log.txt); LIVE PARAMS applied
+1.0→2.0. Interaction check: books without a jump rest both sides at the 10% size under gate_side (presence kept via lad_off); fewer step-ins → buckets refill → step-ins at full size;
+live switch, no restart (histories kept). Watch: GATE step-in share recovering from ≈ 28%, $300 |inv| toward 252's ≈ $1.4k, $300 fill rate toward 252's ≈ 0.46 per book-min, $300 skill
+and books clearing (bar 20). Briefs now lead with the 255 vs 252 alpha comparison (user).
