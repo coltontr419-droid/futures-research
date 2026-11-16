@@ -23348,3 +23348,20 @@ needs bigger $300 fills (ours $513 vs 252 $3,529).
 regcheck 255 REGISTERED. Pay 255 $27 ($0.89/day); 252 $150. Validator: 255 skill 0.0, kept 49, net alpha −30.8, coverage 256 (unchanged yet); 252 skill 1.36, kept 92, +1,171, cov 190.
 Window 61540–61774 (dilwin): $300 255 +0.99 (54% +) vs 252 +0.29; $30 +0.46 (8 books) vs +0.95. 4-dec fills since 61725: 0. Hurdle not re-run (only ≈ 60 sim s since the switch).
 Mechanics: 0 errors; PACE 3/256; GATE 6,221 / 979 (86%); call 0.38 s; presence after the switch ≈ 179. $300 fillrate 61540–61774: 255 72 / $53k, median $323, 0.50 vs 252 71 / $185k, $3,535, 0.40.
+
+## §1511 — 2026-11-16 6:54 AM CT — $300 SIZE-UP live on 255 (user: "start working on the 300 books sizing ... without the pacer bringing us back down and without hitting the cap")
+Measured (speed/kindsplit.py, sim 61000–61850, $300 books) 255 vs 252: INSIDE fills n63 $70k (39%) median $1,113, p90/max $2.2k, mo20 +1.22 / mo60 +1.34 vs 252 n106 $234k, $2,793,
+max $3.7k, +0.80 / +1.29; TOUCH 255 $766 +0.43 / +0.07 vs 252 $1,959 +0.79 / +1.30; BEHIND 255 n146 $76k (43% of our $300 $) median $221, depth 8, −1.19 / −1.04 vs 252 n72 $200k,
+$3,572, depth 2, −0.11 / +0.35. Totals: 255 $178k vs 252 $553k in the same 850 sim s → we use ≈ 40% of the pace refill, 252 ≈ 100%. Our max fill = our order size ($2.2k): the
+size knob, not the pacer, caps our fills; 43% of our budget goes to swept deep rest orders at −1 bp. (sizestudy.py: 252 earns 85% of $ from ≥ $3k taker trades.)
+Census 1 (sizecensus.py, mk_vol_size 0.072 alone): with the bucket at $3,000 (< full $3.6k) the vol books REST at soft size ≈ $2,970 on BOTH sides 5–9 ticks back → big deep orders
+for sweeps. → code: agent 95ead2cb = ab404873 + mk_rest_frac (every gated $300 rest order, low bucket too, capped at frac × full size) + mk_calm_size (calm books' full size; SIZE
+was not live). equiv.py 0 instruction diffs (10 replies, tape + ledger identical), test_pace ALL PASS.
+Census 2 (sizecensus2.py on 95ead2cb, buckets $4,700 / $3,000 / $800): A now = step-in $2.2k vol / $1.8k calm at −1 tick, rest $220 / $180, low-bucket rest $1.3k / $1.1k;
+B (mk_vol_size 0.072, mk_calm_size 0.072, mk_rest_frac 0.1) = step-in $3.6k both at −1 tick, rest $360, low-bucket rest $360; same jumps; books without orders 2 in both.
+Interaction check: step-in needs bucket ≥ full $3.6k (burst ≈ $4.7k) → fewer, bigger step-ins (binding: yes, order size = max fill; acts on the next step-in); lean / gate_side / fee-push
+exemption / lad_off / no-chase unchanged; $30 books untouched (excluded from the gate path, own mk_low_size); 4-dec skipped; max_inv 0.14 ≈ $7k ≈ 2 same-side step-ins;
+cap safety unchanged (paced_out + ledger; worst book $75k of $450k). RISK: fewer $300 books filled → coverage (≈ 180 now, must stay ≥ 160) — watch every brief.
+Restart 12:54:36 UTC (before 04:13:55), agent 95ead2cb (backup agents/QuoteAgent.ab404873.py, params live_params_255.pre-size.json); LIVE PARAMS applied incl. mk_vol_size
+0.034→0.072, mk_calm_size 0.072, mk_rest_frac 0.1, mk_skip_dec 1; 0 errors; presence 179. No automatic switch-off (user 11-15): read each brief, 1-hour verdict ≈ 7:55 AM CT.
+Also (user question): 252 trades NO 4-dec books; 216 trades 31 at $2k/book (median −1.03, 42% +, kept 7+/11−, coverage 245) — near break-even and small; ours were $11k/book, 8% +.
