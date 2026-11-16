@@ -23477,3 +23477,11 @@ by COPIES at full cap volume, paid ≈ $170 each; churned UIDs are replaced. Our
 Implications: (1) scaling our skill miner by copies is viable IF each runs near the cap rate with ≥ +1 bp per $; pay per UID ≈ share of the skill pool (fleet ≈ $170); (2) keep a
 collision check (no self-trades; our copies never cross each other — same side stacks are harmless); (3) pool dilution: the fleet's 19 skill UIDs ≈ $3.3k/mo — adding ours dilutes
 everyone incl. ours; add one at a time and measure total pay; (4) a maker config is the fleet's top earner per UID ($300–400) — later, per the user's order.
+
+## §1523 — 2026-11-16 9:55 AM CT — Lean-1.5 first read (240 sim s, 63410–63650): $300 volume ≈ 2.7×, alpha per $ +1.89 bp (12+/0−), total $300 alpha/min ABOVE 252's
+regcheck 255 REGISTERED. Pay 255 $20 vs 252 $166. Validator: 255 skill 0.13, combined 0.108, net alpha +367 (9:20 +346), kept 46, coverage 253, open 226/176; 252 skill 1.66, +1,262.
+kindsplit: 255 inside n41 $67k (61%) median $1,087 +0.27 / +0.97, touch n7 $8k +1.70 / +1.52, behind n21 $34k depth 2 −0.64 / +0.62 vs 252 inside $77k +0.88 / +1.11, touch $47k, behind $51k.
+fillrate: 255 $117k on 43 books (≈ $280k per 575 s vs rest-30 $104k → ≈ 2.7×) vs 252 $200k on 51 (we ≈ 58% of 252). Validator-exact last 4 sim min: $300 255 +16.3 (+1.89 bp on $86k,
+12+/0−; 4.1 per sim min vs rest-30 2.4 → +70%) vs 252 +9.5 (+0.56 bp on $171k; 2.4/min); $30 255 +1.6 vs 252 +0.8. Positions 255 $1,481/book corr +0.156 vs 252 $2,032, +0.177.
+Books filled 43 $300 (35 by step-ins) + 10 $30 in 240 s. Budget starting to bind: GATE 4,746 step-in / 2,454 rest (34% rest, was ≈ 20%); PACE 0/256 blocked; worst $75k of $450k.
+0 errors; call 0.36 s. Verdict ≈ 10:30 AM.
