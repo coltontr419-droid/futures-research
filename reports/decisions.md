@@ -23525,3 +23525,12 @@ VERDICT: NOISE (tie on Σα/min, lower bp/$, fewer kept books per min). Cause: t
 each partial fill drops tok below $3.6k and the book rests until refill (≈ 150–700 s) → more leans can't add volume. Recommendation: back to 1.5 (higher bp per $ → more books clear the
 2.3-bp hurdle); next lever = budget efficiency: step in with min(full size, bucket) once the bucket ≥ ≈ 50% of full (code + restart), or the $30 class. Hold-longer (user item 2) largely
 done by rest-30 + leans: 50 → 171 s vs 252 227 s (small n) — keep measuring.
+
+## §1528 — 2026-11-16 11:40 AM CT — User: back to lean 1.5 + budget fix next. mk_model_lean 1.25 → 1.5 (11:27, applied "1.25→1.5"); RESTART onto 2ef16f9b with mk_gate_part 0.5 (17:38:40 UTC, sim ≈ 64760)
+Code 2ef16f9b = 95ead2cb + mk_gate_part (live): a $300 step-in also goes out when full × part ≤ bucket < full, sized floor(bucket / mid) (never above the bucket); 0 = full size only.
+First census found round() could put the part size a hair ABOVE the bucket → the book rested; fixed with floor. equiv.py 0 instruction diffs (10 replies, tape / ledger / locks identical),
+test_pace ALL PASS. Census (speed/partcensus.py, live 255 params) B = part 0.5: bucket $4,700 → step-in $3.6k at −1; $3,000 → $3,000 at −1; $2,000 → $2,000 at −1 (27 vol + 12–13 calm jumps
+as at full); $1,200 (< 50%) → rest $360 at +29 (= A). A (part 0): $3,000 / $2,000 / $1,200 → rest only. Interaction: only the gated $300 step-in size + the threshold change; rest size =
+rest_frac × that size (smaller); lean / gate_side / rest 30 / fee exemption / $30 / 4-dec skip unchanged; spend never exceeds the bucket (cap safety unchanged).
+Backups agents/QuoteAgent.95ead2cb.py, live_params_255.pre-part.json. Startup: LIVE PARAMS applied incl. mk_gate_part 0.5, mk_model_lean 1.5, mk_gate_rest 30, sizes 0.072, rest_frac 0.1,
+skip_dec 1; 0 errors. WARM-UP (no leans) until ≈ sim 65065 (≈ 12:06 PM CT); real test window from there; verdict ≈ 1:05 PM CT, then freeze the next-miner settings (≈ 2:30 PM).
