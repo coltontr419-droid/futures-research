@@ -23463,3 +23463,17 @@ k 1.0 28.9/28.1/28.3% +1.27/+1.25/+1.17 bp; 1.25 19.0/18.2/18.8% +1.46/+1.44/+1.
 → 1.5 = 2.7× the step-in chances for −16% edge (≈ 2.3× alpha opportunity). Interaction: mk_model_lean only scales the $300 (vol + calm) lean threshold → jumps / gate_side step-ins;
 $30 own knob (mk_model_lean_30 1.0) untouched; rest 30, size 0.072, rest_frac 0.1, bucket gate, cap safety unchanged; more step-ins → budget may become binding (watch PACE).
 Applied 15:26:19 UTC "mk_model_lean 2.0→1.5"; backup live_params_255.pre-lean15.json; 0 errors. Verdict ≈ 10:30 AM.
+
+## §1522 — 2026-11-16 9:55 AM CT — FLEET STUDY for scaling (user request): 5F1F2JMu runs 24 near-identical UIDs on the SAME books at the SAME prices and each earns ≈ $115–215
+speed/fleetids.py (metagraph + validator gauges): coldkeys with ≥ 4 UIDs: 5CAXJT4t 31 UIDs $7,529/mo, 5F1F2JMu 24 $4,366 (median $171), 5GCSdbyd 20 $3,782, 5G9URk3b 16 $3,443, 5FNTAiDo 10 $2,514,
+5ECLVeLz 9 $3,570 … (big fleets are normal). 5F1F2JMu: TWO configs — makers 66/95/251/190 ($297–403, making credit 200–231, coverage 256, $300 fills $887, 4-dec $900, net alpha ≈ 100) and
+≈ 19 skill UIDs (net alpha 850–1,720, skill 0.3–3.6, $115–236, mostly coverage ≈ 191 = no 4-dec). Ages 0.2–36 d (40/216/252/52 ≥ 31 d; 147/134/210 20–25 d; many 1–5 d = replacements;
+fleet 41 → 24 UIDs). Twins 10/141 (identical gauges).
+speed/fleettape.py, sim 62000–63400 (23 sim min): every skill UID trades $300 $633k–1,021k (≈ the cap rate $5.2/s/book on ≈ 90–122 books) + $30 $110–446k, fixed sizes ($300 $2.4–3.5k,
+$30 $1,795 or $3,590), ≈ 50% buys. NO book split: $300 book sets ≈ 110 each, pairwise Jaccard median 0.72. Same timing: 59% of fleet maker fills are followed within 5 s by ANOTHER
+fleet UID on the same book and side (41% at the same price), opposite side 3.7%. $300 book-minutes with fleet fills: 1 uid 480, 2 361, 3 322, 4 219, 5–9 418, 10–18 123.
+→ Identical copies stack at the same price and a big sweep fills several of them; skill = inventory × mid move, so sharing the fill flow does not split the alpha per $. The fleet scales
+by COPIES at full cap volume, paid ≈ $170 each; churned UIDs are replaced. Our gap per UID is VOLUME (255 ≈ 30% of the cap rate vs ≈ 100%), not uniqueness.
+Implications: (1) scaling our skill miner by copies is viable IF each runs near the cap rate with ≥ +1 bp per $; pay per UID ≈ share of the skill pool (fleet ≈ $170); (2) keep a
+collision check (no self-trades; our copies never cross each other — same side stacks are harmless); (3) pool dilution: the fleet's 19 skill UIDs ≈ $3.3k/mo — adding ours dilutes
+everyone incl. ours; add one at a time and measure total pay; (4) a maker config is the fleet's top earner per UID ($300–400) — later, per the user's order.
