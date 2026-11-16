@@ -23629,3 +23629,12 @@ a NEW BOOK LAYOUT (256 books, groups moved — §1403; our book_map was wrong on
 Watcher: /opt/mvtrx/simreset_watch.py now runs in mvtrx-releasewatch.service (every 10 min): tape clock jumps back > 1 h → logs "SIM RESET" + layout check (price level / decimals per book vs
 the $300 0–127 / $30 128–191 / 4-dec 192–255 map) to release_watch.log + ALERT. Response: verify book_map, run speed/leanfreq.py / leanfreq2.py on the new day's first hour (model edge per
 class), reset our_uids.txt start sims (lessons 11-11), refit if the edge dropped.
+
+## §1541 — 2026-11-16 3:45 PM CT — Watchers (user: "any other events that could hurt us?"): gaps added to the standing watchdog
+Already covered by /opt/mvtrx/overnight.sh (mvtrx-overnight.timer, every 10 min, laptop open or closed; ALERT lines forwarded, HEARTBEAT so a dead watchdog shows): service DOWN, QUOTE ERROR /
+Traceback since start, every our_uids UID still registered (prune → log), validator-volume sync vs the $450k cap (pace_sync.py, books over $400k), memory/load, self-trade guard (stops mvtrx-x1 on
+any fill between our UIDs — fits the planned 2nd miner x1). Plus mvtrx-releasewatch (upstream release §1524 + sim-day reset / book layout §1540) and mvtrx-taperotate (disk 51%, 77 GB free).
+ADDED (/opt/mvtrx/watch_extra.sh, called from overnight.sh; backup overnight.sh.bak-1116): per our UID — HUNG (no validator state in 6 min), SLOW replies (call time > 1.0 s), COVERAGE < 170
+(skill is cut below 160), NET ALPHA < 0 two checks in a row, scoring validator 5EWwdZB7 shows NO gauges for us. Fixed overnight.sh simmin (read the inactive x4 journal → x2).
+First run: x2 UID 255 states(6 min) 64 | call 0.375 s | coverage 248 | net alpha +540 → no alerts.
+Not watched (not actionable / covered elsewhere): TAO/alpha price, registration cost, other validators' weights (pay lag), coldkey (laptop only).
