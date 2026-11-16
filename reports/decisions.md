@@ -23648,3 +23648,12 @@ $30 255 +12.9 (+0.77 on $169k) vs 252 +10.2. PACE 0/256, worst $92k. 0 errors.
 VERDICT: NOISE (slightly below 0.5) → live_params_NEXT.json unchanged (0.5). Recommendation: 255 back to 0.5 (user's call; the guard has not tripped).
 
 ## §1543 — 2026-11-16 4:00 PM CT — User: "go ahead" → 255 mk_gate_part 0.3 → 0.5 (applied "0.3→0.5"); 255 settings now identical to live_params_NEXT.json; guard exits on its next check
+
+## §1544 — 2026-11-16 4:30 PM CT — Brief + NEAR-MISS: the live validator briefly reported $500k on 187 of our books → pace_sync plausibility guard added
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $65 = prune line $65 vs 252 $213. Validator: 255 skill 0.73, combined 0.25, net alpha +603 (best), kept 105, coverage 248; 252 skill 2.74, +1,782, kept 88.
+Validator-exact last 15 sim min: $300 255 +55.5 (+1.99 bp on $279k, 35+/2−) vs 252 +28.6 (+0.47 on $611k); $30 255 +12.1 (+0.70) vs 252 +12.8 (+1.34). 0 errors; PACE 0/256, worst $95k. Guard exited 21:58 UTC.
+NEAR-MISS: overnight_log 21:49 UTC — pace_sync.py (already filtered to 5EWwdZB7, §1491) read "validator max book $501,986, books over $400k 187" (same tick x1_gauge showed skill 0.168 vs 0.76 a
+minute later → a glitch in the live validator's gauges); 21:59 back to $95k. The agent's _pace_sync charges any validator-minus-ledger gap > $1k into the bucket + ledger → it would have
+blocked ≈ 187 books for 24 h. It did NOT fire (0 "PACE SYNC" lines 21:40–22:15, PACE 0 blocked) — luck of timing.
+FIX (lab script only, agent md5 unchanged): pace_sync.py (backup pace_sync.py.bak-1116) keeps the previous pace_sync_<uid>.json and prints an ALERT when > 5 books jump > $60k in one 10-min tick
+(max real gain ≈ $5.2/sim s); offline test with the phantom values → IGNORED; live run normal ($95,926). Applies to every miner (newminer.sh uses the same pace_sync).
