@@ -23507,3 +23507,10 @@ $30 255 +4.4 (+0.65 on $69k) vs 252 +11.0 (+1.46 on $76k) — $30 lags. Position
 VERDICT lean 1.5: PROVEN — keep. Next (same knob, census = speed/leanfreq.py §1521: 1.25 = 18–19% active vs 11–12%, edge +1.28–1.46 vs +1.40–1.66 bp at 120 s): our $ edge is 2.3× 252's,
 so trade edge for volume once more. Interaction: as §1521; budget binding rises (watch GATE rest share / PACE blocked). Applied 16:28:28 UTC "mk_model_lean 1.5→1.25"; backup
 live_params_255.pre-lean125.json. Verdict ≈ 11:30 AM. Queued after: hold-longer (user item 2), $30 class (lags 252 per $).
+
+## §1526 — 2026-11-16 10:55 AM CT — Lean-1.25 first read (205 sim s, 64045–64250): volume ≈ 1.5× lean-1.5, +1.48 bp (10+/0−), Σα/min ≈ 4.5 (lean 1.5: 3.7); pay dipped to $10
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $10/mo ($0.35/day; 10:23 $20) vs 252 $172 — on-chain pay lags and mixes all validators; our validator's skill keeps rising.
+Validator 5EWwdZB7: 255 skill 0.30 (10:23 0.20), combined 0.163, net alpha +341, kept 62, coverage 252, open 226/176; 252 skill 1.28, +1,167, kept 91.
+kindsplit: 255 inside n45 $69k median $977 +0.43 / +1.26, touch n10 $12k, behind n17 $33k −0.99 / −0.01 vs 252 inside $82k +0.99 / +1.49, touch $22k, behind $43k. fillrate: 255 $121k on 42 books
+(≈ $336k per 570 s vs lean-1.5 $218k → ≈ 1.5×) vs 252 $147k on 39. Validator-exact 3.7 sim min: $300 255 +16.7 (+1.48 bp on $113k, 10+/0−) ≈ 4.5/min vs 252 +4.5 (+0.26) — quiet window
+for 252; $30 255 −0.7 vs 252 +2.9. Budget binding more: GATE 4,204 / 2,996 (42% rest, was 33%); PACE 0/256 blocked, worst $79k. 0 errors; call 0.37 s. Verdict ≈ 11:30 AM.
