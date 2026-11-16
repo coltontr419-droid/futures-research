@@ -23534,3 +23534,14 @@ as at full); $1,200 (< 50%) → rest $360 at +29 (= A). A (part 0): $3,000 / $2,
 rest_frac × that size (smaller); lean / gate_side / rest 30 / fee exemption / $30 / 4-dec skip unchanged; spend never exceeds the bucket (cap safety unchanged).
 Backups agents/QuoteAgent.95ead2cb.py, live_params_255.pre-part.json. Startup: LIVE PARAMS applied incl. mk_gate_part 0.5, mk_model_lean 1.5, mk_gate_rest 30, sizes 0.072, rest_frac 0.1,
 skip_dec 1; 0 errors. WARM-UP (no leans) until ≈ sim 65065 (≈ 12:06 PM CT); real test window from there; verdict ≈ 1:05 PM CT, then freeze the next-miner settings (≈ 2:30 PM).
+
+## §1529 — 2026-11-16 11:50 AM CT — $30 class (user: "when are we going to work on getting the 30 books better?"): we are NOT behind 252 per $; the gap to the leader (76) is volume → mk_model_lean_30 1.0 → 0.75 live 11:47:01 (sim 64845), concurrent with the $300 part test
+Validator-exact $30 (speed/skill_cls2.py, tape .prev + current): last 120 sim min 255 +120.5 (+1.74 bp on $693k, kept 29+/7−) vs 252 +74.2 (+1.17 on $632k) vs 76 +802 (+3.18 on $2.52M, $43.5k/book
+≈ cap); last 45: 255 +45.3 (+1.90 on $239k, 26+/7−) vs 252 +51.5 (+1.34 on $385k) vs 76 +255 (+3.08 on $827k). The short-window "lags" in §1525–§1527 were noise.
+$30 fills (speed/kindsplit2.py BOOKS=128-191, sim 57000–64700): 255 touch 93% $684k median $1,643 mo60 +1.28, inside +1.90 vs 252 touch 73% $464k +0.22, behind 26% −0.30; 76 touch 100% $2.65M
+$1,500 +0.26. Positions (invstudy2 62000–64700): 255 $922/book hold 937 s corr +0.062; 252 $1,370, 420 s, −0.029; 76 $6,119, 226 s, −0.014.
+$30 model lean census (speed/leanfreq2.py MODEL=model_lean_30.json BOOKS=128-191; 3 windows 58000–60500 / 60500–63000 / 63000–64700): k 1.0 (live) 23.4/22.4/23.1% active, +2.19/+2.28/+2.14 bp at
+120 s; 0.75 36.5/35.3/35.8%, +1.84/+1.89/+1.84; 0.5 54.8/53.4/53.7%, +1.54/+1.54/+1.54; 1.25 14%, +2.5–2.7. → 0.75 = 1.56× lean time for −16% edge (same trade as the $300 lean-1.5 win).
+Interaction: mk_model_lean_30 only scales the $30 (low-group) lean threshold → which side stays at the touch (lean30_only: no lean → both sides back 2); $300 path, gate, rest 30, part step-ins,
+4-dec skip untouched; per-book budgets (no cross-class effect) → safe to run with the $300 part test (per-class reads). Applied 17:47:22 UTC "mk_model_lean_30 1.0→0.75"; 0 errors;
+backup live_params_255.pre-l30075.json. $30 leans also warm up after the 11:38 restart (until ≈ sim 65065). Verdict with the part test ≈ 1:05 PM (per class).
