@@ -23417,3 +23417,14 @@ fees; sim money, not in skill). 57% buys. Positions (invstudy2, $300): 99 $1,151
 Implications for 255 skill: (1) our $300 positions are 4× smaller and held 4× shorter than 252's with the weakest timing corr; (2) behind/rest fills still eat ≥ half of our $300 $
 at −1.9 bp (§1516) → removing $300 rest orders is the most direct next test; (3) a 99-style taker leg on our model (+1.0 bp at 120 s on $300 ≈ 99's +1.16) would match the best
 skill UID — needs the user's call (rule: no taking on makers; taking only after a solid maker base / clone study).
+
+## §1518 — 2026-11-16 8:25 AM CT — Next test READY: mk_gate_rest 6 → 30 ($300 rest orders out of reach), switch right after the 8:27 size verdict (user: "we can do this so long as we dont need the resting orders"; hold longer "sounds good"; taker leg → only on a later separate miner once a maker miner is steady)
+Do we need rest orders? Validator 0.6.7 debeta.coverage_weight: skill × min(1, books FILLED / required), required = (1 − max_inactive) × field max (≈ 160); "a single small fill counts";
+no quoting/presence requirement in the skill leg. speed/stepbooks.py, sim 56730–61890 (86 sim min, pre-restart): books with inside/touch fills $300 104 + $30 63 = 167 ≥ 160 (all fills
+117 + 63); post-size-up 62195–62700: step-in books only 15 of 45 $300 (few step-ins yet; validator window 5–6 h adds margin) → coverage = the risk to watch.
+$300 behind fills by depth (56730–61890): 1–4 ticks n224 $191k mo60 +0.78 bp (stale step-ins / shallow — GOOD, like 252's 2-tick fills); 5–9 n668 $299k −1.73; 10–19 n101 $47k −2.33;
+20+ n3 −7.26 → the losers are the gate_rest-6 rest orders (6 + fee push ≈ 8 ticks).
+Census (speed/restcensus.py, live 255 params, buckets $4,700 / $3,000 / $800): B (gate_rest 30) rest orders at +29…+33 ticks (A +5…+9), sizes unchanged ($360 rest, $3.6k step-ins at −1);
+same jumps; books without orders 2 in both. Interaction: gate_rest only moves $300 RESTING orders (no-lean books, non-lean side, low-bucket rest); calm leans stay on (gate_rest > 0);
+$30 untouched; step-ins / fee-push exemption / lean unchanged; rest fills stop draining the bucket → more step-ins; positions stop being unwound by deep rest fills → longer holds
+(user's item 2 partly comes with it — measure hold time). Live knob, no restart / warm-up.
