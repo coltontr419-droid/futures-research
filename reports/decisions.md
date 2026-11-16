@@ -23619,3 +23619,13 @@ Release watch: none. regcheck 255 REGISTERED. Pay 255 $64 ($2.14/day) vs 252 $21
 kept 106 (252 89), coverage 248; 252 skill 2.39, +1,635.
 Part 0.3 (sim 66625–67144, 8.7 sim min): guard log 21:14 UTC +428 s: 3.79/min, +1.64 bp (no revert). Validator-exact $300 255 +36.7 (+1.84 bp on $200k, 28+/0−) = 4.2/min (proven 0.5: 4.5) vs 252 +30.2
 (+0.81) = 3.5/min; $30 255 +6.0 (+0.61). fillrate $300 255 $200k on 68 books ≈ $23k/sim min (part 0.5 ≈ $25.6k) — no volume gain yet. GATE 6,373 / 827 (11% rest). PACE 0/256, worst $92k. 0 errors.
+
+## §1540 — 2026-11-16 3:35 PM CT — Can the market change without a release? YES — sim-day resets (≈ every 5 wall days; layout changed at the 11-12 reset), crowding, fees, validator dials. Sim-reset + layout watcher added.
+What can change WITHOUT an upstream release: (1) SIM-DAY RESET — the sim clock runs to 86,400 s then restarts at 0 (≈ 5 wall days; last 11-11 ≈ 7:55 PM → 11-12 midnight); the 11-12 reset brought
+a NEW BOOK LAYOUT (256 books, groups moved — §1403; our book_map was wrong on ≈ 90 books). New paths/fundamentals each day; config-driven parameters should carry, but our book_map
+(calm:63-101; low:128-191; dec:192-255) and the fitted models must be re-checked. Next: sim 67,208 at 3:30 PM, ≈ 10.4 sim s per wall min → 86,400 ≈ 31 h → ≈ 11-17 10 PM CT (rough).
+(2) Crowding — other miners copy the signal (252's net alpha −33% in a day, §1514); slow, measured by alpha per $ vs 252 every brief. (3) Dynamic maker fees move with the field's maker share.
+(4) Validator dials are command-line flags (e.g. making_fee_weight "may be raised") — the owner can change them without a GitHub release; visible only in gauges.
+Watcher: /opt/mvtrx/simreset_watch.py now runs in mvtrx-releasewatch.service (every 10 min): tape clock jumps back > 1 h → logs "SIM RESET" + layout check (price level / decimals per book vs
+the $300 0–127 / $30 128–191 / 4-dec 192–255 map) to release_watch.log + ALERT. Response: verify book_map, run speed/leanfreq.py / leanfreq2.py on the new day's first hour (model edge per
+class), reset our_uids.txt start sims (lessons 11-11), refit if the edge dropped.
