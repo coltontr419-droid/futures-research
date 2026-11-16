@@ -23301,3 +23301,9 @@ Pay 255: $0 (3–5 PM), $2 (5:41), $11 (8:34), $13 (9:25), $17 (10:56); 252 $219
 Books clearing 2.3 bp since sim 54070 (speed/dilution2.py): $30 255 33 (22+/11−, $3k/book) vs 252 22 (17+/5−) → $30 QUALIFIES; $300 255 13 (9+/4−, $13k/book, median −0.17 — includes
 the faded 8–10:15 PM stretch) vs 252 26 (16+/10−) → $300 not yet (bar 20). Post-fix window sim 56730–56940: $300 255 +1.02 (55% +) vs 252 +0.33; $30 +1.08 vs +0.58.
 Why pay is small: $300 = half the skill pool and we don't qualify there yet; $30 (a quarter) qualifies but our net alpha there is small → ≈ $17/mo. Key milestone: $300 books clearing → 20.
+
+## §1505 — 2026-11-15 11:10 PM CT — Brief (on request): skill score 0.064, pay $17; post-fix $300 +0.82 vs 252 +0.37; $30 35 books clear
+Pay 255 $17/mo ($0.58/day), 252 $192. Validator: 255 skill 0.0637, combined 0.0138, net alpha +249, 46 scored books, coverage 256; 252 skill 1.003, net alpha +1,266, 77 books, coverage 185.
+Books clearing 2.3 bp: since 54070 — $300 255 13 (9+/4−) vs 252 27 (16+/11−); $30 255 35 (22+/13−) vs 252 23 (18+/5−). Post-fix (since 56730, ≈ 250 sim s) — $300 255 7 (5+/2−) vs 252 0.
+Window sim 56730–56980: $300 255 +0.82 (52% +, 31 books) vs 252 +0.37; $30 +0.28 (7 books) vs +1.55 (1 book). $300 fillrate post-fix: 255 0.47 per filled book-min, 61 fills / $45k on
+31 books, $/fill median $601; 252 0.37, $94k, $2,676. GATE 4,807 / 2,393 (67% step-in). Presence 241; 5/256 paced; 0 errors; call 0.361.
