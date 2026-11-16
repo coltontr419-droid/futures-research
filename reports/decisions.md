@@ -23332,3 +23332,14 @@ regcheck 255 REGISTERED. Pay 255 $27/mo ($0.89/day); 252 $150. Validator: 255 sk
 Window 61180–61540 (dilwin) 255 vs 252: $300 +0.18 (44% +) vs +0.46; $30 +0.69 vs +1.10; 4-dec −1.02 vs 216 −2.66.
 Hurdle since 56730: $300 255 34 (20+/14−, $8k/book, median +0.55) vs 252 41 (23+/18−); $30 28 (22+/6−) vs 34 (24+/10−); 4-dec 25 kept ALL negative.
 Mechanics: 0 errors; PACE 5/256; GATE 6,181 / 1,019 (86%); presence median 234; call 0.39 s; $300 fillrate 61240–61540 255 83 / $61k, $513 median, 0.40 vs 252 89 / $212k, $3,529, 0.35.
+
+## §1509 — 2026-11-16 6:38 AM CT — mk_skip_dec 1 LIVE on UID 255 (user: "yes, go ahead with the 4-dec skip")
+Live knob, no restart: 06:38:14 CT sim 61715; agent logged "LIVE PARAMS applied: mk_skip_dec 0→1" 12:38:23 UTC. Backup live_params_255.pre-skipdec.json; switch log line SKIPDEC.
+Interaction check: the skip runs AFTER want/gate/lean/no-chase and cancels every order on books 192–255 with one instruction per book (_cancel_all) — nothing else reads it;
+$300/$30 paths, soft pacing (per-book buckets, no transfer), gate, leans unchanged. Open 4-dec positions stay (no taking): mean |inv| $788/book (p90 $1,812) on 59 books
+(invstudy2, sim 61240–61600) → small leftover exposure scored as inventory × mid move until it ages out. Coverage target ≈ 192 ≥ 160. Making credit ≈ 0 field-wide → nothing lost there.
+After the switch: presence median 179 (p10 177; 234 before), 0 errors, PACE 6/256, GATE 6,121 / 1,079.
+Why: since 56730 the 4-dec books cleared 25 books ALL negative (median −2.03 bp, 5% +) with the biggest notional per book ($25k vs $8k on $300/$30); 252 trades none.
+Expectation (rough, by notional × median bp since 56730): 4-dec ≈ 64 × $25k × −2.0 bp outweighs $300 (117 × $8k × +0.55) + $30 (63 × $8k × +1.37) → without them net alpha
+should turn positive once the 4-dec trades roll out of the validator window; skill score back to the 11 PM level (0.06 at net alpha +249, pay ≈ $17–30/mo) — the bigger step
+needs bigger $300 fills (ours $513 vs 252 $3,529).
