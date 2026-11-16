@@ -23613,3 +23613,9 @@ newminer.sh.bak-1116b): HK=x1 sh newminer.sh <uid> → regcheck x1, restart mvtr
 Collision: both post-only on the same books → they cannot trade each other (a crossing post-only order is rejected); they stack like the 5F1F2JMu fleet (§1522), which pays ≈ $170 per UID.
 Measure the cost: miner 1's validator-exact alpha per sim min for ≈ 1 h before vs after miner 2 starts (speed/skill_cls2.py) + self-trade check (0 fills between our UIDs).
 Both start on the frozen settings (live_params_NEXT.json + agent 2ef16f9b); no tests on miner 1 once settled (rules); miner 2 is the candidate test bench after the collision read.
+
+## §1539 — 2026-11-16 3:25 PM CT — Protection over: 255 IS the prune line ($64 = lowest unprotected paid) → next registration on the subnet prunes it; part 0.3 at 8.7 sim min ≈ tie
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $64 ($2.14/day) vs 252 $211; PRUNE LINE $64 = 255 (ratio 1.00 — the lowest-paid unprotected UID). Validator: 255 skill 0.54, net alpha +527 (best),
+kept 106 (252 89), coverage 248; 252 skill 2.39, +1,635.
+Part 0.3 (sim 66625–67144, 8.7 sim min): guard log 21:14 UTC +428 s: 3.79/min, +1.64 bp (no revert). Validator-exact $300 255 +36.7 (+1.84 bp on $200k, 28+/0−) = 4.2/min (proven 0.5: 4.5) vs 252 +30.2
+(+0.81) = 3.5/min; $30 255 +6.0 (+0.61). fillrate $300 255 $200k on 68 books ≈ $23k/sim min (part 0.5 ≈ $25.6k) — no volume gain yet. GATE 6,373 / 827 (11% rest). PACE 0/256, worst $92k. 0 errors.
