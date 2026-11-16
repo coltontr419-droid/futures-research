@@ -23638,3 +23638,11 @@ ADDED (/opt/mvtrx/watch_extra.sh, called from overnight.sh; backup overnight.sh.
 (skill is cut below 160), NET ALPHA < 0 two checks in a row, scoring validator 5EWwdZB7 shows NO gauges for us. Fixed overnight.sh simmin (read the inactive x4 journal → x2).
 First run: x2 UID 255 states(6 min) 64 | call 0.375 s | coverage 248 | net alpha +540 → no alerts.
 Not watched (not actionable / covered elsewhere): TAO/alpha price, registration cost, other validators' weights (pay lag), coldkey (laptop only).
+
+## §1542 — 2026-11-16 3:55 PM CT — PART-0.3 VERDICT: NOISE / slightly worse → frozen NEXT keeps mk_gate_part 0.5; 255 still the prune line ($65)
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $65 = PRUNE LINE $65 (ratio 1.00) vs 252 $213. Validator: 255 skill 0.76 (best), combined 0.246, net alpha +593 (best), kept 105 (252 89), coverage 248;
+252 skill 2.41, +1,719.
+Part 0.3, sim 66625–67465 (14.0 sim min): guard log 4.06 → 4.01 → 3.89 /min, +1.74–1.84 bp (no revert). Validator-exact $300 255 +52.2 (+1.74 bp on $300k, 34+/1−) = 3.7/min vs proven 0.5
+4.5/min; vs 252 +35.3 (+0.63) = 2.5/min. $300 volume $301k = $21.5k/sim min (0.5: $25.6k) — no gain; GATE rest 11% (0.5: 22–28%) — the extra smaller step-ins don't add fills.
+$30 255 +12.9 (+0.77 on $169k) vs 252 +10.2. PACE 0/256, worst $92k. 0 errors.
+VERDICT: NOISE (slightly below 0.5) → live_params_NEXT.json unchanged (0.5). Recommendation: 255 back to 0.5 (user's call; the guard has not tripped).
