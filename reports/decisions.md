@@ -23270,3 +23270,10 @@ Recurrence risk for the REDO: it earns SKILL (inventory × mid move, drift remov
 can change market configs / skill rules → after every release re-read the configs and REFIT the model before trusting it; (b) crowding (skill qualifiers 172–189 → 213–219 on 11-15)
 dilutes share; (c) scaling identical miners on the same books collides (as 11-08) → split books / vary thresholds and run the collision checks before adding miners; (d) unproven over
 hours / the validator window / protection end (≈ 3:10 PM 11-16). Plan adds: post-release refit + compare; collision plan before scaling; auto-revert for tweaks once a winner (user).
+
+## §1501 — 2026-11-15 9:30 PM CT — Read after the $300 threshold 2.0 (one window); 255 skill score first > 0; $30 28 books clear (> 252's 23)
+Validator: 255 net alpha +278 (+137 → +242 → +278), 40 books, debeta_skill 0.0121 (FIRST non-zero), combined 0.0024; 252 +1,271, 73 books, skill 0.86. Pay 255 $13/mo, 252 $198.
+Window sim 55552–55852 (dilwin): $300 255 −0.45 (40% +) vs 252 −0.09; $30 255 +0.55 (65% +) vs 252 −1.05. Hurdle (dilution2): $300 since the change 255 kept +4 −7 = 11, $2k/book,
+median −0.49 vs 252 +5 −3; $30 since 54070 255 +20 −8 = 28, $3k/book, median +0.72 vs 252 +17 −6 = 23.
+$300 fillrate since the change: 255 0.44 per book-min (from 0.97), $/fill median $713; 252 0.28, $3,499. Positions: 255 $609 / hold 44 s / corr +0.031 vs 252 $2,144 / +0.156.
+GATE 2,134 step-in / 5,126 rest (29%). Buckets refill ≈ 2.5 wall h after a drain → full-size recovery expected gradually. Flag if $300 stays negative ≈ 1 h+ (no action without the user).
