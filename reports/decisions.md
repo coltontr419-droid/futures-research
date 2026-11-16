@@ -23405,3 +23405,15 @@ kindsplit 62195–62460: 255 inside n8 $9k $839 med (max $3,040) mo20 −1.16 / 
 −1.90 / −1.89 vs 252 inside n19 $44k $3,477 +0.43 / +1.39, touch n29 $59k +0.55 / +1.03, behind n15 $44k −0.35 / −0.24. Totals 255 $46k on 28 books vs 252 $152k on 41 (30%).
 dilwin $300 255 +0.41 (43% +) vs 252 +0.43; $30 +0.99 (10 books) vs +0.42. Behind fills still ≥ half our $300 $ (rest orders + stale step-ins left deep after the price moves).
 Mechanics: 0 errors; PACE 0/256 (worst $75k of $450k); GATE 5,899 / 1,301; presence 177; call 0.36 s.
+
+## §1517 — 2026-11-16 8:10 AM CT — Skill-leader study (user: focus on skill): UID 99 is a TAKER with 2.3× 252's $300 alpha per $; 76 a touch maker
+Validator-exact per class, last 40 sim min (speed/skill_cls2.py): $300 99 +335 (+2.89 bp on $1.16M, kept 70 = 68+/2−, kappa +4.26) vs 252 +212 (+1.25 bp on $1.69M, 30+/13−) vs 255 +41
+(+0.88 bp on $0.47M, 27+/20−) vs 76 +59 (+0.61, not eligible); $30 76 +199 (+2.60 on $0.77M) vs 99 +66 vs 252 +39 vs 255 +34 (+1.88, kappa 2.05); 4-dec 99 +295 (+5.61 bp), 76 +81 (+4.24),
+255 −88 (dropped).
+99 = pure taker (no maker fills; speed/takerprof.py 61400–62400): $300 373 trades $524k ($2,058 median, 105 books ≈ cap rate $5.2/s per book), price vs mid −0.13 bp (takes
+when the spread is tight), mid after +20 / +60 / +120 s: +0.33 / +0.82 / +1.16 bp; 4-dec 168 trades +0.73 / +0.97 / −0.10, price −1.64. Taker fee REBATE ≈ 114 bp per $ (dynamic
+fees; sim money, not in skill). 57% buys. Positions (invstudy2, $300): 99 $1,151/book, hold 272 s, corr(inv, next 60 s) +0.172; 252 $3,471, 469 s, +0.114; 255 $795, 109 s, +0.069.
+76 = touch maker (89% of $ at the touch, $677 fills ≤ $1,500, markout ≈ 0) whose alpha comes from holding, mostly on $30 and 4-dec.
+Implications for 255 skill: (1) our $300 positions are 4× smaller and held 4× shorter than 252's with the weakest timing corr; (2) behind/rest fills still eat ≥ half of our $300 $
+at −1.9 bp (§1516) → removing $300 rest orders is the most direct next test; (3) a 99-style taker leg on our model (+1.0 bp at 120 s on $300 ≈ 99's +1.16) would match the best
+skill UID — needs the user's call (rule: no taking on makers; taking only after a solid maker base / clone study).
