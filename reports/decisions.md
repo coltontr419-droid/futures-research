@@ -23365,3 +23365,9 @@ cap safety unchanged (paced_out + ledger; worst book $75k of $450k). RISK: fewer
 Restart 12:54:36 UTC (before 04:13:55), agent 95ead2cb (backup agents/QuoteAgent.ab404873.py, params live_params_255.pre-size.json); LIVE PARAMS applied incl. mk_vol_size
 0.034→0.072, mk_calm_size 0.072, mk_rest_frac 0.1, mk_skip_dec 1; 0 errors; presence 179. No automatic switch-off (user 11-15): read each brief, 1-hour verdict ≈ 7:55 AM CT.
 Also (user question): 252 trades NO 4-dec books; 216 trades 31 at $2k/book (median −1.03, 42% +, kept 7+/11−, coverage 245) — near break-even and small; ours were $11k/book, 8% +.
+
+## §1512 — 2026-11-16 7:15 AM CT — Validator-exact alpha per class, last 90 sim min (sim 56767–62167; speed/skill_cls2.py = skill_cls.py without the old ts < 40000 s filter)
+$300: 255 +87.8 (+0.79 bp on $1.11M, kept 38 = 25+/13−, kappa +0.72, ELIGIBLE) vs 252 +228.0 (+0.73 bp on $3.14M, kept 53, kappa +0.61) vs 216 +105 (+0.40 on $2.63M).
+$30: 255 +78.3 (+1.50 bp on $0.52M, kept 26, kappa +1.19) vs 252 +68.9 (+2.64 on $0.26M) vs 216 +47.6. 4-dec: 255 −392.7 (−2.39 bp on $1.64M, 0+/23−) vs 252 none vs 216 −78.8.
+Totals: 255 −227 → +166 without 4-dec (56% of 252's +297); same $300 edge per $ as 252 — the $300 gap is VOLUME (2.8×). If the size-up brings $300 volume to ≈ $3.1M at
++0.79 bp → $300 ≈ +248, total ≈ +326 per 90 sim min ≈ 252's level (gauge ≈ +1,100 ≈ 3.7× the 90-min sum → validator window ≈ 5–6 sim h). Use skill_cls2.py as the size-up yardstick.
