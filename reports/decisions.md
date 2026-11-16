@@ -23514,3 +23514,14 @@ Validator 5EWwdZB7: 255 skill 0.30 (10:23 0.20), combined 0.163, net alpha +341,
 kindsplit: 255 inside n45 $69k median $977 +0.43 / +1.26, touch n10 $12k, behind n17 $33k −0.99 / −0.01 vs 252 inside $82k +0.99 / +1.49, touch $22k, behind $43k. fillrate: 255 $121k on 42 books
 (≈ $336k per 570 s vs lean-1.5 $218k → ≈ 1.5×) vs 252 $147k on 39. Validator-exact 3.7 sim min: $300 255 +16.7 (+1.48 bp on $113k, 10+/0−) ≈ 4.5/min vs 252 +4.5 (+0.26) — quiet window
 for 252; $30 255 −0.7 vs 252 +2.9. Budget binding more: GATE 4,204 / 2,996 (42% rest, was 33%); PACE 0/256 blocked, worst $79k. 0 errors; call 0.37 s. Verdict ≈ 11:30 AM.
+
+## §1527 — 2026-11-16 11:25 AM CT — LEAN-1.25 VERDICT: NOISE / tie vs 1.5 — the pace budget now binds; recommend back to 1.5 (user's call)
+Release watch: none. regcheck 255 REGISTERED. Pay 255 $11 vs 252 $173. Validator: 255 skill 0.24, combined 0.155, net alpha +311, kept 74, coverage 251, open 236/179; 252 skill 0.87, +1,112, kept 87.
+Lean-1.25 window 64045–64560 (515 sim s): 255 inside n97 $134k median $819 +0.54 / +1.35, touch n14 $19k, behind n37 $58k −0.65 / +0.50 vs 252 inside $150k +0.84 / +1.08, touch $76k, behind $108k.
+fillrate 255 $218k on 77 books (423/s vs lean 1.5 382/s → +11% only; first 205 s looked 1.5×) vs 252 $345k on 78. Validator-exact 8.5 sim min: $300 255 +29.4 (+1.65 bp on $178k,
+kept 22 = 21+/1−) = 3.5 Σα/min (lean 1.5: 3.7) vs 252 +17.1 (+0.52) = 2.0/min; $30 255 +4.5 (+1.22) vs 252 +9.1. Positions 255 $1,621/book, HOLD 171 s (n3), corr +0.117 vs 252 $2,161, 227 s,
++0.107. Books filled $300 77 (60 by step-ins) + $30 19. GATE 3,757 step-in / 3,443 rest (48% rest; 1.5: 33%); PACE 0/256 blocked, worst $79k. 0 errors; call 0.36 s.
+VERDICT: NOISE (tie on Σα/min, lower bp/$, fewer kept books per min). Cause: the bucket gate binds — a full $3.6k step-in needs tok ≥ $3.6k, our step-ins fill PARTIALLY (median $819),
+each partial fill drops tok below $3.6k and the book rests until refill (≈ 150–700 s) → more leans can't add volume. Recommendation: back to 1.5 (higher bp per $ → more books clear the
+2.3-bp hurdle); next lever = budget efficiency: step in with min(full size, bucket) once the bucket ≥ ≈ 50% of full (code + restart), or the $30 class. Hold-longer (user item 2) largely
+done by rest-30 + leans: 50 → 171 s vs 252 227 s (small n) — keep measuring.
