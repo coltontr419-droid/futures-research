@@ -23234,3 +23234,15 @@ books, 0.38) → ≈ 14× less volume, ≈ 252's pattern; $30 TOTAL +0.22 on 8 b
 $380k on 625 orders (avg ≈ $606); call 0.349 s. Pay 255 $2/mo (validator net alpha +137 on 37 books — its 3-h window still includes the pre-lean hours); 252 $216.
 → $300 REDO = first strategy that is consistently positive and ahead of the reference (4/4 windows). Next: does the validator's hurdle count reach 20 $300 books as the window fills
 with lean-on trading; $30 needs time (books clearing at the new volume).
+
+## §1497 — 2026-11-15 8:40 PM CT — REDO catch-up (sim 54230–55400): $30 QUALIFIES (21 books clear 2.3 bp, > 252's 12); $300 edge FADED as start buckets drained
+Windows (300 sim s; speed/dilwin.py) 255 vs 252: $300 +0.43 / −0.04 / −0.15 / +0.04 vs −0.02 / −0.08 / +0.57 / −0.01 (net ≈ −0.05 over the four; earlier 4: ahead each time);
+$30 +1.22 / +0.05 / +0.30 / +1.13 vs +1.65 / +2.05 / +0.66 / +1.37.
+HURDLE (speed/dilution2.py, sim 54070–55400, ≈ 22 sim min): $30 255 54 books, notional/book $2k (was $15–27k; 252 $2k), median +0.74 bp, 67% +, KEPT +18 −3 = 21 (bar 10) vs 252 +10 −2;
+$300 255 122 books, $8k/book, median +0.15, 52% +, kept +8 −5 = 13 (bar 20) vs 252 +10 −6 = 16, median +0.75.
+Positions (speed/invstudy2.py sim 55130–55340): $300 255 $673 (from $1,807 at the start), hold 69 s, timing corr +0.024 (from +0.144) vs 252 $1,408 / +0.141; $30 255 $709, corr +0.332.
+GATE 2,188 step-in / 5,072 rest (75% → 30% step-ins) → buckets drained → most $300 books in rest mode at the soft size → positions shrank → edge faded. $300 fill rate 0.97 per book-min
+(252 0.46) is still too high for full size under our pace.
+Pay 255 $11/mo (validator net alpha +260, rising); 252 $199. Health 0 errors, presence 236, 6/256 paced, call 0.353.
+→ $30: the lean + volume cut copies 252's volume and beats its hurdle count — keep. $300: needs the same lever as $30 (fewer, full-size fills — e.g. a higher $300 lean threshold so
+step-ins are rarer and buckets refill). Proposed to the user; nothing changed (no automatic changes).
