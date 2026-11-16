@@ -23485,3 +23485,13 @@ fillrate: 255 $117k on 43 books (≈ $280k per 575 s vs rest-30 $104k → ≈ 2.
 12+/0−; 4.1 per sim min vs rest-30 2.4 → +70%) vs 252 +9.5 (+0.56 bp on $171k; 2.4/min); $30 255 +1.6 vs 252 +0.8. Positions 255 $1,481/book corr +0.156 vs 252 $2,032, +0.177.
 Books filled 43 $300 (35 by step-ins) + 10 $30 in 240 s. Budget starting to bind: GATE 4,746 step-in / 2,454 rest (34% rest, was ≈ 20%); PACE 0/256 blocked; worst $75k of $450k.
 0 errors; call 0.36 s. Verdict ≈ 10:30 AM.
+
+## §1524 — 2026-11-16 10:05 AM CT — Upstream release cadence (user question) + release watcher installed
+GitHub taos-im/sn-79 main (commit history; no tags / GitHub releases; the test branch = main, no advance preview): 27 versioned releases since 06-01: Wed 11, Tue 6, Fri 6, Mon 2, Thu 2;
+NEVER weekends. Times 09:52–15:52 UTC = ≈ 4 AM–11 AM CT (most 13:00–15:50 UTC = 7–10 AM CT). Gaps (days): 7.1, 14, 6, 3, 5, 7, 13, 29, 13.9, 5.9, 1.2, 1.8, 3.2, 2, 1.9, 3, 0.9, 7.1, 1.8,
+6.2, 1.8, 5.2, 1.9, 6, 8, 4.1 → since 0.6.x (09-09) a PAIR pattern: a version (Tue/Wed) then a "final" 1–4 days later (0.6.3 10-06 → 10-08, 0.6.4 10-14 → 10-16, 0.6.5 10-21 → 10-23,
+0.6.7 11-06 → 11-10); new version ≈ every 6–8 days. Last: 0.6.7 final 11-10 08:54 AM CT → 6 days quiet → next likely Tue–Fri this week, 4–11 AM CT. "Wednesday 17:00 UTC" was wrong.
+What changed before (titles): making pool, skill floor, pool pay vector, multi-asset sim, fee-aware market making (dynamic fees) — scoring + sim config, the things our edge rests on.
+Watcher: /opt/mvtrx/release_watch.py + systemd mvtrx-releasewatch.timer (every 10 min): polls GitHub main; on a new commit logs to release_watch.log with the changed sim-config/scoring files
+and writes an ALERT line to alerts.txt. Baseline 20e97853 (0.6.7 final). Response plan (§1500): re-read config xml + scoring dials, refit model_lean*.json (speed/modelfitc.py) and compare
+held-out edge, read validator alpha vs 252 hourly for the first 6 h; changes to the frozen miner only with the user.
