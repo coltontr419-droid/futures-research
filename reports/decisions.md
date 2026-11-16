@@ -23657,3 +23657,9 @@ minute later → a glitch in the live validator's gauges); 21:59 back to $95k. T
 blocked ≈ 187 books for 24 h. It did NOT fire (0 "PACE SYNC" lines 21:40–22:15, PACE 0 blocked) — luck of timing.
 FIX (lab script only, agent md5 unchanged): pace_sync.py (backup pace_sync.py.bak-1116) keeps the previous pace_sync_<uid>.json and prints an ALERT when > 5 books jump > $60k in one 10-min tick
 (max real gain ≈ $5.2/sim s); offline test with the phantom values → IGNORED; live run normal ($95,926). Applies to every miner (newminer.sh uses the same pace_sync).
+
+## §1545 — 2026-11-16 5:00 PM CT — UID 255 PRUNED (between ≈ 4:30 and 4:56 PM CT); mvtrx-x2 stopped + disabled; our_uids.txt emptied (backup our_uids.txt.bak-pruned255)
+regcheck x2=255 NOT REGISTERED twice (4:56 and 5:00 PM). Gauges for 255 now the new owner's (skill 0, coverage 18). Last state of our 255 (4:30 PM): pay $65 (= prune line), skill 0.73,
+net alpha +603 (best of the day), kept 105 (> 252's 88), $300 alpha/min ≈ 2× 252's. Pay lag + this morning's 4-dec drag and two restarts kept on-chain pay below the line.
+Next (§1538): user re-registers x2 now (VS Code closed) → `sh /opt/mvtrx/newminer.sh <uid>` (checks agent md5 2ef16f9b, copies the frozen live_params_NEXT.json, restarts mvtrx-x2 = tape
+writer); x1 this evening → `HK=x1 sh /opt/mvtrx/newminer.sh <uid>`. The overnight "within 10% of the hard cap" alerts in the log are the 21:49 UTC validator glitch (§1544), not new.
