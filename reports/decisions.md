@@ -23260,3 +23260,13 @@ mean skill 3.46 → 4.21 → 1.59 → 2.83 → 2.37 → MARKET-wide predictabili
 qualifiers split the half. TAO $185 → $192, alpha 0.00309 → 0.00303 → prices flat. → 252's pay ≈ $330 → $199 = share dilution (more qualifiers) + its own net-alpha dip (share
 0.58% → 0.51%). UID 255 started 3:12 PM; 252's decline began ≈ 4–5 AM; since 3 PM 252 net alpha −15% while 216 held → small overlap effect on the $30 books possible, not proven.
 → judge pay by net-alpha share; the skill pool is crowding.
+
+## §1500 — 2026-11-15 9:10 PM CT — What killed our makers (≈ $190/mo on 11-09) and whether it can recur with the new edge (user Q)
+Killers (§1289, §1364, §1429, §1438–§1447): (1) our income was the MAKING half; the engine's DYNAMIC maker fee (per book, rises when miner making share > 0.4) went from 20–40 bp to
+100–140 bp; the validator nets 0.005 × fee from making credit → making ≈ 0 field-wide by 11-13 (even 252); making quality is one miner-wide factor → one bad class zeroed all;
+(2) 0.6.7 (11-10): 256 books / 3 classes — our tuning was for 128; (3) ours: three identical makers on the same books (11-08) split flow and skill (x3 $158 → $56 overnight), tests /
+restarts on settled miners, start bursts burning the pace budget before protection ended.
+Recurrence risk for the REDO: it earns SKILL (inventory × mid move, drift removed; fees not in it) — the fee mechanism that killed making doesn't apply. Real risks: (a) weekly releases
+can change market configs / skill rules → after every release re-read the configs and REFIT the model before trusting it; (b) crowding (skill qualifiers 172–189 → 213–219 on 11-15)
+dilutes share; (c) scaling identical miners on the same books collides (as 11-08) → split books / vary thresholds and run the collision checks before adding miners; (d) unproven over
+hours / the validator window / protection end (≈ 3:10 PM 11-16). Plan adds: post-release refit + compare; collision plan before scaling; auto-revert for tweaks once a winner (user).
