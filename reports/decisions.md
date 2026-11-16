@@ -23545,3 +23545,9 @@ $30 model lean census (speed/leanfreq2.py MODEL=model_lean_30.json BOOKS=128-191
 Interaction: mk_model_lean_30 only scales the $30 (low-group) lean threshold → which side stays at the touch (lean30_only: no lean → both sides back 2); $300 path, gate, rest 30, part step-ins,
 4-dec skip untouched; per-book budgets (no cross-class effect) → safe to run with the $300 part test (per-class reads). Applied 17:47:22 UTC "mk_model_lean_30 1.0→0.75"; 0 errors;
 backup live_params_255.pre-l30075.json. $30 leans also warm up after the 11:38 restart (until ≈ sim 65065). Verdict with the part test ≈ 1:05 PM (per class).
+
+## §1530 — 2026-11-16 12:00 PM CT — UID 76 lifecycle (user: "maybe they're a churn and burn miner"): YES — 5CAXJT4t fleet, 31 UIDs, oldest 6.1 d
+76 is 1.0 d old on coldkey 5CAXJT4t (31 UIDs, ≈ $7.5k/mo, the largest fleet); ages 0.2, 1.0, 1.0, 1.5 ×3, 2.1 ×3, 2.2, 3.1, 3.2, 3.9, 4.0, 4.1, 5.1 ×4, 5.4, 5.5 ×3, 5.6 ×2, 5.7 ×2, 5.9 ×2,
+6.0, 6.1 → no UID survives ≈ 6 days; they register ≈ 5/day = churn-and-burn. UID 99 (taker, §1517) is a lone UID, 2.4 d — lifecycle unknown.
+Rule (copy-successful-miners): trading behaviour may be copied from any good earner if our cap-safe pacing keeps it intact; pacing / lifecycle only from long-lived UIDs → 76's $30 volume is a
+direction (more volume at good edge, which the $30 lean-0.75 test does within our pacing), NOT a benchmark for survival. The long-lived benchmark stays 252 (33 d; fleet 5F1F2JMu has UIDs 20–36 d).
