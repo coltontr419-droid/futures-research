@@ -23495,3 +23495,15 @@ What changed before (titles): making pool, skill floor, pool pay vector, multi-a
 Watcher: /opt/mvtrx/release_watch.py + systemd mvtrx-releasewatch.timer (every 10 min): polls GitHub main; on a new commit logs to release_watch.log with the changed sim-config/scoring files
 and writes an ALERT line to alerts.txt. Baseline 20e97853 (0.6.7 final). Response plan (§1500): re-read config xml + scoring dials, refit model_lean*.json (speed/modelfitc.py) and compare
 held-out edge, read validator alpha vs 252 hourly for the first 6 h; changes to the frozen miner only with the user.
+
+## §1525 — 2026-11-16 10:30 AM CT — LEAN-1.5 VERDICT: PROVEN ($300 volume 2.1×, alpha per $ held, Σα/min = 252's) → next: mk_model_lean 1.5 → 1.25 live 10:28:05 (sim 64042)
+Release watch: no new release (baseline 0.6.7 final). regcheck 255 REGISTERED. Pay 255 $20 vs 252 $167. Validator: 255 skill 0.20 (9:51 0.13), combined 0.134, net alpha +298 (rolling-window dip
+from +367), kept 58, coverage 252, open 223/177; 252 skill 1.40, +1,155, kept 88.
+Lean-1.5 window 63410–63980 (570 sim s) vs rest-30 (62830–63340): kindsplit 255 inside n88 $132k median $1,168 +0.19 / +1.08, touch n20 $25k +0.84 / +1.58, behind n34 $55k depth 2 −0.49 / +0.17
+vs 252 inside $216k +0.99 / +1.51, touch $92k, behind $148k +0.04 / +0.84. fillrate: 255 $218k on 70 books (rest-30 ≈ $104k per 575 s → 2.1×) vs 252 $460k on 88 (we 47%).
+Validator-exact 9.5 sim min: $300 255 +35.5 (+1.85 bp on $191k, kept 29 = 28+/1−, kappa +2.90, ELIGIBLE) = 3.7 Σα/min (rest-30 2.4 → +56%) vs 252 +34.1 (+0.82 bp on $419k) = 3.6/min;
+$30 255 +4.4 (+0.65 on $69k) vs 252 +11.0 (+1.46 on $76k) — $30 lags. Positions 255 $1,685/book, hold 50 s (n4), corr +0.094 vs 252 $2,369, 301 s, +0.138. Books filled $300 70 (56 by step-ins)
++ $30 25 in 570 s. PACE 0/256 blocked, worst $77k; GATE 4,811 / 2,389 (33% rest). 0 errors; call 0.38 s.
+VERDICT lean 1.5: PROVEN — keep. Next (same knob, census = speed/leanfreq.py §1521: 1.25 = 18–19% active vs 11–12%, edge +1.28–1.46 vs +1.40–1.66 bp at 120 s): our $ edge is 2.3× 252's,
+so trade edge for volume once more. Interaction: as §1521; budget binding rises (watch GATE rest share / PACE blocked). Applied 16:28:28 UTC "mk_model_lean 1.5→1.25"; backup
+live_params_255.pre-lean125.json. Verdict ≈ 11:30 AM. Queued after: hold-longer (user item 2), $30 class (lags 252 per $).
