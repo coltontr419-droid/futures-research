@@ -23605,3 +23605,11 @@ The frozen live_params_NEXT.json keeps 0.5 unless this clearly wins (Σα/min ab
 Release watch: none. regcheck 255 REGISTERED. Pay 255 $66 vs 252 $206; prune line $119 (0.55×). Validator: 255 skill 0.50, net alpha +476, kept 99 (252 85), coverage 248; 252 skill 2.32, +1,596.
 Part 0.3 since sim 66625 (3.5 sim min; guard log: "sim +110 s - waiting" at 20:43 UTC): validator-exact $300 255 +12.4 (+1.51 bp on $82k, 9+/0−) ≈ 3.5/min (proven 4.5) vs 252 +5.7 (+0.38); $30 255 +1.7
 (+0.43 on $40k). fillrate $300 255 $82k on 39 books (median $978) vs 252 $150k on 44. GATE 6,219 / 981 (14% rest; was 27%). PACE 0/256, worst $91k. 0 errors. Verdict ≈ 3:40 PM.
+
+## §1538 — 2026-11-16 3:05 PM CT — Plan (user): after the prune register TWO UIDs — x2 right away, a second this evening (registration burn rises when registrations come quickly)
+Prep done (no miner touched): /etc/systemd/system/mvtrx-x1.service rebuilt from the x2 unit (backup /opt/mvtrx/mvtrx-x1.service.bak-1116): hotkey x1, port 8101, soft pacing (pace_soft 5000 /
+min 0.05, pace_start 20000 — the old x1 unit had hard pacing, pace_start 100000), NO tape (x2 keeps the only tape writer); disabled + inactive until used. newminer.sh generalised (backup
+newminer.sh.bak-1116b): HK=x1 sh newminer.sh <uid> → regcheck x1, restart mvtrx-x1, APPENDS "<uid> maker x1 <sim>" to our_uids.txt (x2 still overwrites). Lab: 4 cores, 7 GB, load 0.2 → two miners fit.
+Collision: both post-only on the same books → they cannot trade each other (a crossing post-only order is rejected); they stack like the 5F1F2JMu fleet (§1522), which pays ≈ $170 per UID.
+Measure the cost: miner 1's validator-exact alpha per sim min for ≈ 1 h before vs after miner 2 starts (speed/skill_cls2.py) + self-trade check (0 fills between our UIDs).
+Both start on the frozen settings (live_params_NEXT.json + agent 2ef16f9b); no tests on miner 1 once settled (rules); miner 2 is the candidate test bench after the collision read.
