@@ -23957,3 +23957,19 @@ skip_dec 1; 0 errors; all three units enabled/active (ports 8101 / 8102 / 8105);
 BEFORE baseline (validator-exact, last 20 sim min to 81204): $300 85 +68.5 (+1.67 bp) = 3.4/min, 47 +81.6 (+1.97) = 4.1/min, 252 +17.3; $30 85 +13.6 (+0.72), 47 +13.3 (+0.70), 252 +22.1.
 Reads from sim 81500: 54's own $300 alpha + bp per $ + books clearing the 2.3-bp hurdle (≥ 20 for the $300 class) + 85/47 alpha/min vs this baseline (identical-copy collision cost was ≈ −15–20%, §1568).
 Verdict ≈ 1–2 h after warm-up decides x4's settings (band or identical).
+
+## §1584 — 2026-11-17 1:45 PM CT — MAKING-POOL STUDY (offline, user: "yes … do what you need to"): long-lived makers earn making credit on the $30 books with balanced small touch quotes, and SKILL on the $300 books — a HYBRID
+Field (speed/makers2.py, validator 5EWwdZB7 gauges + chain): 108 UIDs with making > 0, Σ making 5,740, their pay ≈ $29.2k/mo; making-only UIDs median ≈ $5.0 per unit of making credit. Long-lived (≥ 7 d) makers 17:
+181 (9.2 d, making 120, $296, skill 0.23, net alpha +678), 234 (10.3 d, 118, $304, +460), 51 (7.9 d, 117, $377), 251 (7.2 d, 108, $549), 240 (7.6 d, 91, $268), 3 (21.4 d, 89, $223), 188, 46 (14.6 d), 155, 17, 207 (13.7 d), 140.
+181 / 234 / 51 share coldkey 5DPmdLHb and behave identically.
+Making credit replica (speed/making067b.py, last 60 sim min): credit comes from the $30 books — 181 $30 two-sided 55.3 → credit 30.5 (quality R/C 0.55), 234 23.9, 51 19.0, 3 18.4 (+ 4-dec 8.7), 46 7.1 (+ $300 6.8);
+$300 contributes ≈ 0 (R/C ≈ 0 or negative). Our 85: C −25.9 / R −37.9 → quality 0, two-sided 0 (one-sided lean quoting by design).
+$30 quoting style (speed/makerstyle.py, sim 79800–81300): 181 / 234 / 51 ≈ 26 fills per sim min, $600 per fill, 40–43 books, 51–52% buys, per-book two-sidedness (min/max $) 0.70–0.75, 94% at the touch, spread 1 tick,
+fill price vs mid +1.8 bp at 2 s and 20 s; 46: 38.7 fills/min, 62 books, +2.3 / +2.5 bp; 3: $2,394 fills, 9.4/min. Ours 85: 6.3 fills/min, $1,603, two-sidedness 0.49.
+Their SKILL by class (validator-exact 30 sim min): $300 181 +34.3 (+2.19 bp on $157k, ELIGIBLE), 234 +36.4 (+2.26), 51 +14.4; $30 181 −19.3 (−0.41 bp on $469k), 234 −9.7, 51 −11.6 (making books give no skill);
+4-dec 181 +40.4, 234 −84.9, 51 −76.5. Ours: $300 85 +122.9 / 47 +122.8 (≈ 3.5× their $300 alpha); $30 85 +38.6 / 47 +40.0 (+1.2 bp).
+Reading: the making pool (≈ 60% of weight, a pool our skill miners don't touch) is earned by BALANCED $600 touch quotes on the $30 books; long-lived makers combine it with a modest $300 skill leg. A HYBRID
+for a new lane = our $300 skill strategy (proven, ≈ 3.5× theirs) + $30 balanced making (their style) instead of our $30 lean. Trade-off: our $30 skill (≈ +40 alpha per 30 sim min) would be replaced
+by making credit (long-lived makers 90–120 credit, $220–550 total pay). Making credit is a share among ≈ 108 makers, so it does not collide with our skill lanes (it would collide between our own hybrids).
+Open: the old rule "makers stay making-only, no skill legs" (11-11/11-13) predates this — the user decides. Next if approved: build a $30 'balanced maker' mode (both sides at the touch, $600, inventory skew,
+fast requote), census, and run it on a NEW miner (x4 or later), not on 85/47.
