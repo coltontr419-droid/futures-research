@@ -23859,3 +23859,16 @@ depth 4 lean agrees $64k/min +0.46 / +0.86 | no lean −0.90 / −0.80 | against
 makers) is ≈ 20× one miner's current $300 volume (≈ $20k/min) — even a small share is a real volume gain at full edge. Test design: keep the inside step-in, ADD lean-side resting orders at 1–3 ticks
 (non-lean side stays at 30). Offline can't tell our fill share (queue position) → needs a live A/B.
 Recommendation: run it LIVE on UID 47 (x1) with an auto-revert guard while still protected (until ≈ 8 PM), 85 = frozen same-window control (the cleanest A/B so far); new miners are not needed for it.
+
+## §1571 — 2026-11-17 ≈ 8:50 AM CT — LEAN-SIDE SHALLOW REST live on UID 47 (x1) with an auto-revert guard; UID 85 = frozen same-window control (user: "add that test to 47 with the automatic revert guard")
+Code: agent 683f430c = 2ef16f9b + mk_lean_lad (live, 0 = identical): with mk_lad_off, resting orders 1..N ticks behind the step-in target, ONLY on the side the lean jumped, only while a step-in is live
+($300 vol + calm; $30 books excluded); sized by the ladder size (mk_vol_lad_size 0.027 ≈ $1.35k; calm 0.02 ≈ $1.0k); a side whose lean ends → its rest orders are cancelled. equiv.py 0 instruction diffs (10 replies,
+tape / ledger / locks identical), test_pace ALL PASS. Census (speed/leanladcensus.py, live_params_47, buckets $4,700 / $1,200): B (mk_lean_lad 3) adds on lean books 0 / 1 / 2 ticks behind the others' best
+(vol 5+5+5, calm 3+3+3 orders, $1,352 / $999) next to the −1 step-in; non-lean side unchanged at +31…+34; low bucket → no lean, identical to A.
+Interaction: §1570 says lean-side rest at depth 0–3 earns +0.6…+1.7 bp de-drifted; adds lean-side exposure (step-in $3.6k + 3 × $1.35k); max_inv 0.14 still caps inventory; the instruction limit
+(5/book) orders cancels → step-in → ladder nearest first; budget gate unchanged (rest orders spend only when filled).
+Deploy (47 only): backups agents/QuoteAgent.2ef16f9b.py, live_params_47.pre-leanlad.json, mvtrx-x1.service.bak-leanlad; x1 unit pace_start 20000 → 4700 (no start burst → a clean A/B vs 85); live_params_47
+mk_lean_lad 3; agents/QuoteAgent.py = 683f430c; restart x1 only 14:45:10 UTC (x2 untouched since 00:00:25 UTC; it keeps running 2ef16f9b in memory); LIVE PARAMS applied incl. mk_lean_lad 0→3; 0 errors.
+Warm-up to ≈ sim 78645. newminer.sh now expects agent md5 683f430c (identical to 2ef16f9b with mk_lean_lad 0, which live_params_NEXT.json keeps).
+GUARD /opt/mvtrx/guard_leanlad.sh (pid 1543291, log guard_leanlad.log): every 10 min for 150 min, ≥ 600 sim s after warm-up: validator-exact $300 Σα of 47 vs 85 over the same window → mk_lean_lad back
+to 0 (+ ALERT) if 47 < 0.75 × 85 or 47's bp/$ < +0.8. Verdict ≈ 1 h after warm-up, well before 47's protection ends (≈ 8 PM).

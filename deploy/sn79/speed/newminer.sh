@@ -7,8 +7,8 @@ N=$1; O=${2:-255}; HK=${HK:-x2}; cd /opt/mvtrx   # HK=x1 sh newminer.sh <uid> fo
 [ -n "$N" ] || { echo "usage: newminer.sh <uid> [old uid]"; exit 1; }
 venv/bin/python regcheck.py $HK=$N || { echo "STOP: $HK is not UID $N"; exit 1; }
 [ -f live_params_$N.json ] && cp live_params_$N.json live_params_$N.json.pre-newminer
-# 11-16 (§1533): start on the FROZEN proven settings (live_params_NEXT.json) with the frozen agent 2ef16f9b
-M=$(md5sum agents/QuoteAgent.py | cut -c1-8); [ "$M" = "2ef16f9b" ] || { echo "STOP: agent md5 $M is not the frozen 2ef16f9b"; exit 1; }
+# 11-16 (§1533): start on the FROZEN proven settings (live_params_NEXT.json) with the frozen agent 683f430c
+M=$(md5sum agents/QuoteAgent.py | cut -c1-8); [ "$M" = "683f430c" ] || { echo "STOP: agent md5 $M is not the frozen 683f430c"; exit 1; }
 if [ -f live_params_NEXT.json ]; then cp live_params_NEXT.json live_params_$N.START.json; cp live_params_NEXT.json live_params_$N.json; echo "settings: live_params_NEXT.json"
 else cp live_params_$O.START.json live_params_$N.START.json; cp live_params_$O.START.json live_params_$N.json; fi
 for s in abtest_sched abgrp skillread makingread readchain; do sed "s/live_params_$O\.json/live_params_$N.json/g; s/UIDS_EXTRA=$O:x2/UIDS_EXTRA=$N:x2/; s/ $O 252 216 / $N 252 216 /; s/_$O\.sh/_$N.sh/g" ${s}_$O.sh > ${s}_$N.sh; done
