@@ -24102,3 +24102,10 @@ Net alpha is a ROLLING sum over the validator's ≈ 200-sim-min window (checked 
 the windows were full by the morning. Lesson: verify the window length directly before projecting.
 Per-minute gap to 5E2fVqiW (≈ 9 per sim min → ≈ 2,000): we don't quote when there is no lean (14% of our $ vs their 38–44% at +1.0…+1.8 bp), our $1–3.6k step-ins fill partially and wait for the
 budget (447 vs 770 fills), their small lean-side fills earn more per $ (+2.4…+2.7 vs +1.5), and two of our copies cost each other 15–20%. Targets: ≈ 6.5+ per sim min to clear ≈ $105–110; ≈ 9–10 for $150–200.
+
+## §1597 — 2026-11-17 3:55 PM CT — Outlook (user: will the 2 new miners have the same problem? total miners and $/mo)
+Validator-exact since 54's warm-up (sim 81500–82840, 22.3 sim min): 54 $300 +105.8 (+1.07 bp on $991k, 37 kept) + $30 +36.4 = 6.4 per sim min → ≈ 1,275 net alpha ≈ $105–110 (≈ $0.085/unit) — borderline at the
+prune line; immunity ends ≈ 1:10 PM 11-18. 47 same window $300 +97.1 + $30 +36.7 = 6.0/min. 228: 322 IOCs / $165k since start (taking works), but its rows still include the slot's previous owner
+(sim < 82441; e.g. 4-dec −75.2 which we skip) and it left warm-up at ≈ 82741 → no clean read yet; it also earns making credit (separate pool).
+Scenarios (rough): fleet recipe works (≈ 9/min, 5E2fVqiW ≈ $165 per UID × 20) → ≈ 8–15 skill miners ≈ $1.5–2.5k/mo; H2 works (≈ $250–300 per hybrid like 181/234) → +3–4 ≈ +$1k; both ≈ $2–3.5k;
+neither → lean / band sit at ≈ $95–110, 1–2 survive ≈ $100–300/mo. Decision reads: 85 vs 47 ≈ 5:15 PM; 228 first clean read ≈ 5:30–6 PM; if the recipe wins, move 54 and every replacement to it tonight.
