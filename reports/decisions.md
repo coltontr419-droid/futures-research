@@ -23774,3 +23774,10 @@ mvtrx-x3/x4.service.bak-1116), disabled until used; start with `HK=x3 sh /opt/mv
   #1-#20 gap ≈ 0.001, winner rotates; 28 UIDs average ≥ $1.7k/mo. Past rounds release BAM + truth → offline backtest possible. Burn 0.99 TAO, CPU box.
 - Synth forward 11-04→11-16: crypto-24h rank 2/257 (modelled $2.5-4.4k, conflicts with chain top UID $1.1k — verify), crypto-1h ≈ 2× median.
 - Full ranked list + history: deploy/HANDOFF_SUBNETS_2026-11-17.md. tag101-m3 verified inactive/disabled (§1309). No miners or services changed.
+
+## §1562 — 2026-11-17 12:20 AM CT — Read deploy/HANDOFF_SUBNETS_2026-11-17.md (other-subnet research, for when MVTRX income allows); port conflict fixed
+Port conflict: the staged Synth miner synth-s1 (disabled) uses axon port 8103 on the lab box, the same port §1561 gave the rebuilt mvtrx-x3 → mvtrx-x3 moved to 8105 (x4 stays 8104). Lab ports: 8101 x1,
+8102 x2, 8103 synth-s1 (when enabled), 8104 x4, 8105 x3.
+Cross-check with today's MVTRX code read (§1557-era): the handoff's lesson "on MVTRX a slot can keep its inherited standing (§1241)" — the 0.6.7 validator's handle_deregistration docstring says an
+older TypeError made a deregistered slot keep its standing; 0.6.7 fixed it and apply_resets → reset_agent_histories zeroes the slot (confirmed live: UID 47 started from no gauges, §1555). Still check
+1 h after any registration. Lab box capacity is shared: MVTRX miners ≈ 8–10% of a core each; a Minos GATK backtest needs its own box (as the handoff says).
