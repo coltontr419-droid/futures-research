@@ -23925,3 +23925,13 @@ Our $30 fills (speed/kindsplit2.py BOOKS=128-191): 11-16 evening 85 touch n129 $
 Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 1,009. Pay 85 $91 ($3.04/day), 47 $99 ($3.28/day), 252 $211; prune line read $26–27 this tick. Validator: 85 skill 2.42, net alpha
 +1,100 (window roll, 12:00 +1,216), kept 85, coverage 190; 47 skill 2.40, +1,186, kept 88, coverage 192; 252 +1,731. Validator-exact last 15 sim min: $300 85 +62.3 (+2.00 bp, 34+/1−), 47 +49.6 (+1.54) vs 252
 +7.4 (+0.12); $30 85 +10.4 (+0.71), 47 +10.4 (+0.73) vs 252 +17.1 (+1.72). 0 errors; PACE 0/192 both.
+
+## §1580 — 2026-11-17 12:50 PM CT — Signal diversity offline (user: run it now): the only usable non-overlapping signal is the model's 1.0–1.5× band (≈ 65% of the live edge); the half-models are weak
+speed/sigoverlap.py ($300 books, per book-second, each book's whole-window drift removed; overlap = the live signal A (|pred| ≥ 1.5 thr) leans the same side on the same book within ±5 s):
+now (sim 78000–80600): A active 12.9%, edge +1.30 / +1.67 bp (60 / 120 s); B1 band 1.0–1.5 thr active 18.1%, overlap 41.6%, B-only edge +0.84 / +1.06; B2 fundamental half (top 12%) overlap 39.2%, B-only
++0.29 / +0.38; B3 reversion half overlap 48.9%, B-only +0.28 / +0.24.
+11-16 evening (.prev 69000–72500): A 10.6%, +0.95 / +1.25; B1 17.1%, overlap 39.7%, B-only +0.64 / +0.85; B2 B-only +0.11 / +0.16; B3 B-only +0.31 / +0.40.
+Reading: B1 (lean only when 1.0 ≤ |pred|/thr < 1.5) finds ≈ 60% new moments at ≈ 0.65× A's edge in both windows; its 40% 'overlap' is timing adjacency (the prediction passes through the band on its
+way above 1.5×) — with an UPPER bound the B1 miner withdraws exactly when A miners step in. Risks: ≈ +0.8–1.1 bp means fewer books clear the 2.3-bp-of-own-notional hurdle → the $300 skill bar (20 books)
+is not assured; needs a code knob (mk_model_lean_max). Half-models (B2/B3) are not worth a miner.
+Plan: x3 tonight = identical copy (proven, collision small §1568); x4 = B1 band test (new knob, census before) — a new miner, so testing it costs nothing that is earning.
