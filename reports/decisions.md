@@ -24005,3 +24005,19 @@ Band read, sim 81500–82050 (validator-exact 9.2 min): $300 54 +55.3 (+1.10 bp 
 3.4 / 4.1); 252 +36.2 (+1.07). $30 54 +7.9 (+0.71), 85 +9.3, 47 +9.8. fillrate $300: 54 506 fills $551k on 119 books (0.46 per filled book-min, $730 median) vs 85 180 / $235k on 70, 47 160 / $219k on 70.
 Reading: the band miner trades ≈ 2.4× the volume of each lean miner (it leans ≈ 18% of the time vs ≈ 13%) at ≈ 0.65× the edge — as the offline study said — and the identical-copy collision (−15–20%)
 does not appear. Our total $300 alpha per sim min 13.7 vs 7.5 before (+83%). Too short to call — verdict ≈ 3:15 PM after ≈ 20 sim min.
+
+## §1588 — 2026-11-17 2:55 PM CT — H2 chosen (user: "lets try for H2 but taking has failed in the past … be sure we're doing everything correct compared to the taker miners") — taker study
+Past failures (lessons): taker copies collapsed under our pace (§1282), 10-min exit lost (§1289), x1 had no edge (§1283), fade clone as taker moved +0.2–0.8 < half-spread 0.9–1.4 (§1471) — in skill a
+TAKER pays its fill price (fill_charge = taker), so move − cost must be positive.
+speed/takerstudy.py, $300 books, sim 78500–82000 (≈ 58 sim min), de-drifted moves, our live model at entry (|pred|/thr ≥ 1 = agree):
+181: 440 trades (7.5/sim min) $250k, $600 each; spread at entry 1 tick 135 / 2 39 / 3 45 / ≥4 221; cost +0.47 bp; model agree 320 / weak 119 / against 1; 92% of trades RAISE |inventory|; position hold
+median 1,530 s; move +1.65 / +2.08 / +3.67 bp at 60 / 120 / 300 s; move − cost @120 s +1.60 (agree +1.82, weak +0.97); taker fee −83.8 bp (rebate, not in skill).
+234: 431 trades, $600, cost +0.50, agree 312 / weak 118, 92% entries, hold 736 s, +2.10 @120, net +1.60 (agree +1.82). 51: 224 trades, cost +0.52, agree 160 / weak 64, 96% entries, hold 14 s, net +1.40.
+99: 1,202 trades (20.6/sim min) $1.79M, $2,007 each; cost −0.22 (enters at/inside mid — waits for tight spreads); agree 642 / weak 531 / against 29; 54% entries; hold 205 s; +1.22 @120; net +1.44
+(agree +1.85, weak +1.11, against −0.32).
+→ The successful takers trade OUR signal (≈ 72% at |pred| ≥ thr), small ($600) so the crossing cost is ≈ 0.5 bp vs a ≈ +2 bp de-drifted move, and they HOLD (mostly add, hold minutes) — skill = inventory
+× mid move. The 5DPmdLHb trio runs identical copies with near-identical stats (scales across ≥ 3 copies). Taker skill uses the same skill pool as our makers (adds by capturing new alpha);
+$30 making credit is a separate pool (≈ $6/mo per hourly credit point).
+BUILD PLAN for x4 (H2, 181/234 template): $300 = TAKER ONLY (no $300 maker quotes, so making quality stays clean): take $600 in the lean direction when |pred| ≥ 1.0 × thr, per-book spacing ≈ 1 per
+≈ 17 sim min (7.5/min over 128 books), position cap, hold until the lean flips (study their inventory caps + exits first); $30 = balanced maker, both sides at the touch, $600, inventory skew; 4-dec skipped;
+self-trade guard (our taker must never hit our makers — their opposite side sits 30 ticks out; add an explicit lock); census + test_pace before deploy; new miner x4 only.
