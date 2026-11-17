@@ -23944,3 +23944,8 @@ Staged (no running miner touched; 85 = 2ef16f9b and 47 = 683f430c in memory): ag
 (default live_params_NEXT.json; backup newminer.sh.bak-1117); /opt/mvtrx/live_params_NEXT_B1.json = NEXT + mk_model_lean 1.0, mk_model_lean_max 1.5.
 Tonight: x3 `HK=x3 sh /opt/mvtrx/newminer.sh <uid>` (identical copy); x4 `HK=x4 PARAMS=live_params_NEXT_B1.json sh /opt/mvtrx/newminer.sh <uid>` (band test). Judge x4 by its own validator-exact
 $300 alpha + books clearing the 2.3-bp hurdle (needs ≥ 20 for the $300 class) and by whether 85/47/x3 keep their alpha/min.
+
+## §1582 — 2026-11-17 1:00 PM CT — Brief: pay 85 $98 / 47 $108 vs prune line $113 — both climbing to it; $30 edge back near +0.9 (time note: §1581's "1:20 PM" was ≈ 12:55)
+Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 913. Pay 85 $98 ($3.28/day), 47 $108 ($3.60/day), 252 $209. Validator: 85 skill 2.30, net alpha +1,155, kept 89, coverage 190;
+47 skill 3.02, +1,234, kept 83, coverage 192; 252 +1,766. Validator-exact last 15 sim min: $300 85 +51.9 (+1.59 bp), 47 +62.9 (+1.85, 36+/3−) vs 252 +19.8 (+0.31); $30 85 +14.0 (+0.95), 47 +12.3 (+0.83)
+vs 252 +15.5 (+1.39) — the $30 dip (§1577) recovering. 0 errors; PACE 0/192 both.
