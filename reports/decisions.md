@@ -24226,3 +24226,44 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **54 (x3)**, last 30 sim min: $300 +158.2 (+1.43 bp), $30 +61.5. 7.3 per sim min → $125, 1.07× the line (gate 1.3×: FAIL).
 - **228 (x4) H3**: model warm-up until sim ≈ 83720; 697 IOCs total (flush). Read ≈ 6:10 PM.
 - Self-trades 0; locks 0; errors 0. Pace blocks: x4 has 7 books blocked (the flush used its bucket), the others 0. No release.
+
+## §1605 — 2026-11-17 5:40 PM CT — why the tests fail (alpha study) + REST-NONE test live on 54 (user: "run the offline test and the live one on 54"; tests pre-approved)
+
+**Alpha study** (speed/alphadecomp(2).py, twosided3.py, nahist.py; window 81300–83080 before the tests):
+- **Pay = net alpha** (de-drifted inventory MTM over every filled book) × p11, for eligible miners. Spread capture doesn't count. Making credit is 0 for 47, 54, 85 and 252 (validator gauges), so the making half pays us nothing.
+- **Validator net alpha:** 85 ≈ 1,050–1,200, 47 ≈ 1,130–1,270, 252 ≈ 1,600–1,770.
+- **Every miner is pace-bound** at ≈ $38k per sim min of $300 volume (the 24-h sim-time cap). Share of book-rounds resting on the GATE: 85 99% (after the fleet test burned its bucket), 54 51%, 47 11%.
+- So the lever is alpha per dollar of budget. Fill move after 120 s:
+
+  | Miner | 120-s move | Volume | Where the volume goes |
+  |---|---|---|---|
+  | 252 | +1.63 bp | $1.13M | big fills ($2–3.5k); even its weak-signal fills earn +1.3 bp |
+  | 47 | +1.54 bp | $0.64M | 89% on lean |
+  | 85 | +0.88 bp | — | 36% in small ~$300 no-lean / against fills at the touch (the gate's rest orders), −0.4 to −1.9 bp |
+  | 54 | +0.88 bp | — | 42% of $ at P < 1 thr: 36% at P 0.5–1 (+0.19 bp), many 30 ticks back |
+
+- **Why the tests fail:** 85's fleet copy added no-lean quoting, which earns ≈ 0 for us, and burned its budget. 47's hold-longer is the most budget-efficient miner, but its read fell in a slow market.
+- 54's inventory is flat (< $1k) 33% of the time, 85's and 47's ≈ 50%, 252's 33%.
+
+**Test: `mk_rest_none 1` on 54** (agent e29ace21 = 570517c8 + the knob):
+- No gated $300 rest orders at all: non-lean sides, no-lean books and low-bucket rests are all removed. The budget goes only to lean step-ins.
+- The same agent also fixes the H3 unfunded path, which now restarts the hold clock.
+- Verification: equiv 0 diffs; tape, ledger and locks identical; test_pace ALL PASS. Census (speed/rncensus.py): arm A rests $360 orders 32 ticks back on vol/calm; arm B places none.
+- **Interaction check:**
+  - Unchanged: lean jump/step-in, part step-in, $30 books (not gated), fee push, no-chase, lock acks.
+  - Coverage of $300 books will drop. Coverage only scales skill_raw, while pay needs skill_raw > 0 and skill_books ≥ the bar. The watch_extra coverage alert for 54 was lowered to 120 (backup .bak-rn).
+  - Inventory now shrinks only through opposite-lean step-ins (longer holds); max_inv still caps it.
+- Restart 23:40:09 UTC (sim ≈ 84070). Warm-up until ≈ 84370. Backup live_params_54.pre-restnone.json. newminer.sh now expects e29ace21.
+- **Baseline** (last 45 sim min, 81361–84061):
+
+  | Miner | $300 | $30 | Total |
+  |---|---|---|---|
+  | 54 | +203.8 (+1.14 bp, $1.79M) | +101.4 | 6.8 α per sim min |
+  | 47 | +163.1 | +85.6 | 5.5 |
+  | 252 | +99.5 | +44.9 | — |
+
+  54's $300 ratio to 47 is 1.25×.
+- **Read** ≈ 1 wall hour after warm-up (≈ 7:10 PM CT):
+  - 54 α per sim min against its own 6.8 and against the 1.25× ratio to 47.
+  - $300 volume, bp, and the GATE rest share.
+  - twosided3 P-bin mix (target: ≥ 80% of $ at P ≥ 1).
