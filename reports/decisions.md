@@ -24209,3 +24209,20 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - Bug seen: `mk_take_hold` 300 re-zeroed the target that an unfunded close had held at the current units, re-requesting a lock each cycle. Set `mk_take_hold` 0 live at 22:45.
   Proper fix for the next restart: the unfunded path should also set last_add = now.
 - Read: rows from after the flush (sim ≈ 83570+). Compare trades per sim min (target ≈ 8), $300 taker α per sim min, lock count, and 85/47/54 α against their own pre-test baselines.
+
+## §1604 — 2026-11-17 5:10 PM CT — brief; 85 fleet-recipe test DISPROVEN and reverted; 47 interim
+
+- Prune line (prunecheck): $117. Pay: 85 $88, 47 $99, 54 $5 (ramping), 228 $0.
+  UID 34 ($12) leaves immunity at ≈ 5:20 PM and goes first. After that, 85 (immunity ends ≈ 5:50 PM) is the lowest non-immune, so expect its prune ≈ 6:15–6:40 PM.
+- **85 (x2) fleet recipe (mk_nolean_q 1, $600, lean 1.0)**, sim 83100–83715 (10.25 sim min; includes ≈ 1.7 sim min of lock contamination):
+  - $300 +0.7 α on $411k (+0.02 bp, 0 books kept); $30 +12.1. Total 1.25 α per sim min vs its own baseline of 5.1.
+  - twosided: 69% of $300 fills had no lean, at ≈ −0.1 bp (the fleet earns +1.0–1.8 bp there). 14% filled against the lean, at −0.5 to −2.5 bp (the fleet never does).
+  - Our copy does not reproduce the fleet's no-lean edge. **DISPROVEN.**
+  - Reverted 23:09 UTC to live_params_85.pre-fleet.json + mk_nolean_q 0 (test params saved as live_params_85.fleet-test.json).
+- **47 (x1) hold-longer (mk_exit_k 2, max_inv 0.3)**, sim 83357–83729 (6.2 sim min, includes the 228 flush):
+  - $300 +24.9 on $130k (+1.92 bp, kappa 2.92) on only 46 books; $30 +3.6. Total 4.6/min vs baseline 5.3.
+  - exitwhy: max position per book median $3.2k (baseline max ≈ $3.8k); too few reductions to classify.
+  - Interim: NOISE. Read at ≈ 5:35 PM.
+- **54 (x3)**, last 30 sim min: $300 +158.2 (+1.43 bp), $30 +61.5. 7.3 per sim min → $125, 1.07× the line (gate 1.3×: FAIL).
+- **228 (x4) H3**: model warm-up until sim ≈ 83720; 697 IOCs total (flush). Read ≈ 6:10 PM.
+- Self-trades 0; locks 0; errors 0. Pace blocks: x4 has 7 books blocked (the flush used its bucket), the others 0. No release.
