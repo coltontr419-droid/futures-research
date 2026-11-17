@@ -23997,3 +23997,11 @@ HYBRID consequence: quality is miner-wide — combining our $300 MAKER skill leg
 → $30 making credit ≈ 39% of the pure maker's (≈ $70/mo instead of ≈ $180). Options for x4: H1 our $300 maker skill + $30 balanced making (≈ $100 skill + ≈ $70 making); H2 181's template — $300
 TAKER skill + $30 balanced making (≈ $250–300 total like 181/234; needs the user's OK on taking); H3 $30 balanced making only (≈ $180, no skill). Mechanics to build for any of them: both sides
 EXACTLY at the touch (never inside), $600 orders (≈ 0.012 × $50k), all 64 $30 books, fast requote, inventory skew to stay ≈ 50/50, soft pacing (they trade ≈ the $5.2/s per-book cap on $30).
+
+## §1587 — 2026-11-17 2:35 PM CT — Brief + BAND first read (9.2 sim min): 54 adds +55 $300 alpha (+1.10 bp, 25 books kept ≥ 20) and 85/47 are NOT hurt (3.8 / 3.9 per min vs 3.4 / 4.1 before)
+Release watch: none; no alerts. regcheck 85 / 47 / 54 REGISTERED; selftrade 0 of 1,627. Pay 85 $94, 47 $104, 54 $0, 252 $208; prune line $110. Validator: 85 skill 3.47, net alpha +1,108, coverage 190; 47 skill 3.08,
++1,186, coverage 190; 54 skill 0.55, combined 0.20, net alpha +75, kept 76, coverage 164 (≥ 160 already); 252 +1,726. 0 errors; PACE 0 blocked on all three.
+Band read, sim 81500–82050 (validator-exact 9.2 min): $300 54 +55.3 (+1.10 bp on $504k, kept 25 = 22+/3−, ELIGIBLE) = 6.0 per sim min; 85 +34.9 (+1.65) = 3.8/min; 47 +35.6 (+1.69) = 3.9/min (§1583 baseline
+3.4 / 4.1); 252 +36.2 (+1.07). $30 54 +7.9 (+0.71), 85 +9.3, 47 +9.8. fillrate $300: 54 506 fills $551k on 119 books (0.46 per filled book-min, $730 median) vs 85 180 / $235k on 70, 47 160 / $219k on 70.
+Reading: the band miner trades ≈ 2.4× the volume of each lean miner (it leans ≈ 18% of the time vs ≈ 13%) at ≈ 0.65× the edge — as the offline study said — and the identical-copy collision (−15–20%)
+does not appear. Our total $300 alpha per sim min 13.7 vs 7.5 before (+83%). Too short to call — verdict ≈ 3:15 PM after ≈ 20 sim min.
