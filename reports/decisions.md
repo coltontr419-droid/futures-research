@@ -23978,3 +23978,22 @@ fast requote), census, and run it on a NEW miner (x4 or later), not on 85/47.
 Release watch: none; no alerts. regcheck 85 / 47 / 54 REGISTERED; selftrade 0 of 1,345 (three makers). Pay 85 $98, 47 $108, 54 $0 (new), 252 $209; prune-line read $30 (jumpy; steady ≈ $110).
 Validator: 85 skill 3.00, net alpha +1,168, coverage 190; 47 skill 2.86, +1,259, coverage 191; 54 skill 0, net alpha −1.9, kept 13, coverage 70 (building); 252 +1,771. 0 errors on all three;
 PACE 85 0/192, 47 0/192, 54 0/82 (worst $6.9k). Sim 81630 (54 warm-up ended ≈ 81500). Band verdict needs ≈ 1–2 h → ≈ 3:00–3:30 PM.
+
+## §1586 — 2026-11-17 2:30 PM CT — How the long-lived makers really earn (pre-hybrid deep dive, user: "make sure … you have as good of an understanding as you can") + why 85/47's alpha plateaued
+ALPHA PLATEAU: validator-exact 200-sim-min sums match the net-alpha gauges (85 $300 +881 + $30 +359 = 1,240 vs gauge 1,168; 47 +928 + 351 = 1,279 vs 1,259; 252 +1,669 + 17 = 1,686 vs 1,771) → the skill window
+is ≈ 200 sim min (not 5.5 h) and is FULL: 85/47 sit at ≈ 1,200–1,280 net alpha. Pay ≈ net-alpha share: 252 $209 at 1,771 ≈ $0.118 per unit → ours ≈ $140–150 each once pay catches up (now $98 / $108).
+$200 per skill-only miner needs ≈ 1,700 (252 trades 1.6× our $300 notional at a similar bp over 200 min). A second income source per miner is the realistic route.
+MAKING MECHANICS (validator 0.6.7 debeta.accumulate_book_capture): capture C of a fill = (centered mid − price) × q for a maker buy (price − mid for a sell), where the centered mid = unweighted mean of the
+fill's own print and the W = 15 nearest PRINTS on each side (trade prices, dust-floored, reach 8W) — NOT the book mid; realized R = the same against the print mark 20 s of sim time later; both net of
+fee_weight 0.005 × the maker fee (dynamic MTR fee ≈ 138–143 bp now → ≈ 0.7 bp per fill); self-trades earn nothing. Per book two-sided = 2·min(buy C, sell C); quality = clamp(ΣR/ΣC over ALL of the miner's
+books, 0, 1) (taker legs booked apart); credit per class = Σ two-sided × quality; making pool split by class 50 / 25 / 25 ($300 / $30 / 4-dec), share of class credit.
+→ stepping INSIDE the spread to buy pays above the surrounding prints → negative C (why 85's C is −25.9 / R −37.9); exactly-at-the-touch balanced fills capture the half-spread (+1.8 bp) − 0.7 fee.
+FIELD credit by class, last 60 sim min (speed/making_field.py): $300 421 (94 UIDs; top 91 51.8, 231 20.2, 177 18.6, 30, 59 — young 5FLbhrTC fleet, $750–940/mo), $30 960 (108 UIDs; 226, 115, 100,
+157, 181 28.3 …), 4-dec 685 (96). Pool per credit ∝ class share / total → $300 credit ≈ 4.5× and 4-dec ≈ 1.4× a $30 credit; ≈ $6/mo per hourly $30 credit point → 181 ≈ $180/mo from making.
+ROLES (tape, last ≈ 400 MB): 181 $300 TAKER n423 $185k, $30 maker n1,030 $592k, 4-dec taker $123k; 234 $300 taker $186k, $30 maker $585k, 4-dec maker $151k; 51 $300 taker $95k, $30 maker $566k,
+4-dec maker $149k; our 85 $300 maker $895k, $30 maker $421k. → the long-lived 'makers' (5DPmdLHb, 8–10 d) = balanced $30 makers + a $300 TAKER skill leg; their $300 maker C/R stays at 0, so quality
+(R/C) stays ≈ 0.5.
+HYBRID consequence: quality is miner-wide — combining our $300 MAKER skill leg (85, 60 min: C −14.0, R −29.1) with a 181-style $30 maker (C 77.9, R 42.9) → quality 13.8 / 63.9 = 0.22 (vs 0.55)
+→ $30 making credit ≈ 39% of the pure maker's (≈ $70/mo instead of ≈ $180). Options for x4: H1 our $300 maker skill + $30 balanced making (≈ $100 skill + ≈ $70 making); H2 181's template — $300
+TAKER skill + $30 balanced making (≈ $250–300 total like 181/234; needs the user's OK on taking); H3 $30 balanced making only (≈ $180, no skill). Mechanics to build for any of them: both sides
+EXACTLY at the touch (never inside), $600 orders (≈ 0.012 × $50k), all 64 $30 books, fast requote, inventory skew to stay ≈ 50/50, soft pacing (they trade ≈ the $5.2/s per-book cap on $30).
