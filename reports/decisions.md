@@ -24067,3 +24067,8 @@ Ours 85 / 47: $300 maker ONE-SIDED lean step-ins (inside 53%), $30 touch.
 Reading: (1) 20 copies coexist when each quotes BOTH sides with small orders inside + at the touch — more fills per UID at the same bp, overlap tolerated; (2) the 4-dec class (25% of the skill pool) pays the
 big fleets via TAKING that follows momentum selectively (our §1569 raw-momentum lean, de-drifted, was only +0.2–0.7 bp — their entries are far more selective: +6–14 bp at 120 s on their with-momentum
 trades) — a lane we have not built. Next (offline): reverse-engineer the 4-dec taker entry rule (momentum size, fundamental gap, spread, timing) and 5E2fVqiW's two-sided $300 quoting vs our model lean.
+
+## §1593 — 2026-11-17 3:25 PM CT — Brief (four miners): 228 still in warm-up (no takes yet); 54 coverage 187; pay 85 $93 / 47 $103 / 54 $1; self-trades 0
+Release watch: none; no alerts. regcheck 85 / 47 / 54 / 228 REGISTERED; selftrade 0 of 2,430. Pay 85 $93, 47 $103, 54 $1 (first emission), 228 $0, 252 $202. Validator: 85 skill 2.87, net alpha +1,079, coverage 190;
+47 skill 3.79, +1,157, coverage 189; 54 skill 0.48, +141, kept 95, coverage 187; 228 +4, coverage 55 (warm-up, $30 making only so far); making credit 0 on all (228's $30 making needs time to register).
+0 errors on all four; PACE 0 blocked. Sim 82605 (228 warm-up to ≈ 82741) — no IOC takes yet, as expected. First H2 read ≈ 4:40 PM.
