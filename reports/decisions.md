@@ -24109,3 +24109,11 @@ prune line; immunity ends ≈ 1:10 PM 11-18. 47 same window $300 +97.1 + $30 +36
 (sim < 82441; e.g. 4-dec −75.2 which we skip) and it left warm-up at ≈ 82741 → no clean read yet; it also earns making credit (separate pool).
 Scenarios (rough): fleet recipe works (≈ 9/min, 5E2fVqiW ≈ $165 per UID × 20) → ≈ 8–15 skill miners ≈ $1.5–2.5k/mo; H2 works (≈ $250–300 per hybrid like 181/234) → +3–4 ≈ +$1k; both ≈ $2–3.5k;
 neither → lean / band sit at ≈ $95–110, 1–2 survive ≈ $100–300/mo. Decision reads: 85 vs 47 ≈ 5:15 PM; 228 first clean read ≈ 5:30–6 PM; if the recipe wins, move 54 and every replacement to it tonight.
+
+## §1598 — 2026-11-17 4:05 PM CT — Post-mortem + SURVIVAL GATE (user: "whats stopping this from happening again?")
+Failures: (1) the lean strategy was called proven on bp per $ / vs 252, never on projected pay vs the prune line; (2) pay was projected from an unverified ≈ 5.5-h window (it is ≈ 200 sim min, §1596);
+(3) the prune line was read from mypay's jumpy "lowest paid > $20" field ($1–$114) instead of the sorted non-immune list (≈ $105 all day); (4) we added miners before one had shown it clears the line.
+GATE (memory feedback-survival-gate, CLAUDE-level rule): before any registration or copy, a LIVE miner on the strategy must show validator-exact α per sim min over ≥ 30 sim min (after warm-up and any
+start burst) → projected steady pay = α/min × 200 × $ per net-alpha unit (field-measured, ≈ $0.085 today) ≥ 1.3 × the real prune line (speed/prunecheck.py; ≈ $140 today). One miner per untested
+strategy; checked by hour ≈ 6 of immunity. Today: 47 ≈ $100 FAIL; 54 band ≈ $105–110 FAIL (borderline; needs the winning recipe before ≈ 1 PM 11-18); 85 (fleet recipe) and 228 (H2) pending reads.
+Briefs now show each miner's projected pay vs the line.

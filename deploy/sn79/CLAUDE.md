@@ -4,6 +4,8 @@ Re-read this file before every action.
 
 ## 1. RULES (copy into CLAUDE.md; all are the user's standing instructions)
 
+- **SURVIVAL GATE (user 11-17, §1598):** no registration or copy until a LIVE miner on that strategy shows validator-exact α per sim min (≥ 30 sim min after warm-up) whose projected steady pay (α/min × 200 × field $ per net-alpha unit) is ≥ 1.3 × the real prune line (sorted non-immune pay, speed/prunecheck.py). One miner per untested strategy.
+
 ### Working style
 - **Check every route before acting.** Don't stop at the first finding. List every candidate cause, measure each against the data
   (by book group, depth, size, spread, timing, inventory, per book, per window) before naming a cause or changing anything. The
