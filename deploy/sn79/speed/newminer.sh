@@ -8,7 +8,7 @@ N=$1; O=${2:-255}; HK=${HK:-x2}; cd /opt/mvtrx   # HK=x1 sh newminer.sh <uid> fo
 venv/bin/python regcheck.py $HK=$N || { echo "STOP: $HK is not UID $N"; exit 1; }
 [ -f live_params_$N.json ] && cp live_params_$N.json live_params_$N.json.pre-newminer
 # 11-16 (§1533): start on the FROZEN proven settings (live_params_NEXT.json) with the frozen agent 683f430c
-M=$(md5sum agents/QuoteAgent.py | cut -c1-8); [ "$M" = "16708680" ] || { echo "STOP: agent md5 $M is not the frozen 16708680"; exit 1; }
+M=$(md5sum agents/QuoteAgent.py | cut -c1-8); [ "$M" = "e2ce0136" ] || { echo "STOP: agent md5 $M is not the frozen e2ce0136"; exit 1; }
 PF=${PARAMS:-live_params_NEXT.json}   # 11-17 §1581: PARAMS=live_params_NEXT_B1.json for the band (diversified) miner
 if [ -f $PF ]; then cp $PF live_params_$N.START.json; cp $PF live_params_$N.json; echo "settings: $PF"
 else cp live_params_$O.START.json live_params_$N.START.json; cp live_params_$O.START.json live_params_$N.json; fi

@@ -24125,3 +24125,14 @@ held longer (≈ $2–3.5k for 5–8 min vs our ≈ $0.8–2k for 1–3 min; ski
 Field class totals, last 60 sim min, eligible positive α: $300 39,869 (142 UIDs), $30 22,992 (155), 4-dec 88,128 (90) → with the 50 / 25 / 25 skill split a unit of $300 or $30 α is worth ≈ $0.09–0.10/mo
 (per 200-min unit), a unit of 4-dec α only ≈ $0.02 — the 4-dec fleets' big alpha numbers are worth ≈ ¼ per unit (revises §1592's 4-dec enthusiasm).
 → The lever to reach 252's level is position × time at our edge (user 11-15: "4× size, 5× holding time"), alongside more fills (fleet recipe test on 85).
+
+## §1600 — 2026-11-17 4:05 PM CT — HOLD-LONGER test live on UID 47 (user: "add the new test to 47. compare the 85 read against its old self instead of against 47")
+Why we exit fast (speed/exitwhy.py, $300, sim 80000–82900): 47's position reductions — 86% by LEAN-AGREE fills (the model flipped and we stepped in on the other side: inside 52%, behind 1–4 22%, touch 12%);
+max |position| per book median $3,821. 252: only ≈ 43% by lean-agree fills, ≈ 57% by no-lean passive fills; max |position| median $7,299 (≈ 2× ours).
+Code e2ce0136 = 16708680 + mk_exit_k (live, 0 = identical): on $300 books a lean that would REDUCE an open position (|pos| ≥ 25% of a full order) only counts when |pred| ≥ MK_EXIT_K × the entry
+threshold; weaker opposite leans → no lean (hold). equiv.py 0 instruction diffs; test_pace ALL PASS. Census (speed/exitcensus.py, live_params_47; 38 BUY-lean books hold a short): exit_k 2.0 → no change
+(the census's seeded signals exceed 2×); exit_k 10 → jumps 40 → 23, the short books rest at +32 instead of stepping in → the hold logic works.
+Deploy (47 only): agents/QuoteAgent.py = e2ce0136 (backup .16708680); newminer.sh expects e2ce0136; live_params_47 mk_exit_k 2.0, max_inv 0.3 (= the unit's start value; was 0.14 live) (backup
+live_params_47.pre-exit.json); restart x1 22:04:11 UTC (sim ≈ 83029), pace_start 4700; LIVE PARAMS applied mk_exit_k 0→2.0; 0 errors. Warm-up to ≈ sim 83330 (≈ 4:35 PM).
+Baselines (own, validator-exact last 60 sim min before the changes, §1599): 47 $300 +199.4 + $30 +119.4 = 5.3 per sim min, max position ≈ $3.8k; 85 $300 +196.4 + $30 +110.5 = 5.1 per sim min.
+Reads: 47 vs its own baseline (α/min, max position, % reductions by lean flips) ≈ 5:35 PM; 85 (fleet recipe) vs its own 5.1/min ≈ 5:15 PM.
