@@ -23791,3 +23791,17 @@ Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $30, 47 $13, 252 $212; 
 Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $30, 47 $26 (12:21 $13), 252 $201; prune line $83–90. Validator: 85 skill 0.99, combined 0.328, net alpha +522.5, kept 93, coverage 191; 47 skill 1.08,
 combined 0.367, net alpha +457.3, kept 102, coverage 191; 252 skill 4.94, +1,842. Validator-exact last 15 sim min: $300 85 +58.0 (+1.51 bp, 32+/1−), 47 +79.0 (+1.59, 29+/1−) vs 252 +34.0 (+0.59); $30 85 +19.9
 (+1.13, 10+/0−), 47 +20.5 (+1.18) vs 252 +21.4 (+1.80). 0 errors; PACE 85 0/191 (worst $37k), 47 0/191 (worst $30k); selftrade 0 of 1,127.
+
+## §1565 — 2026-11-17 1:45 AM CT — SYNTH (SN50) $-model check (user: "lets run the synth test"): the forward test's $4.4–5.8k/UID is NOT credible; realistic ≈ $150–600/UID, slow ramp
+Chain (deploy/sn50/sn50pay.py, TAO $193): miner $ ≈ $60.6k/mo of $121k; UID 248 (639 d, ck 5DxyiWpG) $13.3k = 22% of miner $ (owner-like; 0% in the 24h API view); best real miners: 215 $1,106 (51 d),
+then ≈ 14 UIDs at $539–870 (fleet 5Cu4VX5C at a flat $539); paid median $115, p90 $539. Synth API v2/leaderboard/latest (fractions of total): default/1h view top 163 1.025%, then ≈ 1.0% flat;
+prompt_name=high (24h) top 216 0.656%, 66 0.319%, 251 0.318% — i.e. the real 24h competition is FLAT-ish, not winner-take-most.
+Validator code (synth-subnet 10-28): 3 competitions (com/equ 24h, crypto 24h, crypto 1h; + VHFT) ≈ ¼ each; softmax β 0.15 (24h) / 0.3 (1h) over a MOVING AVERAGE (window 10 d for 24h, 5 d for 1h) of
+per-asset-weighted scores (ASSET_COEFFICIENTS: BTC 1.0, ETH 0.71, SOL 0.63, XRP 0.57, HYPE 0.48, …); miners that joined inside the window get the WORST score backfilled for the missing times.
+Sanity check of our backtest's share method (deploy/sn50/synthcheck.py, 10 forward days, 1,232 prompt-asset rows): the same method predicts the field's best 24h UID (163) takes 39–89% of the competition —
+REAL: 163 gets 0.0% there (it is 5.0 d old: a re-used slot, so the historical API's per-UID scores include the PREVIOUS owner, and the validator backfills the new owner's missing days with the worst score).
+The real 24h leaders 216 / 66 / 251 are 10.2–11.2 d old (just past the 10-day window). → The backtest (field scores keyed by UID, no backfill, no asset coefficients) does not reproduce the validator; its
+"rank 1, 32% share, ≈ $5.7k/mo" is an artefact. With coefficients our model's average is still slightly better than the field's best in our reconstruction (49.8 vs 54.7) but that comparison is not trusted.
+Realistic: crypto-1h ≈ 2× median (≈ $150/mo, §1222) + whatever 24h share survives; pay ≈ 0 for the first ≈ 5 d (1h) / 10 d (24h) because of the worst-score backfill; SN50 immunity 65,535 blocks ≈ 9.1 d.
+Verdict: Synth is a small, slow stream (≈ $150–600/UID after ≈ 10 days), well below MVTRX per UID; keep staged, do NOT register on the backtest's $; a credible estimate needs the validator's own
+moving-average path (prepare_df_for_moving_average + coefficients) re-run on the history with per-hotkey (not per-UID) keys.

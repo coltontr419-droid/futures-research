@@ -116,7 +116,7 @@ Chain read (top earners, pot, ages) via `/tmp/claude-1000/sn/top.py`, and pool d
 - **crypto-1h:** `tod1_30_60_vv25` is ≈ 2× the median UID (0.88% vs 0.43%), ≈ $155/month.
 - **com/equ-24h:** rank ~245/257, ≈ $0.
 
-**Caveat:** the chain's best Synth UID earns only $1.1k/month in total, so the rollup's $ model overstates. Find out why before registering
+**RESOLVED 11-17 (§1565): the rollup's $ model is an artefact** — field scores are keyed by UID (re-used slots carry the previous owner's scores), and the backtest skips the validator's worst-score backfill for new miners and the per-asset coefficients; its own method predicts a 0%-paid 5-day-old UID would take ≈ 89% of crypto-24h. Real 24h pay is flat (top 0.66% of emission ≈ $400/mo). Realistic Synth ≈ $150–600/UID after ≈ 10 days. **Original caveat:** the chain's best Synth UID earns only $1.1k/month in total, so the rollup's $ model overstates. Find out why before registering
 (the per-competition pot split, or the share being computed against our own model set). The §1218 bar (≥ 5 forward days with Crypto-1h +
 one more competition ≥ median) is met. The miner is staged: `synth-s1.service` and `synth-warm.timer` are DISABLED, hotkey s1, port 8103,
 18/18 prompt types pass (§1221). Going live needs hotkey s1 + 0.8 TAO + the user's yes.
