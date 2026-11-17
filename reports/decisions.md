@@ -24166,3 +24166,46 @@ Health check (user: "anything else you need to check to make sure we arent doing
   Next step: a trade-rate cap plus lock max-age, then re-test.
 - Self-trades 0; locks 0 since 4:10 PM; errors 0 on all units. PACE blocked books: x1 0, x2 1, x3 0, x4 11 (taker volume).
 - Release watcher: no new release; sim reset expected about 9–10 PM CT.
+
+## §1603 — 2026-11-17 4:43 PM CT — H3 taker test live on UID 228 (user: "start the test on 228")
+
+**Why H2 churned (§1601), from the code:**
+- No limit on open books: each of the 128 $300 books built its own $4k position, $600 at a time.
+- No miner-wide trade-rate limit: 15-s add gap and 5-s retries meant about 2 IOCs per book per sim min.
+- A lock was released only when a book's position reached its target. Paced and unfunded paths left locks behind, which kept 85/47/54 quotes pulled.
+
+**Agent 570517c8 (from e2ce0136)** adds new knobs, all off by default:
+- `mk_take_books`: max open-target books.
+- `mk_take_rate`: miner-wide entry IOCs per sim min (token bucket).
+- `mk_take_k`: entries only when |pred| ≥ k × thr.
+- `mk_take_hold`: close after that many seconds with no add.
+
+Locks now span one IOC: they are released after each IOC and on every paced, unfunded or empty-bucket return. If the rest of an order can't be funded, the miner keeps the units it has.
+
+Verification:
+- equiv.py: 0 instruction diffs; tape, ledger and locks identical.
+- test_pace ALL PASS.
+- newminer.sh now expects 570517c8 (backup newminer.sh.bak-h3).
+
+**Census (speed/h3census.py)**: starts flat, BUY lean held on 64 even books, 24 passes × 5 s, every IOC assumed filled, a fake maker of ours acks each lock.
+
+| Arm | IOCs per sim min | Max open books | Locks |
+|---|---|---|---|
+| H2 as run | 232 | 64 | up to 64 |
+| H3 (books 4, rate 8, k 1.5, hold 300) | 6 | 4 | ≤ 4, cleared the next pass |
+
+The 181/234 template makes ≈ 7.5 trades per sim min.
+
+**Interaction check:**
+- $30 maker on 228 unchanged (the knobs apply only to $300 vol/calm).
+- Pacing: entries still pace-checked; exits always go.
+- Locks for 85/47/54: ≤ 4 at a time, each one IOC long.
+- 4-dec skipped.
+- At restart `_t3` is empty, so every inherited $300 position is closed (a one-time flush, exits unthrottled).
+
+**Live:**
+- Restart 22:43:03 UTC, pace_start 4,700. Params: mk_take300 1, usd 600, cap 4000, gap 15, retry 5, books 4, rate 8, k 1.5, hold 300.
+- Flush: 581 IOCs / $298k by 22:49, 695 / $351k by 22:54. Locks 117 → cycling 6–94 → 1 at 22:54.
+- Bug seen: `mk_take_hold` 300 re-zeroed the target that an unfunded close had held at the current units, re-requesting a lock each cycle. Set `mk_take_hold` 0 live at 22:45.
+  Proper fix for the next restart: the unfunded path should also set last_add = now.
+- Read: rows from after the flush (sim ≈ 83570+). Compare trades per sim min (target ≈ 8), $300 taker α per sim min, lock count, and 85/47/54 α against their own pre-test baselines.
