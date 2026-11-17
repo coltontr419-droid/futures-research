@@ -23893,3 +23893,8 @@ Guard log 16:17 UTC (11.5 min): 47 +46.6 (+2.05 bp) vs 85 +53.5 — no revert. F
 +1.89, touch n35 $43k −1.07, behind n56 $73k depth 1 +0.57. fillrate: 47 $251k on 62 books vs 85 $280k on 77.
 Reading: total $300 alpha +9% for 47 but −10% volume and fewer books filled; the added lean-side rest fills earn ≈ 0 bp (offline promised +1.0 to +1.4) — the 7-min interim had 47 −44%; within noise.
 VERDICT so far: NOISE. Keep 47 on mk_lean_lad 3 with the guard for a second ≈ 1 h window (fine-tuning size effect, test-duration rule allows longer); NEXT keeps mk_lean_lad 0 until it is clearly ahead.
+
+## §1575 — 2026-11-17 10:55 AM CT — Brief: lean-ladder converging on a TIE (47 +75.8 vs 85 +80.9 over 17.3 sim min); pay 85 $87 / 47 $93
+Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 1,042. Pay 85 $87, 47 $93, 252 $200; prune line ≈ $102. Validator: 85 skill 2.79, net alpha +1,147, kept 81; 47 skill 3.13, +1,087,
+kept 88; 252 +1,694; coverage 192 each. 0 errors; PACE 85 0/192, 47 2/192. Guard log ($300 since warm-up): 13.4 min 47 +65.9 (+2.29) vs 85 +66.2; 15.3 min +70.8 (+2.27) vs +74.1; 17.3 min +75.8 (+2.05)
+vs +80.9 → 47 at 0.94× 85, edge per $ equal or higher, volume lower. Verdict ≈ 11:30 AM.
