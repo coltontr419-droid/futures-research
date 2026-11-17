@@ -23754,3 +23754,8 @@ debeta.kappa_of_alpha: MAD-normalised, downside-adjusted mean of per-book alphas
 qualifying books; share = max(0, skill_net_alpha) × p11 counterparty factor ÷ total ("consistency decides who is in, P&L decides how much"; cloning-invariant). → 252's kappa 3–4 = very even per-book results
 (big steady fleet); its pay ($212) comes from net alpha ≈ 1,700. Ours: gate passed (0.97 / 0.94); what to grow is net alpha. Net alpha is a rolling-window total (window = several sim h ≈ a wall day at
 today's sim speed) → still filling for 85/47; last 15 sim min 85 +93.8, 47 +147.6 vs 252 +46.5 → at full window each could pass 252's ≈ 1,700 if the per-minute edge holds (crowding / sim reset / release risks).
+
+## §1560 — 2026-11-16 11:50 PM CT — Brief (two miners; the 10:43 and 11:13 briefs did not run — session idle): 85 pay $30, net alpha +458; 47 pay $13 (previous owner's weight gone, ours starting), +349
+Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $30 ($1.00/day; 10:21 $6), 47 $13 ($0.43/day; the $95 was the old owner's), 252 $213; prune line $103. Validator: 85 skill 1.11, combined 0.369,
+net alpha +458.5, kept 102, coverage 190; 47 skill 1.15, combined 0.384, net alpha +348.9, kept 103, coverage 189; 252 skill 4.97, +1,770, kept 76. Validator-exact last 15 sim min: $300 85 +61.2 (+1.69 bp,
+27+/1−), 47 +82.9 (+1.84, 27+/1−) vs 252 +46.1 (+0.68); $30 85 +20.3 (+1.26), 47 +22.2 (+1.23) vs 252 +20.4 (+1.44). 0 errors; PACE 85 0/190 (worst $34k), 47 0/189 (worst $28k); selftrade 0 of 1,045.
