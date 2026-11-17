@@ -24149,3 +24149,20 @@ Health check (user: "anything else you need to check to make sure we arent doing
 - Not yet diagnosed: why H2 churns (suspects: target resets on every lean flip followed by rebuilds; the 15-s add gap filling the $4k cap fast on 128 books; retries; locks kept while the gap persists).
   Measure this offline before any H2 restart. Do not re-enable as-is.
 - 85/47 reads: mark lock overlap; prefer windows after 22:10 UTC (sim ≈ 83140+) or judge with locked sides excluded.
+
+## §1602 — 2026-11-17 4:25 PM CT — brief (sim ≈ 83283)
+
+- Prune line (prunecheck): lowest non-immune $109. 58 registrations in 24 h ≈ one prune every 25 min.
+  Five immune UIDs paid below $93 leave immunity in the next 6 h (34 $19 at about 5:15 PM; 58, 112, 43, 196 later) and get pruned before us.
+- Pay (mypay): 85 $87 (was $93), 47 $98 (was $103), 54 $5 (ramping), 228 $0.
+- Validator-exact α per sim min, last 30 sim min (81483–83283; mixes old settings, restarts and the lock period on 85/47):
+  - 54: $300 +156.7 (+1.19 bp), $30 +62.4. 7.3/min → $124 projected, 1.14× the line (gate 1.3×: FAIL).
+  - 85: 121.7 in 30 sim min (4.1/min, $69).
+  - 47: 157.4 in 30 sim min (5.2/min, $89).
+- 85 test: only ≈ 2 clean sim min after warm-up and lock clearing (83086–83283: $300 −1.5, $30 0). No read yet.
+- 47 test: still in warm-up until sim ≈ 83330.
+- 228 H2 interim, while taking was on (82755–83271): $300 +93.3 α on $905k (+1.03 bp, kappa 1.81, 16 books kept 15+/1−). That is ≈ 13 α per sim min of taking, ≈ 2.5× our makers.
+  It came at ≈ 40× the template's churn, and the stale locks pulled 85/47/54. INTERIM: the edge per $ looks real; the trade rate and lock handling are broken.
+  Next step: a trade-rate cap plus lock max-age, then re-test.
+- Self-trades 0; locks 0 since 4:10 PM; errors 0 on all units. PACE blocked books: x1 0, x2 1, x3 0, x4 11 (taker volume).
+- Release watcher: no new release; sim reset expected about 9–10 PM CT.
