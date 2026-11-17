@@ -23759,3 +23759,12 @@ today's sim speed) → still filling for 85/47; last 15 sim min 85 +93.8, 47 +14
 Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $30 ($1.00/day; 10:21 $6), 47 $13 ($0.43/day; the $95 was the old owner's), 252 $213; prune line $103. Validator: 85 skill 1.11, combined 0.369,
 net alpha +458.5, kept 102, coverage 190; 47 skill 1.15, combined 0.384, net alpha +348.9, kept 103, coverage 189; 252 skill 4.97, +1,770, kept 76. Validator-exact last 15 sim min: $300 85 +61.2 (+1.69 bp,
 27+/1−), 47 +82.9 (+1.84, 27+/1−) vs 252 +46.1 (+0.68); $30 85 +20.3 (+1.26), 47 +22.2 (+1.23) vs 252 +20.4 (+1.44). 0 errors; PACE 85 0/190 (worst $34k), 47 0/189 (worst $28k); selftrade 0 of 1,045.
+
+## §1561 — 2026-11-17 12:05 AM CT — Scaling plan (user: "if both miners are still doing well tomorrow afternoon how many more should we register in the evening?")
+Capacity: each miner ≈ 8–10% of one core, ≈ 220 MB; lab 4 cores, load 0.15–0.4, 6.7 GB free → ≈ 8+ miners fit. Pool dilution is small: field Σ positive net alpha ≈ 200k (§1514) vs ≈ 1.7k per mature
+miner → 5 more of ours ≈ 4–5% of the skill pool (we dilute ourselves only marginally). The binding unknowns: (1) the VOLUME collision re-read (11-17 AM; edge per $ already shows no cost, §1556),
+(2) correlated risk — every copy runs the same strategy, so a release / sim reset hits all at once; (3) registration cost rises with fast registrations.
+Recommendation: if the AM read shows volume cost NONE/SMALL and both still beat 252 per minute in the afternoon → register 2 tomorrow evening (x3, x4), spaced ≈ 2–3 h; measure the collision again with
+4 miners; then ≈ 2 per day while each addition still raises our TOTAL alpha per minute; stop when a new miner adds less than it takes from the others. If the AM read shows LARGE volume cost → 1 at most,
+and work on a second signal first. Prep done: mvtrx-x3 / mvtrx-x4 units rebuilt from the x2 template (ports 8103 / 8104, soft pacing, NO tape — the old units wrote the same tape file; backups
+mvtrx-x3/x4.service.bak-1116), disabled until used; start with `HK=x3 sh /opt/mvtrx/newminer.sh <uid>` / `HK=x4 …`. Hotkeys x3/x4 exist on the lab; more than 4 miners need new hotkeys (user: btcli wallet new_hotkey).
