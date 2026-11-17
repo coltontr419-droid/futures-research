@@ -23688,3 +23688,8 @@ fresh buckets start at pace_start $20k) vs 252 39 / $97k. PACE 0 of 59 traded bo
 Release watch: none (log alerts are old). regcheck x2=85 REGISTERED. Pay 85 $0 (chain lag) vs 252 $196; prune line $112. Validator: 85 skill 1.04, combined 0.313, net alpha +95.6, kept 60,
 coverage 124; 252 skill 3.55, +1,810, kept 81. Validator-exact last 7 sim min: $300 85 +72.6 (+1.77 bp on $410k, 24+/2−, ELIGIBLE; ≈ 10/min while the start buckets last) vs 252 +8.8 (+0.38);
 $30 85 +5.7 (+0.70 on $81k, ELIGIBLE) vs 252 +8.9. PACE 0 of 126 traded books blocked, worst $20.0k; GATE 7,559 / 121. 0 errors; call 0.36 s.
+
+## §1550 — 2026-11-16 7:50 PM CT — Brief: UID 85 skill 0.43 (1.04 at 7:16 — kappa wobbles as books are added), net alpha +117, coverage 156
+Release watch: none. regcheck x2=85 REGISTERED. Pay 85 $0 (chain lag) vs 252 $197; prune line $33. Validator: 85 skill 0.43, combined 0.168, net alpha +116.6, kept 66, coverage 156 (→ 160+);
+252 skill 3.58, +1,780, kept 85. Validator-exact last 15 sim min: $300 85 +101.1 (+1.28 bp on $790k — start-bucket burst volume, 33+/7−, kappa +0.87) vs 252 +8.5 (+0.14 on $623k);
+$30 85 +8.6 (+0.62 on $138k, 15+/9−) vs 252 +21.9 (+1.86). PACE 0 of 156 traded books blocked, worst $21.6k; GATE 7,459 / 161. 0 errors; call 0.36 s.
