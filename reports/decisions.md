@@ -23906,3 +23906,10 @@ Guard log (validator-exact $300 since warm-up, 47 vs 85): 11.5 min +46.6 / +53.5
 Guard finished (no revert: never below 0.75×). The 12.4-min fill read: the lean-side rest fills ≈ −0.1 bp (offline other-maker fills at the same depth +1.0…+1.4) and 47's volume −10%, books filled 62 vs 77.
 VERDICT: NOISE, slightly worse — DISPROVEN as a scaling lever in this form. Lesson: other makers' fills at a depth do not predict OUR resting fills there (queue position / which sweeps reach us).
 47 now = live_params_NEXT.json (only diff: mk_lean_lad 0 explicitly). Frozen setup for x3/x4 unchanged (agent 683f430c, mk_lean_lad 0 = 2ef16f9b behaviour). 47's x1 unit keeps pace_start 4700.
+
+## §1577 — 2026-11-17 12:00 PM CT — Brief: pay 85 $94 / 47 $99 (prune line ≈ $114; this tick's "$1" read is a script artefact); $30 edge per $ stays low (+0.5–0.6 bp, 2nd window) — FLAG
+Release watch: none; no alerts. our_uids 85 (x2) + 47 (x1), both REGISTERED; selftrade 0 of 1,071. Pay 85 $94 ($3.12/day), 47 $99 ($3.30/day), 252 $212. Validator: 85 skill 2.94, net alpha +1,216, kept 89;
+47 skill 2.56, +1,204, kept 96; 252 +1,754; coverage 192 each. 0 errors; PACE 0/192 both (worst $70k / $57k).
+Validator-exact last 15 sim min: $300 85 +62.7 (+1.71 bp, 34+/3−), 47 +54.3 (+1.64) vs 252 +25.4 (+0.39); $30 85 +8.7 (+0.51 bp), 47 +10.1 (+0.61) vs 252 +20.6 (+2.28).
+FLAG: our $30 bp per $ was ≈ +1.1–1.3 through 11-16 evening; since this morning +0.45 / +0.47 (8:25 AM) and +0.51 / +0.61 now while 252 earns +1.6–2.3 on $30 — same on both miners, so a market/model
+issue on the $30 books, not a collision. Next: re-check the $30 model edge on today's tape (speed/leanfreq2.py MODEL=model_lean_30.json BOOKS=128-191) vs 11-16 — refit if it decayed (no change without the user).
