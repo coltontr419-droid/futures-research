@@ -23677,3 +23677,9 @@ Release watch: none. regcheck x2=85 REGISTERED. Pay 85 $0 (new) vs 252 $194; pru
 → almost nothing fills until ≈ sim 69160. GATE 7,680 / 0 (buckets full). Call 0.16 s.
 Watchdog: watch_extra.sh raised "scoring validator shows no gauges for us" for 85 — expected for a brand-new UID; patched (backup watch_extra.sh.bak-1116): in a UID's first sim hour (start sim from
 our_uids.txt) the no-gauge and coverage checks only log. The "UID 255 no fills for 63 min" alert is from 255's last hour (pruned).
+
+## §1548 — 2026-11-16 6:50 PM CT — Brief: UID 85 trading since warm-up ended — first 2.5 sim min $300 +27.4 (+1.83 bp, 11+/0−); validator now scoring it
+Release watch: none (alerts in the log are the old 255 one + 85's pre-patch no-gauge line). regcheck x2=85 REGISTERED. Pay 85 $0 (new) vs 252 $194; prune line $111.
+Validator: 85 skill 0.0 (too few books yet), net alpha +29.4, kept 18, coverage 56 (rising); 252 skill 3.67, +1,726, kept 85.
+Validator-exact last 2.5 sim min: $300 85 +27.4 (+1.83 bp on $150k, 11+/0−) vs 252 −1.3; $30 85 +2.1 (+0.67 on $31k). fillrate $300 sim 69160–69310: 85 138 fills $200k on 50 books (start burst:
+fresh buckets start at pace_start $20k) vs 252 39 / $97k. PACE 0 of 59 traded books blocked, worst $16.7k; GATE 7,680 / 0. 0 errors; call 0.34 s.
