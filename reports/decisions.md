@@ -24072,3 +24072,13 @@ trades) — a lane we have not built. Next (offline): reverse-engineer the 4-dec
 Release watch: none; no alerts. regcheck 85 / 47 / 54 / 228 REGISTERED; selftrade 0 of 2,430. Pay 85 $93, 47 $103, 54 $1 (first emission), 228 $0, 252 $202. Validator: 85 skill 2.87, net alpha +1,079, coverage 190;
 47 skill 3.79, +1,157, coverage 189; 54 skill 0.48, +141, kept 95, coverage 187; 228 +4, coverage 55 (warm-up, $30 making only so far); making credit 0 on all (228's $30 making needs time to register).
 0 errors on all four; PACE 0 blocked. Sim 82605 (228 warm-up to ≈ 82741) — no IOC takes yet, as expected. First H2 read ≈ 4:40 PM.
+
+## §1594 — 2026-11-17 3:45 PM CT — PRUNE RISK for 85 / 47 (user: pay down $1, not rising): net alpha has plateaued BELOW what clears the prune line; pay is no longer lagging
+speed/prunecheck.py (chain): immunity 7,200 blocks = 24.0 h; 199 non-immune UIDs; lowest non-immune pay $105 (69), then $108, $109, $112 …; NONE below 85 ($93) or 47 ($103). 85's immunity ends in ≈ 2.4 h
+(≈ 5:50 PM), 47's in ≈ 4.5 h (≈ 7:50 PM), 54 ≈ 21.6 h, 228 ≈ 23.6 h. 56 UIDs registered in the last 24 h (≈ one prune per 26 min). Leaving immunity in the next 6 h: 255 ($274 — not ours any more), 34 ($19, in 1.6 h),
+180 ($148), 2 ($180), 163, 58 ($45, in 3.6 h), 226, 245, 20 → only 34 and 58 sit below us and they leave immunity on either side of 85.
+Pay factors (validator 5EWwdZB7 gauges): skill p11 factor 1.0 / 0.998, coverage factor 1.0, pool factor 1.0, presence 1.0, debeta_score 85 0.410 / 47 0.425 vs 252 0.381 / 5E2fVqiW's 29 0.414 — but the
+pay-setting `score` 85 0.0015, 47 0.0017 vs 252 0.0034, 29 0.0029, tracking net alpha (85 1,111 / 47 1,197 vs 252 1,756 / 29 2,032). The other validator 5E7RbxVy is the stale old-sim one (0 for ours).
+→ Pay ≈ $0.085 per unit of net alpha → $105–110 needs ≈ 1,300 net alpha; 85/47 plateaued at ≈ 1,100–1,200 (the 200-sim-min window ≈ 19 wall h at today's sim speed, so nothing done now moves it before
+5:50 PM). Expected: 85 pruned ≈ 6–6:30 PM, 47 ≈ 8–8:30 PM unless lower-paid UIDs leave immunity first. Structural: two lean copies each sit just under the line; the 5E2fVqiW recipe (two-sided small
+$300 quotes) reaches ≈ 2,000 net alpha per UID within 0.5–2 days.
