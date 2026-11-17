@@ -23935,3 +23935,12 @@ Reading: B1 (lean only when 1.0 ≤ |pred|/thr < 1.5) finds ≈ 60% new moments 
 way above 1.5×) — with an UPPER bound the B1 miner withdraws exactly when A miners step in. Risks: ≈ +0.8–1.1 bp means fewer books clear the 2.3-bp-of-own-notional hurdle → the $300 skill bar (20 books)
 is not assured; needs a code knob (mk_model_lean_max). Half-models (B2/B3) are not worth a miner.
 Plan: x3 tonight = identical copy (proven, collision small §1568); x4 = B1 band test (new knob, census before) — a new miner, so testing it costs nothing that is earning.
+
+## §1581 — 2026-11-17 1:20 PM CT — Band (diversified) miner staged for x4: agent f13a7947 + mk_model_lean_max; live_params_NEXT_B1.json; newminer.sh PARAMS=
+Code f13a7947 = 683f430c + mk_model_lean_max (live, 0 = no upper bound = identical): the $300 lean fires only while mk_model_lean ≤ |pred|/thr < MK_MODEL_LEAN_MAX ($30 untouched). equiv.py 0 instruction
+diffs (10 replies, tape / ledger / locks identical); test_pace ALL PASS; census (speed/bandcensus.py, live_params_47, seeded strong predictions): B (lean 1.0, max 1.5) makes NO jumps when |pred| ≥ 1.5×
+→ all $300 lean books rest at +31…+34 (stands back exactly where 85/47 step in); A unchanged.
+Staged (no running miner touched; 85 = 2ef16f9b and 47 = 683f430c in memory): agents/QuoteAgent.py = f13a7947 (backups .2ef16f9b / .683f430c); newminer.sh expects f13a7947 and takes PARAMS=<file>
+(default live_params_NEXT.json; backup newminer.sh.bak-1117); /opt/mvtrx/live_params_NEXT_B1.json = NEXT + mk_model_lean 1.0, mk_model_lean_max 1.5.
+Tonight: x3 `HK=x3 sh /opt/mvtrx/newminer.sh <uid>` (identical copy); x4 `HK=x4 PARAMS=live_params_NEXT_B1.json sh /opt/mvtrx/newminer.sh <uid>` (band test). Judge x4 by its own validator-exact
+$300 alpha + books clearing the 2.3-bp hurdle (needs ≥ 20 for the $300 class) and by whether 85/47/x3 keep their alpha/min.
