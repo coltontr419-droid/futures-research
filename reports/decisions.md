@@ -23837,3 +23837,12 @@ comparable market). → edge per $ unchanged (1.8 vs 1.86); volume and alpha per
 $30: 85 +13.2 (+0.47 bp on $281k), 47 +12.8 (+0.45) vs 252 +25.1 (+1.58) — our $30 bp per $ is down from ≈ +1.2 (one window; watch, not a collision effect — both miners equal).
 VERDICT: volume collision cost SMALL. Recommendation (§1561): register x3 this evening, x4 ≈ 2–3 h later (or after reading x3's collision), then re-measure per-miner alpha/min with 3–4; stop adding when a
 new miner raises the total by less than it costs the others. Sim-day reset expected ≈ 9–10 PM CT tonight — watchers armed.
+
+## §1569 — 2026-11-17 9:30 AM CT — 4-dec books as a third pay pool (user: "go ahead"): offline signal search → NOT a quick win; the strong signal is mostly drift the validator removes
+Model fit (speed/modelfitc.py BOOKS=192-255 TICK=0.0001): later tape (74701–78000) model top-30% at 120 s −0.47 bp (corr +0.17), earlier (.prev 68000–74600) +0.74 bp — unstable sign; the 'fade' signal
+is wrong-way in all 8 test slices (−1.46 / −3.12 bp at 120 s) → the 4-dec books trend.
+Momentum lean census (speed/momfreq.py: signal = Δmid 60 s + Δmid 300 s): raw edge in the lean direction k 1.0 (30% active) +0.69 / +1.16 / +2.51 bp at 60 / 120 / 300 s (early) and +2.04 / +4.03 / +10.19
+(late, ≈ 2× volatility). BUT the validator scores alpha = Σ inventory × Δmid − mean inventory × book drift over its window: with each book's whole-window drift removed (speed/momfreq3.py) the edge falls to
++0.21 / +0.21 / +0.13 bp (early) and +0.37 / +0.68 / +1.83 (late) — most of the 'momentum' is drift. (A 600-s block de-drift showed negative values but leaks hindsight — discarded.)
+Verdict: 4-dec edge after de-drift ≈ +0.2–0.7 bp at 1–2 min, unstable between windows, and our past 4-dec maker fills lost −2.4 bp; with the 2.3-bp-of-own-notional hurdle almost no 4-dec book would
+clear → no skill pay there. Parked (re-check after a sim reset / config change). Scaling levers left: (1) shallow rest (2–3 ticks; 1–4-tick fills earned +0.78 bp, §1518) on x3, (2) signal diversity on x4.
