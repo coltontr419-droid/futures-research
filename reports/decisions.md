@@ -23768,3 +23768,9 @@ Recommendation: if the AM read shows volume cost NONE/SMALL and both still beat 
 4 miners; then ≈ 2 per day while each addition still raises our TOTAL alpha per minute; stop when a new miner adds less than it takes from the others. If the AM read shows LARGE volume cost → 1 at most,
 and work on a second signal first. Prep done: mvtrx-x3 / mvtrx-x4 units rebuilt from the x2 template (ports 8103 / 8104, soft pacing, NO tape — the old units wrote the same tape file; backups
 mvtrx-x3/x4.service.bak-1116), disabled until used; start with `HK=x3 sh /opt/mvtrx/newminer.sh <uid>` / `HK=x4 …`. Hotkeys x3/x4 exist on the lab; more than 4 miners need new hotkeys (user: btcli wallet new_hotkey).
+
+## §1562 — 2026-11-17 — Non-MVTRX subnet re-dive (read-only): SN107 Minos is the top new lead; Synth forward passes its bar
+- Minos: ≈ $479k/mo miner pot, winner 0.8 + ranks 2-20 share 0.2 (decay 0.9), 5-of-20 eligibility; 37 revealed rounds: ≈ 55 submitters, all GATK,
+  #1-#20 gap ≈ 0.001, winner rotates; 28 UIDs average ≥ $1.7k/mo. Past rounds release BAM + truth → offline backtest possible. Burn 0.99 TAO, CPU box.
+- Synth forward 11-04→11-16: crypto-24h rank 2/257 (modelled $2.5-4.4k, conflicts with chain top UID $1.1k — verify), crypto-1h ≈ 2× median.
+- Full ranked list + history: deploy/HANDOFF_SUBNETS_2026-11-17.md. tag101-m3 verified inactive/disabled (§1309). No miners or services changed.
