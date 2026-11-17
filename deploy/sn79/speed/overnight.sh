@@ -26,10 +26,10 @@ N0=$(wc -l < $L)
 } >> $L 2>&1
 
 # 2. self-trade guard (only while our taker runs)
-if systemctl is-active -q mvtrx-x1; then
-  ST=$(/opt/mvtrx/selftrade.sh 2>/dev/null | grep -o "taking them): [0-9]*" | grep -o "[0-9]*$")
+if systemctl is-active -q mvtrx-x4; then   # 11-17 §1589: the H2 taker is x4
+  ST=$(/opt/mvtrx/selftrade.sh 2>/dev/null | grep -o "self-trades ([^)]*): [0-9]*" | grep -o "[0-9]*$")   # 11-17 §1589: matches the current output
   echo "  self-trades ${ST:-?}" >> $L
-  if [ "${ST:-0}" -gt 0 ]; then systemctl stop mvtrx-x1; echo "ALERT SELF-TRADE: $ST fills between our own UIDs; mvtrx-x1 was stopped" >> $L; fi
+  if [ "${ST:-0}" -gt 0 ]; then systemctl stop mvtrx-x4; echo "ALERT SELF-TRADE: $ST fills between our own UIDs; mvtrx-x4 (taker) was stopped" >> $L; fi
 fi
 
 # 3. standing checks (§1255): every UID still registered; validator volume sync; alerts also go to alerts.txt

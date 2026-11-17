@@ -262,6 +262,12 @@ class QuoteAgent(FinanceAgent):
         except Exception:
             self._ml30 = None
         self.mk_gate_side = int(getattr(c, "mk_gate_side", 0))           # §1486: 1 = gated full-size step-ins only on the LEAN (jumped) side; the other side rests (live)
+        self.mk_take300 = int(getattr(c, "mk_take300", 0))       # §1589 H2 hybrid (181/234 template): 1 = $300 books (vol + calm) are TAKER-only — no resting quotes; IOC at the touch
+                                                                  # in the lean direction (the model lean, threshold MK_MODEL_LEAN), MK_TAKE_USD per add, every ≥ MK_TAKE_GAP sim s while the
+                                                                  # lean lasts, up to MK_TAKE_CAP_USD per book; an opposite lean exits to flat; no lean = hold (live)
+        self.mk_take_usd = float(getattr(c, "mk_take_usd", 600.0)); self.mk_take_cap_usd = float(getattr(c, "mk_take_cap_usd", 4000.0))
+        self.mk_take_gap = float(getattr(c, "mk_take_gap", 15.0)); self.mk_take_retry = float(getattr(c, "mk_take_retry", 5.0)); self._t3 = {}
+        self.mk_low_inside = int(getattr(c, "mk_low_inside", -1))   # §1589: $30 books' inside-step setting (−1 = follow MK_VOL_INSIDE; 0 = never step inside — balanced making) (live)
         self.mk_model_lean_max = float(getattr(c, "mk_model_lean_max", 0.0))   # §1581: >0: the $300 lean fires only while mk_model_lean ≤ |pred|/thr < MK_MODEL_LEAN_MAX
                                                                   # (a band BELOW the other miners' threshold → a diversified miner stands back exactly when they step in); 0 = no upper bound (live)
         self.mk_lean_lad = int(getattr(c, "mk_lean_lad", 0))   # §1571: >0 (with mk_lad_off): resting orders 1..N ticks behind the step-in, ONLY on the side the lean jumped
@@ -661,11 +667,11 @@ class QuoteAgent(FinanceAgent):
     LIVE_KNOBS = {"flow_pull": float, "flow_pull_vol_only": int, "flow_win": int, "flow_cool": int, "mk_vol_inside": int, "mk_vol_touch_min": int, "mk_vol_jump": int, "mk_low_touch_min": int, "mk_skip_dec": int, "mk_vol_lean_only": int, "mk_fee_k": float, "pace_soft_on": int,
                   "mk_nochase_bp": float, "mk_nochase_s": int, "mk_calm_touch_min": int, "mk_calm_hold": int, "mk_pace_hold": float,
                   "mk_vol_size": float, "mk_vol_lad_size": float, "mk_calm_lad_size": float, "mk_dec_size": float, "mk_dec_inside": int,
-                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int, "mk_model_lean": float, "mk_gate_side": int, "max_inv": float, "mk_model_lean_30": float, "mk_lean30_back": int, "mk_lean30_only": int, "mk_gate_rest": int, "mk_rest_frac": float, "mk_gate_part": float, "mk_lean_lad": int, "mk_model_lean_max": float, "mk_calm_size": float,
+                  "mk_dec_deep": float, "mk_dec_touch": int, "mk_dec_deep2": float, "book_map": str, "mk_low_size": float, "mk_low_lad_size": float, "mk_thin_ratio": float, "mk_thin_only_vol": int, "mk_thin_vol_off": int, "skew": float, "mk_calm_expiry": float, "mk_vol_expiry": float, "mk_fade_lean": float, "mk_lad_off": int, "mk_gate": int, "mk_model_lean": float, "mk_gate_side": int, "max_inv": float, "mk_model_lean_30": float, "mk_lean30_back": int, "mk_lean30_only": int, "mk_gate_rest": int, "mk_rest_frac": float, "mk_gate_part": float, "mk_lean_lad": int, "mk_model_lean_max": float, "mk_take300": int, "mk_take_usd": float, "mk_take_cap_usd": float, "mk_take_gap": float, "mk_take_retry": float, "mk_low_inside": int, "mk_calm_size": float,
                   "fund": float, "fund_cap": float, "fund_mv": float, "fund_mv_cap": float, "fund_scope": int, "micro": float, "mk_skip_vol": int}   # §1373: 1 = no making on the $300 books (miner-wide quality test)   # §1369: fundamental lean (the fleet fills after fundamental moves its way, §1368) and the micro-price weight
     LIVE_LISTS = {"mk_calm_lad": (1, 20, 4), "mk_vol_lad": (1, 20, 4), "mk_low_lad": (1, 20, 4)}   # §1346: ladder levels "a:b:c" — ticks 1..20, at most 4 levels (5-instruction budget)
     LIVE_LIMITS = {"mk_pace_hold": (0.0, 10000.0), "mk_vol_size": (0.0, 0.1), "mk_vol_lad_size": (0.0, 0.1), "mk_calm_lad_size": (0.0, 0.1),
-                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "mk_model_lean": (0.0, 10.0), "mk_gate_side": (0, 1), "max_inv": (0.01, 0.5), "mk_model_lean_30": (0.0, 10.0), "mk_lean30_back": (0, 20), "mk_lean30_only": (0, 1), "mk_gate_rest": (0, 30), "mk_rest_frac": (0.0, 1.0), "mk_gate_part": (0.0, 1.0), "mk_lean_lad": (0, 6), "mk_model_lean_max": (0.0, 10.0), "mk_calm_size": (0.0, 0.12), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
+                   "mk_dec_size": (0.0, 0.12), "mk_vol_jump": (0, 20), "mk_low_touch_min": (0, 10), "mk_skip_dec": (0, 1), "mk_vol_lean_only": (0, 1), "mk_fee_k": (0.0, 5.0), "pace_soft_on": (0, 1), "mk_dec_touch": (0, 1), "mk_low_size": (0.0, 0.1), "mk_low_lad_size": (0.0, 0.1), "mk_dec_deep2": (0.0, 3.0), "skew": (0.0, 30.0), "mk_calm_expiry": (0.0, 3600.0), "mk_vol_expiry": (0.0, 3600.0), "mk_fade_lean": (0.0, 50.0), "mk_lad_off": (0, 1), "mk_gate": (0, 20), "mk_model_lean": (0.0, 10.0), "mk_gate_side": (0, 1), "max_inv": (0.01, 0.5), "mk_model_lean_30": (0.0, 10.0), "mk_lean30_back": (0, 20), "mk_lean30_only": (0, 1), "mk_gate_rest": (0, 30), "mk_rest_frac": (0.0, 1.0), "mk_gate_part": (0.0, 1.0), "mk_lean_lad": (0, 6), "mk_model_lean_max": (0.0, 10.0), "mk_take300": (0, 1), "mk_take_usd": (100.0, 5000.0), "mk_take_cap_usd": (500.0, 20000.0), "mk_take_gap": (1.0, 600.0), "mk_take_retry": (1.0, 120.0), "mk_low_inside": (-1, 10), "mk_calm_size": (0.0, 0.12), "fund": (0.0, 1.0), "fund_cap": (0.0, 5.0), "fund_mv": (0.0, 2.0), "fund_mv_cap": (0.0, 5.0), "fund_scope": (0, 2), "micro": (0.0, 1.0)}
 
     def _live_reload(self):
         """§1342: every LIVE_PARAMS_S sim s, if the JSON file changed, apply whitelisted quoting knobs (type-cast, range-checked) without a restart.
@@ -1252,6 +1258,38 @@ class QuoteAgent(FinanceAgent):
                     if lean and not _low and self.mk_model_lean_max > 0 and abs(pred) >= self.mk_model_lean_max * ml["thr"]:
                         lean = 0.0                         # §1581 band miner: above the band → no lean (85/47 take these moments)
         self._lean_now[int(book_id)] = lean if _low else 0.0
+        if self.mk_take300 and not _low and self._g(int(book_id)) in ("vol", "calm"):   # §1589 H2: $300 taker leg
+            bk = int(book_id); B_, S_ = OrderDirection.BUY, OrderDirection.SELL
+            if acct.orders:
+                self._cancel_all(response, book_id, acct.orders)   # no $300 maker quotes: keeps the miner-wide making quality clean
+            tgt, last_add = self._t3.get(bk, (0.0, -10 ** 9))
+            step, cap = self.mk_take_usd / mid, self.mk_take_cap_usd / mid
+            if lean:
+                sg = 1.0 if lean > 0 else -1.0
+                if tgt * sg < 0:
+                    tgt = 0.0                                  # the lean turned against the position: exit to flat
+                elif abs(tgt) < cap - 1e-12 and self._sec - last_add >= self.mk_take_gap:
+                    tgt = sg * min(cap, abs(tgt) + step); last_add = self._sec
+            self._t3[bk] = (tgt, last_add)
+            units = acct.base_balance.total - base0; gap = tgt - units
+            if abs(gap) < self.min_order_size(book_id):
+                if self.lock_dir: self._lock_release(book_id)
+                return
+            if self._sec - self._last_take.get(book_id, -10 ** 9) < self.mk_take_retry:
+                return
+            side = B_ if gap > 0 else S_
+            if self.pace_cap and abs(tgt) > abs(units) and self._paced_out(bk):
+                return                                         # no new exposure over the pace; exits always go
+            if self.lock_dir and not self._lock_ok(book_id, S_ if side == B_ else B_):
+                return                                         # our makers clear that side first (never trade our own UIDs)
+            px = ask if side == B_ else bid
+            q = round(min(abs(gap), step, qa if side == B_ else qb), vd)
+            funded = (acct.base_balance.free >= q) if side == S_ else (acct.quote_balance.free >= q * px)
+            if q >= self.min_order_size(book_id) and funded:
+                response.limit_order(book_id=book_id, direction=side, quantity=q, price=px, stp=STP.CANCEL_OLDEST, postOnly=False, timeInForce=TimeInForce.IOC)
+                self._last_take[book_id] = self._sec
+                self._ioc_n = getattr(self, "_ioc_n", 0) + 1; self._ioc_usd = getattr(self, "_ioc_usd", 0.0) + q * px
+            return
         if self.mk_vol_jump and lean and (self._g(int(book_id)) == "vol" or (self._g(int(book_id)) == "calm" and self.mk_gate_rest)) and (not _low or self.mk_model_lean_30 > 0):   # §1434 lean jump (§1472 side from LEAN; §1488 $30 too)
             if lean > 0:
                 jb = round(math.floor(min(fair - self.edge * tick, ask - tick, bid + self.mk_vol_jump * tick) / tick + 1e-9) * tick, pd)
@@ -1608,7 +1646,7 @@ class QuoteAgent(FinanceAgent):
                 tm_v = self.mk_low_touch_min if self._is_low(int(book_id)) else self.mk_vol_touch_min   # §1434: $30 books have their own touch minimum
                 ob_v = self._others_best(book, acct.orders) if (self.mk_vol_inside or tm_v) else None
             nt_v = bool(tm_v and ob_v and ob_v[0] is not None and ob_v[1] is not None and round((ob_v[1] - ob_v[0]) / tick) < tm_v)
-            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, expiry=(self.mk_vol_expiry or None) if not self._is_low(int(book_id)) else None, no_ladder=bool(self.mk_lad_off) and not self._is_low(int(book_id)), inside=0 if nt_v else self.mk_vol_inside,
+            self._vol_ladder(response, book_id, orders, want, sq, qty, vq, tick, pd, expiry=(self.mk_vol_expiry or None) if not self._is_low(int(book_id)) else None, no_ladder=bool(self.mk_lad_off) and not self._is_low(int(book_id)), inside=0 if nt_v else (self.mk_low_inside if (self.mk_low_inside >= 0 and self._is_low(int(book_id))) else self.mk_vol_inside),
                                  obest=ob_v if self.mk_vol_inside else None,
                                  no_touch=nt_v if (nt_v or not self.mk_vol_lean_only or self._is_low(int(book_id)) or self.mk_lad_off)
                                  else {OrderDirection.BUY, OrderDirection.SELL} - set(self._jumped.get(int(book_id), ())),

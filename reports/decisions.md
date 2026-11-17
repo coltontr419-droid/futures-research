@@ -24021,3 +24021,20 @@ $30 making credit is a separate pool (≈ $6/mo per hourly credit point).
 BUILD PLAN for x4 (H2, 181/234 template): $300 = TAKER ONLY (no $300 maker quotes, so making quality stays clean): take $600 in the lean direction when |pred| ≥ 1.0 × thr, per-book spacing ≈ 1 per
 ≈ 17 sim min (7.5/min over 128 books), position cap, hold until the lean flips (study their inventory caps + exits first); $30 = balanced maker, both sides at the touch, $600, inventory skew; 4-dec skipped;
 self-trade guard (our taker must never hit our makers — their opposite side sits 30 ticks out; add an explicit lock); census + test_pace before deploy; new miner x4 only.
+
+## §1589 — 2026-11-17 3:40 PM CT — H2 hybrid BUILT + staged for x4 (agent 2e5726e3); taker position study; watchdog self-trade guard was BROKEN — fixed
+Position study (speed/takerinv.py, $300, sim 76000–82100): 181 965 taker trades on 88 books, max |position| per book median $3,501 (p90 $8,144, max $25k), |position| after a take median $3,000; exits:
+128 by its own takes, 49 by maker fills; gap between takes on a book median 46 s; 96% same side as the previous take on that book. 234: 1,128 on 86 books, max median $4,182 (p90 $10,788), gap 7 s,
+96% same side. 51: 648 on 58 books, $2,982, gap 22 s. 99: 2,727 on 124 books, $4,270, gap 59 s, 56% same side → takers BUILD $600 at a time on one side while the signal lasts, hold ≈ $3–4k.
+Code 2e5726e3 = f13a7947 + (live, all 0 = identical): mk_take300 — $300 vol + calm books TAKER-only: cancel any resting $300 orders; if the model leans (threshold mk_model_lean): an opposite lean sets
+the target flat, a same-side lean adds MK_TAKE_USD (600) every ≥ MK_TAKE_GAP (15) sim s up to MK_TAKE_CAP_USD (4,000); no lean = hold; IOC at the touch for min(gap, $600, touch size), retry ≥ 5 s;
+new exposure blocked when paced out (exits always go); the lock handshake (_lock_ok) makes our makers clear the side first; mk_low_inside (0 = never step inside on $30). equiv.py 0 instruction diffs,
+test_pace ALL PASS. Census (speed/h2census2.py, inherited inventory held as the target): $300 lean books → $600 IOC BUY only (vol 35, calm 18), no-lean books → nothing, no resting $300 orders;
+$30 books → $600 post-only at the touch on both sides (0 ticks behind others' best). (Without holding, the census state's inherited inventory is flattened first — a new miner starts flat.)
+Staged (no running miner touched): agents/QuoteAgent.py = 2e5726e3 (backup .f13a7947); /opt/mvtrx/live_params_NEXT_H2.json = NEXT + mk_take300 1, mk_model_lean 1.0, mk_take_usd 600, cap 4,000,
+gap 15, retry 5, mk_model_lean_30 0, mk_lean30_only 0, mk_low_size 0.012, mk_low_lad_size 0.012, mk_low_inside 0, skip_dec 1; newminer.sh expects 2e5726e3 (backup .bak-1117b); mvtrx-x4 unit
+pace_start 4700, port 8104, lock_dir set (backup mvtrx-x4.service.bak-1117).
+WATCHDOG FIX: overnight.sh's self-trade guard grepped "taking them): N" but selftrade.sh now prints "self-trades (any two of our UIDs, takers […]): N" → the guard could never fire. Pattern fixed (reads
+ST=0 now) and it now stops mvtrx-x4 (the taker) instead of x1 (backup overnight.sh.bak-1117).
+x4 start: `HK=x4 PARAMS=live_params_NEXT_H2.json sh /opt/mvtrx/newminer.sh <uid>`. Judge by: $300 taker alpha (validator-exact) vs 181/234 (+1.4–1.6 bp, ≈ $34–36 per 30 sim min at their size),
+$30 making credit (making067b: quality ≈ 0.5, two-sided ≈ 45–55 per sim h), self-trades 0, coverage ≥ 160.
