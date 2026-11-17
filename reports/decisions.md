@@ -23949,3 +23949,11 @@ $300 alpha + books clearing the 2.3-bp hurdle (needs ≥ 20 for the $300 class) 
 Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 913. Pay 85 $98 ($3.28/day), 47 $108 ($3.60/day), 252 $209. Validator: 85 skill 2.30, net alpha +1,155, kept 89, coverage 190;
 47 skill 3.02, +1,234, kept 83, coverage 192; 252 +1,766. Validator-exact last 15 sim min: $300 85 +51.9 (+1.59 bp), 47 +62.9 (+1.85, 36+/3−) vs 252 +19.8 (+0.31); $30 85 +14.0 (+0.95), 47 +12.3 (+0.83)
 vs 252 +15.5 (+1.39) — the $30 dip (§1577) recovering. 0 errors; PACE 0/192 both.
+
+## §1583 — 2026-11-17 1:15 PM CT — THIRD MINER UID 54 (x3) live on the BAND test (user: register x3 now, put the test on it before x4)
+User registered x3 as UID 54. mvtrx-x3 unit pace_start 20000 → 4700 first (no start burst — §1571 lesson; backup mvtrx-x3.service.bak-1117), port 8105. `HK=x3 PARAMS=live_params_NEXT_B1.json sh newminer.sh 54`:
+agent f13a7947, restart 19:12:23 UTC (sim 81201), our_uids now 85 (x2) + 47 (x1) + 54 (x3); LIVE PARAMS applied incl. mk_model_lean 1.0, mk_model_lean_max 1.5 (band), $30 lean 0.75, rest 30, part 0.5,
+skip_dec 1; 0 errors; all three units enabled/active (ports 8101 / 8102 / 8105); selftrade 0 of 1,308. Warm-up to ≈ sim 81500.
+BEFORE baseline (validator-exact, last 20 sim min to 81204): $300 85 +68.5 (+1.67 bp) = 3.4/min, 47 +81.6 (+1.97) = 4.1/min, 252 +17.3; $30 85 +13.6 (+0.72), 47 +13.3 (+0.70), 252 +22.1.
+Reads from sim 81500: 54's own $300 alpha + bp per $ + books clearing the 2.3-bp hurdle (≥ 20 for the $300 class) + 85/47 alpha/min vs this baseline (identical-copy collision cost was ≈ −15–20%, §1568).
+Verdict ≈ 1–2 h after warm-up decides x4's settings (band or identical).
