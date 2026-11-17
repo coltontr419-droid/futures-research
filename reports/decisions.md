@@ -24051,3 +24051,19 @@ User registered x4 as UID 228. `HK=x4 PARAMS=live_params_NEXT_H2.json sh newmine
 LIVE PARAMS applied (non-defaults shown): mk_take300 0→1, mk_model_lean 1.0, mk_low_size 0.012, mk_low_inside −1→0, skip_dec 1 (take $600 / cap $4,000 / gap 15 / retry 5, $30 lean 0, lean30_only 0 = defaults
 in the file); 0 errors; all four units active (8101 / 8102 / 8104 / 8105); selftrade 0 of 2,263 (four UIDs). Warm-up (no leans → no takes) until ≈ sim 82741.
 First read ≈ 1 h after warm-up: IOC count + $300 taker alpha (skill_cls2) vs 181/234; $30 making (making067b, quality target ≈ 0.5); self-trades 0; coverage ≥ 160; 85/47/54 alpha/min unchanged.
+
+## §1592 — 2026-11-17 ≈ 3:40 PM CT — FLEET DIVE (user: how do the top fleets run 20+ miners?): two recipes — balanced small two-sided $300 makers (5E2fVqiW), and 4-dec TAKERS (5GCSdbyd / 5CAXJT4t / 5H9PQncR)
+speed/fleets2.py (chain + validator gauges, coldkeys ≥ 8 UIDs; fleets hold 62% of the ≈ $55k/mo miner pay): 5F1F2JMu 27 UIDs $6,005 (median $200; mixed skill + makers); 5CAXJT4t 35 $5,490 ($161, ages ≤ 7.2 d,
+31 skill, median net alpha 1,679); 5EA8Kgeh 9 $3,969 ($426, 0.4 d, net alpha 9,249); 5ECLVeLz 11 $3,791 (makers, $379); 5GCSdbyd 17 $3,457 ($204, ages 1.3–13.5 d, all skill, net alpha 4,157); 5E2fVqiW 20 $3,301
+($165, 0.5–2.1 d, all skill, 2,013); 5GVu1hrR 10 $2,949 (makers $295); 5FNTAiDo 10 $2,428 (makers, up to 21.5 d); 5H9PQncR 9 $1,452 (skill, 3,487); 5G9URk3b 12 $1,168.
+Validator-exact per class, 30 sim min (skill_cls2): 5E2fVqiW 1 / 29: $300 +186.9 / +190.5 (+1.83 / +1.74 bp on ≈ $1.05M — ≈ 2× our 85's +97.2), $30 +93.7 / +76.3, no 4-dec. 5GCSdbyd 26 / 33: $300 +44 / +7,
+$30 +36 / +55, 4-dec +251.9 (+17.2 bp) / +39.7. 5CAXJT4t 6 / 12: $300 +49 / +55, $30 +56 / +72, 4-dec +217.3 (+9.5) / +66.7. 5H9PQncR 15 / 24: $300 ≈ 0 / +28, $30 +51 / +19, 4-dec +241.4 (+8.5) / +234.8 (+10.2).
+Roles (speed/fleetrole.py, sim 81000–82700): 5E2fVqiW 1 / 29 / 62 — $300 MAKER both sides (46–48% buys), $470–490 fills, depth inside 43% / touch 42%, ≈ 770 fills per 28 sim min (≈ 1.7× our 85's 447), fleet
+overlap (another member same book + side within 2 s) ≈ 50%; $30 maker at the touch, $810–880, balanced, overlap 85–96%. 5GCSdbyd 26 / 33 / 37 — $300 maker at the touch / 1 behind, $1–1.7k, 64–70% buys;
+$30 maker touch $2k; 4-dec TAKER $900, 32–38% buys. 5CAXJT4t 6 / 12 / 19 — $300 maker touch $1.2–1.5k; $30 maker touch $1.5k; 4-dec TAKER $750–900, fleet overlap 0% (members split the 4-dec moments).
+Ours 85 / 47: $300 maker ONE-SIDED lean step-ins (inside 53%), $30 touch.
+4-dec takers (speed/takerstudy_dec.py, whole-window de-drift, sim 79500–82700): trades WITH the 60 + 300 s momentum net +5.0 / +6.6 / +11.8 / +5.0 / +5.8 bp at 120 s (6 / 12 / 26 / 33 / 15), AGAINST
+−3.9 / −4.5 / −4.6 / −2.3 / −5.3; costs +1.0–2.1 bp (4-tick spreads); 82–95% of trades add to the position; holds 600–2,025 s; $2.3–6.4k trades (6 / 12 / 15), $3.6–4.3k (26 / 33).
+Reading: (1) 20 copies coexist when each quotes BOTH sides with small orders inside + at the touch — more fills per UID at the same bp, overlap tolerated; (2) the 4-dec class (25% of the skill pool) pays the
+big fleets via TAKING that follows momentum selectively (our §1569 raw-momentum lean, de-drifted, was only +0.2–0.7 bp — their entries are far more selective: +6–14 bp at 120 s on their with-momentum
+trades) — a lane we have not built. Next (offline): reverse-engineer the 4-dec taker entry rule (momentum size, fundamental gap, spread, timing) and 5E2fVqiW's two-sided $300 quoting vs our model lean.
