@@ -24267,3 +24267,21 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - 54 α per sim min against its own 6.8 and against the 1.25× ratio to 47.
   - $300 volume, bp, and the GATE rest share.
   - twosided3 P-bin mix (target: ≥ 80% of $ at P ≥ 1).
+
+## §1606 — 2026-11-17 6:10 PM CT — brief + why rest orders existed (user: "wont only filling with the lean hurt us? why did we need the resting orders in the first place?")
+
+- **History of the rest orders:**
+  - 11-13: soft pacing was the "presence" fix for making credit, when hard pacing had left our books dark.
+  - §1502: deep, small rest orders were kept so books stayed quoted without sweeps draining the budget. Already then, swept rest fills lost ≈ −1 bp (§1511: 43% of $300 $).
+  - Concern at the time: coverage, with skill cut below ≈ 160 filled books.
+- **Now:**
+  - Making credit is 0 for every one of our UIDs, so presence earns nothing.
+  - Skill pay is proportional to net alpha × p11 when skill_raw > 0 and skill_books ≥ the bar (reward.py ≈ 1229). Coverage only scales skill_raw, so it doesn't change pay.
+  - Real remaining risk: $300 KEPT books (hurdle 2.3 bp of notional) must stay ≥ 20. Dropping zero-edge notional should raise per-book bp and so the kept count. Watched every brief.
+- **Brief:**
+  - Prune line $111. Pay: 85 $84, 47 $97, 54 $11 (ramping), 228 $0.
+  - 85 is non-immune and the lowest → prune expected.
+  - 54 is in warm-up (sim 84186 < 84370).
+  - 228 H3: $300 taker $38k on 15 books, +1.14 bp; 781 IOCs, ≈ 8 per sim min after the flush; 1 lock.
+  - 0 errors, self-trades 0, no release.
+- The brief cron was re-created (16f73f15) with the current tests.
