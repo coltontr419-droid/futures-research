@@ -23706,3 +23706,9 @@ mvtrx-x1 enabled + active (port 8101, soft pacing, no tape). LIVE PARAMS applied
 recent fills. Watchdog self-trade guard is armed (stops mvtrx-x1 on any fill between our UIDs). x1 warm-up until ≈ sim 70440 (≈ 8:35 PM). Collision read ≈ 9:35 PM: 85's validator-exact bp per $
 and fills/book-min vs the §1551 baseline, 252 as control; x1 alone vs 85; self-trades 0. Rules: no tests on 85; x1 = candidate test bench after the collision read.
 (Cosmetic: the read-script copies for 47 carry the label UIDS_EXTRA=47:x2 — x1 in reality.)
+
+## §1553 — 2026-11-16 8:20 PM CT — Brief (two miners): 85 coverage 167 (≥ 160 ✓), net alpha +176, skill 0.55; 47 in warm-up (no fills of ours yet); self-trades 0
+Release watch: none (log alerts old). regcheck x2=85 + x1=47 REGISTERED. Pay 85 $1 (first emission), 47 $0, 252 $205; prune line $98. Validator: 85 skill 0.55, combined 0.194, net alpha +175.9, kept 83,
+COVERAGE 167 (passed 160); 47 no gauges yet; 252 skill 4.47, +1,822. Validator-exact last 15 sim min: $300 85 +104.2 (+1.49 bp on $701k, 31+/3−) vs 252 +24.0 (+0.38); $30 85 +10.1 (+0.75) vs 252 +27.1.
+UID 47 rows in that window (−26.1 on $335k $300, +24.5 $30) are the PREVIOUS OWNER's fills (sim < 70140; 47 itself shows "0 of 0 traded books" — warm-up) — ignore; collision read uses sim ≥ 70440 only.
+selftrade.sh: 0 of 1,596. 0 errors on both units; 85 PACE 0 of 167 blocked, worst $23k.
