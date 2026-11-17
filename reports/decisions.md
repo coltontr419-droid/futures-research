@@ -24117,3 +24117,11 @@ GATE (memory feedback-survival-gate, CLAUDE-level rule): before any registration
 start burst) → projected steady pay = α/min × 200 × $ per net-alpha unit (field-measured, ≈ $0.085 today) ≥ 1.3 × the real prune line (speed/prunecheck.py; ≈ $140 today). One miner per untested
 strategy; checked by hour ≈ 6 of immunity. Today: 47 ≈ $100 FAIL; 54 band ≈ $105–110 FAIL (borderline; needs the winning recipe before ≈ 1 PM 11-18); 85 (fleet recipe) and 228 (H2) pending reads.
 Briefs now show each miner's projected pay vs the line.
+
+## §1599 — 2026-11-17 4:15 PM CT — Why 252 is paid ≈ 2× us although we match/beat it per minute lately (user question)
+Validator-exact last 60 sim min, all 255 UIDs (skill_cls2): $300 85 +196.4, 47 +199.4, 252 +171.5, 29 (5E2fVqiW) +350.5; $30 85 +110.5, 47 +119.4, 252 +61.4, 29 +170.5 → in the last hour 85 / 47 beat 252.
+But pay follows the ≈ 200-min window: 252 net alpha 1,756 (≈ 8.8 per sim min average; only 3.9 in the last hour) vs ours ≈ 1,110–1,190 (a steady ≈ 5–6) — 252's alpha comes in bursts from BIG positions
+held longer (≈ $2–3.5k for 5–8 min vs our ≈ $0.8–2k for 1–3 min; skill = inventory × move), so the same edge per $ captures more of the large moves over a full window (more variance, higher average).
+Field class totals, last 60 sim min, eligible positive α: $300 39,869 (142 UIDs), $30 22,992 (155), 4-dec 88,128 (90) → with the 50 / 25 / 25 skill split a unit of $300 or $30 α is worth ≈ $0.09–0.10/mo
+(per 200-min unit), a unit of 4-dec α only ≈ $0.02 — the 4-dec fleets' big alpha numbers are worth ≈ ¼ per unit (revises §1592's 4-dec enthusiasm).
+→ The lever to reach 252's level is position × time at our edge (user 11-15: "4× size, 5× holding time"), alongside more fills (fleet recipe test on 85).
