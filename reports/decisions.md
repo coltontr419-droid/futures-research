@@ -23846,3 +23846,16 @@ Momentum lean census (speed/momfreq.py: signal = Δmid 60 s + Δmid 300 s): raw 
 +0.21 / +0.21 / +0.13 bp (early) and +0.37 / +0.68 / +1.83 (late) — most of the 'momentum' is drift. (A 600-s block de-drift showed negative values but leaks hindsight — discarded.)
 Verdict: 4-dec edge after de-drift ≈ +0.2–0.7 bp at 1–2 min, unstable between windows, and our past 4-dec maker fills lost −2.4 bp; with the 2.3-bp-of-own-notional hurdle almost no 4-dec book would
 clear → no skill pay there. Parked (re-check after a sim reset / config change). Scaling levers left: (1) shallow rest (2–3 ticks; 1–4-tick fills earned +0.78 bp, §1518) on x3, (2) signal diversity on x4.
+
+## §1570 — 2026-11-17 10:00 AM CT — Offline check of the shallow-rest idea (user: test on x1/x2 instead of new miners? offline first?): resting fills pay ONLY on the lean side
+speed/depthflow.py, $300 books, every maker's fills except ours, sim 76100–78300 (37 sim min), split by depth behind the pre-trade touch and by whether OUR live model (lean 1.5) leaned the resting side's way;
+markout of the mid in the maker's favour, raw and with each book's whole-window drift removed (+60 / +120 s):
+depth 0 lean agrees $472k/sim min, de-drift +1.28 / +1.71 bp | no lean $5.4M/min −0.05 / +0.02 | against −1.37 / −1.64.
+depth 1 lean agrees $180k/min +1.04 / +1.73 | no lean $2.0M/min −0.22 / −0.07 | against −1.72 / −1.83.
+depth 2 lean agrees $119k/min +1.01 / +1.41 | no lean $1.6M/min −0.46 / −0.32 | against −1.81 / −2.12.
+depth 3 lean agrees $95k/min +0.61 / +0.83 | no lean $1.2M/min −0.65 / −0.42 | against −1.99 / −2.08.
+depth 4 lean agrees $64k/min +0.46 / +0.86 | no lean −0.90 / −0.80 | against −2.24 / −2.58.
+→ A resting order 1–3 ticks back earns ≈ +0.8 to +1.7 bp after de-drift ONLY on the side our model leans; everywhere else resting loses. The lean-side flow at depth 1–3 (≈ $390k per sim min across all
+makers) is ≈ 20× one miner's current $300 volume (≈ $20k/min) — even a small share is a real volume gain at full edge. Test design: keep the inside step-in, ADD lean-side resting orders at 1–3 ticks
+(non-lean side stays at 30). Offline can't tell our fill share (queue position) → needs a live A/B.
+Recommendation: run it LIVE on UID 47 (x1) with an auto-revert guard while still protected (until ≈ 8 PM), 85 = frozen same-window control (the cleanest A/B so far); new miners are not needed for it.
