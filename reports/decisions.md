@@ -24095,3 +24095,10 @@ Deploy (85 only; 47 = untouched control with the same lean strategy): agents/Quo
 0.012, mk_calm_size 0.012 (≈ $600), mk_model_lean 1.0 (backup live_params_85.pre-fleet.json); x2 unit pace_start 4700 (backup mvtrx-x2.service.bak-fleet); restart 21:41:51 UTC (sim ≈ 82786); LIVE PARAMS
 applied incl. mk_nolean_q 0→1.0; 0 errors. Warm-up to ≈ sim 83086 (≈ 4:15 PM). Read at ≈ 5:15 PM (85 vs 47 $300 alpha/min, fills, bp per $) — before 85's immunity ends (≈ 5:50 PM). The 4-dec
 taker study and the remaining offline steps are paused for this (user).
+
+## §1596 — 2026-11-17 3:50 PM CT — Why 85/47 stopped at ≈ 1,100–1,200 net alpha (user question) — correction of my 11-16 projection
+Net alpha is a ROLLING sum over the validator's ≈ 200-sim-min window (checked §1586: our 200-min sums match the gauges), so it levels off at ≈ alpha per sim min × 200 once a miner is older than the window.
+85/47 earn ≈ 5–5.5 per sim min ($300 ≈ 3.5–4 + $30 ≈ 1–1.5) → ≈ 1,100–1,200. My 11-16 estimate of a ≈ 5.5-sim-h window (from a rough 252 comparison) made me project continued growth through 11-17 — wrong:
+the windows were full by the morning. Lesson: verify the window length directly before projecting.
+Per-minute gap to 5E2fVqiW (≈ 9 per sim min → ≈ 2,000): we don't quote when there is no lean (14% of our $ vs their 38–44% at +1.0…+1.8 bp), our $1–3.6k step-ins fill partially and wait for the
+budget (447 vs 770 fills), their small lean-side fills earn more per $ (+2.4…+2.7 vs +1.5), and two of our copies cost each other 15–20%. Targets: ≈ 6.5+ per sim min to clear ≈ $105–110; ≈ 9–10 for $150–200.
