@@ -23819,3 +23819,9 @@ of the pot, rank 20 ≈ 0.35%; pot ≈ $479k/mo per the subnet handoff). Even a 
 Next (needs the user's yes — a box): rent a CPU box (≈ 8–16 vCPU, 32 GB, ≈ $20–50 for a few days; NOT the MVTRX lab box — GATK would slow the miners' replies), download ≈ 20 revealed rounds
 (≈ 5 GB), run GATK HaplotypeCaller with the tuning-guide configs, score with the repo's hap.py demo mode, and check (1) do we reproduce the top score to 1e-6, (2) wall time per round on the box
 (must beat ≈ 30 min to win ties), (3) which knobs move the score. Then 1 UID (0.99 TAO ≈ $190) on its own coldkey/box.
+
+## §1567 — 2026-11-17 1:25 AM CT — Brief (two miners): net alpha 85 +547, 47 +490; pay $39 / $26; $300 +1.82 / +1.67 bp (29+/0−, 33+/0−) vs 252 +0.97; self-trades 0
+(Time note: §1565 / §1566 headers said 1:45 / 2:30 AM; the real CT times were ≈ 12:55 / 1:15 AM.)
+Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $39 ($1.32/day), 47 $26, 252 $203; prune line $105. Validator: 85 skill 0.83, net alpha +547.4, kept 96, coverage 191; 47 skill 0.95, net alpha +489.9,
+kept 106, coverage 191; 252 skill 3.69, +1,749. Validator-exact last 15 sim min: $300 85 +57.5 (+1.82 bp, 29+/0−), 47 +65.6 (+1.67, 33+/0−) vs 252 +54.0 (+0.97); $30 85 +21.9 (+1.25), 47 +21.0 (+1.20)
+vs 252 +24.5 (+1.79). 0 errors; PACE 85 0/191 (worst $38k), 47 0/191 (worst $31k); selftrade 0 of 1,114.
