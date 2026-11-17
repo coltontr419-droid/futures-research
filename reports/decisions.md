@@ -23825,3 +23825,15 @@ Next (needs the user's yes — a box): rent a CPU box (≈ 8–16 vCPU, 32 GB, �
 Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $39 ($1.32/day), 47 $26, 252 $203; prune line $105. Validator: 85 skill 0.83, net alpha +547.4, kept 96, coverage 191; 47 skill 0.95, net alpha +489.9,
 kept 106, coverage 191; 252 skill 3.69, +1,749. Validator-exact last 15 sim min: $300 85 +57.5 (+1.82 bp, 29+/0−), 47 +65.6 (+1.67, 33+/0−) vs 252 +54.0 (+0.97); $30 85 +21.9 (+1.25), 47 +21.0 (+1.20)
 vs 252 +24.5 (+1.79). 0 errors; PACE 85 0/191 (worst $38k), 47 0/191 (worst $31k); selftrade 0 of 1,114.
+
+## §1568 — 2026-11-17 8:25 AM CT — Morning brief + VOLUME COLLISION RE-READ: cost SMALL (≈ −15–20% $ and alpha per miner), two miners = ≈ 1.7× one → go ahead with x3/x4
+Overnight: no release (baseline 0.6.7 final), no sim reset yet (sim 78062), no new real alerts (log tail = 255's old lines + 85's pre-patch no-gauge line); both REGISTERED; selftrade 0 of 920; 0 errors;
+PACE 0/192 each (worst $58k / $53k of $450k).
+PAY 85 $79/mo ($2.62/day; 1:22 AM $39), 47 $78 ($2.60/day; $26), 252 $182; prune line $105. Validator: 85 skill 2.04, combined 0.438, net alpha +906.5, kept 89, coverage 192; 47 skill 2.03, combined 0.435,
+net alpha +915.1, kept 91, coverage 192; 252 skill 3.76, +1,557, kept 67.
+Collision re-read, last 30 sim min (77–78k; both long past their start buckets), validator-exact: $300 85 +110.4 (+1.81 bp on $609k, 40+/4−) = 3.7 Σα/sim min, $20.3k/sim min; 47 +117.5 (+1.79 on $656k,
+38+/4−) = 3.9/min, $21.9k/min; 252 +39.1 (+0.32 on $1.21M). Single-miner reference = 255 on the same settings, mature (§1533): +1.86 bp, 4.5/min, $25.6k/sim min (252 then ≈ $39k/min vs $40k/min now →
+comparable market). → edge per $ unchanged (1.8 vs 1.86); volume and alpha per miner ≈ −15–20%; COMBINED $300 7.6 Σα/min ≈ 1.7× one miner. Fills per filled book-min 0.15 / 0.17 (252 0.15).
+$30: 85 +13.2 (+0.47 bp on $281k), 47 +12.8 (+0.45) vs 252 +25.1 (+1.58) — our $30 bp per $ is down from ≈ +1.2 (one window; watch, not a collision effect — both miners equal).
+VERDICT: volume collision cost SMALL. Recommendation (§1561): register x3 this evening, x4 ≈ 2–3 h later (or after reading x3's collision), then re-measure per-miner alpha/min with 3–4; stop adding when a
+new miner raises the total by less than it costs the others. Sim-day reset expected ≈ 9–10 PM CT tonight — watchers armed.
