@@ -23722,3 +23722,15 @@ selftrade.sh: 0 of 1,571. Collision read ≈ 9:43 PM (needs ≈ 1 h after sim 70
 Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $6 ($0.21/day), 47 $93 (= the slot's previous owner's emission still decaying — not ours yet), 252 $210; prune line $52–94.
 Validator: 85 skill 0.66, combined 0.249, net alpha +255.6, kept 82, coverage 177; 47 skill 0.62, combined 0.226, net alpha +64.4, kept 50, coverage 121 (rising); 252 skill 3.63, +1,697.
 0 errors on both; PACE 85 0/180 (worst $25k), 47 0/119 (worst $20k). selftrade.sh 0 of 1,425. Sim 70902. Collision verdict ≈ 9:43 PM.
+
+## §1556 — 2026-11-16 9:55 PM CT — COLLISION READ (85 alone vs 85 + 47): edge per $ NO cost; 85's volume down (mostly its start buckets running out) — volume verdict needs both past their start burst
+Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $6, 47 $94 (previous owner's fading weight), 252 $211. Validator: 85 skill 0.98, combined 0.386, net alpha +349, kept 92, coverage 186;
+47 skill 1.25, combined 0.422, net alpha +173, kept 84, coverage 163 (≥ 160 in 1.7 h); 252 skill 3.77, +1,772. selftrade.sh 0 of 1,422. 0 errors; PACE 85 0/186 (worst $28k), 47 0/164 (worst $22k).
+Validator-exact, AFTER = sim 70440–71232 (13.2 min, both trading) vs BEFORE §1551 (69160–70049, 14.8 min, 85 alone):
+$300 85 +83.7 on $437k = +1.91 bp, 6.3 Σα/min, 32+/3− (BEFORE +114.2 on $833k = +1.37 bp, 7.7/min, 34+/2−); 252 control +0.80 bp (BEFORE +0.31) → the market's edge rose ≈ +0.5 bp for
+everyone, 85's rose +0.54 → NO edge-per-$ collision cost. 47 +140.1 on $797k = +1.76 bp, 34+/1−. Our combined $300 = +223.8 = 17.0/min (85 alone was 7.7/min).
+$30: 85 +14.0 (+1.20 bp on $116k) vs BEFORE +11.1 (+0.76); 47 +13.9 (+1.00); 252 +14.4 (+1.72).
+Fills ($300): 85 264 fills $446k on 80 books, 0.25 per filled book-min, median $1,577 (BEFORE 362 / $510k on 92, 0.39 / 600 s) — 85's volume −45% per minute, but 85's $20k start buckets were being spent in
+the BEFORE window and 47 is in its own start burst now ($868k, 0.43) → the volume split can't be separated yet.
+VERDICT: edge collision cost NONE; volume collision cost UNDETERMINED (start-burst confound). Re-read volume tomorrow ≈ 8–10 AM when both miners are past their start buckets (85 vs 252 $ per book-min,
+both of ours vs one). Recommendation: no third miner until that read; 47 stays on frozen settings until then (test bench after).
