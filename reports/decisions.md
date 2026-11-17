@@ -23717,3 +23717,8 @@ selftrade.sh: 0 of 1,596. 0 errors on both units; 85 PACE 0 of 167 blocked, wors
 Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $1 (lag); 47 / 252 pay reads timed out at 80 s (chain slow; 252 ≈ $205 at 8:17). Validator: 85 skill 0.75, combined 0.273, net alpha +244.9, kept 90,
 coverage 173; 47 skill 0.0, net alpha +17.5, kept 15, coverage 55 (rising); 252 skill 3.27, +1,714. Sim 70588 (47 warm-up ended ≈ 70440). 0 errors on both; PACE 85 0/173 (worst $25k), 47 0/61 (worst $15k).
 selftrade.sh: 0 of 1,571. Collision read ≈ 9:43 PM (needs ≈ 1 h after sim 70440).
+
+## §1555 — 2026-11-16 9:20 PM CT — Brief (two miners): 47 skill 0.62 within 45 min, 85 skill 0.66 / net alpha +256; self-trades 0; 47's "$93" pay is the previous owner's lagging weight
+Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $6 ($0.21/day), 47 $93 (= the slot's previous owner's emission still decaying — not ours yet), 252 $210; prune line $52–94.
+Validator: 85 skill 0.66, combined 0.249, net alpha +255.6, kept 82, coverage 177; 47 skill 0.62, combined 0.226, net alpha +64.4, kept 50, coverage 121 (rising); 252 skill 3.63, +1,697.
+0 errors on both; PACE 85 0/180 (worst $25k), 47 0/119 (worst $20k). selftrade.sh 0 of 1,425. Sim 70902. Collision verdict ≈ 9:43 PM.
