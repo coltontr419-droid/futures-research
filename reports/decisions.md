@@ -23781,3 +23781,8 @@ Port conflict: the staged Synth miner synth-s1 (disabled) uses axon port 8103 on
 Cross-check with today's MVTRX code read (§1557-era): the handoff's lesson "on MVTRX a slot can keep its inherited standing (§1241)" — the 0.6.7 validator's handle_deregistration docstring says an
 older TypeError made a deregistered slot keep its standing; 0.6.7 fixed it and apply_resets → reset_agent_histories zeroes the slot (confirmed live: UID 47 started from no gauges, §1555). Still check
 1 h after any registration. Lab box capacity is shared: MVTRX miners ≈ 8–10% of a core each; a Minos GATK backtest needs its own box (as the handoff says).
+
+## §1563 — 2026-11-17 12:25 AM CT — Brief (two miners): net alpha 85 +502, 47 +421 (climbing); pay $30 / $13 (lag); $300 +1.7–1.9 bp vs 252 +0.67; self-trades 0
+Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $30, 47 $13, 252 $212; prune line $106. Validator: 85 skill 1.06, combined 0.379, net alpha +502.2, kept 96, coverage 191; 47 skill 1.23, combined
+0.409, net alpha +420.9, kept 98, coverage 190; 252 skill 4.92, +1,739, kept 73. Validator-exact last 15 sim min: $300 85 +69.2 (+1.71 bp, 30+/3−), 47 +98.8 (+1.90, 39+/1−) vs 252 +47.2 (+0.67); $30 85 +15.3
+(+0.94), 47 +15.0 (+0.88) vs 252 +14.1 (+1.22). 0 errors; PACE 85 0/191 (worst $37k), 47 0/190 (worst $29k); selftrade 0 of 1,146.
