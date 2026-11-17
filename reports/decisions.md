@@ -23670,3 +23670,10 @@ read-script copies for 85; our_uids "85 maker x2 68860"; mvtrx-x2 re-enabled + a
 mk_gate_part 0.5, mk_model_lean 1.5, mk_model_lean_30 0.75, mk_skip_dec 1 (+ REDO base). 0 errors; PACE 0 books, fresh ledger. Model leans warm up 300 sim s (until ≈ sim 69160).
 Rules for 85: no tests / restarts (it is miner 1, the one to keep; tests go on x1 after the collision read). Protection ≈ until 6 PM CT 11-17. Sim-day reset expected ≈ 11-17 9–10 PM CT
 (sim 68860 now, ≈ 10.4 sim s per wall min) — watchers armed (§1540).
+
+## §1547 — 2026-11-16 6:20 PM CT — Brief: UID 85 in warm-up (142 sim s in), no fills yet as expected; validator has no gauges for 85 yet
+Release watch: none. regcheck x2=85 REGISTERED. Pay 85 $0 (new) vs 252 $194; prune line $106. Validator: 85 no gauges yet (not yet scored); 252 skill 2.67, +1,735. Sim 69002 (start 68860).
+0 errors; PACE "0 of 0 traded books" — no fills yet: during the 300-sim-s warm-up there are no leans → no step-ins; $300 rest orders sit 30 ticks out and $30 quotes are 2 ticks back (lean30_only)
+→ almost nothing fills until ≈ sim 69160. GATE 7,680 / 0 (buckets full). Call 0.16 s.
+Watchdog: watch_extra.sh raised "scoring validator shows no gauges for us" for 85 — expected for a brand-new UID; patched (backup watch_extra.sh.bak-1116): in a UID's first sim hour (start sim from
+our_uids.txt) the no-gauge and coverage checks only log. The "UID 255 no fills for 63 min" alert is from 255's last hour (pruned).
