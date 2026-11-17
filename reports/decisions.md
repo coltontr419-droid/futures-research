@@ -23663,3 +23663,10 @@ regcheck x2=255 NOT REGISTERED twice (4:56 and 5:00 PM). Gauges for 255 now the 
 net alpha +603 (best of the day), kept 105 (> 252's 88), $300 alpha/min ≈ 2× 252's. Pay lag + this morning's 4-dec drag and two restarts kept on-chain pay below the line.
 Next (§1538): user re-registers x2 now (VS Code closed) → `sh /opt/mvtrx/newminer.sh <uid>` (checks agent md5 2ef16f9b, copies the frozen live_params_NEXT.json, restarts mvtrx-x2 = tape
 writer); x1 this evening → `HK=x1 sh /opt/mvtrx/newminer.sh <uid>`. The overnight "within 10% of the hard cap" alerts in the log are the 21:49 UTC validator glitch (§1544), not new.
+
+## §1546 — 2026-11-16 6:00 PM CT — NEW MINER UID 85 (x2) live on the frozen strategy: newminer.sh 85 → restart 00:00:25 UTC (sim 68860)
+User registered x2 as UID 85 (≈ 5:55 PM CT); next miner (x1) at 8 PM. newminer.sh: regcheck x2=85 REGISTERED; agent md5 2ef16f9b; settings live_params_NEXT.json → live_params_85.json/.START.json;
+read-script copies for 85; our_uids "85 maker x2 68860"; mvtrx-x2 re-enabled + active. LIVE PARAMS applied: mk_vol_size 0.072, mk_calm_size 0.072, mk_rest_frac 0.1, mk_gate_rest 30,
+mk_gate_part 0.5, mk_model_lean 1.5, mk_model_lean_30 0.75, mk_skip_dec 1 (+ REDO base). 0 errors; PACE 0 books, fresh ledger. Model leans warm up 300 sim s (until ≈ sim 69160).
+Rules for 85: no tests / restarts (it is miner 1, the one to keep; tests go on x1 after the collision read). Protection ≈ until 6 PM CT 11-17. Sim-day reset expected ≈ 11-17 9–10 PM CT
+(sim 68860 now, ≈ 10.4 sim s per wall min) — watchers armed (§1540).
