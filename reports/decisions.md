@@ -23683,3 +23683,8 @@ Release watch: none (alerts in the log are the old 255 one + 85's pre-patch no-g
 Validator: 85 skill 0.0 (too few books yet), net alpha +29.4, kept 18, coverage 56 (rising); 252 skill 3.67, +1,726, kept 85.
 Validator-exact last 2.5 sim min: $300 85 +27.4 (+1.83 bp on $150k, 11+/0−) vs 252 −1.3; $30 85 +2.1 (+0.67 on $31k). fillrate $300 sim 69160–69310: 85 138 fills $200k on 50 books (start burst:
 fresh buckets start at pace_start $20k) vs 252 39 / $97k. PACE 0 of 59 traded books blocked, worst $16.7k; GATE 7,680 / 0. 0 errors; call 0.34 s.
+
+## §1549 — 2026-11-16 7:20 PM CT — Brief: UID 85 SKILL 1.04 after ≈ 1 h (255 never passed 0.76); net alpha +96, coverage 124 and rising
+Release watch: none (log alerts are old). regcheck x2=85 REGISTERED. Pay 85 $0 (chain lag) vs 252 $196; prune line $112. Validator: 85 skill 1.04, combined 0.313, net alpha +95.6, kept 60,
+coverage 124; 252 skill 3.55, +1,810, kept 81. Validator-exact last 7 sim min: $300 85 +72.6 (+1.77 bp on $410k, 24+/2−, ELIGIBLE; ≈ 10/min while the start buckets last) vs 252 +8.8 (+0.38);
+$30 85 +5.7 (+0.70 on $81k, ELIGIBLE) vs 252 +8.9. PACE 0 of 126 traded books blocked, worst $20.0k; GATE 7,559 / 121. 0 errors; call 0.36 s.
