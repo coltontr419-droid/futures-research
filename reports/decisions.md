@@ -23898,3 +23898,11 @@ VERDICT so far: NOISE. Keep 47 on mk_lean_lad 3 with the guard for a second ≈ 
 Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 1,042. Pay 85 $87, 47 $93, 252 $200; prune line ≈ $102. Validator: 85 skill 2.79, net alpha +1,147, kept 81; 47 skill 3.13, +1,087,
 kept 88; 252 +1,694; coverage 192 each. 0 errors; PACE 85 0/192, 47 2/192. Guard log ($300 since warm-up): 13.4 min 47 +65.9 (+2.29) vs 85 +66.2; 15.3 min +70.8 (+2.27) vs +74.1; 17.3 min +75.8 (+2.05)
 vs +80.9 → 47 at 0.94× 85, edge per $ equal or higher, volume lower. Verdict ≈ 11:30 AM.
+
+## §1576 — 2026-11-17 11:25 AM CT — LEAN-LADDER VERDICT: NOISE / slightly worse → 47 back to the frozen settings (mk_lean_lad 0, applied "3→0"); scaling levers to rethink
+Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 1,078. Pay 85 $89, 47 $94, 252 $203; prune line $114. Validator: 85 skill 3.27, net alpha +1,169, kept 86; 47 skill 3.11, +1,155,
+kept 93; 252 +1,625; coverage 192 each. 0 errors.
+Guard log (validator-exact $300 since warm-up, 47 vs 85): 11.5 min +46.6 / +53.5; 13.4 +65.9 / +66.2; 15.3 +70.8 / +74.1; 17.3 +75.8 / +80.9; 21.1 +99.6 / +104.0; 22.9 +102.5 (+2.07 bp) / +114.1 → 47 = 0.90× 85.
+Guard finished (no revert: never below 0.75×). The 12.4-min fill read: the lean-side rest fills ≈ −0.1 bp (offline other-maker fills at the same depth +1.0…+1.4) and 47's volume −10%, books filled 62 vs 77.
+VERDICT: NOISE, slightly worse — DISPROVEN as a scaling lever in this form. Lesson: other makers' fills at a depth do not predict OUR resting fills there (queue position / which sweeps reach us).
+47 now = live_params_NEXT.json (only diff: mk_lean_lad 0 explicitly). Frozen setup for x3/x4 unchanged (agent 683f430c, mk_lean_lad 0 = 2ef16f9b behaviour). 47's x1 unit keeps pace_start 4700.
