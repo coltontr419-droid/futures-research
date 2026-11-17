@@ -23743,3 +23743,8 @@ Backup simreset_watch.py.bak-1116.
 Open items, in time order: (1) 11-17 Tue morning — possible upstream release (Tue–Fri 4–11 AM CT) → watcher; (2) 11-17 after 8 AM — volume collision re-read + 85 vs 47 like-for-like; (3) 11-17 ≈ 6 PM / 8 PM —
 protection ends for 85 / 47: pay must clear the prune line (≈ $95 tonight; 85 $6 now, rising; 255 went $0 → $66 in ≈ 24 h despite its bad morning); (4) 11-17 ≈ 9–10 PM — sim-day reset: watcher alerts,
 checks the layout, fixes our_uids; then I check the model edge (leanfreq per class) on the first hour of the new day.
+
+## §1558 — 2026-11-16 10:25 PM CT — Brief (two miners): skills converging (85 0.97, 47 0.94), net alpha +380 / +225, coverage 188 / 177; self-trades 0
+Release watch: none (log alerts old). regcheck 85 + 47 REGISTERED. Pay 85 $6, 47 $95 (previous owner's weight), 252 $212; prune line $101. Validator: 85 skill 0.97, combined 0.381, net alpha +379.8, kept 98,
+coverage 188; 47 skill 0.94, combined 0.363, net alpha +224.8, kept 96, coverage 177; 252 skill 4.02, +1,724. Validator-exact last 15 sim min: $300 85 +83.7 (+1.99 bp on $421k, 33+/2−), 47 +135.7
+(+1.87 on $725k, 35+/1−) vs 252 +37.8 (+0.63); $30 85 +10.1 (+0.65), 47 +11.9 (+0.77) vs 252 +8.7 (+0.87). 0 errors both; PACE 85 0/188 (worst $28k), 47 0/177 (worst $23k); selftrade 0 of 1,375.
