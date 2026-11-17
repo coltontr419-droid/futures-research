@@ -24082,3 +24082,16 @@ pay-setting `score` 85 0.0015, 47 0.0017 vs 252 0.0034, 29 0.0029, tracking net 
 → Pay ≈ $0.085 per unit of net alpha → $105–110 needs ≈ 1,300 net alpha; 85/47 plateaued at ≈ 1,100–1,200 (the 200-sim-min window ≈ 19 wall h at today's sim speed, so nothing done now moves it before
 5:50 PM). Expected: 85 pruned ≈ 6–6:30 PM, 47 ≈ 8–8:30 PM unless lower-paid UIDs leave immunity first. Structural: two lean copies each sit just under the line; the 5E2fVqiW recipe (two-sided small
 $300 quotes) reaches ≈ 2,000 net alpha per UID within 0.5–2 days.
+
+## §1595 — 2026-11-17 ≈ 3:45 PM CT — 5E2fVqiW RECIPE live on UID 85 (user: "Test fleet recipe on 85"; replacements decided after) — two-sided small $300 quotes when there is no lean
+Study (speed/twosided.py, $300 maker fills, sim 80500–82800, de-drifted, our live model at the fill): 5E2fVqiW 1 / 29 — lean-agree 56–62% of $ (inside 26%, $560–625, +1.86…+2.17 / +2.42…+2.74 bp at
+60 / 120 s; touch 25–29%, +1.55 / +1.78…+2.02), NO-LEAN 38–44% of $ (inside 12–16% +1.29…+1.39 / +0.97…+1.30; touch 18–20% +1.28…+1.43 / +1.41…+1.82), AGAINST 0%. Our 85: agree 86% of $
+(inside 46% at $935, +1.10 / +1.46; behind 26%), no-lean 14%, against 0%.
+→ Recipe: pull the side against the lean (we already do), quote BOTH sides small at the touch / inside when there is no lean (+1.0…+1.8 bp for them), small ($500–600) lean-side orders too.
+Code 16708680 = 2e5726e3 + mk_nolean_q (live, 0 = identical): with gate + gate_side, a book with no lean keeps both sides at the touch / inside (fee push exempt, never crossing) at mk_nolean_q × full size.
+First census showed the no-lean quotes 2 ticks behind (fee push) → exempted; re-census (speed/nlcensus.py, live_params_85, bucket $4,700): no-lean vol books ASK −1 ×28 / 0 ×3, BID −1 ×27 / 0 ×6, calm
+0 ×11–12, all ≈ $600; lean books BID −1 step-ins $600, against side pulled to +32…+34. equiv.py 0 instruction diffs; test_pace ALL PASS (earlier build).
+Deploy (85 only; 47 = untouched control with the same lean strategy): agents/QuoteAgent.py = 16708680 (backup .2e5726e3); newminer.sh now expects 16708680; live_params_85: mk_nolean_q 1.0, mk_vol_size
+0.012, mk_calm_size 0.012 (≈ $600), mk_model_lean 1.0 (backup live_params_85.pre-fleet.json); x2 unit pace_start 4700 (backup mvtrx-x2.service.bak-fleet); restart 21:41:51 UTC (sim ≈ 82786); LIVE PARAMS
+applied incl. mk_nolean_q 0→1.0; 0 errors. Warm-up to ≈ sim 83086 (≈ 4:15 PM). Read at ≈ 5:15 PM (85 vs 47 $300 alpha/min, fills, bp per $) — before 85's immunity ends (≈ 5:50 PM). The 4-dec
+taker study and the remaining offline steps are paused for this (user).
