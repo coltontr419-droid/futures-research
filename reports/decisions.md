@@ -23872,3 +23872,8 @@ mk_lean_lad 3; agents/QuoteAgent.py = 683f430c; restart x1 only 14:45:10 UTC (x2
 Warm-up to ≈ sim 78645. newminer.sh now expects agent md5 683f430c (identical to 2ef16f9b with mk_lean_lad 0, which live_params_NEXT.json keeps).
 GUARD /opt/mvtrx/guard_leanlad.sh (pid 1543291, log guard_leanlad.log): every 10 min for 150 min, ≥ 600 sim s after warm-up: validator-exact $300 Σα of 47 vs 85 over the same window → mk_lean_lad back
 to 0 (+ ALERT) if 47 < 0.75 × 85 or 47's bp/$ < +0.8. Verdict ≈ 1 h after warm-up, well before 47's protection ends (≈ 8 PM).
+
+## §1572 — 2026-11-17 9:25 AM CT — Brief: pay 85 $85 / 47 $86; net alpha +1,036 / +958; lean-ladder test only ≈ 100 sim s past warm-up (no read yet)
+Release watch: none; no new alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 927. Pay 85 $85 ($2.84/day), 47 $86, 252 $182; prune line ≈ $96–107. Validator: 85 skill 2.89, net alpha +1,036, kept 80,
+coverage 192; 47 skill 2.92, +958, kept 88, coverage 192; 252 skill 3.23, +1,558. Sim 78746 (warm-up ended 78645). Guard log: waiting (needs +600 sim s). 0 errors; PACE 85 0/192 (worst $61k), 47 3/192
+blocked (worst $57k; bucket started at 4,700 instead of 20,000 — watch). Verdict ≈ 10:15–10:30 AM.
