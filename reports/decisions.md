@@ -23712,3 +23712,8 @@ Release watch: none (log alerts old). regcheck x2=85 + x1=47 REGISTERED. Pay 85 
 COVERAGE 167 (passed 160); 47 no gauges yet; 252 skill 4.47, +1,822. Validator-exact last 15 sim min: $300 85 +104.2 (+1.49 bp on $701k, 31+/3−) vs 252 +24.0 (+0.38); $30 85 +10.1 (+0.75) vs 252 +27.1.
 UID 47 rows in that window (−26.1 on $335k $300, +24.5 $30) are the PREVIOUS OWNER's fills (sim < 70140; 47 itself shows "0 of 0 traded books" — warm-up) — ignore; collision read uses sim ≥ 70440 only.
 selftrade.sh: 0 of 1,596. 0 errors on both units; 85 PACE 0 of 167 blocked, worst $23k.
+
+## §1554 — 2026-11-16 8:50 PM CT — Brief (two miners): 85 skill 0.75, net alpha +245, coverage 173; 47 trading after warm-up (net alpha +17, coverage 55); self-trades 0
+Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $1 (lag); 47 / 252 pay reads timed out at 80 s (chain slow; 252 ≈ $205 at 8:17). Validator: 85 skill 0.75, combined 0.273, net alpha +244.9, kept 90,
+coverage 173; 47 skill 0.0, net alpha +17.5, kept 15, coverage 55 (rising); 252 skill 3.27, +1,714. Sim 70588 (47 warm-up ended ≈ 70440). 0 errors on both; PACE 85 0/173 (worst $25k), 47 0/61 (worst $15k).
+selftrade.sh: 0 of 1,571. Collision read ≈ 9:43 PM (needs ≈ 1 h after sim 70440).
