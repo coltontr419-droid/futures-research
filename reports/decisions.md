@@ -23693,3 +23693,9 @@ $30 85 +5.7 (+0.70 on $81k, ELIGIBLE) vs 252 +8.9. PACE 0 of 126 traded books bl
 Release watch: none. regcheck x2=85 REGISTERED. Pay 85 $0 (chain lag) vs 252 $197; prune line $33. Validator: 85 skill 0.43, combined 0.168, net alpha +116.6, kept 66, coverage 156 (→ 160+);
 252 skill 3.58, +1,780, kept 85. Validator-exact last 15 sim min: $300 85 +101.1 (+1.28 bp on $790k — start-bucket burst volume, 33+/7−, kappa +0.87) vs 252 +8.5 (+0.14 on $623k);
 $30 85 +8.6 (+0.62 on $138k, 15+/9−) vs 252 +21.9 (+1.86). PACE 0 of 156 traded books blocked, worst $21.6k; GATE 7,459 / 161. 0 errors; call 0.36 s.
+
+## §1551 — 2026-11-16 8:00 PM CT — Collision BASELINE for UID 85 before x1 joins (sim 69160–70049, 14.8 sim min after warm-up)
+Validator-exact (speed/skill_cls2.py 14.8): $300 85 +114.2 (+1.37 bp on $833k, kept 36 = 34+/2−, kappa +1.36) = 7.7 Σα/sim min (start-bucket volume still elevated) vs 252 +19.0 (+0.31) = 1.3/min;
+$30 85 +11.1 (+0.76 bp on $146k, 14+/2−) = 0.75/min vs 252 +29.5 (+2.57). fillrate last 600 sim s (69449–70049): $300 85 362 fills $510k on 92 books, median $1,112, 0.39 per filled book-min
+vs 252 181 / $421k on 91; $30 85 48 / $79k on 36 books vs 252 44 / $79k on 30. NOTE: 85's start buckets ($20k each) are still being spent → its volume falls over the next ≈ hour regardless of
+x1; the collision read compares bp per $ and fills/book-min and keeps 252 as the control (252's alpha per $ moves with the market, not with x1).
