@@ -23884,3 +23884,12 @@ Release watch: none; no new alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 
 Interim A/B, sim 78645–79070 (skill_cls2 7.1 min / kindsplit): $300 47 +17.0 (+1.46 bp on $116k, 12+/2−) vs 85 +30.3 (+1.86 on $163k, 24+/1−) vs 252 +11.1 (+0.39). Fills: 47 inside n53 $67k mo60 +1.52,
 touch n11 $8k +0.34, behind n33 $36k depth 2 −0.31 / −0.69 (the new lean-side rest: so far NEGATIVE, offline said +1.0…+1.4); 85 inside n93 $101k +1.93, touch n19 $21k −0.30, behind n25 $31k depth 2
 +0.17 / +0.53. 47 has FEWER step-in fills (53 vs 93) — the rest fills spend the budget that step-ins need. Guard (0.75 × 85) would revert at 17.0 < 22.7 on its next tick if this holds.
+
+## §1574 — 2026-11-17 10:25 AM CT — Lean-ladder first full read (12.4 sim min ≈ 1 wall h): NOISE — 47 slightly ahead on alpha, behind on volume; the new rest fills ≈ 0 bp; keep running (guard on) for a second window
+Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 949. Pay 85 $85, 47 $85, 252 $182; prune line $117–118. Validator: 85 skill 2.51, net alpha +1,076, kept 77; 47 skill 2.51, +1,018,
+kept 87; 252 +1,610; coverage 192 each. 0 errors; PACE 85 0/192, 47 1/192.
+A/B sim 78645–79390 (validator-exact 12.4 min): $300 47 +63.9 (+2.48 bp on $258k, 31+/0−) vs 85 +58.6 (+2.05 on $285k, 32+/1−) vs 252 +23.8; $30 47 +15.5 vs 85 +14.8 (equal, as expected).
+Guard log 16:17 UTC (11.5 min): 47 +46.6 (+2.05 bp) vs 85 +53.5 — no revert. Fills (kindsplit): 47 inside n123 $137k +1.65 bp (mo60), touch n28 $28k −0.77, behind n77 $85k depth 2 −0.14; 85 inside n144 $161k
++1.89, touch n35 $43k −1.07, behind n56 $73k depth 1 +0.57. fillrate: 47 $251k on 62 books vs 85 $280k on 77.
+Reading: total $300 alpha +9% for 47 but −10% volume and fewer books filled; the added lean-side rest fills earn ≈ 0 bp (offline promised +1.0 to +1.4) — the 7-min interim had 47 −44%; within noise.
+VERDICT so far: NOISE. Keep 47 on mk_lean_lad 3 with the guard for a second ≈ 1 h window (fine-tuning size effect, test-duration rule allows longer); NEXT keeps mk_lean_lad 0 until it is clearly ahead.
