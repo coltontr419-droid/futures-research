@@ -23913,3 +23913,10 @@ Release watch: none; no alerts. our_uids 85 (x2) + 47 (x1), both REGISTERED; sel
 Validator-exact last 15 sim min: $300 85 +62.7 (+1.71 bp, 34+/3−), 47 +54.3 (+1.64) vs 252 +25.4 (+0.39); $30 85 +8.7 (+0.51 bp), 47 +10.1 (+0.61) vs 252 +20.6 (+2.28).
 FLAG: our $30 bp per $ was ≈ +1.1–1.3 through 11-16 evening; since this morning +0.45 / +0.47 (8:25 AM) and +0.51 / +0.61 now while 252 earns +1.6–2.3 on $30 — same on both miners, so a market/model
 issue on the $30 books, not a collision. Next: re-check the $30 model edge on today's tape (speed/leanfreq2.py MODEL=model_lean_30.json BOOKS=128-191) vs 11-16 — refit if it decayed (no change without the user).
+
+## §1578 — 2026-11-17 12:20 PM CT — $30 edge flag checked: the $30 MODEL is intact (de-drifted +1.9–2.2 bp at 120 s, unchanged) and our $30 fill markouts barely moved → likely window noise; no change
+speed/leanfreq3.py (live model_lean_30.json, books 128–191, each book's whole-window drift removed): sim 68500–72500 (11-16 evening) k 0.75 +1.56 / +1.86, k 1.0 +1.84 / +2.18 bp at 60 / 120 s; sim 77000–80300 (now)
+k 0.75 +1.47 / +1.91, k 1.0 +1.68 / +2.18 (mean |drift| 0.59 bp per 120 s both). $300 reference (k 1.0) +0.77 / +1.02 then, +1.09 / +1.41 now.
+Our $30 fills (speed/kindsplit2.py BOOKS=128-191): 11-16 evening 85 touch n129 $212k mo60 +1.02, 47 n143 $232k +1.18; now 85 n166 $248k +0.90, 47 n161 $238k +0.88 (99% at the touch; 252 now touch
+−0.15, behind −0.44 yet validator +2.28 → fill markouts don't map 1:1 to validator alpha, which is inventory × mid over the holding time). A 15-min validator window of ≈ $170k $30 notional moves
+≈ ±1 bp on noise. Verdict: NOISE so far; keep watching the $30 bp per $ each brief; act only if it stays < +0.8 for several more windows.
