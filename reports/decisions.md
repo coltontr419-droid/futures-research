@@ -23734,3 +23734,12 @@ Fills ($300): 85 264 fills $446k on 80 books, 0.25 per filled book-min, median $
 the BEFORE window and 47 is in its own start burst now ($868k, 0.43) → the volume split can't be separated yet.
 VERDICT: edge collision cost NONE; volume collision cost UNDETERMINED (start-burst confound). Re-read volume tomorrow ≈ 8–10 AM when both miners are past their start buckets (85 vs 252 $ per book-min,
 both of ours vs one). Recommendation: no third miner until that read; 47 stays on frozen settings until then (test bench after).
+
+## §1557 — 2026-11-16 10:05 PM CT — "Anything else to check, or let them run?" → let them run; the open items, and one more automation
+Let them run: 85 = keeper (no tests/restarts), 47 frozen until the volume re-read (11-17 after 8 AM). Standing watchers (lab, laptop-independent): overnight.sh (+ watch_extra.sh) every 10 min, release + sim-reset
+watcher every 10 min, pace_sync plausibility guard, tape rotation.
+Added: simreset_watch.py now also runs simreset_uids.sh on a detected reset (our_uids start sims → 0 for the new sim day, §1399; otherwise selftrade.py / the watchdog ignore every new fill).
+Backup simreset_watch.py.bak-1116.
+Open items, in time order: (1) 11-17 Tue morning — possible upstream release (Tue–Fri 4–11 AM CT) → watcher; (2) 11-17 after 8 AM — volume collision re-read + 85 vs 47 like-for-like; (3) 11-17 ≈ 6 PM / 8 PM —
+protection ends for 85 / 47: pay must clear the prune line (≈ $95 tonight; 85 $6 now, rising; 255 went $0 → $66 in ≈ 24 h despite its bad morning); (4) 11-17 ≈ 9–10 PM — sim-day reset: watcher alerts,
+checks the layout, fixes our_uids; then I check the model edge (leanfreq per class) on the first hour of the new day.

@@ -20,4 +20,5 @@ if old and ts + 3600 < old:
         got = "dec" if dec >= 3 else ("300" if mid > 100 else "30")
         if got != want: bad.append(b)
     msg = f"SIM RESET: tape clock {old} -> {ts} | layout check on {len(px)} books: {len(bad)} books not matching the $300 0-127 / $30 128-191 / 4-dec 192-255 map {bad[:20]}"
+    import subprocess; subprocess.run(["sh", "/opt/mvtrx/simreset_uids.sh"], timeout=120)   # §1557: our_uids start sims → 0 for the new sim day (§1399)
     open(L, "a").write(f"{now} {msg}\n"); open(A, "a").write(f"ALERT {int(time.time())} {msg} — re-check book_map + model edge (leanfreq) before trusting the leans (§1540)\n")
