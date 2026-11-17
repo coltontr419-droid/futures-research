@@ -24038,3 +24038,10 @@ WATCHDOG FIX: overnight.sh's self-trade guard grepped "taking them): N" but self
 ST=0 now) and it now stops mvtrx-x4 (the taker) instead of x1 (backup overnight.sh.bak-1117).
 x4 start: `HK=x4 PARAMS=live_params_NEXT_H2.json sh /opt/mvtrx/newminer.sh <uid>`. Judge by: $300 taker alpha (validator-exact) vs 181/234 (+1.4–1.6 bp, ≈ $34–36 per 30 sim min at their size),
 $30 making credit (making067b: quality ≈ 0.5, two-sided ≈ 45–55 per sim h), self-trades 0, coverage ≥ 160.
+
+## §1590 — 2026-11-17 2:50 PM CT — BAND VERDICT (x3 / UID 54): PROVEN on the first hour — total $300 alpha +69%, 85+47 only −9% (identical copy cost −15–20%); (time note: §1588 / §1589 headers ≈ 50 min fast)
+Sim 81500–82218 (12.0 sim min ≈ 1 wall h after warm-up), validator-exact $300: 54 +70.6 (+1.06 bp on $663k, kept 24 = 22+/2− ≥ 20, ELIGIBLE) = 5.9 per sim min; 85 +42.2 (+1.38) = 3.5/min; 47 +39.1 (+1.37)
+= 3.3/min (§1583 before x3: 3.4 / 4.1 → 85+47 7.5 → 6.8, −9%); 252 +33.3. Our total $300 alpha per sim min 12.7 vs 7.5 → +69%. 54 coverage 181, net alpha +87 (building), pay $0 (new); 85 $94 / 47 $104;
+selftrade 0 of 1,711 (three makers).
+VERDICT: PROVEN (single-hour window, keep watching): the 1.0–1.5× band lane adds ≈ 1.6× a lean miner's $300 alpha and costs the two lean miners less than an identical copy would. x3 stays on the band;
+x4 = the H2 hybrid (staged §1589); a later miner could be a second band miner (live_params_NEXT_B1.json).
