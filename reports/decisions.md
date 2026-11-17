@@ -23748,3 +23748,9 @@ checks the layout, fixes our_uids; then I check the model edge (leanfreq per cla
 Release watch: none (log alerts old). regcheck 85 + 47 REGISTERED. Pay 85 $6, 47 $95 (previous owner's weight), 252 $212; prune line $101. Validator: 85 skill 0.97, combined 0.381, net alpha +379.8, kept 98,
 coverage 188; 47 skill 0.94, combined 0.363, net alpha +224.8, kept 96, coverage 177; 252 skill 4.02, +1,724. Validator-exact last 15 sim min: $300 85 +83.7 (+1.99 bp on $421k, 33+/2−), 47 +135.7
 (+1.87 on $725k, 35+/1−) vs 252 +37.8 (+0.63); $30 85 +10.1 (+0.65), 47 +11.9 (+0.77) vs 252 +8.7 (+0.87). 0 errors both; PACE 85 0/188 (worst $28k), 47 0/177 (worst $23k); selftrade 0 of 1,375.
+
+## §1559 — 2026-11-16 10:40 PM CT — Skill score vs net alpha (user question), from the 0.6.7 code: skill (kappa) is a magnitude-blind CONSISTENCY GATE; skill pay = share of NET ALPHA
+debeta.kappa_of_alpha: MAD-normalised, downside-adjusted mean of per-book alphas (books with |alpha| ≥ the floor, ≥ min books) — "magnitude-blind". reward.skill_pool_share: eligible if skill_raw > 0 on ≥ min_books
+qualifying books; share = max(0, skill_net_alpha) × p11 counterparty factor ÷ total ("consistency decides who is in, P&L decides how much"; cloning-invariant). → 252's kappa 3–4 = very even per-book results
+(big steady fleet); its pay ($212) comes from net alpha ≈ 1,700. Ours: gate passed (0.97 / 0.94); what to grow is net alpha. Net alpha is a rolling-window total (window = several sim h ≈ a wall day at
+today's sim speed) → still filling for 85/47; last 15 sim min 85 +93.8, 47 +147.6 vs 252 +46.5 → at full window each could pass 252's ≈ 1,700 if the per-minute edge holds (crowding / sim reset / release risks).
