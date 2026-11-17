@@ -23699,3 +23699,10 @@ Validator-exact (speed/skill_cls2.py 14.8): $300 85 +114.2 (+1.37 bp on $833k, k
 $30 85 +11.1 (+0.76 bp on $146k, 14+/2−) = 0.75/min vs 252 +29.5 (+2.57). fillrate last 600 sim s (69449–70049): $300 85 362 fills $510k on 92 books, median $1,112, 0.39 per filled book-min
 vs 252 181 / $421k on 91; $30 85 48 / $79k on 36 books vs 252 44 / $79k on 30. NOTE: 85's start buckets ($20k each) are still being spent → its volume falls over the next ≈ hour regardless of
 x1; the collision read compares bp per $ and fills/book-min and keeps 252 as the control (252's alpha per $ moves with the market, not with x1).
+
+## §1552 — 2026-11-16 8:10 PM CT — SECOND MINER UID 47 (x1) live on the frozen strategy (HK=x1 newminer.sh 47 → restart 02:04:15 UTC, sim 70140)
+User registered x1 as UID 47. newminer.sh: regcheck x1=47 REGISTERED, agent 2ef16f9b, live_params_NEXT.json → live_params_47.json; our_uids.txt now "85 maker x2 68860" + "47 maker x1 70140";
+mvtrx-x1 enabled + active (port 8101, soft pacing, no tape). LIVE PARAMS applied (same frozen set as 85); 0 errors on x1 and x2. Self-trade check (selftrade.sh, any two of our UIDs): 0 of 1,608
+recent fills. Watchdog self-trade guard is armed (stops mvtrx-x1 on any fill between our UIDs). x1 warm-up until ≈ sim 70440 (≈ 8:35 PM). Collision read ≈ 9:35 PM: 85's validator-exact bp per $
+and fills/book-min vs the §1551 baseline, 252 as control; x1 alone vs 85; self-trades 0. Rules: no tests on 85; x1 = candidate test bench after the collision read.
+(Cosmetic: the read-script copies for 47 carry the label UIDS_EXTRA=47:x2 — x1 in reality.)
