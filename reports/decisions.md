@@ -23877,3 +23877,10 @@ to 0 (+ ALERT) if 47 < 0.75 × 85 or 47's bp/$ < +0.8. Verdict ≈ 1 h after war
 Release watch: none; no new alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 927. Pay 85 $85 ($2.84/day), 47 $86, 252 $182; prune line ≈ $96–107. Validator: 85 skill 2.89, net alpha +1,036, kept 80,
 coverage 192; 47 skill 2.92, +958, kept 88, coverage 192; 252 skill 3.23, +1,558. Sim 78746 (warm-up ended 78645). Guard log: waiting (needs +600 sim s). 0 errors; PACE 85 0/192 (worst $61k), 47 3/192
 blocked (worst $57k; bucket started at 4,700 instead of 20,000 — watch). Verdict ≈ 10:15–10:30 AM.
+
+## §1573 — 2026-11-17 9:55 AM CT — Brief: lean-ladder interim (7 sim min) BEHIND the control — 47 $300 +17.0 (+1.46 bp, $116k) vs 85 +30.3 (+1.86, $163k); guard likely to revert at its next check
+Release watch: none; no new alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 960. Pay 85 $83, 47 $83, 252 $178 (prune-line read $0 this tick — script artefact). Validator: 85 skill 2.51, net alpha
++1,068, kept 78; 47 skill 3.36, +974, kept 86; 252 +1,584; coverage 192 each. 0 errors; PACE 85 0/192, 47 2/192.
+Interim A/B, sim 78645–79070 (skill_cls2 7.1 min / kindsplit): $300 47 +17.0 (+1.46 bp on $116k, 12+/2−) vs 85 +30.3 (+1.86 on $163k, 24+/1−) vs 252 +11.1 (+0.39). Fills: 47 inside n53 $67k mo60 +1.52,
+touch n11 $8k +0.34, behind n33 $36k depth 2 −0.31 / −0.69 (the new lean-side rest: so far NEGATIVE, offline said +1.0…+1.4); 85 inside n93 $101k +1.93, touch n19 $21k −0.30, behind n25 $31k depth 2
++0.17 / +0.53. 47 has FEWER step-in fills (53 vs 93) — the rest fills spend the budget that step-ins need. Guard (0.75 × 85) would revert at 17.0 < 22.7 on its next tick if this holds.
