@@ -23805,3 +23805,17 @@ The real 24h leaders 216 / 66 / 251 are 10.2–11.2 d old (just past the 10-day 
 Realistic: crypto-1h ≈ 2× median (≈ $150/mo, §1222) + whatever 24h share survives; pay ≈ 0 for the first ≈ 5 d (1h) / 10 d (24h) because of the worst-score backfill; SN50 immunity 65,535 blocks ≈ 9.1 d.
 Verdict: Synth is a small, slow stream (≈ $150–600/UID after ≈ 10 days), well below MVTRX per UID; keep staged, do NOT register on the backtest's $; a credible estimate needs the validator's own
 moving-average path (prepare_df_for_moving_average + coefficients) re-run on the history with per-hotkey (not per-UID) keys.
+
+## §1566 — 2026-11-17 2:30 AM CT — MINOS (SN107) offline desk study (user: "can we look into minos offline as well?") — public API only, no compute, nothing registered
+api.theminos.ai (v2.0.0 active): network-config winner_weight 0.8, dust_top_n 20, dust_decay 0.9, burn 0, participation_window 20 / min 5 rounds, config_commitment_required, reward_normalization; chromosome
+weights chr10 .356, chr11 .244, chr12 .111, chr13 .089, chr14–22 .022 each. Rounds every 72 min (submission window 72 min), ≈ 53–54 submissions; regions ≈ 8–14 Mbp; input.bam ≈ 263 MB (+ truth/mutation VCFs).
+57 revealed rounds (≈ 11-14 → 11-17): 16 distinct winners (uid 6/18/71 8 each, 73/26 6, 93 4); gap #1–#2 median 7.1e-6 (max 3.9e-4); gap #1–#20 median 0.0011; EXACT top ties (|Δ| < 1e-6) in 19/57
+rounds and the EARLIEST submitter won 16/19; top-20 tools 100% GATK; avg weight per round: uid6 .145, 18 .122, 71 .119, 26 .103, 73 .079, 93 .063.
+Submission time from round start: winners median 29.8 min (8.7–70), top-20 median 54.2, all 36.9.
+Zero-weight mystery SOLVED (deploy/sn107/zerock.py, 15 rounds): top-20 eligible rows paid 250 / zero 47 — 45 of the 47 zeros belong to a COLDKEY that already had a higher-ranked paid UID that round
+→ ONE PAID UID PER COLDKEY PER ROUND (extra UIDs on one coldkey add nothing except a second shot at the top slot). Config hashes are unique per miner (54/54), so copying is not visible.
+Reading: the field has converged on one GATK config (scores tied to ≈ 1e-6); winning = matching that config exactly AND submitting early (speed breaks ties); ranks 2–20 pay 0.2 × decayed shares (rank 2 ≈ 2.3%
+of the pot, rank 20 ≈ 0.35%; pot ≈ $479k/mo per the subnet handoff). Even a steady mid-top-20 rank ≈ $2–5k/mo; rank 1 rotates by noise/speed among ≈ 15 coldkeys.
+Next (needs the user's yes — a box): rent a CPU box (≈ 8–16 vCPU, 32 GB, ≈ $20–50 for a few days; NOT the MVTRX lab box — GATK would slow the miners' replies), download ≈ 20 revealed rounds
+(≈ 5 GB), run GATK HaplotypeCaller with the tuning-guide configs, score with the repo's hap.py demo mode, and check (1) do we reproduce the top score to 1e-6, (2) wall time per round on the box
+(must beat ≈ 30 min to win ties), (3) which knobs move the score. Then 1 UID (0.99 TAO ≈ $190) on its own coldkey/box.
