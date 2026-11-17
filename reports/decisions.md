@@ -23973,3 +23973,8 @@ for a new lane = our $300 skill strategy (proven, ≈ 3.5× theirs) + $30 balanc
 by making credit (long-lived makers 90–120 credit, $220–550 total pay). Making credit is a share among ≈ 108 makers, so it does not collide with our skill lanes (it would collide between our own hybrids).
 Open: the old rule "makers stay making-only, no skill legs" (11-11/11-13) predates this — the user decides. Next if approved: build a $30 'balanced maker' mode (both sides at the touch, $600, inventory skew,
 fast requote), census, and run it on a NEW miner (x4 or later), not on 85/47.
+
+## §1585 — 2026-11-17 1:55 PM CT — Brief (three miners): 54 only ≈ 130 sim s past warm-up — no band read yet; 85 $98 / 47 $108 / 54 $0; self-trades 0
+Release watch: none; no alerts. regcheck 85 / 47 / 54 REGISTERED; selftrade 0 of 1,345 (three makers). Pay 85 $98, 47 $108, 54 $0 (new), 252 $209; prune-line read $30 (jumpy; steady ≈ $110).
+Validator: 85 skill 3.00, net alpha +1,168, coverage 190; 47 skill 2.86, +1,259, coverage 191; 54 skill 0, net alpha −1.9, kept 13, coverage 70 (building); 252 +1,771. 0 errors on all three;
+PACE 85 0/192, 47 0/192, 54 0/82 (worst $6.9k). Sim 81630 (54 warm-up ended ≈ 81500). Band verdict needs ≈ 1–2 h → ≈ 3:00–3:30 PM.
