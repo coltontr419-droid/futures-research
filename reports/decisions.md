@@ -24136,3 +24136,16 @@ Deploy (47 only): agents/QuoteAgent.py = e2ce0136 (backup .16708680); newminer.s
 live_params_47.pre-exit.json); restart x1 22:04:11 UTC (sim ≈ 83029), pace_start 4700; LIVE PARAMS applied mk_exit_k 0→2.0; 0 errors. Warm-up to ≈ sim 83330 (≈ 4:35 PM).
 Baselines (own, validator-exact last 60 sim min before the changes, §1599): 47 $300 +199.4 + $30 +119.4 = 5.3 per sim min, max position ≈ $3.8k; 85 $300 +196.4 + $30 +110.5 = 5.1 per sim min.
 Reads: 47 vs its own baseline (α/min, max position, % reductions by lean flips) ≈ 5:35 PM; 85 (fleet recipe) vs its own 5.1/min ≈ 5:15 PM.
+
+## §1601 — 2026-11-17 4:10 PM CT — SAFETY: H2 taking switched off on UID 228 (x4); 32 stale lock files cleared
+
+Health check (user: "anything else you need to check to make sure we arent doing anything wrong?") found:
+- **228 over-trading:** 1,791 taker fills / $797k on all 128 $300 books in 5.6 sim min (sim 82741–83079); IOC FLOW 1,512 → 1,738 IOCs ($876k).
+  The template (181/234/51) does ≈ 7.5 taker trades per sim min (181: $250k in 58 sim min), so 228 ran at ≈ 40× template churn.
+- **Lock handshake side effect:** 32 lock files in /opt/mvtrx/locks, aged up to 756 s. While a lock exists, 85/47/54 pull quotes on that book side,
+  so the H2 taker was silently cutting our makers' presence. This contaminates the 85 fleet-recipe and 47 hold-longer reads from about 22:00 UTC onward.
+- Action: `mk_take300 1→0` on 228 (live knob, no restart, backup live_params_228.pre-stoptake.json). The $30 maker keeps running.
+  Locks were moved to /opt/mvtrx/locks_removed_1117/. Locks stayed at 0 after 60 s.
+- Not yet diagnosed: why H2 churns (suspects: target resets on every lean flip followed by rebuilds; the 15-s add gap filling the $4k cap fast on 128 books; retries; locks kept while the gap persists).
+  Measure this offline before any H2 restart. Do not re-enable as-is.
+- 85/47 reads: mark lock overlap; prefer windows after 22:10 UTC (sim ≈ 83140+) or judge with locked sides excluded.
