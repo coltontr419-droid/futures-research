@@ -23786,3 +23786,8 @@ older TypeError made a deregistered slot keep its standing; 0.6.7 fixed it and a
 Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $30, 47 $13, 252 $212; prune line $106. Validator: 85 skill 1.06, combined 0.379, net alpha +502.2, kept 96, coverage 191; 47 skill 1.23, combined
 0.409, net alpha +420.9, kept 98, coverage 190; 252 skill 4.92, +1,739, kept 73. Validator-exact last 15 sim min: $300 85 +69.2 (+1.71 bp, 30+/3−), 47 +98.8 (+1.90, 39+/1−) vs 252 +47.2 (+0.67); $30 85 +15.3
 (+0.94), 47 +15.0 (+0.88) vs 252 +14.1 (+1.22). 0 errors; PACE 85 0/191 (worst $37k), 47 0/190 (worst $29k); selftrade 0 of 1,146.
+
+## §1564 — 2026-11-17 12:55 AM CT — Brief (two miners): net alpha 85 +522, 47 +457; pay $30 / $26; $300 +1.51 / +1.59 bp vs 252 +0.59; self-trades 0
+Release watch: none. regcheck 85 + 47 REGISTERED. Pay 85 $30, 47 $26 (12:21 $13), 252 $201; prune line $83–90. Validator: 85 skill 0.99, combined 0.328, net alpha +522.5, kept 93, coverage 191; 47 skill 1.08,
+combined 0.367, net alpha +457.3, kept 102, coverage 191; 252 skill 4.94, +1,842. Validator-exact last 15 sim min: $300 85 +58.0 (+1.51 bp, 32+/1−), 47 +79.0 (+1.59, 29+/1−) vs 252 +34.0 (+0.59); $30 85 +19.9
+(+1.13, 10+/0−), 47 +20.5 (+1.18) vs 252 +21.4 (+1.80). 0 errors; PACE 85 0/191 (worst $37k), 47 0/191 (worst $30k); selftrade 0 of 1,127.
