@@ -23920,3 +23920,8 @@ k 0.75 +1.47 / +1.91, k 1.0 +1.68 / +2.18 (mean |drift| 0.59 bp per 120 s both).
 Our $30 fills (speed/kindsplit2.py BOOKS=128-191): 11-16 evening 85 touch n129 $212k mo60 +1.02, 47 n143 $232k +1.18; now 85 n166 $248k +0.90, 47 n161 $238k +0.88 (99% at the touch; 252 now touch
 −0.15, behind −0.44 yet validator +2.28 → fill markouts don't map 1:1 to validator alpha, which is inventory × mid over the holding time). A 15-min validator window of ≈ $170k $30 notional moves
 ≈ ±1 bp on noise. Verdict: NOISE so far; keep watching the $30 bp per $ each brief; act only if it stays < +0.8 for several more windows.
+
+## §1579 — 2026-11-17 12:30 PM CT — Brief: pay 85 $91 / 47 $99; prune-line reads unstable ($1 / $26 / $114 within 1 h — the lowest unprotected paid UID changes as others register/prune); $30 +0.7 bp
+Release watch: none; no alerts. regcheck 85 + 47 REGISTERED; selftrade 0 of 1,009. Pay 85 $91 ($3.04/day), 47 $99 ($3.28/day), 252 $211; prune line read $26–27 this tick. Validator: 85 skill 2.42, net alpha
++1,100 (window roll, 12:00 +1,216), kept 85, coverage 190; 47 skill 2.40, +1,186, kept 88, coverage 192; 252 +1,731. Validator-exact last 15 sim min: $300 85 +62.3 (+2.00 bp, 34+/1−), 47 +49.6 (+1.54) vs 252
++7.4 (+0.12); $30 85 +10.4 (+0.71), 47 +10.4 (+0.73) vs 252 +17.1 (+1.72). 0 errors; PACE 0/192 both.
