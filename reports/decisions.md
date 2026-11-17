@@ -24045,3 +24045,9 @@ Sim 81500–82218 (12.0 sim min ≈ 1 wall h after warm-up), validator-exact $30
 selftrade 0 of 1,711 (three makers).
 VERDICT: PROVEN (single-hour window, keep watching): the 1.0–1.5× band lane adds ≈ 1.6× a lean miner's $300 alpha and costs the two lean miners less than an identical copy would. x3 stays on the band;
 x4 = the H2 hybrid (staged §1589); a later miner could be a second band miner (live_params_NEXT_B1.json).
+
+## §1591 — 2026-11-17 ≈ 3:10 PM CT — FOURTH MINER UID 228 (x4) live on the H2 HYBRID ($300 taker on our lean + $30 balanced maker)
+User registered x4 as UID 228. `HK=x4 PARAMS=live_params_NEXT_H2.json sh newminer.sh 228`: agent 2e5726e3, restart 21:08:52 UTC (sim 82441), port 8104, pace_start 4700; our_uids 85 / 47 / 54 / 228.
+LIVE PARAMS applied (non-defaults shown): mk_take300 0→1, mk_model_lean 1.0, mk_low_size 0.012, mk_low_inside −1→0, skip_dec 1 (take $600 / cap $4,000 / gap 15 / retry 5, $30 lean 0, lean30_only 0 = defaults
+in the file); 0 errors; all four units active (8101 / 8102 / 8104 / 8105); selftrade 0 of 2,263 (four UIDs). Warm-up (no leans → no takes) until ≈ sim 82741.
+First read ≈ 1 h after warm-up: IOC count + $300 taker alpha (skill_cls2) vs 181/234; $30 making (making067b, quality target ≈ 0.5); self-trades 0; coverage ≥ 160; 85/47/54 alpha/min unchanged.
