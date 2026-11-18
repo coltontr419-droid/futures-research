@@ -24621,3 +24621,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
      So 20 × $200 ($4k ≈ 19% of the pool) is hard but in the range the top fleets reach ($3.3k–5.8k); 40 × $200 ($8k ≈ 38% of our pool) is not realistic from skill alone.
   3. $10k+/mo needs more than one pool: the making half ($28k, where 5F1F2JMu, 5ECLVeLz, 5GVu1hrR and 5FNTAiDo earn) and/or 4-dec ($7k), on separate miners. Skill-only copies plausibly cap around $3–4k/mo for us.
 - **Next research:** after tonight's copy test, project copies-vs-lanes with dilution; study what makes 5E2fVqiW's no-lean fills profitable (dF10 counterparty effect, §1628); revisit a making-credit miner design for the $28k half.
+
+## §1631 — 2026-11-18 12:55 AM CT — do copies divide alpha? 5E2fVqiW history + our own 2-copy data (user Q)
+
+- **Hypothesis (user):** maybe one miner would earn ≈ 20× what each of the fleet's 20 copies earns (alpha simply divided).
+- **speed/fleethist.py, 5E2fVqiW, 10 days at 6-h steps** (validator net alpha of its current UIDs):
+  - If alpha were divided, the fleet TOTAL would stay roughly constant and the per-UID median would fall as more copies trade.
+  - Observed: the total moves with the number of active copies, 1.8k (6 UIDs, 11-11) → 41k (20 UIDs, 11-17). The median is HIGHEST with all 20 active (1,600–2,055 on 11-17).
+    With 6–9 active it was 209–819. So more copies coincided with more total and NOT lower per-copy alpha.
+  - Caveat: the active count isn't controlled (bad market regimes also turn copies negative), so this is correlation, not proof.
+- **Our direct test (controlled):** 85 alone → 85 + 47 identical gave ≈ 1.7× one miner's alpha (§1568: −15–20% per miner), not 1× as a pure division would.
+- **Mechanism:** each UID has its own per-book volume cap, so 20 copies have 20× the budget. Fills come from a large uninformed flow, so copies mostly add fills rather than split a fixed set.
+  The cost is partial overlap (we measure it tonight), not a 1/N split.
+- **Proof plan:** tonight's copy test (2 copies on the new recipe), then measure the incremental α of each added copy when we scale (copy 3, 4, …); stop adding when the increment gets small.
