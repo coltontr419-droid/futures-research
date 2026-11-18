@@ -24918,3 +24918,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   The 47 test (§1600) had no ceiling, so it never hit this.
 - **Fix:** mk_exit_k 2.0 → 1.4 live at sim ≈ 7609 (no out of range). Exits now need 1.0–1.4 × thr → 1.4–1.5 × thr, i.e. stronger but possible inside the band. Phase 3 restarts from 7609. Read ≥ 2,400 sim s later (≈ sim 10,000, ≈ 12:30 PM CT).
 - **Lesson:** for any lean-gating knob, check it against the band (exit_k × model_lean must be < model_lean_max).
+
+## §1653 — 2026-11-18 9:00 AM CT — brief: 228 now ELIGIBLE (skill 1.58); exit_k 1.4 early read
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $153, 228 $34.
+- Validator: **228 skill 0 → 1.58** (the H3 flush has left its window; pay should start rising); net α 1,057. 54 1,379 (skill 2.50). 252 2,058.
+- **exit_k 1.4, first 4 sim min (7644–7884):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +25.2 on $177k (+1.43 bp, 16+/0−) | +40.0 on $182k (+2.20 bp) | +9.7 |
+
+  - 54's volume is back to equal 228's (exits possible again). 54/228 $300 α = 0.63 (phase 2 0.96). Too early.
+- Self-trades 0, errors 0, no release. Brief cron updated to exit_k 1.4 from sim 7609.
