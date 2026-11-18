@@ -25215,3 +25215,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Run `HK=x3 PARAMS=live_params_NEXT_L2.json sh newminer.sh <uid>`.
   - Then NO tests or restarts on this miner (settled).
   - Hourly: validator net α vs fill-based α (young-UID handicap) and pay vs the prune line, until immunity ends ≈ 24 h later.
+
+## §1671 — 2026-11-18 3:27 PM CT — old UID 228 (x4) PRUNED; NEW SETTLED MINER x3 registered INTO UID 228; launch pacing bug fixed
+
+- User registered x3 → UID 228. regcheck twice: x3=228 REGISTERED, x4=228 NOT REGISTERED (the x4 journal shows "not registered" at 21:20 UTC). So x4 was pruned ≈ 3:20 PM after immunity ended at $50 pay (§1668) and the slot went to our new registration.
+- mvtrx-x4 stopped and disabled; our_uids.txt = "228 maker x3 11903". The old live_params backed up as live_params_228.x4-final.json.
+- Started with `HK=x3 PARAMS=live_params_NEXT_L2.json sh newminer.sh 228` (agent d8f4bf42; lane ≥ 1.5×, no ceiling, rest_none, vol 0.1 / calm 0.12 / $30 0.033, max_inv 0.3; pace_start 4700, pace_burst 3600).
+  LIVE PARAMS: 0 out of range. Own tape: /opt/mvtrx/live_tape_x5.jsonl. The x4 tape (live_tape_x3.jsonl) has stopped.
+- **BUG at launch:** PACE SYNC charged all 192 books $77–92k each from pace_sync_228.json, written 21:13 UTC for the OLD x4 owner of UID 228. Result: 192/192 books blocked; the bucket would need ≈ 4+ sim h to refill.
+  - The validator had already reset UID 228's volume (total_daily_volume 0; a fresh pace_sync run shows max $0).
+  - Fix: stale file kept as pace_sync_228.json.stale-x4; pace_sync.py refreshed (all 0); the 192 "sync11902" rows removed from pace_228.ledger (backup pace_228.ledger.with-x4-sync); restart.
+  - After: "PACE ledger added 0 fills", "PACE STATUS: 0 of 0 traded books blocked". Total restarts at launch: 2 (21:24:47, 21:25:52 UTC), within the first 3 min.
+  - newminer.sh now also moves a stale pace_sync_<uid>.json aside (backup newminer.sh.bak-syncfix).
+- **This miner is SETTLED:** no tests and no restarts from here. Hourly: validator net α vs fill-based α (young-UID handicap), pay vs the prune line, until immunity ends ≈ 3:25 PM CT 11-19.
