@@ -24509,3 +24509,24 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - watch_extra's "x4 UID 228: no fills for 58 wall min" ALERT (04:15 UTC) matched the §1621 bug.
 - Self-trades 0, locks 0, errors 0. No release (last line = the 03:24 UTC sim reset, layout 0 mismatches).
 - The brief cron was re-created (b9f48fef). It now leads with a per-miner $300 fill check.
+
+## §1623 — 2026-11-17 10:45 PM CT — outlook + first collision measurement between the two lanes (user Q)
+
+- **Tool:** speed/overlap.py = share of a uid's $300 maker $ with a same-book, same-side fill by the other uid within ±W s.
+
+  | Pair | Window | 30-s overlap | Notes |
+  |---|---|---|---|
+  | 54 ↔ 228 | old day 86270–86400 | 32% / 22% of $ | — |
+  | 54 ↔ 228 | new day 1360–now | 33% / 34% of $ | 10-s window: 16% / 20% |
+  | 54 ↔ 252 (unrelated miner) | new day | 13.5% | baseline |
+  | 228 ↔ 252 (unrelated miner) | new day | 6.5% | baseline |
+  | 85 ↔ 47 (identical recipe) | old day | 33% / 66% | reference |
+
+- **Reading:** the lanes overlap ≈ 2.5–5× the chance level, but less than identical miners. The threshold lanes are adjacent in time: a move that takes P through 1.0–1.5 into ≥ 1.5 fills 54 first and 228 seconds later, on the same book and side.
+- Overlap ≠ loss: one sweep can fill both. The cost is how much fill each loses, which needs a clean before/after.
+  Today's data are confounded (54's bucket test, the reset, restarts). Measure 54's α per $ and volume ratio to 252 over full windows with 228 on, against §1612 (alone).
+- **Outlook (rough):**
+  - 54 alone ≈ $165/mo market-normalised (§1612).
+  - 228's lane (≥ 1.5) has fewer lean episodes (≈ ½ of the 1.0 band's active time) at a better bp (+1.3–2.0). Expect ≈ 60–80% of 54 → ≈ $100–130/mo, minus collision.
+  - Two lanes ≈ $250–300/mo before the remaining levers (bucket, hold-longer, model retrain).
+  - Scaling with more threshold lanes makes bands narrower and overlap higher. For more miners, better separation is needed (a different signal or horizon per miner); to be studied.
