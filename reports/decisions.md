@@ -24501,3 +24501,11 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Damage:** ≈ 50 wall min (≈ 400 sim s) of no $300 trading tonight. This was the FIRST sim reset since the model lean existed (a sim day ≈ 6 wall days at today's speed), so 85/47 were never affected.
 - **Lesson:** the brief must check that each miner has $300 fills in the last few sim minutes (a zero-fill miner is an ALERT, not a quiet line). Added to the brief prompt.
 - 54's bucket test restarts its cycle (full buckets again); read on the new day.
+
+## §1622 — 2026-11-17 10:20 PM CT — brief: waiting for warm-up after the fix; the old watcher's no-fill ALERT matched the bug
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $28, 228 $0. Lowest non-immune: 43 at $15, so neither of ours is near the line (both immune until ≈ 1:10 PM / 3:10 PM 11-18).
+- The sim slowed again: 1232 → 1356 in 16 wall min (≈ 8 sim s per wall min). The fixed agents' leans start at sim ≈ 1360, so no fills are expected before then.
+- watch_extra's "x4 UID 228: no fills for 58 wall min" ALERT (04:15 UTC) matched the §1621 bug.
+- Self-trades 0, locks 0, errors 0. No release (last line = the 03:24 UTC sim reset, layout 0 mismatches).
+- The brief cron was re-created (b9f48fef). It now leads with a per-miner $300 fill check.
