@@ -24754,3 +24754,20 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 54's ratio to 252 = 1.7×.
 - Phase 1 ends ≈ sim 4300 (≈ 3:00 AM CT at the current speed). Self-trades 0, errors 0, no release.
+
+## §1641 — 2026-11-18 2:57 AM CT — PHASE 1 (identical copies) read; PHASE 2 (lanes) started
+
+- **Main window, post-drain (sim 3754–4294, 9 sim min):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +39.3 (+1.22 bp, 30+/4− kept) | +39.9 (+1.09 bp, 29+/2−) | +16.1 (+0.55 bp) |
+  | $30 α | +6.3 | +6.3 | +5.0 |
+  | Total per sim min | 5.1 | 5.1 | 2.3 |
+
+  - 54's ratio to 252 = 2.2× (alone, old day: 2.85×) → ≈ −20–25% per copy. The pair = 4.4× 252 ≈ 1.55× one miner.
+  - overlap.py post-drain: 36% / 38% of $ within 30 s (lanes 33%; 54 vs 252 = 10.5%). Once the drain is over, identical copies overlap about as much as the lanes did.
+- **Full copy phase (1890–4289, 40 sim min, includes 228's drain):** 54 6.3 per sim min (+1.10 bp $300, +1.43 bp $30); 228 9.9 (drain); 252 6.5. 54's ratio 0.97×, pulled down by 228's drain volume and a strong 252 stretch.
+- **Verdict (noisy, 9-min clean window):** an identical copy costs each miner ≈ 20–25%; two copies ≈ 1.55× one. Consistent with §1568 (−15–20%). Pair total and per-miner progress to be compared with phase 2.
+- **PHASE 2:** regcheck x4=228; live_params_228.json = NEXT_L2 (lane ≥ 1.5×, no ceiling; backup live_params_228.pre-L2b.json); pace_burst 3600 kept. Restart 08:56:26 UTC at sim ≈ 4311. 0 out of range, 0 errors, tape fresh.
+  Warm-up until ≈ 4610; drain ≈ 30 sim min → main read window ≈ 6400–7000 (≈ 7:30–8:30 AM CT).
