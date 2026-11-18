@@ -24559,3 +24559,14 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   2. Then 228 → ≥ 1.5× lane (live_params_NEXT_L2.json, keeping pace_burst 3600 so both setups match apart from the lane) for the same length.
   3. Morning: copies vs lanes, judged on per-miner progress toward $200 and the pair total.
 - 228 may be pruned ≈ 3:10 PM (skill 0 until the H3 flush leaves the 180-sim-min window, ≈ sim 7970). Accepted.
+
+## §1627 — 2026-11-17 11:25 PM CT — phase 3 + overnight model refit queued (user away from the laptop after 7:30 AM; laptop stays open)
+
+- **PHASE 3** (after the phase-2 lane read, ≈ 7:30 AM → ≈ 1 PM CT): mk_exit_k 2.0 on 54 (live knob, bounds 0–10; agent d8f4bf42 has it).
+  - A signal against an open position must be 2× stronger before 54 trades out of it, so holds get longer. Lever toward $200: exposure × edge; fills keep paying 5–10 min.
+  - Old recipe on 47: NOISE+ (§1600 census covered the inventory-against-lean path; today's census on a flat seeded state can't exercise it).
+  - 228 stays on whichever phase 1/2 setup did better and serves as the second miner.
+  - Read: 54's α per sim min and $300 α per $ as a ratio to 252, vs the phase-2 window; exposure via speed/alphadecomp2.py.
+- **Model refit** (offline, running, PID 1636388): speed/modelfit7.py on live_tape_x3.day1117.jsonl sim 60000–86400. Same 7 features. Output goes to speed/model_lean.json (NOT live) plus speed/modelfit_1118.log.
+  - The live model is backed up as agents/model_lean.live-1117.json. It was trained on only sim 45139–49219 (11-15, 68 sim min), thr 0.704.
+  - Compare on held-out data (the last 30% plus the new day). Deploy as a morning test ONLY if clearly better (de-drifted top-30% move and corr). Swapping the model file needs a restart.
