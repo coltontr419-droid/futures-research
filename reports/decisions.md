@@ -25306,3 +25306,12 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Plan:** warm-up until ≈ sim 13200. Baseline ≈ 1 wall h (≈ to sim 13800–14000). Then set mk_dfm 2.0, mk_dfm_frac 0.5, mk_low_rest_none 1 LIVE (check out of range).
   Read before/after on 38 with x3 (other lane) and 252 as same-window controls: $300 α per $, no-lean fills' bp (twosided3 P < 1 bins), $30 bp and the far-side share, α per sim min, pace use.
 - x3 stays settled (§1671).
+
+## §1679 — 2026-11-18 5:20 PM CT — brief: x3 young-UID handicap ≈ none (validator 1.27× its fills); test miner 38 in warm-up
+
+- regcheck: x3=228 and x4=38 REGISTERED. Prune line $83 → $85 → $87. Pay: 228 $0, 38 $0 (chain lag).
+- **x3 = 228 (settled):** validator net α 376, skill 2.77. Fill-based α since warm-up (sim 12250–13114, 14 sim min): $300 +279.0 (+1.88 bp, $1.48M, start burst) + $30 +17.9 = 297 → **validator / fills ≈ 1.27**.
+  - So far no young-UID handicap on this fresh registration (54's ≈ 0.4×, §1669, was likely 54-specific: its earlier band period, restarts, or the previous owner's history).
+  - Last 4 sim min: $300 +37.2 (+1.56 bp) vs 252 +9.8. 252 net α 823.
+- **x4 = 38 (test):** warm-up until ≈ sim 13200 (now 13114); no fills yet as expected. PACE 0 blocked.
+- Errors 0, no release.
