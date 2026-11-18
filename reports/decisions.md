@@ -25127,3 +25127,30 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   3. $30 rest_none (+$5–10).
   - Not levers: max_inv (not binding), hold-longer (NOISE−), pace_burst (shifts budget in time only), model refit (no gain).
 - **Proposal to the user:** one agent build (dF10 no-lean quoting + $30 rest_none), proven offline, tested live on a NEW miner from minute 1 (registration needs the user's yes). 228 stays as the comparison on the current lane.
+
+## §1666 — 2026-11-18 2:45 PM CT — why 252 out-earns us: OUR TOOL UNDER-CREDITS 252 BY ≈ 70% vs the validator (user Q)
+
+- **Fills match exactly:** validator debeta_notional 228 $9.97M / 252 $9.83M vs tape (skill_cls2, 180 sim min) $9.98M / $9.84M. The tape sees every fill.
+- **Alpha does not match:**
+
+  | Formula (same fills, mid marks) | 228 | 252 |
+  |---|---|---|
+  | Validator net α | 1,362–1,375 | 1,776–1,800 |
+  | Whole-window drift strip (my tool) | 1,274 | 1,055 |
+  | Held-period strip | 1,160 | 829 |
+
+  - The validator gives 228 ≈ 1.07× my number, but 252 ≈ 1.7×.
+  - Mark-alt ('last' trade) gauge: 228 23, 252 539.
+  - Every same-window comparison where we "beat 252" (§1637–§1663) used my tool, so it overstated our lead. By the validator's own numbers 252 ≈ 1.3× us.
+- **Ruled out:**
+  - Missing fills (notional identical).
+  - The drift-strip variant (neither matches).
+  - Inventory carried into the window (a constant offset cancels exactly in mtm − mean_inv × drift; the validator code confirms binv is carried but stripped the same way).
+  - Coverage / 4-dec (both 192 books, no dec fills).
+  - Tests across the reset gave garbage (price discontinuity in my loop). Script speed/skill_carry.py is unreliable across resets.
+- **Still open:** what in the validator's live computation (dials, accumulators, batch marking) credits 252's style 1.7× its replay while ours replays at ≈ 1.07×.
+  Until found, the reference has to be the VALIDATOR's numbers: 252 ≈ $157 at ≈ 1,780; we sit at ≈ 1,100–1,400.
+- **252's observable differences** (§1605, §1628, §1663 alphadecomp): fills $2–3.5k vs our ≈ $0.8–1.3k; exposure ≈ $740k vs ≈ $500k; 44% of time with ≥ $5k per book; no-lean fills aligned with the 10-s fundamental move (92%).
+- **Next offline steps** (no live change):
+  1. Rebuild the validator's net α exactly by running its own debeta functions (taos.im.validator.debeta) over the tape for 228 and 252, to find the term that differs.
+  2. If it's a quoting style, design a "252-style" variant for a NEW miner (bigger resting size, two-sided with a dF10 side) with census + offline replay, ready for the next registration.
