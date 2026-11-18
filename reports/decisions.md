@@ -24467,3 +24467,25 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
     A fair bucket read must cover a full cycle (≥ 40 sim min from 85900) or compare after the drain. Earlier reads would be inflated by the saved budget.
 - **228:** still in warm-up (until ≈ 86270); 1 $300 fill.
 - Self-trades 0, locks 0, errors 0, PACE 0 blocked, no release.
+
+## §1620 — 2026-11-17 9:30 PM CT — SIM RESET handled; old-day final reads; $30 size-up DISPROVEN and reverted
+
+- **Sim reset** ≈ 9:05 PM CT (old day ended at sim 86400; the new day's tape starts at sim 600).
+  - Both miners logged CLOCK RESET, shifted pace ledgers (−85.8k s), and received new-day states.
+  - 256 books on the tape; no release (release_watch unchanged).
+  - The new-day model edge can't be measured yet (leanfreq3 needs 300 s of history + a 120-s horizon). Check next brief.
+- **Tape split** so that tools taking tmax read the right day: the whole file was copied to live_tape_x3.day1117.jsonl, truncated in place (O_APPEND writer on x4), and the new-day lines (from offset 1,932,598,478) appended back. Logged in tape_rotate.log.
+  - **Lesson:** after every sim reset, split the tape (otherwise skill_cls2 "last N min" windows read the old day).
+- **Old-day final** (archive, 85902–86400, 8.3 sim min; 54 still in its bucket drain):
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +115.0 on $945k (+1.22 bp, 22+/1− kept, ELIGIBLE) | +45.4 on $229k (+1.98 bp, 28+/1−, ELIGIBLE) | +11.3 (+0.48 bp) |
+  | $300 notes | $114k per sim min (drain-inflated) | ≈ 2 sim min after warm-up | — |
+  | $30 α | +5.0 (+0.34 bp) | +2.7 (+0.45 bp) | +3.5 (+0.84 bp) |
+
+  - 228's P-mix: 41% of $ at P ≥ 1.5 (+1.91 bp at 120 s), 50% at 1–1.5 (+1.49).
+  - 54's P-mix: 67% of $ at P ≥ 1 (+1.41 / +1.89).
+- **$30 size 0.066: DISPROVEN** (two reads: +0.26 and +0.34 bp vs +1.35 before). $30 α ratio to 252 fell 2.1× → 1.4× while volume rose ≈ 65%: bigger $30 orders get worse fills.
+  Reverted to 0.033 on 54 and 228 (backups live_params_*.pre-low033.json).
+- **54 bucket test (pace_burst 3600 + vol 0.1 / calm 0.12):** still not readable; the drain continues into the new day. Read over a full cycle on the new-day tape.
