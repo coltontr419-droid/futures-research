@@ -24597,3 +24597,27 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
 - **Verdict: DISPROVEN as a lever.** The 11-15 model generalises fully to the next day; neither retraining nor dF10 helps. Model retrain is removed from the path to $200, and the live model stays.
 - 252's dF10 effect (§1628) is about counterparty selection (who fills you), not forecasting. It can only be tested live: a lean-only lane keyed on the dF10 side, or dF10 as a tie-breaker for which side to quote when the model has no lean. Queue it for the next free miner after phase 3.
+
+## §1630 — 2026-11-18 12:40 AM CT — scaling ceiling study (user: "each lane can only house 2–3 miners … can't create enough lanes at 200/m?")
+
+- **Pool size** (speed/poolsize.py, chain emission × price): total miner pay ≈ $56,750/mo over 248 paid UIDs.
+  - Median $185; p75 $279; 111 UIDs > $200; top $1,050.
+  - Split ≈ $28k making / $28k skill. Skill by class 50/25/25 → $300 ≈ $14.2k, $30 ≈ $7.1k, 4-dec ≈ $7.1k.
+  - We earn only skill on $300 + $30 → our addressable pool ≈ $21.3k/mo (making share = 0 for all of ours).
+- **Fleet evidence** (fleets.json × gauges × pay):
+
+  | Fleet | UIDs | Earns from | Median net α | Total pay | Per UID |
+  |---|---|---|---|---|---|
+  | **5E2fVqiW** | 20 | skill only, making 0 — same kind as ours | 1,627 | $3,290/mo | $154–174, median $165 |
+  | 5CAXJT4t | 35 | — | — | $5,794 | median $178 |
+  | 5GCSdbyd | 17 | — | — | $4,328 | median $265 |
+  | 5F1F2JMu | 27 | 26 making + 16 skill | — | $5,396 | median $153 |
+
+  - 5E2fVqiW: 20 near-identical $300 makers on the same books; the copies do NOT deplete each other's alpha to nothing.
+- **Conclusions:**
+  1. Lanes are not the only way to scale: 20 identical skill makers each hold ≈ 1,600 net α (≈ $165). Per-miner alpha is limited mostly by each UID's own volume cap, and the uninformed flow is large next to one UID's cap.
+     Our own copy cost (−15–20% for 2, §1568; re-measured tonight) is the number to watch: if the loss stops growing with more copies (as the fleet shows), copies scale.
+  2. **Dilution:** pay is a share of a fixed pool. If 54 reaches ≈ 2,000 net α (≈ $0.10/unit today), 20 copies add ≈ 40k units to the ≈ 210k-unit $300+$30 pool → ≈ −16% per unit (≈ $170 each). 40 copies → ≈ −27% (≈ $145 each).
+     So 20 × $200 ($4k ≈ 19% of the pool) is hard but in the range the top fleets reach ($3.3k–5.8k); 40 × $200 ($8k ≈ 38% of our pool) is not realistic from skill alone.
+  3. $10k+/mo needs more than one pool: the making half ($28k, where 5F1F2JMu, 5ECLVeLz, 5GVu1hrR and 5FNTAiDo earn) and/or 4-dec ($7k), on separate miners. Skill-only copies plausibly cap around $3–4k/mo for us.
+- **Next research:** after tonight's copy test, project copies-vs-lanes with dilution; study what makes 5E2fVqiW's no-lean fills profitable (dF10 counterparty effect, §1628); revisit a making-credit miner design for the $28k half.
