@@ -25105,3 +25105,25 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Lessons:**
   - A pace_burst restart puts an inflated burst into the 180-sim-min window that later LEAVES it, causing a cliff in net α ≈ 3 h after the restart. Time burst restarts so the cliff doesn't land at immunity end.
   - Chain pay lags net α by hours, so judge survival on pay, not net α.
+
+## §1665 — 2026-11-18 2:05 PM CT — honest outlook for a new miner per lane (user Qs) + 228 brief
+
+- **228 now:** REGISTERED; pay $51; net α 1,359 (skill 1.26); last 4 sim min $300 +24.1 (+1.88 bp) vs 252 +3.6. Prune line $87 (lowest non-immune). 228 is immune until ≈ 3:10 PM CT → at risk after.
+- **Was 54's ≈ $150 the burst?** Partly. Its net α ≈ 1,400–1,480 included the pace_burst-3600 restart burst (≈ 14 per sim min for 8–18 sim min vs ≈ 6–7 steady → ≈ +60–100 net α) plus a strong stretch.
+  Steady (no burst) 54 ≈ 6–7.4 per sim min × 180 ≈ 1,100–1,330 → ≈ $100–120/mo at $0.088 per unit.
+- **The burst is not daily:** the sim reset shifts pace clocks (no refill). Only a (re)start or new registration starts every book with a full bucket.
+  A new miner's burst cliff lands ≈ 180 sim min (3–6 wall h) after start, inside its 24-h immunity, so it is harmless. 54 was hurt because it was restarted 18 h into its life.
+- **New miner, steady state:**
+
+  | Lane | Net α | Pay/mo | Margin over a ≈ $87–89 prune line |
+  |---|---|---|---|
+  | 1.0–1.5× | ≈ 1,100–1,350 | ≈ $100–120 | ≈ 15–35% |
+  | ≥ 1.5× | ≈ 1,300–1,550 | ≈ $115–135 | ≈ 30–50% |
+
+  - Below $200 → the scaling condition (§1632) is NOT met.
+- **Gap closers, ranked:**
+  1. Earn on the no-lean budget with the dF10 counterparty signal (§1628; 252 makes +0.9–1.4 bp on no-lean fills) → plausibly +30–50% α.
+  2. Lane boundary (2+ miners).
+  3. $30 rest_none (+$5–10).
+  - Not levers: max_inv (not binding), hold-longer (NOISE−), pace_burst (shifts budget in time only), model refit (no gain).
+- **Proposal to the user:** one agent build (dF10 no-lean quoting + $30 rest_none), proven offline, tested live on a NEW miner from minute 1 (registration needs the user's yes). 228 stays as the comparison on the current lane.
