@@ -24420,3 +24420,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Switch steps:** regcheck x4=228; agent e29ace21 (has mk_rest_none); copy NEXT_L2 → live_params_228.json; add pace_burst=3600 to the unit only if 54's burst read keeps it; restart (tape= stays on x4).
   Then measure 54's α before/after for the collision cost. 47 also leans at ≥ 1.5 until it is pruned, so expect some overlap with 47 until then.
 - **Decision time:** the H3 read ≈ 8:45 PM CT (228 warm-up ended ≈ sim 84740). Negative = $300 taker α ≤ 0, or clearly below 54's $300 α per $.
+
+## §1616 — 2026-11-17 8:20 PM CT — brief: 54 in its restart burst; H3 positive but far too small; 47 is now the lowest non-immune
+
+- regcheck: 47, 54 and 228 REGISTERED. Prune order: **47 ($92) is first**. Pay: 47 $93, 54 $25 (ramping), 228 $0.
+- **54** (3 sim min after warm-up, 85663–85843; front-loaded by the restart's full $18.8k buckets):
+  - $300 +57.9 on $534k (+1.08 bp, 15+/0 kept); $30 +2.0 (+0.41 bp).
+  - GATE 6,979 step-in / 701 rest rounds (buckets full).
+  - No read yet. The burst inflates volume, so the read starts ≈ 85900+.
+- **228 H3** (18 sim min, 84780–85860):
+  - $300 taker +4.8 on $54k (+0.88 bp, 3 kept); $30 maker +10.5 on $372k (+0.28 bp). Total 0.85 α per sim min → ≈ $14/mo projected.
+  - 119 IOCs total (≈ 6–7 per sim min after the flush); locks 0.
+  - Same window, 54: $300 +125.3 (+1.07 bp, 24 kept, ELIGIBLE), $30 +25.5 (+1.35 bp). 8.4 α per sim min.
+  - **H3 is not negative per $ (0.88 vs 1.07 bp), but structurally tiny.** At ≈ $3k taker per sim min it would need ≈ 40× the volume to matter, and its $30 maker leg earns a quarter of 54's per $.
+- Self-trades 0, locks 0, errors 0, PACE 0 blocked, no release.
