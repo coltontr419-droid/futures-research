@@ -25285,3 +25285,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - The 180-sim-min window dropped the opening block at ≈ sim 11,400 (≈ 2:47 PM CT): the 1,790 → 1,032 step and the field-wide 14:48 step (§1669). The rest is a slower, lower-bp market since.
 - **KEY:** the first ≈ 30 sim min of a new simulation paid 252 ≈ 5× its normal rate. Our miners missed exactly that window (reset bug §1621: no trading sim 600–1360). That explains much of 252's lead this morning.
 - **Rule:** at the next sim reset (≈ every 6 wall days at current speed) confirm our miners trade from the first minutes of the new day. Added to the brief.
+
+## §1677 — 2026-11-18 4:50 PM CT — copy-scaling estimate on the CURRENT lean-only recipe (user Q)
+
+- **Inputs:**
+  - 2 identical copies ≈ 1.55× one (§1641) → lane total ∝ N^0.63 → per copy ≈ single × N^−0.37.
+  - Single clean miner (validator scale): lane ≥ 1.5× ≈ $125, band 1.0–1.5× ≈ $105.
+  - Prune line ≈ $75–90.
+- **Per copy:** N = 1/2/3 → ≈ $125 / $97 / $83 (≥ 1.5×) and ≈ $105 / $82 / $70 (band) → ≈ 2 per lane, **≈ 3–4 miners total** before copies hit the line.
+- **Reason** (vs 5E2fVqiW's 20 at ≈ $165): lean-only trades only ≈ 15–30% of book-time, and that flow is shared by everyone quoting it (the 252 fill-quality decline, §1676/§1677 discussion). Broad two-sided flow scales; lean moments don't.
+- **Implication:** scaling to ≈ 20 needs a recipe earning outside lean moments → the test miner's dF10 no-lean quoting (§1673) is the scaling test as well. Re-estimate the exponent from the test miner.
+- **Caveat:** the exponent rests on one 9-min clean window.
+- x4 registration command given to the user.
