@@ -24297,3 +24297,21 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - Side effect: 228's H3 state was reset by the restart. It closes its ≤ 4 small positions and warms up again (≈ 300 sim s).
 - Outcome of 85: lived ≈ 24.5 h. Pay peaked ≈ $103 and ended $84 under a $105–117 prune line. Strategy NEXT (lean 1.5, rest orders), then a final hour on the DISPROVEN fleet recipe.
 - With 85 gone, 54's band ceiling (mk_model_lean_max 1.5) only avoids 47 now; it is the candidate for the next 54 test.
+
+## §1608 — 2026-11-17 6:47 PM CT — brief: the sim has slowed to ≈ 5 sim s per wall min; reads pushed back
+
+- regcheck: 47, 54 and 228 REGISTERED. Prune line (prunecheck) $113; gate 1.3× = $147.
+- Pay: 47 $98, 54 $11 (ramping), 228 $0.
+- Survival gate, using the last full window (§1605, 45 sim min to 84061):
+
+  | Miner | α per sim min | Projected pay | vs $113 line |
+  |---|---|---|---|
+  | 54 | 6.8 | $116 | 1.03× (FAIL) |
+  | 47 | 5.5 | $94 | FAIL |
+  | 228 | — | — | H3 warm-up |
+
+- **Sim speed:** 84309 at 6:13 PM → 84463 at 6:45 PM, about 5 sim s per wall min (it was ≈ 11). A 1-hour read now holds only ≈ 5 sim min, while the noise floor needs ≈ 11 sim min. Reads take until ≈ 11 sim min after warm-up.
+- **54 rest-none:** 1.5 sim min after warm-up. $300 $39k on 17 books, +0.96 bp. Too short to read. ≈ 11 sim min arrives ≈ 8:40 PM CT, unless the sim reset (≈ 9–10 PM) comes first.
+- **228:** restarted 00:13 UTC as the new tape writer. H3 warm-up until sim ≈ 84740 (≈ 7:40 PM CT). 3 IOCs since start; 4 paced books.
+- The coverage ALERT for x2/85 was raised at 00:08 UTC, before our_uids.txt was updated. watch_extra reads our_uids.txt, so it won't repeat.
+- 0 errors, self-trades 0, locks 0, no release.
