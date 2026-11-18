@@ -24542,3 +24542,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   2. 54's $300 α per $ and volume as a ratio to 252: identical-copy period vs lanes period (1360–1589) and vs alone (§1612).
   3. Combined 54 + 228 $300 α per sim min vs 54 alone.
 - **Decision rule:** if the identical pair earns more in total than the lanes AND each miner stays ≥ the survival mark, copies are the scaling path; otherwise lanes (or different signals).
+
+## §1625 — 2026-11-17 10:47 PM CT — target restated (user): $200/month per miner; the survival gate is only a floor
+
+- User: "i dont want to make the survival mark the target. the target is 200/m".
+- **§1624 decision rule changes to:** copies vs lanes is decided by which setup moves each miner closer to $200 (≈ 11.8 α per sim min) and gives the higher total. Clearing 1.3× the prune line is not a pass.
+- The survival gate stays only as the minimum before any registration.
