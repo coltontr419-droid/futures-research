@@ -24530,3 +24530,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - 228's lane (≥ 1.5) has fewer lean episodes (≈ ½ of the 1.0 band's active time) at a better bp (+1.3–2.0). Expect ≈ 60–80% of 54 → ≈ $100–130/mo, minus collision.
   - Two lanes ≈ $250–300/mo before the remaining levers (bucket, hold-longer, model retrain).
   - Scaling with more threshold lanes makes bands narrower and overlap higher. For more miners, better separation is needed (a different signal or horizon per miner); to be studied.
+
+## §1624 — 2026-11-17 10:41 PM CT — 228 switched to EXACTLY 54's settings: identical-copy collision test on the new recipe (user: "move 228 to 54s setup and see how they clash")
+
+- **Why re-test:** the old-recipe collision was −15–20% per miner (§1568), with the band lane at −9% (§1590). The new recipe is lean-only (rest_none), so two copies compete for exactly the same lean moments, and the cost may be larger.
+- regcheck x4=228. live_params_228.json = live_params_54.json (verified identical; backup live_params_228.pre-same.json).
+- Unit: pace_burst=3600 added (backup mvtrx-x4.service.bak-same). The launch params now differ from x3 only by tape=.
+- Restart 04:40:32 UTC at sim ≈ 1589; 0 errors, 0 out of range; tape fresh. Warm-up until ≈ sim 1890. 228 starts with full $18.8k buckets; 54 has been draining since 1060.
+- **Read** (≥ 11 sim min after 1890; then again after 228's drain):
+  1. speed/overlap.py 54 vs 228 (lanes: 33% at 30 s; baseline vs 252: 6.5–13.5%).
+  2. 54's $300 α per $ and volume as a ratio to 252: identical-copy period vs lanes period (1360–1589) and vs alone (§1612).
+  3. Combined 54 + 228 $300 α per sim min vs 54 alone.
+- **Decision rule:** if the identical pair earns more in total than the lanes AND each miner stays ≥ the survival mark, copies are the scaling path; otherwise lanes (or different signals).
