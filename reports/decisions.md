@@ -24335,3 +24335,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Arm: rest_none 1 + pace_burst 3600.
   - Read: $300 volume used (target toward the ≈ $40k per sim min refill) at the same bp; α per sim min against the rest_none-only read.
 - **Then:** lean order size (mk_vol_size / mk_calm_size 0.072 → 0.108) and removing the band ceiling (mk_model_lean_max 0) now that 85 is gone.
+
+## §1610 — 2026-11-17 7:05 PM CT — bigger lean orders STACKED on the rest_none test on 54 (user: "why not run bigger lean orders already?")
+
+- User's reasoning: if rest_none fails both are dropped anyway; if it works, stacking saves hours.
+- **Constraint:** a full step-in needs bucket ≥ full order. The bucket max is ≈ $4.7k (pace_burst 900), so any larger order is cut to the bucket. Largest useful size without a restart: 0.094 ≈ $4.7k.
+- **Live (no restart):** mk_vol_size and mk_calm_size 0.072 → 0.094; max_inv 0.14 → 0.3, so ≈ 2 step-ins aren't blocked by the inventory cap (47 runs 0.3). Backup live_params_54.pre-size094.json. Applied at sim 84595.
+- **Census (speed/szcensus.py; band ceiling off in both arms so step-ins fire):**
+  - Bucket $4.7k: lean step-ins $3.6k → $4.7k, 1 tick inside, in both arms.
+  - Bucket $3.0k: $3.0k in both arms (part step-in).
+  - Same jumps, same books without orders, nothing else changed.
+- **Read** ≈ 11 sim min after 84595, against the §1605 baseline (6.8 α per sim min; $300 1.25× 47). Because the two changes are stacked, a FAIL can't say which part failed.
+  If the combined read is clearly worse, the next step is rest_none alone (size back to 0.072), not dropping both.
+- The pace_burst 3600 test (§1609) follows, with the size raised again to ≈ 0.12–0.14 once the bucket can pay for it.
