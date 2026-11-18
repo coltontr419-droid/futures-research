@@ -25053,3 +25053,22 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   2. Live: mk_lean30_back 2 → deeper. Likely worse: deep fills come from sweeps through the level, the same adverse selection rest-30 showed on $300 (−1 bp).
 - **Size of the prize:** dropping the P < ≈0.75 no-lean fills (≈ 46% of $30 $, net ≈ −0.3 bp) → $30 α ≈ +15–20%, plus freed pace budget → ≈ +0.2–0.4 α per sim min per miner (≈ +$5–10/mo).
   Small next to the $300 levers. Recommend building it in the next batched restart (with the user's OK), not alone.
+
+## §1662 — 2026-11-18 12:25 PM CT — PHASE 3 verdict: hold-longer (mk_exit_k 1.4) on 54 = NOISE, leaning negative → off; not moved to 228
+
+- **Window 7666–9946 (38 sim min):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +179.0 on $1.40M (+1.28 bp) | +253.2 (+1.69 bp) | +162.5 (+1.17 bp) |
+  | $30 α | +47.0 | +47.1 | +40.0 |
+  | Total per sim min | 5.9 | 7.9 | 5.3 |
+
+  - 54/228 $300 = 0.71 (phase 2 0.96) → ≈ −26% vs the same-window control.
+  - 54/252 $300 = 1.10× (phase 2 1.31× main / 0.98× full) → mixed.
+  - 54 $300 bp +1.28 (phase 2 +1.39 / +1.22) → unchanged.
+  - The early lift (interims +1.57–1.66 bp, 54/252 1.63–1.75×) faded in the last ≈ 5 sim min.
+- **Verdict: NOISE, leaning negative.** mk_exit_k 1.4 → 0 on 54 live at sim ≈ 9979 (no out of range). Not applied to 228.
+- **Validator now:** 54 1,386 (skill 2.22), 228 1,277 (skill 1.35), 252 1,852. Pay: 54 $106, 228 $50.
+- **Next:** the net-α rise expected from ≈ sim 10,800 (§1659). $30 rest-none code (§1661) is queued for the next user-approved restart.
+  Other live-only levers to check offline next: lean-side size on the ≥ 1.5 lane (228), and lean thresholds within the lanes.
