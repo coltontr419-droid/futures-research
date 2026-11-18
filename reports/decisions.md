@@ -25154,3 +25154,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Next offline steps** (no live change):
   1. Rebuild the validator's net α exactly by running its own debeta functions (taos.im.validator.debeta) over the tape for 228 and 252, to find the term that differs.
   2. If it's a quoting style, design a "252-style" variant for a NEW miner (bigger resting size, two-sided with a dF10 side) with census + offline replay, ready for the next registration.
+
+## §1667 — 2026-11-18 3:00 PM CT — CORRECTION to §1666: 252's "extra" alpha was pre-reset alpha still in its window; it just left (validator 252 1,776 → 1,009)
+
+- At ≈ 2:55 PM the validator gauge: 252 1,009, 228 1,393.
+- 252's new value matches my tool's 180-min replay of its new-day fills (≈ 1,055 drift strip), so there was no hidden formula difference.
+  The validator's 180-sim-min window still held 252's alpha from BEFORE the 03:24 UTC sim reset (alignment across the reset differs from my naive new-day-only window), and that alpha has just aged out.
+- **Consequences:**
+  - The same-window comparisons (§1637–§1663) were not wrong: 54/228 really out-earned 252 on the new day.
+  - 252's ≈ $157 pay reflected a strong pre-reset stretch plus chain-pay lag, not a steadily better strategy.
+  - By the validator's own number, 228 (lane ≥ 1.5×) now leads 252 (1,393 vs 1,009).
+- Still true: 1,393 ≈ $123/mo steady at $0.088/unit — below $200. The gap-closer list (§1665) stands.
+- speed/valreplay.py (validator-function replay) printed nothing (script error); not needed after this.
