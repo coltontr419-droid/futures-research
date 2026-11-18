@@ -24677,3 +24677,18 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - 54 ≈ 3.5 α per sim min in this window.
 - 228's drain is nearly over (volume down from ≈ $150k to ≈ $58k per sim min). Main read window ≈ 3700–4300 (≈ 3:30 AM CT).
 - Self-trades 0, errors 0, no release.
+
+## §1636 — 2026-11-18 1:25 AM CT — brief: copy test, both copies now at similar volume
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $71, 228 $4. Validator net α: 54 1,076 (skill 1.09), 228 568 (skill 0), 252 1,784.
+- **Last 6 sim min (3006–3366):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +31.7 on $296k (+1.07 bp) | +39.3 on $332k (+1.18 bp, 26 kept, ELIGIBLE) | +22.1 (+1.22 bp) |
+  | $30 α | +4.9 | +4.1 | +8.3 |
+
+  - 54's $300 ratio to 252 = 1.43×.
+  - Totals: 54 6.1 α per sim min, 228 7.2, 252 5.1. The pair makes 13.3 α per sim min vs 252's 5.1.
+- 228's drain is done (volume ≈ $55k per sim min, the same as 54). Main read window 3700–4300.
+- Self-trades 0, errors 0, no release.
