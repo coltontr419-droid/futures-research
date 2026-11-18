@@ -24740,3 +24740,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 54's total ratio to 252 = 1.7×.
 - Phase-1 main window (3700–4300) starts now. Self-trades 0, errors 0, no release.
+
+## §1640 — 2026-11-18 2:25 AM CT — brief (user away; overnight changes approved)
+
+- regcheck: 54 and 228 REGISTERED. **Pay: 54 $112** (up from $71), 228 $2. Validator net α: 54 1,217 (skill 1.14), 228 620 (skill 0), 252 1,647.
+- **Last 6 sim min (≈ 3616–3976):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +20.9 (+0.99 bp) | +26.6 (+1.14 bp) | +15.2 |
+  | $30 α | +7.5 | +8.3 | +1.0 |
+  | Total per sim min | 4.7 | 5.8 | 2.7 (slow market) |
+
+  - 54's ratio to 252 = 1.7×.
+- Phase 1 ends ≈ sim 4300 (≈ 3:00 AM CT at the current speed). Self-trades 0, errors 0, no release.
