@@ -25200,3 +25200,18 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   1. The next miner runs the final recipe from minute 1 with NO tests or restarts (a "settled" miner); experiments go on a separate test miner.
   2. Measure the young-UID handicap hourly on the next registration (validator net α vs fill-based α).
   3. Keep the gap-closers (dF10 no-lean budget, $30 rest_none) offline-first, then on the test miner.
+
+## §1670 — 2026-11-18 3:35 PM CT — why 54 missed the line (user Q) + new SETTLED miner prepared (user: "register a new miner now and keep it on the proven strategy and settings from minute 1")
+
+- **54 was not "live changes only":**
+  - 3 restarts (5:40 PM rest_none, 7:32 PM pace_burst, 9:55 PM reset-bug fix).
+  - ≈ 50 min of no trading (reset bug) and ≈ 1 h frozen (exit_k 2.0).
+  - Credited ≈ 0.4× its fills while young (§1669).
+  - At 1:03 PM the validator's field-wide step dropped its pre-reset stretch → ≈ 1,175 new-day net α ≈ $100–120 steady, while chain pay read $87 = the line at immunity end.
+- **Without the burst:** the same end state (a steady value ≈ 15–35% over the line, pay lagging). Marginal either way.
+- **Prepared:** hotkey x3 (unit mvtrx-x3, port 8105, stopped). Unit now carries tape=/opt/mvtrx/live_tape_x5.jsonl (its own file, so data continues when 228 is pruned; backup mvtrx-x3.service.bak-newL2); pace_start 4700, pace_burst 3600, max_inv 0.3.
+  Agent d8f4bf42. Settings = live_params_NEXT_L2.json (= 228's live params: lane ≥ 1.5×, no ceiling, rest_none, vol 0.1 / calm 0.12 / $30 0.033).
+- **After the user registers** (`~/btcli/bin/btcli subnet register --netuid 79 --wallet.name main --wallet.hotkey x3`):
+  - Run `HK=x3 PARAMS=live_params_NEXT_L2.json sh newminer.sh <uid>`.
+  - Then NO tests or restarts on this miner (settled).
+  - Hourly: validator net α vs fill-based α (young-UID handicap) and pay vs the prune line, until immunity ends ≈ 24 h later.
