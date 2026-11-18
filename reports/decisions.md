@@ -24409,3 +24409,14 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
 - User: keep mk_model_lean_max 1.5 on 54. Scaling needs signal lanes, so tests are read with the ceiling ON and survival-gate numbers are lane-limited. Lever #3 of §1613 is dropped unless scaling turns out not to need lanes.
 - **Scaling note:** the ≥ 1.5× lane (the best fills, +1.77 bp) is the natural recipe for the NEXT miner, with the same rest_none + size recipe. 54 (1.0–1.5) and a ≥ 1.5 miner don't share signals, so the collision cost should be small. Verify with a before/after on 54 when that miner starts.
+
+## §1615 — 2026-11-17 8:00 PM CT — plan (user): if 228's H3 reads negative, move x4 to the 54 recipe in the ≥ 1.5× lane
+
+- User: "after x4s test, if its negative lets put it on this new strategy but with a different ceiling".
+  This is the user's explicit call; the survival gate (§1598) is about registering and copying, and here an existing miner switches strategy.
+- **Prepared** /opt/mvtrx/live_params_NEXT_L2.json = live_params_54.json with mk_model_lean 1.5, mk_model_lean_max 0 (no ceiling) and mk_take300 0.
+  Kept from 54: rest_none 1, vol 0.1, calm 0.12, $30 0.066, max_inv 0.3, skip_dec 1.
+- **Census (speed/l2census.py)** on a strong seeded lean (≥ 1.5×): x4 lane places full $4.7k lean step-ins 1 tick inside on all 27 vol + 13 calm leaning books; 54 places none (band). The lanes don't overlap.
+- **Switch steps:** regcheck x4=228; agent e29ace21 (has mk_rest_none); copy NEXT_L2 → live_params_228.json; add pace_burst=3600 to the unit only if 54's burst read keeps it; restart (tape= stays on x4).
+  Then measure 54's α before/after for the collision cost. 47 also leans at ≥ 1.5 until it is pruned, so expect some overlap with 47 until then.
+- **Decision time:** the H3 read ≈ 8:45 PM CT (228 warm-up ended ≈ sim 84740). Negative = $300 taker α ≤ 0, or clearly below 54's $300 α per $.
