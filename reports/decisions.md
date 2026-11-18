@@ -25260,3 +25260,10 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - regcheck x3=228 REGISTERED. Pay $0 (new). Validator gauge for 228 not published yet (nan). Prune line (lowest non-immune) $52 → $75 → $80.
 - Sim 12195; restart at sim ≈ 11950 → model warm-up until ≈ 12250, so no fills yet (expected; GATE shows 7,680 step-in rounds with no lean yet). PACE 0 blocked. Errors 0. No release.
 - speed/nahist.py still lists UID 54 (now another owner); only the 228 and 252 columns are ours/reference.
+
+## §1675 — 2026-11-18 4:23 PM CT — brief: settled x3=228 trading; validator already shows 147 net α, skill 2.16
+
+- regcheck x3=228 REGISTERED. Pay $0 (chain lag). Validator: **228 net α 147, skill 2.16** (first value ≈ 1 h after registration); 252 809. Prune line $75 → $80.
+- **First 4 sim min after warm-up (12278–12518):** $300 +94.1 on $584k (+1.61 bp, 25+/0− kept, ELIGIBLE), $30 +2.8. 252 $300 +5.2. The start burst is in progress (≈ $146k per sim min).
+- PACE 0/134 blocked; GATE 7,400 step-in / 280 rest. Errors 0, no release.
+- Handicap read (validator vs fill α) from the next brief, once a few more sim minutes are in.
