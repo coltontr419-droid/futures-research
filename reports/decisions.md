@@ -24662,3 +24662,18 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - User: if one miner reaches ≈ $200/mo, scaling to ≈ 20 with each copy dropping to ≈ $165 is fine; that is the accepted cost of scaling.
 - Scaling go condition (§1632) unchanged: one miner at ≈ $200 (≈ 11.8 α per sim min on a clean window).
 - **Stop rule for adding copies:** stop when an added copy's incremental α pushes per-copy pay meaningfully below ≈ $165, or the fleet total stops rising.
+
+## §1635 — 2026-11-18 12:55 AM CT — brief: copy test continuing
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $70 (rising fast), 228 $4. Validator net α: 54 999 (skill 0.91), 228 495 (skill 0), 252 1,750.
+- **Last 6 sim min (2685–3045):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +19.1 on $216k (+0.89 bp) | +33.1 on $347k (+0.95 bp) | +14.0 (+0.63 bp) |
+  | $30 α | +1.6 | +2.5 | +2.6 |
+
+  - 54's $300 ratio to 252 = 1.36× (same as the last read). Market slow: 252 at 2.8 α per sim min.
+  - 54 ≈ 3.5 α per sim min in this window.
+- 228's drain is nearly over (volume down from ≈ $150k to ≈ $58k per sim min). Main read window ≈ 3700–4300 (≈ 3:30 AM CT).
+- Self-trades 0, errors 0, no release.
