@@ -24390,3 +24390,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Census (bcensus.py, bucket $18.8k):** calm step-ins $4.7k → $6.0k. Vol buys were cut to $1.7k by cash fit on the census account's long books; that is natural max_inv-like behaviour, and flat books get the full order.
 - Restart start burst: every book starts with a full $18.8k bucket. Cap-safe via the 24-h backstop, but the first sim minutes after warm-up are front-loaded.
 - **Read:** ≥ 11 sim min after warm-up (≈ sim 85600). Compare $300 volume used and α per sim min against the ratio to 47/252 (54 now 2.1× 47 and 2.7× 252 on $300).
+
+## §1613 — 2026-11-17 7:45 PM CT — path to $200 per miner; $30 size-up stacked on 54 (user: "165 is better but still not at 200, how can we get it higher?")
+
+- **Target:** $200 per month ≈ 11.8 α per sim min (200 sim min × $0.085). 54 runs ≈ 9.8 market-normalised (§1612).
+- **Levers, ranked:**
+  1. $30 size: $30 books used ≈ $157 of the $312 per-book refill per sim min (≈ 50%), at +1–2 bp, and give ≈ 2.3 of 6.8 α.
+  2. $300 bucket + size (running, §1612).
+  3. Band ceiling off (the P ≥ 1.5 fills are the best, +1.77 bp; free once 47 is gone).
+  4. mk_exit_k hold-longer on 54.
+  5. Model retrain on recent data.
+- **Live now:** mk_low_size and mk_low_lad_size 0.033 → 0.066 on 54 at sim ≈ 85436. Backup live_params_54.pre-low066.json; bounds 0.1.
+- **Census (speed/lowcensus.py):** $30 orders $1.65k → $3.3k, same ticks (lean side 1–3 back, no-lean 3 back), same books without orders.
+- **Interaction:** the $30 books are outside the $300 gate and rest_none, and use their own soft pacing bucket. lean30_only and lean30_back are unchanged. max_inv 0.3 caps inventory.
+- **Read:** the $30 class line in skill_cls2 ($30 α per sim min and bp vs before; $30 ratio to 47 was ≈ 1.2×) is separable from the $300 bucket test, which is read on the $300 class.
