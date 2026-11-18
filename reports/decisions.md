@@ -24548,3 +24548,14 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - User: "i dont want to make the survival mark the target. the target is 200/m".
 - **§1624 decision rule changes to:** copies vs lanes is decided by which setup moves each miner closer to $200 (≈ 11.8 α per sim min) and gives the higher total. Clearing 1.3× the prune line is not a pass.
 - The survival gate stays only as the minimum before any registration.
+
+## §1626 — 2026-11-17 11:15 PM CT — test plan over survival (user): copy test runs its full cycle, then lanes for the same length
+
+- User: survival matters less than data. Switch 228 back only if that is better for testing; finding a strategy and learning how it performs alongside exact copies and slight variations is the priority.
+- **Decision:** do NOT switch at 12:30 AM. Reason: 228's first ≈ 30 sim min are a pace_burst-3600 drain (spending at ≈ 3× the refill), so an early read measures the burst, not the steady collision.
+- **Plan:**
+  1. Identical copies (54 + 228, same band) until ≈ 40 sim min after warm-up (sim 1890 → ≈ 4300; ≈ 3:30 AM CT at ≈ 8 sim s per wall min).
+     Read: overlap.py, 54's $300 α per $ and volume ratio to 252, and the pair total. Use the post-drain part as the main window.
+  2. Then 228 → ≥ 1.5× lane (live_params_NEXT_L2.json, keeping pace_burst 3600 so both setups match apart from the lane) for the same length.
+  3. Morning: copies vs lanes, judged on per-miner progress toward $200 and the pair total.
+- 228 may be pruned ≈ 3:10 PM (skill 0 until the H3 flush leaves the 180-sim-min window, ≈ sim 7970). Accepted.
