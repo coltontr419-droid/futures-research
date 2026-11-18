@@ -24348,3 +24348,23 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Read** ≈ 11 sim min after 84595, against the §1605 baseline (6.8 α per sim min; $300 1.25× 47). Because the two changes are stacked, a FAIL can't say which part failed.
   If the combined read is clearly worse, the next step is rest_none alone (size back to 0.072), not dropping both.
 - The pace_burst 3600 test (§1609) follows, with the size raised again to ≈ 0.12–0.14 once the bucket can pay for it.
+
+## §1611 — 2026-11-17 7:18 PM CT — brief: early 54 read positive (rest_none + bigger lean orders)
+
+- regcheck: 47, 54 and 228 REGISTERED. Prune line $117 (gate $152). Pay: 47 $98, 54 $11 (ramping), 228 $0.
+- **54, early read** (6 sim min, 84438–84798; size-up from 84595):
+
+  | | 54 | 47 | 252 |
+  |---|---|---|---|
+  | $300 α | +23.9 | +11.8 | +19.7 |
+  | $300 bp | +1.08 | +1.34 | +0.77 |
+  | $300 notional | $221k on 78 books | $88k | $257k |
+  | $300 books kept | 17 (16+/1−) | — | — |
+  | $30 α | +4.4 (+0.72 bp) | +3.5 | +1.7 |
+
+  - $300 α per sim min: 54 4.0 vs 47 2.0, a ratio of 2.0× (baseline 1.25×). Total 54 4.7 vs 47 2.6 in a slow market.
+  - 54 still spends ≈ $37k per sim min on $300 (≈ the full refill) with no rest orders. GATE: 2,809 step-in / 4,871 rest rounds; rest rounds now place nothing.
+  - Too short for a verdict. The interim lean is positive.
+- 228: 15 IOCs since the 6:13 PM restart; warm-up done ≈ sim 84740. 3 books paced, 0 locks.
+- 0 errors, self-trades 0, no release.
+- Brief cron re-created (d14c6f1c) with the current state.
