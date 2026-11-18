@@ -25267,3 +25267,21 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **First 4 sim min after warm-up (12278–12518):** $300 +94.1 on $584k (+1.61 bp, 25+/0− kept, ELIGIBLE), $30 +2.8. 252 $300 +5.2. The start burst is in progress (≈ $146k per sim min).
 - PACE 0/134 blocked; GATE 7,400 step-in / 280 rest. Errors 0, no release.
 - Handicap read (validator vs fill α) from the next brief, once a few more sim minutes are in.
+
+## §1676 — 2026-11-18 4:35 PM CT — why 252's net α keeps dropping (user Q): its new-sim OPENING block left the window; it has been slowing since
+
+- **252, fill-based α per 30-sim-min block, new day** (old + new tapes):
+
+  | Sim | α | Per sim min | bp on $ |
+  |---|---|---|---|
+  | 600–2400 | +976 | 32.5 | +2.79 on $3.50M |
+  | 2400–4200 | +195 | 6.5 | +1.51 |
+  | 4200–6000 | +190 | 6.3 | +1.53 |
+  | 6000–7800 | +104 | 3.5 | +0.80 |
+  | 7800–9600 | +136 | 4.5 | +0.98 |
+  | 9600–11400 | +66 | 2.2 | +0.52 |
+  | 11400–13200 | +78 | 2.6 | +1.09 |
+
+- The 180-sim-min window dropped the opening block at ≈ sim 11,400 (≈ 2:47 PM CT): the 1,790 → 1,032 step and the field-wide 14:48 step (§1669). The rest is a slower, lower-bp market since.
+- **KEY:** the first ≈ 30 sim min of a new simulation paid 252 ≈ 5× its normal rate. Our miners missed exactly that window (reset bug §1621: no trading sim 600–1360). That explains much of 252's lead this morning.
+- **Rule:** at the next sim reset (≈ every 6 wall days at current speed) confirm our miners trade from the first minutes of the new day. Added to the brief.
