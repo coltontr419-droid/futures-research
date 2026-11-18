@@ -24570,3 +24570,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Model refit** (offline, running, PID 1636388): speed/modelfit7.py on live_tape_x3.day1117.jsonl sim 60000–86400. Same 7 features. Output goes to speed/model_lean.json (NOT live) plus speed/modelfit_1118.log.
   - The live model is backed up as agents/model_lean.live-1117.json. It was trained on only sim 45139–49219 (11-15, 68 sim min), thr 0.704.
   - Compare on held-out data (the last 30% plus the new day). Deploy as a morning test ONLY if clearly better (de-drifted top-30% move and corr). Swapping the model file needs a restart.
+
+## §1628 — 2026-11-17 11:50 PM CT — where 252's no-lean edge comes from: fast fundamental moves (dF10); model refits running
+
+- **speed/edgesrc.py** (old day, sim 78000–86000): for $300 maker fills where OUR model has no lean (|P| < 1 thr), which candidate signal agrees with the fill side, and the 120-s de-drifted move.
+  - **252** ($2.9M, 1,225 fills, +0.9–1.4 bp overall): agrees with dF10 (10-s fundamental change) on **92%** of $, dF30 80%; fade 36%, imbalance 44%, sw60 41%, gap 49%.
+    Agree +1.17 bp vs disagree +0.84 bp (dF10).
+  - **54:** dF10 agreement 50% (chance); fade 74% (it fills against recent moves); no-lean fills ≈ ±0.3 bp.
+  - **Reading:** 252 keeps its quotes on the side the fundamental just moved, so it gets filled by traders going against the fundamental (uninformed flow). As a pure predictor, dF10 is weak (held-out top-30% +0.43/+0.57 bp at 60/120 s).
+    So the value is in WHO fills you, not in a forecast.
+  - Earlier fund_mv tests (§1425 "alone: no skill change") were on the old recipe and moved fair value only.
+- **Model refit 7 features** (old day 60000–86400, train 70% / test 30%): H120 test corr +0.341, top-30% +1.60 bp; 4 test windows corr 0.31–0.39, +1.48–1.76 bp. Saved speed/model_lean.json (not live).
+- **Running:** speed/modelfit8.py adds dF10 as an 8th feature and scores the LIVE model (11-15 fit) and REFIT7 on the same held-out set → speed/modelfit8_1118.log; 8-feature model → speed/model_lean8.json.
+  The agent needs a small change to read "dF10" if the 8-feature model wins.
+- **Scaling idea:** a third lane keyed on fast fundamental moves (dF10 side, lean-only) would overlap less with the model lanes. Needs a live test on a free miner.
