@@ -24778,3 +24778,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **54, last 4 sim min:** $300 +16.2 (+0.85 bp), $30 +5.1 → 5.3 per sim min; 252 4.2.
 - **228:** in warm-up after the 2:56 AM lane switch (until ≈ sim 4610); no fills yet, as expected.
 - Self-trades 0, errors 0, no release. Brief cron updated to the phase-2 state.
+
+## §1643 — 2026-11-18 3:57 AM CT — brief
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $127, 228 $10. Validator net α: 54 1,317 (+71 in 30 min; skill 1.54), 228 653, 252 1,626.
+- **Last 3 sim min:**
+
+  | | 54 | 228 (lane ≥ 1.5×, trading again after warm-up) | 252 |
+  |---|---|---|---|
+  | $300 α | +8.3 | +13.2 (+0.91 bp) | +6.5 |
+  | $30 α | +2.4 | +2.5 | +1.9 |
+
+- Phase-2 read window ≈ 6400–7000. Self-trades 0, errors 0, no release.
