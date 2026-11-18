@@ -25297,3 +25297,12 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Implication:** scaling to ≈ 20 needs a recipe earning outside lean moments → the test miner's dF10 no-lean quoting (§1673) is the scaling test as well. Re-estimate the exponent from the test miner.
 - **Caveat:** the exponent rests on one 9-min clean window.
 - x4 registration command given to the user.
+
+## §1678 — 2026-11-18 4:57 PM CT — TEST MINER live: x4 = UID 38 (band lane 1.0–1.5×, build a1fbedb4, knobs OFF for a baseline)
+
+- User registered x4 → UID 38. regcheck: x4=38 and x3=228 REGISTERED. `HK=x4 PARAMS=live_params_NEXT_TEST.json sh newminer.sh 38` → restart 22:56:04 UTC at sim ≈ 12900.
+- The process runs --agent.path /opt/mvtrx/agents_test (a1fbedb4). LIVE PARAMS: lean 1.0, max 1.5, rest_none 1, vol 0.1 (no out of range); mk_dfm / mk_low_rest_none at default 0.
+- PACE 0 blocked (newminer now clears stale pace_sync, §1671). Tape live_tape_x6.jsonl writing. our_uids = 228 x3 11903 / 38 x4 12900.
+- **Plan:** warm-up until ≈ sim 13200. Baseline ≈ 1 wall h (≈ to sim 13800–14000). Then set mk_dfm 2.0, mk_dfm_frac 0.5, mk_low_rest_none 1 LIVE (check out of range).
+  Read before/after on 38 with x3 (other lane) and 252 as same-window controls: $300 α per $, no-lean fills' bp (twosided3 P < 1 bins), $30 bp and the far-side share, α per sim min, pace use.
+- x3 stays settled (§1671).
