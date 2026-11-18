@@ -25315,3 +25315,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Last 4 sim min: $300 +37.2 (+1.56 bp) vs 252 +9.8. 252 net α 823.
 - **x4 = 38 (test):** warm-up until ≈ sim 13200 (now 13114); no fills yet as expected. PACE 0 blocked.
 - Errors 0, no release.
+
+## §1680 — 2026-11-18 5:50 PM CT — brief: both miners trading; 38 in its start burst (baseline)
+
+- regcheck: 228 and 38 REGISTERED. Prune line $86 → $89. Pay: 228 ≈ $0.3/mo (first emission), 38 $0.
+- **Validator:** 228 net α 445 (skill 2.20); 38 net α 91 (skill 0, normal for its first hour); 252 772.
+- **Last 4 sim min (≈ 13190–13433):**
+
+  | | 228 | 38 (start burst) | 252 |
+  |---|---|---|---|
+  | $300 α | +25.8 (+1.86 bp) | +77.6 on $955k (+0.81 bp) | +9.1 |
+
+- PACE 0 blocked. Errors 0, no release.
+- 38's baseline must exclude its start-burst drain (pace_burst 3600, ≈ 30 sim min). New knobs go on after ≈ 14,000 so the before window is post-drain, or later if the drain is still running.
