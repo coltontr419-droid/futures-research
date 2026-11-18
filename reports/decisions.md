@@ -24434,3 +24434,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Same window, 54: $300 +125.3 (+1.07 bp, 24 kept, ELIGIBLE), $30 +25.5 (+1.35 bp). 8.4 α per sim min.
   - **H3 is not negative per $ (0.88 vs 1.07 bp), but structurally tiny.** At ≈ $3k taker per sim min it would need ≈ 40× the volume to matter, and its $30 maker leg earns a quarter of 54's per $.
 - Self-trades 0, locks 0, errors 0, PACE 0 blocked, no release.
+
+## §1617 — 2026-11-17 8:33 PM CT — x4 (228) switched from H3 to the 54 recipe in the ≥ 1.5× lane (user: "go ahead and switch x4 over now")
+
+- regcheck x4=228 REGISTERED. Agent e29ace21. live_params_228.json = NEXT_L2 (backup live_params_228.pre-L2.json):
+  - lean 1.5, no ceiling, rest_none 1.
+  - vol 0.1, calm 0.12, $30 0.066 (all accepted; no "out of range"). max_inv 0.3; take300 0.
+- **pace_burst kept at 900** (no unit flag). Only the PROVEN part of 54's recipe; the bucket caps step-ins at ≈ $4.7k, as in 54's §1612 pass; no restart burst. Add 3600 later if 54's burst read passes.
+- Restart 02:33:10 UTC (sim ≈ 85967); tape= stays on x4, tape fresh at 85971; 0 errors. Warm-up until ≈ sim 86270.
+- **Collision check:** 54's $300 and $30 α per sim min (ratio to 252) before 85967 vs after 86270.
+  The census (§1615) says the lanes don't share signals; 47 also leans ≥ 1.5 until it is pruned.
+- **x4 read** ≈ 11 sim min after warm-up: α per sim min ($300 + $30), bp, kept ≥ 20, vs 54 and 252.
+- H3 summary (§1616): +0.88 bp per $ on the taker leg but ≈ $3k per sim min. Code kept (570517c8 knobs) for a later, higher-volume taker idea.
