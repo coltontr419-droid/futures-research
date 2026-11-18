@@ -24726,3 +24726,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Fully steady from ≈ sim 8770 (≈ 11 AM–noon CT). The ≈ 13 sim min with no trading after the reset (bug, §1621) stays in the window until ≈ sim 12,200 (≈ −7%).
 - **Projection:** ≈ 1,550–1,600 by 5 AM; ≈ 2,000–2,100 by noon; steady ≈ 2,000–2,260 at 9.3–11.3 per sim min (market-dependent).
   At $0.088 per unit ≈ $180–200/mo. Chain pay lags net α by a few hours, so expect pay near $180–200 by Wed evening, not morning.
+
+## §1639 — 2026-11-18 1:55 AM CT — brief
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $71, 228 $4. Validator net α: 54 1,151 (skill 1.11, still rising), 228 601 (skill 0), 252 1,619 (falling).
+- **Last 6 sim min (sim ≈ 3320–3680):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +35.5 (+1.19 bp, 25+/0− kept) | +31.5 (+0.98 bp) | +19.9 (+1.02 bp) |
+  | $30 α | +3.9 | +3.5 | +3.1 |
+  | Total per sim min | 6.6 | 5.8 | 3.8 |
+
+  - 54's total ratio to 252 = 1.7×.
+- Phase-1 main window (3700–4300) starts now. Self-trades 0, errors 0, no release.
