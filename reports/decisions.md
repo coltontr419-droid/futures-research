@@ -25173,3 +25173,30 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - Prune line (lowest non-immune) $81, then $83, $88. When 228 leaves immunity (≈ 3:10 PM) at $50 it will be the lowest → prune likely at the next registration (≈ 15–30 min later).
 - Last 4 sim min: 228 $300 +27.7 (+1.68 bp, 20+/0− kept) vs 252 +3.7. Errors 0, no release.
 - If pruned: stop + disable x4, and the tape stops (no miner left). New registration = user's call.
+
+## §1669 — 2026-11-18 3:20 PM CT — why 252 sits at $150–200 and our miners never get there (user Q): pay lag + young-UID handicap + restarts, not the strategy
+
+- **252, validator net α over 48 h** (2-h steps): 1,300–2,100, avg ≈ 1,700 (11-16 3 PM → 11-18 1 PM). Dropped to 1,032 at 2:48 PM.
+- **Field-wide steps:** at 13:03 and 14:48 CT ≈ 160 UIDs jumped > 400 net α at once. The validator drops pre-reset history in chunks, so its window is not a plain sliding 180 sim min around a reset.
+  54's −217 (§1663) and 252's −760 were both part of these steps.
+- **Fill-based α, last 180 sim min of the old day (skill_cls2 on the archive)** vs validator net α at that time:
+
+  | Miner | Fill-based (tool) | Validator | Ratio |
+  |---|---|---|---|
+  | 252 | 1,439 ($300 1,352 + $30 86) | ≈ 1,700 | ≈ 1.2× |
+  | 54 | ≈ 1,957 ($300 1,362, $30 449, dec 145) | ≈ 780 | ≈ 0.4× |
+  | 85 | 866 | ≈ 1,100 | ≈ 1.27× |
+  | 47 | 967 | ≈ 1,200 | ≈ 1.24× |
+
+  - New day now: 228 1,416 vs 252 1,032 (validator).
+- **Conclusion:** on fills, our recipe matches or beats 252 (old day 54 > 252; new day 228 > 252). 252's $150–200 reflects days of steady history.
+  Our miners lose on:
+  1. **Chain pay lag** — 228 eligible since 9 AM at 1,000–1,400 net α (≈ $90–120) still shows $50 at 3 PM.
+  2. **A young-UID handicap** — 54 was credited ≈ 0.4× its fills while young; the cause is not identified (previous-owner history in the window is a hypothesis).
+  3. **Repeated tests and restarts** that reset or delay history (228 skill 0 for 9 h after the H3 burst).
+  4. **24-h immunity ending** before pay catches up.
+- **Steady value of the current recipe** (validator scale): ≈ 1,400 net α ≈ $125–150/mo. Below $200; the gap closers in §1665 still apply.
+- **Plan:**
+  1. The next miner runs the final recipe from minute 1 with NO tests or restarts (a "settled" miner); experiments go on a separate test miner.
+  2. Measure the young-UID handicap hourly on the next registration (validator net α vs fill-based α).
+  3. Keep the gap-closers (dF10 no-lean budget, $30 rest_none) offline-first, then on the test miner.
