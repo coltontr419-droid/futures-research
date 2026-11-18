@@ -25072,3 +25072,24 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Validator now:** 54 1,386 (skill 2.22), 228 1,277 (skill 1.35), 252 1,852. Pay: 54 $106, 228 $50.
 - **Next:** the net-α rise expected from ≈ sim 10,800 (§1659). $30 rest-none code (§1661) is queued for the next user-approved restart.
   Other live-only levers to check offline next: lean-side size on the ≥ 1.5 lane (228), and lean thresholds within the lanes.
+
+## §1663 — 2026-11-18 1:00 PM CT — brief: 54 net α −217 (strong old-day stretch left the window), pay $87 = AT the prune line as immunity ends ≈ 1:10 PM; max_inv not binding
+
+- regcheck: 54 and 228 REGISTERED.
+- **Validator:** 54 1,392 → **1,175** in 30 min (skill 1.92); 228 1,299 (skill 1.34); 252 1,785. Pay: **54 $87**, 228 $52.
+- **Why 54 fell:** the window start passed old-day ≈ 85,300–85,900 — 54's pace_burst-3600 restart burst (+115 α in 8 sim min plus the drain). The strongest stretch left; §1659 forecast the dip but underestimated its size.
+  From ≈ sim 10,800 (now 10,306) the near-zero reset/bug gap leaves → net α should rise ≈ +7 per sim min.
+- **Prune line (prunecheck):** lowest non-immune UID 19 at $87, then $88, $90, $94. 54 leaves immunity ≈ 1:10 PM at $87, so it is tied for lowest. A prune happens roughly every 25 min (each registration).
+  UIDs leaving immunity soon: 219 at $44 (≈ +0.7 h) and 241 at $2 (≈ +2.6 h), which would be pruned first once unprotected.
+  **54 is at real risk between ≈ 1:10 and ≈ 1:45 PM.** No live lever raises chain pay that fast (pay lags net α). User rule: survival is not the goal; report it.
+- prunecheck.py still names UIDs 85 / 47 in its "paid less than" lines (stale; the top lines are correct). Fix later.
+- **Offline (1) — is max_inv 0.3 binding?** speed/alphadecomp3.py (new day 1360–10306), time at |inv| per book:
+
+  | | $0–3k | $3–6k | $6–9k | $9–12k | $12–15k+ |
+  |---|---|---|---|---|---|
+  | 54 | 40% | 33% | 22% | 5% | 0% |
+  | 228 | 46% | 33% | 16% | 4% | 0% |
+
+  - Neither reaches the cap (≈ $15k) → **NOT binding**; a max_inv raise would change nothing. Dropped.
+  - Exposure 54 $526k / 228 $472k vs 252 $740k; edge per exposure 54 0.0104 / 228 0.0142 vs 252 0.0048.
+- Last 4 sim min: 54 $300 +20.3 (+0.81 bp), 228 +12.8 (+1.06 bp), 252 +2.3. Self-trades 0, errors 0, no release.
