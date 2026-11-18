@@ -24692,3 +24692,27 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Totals: 54 6.1 α per sim min, 228 7.2, 252 5.1. The pair makes 13.3 α per sim min vs 252's 5.1.
 - 228's drain is done (volume ≈ $55k per sim min, the same as 54). Main read window 3700–4300.
 - Self-trades 0, errors 0, no release.
+
+## §1637 — 2026-11-18 1:40 AM CT — 54 vs 252 on ALL books over long windows (user: "what about 30 books?")
+
+- **New day, sim 1412–3572 (36 sim min; 228 is a copy for most of it, with its drain early):**
+
+  | | 54 | 228 | 252 | 54 / 252 |
+  |---|---|---|---|---|
+  | $300 α | +276.9 (+1.33 bp, $2.08M) | +400.3 (+1.23 bp) | +208.1 (+1.35 bp, $1.55M) | 1.33× |
+  | $30 α | +59.4 (+1.51 bp) | +41.6 | +55.9 (+2.06 bp) | 1.06× |
+  | Total α | 336 → **9.3 per sim min** | 442 → 12.3 (drain-inflated) | 264 → 7.3 per sim min | **1.27×** |
+
+- **Old day, 54 alone after rest_none (84378–86400, 34 sim min):**
+
+  | | 54 | 252 | 54 / 252 |
+  |---|---|---|---|
+  | $300 α | +276.3 | +87.1 | 3.2× |
+  | $30 α | +56.6 | +29.5 | 1.9× |
+  | Total α per sim min | 9.8 | 3.4 | — |
+
+- **Reading:**
+  - 54's own rate is stable: 9.8 alone vs 9.3 with a copy (≈ −5%). The ratio drop vs 252 (2.85× → 1.27×) is mostly 252 recovering (3.4 → 7.3), not 54 losing.
+  - 252: net α 1,784 → pay $157 ($0.088 per unit), long-run average ≈ 8.9 per sim min. 1.27× 252 in the same window ≈ $199/mo.
+    Normalised by 252's long-run rate (8.9 / 7.3), 54 ≈ 11.3 per sim min ≈ $198 — at the $200 target.
+  - **Weak spot = $30:** 252 earns +2.06 bp per $ there vs our +1.51; we are only 1.06× 252 on $30. Raising $30 quality is the next $-lever (the size-up was disproven; look at quoting depth/lean on $30).
