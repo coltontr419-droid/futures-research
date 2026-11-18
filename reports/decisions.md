@@ -24584,3 +24584,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Running:** speed/modelfit8.py adds dF10 as an 8th feature and scores the LIVE model (11-15 fit) and REFIT7 on the same held-out set → speed/modelfit8_1118.log; 8-feature model → speed/model_lean8.json.
   The agent needs a small change to read "dF10" if the 8-feature model wins.
 - **Scaling idea:** a third lane keyed on fast fundamental moves (dF10 side, lean-only) would overlap less with the model lanes. Needs a live test on a free miner.
+
+## §1629 — 2026-11-18 12:15 AM CT — model refit = NO GAIN (the live model is as good as any refit); dF10 adds nothing as a predictor
+
+- speed/modelfit8.py, same held-out set (old day, last 30% of 60000–86400):
+
+  | Model | H120 test corr | H120 top-30% move | H60 corr | H60 top-30% move |
+  |---|---|---|---|---|
+  | LIVE (11-15 fit) | +0.345 | +1.58 bp | +0.327 | +1.19 bp |
+  | REFIT7 | +0.341 | +1.60 bp | +0.329 | +1.22 bp |
+  | MODEL8 (+dF10, weight +0.06) | +0.342 | +1.60 bp | +0.329 | +1.22 bp |
+
+- **Verdict: DISPROVEN as a lever.** The 11-15 model generalises fully to the next day; neither retraining nor dF10 helps. Model retrain is removed from the path to $200, and the live model stays.
+- 252's dF10 effect (§1628) is about counterparty selection (who fills you), not forecasting. It can only be tested live: a lean-only lane keyed on the dF10 side, or dF10 as a tie-breaker for which side to quote when the model has no lean. Queue it for the next free miner after phase 3.
