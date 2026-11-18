@@ -24903,3 +24903,18 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 54 is trading less volume (holding longer cuts exits, as intended). Too early to read.
 - Self-trades 0, errors 0, no release.
+
+## §1652 — 2026-11-18 8:30 AM CT — PHASE 3 mis-specified (mk_exit_k 2.0 × lean 1.0 > band max 1.5 → no exits); restarted as exit_k 1.4
+
+- **10 sim min of exit_k 2.0 (6977–7577):**
+
+  | | 54 | 228 (control) | 252 |
+  |---|---|---|---|
+  | $300 α | +25.9 on $253k (+1.02 bp) | +83.2 on $429k (+1.94 bp) | +33.8 (+1.00 bp) |
+  | $30 α | +10.1 | +11.5 | +3.6 |
+
+  - 54's $300 α relative to 228 fell 0.96× (phase 2) → 0.31×; volume ≈ 60% of 228's.
+- **Cause (interaction miss):** with mk_exit_k 2.0 a lean against the position needs |pred| ≥ 2.0 × thr. But 54's band (mk_model_lean_max 1.5) zeroes every lean ≥ 1.5 × thr, so 54 could NEVER exit a position. Books sat at max_inv and stopped trading.
+  The 47 test (§1600) had no ceiling, so it never hit this.
+- **Fix:** mk_exit_k 2.0 → 1.4 live at sim ≈ 7609 (no out of range). Exits now need 1.0–1.4 × thr → 1.4–1.5 × thr, i.e. stronger but possible inside the band. Phase 3 restarts from 7609. Read ≥ 2,400 sim s later (≈ sim 10,000, ≈ 12:30 PM CT).
+- **Lesson:** for any lean-gating knob, check it against the band (exit_k × model_lean must be < model_lean_max).
