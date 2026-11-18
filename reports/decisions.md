@@ -24404,3 +24404,8 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Census (speed/lowcensus.py):** $30 orders $1.65k → $3.3k, same ticks (lean side 1–3 back, no-lean 3 back), same books without orders.
 - **Interaction:** the $30 books are outside the $300 gate and rest_none, and use their own soft pacing bucket. lean30_only and lean30_back are unchanged. max_inv 0.3 caps inventory.
 - **Read:** the $30 class line in skill_cls2 ($30 α per sim min and bp vs before; $30 ratio to 47 was ≈ 1.2×) is separable from the $300 bucket test, which is read on the $300 class.
+
+## §1614 — 2026-11-17 7:50 PM CT — band ceiling stays (user)
+
+- User: keep mk_model_lean_max 1.5 on 54. Scaling needs signal lanes, so tests are read with the ceiling ON and survival-gate numbers are lane-limited. Lever #3 of §1613 is dropped unless scaling turns out not to need lanes.
+- **Scaling note:** the ≥ 1.5× lane (the best fills, +1.77 bp) is the natural recipe for the NEXT miner, with the same rest_none + size recipe. 54 (1.0–1.5) and a ≥ 1.5 miner don't share signals, so the collision cost should be small. Verify with a before/after on 54 when that miner starts.
