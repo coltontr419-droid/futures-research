@@ -24640,3 +24640,19 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - User: start the scaling plan (add copies one at a time, measure each copy's incremental α, stop when the increment gets small; §1631) TOMORROW, PROVIDED the overnight results push one of our miners toward $200/mo.
 - **Condition check (morning):** a miner's validator-exact α per sim min over a clean full window (post-drain) projects ≥ ≈ 11.8 α/min ($200), or is clearly trending there. Read it from phases 1–3.
   If met, ask the user to register the first added copy (spending: user runs btcli). If not, keep testing levers.
+
+## §1633 — 2026-11-18 12:25 AM CT — brief: copy test interim (228 still in its bucket drain)
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $46 (rising), 228 $0.
+- Validator net α: 54 967 (skill 0.91), 228 421 (skill 0.00 — the H3 flush is still in its window), 252 1,788.
+- **Copy phase, sim 1945–2725 (13 sim min; 228 drain-inflated):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +97.2 on $671k (+1.45 bp, 46+/4− kept) | +221.5 on $2.0M (+1.11 bp, 23+/3−) | +71.4 (+1.35 bp) |
+  | $30 α | +14.7 (+1.02 bp) | +14.7 (+0.97 bp) | +3.5 |
+
+  - 54's $300 ratio to 252 = 1.36× (alone, old day §1612: 2.7×). 252 had a strong window, so wait for the post-drain part.
+  - overlap.py: 70% of 54's $ shares a same-book/side fill with 228 within 30 s (lanes: 33%; chance 13.5%); 33% of 228's $.
+  - 54 ≈ 8.6 α per sim min ($300 7.5 + $30 1.1) → ≈ $146/mo projected vs the $200 target.
+- 228's drain ends ≈ sim 3700; the phase-1 main read runs ≈ 3700–4300. Self-trades 0, locks 0, errors 0, no release.
