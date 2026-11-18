@@ -25006,3 +25006,12 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 54/228 $300 = 0.87 (phase 2 0.96); 54/252 $300 = 1.75× (phase 2 1.31×); total 1.63×.
 - Self-trades 0, errors 0, no release.
+
+## §1659 — 2026-11-18 11:30 AM CT — why 54's net α is flat (user Q) + instructions while away
+
+- **Correction to §1638/§1656 wording:** the WEAK alpha (54's pre-rest_none band lane, old-day 81201–84370) already left the 180-sim-min window by ≈ sim 8770 (≈ 10:15 AM CT).
+  What is leaving NOW (window start ≈ old-day 84900–86400) is 54's STRONG first rest_none + size period, including the pace_burst-3600 drain burst (≈ 10–14 per sim min, e.g. +115 in 8 min).
+  New alpha (≈ 7.4 per sim min) ≈ outgoing → net α flat or dipping (1,394–1,477 since 8:55 AM).
+- **Next:** from ≈ sim 10,800 (old-day end) the window drops the reset gap + bug period (new-day 0–1360, ≈ zero alpha), so net α should rise ≈ +7 per sim min until ≈ sim 12,160 (≈ +150–200), roughly 1:30–3:30 PM CT.
+  After that the window is fully on today's settings; steady ≈ 1,650–1,800 for 54 (§ earlier estimate) unless the hold-longer lift holds.
+- **User instructions** (memory feedback-live-only-2026-11-18): hold-longer → 228 if positive; then $30 tests OFFLINE FIRST; NO miner restarts — live changes only.
