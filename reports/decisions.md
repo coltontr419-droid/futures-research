@@ -24456,3 +24456,14 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   Its last test (hold-longer, mk_exit_k 2) was NOISE+ and the most budget-efficient of the old recipe (89% of $ on lean).
 - **Now:** two miners on two lanes of the passed recipe — 54 (1.0–1.5×) and 228 (≥ 1.5×). With 47 gone, the collision check for 228's lane is clean (no other lane-2 maker of ours).
 - Comparisons now use 252 only (the 47 ratio has ended).
+
+## §1619 — 2026-11-17 8:50 PM CT — brief: 54's big buckets still draining (read moved); 228 in warm-up
+
+- regcheck: 54 and 228 REGISTERED. Prune line $112. Pay: 54 $24 (ramping), 228 $0.
+- **54** (4 sim min, 85932–86172):
+  - $300 +43.6 on $495k (+0.88 bp, 12+/1− kept). ≈ $124k per sim min = ≈ 3× the refill: the $18.8k buckets are still draining.
+  - $30 +2.0 on $76k (+0.26 bp vs +1.35 before the size-up; 4 min, noisy). Watch it.
+  - **Read timing:** at ≈ $970 per book per sim min against a $312 refill, the buckets drain in ≈ 25–30 sim min.
+    A fair bucket read must cover a full cycle (≥ 40 sim min from 85900) or compare after the drain. Earlier reads would be inflated by the saved budget.
+- **228:** still in warm-up (until ≈ 86270); 1 $300 fill.
+- Self-trades 0, locks 0, errors 0, PACE 0 blocked, no release.
