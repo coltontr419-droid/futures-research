@@ -25166,3 +25166,10 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - By the validator's own number, 228 (lane ≥ 1.5×) now leads 252 (1,393 vs 1,009).
 - Still true: 1,393 ≈ $123/mo steady at $0.088/unit — below $200. The gap-closer list (§1665) stands.
 - speed/valreplay.py (validator-function replay) printed nothing (script error); not needed after this.
+
+## §1668 — 2026-11-18 2:55 PM CT — brief (228 ≈ 15 min before immunity ends)
+
+- regcheck x4=228 REGISTERED. Pay $50; validator net α 1,416 (skill 1.27); 252 1,036.
+- Prune line (lowest non-immune) $81, then $83, $88. When 228 leaves immunity (≈ 3:10 PM) at $50 it will be the lowest → prune likely at the next registration (≈ 15–30 min later).
+- Last 4 sim min: 228 $300 +27.7 (+1.68 bp, 20+/0− kept) vs 252 +3.7. Errors 0, no release.
+- If pruned: stop + disable x4, and the tape stops (no miner left). New registration = user's call.
