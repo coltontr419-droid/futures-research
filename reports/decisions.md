@@ -25254,3 +25254,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Plan: a ≈ 1-h baseline on the miner itself, then turn on mk_dfm 2.0 / frac 0.5 and mk_low_rest_none 1 LIVE (no restart). Before/after on the same miner, with x3 (other lane) and 252 as same-window market controls.
 - **Registration** (user, VS Code closed): `~/btcli/bin/btcli subnet register --netuid 79 --wallet.name main --wallet.hotkey x4`.
   Then `HK=x4 PARAMS=live_params_NEXT_TEST.json sh newminer.sh <uid>` (it checks agents/QuoteAgent.py = d8f4bf42; the unit loads agents_test).
+
+## §1674 — 2026-11-18 3:53 PM CT — brief: settled x3=228 still in model warm-up (as expected)
+
+- regcheck x3=228 REGISTERED. Pay $0 (new). Validator gauge for 228 not published yet (nan). Prune line (lowest non-immune) $52 → $75 → $80.
+- Sim 12195; restart at sim ≈ 11950 → model warm-up until ≈ 12250, so no fills yet (expected; GATE shows 7,680 step-in rounds with no lean yet). PACE 0 blocked. Errors 0. No release.
+- speed/nahist.py still lists UID 54 (now another owner); only the 228 and 252 columns are ours/reference.
