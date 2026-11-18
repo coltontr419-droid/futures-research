@@ -25015,3 +25015,18 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Next:** from ≈ sim 10,800 (old-day end) the window drops the reset gap + bug period (new-day 0–1360, ≈ zero alpha), so net α should rise ≈ +7 per sim min until ≈ sim 12,160 (≈ +150–200), roughly 1:30–3:30 PM CT.
   After that the window is fully on today's settings; steady ≈ 1,650–1,800 for 54 (§ earlier estimate) unless the hold-longer lift holds.
 - **User instructions** (memory feedback-live-only-2026-11-18): hold-longer → 228 if positive; then $30 tests OFFLINE FIRST; NO miner restarts — live changes only.
+
+## §1660 — 2026-11-18 11:54 AM CT — brief (phase 3 interim, 33 sim min)
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $111 (chain pay noisy; net α steady), 228 $53 (rising). Validator net α: 54 1,461, 228 1,222, 252 1,971.
+- **exit_k 1.4, 7641–9621 (33 sim min):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +187.3 on $1.19M (+1.57 bp) | +226.6 (+1.75 bp) | +121.0 (+0.96 bp) |
+  | $30 α | +38.6 (+1.23 bp) | +38.8 (+1.17 bp) | +24.4 (+1.00 bp) |
+  | Total per sim min | 6.8 | 8.0 | 4.4 |
+
+  - 54/252 total 1.53×; 54/228 $300 0.83.
+  - On $30, our bp is above 252's in this window, so 252's $30 lead (§1637/§1650: +2.06/+2.52) is not constant. The offline $30 study uses the long old-day sample.
+- Self-trades 0, errors 0, no release. The $30 offline study starts now (analysis only, no live change).
