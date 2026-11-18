@@ -25093,3 +25093,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Neither reaches the cap (≈ $15k) → **NOT binding**; a max_inv raise would change nothing. Dropped.
   - Exposure 54 $526k / 228 $472k vs 252 $740k; edge per exposure 54 0.0104 / 228 0.0142 vs 252 0.0048.
 - Last 4 sim min: 54 $300 +20.3 (+0.81 bp), 228 +12.8 (+1.06 bp), 252 +2.3. Self-trades 0, errors 0, no release.
+
+## §1664 — 2026-11-18 1:30 PM CT — UID 54 (x3) PRUNED
+
+- Validator at 13:30: 54 net α −10.6, skill 0, pay $0. regcheck run twice: x3=54 NOT REGISTERED. UID 54 was re-registered by a new owner 22 blocks before the check (≈ 1:25 PM CT). The x3 journal shows "not registered on netuid 79".
+- 54 left immunity ≈ 1:10 PM at $87, tied lowest (§1663), and was pruned at the next registration ≈ 15 min later. Its net α had just dropped 1,392 → 1,175 as its strongest stretch (the 11-17 restart burst) left the window, and chain pay lagged.
+- mvtrx-x3 stopped and disabled; our_uids.txt = 228 only (backup our_uids.txt.bak-54prune).
+- Tape unaffected (writer x4; tape fresh). Scripts naming mvtrx-x3 are old ad-hoc ones; none is scheduled (no crontab entries).
+- **Now one miner:** 228 (lane ≥ 1.5×), pay $52, net α 1,320 (skill 1.28), immune until ≈ 3:10 PM CT.
+  Prune line ≈ $87–89 → 228 is at risk after 3:10 PM unless its pay climbs (it lags net α; at $0.088/unit 1,320 ≈ $116 steady).
+- **Lessons:**
+  - A pace_burst restart puts an inflated burst into the 180-sim-min window that later LEAVES it, causing a cliff in net α ≈ 3 h after the restart. Time burst restarts so the cliff doesn't land at immunity end.
+  - Chain pay lags net α by hours, so judge survival on pay, not net α.
