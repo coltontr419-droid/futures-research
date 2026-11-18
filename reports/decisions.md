@@ -24634,3 +24634,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Mechanism:** each UID has its own per-book volume cap, so 20 copies have 20× the budget. Fills come from a large uninformed flow, so copies mostly add fills rather than split a fixed set.
   The cost is partial overlap (we measure it tonight), not a 1/N split.
 - **Proof plan:** tonight's copy test (2 copies on the new recipe), then measure the incremental α of each added copy when we scale (copy 3, 4, …); stop adding when the increment gets small.
+
+## §1632 — 2026-11-18 1:00 AM CT — scaling plan approved, conditional (user)
+
+- User: start the scaling plan (add copies one at a time, measure each copy's incremental α, stop when the increment gets small; §1631) TOMORROW, PROVIDED the overnight results push one of our miners toward $200/mo.
+- **Condition check (morning):** a miner's validator-exact α per sim min over a clean full window (post-drain) projects ≥ ≈ 11.8 α/min ($200), or is clearly trending there. Read it from phases 1–3.
+  If met, ask the user to register the first added copy (spending: user runs btcli). If not, keep testing levers.
