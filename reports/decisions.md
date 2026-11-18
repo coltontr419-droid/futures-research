@@ -24489,3 +24489,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **$30 size 0.066: DISPROVEN** (two reads: +0.26 and +0.34 bp vs +1.35 before). $30 α ratio to 252 fell 2.1× → 1.4× while volume rose ≈ 65%: bigger $30 orders get worse fills.
   Reverted to 0.033 on 54 and 228 (backups live_params_*.pre-low033.json).
 - **54 bucket test (pace_burst 3600 + vol 0.1 / calm 0.12):** still not readable; the drain continues into the new day. Read over a full cycle on the new-day tape.
+
+## §1621 — 2026-11-17 9:55 PM CT — BUG: after the sim reset the model leans never fired → no $300 orders on 54/228; fixed (agent d8f4bf42), both restarted
+
+- **Symptom:** after the reset (03:24 UTC) the new-day tape had 0 $300 orders from x4 and 0 fills for 54/228 after sim ≈ 700, while 252 traded normally and the model was active 53% of the time (+3.46 bp de-drifted, leanfreq3 900–906).
+  No GATE log lines at all.
+- **Cause:** the CLOCK RESET handler clears _mids/_sflow/_oflow/_mid_hist/_pending/_mk_mid/_bbo, but NOT `_mh` / `_fh2` (the model-lean mid and fundamental histories, added 11-15).
+  Their old-day entries (t ≈ 86,000) are never trimmed (trim = older than now − 305), so `_at()` sees history that "starts in the future" and returns None. No lean for the whole day; lean-only + rest_none means no $300 quoting at all.
+- **Fix:** agent d8f4bf42 = e29ace21 + "_mh", "_fh2" in the reset's clear list. equiv 0 diffs (tape, ledger, locks identical); test_pace ALL PASS. newminer.sh now expects d8f4bf42 (backup .bak-reset).
+- regcheck, then restart x3 03:55:11 and x4 03:55:14 UTC; 0 errors, 0 out-of-range; tape fresh. Warm-up ≈ 300 sim s.
+- **Damage:** ≈ 50 wall min (≈ 400 sim s) of no $300 trading tonight. This was the FIRST sim reset since the model lean existed (a sim day ≈ 6 wall days at today's speed), so 85/47 were never affected.
+- **Lesson:** the brief must check that each miner has $300 fills in the last few sim minutes (a zero-fill miner is an ALERT, not a quiet line). Added to the brief prompt.
+- 54's bucket test restarts its cycle (full buckets again); read on the new day.
