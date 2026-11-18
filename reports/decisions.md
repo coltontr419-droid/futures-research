@@ -24771,3 +24771,10 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Verdict (noisy, 9-min clean window):** an identical copy costs each miner ≈ 20–25%; two copies ≈ 1.55× one. Consistent with §1568 (−15–20%). Pair total and per-miner progress to be compared with phase 2.
 - **PHASE 2:** regcheck x4=228; live_params_228.json = NEXT_L2 (lane ≥ 1.5×, no ceiling; backup live_params_228.pre-L2b.json); pace_burst 3600 kept. Restart 08:56:26 UTC at sim ≈ 4311. 0 out of range, 0 errors, tape fresh.
   Warm-up until ≈ 4610; drain ≈ 30 sim min → main read window ≈ 6400–7000 (≈ 7:30–8:30 AM CT).
+
+## §1642 — 2026-11-18 3:25 AM CT — brief (phase 2 warm-up)
+
+- regcheck: 54 and 228 REGISTERED. **Pay: 54 $127** (rising), 228 $10. Validator net α: 54 1,246 (skill 1.37), 228 623, 252 1,576.
+- **54, last 4 sim min:** $300 +16.2 (+0.85 bp), $30 +5.1 → 5.3 per sim min; 252 4.2.
+- **228:** in warm-up after the 2:56 AM lane switch (until ≈ sim 4610); no fills yet, as expected.
+- Self-trades 0, errors 0, no release. Brief cron updated to the phase-2 state.
