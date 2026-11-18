@@ -25030,3 +25030,26 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - 54/252 total 1.53×; 54/228 $300 0.83.
   - On $30, our bp is above 252's in this window, so 252's $30 lead (§1637/§1650: +2.06/+2.52) is not constant. The offline $30 study uses the long old-day sample.
 - Self-trades 0, errors 0, no release. The $30 offline study starts now (analysis only, no live change).
+
+## §1661 — 2026-11-18 12:00 PM CT — $30 offline study, part 1: where 54's $30 alpha leaks
+
+- **speed/twosided3b.py** (MODEL=model_lean_30, BOOKS=128–191; old day 78000–86400; header says "$300" but these are $30 books):
+
+  | Model signal at the fill (P = |pred| / thr_30, signed) | 54 share of $ | 54 size | 54 120-s move | 252 share of $ |
+  |---|---|---|---|---|
+  | Against (≤ −1) | 7% | $600 | −2.17 bp | 8% |
+  | −1..0 | 24% | $600 | −0.42 bp | 45% |
+  | 0..0.5 | 15% | $600 | +0.23 bp | 21% |
+  | 0.5..1 | 26% | $1.6k | +0.63 bp | — |
+  | 1..1.5 | 21% | $1.6k | +1.07 bp | — |
+  | ≥ 1.5 | 7% | $1.6k | +1.88 bp | — |
+
+  - Almost all at the touch. **252 is no better per fill** (P < 0.5 = 74% of its $, its P ≥ 1 fills +1.7–1.8 bp, all at $1.8k).
+    So 252's occasional $30 lead (§1637/§1650) is not better fill selection; probably longer holds or bigger positions. Today's 33-min window had 54 +1.23 vs 252 +1.00 bp on $30.
+- **Source of the no-lean $30 orders:** mk_lean30_only=1 (§1495) by design keeps BOTH sides MK_LEAN30_BACK (2) ticks back when there is no $30 lean. The census (speed/low2census.py) shows full-size $1.65k orders 3 ticks behind on no-lean books.
+  The $30 ladder is NOT the source (mk_low_lad_size 0 leaves them unchanged).
+- **Fix options:**
+  1. A "$30 rest_none" knob (no $30 orders without a lean, nothing on the non-predicted side). This needs agent code, so a RESTART — not allowed while the user is away. Ask first.
+  2. Live: mk_lean30_back 2 → deeper. Likely worse: deep fills come from sweeps through the level, the same adverse selection rest-30 showed on $300 (−1 bp).
+- **Size of the prize:** dropping the P < ≈0.75 no-lean fills (≈ 46% of $30 $, net ≈ −0.3 bp) → $30 α ≈ +15–20%, plus freed pace budget → ≈ +0.2–0.4 α per sim min per miner (≈ +$5–10/mo).
+  Small next to the $300 levers. Recommend building it in the next batched restart (with the user's OK), not alone.
