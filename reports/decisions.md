@@ -25228,3 +25228,29 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - After: "PACE ledger added 0 fills", "PACE STATUS: 0 of 0 traded books blocked". Total restarts at launch: 2 (21:24:47, 21:25:52 UTC), within the first 3 min.
   - newminer.sh now also moves a stale pace_sync_<uid>.json aside (backup newminer.sh.bak-syncfix).
 - **This miner is SETTLED:** no tests and no restarts from here. Hourly: validator net α vs fill-based α (young-UID handicap), pay vs the prune line, until immunity ends ≈ 3:25 PM CT 11-19.
+
+## §1673 — 2026-11-18 4:20 PM CT — test-miner build ready (user: test miner ≈ 2 h out; winners go to x3 only after its immunity ends)
+
+- **Agent a1fbedb4 = d8f4bf42 + 3 knobs, all OFF by default** (equiv 0 diffs; tape, ledger, locks identical; test_pace ALL PASS):
+  - `mk_low_rest_none` (0/1): $30 books — no orders without a $30 lean; the far side is pulled instead of moved back (§1661 leak).
+  - `mk_dfm` (bp, 0 = off) + `mk_dfm_frac` (default 0.5): on $300 books where the model gives NO lean (before the band ceiling), lean toward the 10-s fundamental move when |dF10| ≥ mk_dfm bp, stepping in at mk_dfm_frac of full size (252's no-lean pattern, §1628).
+- **SAFETY:** the live file agents/QuoteAgent.py was restored to d8f4bf42 (the settled x3 would load it on any restart). The test build lives ONLY in /opt/mvtrx/agents_test/QuoteAgent.py.
+- **dF10 forward move on our no-lean $300 time** (speed/dfmstudy.py; old day 70000–86000 and new day 1500–11000 agree):
+
+  | |dF10| | Share of no-lean time | 120-s move in its direction |
+  |---|---|---|
+  | < 0.1 bp | 69% | ≈ 0 |
+  | 0.5–1 bp | 8% | +0.22–0.24 bp |
+  | 1–2 bp | 10–11% | +0.37–0.44 bp |
+  | ≥ 2 bp | 4% | +0.70–0.81 bp |
+
+  - Weaker than the model lean (+1.0–1.9 bp) and it competes for the same pace budget → start strict: mk_dfm 2.0, frac 0.5.
+- **Census (speed/dfmcensus.py:** odd books flat model + a +3 bp fundamental jump in the last 10 s):
+  - Arm B (dfm 2.0 / 0.5 + low_rest_none) steps in on 20 vol + 8 calm no-lean books (A: 4 + 2), BIDs 1 tick inside at ≈ $2.5–3.0k (half size).
+  - $30 far-side ASKs 43 → 0. Nothing else changed.
+- **Test miner prepared:**
+  - Hotkey x4 (unit mvtrx-x4, port 8104; disabled until registration). Unit now uses --agent.path /opt/mvtrx/agents_test and tape=/opt/mvtrx/live_tape_x6.jsonl (backup mvtrx-x4.service.bak-test); pace_burst 3600.
+  - Params live_params_NEXT_TEST.json = band lane 1.0–1.5× (lean 1.0, max 1.5) + rest_none, vol 0.1 / calm 0.12 / $30 0.033, max_inv 0.3, knobs OFF.
+  - Plan: a ≈ 1-h baseline on the miner itself, then turn on mk_dfm 2.0 / frac 0.5 and mk_low_rest_none 1 LIVE (no restart). Before/after on the same miner, with x3 (other lane) and 252 as same-window market controls.
+- **Registration** (user, VS Code closed): `~/btcli/bin/btcli subnet register --netuid 79 --wallet.name main --wallet.hotkey x4`.
+  Then `HK=x4 PARAMS=live_params_NEXT_TEST.json sh newminer.sh <uid>` (it checks agents/QuoteAgent.py = d8f4bf42; the unit loads agents_test).
