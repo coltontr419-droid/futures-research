@@ -24891,3 +24891,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **PHASE 3:** mk_exit_k 0 → 2.0 on 54 (live; bounds 0–10; no out of range) at sim ≈ 6964. Backup live_params_54.pre-exitk.json.
   Baseline = phase 2 (54 $300 +1.39 / +1.22 bp; 6.1–6.2 α per sim min; ratio to 252 1.31× main / 0.98× full).
   Read ≈ 2,400 sim s (≈ sim 9400, ≈ 11:40 AM CT): α per sim min, $300 α per $ as a ratio to 252, exposure (alphadecomp2).
+
+## §1651 — 2026-11-18 8:00 AM CT — brief (phase 3 early)
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $151, 228 $31. Validator net α: 54 1,356 (skill 4.29), 228 926, 252 1,882.
+- **Phase 3 first 4 sim min (7014–7254):**
+
+  | | 54 (exit_k 2) | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +11.2 on $108k (+1.04 bp) | +28.3 on $180k (+1.57 bp) | +6.0 (+0.53 bp) |
+
+  - 54 is trading less volume (holding longer cuts exits, as intended). Too early to read.
+- Self-trades 0, errors 0, no release.
