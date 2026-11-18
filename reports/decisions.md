@@ -24931,3 +24931,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 54's volume is back to equal 228's (exits possible again). 54/228 $300 α = 0.63 (phase 2 0.96). Too early.
 - Self-trades 0, errors 0, no release. Brief cron updated to exit_k 1.4 from sim 7609.
+
+## §1654 — 2026-11-18 9:23 AM CT — brief (phase 3 interim, 8 sim min)
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $149, 228 $35. Validator net α: 54 1,394, 228 1,089 (skill 1.59), 252 2,082.
+- **exit_k 1.4, 7631–8111 (8 sim min):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +43.0 on $299k (+1.44 bp, 24+/3−) | +68.8 (+1.91 bp) | +23.9 (+0.84 bp) |
+  | $30 α | +7.0 | +6.5 | +5.2 |
+  | Total per sim min | 6.3 | 9.4 | 3.6 |
+
+  - 54/228 $300 α = 0.63 (phase 2 0.96); 54/252 $300 = 1.80× (phase 2 1.31×). Mixed so far: better vs 252, worse vs 228 (228 itself is having a strong window).
+- Self-trades 0, errors 0, no release.
