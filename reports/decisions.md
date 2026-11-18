@@ -24716,3 +24716,13 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - 252: net α 1,784 → pay $157 ($0.088 per unit), long-run average ≈ 8.9 per sim min. 1.27× 252 in the same window ≈ $199/mo.
     Normalised by 252's long-run rate (8.9 / 7.3), 54 ≈ 11.3 per sim min ≈ $198 — at the $200 target.
   - **Weak spot = $30:** 252 earns +2.06 bp per $ there vs our +1.51; we are only 1.06× 252 on $30. Raising $30 quality is the next $-lever (the size-up was disproven; look at quoting depth/lean on $30).
+
+## §1638 — 2026-11-18 1:50 AM CT — is 54 still climbing toward $200? (user Q)
+
+- **Validator net α (speed/nahist.py), 54:** 780 (9:47 PM) → 841 (11:17) → 948 (12:17 AM) → 1,056 (1:17) → 1,125 (1:47). The last four half-hours added +36, +49, +60, +68: accelerating, not flattening.
+- **Window mechanics (lookback 10,800 sim s = 180 sim min; now sim ≈ 3631):**
+  - The window still reaches back to before 54 was registered (old-day 81201), so nothing is leaving yet. Growth = everything new.
+  - From ≈ sim 5600 (≈ 5 AM CT at 8–10 sim s per wall min), 54's pre-rest_none alpha (band lane, ≈ 5.9 per sim min) starts leaving. Growth slows to (new − old) ≈ +3.5–5 per sim min (≈ +30–45 per half-hour).
+  - Fully steady from ≈ sim 8770 (≈ 11 AM–noon CT). The ≈ 13 sim min with no trading after the reset (bug, §1621) stays in the window until ≈ sim 12,200 (≈ −7%).
+- **Projection:** ≈ 1,550–1,600 by 5 AM; ≈ 2,000–2,100 by noon; steady ≈ 2,000–2,260 at 9.3–11.3 per sim min (market-dependent).
+  At $0.088 per unit ≈ $180–200/mo. Chain pay lags net α by a few hours, so expect pay near $180–200 by Wed evening, not morning.
