@@ -24790,3 +24790,14 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   | $30 α | +2.4 | +2.5 | +1.9 |
 
 - Phase-2 read window ≈ 6400–7000. Self-trades 0, errors 0, no release.
+
+## §1644 — 2026-11-18 4:28 AM CT — brief
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $126, 228 $9. Validator net α: 54 1,344 (skill 1.77), 228 671, 252 1,672.
+- **Last 3 sim min:**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +17.7 (+1.30 bp) | +13.3 (+1.25 bp) | +12.0 (+0.95 bp) |
+
+- Sim at 5162 (≈ 9.6 sim s per wall min). Phase-2 read window ≈ 6400–7000 → ≈ 6:40–7:40 AM CT. Self-trades 0, errors 0, no release.
