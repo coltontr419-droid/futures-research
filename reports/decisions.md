@@ -24861,3 +24861,33 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   | $30 α | ≈ 0 | ≈ 0 | ≈ 0 |
 
 - Sim 6605; phase-2 read at ≈ sim 7000 (≈ 7:40 AM CT). Self-trades 0, errors 0, no release.
+
+## §1650 — 2026-11-18 7:30 AM CT — PHASE 2 (lanes) read → LANES WIN; PHASE 3 (mk_exit_k 2.0 on 54) started
+
+- **Phase 2 main window, post-drain (sim 6437–6917, 8 sim min):**
+
+  | | 54 (band 1.0–1.5×) | 228 (lane ≥ 1.5×) | 252 |
+  |---|---|---|---|
+  | $300 α | +46.6 (+1.39 bp, 32+/4−) | +48.7 (+1.61 bp, 35+/2−) | +35.1 (+1.16 bp) |
+  | $30 α | +2.4 | +1.5 | +2.4 |
+  | Total per sim min | 6.1 | 6.3 | 4.7 |
+
+  - Pair 12.4 per sim min (2.65× 252).
+  - overlap.py: 19% / 20% within 30 s; 54 vs 252 13%.
+- **Phase 2 full post-warmup (4654–6934, 38 sim min):** 54 6.2 per sim min ($300 +1.22 bp), 228 7.8 ($300 +1.72 bp), 252 6.3.
+- **Copies (phase 1, §1641) vs lanes (phase 2), clean windows:**
+
+  | | Copies | Lanes |
+  |---|---|---|
+  | Overlap | 36–38% | 19–20% |
+  | $300 α per $, 54 | +1.22 bp | +1.39 bp |
+  | $300 α per $, 228 | +1.09 bp | +1.61 bp |
+  | Pair α per sim min | 10.2 | 12.4 |
+
+  - Ratios to 252 are too noisy (252 2.3 vs 4.7 per sim min in the two windows) to compare pair totals directly.
+- **Verdict: LANES WIN** on per-$ quality and overlap, for both miners. 228 stays on the ≥ 1.5× lane.
+- **Scaling implication:** spread copies across the two lanes (e.g. half per lane) rather than all on one recipe. Measure the incremental α per added copy within each lane.
+- **$30 weak spot persists:** full phase 2 $30 +1.09 / +0.86 bp vs 252 +2.52.
+- **PHASE 3:** mk_exit_k 0 → 2.0 on 54 (live; bounds 0–10; no out of range) at sim ≈ 6964. Backup live_params_54.pre-exitk.json.
+  Baseline = phase 2 (54 $300 +1.39 / +1.22 bp; 6.1–6.2 α per sim min; ratio to 252 1.31× main / 0.98× full).
+  Read ≈ 2,400 sim s (≈ sim 9400, ≈ 11:40 AM CT): α per sim min, $300 α per $ as a ratio to 252, exposure (alphadecomp2).
