@@ -24446,3 +24446,13 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   The census (§1615) says the lanes don't share signals; 47 also leans ≥ 1.5 until it is pruned.
 - **x4 read** ≈ 11 sim min after warm-up: α per sim min ($300 + $30), bp, kept ≥ 20, vs 54 and 252.
 - H3 summary (§1616): +0.88 bp per $ on the taker leg but ≈ $3k per sim min. Code kept (570517c8 knobs) for a later, higher-volume taker idea.
+
+## §1618 — 2026-11-17 8:45 PM CT — UID 47 (x1) PRUNED
+
+- User: "x1 was pushed". regcheck run twice: x1=47 NOT REGISTERED; 54 and 228 REGISTERED.
+- mvtrx-x1 stopped and disabled. our_uids.txt is now 54 / 228 (backup our_uids.txt.bak-47prune). x1 did not write the tape.
+- Watcher grep: autorefit.sh / fix_trim.sh / go_skill.sh restart mvtrx-x1, but none is scheduled (mvtrx-autorefit.timer disabled, service static and inactive; no crontab entries). Left as is.
+- 47 lived ≈ 23.5 h; pay ≈ $93–103, ending below a $112–117 line.
+  Its last test (hold-longer, mk_exit_k 2) was NOISE+ and the most budget-efficient of the old recipe (89% of $ on lean).
+- **Now:** two miners on two lanes of the passed recipe — 54 (1.0–1.5×) and 228 (≥ 1.5×). With 47 gone, the collision check for 228's lane is clean (no other lane-2 maker of ours).
+- Comparisons now use 252 only (the 47 ratio has ended).
