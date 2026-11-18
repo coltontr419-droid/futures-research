@@ -24315,3 +24315,23 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **228:** restarted 00:13 UTC as the new tape writer. H3 warm-up until sim ≈ 84740 (≈ 7:40 PM CT). 3 IOCs since start; 4 paced books.
 - The coverage ALERT for x2/85 was raised at 00:08 UTC, before our_uids.txt was updated. watch_extra reads our_uids.txt, so it won't repeat.
 - 0 errors, self-trades 0, locks 0, no release.
+
+## §1609 — 2026-11-17 7:00 PM CT — next 54 test prepared: bigger pacing bucket (pace_burst 900 → 3600)
+
+- **Why:** with rest_none, 54 spends only on lean step-ins. A lean is active ≈ 15–30% of book-time.
+  - The bucket holds at most pace_burst × rate = 900 s × $5.2 ≈ $4.7k. A book that goes quiet longer than ≈ 15 sim min stops saving, so its budget is lost.
+  - pace_burst 3600 (≈ $18.8k) lets quiet books save for their next lean episode.
+- **Cap safety** (test_pace with pace_burst overridden):
+
+  | pace_burst | Every attack PASSES (worst 24-h) | Max |
+  |---|---|---|
+  | 900 | $3k / $10k / two-sided / $50k sweeps | $493k of $500k |
+  | 3600 | worst unchanged; the 24-h backstop binds | $493k |
+  | 7200 | same | $493k |
+
+- Only "no stop-go: idle stays short" FAILS (longest idle 4,388 s at 3600). That check guards making presence, which pays us 0; lean-only books idle without a lean by design. Accepted for the test.
+- pace_burst is a launch flag, so this needs a restart.
+- **Plan:** start right after the rest_none read (≈ 11 sim min after warm-up; ≈ 8:40 PM CT at today's ≈ 5 sim s per wall min).
+  - Arm: rest_none 1 + pace_burst 3600.
+  - Read: $300 volume used (target toward the ≈ $40k per sim min refill) at the same bp; α per sim min against the rest_none-only read.
+- **Then:** lean order size (mk_vol_size / mk_calm_size 0.072 → 0.108) and removing the band ceiling (mk_model_lean_max 0) now that 85 is gone.
