@@ -24945,3 +24945,19 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 54/228 $300 α = 0.63 (phase 2 0.96); 54/252 $300 = 1.80× (phase 2 1.31×). Mixed so far: better vs 252, worse vs 228 (228 itself is having a strong window).
 - Self-trades 0, errors 0, no release.
+
+## §1655 — 2026-11-18 9:53 AM CT — brief (phase 3 interim, 12 sim min)
+
+- regcheck: 54 and 228 REGISTERED. Pay: 54 $148, 228 $35. Validator net α: 54 1,429, 228 1,118 (skill 1.55), 252 2,044.
+- **exit_k 1.4, 7679–8399 (12 sim min):**
+
+  | | 54 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +69.3 on $457k (+1.52 bp, 35+/4−) | +100.9 (+1.94 bp) | +24.8 (+0.64 bp) |
+  | $30 α | +11.6 | +12.2 | +8.6 |
+  | Total per sim min | 6.7 | 9.4 | 2.8 |
+
+  - 54/228 $300 = 0.69 (phase 2 0.96); 54/252 $300 = 2.8× (phase 2 1.31×).
+  - 54's $300 α per $ +1.52 bp vs +1.39 (phase 2 main) / +1.22 (full).
+  - Leaning positive vs 252 and on bp; the 228 control is in an unusually strong stretch.
+- Self-trades 0, errors 0, no release.
