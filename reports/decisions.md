@@ -24656,3 +24656,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - overlap.py: 70% of 54's $ shares a same-book/side fill with 228 within 30 s (lanes: 33%; chance 13.5%); 33% of 228's $.
   - 54 ≈ 8.6 α per sim min ($300 7.5 + $30 1.1) → ≈ $146/mo projected vs the $200 target.
 - 228's drain ends ≈ sim 3700; the phase-1 main read runs ≈ 3700–4300. Self-trades 0, locks 0, errors 0, no release.
+
+## §1634 — 2026-11-18 1:30 AM CT — scaling cost accepted (user)
+
+- User: if one miner reaches ≈ $200/mo, scaling to ≈ 20 with each copy dropping to ≈ $165 is fine; that is the accepted cost of scaling.
+- Scaling go condition (§1632) unchanged: one miner at ≈ $200 (≈ 11.8 α per sim min on a clean window).
+- **Stop rule for adding copies:** stop when an added copy's incremental α pushes per-copy pay meaningfully below ≈ $165, or the fleet total stops rising.
