@@ -24368,3 +24368,25 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - 228: 15 IOCs since the 6:13 PM restart; warm-up done ≈ sim 84740. 3 books paced, 0 locks.
 - 0 errors, self-trades 0, no release.
 - Brief cron re-created (d14c6f1c) with the current state.
+
+## §1612 — 2026-11-17 7:33 PM CT — 54 rest_none + size 0.094 = PASS (strong interim, 10 sim min); next: pace_burst 3600 + bigger orders live
+
+- **Read** sim 84637–85237 (10 sim min; the sim sped up again):
+
+  | | 54 | 47 | 252 | 228 |
+  |---|---|---|---|---|
+  | $300 α | +39.5 (+1.21 bp, $326k on 108 books) | +18.8 (+1.84 bp) | +14.8 (+0.40 bp) | +5.9 taker (+2.31 bp, $26k / 8 books, early) |
+  | $300 kept books | 35 (30+/5−), ELIGIBLE | — | — | — |
+  | $30 α | +12.4 (+1.04 bp, 15 kept) | +10.1 | +5.9 | — |
+  | Total α per sim min | 5.2 | 2.9 | 2.1 | — |
+
+  - $300 ratio to 47: 1.25× → 2.1×. Ratio to 252: 2.0× → 2.7×.
+  - Absolute α is below the 6.8 baseline because the whole market was slow (47 fell 5.5 → 2.9, i.e. 53%). Normalised, 54 ≈ 9.8 α per sim min.
+  - **Verdict: PASS** (strong interim). Pay 54 $20 (ramping), 47 $97, 228 $1. Prune line $113.
+- **Next test** (pre-approved, started at once): restart 01:32:11 UTC (sim ≈ 85301) with `pace_burst=3600` in mvtrx-x3.service (backup mvtrx-x3.service.bak-burst; cap-safe per §1609). Params backup live_params_54.pre-burst.json.
+  - mk_calm_size 0.12 (≈ $6k).
+  - mk_vol_size: 0.12 was REJECTED (bound 0.1), leaving vol at the unit default 0.034 for ≈ 1 min. Set 0.1 (≈ $5k) live at 01:33.
+  - Kept: max_inv 0.3, rest_none 1, band 1.0–1.5.
+- **Census (bcensus.py, bucket $18.8k):** calm step-ins $4.7k → $6.0k. Vol buys were cut to $1.7k by cash fit on the census account's long books; that is natural max_inv-like behaviour, and flat books get the full order.
+- Restart start burst: every book starts with a full $18.8k bucket. Cap-safe via the 24-h backstop, but the first sim minutes after warm-up are front-loaded.
+- **Read:** ≥ 11 sim min after warm-up (≈ sim 85600). Compare $300 volume used and α per sim min against the ratio to 47/252 (54 now 2.1× 47 and 2.7× 252 on $300).
