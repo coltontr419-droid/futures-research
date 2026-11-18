@@ -24285,3 +24285,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - 228 H3: $300 taker $38k on 15 books, +1.14 bp; 781 IOCs, ≈ 8 per sim min after the flush; 1 lock.
   - 0 errors, self-trades 0, no release.
 - The brief cron was re-created (16f73f15) with the current tests.
+
+## §1607 — 2026-11-17 6:13 PM CT — UID 85 (x2) PRUNED; tape writer moved to x4
+
+- User: "x2 was pushed". regcheck run twice: x2=85 NOT REGISTERED; 47, 54 and 228 REGISTERED. The x2 journal also shows "not registered on netuid 79".
+- mvtrx-x2 stopped and disabled. our_uids.txt is now 47 / 54 / 228 (backup our_uids.txt.bak-85prune).
+- **x2 was the tape writer**, so the tape would have stopped and every read with it.
+  - Added `tape=/opt/mvtrx/live_tape_x3.jsonl` to mvtrx-x4.service (backup mvtrx-x4.service.bak-tape); regcheck x4=228, then daemon-reload and restart at 00:13:17 UTC.
+  - Tape resumed (sim 84441); 0 errors.
+  - overnight.sh simmin() now reads mvtrx-x4 (backup .bak-85prune).
+- Side effect: 228's H3 state was reset by the restart. It closes its ≤ 4 small positions and warms up again (≈ 300 sim s).
+- Outcome of 85: lived ≈ 24.5 h. Pay peaked ≈ $103 and ended $84 under a $105–117 prune line. Strategy NEXT (lean 1.5, rest orders), then a final hour on the DISPROVEN fleet recipe.
+- With 85 gone, 54's band ceiling (mk_model_lean_max 1.5) only avoids 47 now; it is the candidate for the next 54 test.
