@@ -25745,3 +25745,20 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Pay: 228 $83, 38 $13, 252 $185.** Validator net α: **228 1,723**, 252 1,486, 38 1,180. Prune line $111. Both REGISTERED, 0 errors; upstream 20e97853.
 - **Last 4 sim min $300:** 228 +20.6 (+1.71 bp), 38 +19.6 (+1.22), 252 +15.2 (+1.15).
 - 228's net α (1,723) has reached the projected steady ≈ 1,700 while its pay drifts down ($86 → $83). Under the EMA (§1711) the chain pay should turn up; watch closely toward 3:25 PM.
+
+## §1714 — 2026-11-19 7:25 AM CT — brief + what drives pay field-wide: net α for skill-only miners (corr 0.74); 252 also earns making credit
+
+- **Brief:** pay 228 $83, 38 $13, 252 $186. Validator net α 228 1,787, 252 1,513, 38 1,264. Prune line $106. Both REGISTERED, 0 errors; upstream 20e97853.
+  Last 4 sim min $300: 228 +26.1 (+1.73 bp), 38 +20.7 (+1.15), 252 +21.6 (+1.16).
+- **speed/paydrivers.py** (256 UIDs, validator gauges):
+
+  | Correlation with incentive | All UIDs | Skill-only UIDs (making < 0.0005, n 102) |
+  |---|---|---|
+  | Net α | +0.32 | +0.74 |
+  | Skill rank | +0.01 | +0.21 |
+  | Making share | +0.70 | — |
+
+  - **252 has making share 0.0038** → part of its pay is the MAKING half. That explains part of its $186.
+  - **Skill-only peers at net α 1,860–2,000** (mostly 5E2fVqiW: 128, 175, 1, 123, 138, 6, 89) get incentive 0.0020–0.0022 (≈ $150–165). 228 at 1,787 gets 0.0016 (≈ $83 shown; EMA lag, §1711).
+  - Implied steady pay for 228 at ≈ 1,750–1,800 net α ≈ 0.0019–0.0020 ≈ $140–150.
+- **Revised x3 steady ≈ $140–150** (slightly below the earlier $150–170). Survival needs ≈ 1.7× the line at immunity end (§1711), i.e. ≈ $180 against today's ≈ $106. Marginal.
