@@ -26119,3 +26119,14 @@ Validator replica (8 sim min):
   - 4:35 PM: $300 fills continue (lesson §1729).
   - ≈ 5:20 PM read: $/fill and fills per sim min, $300 α per $ (skill_cls2), depth split, R and quality (making_diag), vs 113 (same recipe without M3c) and 55.
 - 38's protection ends ≈ 4:55 PM; testing continues until it is pruned.
+
+## §1735 — 4:36 PM CT — M3c fill check: OK (38 $300 fills continue at fleet size); 113 still in $300 warm-up
+
+- Tape end sim s 28,010 (+174 s since M3c).
+- **38:**
+  - $300 fills 8 / 4 / 2 per sim min; median **$3,241 per fill** (was ≈ $850–1,000; fleet $3.2–3.5k).
+  - $30 fills 65–76 per sim min; 4-dec 0.
+- **113:**
+  - $30 fills 64–74 per sim min. $300 fills 0 so far: 270 sim s after start, the model warm-up (≈ 6 sim min on 38's restarts) is not over yet. PACE: 63 books traded ($30 only), busiest $16.9k.
+  - If $300 is still 0 by the 4:52 PM brief (≈ 9 sim min after start), investigate.
+- 0 tracebacks on both. 38's pace: busiest book $94.7k of $450k.
