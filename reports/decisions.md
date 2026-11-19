@@ -26199,3 +26199,14 @@ Validator replica (8 sim min):
 - **Lean:** 113 was on 38's band lane (lean 1.0, max 1.5). It is now on x3 228's lane: **mk_model_lean 1.5, no ceiling** (228 reached net α 1,841 with the best $300 α per $: +1.8–2.2 bp vs 38's +0.9–1.5). Backup live_params_113.pre-lean15.json. That lane is free since 228's prune. Revisit lanes when scaling.
 - Restart 5:37 PM (sim s 28,743). 113 now = M2 + M3a + M3b2 + M4 (jump_back 1) + lean 1.5 + cold start.
 - The M4 read at 6:47 PM covers this combination against the fleet refs (there is no same-time control).
+
+## §1739 — 5:43–5:45 PM CT — CORRECTION to §1738: restarts do NOT re-burst; pace_cold on a running miner blocked it → reverted
+
+- Check at 5:43 PM: after the cold restart, **153–155 of 190 books blocked** and 0 fills. No PACE SYNC charges.
+- Cause: at start the agent replays the whole pace ledger through the buckets (lines 199–203), so a restart RESUMES the previous balance.
+  - With pace_cold 1, the replay assumed 113's first bucket (4:11 PM) began at $1,500 instead of $18,750, then subtracted the real start-burst fills (≈ $19k per book). Most books ended below the −$5,000 soft floor, i.e. blocked for hours (refill ≈ $312 per sim min).
+- **Corrections to §1738:**
+  - (1) Restarts never re-burst; only a brand-new UID with an empty ledger does. 113's 5:28 restart did not add a burst.
+  - (2) pace_cold must be set before a miner's FIRST start and never changed for that miner's life, because the replay must match how it really started.
+- Fix 5:45 PM: mvtrx-x3.service back to pace_start=4700 pace_cold=0; restart → **0 of 190 books blocked**. The live knobs stay: lean 1.5 no ceiling + M2 + M3a + M3b2 + M4.
+- For the NEXT new miner: set pace_cold=1 (+ pace_start ≈ 1,500) in its unit BEFORE its first start (newminer.sh does not do this yet).
