@@ -26160,3 +26160,26 @@ Validator replica (8 sim min):
 
 - → **Bigger orders do NOT raise markout; volume drops ≈ 60–85%. NOT ADOPTED** (not moved to 113). The fleet's markout edge is not size.
 - Next lever to find: what 55's $300 fills do differently (timing/selection; +1.84 vs +1.13 bp). Study offline on 113's tape before any 113 test.
+
+## §1737 — 5:25–5:29 PM CT — 113 = test miner (user); fleet fill study → M4 (lean side 1 tick BEHIND the touch) on 113
+
+- User: "we can make changes to 113, its a test miner since we dont have a good settled strategy anymore." Saved to memory (feedback-uid113-goahead).
+- **Study** (speed/fillclass300.py, sim s 27,576–28,476). Taker event = prints sharing (ts, taker, side); sweep = ≥ 2 price levels.
+
+| uid | $ from sweeps | $ behind the touch | +20 s net | +120 s |
+|---|---|---|---|---|
+| 55 | 64% | 53% | +1.51 bp | +3.09 |
+| 210 | 63% | 64% | +1.61 | +2.97 |
+| 251 | 72% | 67% | +1.53 | +2.57 |
+| 113 (start burst) | 29% | 24% | +0.65 | +1.93 |
+
+- 113: 62% of $ from small single-level hits; 60% of $ at the touch.
+- Fleet fills behind the touch are their best (+1.6–1.8 bp at 20 s, +3.0–3.8 at 120 s).
+- Nearly all takers are background (ALGO sweeps = uninformed per the market model). Resting behind the touch gets the better price inside sweeps, and the price comes back.
+- **M4:**
+  - agents/QuoteAgent.py **2457bbcf** = 406b6379 + live knob `mk_jump_back` (0–5; with mk_jump_touch 1 the lean side rests N ticks behind the touch, still marked as the lean side).
+  - equiv 0 diffs vs 406b6379 (tape, ledger, locks identical); test_pace ALL PASS with the knob off and on.
+  - newminer.sh now expects 2457bbcf. Backups agents/QuoteAgent.py.bak-406b6379 and live_params_113.pre-m4.json.
+  - x3 restarted 5:28 PM with mk_jump_back 1 (sim s 28,639).
+  - Watch: $300 fills after the ≈ 5-sim-min warm-up.
+  - Read: sweep/behind shares and markouts (fillclass300), α per $ (skill_cls2), R and quality (making_diag), ≈ 1 h after the warm-up.
