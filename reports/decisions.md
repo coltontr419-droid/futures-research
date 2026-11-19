@@ -25829,3 +25829,28 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - Both now quote balanced $30 on 60 books.
 - M2 decision ≈ 11:35 AM if making is still 0.
+
+## §1721 — 10:45 AM CT brief + why our making credit is 0 (offline replica of the validator)
+
+| | 228 (x3) | 38 (x4) | 252 |
+|---|---|---|---|
+| pay | $87/mo ($2.92/d) | $37/mo ($1.25/d) | $182/mo ($6.06/d) |
+| net α | 1,841 | 1,581 | 1,433 |
+| making captured / share | 0 / 0 | 0 / 0 | 117 / 0.0039 |
+| $300 α (4 sim min) | +30.5 (+1.82 bp) | +16.9 (+1.33 bp) | +17.3 (+1.02 bp) |
+| $30 α (4 sim min) | +0.7 on $119k | +0.7 on $121k | +0.9 on $31k |
+
+- Prune line ≈ $94–104. Both miners registered, 0 tracebacks; upstream 20e97853.
+- Offline validator replica (speed/making_diag.py: captured + 20-s realized, fee 0.005 × Mf, W 15, last 60 sim min):
+
+| uid | maker C | realized R | quality R/C | $300 Σ2·min | $30 Σ2·min |
+|---|---|---|---|---|---|
+| 228 | +10.4 | −22.2 | **0.00** | −37.2 (31 of 127 books positive on both sides) | −21.2 |
+| 38 | +0.7 | −29.4 | **0.00** | −37.3 | −19.2 |
+| 252 | +90.7 | +51.2 | 0.56 | +39.4 (92 of 128) | −7.4 |
+| 181/234/51 | +47 to +106 | +24 to +65 | 0.51–0.62 | — (no $300) | +27 to +31 |
+
+- **Two blockers:**
+  1. Realized markout at 20 s is negative miner-wide, so the quality factor is 0 and zeroes every class.
+  2. The lean makes per-book capture one-sided, so Σ2·min < 0.
+- M1 (balanced $30 at 0.012) has not fixed either one.
