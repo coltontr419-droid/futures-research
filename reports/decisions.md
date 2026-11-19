@@ -26019,3 +26019,19 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
 
 - Lowest non-immune: 219 $42, 16 $115, 221 $121 → once x3's protection ends (≈ 3:25 PM) it sits 2nd lowest, with UID 219 below it.
 - Pace: busiest book $87k of $450k, 0 blocked. Both registered, 0 tracebacks; upstream 20e97853.
+
+## §1729 — 2:24–2:36 PM CT — M3b FAILED (no $300 fills) → reverted; M3b2 = new knob mk_jump_touch on 38
+
+- **2:24 PM brief:**
+  - Pay: 228 $89/mo ($2.97/d), 38 $49/mo ($1.63/d), 252 $174/mo ($5.81/d). Making 0 for both; 252 133 / share 0.0041.
+  - Lowest non-immune: 16 $114, 221 $119, 39 $123 (219 has gone).
+- **M3b (mk_vol_inside 0 + mk_vol_jump 0, 2:05–2:33 PM): 38 made ZERO $300 fills.**
+  - Why: the gate's "lean side" is the side the lean JUMP marks (`_jumped`). With jump 0 nothing is marked, so with mk_gate_side 1 + mk_rest_none 1 every $300 side was pulled.
+  - The test switched $300 quoting off; it did not test "lean at the touch". **DISPROVEN as configured;** reverted to pre-m3b at 2:33 PM (failed params kept as live_params_38.m3b-failed.json).
+- **M3b2:**
+  - agents_test **907fc75d** = 3cc9f5fa + live knob `mk_jump_touch` (0/1): 1 prices the lean side AT the touch (min(fair − edge, ask − tick, bid)) and still marks it as the lean side.
+  - equiv 0 diffs (tape, ledger, locks identical); test_pace ALL PASS.
+  - x4 restarted 2:35 PM; mk_jump_touch 1 (backup live_params_38.pre-m3b2.json; agent backup agents_test/QuoteAgent.py.bak-3cc9f5fa).
+  - Watch: $300 fills resume within minutes, otherwise revert.
+  - Read ≈ 3:40 PM on depth split, α per $, $300 R and quality.
+- Lesson recorded: knobs that look independent are coupled through `_jumped` (jump ↔ gate side ↔ rest_none). Check what a knob marks, not only what it prices.
