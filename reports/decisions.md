@@ -25803,3 +25803,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   2. $30 class alpha (fleet ≈ 2× ours).
   3. Remove the 4-dec drag.
 - **Next test plan** (new test miner + 38): a making-credit layer on top of the skill recipe, plus a $30 improvement. Offline design and census first.
+
+## §1719 — 2026-11-19 10:05 AM CT — MAKING TEST M1 on BOTH x3 (228) and x4 (38): balanced $30 touch maker (the 181/234 template); user released x3 for making tests
+
+- **User (≈ 9:50 AM):** run making-credit tests on x3 and x4 to try to save them before immunity ends; any changes or restarts OK. Then: "before we were targeting skill we had a decent making setup … maybe add that back".
+- **Gauges before:** making_captured / realized / share = 0 for 228, 38 and fleet 128/175, despite two-sided maker notional $8–10M. 252: captured 106, realized 63, share 0.0038.
+  Top making UIDs: making share ≈ 0.018–0.023 → incentive ≈ 0.005–0.016 even with negative skill net α.
+- **Prior finding (§1584/§1586):** long-lived makers 181/234/51 earn making credit from BALANCED ≈ $600 touch quotes on the $30 books. Making quality (R/C) is miner-wide, so poor-capture $300 fills can zero it.
+- **Census (speed/mkcensus.py on x3 params):** $30 orders change from ≈ $1.65k 3 ticks back (lean-only) to ≈ $600 at the touch on both sides; $300 unchanged.
+- **Live** at sim ≈ 23,345, on both: mk_model_lean_30 0.75 → 0, mk_lean30_only 1 → 0, mk_low_size / mk_low_lad_size 0.033 → 0.012, mk_low_inside −1 → 0 (38 also mk_low_rest_none → 0). 0 out of range. Backups live_params_{228,38}.pre-making30.json.
+- **Read:** making_captured / realized / share gauges every brief (non-zero within ≈ 1–2 h if capture is positive), plus skill net α and $300/$30 α vs before.
+  If making stays 0 → M2 on x3: $300 step-ins at the touch instead of 1 tick inside (fix miner-wide quality); 38 keeps M1 as the control.
+- **Immunity ends:** x3 ≈ 3:25 PM, 38 ≈ 4:55 PM CT. Honest caveat: the making window is long (≈ 3 sim h ≈ many wall hours at today's speed), so pay may not move enough before then.
