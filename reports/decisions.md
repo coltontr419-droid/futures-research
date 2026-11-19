@@ -25733,3 +25733,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - x3 (steady ≈ $150–170) is BORDERLINE: expect pay ≈ $90–100 at 3:25 PM vs a line ≈ $103, so a prune is possible shortly after.
   - Faster sim days shorten the wall-clock catch-up (the half-life is sim time).
 - **Under the long-run rule x3 stays untouched.** Lesson: projected steady pay must clear ≈ 1.7× the prune line for a miner to survive its first immunity end. This supersedes the 1.3× survival gate (§1598) for new registrations; tell the user.
+
+## §1712 — 2026-11-19 6:20 AM CT — brief
+
+- **Pay: 228 $86, 38 $14, 252 $191.** Validator net α: 228 1,642, 252 1,412, 38 1,110. **Prune line $111** (rising). Both REGISTERED, 0 errors; upstream 20e97853.
+- **Last 4 sim min $300:** 228 +39.2 (+2.12 bp, 26+/1−), 38 +15.4 (+0.99), 252 +17.3 (+1.23).
+- The prune line is moving up through the morning ($92 → $103 → $111). 228's pay is flat at $86 (EMA lag, §1711). Prune risk after ≈ 3:25 PM is rising.
