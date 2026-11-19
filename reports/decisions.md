@@ -25596,3 +25596,10 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - User: keep x3 (UID 228) untouched (also past its immunity end) and register a new miner tomorrow. Funds: ≈ 0.064 TAO staked across x1–x4 (§ prior reply; unstake commands given).
 - **Copy test design:** 38 + the new miner run the SAME candidate recipe; pass bar per-copy loss ≤ ≈ 10% (§1695). x3 stays the settled reference.
 - **Tonight, offline:** fleet timing study + breakdown of last night's copy loss (phase 1 tapes) → candidate recipe for the 38 + new-miner pair.
+
+## §1698 — 2026-11-19 12:20 AM CT — x3 long-run rule (user) + Wednesday-night update-check verified
+
+- **User:** x3 (UID 228) stays untouched as long as possible (a multi-day read of the base recipe). It changes only to the strategy we will scale with (memory feedback-x3-long-run).
+- **Release watcher:** mvtrx-releasewatch.timer fires every 10 min (last 06:06 and 06:16 UTC, exit 0). A manual run was also clean. It polls api.github.com/repos/taos-im/sn-79/commits/main.
+  Upstream main = 20e97853 (11-10 "0.6.7 final") = stored state, so no new release.
+  Failures are logged as "poll failed" (none in the log). A new commit writes the log, an ALERT, and the changed file list.
