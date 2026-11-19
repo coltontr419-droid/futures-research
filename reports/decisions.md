@@ -25467,3 +25467,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - mk_nolean_q (small two-sided touch/inside quotes on no-lean books).
   - Start at fund_mv 1.0 and mk_nolean_q ≈ 0.15 (≈ $750 quotes).
   - The 11-13 fund_mv-alone test (§1425) was on the old recipe without inside quoting, so this is not a re-test of a disproven setup.
+
+## §1689 — 2026-11-18 9:25 PM CT — brief (lean-0.8 test, 5 sim min in)
+
+- regcheck both REGISTERED. **Pay: 228 $56, 38 $22, 252 $174.** Validator net α: 228 795, 38 555, 252 1,041. Prune line $58 → $62.
+- **Since lean 0.8 (15439–15739):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +28.8 on $254k (+1.13 bp, 14+/1−) | +38.6 (+1.81 bp) | +14.8 (+0.75 bp) |
+  | $30 α | +0.8 | +0.6 | +2.8 |
+
+  - 38/228 $300 bp = 0.62 (before 0.6–0.67) → no change yet. Too early.
+- PACE 0 blocked both; errors 0; no release.
