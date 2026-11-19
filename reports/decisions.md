@@ -25603,3 +25603,15 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Release watcher:** mvtrx-releasewatch.timer fires every 10 min (last 06:06 and 06:16 UTC, exit 0). A manual run was also clean. It polls api.github.com/repos/taos-im/sn-79/commits/main.
   Upstream main = 20e97853 (11-10 "0.6.7 final") = stored state, so no new release.
   Failures are logged as "poll failed" (none in the log). A new commit writes the log, an ALERT, and the changed file list.
+
+## §1699 — 2026-11-19 12:22 AM CT — brief
+
+- **Pay: 228 $64, 38 $38, 252 $177.** Validator net α: **228 1,049** (≈ 252's 1,091), 38 696. Prune line $77. Both REGISTERED; 0 errors. Release watcher: upstream = stored 20e97853, no release.
+- **Last 4 sim min:**
+
+  | | 228 | 38 (baseline) | 252 |
+  |---|---|---|---|
+  | $300 α | +23.8 (+1.66 bp) | +19.7 (+1.30 bp) | +21.8 (+1.19 bp) |
+
+  - 38 is recovering after the dfm runs.
+- Brief cron updated: x3 stays untouched past immunity (user, §1698).
