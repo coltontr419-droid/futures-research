@@ -25912,3 +25912,32 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - 5F1F2JMu runs 22 copies, every one earning making credit AND positive skill, at ≈ $190 each.
   - The skill-only fleet 5E2fVqiW has slid to ≈ $116 each.
 - New reference: 5F1F2JMu's making UIDs (study their $30/$300 quoting and queue position next).
+
+## §1724 — 12:13 PM CT — 5F1F2JMu study: how 252's fleet earns making credit AND skill (last 20–30 sim min)
+
+Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
+
+**$300 books**
+
+| uid | fills/sim min | $/fill | inside the spread (depth −1) | +2 s / +20 s markout | $300 R (validator) | quality |
+|---|---|---|---|---|---|---|
+| 228 | 26 | $1,020 | **68%** | +0.81 / +1.36 bp | −5.9 | 0 |
+| 38 | 29 | $854 | **68%** | +0.62 / +0.96 | −8.4 | 0 |
+| 55 | 16 | **$3,186** | 19% | +1.10 / +1.83 | **+27.6** | 0.55 |
+| 251 | 13 | **$3,544** | 4% | +1.02 / +1.86 | **+20.9** | 0.60 |
+| 210 | 13 | **$3,543** | 12% | +1.13 / +2.29 | **+33.2** | 0.68 |
+| 250/238 (pure makers) | 97–104 | $889 | ≈ 20% | +0.7 / +0.6 | −9 to −12 | 0.03–0.09 |
+
+**$30 books**
+
+| uid | fills/sim min | $/fill | queue position | +20 s markout | $30 R |
+|---|---|---|---|---|---|
+| 228 / 38 | 57–59 | $505 | 0.64 / 0.60 | +2.0 bp | −4.4 / −3.9 on $807k / $826k |
+| 55 / 251 / 210 / 245 | 2.5–5 | **$1,800–3,600** | 0.34–0.47 | +2.6–2.8 bp | +5 to +18 on $140–420k |
+
+- **Conclusions:**
+  1. The fleet's skill + making UIDs quote $300 in **big orders AT or BEHIND the touch** and rarely step inside. Our step-ins are 68% inside the spread: they earn skill α (+1.75 bp) but lose at the validator's 20-s horizon, which zeroes miner-wide quality.
+  2. On $30 they rest a few **large** orders near the queue front (fills ≈ 1/12 of our count, 4–7× the size), with better markouts.
+- **M3 candidates (on 38, after the M2 read):**
+  - $30 size up (mk_low_size ≈ 0.04–0.08 ≈ $1.8–3.5k per order) with long expiry. Same pace budget, fewer and better fills.
+  - $300: fewer inside step-ins (mk_vol_inside / mk_vol_jump) and bigger touch orders. This touches the skill engine, so it gets a separate test, read on skill α AND quality.
