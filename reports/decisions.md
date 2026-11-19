@@ -26105,3 +26105,17 @@ Validator replica (8 sim min):
 - Recipe = M1 balanced $30 + M2 + M3a + M3b2 on the 38 lane (lean 1.0, max 1.5, rest_none 1, skip_dec 1, max_inv 0.3).
 - Watch: first fills ($30 at once, $300 after ≈ 6 sim min of model warm-up), then making_diag quality, skill_cls2 α per $, pay.
 - 38 stays the test bed until it is pruned (protection ends ≈ 4:55 PM). Only clear wins move to 113.
+
+## §1734 — 4:21 PM CT — M3c on 38: full-size $300 step-ins only (mk_gate_part 0.5 → 0)
+
+- Why: the fleet's skill + making UIDs fill $300 at ≈ $3.2–3.5k per fill (§1724). Ours fill at ≈ $850–1,000, because the part-size path (mk_gate_part 0.5) sends a step-in once the bucket holds half an order.
+- With 0, only full-size orders go out (≈ $5k at a full bucket, census §1726 C arm). Between them, rest_none 1 leaves the book without quotes. Expect fewer and bigger fills (≈ 8 per sim min at the $312/book/sim-min refill, vs the fleet's 13–16).
+- Interaction:
+  - jump_touch 1 still prices the lean side at the touch.
+  - M2/M3a ($30) are unaffected.
+  - Pace: busiest book $95k of $450k.
+- Applied 4:21 PM (sim s 27,836); backup live_params_38.pre-m3c.json.
+- Checks:
+  - 4:35 PM: $300 fills continue (lesson §1729).
+  - ≈ 5:20 PM read: $/fill and fills per sim min, $300 α per $ (skill_cls2), depth split, R and quality (making_diag), vs 113 (same recipe without M3c) and 55.
+- 38's protection ends ≈ 4:55 PM; testing continues until it is pruned.
