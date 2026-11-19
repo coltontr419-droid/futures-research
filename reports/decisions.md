@@ -26183,3 +26183,19 @@ Validator replica (8 sim min):
   - x3 restarted 5:28 PM with mk_jump_back 1 (sim s 28,639).
   - Watch: $300 fills after the ≈ 5-sim-min warm-up.
   - Read: sweep/behind shares and markouts (fillclass300), α per $ (skill_cls2), R and quality (making_diag), ≈ 1 h after the warm-up.
+
+## §1738 — 5:30–5:37 PM CT — start burst explained + fixed (pace_cold); 113 moved to x3's (228) lean lane
+
+- **Why the start burst hurts making:**
+  - Each book's token bucket starts at max(rate × pace_burst, pace_start) = $5.21/sim s × 3,600 = **$18.75k per book** (192 books ≈ $3.6M), against a steady refill of ≈ $312 per book per sim min. Every start AND every restart front-loads ≈ 60 sim min of trading into the first minutes.
+  - Those fills come from brand-new orders at the back of every queue, so they fill mostly when sweeps eat whole levels. That gave 113 $30 R −10 on $1.04M in 8 sim min.
+  - The fills stay in the validator's making window (≈ 180 sim min ≈ 15 wall h at ≈ 11.7 sim s per wall min), dragging miner-wide quality for most of the first day.
+  - It also inflates early skill α, which later leaves the window (the 54 lesson).
+- **Fix:**
+  - Agent **d8d9f7a7** = 2457bbcf + unit param `pace_cold` (1 = a new bucket starts at min(pace_start, burst) instead of a full burst; the refill and the 3,600-s burst cap are unchanged).
+  - equiv 0 diffs (tape, ledger, locks identical); test_pace ALL PASS with it off.
+  - With it on, 4 start-up assumption tests "fail" by design: no full burst at start, first-day total $355k vs $450k, two soft-pacing tests that assume a full bucket. Every hard-cap test passes.
+  - mvtrx-x3.service: pace_start 4700 → **1500 + pace_cold=1** (backup /opt/mvtrx/mvtrx-x3.service.bak-cold). newminer.sh expects d8d9f7a7.
+- **Lean:** 113 was on 38's band lane (lean 1.0, max 1.5). It is now on x3 228's lane: **mk_model_lean 1.5, no ceiling** (228 reached net α 1,841 with the best $300 α per $: +1.8–2.2 bp vs 38's +0.9–1.5). Backup live_params_113.pre-lean15.json. That lane is free since 228's prune. Revisit lanes when scaling.
+- Restart 5:37 PM (sim s 28,743). 113 now = M2 + M3a + M3b2 + M4 (jump_back 1) + lean 1.5 + cold start.
+- The M4 read at 6:47 PM covers this combination against the fleet refs (there is no same-time control).
