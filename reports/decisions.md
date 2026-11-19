@@ -25688,3 +25688,8 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Brief:** pay 228 $90, 38 $35, 252 $191. Validator net α: 228 1,291, 252 1,176, 38 872. Prune line $92. Both REGISTERED, 0 errors; upstream 20e97853.
   Last 4 sim min $300: 228 +27.8 (+1.72 bp), 38 +18.8 (+1.15), 252 +17.7 (+1.11).
 - **Lesson:** watchers must follow tape moves; when the tape writer changes, update simreset_watch.py T and tape_rotate.sh's list in the same step.
+
+## §1707 — 2026-11-19 3:50 AM CT — brief
+
+- **Pay: 228 $90, 38 $35, 252 $191.** Validator net α: 228 1,340, 252 1,239, 38 908. Prune line $92. Both REGISTERED, 0 errors; upstream 20e97853. No new SIM RESET (the watcher now reads x5).
+- **Last 4 sim min $300:** 228 +23.9 (+1.40 bp), 38 +12.2 (+0.85), 252 +8.4 (+0.53).
