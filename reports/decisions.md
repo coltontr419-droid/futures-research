@@ -25659,3 +25659,8 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
 - **Pay: 228 $72, 38 $40, 252 $176.** Validator net α: **228 1,173 > 252 1,162**; 38 755. Prune line $80. Both REGISTERED, 0 errors; upstream 20e97853 (no release).
 - **Last 4 sim min $300:** 228 +24.2 (+1.73 bp), 38 +16.7 (+1.12), 252 +17.1 (+1.00).
+
+## §1703 — 2026-11-19 1:50 AM CT — brief
+
+- **Pay: 228 $72, 38 $40, 252 $176.** Validator net α: 228 1,228, 252 1,276, 38 792. Prune line $88. Both REGISTERED, 0 errors; upstream 20e97853 (no release).
+- **Last 4 sim min $300:** 228 +40.3 (+1.78 bp), 38 +20.3 (+1.40), 252 +14.5 (+0.82).
