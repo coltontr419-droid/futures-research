@@ -25773,3 +25773,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Pay: 228 $86, 38 $14, 252 $188.** Validator net α: **228 1,941**, 252 1,595, 38 1,351. **Prune line $88** (fell; UID 36 at the bottom). Both REGISTERED, 0 errors; upstream 20e97853.
 - **Last 4 sim min $300:** 228 +23.8 (+1.44 bp), 38 +17.1 (+1.04), 252 +20.2 (+1.50).
 - 228's start burst should leave the window ≈ now (sim ≈ 23,050–24,850): expect net α to level off or dip ≈ 10%.
+
+## §1717 — 2026-11-19 8:50 AM CT — brief: 228 net α 2,000
+
+- **Pay: 228 $86, 38 $14, 252 $187.** Validator net α: **228 2,000**, 252 1,635, 38 1,374. Prune line $87. Both REGISTERED, 0 errors; upstream 20e97853.
+- **Last 4 sim min $300:** 228 +35.1 (+1.83 bp, 22+/1−), 38 +14.2 (+0.88), 252 +11.2 (+0.63).
+- The start-burst exit hasn't shown yet (it lands ≈ sim 23,050–24,850; the sim is slow, so it is likely later this morning).
