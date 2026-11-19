@@ -25693,3 +25693,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
 - **Pay: 228 $90, 38 $35, 252 $191.** Validator net α: 228 1,340, 252 1,239, 38 908. Prune line $92. Both REGISTERED, 0 errors; upstream 20e97853. No new SIM RESET (the watcher now reads x5).
 - **Last 4 sim min $300:** 228 +23.9 (+1.40 bp), 38 +12.2 (+0.85), 252 +8.4 (+0.53).
+
+## §1708 — 2026-11-19 4:20 AM CT — brief: the prune line jumped to $104
+
+- **Pay: 228 $91, 38 $35, 252 $191.** Validator net α: 228 1,373, 252 1,181, 38 925. Both REGISTERED, 0 errors; upstream 20e97853.
+- **Prune line $104** (was $92; the $92 UID left the list). 228's pay ($91) is below it, while its net α (1,373 ≈ $120–135) is above. ≈ 11 h of immunity left for pay to catch up.
+- **Last 4 sim min $300:** 228 +23.2 (+1.63 bp), 38 +17.4 (+1.08), 252 +8.8 (+0.59).
