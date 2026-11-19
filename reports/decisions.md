@@ -25375,3 +25375,24 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Too short; read at ≈ 7:45 PM.
 - **x3 handicap:** fill α since warm-up (12250–14400, 35 sim min) $300 +456.7 (+1.87 bp) + $30 +62.1 = 519; validator 631 → **1.22×** (steady; no young-UID handicap).
 - PACE 0 blocked on both; errors 0; no release.
+
+## §1684 — 2026-11-18 7:50 PM CT — test read 1 (38, 10 sim min after the knobs): dF10 fills ≈ 0 bp so far; $30 no visible change → NOISE-leaning-negative, keep running
+
+- regcheck both REGISTERED. Pay: 228 $17, 38 $0. Validator net α: 228 671, 38 415, 252 1,072. Prune line $79 → $80.
+- **After (14122–14722):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +56.7 on $562k (+1.01 bp, 22+/7−) | +70.9 (+1.66 bp) | +29.4 (+0.71 bp) |
+  | $30 α | +6.3 (+0.56 bp) | +6.9 (+0.62 bp) | +8.8 (+1.96 bp) |
+
+  - 38/228 $300 bp: before 1.25/1.86 = 0.67, after 1.01/1.66 = 0.61 → no lift.
+- **New no-lean fills (twosided3, P < 0.5):** 17% of $ after vs 5% before:
+  - P −1..0 6% (+0.05 bp)
+  - P 0–0.5 9% (−0.50 bp)
+  - against 2% (+1.97, n 9)
+  - So the dF10-side fills are ≈ 0 bp at 120 s (n ≈ 70).
+  - Lean fills 0.5–1.5: 74% of $ at +0.2 to +0.8 (weaker than baseline's +0.55 / +1.16, possibly budget competition with the dF10 step-ins).
+- **$30:** 38 +0.56 vs 228 (no low_rest_none) +0.62 → no visible gain.
+- **Interim:** NOISE, leaning negative for mk_dfm; $30 rest_none NOISE. Small sample (10 sim min, ≈ 70 dF10 fills).
+  This is a small-effect test, so it continues to ≈ 25–30 sim min (≈ 8:45 PM) before the verdict. If dF10 fills stay ≤ 0.3 bp → mk_dfm off and try mk_dfm 3.0 or a dF30-based side.
