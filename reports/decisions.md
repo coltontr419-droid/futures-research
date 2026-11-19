@@ -25521,3 +25521,19 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Pay: 228 $61, 38 $29, 252 $185.** Validator net α: 228 892, 38 648, 252 1,070. Prune line $71 (one stray UID at $3). Both REGISTERED; 0 errors; no release.
 - **Since mk_dfm 1.0 / frac 0.15 (16445–16625, 3 sim min):** 38 $300 +4.2 on $146k (+0.29 bp, 97 books — many small $1.5k/book fills); 228 +18.1 (+1.56 bp); 252 +9.0.
   Early, but 38's bp dropped as volume spread across many books. Interim at ≈ 11:25 PM.
+
+## §1693 — 2026-11-18 11:30 PM CT — fleet-size dF10 quoting (mk_dfm 1.0 / frac 0.15) DISPROVEN → off; the fleet's edge is NOT side + size
+
+- **38, 16463–17063 (10 sim min):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +15.5 on $430k (+0.36 bp, 8+/5− kept) | +64.8 (+1.64 bp) | +30.2 (+0.84 bp) |
+
+  - 38/228 bp 0.22 (before 0.6–0.67).
+- **twosided3:** P < 0.5 fills = 43% of $ (≈ $345 fills) at −0.72 / +0.29 bp, i.e. ≈ −0.2 overall. The fleet earns +1.0–1.3 bp in the same bins at ≈ $450–975 (§1687).
+- mk_dfm → 0 live at ≈ sim 17,070 (11:29 PM). Before that, pay 228 $60, 38 $29, 252 $184. Validator: 228 973, 38 674, 252 1,058. Prune line $76.
+- **Conclusion:** quoting the dF10 side, at half or fleet size, does not reproduce the fleet's no-lean edge. What's left to study offline before any more live tests:
+  1. Quote PRICE relative to others' best and to the fundamental at fill.
+  2. Repricing speed: how long their orders rest before a fill (from the queue position on our x4/x5 qlog? Only our orders are visible; fleet resting orders are anonymous).
+  3. Which takers fill them (sweeps vs Chiarella agents).
