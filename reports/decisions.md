@@ -25815,3 +25815,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Read:** making_captured / realized / share gauges every brief (non-zero within ≈ 1–2 h if capture is positive), plus skill net α and $300/$30 α vs before.
   If making stays 0 → M2 on x3: $300 step-ins at the touch instead of 1 tick inside (fix miner-wide quality); 38 keeps M1 as the control.
 - **Immunity ends:** x3 ≈ 3:25 PM, 38 ≈ 4:55 PM CT. Honest caveat: the making window is long (≈ 3 sim h ≈ many wall hours at today's speed), so pay may not move enough before then.
+
+## §1720 — 2026-11-19 10:17 AM CT — brief (M1, ≈ 10 min in)
+
+- **Pay: 228 $85, 38 $29, 252 $182.** Validator net α 228 1,818, 38 1,531, 252 1,393. Prune line $101. Both REGISTERED, 0 errors; upstream 20e97853.
+- **Making gauges:** 228 and 38 captured / realized / share = 0 (still early); 252 captured 110, realized 66, share 0.0038.
+- **Last 4 sim min:**
+
+  | | 228 | 38 | 252 |
+  |---|---|---|---|
+  | $300 α | +31.9 (+1.89 bp) | +16.5 (+0.91 bp) | +10.8 |
+  | $30 α | +2.3 on $116k (60 books, +0.20 bp) | +2.4 on $115k (+0.21 bp) | — |
+
+  - Both now quote balanced $30 on 60 books.
+- M2 decision ≈ 11:35 AM if making is still 0.
