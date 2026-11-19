@@ -25537,3 +25537,20 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   1. Quote PRICE relative to others' best and to the fundamental at fill.
   2. Repricing speed: how long their orders rest before a fill (from the queue position on our x4/x5 qlog? Only our orders are visible; fleet resting orders are anonymous).
   3. Which takers fill them (sweeps vs Chiarella agents).
+
+## §1694 — 2026-11-18 11:40 PM CT — fleet study 2: same counterparties, the fleet earns more per fill at EVERY size → selection/timing, not flow
+
+- **speed/takers.py** (live_tape_x6.jsonl, 13300–now; $300 maker fills by taker type and print size; 120-s move):
+
+  | | Fleet UIDs 1 / 29 / 62 | 228 | 38 |
+  |---|---|---|---|
+  | Volume | $1.85–1.98M each | $2.6M | $4.1M (test arms) |
+  | Taker = sim agents | 98–99% of $ | 100% | 99% |
+  | All fills | +1.87 / +1.92 / +1.93 bp | +1.44 bp | +0.85 bp |
+  | > $2k prints | 68–70% of $, +1.86–1.98 bp | 67%, +1.42 | 58%, +0.86 |
+  | $500–2k prints | ≈ +2.0 bp | — | — |
+  | < $500 prints | +1.3–1.4 bp | — | — |
+
+- **Reading:** same flow (sim agents, mostly big sweeps). The fleet extracts ≈ +0.5 bp more than 228 per fill at every size, on less volume, so it is more selective (a better or extra signal) and/or reprices away before adverse moves.
+- **Next offline study:** fill timing vs the price path (mid path 0–30 s before and after fills; do fleet fills follow a quote improvement made seconds earlier?) and fill clustering vs our model's lean onset.
+  38 runs baseline settings (lean 1.0, mk_dfm 0, low_rest_none 1) meanwhile.
