@@ -25705,3 +25705,10 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Pay: 228 $90, 38 $20** (was $35; chain pay noise, its net α rose 925 → 985), **252 $194**. Validator net α: 228 1,430, 252 1,244, 38 985. Prune line $101. Both REGISTERED, 0 errors; upstream 20e97853.
 - **Last 4 sim min $300:** 228 +30.3 (+1.53 bp), 38 +14.9 (+1.07), 252 +5.8 (+0.35).
 - 228's pay is flat at $90–91 for ≈ 1.5 h while its net α climbs (1,291 → 1,430). Chain pay lags; watch it into the immunity end (≈ 3:25 PM).
+
+## §1710 — 2026-11-19 5:20 AM CT — brief: 228's chain pay flat at $90 for ≈ 2 h while net α hits 1,499
+
+- **Pay: 228 $90, 38 $20, 252 $194.** Validator net α: **228 1,499** (252 1,304), 38 1,016. Prune line $103. Both REGISTERED, 0 errors; upstream 20e97853.
+- **Last 4 sim min $300:** 228 +29.7 (+1.76 bp, 20+/0−), 38 +14.6 (+0.85), 252 +20.0 (+1.19).
+- 228's pay ($3.00/day) has not moved since ≈ 3:20 AM despite net α +200. Chain emission updates in steps (weight-setting cadence + smoothing), so expect a jump.
+  If it is still below the line near 1 PM, tell the user; no action is allowed on x3 (long-run rule).
