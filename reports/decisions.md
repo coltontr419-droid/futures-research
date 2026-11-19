@@ -25635,3 +25635,22 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - So the fleet gets filled early in a move and keeps drifting in its favour. Our larger, longer-resting inside orders get filled after the move has happened.
 - **Candidate mechanism for the copy-robust recipe:** an anti-run-over rule — when the mid has moved ≥ X bp toward a resting order within the last few seconds, pull it or step it back. The fleet's small, frequently refreshed quotes likely achieve this implicitly.
   Check the existing knobs first (flow_pull, flow_win, flow_cool: pull quotes after taker flow) offline; else build a new knob. Census and an offline replay of 38's fills (which fills would the rule have avoided, and their bp) BEFORE any live test.
+
+## §1701 — 2026-11-19 1:05 AM CT — fleet study 4: run-over is NOT the problem (run-over fills pay as well); the difference is WHERE the fills come from
+
+- **speed/runover.py** (live_tape_x5.jsonl, 14050–now): $300 maker fills by run-over = mid move into the order over the last 10 s, with the 120-s after-fill move vs the fill price.
+
+  | Run-over (bp into the order) | < 0 | 0–0.5 | 0.5–1 | 1–2 | 2–4 | > 4 |
+  |---|---|---|---|---|---|---|
+  | Fleet 1 / 29 / 62 share of $ | 27–32% | 26–30% | 13–15% | 13–17% | 9–12% | 2–3% |
+  | Fleet after-fill move | +2.5–2.9 bp in every bin | | | | | |
+  | 228 share of $ | 8% | 15% | 16% | 28% | 27% | 5% |
+  | 228 after-fill move | +2.0–2.8 bp in every bin | | | | | |
+  | 38 share of $ | 20% | 26% | 19% | 22% | 11% | 1% |
+  | 38 after-fill move | +1.2–1.7 bp (+3.0 at > 4) | | | | | |
+
+- **Reading:**
+  - Run-over fills pay about as well as fresh ones for everyone, so an anti-run-over rule would not help (idea from §1700 dropped).
+  - The real difference: 228's fills are concentrated in run-over situations (60% at ≥ 1 bp). Our model leans on reversion after moves (negative weights on r50/r300), so we only fill when price has just moved.
+  - The fleet fills mostly when nothing has moved (57–60% at ≤ 0.5 bp) and still gains +2.2–2.6 bp. They have a predictor that works at ALL times, which explains copy-robustness: they don't depend on the few post-move moments we all compete for.
+- **Next (offline, morning):** find the fleet's predictor. Logistic-style comparison of fleet fill side vs features at fill time, over a richer set: multi-horizon mid / fundamental changes, gap, book depth at levels 1–5, spread, recent taker flow by side, time since the last trade, our P. Then check whether such a signal predicts mid moves held-out. If found → build it as a lean source for broad quoting on 38 + the new miner.
