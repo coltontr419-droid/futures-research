@@ -25480,3 +25480,23 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 38/228 $300 bp = 0.62 (before 0.6–0.67) → no change yet. Too early.
 - PACE 0 blocked both; errors 0; no release.
+
+## §1690 — 2026-11-18 10:00 PM CT — brief + lean-0.8 interim (NOISE so far) + fleet-recipe census: fund_mv tilt is cancelled by inside snapping
+
+- **Pay: 228 $57, 38 $23, 252 $176.** Validator net α: 228 817, 38 599, 252 1,066. Prune line $63. Both REGISTERED, 0 errors, no release.
+- **Lean 0.8 on 38 (15388–16048, 11 sim min):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +64.0 on $502k (+1.28 bp, 32+/3−) | +85.4 (+2.07 bp) | +35.0 (+0.81 bp) |
+  | $30 α | +7.6 | +6.5 | — |
+
+  - 38/228 bp 0.62 (before 0.6–0.67); volume ≈ unchanged.
+  - twosided3: P 0.5–1 now 46% of $ at +0.98 bp; 1–1.5 32% at +1.97.
+  - Interim NOISE; verdict ≈ 10:50 PM.
+- **Census (speed/fleetcensus.py; 38 params, odd books with a +3 bp fundamental jump in the last 10 s):**
+  - B (fund_mv 1.0 + mk_nolean_q 0.15): two-sided ≈ $705 quotes on almost all $300 books (books with no orders 23 → 2), vol mostly 1 tick inside, calm at the touch.
+  - BUT bids and asks are equally placed on the jumped books: the step-inside/no-cross logic snaps both sides to the others' best ± 1 tick, wiping out the fund_mv fair shift.
+  - So B ≈ the disproven 85 fleet copy (§1604). Not run.
+- **Revised next test** (after the lean-0.8 verdict): mk_dfm 1.0 with mk_dfm_frac 0.15. One-sided ≈ $750 inside quotes on the 10-s fundamental-move side (fleet size); the dfm path is already censused (§1673).
+  The frac 0.5 version earned ≈ 0 bp (§1685) vs the fleet's +1.2–1.6 on dF-side fills at ≈ $450–975, so size is the remaining visible difference.
