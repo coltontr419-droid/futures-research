@@ -25554,3 +25554,28 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Reading:** same flow (sim agents, mostly big sweeps). The fleet extracts ≈ +0.5 bp more than 228 per fill at every size, on less volume, so it is more selective (a better or extra signal) and/or reprices away before adverse moves.
 - **Next offline study:** fill timing vs the price path (mid path 0–30 s before and after fills; do fleet fills follow a quote improvement made seconds earlier?) and fill clustering vs our model's lean onset.
   38 runs baseline settings (lean 1.0, mk_dfm 0, low_rest_none 1) meanwhile.
+
+## §1695 — 2026-11-18 11:55 PM CT — x3 estimate update + fleet scaling dive (user Q): fleet copies don't crowd each other; one fleet miner ≈ $175–190; our bar for 20 copies
+
+- **x3 post-burst (14068–17188, 52 sim min):** $300 +370.1 on $2.12M (+1.75 bp, 45+/9− kept) + $30 +85.8 (+1.39 bp) = 8.8 α per sim min (fills).
+  × 180 × 1.07 ≈ 1,700 steady net α ≈ **$150–170/mo** (central ≈ $160).
+  252 in the same window: $300 +124.9 (+0.62 bp), $30 +52.3.
+- **speed/crowd.py** (all 20 5E2fVqiW UIDs, 12300–17181, 81 sim min, $52M $300 maker volume): fills by number of OTHER fleet UIDs on the same book and side.
+
+  | Crowd | Within ±30 s: share of $ | 120-s move | Within ±5 s: share of $ | 120-s move |
+  |---|---|---|---|---|
+  | 0 | 2% | +1.43 bp | 6% | +1.76 bp |
+  | 1–2 | 9% | +1.65 | 19% | +1.88 |
+  | 3–5 | 17% | +1.84 | 26% | +1.78 |
+  | 6+ | 71% | +1.87 | 49% | +1.86 |
+
+  - Per-UID $300 volume median $32.9k per sim min (≈ 80% of the per-book budget across 128 books).
+- **Reading:**
+  - 20 fleet copies trade the SAME moments with NO per-fill quality loss, each near its own volume budget. So per-copy value barely depends on copy count.
+  - One fleet miner alone ≈ the same ≈ 1,950–2,100 net α; pay ≈ $175–190 with less pool dilution.
+  - Our lean-only copies cost 20–25% each (§1641), likely because they fight over a few lean moments.
+- **Single-miner comparison:** x3 $300 α ≈ 7.1 per sim min (+1.75 bp at ≈ $41k per sim min) vs a fleet UID ≈ 6.1 (+1.86 bp at ≈ $33k). x3 alone already matches or beats a fleet member.
+- **Bar for scaling to ≈ 20:**
+  1. One miner ≈ $185–200 (x3 ≈ $160 now).
+  2. A copy-robust recipe: per-copy loss ≤ ≈ 10% when copies run together, like the fleet's.
+  - On the current recipe, 20 copies would fall well below the prune line. Future tests on 38 must include a crowding/copy check.
