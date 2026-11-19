@@ -25762,3 +25762,8 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - **Skill-only peers at net α 1,860–2,000** (mostly 5E2fVqiW: 128, 175, 1, 123, 138, 6, 89) get incentive 0.0020–0.0022 (≈ $150–165). 228 at 1,787 gets 0.0016 (≈ $83 shown; EMA lag, §1711).
   - Implied steady pay for 228 at ≈ 1,750–1,800 net α ≈ 0.0019–0.0020 ≈ $140–150.
 - **Revised x3 steady ≈ $140–150** (slightly below the earlier $150–170). Survival needs ≈ 1.7× the line at immunity end (§1711), i.e. ≈ $180 against today's ≈ $106. Marginal.
+
+## §1715 — 2026-11-19 7:50 AM CT — brief
+
+- **Pay: 228 $84, 38 $14, 252 $187.** Validator net α: **228 1,864**, 252 1,579, 38 1,295. Prune line $108 (the lowest non-immune now includes fleet UID 1 at $108). Both REGISTERED, 0 errors; upstream 20e97853.
+- **Last 4 sim min $300:** 228 +24.9 (+1.56 bp), 38 +14.3 (+0.79), 252 +14.9 (+1.12).
