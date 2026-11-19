@@ -25344,3 +25344,20 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **38's $30 fills by P_30** (twosided3b): 0.5–1 → 53% (+0.28); 1–1.5 → 35% (+1.43); ≥ 1.5 → 10% (+0.79). In this window the no-lean $30 leak is small (P < 0.5 → 1%).
 - PACE 0 blocked on both. Errors 0, no release.
 - Knobs on at the 6:43 brief (≈ sim 14,000): mk_dfm 2.0, mk_dfm_frac 0.5, mk_low_rest_none 1.
+
+## §1682 — 2026-11-18 6:47 PM CT — TEST ON for 38: mk_dfm 2.0 / frac 0.5 + mk_low_rest_none 1 (live at sim ≈ 14070); brief
+
+- Bounds checked (mk_dfm 0–20, frac 0.05–1, low_rest_none 0–1). LIVE PARAMS applied "mk_dfm 0.0→2.0, mk_low_rest_none 0→1" (frac at default 0.5); 0 out of range. Backup live_params_38.pre-dfm.json.
+- regcheck both REGISTERED. Validator net α: 228 600, 38 317, 252 855. Pay ≈ $0 both (lag). Prune line $77 → $90.
+- **Last 4 sim min (mostly before the switch):**
+
+  | | 228 | 38 | 252 |
+  |---|---|---|---|
+  | $300 α | +40.6 (+1.96 bp) | +33.8 (+1.02 bp) | −0.9 |
+
+- PACE 0 blocked. Errors 0, no release.
+- **Read** ≈ 1 wall h (≈ sim 14,700–15,000):
+  - $300 α per $ and α per sim min, before (13220–14070) vs after (14070–).
+  - Ratios to 228 and 252 in the same windows.
+  - twosided3 P < 1 bins for 38 (are there new fills, and at what bp).
+  - $30 bp / P_30 bins.
