@@ -25590,3 +25590,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   | $300 α | +29.2 (+1.48 bp) | +6.5 (+0.55 bp) | +13.5 (+0.75 bp) |
 
 - 38 is quiet; its fills are recovering from the dfm runs. Next for 38: the fleet timing study (offline) before another live test. The brief cron has been updated.
+
+## §1697 — 2026-11-19 12:15 AM CT — copy test plan (user): x3 stays untouched; a NEW test miner is registered tomorrow for the copy pairing
+
+- User: keep x3 (UID 228) untouched (also past its immunity end) and register a new miner tomorrow. Funds: ≈ 0.064 TAO staked across x1–x4 (§ prior reply; unstake commands given).
+- **Copy test design:** 38 + the new miner run the SAME candidate recipe; pass bar per-copy loss ≤ ≈ 10% (§1695). x3 stays the settled reference.
+- **Tonight, offline:** fleet timing study + breakdown of last night's copy loss (phase 1 tapes) → candidate recipe for the 38 + new-miner pair.
