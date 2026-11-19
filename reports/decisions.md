@@ -25941,3 +25941,25 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
 - **M3 candidates (on 38, after the M2 read):**
   - $30 size up (mk_low_size ≈ 0.04–0.08 ≈ $1.8–3.5k per order) with long expiry. Same pace budget, fewer and better fills.
   - $300: fewer inside step-ins (mk_vol_inside / mk_vol_jump) and bigger touch orders. This touches the skill engine, so it gets a separate test, read on skill α AND quality.
+
+## §1725 — 12:25 PM CT — Does leaving the inside step-ins cost skill? (speed/depth300.py, 30 sim min, quote-mid markouts)
+
+| uid | depth | share of $300 $ | +20 s net (bp) | +600 s (skill-like horizon, bp) |
+|---|---|---|---|---|
+| 228 | inside | 67% | +1.05 | +2.75 |
+| 228 | behind | 23% | +1.28 | +2.54 |
+| 38 | inside | 62% | +0.49 | +2.07 |
+| 38 | behind | 22% | +0.80 | +2.11 |
+| 55 | behind | 58% | +1.65 | +3.04 |
+| 210 | behind | 66% | +1.83 | +3.16 |
+
+- Per dollar, our fills behind the touch earn about the same long-horizon value as our inside step-ins (2.5 vs 2.75 bp on 228; 2.1 vs 2.1 on 38), and do better at 20 s.
+- The fleet's behind fills earn more than both.
+- So moving volume from inside to behind need not cost skill **if volume is kept** (we are pace-bound either way). The risk is fill volume, not edge per $.
+- **Value check** (incentive → $ ≈ $53k per unit):
+  - Skill-only 5E2fVqiW: ≈ $0.07/month per net α.
+  - UID 55: 0.0047 incentive (≈ $250/mo) = ≈ $70 skill (α 999) + ≈ $180 making (share 0.0065).
+  - Losing even 40% of 228's α (≈ −$50/mo) is outweighed by a making share near the fleet's (≈ +$180/mo).
+- M3 design: keep the lean signal; post the lean-side order AT or BEHIND the touch in larger size instead of stepping inside.
+  - Before starting: census for interactions with every live knob.
+  - Read on skill α per $ AND validator quality.
