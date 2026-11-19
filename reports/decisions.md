@@ -25500,3 +25500,18 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - So B ≈ the disproven 85 fleet copy (§1604). Not run.
 - **Revised next test** (after the lean-0.8 verdict): mk_dfm 1.0 with mk_dfm_frac 0.15. One-sided ≈ $750 inside quotes on the 10-s fundamental-move side (fleet size); the dfm path is already censused (§1673).
   The frac 0.5 version earned ≈ 0 bp (§1685) vs the fleet's +1.2–1.6 on dF-side fills at ≈ $450–975, so size is the remaining visible difference.
+
+## §1691 — 2026-11-18 10:25 PM CT — lean 0.8 on 38 = NOISE → back to 1.0; NEXT TEST: fleet-size dF10 quoting (mk_dfm 1.0, frac 0.15)
+
+- **Lean 0.8 verdict (15408–16368, 16 sim min):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +80.6 on $683k (+1.18 bp) | +99.7 (+1.78 bp) | +36.7 (+0.62 bp) |
+  | $30 α | +20.5 (+1.03 bp) | +18.4 (+0.95 bp) | — |
+  | α per sim min | 6.3 | 7.4 | — |
+
+  - 38/228 $300 bp 0.66 (before 0.6–0.67). **NOISE.**
+- **Brief:** pay 228 $57, 38 $23, 252 $176. Validator net α: 228 863, 38 628, 252 1,036. Prune line $69. Both REGISTERED; 0 errors; no release.
+- **Live** at sim ≈ 16,370: mk_model_lean 0.8 → 1.0; mk_dfm 0 → 1.0; mk_dfm_frac 0.5 → 0.15 (≈ $750 one-sided inside quotes on the 10-s fundamental-move side, fleet size, §1690). Backup live_params_38.pre-dfm015.json.
+- **Read** ≈ 1 h and ≈ 2 h: 38/228 $300 bp vs 0.6–0.67, the P < 0.5 fill bp (dfm fills) vs the frac-0.5 run (≈ −0.2), dF10 agreement via edgesrc.
