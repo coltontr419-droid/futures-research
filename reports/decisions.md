@@ -25963,3 +25963,25 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
 - M3 design: keep the lean signal; post the lean-side order AT or BEHIND the touch in larger size instead of stepping inside.
   - Before starting: census for interactions with every live knob.
   - Read on skill α per $ AND validator quality.
+
+## §1726 — 12:20–12:50 PM CT — brief, M2 read, M3a started on 38 ($30 size 0.06)
+
+| | 228 (M1 control) | 38 (M2) | 252 |
+|---|---|---|---|
+| pay | $92/mo ($3.07/d) | $32/mo ($1.06/d) | $181/mo ($6.04/d) |
+| making captured / share | 0 / 0 | 0 / 0 | 124 / 0.004 |
+| net α | 1,828 | 1,409 | 1,346 |
+| $300 α (4 sim min) | +29.0 (+2.19 bp) | +32.3 (+1.28 bp) | +11.7 (+0.69 bp) |
+| $30 queue position (12 sim min; refs 0.31–0.35) | 0.66 | **0.55** | — |
+| $30 validator C / R | +1.9 / −0.8 | +5.0 / 0.0 | — |
+| $300 R | −6.1 | −8.4 | +12.2 |
+| quality | 0 | 0 | 0.56 |
+
+- Prune line ≈ $108–111. Both miners registered, 0 tracebacks; upstream 20e97853.
+- **M2 verdict:** queue position improves (0.66 → 0.55) and $30 R slightly better (NOISE-level), but it misses the 0.45 bar. **KEPT** on 38 as a base step, not ported to x3.
+- **M3a (12:49 PM, 38):** mk_low_size / mk_low_lad_size 0.012 → 0.06 (≈ $1.6–2.0k orders, the 5F1F2JMu style; backup live_params_38.pre-lowsize06.json).
+- Census (speed/lowsizecensus.py, buckets $4,700 / $1,500 / $600 / $200): both sides on every $30 book, at the touch or 1 tick behind, no empty books. Pace far from cap (busiest book $79k of $450k).
+- Read ≈ 1:50 PM (≈ 10 sim min):
+  - $30 queue position, R per $, $30 fills/min.
+  - $300 α unchanged.
+  - Next is M3b ($300 orders at/behind the touch instead of inside), started only after M3a is read.
