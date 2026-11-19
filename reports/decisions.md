@@ -26047,3 +26047,18 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
 - 228 $300 α (3 sim min): +17.9 (+1.50 bp). 38 had no $300 fills during the warm-up (≈ 6 sim min, same as the 11:31 restart), then 32 fills in sim min 448.
 - Lowest non-immune: 221 $120, 39 $123, 138 $123. x3's protection ends ≈ 3:25 PM; at $89 it would sit lowest.
 - Both registered, 0 tracebacks; upstream 20e97853. M3b2 read ≈ 3:40 PM.
+
+## §1731 — 3:24 PM CT — x3 (UID 228) PRUNED as its protection ended; 38 continues M3b2
+
+- regcheck twice: x3 228 NOT REGISTERED. The journal shows "Wallet … hotkey x3 is not registered on netuid 79".
+- Pay at the end: ≈ $89/mo, net α ≈ 1,790. The lowest non-immune UID was ≈ $111–120, so x3 was the lowest once unprotected and the next registration took the slot.
+- Done:
+  - systemctl stop + disable mvtrx-x3.
+  - our_uids.txt now has only "38 maker x4 12900" (backup our_uids.txt.bak-x3prune).
+  - Final params kept as live_params_228.FINAL-1119.json.
+- **Lesson:** a skill-only miner at ≈ 0.75× the prune line cannot survive its first day. x3's α per $ was the best we have had, so the gap is the making half: 252 ≈ $188 with net α below x3's.
+- 3:24 PM gauges:
+  - 38: $40/mo ($1.33/d), net α 1,389, making 0; $300 α +18.8 (+0.92 bp, 52 books, M3b2 at the touch).
+  - 252: $188/mo ($6.25/d), making 137 / share 0.0042.
+- 38's protection ends ≈ 4:55 PM CT. At $40 it will likely be pruned too.
+- What we keep from 38 is the recipe read (M2 + M3a + M3b2), used to choose the next miner's starting setup.
