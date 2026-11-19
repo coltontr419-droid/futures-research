@@ -25854,3 +25854,35 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   1. Realized markout at 20 s is negative miner-wide, so the quality factor is 0 and zeroes every class.
   2. The lean makes per-book capture one-sided, so Σ2·min < 0.
 - M1 (balanced $30 at 0.012) has not fixed either one.
+
+## §1722 — 11:32 AM CT — Root cause of our $30 making loss: queue position (60-s order expiry) → M2 on 38
+
+**Finding 1: M1-only window (12 sim min), validator replica**
+
+| uid | maker C | realized R | $30 R | $300 R | quality |
+|---|---|---|---|---|---|
+| 228 | +5.1 | −3.9 | −2.9 | −1.0 | 0 |
+| 38 | +2.7 | −7.9 | −3.4 | −4.5 | 0 |
+| 252 | +14.5 | +5.7 | — | +5.1 | 0.39 |
+| 181 | — | — | +3.0 | — | 0.36 |
+| 234 | — | — | — | — | 0.66 |
+
+- Fee netting (0.005 × Mf ≈ 0.69 bp of notional) is identical for us and 181.
+- Gross capture against the validator mid: us 0.75 bp/$ against 181's 1.27 bp/$.
+
+**Finding 2: $30 style matches the long-lived makers; the queue spot doesn't**
+- makerstyle (12 sim min): touch, balanced, $528 vs $600 per fill, same quote-mid markout (+1.9 bp at 20 s). We trade 2.3× their volume on 63 books against their 38.
+- Fills split by whether a reference maker filled the same book, side and second: ours are worse even in shared moments (−0.53 vs −0.14 bp/$ against a print-centred mid). So book choice and timing are ruled out.
+- speed/qpos30.py: nearly every fill is part of a background sweep. Our mean position in the level is **0.64** (0 = first), against **0.32–0.35** for 181/234/51.
+- speed/orderage30.py: none of our fills came from an order older than 60 s, against 13–17% for theirs.
+- Cause: $30 orders take the default expiry (60 sim s), lapse and re-post at the back of the queue. A back-of-queue order fills only when a sweep eats the whole level, which is the adverse case.
+
+**M2 (11:32 AM, 38 only)**
+- agents_test 3cc9f5fa = a1fbedb4 + live knob `mk_low_expiry` (sim s; $30 touch + ladder orders; default 0 = old behaviour).
+- equiv 0 diffs (tape, ledger, locks identical); test_pace ALL PASS.
+- live_params_38 mk_low_expiry 500 (backup .pre-lowexp); x4 restarted 11:31 AM. The "SETTLEMENT NOT READY" banner has appeared on all 12 starts since 11-18 and is harmless; fills resumed.
+- 228 stays on M1 (d8f4bf42) as the control.
+
+**Read and decision (≈ 12:45 PM)**
+- Read: 38's $30 queue position (target ≤ 0.45), $30 R per $ against 228, $300 α unchanged.
+- If it passes, port the knob to agents/ and x3.
