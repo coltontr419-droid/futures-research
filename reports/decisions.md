@@ -26035,3 +26035,15 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
   - Watch: $300 fills resume within minutes, otherwise revert.
   - Read ≈ 3:40 PM on depth split, α per $, $300 R and quality.
 - Lesson recorded: knobs that look independent are coupled through `_jumped` (jump ↔ gate side ↔ rest_none). Check what a knob marks, not only what it prices.
+
+## §1730 — 2:54 PM CT brief; M3b2 $300 fills resumed (sim min 448, after the post-restart warm-up)
+
+| | 228 (x3) | 38 (x4, M3b2) | 252 |
+|---|---|---|---|
+| pay | $89/mo ($2.96/d) | $49/mo ($1.62/d) | $174/mo ($5.80/d) |
+| making | 0 | 0 | 142 / share 0.0042 |
+| net α | 1,790 | 1,348 | 1,722 |
+
+- 228 $300 α (3 sim min): +17.9 (+1.50 bp). 38 had no $300 fills during the warm-up (≈ 6 sim min, same as the 11:31 restart), then 32 fills in sim min 448.
+- Lowest non-immune: 221 $120, 39 $123, 138 $123. x3's protection ends ≈ 3:25 PM; at $89 it would sit lowest.
+- Both registered, 0 tracebacks; upstream 20e97853. M3b2 read ≈ 3:40 PM.
