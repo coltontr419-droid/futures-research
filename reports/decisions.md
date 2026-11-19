@@ -25886,3 +25886,29 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 **Read and decision (≈ 12:45 PM)**
 - Read: 38's $30 queue position (target ≤ 0.45), $30 R per $ against 228, $300 α unchanged.
 - If it passes, port the knob to agents/ and x3.
+
+## §1723 — 11:53 AM CT brief + who earns making credit (fleet table, speed/mkfleet.py)
+
+| | 228 (x3, M1 control) | 38 (x4, M2) | 252 |
+|---|---|---|---|
+| pay | $91/mo ($3.05/d) | $32/mo ($1.06/d) | $180/mo ($6.00/d) |
+| making captured / share | 0 / 0 | 0 / 0 | 119 / 0.0039 |
+| net α | 1,767 | 1,344 | 1,268 |
+| $30 queue position (7 sim min; refs 0.31–0.38) | 0.64 | **0.56** (falling) | — |
+| $300 α (last 2 sim min) | +25.2 (+2.10 bp) | +20.7 (+1.45 bp) | — |
+
+- Prune line ≈ $108–111. Both miners registered, 0 tracebacks; upstream 20e97853.
+- 38's $300 side was thin for ~5 sim min after the restart (model warm-up), then recovered.
+- **Making credit by coldkey** (incentive → $ at ≈ $53k per unit, from 252's $180 ↔ 0.0034):
+
+| coldkey | uids | making > 0 | making share per uid | median net α | ≈ $/uid/mo |
+|---|---|---|---|---|---|
+| **5F1F2JMu** (252's fleet) | 22 | **22** | 0.006–0.008 | **+958** | **≈ $190** |
+| 5ECLVeLz | 13 | 11 | 0.009–0.013 | +3,267 | ≈ $325 |
+| 5GVu1hrR | 15 | 15 | ≈ 0.008 | −1,810 | ≈ $175 |
+| **5E2fVqiW** | 19 | **0** | 0 | — | **≈ $116** |
+
+- **Conclusion: making + skill is the combination that scales.**
+  - 5F1F2JMu runs 22 copies, every one earning making credit AND positive skill, at ≈ $190 each.
+  - The skill-only fleet 5E2fVqiW has slid to ≈ $116 each.
+- New reference: 5F1F2JMu's making UIDs (study their $30/$300 quoting and queue position next).
