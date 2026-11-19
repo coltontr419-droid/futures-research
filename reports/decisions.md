@@ -26006,3 +26006,16 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
 - **Verdict: M3a KEEP.** $30 C 7× and R 5× better per $ than the control, but still slightly negative. $300 R is now the main drag.
 - **M3b (2:05 PM, 38):** mk_vol_inside 3 → 0, mk_vol_jump 1 → 0 (lean gating kept; backup live_params_38.pre-m3b.json).
 - Read ≈ 3:05 PM on $300 depth split, α per $, R and quality. Port to x3 if quality > 0 with α per $ ≥ 70% of 228's.
+
+## §1728 — 2:07 PM CT brief (M3b on 38 for ≈ 2 min)
+
+| | 228 (x3) | 38 (x4) | 252 |
+|---|---|---|---|
+| pay | $90/mo ($2.99/d) | $49/mo ($1.64/d) | $175/mo ($5.84/d) |
+| making | 0 | 0 | 136 / share 0.0041 |
+| net α | 1,732 | 1,382 | 1,601 |
+| $300 α (4 sim min) | +20.3 (+1.45 bp) | +15.1 (+1.03 bp) | +12.2 (+0.84) |
+| $30 α (4 sim min) | +3.2 (+0.29 bp) | +8.6 (+0.38 bp) on 2× the $ | +5.4 |
+
+- Lowest non-immune: 219 $42, 16 $115, 221 $121 → once x3's protection ends (≈ 3:25 PM) it sits 2nd lowest, with UID 219 below it.
+- Pace: busiest book $87k of $450k, 0 blocked. Both registered, 0 tracebacks; upstream 20e97853.
