@@ -25985,3 +25985,24 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
   - $30 queue position, R per $, $30 fills/min.
   - $300 α unchanged.
   - Next is M3b ($300 orders at/behind the touch instead of inside), started only after M3a is read.
+
+## §1727 — 1:25 PM brief + 1:52 PM M3a verdict (KEEP) + M3b started on 38 (2:05 PM)
+
+- **1:25 PM brief:**
+  - Pay: 228 $91/mo ($3.04/d), 38 $39/mo ($1.31/d); 252's pay query returned empty (was $181 at 12:20).
+  - Making: 0 for both; 252 124 / share 0.0041. Net α: 228 1,705, 38 1,334, 252 1,529.
+  - **Prune line up to ≈ $121–123** (above x3's $91 → x3 at risk after ≈ 3:25 PM). Both registered, 0 tracebacks; upstream 20e97853.
+  - Pace: busiest book $85k of $450k, none blocked.
+- **M3a read (validator replica, 10 sim min):**
+
+| | $30 notional | $30 C (per $) | $30 R (per $) | $300 R | quality |
+|---|---|---|---|---|---|
+| 228 | $243k | +0.8 (+0.03 bp) | −2.2 (−0.09 bp) | +0.5 | 0 |
+| 38 | $819k | **+16.3 (+0.20 bp)** | **−1.4 (−0.02 bp)** | −5.6 | 0 |
+| 55 | $48k | +3.3 | +1.4 | +9.4 | 0.58 |
+| 252 | $80k | +3.6 | +2.1 | +12.4 | 0.60 |
+
+- 38 $30: queue position 0.54 (228 0.66); fills 62/sim min at $1,477 each; $30 skill α +0.23 bp vs 228 +0.27 on 2.6× the $.
+- **Verdict: M3a KEEP.** $30 C 7× and R 5× better per $ than the control, but still slightly negative. $300 R is now the main drag.
+- **M3b (2:05 PM, 38):** mk_vol_inside 3 → 0, mk_vol_jump 1 → 0 (lean gating kept; backup live_params_38.pre-m3b.json).
+- Read ≈ 3:05 PM on $300 depth split, α per $, R and quality. Port to x3 if quality > 0 with α per $ ≥ 70% of 228's.
