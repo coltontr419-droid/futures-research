@@ -26092,3 +26092,16 @@ Validator replica (8 sim min):
   - newminer.sh expects 406b6379 (backup newminer.sh.bak-406b).
   - mvtrx-x3 unit: agents/, tape x5, pace_start 4,700, pace_burst 3,600.
 - Registration: `~/btcli/bin/btcli subnet register --netuid 79 --wallet.name main --wallet.hotkey x3` (x3 hotkey is free since the prune). Then `HK=x3 sh newminer.sh <uid>`.
+
+## §1733 — 4:08–4:13 PM CT — brief; NEW MINER x3 = UID 113 live on the making + skill recipe
+
+- **4:08 PM brief:**
+  - 38: $40/mo ($1.32/d), making 0, net α 1,376.
+  - 252: $187/mo ($6.22/d), making 132 / share 0.0043.
+  - 38 registered, 0 tracebacks; upstream 20e97853.
+- **User registered hotkey x3 → UID 113** (the slot was the lowest non-immune, ≈ $120). User: go-ahead for any tests or changes.
+- `HK=x3 sh newminer.sh 113 228` → regcheck OK, agent md5 406b6379, settings live_params_NEXT.json (= 38's recipe), unit restarted 22:11:18 UTC, our_uids "113 maker x3 27741".
+- LIVE PARAMS applied: mk_low_size 0.06, mk_low_expiry 500 s, mk_jump_touch 1 (+ the rest of 38's recipe); 0 tracebacks.
+- Recipe = M1 balanced $30 + M2 + M3a + M3b2 on the 38 lane (lean 1.0, max 1.5, rest_none 1, skip_dec 1, max_inv 0.3).
+- Watch: first fills ($30 at once, $300 after ≈ 6 sim min of model warm-up), then making_diag quality, skill_cls2 α per $, pay.
+- 38 stays the test bed until it is pruned (protection ends ≈ 4:55 PM). Only clear wins move to 113.
