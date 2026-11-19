@@ -25416,3 +25416,13 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Next test candidates for 38** (decide after ≈ 20 sim min of re-baseline):
   - mk_model_lean 0.8 within the band (more lean episodes; offline 0.75 thr ≈ +1.15 bp de-drifted at 120 s vs +1.32 at 1.0).
   - Or a lane-boundary test.
+
+## §1686 — 2026-11-18 8:50 PM CT — brief; NEXT TEST on 38: mk_model_lean 1.0 → 0.8 (band 0.8–1.5×), live at sim ≈ 15380
+
+- regcheck both REGISTERED. Pay: 228 $35, 38 $7. Validator net α: 228 759, 38 503, 252 1,030. Prune line $64.
+- **Last 4 sim min:** 228 $300 +16.1 (+1.19 bp); 38 +11.7 (+0.70 bp); 252 +1.8 (slow market).
+- **Test:** mk_model_lean 1.0 → 0.8 on 38 (bounds 0–10; 0 out of range; backup live_params_38.pre-lean08.json).
+  - More lean episodes inside the band; offline the 0.75 thr lean gives ≈ +1.15 bp de-drifted at 120 s vs +1.32 at 1.0 (leanfreq3).
+  - Interactions: ceiling 1.5 unchanged (band 0.8–1.5); exit_k 0; dfm 0; $30 path separate (lean30 0.75); low_rest_none 1 unchanged.
+- **Baseline for 38:** the knobs-off windows 13220–14070 (bp 1.25; last 4 min 1.58) and the post-dfm 15113–15353 (+0.70). Same-window control = 228 (38/228 $300 bp ≈ 0.6–0.67 before).
+  The sim runs ≈ 10 sim s per wall min, so read at ≈ 1 wall h (≈ 6 sim min) for an interim and ≈ 2 h for the verdict.
