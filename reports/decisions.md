@@ -25328,3 +25328,19 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
 - PACE 0 blocked. Errors 0, no release.
 - 38's baseline must exclude its start-burst drain (pace_burst 3600, ≈ 30 sim min). New knobs go on after ≈ 14,000 so the before window is post-drain, or later if the drain is still running.
+
+## §1681 — 2026-11-18 6:20 PM CT — brief + TEST BASELINE for 38 (knobs off, sim 13220–13759, start-burst drain included)
+
+- regcheck: 228 and 38 REGISTERED. Prune line $76 → $89. Validator: 228 net α 502 (skill 1.49); 38 231 (skill 1.15 — eligible); 252 832. Pay ≈ $0 both (chain lag).
+- **Baseline (9 sim min):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +205.7 on $1.65M (+1.25 bp, 18+/2− kept) | +78.7 (+1.86 bp) | +27.6 (+0.83 bp) |
+  | $30 α | +8.6 on $123k (+0.70 bp) | +6.5 (+0.76 bp) | +6.8 (+1.50 bp) |
+
+  - Last 4 sim min, 38's $300: +1.58 bp.
+- **38's $300 fills by model P** (twosided3): P < 0.5 → 5% of $ (−1.2 to +0.5 bp); 0.5–1 → 34% (+0.55); 1–1.5 → 51% (+1.16); ≥ 1.5 → 10% (+1.87).
+- **38's $30 fills by P_30** (twosided3b): 0.5–1 → 53% (+0.28); 1–1.5 → 35% (+1.43); ≥ 1.5 → 10% (+0.79). In this window the no-lean $30 leak is small (P < 0.5 → 1%).
+- PACE 0 blocked on both. Errors 0, no release.
+- Knobs on at the 6:43 brief (≈ sim 14,000): mk_dfm 2.0, mk_dfm_frac 0.5, mk_low_rest_none 1.
