@@ -25445,3 +25445,25 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - The fleet wins in EVERY band: a better or different signal and/or much better adverse-selection control (small, inside, fast repricing).
   - Our 85 fleet copy (§1604) copied the shape, not the selection, and failed.
 - **Decision:** benchmark = 5E2fVqiW fleet median (252 stays in briefs as the user asked). Next offline study: what predicts the fleet's fill side (features at fill time: gap, dF10/30/60/300, r10/50/300, imbalance, sweep flow), their repricing speed, and size/depth by situation → a "fleet-selection" variant for the test miner 38.
+
+## §1688 — 2026-11-18 9:15 PM CT — fleet study 1: 5E2fVqiW no-lean fills trade WITH fundamental moves (dF10 81–90%, dF30 79–84%); ours trade against moves
+
+- **speed/edgesrc.py** (live_tape_x5.jsonl, sim 12300–now; no-lean = |our P| < 1):
+
+  | | Fleet UIDs 1 / 29 / 62 / 64 (≈ $0.9M each) | x3 = 228 ($358k) |
+  |---|---|---|
+  | dF10 agreement | 90 / 89 / 84 / 81% | 26% |
+  | dF30 agreement | 84 / 81 / 79 / 82% | 41% |
+  | fade agreement | 29–33% | 69% |
+  | r10 agreement | 53–64% | 20% |
+  | imbalance agreement | 53–61% | — |
+  | sw60 agreement | 33–41% | 29% |
+  | 120-s move | +0.84 to +2.13 bp in every agree/disagree split | ≈ −0.5 to +1.1 (≈ 0 overall) |
+
+- **Reading:** the fleet behaves like a maker that shifts both quotes toward the recent fundamental change (small size, mostly inside), so it is hit by flow trading against the new fair value. Our no-lean fills are resting lean-side orders run over by moves.
+  The mk_dfm test (§1685) only added one-sided half-size step-ins, did not shift both quotes, and used larger sizes.
+- **Next test on 38** (after the lean-0.8 verdict, census both arms first; live knobs already in the agent):
+  - fund_mv (fair += fund_mv × Δfundamental over fund_mv_s = 10 s; cap fund_mv_cap).
+  - mk_nolean_q (small two-sided touch/inside quotes on no-lean books).
+  - Start at fund_mv 1.0 and mk_nolean_q ≈ 0.15 (≈ $750 quotes).
+  - The 11-13 fund_mv-alone test (§1425) was on the old recipe without inside quoting, so this is not a re-test of a disproven setup.
