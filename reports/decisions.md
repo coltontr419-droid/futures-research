@@ -26062,3 +26062,33 @@ Tools: making_diag 30, qpos30 20, makerstyle / makerstyle300 20 sim min.
   - 252: $188/mo ($6.25/d), making 137 / share 0.0042.
 - 38's protection ends ≈ 4:55 PM CT. At $40 it will likely be pruned too.
 - What we keep from 38 is the recipe read (M2 + M3a + M3b2), used to choose the next miner's starting setup.
+
+## §1732 — 3:43–4:05 PM CT — M3b2 KEEP; new-miner build ready (agents 406b6379 + live_params_NEXT = 38's recipe)
+
+**M3b2 read (38, since the 2:35 PM restart; $300 fills resumed at sim s ≈ 26,880)**
+
+$300 depth split, sim s 26,880–27,029:
+
+| | inside | touch | behind |
+|---|---|---|---|
+| share of fills (pre-M3b2 shares: 66% / 14% / 20%) | 22% | **58%** | 21% |
+| +20 s / +120 s markout (bp) | — | +1.28 / +2.98 | +1.08 / +2.46 |
+
+Validator replica (8 sim min):
+
+| | 38 | 252 | 55 |
+|---|---|---|---|
+| $300 R | **−2.3 on $391k (−0.06 bp/$; was −0.15)** | +5.7 | +0.3 |
+| $30 R | **+0.3** (first positive) | — | — |
+| whole-miner R | **−2.0** (was −7 to −12) | — | — |
+| C | +12.9 | — | — |
+| quality | 0 (just short) | 0.52 | 0.25 |
+| $300 α (8 sim min) | **+59.3 (+1.52 bp)** on 91 books | +0.63 bp | +0.18 bp |
+
+- **Verdict: KEEP.** Skill per $ up, R much closer to 0.
+- **New-miner build:**
+  - agents/QuoteAgent.py **406b6379** = d8f4bf42 + patch_lexp + patch_jt. Knobs default off; equiv 0 diffs vs d8f4bf42 (tape, ledger, locks identical); test_pace ALL PASS. Backup agents/QuoteAgent.py.bak-d8f4bf42.
+  - live_params_NEXT.json = 38's live params: M2 + M3a + M3b2, lean 1.0 / max 1.5; backup .bak-1119.
+  - newminer.sh expects 406b6379 (backup newminer.sh.bak-406b).
+  - mvtrx-x3 unit: agents/, tape x5, pace_start 4,700, pace_burst 3,600.
+- Registration: `~/btcli/bin/btcli subnet register --netuid 79 --wallet.name main --wallet.hotkey x3` (x3 hotkey is free since the prune). Then `HK=x3 sh newminer.sh <uid>`.
