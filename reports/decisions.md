@@ -25426,3 +25426,22 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Interactions: ceiling 1.5 unchanged (band 0.8–1.5); exit_k 0; dfm 0; $30 path separate (lean30 0.75); low_rest_none 1 unchanged.
 - **Baseline for 38:** the knobs-off windows 13220–14070 (bp 1.25; last 4 min 1.58) and the post-dfm 15113–15353 (+0.70). Same-window control = 228 (38/228 $300 bp ≈ 0.6–0.67 before).
   The sim runs ≈ 10 sim s per wall min, so read at ≈ 1 wall h (≈ 6 sim min) for an interim and ≈ 2 h for the verdict.
+
+## §1687 — 2026-11-18 9:05 PM CT — copy target switches from 252 to the 5E2fVqiW fleet (user Q)
+
+- **5E2fVqiW now:** 20 UIDs, pay $153–175 (median $162; total $3,261/mo). Validator net α median ≈ 2,050–2,100 all evening (field median ≈ 1,700–1,870). 252: pay $148 and falling, net α ≈ 840–1,050.
+- **twosided3 (live_tape_x5.jsonl, sim 12300–now), $300 maker fills by OUR model P, 120-s move:**
+
+  | P band | Fleet (UIDs 1, 29, 62, 64) | x3 = 228 |
+  |---|---|---|
+  | −1..0 | +0.4 to +1.0 | −3.7 |
+  | 0–0.5 | +1.0 to +1.3 | −0.15 |
+  | 0.5–1 | +1.5 to +1.9 | +0.45 |
+  | 1–1.5 | +1.8 to +1.9 | +0.89 |
+  | ≥ 1.5 | +2.2 to +2.6 | +2.04 |
+  | Fill size | ≈ $450–975, mostly inside | ≈ $1.0–1.8k |
+  | Volume share | 15–18% at P < 0.5 | — |
+
+  - The fleet wins in EVERY band: a better or different signal and/or much better adverse-selection control (small, inside, fast repricing).
+  - Our 85 fleet copy (§1604) copied the shape, not the selection, and failed.
+- **Decision:** benchmark = 5E2fVqiW fleet median (252 stays in briefs as the user asked). Next offline study: what predicts the fleet's fill side (features at fill time: gap, dF10/30/60/300, r10/50/300, imbalance, sweep flow), their repricing speed, and size/depth by situation → a "fleet-selection" variant for the test miner 38.
