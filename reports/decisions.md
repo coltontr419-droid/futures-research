@@ -25515,3 +25515,9 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Brief:** pay 228 $57, 38 $23, 252 $176. Validator net α: 228 863, 38 628, 252 1,036. Prune line $69. Both REGISTERED; 0 errors; no release.
 - **Live** at sim ≈ 16,370: mk_model_lean 0.8 → 1.0; mk_dfm 0 → 1.0; mk_dfm_frac 0.5 → 0.15 (≈ $750 one-sided inside quotes on the 10-s fundamental-move side, fleet size, §1690). Backup live_params_38.pre-dfm015.json.
 - **Read** ≈ 1 h and ≈ 2 h: 38/228 $300 bp vs 0.6–0.67, the P < 0.5 fill bp (dfm fills) vs the frac-0.5 run (≈ −0.2), dF10 agreement via edgesrc.
+
+## §1692 — 2026-11-18 10:50 PM CT — brief (fleet-size dF10 test, 3 sim min in)
+
+- **Pay: 228 $61, 38 $29, 252 $185.** Validator net α: 228 892, 38 648, 252 1,070. Prune line $71 (one stray UID at $3). Both REGISTERED; 0 errors; no release.
+- **Since mk_dfm 1.0 / frac 0.15 (16445–16625, 3 sim min):** 38 $300 +4.2 on $146k (+0.29 bp, 97 books — many small $1.5k/book fills); 228 +18.1 (+1.56 bp); 252 +9.0.
+  Early, but 38's bp dropped as volume spread across many books. Interim at ≈ 11:25 PM.
