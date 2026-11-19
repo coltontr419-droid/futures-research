@@ -25579,3 +25579,14 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   1. One miner ≈ $185–200 (x3 ≈ $160 now).
   2. A copy-robust recipe: per-copy loss ≤ ≈ 10% when copies run together, like the fleet's.
   - On the current recipe, 20 copies would fall well below the prune line. Future tests on 38 must include a crowding/copy check.
+
+## §1696 — 2026-11-18 11:50 PM CT — brief
+
+- **Pay: 228 $65, 38 $39, 252 $182.** Validator net α: 228 984, 38 662, 252 1,056 (228 is closing on 252). Prune line $76. Both REGISTERED; 0 errors; no release.
+- **Last 4 sim min:**
+
+  | | 228 | 38 (baseline again after mk_dfm off at ≈ 17,070) | 252 |
+  |---|---|---|---|
+  | $300 α | +29.2 (+1.48 bp) | +6.5 (+0.55 bp) | +13.5 (+0.75 bp) |
+
+- 38 is quiet; its fills are recovering from the dfm runs. Next for 38: the fleet timing study (offline) before another live test. The brief cron has been updated.
