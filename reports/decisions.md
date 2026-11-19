@@ -26130,3 +26130,33 @@ Validator replica (8 sim min):
   - $30 fills 64–74 per sim min. $300 fills 0 so far: 270 sim s after start, the model warm-up (≈ 6 sim min on 38's restarts) is not over yet. PACE: 63 books traded ($30 only), busiest $16.9k.
   - If $300 is still 0 by the 4:52 PM brief (≈ 9 sim min after start), investigate.
 - 0 tracebacks on both. 38's pace: busiest book $94.7k of $450k.
+
+## §1736 — 4:52–5:25 PM CT — briefs; 38 PRUNED 5:09 PM; M3c verdict (NOT better); 113 start burst hurts quality
+
+- **4:52 PM brief:**
+  - Pay: 113 $0 (40 min old), 38 $31/mo ($1.05/d), 252 $205/mo ($6.82/d).
+  - Net α: 113 135, 38 1,396, 252 1,787. Making 0 for ours; 252 146 / share 0.0043.
+  - Lowest non-immune: 38 $31, then $103.
+- **Validator replica (8 sim min to ≈ 4:55 PM):**
+
+| uid | C | R | quality | $300 R | $30 R |
+|---|---|---|---|---|---|
+| 113 | +25.4 | −13.9 | 0 | −3.9 on $664k | **−10.0 on $1.04M** |
+| 38 | +4.2 | −1.5 | 0 | −0.9 on $129k | −0.6 on $155k |
+| 252 | — | — | 0.39 | — | — |
+| 55 | — | — | 0.61 | — | — |
+
+- **113's start burst** (full buckets) trades ≈ 7× steady volume: $300 $932k in 4 sim min at +0.76 bp α. All its orders are young, so its $30 sits at the back of the queue and R goes negative (lesson of 11-12, x2).
+  - Expect quality to recover as the buckets drain (pace: busiest book $25.7k).
+  - Net α 281 by 5:21 PM.
+- **38 PRUNED 23:09 UTC (5:09 PM CT)**, regcheck twice. mvtrx-x4 stopped and disabled; our_uids.txt = "113 maker x3 27741" (backup our_uids.txt.bak-x4prune); final params live_params_38.FINAL-1119.json.
+- **M3c verdict** (38, mk_gate_part 0, sim s 27,836–28,398; makerstyle300):
+
+| | fills/sim min | $/fill | $300 volume | +20 s markout |
+|---|---|---|---|---|
+| 38 (M3c) | 6.4 | $2,915 | $166k | +1.12 bp |
+| 113 (part 0.5) | 64.6 | $1,563 | $1,259k | +1.14 bp |
+| 55 | 12.2 | $3,538 | $303k | +1.84 bp |
+
+- → **Bigger orders do NOT raise markout; volume drops ≈ 60–85%. NOT ADOPTED** (not moved to 113). The fleet's markout edge is not size.
+- Next lever to find: what 55's $300 fills do differently (timing/selection; +1.84 vs +1.13 bp). Study offline on 113's tape before any 113 test.
