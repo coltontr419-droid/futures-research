@@ -25779,3 +25779,27 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Pay: 228 $86, 38 $14, 252 $187.** Validator net α: **228 2,000**, 252 1,635, 38 1,374. Prune line $87. Both REGISTERED, 0 errors; upstream 20e97853.
 - **Last 4 sim min $300:** 228 +35.1 (+1.83 bp, 22+/1−), 38 +14.2 (+0.88), 252 +11.2 (+0.63).
 - The start-burst exit hasn't shown yet (it lands ≈ sim 23,050–24,850; the sim is slow, so it is likely later this morning).
+
+## §1718 — 2026-11-19 9:45 AM CT — CORRECTION to §1711/§1714: no 60%-at-24h lag; x3's pay ≈ its real level; field $ fell overnight; levers to rise in the pack
+
+- **apply_track_record_ema (reward.py ≈ 2103):** deregistered slots are RESET, and young miners are annealed with alpha_eff = max(alpha_dt, 1/(k+1)), so standing tracks live performance during immunity.
+  The §1711 "≈ 60% of steady at 24 h" claim is WRONG.
+  The remaining smoothing is neuron.moving_average_alpha = 0.0083 per scoring cycle on post-Pareto weights. x3's pay flat at $84–90 since ≈ 3 AM implies it has converged: ≈ $84 is its real level.
+- **Per class, last 180 sim min (live_tape_x5.jsonl 12373–23173):**
+
+  | | $300 α | $30 α | Validator net α | Incentive | Pay |
+  |---|---|---|---|---|---|
+  | 228 | 1,646 (+2.06 bp) | 307 (+1.46) | 1,921 | 0.0016 | $84 |
+  | 5E2fVqiW 128 / 175 / 123 | 1,160–1,350 | 557–646 | ≈ 2,000 | 0.0019–0.0021 | $101–108 (≈ $162 last evening) |
+  | 252 | 1,303 | 89 | 1,591 | 0.0034 | $181 (incl. making share 0.0038) |
+
+  - The fleet earns ≈ 2× our $30 alpha (separate class pool).
+  - Fleet UID 1 now has net α −850 (4-dec −894) and incentive 0.
+  - 38 shows 4-dec fills (−87 α) despite mk_skip_dec 1; likely the first seconds before live params loaded at its start. To verify.
+- **Field $ fell** (fleet $162 → ≈ $105; token price), and the prune line fell with it (≈ $87–111). Top skill-only miners sit ≈ 1.0–1.2× the line, so 1.7× is not attainable from skill alone.
+  Survival = not being among the lowest non-immune earners. On skill alone x3 ≈ 80% of a fleet UID ≈ level with the line, a coin flip at each immunity end (as for the fleet, which churns).
+- **Levers, ranked:**
+  1. MAKING credit: the making half ≈ ½ of all pay; we earn 0. 252 earns making + skill and gets 2× x3 on lower net α.
+  2. $30 class alpha (fleet ≈ 2× ours).
+  3. Remove the 4-dec drag.
+- **Next test plan** (new test miner + 38): a making-credit layer on top of the skill recipe, plus a $30 improvement. Offline design and census first.
