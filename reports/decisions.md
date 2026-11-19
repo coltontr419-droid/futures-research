@@ -25396,3 +25396,23 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **$30:** 38 +0.56 vs 228 (no low_rest_none) +0.62 → no visible gain.
 - **Interim:** NOISE, leaning negative for mk_dfm; $30 rest_none NOISE. Small sample (10 sim min, ≈ 70 dF10 fills).
   This is a small-effect test, so it continues to ≈ 25–30 sim min (≈ 8:45 PM) before the verdict. If dF10 fills stay ≤ 0.3 bp → mk_dfm off and try mk_dfm 3.0 or a dF30-based side.
+
+## §1685 — 2026-11-18 8:20 PM CT — test verdict (38, 16 sim min): mk_dfm 2.0 (dF10 no-lean quoting) DISPROVEN-leaning → OFF; $30 rest_none NOISE (kept on for now)
+
+- **After the knobs (14075–15035):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +91.7 on $938k (+0.98 bp) | +127.1 (+1.68 bp) | +50.8 (+0.77 bp) |
+  | $30 α | +15.6 (+0.82 bp) | +16.9 (+0.89 bp) | +15.8 (+2.08 bp) |
+
+  - 38/228 $300 bp: before 0.67, after 0.58.
+- **twosided3:**
+  - No-lean fills (P < 0.5) rose 5% → 18% of $, at ≈ −0.2 bp (−1..0: −0.06; 0–0.5: −0.42).
+  - Lean fills 1–1.5 fell from +1.16 to +0.18 bp (budget competition, or the market).
+  - So the dF10 maker fills do NOT earn what 252's do (+1.17, §1628); copying the side alone isn't enough.
+- mk_dfm → 0 live at ≈ sim 15040 (8:18 PM). mk_low_rest_none stays 1: no visible effect ($30 volume unchanged; the far side rarely fills).
+- **x3 handicap:** fills since warm-up (12250–15032) 640 α vs validator 686 → 1.07×. Pay: **228 $35**, 38 $7.
+- **Next test candidates for 38** (decide after ≈ 20 sim min of re-baseline):
+  - mk_model_lean 0.8 within the band (more lean episodes; offline 0.75 thr ≈ +1.15 bp de-drifted at 120 s vs +1.32 at 1.0).
+  - Or a lane-boundary test.
