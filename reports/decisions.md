@@ -25615,3 +25615,23 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 
   - 38 is recovering after the dfm runs.
 - Brief cron updated: x3 stays untouched past immunity (user, §1698).
+
+## §1700 — 2026-11-19 12:55 AM CT — brief + fleet study 3 (fill timing): our fills come after BIGGER moves into us; the fleet's come earlier and run further
+
+- **Brief:** pay 228 $64, 38 $40, 252 $176. Validator net α 228 **1,113** / 252 1,157 / 38 737. Prune line $57. Both REGISTERED, 0 errors. Upstream 20e97853 (no release).
+  Last 4 sim min $300: 228 +23.6 (+1.65 bp), 38 +17.5 (+0.93), 252 +5.5 (+0.28).
+- **speed/fillpath.py** (live_tape_x5.jsonl, sim 14050–now): mid vs fill price, signed to the fill side (+ = in the position's favour), bp.
+
+  | UID | Fill vs mid at t−1 | −30 s | −10 s | −3 s | 0 | +3 s | +10 s | +30 s | +120 s |
+  |---|---|---|---|---|---|---|---|---|---|
+  | Fleet 1 / 29 / 62 / 64 | +0.60–0.68 | +1.23–1.33 | ≈ +1.1–1.2 | ≈ +0.8–1.0 | +0.40–0.43 | — | — | — | +2.43–2.65 |
+  | 228 | +0.84 | +2.74 | +2.37 | +1.36 | +0.55 | — | — | — | +2.23 |
+  | 38 | +0.80 | +1.77 | +1.53 | +1.04 | +0.64 | — | — | — | +1.50 |
+  | 252 | +0.96 | +1.21 | — | — | +1.06 | — | — | — | +2.73 |
+
+- **Reading:**
+  - Before the fill, the mid moved TOWARD the order by ≈ 0.8 bp (fleet) vs ≈ 2.2 bp (228) and ≈ 1.1 bp (38). Our orders are typically filled after the price has already run into them (swept through), i.e. we are "run over".
+  - After the fill, the fleet gains ≈ +2.0–2.2 bp (t0 → +120 s) vs 228 +1.68, 38 +0.86, 252 +1.67.
+  - So the fleet gets filled early in a move and keeps drifting in its favour. Our larger, longer-resting inside orders get filled after the move has happened.
+- **Candidate mechanism for the copy-robust recipe:** an anti-run-over rule — when the mid has moved ≥ X bp toward a resting order within the last few seconds, pull it or step it back. The fleet's small, frequently refreshed quotes likely achieve this implicitly.
+  Check the existing knobs first (flow_pull, flow_win, flow_cool: pull quotes after taker flow) offline; else build a new knob. Census and an offline replay of 38's fills (which fills would the rule have avoided, and their bp) BEFORE any live test.
