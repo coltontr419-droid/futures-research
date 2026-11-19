@@ -25675,3 +25675,16 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Pay: 228 $81, 38 $37, 252 $183.** Validator net α: 228 1,281, 252 1,239, 38 854. Prune line $92 (rising). Both REGISTERED, 0 errors; upstream 20e97853 (no release).
 - **Last 4 sim min $300:** 228 +22.1 (+1.61 bp), 38 +15.2 (+1.05), 252 +12.4 (+0.74).
 - Watch: 228's chain pay ($81) is below the prune line ($92) while its net α ≈ 1,280 implies ≈ $110–130. It is immune until ≈ 3:25 PM; pay needs to catch up by then.
+
+## §1706 — 2026-11-19 3:25 AM CT — FALSE sim-reset alert (tape rotation truncated a stale tape); watchers fixed; brief
+
+- **ALERT 09:11 UTC:** "SIM RESET: tape clock 11859 -> 0 | layout check on 0 books".
+  - Cause: tape_rotate.sh (09:07 UTC) rotated the STALE live_tape_x3.jsonl (2.2 GB; it stopped when old x4 was pruned), and simreset_watch.py still read that file.
+  - The live tapes (x5, x6) were at sim 19,444 and advancing. No CLOCK RESET in the miner logs. our_uids.txt unchanged.
+- **Fix:**
+  - simreset_watch.py now reads live_tape_x5.jsonl (backup .bak-x5); run once, state updated.
+  - tape_rotate.sh now also rotates live_tape_x5/x6 (backup .bak-x5).
+  - A NOTE line marking the false reset was added to release_watch.log.
+- **Brief:** pay 228 $90, 38 $35, 252 $191. Validator net α: 228 1,291, 252 1,176, 38 872. Prune line $92. Both REGISTERED, 0 errors; upstream 20e97853.
+  Last 4 sim min $300: 228 +27.8 (+1.72 bp), 38 +18.8 (+1.15), 252 +17.7 (+1.11).
+- **Lesson:** watchers must follow tape moves; when the tape writer changes, update simreset_watch.py T and tape_rotate.sh's list in the same step.
