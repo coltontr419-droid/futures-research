@@ -25712,3 +25712,24 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
 - **Last 4 sim min $300:** 228 +29.7 (+1.76 bp, 20+/0−), 38 +14.6 (+0.85), 252 +20.0 (+1.19).
 - 228's pay ($3.00/day) has not moved since ≈ 3:20 AM despite net α +200. Chain emission updates in steps (weight-setting cadence + smoothing), so expect a jump.
   If it is still below the line near 1 PM, tell the user; no action is allowed on x3 (long-run rule).
+
+## §1711 — 2026-11-19 6:00 AM CT — WHY PAY LAGS: a track-record EMA with half-life = 3 SIM hours (≈ 18 wall h at today's speed); survival bar ≈ steady ≥ 1.7× the prune line
+
+- **Brief:** pay 228 $86, 38 $14, 252 $191. Validator net α: 228 1,570, 252 1,359, 38 1,078. Prune line $103. Both REGISTERED, 0 errors.
+- **Gauges:**
+
+  | | 228 | 252 | 38 |
+  |---|---|---|---|
+  | Emission | 0.238 | 0.532 | 0.039 |
+  | Incentive | 0.0016 | 0.0036 | 0.0003 |
+  | Net α | 1,570 | 1,359 | 1,078 |
+
+  - skill_p11_factor ≈ 1, coverage 1, pool factor 1, weight 1 for all three. Pay ≠ proportional to current net α.
+- **Validator config:** `scoring.score_ema_halflife` = scoring.kappa.lookback = 3 h of SIM time. "Per-UID track-record EMA applied to the trading score before allocation … a strong window converts into standing only gradually."
+  - At ≈ 10 sim s per wall min: ≈ 18 wall h half-life. A new UID's pay ≈ 1 − 2^(−t/18 h) of steady: ≈ 42% at 14 h (228 now: steady ≈ $150–170 → ≈ $86–90 ✓), ≈ 60% at 24 h (immunity end), ≈ 75% at 36 h.
+- **Consequences:**
+  - Every prune so far (85, 47, 54, old 228) happened while pay showed ≈ ½ of steady.
+  - Survival at immunity end needs a steady value ≥ prune line / 0.6 ≈ 1.7× the line (≈ $175 today).
+  - x3 (steady ≈ $150–170) is BORDERLINE: expect pay ≈ $90–100 at 3:25 PM vs a line ≈ $103, so a prune is possible shortly after.
+  - Faster sim days shorten the wall-clock catch-up (the half-life is sim time).
+- **Under the long-run rule x3 stays untouched.** Lesson: projected steady pay must clear ≈ 1.7× the prune line for a miner to survive its first immunity end. This supersedes the 1.3× survival gate (§1598) for new registrations; tell the user.
