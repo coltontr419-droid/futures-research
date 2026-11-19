@@ -25654,3 +25654,8 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - The real difference: 228's fills are concentrated in run-over situations (60% at ≥ 1 bp). Our model leans on reversion after moves (negative weights on r50/r300), so we only fill when price has just moved.
   - The fleet fills mostly when nothing has moved (57–60% at ≤ 0.5 bp) and still gains +2.2–2.6 bp. They have a predictor that works at ALL times, which explains copy-robustness: they don't depend on the few post-move moments we all compete for.
 - **Next (offline, morning):** find the fleet's predictor. Logistic-style comparison of fleet fill side vs features at fill time, over a richer set: multi-horizon mid / fundamental changes, gap, book depth at levels 1–5, spread, recent taker flow by side, time since the last trade, our P. Then check whether such a signal predicts mid moves held-out. If found → build it as a lean source for broad quoting on 38 + the new miner.
+
+## §1702 — 2026-11-19 1:20 AM CT — brief: x3 net α passes 252
+
+- **Pay: 228 $72, 38 $40, 252 $176.** Validator net α: **228 1,173 > 252 1,162**; 38 755. Prune line $80. Both REGISTERED, 0 errors; upstream 20e97853 (no release).
+- **Last 4 sim min $300:** 228 +24.2 (+1.73 bp), 38 +16.7 (+1.12), 252 +17.1 (+1.00).
