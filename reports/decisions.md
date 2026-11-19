@@ -26210,3 +26210,15 @@ Validator replica (8 sim min):
   - (2) pace_cold must be set before a miner's FIRST start and never changed for that miner's life, because the replay must match how it really started.
 - Fix 5:45 PM: mvtrx-x3.service back to pace_start=4700 pace_cold=0; restart → **0 of 190 books blocked**. The live knobs stay: lean 1.5 no ceiling + M2 + M3a + M3b2 + M4.
 - For the NEXT new miner: set pace_cold=1 (+ pace_start ≈ 1,500) in its unit BEFORE its first start (newminer.sh does not do this yet).
+
+## §1740 — 5:51 PM CT brief (113 only) + user: no deadline on SN79
+
+- 113:
+  - Registered, 0 tracebacks; PACE 0 of 190 blocked (busiest $27.7k).
+  - Pay $1/mo ($0.04/d; 1.7 h old), net α 363, making 0.
+  - $300: no fills in the last 4 sim min (warm-up after the 5:45 PM restart). $30: $90k at −0.13 bp.
+- 252: $216/mo ($7.22/d), making 139 / share 0.0044, net α 1,684. Upstream 20e97853.
+- My view, given to the user:
+  - SN79 is winnable: fleets earn $190–325 per UID, our skill already beats the fleet median, and the making gap is now specific (whole-miner R ≈ −2 vs positive).
+  - The whole miner pool is ≈ $52k/mo, so a realistic outcome is $2–4k/mo from 10–20 miners, not $10k.
+- **User: no 24–48 h deadline; keep working while progress continues** (memory feedback-mvtrx-no-deadline).
