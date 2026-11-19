@@ -25361,3 +25361,17 @@ The 181/234 template makes ≈ 7.5 trades per sim min.
   - Ratios to 228 and 252 in the same windows.
   - twosided3 P < 1 bins for 38 (are there new fills, and at what bp).
   - $30 bp / P_30 bins.
+
+## §1683 — 2026-11-18 7:18 PM CT — brief: test interim (5 sim min, too early); x3 pay started ($17); handicap steady 1.22×
+
+- regcheck both REGISTERED. Pay: **228 $17** (first real pay), 38 $0. Validator net α: 228 631, 38 355, 252 862. Prune line $80 → $82.
+- **38 after the knobs (14102–14402, 5 sim min):**
+
+  | | 38 | 228 | 252 |
+  |---|---|---|---|
+  | $300 α | +30.9 on $320k (+0.97 bp) | +26.3 (+1.27 bp) | +17.0 (+0.81 bp) |
+  | $30 α | +3.7 (+0.63 bp) | +3.6 (+0.64 bp) | +5.0 (+1.40 bp) |
+
+  - Too short; read at ≈ 7:45 PM.
+- **x3 handicap:** fill α since warm-up (12250–14400, 35 sim min) $300 +456.7 (+1.87 bp) + $30 +62.1 = 519; validator 631 → **1.22×** (steady; no young-UID handicap).
+- PACE 0 blocked on both; errors 0; no release.
