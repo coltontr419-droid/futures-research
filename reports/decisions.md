@@ -27043,3 +27043,22 @@ fillclass300, last 1,500 sim s:
   - Ends ≈ 12:27 PM CT, back on A.
 - Judge: per-block 113 − 252 $300 α (bp), A vs B; $300 R per block; volume.
 - Backup live_params_113.pre-abab.json.
+
+## §1793 — 10:49 AM CT brief (ABAB block 1 = A)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $78/mo ($2.59/d) | $224/mo ($7.47/d) |
+| making captured / realized / share (live) | 148.6 / 10.9 / 0.0002 | — / — / 0.0050 |
+| net α | **1,571** (recovering) | 1,602 |
+| incentive | 0.0017 | — |
+
+- ABAB block A, $300 α checks (113 vs 252, bp):
+
+| check | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| 113 | +0.19 | **+1.64** | **+1.75** | +0.81 |
+| 252 | +0.84 | +1.04 | +0.53 | +0.76 |
+
+- $300 fills 19–52 per 3 sim min; 0 blocked.
+- Lowest non-immune ≈ $99–102. Registered, 0 tracebacks; upstream 20e97853.
