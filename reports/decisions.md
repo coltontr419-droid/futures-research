@@ -27190,3 +27190,20 @@ fillclass300, last 1,500 sim s:
 
   - ≈ level with 252, far below A1's ≈ 3×. Volume lower ($109–129k vs $159–214k): 2 ticks back fills less.
 - Lowest non-immune ≈ $109–110. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1801 — 2:28 PM CT brief (jb2 ABAB block A2)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $72/mo ($2.41/d) | $217/mo ($7.24/d) |
+| making captured / realized / share (live) | 148.7 / 9.4 / 0.0002 | — / — / 0.0050 |
+| net α | 1,417 | 1,465 |
+
+- **Block B1 (jump_back 2) complete:**
+  - 113 − 252 Σα per check: 0.0, −2.6, −4.0, +2.3, −3.7, −1.4 → **mean −1.6**.
+  - bp: +0.13, −0.06, −0.03, +0.40, −0.07, +0.24 → mean +0.10.
+  - $300 volume falling $129k → $83k.
+  - End replica: quality 0.14, $300 R +1.6, Σ2·min **+0.1** (8 books).
+- **Block A1 (jump_back 1)** for comparison: Σα +21.6, +24.2, +24.0, +23.0, +14.9 → **mean +21.5**; quality 0.31.
+- **Block A2 so far:** +8.5 vs 11.8 (+0.78 vs +0.76 bp), +8.4 vs 9.9: a quieter market window (252 lower too).
+- Lowest non-immune ≈ $110 / $110. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
