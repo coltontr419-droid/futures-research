@@ -26754,3 +26754,17 @@ fillclass300, last 1,500 sim s:
 | 55 | — | +18.5 | 0.67 | +14.6 / −2.2 | — | 0 |
 
 - 113's $300 Σ2·min turned positive (M5's two-sided fills), but M5 dragged R/quality and cost α. As expected, the two-sidedness gain came with the α loss that made us revert.
+
+## §1775 — 4:46 AM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $69/mo ($2.29/d) | $247/mo ($8.25/d) | — |
+| making captured / realized (live) | 95.8 / 7.24 | 178 / share 0.0048 | — |
+| share | 0.0000 | — | — |
+| net α | 1,479 | — | — |
+| incentive | 0.0013 | — | — |
+| $300 α (4 sim min) | +26.0 on $134k (**+1.95 bp**) | +0.96 bp | +0.75 bp |
+| $30 α (4 sim min) | +0.11 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $68.2k). Lowest non-immune ≈ $84–99. Upstream 20e97853.
