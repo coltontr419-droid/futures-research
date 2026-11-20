@@ -26691,3 +26691,20 @@ fillclass300, last 1,500 sim s:
   - ≈ 3:55 AM: $300 fills continue, both sides.
   - ≈ 4:45 AM read: $300 Σ2·min (target ≥ 0), $300 R and miner quality (replica), $300 α per $ (skill_cls2; must stay ≥ ≈ +1.2 bp), depth/sweep split (fillclass300).
 - Revert to pre-m5 if $300 α per $ drops below ≈ +1.0 bp with no Σ2·min gain.
+
+## §1771 — 3:46 AM CT brief — M5 first 5 min: $300 volume ×3, α −0.30 bp (early warning)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $72/mo ($2.39/d) | $235/mo ($7.84/d) | — |
+| making captured / realized (live) | 70.5 / 5.16 | — / share 0.0048 | — |
+| share | 0.0000 | — | — |
+| net α | 1,371 | — | — |
+| **$300 (4 sim min, ≈ all M5)** | **$406k on 85 books, α −12.0 (−0.30 bp)**, kept 16 (+2 −14) | +0.17 bp on $195k | +0.09 bp on $126k |
+| $30 α | +0.06 bp | — | — |
+
+- The refs are near zero in the same window (a weak market window for everyone), but 113's −14 kept books is a clear early warning: the two-sided rests fill big ($2.4–3k) and against the lean.
+- Not reverted yet (one 4-min window, refs also flat). Watch:
+  - The 3:57 AM fill check now also runs skill_cls2 4 on 113.
+  - If the next read is also ≤ 0 bp while refs are positive → revert to pre-m5 before the 4:47 AM read.
+- 113: registered, 0 tracebacks, 0 blocked (busiest book $64.9k). Lowest non-immune ≈ $95–107. Upstream 20e97853.
