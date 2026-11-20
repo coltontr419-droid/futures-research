@@ -27308,3 +27308,14 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   3. The 0–1 bp group is as bad as > 1 bp → the stronger setting **mk_lean_mom_bp 0.0** should beat the live test's 1.0. Next variant.
   4. Even good fills reach only 0.18 vs 252's 0.57: delayed entry is a step, not the whole gap.
 - This offline method lets the next miner start with the best setting without waiting for a live ABAB.
+
+## §1808 — 3:54 PM CT — delayed entry at 0 bp put live directly (ABAB stopped in its warm-up wait)
+
+- abab_mom.sh killed before any block ran; no params were changed by it.
+- Reason: the prune is likely soon after ≈ 4:10 PM, so the ABAB would not complete, and §1807's offline evidence already favours the stronger setting.
+- Live 3:54 PM (sim s 43,954): **mk_lean_mom_s 10, mk_lean_mom_bp 0.0** (no lean jump while the 10-s mid move is against the lean at all). Backup live_params_113.pre-mom0.json.
+- live_params_NEXT.json includes it, so the next miner starts with it.
+- Live read ≈ 4:38 PM (cron), done on the tape even if 113 is pruned first:
+  - $300 fills not collapsed;
+  - momcf: share of "against" fills down from 77%, R/C up from −0.20;
+  - skill_cls2: Σα vs 252.
