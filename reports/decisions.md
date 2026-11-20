@@ -26410,3 +26410,55 @@ Replica, 20 sim min:
 | 55 | — | — | 0.44 | — | — | 0 in this window |
 
 - Watch: $300 R dipped negative in this window (quality 0.11, lowest read yet); one read, not a trend. The rule needs 2 reads at 0 with R < 0 before investigating.
+
+## §1754 — 11:02 PM CT — evening summary (user back ≈ 11 PM)
+
+**Live 11:02 PM**
+
+| | 113 | 252 |
+|---|---|---|
+| registered / tracebacks / blocked | yes / 0 / 0 (busiest book $48.2k) | — |
+| pay | **$49/mo ($1.65/d)** ($1 at 6 PM) | $261/mo ($8.71/d) |
+| net α | ≈ 1,000 | — |
+| making captured (live) | **8.28** (first > 0 at 10:16 PM) | — |
+| realized / share | 0 / 0 | share 0.0046 |
+| incentive | 0.001 | — |
+
+- Lowest non-immune: 43 $58, 242 $101, 167 ≈ $10x.
+
+**Stage 1 (fill mechanics): PASSED and still improving**
+
+fillclass300, last 900 sim s:
+
+| | 113 | 210 | 55 |
+|---|---|---|---|
+| +20 s net | **+1.64 bp** | +1.68 | +1.36 |
+| +120 s | +3.21 bp | — | — |
+| sweeps | 60% | — | — |
+| behind the touch | 69% | — | — |
+
+- $300 α (8 sim min): 113 **+46.1 on $207k = +2.23 bp** (252 +1.00, 55 +0.40).
+
+**Stage 2 (replica quality > 0, held): CONFIRMED**
+- Reads: 0.22 (7:05) → 0.32 (7:37) → 0.24 (8:34) → 0.11 (10:38).
+- 10:38 PM: first replica CREDIT 0.4 ($30 Σ2·min +3.6 over 40 books); refs had 0 in that window.
+
+**Stage 3 (live making share > 0): IN PROGRESS**
+- Live captured 0 → 1.33 (10:16) → 6.09 (10:38) → 8.28 (11:02).
+- Realized / share still 0. The 4:11 PM start burst is still in the ≈ 15-wall-h window.
+
+**Stage 4 (pay ≥ 1.3× prune line ≈ $130–150 → $200): NOT YET.** $49 and rising; 113's protection ends ≈ 4:10 PM 11-20.
+
+**Tests since §1740:**
+- M4 mk_jump_back 1 (lean side 1 tick behind the touch, agents 2457bbcf): KEEP, the decisive change.
+- Lean 1.5 no ceiling (228's lane): KEEP.
+- pace_cold on a running miner: FAILED (blocked 153 books), reverted in 8 min. pace_cold is now only for new UIDs via newminer.sh.
+- M3c (full-size $300 only, on 38): NOT adopted.
+- 38 pruned 5:09 PM.
+
+**Live recipe on 113:** agents d8d9f7a7 + M2 mk_low_expiry 500 + M3a $30 size 0.06 + M3b2 mk_jump_touch 1 + M4 mk_jump_back 1 + mk_model_lean 1.5 (no ceiling).
+
+**Next:**
+- Hold 113 unchanged overnight. Briefs every 30 min; stage-3 watch hourly with a replica every 2 h.
+- Milestones: live realized / share > 0, then pay ≥ 1.3× the line.
+- Only intervene if broken, or if replica quality reads 0 with R < 0 twice in a row.
