@@ -27112,3 +27112,15 @@ fillclass300, last 1,500 sim s:
 - **The 5-sim-min end-of-block replica is too short to separate arms** (A itself reads 0.15 and 0.00).
 - α is the clear signal: **A ≈ +0.65 bp over 252, B ≈ +0.03.**
 - Lowest non-immune ≈ $111–113. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1797 — 12:49 PM CT brief (ABAB block B2 ending)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $75/mo ($2.51/d) | $222/mo ($7.39/d) |
+| making captured / realized / share (live) | 151.1 / 8.9 / 0.0002 | — / — / 0.0050 |
+| net α | 1,467 | 1,506 |
+
+- **Block B2 checks** (113 − 252 bp): +0.83, +0.95, +0.05, +0.22, +0.47 → mean ≈ +0.50, on higher $300 volume ($143–251k vs 252's $144–188k).
+- Lowest non-immune ≈ $111–112. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+- Full ABAB verdict follows when the script ends (≈ 12:50 PM).
