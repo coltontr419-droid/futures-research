@@ -26337,3 +26337,15 @@ Replica, 20 sim min:
   - The validator's window still holds the 4:11 PM start burst (≈ 15 wall h), and two-sided Σ2·min must turn positive over its full window.
   - Expect the live gauge to move as the burst ages out (≈ tomorrow morning).
 - Plan: keep 113 unchanged (no reason to touch a recipe that is now working); briefs continue. Next study (offline): what makes the $300 Σ2·min positive for long-window makers (both sides on the same book within the window).
+
+## §1748 — 8:46 PM CT brief (113 HOLD, stage 2 confirmed)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $13/mo ($0.44/d) | $237/mo ($7.90/d) | — |
+| net α | 893 | 1,949 | — |
+| making (live) | 0 | 147 / share 0.0045 | — |
+| $300 α (4 sim min) | +19.8 on $99k (**+2.00 bp**) | +0.95 bp | +0.63 bp |
+| $30 α (4 sim min) | +0.09 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 blocked (busiest book $39.0k). Lowest non-immune ≈ $108–110. Upstream 20e97853.
