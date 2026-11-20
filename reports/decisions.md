@@ -26236,3 +26236,32 @@ Validator replica (8 sim min):
 - 113: registered, 0 tracebacks, PACE 0 of 190 blocked. $300 fills resumed ≈ 300 sim s after the restart (sim s 29,118).
 - Lowest non-immune ≈ $107–119. Upstream 20e97853.
 - Stage-1 read at 6:52 PM.
+
+## §1742 — 6:43–7:05 PM CT — 113 READ: stage 1 PASS, stage 2 first positive (quality 0.22) → KEEP all; hold to confirm
+
+- 6:43 PM brief:
+  - 113: $1/mo ($0.04/d), net α 460, making 0, 0 tracebacks, 0 blocked.
+  - 252: $216/mo ($7.20/d), making 147.
+- **Stage 1** (fillclass300, sim s 29,118–29,450):
+
+| | 113 (pre-M4 → now) | 55 | 210 |
+|---|---|---|---|
+| $ behind the touch | 24% → **85%** | 71% | 83% |
+| $ from sweeps | 29% → **67%** | 75% | 75% |
+| +20 s net | +0.65 → **+1.29 bp** | +1.40 | +1.09 |
+| +120 s | +2.92 bp | +3.15 | +2.69 |
+| $300 volume | $214k | $185k | $175k |
+
+- $300 α (skill_cls2, 8 sim min): 113 **+60.6 on $315k = +1.92 bp** (x3/228 level), 252 +0.80, 55 +0.30. $30: +0.23 bp.
+- **Stage 2** (making_diag, 8 sim min):
+
+| uid | C | R | $300 R | $30 R | quality |
+|---|---|---|---|---|---|
+| 113 | +9.5 | **+2.1** | +1.8 | +0.3 | **0.22** (FIRST positive quality on any of our miners) |
+| 252 | — | — | — | — | 0.37 |
+| 55 | — | — | — | — | 0.59 |
+
+- Σ2·min per class is still < 0 for all three in an 8-min window (refs too). Two-sided credit needs longer windows.
+- **Verdict: KEEP all** (M2 + M3a + M3b2 + M4 + lean 1.5). Every bar met: +20 s ≥ +1.0, α ≥ +1.2 bp, quality > 0.
+- **Plan:** HOLD 113 unchanged to confirm stage 2 over several reads (hourly) and let the start burst age out of the ≈ 15-wall-h making window.
+- Offline meanwhile: per-book two-sidedness of the fleet over 60–180 sim min (how their Σ2·min turns positive).
