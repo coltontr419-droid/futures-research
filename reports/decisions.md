@@ -27241,3 +27241,14 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 - **Next tests (ABAB, judged on per-fill R/C via fillvalue.py + Σα vs 252):**
   1. **Delayed lean entry:** step in only once the last few seconds of prints stop moving against the lean (short-term momentum filter on the lean step-in).
   2. **Split books:** lean only where our 20-s R/C is positive; neutral (no lean, two-sided) elsewhere.
+
+## §1804 — 3:28 PM CT brief (jb2 ABAB last block B2 finishing)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $70/mo ($2.33/d) | $217/mo ($7.22/d) |
+| making captured / realized / share (live) | 151.8 / 5.6 / 0.0002 | — / — / 0.0049 |
+| net α | 1,358 | 1,459 |
+
+- B2 checks (113 vs 252 Σα): 10.7 vs 17.6, 12.3 vs 16.3, 11.9 vs 6.0, 12.5 vs 12.1, 11.7 vs 16.3.
+- Lowest non-immune ≈ $107–113. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
