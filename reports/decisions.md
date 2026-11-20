@@ -26768,3 +26768,22 @@ fillclass300, last 1,500 sim s:
 | $30 α (4 sim min) | +0.11 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $68.2k). Lowest non-immune ≈ $84–99. Upstream 20e97853.
+
+## §1776 — 4:57–5:05 AM CT — overnight summary to the user; Option A started on 113 + lab-side guard
+
+- **Overnight (11 PM → 5 AM):**
+  - Pay $49 → $68/mo; net α ≈ 1,000 → ≈ 1,450.
+  - Live captured 8 → 98, realized 0 → 7.6 (first > 0 at 12:38 AM), share still 0.
+  - Replica quality positive on all 7 reads (0.11–0.32); $300 α +1.2 to +2.8 bp; 0 errors.
+  - M5 failed and was reverted (§1772).
+- **Survival risk:** 113's protection ends ≈ 4:10 PM CT today. At $68 it is below the lowest non-immune UIDs (≈ $83, $91, $98); pay has been flat at $68–72 since ≈ 1 AM.
+- **User: "start A".**
+  - Option A (live 5:04 AM, sim s 36,764): mk_rest_none 1 → 0, mk_gate_rest 30 → 5; mk_rest_frac stays 0.1. Non-lean $300 side and no-lean books get tiny (≈ 0.1 × full ≈ $470) rests 5 ticks behind (+ edge/fee offset).
+  - Backup live_params_113.pre-optA.json.
+- **User closes the laptop for ≈ 1 h**, so session crons won't fire. Started speed/optA_guard.sh on the lab (nohup, 12 × 5 min). It reverts to pre-optA on:
+  - no $300 fills in 3 sim min;
+  - ≥ 20 blocked books;
+  - $300 α ≤ 0 bp twice in a row while 252 > 0.
+  - It logs to /opt/mvtrx/optA_guard.log and writes a NOTE to alerts.txt.
+  - This is allowed under the auto-switch-off rule (tweak to a winning recipe).
+- Read when the user is back (≈ 6:05 AM): guard log, skill_cls2, making_diag 20, fillclass300 (two-sided books), mkgauges.
