@@ -26265,3 +26265,16 @@ Validator replica (8 sim min):
 - **Verdict: KEEP all** (M2 + M3a + M3b2 + M4 + lean 1.5). Every bar met: +20 s ≥ +1.0, α ≥ +1.2 bp, quality > 0.
 - **Plan:** HOLD 113 unchanged to confirm stage 2 over several reads (hourly) and let the start burst age out of the ≈ 15-wall-h making window.
 - Offline meanwhile: per-book two-sidedness of the fleet over 60–180 sim min (how their Σ2·min turns positive).
+
+## §1743 — 7:16 PM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | **$5/mo ($0.18/d)**, first non-zero; incentive 0.0001 | $232/mo ($7.74/d) | — |
+| net α | 551 | 1,890 | — |
+| making | 0 | 154 / share 0.0044 | — |
+| $300 α (4 sim min) | +18.3 on $112k (**+1.64 bp**) | +1.04 bp | +0.72 bp |
+| $30 α (4 sim min) | +0.30 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 of 190 blocked (busiest book $33.5k). Upstream 20e97853.
+- Replica confirmation every hour at :28.
