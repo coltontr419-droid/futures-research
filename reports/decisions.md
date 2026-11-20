@@ -26361,3 +26361,12 @@ Replica, 20 sim min:
 | $30 α (4 sim min) | +0.07 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 blocked (busiest book $41.5k). Lowest non-immune ≈ $89–116. Upstream 20e97853.
+
+## §1750 — 9:38 PM CT stage-3 watch
+
+| | making captured / share | incentive | net α | pay |
+|---|---|---|---|---|
+| 113 | 0 / 0 (not passed yet) | 0.0005 | 913 | $28/mo |
+| 252 | 144 / 0.0045 | 0.005 | — | — |
+
+- Replica skipped (odd hour); next replica read at the 10:28 PM watch.
