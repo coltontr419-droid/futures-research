@@ -26488,3 +26488,17 @@ fillclass300, last 900 sim s:
   - 113's window still holds the 4:11–4:52 PM start burst, whose realized R was strongly negative ($30 R −10 on $1.04M). Its whole-window quality is therefore still 0, even though every replica read since 7 PM is positive.
   - Expect realized and share to turn on once the burst leaves the window: ≈ 180 sim min after it ≈ sim s 38,500 ≈ 6–7 AM CT 11-20 at ≈ 11.7 sim s per wall min.
 - Replica skipped (odd hour); next at 12:28 AM.
+
+## §1757 — 11:46 PM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | **$61/mo ($2.02/d)** | $267/mo ($8.90/d) | — |
+| making captured (live) | 14.13 | 128 | — |
+| realized / share | 0 / 0 | share 0.0046 | — |
+| net α | 959 | — | — |
+| incentive | 0.0012 | — | — |
+| $300 α (4 sim min) | +23.4 on $136k (**+1.73 bp**) | +1.00 bp | +0.16 bp |
+| $30 α (4 sim min) | −3.0 (−0.29 bp; one window) | — | — |
+
+- 113: registered, 0 tracebacks, PACE 0 of 192 blocked (the status line logs every ≈ 6 min; busiest book $51.6k). Lowest non-immune ≈ $101–106. Upstream 20e97853.
