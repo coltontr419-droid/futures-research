@@ -27124,3 +27124,27 @@ fillclass300, last 1,500 sim s:
 - **Block B2 checks** (113 − 252 bp): +0.83, +0.95, +0.05, +0.22, +0.47 → mean ≈ +0.50, on higher $300 volume ($143–251k vs 252's $144–188k).
 - Lowest non-immune ≈ $111–112. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
 - Full ABAB verdict follows when the script ends (≈ 12:50 PM).
+
+## §1798 — 12:57 PM CT — ABAB B-0.1 verdict: TIE on skill → B adopted as base (tie → copy the fleet); jump_back 2 ABAB started
+
+**Per arm** (5-min checks, 113 vs 252 in the same windows):
+
+| block | 113 − 252 (bp) | mean (bp) | 113 − 252 Σα per check | end replica quality | two-sided $300 books |
+|---|---|---|---|---|---|
+| A1 | −0.65, +0.60, +1.22, +0.05, +1.03 | +0.45 | 3.7 | 0.15 | 3 |
+| A2 | +0.23, +0.88, +1.02, +1.42, +0.77 | +0.86 | 11.9 | 0.00 | 1 |
+| B1 | +0.01, +0.03, −0.34, +0.02, +0.45, +0.02 | +0.03 | 1.6 | 0.00 | 7 |
+| B2 | +0.83, +0.95, +0.05, +0.22, +0.47, +0.25 | +0.46 | 12.3 | 0.16 | 16 |
+
+| arm | mean (bp) | Σα per check | $300 volume |
+|---|---|---|---|
+| A | **+0.65** | +7.8 | $111–173k |
+| B | +0.25 | **+7.0** | $141–251k (higher) |
+
+- Pay counts total α, not α per $. B trades more at a lower bp, so its total α matches A's: **TIE**. The 5-sim-min replicas cannot separate the arms.
+- B makes more $300 books two-sided, the route to the $300 making pool, and that is how the fleet quotes.
+- **Rule feedback-tie-copy-fleet → B adopted as the new base.** live_params_NEXT.json = base + Option B 0.1 (mk_rest_none 0, gate_rest 5, rest_frac 0.1, mk_rest_lean_none 1, jump_back 1).
+- **Next test started 12:58 PM** — speed/abab_jb2.sh (log /opt/mvtrx/abab_jb2.log; 4 × 30 min; ends ≈ 2:58 PM):
+  - A = new base (jump_back 1); B = new base with **mk_jump_back 2** (lean side 2 ticks behind the touch).
+  - Aim: $300 20-s markout / R (the fleet's behind fills sit 2–3 ticks back).
+  - Judge on Σα per check vs 252 (primary) and bp, plus replica.
