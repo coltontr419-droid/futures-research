@@ -26614,3 +26614,22 @@ fillclass300, last 900 sim s:
 - 113 again beats 252 on replica credit.
 - The gap to the fleet's quality is still the $300 side: their $300 R is +17 to +24, ours ≈ 0.
 - Next lever (after the live share shows): the $300 20-s markout.
+
+## §1766 — 2:45 AM CT — offline: why 113's $300 validator R ≈ 0 while the fleet's is +17 to +24 (no live change)
+
+fillclass300, last 1,500 sim s:
+
+| uid | $300 $ | +20 s net (quote mid) | +120 s | behind the touch: share / +20 s |
+|---|---|---|---|---|
+| 113 | $832k | **+1.17 bp** | +2.95 | 78% / +1.14 |
+| 252 | $1,027k | **+1.23 bp** | +2.63 | 31% / +1.71 |
+| 55 | $908k | **+1.26 bp** | +2.76 | 51% / +1.64 |
+
+- Quote-mid markouts are now **equal**. The fleet's $300 edge is no longer fill quality.
+- What differs is the validator's basis. Per fill, realized is capped by |captured| (vs the print-centred mid), and the making pool needs **two-sided** capture per book (Σ_b 2·min(buy, sell)).
+  - 113 quotes $300 ONE-sided (lean side only; mk_rest_none 1), so $300 Σ2·min ≈ −7 to −11 every window.
+  - The fleet is ≈ 0 to +3 there (252 +1.1, 55 +3.4 at 2:38 AM), with R +17 to +24.
+- **Next test design, M5** (after the live share shows; not now):
+  - Quote the non-lean $300 side too, behind the touch: mk_rest_none 0, mk_gate_rest ≈ 2 ticks, mk_rest_frac ≈ 0.5. This makes $300 books two-sided.
+  - Risk: non-lean fills dilute $300 α per $ (§1605 saw this with deep rests).
+  - Census + interaction check first; judge on $300 Σ2·min, R, quality AND α per $.
