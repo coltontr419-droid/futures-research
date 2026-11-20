@@ -26919,3 +26919,26 @@ fillclass300, last 1,500 sim s:
 - **Lesson / follow-up:** a restart with Option B should hold no-lean rests until the model is warm (e.g. require the mid history before resting). Note for the next build.
 - **Survival:** lowest non-immune ≈ $114 / $114 / $117; 113 $72 ≈ 0.63×.
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1786 — 8:21 AM CT brief (Option B, post-warm-up)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | **$77/mo ($2.56/d)**, first rise since ≈ 1 AM | $253/mo ($8.45/d) | — |
+| making captured / realized / share (live) | 144.5 / 12.6 / 0.0001 | — / — / 0.0049 | — |
+| net α | 1,712 | — | — |
+| incentive | 0.0015 | — | — |
+| $300 α (4 sim min) | **+21.6 on $175k (+1.24 bp, kept +15 −4)** | +0.81 bp | +0.55 bp |
+| $30 α (4 sim min) | +0.05 bp | — | — |
+
+- Recovered after the warm-up.
+- B guard checks:
+
+| time (UTC) | $300 α 113 | 252 |
+|---|---|---|
+| 14:10 | −0.44 (warm-up tail) | +1.58 |
+| 14:16 | +0.18 | +1.22 |
+| 14:22 | **+0.99** | +0.62 |
+
+- **Survival:** lowest non-immune ≈ $112 / $113 / $114; 113 $77 ≈ 0.68×.
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
