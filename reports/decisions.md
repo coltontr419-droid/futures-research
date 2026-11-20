@@ -27207,3 +27207,15 @@ fillclass300, last 1,500 sim s:
 - **Block A1 (jump_back 1)** for comparison: Σα +21.6, +24.2, +24.0, +23.0, +14.9 → **mean +21.5**; quality 0.31.
 - **Block A2 so far:** +8.5 vs 11.8 (+0.78 vs +0.76 bp), +8.4 vs 9.9: a quieter market window (252 lower too).
 - Lowest non-immune ≈ $110 / $110. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1802 — 2:58 PM CT brief (jb2 ABAB block B2 running)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $71/mo ($2.38/d) | $214/mo ($7.15/d) |
+| making captured / realized / share (live) | 146.2 / 6.7 / 0.0002 | — / — / 0.0050 |
+| net α | 1,303 | 1,366 |
+
+- Block A2 end replica: 113 quality 0.00, $300 R −1.3 (252: quality 0.07, $300 R +1.6). A weak window for both.
+- B2 first check: 113 +10.7 (+1.03 bp) on $104k vs 252 +17.6 (+1.06).
+- Lowest non-immune ≈ $113–114. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
