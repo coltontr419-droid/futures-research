@@ -26853,3 +26853,19 @@ fillclass300, last 1,500 sim s:
   - Lowest non-immune ≈ $107 / $108 / $114. 113 at $70 = **≈ 0.65× the line**, with ≈ 9 h of protection left.
   - Net α 1,710 is rising (≈ x3's 1,840 when it paid $89), but pay has been flat at ≈ $70 since ≈ 1 AM: the validator's pay smoothing lags.
 - Registered, 0 tracebacks, PACE 1 of 192 blocked. Upstream 20e97853.
+
+## §1782 — 7:21 AM CT brief (A2 for 53 min) — skill softening
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $72/mo ($2.41/d) | $254/mo ($8.48/d) | — |
+| making captured / realized / share (live) | 136.9 / 10.13 / 0.0001 | — / — / 0.0048 | — |
+| net α | **1,782** | — | — |
+| $300 α (4 sim min) | +3.6 on $161k (**+0.22 bp**, kept +3 −6) | +0.52 bp | +0.60 bp |
+| $30 α (4 sim min) | +0.12 bp | — | — |
+
+- A2 guard latest two checks: 113 **−0.27** / +0.19 vs 252 +0.79 / +0.41.
+- Under A2, 113's $300 α runs below 252 in the latest windows. Under Option A it ran level with 252.
+- Not two consecutive ≤ 0 → no auto revert. The 7:33 AM A2 read (replica: Σ2·min, R, quality) decides; lean toward reverting to Option A if Σ2·min shows no clear gain.
+- **Survival:** lowest non-immune ≈ $108 / $114 / $114; 113 at $72 ≈ 0.65×.
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
