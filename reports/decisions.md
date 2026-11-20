@@ -26942,3 +26942,17 @@ fillclass300, last 1,500 sim s:
 
 - **Survival:** lowest non-immune ≈ $112 / $113 / $114; 113 $77 ≈ 0.68×.
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1787 — 8:51 AM CT brief (Option B)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $76/mo ($2.54/d) | $251/mo ($8.35/d) | — |
+| making captured / realized / share (live) | 145.1 / **20.32** (highest; ≈ 1.5× since 8:21 AM) / 0.0001 | — / — / 0.0049 | — |
+| net α | 1,625 | — | — |
+| $300 α (4 sim min) | +4.1 on $125k (+0.33 bp) | +0.96 bp | +0.70 bp |
+| $30 α (4 sim min) | +0.06 bp | — | — |
+
+- B guard, last 4 checks: 113 **+1.01 / +1.09 / +1.05** / +0.52 vs 252 +0.74 / +0.78 / +0.97 / +0.84. Ahead of 252 on 3 of 4.
+- **Survival:** lowest non-immune ≈ $111–113; 113 $76 ≈ 0.68×.
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
