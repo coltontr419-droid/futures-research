@@ -26571,3 +26571,17 @@ fillclass300, last 900 sim s:
 
 - At 252's ratio (share 0.0047 per 75 realized), 113's 1.66 realized ≈ share 0.0001, below the 4-dp display or not yet in the smoothed share.
 - Replica skipped (odd hour); next at 2:28 AM.
+
+## §1763 — 1:46 AM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $68/mo ($2.26/d) | $251/mo ($8.35/d) | — |
+| making captured / realized (live) | 47.81 / **2.074** | 140 / share 0.0047 | — |
+| share | 0.0000 | — | — |
+| net α | 1,173 | — | — |
+| incentive | 0.0013 | — | — |
+| $300 α (4 sim min) | +28.6 on $135k (**+2.11 bp**) | +0.44 bp | +0.47 bp |
+| $30 α (4 sim min) | +0.26 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $57.7k). Lowest non-immune ≈ $108–109. Upstream 20e97853.
