@@ -26981,3 +26981,18 @@ fillclass300, last 1,500 sim s:
 - **Action 8:59 AM:** live params → Option A (live_params_113.pre-A2.json with explicit mk_rest_lean_none 0, rest_frac 0.1); B_guard stopped. Agent 186bbabb stays (knob off = d8d9f7a7 behaviour).
 - **Plan:** hold Option A for the survival afternoon (pay $76, rising). Any further test only if clearly safer. Candidate: B at rest_frac 0.1 (no-lean books only).
 - Live 8:51 AM: realized 20.3 (highest).
+
+## §1789 — 9:21 AM CT brief (Option A, HOLD for survival)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | **$78/mo ($2.60/d)** | $239/mo ($7.97/d) | — |
+| making captured / realized (live) | 151.1 / 19.73 | — | — |
+| share | **0.0002** (doubled) | 0.0049 | — |
+| net α | 1,614 | — | — |
+| incentive | 0.0016 | — | — |
+| $300 α (4 sim min) | +13.6 on $181k (+0.75 bp) | +1.05 bp | +0.30 bp |
+| $30 α (4 sim min) | +0.20 bp | — | — |
+
+- **Survival:** lowest non-immune ≈ $105 / $105 / $110; 113 $78 ≈ 0.74× (gap closing: 0.63× at 7:51 AM).
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
