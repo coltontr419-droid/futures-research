@@ -26996,3 +26996,17 @@ fillclass300, last 1,500 sim s:
 
 - **Survival:** lowest non-immune ≈ $105 / $105 / $110; 113 $78 ≈ 0.74× (gap closing: 0.63× at 7:51 AM).
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1790 — 9:44 AM CT brief (Option A, HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $76/mo ($2.54/d) | $234/mo ($7.81/d) | — |
+| making captured / realized / share (live) | 149.4 / 16.91 / 0.0002 | — / — / 0.0049 | — |
+| net α | 1,528 (drifting down from 1,831 at 7:33 AM as the strong overnight stretch leaves the window) | — | — |
+| incentive | 0.0016 | — | — |
+| $300 α (4 sim min) | +10.4 on $126k (+0.82 bp) | +0.63 bp | −0.25 bp |
+| $30 α (4 sim min) | +0.10 bp | — | — |
+
+- **Survival:** lowest non-immune ≈ $102 / $103 / $107; 113 $76 ≈ 0.74×.
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
