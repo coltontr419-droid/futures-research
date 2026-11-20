@@ -26395,3 +26395,18 @@ Replica, 20 sim min:
   - Registered, 0 tracebacks, 0 blocked (busiest book $44.9k).
 - 252: $251/mo ($8.36/d), making 132 / share 0.0046.
 - Lowest non-immune ≈ $121–122. Upstream 20e97853.
+
+## §1753 — 10:38 PM CT stage-3 watch + replica: live captured 6.09; first replica CREDIT (0.4, $30)
+
+- **Live gauges:**
+  - 113: making_captured **6.089** (1.333 at 10:16 PM), realized 0, share 0; incentive **0.001** (doubled); net α **1,020**; pay **$49/mo** ($1.65/d).
+  - 252: captured 139, share 0.0046, incentive 0.0053.
+- **Replica** (20 sim min):
+
+| uid | C | R | quality | $300 R | $30 R / Σ2·min (books both > 0) | credit |
+|---|---|---|---|---|---|---|
+| 113 | +24.3 | +2.6 | **0.11** (4th positive read) | −2.2 (this window) | +4.8 / **+3.6 (40)** | **0.4 ($30), the first replica credit on any of our miners** |
+| 252 | — | — | 0.65 | — | — | 0 in this window |
+| 55 | — | — | 0.44 | — | — | 0 in this window |
+
+- Watch: $300 R dipped negative in this window (quality 0.11, lowest read yet); one read, not a trend. The rule needs 2 reads at 0 with R < 0 before investigating.
