@@ -27286,3 +27286,25 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 - abab_mom.sh running (warm-up wait until ≈ 4:02 PM, then block A).
 - Lowest non-immune ≈ $117–119. 113 ($71) is protected until ≈ 4:10 PM.
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1807 — 3:53 PM CT — user: "can you get any information out of the test when it's pruned?" → offline counterfactual for delayed entry (speed/momcf.py)
+
+- After a prune the tape stops (no more states). Blocks completed before it are still scored offline from the tape.
+- More useful: tag every recorded fill by the mid move over the 10 sim s before it (vs the fill side), then score each group on the validator basis plus +120/+600 s quote-mid markouts (skill proxy).
+- Last 90 sim min:
+
+| uid / group | share of $300 $ | C per $ | R/C | +120 s | +600 s |
+|---|---|---|---|---|---|
+| 113 against > 1 bp | 49% | +0.21 bp | **−0.41** | +2.17 bp | +1.93 bp |
+| 113 against 0–1 bp | 28% | +0.17 bp | **−0.49** | +2.57 bp | +2.43 bp |
+| 113 with / flat | 22% | **+0.42 bp** | **+0.18** | +2.03 bp | +2.02 bp |
+| 113 all | — | +0.25 bp | −0.20 | +2.25 bp | +2.09 bp |
+| 252 all (against > 1 bp: only 15%) | — | +0.32 bp | +0.57 | +2.66 bp | +3.00 bp |
+
+- 252's R/C is ≈ 0.57 in every group.
+- **Conclusions:**
+  1. The §1803 diagnosis is confirmed: 77% of 113's $300 $ fills into an adverse 10-s move.
+  2. Delayed entry should lift R/C (with/flat fills +0.18, C ×2) at **no per-$ skill cost** (+120/+600 s equal across groups). We are pace-bound, so the skipped budget is spent at better moments.
+  3. The 0–1 bp group is as bad as > 1 bp → the stronger setting **mk_lean_mom_bp 0.0** should beat the live test's 1.0. Next variant.
+  4. Even good fills reach only 0.18 vs 252's 0.57: delayed entry is a step, not the whole gap.
+- This offline method lets the next miner start with the best setting without waiting for a live ABAB.
