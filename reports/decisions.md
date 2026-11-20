@@ -26462,3 +26462,17 @@ fillclass300, last 900 sim s:
 - Hold 113 unchanged overnight. Briefs every 30 min; stage-3 watch hourly with a replica every 2 h.
 - Milestones: live realized / share > 0, then pay ≥ 1.3× the line.
 - Only intervene if broken, or if replica quality reads 0 with R < 0 twice in a row.
+
+## §1755 — 11:16 PM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $49/mo ($1.65/d) | $261/mo ($8.71/d) | — |
+| making captured (live) | **11.57** (8.28 at 11:02 PM), rising | — | — |
+| realized / share | 0 / 0 | share 0.0046 | — |
+| net α | 999 | — | — |
+| incentive | 0.001 | — | — |
+| $300 α (4 sim min) | +17.9 on $86k (**+2.07 bp**) | +0.82 bp | +0.61 bp |
+| $30 α (4 sim min) | +0.05 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 blocked (busiest book $49.1k). Lowest non-immune ≈ $105–108. Upstream 20e97853.
