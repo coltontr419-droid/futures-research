@@ -26902,3 +26902,20 @@ fillclass300, last 1,500 sim s:
   - live mk_rest_lean_none 1 (rest_none 0, gate_rest 5, rest_frac 0.2 kept; backup live_params_113.pre-B.json). x3 restarted; pace_cold stays 0; PACE 0 blocked.
 - Lab guard speed/B_guard.sh (waits 1,800 s for the model warm-up, then 12 × 5 min; same revert rules → pre-B; log B_guard.log), pid 2289917.
 - Read ≈ 8:55 AM: replica $300 R / Σ2·min / quality, α vs 252, share.
+
+## §1785 — 7:51 AM CT brief (Option B, 17 min after the restart = model warm-up)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $72/mo ($2.41/d) | $255/mo ($8.50/d) | — |
+| making captured / realized / share (live) | 138.0 / **13.52** / 0.0001 | — / — / 0.0049 | — |
+| net α | 1,668 | — | — |
+| $300 α (4 sim min) | **−8.8 on $69k (−1.27 bp, 46 books, kept +1 −13)** | +1.09 bp | +0.33 bp |
+| $30 α (4 sim min) | +0.01 bp | — | — |
+
+- Why the $300 loss: during the ≈ 5-sim-min model warm-up NO book has a lean yet, so under Option B every $300 book counts as "no-lean" and gets two-sided rests. Those small rests fill without any signal behind them.
+  - Before Option B (rest_none 1) the warm-up simply had no $300 quotes.
+- Expected to end as leans arrive (≈ 8:00 AM). The B guard's first check (≈ 8:05 AM) and the 8:57 AM read judge the post-warm-up behaviour.
+- **Lesson / follow-up:** a restart with Option B should hold no-lean rests until the model is warm (e.g. require the mid history before resting). Note for the next build.
+- **Survival:** lowest non-immune ≈ $114 / $114 / $117; 113 $72 ≈ 0.63×.
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
