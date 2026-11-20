@@ -27010,3 +27010,22 @@ fillclass300, last 1,500 sim s:
 
 - **Survival:** lowest non-immune ≈ $102 / $103 / $107; 113 $76 ≈ 0.74×.
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1791 — 10:15–10:20 AM CT — brief; Option A costs ≈ half the $300 skill edge → back to the M4-only recipe for survival
+
+- **10:15 AM gauges:**
+  - 113: $75/mo ($2.48/d); captured 144.7, realized **12.05** (20.3 at 8:51 AM), share 0.0002; net α **1,485** (1,831 at 7:33 AM).
+  - $300 α (4 sim min) +2.7 on $121k = +0.22 bp, kept +9 −14 (252 +0.46, 55 −0.18).
+  - 252: $229/mo, share 0.0049.
+  - Lowest non-immune ≈ $105 / $105 / $106.
+- **Relative-to-252 comparison** (controls for market):
+
+| period | 113 $300 α | 252 same windows | 113 relative to 252 |
+|---|---|---|---|
+| before Option A (7 PM–5 AM, M4 only) | +1.3 to +2.8 bp | +0.4 to +1.0 | ≈ 2× |
+| Option A / A2 / B (5 AM–now) | +0.2 to +1.9 bp | +0.5 to +1.6 | ≈ 1× |
+
+- The tiny two-sided rests (Option A) bought a making share of 0.0002 (≈ $5/mo at 252's ≈ $1 per 0.00002) but cost ≈ half of the $300 α edge. Skill is what pays 113 (and the prune rank) today.
+- **Action 10:20 AM:** mk_rest_none 0 → **1**, mk_gate_rest 5 → **30** (rest_frac 0.1, rest_lean_none 0 explicit). This is the §1742 recipe (M2 + M3a + M3b2 + M4 + lean 1.5), the one with 6 positive quality reads and +1.3–2.8 bp. Backup live_params_113.optA-final.json.
+- live_params_NEXT.json updated to the same.
+- **Verdict on the two-sided $300 line (M5, A, A2, B): NOT worth the skill cost with our lean engine.** Option A was the least bad; it stays a candidate for a dedicated making miner, not for the survival miner.
