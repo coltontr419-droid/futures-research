@@ -26307,3 +26307,16 @@ Replica, 20 sim min:
 
 - 113: registered, 0 tracebacks, 0 blocked (busiest book $35.6k). Lowest non-immune ≈ $115–117. Upstream 20e97853.
 - Watch: 113's $300 volume dipped in this 4-min window ($69k vs $112–315k earlier). The buckets are draining after the start burst toward steady refill. Check the next brief; not blocked.
+
+## §1746 — 8:16 PM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | **$13/mo ($0.45/d)**, rising; incentive 0.0003 | $238/mo ($7.94/d) | — |
+| net α | 828 | 1,915 | — |
+| making (live) | 0 | 143 / share 0.0045 | — |
+| $300 α (4 sim min) | +22.4 on $138k (**+1.62 bp**) | +0.71 bp | +0.78 bp |
+| $30 α (4 sim min) | +0.16 bp | — | — |
+
+- 113's $300 volume back to normal ($138k; the 7:46 PM dip was one quiet window).
+- Registered, 0 tracebacks, 0 blocked (busiest book $37.7k). Lowest non-immune ≈ $97–107. Upstream 20e97853.
