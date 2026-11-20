@@ -27274,3 +27274,15 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - Block ends now run speed/fillvalue.py 6 (per-fill validator R/C: ALL / single / depth1) instead of the 5-min making_diag.
   - Ends ≈ 6:35 PM CT.
 - (A first launch had a quoting slip in the edit; it was killed during its warm-up sleep before any change and relaunched patched.)
+
+## §1806 — 3:45 PM CT brief (delayed-entry ABAB in its warm-up wait)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $71/mo ($2.36/d) | $220/mo ($7.34/d) |
+| making captured / realized / share (live) | 157.4 / 7.0 / 0.0002 | — / — / 0.0050 |
+| net α | 1,387 | 1,495 |
+
+- abab_mom.sh running (warm-up wait until ≈ 4:02 PM, then block A).
+- Lowest non-immune ≈ $117–119. 113 ($71) is protected until ≈ 4:10 PM.
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
