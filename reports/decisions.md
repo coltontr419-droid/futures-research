@@ -26349,3 +26349,15 @@ Replica, 20 sim min:
 | $30 α (4 sim min) | +0.09 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 blocked (busiest book $39.0k). Lowest non-immune ≈ $108–110. Upstream 20e97853.
+
+## §1749 — 9:16 PM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | **$28/mo ($0.93/d)**, doubling every ≈ hour as smoothing catches up | $253/mo ($8.43/d) | — |
+| net α | 920 | 1,885 | — |
+| making (live) | 0 | 141 / share 0.0045 | — |
+| $300 α (4 sim min) | +16.6 on $130k (**+1.27 bp**) | +0.95 bp | +0.47 bp |
+| $30 α (4 sim min) | +0.07 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 blocked (busiest book $41.5k). Lowest non-immune ≈ $89–116. Upstream 20e97853.
