@@ -26533,3 +26533,17 @@ fillclass300, last 900 sim s:
 - **113's $30 making is now on par with the fleet.**
 - **Watch:** $300 R was negative in the last two windows (−2.2 at 10:38 PM, −6.0 now) while $300 α stays +1.5–2.2 bp. The lean step-ins still lose at 20 s on some windows and cap quality at ≈ 0.2 vs the fleet's 0.55.
   - Next lever once stage 3 is complete: $300 20-s markout (e.g. mk_jump_back 2 on the $300 lean side, or study which $300 fills carry the negative R).
+
+## §1760 — 12:46 AM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $61/mo ($2.03/d) | $268/mo ($8.92/d) | — |
+| making captured / realized (live) | 33.72 / **0.307** (0.146 at 12:38 AM) | 135 / share 0.0047 | — |
+| share | 0.0000 | — | — |
+| net α | 1,049 | — | — |
+| incentive | 0.0012 | — | — |
+| $300 α (4 sim min) | +18.8 on $96k (**+1.95 bp**) | +0.97 bp | +0.50 bp |
+| $30 α (4 sim min) | 0.00 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $54.5k). Lowest non-immune ≈ $107. Upstream 20e97853.
