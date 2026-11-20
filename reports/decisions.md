@@ -26278,3 +26278,19 @@ Validator replica (8 sim min):
 
 - 113: registered, 0 tracebacks, 0 of 190 blocked (busiest book $33.5k). Upstream 20e97853.
 - Replica confirmation every hour at :28.
+
+## §1744 — 7:37 PM CT — hourly stage-2 read #2: 113 quality 0.32 (≈ 252's 0.38)
+
+Replica, 20 sim min:
+
+| uid | C | R | quality | $300 R / Σ2·min (books both > 0) | $30 R / Σ2·min (books both > 0) |
+|---|---|---|---|---|---|
+| 113 | **+26.9** | **+8.6** | **0.32** | +5.9 / −9.3 (11) | +2.7 / −2.4 (25) |
+| 252 | +20.6 | +7.9 | 0.38 | +7.2 / −9.4 (23) | +0.7 / −5.6 (4) |
+| 55 | +26.5 | +14.8 | 0.56 | +8.8 / −7.4 (11) | +6.0 / −0.3 (4) |
+
+- 113 now captures more than 252 and has about the same quality. Σ2·min is still < 0 for all three in 20-min windows (refs too), so credit 0 in this window.
+- 252's live gauge shows captured 141 / share 0.0045, built over the full window.
+- $300 α (8 sim min): 113 **+57.4 on $280k = +2.05 bp** (252 +0.36). $30 +0.31 bp. Net α 673; live making 0; incentive 0.0001.
+- Stage 2: **2 of 3** positive reads (0.22, 0.32). HOLD continues.
+- Note: `pgrep -f making_diag` over ssh matched its own command line (false "running"). Use the ps-args check (lesson recorded).
