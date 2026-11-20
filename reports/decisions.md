@@ -27029,3 +27029,17 @@ fillclass300, last 1,500 sim s:
 - **Action 10:20 AM:** mk_rest_none 0 → **1**, mk_gate_rest 5 → **30** (rest_frac 0.1, rest_lean_none 0 explicit). This is the §1742 recipe (M2 + M3a + M3b2 + M4 + lean 1.5), the one with 6 positive quality reads and +1.3–2.8 bp. Backup live_params_113.optA-final.json.
 - live_params_NEXT.json updated to the same.
 - **Verdict on the two-sided $300 line (M5, A, A2, B): NOT worth the skill cost with our lean engine.** Option A was the least bad; it stays a candidate for a dedicated making miner, not for the survival miner.
+
+## §1792 — 10:27 AM CT — user: "this isnt a survival miner, its a test miner until we have a good strategy. keep running tests" → ABAB test of Option B at rest_frac 0.1
+
+- **Correction recorded:** the survival holds in §1788–§1791 were wrong in spirit. Memory feedback-uid113-goahead updated + lesson.
+- **Test** speed/abab_b01.sh (lab, nohup, pid 2363775; log /opt/mvtrx/abab_b01.log). 4 blocks × 30 wall min (≈ 6 sim min each):
+  - A = §1742 recipe (mk_rest_none 1, gate_rest 30).
+  - B = Option B tiny (mk_rest_none 0, gate_rest 5, rest_frac 0.1, mk_rest_lean_none 1): two-sided only on no-lean $300 books; lean books exactly as in A.
+  - Logged:
+    - every 5 min: $300 notional and α for 113 and 252 (skill_cls2 4);
+    - end of each block: making_diag 5 (C, R, $300 R).
+  - Safety: no $300 fills in 3 sim min or ≥ 20 blocked → A + stop.
+  - Ends ≈ 12:27 PM CT, back on A.
+- Judge: per-block 113 − 252 $300 α (bp), A vs B; $300 R per block; volume.
+- Backup live_params_113.pre-abab.json.
