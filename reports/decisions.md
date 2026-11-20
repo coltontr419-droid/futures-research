@@ -27338,3 +27338,20 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 
   - $300 trading continues but is lighter (post-restart warm-up + filter). The 4:38 PM read judges it.
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853. The ABAB was stopped in §1808 (no script running).
+
+## §1810 — 4:38 PM CT — 113 PRUNED (≈ 4:36 PM CT, right after its protection ended); final delayed-entry read inconclusive; next-miner setup
+
+- regcheck twice: x3 113 NOT REGISTERED (journal "not registered" 22:36:39 UTC).
+- mvtrx-x3 stopped + disabled; our_uids.txt now empty (backup our_uids.txt.bak-113prune); final params live_params_113.FINAL-1120.json. No test script running.
+- **Final delayed-entry read** (mom 10 s / 0 bp; tape sim s ≈ 44,000–44,439 incl. the warm-up tail; speed/momcf.py 7):
+  - "Against" share **77% → 18%**: the filter works mechanically.
+  - 113 ALL R/C −0.28 (with/flat −0.38) on only 197 fills / $96k → **INCONCLUSIVE** (too small, partly warm-up).
+  - $300 α +9.8 on $96k (+1.02 bp) vs 252 +21.9 on $249k (+0.88 bp): per $ fine, volume 2.5× lower.
+- **Next miner:**
+  - live_params_NEXT.json = proven base (§1742 recipe + Option B 0.1 + jump_back 1), with mk_lean_mom_s 0 (delayed entry OFF).
+  - The first test after warm-up = delayed-entry ABAB (mom 10 / 0 bp).
+  - Agent 58a77a8a; newminer.sh sets pace_cold=1 + pace_start 1500 (no start burst).
+  - Registration (user, VS Code closed): `~/btcli/bin/btcli subnet register --netuid 79 --wallet.name main --wallet.hotkey x3`, then `HK=x3 sh newminer.sh <uid> 113`.
+- 113's life (4:11 PM 11-19 → 4:36 PM 11-20):
+  - first positive making quality, first live making credit and share; peak net α 1,831; pay peak $78/mo.
+  - Never above ≈ 0.75× the prune line; the $300 making pool was never opened.
