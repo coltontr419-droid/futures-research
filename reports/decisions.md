@@ -26836,3 +26836,20 @@ fillclass300, last 1,500 sim s:
 | 12:39 | 86 | 0 | +0.63 vs +0.73 bp |
 
 - No revert. Stage 3 already passed (§1777); the hourly watch now continues as a light gauge check.
+
+## §1781 — 6:51 AM CT brief (A2 for 23 min)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $70/mo ($2.33/d) | $255/mo ($8.51/d) | — |
+| making captured / realized / share (live) | 129.8 / 10.63 / **0.0001** | 169 / 99 / 0.0048 | — |
+| net α | **1,710** | — | — |
+| incentive | 0.0014 | — | — |
+| $300 α (4 sim min) | +13.3 on $190k (+0.70 bp, 57 books) | +0.73 bp | −0.11 bp |
+| $30 α (4 sim min) | +0.12 bp | — | — |
+
+- A2 guard: 4 checks, α 113 +0.54 / +0.40 vs 252 +0.37 / +0.80 at the latest two; fills 13–86; blocked 0–1. No revert.
+- **Survival:**
+  - Lowest non-immune ≈ $107 / $108 / $114. 113 at $70 = **≈ 0.65× the line**, with ≈ 9 h of protection left.
+  - Net α 1,710 is rising (≈ x3's 1,840 when it paid $89), but pay has been flat at ≈ $70 since ≈ 1 AM: the validator's pay smoothing lags.
+- Registered, 0 tracebacks, PACE 1 of 192 blocked. Upstream 20e97853.
