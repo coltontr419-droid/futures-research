@@ -26823,3 +26823,16 @@ fillclass300, last 1,500 sim s:
 - Backup live_params_113.pre-A2.json (= Option A).
 - Lab guard speed/A2_guard.sh (copy of optA_guard pointing at pre-A2; log /opt/mvtrx/A2_guard.log): 12 × 5 min with the same revert rules.
 - Read ≈ 7:30 AM: guard log, replica 20 sim min ($300 Σ2·min target ≥ 0, R, quality), mkgauges (share).
+
+## §1780 — 6:38 AM CT stage-3 watch (A2 for 10 min)
+
+- 113: captured 125.1, realized 10.37, share 0.0001; net α **1,679**; incentive 0.0014; pay $70/mo.
+- 252: captured 173, realized 101, share 0.0048, net α 2,153.
+- A2 guard checks:
+
+| time (UTC) | $300 fills / 3 sim min | blocked | $300 α 113 vs 252 |
+|---|---|---|---|
+| 12:33 | 49 | 0 | +0.91 vs +0.64 bp |
+| 12:39 | 86 | 0 | +0.63 vs +0.73 bp |
+
+- No revert. Stage 3 already passed (§1777); the hourly watch now continues as a light gauge check.
