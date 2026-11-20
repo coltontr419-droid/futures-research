@@ -27090,3 +27090,25 @@ fillclass300, last 1,500 sim s:
 - Block A1 end (for comparison): quality 0.15, $300 R +1.2, Σ2·min −1.2 (3 books).
 - Block A2, first check: 113 +0.77 vs 252 +0.54.
 - Lowest non-immune ≈ $107–110. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1796 — 12:19 PM CT brief (ABAB block 4 = B started 12:19 PM)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $75/mo ($2.51/d) | $222/mo ($7.40/d) |
+| making captured / realized / share (live) | 146.3 / 8.67 / 0.0002 | — / — / 0.0050 |
+| net α | 1,422 | 1,398 |
+
+- **Block A2 complete** (113 − 252 bp per check): +0.23, +0.88, +1.02, +1.42, +0.77 → **mean +0.86** on $134–173k.
+- A2 end replica (5 sim min): 113 quality **0.00**, $300 R −3.0 (252 0.51).
+- So far:
+
+| | mean 113 − 252 α | end replica quality |
+|---|---|---|
+| A1 | +0.45 | 0.15 |
+| B1 | +0.03 | 0.00 |
+| A2 | +0.86 | 0.00 |
+
+- **The 5-sim-min end-of-block replica is too short to separate arms** (A itself reads 0.15 and 0.00).
+- α is the clear signal: **A ≈ +0.65 bp over 252, B ≈ +0.03.**
+- Lowest non-immune ≈ $111–113. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
