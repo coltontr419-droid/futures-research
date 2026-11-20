@@ -26516,3 +26516,20 @@ fillclass300, last 900 sim s:
 | $30 α (4 sim min) | +0.20 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $52.6k). Lowest non-immune ≈ $101–106. Upstream 20e97853.
+
+## §1759 — 11-20 12:38 AM CT stage-3 watch: FIRST LIVE making_realized > 0 (113: 0.146); replica credit 2.5 (≈ 55's, 5× 252's)
+
+- **Live gauges:**
+  - 113: captured **32.66**, realized **0.146** (first > 0, hours before the ≈ 6–7 AM estimate), share 0.0000 (4-dp rounding); net α 1,054; incentive 0.0012; pay $61/mo.
+  - 252: captured 134, realized 73, share 0.0047.
+- **Replica** (20 sim min):
+
+| uid | C | R | quality | $300 R / Σ2·min | $30 R / Σ2·min (books both > 0) | credit |
+|---|---|---|---|---|---|---|
+| 113 | +32.7 | +6.7 | 0.20 (5th positive read) | **−6.0** / −8.5 | **+12.7 / +12.5 (55)** | **2.5** |
+| 252 | +47.1 | +26.1 | 0.55 | — | +0.9 | 0.5 |
+| 55 | +45.4 | +25.5 | 0.56 | — | — | 3.4 |
+
+- **113's $30 making is now on par with the fleet.**
+- **Watch:** $300 R was negative in the last two windows (−2.2 at 10:38 PM, −6.0 now) while $300 α stays +1.5–2.2 bp. The lean step-ins still lose at 20 s on some windows and cap quality at ≈ 0.2 vs the fleet's 0.55.
+  - Next lever once stage 3 is complete: $300 20-s markout (e.g. mk_jump_back 2 on the $300 lean side, or study which $300 fills carry the negative R).
