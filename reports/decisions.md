@@ -27319,3 +27319,22 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - $300 fills not collapsed;
   - momcf: share of "against" fills down from 77%, R/C up from −0.20;
   - skill_cls2: Σα vs 252.
+
+## §1809 — 4:15 PM CT brief: 113 is now NON-IMMUNE and the LOWEST in the prune order
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $71/mo ($2.38/d) | $222/mo ($7.39/d) |
+| making captured / realized / share (live) | 143.5 / 5.5 / 0.0002 | — / — / 0.0049 |
+| net α | 1,275 | 1,530 |
+
+- Prune order: **113 $72 first**, then 182 $118, 95 ≈ $12x → pruned at the next registration on the subnet.
+- **Delayed entry** (mom 10 s / 0 bp, since sim s 43,954), 113 fills per sim min:
+
+| sim min since 43,954 | $300 | $30 |
+|---|---|---|
+| 3 | 3 | 28 |
+| 4 | 9 | 34 |
+
+  - $300 trading continues but is lighter (post-restart warm-up + filter). The 4:38 PM read judges it.
+- Registered, 0 tracebacks, 0 blocked. Upstream 20e97853. The ABAB was stopped in §1808 (no script running).
