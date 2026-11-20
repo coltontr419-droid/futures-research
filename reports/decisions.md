@@ -26806,3 +26806,14 @@ fillclass300, last 1,500 sim s:
   - 252: $256/mo ($8.55/d), share 0.0048, net α 2,075.
 - Lowest non-immune ≈ $101–111. 113's protection ends ≈ 4:10 PM CT. 0 tracebacks, 0 blocked; upstream 20e97853.
 - Replica (20 sim min) running for $300 Σ2·min / quality.
+
+## §1778 — 6:26 AM CT — replica on Option A (20 sim min, all Option A)
+
+| uid | C | R | quality | $300 R | $300 Σ2·min (books both > 0) | $30 Σ2·min (books) | credit |
+|---|---|---|---|---|---|---|---|
+| 113 | +30.4 | +3.1 | 0.10 (8th positive) | −0.5 | **−4.6 (39)** (pre-A −7 to −11 with ≈ 11–16 books) | +2.2 (34) | 0.2 |
+| 252 | +40.4 | +25.2 | 0.62 | +19.6 | +1.1 (33) | — | 0.7 |
+| 55 | — | +14.0 | 0.44 | +11.1 | +2.1 (16) | — | 0.9 |
+
+- **Option A verdict: KEEP** (better $300 two-sidedness at no α cost), but it does not yet get $300 Σ2·min ≥ 0.
+- Next step **A2**: rest_frac 0.1 → 0.2 (rests ≈ $940), keeping gate_rest 5, with the lab-side guard again. That stays far below M5's 0.5 × 2 ticks.
