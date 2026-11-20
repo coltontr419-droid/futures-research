@@ -26869,3 +26869,15 @@ fillclass300, last 1,500 sim s:
 - Not two consecutive ≤ 0 → no auto revert. The 7:33 AM A2 read (replica: Σ2·min, R, quality) decides; lean toward reverting to Option A if Σ2·min shows no clear gain.
 - **Survival:** lowest non-immune ≈ $108 / $114 / $114; 113 at $72 ≈ 0.65×.
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1783 — 7:25–7:40 AM CT — user: "most of today is left to you, any changes and tests are a go"; Option B built + checked (not deployed)
+
+- Memory: feedback-away-2026-11-20.
+- **Option B:**
+  - agents_next/QuoteAgent.py **186bbabb** = d8d9f7a7 + live knob `mk_rest_lean_none` (0/1). With mk_rest_none 0 and this knob at 1, $300 books WITH a lean pull the non-lean side (in both the full-bucket and low-bucket branches); books with NO lean keep two-sided rests.
+  - equiv 0 diffs vs d8d9f7a7 (tape, ledger, locks identical); test_pace ALL PASS.
+- **Census** (speed/bcensus_rln.py, 113's live params = A2, bucket $4.7k):
+  - A2: lean books carry a $940 counter-side rest (vol LEAN ASK 11, calm LEAN ASK 2).
+  - B (rln 1): lean books show only the lean side ($4.7k at +1). No-lean books stay two-sided at $940 (f 0.2) or $1,880 (f 0.4), 6–7 ticks behind. Books with no order: 2 in all arms.
+- Deploy = copy agents_next → agents (+ newminer.sh md5 186bbabb) + restart x3 (ledger replay keeps the balance; ≈ 5-sim-min model warm-up) + mk_rest_lean_none 1.
+- Decide after the 7:33 AM A2 read.
