@@ -26741,3 +26741,16 @@ fillclass300, last 1,500 sim s:
 | $30 α (4 sim min) | +0.16 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $66.2k). Lowest non-immune ≈ $103–109. Upstream 20e97853.
+
+## §1774 — 4:38 AM CT stage-3 watch + replica
+
+- **Live:** 113 captured 94.5, realized 7.74, share 0.0000; net α **1,475**; incentive 0.0013; pay $68/mo. 252: captured 171, realized 101, share 0.0048.
+- **Replica** (20 sim min; window includes M5's 3:41–3:58 AM stretch):
+
+| uid | C | R | quality | $300 R / Σ2·min (books both > 0) | $30 R / Σ2·min (books) | credit |
+|---|---|---|---|---|---|---|
+| 113 | +38.3 | +4.4 | 0.11 (7th positive read) | −1.9 / **+0.3 (42)** | +6.3 / +6.6 (46) | 0.8 ($30) |
+| 252 | — | +27.3 | 0.65 | +18.2 / +1.2 | — | 0.8 |
+| 55 | — | +18.5 | 0.67 | +14.6 / −2.2 | — | 0 |
+
+- 113's $300 Σ2·min turned positive (M5's two-sided fills), but M5 dragged R/quality and cost α. As expected, the two-sidedness gain came with the α loss that made us revert.
