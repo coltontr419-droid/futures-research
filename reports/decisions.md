@@ -26370,3 +26370,15 @@ Replica, 20 sim min:
 | 252 | 144 / 0.0045 | 0.005 | — | — |
 
 - Replica skipped (odd hour); next replica read at the 10:28 PM watch.
+
+## §1751 — 9:46 PM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $28/mo ($0.93/d) | $254/mo ($8.45/d) | — |
+| net α | 940 | 1,925 | — |
+| making (live) | 0 | 146 / share 0.0045 | — |
+| $300 α (4 sim min) | +16.6 on $107k (**+1.55 bp**) | +0.57 bp | +0.38 bp |
+| $30 α (4 sim min) | 0.00 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 blocked (busiest book $43.1k). Lowest non-immune ≈ $116–122. Upstream 20e97853.
