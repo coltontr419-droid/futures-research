@@ -26787,3 +26787,22 @@ fillclass300, last 1,500 sim s:
   - It logs to /opt/mvtrx/optA_guard.log and writes a NOTE to alerts.txt.
   - This is allowed under the auto-switch-off rule (tweak to a winning recipe).
 - Read when the user is back (≈ 6:05 AM): guard log, skill_cls2, making_diag 20, fillclass300 (two-sided books), mkgauges.
+
+## §1777 — 6:22 AM CT — Option A: guard ran 60 min with NO revert; FIRST live making_share > 0 (113: 0.0001)
+
+- **optA_guard.log** (12 checks, 5:10–6:09 AM CT):
+
+| check | result |
+|---|---|
+| $300 fills / 3 sim min | 8–45, never 0 |
+| blocked books | 0 |
+| $300 α (113) | **+0.31 to +1.93 bp** (+1.93 +1.15 +0.52 +0.69 +0.77 +0.71 +0.99 +1.04 +0.31 +0.93 +1.25 +1.65) |
+| $300 α (252), same windows | +0.49 to +1.61 |
+
+- 113 never went ≤ 0, unlike M5's −0.30 / −0.56. Option A stays live.
+- **Live 6:22 AM:**
+  - 113: captured **121.7**, realized **10.76**, **making_share 0.0001**: first non-zero share on any of our miners → **STAGE 3 PASSED**.
+  - 113: net α **1,625**, incentive 0.0014, pay **$70/mo ($2.35/d)**.
+  - 252: $256/mo ($8.55/d), share 0.0048, net α 2,075.
+- Lowest non-immune ≈ $101–111. 113's protection ends ≈ 4:10 PM CT. 0 tracebacks, 0 blocked; upstream 20e97853.
+- Replica (20 sim min) running for $300 Σ2·min / quality.
