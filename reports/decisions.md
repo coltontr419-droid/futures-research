@@ -26674,3 +26674,20 @@ fillclass300, last 1,500 sim s:
   - 113's $300 Σ2·min is −7 to −11 every window (lean side only) → $300 making share 0. The $30 class is positive in recent replicas (+5 to +12.5).
   - The published debeta_making_share is ≈ 0 so far. Most likely the $300 class dominates (largest weight), or the $30 two-sided total over the full window is not yet positive.
 - ⇒ **M5 ($300 two-sided: rest the non-lean side behind the touch) is the step that unlocks the $300 making pool.** Planned for the morning (census + interaction check first; §1766).
+
+## §1770 — 3:41 AM CT — M5 on 113: two-sided $300 (non-lean side rests behind the touch)
+
+- Started now rather than in the morning: §1769 shows the $300 making pool stays at 0 for 113 while $300 quoting is one-sided, whatever its quality.
+- **Census** (speed/m5census.py, 113's live params, buckets $18k / $4.7k / $800):
+
+| arm | lean side | non-lean side + no-lean books | books with no order |
+|---|---|---|---|
+| A (now) | $4.7k at +1 tick | none | 15–25 |
+| B (M5: rest_none 0, gate_rest 2, rest_frac 0.5) | $4.7k at +1 (unchanged) | $2.35–3k ≈ 4 ticks behind the others' best, both sides | **2** |
+
+- Lean marking unchanged (jumps = predicted 45 vol / 19 calm in both arms).
+- **Applied 3:41 AM** (sim s 35,836): mk_rest_none 1 → 0, mk_gate_rest 30 → 2, mk_rest_frac 0.1 → 0.5. Backup live_params_113.pre-m5.json. Ignored keys mk_dfm, mk_dfm_frac, mk_low_rest_none are agents_test-only (harmless).
+- Checks:
+  - ≈ 3:55 AM: $300 fills continue, both sides.
+  - ≈ 4:45 AM read: $300 Σ2·min (target ≥ 0), $300 R and miner quality (replica), $300 α per $ (skill_cls2; must stay ≥ ≈ +1.2 bp), depth/sweep split (fillclass300).
+- Revert to pre-m5 if $300 α per $ drops below ≈ +1.0 bp with no Σ2·min gain.
