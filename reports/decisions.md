@@ -26817,3 +26817,9 @@ fillclass300, last 1,500 sim s:
 
 - **Option A verdict: KEEP** (better $300 two-sidedness at no α cost), but it does not yet get $300 Σ2·min ≥ 0.
 - Next step **A2**: rest_frac 0.1 → 0.2 (rests ≈ $940), keeping gate_rest 5, with the lab-side guard again. That stays far below M5's 0.5 × 2 ticks.
+
+## §1779 — 6:28 AM CT — A2 on 113: mk_rest_frac 0.1 → 0.2 (gate_rest 5, rest_none 0 unchanged)
+
+- Backup live_params_113.pre-A2.json (= Option A).
+- Lab guard speed/A2_guard.sh (copy of optA_guard pointing at pre-A2; log /opt/mvtrx/A2_guard.log): 12 × 5 min with the same revert rules.
+- Read ≈ 7:30 AM: guard log, replica 20 sim min ($300 Σ2·min target ≥ 0, R, quality), mkgauges (share).
