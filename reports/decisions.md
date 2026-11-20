@@ -26294,3 +26294,16 @@ Replica, 20 sim min:
 - $300 α (8 sim min): 113 **+57.4 on $280k = +2.05 bp** (252 +0.36). $30 +0.31 bp. Net α 673; live making 0; incentive 0.0001.
 - Stage 2: **2 of 3** positive reads (0.22, 0.32). HOLD continues.
 - Note: `pgrep -f making_diag` over ssh matched its own command line (false "running"). Use the ps-args check (lesson recorded).
+
+## §1745 — 7:46 PM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $5/mo ($0.18/d) | $231/mo ($7.70/d) | — |
+| net α | 692 | 1,913 | — |
+| making (live) | 0 | 141 / share 0.0045 | — |
+| $300 α (4 sim min) | +13.1 on **$69k** (+1.89 bp, 19 books) | +0.82 bp on $165k | +0.26 bp on $122k |
+| $30 α (4 sim min) | +0.15 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 blocked (busiest book $35.6k). Lowest non-immune ≈ $115–117. Upstream 20e97853.
+- Watch: 113's $300 volume dipped in this 4-min window ($69k vs $112–315k earlier). The buckets are draining after the start burst toward steady refill. Check the next brief; not blocked.
