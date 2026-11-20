@@ -26633,3 +26633,17 @@ fillclass300, last 1,500 sim s:
   - Quote the non-lean $300 side too, behind the touch: mk_rest_none 0, mk_gate_rest ≈ 2 ticks, mk_rest_frac ≈ 0.5. This makes $300 books two-sided.
   - Risk: non-lean fills dilute $300 α per $ (§1605 saw this with deep rests).
   - Census + interaction check first; judge on $300 Σ2·min, R, quality AND α per $.
+
+## §1767 — 2:46 AM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $69/mo ($2.28/d) | $234/mo ($7.80/d) | — |
+| making captured / realized (live) | 59.82 / 4.15 | 153 / share 0.0048 | — |
+| share | 0.0000 | — | — |
+| net α | 1,234 | — | — |
+| incentive | 0.0014 | — | — |
+| $300 α (4 sim min) | +31.8 on $138k (**+2.31 bp**) | +0.90 bp | +0.18 bp |
+| $30 α (4 sim min) | +0.06 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $61.1k). Lowest non-immune ≈ $106–114. Upstream 20e97853.
