@@ -27219,3 +27219,25 @@ fillclass300, last 1,500 sim s:
 - Block A2 end replica: 113 quality 0.00, $300 R −1.3 (252: quality 0.07, $300 R +1.6). A weak window for both.
 - B2 first check: 113 +10.7 (+1.03 bp) on $104k vs 252 +17.6 (+1.06).
 - Lowest non-immune ≈ $113–114. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1803 — 3:19 PM CT — user: keep fixing $300 making on this miner ("a maker-only miner failed for weeks"); per-fill validator-basis study finds the mechanism
+
+speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_capture wrapped to record every maker fill's captured C and realized R; $300 books, last 30 sim min.
+
+| uid | C per $ | R per $ | **R/C** |
+|---|---|---|---|
+| 113 | +0.28 bp | +0.01 bp | **0.04** |
+| 55 | +0.28 bp | +0.10 bp | 0.37 |
+| 252 | +0.31 bp | +0.16 bp | 0.52 |
+| 210 | +0.35 bp | +0.20 bp | 0.56 |
+
+- **Captured per $ is the same for all** (≈ 0.3 bp). The gap is entirely realized/captured.
+- **113's losses:**
+  - Single-level small hits: 1,108 fills, R/C −0.17 (fleet +0.39 to +0.61).
+  - Fills 1 tick inside a sweep ("depth1"): $279k, R −2.07, R/C **−0.92** (fleet +0.17 to +0.31).
+  - Deeper sweep fills (depth 2–3) are fine for everyone.
+- **Interpretation:** our lean predicts minutes-scale moves. We buy into short-term dips (and sell into pops) that keep going for the next seconds. At the validator's 20-s horizon those fills look adverse; at 120–600 s they pay (our skill). The fleet barely leans on $300, so its fills are not tilted against the short-term move.
+- **Skill α and 20-s making value conflict structurally on the lean side.** That is also why adding two-sided rests never fixed it, and why the maker-only miner failed.
+- **Next tests (ABAB, judged on per-fill R/C via fillvalue.py + Σα vs 252):**
+  1. **Delayed lean entry:** step in only once the last few seconds of prints stop moving against the lean (short-term momentum filter on the lean step-in).
+  2. **Split books:** lean only where our 20-s R/C is positive; neutral (no lean, two-sided) elsewhere.
