@@ -27252,3 +27252,25 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 
 - B2 checks (113 vs 252 Σα): 10.7 vs 17.6, 12.3 vs 16.3, 11.9 vs 6.0, 12.5 vs 12.1, 11.7 vs 16.3.
 - Lowest non-immune ≈ $107–113. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1805 — 3:34–3:37 PM CT — jb2 ABAB verdict: jump_back 2 NOT KEPT; delayed-entry build deployed + ABAB started
+
+**jump_back 2 ABAB** (log /opt/mvtrx/abab_jb2.log):
+
+| arm | 113 − 252 Σα per check (blocks) | mean | bp vs 252 | $300 volume | end quality |
+|---|---|---|---|---|---|
+| A (jump_back 1) | +21.5 / −0.8 | **+10.4** | ≈ +0.7 | — | 0.31 / 0.00 |
+| B (jump_back 2) | −1.6 / −3.2 | **−2.4** | +0.10 | lower ($83–134k) | 0.14 / 0.00 |
+
+- → jump_back 1 stays (live already on A).
+
+**Delayed lean entry:**
+- agents/QuoteAgent.py **58a77a8a** = 186bbabb + live knobs `mk_lean_mom_s` / `mk_lean_mom_bp`. A new _mom_ok() check gates the lean jump: no step-in while the mid moved against the lean by more than X bp over the last N sim s.
+- equiv 0 diffs vs 186bbabb (tape, ledger, locks identical); test_pace ALL PASS. Backup agents/QuoteAgent.py.bak-186bbabb; newminer.sh expects 58a77a8a.
+- x3 restarted 3:35 PM; pace_cold 0, 0 blocked, 0 tracebacks.
+- **ABAB** speed/abab_mom.sh (pid 2502612; log /opt/mvtrx/abab_mom.log):
+  - Waits 1,500 s for the model warm-up, then 4 × 30 min.
+  - A = base (mom off); B = mk_lean_mom_s 10, mk_lean_mom_bp 1.0.
+  - Block ends now run speed/fillvalue.py 6 (per-fill validator R/C: ALL / single / depth1) instead of the 5-min making_diag.
+  - Ends ≈ 6:35 PM CT.
+- (A first launch had a quoting slip in the edit; it was killed during its warm-up sleep before any change and relaunched patched.)
