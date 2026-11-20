@@ -27169,3 +27169,24 @@ fillclass300, last 1,500 sim s:
 
 - → **Σα ≈ 3× 252's, bp ≈ 2.7×**, the strongest block of the day.
 - Lowest non-immune: 31 $90, 181 $108; 113 $75. Registered, 0 tracebacks, 0–1 blocked. Upstream 20e97853.
+
+## §1800 — 1:58 PM CT brief (jb2 ABAB block B1 = jump_back 2)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $76/mo ($2.53/d) | $218/mo ($7.26/d) |
+| making captured / realized / share (live) | 141.7 / 8.6 / 0.0002 | — / — / 0.0050 |
+| net α | 1,341 | 1,367 |
+
+- **Block A1 end replica:** 113 **quality 0.31**, $300 R **+3.0**, Σ2·min −0.8 (11 books both > 0); 252 0.46.
+  - The new base gives the best block-end making read so far, and its α was 3× 252's (§1799).
+- **Block B1 (jump_back 2) so far:**
+
+| check | 113 Σα (bp) | $300 volume | 252 Σα (bp) |
+|---|---|---|---|
+| 1 | +7.0 (+0.54) | $129k | +7.0 (+0.41) |
+| 2 | +11.0 (+0.86) | $129k | +13.6 (+0.92) |
+| 3 | +8.3 (+0.76) | $109k | +12.3 (+0.79) |
+
+  - ≈ level with 252, far below A1's ≈ 3×. Volume lower ($109–129k vs $159–214k): 2 ticks back fills less.
+- Lowest non-immune ≈ $109–110. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
