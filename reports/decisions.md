@@ -26599,3 +26599,18 @@ fillclass300, last 900 sim s:
 | $30 α (4 sim min) | −0.08 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $59.3k). Lowest non-immune ≈ $106–114. Upstream 20e97853.
+
+## §1765 — 2:38 AM CT stage-3 watch + replica
+
+- **Live:** 113 captured 58.40, realized 3.69, share 0.0000; net α 1,199; incentive 0.0014; pay $69/mo. 252: captured 153, realized 87, share 0.0047.
+- **Replica** (20 sim min):
+
+| uid | C | R | quality | $300 R / Σ2·min | $30 R / Σ2·min (books) | credit |
+|---|---|---|---|---|---|---|
+| 113 | +29.0 | +8.2 | **0.28** (6th positive read) | **0.0** / −6.9 | +8.3 / **+5.1 (40)** | **1.4** |
+| 252 | +38.7 | +26.4 | 0.68 | +23.6 / +1.1 | — | 0.7 |
+| 55 | +33.7 | +21.2 | 0.63 | +17.4 | — | 2.1 |
+
+- 113 again beats 252 on replica credit.
+- The gap to the fleet's quality is still the $300 side: their $300 R is +17 to +24, ours ≈ 0.
+- Next lever (after the live share shows): the $300 20-s markout.
