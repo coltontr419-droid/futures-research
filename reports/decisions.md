@@ -26956,3 +26956,28 @@ fillclass300, last 1,500 sim s:
 - B guard, last 4 checks: 113 **+1.01 / +1.09 / +1.05** / +0.52 vs 252 +0.74 / +0.78 / +0.97 / +0.84. Ahead of 252 on 3 of 4.
 - **Survival:** lowest non-immune ≈ $111–113; 113 $76 ≈ 0.68×.
 - Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1788 — 8:57 AM CT — Option B verdict: NOT better than Option A → back to Option A (8:59 AM)
+
+- **Replica, post-warm-up only** (last 10 sim min, sim s 38,779–39,379):
+
+| uid | C | R | quality | $300 R | $300 Σ2·min (books) |
+|---|---|---|---|---|---|
+| 113 | +16.8 | −4.4 | **0.00** | **−6.5** | −3.3 (17) |
+| 252 | — | — | 0.49 | +10.2 | — |
+| 55 | — | — | 0.49 | +6.0 | — |
+
+  (15-sim-min read incl. the warm-up: $300 R −6.7, Σ2·min +0.4 (37).)
+- $300 α (8 sim min): 113 **+0.93 bp on $359k** (252 +0.81, 55 +0.55). B guard: no revert; 113 ahead of 252 on 3 of the last 4 checks.
+- **Comparison of the two-sided variants:**
+
+| variant | rest size | where | $300 R | quality |
+|---|---|---|---|---|
+| Option A | 0.1 | everywhere | −0.5 | 0.10 |
+| A2 | 0.2 | everywhere | −7.1 | 0 |
+| B | 0.2 | no-lean books only | −6.5 | 0 |
+
+- → **Rest SIZE drives the 20-s loss** more than lean vs no-lean. Caveat: $300 R swings −6 to +6 between 10–20-sim-min windows even with no change (pre-A reads), so single reads are noisy.
+- **Action 8:59 AM:** live params → Option A (live_params_113.pre-A2.json with explicit mk_rest_lean_none 0, rest_frac 0.1); B_guard stopped. Agent 186bbabb stays (knob off = d8d9f7a7 behaviour).
+- **Plan:** hold Option A for the survival afternoon (pay $76, rising). Any further test only if clearly safer. Candidate: B at rest_frac 0.1 (no-lean books only).
+- Live 8:51 AM: realized 20.3 (highest).
