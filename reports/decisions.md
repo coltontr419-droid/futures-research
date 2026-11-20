@@ -26476,3 +26476,15 @@ fillclass300, last 900 sim s:
 | $30 α (4 sim min) | +0.05 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 blocked (busiest book $49.1k). Lowest non-immune ≈ $105–108. Upstream 20e97853.
+
+## §1756 — 11:38 PM CT stage-3 watch
+
+| | captured | realized | share | net α | incentive | pay |
+|---|---|---|---|---|---|---|
+| 113 | **14.89** (11.57 at 11:16 PM) | 0 | 0 | 971 | 0.001 | $50/mo |
+| 252 | 125.5 | 68.5 | 0.0046 | — | — | — |
+
+- Why realized stays 0: the live realized credit = captured × miner-wide quality (R/C over the validator's whole window; 252 68.5/125.5 = 0.55).
+  - 113's window still holds the 4:11–4:52 PM start burst, whose realized R was strongly negative ($30 R −10 on $1.04M). Its whole-window quality is therefore still 0, even though every replica read since 7 PM is positive.
+  - Expect realized and share to turn on once the burst leaves the window: ≈ 180 sim min after it ≈ sim s 38,500 ≈ 6–7 AM CT 11-20 at ≈ 11.7 sim s per wall min.
+- Replica skipped (odd hour); next at 12:28 AM.
