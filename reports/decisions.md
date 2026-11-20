@@ -26382,3 +26382,16 @@ Replica, 20 sim min:
 | $30 α (4 sim min) | 0.00 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 blocked (busiest book $43.1k). Lowest non-immune ≈ $116–122. Upstream 20e97853.
+
+## §1752 — 10:16 PM CT brief — FIRST LIVE making_captured > 0 on any of our miners (113: 1.333)
+
+- **Live validator gauge:** 113 making_captured **1.333** (was 0 at 9:46 PM), realized 0.0, share 0.0.
+  - Captured > 0 = the validator's own two-sided spread capture (Σ_b 2·min(buy, sell) per class) has turned positive.
+  - Realized (the 20-s markout basis the pool pays on) is still 0. Share follows once realized > 0.
+  - **Stage 3: first signal (captured); full pass = share > 0.**
+- 113:
+  - Pay $28/mo ($0.92/d), net α 998, incentive 0.0005.
+  - $300 α (4 sim min) +15.9 on $109k = **+1.45 bp** (252 +0.83, 55 +0.44); $30 +0.03 bp.
+  - Registered, 0 tracebacks, 0 blocked (busiest book $44.9k).
+- 252: $251/mo ($8.36/d), making 132 / share 0.0046.
+- Lowest non-immune ≈ $121–122. Upstream 20e97853.
