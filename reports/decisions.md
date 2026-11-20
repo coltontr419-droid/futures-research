@@ -26222,3 +26222,17 @@ Validator replica (8 sim min):
   - SN79 is winnable: fleets earn $190–325 per UID, our skill already beats the fleet median, and the making gap is now specific (whole-miner R ≈ −2 vs positive).
   - The whole miner pool is ≈ $52k/mo, so a realistic outcome is $2–4k/mo from 10–20 miners, not $10k.
 - **User: no 24–48 h deadline; keep working while progress continues** (memory feedback-mvtrx-no-deadline).
+
+## §1741 — 6:16 PM CT brief (113, M4 + lean 1.5 since the 5:45 PM restart)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $1/mo ($0.04/d; 2 h old) | $217/mo ($7.25/d) | — |
+| making | 0 | 144 / share 0.0044 | — |
+| net α | 390 | 1,797 | — |
+| $300 α (4 sim min) | +14.2 on $123k (**+1.15 bp**, 30 books) | +0.96 bp | +0.43 bp |
+| $30 α (4 sim min) | +1.1 on $146k (+0.08 bp) | — | — |
+
+- 113: registered, 0 tracebacks, PACE 0 of 190 blocked. $300 fills resumed ≈ 300 sim s after the restart (sim s 29,118).
+- Lowest non-immune ≈ $107–119. Upstream 20e97853.
+- Stage-1 read at 6:52 PM.
