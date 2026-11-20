@@ -26661,3 +26661,16 @@ fillclass300, last 1,500 sim s:
 | $30 α (4 sim min) | +0.06 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $63.1k). Lowest non-immune ≈ $94–102. Upstream 20e97853.
+
+## §1769 — 3:38 AM CT stage-3 watch: realized 4.79 but share still 0 → the pool is per CLASS
+
+- **Live:**
+  - 113: captured 66.2, realized 4.79, share 0.0000; net α **1,381**; incentive 0.0014; pay **$72/mo**.
+  - 252: captured 162, realized 94, share 0.0048, net α 2,080.
+- Why share stays 0 although realized > 0 (reward.py making_pool_inputs / class_pool_shares):
+  - Share = max(0, making_raw) / Σ, normalised **within each class** ($300 / $30 / 4-dec), then mixed across classes at the class weights.
+  - making_raw is two-sided per book: Σ_b 2·min(buy, sell) for that class, × miner-wide quality.
+  - The captured/realized gauges are the uid's totals. A class whose two-sided sum is ≤ 0 contributes 0 share.
+  - 113's $300 Σ2·min is −7 to −11 every window (lean side only) → $300 making share 0. The $30 class is positive in recent replicas (+5 to +12.5).
+  - The published debeta_making_share is ≈ 0 so far. Most likely the $300 class dominates (largest weight), or the $30 two-sided total over the full window is not yet positive.
+- ⇒ **M5 ($300 two-sided: rest the non-lean side behind the touch) is the step that unlocks the $300 making pool.** Planned for the morning (census + interaction check first; §1766).
