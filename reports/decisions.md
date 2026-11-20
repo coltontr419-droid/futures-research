@@ -27075,3 +27075,18 @@ fillclass300, last 1,500 sim s:
 - **Block A** (5 checks, 113 − 252 bp): −0.65, +0.60, +1.22, +0.05, +1.03 → **mean +0.45**. End replica (5 sim min): 113 quality 0.15, $300 R +1.2, Σ2·min −1.2 (3 books).
 - **Block B so far** (3 checks): 113 +1.11 / +1.04 / +0.81 vs 252 +1.10 / +1.01 / +1.15 → mean 113 − 252 ≈ −0.10, on $143–172k.
 - Lowest non-immune ≈ $103–104. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
+
+## §1795 — 11:49 AM CT brief (ABAB block 3 = A)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $75/mo ($2.50/d) | $220/mo ($7.32/d) |
+| making captured / realized / share (live) | 152.7 / 12.6 / 0.0002 | — / — / 0.0050 |
+| net α | 1,447 | 1,446 |
+| incentive | 0.0016 | — |
+
+- **Block B complete** (6 checks, 113 − 252 bp): +0.01, +0.03, −0.34, +0.02, +0.45, +0.02 → **mean ≈ +0.03**.
+- B end replica (5 sim min): 113 **quality 0.00**, $300 R −1.9, Σ2·min −2.4 (7 books both > 0); 252 quality 0.56.
+- Block A1 end (for comparison): quality 0.15, $300 R +1.2, Σ2·min −1.2 (3 books).
+- Block A2, first check: 113 +0.77 vs 252 +0.54.
+- Lowest non-immune ≈ $107–110. Registered, 0 tracebacks, 0 blocked. Upstream 20e97853.
