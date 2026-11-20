@@ -27148,3 +27148,24 @@ fillclass300, last 1,500 sim s:
   - A = new base (jump_back 1); B = new base with **mk_jump_back 2** (lean side 2 ticks behind the touch).
   - Aim: $300 20-s markout / R (the fleet's behind fills sit 2–3 ticks back).
   - Judge on Σα per check vs 252 (primary) and bp, plus replica.
+
+## §1799 — 1:28 PM CT brief (jb2 ABAB block A1 = new base)
+
+| | 113 | 252 |
+|---|---|---|
+| pay | $75/mo ($2.50/d) | $216/mo ($7.18/d) |
+| making captured / realized / share (live) | 144.9 / 9.1 / 0.0002 | — / — / 0.0050 |
+| net α | 1,411 | 1,490 |
+
+- Block A1 (new base = one-sided lean + Option B 0.1) checks:
+
+| check | 113 | 252 |
+|---|---|---|
+| 1 | +32.1 (+1.50 bp) on $214k | +10.5 (+0.60) |
+| 2 | +35.3 (+1.76) | +11.1 (+0.59) |
+| 3 | +31.6 (+1.66) | +7.6 (+0.47) |
+| 4 | +35.0 (+1.83) | +12.0 (+0.75) |
+| 5 | +23.2 (+1.46) | +8.3 (+0.51) |
+
+- → **Σα ≈ 3× 252's, bp ≈ 2.7×**, the strongest block of the day.
+- Lowest non-immune: 31 $90, 181 $108; 113 $75. Registered, 0 tracebacks, 0–1 blocked. Upstream 20e97853.
