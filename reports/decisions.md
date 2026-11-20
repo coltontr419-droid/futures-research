@@ -26727,3 +26727,17 @@ fillclass300, last 1,500 sim s:
   - (a) Much smaller non-lean rests (rest_frac 0.1–0.2) further back (gate_rest 4–6), so they fill only in deep sweeps.
   - (b) Two-sided only on books with NO lean (where no direction is predicted), keeping lean books one-sided.
   - Both would need a knob, plus census/equiv, on a fresh read.
+
+## §1773 — 4:16 AM CT brief (113 back on the pre-M5 recipe)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $72/mo ($2.39/d) | $236/mo ($7.85/d) | — |
+| making captured / realized (live) | **90.3 / 6.37** (M5's two-sided burst lifted captured) | 159 / share 0.0048 | — |
+| share | 0.0000 | — | — |
+| net α | **1,435** (M5's loss did not dent it) | — | — |
+| incentive | 0.0014 | — | — |
+| $300 α (4 sim min) | +9.3 on $76k (**+1.23 bp**; recovered) | +0.32 bp | +0.54 bp |
+| $30 α (4 sim min) | +0.16 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $66.2k). Lowest non-immune ≈ $103–109. Upstream 20e97853.
