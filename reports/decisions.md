@@ -26708,3 +26708,22 @@ fillclass300, last 1,500 sim s:
   - The 3:57 AM fill check now also runs skill_cls2 4 on 113.
   - If the next read is also ≤ 0 bp while refs are positive → revert to pre-m5 before the 4:47 AM read.
 - 113: registered, 0 tracebacks, 0 blocked (busiest book $64.9k). Lowest non-immune ≈ $95–107. Upstream 20e97853.
+
+## §1772 — 3:57 AM CT — M5 REVERTED: two-sided $300 rests cost skill (−0.56 bp while refs +0.29 to +0.68)
+
+- Mechanics worked. Since sim s 35,836: $300 fills 426 (262 buy / 164 sell) on 93 books, **42 books filled on both sides** (was ≈ 10–16). PACE 2 of 192 blocked; 0 tracebacks.
+- **Skill broke:**
+
+| $300, 4 sim min | M5 first 5 min | 3:57 AM read |
+|---|---|---|
+| 113 | −12.0 (−0.30 bp) | **−31.3 on $555k (−0.56 bp)**, kept 19 (+5 −14) |
+| 252 | +0.17 bp | **+0.68 bp** |
+| 55 | +0.09 bp | +0.29 bp |
+
+- The non-lean rests ($2.4–3k, ≈ 4 ticks behind) fill in sweeps that go AGAINST the lean signal and swamp the lean-side edge. $300 volume ×3–4.
+- Rule (§1771): second read ≤ 0 while refs positive → **reverted 3:58 AM** to live_params_113.pre-m5.json (failed set kept as .m5-failed.json). M5 read job cancelled.
+- **DISPROVEN as configured** (rest size 0.5 × full, 2 ticks back).
+- What is left to try for $300 two-sidedness:
+  - (a) Much smaller non-lean rests (rest_frac 0.1–0.2) further back (gate_rest 4–6), so they fill only in deep sweeps.
+  - (b) Two-sided only on books with NO lean (where no direction is predicted), keeping lean books one-sided.
+  - Both would need a knob, plus census/equiv, on a fresh read.
