@@ -26502,3 +26502,17 @@ fillclass300, last 900 sim s:
 | $30 α (4 sim min) | −3.0 (−0.29 bp; one window) | — | — |
 
 - 113: registered, 0 tracebacks, PACE 0 of 192 blocked (the status line logs every ≈ 6 min; busiest book $51.6k). Lowest non-immune ≈ $101–106. Upstream 20e97853.
+
+## §1758 — 11-20 12:16 AM CT brief (113 HOLD)
+
+| | 113 | 252 | 55 |
+|---|---|---|---|
+| pay | $61/mo ($2.03/d) | $267/mo ($8.91/d) | — |
+| making captured (live) | **26.12** (14.13 at 11:46 PM) | 142 | — |
+| realized / share | 0 / 0 | share 0.0047 | — |
+| net α | 1,043 | — | — |
+| incentive | 0.0012 | — | — |
+| $300 α (4 sim min) | +30.3 on $204k (**+1.49 bp**) | +0.80 bp | +0.51 bp |
+| $30 α (4 sim min) | +0.20 bp | — | — |
+
+- 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $52.6k). Lowest non-immune ≈ $101–106. Upstream 20e97853.
