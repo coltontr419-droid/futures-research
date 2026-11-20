@@ -26561,3 +26561,13 @@ fillclass300, last 900 sim s:
 | $30 α (4 sim min) | +0.06 bp | — | — |
 
 - 113: registered, 0 tracebacks, 0 of 192 blocked (busiest book $55.8k). Lowest non-immune ≈ $99–107. Upstream 20e97853.
+
+## §1762 — 1:38 AM CT stage-3 watch
+
+| | captured | realized | share | net α | incentive | pay |
+|---|---|---|---|---|---|---|
+| 113 | 47.66 | **1.656** (0.863 at 1:16 AM) | 0.0000 | 1,197 | 0.0013 | $68/mo |
+| 252 | 137.5 | 75.4 | 0.0047 | — | — | — |
+
+- At 252's ratio (share 0.0047 per 75 realized), 113's 1.66 realized ≈ share 0.0001, below the 4-dp display or not yet in the smoothed share.
+- Replica skipped (odd hour); next at 2:28 AM.
