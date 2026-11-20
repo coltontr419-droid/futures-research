@@ -26881,3 +26881,24 @@ fillclass300, last 1,500 sim s:
   - B (rln 1): lean books show only the lean side ($4.7k at +1). No-lean books stay two-sided at $940 (f 0.2) or $1,880 (f 0.4), 6–7 ticks behind. Books with no order: 2 in all arms.
 - Deploy = copy agents_next → agents (+ newminer.sh md5 186bbabb) + restart x3 (ledger replay keeps the balance; ≈ 5-sim-min model warm-up) + mk_rest_lean_none 1.
 - Decide after the 7:33 AM A2 read.
+
+## §1784 — 7:33 AM CT — A2 verdict NOT KEPT (quality → 0); Option B deployed on 113 (7:34 AM)
+
+- **A2 guard** (11 checks, 6:33–7:29 AM): never reverted, but 113's $300 α fell behind 252 in the last 5 checks (+0.82 / +0.49 / −0.27 / +0.19 / +0.20 vs +1.14 / +1.11 / +0.79 / +0.41 / +0.69).
+- **Replica** (20 sim min, all A2):
+
+| | A2 | Option A |
+|---|---|---|
+| $300 Σ2·min (books both > 0) | **−2.7 (45)** | −4.6 (39) |
+| $300 R | **−7.1** | −0.5 |
+| whole-miner R | −6.0 | — |
+| quality | **0.00** (first zero in 9 reads) | — |
+
+- Refs: 252 quality 0.52, 55 0.58.
+- → **A2 NOT KEPT:** bigger counter-lean rests win two-sidedness but lose 20-s value.
+- Live 7:33 AM: 113 captured 140, realized 9.1, share 0.0001, net α **1,831**; 252 share 0.0049.
+- **Option B deployed 7:34 AM** (sim s 38,431):
+  - agents/QuoteAgent.py ← agents_next **186bbabb** (backup agents/QuoteAgent.py.bak-d8d9f7a7); newminer.sh expects 186bbabb.
+  - live mk_rest_lean_none 1 (rest_none 0, gate_rest 5, rest_frac 0.2 kept; backup live_params_113.pre-B.json). x3 restarted; pace_cold stays 0; PACE 0 blocked.
+- Lab guard speed/B_guard.sh (waits 1,800 s for the model warm-up, then 12 × 5 min; same revert rules → pre-B; log B_guard.log), pid 2289917.
+- Read ≈ 8:55 AM: replica $300 R / Σ2·min / quality, α vs 252, share.
