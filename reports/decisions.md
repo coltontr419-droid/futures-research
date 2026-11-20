@@ -26320,3 +26320,20 @@ Replica, 20 sim min:
 
 - 113's $300 volume back to normal ($138k; the 7:46 PM dip was one quiet window).
 - Registered, 0 tracebacks, 0 blocked (busiest book $37.7k). Lowest non-immune ≈ $97–107. Upstream 20e97853.
+
+## §1747 — 8:34 PM CT — hourly read #3: 113 quality 0.24 → STAGE 2 CONFIRMED (3/3 positive); first positive $30 two-sided
+
+Replica, 20 sim min:
+
+| uid | C | R | quality | $300 R / Σ2·min (books) | $30 R / Σ2·min (books) |
+|---|---|---|---|---|---|
+| 113 | +27.4 | +6.5 | **0.24** | +4.7 / −7.2 (16) | +1.7 / **+0.1 (27)**, first positive two-sided |
+| 252 | +21.5 | +11.4 | 0.53 | — | — |
+| 55 | +22.4 | +6.1 | 0.27 | — | — |
+
+- 113 quality reads: 0.22 → 0.32 → 0.24, all positive → **stage 2 CONFIRMED**. Its quality now sits inside the fleet's range (55 0.27, 252 0.37–0.53).
+- $300 α (8 sim min): 113 **+49.2 on $274k = +1.80 bp** (252 +0.69). $30 +0.16 bp.
+- Live (stage 3): making 0, incentive 0.0003, net α 859.
+  - The validator's window still holds the 4:11 PM start burst (≈ 15 wall h), and two-sided Σ2·min must turn positive over its full window.
+  - Expect the live gauge to move as the burst ages out (≈ tomorrow morning).
+- Plan: keep 113 unchanged (no reason to touch a recipe that is now working); briefs continue. Next study (offline): what makes the $300 Σ2·min positive for long-window makers (both sides on the same book within the window).
