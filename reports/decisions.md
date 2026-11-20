@@ -27355,3 +27355,14 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 - 113's life (4:11 PM 11-19 → 4:36 PM 11-20):
   - first positive making quality, first live making credit and share; peak net α 1,831; pay peak $78/mo.
   - Never above ≈ 0.75× the prune line; the $300 making pool was never opened.
+
+## §1811 — 4:47 PM CT — NEW MINER x3 = UID 101 live; delayed-entry ABAB queued
+
+- User registered hotkey x3 → **UID 101**.
+- `HK=x3 sh newminer.sh 101 113` → regcheck OK, agent 58a77a8a, settings live_params_NEXT.json (proven base, delayed entry OFF), unit pace_start=1500 **pace_cold=1** (first cold start), restarted 22:45:49 UTC, our_uids "101 maker x3 44540".
+- LIVE PARAMS applied: mk_model_lean 1.5, mk_low_expiry 500 s, mk_jump_back 1, mk_rest_lean_none 1, … (mk_dfm ignored). 0 tracebacks, 0 blocked.
+- **ABAB** speed/abab_mom101.sh (pid 2532016; log /opt/mvtrx/abab_mom101.log):
+  - 1,500-s warm-up wait, then 4 × 30 min.
+  - A = base; B = delayed entry mk_lean_mom_s 10 / **mk_lean_mom_bp 0.0**.
+  - 5-min skill checks vs 252; fillvalue 6 at block ends.
+  - Ends ≈ 7:50 PM CT. The cold start means small buckets early: both arms share that, but early blocks trade less.
