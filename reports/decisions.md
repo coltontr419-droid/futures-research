@@ -28413,7 +28413,7 @@ speed/widefills30.py (books 128–191, 60 sim min, spread ≈ always 1 tick so s
 - The $30 class is independent of the $300 spread ABAB. It changed at the A1 → B1 switch, so B1/A2/B2 all carry it, and the $300 per-class metrics are unaffected.
 - Readout cron 10:27 AM: widefills30 + pairfills30 over the exact post-change window.
 
-## §1873 — 9:35 AM CT — more quick checks: two-sidedness OK; response time still 2.7× slower; 4-dec making is a real (not simple) lead
+## §1873 — ≈ 9:05 AM CT — more quick checks: two-sidedness OK; response time still 2.7× slower; 4-dec making is a real (not simple) lead
 
 1. **Two-sided volume (gauges looked alarming):** average_roundtrip_volume 101 19k vs 252 132k; total 4.9M vs 33.8M.
    - Tape, last 60 sim min, Σ 2·min(buy, sell) / traded: 101 $300 71%, $30 95%; 252 $300 49%, $30 78%.
@@ -28428,7 +28428,7 @@ speed/widefills30.py (books 128–191, 60 sim min, spread ≈ always 1 tick so s
    - Pool = 25% of the making half. Open questions before any test: (a) how the 450k/book/day volume cap applies there (top makers trade ≈ $2.4M/book/day); (b) fee netting at 4 decimals; (c) 0.6.8 remaps the classes (128–191 → 4-dec, 192–255 → new $100 sim_3).
    - Lead for an offline deep-dive, not a quick switch.
 
-## §1874 — 9:55 AM CT — response time: profiled, fixed, staged for the 12:45 PM restart
+## §1874 — ≈ 9:15 AM CT — response time: profiled, fixed, staged for the 12:45 PM restart
 User: "fix the response time, then go for the 4-dec books but dont schedule anything for them even if you find something".
 
 **py-spy, 60 s on the live miner** (nonblocking; 438 active samples; a validator round ≈ every 4 s while the sim is slow):
@@ -28446,7 +28446,7 @@ User: "fix the response time, then go for the 4-dec books but dont schedule anyt
 - Not changed: payload decode (library). The lab is a 4-vCPU "DO-Regular" droplet; a CPU-optimised droplet would cut the remaining compute but is spending → user decision, only if the fixes are not enough.
 - Deploy is chained into the 12:45 PM verdict cron (one restart for both the speed build and the stale test). call_time is read before and ≈ 30 min after.
 
-## §1875 — 10:20 AM CT — 4-dec making deep-dive (offline only; user: nothing scheduled for 4-dec until $300/$30 are settled)
+## §1875 — ≈ 9:22 AM CT — 4-dec making deep-dive (offline only; user: nothing scheduled for 4-dec until $300/$30 are settled)
 
 **Rules (repo067):**
 - Volume cap per uid per book = capital_turnover_cap 10 × wealth over a rolling 86,400 sim s.
