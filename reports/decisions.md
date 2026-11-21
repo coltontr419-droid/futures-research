@@ -27794,3 +27794,16 @@ Bucket $4.7k:
 
 - T2 block A1 (base) checks: 101 +0.2 on $58k vs 252 +11.5; +13.0 (+0.92 bp) on $142k vs +13.7 (+0.91).
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $27.8k). Upstream unchanged; layout switcher waiting. Lowest non-immune ≈ $121–126.
+
+## §1837 — 11:50 PM CT brief (T2 block A1 ended; B1 started)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$14/mo ($0.47/d)** | $209/mo ($6.97/d) |
+| making captured / realized / share (live) | 35.2 / 0.0 / 0.0 | — / — / 0.0045 |
+| net α | 533 | 1,479 |
+| incentive | 0.0003 | — |
+
+- Block A1 checks (101 vs 252): +0.2 vs +11.5, +13.0 vs +13.7, +23.1 vs +13.5, +14.4 vs +21.0, +12.0 vs +10.8.
+- A1 end fillvalue R/C −0.03 on $216k.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $29.6k). Upstream unchanged. Lowest non-immune ≈ $111–123.
