@@ -28597,3 +28597,10 @@ Window 2 = sim 56,875–57,583 (11.8 sim min). widefills30 + pairfills30, R per 
 ## §1885 — 11:40 AM CT — $30 sizes REVERTED to 0.06 / 0.06 (user approved)
 - Applied live (LIVE PARAMS: mk_low_size 0.03→0.06, mk_low_lad_size 0.1→0.06). live_params_NEXT was already 0.06 / 0.06.
 - The $300 tight ABAB (B2 running, mk_tight300 5) is untouched.
+
+## §1886 — 11:57 AM CT brief (tight ABAB B2 done; block-end analyses running)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $85/mo ($2.83/d), down from $95; net α 1,290; captured 59.7 / realized 0 / share 0.0. Prune line $119.
+- **252:** ≈ $220/mo (incentive 0.0044), share 0.0030.
+- B2 (tight 5), 101 − 252 Σα per check: −7.1, −11.9, +0.2, −4.2, −5.3, −1.3 → mean −4.9 (B1 −1.0).
+- Pooled Σα: A ≈ −5.6 vs B ≈ −3.0 per check (B +2.6). B2's exact-window R/C is pending (background analysis); verdict at 12:12 PM.
