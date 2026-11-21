@@ -28065,3 +28065,16 @@ Bucket $4.7k:
   - (a) When the 20-s prediction strongly favours the lean side (fav > ≈ 0.5 bp), step that lean order BACK 1–2 ticks instead of at/inside the touch.
   - (b) A small two-sided layer that quotes only when the model is neutral (|pred| < ≈ 0.2 bp), where our fills already hold value and are balanced.
   - Needs the model live in the agent (features from the state: book top-5, recent prints, fund) → a build + equiv/test_pace + census, then ABAB on 101 after T3.
+
+## §1853 — 6:55 AM CT brief
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$82/mo ($2.72/d)** | $248/mo ($8.26/d) |
+| making captured / realized / share (live) | 92.6 / 0.0 / 0.0 | — / — / 0.0038 |
+| net α | 1,355 | 1,629 |
+| incentive | 0.0017 | — |
+
+- T3 block B2 (hold 2) checks: 101 +19.5 vs +14.1, +14.3 vs +7.7, +23.8 vs +5.4.
+- Second 20-s-model sample (101's earlier fills from live_tape_x5.jsonl.prev, 80 sim min) still running.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $56.0k). Upstream unchanged. Lowest non-immune: 90 $56, 38 $129.
