@@ -28235,3 +28235,6 @@ Our $300 maker fills, split by whether another miner's maker order filled in the
 - Logs `JOIN300: n of m sides clamped` once per sim minute. Default 0 = unchanged behaviour.
 - Test: speed/abab_join101.sh. Env G = gate setting for both arms (from the gate verdict). 600-s warm-up, then A/B/A/B. Each block end runs pairfills (30 sim min) + fillvalue.
 - Deploy and start are scheduled right after the gate verdict (≈ 11:58 AM).
+
+## §1862 — 8:45 AM CT — user: no splitting skill and making across two miners
+- User: "neither can settle with only skill or making alone". Making fixes must work next to the lean on the same miner. The split option from §1861 is dropped.
