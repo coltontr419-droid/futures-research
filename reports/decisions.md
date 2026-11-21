@@ -27860,3 +27860,16 @@ Bucket $4.7k:
   - It is the lean made MORE directional: skill up, making down, as §1833 predicts.
 - **Skill effect:** ≈ +10 per check over base (B1 vs the A blocks), on higher volume. Kept as a **SKILL candidate**, to revisit when the making route is exhausted (or for a skill-focused miner).
 - B2 (the last block) runs 1:20–1:50 AM to confirm the skill effect; T5 starts right after (cron 1:55 AM).
+
+## §1841 — 1:20 AM CT brief (T2 block B2 running)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$22/mo ($0.73/d)** | $222/mo ($7.38/d) |
+| making captured / realized / share (live) | 33.3 / 0.0 / 0.0 | — / — / 0.0044 |
+| net α | **751** | 1,422 |
+| incentive | 0.0005 | — |
+
+- **Block A2 ended:** last checks +16.1 vs +10.0, +20.2 vs +17.3 → A2 mean ≈ +5.5; end fillvalue R/C −0.41.
+- B2 started 1:21 AM.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $35.0k). Upstream unchanged. Lowest non-immune ≈ $125–128.
