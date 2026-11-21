@@ -28297,3 +28297,36 @@ Our $300 maker fills, split by whether another miner's maker order filled in the
 - A = base; B = mk_tight300 5 + mk_wide_inside 6.
 - Blocks ≈ 60 min incl. block-end pairfills + fillvalue.
 - Early read 10:42 AM; verdict 12:45 PM.
+
+## §1866 — 8:55 AM CT — what 252 does differently at WIDE spreads (speed/widefills.py, 75 sim min, 101 on base)
+
+$300 maker fills at a prior spread ≥ 6 ticks (101: 53% of $, R/C +0.07; 252: 65% of $, R/C +0.46):
+
+| split | 101 $ share of wide / R/C | 252 $ share of wide / R/C |
+|---|---|---|
+| position: inside prior best | 2% / (tiny) | **66% / +0.50** |
+| position: 2+ behind | **55% / +0.11** | 13% / +0.77 |
+| fill type: single-level taker | 26% / +0.26 | **63% / +0.60** |
+| fill type: sweep | **74% / −0.02** | 37% / −0.11 |
+| size ≥ $3k | 38% / **−0.28** | 73% / **+0.44** |
+| prior 10 s: mid moved INTO our order > 0.5 bp | **44% / −0.09** | 20% / +0.31 |
+| prior 10 s flat | 40% / +0.02 | 52% / +0.51 |
+| spread age | no clear difference | no clear difference |
+
+1. **Who reaches the order:**
+   - 252 sits inside, so ordinary single-level takers hit it (+0.60).
+   - We sit 2+ behind, so only sweeps reach us, and sweeps lose for everyone.
+2. **Big fills:**
+   - 252's big fills are inside singles (+0.44).
+   - Ours are sweep fills (−0.28).
+3. **Staleness:**
+   - 44% of our wide-spread $ fills right after the mid moved into our order (stale quote).
+   - Only 20% of 252's do.
+
+The live B arm (mk_wide_inside 6) moves every wanted $300 side inside at wide spreads, which targets 1 and 2.
+
+Offline bounds:
+- Our own wide-spread single-level fills keep +0.26.
+- Removing the stale (moved-into) bucket alone lifts wide R/C +0.07 → ≈ +0.15.
+
+Candidate next (offline-first): pull/step back a side for a few seconds after the mid moves > 0.5 bp into it.
