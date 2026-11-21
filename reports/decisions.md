@@ -28146,3 +28146,54 @@ abab_hold101.log, 101 − 252 Σα per check:
   - 1,500-s warm-up, then A/B/A/B; ends ≈ 11:00 AM–12:00 PM.
   - A = base (gate 0); B = mk_mo20_gate **0.4** (≈ the strongest-quintile predictions), pull.
   - Judge on block-end fillvalue R/C, Σα vs 252, $300 volume, live making_realized.
+
+## §1858 — 7:55 AM CT — morning summary (night 11-20 → 11-21) + taker breakdown
+
+**Fresh checks (13:48 UTC):**
+- x3 = 101 REGISTERED. mvtrx-x3 active on agents 75966cb2.
+- PACE STATUS: 0 of 192 books blocked; max ledger $59k of $450k.
+- The startup "SETTLEMENT NOT READY" banner appears at every start (also 22:45 / 01:59 / 04:37). Fills are flowing: 101 traded $272k on $300 books in the last 8 sim min. Not a problem.
+- 0.6.8: still only on the test branch (de323b82); main stays 20e97853. layout_switch.py is waiting and has not fired.
+- Prune pressure: 60 registrations per 24 h. Line ≈ $135 (mypay). 101's protection ends ≈ 4:45 PM CT.
+
+**Pay / making trend for 101:**
+
+| time | 101 pay | 101 net α | captured / realized | 252 pay / share |
+|---|---|---|---|---|
+| 10:55 PM | $9/mo | 458 | 28.8 / 0 | $213 / 0.0046 |
+| 6:09 AM | $72/mo | 1,307 | 85.4 / 0 | $245 / 0.0039 |
+| 7:48 AM | **$84/mo ($2.79/d)** | **1,407** (252: 1,729) | 97.3 / **0** | $251 / 0.0037 |
+
+- Pay is still ramping toward its α level. Net α is 81% of 252's, but pay is 33% of 252's because pay lags.
+- Making realized = 0 all night.
+
+**Skill now** (skill_cls2, last 8 sim min, $300 class):
+- 101: +17.8 Σα (+0.66 bp, ELIGIBLE).
+- 252: +26.6 Σα (+1.04 bp).
+
+**Overnight tests:**
+
+| test | verdict |
+|---|---|
+| T2 strong-inside | NOT kept for making (R/C ≈ −1.9); skill +12 Σα/check CONFIRMED |
+| T5 deep layer | NOT kept (−13 Σα/check, R/C no gain) |
+| T3 hold | NOT kept |
+| 20-s model diagnostics | model separates 252's fills, not ours |
+| gate ABAB | running (warm-up until ≈ 8:05 AM, verdict ≈ 11:50 AM) |
+
+**Taker breakdown** (whofills, last 90 sim min, $300), R/C by taker group:
+
+| taker group | 101 | 252 | 55 |
+|---|---|---|---|
+| bg id 2–99 | −0.27 (47% of $) | +0.38 | +0.37 |
+| 1000–1999 | −0.31 | +0.12 | −0.14 |
+| 2000+ | −0.20 | −0.11 | +0.56 |
+| ALGO | +5.65 (2% of $) | +3.91 (9% of $) | positive |
+
+- The same background takers fill both of us; their fills lose for us and win for 252.
+- No counterparty to avoid. The cause is where and when our quotes sit.
+- Lead: ALGO sweeps hold value best, but they are only 2% of our $ vs 9% of 252's.
+
+**Route status:**
+- The $300 making route is NOT yet at R/C ≥ 0.2 with skill held: every fleet-copy variant failed.
+- The own 20-s gate is the last open making idea. If the gate shows no R/C gain, the making route is exhausted, and the parked leads come next per the user: 4-dec (5E2fVqiW) and strong-inside skill.
