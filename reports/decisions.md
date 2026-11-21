@@ -28623,3 +28623,11 @@ User (away until ≈ 1 PM): "if the tight verdict is still gaining spread captur
 - **Live:** mk_tight300 5 applied ("LIVE PARAMS applied: mk_tight300 0→5") and saved to live_params_NEXT.json. $30 sizes 0.06 / 0.06.
 - Expect live making_realized / share to start moving within ≈ 1–2 h if miner-wide quality goes above 0. Watch every brief.
 - **Stale ABAB started 17:59:32 UTC** (pid 2629269, TIGHT=5): A = base, B = + mk_stale_bp 0.3 / mk_stale_s 2. Early read 1:22 PM, verdict 2:42 PM.
+
+## §1888 — 12:21 PM CT brief (stale ABAB block A1 = tight base)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $85/mo ($2.84/d), net α 1,341, captured 59.8 / **realized 0 / share 0.0 (no movement yet; 22 min after the tight base)**. Prune line $119.
+- **252:** ≈ $220/mo (incentive 0.0044), share 0.0030.
+- SPREAD300: pulls on ≈ 50–55% of $300 book-rounds (4,101 and 3,768 of ≈ 7,500).
+- Stale ABAB A1 (tight base, from 18:06:33 UTC), 101 − 252 Σα per check: **+7.1, −2.7**.
+- Note: the validator's making window runs in SIM time. The sim is slow (≈ 10 sim s per wall min), so the gauges may take longer than 1–2 wall hours to reflect the new base.
