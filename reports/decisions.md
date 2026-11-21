@@ -27771,3 +27771,15 @@ Bucket $4.7k:
 - Bucket $800: B rests ≈ $2.5k at 7–9 back on both sides everywhere. Books with no order: 2 in all arms.
 - → B gives every $300 book a deep two-sided layer. Watch the shared pace budget (deep fills could crowd out lean step-ins = skill cost).
 - T2 verdict cron (1:17 AM) now starts **T5 (B deep6 f0.5) straight after T2**, ahead of T3 hold / T4.
+
+## §1835 — 10:55 PM CT brief (T2 in its warm-up wait)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$9/mo ($0.29/d)** | $213/mo ($7.10/d) |
+| making captured / realized / share (live) | 28.8 / 0.0 / 0.0 | — / — / 0.0046 |
+| net α | **458** | 1,498 |
+| incentive | 0.0002 | — |
+
+- 101: registered, 0 tracebacks, 0 of 192 blocked; cold start busiest book $26.6k.
+- T2 script running (no log yet: its 1,500-s warm-up wait ends ≈ 11:04 PM). Upstream unchanged; layout switcher waiting. Lowest non-immune ≈ $119–122.
