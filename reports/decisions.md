@@ -28716,3 +28716,15 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - Unknowns for the live test: skill (bigger inventory swings; max_inv 0.3 may bind and skew quotes) and the pace budget (fine: ≈ $68–77k of $450k per book per day).
 - **$30: NO.** Continued-taker fills at best lose in every own-share bucket; more at-best size = more losses. (Also matches the failed $30 ladder test, §1880.)
 - Size knobs are at their bounds (mk_vol_size 0.1 = max, mk_calm_size 0.12 = max). Staged agents with bounds raised to 0.3 / 0.36 (agents/QuoteAgent.py.next-f1bcce6e; otherwise = 6ca6f5e2). Needs a restart → not during the running $30 imbalance ABAB.
+
+## §1894 — 1:50 PM CT — combined per-class ABAB: $30 imbalance pull + $300 2× size (user: run both now if they don't affect each other)
+- Independence check:
+  - mk_imb30 acts only on $30 ("low") books; mk_vol_size / mk_calm_size only on $300 vol / calm books.
+  - Pacing, inventory and validator making C/R are per book. Our analyses read each class separately: pairfills30 for $30; fillvalue / pairfills + skill_cls2 $300 for $300.
+  - → Both can switch together in one ABAB and be judged per class. Only the miner-wide ratio mixes them, and it is a derived number.
+- Imbalance ABAB stopped 19:46 UTC (it was in A1; no B data lost). Deployed agents f1bcce6e (bounds raised; backup .bak-6ca6f5e2). Restart 19:46:39 UTC: 0 tracebacks, fills OK. newminer.sh → f1bcce6e.
+- **speed/abab_combo101.sh** (pid 2638521, TIGHT=5, started 19:47:57 UTC):
+  - A = base (imb30 0, $300 size 0.1 / 0.12);
+  - B = mk_imb30 0.8 + mk_vol_size 0.2 / mk_calm_size 0.24.
+  - Safety stop at ≥ 20 blocked.
+  - Early read 3:12 PM, verdict 4:27 PM (≈ 18 min before protection ends).
