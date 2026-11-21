@@ -28799,3 +28799,25 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - B1 (imb30 0.8 + 2× $300) so far, Σα vs 252: −6.2, +2.8, −1.4, +13.7, −2.7 → mean +1.2 (A1 +4.0).
   - $300 notional per check ≈ $174k vs A1 ≈ $141k (+23%).
   - IMB30 pulls 1,376 of 3,955 $30 at-best sides.
+
+## §1902 — 4:27 PM CT — combined test EARLY READ: let it run; $300 2× size adds volume but quality is negative in this run; $30 pull keeps quality, cuts capture
+101 still REGISTERED (4:25 PM CT). PACE 0–1 blocked.
+
+| per class | A1 base (sim 1143–1608, 6.75 sim min) | B1 both on (sim 1608–2095, 7.12 sim min) |
+|---|---|---|
+| **$300** 101 $ / per sim min | $233k / $34.5k | $406k / **$57k (+65%)** |
+| $300 C / R per $ (bp) | +0.21 / −0.18 | +0.04 / **−0.31** |
+| $300 R total (bp·$k) | −4.2 | **−12.5** |
+| $300 252 C / R per $ | +0.06 / ≈ −0.01 | −0.14 / ≈ −0.17 |
+| Σα vs 252 per check (mean) | +4.0 | **+5.8** (−6.2, +2.8, −1.4, +13.7, −2.7, +28.4) |
+| **$30** 101 $ / per sim min | $145k / $21.5k | $106k / $14.9k (−31%) |
+| $30 C / R per $ | +0.67 / +0.49 | +0.57 / +0.51 |
+| $30 R/C | +0.73 | **+0.89** |
+| $30 capture per sim min (bp·$k) | 14.4 | **8.5 (−41%)** |
+
+- **$300 2× size:** volume +65% and skill holds (+5.8 vs +4.0). But $300 markouts are negative for both us and 252 in this run, so more size = bigger losses (R −12.5 vs −4.2). Not a clear loss by the rule (skill fine) → continue.
+  - Note: the tight base itself is negative in both post-reset blocks. The new run's $300 market differs from this morning's.
+- **$30 imbalance pull:** R per $ ≈ the same (+0.51 vs +0.49), R/C +0.89 vs +0.73, capture −41%.
+  - In this good $30 market there is little to remove; the pull costs capture. Offline it helped mainly in rough windows (§1892).
+  - A regime-dependent rule → exactly the case for adaptive gating (§1900).
+- A2 started 22:18:06 UTC; verdict 5:37 PM.
