@@ -28770,3 +28770,15 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - $300 volume per sim min +34% with 2× size. Quality is unreadable in these windows (both negative or near 0).
 - $30 with the imbalance pull: R per $ doubled (+0.60 vs +0.30), but volume halved and capture −31%.
 - Too small and too close to the reset to judge. The real B1 starts ≈ 3:40 PM.
+
+## §1899 — 3:45 PM CT brief (combined ABAB: A1 done, B1 running)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** **$59/mo ($1.97/d)**, down from $75 (incentive 0.0012); net α 1,361; captured 64.9 / realized 0 / share 0.0.
+  - mypay's "prune line $2" is an anomaly; its unprotected-UID calculation is likely distorted after the reset. Not trusted.
+- **252:** ≈ $190/mo (incentive 0.0038), share 0.0027.
+- **A1 (base, sim 1143–1608):**
+  - Σα vs 252: −6.1, +1.0, +2.7, +8.4, +9.3, +8.7 → **mean +4.0** (101 1.0–2.0 bp vs 252 0.5–1.1).
+  - $300 exact window: R/C **−0.87** (C +0.21, R −0.18 bp, $233k).
+  - $30 exact window: R/C **+0.73** (C +0.67, R +0.49 bp, $145k). The $30 market is good after the reset.
+- B1 (imb30 0.8 + 2× $300 size) from 21:41:06 UTC: IMB30 pulls 911 of 2,473 $30 at-best sides.
+- Pay is falling while skill reads well. Likely lag plus the reset (the validator window spans it). Watch.
