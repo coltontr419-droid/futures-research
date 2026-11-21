@@ -28855,3 +28855,31 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **$30 imbalance pull: NOT KEPT** under the rule (capture −33% > 25%). R/C better, but credit ≈ capture × quality favours the base in this good-$30 regime.
 - **Notable:** miner-wide R/C was **positive in every post-reset block** (base +0.62). Making would have started on a full validator window; the gauges still showed 0 at the prune (window spanned the reset).
 - Both rules are regime-dependent → the adaptive replay (§1900) is the next step, offline.
+
+## §1905 — 6:20 PM CT — ADAPTIVE MAKER REPLAY (offline): big making gain, but mostly by cutting $300 fills (skill risk); $30-only hybrid = small safe gain
+- **Data:** speed/fillrecs.py (new; per-fill validator C / R + prior-second spread / own-share / position; explicit START / END; reset-safe). 101 fills in 6 chunks: 5 pre-reset (sim 46,460–59,415) + 1 post-reset (640–3,023). 34k records incl. 252.
+- **Replay:** speed/adaptreplay.py. Policies:
+  - all;
+  - fixed (tight ≤ 5 t on $300 + $30 at-best own ≥ 0.8 pulled);
+  - adapt = per-bucket rolling R/C gate ($300 spread buckets; $30 at-best × own buckets) over the last N observed fills whose 20-s markout is known, θ threshold, MIN 20, every 10th gated fill explored;
+  - hybrid = fixed on $300 + adapt on $30.
+
+| policy (pooled, 6 chunks) | miner-wide R/C | C per sim min | $k per sim min | credit proxy (vol × quality) | R kept per sim min |
+|---|---|---|---|---|---|
+| all | −0.24 | 1.08 | 53.7 | 0 | −0.26 |
+| fixed | +0.11 | 0.85 | 31.3 | 3.5 | 0.095 |
+| **adapt N200 θ0.1** | **+0.34** | 0.64 (−25%) | 19.3 (−38%) | **6.6 (1.9×)** | **0.218** |
+| adapt N100 θ0.0 | +0.32 | 0.63 | 19.1 | 6.0 | 0.197 |
+| hybrid N200 θ0.1 | +0.15 | 0.73 | 25.9 | 3.9 (1.1×) | 0.110 |
+
+- Per chunk: adapt beats fixed on miner-wide R/C in 5 of 6 (not in 51620, a tie). By the pre-set pass rule (≥ 90% of fixed's capture) it passes only 1 of 6 → **FAILS the capture criterion**.
+- **On the pay formula (credit ≈ two-sided volume × miner-wide quality) it is ≈ 1.9× fixed.**
+- **Where the gain comes from:**
+  - On $30 it lifts R/C to +0.6–0.8 in every chunk.
+  - On $300 the spread buckets alone don't find a positive zone ($300 stays negative in most chunks). The gate mostly **cuts $300 volume**, which raises the miner-wide ratio by weighting the good $30 fills.
+  - The $300 fills carry our SKILL half, so the full adaptive version risks skill. Offline can't measure that.
+- **Hybrid ($300 fixed, $30 adaptive)** keeps $300 untouched (skill-safe): R/C +0.11 → +0.15, credit +10%. Small but safe.
+- Caveat: removing fills offline ignores how pulled quotes change queues and inventory. Results are only from fills generated under the settings live at the time.
+- **Proposal for the next miner:**
+  1. Build the online per-bucket markout tracker + gate (mk_adapt30 for $30; mk_adapt300 optional).
+  2. Live ABAB on the new UID: hybrid first (low risk). Then full adapt, judged on miner-wide R/C AND Σα vs 252.
