@@ -27488,3 +27488,19 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - Block B end (delayed entry): fillvalue R/C **+0.05** (single −0.24, depth1 −0.18) on $97k vs A1's +0.10.
   - A2 checks: 101 +0.32 / +0.90 bp vs 252 +0.89 / +0.86.
 - Lowest non-immune ≈ $119–128.
+
+## §1818 — 7:23 PM CT brief (101, ABAB block B2)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $0 (2.6 h old) | $225/mo ($7.51/d) |
+| making captured / realized / share (live) | **6.28 / 0.60** (rising) / 0.0 | — / — / 0.0048 |
+| net α | 206 | 1,616 |
+
+- **Block A2 ended:**
+  - last check 101 **+19.6 on $204k (+0.96 bp)** vs 252 +5.0 (+0.32);
+  - end fillvalue R/C **+0.03** on $284k.
+  - Block-end R/C so far: A +0.10, B +0.05, A +0.03 → the 6-sim-min fillvalue reads ≈ 0 for both arms.
+- B2 first check: 101 +26.6 (+1.55 bp) vs 252 +3.3 (+0.20).
+- 101: registered, 0 tracebacks, 0 of 190 blocked (busiest book $15.0k). Upstream: main 0.6.7, test 0.6.8.
+- Lowest non-immune ≈ $110–119.
