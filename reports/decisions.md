@@ -28534,3 +28534,10 @@ Exact window sim 55,935–56,875 (15.7 sim min; the 9:27 restart is inside, para
 - The market was rougher in this window (252's $30 R/C −2.15). Relative to 252 we did better, but the predicted +0.41 did not appear, and capture fell 35%.
 - **Flag (no auto-revert while searching):** propose reverting to mk_low_size 0.06 / mk_low_lad_size 0.06. Left as is until the user decides; it does not affect the $300 tight ABAB.
 - Lesson: offline size-scaling bounds need a check that fills scale with size. Sweeps that just reach a level don't take more because more is resting.
+
+## §1880 — 10:45 AM CT — $30 ladder: market-independent check splits the verdict
+User asked whether to wait for another window, since 252 did worse (−2.15) than us (−0.19) in the readout window.
+- **Ladder half FAILED regardless of the market:** average 1-behind fill $276 before (order 0.06) vs $262 after (order 0.10, +67%). Sweeps reaching level 2 stop short of even the old order, so more resting size catches nothing.
+- **Touch half (0.06 → 0.03) is still open:** at-best $/sim min −26%, average at-best fill $284 → $244. Benefit to R/C unmeasured, because the window was rough for everyone.
+- 252's usual $30 R/C is mildly positive: +0.14 and +0.12 on 60-sim-min windows (101 +0.04 / +0.03, ≈ 0.1 below 252).
+- Plan: leave the settings unchanged; second read 11:27 AM, judged relative to 252 in the same window. If not clearly better than the usual ≈ −0.1 gap → propose reverting both to 0.06 (user decides).
