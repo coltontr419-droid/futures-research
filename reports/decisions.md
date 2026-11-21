@@ -28658,3 +28658,15 @@ User (away until ≈ 1 PM): "if the tight verdict is still gaining spread captur
 - The $30 market is rough today for everyone: 252's $30 R per $ is −0.39 bp in the same window, after +0.14 R/C windows this morning.
 - The validator window also still contains pre-tight fills, so even with $30 at 0 the gauges would lag.
 - **Next lever = the $30 at-best fills** (90%+ of our $30 $, losing; mostly sweeps). Needs an offline check before anything goes live (user rule).
+
+## §1891 — 1:27 PM CT — stale test EARLY READ: mechanism works, no gain yet → let A2/B2 run
+
+| block | 101 − 252 Σα per check (mean) | $300 notional per check | 101 exact-window R/C | 2 s / 0.3 bp "moved into" share of wide-spread $ | its R/C |
+|---|---|---|---|---|---|
+| A1 tight base (sim 58000–58382) | −2.3 | ≈ $63k | **+0.44** ($95k) | **13%** | −0.41 bp R |
+| B1 + stale 0.3 / 2 s (sim 58382–58813) | **−8.3** (−7.9, −10.3, −7.6, −11.5, −6.5, −6.0) | ≈ $47k (75%) | **+0.36** ($65k) | **1%** | — |
+
+- **Mechanism works:** the targeted fills fell from 13% to 1% of wide-spread $. STALE300 pulls ≈ 1,600–1,900 sides per sim minute (≈ 25%).
+- **No payoff yet:** the remaining fills kept less (+0.38 vs +0.51 for the not-moved fills in A1), so R/C is +0.36 vs +0.44, Σα is −6/check, and volume is −25%.
+- Not a "clear loss" by the rule (Σα gap < 8; R/C dip within block noise at ≈ $65–95k per block) → A2/B2 continue (A2 from 19:18:49 UTC).
+- The broader 10-s / 0.5 bp moved-into share did not change (42% → 43%). Only the targeted short-horizon bucket was removed.
