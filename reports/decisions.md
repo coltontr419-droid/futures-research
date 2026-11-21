@@ -28122,3 +28122,27 @@ abab_hold101.log, 101 − 252 Σα per check:
 - **Conclusion:** the 20-s model predicts the market (§1851) and works for 252's fills, but cannot select good fills for us. Our fills get filled when the move goes against us regardless of the observable state. That points at WHO fills us (counterparty/taker type), not WHEN we quote.
 - **Next diagnostic:** break our and 252's $300 maker fills by taker identity/type from the tape (background agent ID groups — ALGO sweeper, others; miner takers), with validator C/R per group.
 - Neither band rule ("mildly favourable only" / "skip both extremes") goes on the miner.
+
+## §1857 — 7:40 AM CT — own 20-s model GATE built, checked and deployed; ABAB started
+
+- User: "okay go ahead and build it" (use the 20-s model defensively).
+- **agents/QuoteAgent.py 75966cb2** = 4b19d295 + live knobs:
+  - `mk_mo20_gate` (bp, 0 = off) and `mk_mo20_back` (ticks; 0 = pull);
+  - `mk_mo20_file` (default agents/model_mo20.json, copied next to the agent).
+- New _mo20_pred(): the §1851 model live, with features computed exactly as in speed/mo20fit.py.
+  - Inputs: per-book trade-flow deque from book.events (signed taker $k over 5/15 s, ALGO −1 flow), fund-change tracking, the existing _mh/_fh2 histories, book top-5.
+- Gate (before the 4-dec branch, $300 vol + calm books, not $30): if pred > gate the ASK is pulled (or stepped back); if pred < −gate the BID is. Applies to every side, lean side included.
+- Checks:
+  - equiv 0 diffs vs 4b19d295 (tape, ledger, locks identical; handle 81 vs 79 ms); test_pace ALL PASS.
+  - Functional test (speed/gatetest.py, captured state + seeded histories):
+
+| gate | preds computed | sides pulled | new $300 orders |
+|---|---|---|---|
+| 0 | — | 0 | 42 |
+| 0.3 | 128 (median +0.03 bp, −0.85…+0.79) | 43 | 33 |
+
+- **Deploy 7:38 AM:** backup agents/QuoteAgent.py.bak-4b19d295; newminer.sh expects 75966cb2; x3 restarted; 0 tracebacks, 0 blocked.
+- **ABAB** speed/abab_mo20101.sh (pid 2604039; log abab_mo20101.log):
+  - 1,500-s warm-up, then A/B/A/B; ends ≈ 11:00 AM–12:00 PM.
+  - A = base (gate 0); B = mk_mo20_gate **0.4** (≈ the strongest-quintile predictions), pull.
+  - Judge on block-end fillvalue R/C, Σα vs 252, $300 volume, live making_realized.
