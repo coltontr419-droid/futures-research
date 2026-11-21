@@ -28016,3 +28016,27 @@ Bucket $4.7k:
   - **Phase 2:** quote gating in the agent (pull/shade a side, incl. the lean side, when the 20-s prediction is adverse beyond a threshold) + a modest two-sided layer near the touch protected by the same model; equiv / test_pace / census.
   - **Phase 3:** ABAB on 101, judged on block-end R/C + Σα vs 252.
 - Timeline: live answer by ≈ this evening. T3 (hold) keeps running until ≈ 8 AM.
+
+## §1851 — 6:09 AM CT brief + Phase 1 result: our 20-s model predicts the markout
+
+- **Brief:**
+  - 101: $72/mo ($2.41/d), net α **1,307**, captured 85.4, realized 0, incentive 0.0015.
+  - 252: $245/mo ($8.16/d), share 0.0039.
+  - T3 hold block B1 ended with fillvalue R/C −0.71; A2 started 6:03 AM.
+- **Phase 1** (speed/mo20fit.py, $300 books, sim s 47,827–53,227, 128 books, target sd 1.43 bp; ridge 10; model → agents/model_mo20.json):
+
+| | TRAIN (n 139k) | **TEST (n 59.5k, last 30%)** |
+|---|---|---|
+| corr | +0.295 | **+0.229** |
+| R² | +0.087 | +0.022 |
+| top-quintile hit | 60.9% | **60.4%** |
+| mean move in the predicted direction (top quintile) | +0.74 bp | **+0.77 bp** (vs our capture ≈ +0.2–0.3 bp per $) |
+
+- Weights (standardised):
+
+| imb1 | dF30 | micro | imb5 | r20 | flow5 | gap | r5 | algo5 | spread | since | flow15 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| +0.327 | +0.212 | −0.207 | +0.197 | −0.160 | +0.127 | +0.072 | −0.052 | −0.037 | −0.023 | +0.005 | −0.005 |
+
+- Book imbalance (not used by our lean model) + 30-s fundamental change + short-term reversion + recent flow carry the 20-s signal.
+- **Phase 1b running** (speed/mo20fills.py): score 113's (END 44,439) and 101's actual $300 maker fills by the model's prediction in the fill's favour → validator R/C per group, and the counterfactual R/C without the adverse groups.
