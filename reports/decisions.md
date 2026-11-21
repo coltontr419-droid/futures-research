@@ -28503,3 +28503,16 @@ User: "fix the response time, then go for the 4-dec books but dont schedule anyt
 - **252:** ≈ $240/mo (incentive 0.0048), share 0.0033, net α 1,577.
 - **call_time** (gauge, partly pre-restart): 101 **0.287 s** (p5 0.234), was 0.38 / 0.29 before the 9:27 speed build. 252 0.135 / 0.075. Improving; still ≈ 2× 252.
 - Tight ABAB A1 (base, from 15:35:50 UTC), 101 − 252 Σα per check: −7.5, −13.3, −11.5. 101 is behind 252 on $300 skill this block (101 −0.06 / −1.16 / −1.10 bp). B1 starts ≈ 10:10 AM.
+
+## §1878 — 10:28 AM CT brief (tight-only ABAB block B1)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 of 192 blocked; release states unchanged.
+- **101:** $95/mo ($3.16/d), net α 1,348, captured 74.6 / realized 0 / share 0.0. Prune line $126.
+- **252:** ≈ $240/mo (incentive 0.0048), share 0.0033, net α 1,683.
+- **call_time:** 101 0.285 s (p5 0.226) vs 252 0.136 / 0.079. Was 0.38 / 0.29 before the speed build.
+- Tight ABAB:
+  - **A1 (base):** 101 − 252 Σα per check −7.5, −13.3, −11.5, −8.6, −4.9.
+    - Exact window (sim 56229–56651, 6 sim min, only $91k): R/C −2.21, C +0.08 bp.
+    - Small sample; the slow sim gives ≈ $15k of $300 fills per sim min.
+  - **B1 (tight 5, from 16:10 UTC):** SPREAD300 pulls on 2,961 of 7,642 book-rounds (39%). $300 fills per 3 sim min fell to 5–11 (A1 20–35).
+    - Σα vs 252: −4.7, −1.1, −0.8, better than A1 so far.
+- Caveat: blocks span only ≈ 6–7 sim min each while the sim is slow, so per-block R/C rests on ≈ $50–100k of fills. The verdict will pool A1+A2 vs B1+B2.
