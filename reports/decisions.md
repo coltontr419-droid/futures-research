@@ -28715,4 +28715,4 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **$300 offline bound:** doubling the wide-spread $300 size ≈ doubles $300 capture at ≈ the same quality → $300 making credit ≈ 2×.
   - Unknowns for the live test: skill (bigger inventory swings; max_inv 0.3 may bind and skew quotes) and the pace budget (fine: ≈ $68–77k of $450k per book per day).
 - **$30: NO.** Continued-taker fills at best lose in every own-share bucket; more at-best size = more losses. (Also matches the failed $30 ladder test, §1880.)
-- Size knobs are at their bounds (mk_vol_size 0.1 = max, mk_calm_size 0.12 = max). Staged agents with bounds raised to 0.3 / 0.36 (agents/QuoteAgent.py.next-<md5>; otherwise = 6ca6f5e2). Needs a restart → not during the running $30 imbalance ABAB.
+- Size knobs are at their bounds (mk_vol_size 0.1 = max, mk_calm_size 0.12 = max). Staged agents with bounds raised to 0.3 / 0.36 (agents/QuoteAgent.py.next-f1bcce6e; otherwise = 6ca6f5e2). Needs a restart → not during the running $30 imbalance ABAB.
