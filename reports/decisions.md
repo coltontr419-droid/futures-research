@@ -28427,3 +28427,21 @@ speed/widefills30.py (books 128–191, 60 sim min, spread ≈ always 1 tick so s
    - pairfillsdec R/C: 132 +0.29, 157 +0.29, 47 +0.35, 96 +0.26, 73 +1.13, 74 −0.40, 60 −1.29. → Several makers keep value there.
    - Pool = 25% of the making half. Open questions before any test: (a) how the 450k/book/day volume cap applies there (top makers trade ≈ $2.4M/book/day); (b) fee netting at 4 decimals; (c) 0.6.8 remaps the classes (128–191 → 4-dec, 192–255 → new $100 sim_3).
    - Lead for an offline deep-dive, not a quick switch.
+
+## §1874 — 9:55 AM CT — response time: profiled, fixed, staged for the 12:45 PM restart
+User: "fix the response time, then go for the 4-dec books but dont schedule anything for them even if you find something".
+
+**py-spy, 60 s on the live miner** (nonblocking; 438 active samples; a validator round ≈ every 4 s while the sim is slow):
+- 42%: bittensor axon `_wrapper_run`, a `while not should_exit: time.sleep(1e-3)` loop. 1,000 wake-ups/s, each taking the GIL from the handler thread.
+- forward() ≈ 0.18 s of CPU per round:
+  - msgpack decode of the books payload ≈ 34% (library, protocol-defined);
+  - `_quote` path ≈ 40%, including the lean's `_at` history scan (generator over ≤ 305 samples, 6× per book) ≈ 7% of all samples.
+- The tape worker already defers while `_busy`.
+- Gauges: call_time 101 0.38 s (p5 0.29) vs 252 0.14 (p5 0.07).
+
+**Fixes (agents 0a96ab5e = c5e38df5 stale knobs + speed; staged agents/QuoteAgent.py.next-0a96ab5e):**
+1. `sys.setswitchinterval(0.02)` at module import (was 5 ms): the handler is no longer forced to hand off the GIL every 5 ms.
+2. `_at` → binary search over the deque. Equivalence-tested against the old scan on 100k random lookups: 0 mismatches.
+3. venv bittensor/core/axon.py `_wrapper_run` sleep 1e-3 → 0.25 s. It only waits for shutdown. Backup /opt/mvtrx/axon.py.bak-1874. **A venv reinstall/upgrade reverts this.**
+- Not changed: payload decode (library). The lab is a 4-vCPU "DO-Regular" droplet; a CPU-optimised droplet would cut the remaining compute but is spending → user decision, only if the fixes are not enough.
+- Deploy is chained into the 12:45 PM verdict cron (one restart for both the speed build and the stale test). call_time is read before and ≈ 30 min after.
