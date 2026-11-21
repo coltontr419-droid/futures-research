@@ -27504,3 +27504,25 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 - B2 first check: 101 +26.6 (+1.55 bp) vs 252 +3.3 (+0.20).
 - 101: registered, 0 tracebacks, 0 of 190 blocked (busiest book $15.0k). Upstream: main 0.6.7, test 0.6.8.
 - Lowest non-immune ≈ $110–119.
+
+## §1819 — 7:53 PM CT brief (101, ABAB ending) — delayed entry clearly losing
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $0 (3.1 h) | $225/mo ($7.51/d) |
+| making captured / realized (live) | **10.30 / 1.12** | — / — (share 0.0047) |
+| net α | 206 | 1,703 |
+
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $15.8k).
+
+**ABAB so far** (101 − 252 Σα per check):
+
+| block | per-check diffs | mean | 101 $300 volume |
+|---|---|---|---|
+| A1 | −11.7, −5.7, −4.5, −5.9, −5.7, −5.0 | **−6.4** | — |
+| B1 | −4.6, −18.1, −22.3, −18.9, −19.0, −23.9 | **−17.8** | $65–130k |
+| A2 | −12.5, −3.6, +9.7, −1.7, +2.2, +14.6 | **+1.5** | $113–204k |
+| B2 (5 checks) | +23.3, +3.4, −11.7, −18.4, −13.2 | **−3.3** | falling to **$42–57k** |
+
+- Block-end fillvalue R/C: A +0.10 / B +0.05 / A +0.03.
+- → A ≈ −2.5 vs B ≈ −11.0: **delayed entry is clearly worse.** It cuts $300 volume (the filter blocks most lean entries) with no gain in 20-s value. Formal verdict when the script ends (≈ 8:02 PM).
