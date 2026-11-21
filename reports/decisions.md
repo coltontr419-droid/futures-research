@@ -27540,3 +27540,12 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - Removing the "against-move" fills does not make the remaining fills score well. Consistent with §1814: the loss is about how strong-lean fills are filled (low capture), not when.
 - Script stopped at 7:58 PM (its last check: −1.0 vs +12.2); live_params_101 mk_lean_mom_s 0 (A). The momcf re-read was skipped (verdict clear; saves the lab for the next deploy).
 - **Next:** strength-scaled jump_back (§1815, agents 1a2de99b), deploy + ABAB now.
+
+## §1821 — 7:59 PM CT — strength-scaled jump_back deployed on 101 + ABAB started
+
+- agents/QuoteAgent.py ← agents_next **1a2de99b** (§1815; backup agents/QuoteAgent.py.bak-58a77a8a); newminer.sh expects 1a2de99b.
+- x3 restarted 7:59 PM; 0 tracebacks, PACE 1 of 190 blocked.
+- **ABAB** speed/abab_jbs101.sh (log /opt/mvtrx/abab_jbs101.log):
+  - 1,500-s warm-up, then 4 × 30 min, ends ≈ 10:30 PM CT.
+  - A = base (strong knobs 0); B = mk_jump_back_strong 3 + mk_jump_strong_pred 1.06 (≈ 1.5 × thr): strong leans rest 3 ticks behind the touch, others 1.
+  - Judge on Σα vs 252 (primary), $300 volume, block-end fillvalue R/C. Afterwards leancf on the tape per strength band (does the strong band's C / R/C rise?).
