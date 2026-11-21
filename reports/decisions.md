@@ -28554,3 +28554,10 @@ User asked whether to wait for another window, since 252 did worse (−2.15) tha
 - PACE 0 blocked throughout. SPREAD300 pulls ≈ 39% of book-rounds.
 - Caveats: ≈ 6 sim min per block, $60–90k of fills. The market eased from A1 to B1 (252 −0.40 → +0.04), which is exactly what A2/B2 control for.
 - Not a loss → script continues (A2 started 16:44:41 UTC). Verdict 12:12 PM.
+
+## §1882 — 10:57 AM CT brief (tight ABAB block A2)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $95/mo ($3.16/d), net α 1,367, captured 63.9 / realized 0 / share 0.0. Prune line $124.
+- **252:** ≈ $236/mo (incentive 0.0047), share 0.0032, net α 1,527.
+- **call_time** has settled at 101 0.29 s (p5 0.245) vs 252 0.14 / 0.077. The speed build took ≈ 0.09 s off (0.38 → 0.29); the remaining ≈ 2× gap is payload decode + agent compute on the 4-vCPU droplet.
+- Tight ABAB A2 (base, from 16:44:41 UTC), 101 − 252 Σα per check: −5.5, −3.8. B2 starts ≈ 11:20 AM.
