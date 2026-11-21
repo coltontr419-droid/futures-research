@@ -27473,3 +27473,18 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - re-measure groups;
   - update the analysis tools' class ranges (skill_cls2, fillvalue, momcf, leancf, bookcf all assume $300 < 128);
   - re-fit the lean model if the class params changed.
+
+## §1817 — 6:53 PM CT brief (101, delayed-entry ABAB block A2)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $0 (2 h old) | $226/mo ($7.54/d) |
+| making captured / realized / share (live) | **1.74 / 0.12** (first live making on 101) / 0.0 | — / — / 0.0048 |
+| net α | 166 | 1,637 |
+
+- 101: registered, 0 tracebacks, 0 of 186 blocked; cold start busiest book $12.0k.
+- Upstream: main 20e97853 (0.6.7), test de323b82 (0.6.8). Layout switcher waiting (mainnet still on 0.6.7).
+- **ABAB:**
+  - Block B end (delayed entry): fillvalue R/C **+0.05** (single −0.24, depth1 −0.18) on $97k vs A1's +0.10.
+  - A2 checks: 101 +0.32 / +0.90 bp vs 252 +0.89 / +0.86.
+- Lowest non-immune ≈ $119–128.
