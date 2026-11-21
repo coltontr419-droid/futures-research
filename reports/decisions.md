@@ -28670,3 +28670,31 @@ User (away until ≈ 1 PM): "if the tight verdict is still gaining spread captur
 - **No payoff yet:** the remaining fills kept less (+0.38 vs +0.51 for the not-moved fills in A1), so R/C is +0.36 vs +0.44, Σα is −6/check, and volume is −25%.
 - Not a "clear loss" by the rule (Σα gap < 8; R/C dip within block noise at ≈ $65–95k per block) → A2/B2 continue (A2 from 19:18:49 UTC).
 - The broader 10-s / 0.5 bp moved-into share did not change (42% → 43%). Only the targeted short-horizon bucket was removed.
+
+## §1892 — 1:35 PM CT — $30 at-best imbalance finding (offline, 2 windows) → mk_imb30 built + live ABAB; stale test stopped (NOT kept)
+
+**speed/dissect30.py** ($30 maker fills split by the prior-second top-level size on OUR side ÷ both sides; R per $ in bp):
+
+| own-side share | 101 recent 45 sim min | 101 earlier 45 sim min | 252 earlier |
+|---|---|---|---|
+| < 0.2 | +0.22 (3%) | +0.61 (4%) | +1.38 |
+| 0.2–0.4 | +0.06 (8%) | +0.18 (11%) | +0.88 |
+| 0.4–0.6 | +0.01 (22%) | +0.10 (20%) | +0.49 |
+| 0.6–0.8 | −0.06 (32%) | −0.02 (29%) | +0.10 |
+| **≥ 0.8** | **−0.22 (35%; C −0.04)** | **−0.21 (37%; C +0.00)** | **−0.23 (56%)** |
+
+- Monotonic in both windows and for 252. The ≥ 0.8 bucket is a third of our $30 $, loses, and captures ≈ nothing.
+- Other splits were weak: prior sweeps 1% of $; prior-move against 10% −0.90.
+- **Offline bound** (pull at-best sides in the ≥ 0.8 bucket):
+  - earlier window: $30 R/C −0.09 → **+0.30**, capture unchanged;
+  - recent rough window: ≈ −0.6 → ≈ 0.
+  - Miner-wide since the tight base (§1890): −0.12 → ≈ +0.15 → making turns on.
+- **Built mk_imb30 / mk_imb30_back** (agents 6ca6f5e2):
+  - On $30 books, a side quoted at the others' best is pulled (or stepped 1 tick back) while that side holds ≥ X of the top-level size. Others only: our own size is removed, so the rule doesn't flap.
+  - Logs IMB30 counts. Checked that the normal $30 path reaches the block (the early returns are taker / pace / toxic only).
+
+**Stale test stopped 19:30 UTC (NOT kept):** the mechanism worked (targeted bucket 13% → 1%), but B1 cost −6 Σα/check, R/C +0.36 vs +0.44, −25% volume. Its offline value (+0.08) is small next to the $30 lever, and the protection clock ends at 4:45 PM.
+
+**Deployed:** agents 6ca6f5e2 (backup agents/QuoteAgent.py.bak-0a96ab5e). Restart 19:30:25 UTC: 0 tracebacks, PACE 0 blocked, fills OK. newminer.sh → 6ca6f5e2. Base set explicitly (tight 5, stale 0, $30 0.06/0.06).
+
+**$30 imbalance ABAB** speed/abab_imb101.sh (pid 2636807, TIGHT=5): A = base, B = + mk_imb30 0.8 (pull). Block ends log pairfills30 ($30) + fillvalue ($300). Early read 2:57 PM, verdict 4:12 PM.
