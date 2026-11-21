@@ -27688,3 +27688,19 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 - **Block B1 end fillvalue:** R/C **−0.54** on $102k (single −0.80).
 - **Block A2 so far** (101 vs 252): +2.6 vs +3.7, +14.2 vs +9.1, +14.2 vs +5.6.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $23.5k). Upstream unchanged. Lowest non-immune ≈ $89–117.
+
+## §1830 — 10:20 PM CT — skill-only fleet re-check: 5E2fVqiW now ≈ 8.5k net α per UID, edge on 4-dec; PARKED per user (making first)
+
+- speed/mkfleet.py:
+  - 5E2fVqiW: 20 UIDs, making 0, **net α ≈ 8,200–8,900 per UID** (≈ 1,600 on 11-19), incentive ≈ 0.0035 (≈ $165/UID).
+  - 5F1F2JMu (252's fleet): 24 UIDs, making 0.007–0.009, median net α 1,423, ≈ $205/UID.
+- skill_cls2 (6 sim min), 5E2fVqiW 108 / 82 / 148:
+
+| class | 5E2fVqiW | 101 | 252 |
+|---|---|---|---|
+| $300 | +0.38 to +1.14 bp | +0.89 | +0.44 |
+| $30 | +0.70 to +0.83 | +0.40 | +1.12 |
+| **4-dec** | **+6.7 to +12.3 bp** (Σα +31 to +49 on $40–50k) | not traded (mk_skip_dec 1) | not traded |
+
+- → Skill-only works today via the 4-dec class, which we skip.
+- **User: "we can look at that once we've exhausted every possibility to increase our making credit. lets leave it alone for now."** Saved as memory feedback-making-first-4dec-later. No 4-dec work until the $300 making queue is exhausted.
