@@ -27939,3 +27939,17 @@ Bucket $4.7k:
 - Block A1 (base): last check +20.2 (+1.61) vs +10.1; end fillvalue R/C **−1.26** (C +0.08 bp on $173k: a noisy 6-sim-min block).
 - Block B1 (deep layer) started 2:57 AM.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $41.0k). Upstream unchanged. Lowest non-immune ≈ $123–126.
+
+## §1846 — 3:25 AM CT brief (T5 block B1 = deep layer; quiet market)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$47/mo ($1.57/d)** | $230/mo ($7.65/d) |
+| making captured / realized / share (live) | 49.0 / 0.0 / 0.0 | 28.2 / 10.7 / 0.0042 |
+| net α | **999** | 1,517 |
+| incentive | 0.0010 | — |
+
+- **Block B1 checks** (101 − 252 Σα): 1.1 vs 1.7, −1.2 vs +0.3, −0.8 vs +1.0, −0.1 vs +4.5, +5.1 vs +10.5 → mean ≈ **−2.8** (A1 was +5.4).
+  - Volumes are low for both (quiet stretch: 252 $28–144k). Not a sim reset: sim time is continuous (51,561 → 51,838); the daily reset is at 86,400.
+  - Early sign: the deep layer costs some skill. Its point is miner-wide R/C (block-end read ≈ 3:45 AM).
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $42.9k). Upstream unchanged. Lowest non-immune ≈ $128–129.
