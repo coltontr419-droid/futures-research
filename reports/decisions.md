@@ -28561,3 +28561,17 @@ User asked whether to wait for another window, since 252 did worse (−2.15) tha
 - **252:** ≈ $236/mo (incentive 0.0047), share 0.0032, net α 1,527.
 - **call_time** has settled at 101 0.29 s (p5 0.245) vs 252 0.14 / 0.077. The speed build took ≈ 0.09 s off (0.38 → 0.29); the remaining ≈ 2× gap is payload decode + agent compute on the 4-vCPU droplet.
 - Tight ABAB A2 (base, from 16:44:41 UTC), 101 − 252 Σα per check: −5.5, −3.8. B2 starts ≈ 11:20 AM.
+
+## §1883 — 11:27 AM CT brief (tight ABAB: A2 done, B2 running)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $95/mo ($3.16/d), net α 1,395, captured 64.1 / realized 0 / share 0.0. Prune line $107.
+- **252:** ≈ $236/mo (incentive 0.0047), share 0.0031, net α 1,548. call_time 101 0.291 vs 252 0.136.
+
+| block | 101 − 252 Σα per check (mean) | 101 exact-window R/C | 252 same window |
+|---|---|---|---|
+| A1 base | −8.6 | −2.21 (C +0.08 bp, $91k) | −0.40 |
+| B1 tight 5 | **−1.0** | **+0.78** (C +0.26 bp, $62k) | +0.04 |
+| A2 base (sim 57060–57483) | −2.6 (−5.5, −3.8, −1.9, +0.4, −3.0, −2.0) | **−1.87** (C +0.08 bp, $113k) | **+0.29** |
+| B2 tight 5 (from 17:19:42 UTC) | −7.1 so far (1 check) | — | — |
+
+- A2 confirms the base loses in a market where 252 is positive (+0.29). So B1's +0.78 was not just an easier market. B2 decides.
