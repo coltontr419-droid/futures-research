@@ -28078,3 +28078,27 @@ Bucket $4.7k:
 - T3 block B2 (hold 2) checks: 101 +19.5 vs +14.1, +14.3 vs +7.7, +23.8 vs +5.4.
 - Second 20-s-model sample (101's earlier fills from live_tape_x5.jsonl.prev, 80 sim min) still running.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $56.0k). Upstream unchanged. Lowest non-immune: 90 $56, 38 $129.
+
+## §1854 — 7:10 AM CT — T3 (mk_vol_hold 2) VERDICT: NOT KEPT
+
+abab_hold101.log, 101 − 252 Σα per check:
+
+| block | per-check diffs | mean | end fillvalue R/C |
+|---|---|---|---|
+| A1 | +2.8, +8.3, +2.5, +8.4, +4.3, +0.3 | +4.4 | −0.71 |
+| B1 | +2.6, +0.1, −5.7, +4.3, +9.3, +5.2 | +2.6 | −0.71 |
+| A2 | +12.4, +20.7, +6.8, +10.5, +2.4, +15.0 | +11.3 | −0.48 |
+| B2 | +2.0, +5.4, +6.6, +18.4, +13.7, +3.2 | +8.2 | **−2.03** |
+
+- **A ≈ +7.9 / R/C ≈ −0.6 vs B ≈ +5.4 / R/C ≈ −1.4** → hold costs skill and does not help markouts. NOT KEPT; live 101 on base (the script reverted to A).
+- 101's base beats 252 in every block (≈ 1.0–1.4 bp vs 252's 0.3–0.9).
+- Overnight queue summary:
+
+| test | result |
+|---|---|
+| T1 strong-3back | not kept |
+| T2 strong-inside | skill +12/check, making worse → skill candidate |
+| T5 deep layer | not kept |
+| T3 hold | not kept |
+
+- Making continues via the own 20-s-model approach (§1850–§1852).
