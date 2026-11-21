@@ -28631,3 +28631,11 @@ User (away until ≈ 1 PM): "if the tight verdict is still gaining spread captur
 - SPREAD300: pulls on ≈ 50–55% of $300 book-rounds (4,101 and 3,768 of ≈ 7,500).
 - Stale ABAB A1 (tight base, from 18:06:33 UTC), 101 − 252 Σα per check: **+7.1, −2.7**.
 - Note: the validator's making window runs in SIM time. The sim is slow (≈ 10 sim s per wall min), so the gauges may take longer than 1–2 wall hours to reflect the new base.
+
+## §1889 — 12:51 PM CT brief (stale ABAB: A1 done, B1 running)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $85/mo ($2.83/d), net α 1,282, captured 55.2 / **realized 0 / share 0.0 (still no movement, 52 min after the tight base)**. Prune line $119.
+- **252:** ≈ $220/mo (incentive 0.0044), share 0.0029.
+- **A1 (tight base) exact window** (sim 58000–58382): 101 $300 **R/C +0.44** (C +0.43 bp, R +0.19, $95k). The third positive tight-base block in a row (+0.78, +0.67, +0.44).
+  - Σα vs 252: +7.1, −2.7, +0.5, −10.1, −5.3, −3.5 → mean −2.3.
+- B1 (stale pull) from 18:42:28 UTC: STALE300 pulls 1,896 sides of 7,503 book-rounds; first check −7.9.
