@@ -28753,3 +28753,20 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **101:** $75/mo ($2.50/d), net α 1,298, captured 50.5 / realized 0 / share 0.0. Prune line $118.
 - **252:** ≈ $200/mo (incentive 0.0040), captured 34.5 / realized 11.8 / share 0.0027, net α 1,194.
 - Combined A1 (base, from 21:04:20 UTC, sim 1,143), first valid post-reset check: **101 +28.7 Σα (+1.32 bp, $217k) vs 252 +27.7 (+0.83 bp)** → +1.0. The lean has recovered after the reset. B1 starts ≈ 3:40 PM.
+
+## §1898 — 3:30 PM CT — fillvalue.py had no upper window bound (broken after the reset) → fixed; preliminary read of the 15-min "both on" stretch
+- speed/fillvalue.py filtered only `ts < t0`. After the sim clock reset it summed all pre-reset fills ($4.6M "in 3 sim min"). Fixed: it now also skips `ts > tmax` (backup .bak-1898). All other analysis scripts already had the bound.
+- Earlier block-end reads were unaffected: they ran at block end, with no later data in the tape.
+- The combined test's block-end $300 lines will now be correct.
+- **Preliminary only** (aborted run; B = 20:32–20:49 UTC, sim ≈ 740–940, right after the reset with the lean history still rebuilding; tiny samples):
+
+| class | B (both on), 3.3 sim min | A1 base (new run), 2.7 sim min |
+|---|---|---|
+| $300 101: $ / per sim min / C / R per $ / R/C | $144k / **$43k** / +0.07 / −0.07 / −1.11 | $86k / $32k / −0.14 / −0.30 / +2.08 (both negative) |
+| $300 252 R/C | +0.18 | +0.50 |
+| $30 101: $ / per sim min / C / R per $ / R/C | $37k / $11k / +0.73 / **+0.60** / **+0.83** | $59k / $22k / +0.53 / +0.30 / +0.56 |
+| $30 101 capture per sim min | 8.1 | 11.7 |
+
+- $300 volume per sim min +34% with 2× size. Quality is unreadable in these windows (both negative or near 0).
+- $30 with the imbalance pull: R per $ doubled (+0.60 vs +0.30), but volume halved and capture −31%.
+- Too small and too close to the reset to judge. The real B1 starts ≈ 3:40 PM.
