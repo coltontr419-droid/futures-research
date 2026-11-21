@@ -27953,3 +27953,20 @@ Bucket $4.7k:
   - Volumes are low for both (quiet stretch: 252 $28–144k). Not a sim reset: sim time is continuous (51,561 → 51,838); the daily reset is at 86,400.
   - Early sign: the deep layer costs some skill. Its point is miner-wide R/C (block-end read ≈ 3:45 AM).
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $42.9k). Upstream unchanged. Lowest non-immune ≈ $128–129.
+
+## §1847 — 3:55 AM CT brief (T5 block B1 ended; A2 running)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $47/mo ($1.58/d) | $231/mo ($7.69/d) |
+| making captured / realized / share (live) | 55.3 / 0.0 / 0.0 | 28.3 / 10.6 / 0.0041 |
+| net α | **1,046** | 1,608 |
+
+- **Block B1 (deep layer):**
+  - Σα vs 252 per check: −0.6, −1.5, −1.8, −4.6, −5.4, −8.4 → mean **−3.7** (A1 +5.4).
+  - End fillvalue R/C **+0.07** on $239k (A1 −1.26). In the same window **252's R/C was −10.1**: a bad window for makers in general.
+  - → The 6-sim-min R/C reads swing far more than any arm effect.
+- **Block A2 so far:** +6.4, +2.9, +2.8, +6.2.
+- Interim T5 picture: the deep layer costs ≈ 9 Σα per check vs base; its R/C effect is not separable from noise at this block length.
+- Plan: a longer read is needed for any making verdict on T5. Run momcf/fillvalue over the whole B periods offline at the end (≈ 12 sim min each) before deciding.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $44.7k). Upstream unchanged. Lowest non-immune ≈ $130.
