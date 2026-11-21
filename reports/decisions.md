@@ -28412,3 +28412,18 @@ speed/widefills30.py (books 128–191, 60 sim min, spread ≈ always 1 tick so s
 - **Applied live 15:08:35 UTC:** mk_low_size 0.06 → 0.03, mk_low_lad_size 0.06 → 0.10. Backup live_params_101.pre-low30-1872.json.
 - The $30 class is independent of the $300 spread ABAB. It changed at the A1 → B1 switch, so B1/A2/B2 all carry it, and the $300 per-class metrics are unaffected.
 - Readout cron 10:27 AM: widefills30 + pairfills30 over the exact post-change window.
+
+## §1873 — 9:35 AM CT — more quick checks: two-sidedness OK; response time still 2.7× slower; 4-dec making is a real (not simple) lead
+
+1. **Two-sided volume (gauges looked alarming):** average_roundtrip_volume 101 19k vs 252 132k; total 4.9M vs 33.8M.
+   - Tape, last 60 sim min, Σ 2·min(buy, sell) / traded: 101 $300 71%, $30 95%; 252 $300 49%, $30 78%.
+   - → Our books are MORE two-sided. The gauge gap is 101's age (1 day). Not a problem.
+2. **Response time:** call_time 101 0.38 s (p5 0.29) vs 252 0.14 (p5 0.07), 55 0.18, 216 0.20. refused 116 vs 83.
+   - Unchanged since §1435 (agent compute optimisation never done).
+   - Slower → our orders land after the fleet's each round. Plausibly part of the stale-fill gap (44% vs 20% moved-into fills, §1866).
+   - Not a param change: needs profiling of the agent's per-round compute (offline, no restart).
+3. **4-dec making (skipped since §1434 because fees made it ≈ 0 then):**
+   - Now 116 UIDs make on 192–255; $118M maker $ per 60 sim min; top 132 / 157 ≈ $6.5M each on all 64 books.
+   - pairfillsdec R/C: 132 +0.29, 157 +0.29, 47 +0.35, 96 +0.26, 73 +1.13, 74 −0.40, 60 −1.29. → Several makers keep value there.
+   - Pool = 25% of the making half. Open questions before any test: (a) how the 450k/book/day volume cap applies there (top makers trade ≈ $2.4M/book/day); (b) fee netting at 4 decimals; (c) 0.6.8 remaps the classes (128–191 → 4-dec, 192–255 → new $100 sim_3).
+   - Lead for an offline deep-dive, not a quick switch.
