@@ -27915,3 +27915,15 @@ Bucket $4.7k:
   - A = base; B = base + deep two-sided sweep layer (mk_rest_none 0, mk_gate_rest 6, mk_rest_frac 0.5, mk_rest_lean_none 0: ≈ $2.35k both sides ≈ 8 ticks behind the others' best on every $300 book; §1834 census).
   - Blocks run ≈ 47 min (skill_cls2 checks take ≈ 2.5 min each) → ends ≈ 5:15 AM.
   - Judge: block-end fillvalue R/C (miner-wide quality), Σα vs 252 (skill cost), live making_realized.
+
+## §1844 — 2:25 AM CT brief (T5 block A1)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$33/mo ($1.09/d)** | $222/mo ($7.41/d) |
+| making captured / realized / share (live) | **41.4** (≈ 252's 41.7) / 0.0 / 0.0 | — / 18.2 / 0.0043 |
+| net α | 876 | 1,344 |
+| incentive | 0.0007 | — |
+
+- T5 block A1 checks: 101 +21.5 (+1.48 bp) vs 252 +12.8; +16.3 (+1.22) vs +10.9.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $38.9k). Upstream unchanged. Lowest non-immune ≈ $120–122.
