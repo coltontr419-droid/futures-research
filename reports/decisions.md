@@ -28747,3 +28747,9 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - Combined ABAB A1 straddled the reset (its END window computed as S0 59,230 → TE 735) → invalid. Old log kept as abab_combo101.prereset.log.
 - **Restarted 20:49:21 UTC** (pid 2643159), base set explicitly, warm-up 900 s (lean histories). Early read 4:22 PM, verdict 5:37 PM.
 - Lesson: after a sim clock reset, check every tool that takes max(ts) over the whole tape, and give ABABs a fresh warm-up.
+
+## §1897 — 3:15 PM CT brief (combined ABAB restarted; block A1)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $75/mo ($2.50/d), net α 1,298, captured 50.5 / realized 0 / share 0.0. Prune line $118.
+- **252:** ≈ $200/mo (incentive 0.0040), captured 34.5 / realized 11.8 / share 0.0027, net α 1,194.
+- Combined A1 (base, from 21:04:20 UTC, sim 1,143), first valid post-reset check: **101 +28.7 Σα (+1.32 bp, $217k) vs 252 +27.7 (+0.83 bp)** → +1.0. The lean has recovered after the reset. B1 starts ≈ 3:40 PM.
