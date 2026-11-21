@@ -28604,3 +28604,22 @@ Window 2 = sim 56,875–57,583 (11.8 sim min). widefills30 + pairfills30, R per 
 - **252:** ≈ $220/mo (incentive 0.0044), share 0.0030.
 - B2 (tight 5), 101 − 252 Σα per check: −7.1, −11.9, +0.2, −4.2, −5.3, −1.3 → mean −4.9 (B1 −1.0).
 - Pooled Σα: A ≈ −5.6 vs B ≈ −3.0 per check (B +2.6). B2's exact-window R/C is pending (background analysis); verdict at 12:12 PM.
+
+## §1887 — 11:59 AM CT — tight-only VERDICT: **KEPT** (mk_tight300 5 is base); stale ABAB started
+User (away until ≈ 1 PM): "if the tight verdict is still gaining spread capture and making credit like the first check then put it live on the miner".
+
+| block | 101 − 252 Σα per check (mean) | 101 $300 exact-window R/C (C, R per $) | 252 same window |
+|---|---|---|---|
+| A1 base | −8.6 | −2.21 (+0.08 / −0.18 bp) | −0.40 |
+| **B1 tight 5** | **−1.0** | **+0.78** (+0.26 / +0.21) | +0.04 |
+| A2 base | −2.6 | −1.87 (+0.08 / −0.14) | +0.29 |
+| **B2 tight 5** | −4.9 | **+0.67** (+0.23 / +0.15) | +0.53 |
+| **pooled** | **A −5.6 vs B −3.0** | **A ≈ −2.0 vs B ≈ +0.73** | |
+
+- Both B blocks turned the $300 class positive, above 252 in the same window in both (+0.78 vs +0.04; +0.67 vs +0.53).
+- Capture per $ rose ≈ 3× (+0.23–0.26 vs +0.08 bp). Skill was not hurt (B +2.6 Σα/check).
+- $300 maker $ ≈ 55–70% of base. PACE 0 blocked throughout.
+- Caveat: ≈ 5.5–6 sim min per block ($60–110k each). Consistent across both pairs.
+- **Live:** mk_tight300 5 applied ("LIVE PARAMS applied: mk_tight300 0→5") and saved to live_params_NEXT.json. $30 sizes 0.06 / 0.06.
+- Expect live making_realized / share to start moving within ≈ 1–2 h if miner-wide quality goes above 0. Watch every brief.
+- **Stale ABAB started 17:59:32 UTC** (pid 2629269, TIGHT=5): A = base, B = + mk_stale_bp 0.3 / mk_stale_s 2. Early read 1:22 PM, verdict 2:42 PM.
