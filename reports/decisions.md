@@ -28197,3 +28197,11 @@ abab_hold101.log, 101 − 252 Σα per check:
 **Route status:**
 - The $300 making route is NOT yet at R/C ≥ 0.2 with skill held: every fleet-copy variant failed.
 - The own 20-s gate is the last open making idea. If the gate shows no R/C gain, the making route is exhausted, and the parked leads come next per the user: 4-dec (5E2fVqiW) and strong-inside skill.
+
+## §1859 — 7:56 AM CT brief (gate ABAB warm-up)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE STATUS 0 of 192 books blocked (max $59.9k of $450k).
+- 0.6.8: main 20e97853 / test de323b82, unchanged; layout_switch still waiting.
+- **101:** $84/mo ($2.80/d), net α 1,431, making captured 97.1 / realized 0 / share 0.0.
+- **252:** ≈ $252/mo (incentive 0.0051 = 3.0× 101's), share 0.0036, net α 1,767.
+- Gate ABAB (abab_mo20101.sh) still in its 1,500-s warm-up; the log starts ≈ 8:03 AM.
+- The 30-min brief cron text was stale (it named T5 and agents 4b19d295); it is replaced to cover the gate ABAB on 75966cb2.
