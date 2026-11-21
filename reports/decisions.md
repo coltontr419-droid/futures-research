@@ -28389,3 +28389,26 @@ speed/pairfills30.py (= pairfills on books 128–191; its header still says "$30
 - What was "good" on $30 (§1747, 113) was the two-sided CAPTURE: lots of both-side volume (our $30 $ is 2× 252's). The 20-s markout on $30 is only just positive.
 - The $300 fills are 65% of our maker $ and pull the miner-wide ratio below 0. That is why making realized = 0, including for the $30 class.
 - If $300 reached R/C 0, the miner-wide figure would be ≈ +0.01–0.04, so making would barely start. Real making pay needs $300 positive, and $30's markout raised toward 252's +0.14 too.
+
+## §1872 — 9:10 AM CT — $30 books: value is one tick BEHIND; ladder resized live (offline bound passes)
+speed/widefills30.py (books 128–191, 60 sim min, spread ≈ always 1 tick so spread is not the lever):
+
+| $30 fills | 101 $ share / C / R / R/C | 252 $ share / R/C |
+|---|---|---|
+| at best | **91%** / +0.14 / −0.08 / **−0.56** | 69% / C −0.16, R −0.37 |
+| 1 behind (ladder) | 9% / **+1.04 / +0.87 / +0.83** | **29%** / +0.86 |
+| sweeps | 43% / −4.64 (C +0.03) | 60% / +0.51 |
+| fill size | 98% $100–500 | 100% $500–2k |
+
+- Value on $30 sits one tick behind: a sweep that reaches it pays a whole tick and keeps it. 252 puts 29% of its $ there; we put 9%.
+- Offline bound (fills assumed to scale with size):
+
+| change | $30 R/C | $30 capture | miner-wide, $300 as now / $300 at 0 / $300 at +0.2 |
+|---|---|---|---|
+| ladder 0.10 only | +0.18 | 320 | −0.17 / +0.07 / +0.19 |
+| **touch 0.03 + ladder 0.10** | **+0.41** | 246 (≈ now 252) | −0.13 / +0.14 / +0.27 |
+| touch 0 + ladder 0.10 | +0.84 | 172 | −0.08 / +0.21 / +0.36 |
+
+- **Applied live 15:08:35 UTC:** mk_low_size 0.06 → 0.03, mk_low_lad_size 0.06 → 0.10. Backup live_params_101.pre-low30-1872.json.
+- The $30 class is independent of the $300 spread ABAB. It changed at the A1 → B1 switch, so B1/A2/B2 all carry it, and the $300 per-class metrics are unaffected.
+- Readout cron 10:27 AM: widefills30 + pairfills30 over the exact post-change window.
