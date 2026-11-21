@@ -28221,3 +28221,17 @@ Our $300 maker fills, split by whether another miner's maker order filled in the
   1. **Alone at the front:** when we are the only miner at the best price and get hit, we lose (−0.49); 252/55 win in the same situation. These are most likely our lean orders improving the price alone just before the move.
   2. **Behind others, filled by sweeps:** most of our $ sits behind other quotes and only fills when a big taker sweeps through (53% of $). We lose there (−0.19); 252 is mostly at the front instead (47% first-level, +0.23).
 - Next: re-run pairfills at the gate test's block ends (does the gate fix bucket 1?). Then candidate tests: (a) never be the sole best on $300 — join the existing best instead of improving alone; (b) fewer behind-the-queue resting orders that only sweeps reach.
+
+## §1861 — 8:35 AM CT — Fix 1 "join, don't lead" built (mk_join300) + the user's staggering idea checked against the scorer
+
+**User idea:** stagger in time — lean (skill) quotes, then 20-s (making) quotes, alternating — so lean fills stop hurting making.
+- **Scorer check** (repo067 debeta.markout_quality): quality = clamp(ΣR/ΣC, 0, 1) per uid, summed over **every maker fill on every book** in the window. Taker legs are excluded.
+- So fills from both phases land in the same ratio, and staggering in time does not separate them. It would roughly halve the lean's skill and still leave the lean fills' −R in the making ratio.
+- Real separators: (a) a separate miner (one lean/skill, one pure making); (b) doing the lean as taker legs, which the scorer excludes from making. Option (b) is ruled out on maker miners by the user (11-13/11-16).
+- The kept part of the idea: the lean orders should not be the ones sitting alone at the front (§1860 bucket 1). Fix 1 does exactly that.
+
+**Fix 1 = mk_join300** (agents 3ee9e1d9, staged as agents/QuoteAgent.py.next-3ee9e1d9; live is still 75966cb2):
+- On $300 vol+calm books (not low), each wanted side is clamped to the OTHERS' best (our own size removed). So we never improve the price alone, and never stay as the sole best after others cancel.
+- Logs `JOIN300: n of m sides clamped` once per sim minute. Default 0 = unchanged behaviour.
+- Test: speed/abab_join101.sh. Env G = gate setting for both arms (from the gate verdict). 600-s warm-up, then A/B/A/B. Each block end runs pairfills (30 sim min) + fillvalue.
+- Deploy and start are scheduled right after the gate verdict (≈ 11:58 AM).
