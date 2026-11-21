@@ -27432,3 +27432,15 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 - **Next test design: strength-scaled jump_back.** Rest further behind the touch only on strong leans (e.g. 1 tick for |pred| < 1.5 thr, 2–3 ticks above).
   - The flat jump_back 2 (§1805) cut volume on ALL leans; this keeps volume on the normal ones and seeks capture where it is lowest.
   - Needs a small knob (e.g. mk_jump_back_strong + mk_jump_strong_z) + equiv/test_pace, then ABAB on 101 after the delayed-entry ABAB.
+
+## §1815 — 6:55 PM CT — strength-scaled jump_back built (staging, not deployed)
+
+- agents_next/QuoteAgent.py **1a2de99b** = 58a77a8a + live knobs:
+  - `mk_jump_back_strong` (0–5 ticks);
+  - `mk_jump_strong_pred` (|pred| cut, model units; 1.5 × thr ≈ 1.06).
+  - New _jb_for(lean) replaces mk_jump_back in the 6 jump-block uses: strong leans rest MK_JUMP_BACK_STRONG ticks behind the touch, others MK_JUMP_BACK.
+- equiv 0 diffs vs 58a77a8a (tape, ledger, locks identical); test_pace ALL PASS.
+- Plan: after the delayed-entry ABAB on 101 ends (≈ 7:50 PM):
+  - deploy 1a2de99b (restart; the ledger replay keeps the balance; ≈ 5-sim-min warm-up);
+  - ABAB A = base vs B = mk_jump_back_strong 3 + mk_jump_strong_pred 1.06;
+  - judge on Σα vs 252, fillvalue R/C and leancf per strength band.
