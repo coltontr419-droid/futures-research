@@ -28782,3 +28782,10 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - $30 exact window: R/C **+0.73** (C +0.67, R +0.49 bp, $145k). The $30 market is good after the reset.
 - B1 (imb30 0.8 + 2× $300 size) from 21:41:06 UTC: IMB30 pulls 911 of 2,473 $30 at-best sides.
 - Pay is falling while skill reads well. Likely lag plus the reset (the validator window spans it). Watch.
+
+## §1900 — 3:55 PM CT — adaptive maker gating: offline replay approved, queued after the 5:37 PM combined verdict
+- User asked whether maker strategies work regardless of market. Answer: no.
+  - Maker R/C swings with the taker mix. Today: $30 +0.14 → −0.19 (252 −2.15) → +0.73; $300 tight base +0.78 / +0.67 / +0.44 / +0.30 → −0.87 after the reset.
+  - Our maker rules react to book state but use fixed thresholds.
+- Plan (user: "yes"): offline replay of self-tuning gating. Rolling per-bucket R/C (class × spread × own-share) decides quote / pull, with exploration. Compare against all fills and the fixed rules, per run (pre- and post-reset) and per hour.
+- Cron 5:45 PM. Build only if it passes offline.
