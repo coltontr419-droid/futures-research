@@ -27660,3 +27660,19 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 | 4 | +22.2 (+1.20) | +15.8 |
 
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $19.2k). Upstream unchanged; layout switcher waiting. Lowest non-immune ≈ $118–127.
+
+## §1828 — 9:25 PM CT brief (T1 block B1 = strong leans 3 back)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$7/mo ($0.25/d)** | $225/mo ($7.51/d) |
+| making captured / realized / share (live) | 17.6 / 0.0 / 0.0 | — / — / 0.0046 |
+| net α | **325** | 1,597 |
+| incentive | 0.0002 | — |
+
+- **Block A1 ended:**
+  - 101 − 252 Σα per check: −15.8, −3.0, +18.7, +6.4, +10.9 (+ last +21.2 vs +10.3) → **mean ≈ +3.6**.
+  - End fillvalue R/C −0.33 on $274k.
+- **Block B1 so far:** 101 +13.8 (+0.75 bp) on $185k vs 252 +7.2; +17.7 (+1.20) vs +5.3.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $20.9k). Upstream unchanged.
+- Prune order: 34 $31, 14 $111, 72 $119.
