@@ -27571,3 +27571,11 @@ Ideas ranked:
 - → Partly supported: the best R/C UIDs (252/210) sit at the queue front and 210 holds orders longest. But 55 sits ≈ where we do with R/C 0.37, so it is not the whole story.
 - The agent's "hold" (keep our touch order when the target drifts ≤ HOLD ticks behind, if not inside the others' best; §1317) exists only for calm books (mk_calm_hold); vol books pass hold=0.
 - **Queued test:** a live knob mk_vol_hold (ticks) for $300 vol books, holding the lean-side order through small touch moves. Expected gains: queue position, capture, fewer messages (0.6.8 OTR). Build + equiv/test_pace after the jbs ABAB.
+
+## §1823 — 8:20 PM CT — mk_vol_hold built (staging) + strong-pred positioning study started
+
+- agents_next/QuoteAgent.py **b5da5bcf** = 1a2de99b + live knob `mk_vol_hold` (0–5 ticks).
+  - On $300 vol books the order call now passes hold=MK_VOL_HOLD (and others-best when set): our touch/lean order is kept when its target drifts ≤ HOLD ticks behind it and it is not inside the others' best. Uses the existing §1317 hold path, until now calm-books only.
+  - equiv 0 diffs vs 1a2de99b (tape, ledger, locks identical); test_pace ALL PASS with hold off and with hold 2.
+  - Deploy after the jbs ABAB; ABAB A = winner of jbs, B = + mk_vol_hold 2.
+- **Strong-pred positioning study** (speed/strongpos.py, END = 44,439, 60 sim min; 113 / 252 / 210): for strong with-pred fills (|pred| ≥ 1.5 thr), C and R/C by depth vs the prior touch, fill size and event type. How does 252 sit when its signal is strong?
