@@ -27983,3 +27983,23 @@ Bucket $4.7k:
   - The deep layer clearly costs skill: B1 −3.7, B2 ≈ −13.7 vs A ≈ +5.
 - 101's live making_captured keeps rising (64 vs 252's 16), but realized stays 0 (miner-wide quality still ≤ 0 over the window).
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $46.8k). Upstream unchanged.
+
+## §1849 — 4:55 AM CT — T5 (deep two-sided layer) NOT KEPT; checkpoint: $300 making route looks exhausted; T3 hold started
+
+**T5** (abab_deep101.log), 101 − 252 Σα per check:
+
+| block | per-check diffs | mean | end fillvalue R/C |
+|---|---|---|---|
+| A1 | — | +5.4 | −1.26 |
+| B1 | — | −3.7 | +0.07 |
+| A2 | +2.6, +6.4, +2.9, +2.8, +6.2, −4.5 | +2.7 | +0.19 |
+| B2 | −7.6, −17.4, −18.6, −11.3, +2.2 | −10.5 | +0.01 (C +0.38 bp on $290k, R ≈ 0) |
+
+- → The deep layer costs ≈ 13 Σα per check (A ≈ +4 vs B ≈ −7) for no measurable R/C gain.
+- It raises capture per $ (C +0.38 bp), but R ≈ 0. Live making_captured kept rising (64 → 76) but realized stayed 0.
+- **NOT KEPT.** The design-consistent layer does not get positive markouts for us either.
+- **Checkpoint (agreed in §1831 context):** T2 (strong-inside) and T5 (deep layer) both failed to lift R/C to ≥ ≈ 0.2 with skill held.
+  - Together with T1 / delayed entry / M5 / A / A2 / B (all failed), the $300 making route looks **largely exhausted**.
+  - T3 (hold) is still run for completeness (it also cuts messages for 0.6.8).
+- **T3 started 4:59 AM:** speed/abab_hold101.sh (pid 2591574; log abab_hold101.log); A = base, B = base + mk_vol_hold 2; blocks ≈ 30–47 min; ends ≈ 8:00 AM.
+- For the morning: the parked skill leads per the user's rule are next — **strong-inside** (confirmed ≈ +12 Σα/check) and the **4-dec class** (5E2fVqiW +7–12 bp).
