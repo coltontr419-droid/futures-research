@@ -28445,3 +28445,27 @@ User: "fix the response time, then go for the 4-dec books but dont schedule anyt
 3. venv bittensor/core/axon.py `_wrapper_run` sleep 1e-3 → 0.25 s. It only waits for shutdown. Backup /opt/mvtrx/axon.py.bak-1874. **A venv reinstall/upgrade reverts this.**
 - Not changed: payload decode (library). The lab is a 4-vCPU "DO-Regular" droplet; a CPU-optimised droplet would cut the remaining compute but is spending → user decision, only if the fixes are not enough.
 - Deploy is chained into the 12:45 PM verdict cron (one restart for both the speed build and the stale test). call_time is read before and ≈ 30 min after.
+
+## §1875 — 10:20 AM CT — 4-dec making deep-dive (offline only; user: nothing scheduled for 4-dec until $300/$30 are settled)
+
+**Rules (repo067):**
+- Volume cap per uid per book = capital_turnover_cap 10 × wealth over a rolling 86,400 sim s.
+- simulation_2.xml (4-dec): priceDecimals 4, price ≈ $313, wealth 50,000 → cap $500k/book/day, the same as the other classes. makerFee 0, takerFee 0.00023.
+- Traded volume = q·p, as in our pacer. The 4-dec class persists in 0.6.8 (moves to books 128–191; 192–255 becomes a new ≈ $100 4-decimal sim_3).
+
+**Who makes there** (tape, 60 sim min): 116 UIDs, $118M miner-maker $.
+
+| uid | $300 / $30 / 4-dec maker $ per sim h | 4-dec R/C | making share | skill net α | incentive (≈ $/mo) |
+|---|---|---|---|---|---|
+| **47** | 0 / 0 / **$2.4M on 64 books (89% two-sided)** | +0.35–0.45 | **0.0103** | −8,487 | **0.0050 (≈ $260)** |
+| **73** | $0.9M / $3.2M / $2.9M | **+1.13–1.16** | 0.0096 | **+1,148** | 0.0032 (≈ $170) |
+| 132 / 157 | $2.5M / $1.1M / $7.2M (and similar) | +0.29 | 0.0063 / 0.0012 | ≈ −6,300 | 0.0 / 0.0003 |
+| 252 (ref) | $2.1M / $0.5M / 0 | — | 0.0034 | +1,617 | 0.0048 (≈ $252) |
+
+- **47 pays like 252 from 4-dec making ALONE** (negative skill, no $300/$30 fills). Its average daily maker volume per book is 424k, i.e. it runs at the cap.
+  - Quoting: spreads there are ≥ 51 ticks (4 decimals). Its $ is spread across positions (inside 19% +0.61, at best 21% +0.48, 2+ behind 51% +0.34); fills $1–3k keep +0.56.
+- **73: 99% of its 4-dec fills are INSIDE the prior best; 71% come right after the mid moved WITH the order.** R > C (quality capped at 1.0). It also has positive skill. → A directional inside-stepping maker that earns both halves on 4-dec.
+- 132 / 157 trade far more but earn little: incentive ≈ 0, deeply negative skill. Volume alone isn't it.
+- Our pacer already allows ≈ $450k/book/day, so we could run 4-dec at 47's volume.
+
+**NOT scheduled** (user rule). Ready as the next lead once $300/$30 settle.
