@@ -27730,3 +27730,30 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 - Live pcap of 101's replies (tcpdump "tcp src port 8105", 30 s, 133 KB): the bodies are compressed/binary, so instruction types cannot be grepped.
 - Plan: a tiny counter in the agent (placements vs cancels, per class $300 / $30 / 4-dec, logged every 60 states beside the REPLIES line). Goes into the next build and deploys with the next needed restart (after T2/T3), so it never disturbs a running ABAB.
 - Known now: ≈ 156 instructions per state (≈ 216 msgs per maker fill at the cold start) vs 0.6.8's 200 threshold (§1816).
+
+## §1833 — 11:00 PM CT — deep dive (user): what the subnet designs making credit to reward → a design-consistent making layer
+
+**Design statements** (0.6.8 test-branch FAQ + config help):
+- FAQ Q2: making = spread captured against the centred mid, two-sided per book, scaled by markout quality at 20 s.
+- FAQ Q20: "quoting width, and how long a quote is left in front of flow, are what is priced. Resting time on its own is not paid."
+- making_horizon_s help: **"past about 20 seconds the mark mostly measures the trend, which the skill half already prices with the drift removed."**
+- Fees: DIS rewards liquidity where scarce. making_fee_weight is 0.005 now, "raised at later boundaries".
+- Counterparty: discount when fills vs miners > 4× fills vs background (ours ≈ 95% background → n/a).
+
+→ **Making and skill are deliberately separated.** Making pays short-horizon NON-directional liquidity (width-priced); skill pays directional trading. Our lean fills are directional by construction and are meant to score ≈ 0 at 20 s. Every attempt to make the LEAN fills score as making (T1, delayed entry, …) fights the design.
+
+**Fundamental-cycle check** (speed/fundphase.py, END = 44,439, 60 sim min): R/C by seconds since the fund update.
+
+| uid | 0–9 s | 10–19 s | 20–25 s | 26 s+ | note |
+|---|---|---|---|---|---|
+| 113 | −0.22 | −0.05 | +0.02 | +0.07 | late fills with the next update AGAINST: −1.19 (16% of $) |
+| 252 | +0.59 | +0.49 | +0.43 | +0.80 | 75% of $ in 0–9 s |
+| 210 | +0.72 | +0.35 | +0.50 | +0.53 | — |
+
+- → Phase gating is not the main lever (we trail by ≈ 0.5–0.8 in every phase). Consistent with "directional fills, by design".
+
+**Design-consistent fix = a separate NON-directional making layer** whose own fills carry positive R and enough C to lift the miner-wide quality ΣR/ΣC, while the lean engine keeps earning skill.
+- Evidence: 3+ ticks-back fills hold value (113 +0.47, 252 +0.98; ALGO sweeps are uninformed and revert within ≈ 60 s).
+- Earlier two-sided tries were too close (M5 gate 2; A2/B 5 back at 0.2) or too small (Option A 0.1).
+
+**T5 redesigned and moved up to right after T2:** "deep two-sided sweep ladder" via existing live knobs: mk_rest_none 0, mk_gate_rest 6, mk_rest_frac 0.5, mk_rest_lean_none 0 (both sides on lean books too). Census first; ABAB vs the T2 winner; no restart. Then T3 hold, T4 traffic/size.
