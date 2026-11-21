@@ -27641,3 +27641,22 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 - 101: registered, 0 tracebacks, 0 of 190 blocked; cold start busiest book $17.5k.
 - T1 (abab_jbs101) BLOCK A started 02:25 UTC (8:25 PM CT).
 - Upstream: main 0.6.7, test 0.6.8. Layout switcher waiting. Lowest non-immune ≈ $120–128.
+
+## §1827 — 8:55 PM CT brief (T1 block A1)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $4/mo ($0.12/d) | $224/mo ($7.47/d) |
+| making captured / realized / share (live) | 14.6 / 0.38 / 0.0 | — / — / 0.0047 |
+| net α | 246 | 1,645 |
+
+- T1 block A1 checks (101 vs 252, Σα):
+
+| check | 101 | 252 |
+|---|---|---|
+| 1 | −3.6 (−0.31 bp) on $114k | +12.2 |
+| 2 | +9.5 (+0.57) | +12.5 |
+| 3 | **+26.3 (+1.26) on $209k** | +7.6 |
+| 4 | +22.2 (+1.20) | +15.8 |
+
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $19.2k). Upstream unchanged; layout switcher waiting. Lowest non-immune ≈ $118–127.
