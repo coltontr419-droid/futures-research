@@ -28735,3 +28735,15 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **252:** ≈ $200/mo (incentive 0.0040), share 0.0028.
 - The ratio of 101's to 252's incentive is roughly steady: 0.40 at noon, 0.375 now. Both are falling, field-wide (field median $177).
 - Combined A1 (base, from 19:54:59 UTC): 101 − 252 Σα per check −8.4, −9.4, −13.7. **101 $300 notional per check only $19–22k** (tight blocks earlier: $41–74k) in a quiet stretch with 2–8 $300 fills per 3 sim min. Watch whether the tight base's lower $300 volume is starving skill. B1 (2× $300 size + $30 imbalance) starts ≈ 2:31 PM.
+
+## §1896 — 2:50 PM CT brief + SIM CLOCK RESET at 20:21 UTC → combined ABAB restarted clean
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $75/mo ($2.48/d), net α 1,297, captured 56.9 / realized 0 / share 0.0. Prune line $114.
+- **252:** ≈ $200/mo (incentive 0.0040). Its making gauges now show captured 28.2 / realized 9.7 / share 0.0027.
+- **Sim clock reset 20:21:07 UTC:** sim time 59,415 → ≈ 640.
+  - The agent logged CLOCK RESET (stored times shifted, per-second histories cleared, §1265). Layout unchanged: book 64 $299, 128–191 ≈ $29.5, 192+ 4-dec. Not 0.6.8.
+- **speed/skill_cls2.py was broken by the reset:** it took the max ts over the whole tape and kept reporting the last pre-reset window (identical lines for 4 checks). Fixed: it now keeps only data after a > 600 s backwards jump (backup .bak-1896).
+  - First valid post-reset read (sim 711–951): 101 −2.5 Σα (−0.14 bp, 42 books) vs 252 **+86.4** (+1.63 bp). Our lean model needs ≈ 300 sim s of new history after the reset.
+- Combined ABAB A1 straddled the reset (its END window computed as S0 59,230 → TE 735) → invalid. Old log kept as abab_combo101.prereset.log.
+- **Restarted 20:49:21 UTC** (pid 2643159), base set explicitly, warm-up 900 s (lean histories). Early read 4:22 PM, verdict 5:37 PM.
+- Lesson: after a sim clock reset, check every tool that takes max(ts) over the whole tape, and give ABABs a fresh warm-up.
