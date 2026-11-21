@@ -28244,3 +28244,8 @@ Our $300 maker fills, split by whether another miner's maker order filled in the
 - Breakdown: 25-min warm-up after the restart; then A/B/A/B blocks of ≈ 45–50 min each (six 5-min checks + ≈ 2.5 min per skill read + a ≤ 10-min fillvalue at block end). Started 7:39 AM; A1 began 8:04 AM.
 - Change: early read at 10:42 AM after A1/B1/A2 (cron). If the gate is clearly not working, stop it and start Fix 1 then (≈ 75 min sooner).
 - Also noted: the gate does not log how often it binds (`_mo20_n` is never printed), so binding can only be judged from B-block behaviour. Fix 1 logs JOIN300 counts.
+
+## §1864 — 9:05 AM CT — bucket 2 (behind other quotes, sweep fills) → Fix 2 queued
+- Bucket 2 (101: 53% of $300 $, R/C −0.19) is mostly the lean side resting 1 tick behind the touch (mk_jump_back 1, §1737 fleet copy). It was positive on 113 on 11-19 (+1.29 bp @20 s, replica quality 0.22–0.32, §1742) but loses now. The fleet (55) still earns +0.41 there.
+- Every test that moved further back was worse (jump_back 2 §1805, strength-scaled 3-back §1831, deep layer §1849, hold §1854). The untested direction is forward: mk_jump_back 0 (lean side at the touch with the others), which is 252's mix (47% first-level, +0.23).
+- Fix 2 = ABAB mk_jump_back 1 vs 0 (live knob, no restart), on top of whatever Fix 1 leaves. Queued after the Fix 1 verdict (cron 2:37 PM).
