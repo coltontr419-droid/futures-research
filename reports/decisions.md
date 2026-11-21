@@ -28593,3 +28593,7 @@ Window 2 = sim 56,875–57,583 (11.8 sim min). widefills30 + pairfills30, R per 
 - No parallel control (the $30 change was not ABAB'd), so the quality effect can't be separated from the market.
 - The ladder half failed (§1880). Making credit = capture × quality, so a 35–66% capture cut needs a large, proven quality gain to pay, and there is none.
 - **Proposal: revert to mk_low_size 0.06 / mk_low_lad_size 0.06.** If the touch idea is retried, run it as a proper $30 ABAB. Left unchanged until the user decides; the $300 tight ABAB is untouched.
+
+## §1885 — 11:40 AM CT — $30 sizes REVERTED to 0.06 / 0.06 (user approved)
+- Applied live (LIVE PARAMS: mk_low_size 0.03→0.06, mk_low_lad_size 0.1→0.06). live_params_NEXT was already 0.06 / 0.06.
+- The $300 tight ABAB (B2 running, mk_tight300 5) is untouched.
