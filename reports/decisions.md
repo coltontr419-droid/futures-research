@@ -28469,3 +28469,30 @@ User: "fix the response time, then go for the 4-dec books but dont schedule anyt
 - Our pacer already allows ≈ $450k/book/day, so we could run 4-dec at 47's volume.
 
 **NOT scheduled** (user rule). Ready as the next lead once $300/$30 settle.
+
+## §1876 — 9:30 AM CT — spread test (tight 5 + wide-inside 6) SAFETY-STOPPED: NOT kept; speed build live; tight-only test started
+
+**Brief at 9:25:** 101 $96/mo ($3.19/d), net α 1,434, making realized 0 / share 0. 252 ≈ $248/mo (incentive 0.0048), share 0.0034. Prune line $128. Release states unchanged.
+
+**Spread ABAB (abab_spread101.log):**
+- A1 (base): 101 − 252 Σα per check +6.6, −2.2, −6.5, +1.9, +2.8, +11.3.
+  - Mixed-window pairfills R/C −1.36 (ignore, §1870); fillvalue ALL −0.19.
+- B1 (from 15:08:28 UTC): SPREAD300 3,520 pulled / 3,556 stepped inside of 7,076 book-rounds per sim minute.
+  - **$300 fills per 3 sim min: 1,241 and 1,016 (A1: 11–42).** Notional $608k / $976k per 4 sim min.
+  - Σα vs 252: +1.8, +5.1, but at only +0.14 bp.
+  - PACE blocked 6 → 24 → **SAFETY STOP 15:19:46 → arm A**; the script exited.
+- Exact-window spreadfills, B1 (END sim 56030, 2.3 sim min): 101 3,165 fills, $882k, **R/C −2.33**.
+  - **Inside fills at 6–10 t: 45% of $, C +0.00 bp, R −0.21.**
+  - "3–5 t" fills $371k: our own inside quotes made the book spread 3–5 t.
+- Verdict: **NOT kept.**
+  - Stepping one tick inside on both sides of ≈ half the $300 books made us the front on all of them at once. We soaked the flow at ≈ the centred mid (no capture).
+  - 252 steps inside selectively: its 4-hour wide-inside $ ≈ ours per 2 minutes here.
+  - The wide-inside idea needs a much more selective trigger (one side, small size, with-move like 73 on 4-dec) and its own offline check before any retry.
+- Side effect: 10–21 books paced out after the burst. They refill slowly while the sim is slow.
+
+**Speed build live:** agents 0a96ab5e. Restarted 15:27:45 UTC: regcheck OK, 0 tracebacks, PACE 10 blocked (burst left-over), $300 fills resumed. The axon idle-loop patch is active. Backup agents/QuoteAgent.py.bak-99b9f646. newminer.sh → 0a96ab5e.
+
+**Tight-only ABAB started 9:29 AM** (speed/abab_tight101.sh, pid 2618289; §1870 format).
+- A = base; B = mk_tight300 5 only.
+- Safety threshold raised to ≥ 40 blocked (burst left-over).
+- Early read 10:52 AM, verdict 12:12 PM, then the stale test starts (no restart needed).
