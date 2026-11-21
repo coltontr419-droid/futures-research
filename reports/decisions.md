@@ -27970,3 +27970,16 @@ Bucket $4.7k:
 - Interim T5 picture: the deep layer costs ≈ 9 Σα per check vs base; its R/C effect is not separable from noise at this block length.
 - Plan: a longer read is needed for any making verdict on T5. Run momcf/fillvalue over the whole B periods offline at the end (≈ 12 sim min each) before deciding.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $44.7k). Upstream unchanged. Lowest non-immune ≈ $130.
+
+## §1848 — 4:25 AM CT brief (T5 block B2 running)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $48/mo ($1.60/d) | $233/mo ($7.76/d) |
+| making captured / realized / share (live) | **64.3** (252 15.6) / 0.0 / 0.0 | — / 5.2 / 0.0040 |
+| net α | 1,035 | 1,542 |
+
+- **Block B2 (deep layer) checks** (101 − 252 Σα): −7.6, −17.4, −18.6, −11.3 (101 −0.42 to +0.17 bp, volume up to $219k).
+  - The deep layer clearly costs skill: B1 −3.7, B2 ≈ −13.7 vs A ≈ +5.
+- 101's live making_captured keeps rising (64 vs 252's 16), but realized stays 0 (miner-wide quality still ≤ 0 over the window).
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $46.8k). Upstream unchanged.
