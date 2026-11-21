@@ -27843,3 +27843,20 @@ Bucket $4.7k:
   - Stepping inside on strong leans earns skill but captures ≈ nothing at the fill (the fill is ≈ at the centred mid) and loses at 20 s. That is the opposite of 252's +0.88 for inside fills.
 - **Block A2 started:** 101 +17.1 vs +9.2, +20.1 vs +2.9. 101 is also strong on the base now (market phase), so part of B1's edge is the market.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $33.5k). Upstream unchanged. Lowest non-immune ≈ $129–134.
+
+## §1840 — 1:17 AM CT — T2 (strong-inside) preliminary verdict: NOT kept for making; strong skill effect noted
+
+**T2** (abab_si101.log), 101 − 252 Σα per check:
+
+| block | per-check diffs | mean | $300 volume | end fillvalue R/C |
+|---|---|---|---|---|
+| A1 (base) | −11.3, −0.7, +14.4, +9.6, −6.6, +1.2 | +3.4 | $58–179k | −0.03 |
+| B1 (strong-inside) | +12.7, +18.9, +21.2, +19.2, +14.0, +8.9 | **+15.8** | $188–257k | **−2.69** (C +0.06 bp, R −0.17 bp; single C +0.01, R/C −32) |
+| A2 (base, so far) | +7.9, +17.2, +2.4, −1.9, +6.1 | ≈ +6.3 | $127–162k | — |
+
+- **Making verdict: NOT kept.**
+  - Strong-inside fills sit ≈ at the centred mid (no capture) and lose at 20 s.
+  - It would also sink T5's miner-wide quality.
+  - It is the lean made MORE directional: skill up, making down, as §1833 predicts.
+- **Skill effect:** ≈ +10 per check over base (B1 vs the A blocks), on higher volume. Kept as a **SKILL candidate**, to revisit when the making route is exhausted (or for a skill-focused miner).
+- B2 (the last block) runs 1:20–1:50 AM to confirm the skill effect; T5 starts right after (cron 1:55 AM).
