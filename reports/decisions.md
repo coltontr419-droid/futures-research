@@ -28040,3 +28040,28 @@ Bucket $4.7k:
 
 - Book imbalance (not used by our lean model) + 30-s fundamental change + short-term reversion + recent flow carry the 20-s signal.
 - **Phase 1b running** (speed/mo20fills.py): score 113's (END 44,439) and 101's actual $300 maker fills by the model's prediction in the fill's favour → validator R/C per group, and the counterfactual R/C without the adverse groups.
+
+## §1852 — 6:25 AM CT — Phase 1b: the 20-s model separates 252's fills cleanly but INVERTS on our strongest lean fills; Phase 2 redesigned
+
+- **Brief:** 101 $73/mo ($2.43/d), net α 1,346, captured 87.8, realized 0; 252 $247/mo. T3 A2: 101 +17.8 / +15.0 / +20.8 vs 252 −2.9 / +8.2 / +10.3.
+- The 113 run (END 44,439) returned nothing: the daily tape rotation (09:07 UTC) had already dropped 11-20's data. Lesson: snapshot the tape before the rotation when an analysis needs older windows.
+- **101's $300 maker fills** (last 60 sim min), grouped by the model's 20-s prediction in the fill's favour:
+
+| prediction for the fill | 101: share of $ / C / R/C | 252: share of $ / C / R/C |
+|---|---|---|
+| ADVERSE < −0.5 bp | 15% / +0.38 / −0.10 | 5% / — / **−0.64** |
+| adverse −0.5…−0.2 | 14% / +0.47 / +0.18 | 12% / — / −0.03 |
+| neutral | 27% / +0.36 / +0.15 | 30% / — / −0.07 |
+| fav 0.2…0.5 | 22% / +0.26 / **+0.30** | 28% / — / +0.21 |
+| FAV > 0.5 bp | 21% / **+0.06** / **−1.86** | 25% / +0.29 / **+0.57** |
+| ALL | R/C +0.04 | R/C +0.26 |
+
+- Counterfactual without the adverse groups: 101 R/C +0.03 (no gain); 252 +0.30.
+- **Reading:**
+  - For 252 the model sorts fills as intended.
+  - For 101 the worst fills are those where the model STRONGLY AGREES with the fill side: our lean step-ins when a move looks most certain. A resting order on the side the price is expected to move toward fills mainly when the prediction FAILS (conditional adverse selection), so it captures ≈ 0.
+  - 252's fills come from regular flow, not from failed predictions.
+- **Phase 2 redesign:**
+  - (a) When the 20-s prediction strongly favours the lean side (fav > ≈ 0.5 bp), step that lean order BACK 1–2 ticks instead of at/inside the touch.
+  - (b) A small two-sided layer that quotes only when the model is neutral (|pred| < ≈ 0.2 bp), where our fills already hold value and are balanced.
+  - Needs the model live in the agent (features from the state: book top-5, recent prints, fund) → a build + equiv/test_pace + census, then ABAB on 101 after T3.
