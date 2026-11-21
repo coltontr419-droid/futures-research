@@ -28821,3 +28821,10 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - In this good $30 market there is little to remove; the pull costs capture. Offline it helped mainly in rough windows (§1892).
   - A regime-dependent rule → exactly the case for adaptive gating (§1900).
 - A2 started 22:18:06 UTC; verdict 5:37 PM.
+
+## §1903 — 4:45 PM CT brief (protection ending; combined ABAB block A2)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** **$85/mo ($2.83/d)**, back up from $59 (incentive 0.0017); **net α 1,424 vs 252's 988**; captured 62.9 / realized 0 / share 0.0.
+- **Prune line $68** (mypay sane again) → 101 at **1.25× the line** as protection ends.
+- **252:** ≈ $195/mo (incentive 0.0039), share 0.0027.
+- A2 (base), Σα vs 252: +20.8, +10.1, −1.5, +0.4 → mean +7.5. 101 is out-trading 252 on $300 skill in the new run. B2 starts ≈ 4:54 PM.
