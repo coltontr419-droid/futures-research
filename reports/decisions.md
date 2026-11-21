@@ -27757,3 +27757,17 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 - Earlier two-sided tries were too close (M5 gate 2; A2/B 5 back at 0.2) or too small (Option A 0.1).
 
 **T5 redesigned and moved up to right after T2:** "deep two-sided sweep ladder" via existing live knobs: mk_rest_none 0, mk_gate_rest 6, mk_rest_frac 0.5, mk_rest_lean_none 0 (both sides on lean books too). Census first; ABAB vs the T2 winner; no restart. Then T3 hold, T4 traffic/size.
+
+## §1834 — 11:10 PM CT — T5 deep-layer census (speed/deepcensus.py, agents 4b19d295, 101 params)
+
+Bucket $4.7k:
+
+| arm | LEAN BID | LEAN ASK (counter side) | no-lean books |
+|---|---|---|---|
+| A base | $4.7k at +1 | — | $470 rests at +7 |
+| B deep6 f0.5 | $4.7k at +1 (unchanged) | **$2.35k at +8** | **$2.35k both sides at +8** |
+| C deep8 f0.5 | $4.7k at +1 | $2.35k at +11 | $2.35k both sides at +10 |
+
+- Bucket $800: B rests ≈ $2.5k at 7–9 back on both sides everywhere. Books with no order: 2 in all arms.
+- → B gives every $300 book a deep two-sided layer. Watch the shared pace budget (deep fills could crowd out lean step-ins = skill cost).
+- T2 verdict cron (1:17 AM) now starts **T5 (B deep6 f0.5) straight after T2**, ahead of T3 hold / T4.
