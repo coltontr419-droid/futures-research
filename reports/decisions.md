@@ -27783,3 +27783,14 @@ Bucket $4.7k:
 
 - 101: registered, 0 tracebacks, 0 of 192 blocked; cold start busiest book $26.6k.
 - T2 script running (no log yet: its 1,500-s warm-up wait ends ≈ 11:04 PM). Upstream unchanged; layout switcher waiting. Lowest non-immune ≈ $119–122.
+
+## §1836 — 11:20 PM CT brief (T2 block A1; user away overnight with full permission)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $9/mo ($0.29/d) | $212/mo ($7.06/d) |
+| making captured / realized / share (live) | 31.0 / 0.0 / 0.0 | — / — / 0.0045 |
+| net α | **511** | 1,589 |
+
+- T2 block A1 (base) checks: 101 +0.2 on $58k vs 252 +11.5; +13.0 (+0.92 bp) on $142k vs +13.7 (+0.91).
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $27.8k). Upstream unchanged; layout switcher waiting. Lowest non-immune ≈ $121–126.
