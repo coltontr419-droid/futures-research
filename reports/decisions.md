@@ -27629,3 +27629,15 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 
 - 101's protection ends ≈ 4:45 PM 11-21.
 - 0.6.8 → mainnet at any time: layout_switch.py remaps book groups automatically; then re-measure.
+
+## §1826 — 8:25 PM CT brief (T1 block A starting after the warm-up)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | **$4/mo ($0.12/d)**, first non-zero; incentive 0.0001 | $226/mo ($7.54/d) |
+| making captured / realized / share (live) | **14.0 / 1.46** / 0.0 | — / — / 0.0047 |
+| net α | 215 | 1,651 |
+
+- 101: registered, 0 tracebacks, 0 of 190 blocked; cold start busiest book $17.5k.
+- T1 (abab_jbs101) BLOCK A started 02:25 UTC (8:25 PM CT).
+- Upstream: main 0.6.7, test 0.6.8. Layout switcher waiting. Lowest non-immune ≈ $120–128.
