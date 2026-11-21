@@ -28357,3 +28357,10 @@ speed/stalefills.py (75 sim min, 101 on base). $300 fills at a prior spread ≥ 
 - 0.2 came from the §1849 checkpoint: the point where the $300 route counts as open. It matches 113's first positive replica quality (0.22–0.32, §1742) and the fleet's low end (0.27).
 - Making credit = captured × clamp(R/C, 0, 1), so pay scales linearly with quality: at equal capture, 0.2 earns ≈ 40% of what 252's 0.5 earns.
 - From now on: a single change is kept if R/C rises with skill held. The making goal is 252's level (≈ 0.45–0.5 overall, 0.5+ at wide spreads).
+
+## §1869 — 8:52 AM CT brief (spread ABAB block A1)
+- x3 = 101 REGISTERED; PACE 0 of 192 blocked; release main 20e97853 / test de323b82 unchanged; layout_switch waiting.
+- 1 Traceback at 14:30:57 UTC: SubstrateRequestException "Internal error" in check_registered (chain RPC hiccup during sync). The miner kept running (NRestarts 0). Benign.
+- **101:** $97/mo ($3.22/d), up from $84; net α 1,481; making captured 95.2 / realized 0 / share 0.0. Prune line $130.
+- **252:** ≈ $255/mo (incentive 0.0051 = 2.7× 101's 0.0019), share 0.0035, net α 1,725.
+- Spread ABAB block A1 (base), 101 − 252 Σα per check: +6.6, −2.2, −6.5. The sim is slow now (≈ 65 sim s per 5.6 wall min), so fills are thin (11–20 per 3 sim min). B1 starts ≈ 9:35 AM.
