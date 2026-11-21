@@ -28284,7 +28284,7 @@ Our $300 maker fills, split by whether another miner's maker order filled in the
 | 6–10 t | 39% / +0.10 | **54% / +0.52 (35% of $ inside, +0.56)** |
 
 - → Our losses are the tight-spread fills; 252 earns at wide spreads stepping inside.
-- Offline bound for pulling ≤ 5 t: R/C −0.39 → ≈ +0.12 with our current wide-spread quality. Higher if the wide-spread inside step works like 252's.
+- Offline bound for pulling ≤ 5 t: R/C −0.39 → ≈ +0.10 with our current wide-spread quality. Higher if the wide-spread inside step works like 252's.
 - Skill cost of losing ≈ 59% of volume is unknown → live test.
 
 **Built agents 99b9f646** (on top of 3ee9e1d9's join300):
