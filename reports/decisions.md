@@ -28352,3 +28352,8 @@ speed/stalefills.py (75 sim min, 101 on base). $300 fills at a prior spread ≥ 
 - Staged as agents/QuoteAgent.py.next-c5e38df5. NOT deployed: a restart now would disturb the running spread ABAB.
 
 **Test:** speed/abab_stale101.sh (env TIGHT / WIDE = the spread verdict). Deploy, restart and start are chained into the 12:45 PM verdict cron.
+
+## §1868 — 9:20 AM CT — target clarified: 0.2 is the floor, 252's ≈ 0.45–0.5 is the goal
+- 0.2 came from the §1849 checkpoint: the point where the $300 route counts as open. It matches 113's first positive replica quality (0.22–0.32, §1742) and the fleet's low end (0.27).
+- Making credit = captured × clamp(R/C, 0, 1), so pay scales linearly with quality: at equal capture, 0.2 earns ≈ 40% of what 252's 0.5 earns.
+- From now on: a single change is kept if R/C rises with skill held. The making goal is 252's level (≈ 0.45–0.5 overall, 0.5+ at wide spreads).
