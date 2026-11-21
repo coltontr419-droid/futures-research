@@ -27704,3 +27704,22 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 
 - → Skill-only works today via the 4-dec class, which we skip.
 - **User: "we can look at that once we've exhausted every possibility to increase our making credit. lets leave it alone for now."** Saved as memory feedback-making-first-4dec-later. No 4-dec work until the $300 making queue is exhausted.
+
+## §1831 — 10:37 PM CT — T1 (strong leans 3 back) NOT KEPT; T2 (strong leans step inside) started
+
+**T1** (abab_jbs101.log), 101 − 252 Σα per check:
+
+| block | per-check diffs | mean | $300 volume | end R/C |
+|---|---|---|---|---|
+| A1 | −15.8, −3.0, +18.7, +6.4, +6.6, +10.9 | +3.8 | — | −0.33 |
+| B1 | +6.6, +12.4, +7.4, −0.3, −11.5, −7.7 | **+1.2** | **$185k → $64k, fading** | −0.54 |
+| A2 | −1.1, +5.1, +8.6, +11.6, +17.3, −7.6 | +5.7 | $96–147k | — |
+
+- A ≈ **+4.7**, B ≈ +1.2: the same pattern as the flat jump_back 2 (strong leans further back fill less and less).
+- B2 had just started; stopped at 10:37 PM (verdict clear). **NOT KEPT**; live_params_101 back on A (mk_jump_back_strong 0, strong_pred 0).
+- **T2 deploy:**
+  - agents/QuoteAgent.py ← **4b19d295** (backup .bak-1a2de99b); newminer.sh expects 4b19d295.
+  - x3 restarted 10:38 PM (pace_cold stays 1), 0 tracebacks.
+  - speed/abab_si101.sh (log abab_si101.log): 1,500-s warm-up, then A/B/A/B × 30 min, ends ≈ 1:12 AM.
+    - A = base (strong-inside 0, hold 0); B = mk_jump_strong_inside 1 + mk_jump_strong_pred 1.06 (strong leans one tick inside the others' best; 252's mode, §1824).
+- Next: T3 = mk_vol_hold 2 on top of the T2 winner (no restart).
