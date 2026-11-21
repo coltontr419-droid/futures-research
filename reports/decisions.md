@@ -28728,3 +28728,10 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - B = mk_imb30 0.8 + mk_vol_size 0.2 / mk_calm_size 0.24.
   - Safety stop at ≥ 20 blocked.
   - Early read 3:12 PM, verdict 4:27 PM (≈ 18 min before protection ends).
+
+## §1895 — 2:15 PM CT brief (combined ABAB block A1)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $75/mo ($2.49/d), net α 1,207, captured 51.8 / realized 0 / share 0.0. Prune line $113.
+- **252:** ≈ $200/mo (incentive 0.0040), share 0.0028.
+- The ratio of 101's to 252's incentive is roughly steady: 0.40 at noon, 0.375 now. Both are falling, field-wide (field median $177).
+- Combined A1 (base, from 19:54:59 UTC): 101 − 252 Σα per check −8.4, −9.4, −13.7. **101 $300 notional per check only $19–22k** (tight blocks earlier: $41–74k) in a quiet stretch with 2–8 $300 fills per 3 sim min. Watch whether the tight base's lower $300 volume is starving skill. B1 (2× $300 size + $30 imbalance) starts ≈ 2:31 PM.
