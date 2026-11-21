@@ -28575,3 +28575,21 @@ User asked whether to wait for another window, since 252 did worse (−2.15) tha
 | B2 tight 5 (from 17:19:42 UTC) | −7.1 so far (1 check) | — | — |
 
 - A2 confirms the base loses in a market where 252 is positive (+0.29). So B1's +0.78 was not just an easier market. B2 decides.
+
+## §1884 — 11:35 AM CT — $30 touch-size second read: inconclusive on quality, clear capture cost → propose revert to 0.06 / 0.06 (user decides)
+Window 2 = sim 56,875–57,583 (11.8 sim min). widefills30 + pairfills30, R per $ in bp:
+
+| $30 | before (60 sim min) | window 1 (15.7) | window 2 (11.8) |
+|---|---|---|---|
+| 101 C / R per $ | +0.22 / +0.01 | +0.19 / −0.04 | +0.08 / **−0.12** |
+| 252 C / R per $ | +0.22 / +0.03 | +0.12 / −0.25 | −0.24 / **−0.29** |
+| 101 R per $ minus 252's | −0.02 | **+0.21** | **+0.17** |
+| 101 R/C (ALL) | +0.03 | −0.19 | **−1.62** |
+| 101 at best: $ share / R/C / average fill | 91% / −0.56 / $284 | 90% / −2.11 / $244 | 93% / −3.39 / $312 |
+| 101 capture C per sim min (bp·$k) | 4.3 | 2.8 | **1.4** |
+
+- Both windows after the change were rough for everyone on $30: 252's R per $ was negative in both.
+- Relative to 252 our R per $ looks better (+0.17 to +0.21 vs −0.02 before). But our R/C fell, and **capture per sim min dropped 35–66%**. The window-2 at-best average fill ($312) is back near the before level.
+- No parallel control (the $30 change was not ABAB'd), so the quality effect can't be separated from the market.
+- The ladder half failed (§1880). Making credit = capture × quality, so a 35–66% capture cut needs a large, proven quality gain to pay, and there is none.
+- **Proposal: revert to mk_low_size 0.06 / mk_low_lad_size 0.06.** If the touch idea is retried, run it as a proper $30 ABAB. Left unchanged until the user decides; the $300 tight ABAB is untouched.
