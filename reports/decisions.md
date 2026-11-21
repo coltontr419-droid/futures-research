@@ -28238,3 +28238,9 @@ Our $300 maker fills, split by whether another miner's maker order filled in the
 
 ## §1862 — 8:45 AM CT — user: no splitting skill and making across two miners
 - User: "neither can settle with only skill or making alone". Making fixes must work next to the lean on the same miner. The split option from §1861 is dropped.
+
+## §1863 — 8:55 AM CT — gate test length: early read added
+- User asked why the gate needs ≈ 4 h.
+- Breakdown: 25-min warm-up after the restart; then A/B/A/B blocks of ≈ 45–50 min each (six 5-min checks + ≈ 2.5 min per skill read + a ≤ 10-min fillvalue at block end). Started 7:39 AM; A1 began 8:04 AM.
+- Change: early read at 10:42 AM after A1/B1/A2 (cron). If the gate is clearly not working, stop it and start Fix 1 then (≈ 75 min sooner).
+- Also noted: the gate does not log how often it binds (`_mo20_n` is never printed), so binding can only be judged from B-block behaviour. Fix 1 logs JOIN300 counts.
