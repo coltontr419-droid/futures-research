@@ -27828,3 +27828,18 @@ Bucket $4.7k:
   - mean so far ≈ **+18**, vs A1's +3.4. Volume UP ($198–257k vs A1 $58–179k), the opposite of the "further back" variants.
   - Early but strong; making read at block end.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $31.9k). Upstream unchanged.
+
+## §1839 — 12:50 AM CT brief (T2 block A2) — strong-inside: skill up, making quality badly down
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $15/mo ($0.50/d) | $220/mo ($7.33/d) |
+| making captured / realized / share (live) | 31.1 / 0.0 / 0.0 | — / — / 0.0044 |
+| net α | **679** | 1,433 |
+
+- **Block B1 (strong-inside) ended:**
+  - Σα vs 252 per check: +12.7, +18.9, +21.2, +19.2, +8.9 (≈ **+16 mean**).
+  - **End fillvalue R/C −2.69: C only +0.06 bp, R −0.17 bp on $355k**; single fills C +0.01 bp, R −4.82.
+  - Stepping inside on strong leans earns skill but captures ≈ nothing at the fill (the fill is ≈ at the centred mid) and loses at 20 s. That is the opposite of 252's +0.88 for inside fills.
+- **Block A2 started:** 101 +17.1 vs +9.2, +20.1 vs +2.9. 101 is also strong on the base now (market phase), so part of B1's edge is the market.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $33.5k). Upstream unchanged. Lowest non-immune ≈ $129–134.
