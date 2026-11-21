@@ -28364,3 +28364,15 @@ speed/stalefills.py (75 sim min, 101 on base). $300 fills at a prior spread ≥ 
 - **101:** $97/mo ($3.22/d), up from $84; net α 1,481; making captured 95.2 / realized 0 / share 0.0. Prune line $130.
 - **252:** ≈ $255/mo (incentive 0.0051 = 2.7× 101's 0.0019), share 0.0035, net α 1,725.
 - Spread ABAB block A1 (base), 101 − 252 Σα per check: +6.6, −2.2, −6.5. The sim is slow now (≈ 65 sim s per 5.6 wall min), so fills are thin (11–20 per 3 sim min). B1 starts ≈ 9:35 AM.
+
+## §1870 — 9:05 AM CT — ABAB block timing fixed for the next test (user asked why B1 starts so late)
+- Nothing else is running. The test is A/B/A/B and block A1 (base control) runs first: six 5-min checks, then the block-end analyses.
+- Two flaws found in the ABAB scripts:
+  1. The block-end fillvalue + pairfills ran BEFORE the next arm switched on, leaving ≈ 10–20 idle minutes per block.
+  2. While the sim is slow (≈ 65 sim s per 5.6 wall min), a block covers only ≈ 7 sim min. The fixed 30-sim-min pairfills window therefore mixes several blocks, and the 6-sim-min fillvalue window is about one block.
+- Fix (speed/abab_stale101.sh, used from the next test on):
+  - The arm switches immediately at block end.
+  - fillvalue (now supports END) and pairfills run in the background over exactly that block's sim window (S0 + 60 s … TE). They log `END(sim S0-TE …)` lines.
+  - Lab has 6 GB free and 4 cores, enough for one background analysis beside skill_cls2.
+  - Saves ≈ 30–45 min per ABAB.
+- The running spread script cannot be edited safely (sh reads it incrementally). Its verdict cron now recomputes exact per-block windows and ignores its mixed pairfills lines.
