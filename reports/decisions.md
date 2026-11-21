@@ -27366,3 +27366,32 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - A = base; B = delayed entry mk_lean_mom_s 10 / **mk_lean_mom_bp 0.0**.
   - 5-min skill checks vs 252; fillvalue 6 at block ends.
   - Ends ≈ 7:50 PM CT. The cold start means small buckets early: both arms share that, but early blocks trade less.
+
+## §1812 — 6:33 PM CT brief (laptop back) + per-book study
+
+- **101:** registered, 0 tracebacks, 0 of 183 blocked (cold start: 24 h notional median $5.0k, max $11.0k). Pay $0 (2 h old), net α 125, making 0.
+- **252:** $220/mo ($7.32/d), share 0.0048. Lowest non-immune ≈ $121–122. Upstream 20e97853.
+- **Delayed-entry ABAB on 101** (log abab_mom101.log), Σα per check, 101 − 252:
+
+| block | per-check diffs | mean | 101 $300 volume | 101 bp | 252 bp | end fillvalue R/C |
+|---|---|---|---|---|---|---|
+| A | −11.7, −5.7, −4.5, −6.0, −5.7, −5.0 | **−6.4** | $68–154k | −0.08 to +0.98 | +0.46 to +1.40 | +0.10 (single +0.61, depth1 −2.37) |
+| B (so far, 5 checks) | — | **−16.6** | $67–130k | −0.04 to +0.82 | — | — |
+
+  - B is trending worse.
+  - 101 trails 252 even in A (cold-start buckets; 101's bp below 113's usual 1–2 bp).
+- **Per-book study** (speed/bookcf.py, 113's tape, the 120 sim min before its prune, END=44439):
+
+| uid | books with R < 0 | $ | R | +600 s skill | books with R ≥ 0 | $ | R | +600 s skill |
+|---|---|---|---|---|---|---|---|---|
+| 113 (total R/C −0.22) | **76 of 128** | $2.50M | −46.0 | **+1.72 bp** | 52 | $1.72M | +22.8 | **+2.72 bp** |
+| 252 (total R/C +0.57) | 21 of 128 | — | — | +2.49 bp | 107 | — | — | +3.08 bp |
+
+  - 113's worst 20% of books carry R −28.1 of −23.2 total.
+- **Conclusions:**
+  - The loss is BROAD (60% of books), so a fixed-list split-books fix would only touch part of it.
+  - Books with negative 20-s R also have WEAKER skill: bad making fills and weak lean come together → **"lean only when the signal is strong" (higher $300 lean threshold) could improve both.** Moves up the queue.
+- Next offline:
+  - (a) Persistence: does a book's R sign hold hour to hour? This decides whether split books is worth building.
+  - (b) Counterfactual of a higher lean threshold on 113's tape.
+- Next live (after the 7:57 PM verdict): the higher lean threshold if (b) supports it.
