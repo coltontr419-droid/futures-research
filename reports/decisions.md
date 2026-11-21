@@ -27893,3 +27893,25 @@ Bucket $4.7k:
 
   - ≈ **+18.7 mean**, repeating B1's +15.8. The skill effect is confirmed.
 - 101: registered, 0 tracebacks, 0 blocked. Upstream unchanged. Lowest non-immune ≈ $104–127.
+
+## §1843 — 2:08 AM CT — T2 FINAL: strong-inside NOT kept for making / CONFIRMED skill candidate; T5 deep layer started
+
+**T2 final** (abab_si101.log), 101 − 252 Σα per check:
+
+| block | per-check diffs | mean | end fillvalue R/C |
+|---|---|---|---|
+| A1 | — | +3.4 | −0.03 |
+| B1 | — | +15.8 | −2.69 |
+| A2 | +7.9, +17.2, +2.4, −1.9, +6.1, +2.9 | +5.5 | −0.41 |
+| B2 | +12.7, +11.7, +22.8, +27.7, +15.1, +12.8 | **+17.1** | **−1.12** |
+| **A (both)** | — | **≈ +4.5** | ≈ −0.2 |
+| **B (both)** | — | **≈ +16.5** | ≈ −1.9 |
+
+- B's $300 volume is higher ($165–257k vs A $127–179k).
+- **Verdict:**
+  - Making: NOT kept (R/C far worse). Live 101 is on A (mk_jump_strong_inside 0); live_params_NEXT stays base.
+  - **SKILL: CONFIRMED gain ≈ +12 Σα per check over base** (≈ 3.7× base's lead over 252). Top skill candidate for when the making route is exhausted (feedback-making-first-4dec-later).
+- **T5 started 2:08 AM** — speed/abab_deep101.sh (pid 2579050; log abab_deep101.log; no warm-up needed):
+  - A = base; B = base + deep two-sided sweep layer (mk_rest_none 0, mk_gate_rest 6, mk_rest_frac 0.5, mk_rest_lean_none 0: ≈ $2.35k both sides ≈ 8 ticks behind the others' best on every $300 book; §1834 census).
+  - Blocks run ≈ 47 min (skill_cls2 checks take ≈ 2.5 min each) → ends ≈ 5:15 AM.
+  - Judge: block-end fillvalue R/C (miner-wide quality), Σα vs 252 (skill cost), live making_realized.
