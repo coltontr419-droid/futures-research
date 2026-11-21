@@ -27602,3 +27602,30 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
   - strong leans step one tick inside the others' best (as 252 does), normal leans stay 1 behind;
   - small extension of _jb_for (negative back = inside) + equiv/test_pace;
   - ABAB vs the jbs winner, together with the mk_vol_hold test.
+
+## §1825 — 8:30 PM CT — "strong leans step inside" built (with hold + strong-3back in one build) + test timeline
+
+- agents_next/QuoteAgent.py **4b19d295** = b5da5bcf (1a2de99b + mk_vol_hold) + live knob `mk_jump_strong_inside` (0/1).
+  - New _si(lean): strong lean (|pred| ≥ mk_jump_strong_pred) with jump_touch → the lean side is priced one tick INSIDE the OTHERS' best (_others_best, our own orders excluded, so it cannot penny itself), capped so it never crosses (ask − tick / bid + tick).
+- equiv 0 diffs vs b5da5bcf (tape, ledger, locks identical); test_pace ALL PASS.
+- Census (speed/sicensus.py, 101 params, bucket $4.7k, seeded leans with strong_pred 0.05), LEAN BID ticks behind the others' best:
+
+| arm | ticks behind others' best |
+|---|---|
+| base | +1 |
+| strong-inside | **−1** |
+| strong-3back | +3 |
+
+- **Timeline (UID 101; ABAB = 4 × 30 min after a 25-min warm-up when a restart is needed):**
+
+| test | when (CT) | what |
+|---|---|---|
+| T1 (running) | 7:59 → ≈ 10:30 PM | strong leans 3 ticks back vs base. Verdict 10:37 PM |
+| T2 | ≈ 10:45 PM → 1:10 AM | deploy 4b19d295 (restart); strong leans step INSIDE vs the T1 winner |
+| T3 | ≈ 1:15 → 3:20 AM | mk_vol_hold 2 (hold lean orders, queue position + fewer messages) on top of the T2 winner, no restart |
+| T4 | ≈ 3:30 → 5:35 AM | quote-traffic trim for 0.6.8 OTR (from the message breakdown, done during T2's warm-up) or order size on strong leans, whichever the data favours |
+| T5 | morning 11-21 | a 252-style two-sided $300 layer at real size/depth (design from the positioning data) |
+| any winner with R/C ≥ ≈ 0.3 and skill held | — | a 4-h confirm run before stacking the next change |
+
+- 101's protection ends ≈ 4:45 PM 11-21.
+- 0.6.8 → mainnet at any time: layout_switch.py remaps book groups automatically; then re-measure.
