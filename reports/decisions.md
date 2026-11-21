@@ -27676,3 +27676,15 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
 - **Block B1 so far:** 101 +13.8 (+0.75 bp) on $185k vs 252 +7.2; +17.7 (+1.20) vs +5.3.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $20.9k). Upstream unchanged.
 - Prune order: 34 $31, 14 $111, 72 $119.
+
+## §1829 — 10:13 PM CT brief (T1 block A2)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $7/mo ($0.23/d) | $214/mo ($7.13/d) |
+| making captured / realized / share (live) | 23.4 / 0.0 / 0.0 | — / — / 0.0046 |
+| net α | 337 | 1,529 |
+
+- **Block B1 end fillvalue:** R/C **−0.54** on $102k (single −0.80).
+- **Block A2 so far** (101 vs 252): +2.6 vs +3.7, +14.2 vs +9.1, +14.2 vs +5.6.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $23.5k). Upstream unchanged. Lowest non-immune ≈ $89–117.
