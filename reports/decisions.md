@@ -28249,3 +28249,51 @@ Our $300 maker fills, split by whether another miner's maker order filled in the
 - Bucket 2 (101: 53% of $300 $, R/C −0.19) is mostly the lean side resting 1 tick behind the touch (mk_jump_back 1, §1737 fleet copy). It was positive on 113 on 11-19 (+1.29 bp @20 s, replica quality 0.22–0.32, §1742) but loses now. The fleet (55) still earns +0.41 there.
 - Every test that moved further back was worse (jump_back 2 §1805, strength-scaled 3-back §1831, deep layer §1849, hold §1854). The untested direction is forward: mk_jump_back 0 (lean side at the touch with the others), which is 252's mix (47% first-level, +0.23).
 - Fix 2 = ABAB mk_jump_back 1 vs 0 (live knob, no restart), on top of whatever Fix 1 leaves. Queued after the Fix 1 verdict (cron 2:37 PM).
+
+## §1865 — 8:30 AM CT — user: offline-check every idea first → Fix 1 / Fix 2 / gate dropped on offline bounds; spread finding; spread test live
+
+**User rule (11-21):** check ideas on offline data first; only ideas that pass offline get live time.
+
+**Offline bounds from §1860's buckets** (101 now R/C −0.24). Best case: the fixed fills behave like our own shared-front fills (+0.02); optimistic case: like 252's (+0.23).
+
+| change | best case (our front quality) | optimistic (252's front quality) |
+|---|---|---|
+| Fix 1 join300 alone | −0.11 | −0.05 |
+| Fix 2 jump_back 0 alone | −0.12 | −0.00 |
+| both | +0.01 | +0.19 |
+
+- None reaches ≥ 0.2 → Fix 1 / Fix 2 are NOT run live. Their crons were deleted.
+- The gate was also stopped (14:25 UTC, during A1): §1855 already showed the 20-s model does not separate our fills offline.
+
+**leancf (90 sim min):**
+- 101 has 55% of $300 $ at strong lean (|pred| 1.5–3), R/C −0.32 / −1.26.
+- 252 at the same strength keeps +0.20 / +0.90, with C 3× ours in the 2–3 band.
+- +600 s skill proxy is similar for both (101 +2.03 bp, 252 +2.23).
+
+**strongpos:**
+- 101's strong fills: 57% are 1 tick behind (−1.61).
+- 252's strong fills: 53% INSIDE the prior best (+0.81).
+- T2 strong-inside failed for us. Hypothesis: we stepped inside at tight spreads (fills ≈ at the mid).
+
+**NEW speed/spreadfills.py** (60 sim min; prior-second spread in ticks; inside = strictly better than the prior best):
+
+| spread | 101 $ share / R/C | 252 $ share / R/C |
+|---|---|---|
+| 1–2 t | 22% / **−3.30** (C +0.07, R −0.24) | 15% / C −0.16, R −0.19 |
+| 3–5 t | 37% / **−0.72** | 29% / −0.04 (inside +0.46) |
+| 6–10 t | 39% / +0.10 | **54% / +0.52 (35% of $ inside, +0.56)** |
+
+- → Our losses are the tight-spread fills; 252 earns at wide spreads stepping inside.
+- Offline bound for pulling ≤ 5 t: R/C −0.39 → ≈ +0.12 with our current wide-spread quality. Higher if the wide-spread inside step works like 252's.
+- Skill cost of losing ≈ 59% of volume is unknown → live test.
+
+**Built agents 99b9f646** (on top of 3ee9e1d9's join300):
+- mk_tight300 K: pull both $300 sides while the others' spread ≤ K ticks.
+- mk_wide_inside W: at others' spread ≥ W (and ≥ 3), each wanted side moves 1 tick inside the others' best.
+- Logs SPREAD300 counts per sim minute.
+- Deployed 14:26 UTC: regcheck OK, 0 tracebacks, PACE 0 blocked, fills resumed (81 in 60 sim s). newminer.sh now expects 99b9f646. Backup agents/QuoteAgent.py.bak-75966cb2.
+
+**ABAB:** speed/abab_spread101.sh (pid 2609599, started 8:27 AM, G=0); log abab_spread101.log.
+- A = base; B = mk_tight300 5 + mk_wide_inside 6.
+- Blocks ≈ 60 min incl. block-end pairfills + fillvalue.
+- Early read 10:42 AM; verdict 12:45 PM.
