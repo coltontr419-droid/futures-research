@@ -27395,3 +27395,11 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - (a) Persistence: does a book's R sign hold hour to hour? This decides whether split books is worth building.
   - (b) Counterfactual of a higher lean threshold on 113's tape.
 - Next live (after the 7:57 PM verdict): the higher lean threshold if (b) supports it.
+
+## §1813 — 6:40 PM CT — per-book 20-s R does NOT persist hour to hour → split books by book is weak
+
+- bookcf, 113's tape: hour 1 (sim s 37,239–40,839, R/C −0.38) vs hour 2 (40,839–44,439, R/C −0.06); 113 books with > $5k in both.
+- Correlation of per-book R per $: **+0.07**; same sign 66/113 (58% ≈ coin flip).
+- Books negative in hour 1: hour-2 R −0.048 bp vs others +0.028 bp (a small carry-over).
+- → A fixed or rolling "lean only on good books" list would mostly chase noise. **Split books DOWN-ranked.**
+- Next lever = **lean strength** (the "R<0 books have weaker skill" link in §1812 points to weak-lean fills, not to specific books). Needs a counterfactual on fills tagged by lean strength. The tape lacks the model prediction, so the next step is to reconstruct the lean-model input from the tape or log it live (e.g. a pred value per step-in in the agent log).
