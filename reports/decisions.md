@@ -27403,3 +27403,32 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 - Books negative in hour 1: hour-2 R −0.048 bp vs others +0.028 bp (a small carry-over).
 - → A fixed or rolling "lean only on good books" list would mostly chase noise. **Split books DOWN-ranked.**
 - Next lever = **lean strength** (the "R<0 books have weaker skill" link in §1812 points to weak-lean fills, not to specific books). Needs a counterfactual on fills tagged by lean strength. The tape lacks the model prediction, so the next step is to reconstruct the lean-model input from the tape or log it live (e.g. a pred value per step-in in the agent log).
+
+## §1814 — 6:44 PM CT — lean-strength counterfactual: STRONG-lean fills are the 20-s losers (not weak ones)
+
+- speed/leancf.py rebuilds the agent's market-model pred for each fill from the tape (mid + fund; model_lean.json).
+- 113's tape, the 90 sim min to END = 44,439; 113 ALL R/C −0.17.
+
+| 113 group (|pred|/thr, fill side vs pred) | share of $ | C | R/C | +600 s |
+|---|---|---|---|---|
+| WITH < 1 | 8% | +0.48 | **+0.34** | +2.22 |
+| WITH 1–1.5 | 11% | +0.35 | +0.15 | +1.93 |
+| WITH 1.5–2 | **44%** | +0.15 | **−0.47** | +2.60 |
+| WITH 2–3 | 19% | +0.10 | **−1.66** | **+3.18** |
+| WITH ≥ 3 | 1% | — | +0.28 | +4.48 |
+
+| 252 group | share of $ | C | R/C | +600 s |
+|---|---|---|---|---|
+| WITH < 1 | 38% | — | +0.42 | — |
+| WITH 1–1.5 | 20% | — | +0.50 | — |
+| WITH 1.5–2 | 12% | — | +0.66 | — |
+| WITH 2–3 | 8% | +0.42 | **+0.88** | **+4.77** |
+| ALL | — | — | +0.56 | — |
+
+- **Conclusions:**
+  - A higher lean threshold is WRONG (it would cut our best-skill fills and keep the losses).
+  - The 20-s loss sits in **strong-lean fills with low capture** (C +0.10–0.15 bp: filled near the print-centred mid). 252's strong-pred fills capture 3–4× more and keep 66–88%.
+  - 63% of our $300 $ is in the strong bands vs 20% for 252.
+- **Next test design: strength-scaled jump_back.** Rest further behind the touch only on strong leans (e.g. 1 tick for |pred| < 1.5 thr, 2–3 ticks above).
+  - The flat jump_back 2 (§1805) cut volume on ALL leans; this keeps volume on the normal ones and seeks capture where it is lowest.
+  - Needs a small knob (e.g. mk_jump_back_strong + mk_jump_strong_z) + equiv/test_pace, then ABAB on 101 after the delayed-entry ABAB.
