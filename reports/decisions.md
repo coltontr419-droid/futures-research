@@ -27579,3 +27579,26 @@ Ideas ranked:
   - equiv 0 diffs vs 1a2de99b (tape, ledger, locks identical); test_pace ALL PASS with hold off and with hold 2.
   - Deploy after the jbs ABAB; ABAB A = winner of jbs, B = + mk_vol_hold 2.
 - **Strong-pred positioning study** (speed/strongpos.py, END = 44,439, 60 sim min; 113 / 252 / 210): for strong with-pred fills (|pred| ≥ 1.5 thr), C and R/C by depth vs the prior touch, fill size and event type. How does 252 sit when its signal is strong?
+
+## §1824 — 8:08 PM CT — strong-pred positioning (speed/strongpos.py): 252 steps INSIDE on strong signals; touch / 1-behind is the worst spot
+
+Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cells are share of $ / R/C.
+
+| depth | 113 | 252 | 210 |
+|---|---|---|---|
+| inside | 3% / −0.45 | **53% / +0.88** | 15% / +0.94 |
+| touch | **23% / −9.10** (C +0.01) | 12% / −0.60 | 26% / +0.35 |
+| 1 behind | **41% / −1.59** (C +0.09) | 13% / +0.50 | 22% / +0.41 |
+| 2 behind | 27% / +0.10 | 6% / +0.76 | 19% / +0.31 |
+| 3+ behind | 6% / **+0.47** (C +0.56) | 15% / +0.98 | 18% / +0.70 |
+| ALL strong | R/C −0.41 (C +0.16) | R/C +0.81 (C +0.34) | R/C +0.60 (C +0.33) |
+
+- 113 sweep fills R/C 0.00, single −0.92; 252 single +0.79.
+- **Conclusions:**
+  - At the touch, strong-pred fills are bad for everyone; 113 has 64% of its strong $ at touch / 1-behind.
+  - Two positions keep value on strong leans: **inside the spread** (252's main mode, 53% at R/C 0.88) and **3+ ticks back** (works for us too, +0.47).
+- The running jbs ABAB (strong → 3 behind) is aimed correctly.
+- **Next variant: "strong → inside":**
+  - strong leans step one tick inside the others' best (as 252 does), normal leans stay 1 behind;
+  - small extension of _jb_for (negative back = inside) + equiv/test_pace;
+  - ABAB vs the jbs winner, together with the mk_vol_hold test.
