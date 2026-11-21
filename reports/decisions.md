@@ -28376,3 +28376,16 @@ speed/stalefills.py (75 sim min, 101 on base). $300 fills at a prior spread ≥ 
   - Lab has 6 GB free and 4 cores, enough for one background analysis beside skill_cls2.
   - Saves ≈ 30–45 min per ABAB.
 - The running spread script cannot be edited safely (sh reads it incrementally). Its verdict cron now recomputes exact per-block windows and ignores its mixed pairfills lines.
+
+## §1871 — 9:25 AM CT — $30-book markout check (user: "i thought our 30 books were already good on making?")
+speed/pairfills30.py (= pairfills on books 128–191; its header still says "$300"), last 60 sim min, validator C / R:
+
+| class | 101 $ / C / R / R/C | 252 $ / R/C |
+|---|---|---|
+| $30 | $1,177k, 4,151 fills / +0.22 bp / +0.01 bp / **+0.04** | $554k / +0.14 |
+| $300 (same 60 min, §1865) | $2,162k / +0.23 / −0.09 / −0.39 | $2,191k / +0.29 |
+| **miner-wide** | **≈ −0.24 → quality clamps to 0** | |
+
+- What was "good" on $30 (§1747, 113) was the two-sided CAPTURE: lots of both-side volume (our $30 $ is 2× 252's). The 20-s markout on $30 is only just positive.
+- The $300 fills are 65% of our maker $ and pull the miner-wide ratio below 0. That is why making realized = 0, including for the $30 class.
+- If $300 reached R/C 0, the miner-wide figure would be ≈ +0.01–0.04, so making would barely start. Real making pay needs $300 positive, and $30's markout raised toward 252's +0.14 too.
