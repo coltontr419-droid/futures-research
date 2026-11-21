@@ -28789,3 +28789,13 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - Our maker rules react to book state but use fixed thresholds.
 - Plan (user: "yes"): offline replay of self-tuning gating. Rolling per-bucket R/C (class × spread × own-share) decides quote / pull, with exploration. Compare against all fills and the fixed rules, per run (pre- and post-reset) and per hour.
 - Cron 5:45 PM. Build only if it passes offline.
+
+## §1901 — 4:15 PM CT brief (combined ABAB block B1)
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 1 of 192 blocked; release states unchanged.
+- **101:** $59/mo ($1.96/d), incentive 0.0012, **net α 1,389 (above 252's 1,069)**, captured 66.2 / realized 0 / share 0.0.
+- **252:** ≈ $190/mo (incentive 0.0038), captured 27.8 / realized 9.9 / share 0.0027.
+- mypay's prune line ($4) is still distorted after the reset.
+- Note: 101's net α now exceeds 252's but its incentive is ⅓ of 252's. Making share (252 0.0027, ours 0) plus lag after the reset probably explain it. Worth a pay-composition check after the verdict.
+- B1 (imb30 0.8 + 2× $300) so far, Σα vs 252: −6.2, +2.8, −1.4, +13.7, −2.7 → mean +1.2 (A1 +4.0).
+  - $300 notional per check ≈ $174k vs A1 ≈ $141k (+23%).
+  - IMB30 pulls 1,376 of 3,955 $30 at-best sides.
