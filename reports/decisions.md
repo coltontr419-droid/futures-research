@@ -28496,3 +28496,10 @@ User: "fix the response time, then go for the 4-dec books but dont schedule anyt
 - A = base; B = mk_tight300 5 only.
 - Safety threshold raised to ≥ 40 blocked (burst left-over).
 - Early read 10:52 AM, verdict 12:12 PM, then the stale test starts (no restart needed).
+
+## §1877 — 9:57 AM CT brief (tight-only ABAB block A1)
+- x3 = 101 REGISTERED; 0 tracebacks; **PACE 0 of 192 blocked** (the 9:14 burst has refilled); release states unchanged; layout_switch waiting.
+- **101:** $95/mo ($3.18/d), net α 1,343, making captured 71.8 / realized 0 / share 0.0. Prune line $127.
+- **252:** ≈ $240/mo (incentive 0.0048), share 0.0033, net α 1,577.
+- **call_time** (gauge, partly pre-restart): 101 **0.287 s** (p5 0.234), was 0.38 / 0.29 before the 9:27 speed build. 252 0.135 / 0.075. Improving; still ≈ 2× 252.
+- Tight ABAB A1 (base, from 15:35:50 UTC), 101 − 252 Σα per check: −7.5, −13.3, −11.5. 101 is behind 252 on $300 skill this block (101 −0.06 / −1.16 / −1.10 bp). B1 starts ≈ 10:10 AM.
