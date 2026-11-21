@@ -28205,3 +28205,19 @@ abab_hold101.log, 101 − 252 Σα per check:
 - **252:** ≈ $252/mo (incentive 0.0051 = 3.0× 101's), share 0.0036, net α 1,767.
 - Gate ABAB (abab_mo20101.sh) still in its 1,500-s warm-up; the log starts ≈ 8:03 AM.
 - The 30-min brief cron text was stale (it named T5 and agents 4b19d295); it is replaced to cover the gate ABAB on 75966cb2.
+
+## §1860 — 8:20 AM CT — PAIRED fill analysis: WHERE our $300 fills lose (speed/pairfills.py, last 90 sim min)
+
+Our $300 maker fills, split by whether another miner's maker order filled in the same taker event, and by whether our fill was at the event's first price level or deeper in a sweep:
+
+| bucket | 101 $ share / R/C | 252 $ share / R/C | 55 $ share / R/C |
+|---|---|---|---|
+| ALONE at the front (only miner hit, first level) | **27% / −0.49** | 19% / +0.31 | 10% / +0.60 |
+| shared event, first level | 15% / +0.02 | 47% / +0.23 | 31% / −0.13 |
+| shared event, deeper in a sweep | **53% / −0.19** | 23% / +0.25 | 42% / +0.41 |
+| ALL | −0.24 | +0.18 | +0.30 |
+
+- The losses come from two specific buckets:
+  1. **Alone at the front:** when we are the only miner at the best price and get hit, we lose (−0.49); 252/55 win in the same situation. These are most likely our lean orders improving the price alone just before the move.
+  2. **Behind others, filled by sweeps:** most of our $ sits behind other quotes and only fills when a big taker sweeps through (53% of $). We lose there (−0.19); 252 is mostly at the front instead (47% first-level, +0.23).
+- Next: re-run pairfills at the gate test's block ends (does the gate fix bucket 1?). Then candidate tests: (a) never be the sole best on $300 — join the existing best instead of improving alone; (b) fewer behind-the-queue resting orders that only sweeps reach.
