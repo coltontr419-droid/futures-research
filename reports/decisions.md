@@ -28330,3 +28330,25 @@ Offline bounds:
 - Removing the stale (moved-into) bucket alone lifts wide R/C +0.07 → ≈ +0.15.
 
 Candidate next (offline-first): pull/step back a side for a few seconds after the mid moves > 0.5 bp into it.
+
+## §1867 — 9:10 AM CT — stale-quote pull: offline bound PASSES (modest); built and staged
+
+speed/stalefills.py (75 sim min, 101 on base). $300 fills at a prior spread ≥ 6 t, split by the mid move INTO the order over the prior S sim s:
+
+| rule (pull when moved into by > X over S) | 101 $ removed / their R/C | 101 wide R/C after removal (now +0.06) | 252 same bucket |
+|---|---|---|---|
+| S 2 s, X 0.3 bp | 29% / **−0.36** | **+0.14** | 14% / +0.45 |
+| S 2 s, X 0.5 bp | 20% / −0.38 | +0.12 | 6% / +0.37 |
+| S 5 s, X 1.0 bp | 19% / −0.28 | +0.16 | 7% / +0.56 |
+| S 10 s, X 0.5 bp | 44% / −0.09 | +0.20 | 20% / +0.31 |
+
+- S 2 / X 0.3 removes the most loss per $ removed → chosen. S 10 gets +0.20 only by dropping 44% of volume.
+- 252's "moved-into" fills are fine (+0.45), so the issue is our quotes staying at an old price; 252 re-prices.
+
+**Built mk_stale_bp / mk_stale_s** (agents c5e38df5 on top of 99b9f646):
+- Pulls a $300 vol+calm side while the mid moved into it by > X bp over the last S sim s.
+- Uses the agent's per-second mid history `_mh`.
+- Logs STALE300 counts per sim minute.
+- Staged as agents/QuoteAgent.py.next-c5e38df5. NOT deployed: a restart now would disturb the running spread ABAB.
+
+**Test:** speed/abab_stale101.sh (env TIGHT / WIDE = the spread verdict). Deploy, restart and start are chained into the 12:45 PM verdict cron.
