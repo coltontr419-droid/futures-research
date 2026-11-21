@@ -28698,3 +28698,21 @@ User (away until ≈ 1 PM): "if the tight verdict is still gaining spread captur
 **Deployed:** agents 6ca6f5e2 (backup agents/QuoteAgent.py.bak-0a96ab5e). Restart 19:30:25 UTC: 0 tracebacks, PACE 0 blocked, fills OK. newminer.sh → 6ca6f5e2. Base set explicitly (tight 5, stale 0, $30 0.06/0.06).
 
 **$30 imbalance ABAB** speed/abab_imb101.sh (pid 2636807, TIGHT=5): A = base, B = + mk_imb30 0.8 (pull). Block ends log pairfills30 ($30) + fillvalue ($300). Early read 2:57 PM, verdict 4:12 PM.
+
+## §1893 — 2:05 PM CT — offline: does more size earn more? $300 wide = YES; $30 at-best = NO
+speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and 58813–59069). For each 101 fill: did the taker keep trading after our order in the same event? R per $ in bp:
+
+| condition | our $ | fills where the taker CONTINUED past us: share / R per $ / R/C | extra taker $ after our fills |
+|---|---|---|---|
+| **$300, spread ≥ 6 t** | $89k / $26k | 64–81% / **+0.23 / +0.20** / **+0.56 / +0.42** | **$1,006k / $641k (≈ 11–25× our own)** |
+| $300, spread ≤ 5 t (mostly pulled now) | $17k / $6k | — | $68k / $9k |
+| $30 at-best, own < 0.4 | $11k / $6k | −0.30 / −0.32 | $0.5–0.6M |
+| $30 at-best, own 0.4–0.8 | $92k / $52k | −0.13 / −0.14 | $3.6–5.9M |
+| $30 at-best, own ≥ 0.8 | $62k / $28k | −0.29 / −0.33 | $4.3–9.5M |
+
+- **Queue check** (since sim 57,995): 130 of 181 (72%) of our $300 fills had the taker continue at the same price (others behind us in the queue) or deeper.
+  - Under price-time priority, that means **our whole order was consumed**. Median fill 1.67–1.70 units ≈ the full order. A bigger order would have filled more, in the same event at the same price, so with the same markout (R/C ≈ +0.4–0.56).
+- **$300 offline bound:** doubling the wide-spread $300 size ≈ doubles $300 capture at ≈ the same quality → $300 making credit ≈ 2×.
+  - Unknowns for the live test: skill (bigger inventory swings; max_inv 0.3 may bind and skew quotes) and the pace budget (fine: ≈ $68–77k of $450k per book per day).
+- **$30: NO.** Continued-taker fills at best lose in every own-share bucket; more at-best size = more losses. (Also matches the failed $30 ladder test, §1880.)
+- Size knobs are at their bounds (mk_vol_size 0.1 = max, mk_calm_size 0.12 = max). Staged agents with bounds raised to 0.3 / 0.36 (agents/QuoteAgent.py.next-<md5>; otherwise = 6ca6f5e2). Needs a restart → not during the running $30 imbalance ABAB.
