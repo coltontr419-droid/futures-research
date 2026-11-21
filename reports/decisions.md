@@ -27549,3 +27549,25 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - 1,500-s warm-up, then 4 × 30 min, ends ≈ 10:30 PM CT.
   - A = base (strong knobs 0); B = mk_jump_back_strong 3 + mk_jump_strong_pred 1.06 (≈ 1.5 × thr): strong leans rest 3 ticks behind the touch, others 1.
   - Judge on Σα vs 252 (primary), $300 volume, block-end fillvalue R/C. Afterwards leancf on the tape per strength band (does the strong band's C / R/C rise?).
+
+## §1822 — 8:15 PM CT — user: "is this the last idea for $300 making?" → no; queue-position check on 113's $300 fills
+
+Ideas ranked:
+1. Queue position / hold the lean order (new).
+2. Strength-scaled jump_back (running).
+3. Copy 252's quoting at strong pred (where it rests, size, two-sidedness).
+4. Order size on strong leans.
+5. A 252-style balanced making layer at its size/depth (not tiny rests).
+
+**$300 queue/age** (speed/qpos300.py, orderage300.py; END = 44,439, 40 sim min):
+
+| uid | mean queue position (0 = first) | sole-fill share | order age p75 | R/C (§1803) |
+|---|---|---|---|---|
+| 113 | 0.26 | 59% | 0 s | 0.04 |
+| 252 | 0.10 | 74% | 1 s | 0.52 |
+| 210 | 0.09 | 73% | **12 s** | 0.56 |
+| 55 | 0.22 | 56% | 1 s | 0.37 |
+
+- → Partly supported: the best R/C UIDs (252/210) sit at the queue front and 210 holds orders longest. But 55 sits ≈ where we do with R/C 0.37, so it is not the whole story.
+- The agent's "hold" (keep our touch order when the target drifts ≤ HOLD ticks behind, if not inside the others' best; §1317) exists only for calm books (mk_calm_hold); vol books pass hold=0.
+- **Queued test:** a live knob mk_vol_hold (ticks) for $300 vol books, holding the lean-side order through small touch moves. Expected gains: queue position, capture, fewer messages (0.6.8 OTR). Build + equiv/test_pace after the jbs ABAB.
