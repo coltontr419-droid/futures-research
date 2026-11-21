@@ -28639,3 +28639,22 @@ User (away until ≈ 1 PM): "if the tight verdict is still gaining spread captur
 - **A1 (tight base) exact window** (sim 58000–58382): 101 $300 **R/C +0.44** (C +0.43 bp, R +0.19, $95k). The third positive tight-base block in a row (+0.78, +0.67, +0.44).
   - Σα vs 252: +7.1, −2.7, +0.5, −10.1, −5.3, −3.5 → mean −2.3.
 - B1 (stale pull) from 18:42:28 UTC: STALE300 pulls 1,896 sides of 7,503 book-rounds; first check −7.9.
+
+## §1890 — 1:21 PM CT brief + WHY making is still 0: the $30 books now pull the miner-wide ratio below 0
+- x3 = 101 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **101:** $81/mo ($2.71/d), net α 1,326, captured 56.2 / **realized 0 / share 0.0**. **Prune line $98** (101 at 83%).
+- **252:** ≈ $210/mo (incentive 0.0042), share 0.0029.
+- Stale B1, 101 − 252 Σα per check: −7.9, −10.3, −7.6, −11.5, −6.5, −6.0 (A1 −2.3). Early read at 1:22 PM.
+
+**Miner-wide check since the tight base** (sim 57,995–58,853, 14.3 sim min; pairfills / pairfills30, validator C / R):
+
+| class | $ | C per $ | R per $ | C (bp·$k) | R (bp·$k) | R/C |
+|---|---|---|---|---|---|---|
+| $300 | $191k | +0.39 | +0.12 | 74.5 | +22.9 | **+0.30** |
+| $30 | **$352k** | +0.07 | −0.10 | 24.6 | **−35.2** | −1.45 |
+| **miner-wide** | | | | 99.1 | **−12.3** | **≈ −0.12 → quality clamps to 0** |
+
+- The tight pull fixed $300 (positive, as in the ABAB). But it cut $300 volume, so $30 is now ≈ 65% of our maker $ and its losses outweigh the $300 gain.
+- The $30 market is rough today for everyone: 252's $30 R per $ is −0.39 bp in the same window, after +0.14 R/C windows this morning.
+- The validator window also still contains pre-tight fills, so even with $30 at 0 the gauges would lag.
+- **Next lever = the $30 at-best fills** (90%+ of our $30 $, losing; mostly sweeps). Needs an offline check before anything goes live (user rule).
