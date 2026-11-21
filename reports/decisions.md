@@ -28102,3 +28102,23 @@ abab_hold101.log, 101 − 252 Σα per check:
 | T3 hold | not kept |
 
 - Making continues via the own 20-s-model approach (§1850–§1852).
+
+## §1855 — 7:25 AM CT — second 20-s-model sample does NOT confirm the band pattern; next diagnostic = WHO fills us
+
+- **Brief:** 101 $83/mo ($2.76/d), net α 1,375, captured 94.1, realized 0; 252 $251/mo. PACE 2 of 192 blocked (transient).
+- **Second sample** (101's earlier fills, live_tape_x5.jsonl.prev, END 51,600, 80 sim min, mixed test settings), R/C by band:
+
+| band | 101 first sample | 101 second sample | 252 (both samples) |
+|---|---|---|---|
+| ADVERSE < −0.5 | −0.10 | −0.50 | −0.64 / +0.16 |
+| adverse −0.5…−0.2 | +0.18 | −0.74 | −0.03 / +0.09 |
+| neutral | +0.15 | −0.60 | −0.07 / +0.32 |
+| fav 0.2…0.5 | **+0.30** | **−1.41** (worst) | +0.21 / +0.11 |
+| FAV > 0.5 | −1.86 | −0.67 | **+0.57 / +0.68** |
+| ALL | +0.04 | **−0.72** | +0.26 / +0.35 |
+
+- → For 101 the band differences are NOISE (the "mildly favourable" band flips from best to worst). Our fills lose at 20 s across ALL predicted states.
+- 252's fills hold value consistently, best when the model strongly favours them.
+- **Conclusion:** the 20-s model predicts the market (§1851) and works for 252's fills, but cannot select good fills for us. Our fills get filled when the move goes against us regardless of the observable state. That points at WHO fills us (counterparty/taker type), not WHEN we quote.
+- **Next diagnostic:** break our and 252's $300 maker fills by taker identity/type from the tape (background agent ID groups — ALGO sweeper, others; miner takers), with validator C/R per group.
+- Neither band rule ("mildly favourable only" / "skip both extremes") goes on the miner.
