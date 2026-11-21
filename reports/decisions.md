@@ -28828,3 +28828,30 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **Prune line $68** (mypay sane again) → 101 at **1.25× the line** as protection ends.
 - **252:** ≈ $195/mo (incentive 0.0039), share 0.0027.
 - A2 (base), Σα vs 252: +20.8, +10.1, −1.5, +0.4 → mean +7.5. 101 is out-trading 252 on $300 skill in the new run. B2 starts ≈ 4:54 PM.
+
+## §1904 — 5:52 PM CT — **UID 101 PRUNED** (≈ 23:29 UTC = 5:29 PM CT) + combined test VERDICT: neither half kept
+**Prune:**
+- regcheck NOT REGISTERED twice. The miner logged "not registered on netuid 79" at 23:29:28 UTC; its last fill was at sim 3,016.
+- 101 was at $85/mo, 1.25× the $68 line, at 4:45 PM. Its pay was still recovering from the reset dip ($59 at 3:45–4:15 PM).
+- Done: mvtrx-x3 stopped + disabled; no test scripts running; our_uids.txt backed up (our_uids.txt.bak-pruned101-*; still lists "101 maker x3 44540" until the new UID).
+- **Ready for the next registration:** agents f1bcce6e (newminer.sh expects it); live_params_NEXT = base (§1742 + Option B 0.1 + jump_back 1 + **mk_tight300 5**; $30 0.06 / 0.06; $300 0.1 / 0.12; imb30 / stale off).
+- User registers x3 again: `~/btcli/bin/btcli subnet register --netuid 79 --wallet.name main --wallet.hotkey x3`.
+
+**Combined ABAB, all 4 blocks** (post-reset run; per class, pooled):
+
+| | A (base): A1 + A2 | B (imb30 0.8 + 2× $300 size): B1 + B2 |
+|---|---|---|
+| $300 $ per sim min | $29.8k | **$42.4k (+42%)** |
+| $300 capture C per sim min (bp·$k) | 0.58 | **0.23 (−60%)** |
+| $300 R total / R/C | −8.5 / −1.06 | **−13.4 / −4.3** |
+| Σα vs 252 per check | **+5.1** (A1 +4.0, A2 +6.3) | +2.6 (B1 +5.8, B2 −0.6) |
+| $30 $ per sim min | $22.5k | $16.2k (−28%) |
+| $30 capture per sim min | 14.4 | 9.7 (**−33%**) |
+| $30 R per $ / R/C | +0.44 / +0.68 | **+0.55 / +0.92** |
+| **miner-wide R/C** | **+0.62** | **+0.79** |
+| $30 class credit proxy (capture × miner-wide quality) | **8.9** | 7.7 |
+
+- **$300 2× size: NOT KEPT.** More $, but less capture and worse R in this run's $300 market (negative for 252 too). Skill slightly lower. The offline pass (§1893) did not hold live in the post-reset regime.
+- **$30 imbalance pull: NOT KEPT** under the rule (capture −33% > 25%). R/C better, but credit ≈ capture × quality favours the base in this good-$30 regime.
+- **Notable:** miner-wide R/C was **positive in every post-reset block** (base +0.62). Making would have started on a full validator window; the gauges still showed 0 at the prune (window spanned the reset).
+- Both rules are regime-dependent → the adaptive replay (§1900) is the next step, offline.
