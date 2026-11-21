@@ -28541,3 +28541,16 @@ User asked whether to wait for another window, since 252 did worse (−2.15) tha
 - **Touch half (0.06 → 0.03) is still open:** at-best $/sim min −26%, average at-best fill $284 → $244. Benefit to R/C unmeasured, because the window was rough for everyone.
 - 252's usual $30 R/C is mildly positive: +0.14 and +0.12 on 60-sim-min windows (101 +0.04 / +0.03, ≈ 0.1 below 252).
 - Plan: leave the settings unchanged; second read 11:27 AM, judged relative to 252 in the same window. If not clearly better than the usual ≈ −0.1 gap → propose reverting both to 0.06 (user decides).
+
+## §1881 — 10:53 AM CT — tight-only ABAB EARLY READ: B1 clearly better → let A2/B2 run
+
+| block | 101 − 252 Σα per check | mean | $300 notional per check | fills / 3 sim min | exact-window R/C (101) | 252 same window |
+|---|---|---|---|---|---|---|
+| A1 base (sim 56229–56651) | −7.5, −13.3, −11.5, −9.5, −4.7, −4.9 | **−8.6** | $45–96k (≈ $65k) | 18–35 | **−2.21** (C +0.08 bp, R −0.18; $91k) | −0.40 |
+| B1 tight 5 (sim 56651–57060) | −4.7, −1.1, −0.8, +2.0, −0.8, −0.6 | **−1.0** | $41–74k (≈ $53k) | 5–17 | **+0.78** (C +0.26 bp, R +0.21; $62k) | +0.04 |
+
+- B1 beats A1 on everything: skill +7.6 Σα per check, R/C −2.21 → **+0.78** (above 252's +0.04 in the same window). Capture per $ is 3× higher (+0.26 vs +0.08 bp).
+- Volume cost is modest: $300 maker $ is 68% of A1's, notional per check 82%.
+- PACE 0 blocked throughout. SPREAD300 pulls ≈ 39% of book-rounds.
+- Caveats: ≈ 6 sim min per block, $60–90k of fills. The market eased from A1 to B1 (252 −0.40 → +0.04), which is exactly what A2/B2 control for.
+- Not a loss → script continues (A2 started 16:44:41 UTC). Verdict 12:12 PM.
