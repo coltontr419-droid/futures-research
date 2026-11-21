@@ -27723,3 +27723,10 @@ Strong with-pred $300 fills (|pred| ≥ 1.5 thr); END = 44,439, 60 sim min. Cell
   - speed/abab_si101.sh (log abab_si101.log): 1,500-s warm-up, then A/B/A/B × 30 min, ends ≈ 1:12 AM.
     - A = base (strong-inside 0, hold 0); B = mk_jump_strong_inside 1 + mk_jump_strong_pred 1.06 (strong leans one tick inside the others' best; 252's mode, §1824).
 - Next: T3 = mk_vol_hold 2 on top of the T2 winner (no restart).
+
+## §1832 — 10:45 PM CT — message-traffic breakdown: not readable from a pcap; counter goes into the next build
+
+- Offline replay over cap14 rejected: only 5 captured states, from another miner, with none of our resting orders. Every reply would be pure placements; it cannot show churn.
+- Live pcap of 101's replies (tcpdump "tcp src port 8105", 30 s, 133 KB): the bodies are compressed/binary, so instruction types cannot be grepped.
+- Plan: a tiny counter in the agent (placements vs cancels, per class $300 / $30 / 4-dec, logged every 60 states beside the REPLIES line). Goes into the next build and deploys with the next needed restart (after T2/T3), so it never disturbs a running ABAB.
+- Known now: ≈ 156 instructions per state (≈ 216 msgs per maker fill at the cold start) vs 0.6.8's 200 threshold (§1816).
