@@ -27526,3 +27526,17 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
 
 - Block-end fillvalue R/C: A +0.10 / B +0.05 / A +0.03.
 - → A ≈ −2.5 vs B ≈ −11.0: **delayed entry is clearly worse.** It cuts $300 volume (the filter blocks most lean entries) with no gain in 20-s value. Formal verdict when the script ends (≈ 8:02 PM).
+
+## §1820 — 7:58 PM CT — delayed-entry ABAB on 101: DISPROVEN (stopped at its last check; 101 back on A)
+
+| arm | blocks (mean 101 − 252 Σα per check) | overall | $300 volume | block-end R/C |
+|---|---|---|---|---|
+| A (base) | −6.4, +1.5 | ≈ **−2.5** | $68–204k | +0.10, +0.03 |
+| B (mk_lean_mom_s 10 / bp 0) | −17.8, ≈ −3.3 (B2: +23.3 +3.4 −11.7 −18.4 −13.2 −13.2) | ≈ **−11** | collapsing to $42–65k | +0.05 |
+
+- **DISPROVEN:**
+  - The momentum filter blocks most lean entries, so $300 volume and total α fall.
+  - The 20-s value (R/C) did not improve: block-end ≈ 0 in both arms, and the earlier 113 live read gave R/C −0.28 at an 18% against-share.
+  - Removing the "against-move" fills does not make the remaining fills score well. Consistent with §1814: the loss is about how strong-lean fills are filled (low capture), not when.
+- Script stopped at 7:58 PM (its last check: −1.0 vs +12.2); live_params_101 mk_lean_mom_s 0 (A). The momcf re-read was skipped (verdict clear; saves the lab for the next deploy).
+- **Next:** strength-scaled jump_back (§1815, agents 1a2de99b), deploy + ABAB now.
