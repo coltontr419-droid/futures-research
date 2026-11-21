@@ -27807,3 +27807,24 @@ Bucket $4.7k:
 - Block A1 checks (101 vs 252): +0.2 vs +11.5, +13.0 vs +13.7, +23.1 vs +13.5, +14.4 vs +21.0, +12.0 vs +10.8.
 - A1 end fillvalue R/C −0.03 on $216k.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $29.6k). Upstream unchanged. Lowest non-immune ≈ $111–123.
+
+## §1838 — 12:20 AM CT brief (T2 block B1 = strong-inside)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $14/mo ($0.47/d) | $209/mo ($6.97/d) |
+| making captured / realized / share (live) | 35.0 / 0.0 / 0.0 | — / — / 0.0044 |
+| net α | **604** | 1,544 |
+
+- **Block B1 (strong-inside):**
+
+| check | 101 Σα (bp) | $300 volume | 252 Σα | 101 − 252 |
+|---|---|---|---|---|
+| 1 | +23.5 (+1.16) | $202k | +10.8 | +12.7 |
+| 2 | +26.4 (+1.34) | $198k | +7.5 | +18.9 |
+| 3 | +25.6 (+1.00) | $257k | +4.4 | +21.2 |
+| 4 | +26.2 (+1.05) | $249k | +7.0 | +19.2 |
+
+  - mean so far ≈ **+18**, vs A1's +3.4. Volume UP ($198–257k vs A1 $58–179k), the opposite of the "further back" variants.
+  - Early but strong; making read at block end.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $31.9k). Upstream unchanged.
