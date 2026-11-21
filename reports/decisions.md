@@ -27927,3 +27927,15 @@ Bucket $4.7k:
 
 - T5 block A1 checks: 101 +21.5 (+1.48 bp) vs 252 +12.8; +16.3 (+1.22) vs +10.9.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $38.9k). Upstream unchanged. Lowest non-immune ≈ $120–122.
+
+## §1845 — 2:55 AM CT brief (T5 block A1 ended, B1 = deep layer started)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $33/mo ($1.10/d) | $224/mo ($7.46/d) |
+| making captured / realized / share (live) | **44.4** (> 252's 40.9) / 0.0 / 0.0 | — / 17.2 / 0.0042 |
+| net α | **965** | 1,556 |
+
+- Block A1 (base): last check +20.2 (+1.61) vs +10.1; end fillvalue R/C **−1.26** (C +0.08 bp on $173k: a noisy 6-sim-min block).
+- Block B1 (deep layer) started 2:57 AM.
+- 101: registered, 0 tracebacks, 0 blocked (busiest book $41.0k). Upstream unchanged. Lowest non-immune ≈ $123–126.
