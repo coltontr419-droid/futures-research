@@ -28516,3 +28516,21 @@ User: "fix the response time, then go for the 4-dec books but dont schedule anyt
   - **B1 (tight 5, from 16:10 UTC):** SPREAD300 pulls on 2,961 of 7,642 book-rounds (39%). $300 fills per 3 sim min fell to 5–11 (A1 20–35).
     - Σα vs 252: −4.7, −1.1, −0.8, better than A1 so far.
 - Caveat: blocks span only ≈ 6–7 sim min each while the sim is slow, so per-block R/C rests on ≈ $50–100k of fills. The verdict will pool A1+A2 vs B1+B2.
+
+## §1879 — 10:35 AM CT — $30 ladder readout (touch 0.03 / ladder 0.10 since 9:08 AM): the mechanism did NOT hold → flag, propose revert
+Exact window sim 55,935–56,875 (15.7 sim min; the 9:27 restart is inside, params persisted). widefills30 + pairfills30:
+
+| $30 | before (60 sim min) | after (15.7 sim min) | 252 after |
+|---|---|---|---|
+| $ per sim min | $19.6k | **$14.4k (−27%)** | $7.2k |
+| capture C per sim min (bp·$k) | 4.3 | **2.8 (−35%)** | — |
+| R/C ALL | +0.03 | **−0.19** | −2.15 (rough market) |
+| at best: $ share / R/C | 91% / −0.56 | 90% / −2.11 (C +0.08, R −0.17) | 73% / C −0.16, R −0.62 |
+| 1 behind: $ share / R/C | 9% / +0.83 | **10%** / +0.94 | 27% / +0.84 |
+| 1-behind $ per sim min | $1.65k | **$1.4k (no increase)** | — |
+
+- **The bound's assumption failed:** a 0.10 instead of 0.06 ladder order did not catch more of the sweeps. 1-behind $/sim min is unchanged, so sweeps reaching level 2 are size-limited.
+- Halving the touch size cut at-best $ only 26% (13k vs 17.7k per sim min), and those fills still lose.
+- The market was rougher in this window (252's $30 R/C −2.15). Relative to 252 we did better, but the predicted +0.41 did not appear, and capture fell 35%.
+- **Flag (no auto-revert while searching):** propose reverting to mk_low_size 0.06 / mk_low_lad_size 0.06. Left as is until the user decides; it does not affect the $300 tight ABAB.
+- Lesson: offline size-scaling bounds need a check that fills scale with size. Sweeps that just reach a level don't take more because more is resting.
