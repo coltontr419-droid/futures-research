@@ -27444,3 +27444,32 @@ speed/fillvalue.py: the validator's own accumulate_book_capture with _attribute_
   - deploy 1a2de99b (restart; the ledger replay keeps the balance; ≈ 5-sim-min warm-up);
   - ABAB A = base vs B = mk_jump_back_strong 3 + mk_jump_strong_pred 1.06;
   - judge on Σα vs 252, fillvalue R/C and leancf per strength band.
+
+## §1816 — 6:50 PM CT — user: "the mvtrx discord says 0.6.8 came out yesterday" → it is on the TEST branch; watcher fixed; layout auto-switch armed
+
+- Upstream: `test` = **de323b82 "20261119 - 0.6.8"** (11-19 14:34 UTC); `main` still 20e97853 "0.6.7 final".
+- Our release watcher polled main only, so 0.6.8 went unseen. It now polls **main + test** (state files release_watch.state / .state.test; backup release_watch.py.bak-mainonly). First run logged + ALERTed the 0.6.8 testnet release.
+- **0.6.8 changes that matter to us** (commit message + debeta/config diff):
+  1. **Order-to-trade discount on MAKING** (making_otr_threshold **200** messages per fill, power 1, ON by default): making credit × min(1, 200 / msgs-per-fill) over the making window; placements + cancels count; a GTT expiry now counts as a cancel.
+     - 101 now: ≈ 156 instructions per state × ≈ 1 state per sim s ≈ 46.8k per 300 sim s vs 217 maker fills → **≈ 216 msgs per fill**, ≈ 7% discount (cold start lowers fills; should improve).
+     - Watch: the $30 500-s expiry and $300 re-quotes add to it.
+  2. **Layout change — CRITICAL:**
+
+| books | 0.6.7 (now) | 0.6.8 |
+|---|---|---|
+| 0–63 | $300 | $300 |
+| 64–127 | $300 | **$30** |
+| 128–191 | $30 | **4-dec** |
+| 192–255 | 4-dec | **new simulation_3** (price ≈ 100, 4 decimals) |
+
+     - Our book_map (calm:63-101;low:128-191;dec:192-255) would mis-quote every moved class.
+  3. Others: scoring seam split at a run change (no skill charge across a run), drand checks, unfilled IOC/FOK cancelled, rebates within fees.
+- Mainnet now (tape): book 64 bid $298.6, 128 $29.0, 192 $289.99 → still 0.6.7.
+- **Armed /opt/mvtrx/layout_switch.py** (nohup, pid 2542577; log layout_switch.log):
+  - Every 60 s it reads the tape. When book 64 < $100 (and book 128 is off the 2-dp grid or above $100), it sets book_map = "low:64-127;dec:128-255" in every live_params of our_uids.txt + live_params_NEXT (backups .pre-068layout), ALERTs and exits.
+  - No calm group and simulation_3 as dec until measured.
+- **To do when 0.6.8 hits main:**
+  - check skip_dec vs the new class (simulation_3 has its own pool);
+  - re-measure groups;
+  - update the analysis tools' class ranges (skill_cls2, fillvalue, momcf, leancf, bookcf all assume $300 < 128);
+  - re-fit the lean model if the class params changed.
