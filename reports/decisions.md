@@ -27873,3 +27873,23 @@ Bucket $4.7k:
 - **Block A2 ended:** last checks +16.1 vs +10.0, +20.2 vs +17.3 → A2 mean ≈ +5.5; end fillvalue R/C −0.41.
 - B2 started 1:21 AM.
 - 101: registered, 0 tracebacks, 0 blocked (busiest book $35.0k). Upstream unchanged. Lowest non-immune ≈ $125–128.
+
+## §1842 — 1:50 AM CT brief (T2 B2 nearly done)
+
+| | 101 | 252 |
+|---|---|---|
+| pay | $22/mo ($0.73/d) | $220/mo ($7.33/d) |
+| making captured / realized / share (live) | 35.7 / 0.0 / 0.0 | — / — / 0.0043 |
+| net α | **875** | 1,475 |
+
+- **Block B2 (strong-inside) checks:**
+
+| check | 101 Σα (bp) | $300 volume | 252 Σα | 101 − 252 |
+|---|---|---|---|---|
+| 1 | +18.8 (+1.10) | $170k | +6.1 | +12.7 |
+| 2 | +18.7 (+0.95) | $197k | +7.0 | +11.7 |
+| 3 | +32.1 (+1.51) | $212k | +9.3 | +22.8 |
+| 4 | **+35.0 (+1.79)** | $196k | +7.3 | +27.7 |
+
+  - ≈ **+18.7 mean**, repeating B1's +15.8. The skill effect is confirmed.
+- 101: registered, 0 tracebacks, 0 blocked. Upstream unchanged. Lowest non-immune ≈ $104–127.
