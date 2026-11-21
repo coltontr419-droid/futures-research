@@ -28003,3 +28003,16 @@ Bucket $4.7k:
   - T3 (hold) is still run for completeness (it also cuts messages for 0.6.8).
 - **T3 started 4:59 AM:** speed/abab_hold101.sh (pid 2591574; log abab_hold101.log); A = base, B = base + mk_vol_hold 2; blocks ≈ 30–47 min; ends ≈ 8:00 AM.
 - For the morning: the parked skill leads per the user's rule are next — **strong-inside** (confirmed ≈ +12 Σα/check) and the **4-dec class** (5E2fVqiW +7–12 bp).
+
+## §1850 — 5:15 AM CT — user: "create our own making strategy for the $300s … i dont want to give up on making yet" → 20-s adverse-selection predictor plan; Phase 1 started
+
+- Memory: feedback-own-making-strategy.
+- **Why the old route failed:** every test either copied the fleet's placement or moved our lean orders. None predicts WHICH fills hold value at the validator's 20-s mark; our lean model predicts 2–10 min (the wrong horizon for making).
+- **Plan:**
+  - **Phase 1 (offline, started 5:19 AM):** speed/mo20fit.py.
+    - Per ($300 book, second) features known at t: imb1, imb5 (book imbalance), micro (microprice − mid), spread, flow5 / flow15 (signed taker $ volume), algo5 (signed ALGO taker volume), gap (fund − mid), dF30, r5 / r20 (recent mid moves), since (time since the fund update).
+    - Target = 20-s mid move (bp). Ridge on the first 70% of time, evaluated on the last 30%. Model saved to agents/model_mo20.json.
+    - Next: score 101's / 113's actual maker fills with the model and check that predicted-favourable fills carry higher validator R/C.
+  - **Phase 2:** quote gating in the agent (pull/shade a side, incl. the lean side, when the 20-s prediction is adverse beyond a threshold) + a modest two-sided layer near the touch protected by the same model; equiv / test_pace / census.
+  - **Phase 3:** ABAB on 101, judged on block-end R/C + Σα vs 252.
+- Timeline: live answer by ≈ this evening. T3 (hold) keeps running until ≈ 8 AM.
