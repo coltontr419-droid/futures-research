@@ -29357,3 +29357,17 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
 - But most of our $30 fills are still "at best" (−0.51): the order rests one tick behind, the level in front clears between our rounds, and the next taker hits us at the new best before we re-place.
 - Likely link to RESPONSE TIME (call_time 0.29 s vs 252's 0.14 s): 252 re-places faster.
 - Not a clear loss → continue. Verdict 7:52 AM.
+
+## §1943 — 7:05 AM CT — response time: profile + network check; decode patch started (capture hook staged); droplet options priced
+- **py-spy, 60 s on 253 (100 Hz):** forward() ≈ 0.15 s CPU per round, of which ≈ 0.09 s (60%) is the library's msgpack decode of the books payload, ≈ 0.04 s our quoting, plus notices / update.
+  - The request JSON parse adds ≈ 0.015 s. The tape thread (≈ 0.13 s per round) runs between rounds (waits on `_busy`), not on the reply path.
+- **Network:** the validator 84.32.70.8 is 19 ms RTT from the lab (DO NYC1 → New Jersey). Of the 0.29 s call_time: ≈ 0.02 s network, ≈ 0.17 s our CPU, ≈ 0.1 s request transfer / HTTP overhead.
+- **Decode patch plan:**
+  - taos.im.protocol imports `decompress` by name, so the agent can wrap it at import.
+  - Book levels are dicts p / q / o (full order queues). Our agent reads only the top-5 p / q, the events, the fundamental, and (qlog = 1) the order queues for the tape.
+  - → msgspec typed schema: levels p / q with order lists as msgspec.Raw (lazy, so qlog still works).
+  - Step 1 = capture 3 real payloads (hook in agents 476fe19b, flag-file triggered; deploy at the 7:52 AM verdict, after the running test). Step 2 = offline equality check + timing. Deploy only if equal.
+- **Droplet** (user asked the price): current = Basic 4 vCPU / 8 GB / 160 GB, **$48/mo** (NYC1).
+  - CPU-Optimized 4 vCPU / 8 GB (dedicated) = **$84/mo** with only a 50 GiB disk. We use 80 GB and resize can't shrink a disk, so it needs a cleanup below 50 GB or a bigger-disk variant.
+  - Basic Premium Intel / AMD 4 vCPU / 8 GB: price not found in search; check DO's Resize screen.
+  - User decides on any spend.
