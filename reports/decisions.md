@@ -29298,3 +29298,9 @@ blockcmp + pos30 (A1 sim 10162–10533, B1 10533–10900):
 - Effect: the $30 drag disappears, so miner-wide goes positive (+0.03; it rests on the $300 class, whose R/C is low in this lean-recovery window). But $30 participation ≈ 0.
 - Not a clear loss by the rule (miner-wide better) → continue. Verdict to weigh: user rule "never drop book groups" (we still quote, but ≈ no fills).
 - Next $30 idea: get FILLED one tick behind like 252 — larger resting size behind and fewer re-posts (keep queue priority). Offline-check against 252's sizes and order age.
+
+## §1938 — 4:50 AM CT brief (stay-behind ABAB block A2)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **253:** **$45/mo ($1.49/d)**, incentive 0.0009, net α 856, making 0. Scores: skill_rank 0.308 vs 252 0.272; score 0.154 vs 0.296.
+- **252:** ≈ $155/mo (incentive 0.0031), captured 102.1 / realized 60.7 / share 0.0027, making_rank 0.321. Prune line $84 (253 ≈ 0.54×).
+- A2 (base), Σα vs 252: −1.5, −3.4, −1.6, +4.7, +0.2. 253's $300 notional is back to $103–124k per check.
