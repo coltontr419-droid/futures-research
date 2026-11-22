@@ -29739,3 +29739,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Fleet median $164 / score 0.366 / making_rank 0.63 / call_time 0.203; 210 $282 (0.95 / 0.48), 169 $224, 251 $217; 252 $159.
 - **Prune line ≈ $108**; 253 ≈ 0.75×; immunity ends in ≈ 1.8 h (≈ 6:05 PM CT).
 - A1 skill (253 vs 252, Σα): −7.5 / +8.8, −1.8 / +11.3 (just after the arm switch back from the B-param churn check).
+
+## §1977 — 4:45 PM CT brief (NOTE; fixed front-keep ABAB block B1 started)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 1–4 blocked; disk 27%; ABAB pid 25242 alive. B1 since 22:38:46 UTC (sim 19804): KEEP 1,959–3,896 kept per sim min; FRONT30 0 of 9; **no churn: 200 $30 orders in the window, median life 101 s (= window)**.
+- A1 (sim 19411–19804): 0 $30 fills in the pairfills block analysis (base $30 volume ≈ nil); A1 skill vs 252 +3.8/+11.2, +4.8/+8.2, +8.7/+7.6, +11.7/+7.0.
+- **253:** $75/mo ($2.50/d); making captured 25.8 / realized 9.6 / share 0.0004 / making_rank 0.060 (rising); skill_rank 0.339; score 0.199; call_time 0.169.
+- Fleet median $165 / score 0.467 / making_rank 0.67 / call_time 0.211; 210 $282, 169 $236, 251 $214; 252 $160.
+- **Prune line ≈ $103**; 253 ≈ 0.73×; immunity ends in ≈ 1.3 h (≈ 6:05 PM CT).
