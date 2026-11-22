@@ -29149,3 +29149,29 @@ fillrecs2 over the exact block windows (A1 sim 5944–6435, B1 6435–6930), val
 - **252:** ≈ $205/mo (incentive 0.0041), share 0.0025.
 - **Prune line $32** (253 ≈ 0.4×; still protected ≈ 18 h).
 - A2 (base) Σα vs 252: +8.9, +4.3, −6.9, −11.5, −2.9, −2.7 → mean **−1.8**. B2 first check **+15.4** at $185k notional (A2 $70–130k).
+
+## §1928 — 12:35 AM CT 11-22 — combined test VERDICT: $30 no-at-best KEPT, $300 strong-inside NOT kept (skill candidate); balancer fails offline; tight-6 test started
+**Pooled A1+A2 vs B1+B2** (fillrecs2 exact windows; Σα from the log):
+
+| | A (base) | B (strong-inside + $30 touch_min 2) |
+|---|---|---|
+| $300 253 $ per sim min | 21.0k | **56.1k (2.7×)** |
+| $300 C / R per $; R/C | +0.35 / +0.07; **+0.22** | +0.24 / +0.02; **+0.08** |
+| $300 Σ 2·min (per-block sums) | −3.96 | −12.70 |
+| **Σα vs 252 per check** | **−2.8** | **+21.1** |
+| $30 $ per sim min | 27.1k | 5.3k (−80%) |
+| $30 C / R per $ | −0.07 / −0.16 | −0.34 / −0.30 |
+| **$30 total R (bp·$k)** | **−7.2** | **−2.6** |
+| $30 Σ 2·min | −14.0 | **−6.5** |
+| miner-wide R/C | −0.50 | −0.04 |
+| 252 $300 R/C / miner-wide | +0.70 / +0.67 | +0.53 / +0.51 |
+
+- **$300 strong-inside: NOT KEPT** under tonight's goal (spread kept): R/C +0.22 → +0.08 at 2.7× volume (over the 1.5× cap).
+  - **Skill gain CONFIRMED a second time: +24 Σα/check** (101: +12). Top SKILL candidate for when making is settled.
+- **$30 mk_low_touch_min 2: KEPT** (live + live_params_NEXT). $30 losses −64%, Σ 2·min less negative, miner-wide better.
+  - The remaining $30 fills are still 95% "at best" (the ladder becomes the best when the level in front clears) at −0.32 bp. More $30 work is needed.
+- **Balancer (§1921) offline: FAILS.** Over 253's base window, gating each (book, side) once its rolling C < 0 (windows 300–1,200 s, min 2–4): $300 Σ 2·min −2.36 → −2.3 / −2.9 (book-sides have too few fills); $30 −13.6 → −8.8 at best; miner-wide −0.32 → at best −0.04.
+- **Σ 2·min on short windows is negative even for 252** (−4.5 / −8.4 per-block, but +3.65 over 33 sim min), and 101's validator captured turned positive after ≈ 6 h. 253's captured = 0 is likely the young window. Judge it over long windows only.
+- **Next: tight 6** (offline, 253 base $300 fills by spread): 6-t fills are 21% of $ at R −0.06 bp; $300 R/C ≈ +0.20 → **+0.30** at ≈ −21% volume.
+  - No $30 idea passes offline right now (2-behind has ≈ no fill history), so this is a $300-only ABAB: speed/abab_tight6_253.sh (A tight 5, B tight 6; both touch_min 2, strong-inside 0).
+  - Started ≈ 06:35 UTC. Early read 1:50 AM, verdict 3:05 AM (chains the next).
