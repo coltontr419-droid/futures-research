@@ -29727,3 +29727,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - ABAB pid 19740 killed; base params restored.
 - **Fix 1 (agents b4a82214, patch_front2.py):** each side keeps the qualifying order NEAREST the others' best (both keep loops). Deployed 21:40:50 UTC, 0 tracebacks; newminer.sh → b4a82214. Still churned with B on (3,727 orders per 120 sim s, median 0 s). Short-lived orders sit 2 ticks behind best.
 - **Second cause:** mk_low_touch_min 2 sets no_touch on every 1-tick-spread round (most $30 rounds). That cancels the touch order and walks the kept target. With stay-behind 1 the touch is never at best anyway, so B tries touch_min 0 (lifetime check running).
+- **§1974 cont. (4:05 PM CT):** B params + mk_low_touch_min 0 → 209 $30 orders per 120 sim s, **median life ≥ 120 s** (no churn). Queue priority is now testable.
+
+## §1975 — 4:05 PM CT — FIXED $30 front-keep ABAB started
+- speed/abab_front2_253.sh (pid 25242, log abab_front2_253.log, agents b4a82214, no restart): **A = base** (touch_min 2, behind 1, keep 0); **B = touch_min 0 + behind 1 + keep 1 + keep_deep 3 + front 0.25**. 33-min blocks from 22:05:07 UTC; B1 ≈ 4:38–5:11 PM CT, early read 5:14 PM CT; ABAB ends ≈ 6:17 PM CT.
+- Offline basis (§1971): front-of-queue $30 fills C +2–3 bp / R +1.3 bp; a 60-s-old order is ahead of ≈ 90% of its level.
