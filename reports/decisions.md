@@ -29063,3 +29063,15 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **Offline bound:** $30 R ≈ −7.4 → ≈ +2.1 (1-behind only, sweeps size-limited so its volume ≈ unchanged); miner-wide ≈ −0.32 → **≈ +0.27** → making turns on. $30 capture is ≈ 0 tonight, so little is lost.
 - Trade-off: in good $30 regimes (post-reset at-best kept +0.6–0.9) it gives that up. A later step could be an adaptive at-best vs behind switch.
 - Can't overlap the running $300 strong-inside ABAB (both scripts write live_params_253.json) → chained into the 11:57 PM verdict cron.
+
+## §1920 — 9:30 PM CT — user: run $30 and $300 tests at the same time → combined per-class ABAB started
+- Independence as in §1894:
+  - mk_jump_strong_inside / _pred act only on $300 (vol / calm) books; mk_low_touch_min only on $30 (low) books.
+  - Pacing, inventory and validator making C/R are per book; analyses read each class separately.
+  - Only requirement: ONE script switches both knobs (two scripts would race on live_params_253.json).
+- The strong-inside ABAB (abab_si253.sh) was 16 min into A1 → stopped 03:28 UTC (no B data lost).
+- **speed/abab_both253.sh** (started 03:28 UTC, 60-s warm-up, safety ≥ 20 blocked):
+  - A = base (strong-inside 0, touch_min 0);
+  - B = $300 mk_jump_strong_inside 1 / pred 1.06 + $30 mk_low_touch_min 2.
+  - Block ends: fillvalue ($300) + pairfills30 ($30).
+  - Early read 10:50 PM; verdict 12:08 AM, which chains the next offline-checked $30 + $300 pair the same way.
