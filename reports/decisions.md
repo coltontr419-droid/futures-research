@@ -29272,3 +29272,10 @@ $30 fills, sim 7993–9049 (both on the current base with touch_min 2):
   - Cause: the lean model needs ≈ 300 sim s of history, and the sim runs ≈ 10 sim s per wall min → ≈ 30 wall min after a restart. Tight pull and GATE activity are normal.
   - The ABAB's 60-s warm-up was too short for $300 metrics after a restart. This test judges the $30 class (no lean on $30), so it is unaffected. $300 numbers in A1 are depressed.
 - Lesson: after any restart, ABAB warm-up ≥ 300 sim s (wall time depends on sim speed).
+
+## §1936 — 4:20 AM CT brief (stay-behind ABAB block B1)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **253:** $42/mo ($1.39/d), incentive 0.0008, net α 810, making 0. Scores: skill_rank 0.283 vs 252 0.265; score 0.142 vs 0.289.
+- **252:** ≈ $165/mo (incentive 0.0033), share 0.0027, making_rank 0.312. **Prune line $90** (253 ≈ 0.47×; protected until ≈ 6:15 PM).
+- B1 (mk_low_behind 1) **binds: BEHIND30 3,708 of 6,240 $30 sides moved behind** in a sim minute.
+- 253's $300 is back to normal after the lean warm-up ($48–77k per check); Σα vs 252 +1.0, −4.6, +0.9, +2.4.
