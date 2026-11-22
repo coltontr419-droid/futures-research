@@ -29175,3 +29175,10 @@ fillrecs2 over the exact block windows (A1 sim 5944–6435, B1 6435–6930), val
 - **Next: tight 6** (offline, 253 base $300 fills by spread): 6-t fills are 21% of $ at R −0.06 bp; $300 R/C ≈ +0.20 → **+0.30** at ≈ −21% volume.
   - No $30 idea passes offline right now (2-behind has ≈ no fill history), so this is a $300-only ABAB: speed/abab_tight6_253.sh (A tight 5, B tight 6; both touch_min 2, strong-inside 0).
   - Started ≈ 06:35 UTC. Early read 1:50 AM, verdict 3:05 AM (chains the next).
+
+## §1929 — 12:45 AM CT brief (tight-6 ABAB block A1)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 192 blocked; release states unchanged.
+- **253:** $12/mo ($0.41/d), incentive 0.0002, net α 564, making 0. Scores: **skill_rank 0.412 vs 252 0.350**; score 0.206 vs 0.334 (**252 making_rank 0.318**, captured 73.3, realized 40.8).
+- **252:** ≈ $205/mo (incentive 0.0041), share 0.0025.
+- Prune line $34; 253 protected until ≈ 6:15 PM.
+- Tight-6 A1 (base), Σα vs 252: +3.9, −16.5, −10.2 at $39–95k notional (quiet stretch for 253).
