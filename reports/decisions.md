@@ -29470,3 +29470,19 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
   - A = behind 1, size 0.1, keep 0 (base);
   - B = behind 2, size 0.1, keep 1 (rest two ticks behind early, keep the order as it becomes one behind).
 - Early read 9:57 AM, verdict 11:12 AM.
+
+## §1951 — 8:50 AM CT — FLEET comparison (5F1F2JMu, 26 UIDs incl. 252): making alone pays ≈ $200; top makers rest BIG $30 orders at the front of the queue
+User: compare against the whole fleet (252 fluctuates).
+- speed/fleetg.py (gauges, ≈ $50k per 1.0 incentive):
+  - **fleet median $158/mo**, score 0.226, skill_rank 0.06, making_rank 0.41, call_time 0.188 s.
+  - Top: **210 $272** (making_rank 0.83, skill 0.30, share 0.0074, captured 248 / realized 148), 169 $224 (making 0.71, skill 0), 245 $224, 251 $214 (making 0.73, skill 0.35), 217 $204, 236 $201.
+  - **6 fleet UIDs earn $180–224 from making ALONE (skill_rank 0, negative net α).** 252 = $138 (below the fleet median).
+  - **253: skill_rank 0.410 = highest in the fleet**, making 0; call_time 0.164 (better than the fleet median).
+- speed/fleetfills.py (new tape, sim 13248–13917; 253 was warming up after the 8:23 restart):
+  - top makers' **$30**: $8–15k per sim min, R/C **0.51–0.69** (C +0.7–1.3 bp), **70–80% of $ AT BEST** (+ 21–33% 1 behind), **average fill ≈ $3.0–3.5k**.
+  - **$300**: $27–33k per sim min, R/C 0.49–0.69, positions mostly behind (53–64%), inside 4–20%.
+  - 252 is the outlier: $300 inside 67%; $30 average fill $1.76k, R/C 0.08.
+  - 253: $30 average fill $1.67k, 99% at best (losing).
+- **Inference:** the fleet's $30 profit comes from LARGE (≈ 2× ours) long-lived orders at the FRONT of the queue at the best, filled by ordinary takers before the price moves. Ours are small, re-placed (median life 13 sim s), and sit behind ≈ 67% of the queue.
+- **Next $30 test after the running queue test:** fleet-style $30 = size cap raised (code; mk_low_size bound 0.1 → ≈ 0.25), resting at best + 1 behind, kept in place (queue priority). Evidence: the fleet's fills at 0.5–0.7. The $300 class already matches the fleet style (mostly behind).
+- **Reference from now on: the 5F1F2JMu fleet** (medians and top makers), not 252 alone.
