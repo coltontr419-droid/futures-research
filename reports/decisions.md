@@ -29331,3 +29331,11 @@ Pooled blockcmp (A1 10162–10533 + A2 10900–11269 vs B1 10533–10900 + B2 11
   - A1 (sim 11678–12071) $30: C −0.29, R −0.36 bp.
   - BEHIND30 binds (1,194 / 2,120 sides).
 - Reads: early 6:42 AM; verdict + morning summary 7:52 AM (replaces the 7:47 summary cron).
+
+## §1941 — 6:20 AM CT brief (behind+size ABAB block B1) — FIRST making_captured > 0 on 253
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **253:** $43/mo ($1.43/d), incentive 0.0008, net α 1,037.
+  - **making_captured 0.32 (first non-zero for 253**: the two-sided capture sum in the validator window is now > 0); realized 0, share 0.
+  - Scores: **skill_rank 0.434 vs 252 0.295**; score **0.217 vs 0.265** (gap closing; 252 making_rank fell to 0.236).
+- **252:** ≈ $145/mo (incentive 0.0029), captured 76.6 / realized 43.3 / share 0.0027. Prune line $86.
+- B1 (behind 1 + size 0.1): BEHIND30 3,863 of 5,880 sides; Σα vs 252 +9.2, +1.7, +12.0.
