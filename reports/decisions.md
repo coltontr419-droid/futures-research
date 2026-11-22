@@ -29576,3 +29576,23 @@ Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min
 - **253:** $83/mo ($2.78/d), incentive 0.0016; **making captured 11.3 / realized 1.83 / share 0.0001 (first non-zero share)** / making_rank 0.013; net α 977; **skill_rank 0.407**; score 0.210 (fleet median 0.307; 210 0.636; 252 0.372). call_time 0.150 (fleet median 0.200).
 - Fleet median $156; 210 $267; 252 $147. Prune line $97 (253 ≈ 0.86×).
 - **B1 (3× $300 + fleet-style $30):** 253 $300 notional **$161–183k per check (≈ 3× A1's ≈ $60k, now above 252's $148–205k)**. Σα vs 252: +17.7, +18.1, +8.0, +8.0, +5.9, +0.8 → **mean +9.8** (A1 ≈ −).
+
+## §1961 — 11:40 AM CT — fleet-size EARLY READ: $300 3× = clear WIN so far; $30 fleet-style = big volume but ≈ 0 quality (orders 2× too big) → let it run
+blockcmp + fleetfills (A1 sim 15065–15448, B1 15448–15835):
+
+| | A1 base | B1 (3× $300 + fleet-style $30) | fleet 210 / 169 / 251 in B1 |
+|---|---|---|---|
+| $300 $ per sim min | 30.4k | **41.7k (+37%)** | 33.3 / 38.9 / 30.3k |
+| $300 R/C (C / R per $) | +0.49 (+0.45 / +0.22) | **+0.62** (+0.50 / +0.31) | 0.64 / 0.67 / 0.41 |
+| Σα vs 252 per check | +0.5 | **+9.8** | — |
+| $30 $ per sim min | 2.2k (100% 1 behind, R +0.76 bp) | **48.9k** (100% at best) | 18.3 / 11.7 / 14.5k |
+| $30 R/C (C / R per $) | +0.78 | **−0.06** (+0.20 / −0.01) | 0.50 / 0.44 / 0.43 (C +1.0–1.4 bp) |
+| $30 average fill | $3.4k | **$7.3k** | $2.7–3.2k |
+| $30 Σ 2·min | −0.53 | −15.38 | +1.4 / +0.8 / −0.7 |
+| miner-wide | +0.53 | +0.40 | — |
+
+- **$300 at 3× size** now matches the fleet on volume and R/C, and skill jumps +9.3 Σα/check.
+- **$30 fleet-style at size 0.2:** 22× the volume (2.7× the fleet's) at ≈ break-even. Our at-best fills capture only +0.20 bp vs the fleet's +1.0–1.4. Our fills are ≈ 2× the fleet's ($7.3k vs ≈ $3k), so size 0.2 is too big.
+- In A1 the base $30 (behind 1, size 0.1) traded only $2.2k per sim min, but kept +0.76 bp (100% 1 behind).
+- Not a clear loss (miner-wide +0.40 > 0, $300 R/C up) → **continue**.
+- Next candidates: $300 6× (fleet size); $30 fleet-style at size 0.1 (≈ $3.5k fills, the fleet's size).
