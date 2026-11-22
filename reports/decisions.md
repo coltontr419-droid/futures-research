@@ -28980,3 +28980,15 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **252:** ≈ $210/mo (incentive 0.0042), share 0.0025.
 - A1 (from 01:46 UTC), Σα vs 252: −1.5, +1.7, +1.6, +1.4. 253 is level with or slightly ahead of 252 per check at ≈ half its $300 notional ($54–71k vs $111–145k; cold pace still ramping).
 - No ADAPT lines in A (min 500 → no gate decisions counted = not gating, as intended). B1 starts ≈ 8:23 PM.
+
+## §1914 — 8:44 PM CT brief (adaptive ABAB: A1 done, B1 gating)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 178 blocked; release states unchanged.
+- **253:** $0/mo (incentive 0, ≈ 2.5 h old), net α 148, **making_captured still 0**. 101 first showed captured 28.8 about 6 h after registering, so not alarming yet.
+  - Scores: skill_rank 0.260 vs 252 0.354; score 0.130 vs 0.279.
+- **252:** ≈ $210/mo (incentive 0.0042), making_rank 0.204, share 0.0025.
+- A1 (tracking only, sim 4699–5182):
+  - $30 R/C **−0.40** (C +0.11, R −0.04 bp, $148k).
+  - Σα vs 252: −1.5, +1.7, +1.6, +1.4, −0.1 → **≈ +0.6/check** at ≈ half 252's $300 notional.
+- B1 ($30 gate) from 02:25:44 UTC: ADAPT gated 1,383 of 6,746 decisions (20%); VX settled 1,243.
+  - Bucket q: best 0.4–0.6 +0.23, 0.6–0.8 +0.49, ≥ 0.8 ≤ 0 (gated), <0.4 +1.10.
+  - Σα vs 252 so far −5.0, +1.1.
