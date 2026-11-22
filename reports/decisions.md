@@ -29100,3 +29100,10 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **252:** ≈ $210/mo (incentive 0.0042), making_rank 0.161, share 0.0025.
 - Combined A1 (base, from 03:29 UTC), Σα vs 252: **+15.0, −2.0**. 253 has more α per $ (1.3–1.8 bp vs 0.3–0.9) on ≈ 60% of 252's $300 notional.
 - B1 starts ≈ 10:05 PM.
+
+## §1923 — 10:17 PM CT brief (combined ABAB: A1 done, B1 started)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 189 blocked; release states unchanged.
+- **253:** $2/mo ($0.07/d), net α 329, making 0. **Scores: skill_rank 0.404 > 252's 0.377**; making_rank 0 vs 0.166 → score 0.202 vs 0.271.
+- **252:** ≈ $210/mo (incentive 0.0042), share 0.0025.
+- A1 (base, sim 5944–6435): $30 R/C both-negative (C −0.02, R −0.11 bp, $152k); 252 $300 +0.77.
+- B1 first check: 253 $300 notional **$181k vs A1 ≈ $75–109k** (≈ 2×, volume cap watch at the early read); Σα +23.4 vs 252 +12.9.
