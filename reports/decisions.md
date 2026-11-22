@@ -28883,3 +28883,23 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **Proposal for the next miner:**
   1. Build the online per-bucket markout tracker + gate (mk_adapt30 for $30; mk_adapt300 optional).
   2. Live ABAB on the new UID: hybrid first (low risk). Then full adapt, judged on miner-wide R/C AND Σα vs 252.
+
+## §1906 — 6:20 PM CT — **UID 253 registered (x3)**, live on the base; adaptive maker gate built (agents ed3c26a2)
+- User registered x3 → UID 253 (REGISTERED).
+- `HK=x3 sh newminer.sh 253 101`: settings = live_params_NEXT (base incl. mk_tight300 5); pace_cold=1 / pace_start 1500 in the unit; restarted 00:17:12 UTC; 402 instructions in the first reply; 0 tracebacks; fills within ≈ 1 min.
+- our_uids.txt: the stale "101" line removed → "253 maker x3 3646".
+- **Adaptive maker gate** (speed/patch_adapt.py → agents ed3c26a2 = f1bcce6e + §1906):
+  - Online per-bucket 20-s markout tracker. Our maker fills are read from the round's trade events, using the buckets we recorded for that book on the previous round. C = signed (mid − price) × qty at fill; R = signed (mid 20 sim s later − price) × qty, capped at |C|.
+  - Buckets as in adaptreplay.py.
+  - Gating: a wanted side is pulled when its bucket's rolling R/C (last n) < th, after ≥ min observations; every k-th gated decision still quotes (exploration).
+  - Knobs mk_adapt30 / mk_adapt300 / _n 200 / _th 0.1 / _min 20 / _k 10. Errors are caught and logged ("ADAPT error"). ADAPT stats line per sim minute.
+  - Synthetic test passed: lopsided at-best buys followed by a price drop → bucket "30 best ≥ 0.8" quality −1.0 → that side is pulled, the other kept.
+- Deployed to 253 (restart 00:20:23 UTC; knobs off = unchanged behaviour). Backup agents/QuoteAgent.py.bak-f1bcce6e. newminer.sh → ed3c26a2.
+
+## §1907 — 6:25 PM CT — adaptive $30 (hybrid) ABAB started on 253
+- speed/abab_adapt253.sh (pid 2661285; log abab_adapt253.log; 15-min warm-up; safety ≥ 40 blocked):
+  - A = base + tracker only (mk_adapt30 1, th −1, never gates), so stats keep building in both arms;
+  - B = base + $30 gate (th 0.1, n 200, min 20, k 10).
+- Offline expectation (§1905 hybrid): miner-wide R/C +0.11 → +0.15, $30 R/C → +0.6–0.8, capture ≈ −15%.
+- Early read 7:57 PM, verdict 9:12 PM. If kept → full adaptive (adapt300) test next, judged on Σα too.
+- Lesson again: starting a nohup job inside an `&&` chain in the same ssh kept the session attached. Start test scripts in their own ssh call.
