@@ -29195,3 +29195,20 @@ fillrecs2 over the exact block windows (A1 sim 5944–6435, B1 6435–6930), val
 - **253:** $27/mo ($0.91/d), incentive 0.0005, net α 704, making 0. Scores: **skill_rank 0.424 vs 252 0.299**; score 0.212 vs 0.308.
 - **252:** ≈ $195/mo (incentive 0.0039), making_rank 0.316, share 0.0026. Prune line $37.
 - B1 (tight 6), Σα vs 252: −4.8, −11.2, −2.2, +0.7, +5.4 → mean −2.4 (A1 −3.7). Early read at 1:50 AM.
+
+## §1932 — 1:58 AM CT — tight-6 EARLY READ: no clear effect yet → let it run; the $30 books are the main drag (252's $30 positive, ours negative)
+speed/blockcmp.py (new: pooled per-class block comparison from fillrecs2 records):
+
+| | A1 tight 5 (sim 7993–8507) | B1 tight 6 (sim 8507–9049) |
+|---|---|---|
+| $300 253 $ per sim min | 14.6k | 18.5k |
+| $300 C / R per $; R/C | +0.53 / +0.08; +0.15 | +0.50 / +0.02; +0.03 |
+| $300 Σ 2·min | −0.12 | −0.46 |
+| Σα vs 252 per check | −3.7 | −2.9 |
+| **$30** 253 $ per sim min; R per $ | 10.6k; **−0.36** | 13.0k; **−0.24** |
+| **252 $30 R per $** | **+0.13** | **+0.60** |
+| miner-wide 253 / 252 | −0.67 / +0.55 | −0.47 / +0.68 |
+
+- Tight 6 shows no measurable effect in one block pair: volume did not drop as expected and R/C is a little lower (block noise). Σα similar → not a clear loss → continue.
+- **Bigger issue:** with touch_min 2, our $30 still loses −0.24 to −0.36 bp per $, while 252's $30 turned positive (+0.13 / +0.60) in the same windows. $30 holds 253's miner-wide at −0.5 to −0.7.
+- Next $30 study: our vs 252's $30 fills in these windows by position / own-share / size / sweep. Why does 252 win now while we still lose?
