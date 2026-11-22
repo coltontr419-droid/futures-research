@@ -29746,3 +29746,13 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **253:** $75/mo ($2.50/d); making captured 25.8 / realized 9.6 / share 0.0004 / making_rank 0.060 (rising); skill_rank 0.339; score 0.199; call_time 0.169.
 - Fleet median $165 / score 0.467 / making_rank 0.67 / call_time 0.211; 210 $282, 169 $236, 251 $214; 252 $160.
 - **Prune line ≈ $103**; 253 ≈ 0.73×; immunity ends in ≈ 1.3 h (≈ 6:05 PM CT).
+
+## §1978 — 5:50 PM CT — fixed front-keep EARLY READ: B1 = FIRST POSITIVE $30 making (small n); ABAB continues
+- Churn check: A1 636 $30 orders (life p50 31 s); **B1 353 orders, life p50 160 s, p90 365 s** (resting as designed).
+- blockcmp (A1 sim 19471–19804 vs B1 19864–20229):
+  - A1: $30 0 fills; $300 45.8k/min R/C +0.39; **miner-wide R/C +0.39**; Σα vs 252 −2.8 (11 checks).
+  - **B1: $30 2.5k/min, C +0.91 / R +0.34 bp, R/C +0.38, SUM2MIN +0.60** (4 fills, $15k; 3 of 4 at the FRONT, C +1.15); $300 51.3k/min R/C +0.58; **miner-wide R/C +0.56**; Σα vs 252 +1.6.
+  - Fleet $30 in B1: 210 17.0k/min C +1.33 / R +1.01; 251 12.8k C +1.14 / R +0.54; 169 10.7k C +0.94 / R +0.52; 252 6.5k C +0.62 / R +0.42.
+  - FRONT30 in B1: 0/9, 4/13, 2/14, 35/43, 2/15, 2/20 at-best orders kept at the front.
+- Read: quality now fleet-like (R/C 0.38 vs fleet 0.5–0.76) but $30 volume ≈ 1/5–1/7 of the fleet; n small. Not a loss → ABAB continues (A2 running, B2 ≈ 23:46–00:19 UTC, ends ≈ 6:20 PM CT).
+- Brief: 0 tracebacks / fallbacks; PACE 1–3; disk 27%. **253 $75/mo**; making captured 46.5 / realized 17.9 / share 0.0005 / making_rank 0.079 (rising); skill_rank 0.328; score 0.204. Fleet median $165 / making_rank 0.67; 210 $282, 169 $236, 251 $214; 252 $160. **Prune line ≈ $101; immunity ends in ≈ 0.3 h (≈ 6:05 PM CT).**
