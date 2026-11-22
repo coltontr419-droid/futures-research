@@ -29279,3 +29279,22 @@ $30 fills, sim 7993–9049 (both on the current base with touch_min 2):
 - **252:** ≈ $165/mo (incentive 0.0033), share 0.0027, making_rank 0.312. **Prune line $90** (253 ≈ 0.47×; protected until ≈ 6:15 PM).
 - B1 (mk_low_behind 1) **binds: BEHIND30 3,708 of 6,240 $30 sides moved behind** in a sim minute.
 - 253's $300 is back to normal after the lean warm-up ($48–77k per check); Σα vs 252 +1.0, −4.6, +0.9, +2.4.
+
+## §1937 — 4:45 AM CT — stay-behind EARLY READ: it binds, but our $30 fills almost vanish → miner-wide turns (barely) positive; let it run
+blockcmp + pos30 (A1 sim 10162–10533, B1 10533–10900):
+
+| | A1 base | B1 mk_low_behind 1 |
+|---|---|---|
+| $30 253 $ per sim min | 17.2k | **0.4k (−98%)** |
+| $30 253 position / R per $ | at best 97% (−0.41), 1 behind 3% (+0.95) | at best 100% of a tiny $2k (−0.49) |
+| $30 Σ 2·min | −7.65 | −0.23 |
+| $300 253 R/C (lean still recovering in A1) | +0.08 | +0.07 |
+| **miner-wide 253** (C, R) | C < 0, R < 0 → **quality 0** | C +2.6, R +0.09 → **+0.03** |
+| Σα vs 252 per check | −7.4 (lean warm-up) | −0.4 |
+| 252 $30 position | 1 behind 25% (+0.23), at best 75% (−0.28) | **1 behind 32% (+0.99)**, at best 68% (+0.01) |
+
+- BEHIND30 binds (3,708 of 6,240 sides per sim minute).
+- At one tick behind, our $30 orders almost never fill, while 252 gets 32% of its $30 $ there at +0.99 bp. Likely queue priority: our moved / small (≈ $600) orders sit behind 252's resting ≈ $1.8k orders at the same price, and sweeps stop first.
+- Effect: the $30 drag disappears, so miner-wide goes positive (+0.03; it rests on the $300 class, whose R/C is low in this lean-recovery window). But $30 participation ≈ 0.
+- Not a clear loss by the rule (miner-wide better) → continue. Verdict to weigh: user rule "never drop book groups" (we still quote, but ≈ no fills).
+- Next $30 idea: get FILLED one tick behind like 252 — larger resting size behind and fewer re-posts (keep queue priority). Offline-check against 252's sizes and order age.
