@@ -29570,3 +29570,9 @@ Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min
 - **253:** **$84/mo ($2.79/d)** (incentive 0.0016); **making captured 10.4 / realized 1.30 / making_rank 0.013** (all rising); net α 962; skill_rank 0.383; score 0.198 (fleet median 0.273; 210 0.621; 252 0.355). call_time 0.163 (fleet median 0.203).
 - Fleet median $156; 210 $267; 252 $147. Prune line $93 (253 ≈ 0.90×).
 - A1 (base): $30 = 3 fills / $10k. B1 (3× $300 + fleet-style $30) started 16:44:01 UTC; KEEP30 active.
+
+## §1960 — 11:15 AM CT brief (fleet-size ABAB block B1) — first making_SHARE > 0
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0 blocked; KEEP30 1,292 orders kept in place per sim minute; release main unchanged; disk 26%.
+- **253:** $83/mo ($2.78/d), incentive 0.0016; **making captured 11.3 / realized 1.83 / share 0.0001 (first non-zero share)** / making_rank 0.013; net α 977; **skill_rank 0.407**; score 0.210 (fleet median 0.307; 210 0.636; 252 0.372). call_time 0.150 (fleet median 0.200).
+- Fleet median $156; 210 $267; 252 $147. Prune line $97 (253 ≈ 0.86×).
+- **B1 (3× $300 + fleet-style $30):** 253 $300 notional **$161–183k per check (≈ 3× A1's ≈ $60k, now above 252's $148–205k)**. Σα vs 252: +17.7, +18.1, +8.0, +8.0, +5.9, +0.8 → **mean +9.8** (A1 ≈ −).
