@@ -29115,3 +29115,24 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **B1 (strong-inside $300 + no $30 at-best)**, Σα vs 252: +10.5, +22.1, +32.8, +22.9, +17.4 → **mean +21.1 (A1 −3.9)**.
   - $300 notional per check **$181–238k vs A1 ≈ $70–109k (≈ 2.6×)** → over the 1.5× volume cap set beforehand. PACE still 0 blocked (budget fine).
   - The early read (10:50 PM) judges R/C and the §1921 two-sided capture for both classes.
+
+## §1925 — 11:00 PM CT — combined test EARLY READ: let it run (no half is a clear loss on both measures); $300 = big skill gain at 2.6× volume
+fillrecs2 over the exact block windows (A1 sim 5944–6435, B1 6435–6930), validator basis:
+
+| | A1 base | B1 strong-inside + no $30 at-best |
+|---|---|---|
+| **$300** 253 $ / per sim min | $178k / 21.8k | **$462k / 56.1k (2.6×)** |
+| $300 C / R per $; R/C | +0.33 / +0.04; +0.11 | +0.25 / +0.03; **+0.13** |
+| $300 Σ 2·min(Cbuy, Csell) | −3.24 | −6.07 |
+| $300 Σα vs 252 per check | −3.9 | **+21.1** |
+| **$30** 253 $ / per sim min | $171k / 20.9k | $36k / **4.4k (−79%)** |
+| $30 C / R per $ | +0.02 / −0.08 | **−0.43 / −0.34** |
+| $30 Σ 2·min | −4.23 | −3.16 |
+| **miner-wide R/C** | −0.11 | **+0.02** |
+| 252: $300 R/C / $30 R/C / miner-wide | +0.73 / +0.82 / +0.73 | +0.36 / +0.45 / +0.37 |
+| 252 Σ 2·min $300 / $30 | −4.28 / −3.94 | −4.31 / −2.91 |
+
+- **Σ 2·min on ≈ 7-sim-min blocks is negative even for 252** (few fills per book, so one side is often empty or negative). It is only informative over longer windows. Read it pooled at the verdict.
+- **$300 strong-inside:** R/C held (+0.11 → +0.13), skill **+25 Σα/check** over A1. Volume 2.6× is over the pre-set 1.5× cap, but unlike §1876 quality did not collapse and PACE is 0 blocked. Not a clear loss → continue. The volume breach is noted for the verdict.
+- **$30 no-at-best:** volume −79%. The remaining $30 fills lost more per $ (−0.34 bp; the offline 1-behind +0.53 did not hold in this window; 252's $30 also fell +0.82 → +0.45). Σ 2·min less negative (less volume). Mixed → continue.
+- Miner-wide −0.11 → +0.02 (mostly the volume mix).
