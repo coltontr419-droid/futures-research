@@ -28915,3 +28915,19 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - → the $30 market is benign right now, so the B gate will rarely trigger (the offline post-reset chunk also showed a small change, §1905).
   - To verify at the early read: the tracker's mid-based proxy vs the validator-basis R/C per bucket (dissect30) in the same window.
 - A1, Σα vs 252: −25.5, −12.4. 253 is still ramping (low $300 notional, $43–61k, cold pace start; lean histories rebuilt).
+
+## §1909 — 7:20 PM CT — two checks: (1) score vs pay; (2) the adaptive tracker's proxy is INVALID → test stopped
+**(1) Why 101 earned ⅓ of 252's pay:** history (query_range):
+- Pay = smoothed score; score = 0.5 × making_rank + 0.5 × skill_rank.
+- 101's score was 0.04–0.19 overnight and 0.19–0.29 by day, vs 252's 0.22–0.42. 101 passed 252 only after the reset: 4 PM 0.235 vs 0.215; at 4:40 PM skill_rank 0.446 vs 0.261, making_rank 0 vs 0.135.
+- → Incentive ≈ the day's average score (101 ≈ ½ of 252 → pay ≈ 40%). Not a scoring anomaly.
+- After the reset, the skill half alone beat 252's combined score; making rank on top would put us ahead.
+
+**(2) Tracker proxy check** (253, last 12 sim min, $30 at-best):
+- Validator basis (dissect30): own 0.4–0.6 R −0.05 bp, 0.6–0.8 −0.25, ≥ 0.8 −0.29 (C ≤ 0 mostly).
+- The agent's tracker reported q +0.91 / +0.91 / +1.08 for the same buckets.
+- Cause: the proxy uses the BOOK mid. On a 1-tick book, an at-best fill is always half a tick "good" vs the mid, and the mid rarely moves in 20 s, so q ≈ 1 everywhere and the gate never fires.
+- The validator uses a print-centred mid (W = 15 prints incl. FORWARD prints) for C and a background-weighted print mark near +20 s (capped by the capture mid) for R.
+- → Adaptive ABAB stopped 01:17 UTC (it was in A1; no B data); mk_adapt30 0 on 253 (plain base now). Early-read / verdict crons deleted.
+- **Fix:** the tracker must call the validator's own debeta functions (accumulate_book_capture with mid_state, the _attribute_capture wrapper as in our offline scripts). Run it in the tape thread, off the reply path, and share per-bucket stats with the handler.
+- Lesson: validate any in-miner proxy against the validator-basis offline numbers BEFORE live testing.
