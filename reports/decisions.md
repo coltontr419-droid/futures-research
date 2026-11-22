@@ -29377,3 +29377,13 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
 - **253:** $42/mo ($1.42/d), incentive 0.0008, net α 1,058 (> 252's 879); **making_captured 0.84** (rising), realized 0. Scores: skill_rank 0.380 vs 252 0.235; **score 0.190 vs 0.242** (gap narrowing).
 - **252:** ≈ $145/mo (incentive 0.0029), captured 82.9 / realized 46.9 / share 0.0027, making_rank 0.248. Prune line $86.
 - A2 (base), Σα vs 252: +4.3, +1.6, −1.4.
+
+## §1945 — 7:30 AM CT brief + MIGRATION to a dedicated-CPU droplet in progress
+- x3 = 253 REGISTERED; 0 tracebacks; release main unchanged.
+- **253:** **$54/mo ($1.79/d)** (incentive 0.0011), net α 1,131 (252: 859); making_captured 0.04 (fluctuating > 0), realized 0. **Prune line $95** (253 ≈ 0.57×).
+- **252:** ≈ $140/mo (incentive 0.0028), captured 89.1 / realized 51.8 / share 0.0028.
+- Behind+size B2 running (ends ≈ 7:44 AM).
+- **Migration (user created the droplet):** new box **192.241.128.48** (ssh alias mvtrx-lab2): CPU-Optimized Regular Intel 4 vCPU / 8 GB / 50 GB, Ubuntu 24.04.5, NYC1, Xeon Platinum 8168. Single-core benchmark ≈ 1.4× the old box (json 0.90 vs 1.28 s; loop 0.92 vs 1.33 s).
+  - Copied old → new directly (temporary key /root/.ssh/mig_key on the old box): /opt/mvtrx minus repo/logs (17 G), repo/simulate (4.9 G), tapes and slices = 9.4 GB. Hotkey x3 + coldkeypub (no coldkey on either box). Unit copied with --axon.external_ip 192.241.128.48.
+  - New box: imports OK (bittensor 10.5.0), agent 7c1e2df1 compiles, regcheck REGISTERED, firewall inactive.
+  - Cutover after B2 ends: stop + disable on old → final sync of live_params / pace ledgers / our_uids → enable + start on new → move timers (taperotate, releasewatch + simreset, overnight guard) and layout_switch.py → repoint the ssh alias mvtrx-lab to the new box (the old one becomes mvtrx-old).
