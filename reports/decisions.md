@@ -29509,3 +29509,22 @@ fillrecs2 over the last 15 sim min ($300 maker fills):
 - Prune line $83 (253 ≈ 0.81×).
 - Queue-priority ABAB: A1 (base) from 14:39 UTC after the 900-s warm-up; first check −14.9 vs 252 ($15k notional; lean still warming).
 - The brief cron is updated to the fleet reference.
+
+## §1954 — 9:00 AM CT — more fleet checks: no 4-dec making; two-sidedness is NOT the differentiator; volume (order size) is
+Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min(buy $, sell $) / total):
+
+| uid | $300 | $30 | 4-dec |
+|---|---|---|---|
+| 210 | $485k / 88 books / 14% | $214k / 40 / 59% | 0 |
+| 169 | $488k / 84 / 9% | $140k / 30 / 40% | 0 |
+| 225 | $466k / 100 / 14% | $195k / 38 / 51% | 0 |
+| 245 | $499k / 87 / 14% | $169k / 32 / 51% | 0 |
+| 251 | $424k / 80 / 7% | $181k / 34 / 55% | 0 |
+| 55 | $445k / 81 / 9% | $47k / 26 / 8% | 0 |
+| 252 | $603k / 110 / 30% | $102k / 41 / 46% | 0 |
+| **253** | **$82k** / 55 / 19% | $86k / 29 / 54% | 0 |
+
+- **No fleet UID makes on 4-dec** (the parked lead stays parked; it isn't something the fleet does).
+- Per-book two-sidedness over 20 sim min is low for the fleet on $300 (7–14%). Ours (19%) is no worse. Their large captured comes from VOLUME: $300 ≈ 6× ours at ≈ 6× our order size.
+- **Fleet style:** big passive orders mostly behind the best on $300; big front-of-queue orders at the best on $30; little lean (fleet median skill_rank 0.06). We add a strong lean (skill_rank 0.41).
+- → Order size is the lever (11:12 AM test). Watch that bigger lean orders don't cost $300 R/C.
