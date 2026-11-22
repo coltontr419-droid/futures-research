@@ -29238,3 +29238,10 @@ $30 fills, sim 7993–9049 (both on the current base with touch_min 2):
 - **252:** ≈ $175/mo (incentive 0.0035, falling), captured 86.4 / realized 50.1 / share 0.0026.
 - **Prune line $51** → 253 at 0.7×; protected until ≈ 6:15 PM.
 - A2 (tight 5), Σα vs 252: −5.6, −14.6, −1.0.
+
+## §1935 — 2:45 AM CT brief (tight-6 block B2)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **253:** $37/mo ($1.22/d), incentive 0.0007, net α 800, making 0. Scores: skill_rank 0.425 vs 252 0.341; score 0.213 vs 0.328.
+- **252:** ≈ $175/mo (incentive 0.0035), making_rank 0.314, share 0.0026.
+- **Prune line $79** (rising fast; 253 at ≈ 0.47×; protected until ≈ 6:15 PM).
+- A2 Σα vs 252: −5.6, −14.6, −1.0, −2.0, −8.2 → mean −6.3. B2 first check −6.7.
