@@ -29682,3 +29682,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **253:** $77/mo ($2.56/d), incentive 0.0015; making captured 9.1 / realized 2.8 / share 0.0002 / **making_rank 0.034**; skill_rank 0.423; score 0.228 (fleet median 0.328; 210 0.673; 252 0.447). call_time 0.148 (fleet median 0.192).
 - Fleet median $160; 210 $281; 252 $153. **Prune line $115** (253 ≈ 0.67×).
 - B1 ($30 fleet-style 0.1), Σα vs 252: −1.4, +0.9, +9.7, +2.5, +0.4.
+
+## §1970 — ≈ 2:05 PM CT — $30 fleet-style size 0.1 (stay-behind off, at best) STOPPED at early read → base kept
+- A1 (base, sim 16982–17382) vs B1 (fleet-style 0.1, 17382–17785): $30 volume 1.9k → 27.0k/min; avg fill $3,237 (= fleet size); 90% of fills at best (fleet 210: 54% best / 46% one behind).
+- **B1 $30 quality: C −0.01 / R −0.19 bp per $** → negative; miner-wide R/C +0.48 → +0.40. $300 in B1 R/C +0.71 (noise). Fast chain: clear loss → stopped (pid 15476), live_params back to base (behind 1, keep 0, size 0.1, vol 0.3, calm 0.36).
+- **At-best dissection (same window):** our at-best $30 fills C −0.12 / R −0.27 bp (48 fills, $163k) vs 210 C +1.20 / R +0.71, 251 C +1.00 / R +0.28. Gap holds in EVERY own-share, single/sweep and prior-move bucket → not a condition we can gate on. Size now matches the fleet, so the remaining difference is most likely **queue position** (fleet first at a new level; we join behind and fill only when the level is about to break).
+- Next: offline check of queue position on at-best fills from the tape's queue records (our size-ahead at fill time vs fill quality; fleet's implied position).
