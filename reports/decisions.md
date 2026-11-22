@@ -29414,3 +29414,38 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
   - 252 0.129 / 0.083.
   - The fastest rounds are already ≈ 40% quicker; the average should fall as the window rolls.
 - No test running (the behind+size ABAB finished; verdict at 7:52 AM).
+
+## §1948 — 8:10 AM CT — behind+size VERDICT (kept, with a flag); fast books decoder validated + LIVE; response time 0.29 → 0.18 s
+**$30 behind + size 0.1** (pooled, blockcmp on mvtrx-old; A1 11678–12071, B1 12071–12450, A2 12450–12776, B2 12776–13163):
+
+| | A base | B behind 1 + size 0.1 |
+|---|---|---|
+| **miner-wide** (R) | **< 0** (R −44; C ≈ +2) | **+0.19** |
+| $30 C / R per $ | −0.25 / −0.25 | **+0.28 / +0.14** |
+| $30 $ per sim min | 27.7k | **1.5k (5% of A)** |
+| $300 R/C | +0.45 | +0.17 |
+| Σα vs 252 per check | +1.4 | +4.2 |
+| $30 position (B1 / B2) | at best ≈ 96–99% | B1: 1 behind 11% (+1.56), at best 89% (−0.51); **B2: 1 behind 100% (+3.44)** |
+
+- It fails the pre-set volume condition (≥ 30% of A). But it is the only setup with the making gate open, it matches 252's $30 quoting (one tick behind), and it improves skill.
+- → **KEPT** (live + live_params_NEXT: mk_low_behind 1, mk_low_size 0.1). Flagged to the user: $30 volume is ≈ 5% of before.
+- Next $30 work: more volume one tick behind (queue priority / size).
+
+**Fast books decoder** (agents/fastdec.py, agents e676d5a9):
+- Capture: agents 476fe19b deployed 13:53:10 UTC on the new box. 3 payloads: books blob 1.75 MB b64 → **4.2 MB raw msgpack** per round (256 books, 10,752 levels, **32,624 resting orders inside levels**, 31,033 events).
+- Book keys: i, r, fs, e, b, a, f. Level: p, q, o[orders]. Event keys incl. y, i, t, p, q, s, l, c, Ma, Ta, Mf, Tf, Mi, Ti, r, cr, Toi.
+- **Typed msgspec schema** (FEv / FLevel / FBook with .get/[] like dicts; level order lists kept as msgspec.Raw, decoded lazily for the tape's qlog; forbid_unknown_fields → any surprise falls back to the original decoder for that round):
+  - validation: 3 payloads **ALL EQUAL** (every book field, all levels p / q, all order lists, every event field);
+  - books decode **44–68 ms → 18–30 ms (2.3–2.45×)**;
+  - agent integration (_RawBook bids / asks / fundamental / 87,147 events / top-5 queues): **0 mismatches**.
+- Deployed 13:56:15 UTC ("FASTDEC installed"); 126 rounds, 0 tracebacks / 0 fallbacks in 10 min; fills OK.
+  - Kill switch: touch /opt/mvtrx/fastdec.off. newminer.sh → e676d5a9.
+
+**Response time** (call_time gauge ≈ 25 min after the move, 10 min after fastdec):
+
+| | before (old box) | now | 252 |
+|---|---|---|---|
+| average | 0.29 s | **0.178 s** | 0.135 s |
+| p5 | 0.23–0.25 s | **0.144 s** | 0.072 s |
+
+- **Now (8:08 AM):** 253 $54/mo ($1.79/d), net α 1,134, **skill_rank 0.452 vs 252 0.339**, score 0.226 vs 0.351 (252 making_rank 0.362). Making 0. Prune line $95. Release main unchanged.
