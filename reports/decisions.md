@@ -29093,3 +29093,10 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - The running $30 test (no at-best order) attacks the negative $30 at-best capture directly.
 - **Next idea (offline first):** a per-book, per-side capture balancer, using the validator-exact tracker's per-fill C by book × side over a rolling window. Step back or pull the side that is negative on a book. Bound it against 252's book-level pattern.
 - Analyses from now on must report Σ 2·min(Cbuy, Csell) per class alongside R/C.
+
+## §1922 — 9:47 PM CT brief (combined ABAB block A1)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 188 blocked; release states unchanged.
+- **253:** **$2/mo ($0.07/d)**, first pay; incentive still rounds to 0. Net α 232; making 0 (two-sided capture gate, §1921). Scores: skill_rank 0.276 vs 252 0.343; score 0.138 vs 0.252.
+- **252:** ≈ $210/mo (incentive 0.0042), making_rank 0.161, share 0.0025.
+- Combined A1 (base, from 03:29 UTC), Σα vs 252: **+15.0, −2.0**. 253 has more α per $ (1.3–1.8 bp vs 0.3–0.9) on ≈ 60% of 252's $300 notional.
+- B1 starts ≈ 10:05 PM.
