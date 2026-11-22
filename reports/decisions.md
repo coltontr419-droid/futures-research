@@ -29016,3 +29016,24 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - The $30 market is rough for everyone (252 R −0.25 to −0.47 bp per $). 253 is ahead of 252 per $ on $30 in both windows.
 - Rolling-bucket gating at this size did not find a better subset live. Pairs with §1905 (most of the offline gain came from cutting $300 volume, not from $30).
 - Next per user plan: the $300 fine-tune offline check (selective inside step), starting now instead of 10:40 PM.
+
+## §1917 — 9:22 PM CT — $300 fine-tune: what 252 does inside + selective inside test (strong-lean inside, tight base) started
+**speed/fillrecs2.py** (fillrecs + prior 10-s move signed to the maker side + maker side). Post-reset since 253 start (sim 3,700+), $300:
+
+| | 252 | 253 |
+|---|---|---|
+| ALL | $1,115k, R/C **+0.68** | $688k, R/C **+0.26** |
+| wide (≥ 6 t) inside | **$548k (49%)**, +0.68 | $25k (4%), +1.01 |
+| inside after a with / flat / against move | +0.62 / +0.68 / +0.74 | (tiny) |
+| inside at spread 6–8 / 9–12 / 13+ | +0.76 / +0.56 / −0.07 | — |
+| inside own < 0.4 / ≥ 0.6 | +0.64 / +0.77 | — |
+| wide behind (1 / 2+) | $139k, +0.96 | **$426k, +0.21** |
+| wide at best | $64k, +0.41 | $101k, −0.84 |
+
+- 252's inside fills keep value broadly: no prior-move / own-share trigger matters. They are concentrated at 6–8 t; median fill $1.73k.
+- The difference from our failed all-books inside step (§1876) is FREQUENCY: 252 ≈ 10 inside fills per sim min vs our ≈ 400.
+- → Use a selective existing knob: **mk_jump_strong_inside 1 / mk_jump_strong_pred 1.06** (T2, §1840/§1843): only the strong-lean side steps 1 tick inside the others' best.
+  - With mk_tight300 5 in the base it can only act at others' spread ≥ 6 t. T2 failed for making because its inside fills sat ≈ at the mid at tight spreads, which the tight pull now removes.
+  - T2 live: $300 volume ≈ 1.4× (within the 1.5× cap) and skill **+12 Σα/check**.
+- **Offline bound (partial):** if ≈ 30% of 253's wide behind / sweep fills (+0.21) became inside fills at 252's +0.68 → $300 R/C ≈ +0.26 → ≈ +0.40. T2's own fills by spread can't be re-checked (that tape has rotated).
+- **ABAB speed/abab_si253.sh** (started ≈ 03:20 UTC; 60-s warm-up; safety ≥ 20 blocked): A = base, B = + strong-inside. Early read 10:40 PM, verdict 11:57 PM.
