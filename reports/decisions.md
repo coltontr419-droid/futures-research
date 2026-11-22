@@ -29075,3 +29075,21 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - B = $300 mk_jump_strong_inside 1 / pred 1.06 + $30 mk_low_touch_min 2.
   - Block ends: fillvalue ($300) + pairfills30 ($30).
   - Early read 10:50 PM; verdict 12:08 AM, which chains the next offline-checked $30 + $300 pair the same way.
+
+## §1921 — 10:05 PM CT — WHY 253's making_captured = 0: the per-book TWO-SIDED capture gate (balanced_reward_per_book)
+- Validator gauges: 253 is present on 187 books with $1.33M maker two-sided notional, yet making_captured / realized / share = 0. (252: captured 39.2, realized 18.1, share 0.0025, making_rank 0.169.)
+- repo067 `balanced_reward_per_book`: captured per uid = **max(0, Σ_books 2·min(buy-side capture, sell-side capture))**. The clamp is on the total, so negative books count. Quality (R/C) only multiplies this afterwards.
+- making_magnitude_floor (0.5 × the median positive making) only zeroes the RANK of tiny makers; it is not the cause here.
+- Since 253 start (fillrecs2 C by book and side):
+
+| | 253 Σ 2·min(Cbuy, Csell) | positive books only | books with a side ≤ 0 | 252 Σ / positive-only / bad books |
+|---|---|---|---|---|
+| $300 | **−3.65 → 0** | +5.03 | 81 / 122 | **+3.65** / +14.06 / 82 / 120 |
+| $30 | −13.98 → 0 | +2.35 | 48 / 64 | −12.42 → 0 / +1.16 / 59 / 63 |
+
+- **$30 making pays nobody right now** (252 negative too). 252's making credit is from its $300 books only, and even those are barely positive.
+- **Our making target is two-fold:** (1) the per-class Σ 2·min(buy C, sell C) > 0, i.e. per-book, per-side capture; and (2) miner-wide quality R/C > 0. Earlier tests judged mostly (2).
+- Lean-driven one-sided fills on a book (e.g. buying into a falling price) make that side's capture negative, and the min takes the worse side.
+- The running $30 test (no at-best order) attacks the negative $30 at-best capture directly.
+- **Next idea (offline first):** a per-book, per-side capture balancer, using the validator-exact tracker's per-fill C by book × side over a rolling window. Step back or pull the side that is negative on a book. Bound it against 252's book-level pattern.
+- Analyses from now on must report Σ 2·min(Cbuy, Csell) per class alongside R/C.
