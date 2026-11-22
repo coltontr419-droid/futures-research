@@ -29640,3 +29640,9 @@ blockcmp + fleetfills (A1 sim 15065–15448, B1 15448–15835):
 - **$30 at size 0.2: NOT kept** (break-even, Σ 2·min −25.6).
 - Live + live_params_NEXT: $300 0.3 / 0.36; $30 behind 1, size 0.1, keep 0.
 - **speed/abab_fleet30_253.sh** (started ≈ 18:50 UTC, 60-s warm-up, no restart): A = base; B = $30 fleet-style at size 0.1 (behind 0, keep 1). Early read 2:05 PM, verdict 3:20 PM.
+
+## §1966 — 1:20 PM CT brief ($30 size-0.1 ABAB: A1 done, B1 starting)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0 blocked (6 status lines); release main unchanged; disk 26%.
+- **253:** $77/mo ($2.57/d), incentive 0.0015; **making captured 13.9 / realized 3.59 / share 0.0002 / making_rank 0.021**; net α 946; skill_rank 0.419; score 0.220 (fleet median 0.316; 210 0.636; 252 0.413). call_time 0.153 (fleet median 0.189).
+- Fleet median $160; 210 $281; 252 $153. mypay printed "prune line $0" (anomaly in its unprotected-UID calculation; last valid reading $104).
+- A1 (base, $300 3×): Σα vs 252 −2.4, −7.6, −11.5 at $52–81k $300 notional (quiet stretch). B1 ($30 fleet-style 0.1) started 19:19:57 UTC.
