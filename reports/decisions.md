@@ -29000,3 +29000,19 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - 252: inside 52% of $ (+0.71), sweeps 22%.
   - 253: 1 behind 28% (+0.41) + 2+ behind 38% (+0.24), sweeps 64% (+0.26), inside 4%.
 - **User plan:** finish the $30 books (adaptive gate verdict 10:20 PM), then fine-tune $300. First candidate = a SELECTIVE inside step (one side, small size, trigger e.g. a with-move like UID 73), offline-bounded first, incl. its volume effect (§1876 lesson).
+
+## §1916 — 9:08 PM CT — adaptive $30 gate EARLY READ: clear loss by the rule → STOPPED, gate off
+| $30 class (253) | A1 tracking only (sim 4699–5182) | B1 $30 gate (sim 5182–5656) |
+|---|---|---|
+| $ per sim min | $21.0k | $14.9k (−29%) |
+| C / R per $ (bp) | +0.11 / −0.04 | **−0.05 / −0.09** |
+| capture total (C·$) | +16.3 | **−5.2** |
+| R/C | −0.40 | both negative |
+| 252 $30 same windows (R per $) | −0.47 bp | −0.25 bp |
+| Σα vs 252 per check | +0.6 | +3.8 ($300 untouched) |
+
+- The gate pulled ≈ 23% of $30 decisions (mostly the "best ≥ 0.8" bucket, q ≤ 0). The remaining fills did not keep more, and capture turned negative.
+- By the pre-set rule (R per $ not up AND capture down > 40%) → **clear loss**. Stopped 03:08 UTC; mk_adapt30 0 (base). Verdict cron deleted.
+- The $30 market is rough for everyone (252 R −0.25 to −0.47 bp per $). 253 is ahead of 252 per $ on $30 in both windows.
+- Rolling-bucket gating at this size did not find a better subset live. Pairs with §1905 (most of the offline gain came from cutting $300 volume, not from $30).
+- Next per user plan: the $300 fine-tune offline check (selective inside step), starting now instead of 10:40 PM.
