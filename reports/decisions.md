@@ -28903,3 +28903,15 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - Offline expectation (§1905 hybrid): miner-wide R/C +0.11 → +0.15, $30 R/C → +0.6–0.8, capture ≈ −15%.
 - Early read 7:57 PM, verdict 9:12 PM. If kept → full adaptive (adapt300) test next, judged on Σα too.
 - Lesson again: starting a nohup job inside an `&&` chain in the same ssh kept the session attached. Start test scripts in their own ssh call.
+
+## §1908 — 6:54 PM CT brief (UID 253, adaptive ABAB block A1)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 117 traded books blocked (cold start: ledger median $3.3k; ramping); release states unchanged.
+- **253:** $0/mo so far (new; incentive 0.0), net α 41, making gauges 0 (expected this early).
+- **252:** ≈ $215/mo (incentive 0.0043), captured 35.7 / realized 14.0 / share 0.0026.
+- Prune line $33.
+- **ADAPT tracker** (A1 = tracker only): every bucket currently has high rolling quality.
+  - $30 at-best: 0.4–0.6 +0.93 (n63), 0.6–0.8 +0.94 (n73), ≥ 0.8 **+1.12** (n33).
+  - $300: 6–10 t +0.67 (n45), 11+ +0.74.
+  - → the $30 market is benign right now, so the B gate will rarely trigger (the offline post-reset chunk also showed a small change, §1905).
+  - To verify at the early read: the tracker's mid-based proxy vs the validator-basis R/C per bucket (dissect30) in the same window.
+- A1, Σα vs 252: −25.5, −12.4. 253 is still ramping (low $300 notional, $43–61k, cold pace start; lean histories rebuilt).
