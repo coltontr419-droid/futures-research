@@ -29536,3 +29536,12 @@ Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min
 - Fleet median $158/mo; 210 $272; 252 $138.
 - **Prune line $96** (253 ≈ 0.69×).
 - Queue test: A1 ended 15:09 UTC; B1 (behind 2 + keep) first check −6.4 vs 252. Early read with fast-chain at 9:57 AM.
+
+## §1956 — 9:45 AM CT brief — **FIRST making_realized > 0 on any of our miners** (253: realized 0.41, making_rank 0.007)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0 blocked; release main unchanged; disk 25%.
+- **253:** **$77/mo ($2.56/d)** (incentive 0.0015).
+  - **making_captured 7.18 / realized 0.41 / making_rank 0.007** (quality ≈ 0.06): the validator now pays us making, for the first time on any of our UIDs. Share still rounds to 0.
+  - Net α 1,040; skill_rank 0.391 (fleet median 0.071); score 0.199 (fleet median 0.242; 210 0.579; 252 0.358).
+  - call_time 0.158 (fleet median 0.197).
+- **Prune line $92** (253 ≈ 0.84×).
+- Queue test B1 (behind 2 + keep), Σα vs 252: −6.4, −14.3, −10.8, −4.9, +2.0, −2.1. Early read 9:57 AM.
