@@ -29545,3 +29545,16 @@ Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min
   - call_time 0.158 (fleet median 0.197).
 - **Prune line $92** (253 ≈ 0.84×).
 - Queue test B1 (behind 2 + keep), Σα vs 252: −6.4, −14.3, −10.8, −4.9, +2.0, −2.1. Early read 9:57 AM.
+
+## §1957 — 10:00 AM CT — queue-priority EARLY READ: ZERO $30 fills in both arms → stopped; fleet-size combined test started (fast chain)
+- blockcmp (A1 sim 13909–14292, B1 14292–14664):
+  - **253 $30 = $0 in both arms**, under behind 1 / size 0.1 (base) and behind 2 + keep. The $30 class is effectively untraded since the stay-behind became base.
+  - $300: A1 R/C −0.05 ($13.1k per sim min) vs B1 +0.51 ($15.5k) (block noise; $300 unchanged by this test).
+  - Miner-wide = the $300 ratio (making_realized first > 0 at 9:45, §1956).
+  - Σα vs 252: A −9.4, B −6.1. 252: $300 +0.61 / +0.72, $30 R/C 3.67 / 0.69.
+- **Not working → stopped** (pid 7673), base set (behind 1, keep 0, size 0.1).
+- **Deployed agents d2cde35e** (size bounds raised + KEEP30 at best): restart 15:57:38 UTC, 0 tracebacks, FASTDEC installed. newminer.sh → d2cde35e.
+- **speed/abab_fleet253.sh** (started ≈ 16:00 UTC, 900-s warm-up; log abab_fleet253.log):
+  - A = base;
+  - B = $300 mk_vol_size 0.3 / mk_calm_size 0.36 (3×) + $30 fleet-style (behind 0, keep 1, size 0.2).
+- Early read 11:35 AM, verdict 12:55 PM (chains to 6× if 3× wins).
