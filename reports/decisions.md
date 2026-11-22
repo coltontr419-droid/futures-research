@@ -29700,3 +29700,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Build (agents 16af5bff = d2cde35e + patch_front.py):** mk_low_front (thr): a resting $30 order AT the others' best stays while < thr of its level is ahead (raw FIFO list); mk_low_keep_deep (ticks): mk_low_keep keeps behind orders up to N ticks back so they age. Both default off. FRONT30 log line.
 - Deployed 20:14:40 UTC restart, 0 tracebacks, FASTDEC installed. Warm-up check with B on: KEEP 3,449 kept in place per sim min; FRONT30 1 of 4 kept.
 - **ABAB speed/abab_front253.sh** (pid 19740, 900-s warm-up, log abab_front253.log): A = base (behind 1, keep 0); **B = behind 1 + keep 1 + keep_deep 3 + front 0.25**. Blocks 30 min from ≈ 20:29:40 UTC; B1 ends ≈ 3:30 PM CT; ABAB ends ≈ 4:30 PM CT.
+
+## §1972 — 2:57 PM CT brief (NOTE; front-keep ABAB block A1)
+- x3 = 253 (agents 16af5bff); 0 tracebacks / 0 fastdec fallbacks in 30 min; PACE 0–2 blocked; disk 27%; ABAB pid 19740 alive. A1 (base) since 20:29:43 UTC: KEEP 0 (as expected in A).
+- **253:** $74/mo ($2.47/d); making captured 12.6 / realized 4.6 / share 0.0003 / **making_rank 0.034**; skill_rank 0.335; score 0.184; call_time 0.154.
+- Fleet median $164 / score 0.354 / making_rank 0.61 / call_time 0.209. Top: 210 $279 (making 0.96, skill 0.42), 169 $220, 251 $220, 225 $204 (0.93 / 0.41). 252 $161.
+- **Prune line ≈ $113** (lowest non-immune); 253 ≈ 0.65×; immunity ends in ≈ 3.1 h (≈ 6:05 PM CT).
+- A1 skill (253 vs 252, Σα / bp): −11.5 → −11.2 → −2.0 → +7.7 → +14.6 (post-restart lean warm-up, recovering) vs 252 +6.5 … +10.5.
