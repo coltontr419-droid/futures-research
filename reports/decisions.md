@@ -29646,3 +29646,28 @@ blockcmp + fleetfills (A1 sim 15065–15448, B1 15448–15835):
 - **253:** $77/mo ($2.57/d), incentive 0.0015; **making captured 13.9 / realized 3.59 / share 0.0002 / making_rank 0.021**; net α 946; skill_rank 0.419; score 0.220 (fleet median 0.316; 210 0.636; 252 0.413). call_time 0.153 (fleet median 0.189).
 - Fleet median $160; 210 $281; 252 $153. mypay printed "prune line $0" (anomaly in its unprotected-UID calculation; last valid reading $104).
 - A1 (base, $300 3×): Σα vs 252 −2.4, −7.6, −11.5 at $52–81k $300 notional (quiet stretch). B1 ($30 fleet-style 0.1) started 19:19:57 UTC.
+
+## §1967 — 1:35 PM CT — making IS a long build for us: the validator's lookback is 3 SIM hours ≈ 15 wall hours at today's sim speed
+User: if $300 carries our making but we're far from the fleet, how would the $30 fix get us there? Is making a long build? Check vs other miners.
+- **Young fleet miners ramp fast** (making_captured / realized / making_rank, hourly):
+  - 182 (registered ≈ 4:50 AM): captured 8 → 46 (3 h) → 165 (8.5 h), rank 0.35;
+  - 130 (≈ 7 AM): 21 → 146 in 6 h, rank 0.33;
+  - 190 (re-registered ≈ 8 AM): 22 → 157 in 5 h.
+  - **253: 2 → 14 over ≈ 4 h after the gate opened**, rank 0.02.
+- **Our current flow is fleet-like.** Sim 15065–16619 (26 sim min), $300:
+
+| uid | total C | Σ 2·min(Cbuy, Csell) | books positive on both sides |
+|---|---|---|---|
+| 210 | 35.9 | +0.3 | 18 / 114 |
+| 169 / 251 | 32.6 / 28.6 | −2.7 / −4.7 | 14 / 107, 10 / 110 |
+| 252 | 29.4 | −8.4 | 31 / 123 |
+| **253** | **36.3** | **+2.0** | **35 / 99** |
+
+- **Cause = the lookback:** repo067 config `scoring.kappa.lookback` = 10,800,000,000,000 ns = **3 sim hours** (the assessment window for skill and making).
+  - Sim speed today ≈ 0.2 sim s per wall s (253: ≈ 13,750 sim s in ≈ 19.5 wall h) → **the window ≈ 15 wall hours**.
+  - 253's window still holds last night's low-volume / negative-capture hours. New fleet miners have only clean data.
+- **Expectation:**
+  - captured / realized keep rising as old hours age out;
+  - the morning base (≈ 5:30–8 AM) is fully in the window by ≈ 8–11 PM CT tonight; the 3× $300 (12:50 PM) by ≈ 4 AM.
+  - With fleet-like flow, making_rank should approach the fleet's 0.3–0.5. The $30 fix adds on top ($30 = 25% of the making pool).
+- **Timing risk:** protection ends ≈ 6:15 PM, before the window clears; pay $77 vs the last valid prune line $104. Per the user, no skill boosts to survive. A re-registration would start with a clean window on the current base (like the fleet's new miners).
