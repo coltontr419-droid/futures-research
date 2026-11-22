@@ -28973,3 +28973,10 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - Script stopped 01:44 UTC; log kept as abab_adapt253.th-bug.log; warm-up shortened to 60 s (tracker data persists); restarted 01:46 UTC (pid 2668480).
 - First tracker readings (validator basis): $30 best 0.6–0.8 q −1.68 (n68), best ≥ 0.8 q ≤ 0 (n66), best 0.4–0.6 +1.06; $300 6–10 t −3.94 (n37), 11+ +1.12.
 - Early read 9:05 PM, verdict 10:20 PM.
+
+## §1913 — 8:14 PM CT brief (adaptive ABAB block A1, tracking only)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 170 blocked (cold-start ledger median $5.7k); release states unchanged.
+- **253:** $0/mo (incentive 0, ≈ 2 h old), net α 110; **making_captured 0** too (101 showed captured > 0 within hours; watch). Scores: skill_rank 0.303 vs 252 0.378; score 0.152 vs 0.273.
+- **252:** ≈ $210/mo (incentive 0.0042), share 0.0025.
+- A1 (from 01:46 UTC), Σα vs 252: −1.5, +1.7, +1.6, +1.4. 253 is level with or slightly ahead of 252 per check at ≈ half its $300 notional ($54–71k vs $111–145k; cold pace still ramping).
+- No ADAPT lines in A (min 500 → no gate decisions counted = not gating, as intended). B1 starts ≈ 8:23 PM.
