@@ -29688,3 +29688,15 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **B1 $30 quality: C −0.01 / R −0.19 bp per $** → negative; miner-wide R/C +0.48 → +0.40. $300 in B1 R/C +0.71 (noise). Fast chain: clear loss → stopped (pid 15476), live_params back to base (behind 1, keep 0, size 0.1, vol 0.3, calm 0.36).
 - **At-best dissection (same window):** our at-best $30 fills C −0.12 / R −0.27 bp (48 fills, $163k) vs 210 C +1.20 / R +0.71, 251 C +1.00 / R +0.28. Gap holds in EVERY own-share, single/sweep and prior-move bucket → not a condition we can gate on. Size now matches the fleet, so the remaining difference is most likely **queue position** (fleet first at a new level; we join behind and fill only when the level is about to break).
 - Next: offline check of queue position on at-best fills from the tape's queue records (our size-ahead at fill time vs fill quality; fleet's implied position).
+
+## §1971 — 2:25 PM CT — $30 loss = QUEUE POSITION (offline-confirmed) → front-keep build + ABAB started
+- **qpos30.py** (our $30 fills by share of the level ahead at the last snapshot; validator C/R from fr2):
+  - long window (sim 15065–16619): front < 10% **C +2.87 / R +1.35 bp** (n 12, $41k); 10–50% C +0.20 / R −0.04 (n 44, $296k); back ≥ 50% C −0.18 / R −0.12 (n 30, $221k).
+  - B1 window: front C +1.76 / R +0.56; 10–50% R −0.23; back R −0.38.
+  - When we and the fleet sit at the same $30 price, the fleet is AHEAD 40 of 45 (top3 30 of 34 in B1).
+- **qage30.py:** top makers' at-best $30 fills mostly from orders ≥ 60 sim s old (top3 ≥ 60 s: C +1.24–1.55 bp); ours mostly 2–60 s.
+- **qfront30.py:** when our resting 1-behind order's level becomes best, ≥ 50% of the level is already ahead 65–69% of the time → waiting one behind does NOT win priority (others placed earlier).
+- **Raw payloads (3 captures, all order timestamps):** $30 top-2 queues turn over fast — qty-weighted median order age **44–58 sim s**; an order placed 60 s earlier is ahead of ≈ 90% of its level (ahead 0.07–0.15), 120 s → front (0.00). Ours live a median 13 s (§1950) because stay-behind re-places them at the back each time they reach best.
+- **Build (agents 16af5bff = d2cde35e + patch_front.py):** mk_low_front (thr): a resting $30 order AT the others' best stays while < thr of its level is ahead (raw FIFO list); mk_low_keep_deep (ticks): mk_low_keep keeps behind orders up to N ticks back so they age. Both default off. FRONT30 log line.
+- Deployed 20:14:40 UTC restart, 0 tracebacks, FASTDEC installed. Warm-up check with B on: KEEP 3,449 kept in place per sim min; FRONT30 1 of 4 kept.
+- **ABAB speed/abab_front253.sh** (pid 19740, 900-s warm-up, log abab_front253.log): A = base (behind 1, keep 0); **B = behind 1 + keep 1 + keep_deep 3 + front 0.25**. Blocks 30 min from ≈ 20:29:40 UTC; B1 ends ≈ 3:30 PM CT; ABAB ends ≈ 4:30 PM CT.
