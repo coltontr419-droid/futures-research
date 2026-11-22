@@ -29107,3 +29107,11 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - **252:** ≈ $210/mo (incentive 0.0042), share 0.0025.
 - A1 (base, sim 5944–6435): $30 R/C both-negative (C −0.02, R −0.11 bp, $152k); 252 $300 +0.77.
 - B1 first check: 253 $300 notional **$181k vs A1 ≈ $75–109k** (≈ 2×, volume cap watch at the early read); Σα +23.4 vs 252 +12.9.
+
+## §1924 — 10:47 PM CT brief (combined ABAB block B1)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 192 blocked; release states unchanged.
+- **253:** **$5/mo ($0.17/d)**, incentive 0.0001 (ramping); net α 392; making 0. Scores: skill_rank **0.395 vs 252 0.355**; score 0.198 vs 0.273 (252 making_rank 0.190).
+- **252:** ≈ $215/mo (incentive 0.0043), share 0.0025.
+- **B1 (strong-inside $300 + no $30 at-best)**, Σα vs 252: +10.5, +22.1, +32.8, +22.9, +17.4 → **mean +21.1 (A1 −3.9)**.
+  - $300 notional per check **$181–238k vs A1 ≈ $70–109k (≈ 2.6×)** → over the 1.5× volume cap set beforehand. PACE still 0 blocked (budget fine).
+  - The early read (10:50 PM) judges R/C and the §1921 two-sided capture for both classes.
