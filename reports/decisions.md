@@ -29136,3 +29136,9 @@ fillrecs2 over the exact block windows (A1 sim 5944–6435, B1 6435–6930), val
 - **$300 strong-inside:** R/C held (+0.11 → +0.13), skill **+25 Σα/check** over A1. Volume 2.6× is over the pre-set 1.5× cap, but unlike §1876 quality did not collapse and PACE is 0 blocked. Not a clear loss → continue. The volume breach is noted for the verdict.
 - **$30 no-at-best:** volume −79%. The remaining $30 fills lost more per $ (−0.34 bp; the offline 1-behind +0.53 did not hold in this window; 252's $30 also fell +0.82 → +0.45). Σ 2·min less negative (less volume). Mixed → continue.
 - Miner-wide −0.11 → +0.02 (mostly the volume mix).
+
+## §1926 — 11:17 PM CT brief (combined ABAB block A2)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 192 blocked; release states unchanged.
+- **253:** $5/mo ($0.17/d), incentive 0.0001, net α 434, making 0. Scores: **skill_rank 0.421 vs 252 0.399**; score 0.210 vs 0.316 (252 making_rank 0.233).
+- **252:** ≈ $215/mo (incentive 0.0043), captured 51.8 / realized 27.2 / share 0.0025.
+- A2 (base, from 04:52 UTC), Σα vs 252: +8.9, +4.3, −6.9 → mean +2.1. B2 starts ≈ 11:30 PM; verdict 12:08 AM.
