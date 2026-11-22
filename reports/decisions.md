@@ -29596,3 +29596,14 @@ blockcmp + fleetfills (A1 sim 15065–15448, B1 15448–15835):
 - In A1 the base $30 (behind 1, size 0.1) traded only $2.2k per sim min, but kept +0.76 bp (100% 1 behind).
 - Not a clear loss (miner-wide +0.40 > 0, $300 R/C up) → **continue**.
 - Next candidates: $300 6× (fleet size); $30 fleet-style at size 0.1 (≈ $3.5k fills, the fleet's size).
+
+## §1962 — 11:50 AM CT — volume-cap check: the validator cap can't be hit; per-book PACE is the limit → skip 6×, keep 3×, re-test $30 at 0.1
+- User: 3× already = fleet size; revert to 3× if 6× fails; make sure we won't hit a volume cap.
+- Pacer: pace_cap 450,000 per book per sim day (< the validator's 10 × wealth ≈ $500k), steady 450k, burst 3,600 s (≈ $18.75k reserve). **The hard cap cannot be hit.**
+- **Per-book rate in B1** (busy window, fillrecs2):
+  - 253 (3× $300 + $30 0.2): median **$1,290 / sim min** (p90 $2,370) → ≈ $1.86M / day pace;
+  - fleet 210 / 169 / 251: median ≈ $559 (p90 ≈ $1,115);
+  - sustainable refill = $312 / sim min.
+  - → In busy stretches our books drain their reserve in ≈ 20 sim min and are then pace-paused. Short ABAB blocks didn't show it (PACE 0 blocked).
+  - Most of the excess came from the $30 half at size 0.2 ($7.3k fills, 22× the $30 volume).
+- **Decision:** no 6× (it would just hit the pacer harder and cost presence). Keep $300 3× if the verdict holds. Next test = $30 fleet-style at size 0.1 (≈ $3.5k fills, the fleet's size). Watch PACE blocked counts; if books pause repeatedly, step size DOWN.
