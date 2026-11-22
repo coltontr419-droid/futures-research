@@ -29045,3 +29045,21 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - **miner-wide ≈ −0.32 → quality clamps to 0 → no making pay** while the $30 market is rough (252's $30 also negative tonight; post-reset it was +0.6–0.9).
 - **User plan:** let the strong-inside $300 test finish. Wins → live. Loses → 253 runs the base overnight with NO changes; morning report on making gauges + pay.
 - Offered, not applied (needs an offline check + user yes): shrink the $30 size ≈ 65% overnight so $30 losses < $300 gains (miner-wide > 0).
+
+## §1919 — 9:50 PM CT — user: overnight approval for any tests / changes to improve spread kept ($30 + $300); $30 fix found offline (no at-best order), chained after the strong-inside verdict
+- The overnight hold plan (§1918) is cancelled by the user: "if we're negative now then we can keep testing … overnight you have approval for any tests and changes to improve the spread kept on both 30 and 300 books".
+- **$30 dissection** (fillrecs2, since 253 start excl. the gate block; R per $ in bp):
+
+| $30 | 253: share of $ / C / R | 252: share of $ / C / R |
+|---|---|---|
+| **at best** | **95% / −0.04 / −0.13** | 85% / −0.14 / −0.31 |
+| **1 behind** | 5% / +0.68 / **+0.53** | 15% / +0.93 / **+0.84** |
+| at best & sweep | 21% / −0.38 / −0.33 | 21% / −0.38 / −0.66 |
+| at best & single | 74% / +0.06 / −0.08 | 64% / −0.06 / −0.19 |
+| fill ≥ $600 | 35% / −0.14 / −0.19 | 99% / +0.01 / −0.15 |
+
+- Tonight every at-best $30 bucket loses for both of us; one tick behind keeps value for both.
+- **Fix = existing live knob mk_low_touch_min 2:** no $30 at-best (touch) order while the others' spread < 2 t (≈ always on $30), ladder 1-behind kept (the group is still quoted; not a book-group drop).
+- **Offline bound:** $30 R ≈ −7.4 → ≈ +2.1 (1-behind only, sweeps size-limited so its volume ≈ unchanged); miner-wide ≈ −0.32 → **≈ +0.27** → making turns on. $30 capture is ≈ 0 tonight, so little is lost.
+- Trade-off: in good $30 regimes (post-reset at-best kept +0.6–0.9) it gives that up. A later step could be an adaptive at-best vs behind switch.
+- Can't overlap the running $300 strong-inside ABAB (both scripts write live_params_253.json) → chained into the 11:57 PM verdict cron.
