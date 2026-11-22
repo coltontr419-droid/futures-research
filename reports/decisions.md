@@ -28992,3 +28992,11 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - B1 ($30 gate) from 02:25:44 UTC: ADAPT gated 1,383 of 6,746 decisions (20%); VX settled 1,243.
   - Bucket q: best 0.4–0.6 +0.23, 0.6–0.8 +0.49, ≥ 0.8 ≤ 0 (gated), <0.4 +1.10.
   - Σα vs 252 so far −5.0, +1.1.
+
+## §1915 — 8:55 PM CT — $300 "doing bad" checked: longer window is fine; plan: $30 first, then tune $300
+- Since 253 started (sim 3,700–5,427, 29 sim min), widefills $300: **253 R/C +0.34** (C +0.33, R +0.11 bp, $510k) vs 252 +0.72 (R +0.28 bp, $899k).
+  - The negative block reads (253 A1 −0.1; 101 post-reset −0.87 / −1.34) are ≈ 6–7 sim-min blocks on $60–230k, i.e. block noise.
+- The gap to 252 is still position at wide spreads:
+  - 252: inside 52% of $ (+0.71), sweeps 22%.
+  - 253: 1 behind 28% (+0.41) + 2+ behind 38% (+0.24), sweeps 64% (+0.26), inside 4%.
+- **User plan:** finish the $30 books (adaptive gate verdict 10:20 PM), then fine-tune $300. First candidate = a SELECTIVE inside step (one side, small size, trigger e.g. a with-move like UID 73), offline-bounded first, incl. its volume effect (§1876 lesson).
