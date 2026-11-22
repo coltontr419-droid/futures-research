@@ -29245,3 +29245,21 @@ $30 fills, sim 7993–9049 (both on the current base with touch_min 2):
 - **252:** ≈ $175/mo (incentive 0.0035), making_rank 0.314, share 0.0026.
 - **Prune line $79** (rising fast; 253 at ≈ 0.47×; protected until ≈ 6:15 PM).
 - A2 Σα vs 252: −5.6, −14.6, −1.0, −2.0, −8.2 → mean −6.3. B2 first check −6.7.
+
+## §1934 — 3:20 AM CT — tight-6 VERDICT: tie → keep tight 5; tight 7 fails offline; stay-behind build deployed; $30 stay-behind ABAB started
+**Tight-6 pooled** (blockcmp; A1+A2 vs B1+B2; tape rotated 09:07 UTC → .prev,live read):
+
+| | A tight 5 | B tight 6 |
+|---|---|---|
+| $300 253 $ per sim min | 17.5k | 17.7k |
+| $300 C / R per $; R/C | +0.48 / +0.17; **+0.35** | +0.55 / +0.18; **+0.33** |
+| $300 Σ 2·min | −1.55 | −1.16 |
+| Σα vs 252 per check | −5.3 | −1.2 |
+| $30 R per $; Σ 2·min | −0.41; −19.9 | −0.31; −20.1 |
+| miner-wide 253 / 252 | −0.64 / +0.54 | −0.27 / +0.64 |
+
+- **Tie on spread kept** (R/C +0.35 vs +0.33; volume unchanged, so the 6-t pull barely binds) → **keep tight 5**. Skill +4/check in B is within noise.
+- **Tight 7 offline** (253 base $300 by spread): pull ≤ 5 → R/C +0.17 (82% of $), ≤ 6 → +0.22 (57%), ≤ 7 → +0.20 (35%) → **fails**.
+- The $300 class is now at **+0.33–0.35**. The **$30 class (−0.31 to −0.41 bp per $) holds miner-wide below 0.**
+- **Deployed agents 7c1e2df1** (mk_low_behind): restart 09:18:47 UTC, 0 tracebacks, fills OK; backup .bak-4064856a; newminer.sh → 7c1e2df1. Base set explicitly (tight 5, touch_min 2, behind 0, strong-inside 0) in live + NEXT.
+- **$30-only ABAB** speed/abab_behind253.sh (started ≈ 09:20 UTC): A = base, B = + mk_low_behind 1. Early read 4:42 AM; verdict 5:57 AM (chains).
