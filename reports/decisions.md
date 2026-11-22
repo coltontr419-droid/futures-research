@@ -29528,3 +29528,11 @@ Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min
 - Per-book two-sidedness over 20 sim min is low for the fleet on $300 (7–14%). Ours (19%) is no worse. Their large captured comes from VOLUME: $300 ≈ 6× ours at ≈ 6× our order size.
 - **Fleet style:** big passive orders mostly behind the best on $300; big front-of-queue orders at the best on $30; little lean (fleet median skill_rank 0.06). We add a strong lean (skill_rank 0.41).
 - → Order size is the lever (11:12 AM test). Watch that bigger lean orders don't cost $300 R/C.
+
+## §1955 — 9:15 AM CT brief (queue-priority ABAB: A1 done, B1 running)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0 blocked; BEHIND30 4,605 of 5,520; release main unchanged; disk 25%.
+- **253:** $66/mo ($2.21/d), incentive 0.0013, net α 1,176, **making_captured 1.97** (> 0 again), realized 0.
+  - Score 0.206 vs **fleet median 0.219** (210 0.546, 252 0.344). Skill_rank 0.411 (fleet median 0.051). Making_rank 0 (fleet median 0.387). call_time 0.153 (fleet median 0.187).
+- Fleet median $158/mo; 210 $272; 252 $138.
+- **Prune line $96** (253 ≈ 0.69×).
+- Queue test: A1 ended 15:09 UTC; B1 (behind 2 + keep) first check −6.4 vs 252. Early read with fast-chain at 9:57 AM.
