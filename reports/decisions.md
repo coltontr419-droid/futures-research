@@ -29607,3 +29607,11 @@ blockcmp + fleetfills (A1 sim 15065–15448, B1 15448–15835):
   - → In busy stretches our books drain their reserve in ≈ 20 sim min and are then pace-paused. Short ABAB blocks didn't show it (PACE 0 blocked).
   - Most of the excess came from the $30 half at size 0.2 ($7.3k fills, 22× the $30 volume).
 - **Decision:** no 6× (it would just hit the pacer harder and cost presence). Keep $300 3× if the verdict holds. Next test = $30 fleet-style at size 0.1 (≈ $3.5k fills, the fleet's size). Watch PACE blocked counts; if books pause repeatedly, step size DOWN.
+
+## §1963 — 11:45 AM CT brief (fleet-size ABAB block A2)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; **PACE 0 blocked in all 6 status lines of the last 30 min** (24h ledger median $39.7k); release main unchanged; disk 26%.
+- **253:** $79/mo ($2.64/d), incentive 0.0016.
+  - **making captured 15.5 / realized 3.10 / share 0.0001 / making_rank 0.034** (×2.6 in 30 min).
+  - Net α 960; **skill_rank 0.449**; score **0.241** (fleet median 0.326; 210 0.664; 252 0.409). call_time 0.165 (fleet median 0.205).
+- Fleet median $156; 210 $267; 252 $147. Prune line $99 (253 ≈ 0.80×).
+- A2 (base), Σα vs 252: −0.8, +1.4, +1.1, +1.9.
