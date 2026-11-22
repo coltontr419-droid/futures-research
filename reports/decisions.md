@@ -29621,3 +29621,22 @@ blockcmp + fleetfills (A1 sim 15065–15448, B1 15448–15835):
 - **253:** $79/mo ($2.64/d), incentive 0.0016; making captured 10.1 / realized 2.41 / share 0.0001 / making_rank 0.007 (dipped from 0.034; noisy window); net α 896; skill_rank 0.406; score 0.206 (fleet median 0.315; 210 0.665; 252 0.432). call_time 0.155 (fleet median 0.195).
 - Fleet median $159; 210 $274; 252 $152. **Prune line $104** (253 ≈ 0.76×).
 - B2 (3× + $30 0.2), Σα vs 252: −15.8, −8.8, −4.6, +1.7, +3.5 ($300 notional $81–147k).
+
+## §1965 — 12:50 PM CT — fleet-size VERDICT: $300 3× KEPT; $30 at size 0.2 NOT kept; $30 fleet-style at size 0.1 test started
+- 12:45 brief: 253 $79/mo ($2.64/d); making captured 9.5 / realized 2.31 / making_rank 0.014; skill_rank 0.455; score 0.234 (fleet median 0.316; 210 0.671; 252 0.435). Prune line $104 (≈ 0.76×). **PACE 0 blocked** (6 status lines, 30 min).
+- **Pooled verdict** (A1 15065–15448 + A2 15835–16219 vs B1 15448–15835 + B2 16219–16619; the ABAB finished 18:18 UTC; read early instead of waiting for the 12:55 cron):
+
+| | A base | B |
+|---|---|---|
+| $300 $ per sim min | 28.5k | **34.8k (+22%)** |
+| $300 R/C | +0.57 | **+0.57** |
+| Σα vs 252 per check | +0.6 | **+3.6** |
+| $30 $ per sim min / R/C | 1.1k / +0.78 | 42.6k / **+0.03** |
+| $30 Σ 2·min | −0.53 | **−25.63** |
+| miner-wide | +0.59 | +0.37 |
+| B2 vs fleet (fleetfills) | — | 253 $300 28.1k / 0.47; $30 36.4k / 0.14, average fill $5.9k (fleet 210 / 169 / 251: $30 0.11 / 0.25 / 0.60, $3.1–3.2k) |
+
+- **$300 3× (mk_vol_size 0.3 / mk_calm_size 0.36): KEPT.** Volume +22%, R/C held, skill +3/check, no pace blocks.
+- **$30 at size 0.2: NOT kept** (break-even, Σ 2·min −25.6).
+- Live + live_params_NEXT: $300 0.3 / 0.36; $30 behind 1, size 0.1, keep 0.
+- **speed/abab_fleet30_253.sh** (started ≈ 18:50 UTC, 60-s warm-up, no restart): A = base; B = $30 fleet-style at size 0.1 (behind 0, keep 1). Early read 2:05 PM, verdict 3:20 PM.
