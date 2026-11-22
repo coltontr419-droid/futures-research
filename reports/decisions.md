@@ -29189,3 +29189,9 @@ fillrecs2 over the exact block windows (A1 sim 5944–6435, B1 6435–6930), val
 - **252:** ≈ $195/mo (incentive 0.0039), captured 76.7 / realized 43.2 / share 0.0026.
 - Prune line $29 → 253 at ≈ 0.9× and rising; protected ≈ 17 h more.
 - A1 Σα vs 252: +3.9, −16.5, −10.2, −2.5, −1.0, +4.3 → mean −3.7. B1 (tight 6) first check −4.8.
+
+## §1931 — 1:45 AM CT brief (tight-6 B1)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 192 blocked; release states unchanged.
+- **253:** $27/mo ($0.91/d), incentive 0.0005, net α 704, making 0. Scores: **skill_rank 0.424 vs 252 0.299**; score 0.212 vs 0.308.
+- **252:** ≈ $195/mo (incentive 0.0039), making_rank 0.316, share 0.0026. Prune line $37.
+- B1 (tight 6), Σα vs 252: −4.8, −11.2, −2.2, +0.7, +5.4 → mean −2.4 (A1 −3.7). Early read at 1:50 AM.
