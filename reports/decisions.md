@@ -28963,3 +28963,13 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - Per $: 253 $30 C −0.12 bp, R −0.20 bp. 252 in the same window: C −0.01, R −0.07 bp on $94k.
   - Earlier references: 101 post-reset A blocks R +0.44–0.49 bp per $; this morning's rough $30 windows −0.12 to −0.29 bp; good windows +0.01 to +0.6.
   - → It is real but not 10× worse: the $30 market swung from good (post-reset) to flat or negative for everyone. 253 is worse than 252 per $, mainly because its at-best fills capture negatively (C < 0).
+
+## §1912 — 7:50 PM CT brief + baseline-arm bug fixed (adaptive ABAB restarted)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 157 blocked; release states unchanged.
+- **253:** $0/mo (incentive 0), net α 84, making 0. Scores: skill_rank 0.339 vs 252 0.350; making_rank 0 vs 0.166; score 0.169 vs 0.258.
+- **252:** ≈ $215/mo (incentive 0.0043), share 0.0026.
+- **Bug:** the A arm used mk_adapt_th −1 assuming R/C ≥ −1. On the validator basis R/C can be < −1 (bucket "30 best 0.6–0.8" q −1.68), so A gated 939 of 3,971 decisions in its first 7 minutes.
+  - Fix: A = mk_adapt_min 500 (> the n 200 window → never gates; tracker still runs).
+  - Script stopped 01:44 UTC; log kept as abab_adapt253.th-bug.log; warm-up shortened to 60 s (tracker data persists); restarted 01:46 UTC (pid 2668480).
+- First tracker readings (validator basis): $30 best 0.6–0.8 q −1.68 (n68), best ≥ 0.8 q ≤ 0 (n66), best 0.4–0.6 +1.06; $300 6–10 t −3.94 (n37), 11+ +1.12.
+- Early read 9:05 PM, verdict 10:20 PM.
