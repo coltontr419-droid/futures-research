@@ -29501,3 +29501,11 @@ fillrecs2 over the last 15 sim min ($300 maker fills):
 - Caveat: the §1894 2× $300 size test (post-reset) raised volume but cut $300 R/C. Our $300 orders carry the lean, so bigger = more directional exposure.
 - **Staged agents d2cde35e** (= aa6a73eb + bounds mk_low_size / mk_low_lad_size ≤ 0.3, mk_vol_size ≤ 0.6, mk_calm_size ≤ 0.72 + KEEP30: a resting $30 order at / 1 behind the others' best is kept in place when mk_low_behind = 0).
 - The 11:12 AM cron runs the queue-priority verdict, deploys d2cde35e, and starts a combined test: B = $300 size 3× (0.3 / 0.36) + $30 fleet-style (behind 0, keep 1, size 0.2).
+
+## §1953 — 8:47 AM CT brief (queue-priority ABAB block A1; fleet reference)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0 blocked; release main unchanged; disk 12 G (25%).
+- **253:** $67/mo ($2.22/d), net α 1,178, making 0 / 0 / 0. Score 0.206; **skill_rank 0.412 (fleet median 0.056, 210 0.300)**; making_rank 0 (fleet median 0.412, 210 0.837). call_time **0.149** (fleet median 0.188).
+- **Fleet:** median $158/mo, score 0.221. **210 $272** (score 0.568). 252 $138 (score 0.346, captured 114.5 / realized 70.7).
+- Prune line $83 (253 ≈ 0.81×).
+- Queue-priority ABAB: A1 (base) from 14:39 UTC after the 900-s warm-up; first check −14.9 vs 252 ($15k notional; lean still warming).
+- The brief cron is updated to the fleet reference.
