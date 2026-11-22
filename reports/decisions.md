@@ -29558,3 +29558,9 @@ Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min
   - A = base;
   - B = $300 mk_vol_size 0.3 / mk_calm_size 0.36 (3×) + $30 fleet-style (behind 0, keep 1, size 0.2).
 - Early read 11:35 AM, verdict 12:55 PM (chains to 6× if 3× wins).
+
+## §1958 — 10:15 AM CT brief (fleet-size ABAB block A1)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0 blocked; release main unchanged; disk 25%.
+- **253:** $77/mo ($2.55/d), incentive 0.0015; making captured 3.78 / **realized 0.32** / making_rank 0.007 (still > 0); net α 954; skill_rank 0.364 (fleet median ≈ 0.07); score 0.185 (fleet median 0.267; 210 0.586; 252 0.344). call_time 0.151 (fleet median 0.196).
+- Fleet median $156/mo; 210 $265; 252 $137. Prune line $95 (253 ≈ 0.81×).
+- Fleet-size ABAB: warm-up done, A1 (base) started 16:12:53 UTC.
