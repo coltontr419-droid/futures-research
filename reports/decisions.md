@@ -29732,3 +29732,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 ## §1975 — 4:05 PM CT — FIXED $30 front-keep ABAB started
 - speed/abab_front2_253.sh (pid 25242, log abab_front2_253.log, agents b4a82214, no restart): **A = base** (touch_min 2, behind 1, keep 0); **B = touch_min 0 + behind 1 + keep 1 + keep_deep 3 + front 0.25**. 33-min blocks from 22:05:07 UTC; B1 ≈ 4:38–5:11 PM CT, early read 5:14 PM CT; ABAB ends ≈ 6:17 PM CT.
 - Offline basis (§1971): front-of-queue $30 fills C +2–3 bp / R +1.3 bp; a 60-s-old order is ahead of ≈ 90% of its level.
+
+## §1976 — 4:17 PM CT brief (NOTE; fixed front-keep ABAB block A1)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–4 blocked; disk 27%; ABAB pid 25242 alive; A1 since 22:05:07 UTC (KEEP 0 as expected).
+- **253:** $81/mo ($2.70/d); making captured 21.2 / realized 8.1 / share 0.0004 / making_rank 0.041 (up from 0.020); skill_rank 0.390; score 0.215; call_time 0.150.
+- Fleet median $164 / score 0.366 / making_rank 0.63 / call_time 0.203; 210 $282 (0.95 / 0.48), 169 $224, 251 $217; 252 $159.
+- **Prune line ≈ $108**; 253 ≈ 0.75×; immunity ends in ≈ 1.8 h (≈ 6:05 PM CT).
+- A1 skill (253 vs 252, Σα): −7.5 / +8.8, −1.8 / +11.3 (just after the arm switch back from the B-param churn check).
