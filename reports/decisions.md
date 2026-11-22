@@ -29212,3 +29212,22 @@ speed/blockcmp.py (new: pooled per-class block comparison from fillrecs2 records
 - Tight 6 shows no measurable effect in one block pair: volume did not drop as expected and R/C is a little lower (block noise). Σα similar → not a clear loss → continue.
 - **Bigger issue:** with touch_min 2, our $30 still loses −0.24 to −0.36 bp per $, while 252's $30 turned positive (+0.13 / +0.60) in the same windows. $30 holds 253's miner-wide at −0.5 to −0.7.
 - Next $30 study: our vs 252's $30 fills in these windows by position / own-share / size / sweep. Why does 252 win now while we still lose?
+
+## §1933 — 2:10 AM CT — why 252's $30 wins and ours loses: 252 fills ONE TICK BEHIND during sweeps; our ladder becomes the best and is hit after the level clears → mk_low_behind built (agents 7c1e2df1, staged)
+$30 fills, sim 7993–9049 (both on the current base with touch_min 2):
+
+| | 253 | 252 |
+|---|---|---|
+| at best | **95% of $, R −0.30 bp** | 53%, −0.13 |
+| 1 behind | 5%, −0.08 | **45%, +0.97** |
+| sweep / single | −0.51 / −0.16 | **+0.61** / +0.02 |
+| average fill | ≈ $640 | **≈ $1,760** |
+| own-share < 0.4 / 0.4–0.8 / ≥ 0.8 | −0.21 / −0.36 / +0.07 | +0.76 / +0.58 / −0.29 |
+
+- Even without our at-best (touch) order, 95% of our $30 $ fills AT the best. Our 1-behind ladder order becomes the best once the level in front clears, and is then hit by the next taker after the price has moved toward it (adverse).
+- 252's profitable $30 fills are 1 behind, during the sweep itself (+0.97 bp), at ≈ $1.8k each.
+- **Built mk_low_behind k** (0 off; k = ticks):
+  - On $30 books, a wanted side at or inside the others' best (our size removed) is moved to k ticks behind it: buy → others' best bid − k·tick; sell → others' best ask + k·tick. Logs BEHIND30 counts.
+  - Staged as agents/QuoteAgent.py.next-7c1e2df1; deploy (restart) at the 3:05 AM tight-6 verdict.
+- **Offline bound:** removes the at-best $30 fills (95% of $30 $ at −0.30 bp). Our 1-behind fills are tiny today, so $30 R ≈ 0 and **miner-wide ≈ the $300 ratio (> 0) → the making gate opens**. Upside if 1-behind volume grows toward 252's (+0.97 bp).
+- Next combined test (3:05 AM): $30 mk_low_behind 1 + a $300 idea that passes offline (tight 7 if tight 6 wins).
