@@ -29404,3 +29404,13 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
 - **The old box keeps the user's other projects** (/opt/harnyx, swe, sn101lab, synth + its daily synth-forward timer, bexlab, hone, tb, noah-repo, clique; weekly subnet-screen timer) and the old tapes / test logs. Don't destroy it before the user decides.
 - The old box was not CPU-loaded by other work (load ≈ 0.2); the speed gap is the CPU type (≈ 1.4× single-core).
 - Cost: +$84/mo while both run.
+
+## §1947 — 7:50 AM CT brief (first on the new box)
+- x3 = 253 REGISTERED on 192.241.128.48; 0 tracebacks; PACE 0 of 192 blocked; release main unchanged.
+- **253:** $54/mo ($1.78/d), incentive 0.0011, net α 1,110, making 0. Score 0.219 vs 252 0.343.
+- **252:** ≈ $140/mo (incentive 0.0028), captured 101.1 / realized 61.4 / share 0.0028. Prune line $95.
+- **call_time 10 min after the move:**
+  - 253 avg 0.279 (the gauge still averages pre-move rounds), **p5 0.147 (was 0.23–0.25 on the old box)**;
+  - 252 0.129 / 0.083.
+  - The fastest rounds are already ≈ 40% quicker; the average should fall as the window rolls.
+- No test running (the behind+size ABAB finished; verdict at 7:52 AM).
