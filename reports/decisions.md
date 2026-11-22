@@ -29486,3 +29486,18 @@ User: compare against the whole fleet (252 fluctuates).
 - **Inference:** the fleet's $30 profit comes from LARGE (≈ 2× ours) long-lived orders at the FRONT of the queue at the best, filled by ordinary takers before the price moves. Ours are small, re-placed (median life 13 sim s), and sit behind ≈ 67% of the queue.
 - **Next $30 test after the running queue test:** fleet-style $30 = size cap raised (code; mk_low_size bound 0.1 → ≈ 0.25), resting at best + 1 behind, kept in place (queue priority). Evidence: the fleet's fills at 0.5–0.7. The $300 class already matches the fleet style (mostly behind).
 - **Reference from now on: the 5F1F2JMu fleet** (medians and top makers), not 252 alone.
+
+## §1952 — 9:05 AM CT — the biggest fleet difference is ORDER SIZE (6×); fleet-style size build staged
+fillrecs2 over the last 15 sim min ($300 maker fills):
+
+| uid | $300 $ per sim min | fills | books | median fill | p90 | R/C |
+|---|---|---|---|---|---|---|
+| 210 / 169 / 251 / 245 / 225 | $25–31k | 158–200 | 72–95 | **$3.05–3.58k** | $3.606–3.610k | 0.54–0.68 |
+| 252 | $36k | 275 | 105 | $1.80k | $3.60k | 0.69 |
+| **253** | **$4.2k** | 103 | 46 | **$0.50k** | $0.60k | 0.36 |
+
+- The fleet's order size caps at ≈ $3.6k (identical p90s), **≈ 6× ours**. Its $300 and $30 making capture (hence making_rank) is several times ours.
+- The fleet trades near the 450k/book/day cap; we use ≈ $35k per book per day (headroom; our pacer enforces the cap).
+- Caveat: the §1894 2× $300 size test (post-reset) raised volume but cut $300 R/C. Our $300 orders carry the lean, so bigger = more directional exposure.
+- **Staged agents d2cde35e** (= aa6a73eb + bounds mk_low_size / mk_low_lad_size ≤ 0.3, mk_vol_size ≤ 0.6, mk_calm_size ≤ 0.72 + KEEP30: a resting $30 order at / 1 behind the others' best is kept in place when mk_low_behind = 0).
+- The 11:12 AM cron runs the queue-priority verdict, deploys d2cde35e, and starts a combined test: B = $300 size 3× (0.3 / 0.36) + $30 fleet-style (behind 0, keep 1, size 0.2).
