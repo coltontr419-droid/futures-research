@@ -29456,3 +29456,17 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
 - **252:** ≈ $140/mo (incentive 0.0028), captured 106.2 / realized 64.6 / share 0.0028, making_rank 0.356.
 - **Prune line $83** → 253 at **0.81×**; protection until ≈ 6:15 PM.
 - **call_time:** 253 **0.156 s** (p5 0.108) vs 252 0.127 (p5 0.074). Was 0.29 / 0.23–0.25 on the old box.
+
+## §1950 — 8:25 AM CT — not settled: $30 volume problem diagnosed as QUEUE PRIORITY → mk_low_keep built; queue-priority ABAB started
+- User asked whether tests are running for the $30 volume problem or whether this is the settled strategy.
+  - **Not settled:** making realized is still 0 and $30 volume is ≈ 5% of before.
+- **Queue data** (tape "queue" records, our $30 orders since the move, 99,611 snapshots):
+  - share of the level AHEAD of us: median **0.67** (p25 0.50, p75 0.81); never at the front (0% < 5%); at the back (> 80%) 27% of the time;
+  - order lifetime median **13 sim s** (p75 90, p90 242).
+- Cause: the stay-behind rule cancels and re-places an order whenever the level in front clears (our order would be at the best) → always re-queued at the back → sweeps fill 252's older, larger orders first.
+- **mk_low_keep** (agents aa6a73eb): with mk_low_behind k, a resting $30 order strictly behind the others' best (1 … k+1 ticks behind) stays where it is (want = its price, so _vol_ladder keeps it and its queue place). Only an order at / inside the others' best is moved. BEHIND30 logs "kept-in-place" counts.
+- Deployed: restart 14:23:45 UTC, 0 tracebacks, FASTDEC installed. newminer.sh → aa6a73eb.
+- **ABAB speed/abab_keep253.sh** (started 14:24 UTC, 900-s warm-up; log abab_keep253.log):
+  - A = behind 1, size 0.1, keep 0 (base);
+  - B = behind 2, size 0.1, keep 1 (rest two ticks behind early, keep the order as it becomes one behind).
+- Early read 9:57 AM, verdict 11:12 AM.
