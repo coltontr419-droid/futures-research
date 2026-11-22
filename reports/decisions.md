@@ -29371,3 +29371,9 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
   - CPU-Optimized 4 vCPU / 8 GB (dedicated) = **$84/mo** with only a 50 GiB disk. We use 80 GB and resize can't shrink a disk, so it needs a cleanup below 50 GB or a bigger-disk variant.
   - Basic Premium Intel / AMD 4 vCPU / 8 GB: price not found in search; check DO's Resize screen.
   - User decides on any spend.
+
+## §1944 — 6:50 AM CT brief (behind+size ABAB block A2)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 blocked; release states unchanged.
+- **253:** $42/mo ($1.42/d), incentive 0.0008, net α 1,058 (> 252's 879); **making_captured 0.84** (rising), realized 0. Scores: skill_rank 0.380 vs 252 0.235; **score 0.190 vs 0.242** (gap narrowing).
+- **252:** ≈ $145/mo (incentive 0.0029), captured 82.9 / realized 46.9 / share 0.0027, making_rank 0.248. Prune line $86.
+- A2 (base), Σα vs 252: +4.3, +1.6, −1.4.
