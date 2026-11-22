@@ -29676,3 +29676,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - User: 130–170 is no longer the target; the fleet has miners well over 200 and the top is ≈ 300; we match the fleet on $300 and beat it on skill.
 - Fleet: 210 $265–281 (score 0.55–0.67 = making 0.81–0.93 + skill 0.30–0.43); 251 $214 (0.54); making-only UIDs $204–224. ≈ $420 per point of score.
 - 253 projection (skill ≈ 0.43): making 0.5 → ≈ $200; 0.73 → ≈ $240; 0.85–0.9 → ≈ $275–290. Reaching 210-level making needs the $30 volume (210 captured 250–390 incl. $30).
+
+## §1969 — 1:50 PM CT brief ($30 size-0.1 ABAB block B1)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0–1 blocked (4× 0, 2× 1 in 30 min); KEEP30 1,084 kept in place; release main unchanged; disk 26%.
+- **253:** $77/mo ($2.56/d), incentive 0.0015; making captured 9.1 / realized 2.8 / share 0.0002 / **making_rank 0.034**; skill_rank 0.423; score 0.228 (fleet median 0.328; 210 0.673; 252 0.447). call_time 0.148 (fleet median 0.192).
+- Fleet median $160; 210 $281; 252 $153. **Prune line $115** (253 ≈ 0.67×).
+- B1 ($30 fleet-style 0.1), Σα vs 252: −1.4, +0.9, +9.7, +2.5, +0.4.
