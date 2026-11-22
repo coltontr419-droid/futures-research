@@ -29671,3 +29671,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
   - the morning base (≈ 5:30–8 AM) is fully in the window by ≈ 8–11 PM CT tonight; the 3× $300 (12:50 PM) by ≈ 4 AM.
   - With fleet-like flow, making_rank should approach the fleet's 0.3–0.5. The $30 fix adds on top ($30 = 25% of the making pool).
 - **Timing risk:** protection ends ≈ 6:15 PM, before the window clears; pay $77 vs the last valid prune line $104. Per the user, no skill boosts to survive. A re-registration would start with a clean window on the current base (like the fleet's new miners).
+
+## §1968 — 1:45 PM CT — target reset to the FLEET TOP (≈ $275–300/mo per miner)
+- User: 130–170 is no longer the target; the fleet has miners well over 200 and the top is ≈ 300; we match the fleet on $300 and beat it on skill.
+- Fleet: 210 $265–281 (score 0.55–0.67 = making 0.81–0.93 + skill 0.30–0.43); 251 $214 (0.54); making-only UIDs $204–224. ≈ $420 per point of score.
+- 253 projection (skill ≈ 0.43): making 0.5 → ≈ $200; 0.73 → ≈ $240; 0.85–0.9 → ≈ $275–290. Reaching 210-level making needs the $30 volume (210 captured 250–390 incl. $30).
