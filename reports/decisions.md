@@ -29715,3 +29715,15 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Prune line ≈ $105** (lowest non-immune); 253 ≈ 0.77×; immunity ends in ≈ 2.6 h (≈ 6:05 PM CT).
 - A1 end (sim 18225–18640): $30 3 fills / $10k (C +0.15 / R −0.14 bp); $300 144 fills / $304k, C +0.33 bp. A1 last skill +35.5 Σα vs 252 +9.4.
 - B1 skill (253 vs 252, Σα): +15.1 / +6.5, +4.5 / +5.3, +14.5 / +4.5, +4.9 / +6.3.
+
+## §1974 — 3:40 PM CT — front-keep ABAB B1 INVALID (order churn bug) → stopped; the earlier keep tests were invalid too; fix in progress
+- Early read (fillrecs2, A1 sim 18285–18640 vs B1 18700–19052; fleet in the same windows):
+  - A1: $30 1.7k/min, C +0.15 / R −0.14 bp; $300 51.3k/min R/C +0.31; miner-wide R/C +0.29; Σα vs 252 −2.9.
+  - B1: **$30 ZERO fills**; $300 55.8k/min R/C +0.25; miner-wide +0.25; Σα vs 252 +1.2.
+  - Fleet $30 (B1): 210 19.4k/min C +1.43 / R +0.73; 251 21.3k C +1.33 / R +0.50; 169 14.1k C +1.33 / R +0.82.
+- **Cause: churn, not the market.** B1 placed **10,170 $30 orders, median life 0 s** (A1: 715, median 18 s). FRONT30 kept 2 of 19; when our orders reached best, 64% had ≥ 50% ahead.
+  - Keep loops set want = the LAST qualifying order's price; with the $30 ladder order 1 tick behind the touch, the target walked down every round.
+  - **The §1965 fleet-style B1 churned too** (2,796 orders, median 0 s vs A 828 / 23 s) and so did, by the same code, the §1950 keep test → **those keep / queue-priority verdicts are VOID**. The queue-priority idea has not been tested yet.
+- ABAB pid 19740 killed; base params restored.
+- **Fix 1 (agents b4a82214, patch_front2.py):** each side keeps the qualifying order NEAREST the others' best (both keep loops). Deployed 21:40:50 UTC, 0 tracebacks; newminer.sh → b4a82214. Still churned with B on (3,727 orders per 120 sim s, median 0 s). Short-lived orders sit 2 ticks behind best.
+- **Second cause:** mk_low_touch_min 2 sets no_touch on every 1-tick-spread round (most $30 rounds). That cancels the touch order and walks the kept target. With stay-behind 1 the touch is never at best anyway, so B tries touch_min 0 (lifetime check running).
