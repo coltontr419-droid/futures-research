@@ -29142,3 +29142,10 @@ fillrecs2 over the exact block windows (A1 sim 5944–6435, B1 6435–6930), val
 - **253:** $5/mo ($0.17/d), incentive 0.0001, net α 434, making 0. Scores: **skill_rank 0.421 vs 252 0.399**; score 0.210 vs 0.316 (252 making_rank 0.233).
 - **252:** ≈ $215/mo (incentive 0.0043), captured 51.8 / realized 27.2 / share 0.0025.
 - A2 (base, from 04:52 UTC), Σα vs 252: +8.9, +4.3, −6.9 → mean +2.1. B2 starts ≈ 11:30 PM; verdict 12:08 AM.
+
+## §1927 — 11:47 PM CT brief (combined ABAB block B2)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 192 blocked; release states unchanged.
+- **253:** **$12/mo ($0.40/d)** (incentive 0.0002, ramping); net α 513; making 0. Scores: **skill_rank 0.420 vs 252 0.354**; score 0.210 vs 0.309 (252 making_rank 0.265).
+- **252:** ≈ $205/mo (incentive 0.0041), share 0.0025.
+- **Prune line $32** (253 ≈ 0.4×; still protected ≈ 18 h).
+- A2 (base) Σα vs 252: +8.9, +4.3, −6.9, −11.5, −2.9, −2.7 → mean **−1.8**. B2 first check **+15.4** at $185k notional (A2 $70–130k).
