@@ -29263,3 +29263,12 @@ $30 fills, sim 7993–9049 (both on the current base with touch_min 2):
 - The $300 class is now at **+0.33–0.35**. The **$30 class (−0.31 to −0.41 bp per $) holds miner-wide below 0.**
 - **Deployed agents 7c1e2df1** (mk_low_behind): restart 09:18:47 UTC, 0 tracebacks, fills OK; backup .bak-4064856a; newminer.sh → 7c1e2df1. Base set explicitly (tight 5, touch_min 2, behind 0, strong-inside 0) in live + NEXT.
 - **$30-only ABAB** speed/abab_behind253.sh (started ≈ 09:20 UTC): A = base, B = + mk_low_behind 1. Early read 4:42 AM; verdict 5:57 AM (chains).
+
+## §1935b — 3:50 AM CT brief (stay-behind ABAB block A1)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 1 of 192 blocked; release states unchanged.
+- **253:** **$41/mo ($1.38/d)**, incentive 0.0008, net α 805, making 0. Scores: skill_rank 0.329 vs 252 0.265; score 0.165 vs 0.294.
+- **252:** ≈ $165/mo (incentive 0.0033), captured 96.9 / realized 57.0 / share 0.0027, making_rank 0.323. **Prune line $84** (253 ≈ 0.5×).
+- **Low 253 $300 volume since the 3:18 AM restart:** $2–20k per sim min vs 252's $8–46k; skill checks −17.7 / −13.3 / −9.1.
+  - Cause: the lean model needs ≈ 300 sim s of history, and the sim runs ≈ 10 sim s per wall min → ≈ 30 wall min after a restart. Tight pull and GATE activity are normal.
+  - The ABAB's 60-s warm-up was too short for $300 metrics after a restart. This test judges the $30 class (no lean on $30), so it is unaffected. $300 numbers in A1 are depressed.
+- Lesson: after any restart, ABAB warm-up ≥ 300 sim s (wall time depends on sim speed).
