@@ -29311,3 +29311,23 @@ blockcmp + pos30 (A1 sim 10162–10533, B1 10533–10900):
   - Offline basis: 252's 1-behind fill sizes. Our own 1-behind fill history is too thin for a numeric bound.
 - Started automatically by the lab-side /tmp/chain_behind2.sh (pid 2712415) once abab_behind253.sh (pid 2704121) exits (≈ 5:30 AM) + 60 s. The test keeps running while the laptop is closed.
 - Cron at 6:02 AM: stay-behind verdict + check the chained test + schedule its reads.
+
+## §1940 — 6:05 AM CT — $30 stay-behind (mk_low_behind 1, size 0.06) VERDICT: miner-wide −0.06 → +0.50, but $30 volume −96% → not base alone; behind+size test (chained) running
+Pooled blockcmp (A1 10162–10533 + A2 10900–11269 vs B1 10533–10900 + B2 11269–11648):
+
+| | A base | B stay-behind |
+|---|---|---|
+| **miner-wide 253** | **−0.06** | **+0.50** (252: +0.66 / +0.44) |
+| $30 $ per sim min | 16.6k | **0.7k (−96%)** |
+| $30 C / R per $ | −0.29 / −0.27 | −0.50 / +0.01 |
+| $30 Σ 2·min | −14.39 | −0.85 |
+| $300 R/C (Σ 2·min) | +0.63 (−4.39) | +0.47 (−2.17) |
+| Σα vs 252 per check | −5.6 | +1.4 |
+| $30 position (A2 / B2) | at best 96% (−0.20), 1 behind 4% (+0.41) | 1 behind 27% (+0.65), 2+ behind 73% (+0.03) |
+
+- The making gate (miner-wide quality) opens clearly with the $30 drag removed. But behind alone leaves $30 ≈ untraded (≈ dropping the group; user rule) → **NOT made base on its own**.
+- The few behind fills we do get keep value (1 behind +0.65 bp).
+- The chained test abab_behind2_253.sh (started 11:28 UTC = 5:28 AM) is running: A = base, B = behind 1 + mk_low_size 0.1.
+  - A1 (sim 11678–12071) $30: C −0.29, R −0.36 bp.
+  - BEHIND30 binds (1,194 / 2,120 sides).
+- Reads: early 6:42 AM; verdict + morning summary 7:52 AM (replaces the 7:47 summary cron).
