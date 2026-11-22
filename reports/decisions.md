@@ -28951,3 +28951,15 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - Deployed: restart 01:19:17 UTC, 0 tracebacks, fills OK. newminer.sh → 4064856a. Tracking switched on (th −1, no gating) at 01:21 UTC.
   - First ADAPT line: VX settled 90 (untagged 1); buckets reaching n ≈ 20. The sim is slow, so data builds slowly.
 - **ABAB restarted** (abab_adapt253.sh, started 01:20:43 UTC; old proxy-run log renamed abab_adapt253.proxy-invalid.log): A = tracking only, B = $30 gate. Early read 8:52 PM, verdict 10:07 PM.
+
+## §1911 — 7:40 PM CT brief + user question on the $30 "kept" numbers
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0 of 154 blocked; release states unchanged.
+- **253:** $0/mo (incentive still 0; 1.5 h old), net α 76, making gauges 0.
+  - **Scores:** 253 **skill_rank 0.373 vs 252 0.346** (already ahead on skill); making_rank 0 vs 0.168 → score 0.186 vs 0.257.
+- **252:** ≈ $215/mo (incentive 0.0043), captured 40.7 / realized 17.3 / share 0.0026.
+- Adaptive ABAB in its warm-up (log appears at block start ≈ 7:36 PM).
+- **User asked:** is 253's $30 "kept" result real and why it is ≈ 10× worse.
+  - The §1910 table showed window TOTALS (C −4.40 / R −6.70 summed over $390k of fills), not per-$ or ratios.
+  - Per $: 253 $30 C −0.12 bp, R −0.20 bp. 252 in the same window: C −0.01, R −0.07 bp on $94k.
+  - Earlier references: 101 post-reset A blocks R +0.44–0.49 bp per $; this morning's rough $30 windows −0.12 to −0.29 bp; good windows +0.01 to +0.6.
+  - → It is real but not 10× worse: the $30 market swung from good (post-reset) to flat or negative for everyone. 253 is worse than 252 per $, mainly because its at-best fills capture negatively (C < 0).
