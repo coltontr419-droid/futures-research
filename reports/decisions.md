@@ -29037,3 +29037,11 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
   - T2 live: $300 volume ≈ 1.4× (within the 1.5× cap) and skill **+12 Σα/check**.
 - **Offline bound (partial):** if ≈ 30% of 253's wide behind / sweep fills (+0.21) became inside fills at 252's +0.68 → $300 R/C ≈ +0.26 → ≈ +0.40. T2's own fills by spread can't be re-checked (that tape has rotated).
 - **ABAB speed/abab_si253.sh** (started ≈ 03:20 UTC; 60-s warm-up; safety ≥ 20 blocked): A = base, B = + strong-inside. Early read 10:40 PM, verdict 11:57 PM.
+
+## §1918 — 9:35 PM CT — miner-wide making quality on the base (253): NEGATIVE tonight; overnight plan per user
+- 253 base fills since start (sim 3,700–5,679, excluding the $30-gate block):
+  - $300 $459k, C +15.1, R +2.7 (**+0.18**);
+  - $30 $751k, C −0.2, R **−7.4**;
+  - **miner-wide ≈ −0.32 → quality clamps to 0 → no making pay** while the $30 market is rough (252's $30 also negative tonight; post-reset it was +0.6–0.9).
+- **User plan:** let the strong-inside $300 test finish. Wins → live. Loses → 253 runs the base overnight with NO changes; morning report on making gauges + pay.
+- Offered, not applied (needs an offline check + user yes): shrink the $30 size ≈ 65% overnight so $30 losses < $300 gains (miner-wide > 0).
