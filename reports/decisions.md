@@ -29339,3 +29339,21 @@ Pooled blockcmp (A1 10162–10533 + A2 10900–11269 vs B1 10533–10900 + B2 11
   - Scores: **skill_rank 0.434 vs 252 0.295**; score **0.217 vs 0.265** (gap closing; 252 making_rank fell to 0.236).
 - **252:** ≈ $145/mo (incentive 0.0029), captured 76.6 / realized 43.3 / share 0.0027. Prune line $86.
 - B1 (behind 1 + size 0.1): BEHIND30 3,863 of 5,880 sides; Σα vs 252 +9.2, +1.7, +12.0.
+
+## §1942 — 6:45 AM CT — behind+size EARLY READ: $30 volume partly back (still −89%), miner-wide −0.10 (base ≪ 0) → let it run; the $30 losers are fills AT the new best after the level in front clears
+blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
+
+| | A1 base | B1 behind 1 + size 0.1 |
+|---|---|---|
+| $30 253 $ per sim min | 24.1k | **2.7k** (size 0.06 run: 0.4–0.7k) |
+| $30 position (253) | at best 96% (−0.37 bp), 1 behind 3% | **at best 89% (−0.51)**, **1 behind 11% (+1.56)** |
+| $30 Σ 2·min | −11.15 | −1.36 |
+| $300 R/C | +0.28 | +0.01 (block noise; C +0.33, R ≈ 0) |
+| miner-wide 253 | C < 0, R < 0 → 0 | **−0.10** |
+| Σα vs 252 per check | +0.5 | +5.5 |
+| 252 $30 position | 1 behind 21% (+1.07), at best 73% (−0.28) | 1 behind 18% (+1.71), at best 82% (−0.22) |
+
+- The bigger order gets ≈ 4–6× more $30 volume than size 0.06 behind. The 1-behind fills keep a lot (+1.56 bp, like 252's +1.71).
+- But most of our $30 fills are still "at best" (−0.51): the order rests one tick behind, the level in front clears between our rounds, and the next taker hits us at the new best before we re-place.
+- Likely link to RESPONSE TIME (call_time 0.29 s vs 252's 0.14 s): 252 re-places faster.
+- Not a clear loss → continue. Verdict 7:52 AM.
