@@ -29707,3 +29707,11 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Fleet median $164 / score 0.354 / making_rank 0.61 / call_time 0.209. Top: 210 $279 (making 0.96, skill 0.42), 169 $220, 251 $220, 225 $204 (0.93 / 0.41). 252 $161.
 - **Prune line ≈ $113** (lowest non-immune); 253 ≈ 0.65×; immunity ends in ≈ 3.1 h (≈ 6:05 PM CT).
 - A1 skill (253 vs 252, Σα / bp): −11.5 → −11.2 → −2.0 → +7.7 → +14.6 (post-restart lean warm-up, recovering) vs 252 +6.5 … +10.5.
+
+## §1973 — 3:27 PM CT brief (NOTE; front-keep ABAB block B1)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–2 blocked; disk 27%; ABAB pid 19740 alive. B1 since 21:02:43 UTC (sim 18640): KEEP 3,120–3,171 kept in place per sim min; **FRONT30 kept 0 of 1–3 at-best orders** (few of our orders reach best; none at the front yet).
+- **253:** $81/mo ($2.70/d); making captured 8.4 / realized 3.3 / share 0.0003 / making_rank 0.020; skill_rank 0.382; score 0.201; call_time 0.148.
+- Fleet median $164 / score 0.366 / making_rank 0.61 / call_time 0.209; 210 $282 (0.95 / 0.46), 169 $224, 251 $217; 252 $159.
+- **Prune line ≈ $105** (lowest non-immune); 253 ≈ 0.77×; immunity ends in ≈ 2.6 h (≈ 6:05 PM CT).
+- A1 end (sim 18225–18640): $30 3 fills / $10k (C +0.15 / R −0.14 bp); $300 144 fills / $304k, C +0.33 bp. A1 last skill +35.5 Σα vs 252 +9.4.
+- B1 skill (253 vs 252, Σα): +15.1 / +6.5, +4.5 / +5.3, +14.5 / +4.5, +4.9 / +6.3.
