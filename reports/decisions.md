@@ -29304,3 +29304,10 @@ blockcmp + pos30 (A1 sim 10162–10533, B1 10533–10900):
 - **253:** **$45/mo ($1.49/d)**, incentive 0.0009, net α 856, making 0. Scores: skill_rank 0.308 vs 252 0.272; score 0.154 vs 0.296.
 - **252:** ≈ $155/mo (incentive 0.0031), captured 102.1 / realized 60.7 / share 0.0027, making_rank 0.321. Prune line $84 (253 ≈ 0.54×).
 - A2 (base), Σα vs 252: −1.5, −3.4, −1.6, +4.7, +0.2. 253's $300 notional is back to $103–124k per check.
+
+## §1939 — 5:00 AM CT — user: no skill boosts for survival, all effort on making; next $30 test CHAINED on the lab (laptop closed until 6 AM)
+- **User:** "we dont need to do that, id rather we put our efforts into getting our making share to work" (on using strong-inside +24 Σα/check to clear the $84 prune line). Saved to memory.
+- **Next $30 test** speed/abab_behind2_253.sh: A = base (behind 0, low size 0.06); B = mk_low_behind 1 + mk_low_size 0.1 (bound max). Aim: get FILLED one tick behind like 252 (1-behind fills ≈ $1.8k, +0.97 bp); ours ≈ $0.6k never fill (queue, §1937).
+  - Offline basis: 252's 1-behind fill sizes. Our own 1-behind fill history is too thin for a numeric bound.
+- Started automatically by the lab-side /tmp/chain_behind2.sh (pid 2712415) once abab_behind253.sh (pid 2704121) exits (≈ 5:30 AM) + 60 s. The test keeps running while the laptop is closed.
+- Cron at 6:02 AM: stay-behind verdict + check the chained test + schedule its reads.
