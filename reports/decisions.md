@@ -29387,3 +29387,20 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
   - Copied old → new directly (temporary key /root/.ssh/mig_key on the old box): /opt/mvtrx minus repo/logs (17 G), repo/simulate (4.9 G), tapes and slices = 9.4 GB. Hotkey x3 + coldkeypub (no coldkey on either box). Unit copied with --axon.external_ip 192.241.128.48.
   - New box: imports OK (bittensor 10.5.0), agent 7c1e2df1 compiles, regcheck REGISTERED, firewall inactive.
   - Cutover after B2 ends: stop + disable on old → final sync of live_params / pace ledgers / our_uids → enable + start on new → move timers (taperotate, releasewatch + simreset, overnight guard) and layout_switch.py → repoint the ssh alias mvtrx-lab to the new box (the old one becomes mvtrx-old).
+
+## §1946 — 7:45 AM CT — CUTOVER DONE: UID 253 now runs on the dedicated-CPU droplet 192.241.128.48
+- 13:38:49 UTC: the behind+size ABAB finished (last END lines written; script exited and set arm A).
+- 13:39 UTC, old box (157.245.86.147, now ssh alias **mvtrx-old**):
+  - mvtrx-x3 stopped + disabled;
+  - timers releasewatch / overnight / taperotate disabled;
+  - layout_switch.py (pid 2542577) stopped.
+- Final sync to the new box: live_params_253 / NEXT, pace_253.ledger (md5 0e729608 identical), pace_sync_253.json, our_uids.txt, release-watch state + logs, layout_switch.log, ov_state, and the 3 timer + service unit pairs.
+- 13:39:47 UTC, new box (ssh alias **mvtrx-lab** = mvtrx-lab2):
+  - regcheck REGISTERED → enable --now mvtrx-x3. "Serving miner axon at 192.241.128.48:8105".
+  - PACE ledger replayed (median $35k). 0 tracebacks.
+  - **First validator round at 13:40:31 (≈ 45 s after start)** and fills on the new tape.
+  - Timers enabled; layout_switch.py restarted (pid 4146).
+- Local ~/.ssh/config: mvtrx-lab → new box (backup ~/.ssh/config.bak-migration).
+- **The old box keeps the user's other projects** (/opt/harnyx, swe, sn101lab, synth + its daily synth-forward timer, bexlab, hone, tb, noah-repo, clique; weekly subnet-screen timer) and the old tapes / test logs. Don't destroy it before the user decides.
+- The old box was not CPU-loaded by other work (load ≈ 0.2); the speed gap is the CPU type (≈ 1.4× single-core).
+- Cost: +$84/mo while both run.
