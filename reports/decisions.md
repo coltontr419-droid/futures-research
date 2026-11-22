@@ -29231,3 +29231,10 @@ $30 fills, sim 7993–9049 (both on the current base with touch_min 2):
   - Staged as agents/QuoteAgent.py.next-7c1e2df1; deploy (restart) at the 3:05 AM tight-6 verdict.
 - **Offline bound:** removes the at-best $30 fills (95% of $30 $ at −0.30 bp). Our 1-behind fills are tiny today, so $30 R ≈ 0 and **miner-wide ≈ the $300 ratio (> 0) → the making gate opens**. Upside if 1-behind volume grows toward 252's (+0.97 bp).
 - Next combined test (3:05 AM): $30 mk_low_behind 1 + a $300 idea that passes offline (tight 7 if tight 6 wins).
+
+## §1934 — 2:15 AM CT brief (tight-6 ABAB block A2)
+- x3 = 253 REGISTERED; 0 tracebacks; PACE 0–1 of 192 blocked; release states unchanged.
+- **253:** **$36/mo ($1.21/d)** (incentive 0.0007, ramping); net α 783; making 0. Scores: **skill_rank 0.438 vs 252 0.307**; score 0.219 vs 0.314 (252 making_rank 0.321).
+- **252:** ≈ $175/mo (incentive 0.0035, falling), captured 86.4 / realized 50.1 / share 0.0026.
+- **Prune line $51** → 253 at 0.7×; protected until ≈ 6:15 PM.
+- A2 (tight 5), Σα vs 252: −5.6, −14.6, −1.0.
