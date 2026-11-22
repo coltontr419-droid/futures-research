@@ -29449,3 +29449,10 @@ blockcmp + pos30 (A1 sim 11678–12071, B1 12071–12450):
 | p5 | 0.23–0.25 s | **0.144 s** | 0.072 s |
 
 - **Now (8:08 AM):** 253 $54/mo ($1.79/d), net α 1,134, **skill_rank 0.452 vs 252 0.339**, score 0.226 vs 0.351 (252 making_rank 0.362). Making 0. Prune line $95. Release main unchanged.
+
+## §1949 — 8:16 AM CT brief
+- x3 = 253 REGISTERED (new box); 0 tracebacks / 0 FASTDEC fallbacks; PACE 0 blocked; BEHIND30 3,441 of 5,520; release states unchanged; disk 12 G of 48 G.
+- **253:** **$67/mo ($2.22/d)** (incentive 0.0013, rising); net α 1,138; making captured / realized / share 0 / 0 / 0. Scores: **skill_rank 0.461 vs 252 0.317**; score 0.231 vs 0.337.
+- **252:** ≈ $140/mo (incentive 0.0028), captured 106.2 / realized 64.6 / share 0.0028, making_rank 0.356.
+- **Prune line $83** → 253 at **0.81×**; protection until ≈ 6:15 PM.
+- **call_time:** 253 **0.156 s** (p5 0.108) vs 252 0.127 (p5 0.074). Was 0.29 / 0.23–0.25 on the old box.
