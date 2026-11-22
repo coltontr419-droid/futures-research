@@ -29615,3 +29615,9 @@ blockcmp + fleetfills (A1 sim 15065–15448, B1 15448–15835):
   - Net α 960; **skill_rank 0.449**; score **0.241** (fleet median 0.326; 210 0.664; 252 0.409). call_time 0.165 (fleet median 0.205).
 - Fleet median $156; 210 $267; 252 $147. Prune line $99 (253 ≈ 0.80×).
 - A2 (base), Σα vs 252: −0.8, +1.4, +1.1, +1.9.
+
+## §1964 — 12:15 PM CT brief (fleet-size ABAB block B2)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; **PACE 0 blocked in all 7 status lines (30 min)**; release main unchanged; disk 26%.
+- **253:** $79/mo ($2.64/d), incentive 0.0016; making captured 10.1 / realized 2.41 / share 0.0001 / making_rank 0.007 (dipped from 0.034; noisy window); net α 896; skill_rank 0.406; score 0.206 (fleet median 0.315; 210 0.665; 252 0.432). call_time 0.155 (fleet median 0.195).
+- Fleet median $159; 210 $274; 252 $152. **Prune line $104** (253 ≈ 0.76×).
+- B2 (3× + $30 0.2), Σα vs 252: −15.8, −8.8, −4.6, +1.7, +3.5 ($300 notional $81–147k).
