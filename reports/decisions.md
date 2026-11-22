@@ -29564,3 +29564,9 @@ Tape, last 20 sim min, maker $ by class and books (two-sided share = Σ_b 2·min
 - **253:** $77/mo ($2.55/d), incentive 0.0015; making captured 3.78 / **realized 0.32** / making_rank 0.007 (still > 0); net α 954; skill_rank 0.364 (fleet median ≈ 0.07); score 0.185 (fleet median 0.267; 210 0.586; 252 0.344). call_time 0.151 (fleet median 0.196).
 - Fleet median $156/mo; 210 $265; 252 $137. Prune line $95 (253 ≈ 0.81×).
 - Fleet-size ABAB: warm-up done, A1 (base) started 16:12:53 UTC.
+
+## §1959 — 10:45 AM CT brief (fleet-size ABAB: A1 done, B1 starting)
+- x3 = 253 REGISTERED (new box); 0 tracebacks / fallbacks; PACE 0 blocked; release main unchanged; disk 25%.
+- **253:** **$84/mo ($2.79/d)** (incentive 0.0016); **making captured 10.4 / realized 1.30 / making_rank 0.013** (all rising); net α 962; skill_rank 0.383; score 0.198 (fleet median 0.273; 210 0.621; 252 0.355). call_time 0.163 (fleet median 0.203).
+- Fleet median $156; 210 $267; 252 $147. Prune line $93 (253 ≈ 0.90×).
+- A1 (base): $30 = 3 fills / $10k. B1 (3× $300 + fleet-style $30) started 16:44:01 UTC; KEEP30 active.
