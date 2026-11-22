@@ -28931,3 +28931,23 @@ speed/extravol.py, two clean windows after the tight base (sim 58000–58382 and
 - → Adaptive ABAB stopped 01:17 UTC (it was in A1; no B data); mk_adapt30 0 on 253 (plain base now). Early-read / verdict crons deleted.
 - **Fix:** the tracker must call the validator's own debeta functions (accumulate_book_capture with mid_state, the _attribute_capture wrapper as in our offline scripts). Run it in the tape thread, off the reply path, and share per-bucket stats with the handler.
 - Lesson: validate any in-miner proxy against the validator-basis offline numbers BEFORE live testing.
+
+## §1910 — 7:32 PM CT — VALIDATOR-EXACT tracker built, validated, live (agents 4064856a); adaptive $30 ABAB restarted
+- **patch_vx.py:**
+  - The live validator's debeta.py (repo067, 0.6.7, stdlib-only) is loaded by path as an isolated module.
+  - Its `_attribute_capture` is wrapped to record our maker fills' C and R.
+  - `accumulate_book_capture` runs in the TAPE thread on every round's $300 + $30 trades (mid_state across rounds, W 15, horizon 20 s, fee weight 0.005, fee_complete_sides logic inline).
+  - The reply path only tags our new fills with last round's quote buckets. Settled fills (C and R both known) go into the per-bucket rolling deques the gate reads. The old book-mid proxy is removed.
+  - Logs "ADAPT: … VX settled n (untagged m)".
+- **Offline validation** (/tmp/vx_validate.py: the agent's _vx_round replayed round by round over 253's last 13 sim min vs fillrecs whole-batch):
+
+| | tracker fills / C / R | offline fills / C / R |
+|---|---|---|
+| $300 | 220 / +4.51 / +0.79 | 219 / +4.52 / +0.68 |
+| $30 | 661 / −4.40 / −6.70 | 656 / −4.85 / −7.77 |
+
+  → matches (the residual is edge fills not yet settled). 253's $30 was losing in that window (C < 0).
+- Gate rule with C ≤ 0: q = +1 if R > 0 else −1 (so both-negative buckets are gated).
+- Deployed: restart 01:19:17 UTC, 0 tracebacks, fills OK. newminer.sh → 4064856a. Tracking switched on (th −1, no gating) at 01:21 UTC.
+  - First ADAPT line: VX settled 90 (untagged 1); buckets reaching n ≈ 20. The sim is slow, so data builds slowly.
+- **ABAB restarted** (abab_adapt253.sh, started 01:20:43 UTC; old proxy-run log renamed abab_adapt253.proxy-invalid.log): A = tracking only, B = $30 gate. Early read 8:52 PM, verdict 10:07 PM.
