@@ -29940,3 +29940,11 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (7 h old): $11/mo**; making captured 27.1 / realized 7.4 (q 0.27) / **making_rank 0.044**; skill_rank 0.206 (fleet median 0.150); score 0.125; call_time 0.158.
 - Fleet median $158 / making_rank 0.68; 169 $327, 210 $281, 251 $204; 252 $163. Prune line ≈ $96; 165 protected ≈ 17 h.
 - **§2006 add (1:27 AM, NOTE):** B2 (lag 1) since 07:00:42 UTC (sim 25497), 0 tracebacks; ABAB ends ≈ 07:34 UTC (1:34 AM CT); gauges unchanged from §2006.
+
+## §2007 — 1:45 AM CT — $300 lag VERDICT: mk_vol_lag 1 DISPROVEN (stays 0); live recipe matched the fleet in A2 → clean baseline read next
+- ABAB done; live = tight 5, lad "1:2", mk_vol_lag 0. Churn: A2 20,250 $300 orders / 390 sim s (p50 0 s); B2 14,539 / 389 sim s (p50 1 s). PACE A2 1–2, B2 0–1.
+- **A2 (live): $300 19.4k/min C +0.52 / R +0.36, R/C +0.69; $30 2.9k/min C +1.13 / R +0.72, R/C +0.63; miner-wide +0.67.** Fleet same window: $300 169 +0.78, 210 +0.87, 251 +0.43, 252 +0.78; $30 169 +0.44, 210 +0.52, 251 +0.37, 252 +0.08.
+- **B2 (lag 1): $300 20.0k/min C +0.19 / R −0.22, R/C −1.18**; $30 6.9k/min R/C +0.63; miner-wide +0.13. Fleet B2: $300 169 +0.12, 210 +0.43, 251 +0.76, 252 +0.48 (weaker window, still positive).
+- Both lag blocks negative on $300 (B1 −0.28 confounded, B2 −1.18) → lag 1 NOT KEPT. Keeping a quote that the target moved away from keeps it stale; less churn did not mean better fills.
+- **A2 = first block where BOTH classes match/beat the fleet on quality** ($300 0.69 vs fleet 0.43–0.87; $30 0.63 vs 0.37–0.52). But the tight-5 $300 history is volatile (0.20, 0.68, 0.16, 0.69) → one block is not enough to settle.
+- **Next: clean baseline read of the live recipe (no test), ≈ 1 h (two windows), per class vs fleet.** If both classes match/beat the fleet in both windows → SETTLED (user 11-22 night). Else → next $300 test.
