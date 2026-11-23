@@ -29802,3 +29802,13 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Position check (B):** nearest own $30 order per side **97% at 1 behind** (was 28–69% at 2–3 behind); 484 orders per 120 sim s, life p25/p50 15 / 61 s → re-pricing like base, **no churn**. FRONT30 25 of 112 at-best orders kept.
 - **165 (1 h old):** $0/mo yet; making captured 0 (lookback ramp); skill_rank 0.037; score 0.019; call_time 0.173. B1 skill vs 252: −4.9 / +5.0, −5.2 / +8.0 (warm-up).
 - Fleet median $161 / score 0.474 / making_rank 0.69; 210 $290, 169 $272, 251 $209; 252 $162. Prune line ≈ $85–97; 165 protected ≈ 23 h.
+
+## §1986 — 7:52 PM CT — always-1-behind B1 READ: $30 quality = FLEET level (small n); ABAB continues
+- B1 (sim 21818–22118, 5 sim min; 97% of time at 1 behind, no churn):
+  - **165 $30: 2.4k/min (13 fills), C +1.20 / R +0.87 bp, R/C +0.73** — best $30 read yet (front-keep §1979: C +0.92 / R −0.07).
+  - Depth: **165 1-behind n7 $7k C +1.80 / R +1.51** (top3 1-behind n20 $68k C +1.90 / R +1.63); 165 at-best n6 C +0.48 / R +0.11.
+  - Queue: front < 10% n6 C +2.08 / R +2.02; 10–50% n6 C +0.52 / R −0.11 (queue place still matters).
+  - Fleet $30 same window: 169 14.1k/min R/C 0.90, 210 17.7k R/C 0.60, 251 15.0k R/C 0.59, 252 9.1k R/C 0.44.
+  - $300 165 21.5k/min R/C +0.18 (window weak for all: 169 −0.02, 210 −0.05). 165 miner-wide R/C +0.30.
+- **Gap now = $30 volume** (2.4k vs 14–18k/min): our 1-behind fills average ≈ $1k vs top3 ≈ $3.4k.
+- Not a loss → A2 / B2 run (verdict ≈ 8:57 PM CT).
