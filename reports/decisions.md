@@ -30179,3 +30179,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Protocol:** trade-event fields Tfb/Tfr/Mfb/Mfr/qs + PriceBandEvent → tolerant fastdec staged (§2044).
 - **Adoption check:** dashboard has 118 validator_gauges series; none with otr / band / queued / phase names; no miner otr gauges → no validator publishing 0.6.8 yet. The validator-level gauge 'debeta_making_otr_threshold' will show adoption.
 - Remaining 0.6.8 to-dos: rest300 verdict (OTR, 1:21 PM) → deploy tolerant fastdec (restart) → size-0.3 re-run → freeze.
+
+## §2046 — 12:24 PM CT brief + rest300 relaunched with keep_deep 8
+- Brief (NOTE): no new alerts; 0 tracebacks / fallbacks; PACE 15–24 (burst); disk 29%. **165 $73/mo**; making captured 273.9 / realized 110.0 (q 0.40) / share 0.0011 / rank 0.257; skill_rank 0.293; **score 0.275**; call_time 0.154. Fleet median $194 / score 0.57; 210 $272, 169 $246, 251 $224; 252 $185. Prune line ≈ $117; 165 protected ≈ 6 h. OTR gauges: none yet.
+- **rest300 (keep_deep 3) B1 (from 18:08:57 UTC):** MSGS vol 2,448–2,762 / 2,449–2,725, calm 631–743 per sim min (≈ unchanged vs 2,700 / 850); $300 order life p50 still 0 s; skill −12.9 / −5.1 → no effect. Cause (likely): our $300 quotes sit 5–9 ticks behind the others' best (churn300, wide $300 spreads) — outside the 1…3-tick keep range → re-priced as before.
+- Relaunch **speed/abab_r300b_165.sh** (pid 79455, log abab_r300b__165.log; no wait; arms B A B; safety ≥ 60): A = SETTLED; **B = mk_rest300 1 + keep_deep 8** (knob max). B1 from 18:23:14 UTC (sim 33647); early check 12:36, B1 read 1:00, verdict ≈ 2:06 PM CT (then tolerant-decoder deploy, size-0.3 re-run, freeze).
