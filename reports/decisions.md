@@ -29869,3 +29869,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
   - Reference: front-keep A2 (§1992, a stronger window) 2.6k/min R +1.33.
 - **$300 165: 21.3k/min, C +0.52 / R +0.10, R/C +0.20** vs 169 +0.77, 210 +0.95, 251 +0.29, 252 +0.60 → **$300 kept share is now our weakest part** (tight 5 on). 165 miner-wide R/C +0.28.
 - Not a loss → A2 / B2 run (verdict ≈ 10:50 PM CT).
+
+## §1996 — 9:58 PM CT brief (NOTE; deep-ladder ABAB block A2 = front-keep lad "1")
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 28%; ABAB pid 36687 alive; tight 5, lad "1". $30: 330 orders per 120 sim s, life p50 120 s (no churn); FRONT30 60 of 71 kept.
+- **165 (3.5 h old):** $1/mo; making captured 9.5 / realized 1.7 / share 0.0001 / rank 0.000 (q 0.18); skill_rank 0.205 (fleet median 0.151); score 0.103; call_time 0.176.
+- Fleet median $165 / score 0.430 / making_rank 0.72; 169 $291, 210 $286, 251 $211; 252 $158. Prune line ≈ $103; 165 protected ≈ 20.5 h.
+- A2 skill vs 252 (Σα): +10.5 / +27.7, +11.3 / +25.1 (165 now positive).
