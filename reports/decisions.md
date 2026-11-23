@@ -29840,3 +29840,14 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (2.5 h old):** $0/mo yet; making captured 3.9 / realized 0.7 (q 0.18); skill_rank 0.220 (fleet median 0.172); score 0.110; call_time 0.162.
 - B2 skill vs 252 (Σα): −4.7 / +31.0, −1.7 / +42.9, −1.8 / +49.5 (252 on a big skill run; $300 fills 2–7 per 3 sim min).
 - Fleet median $161 / making_rank 0.73; 210 $287, 169 $279, 251 $208; 252 $157. Prune line ≈ $94; 165 protected ≈ 21.5 h.
+
+## §1992 — 9:10 PM CT — always-1-behind VERDICT: FRONT-KEEP STAYS ($30 profit per minute ≈ 2.3× higher)
+- tight 5 restored after the script's final write (03:02:30 UTC "mk_tight300 0→5"). B2 churn check: 757 orders, life p50 82 s (ok).
+- **$30 pooled:** A2 front-keep **2.6k/min, C +1.50 / R +1.33 bp, R/C +0.89**; B (B1+B2) always-1-behind **3.8k/min, C +0.90 / R +0.40, R/C +0.45**. $30 R per minute: A ≈ 3.5 vs B ≈ 1.5 → A.
+  - Per block: B1 C +1.20 / R +0.87; A2 +1.50 / +1.33; B2 +0.76 / +0.17 (B2 window weak for the fleet too: 210 R +0.06, 251 +0.47, 169 +0.67).
+  - Depth: 1-behind fills A n12 $14k R +1.28; B n12 $14k R +0.77 (same count). B's extra volume = at-best fills (n23 R +0.19). Top3 1-behind R +1.34–1.41.
+  - Relative to the fleet in the same window: B1 ours 0.87 vs top3 ≈ 1.07; A2 ours 1.33 vs ≈ 0.61; B2 ours 0.17 vs ≈ 0.40.
+- Skill (Σα vs 252) −24 / −29: 252 big skill run in this window; not arm-related.
+- live_params_165 = front-keep (script's final A) + tight 5; live_params_NEXT unchanged (front-keep, tight 5). No param change.
+- **Volume gap cause:** top3 $30 fills are always their full ≈ $3.6k order (p50 3,594, p90 3,611); ours p50 $991 / max $2,311 → 165's orders are still small because soft pacing (pace_cold start) scales size by the token bucket (_pace_factor). 253 at size 0.1 filled ≈ $3.2k. The gap should shrink as the bucket fills; re-measure fill sizes before any size test.
+- Next $30 candidate (offline first): deeper resting ladder (2 + 3 behind) so aged orders roll into 1-behind — check queue position of our 1-behind fills from aged vs fresh orders across today's front-keep windows.
