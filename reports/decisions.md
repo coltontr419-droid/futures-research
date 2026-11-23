@@ -30040,3 +30040,17 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Block-end log for B1 (sim 29515–29912): $30 11 fills / $48k, C +1.59 / R +0.37 (R/C +0.23); $300 43 fills / $130k, C +0.27 bp / R ≈ +0.00 (R/C ≈ +0.01) → weak; the full B1 read (fleet same window) follows.
 - **165 (13 h old): $63/mo ($2.10/d)**; making captured 79.2 / realized 26.0 (q 0.33) / share 0.0005 / rank 0.073; skill_rank 0.328 (fleet median 0.164); score 0.200; call_time 0.154.
 - Fleet median $166 / making_rank 0.52; 169 $326, 210 $271, 251 $204; 252 $217. Prune line ≈ $100–111; 165 protected ≈ 11 h.
+
+## §2022 — 7:30 AM CT — volume test 2 ($30 size 0.3 + ladder 0.1/0.075) STOPPED after B1 → SETTLED
+- B1 (sim 29575–29912): $300 165 23.2k/min (n43, p50 $1.5k) C +0.27 / R +0.00, R/C +0.01 (ref 22.1k R/C 0.66) vs fleet 169 −0.58, 210 +0.51, 251 +0.26 (median 0.26); $30 165 8.5k/min (n11) C +1.59 / R +0.37, R/C +0.23 (ref 7.9k R/C 0.69) vs 169 +0.89, 210 +0.35, 251 +0.07 (median 0.35).
+- No volume gain (+5% / +8%) and quality below the fleet median on both → fail per the user rule; pid 59455 killed; live = SETTLED (A2 was already running SETTLED: "no change").
+
+## §2023 — 7:50 AM CT — $30 books are ONE-SIDED 78–84% of the time; cause = inventory cap on an INHERITED baseline
+- cover30.py: $30 book-rounds with a resting order on both sides only 16–22% (one side 78–84%; per-book median both-sides share 0.00); $300 47–56% both (rest = tight-5 pulls). Fills agree: our $30 fills on 33 books, 36% of them two-sided, vs 210 / 169 / 251 on 54–63 books, 63–82% two-sided; $300 normal (47% vs 41–43%).
+- $30 2+ behind fills are negligible for everyone (1% of $) → a bigger $30 ladder adds nothing; 1-behind is the profit (165 n43 R +1.03 vs top3 n245 R +1.17).
+- Log-only build **37ce4c12** (SIDES30, patch_sides.py), restart 13:28:34 UTC: per sim minute ≈ 3,840 $30 book-rounds: **both 651–660 (17%), buy-only 1,980–1,989, sell-only 1,200; every missing side = INVENTORY CAP** (price 0, funds 0), the same books each minute (≈ 33 capped long, 20 short).
+- Our own net $30 positions since 165's start are only ≈ ±$6k (p10 −$5.9k, p90 +$3.6k) vs the cap 0.3 × $50k wealth = $15k → the cap binds on the account's 'initial' baseline, i.e. holdings that are not ours (slot's previous owner / reset baseline). It also shifts fair value by skew 5 × inv.
+
+## §2024 — 7:45 AM CT — mk_inv_own built (agents 8d6265e3) + ABAB started
+- **patch_invown.py:** mk_inv_own (0/1, default 0 = identical): inventory = (base − OUR first-seen base per book) × mid / wealth0, baseline persisted in /opt/mvtrx/inv_base_<uid>.json (restarts keep it). Affects only max_inv side drops and the skew term.
+- Restart 13:40:08 UTC (0 tracebacks); newminer.sh → 8d6265e3. **speed/abab_inv_165.sh** (pid 63284, log abab_inv__165.log; 900-s warm-up, arms B A B): A = SETTLED; **B = + mk_inv_own 1** (diffed: only that knob). B1 ≈ 13:57 UTC; check 8:06, B1 read 8:33, verdict ≈ 9:07 AM CT.
