@@ -30171,3 +30171,4 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Market rules (to review):** price_band (volume cut on far orders), fee base/refund, queued_orders, delays, exchange_phases, kept_accounts, fundamental_seed, reward/scoring_shadow.
 - Adoption signals now watched in every brief: OTR gauges (still 0 series), FASTDEC fallbacks (still 0), alerts.txt.
 - Standing procedure saved to memory (mvtrx-update-procedure): detect same hour → diff (protocol → scoring → market) → exposure → default-off fixes → adoption signals → testnet early warning.
+- **§2044 add (12:15 PM):** tolerant decoder staged at /opt/mvtrx-lab:/tmp/fastdec_068.py (forbid_unknown_fields=False on FEv/FLevel/FBook): synthetic 0.6.8 trade event (Mfb/Mfr/Tfb/Tfr/qs) decodes with Ma/p intact, EPB price-band event decodes, 3 stored payloads still read. Deploy (restart) right after the rest300 verdict, before the size-0.3 re-run.
