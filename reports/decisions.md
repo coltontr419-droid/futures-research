@@ -30221,3 +30221,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - MSGS last sim min: vol 2,103/2,069, calm 673/644, $30 323/29 ≈ 5,840; our fills (tape, last 5 sim min) **54.6 / min → ≈ 107 msgs per fill** (SETTLED ≈ 7,250 → ≈ 133 at this fill rate). $300 orders 5,574 per 120 sim s (life p50 0 / p90 7 s).
 - B1 skill vs 252: −2.8 / +4.4, **+6.8 / +3.8, +5.3 / +3.3** (skill back positive).
 - **165: $79/mo**; making captured 292.3 / realized 117.3 (q 0.40) / share 0.0013 / **making_rank 0.301**; skill_rank 0.272; score 0.286; call_time 0.176. Fleet median $217 / score 0.58; 210 $290, 251 $251, 169 $247; 252 $193. Prune line ≈ $114; 165 protected ≈ 4 h. OTR gauges: none yet.
+
+## §2053 — 2:30 PM CT — rest300 keep_deep 5 NOT KEPT (same failure as kd 8); next OTR candidate = 1-tick debounce
+- B1 (sim 34830–35221, no burst): MSGS ≈ 5,190–5,930 / sim min (mean ≈ 5,570, −23% vs SETTLED ≈ 7,250); our fills ≈ 50 / sim min → ≈ 110 msgs/fill.
+- **$300 165 37.7k/min, 47 fills/min, R/C −0.03** vs 169 +0.41 (15.8 f/min), 210 +0.48 (24.6), 251 +0.43 (15.0); $30 165 R/C +0.49 vs 0.34–0.70; **miner-wide 165 +0.20** vs 0.37–0.65. Skill −8.9, −7.6, −2.8, +6.8, +5.3, +1.7.
+- → **mk_rest300 (any depth) = NOT KEPT**: resting $300 quotes 4–8 ticks deep collect many small fills when the market moves through them, keeping ≈ nothing (kd 8 R/C 0.20, kd 5 −0.03 vs SETTLED ≈ 0.5–0.6). pid 82668 killed after B1; live == SETTLED (A2 had already switched; "no change").
+- Next OTR candidate (smaller staleness): **mk_vol_debounce** — on $300 books a touch order whose target moved by exactly 1 tick (either direction) is kept for N rounds before re-pricing; moves ≥ 2 ticks re-price at once. Targets the flicker / 1-tick moves (≈ half of all $300 re-prices, §2040). Build → equivalence at 0 → restart → ≥ 900-s warm-up → ABAB.
