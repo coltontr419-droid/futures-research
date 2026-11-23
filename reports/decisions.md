@@ -30098,3 +30098,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **$300: 165 49.9k/min (n140, 66 books) R/C +0.59** vs 169 41.5k +0.69, 210 39.1k +0.85, 251 37.6k +0.82 (volume above the fleet; quality slightly below).
 - Miner-wide 165 +0.38 vs 169 +0.64 / 210 +0.71 / 251 +0.62. Skill ($300) B1: +51.5 / +47.8 / +10.9 Σα vs 252 ≈ 0.
 - Judgement: not a clear failure — $30 R/C is volatile block to block on SETTLED too (−0.01 … +0.86, n 6–27) and B1 has only 23 $30 fills; the user's rule is "keep if capture + skill stay about the same" → decide on pooled B1+B2 vs A2 at ≈ 10:43 AM.
+
+## §2033 — 9:52 AM CT brief (NOTE; unit-cap re-run block A2 = SETTLED)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 1–4; disk 29%; ABAB pid 67796 alive; live == SETTLED (A2). $30 life p50 120 s; $300 p50 0 s.
+- A2 skill vs 252 ($300): +16.0 (+1.05 bp) / −3.0, +7.6 (+0.46) / −1.8.
+- **165 (15.5 h old): $91/mo ($3.03/d)**; making captured 183.3 / realized 64.1 (q 0.35) / share 0.0007; making_rank 0.000 (still 0 for 169 and 252 too — validator rank quirk persists); skill_rank 0.231 (fleet median 0.324); score 0.116; call_time 0.160.
+- Fleet median $164; 169 $302, 210 $250, 251 $192; 252 $189. Prune line ≈ $105; 165 protected ≈ 8.5 h.
