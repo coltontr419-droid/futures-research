@@ -29948,3 +29948,4 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Both lag blocks negative on $300 (B1 −0.28 confounded, B2 −1.18) → lag 1 NOT KEPT. Keeping a quote that the target moved away from keeps it stale; less churn did not mean better fills.
 - **A2 = first block where BOTH classes match/beat the fleet on quality** ($300 0.69 vs fleet 0.43–0.87; $30 0.63 vs 0.37–0.52). But the tight-5 $300 history is volatile (0.20, 0.68, 0.16, 0.69) → one block is not enough to settle.
 - **Next: clean baseline read of the live recipe (no test), ≈ 1 h (two windows), per class vs fleet.** If both classes match/beat the fleet in both windows → SETTLED (user 11-22 night). Else → next $300 test.
+- **§2007 cont.:** clean baseline windows W1 = sim 26000–26390 (read 2:15 AM), W2 = 26390–26780 (read + settle decision 2:48 AM CT). No test running.
