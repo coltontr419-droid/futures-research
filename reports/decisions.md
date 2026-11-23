@@ -30160,3 +30160,6 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (17.5 h old): $73/mo**; making captured 244.4 / realized 96.8 (q 0.40) / share 0.0010 / **making_rank 0.257**; skill_rank 0.303 (fleet median 0.410); **score 0.280**; call_time 0.169.
 - Fleet median $194 / score 0.62 / making_rank 0.78; 210 $272, 169 $246, 251 $224; 252 $185. Prune line ≈ $99–116; 165 protected ≈ 6 h.
 - OTR watch: no making_otr_factor / messages_per_fill gauges anywhere yet (0 series).
+
+## §2043 — 12:00 PM CT — rest300 ABAB relaunched with a burst-tolerant safety stop
+- PACE 18–29 blocked in the continuing market burst (pacer protecting budget; same under SETTLED) would trip the ABAB's ≥ 20 stop for reasons unrelated to the arm → killed pid 76729 during its warm-up wait, safety threshold → ≥ 60 blocked (the no-fills stop stays), relaunched as **pid 77691** (700-s wait; B1 ≈ 18:09 UTC = same schedule). Crons re-created with the new pid.
