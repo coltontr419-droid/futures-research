@@ -29771,3 +29771,7 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks; FASTDEC installed; first own fills within 3 min (7 $300 by 00:28 UTC; UID 165's previous owner's fills in the tape are before sim 21165 — filter on ts ≥ 21165).
 - "SETTLEMENT NOT READY (staking proxy missing)" banner: printed on every 253 start too while 253 filled all day → not a sim blocker (check for the exchange's staking-proxy settlement path).
 - Plan: ≈ 1 h of front-keep on the fresh miner (churn check + $30 quality vs fleet), then **speed/abab_fleetfix_165.sh** (A = front-keep, B = FIXED fleet-style $30: touch_min 0, behind 0, keep 1, size 0.1).
+
+## §1981 — 6:32 PM CT — fixed fleet-style $30 ABAB on 165 started straight at B1 (user: skip A1)
+- User: use the front-keep time as A1 and go straight to B1. The sim is slow (only ≈ 1 sim min of front-keep after the warm-up minute), so A1 has no usable data → arms **B1, A2, B2**; **A2 (front-keep) is the baseline**.
+- speed/abab_fleetfix_165.sh (pid 30375, log abab_fleetfix_165.log): A = front-keep (touch_min 0, behind 1, keep 1, keep_deep 3, front 0.25); **B = fixed fleet-style $30 (touch_min 0, behind 0, keep 1, size 0.1)**; only the $30 behind/front/keep_deep knobs differ. B1 from 00:32:16 UTC (sim 21229), 33-min blocks; churn check 6:47 PM, B1 read 7:09 PM, verdict ≈ 8:16 PM CT.
