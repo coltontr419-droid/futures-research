@@ -29949,3 +29949,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **A2 = first block where BOTH classes match/beat the fleet on quality** ($300 0.69 vs fleet 0.43–0.87; $30 0.63 vs 0.37–0.52). But the tight-5 $300 history is volatile (0.20, 0.68, 0.16, 0.69) → one block is not enough to settle.
 - **Next: clean baseline read of the live recipe (no test), ≈ 1 h (two windows), per class vs fleet.** If both classes match/beat the fleet in both windows → SETTLED (user 11-22 night). Else → next $300 test.
 - **§2007 cont.:** clean baseline windows W1 = sim 26000–26390 (read 2:15 AM), W2 = 26390–26780 (read + settle decision 2:48 AM CT). No test running.
+
+## §2008 — 1:58 AM CT brief (NOTE; clean baseline window W1, no test)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 29%; no test running (sim 26192, inside W1). $30: 352 orders per 120 sim s, life p50 120 s.
+- **165 (7.5 h old): $19/mo ($0.63/d)**; making captured 35.4 / realized 10.3 (q 0.29) / share 0.0002 / rank 0.044; skill_rank 0.222 (fleet median 0.161); score 0.133; call_time 0.155.
+- Fleet median $161 / making_rank 0.66; 169 $336, 210 $286, 251 $210; 252 $184. Prune line ≈ $108; 165 protected ≈ 16.5 h.
