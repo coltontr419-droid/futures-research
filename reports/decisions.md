@@ -29917,3 +29917,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **patch_lag.py** (agents 526b35e7 = b4a82214 + mk_vol_lag): on $300 vol/calm books a resting touch order up to `lag` ticks BEHIND its target is kept as the touch order (skipped when an order already sits exactly at the target; never on $30 books). Default 0 = identical code path. SPREAD300 log adds "lag-kept". newminer.sh → 526b35e7; backup QuoteAgent.py.bak-b4a82214.
 - Restart 05:33:48 UTC, 0 tracebacks, FASTDEC installed. Warm-up check with lag 1: $300 orders 3,483 per 90 sim s, life p50 1 s (vs ≈ 4,900 / p50 0 s) → −29% churn; lag-kept 1,549 per sim min. Remaining churn mostly tight-5 pulls (2,163 of 7,230 book-rounds).
 - **speed/abab_lag_165.sh** (pid 43739, log abab_lag__165.log; arms B A B; 240-s wait): A = live (front-keep + lad "1:2" + tight 5, lag 0), **B = + mk_vol_lag 1**; arms diffed vs live: A identical, B only mk_vol_lag. B1 ≈ 05:46:47 UTC; B1 read 12:24 AM, verdict ≈ 1:31 AM CT.
+
+## §2003 — 12:28 AM CT brief (NOTE; $300 lag ABAB block B1)
+- 0 tracebacks / 0 fastdec fallbacks; **PACE 6–8 blocked** (was 0–2; after the 05:33 restart — watch, safety stop at 20); disk 29%; ABAB pid 43739 alive (B1 since 05:46:47 UTC). SPREAD300 2,141 pulled, **lag-kept 2,094** per sim min. $300 orders 3,537 per 90 sim s (life p50 1 s); $30 402 per 120 sim s (p50 101 s).
+- **165 (6 h old): $11/mo ($0.37/d)**; making captured 20.2 / realized 5.1 (q 0.25) / rank 0.007; skill_rank 0.193 (fleet median 0.127); score 0.100; call_time 0.141.
+- Fleet median $158; 169 $327, 210 $281, 251 $204; 252 $163. Prune line ≈ $99; 165 protected ≈ 18 h.
+- B1 skill vs 252: −10.2 / +21.2 (post-restart warm-up).
