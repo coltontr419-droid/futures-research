@@ -30091,3 +30091,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - B1 skill vs 252 ($300, Σα / bp): **+51.5 (+1.14) / +0.0, +47.8 (+1.29) / +0.5, +10.9 (+0.46) / +0.4** — 165 notional still elevated after the burst ($236–450k).
 - **165 (15 h old): $76/mo**; making captured **173.9** (from 87.6) / realized 58.4 (q 0.34) / share 0.0007; **making_rank 0.000** in this read — also 0.000 for 169 and 252 (validator rank quirk after the burst, not ours alone); skill_rank 0.318 (fleet median 0.295); score 0.159; call_time 0.170.
 - Fleet median $166; 169 $319, 210 $261, 251 $197; 252 $215. Prune line ≈ $88–108; 165 protected ≈ 9 h.
+
+## §2032 — 9:40 AM CT — unit-cap re-run B1 READ: $30 VOLUME now fleet-level, $30 quality dipped (n 23) → continue to the verdict
+- Burst check (per 2 sim min, $300): 165 32–51k vs 210 25–48k, 169 30–51k, 251 24–43k → normal (≈ 1.5× quiet levels, no burst).
+- **$30: 165 17.1k/min (n23, 19 books) C +0.70 / R −0.09, R/C −0.13** (SETTLED ref 7.9k/min R/C 0.69) vs 169 15.6k +0.59, 210 19.2k +0.64, 251 18.1k +0.30 → volume ×2.2, now level with the top makers; R/C below their median (0.59).
+- **$300: 165 49.9k/min (n140, 66 books) R/C +0.59** vs 169 41.5k +0.69, 210 39.1k +0.85, 251 37.6k +0.82 (volume above the fleet; quality slightly below).
+- Miner-wide 165 +0.38 vs 169 +0.64 / 210 +0.71 / 251 +0.62. Skill ($300) B1: +51.5 / +47.8 / +10.9 Σα vs 252 ≈ 0.
+- Judgement: not a clear failure — $30 R/C is volatile block to block on SETTLED too (−0.01 … +0.86, n 6–27) and B1 has only 23 $30 fills; the user's rule is "keep if capture + skill stay about the same" → decide on pooled B1+B2 vs A2 at ≈ 10:43 AM.
