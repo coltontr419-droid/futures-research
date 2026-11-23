@@ -29812,3 +29812,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
   - $300 165 21.5k/min R/C +0.18 (window weak for all: 169 −0.02, 210 −0.05). 165 miner-wide R/C +0.30.
 - **Gap now = $30 volume** (2.4k vs 14–18k/min): our 1-behind fills average ≈ $1k vs top3 ≈ $3.4k.
 - Not a loss → A2 / B2 run (verdict ≈ 8:57 PM CT).
+
+## §1987 — 7:57 PM CT brief (NOTE; always-1-behind ABAB block A2 = front-keep)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 1 blocked; disk 28%; ABAB pid 32109 alive; A2 since ≈ 01:49 UTC (sim 22118). $30 orders last 2 sim min: 360, life p50 115 s (no churn); FRONT30 29–42 kept.
+- **165 (1.5 h old):** $0/mo yet; making 0 (lookback ramp); skill_rank 0.194 (rising); score 0.097; call_time 0.161 (fleet median 0.220).
+- Fleet median $161 / score 0.468 / making_rank 0.71; 210 $290, 169 $272, 251 $209; 252 $162. Prune line ≈ $96; 165 protected ≈ 22.5 h.
+- A2 skill vs 252: −7.8 / +13.1.
