@@ -30232,3 +30232,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - deb300.py (offline, our $300 quote-price sequences): a 1-tick debounce of N rounds → re-prices −25% (N 1) / −31% (N 2) / −34% (N 3), quoting 1 tick off target 11% / 16% / 19% of rounds (staleness capped at 1 tick, vs 4–8 ticks for the failed resting mode).
 - patch_deb.py: mk_vol_debounce (rounds; 0 = off = identical): on $300 vol/calm books a touch order whose target moved by exactly 1 tick is kept until the new target persisted N rounds; ≥ 2-tick moves re-price at once; an expired debounce takes the normal cancel / keep path (fix of a first-draft bug that would have left the old order resting beside the new one). SPREAD300 log adds "debounce-kept". Explicit key mk_vol_debounce 0 added to live / SETTLED / NEXT.
 - Restart 20:29:08 UTC, FASTDEC installed (tolerant b6098dc7), 0 tracebacks; newminer.sh → b424e5df. **speed/abab_deb_165.sh** (pid 85224, log abab_deb__165.log; 840-s warm-up; arms B A B; safety ≥ 60): A = SETTLED; **B = mk_vol_debounce 1** (diffed: only that knob). B1 ≈ 20:43 UTC; early check 2:55, B1 read 3:20, verdict ≈ 3:53 PM CT (then size-0.3 re-run if time, then FREEZE).
+
+## §2055 — 2:51 PM CT brief (NOTE; debounce ABAB block B1)
+- No new alerts; 0 tracebacks / 0 fallbacks; PACE 0–2; disk 30%; ABAB pid 85224 alive (B1 from 20:43:09 UTC, sim 35490); live vs SETTLED = mk_vol_debounce 1 only.
+- MSGS last sim min: vol 2,138/2,152, calm 757/749, $30 254/34 ≈ 6,080 (−16% vs SETTLED ≈ 7,250); SPREAD300 debounce-kept 1,384 per sim min. $300 order life p50 1 s (was 0) / p90 6 s.
+- B1 skill vs 252: −5.1 / +7.3 (1 check).
+- **165: $79/mo**; making captured 305.2 / realized 119.7 (q 0.39) / share 0.0014 / **making_rank 0.314**; skill_rank 0.290; **score 0.302**; call_time 0.164. Fleet median $217 / score 0.52; 210 $290, 251 $251, 169 $247; 252 $193. Prune line ≈ $119; 165 protected ≈ 3.5 h. OTR gauges: none yet.
