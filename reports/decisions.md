@@ -30059,3 +30059,13 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 28%; ABAB pid 63284 waiting (B1 ≈ 13:57 UTC); live == SETTLED. SIDES30 (SETTLED): both 632 / buy-only 2,039 / sell-only 1,169 — all missing sides = inventory cap. $30 life p50 120 s; $300 p50 0 s.
 - **165 (13.5 h old): $63/mo ($2.10/d)**; making captured 85.4 / realized 27.8 (q 0.33) / share 0.0005 / rank 0.088; skill_rank 0.348 (fleet median 0.160); score 0.218; call_time 0.157.
 - Fleet median $166 / making_rank 0.52; 169 $326, 210 $271, 251 $204; 252 $217. Prune line ≈ $109; 165 protected ≈ 10.5 h.
+
+## §2026 — 8:10 AM CT — mk_inv_own had NO effect (B1 SIDES30 unchanged) → stopped; probe found the real cap
+- B1 (from 13:55:09 UTC): "mk_inv_own 0→1" applied, inv_base_165.json written (256 books), but SIDES30 stayed both ≈ 17% and every missing side still "inv"; cover30 $30 both 17%. pid 63284 killed; live = SETTLED.
+- Log-only probe (agents 41fc28bc, restart 14:08:14 UTC) printed inv / wealth0 / balances: **inv sits at exactly ±0.300** on 52 of 64 $30 books (wealth0 ≈ $50k) while the real deltas are much smaller (e.g. b130 base 642.5 vs initial 589.2 = +53 units ≈ +$1.6k ≈ 0.03).
+- Cause: the unit's **max_units=40** (hard position cap in BASE UNITS, all books): units ≥ 40 → inv forced to +max_inv (no bids); ≤ −40 → −max_inv (no offers). 40 units ≈ $12k on a $300 book but **≈ $1.2k on a $30 book — below one $30 fill ($3–5k = 100–170 units)** → nearly every $30 book sits at the cap, one side dropped, until a fill on the other side.
+- (mk_inv_own is harmless but irrelevant; left at 0.)
+
+## §2027 — 8:15 AM CT — mk_low_max_units built (agents d0ec22ad) + ABAB started
+- patch_lowunits.py: mk_low_max_units (base units; 0 = use max_units = identical) via the $30 per-book override (_low_ov sets max_units on $30 books only).
+- Restart 14:14:25 UTC, 0 tracebacks; newminer.sh → d0ec22ad. **speed/abab_units_165.sh** (pid 65404, log abab_units__165.log; 900-s warm-up, arms B A B): A = SETTLED; **B = + mk_low_max_units 400** (≈ $12k on $30 books = the $300 books' dollar cap). Diffed: only that knob. B1 ≈ 14:31 UTC; check 8:40, B1 read 9:08, verdict ≈ 9:41 AM CT.
