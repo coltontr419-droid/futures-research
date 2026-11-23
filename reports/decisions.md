@@ -30054,3 +30054,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 ## §2024 — 7:45 AM CT — mk_inv_own built (agents 8d6265e3) + ABAB started
 - **patch_invown.py:** mk_inv_own (0/1, default 0 = identical): inventory = (base − OUR first-seen base per book) × mid / wealth0, baseline persisted in /opt/mvtrx/inv_base_<uid>.json (restarts keep it). Affects only max_inv side drops and the skew term.
 - Restart 13:40:08 UTC (0 tracebacks); newminer.sh → 8d6265e3. **speed/abab_inv_165.sh** (pid 63284, log abab_inv__165.log; 900-s warm-up, arms B A B): A = SETTLED; **B = + mk_inv_own 1** (diffed: only that knob). B1 ≈ 13:57 UTC; check 8:06, B1 read 8:33, verdict ≈ 9:07 AM CT.
+
+## §2025 — 7:52 AM CT brief (NOTE; inv-own ABAB in its 900-s warm-up, live = SETTLED)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 28%; ABAB pid 63284 waiting (B1 ≈ 13:57 UTC); live == SETTLED. SIDES30 (SETTLED): both 632 / buy-only 2,039 / sell-only 1,169 — all missing sides = inventory cap. $30 life p50 120 s; $300 p50 0 s.
+- **165 (13.5 h old): $63/mo ($2.10/d)**; making captured 85.4 / realized 27.8 (q 0.33) / share 0.0005 / rank 0.088; skill_rank 0.348 (fleet median 0.160); score 0.218; call_time 0.157.
+- Fleet median $166 / making_rank 0.52; 169 $326, 210 $271, 251 $204; 252 $217. Prune line ≈ $109; 165 protected ≈ 10.5 h.
