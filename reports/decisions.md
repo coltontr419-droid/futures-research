@@ -29796,3 +29796,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Depth split (fr2 dep), every window:** top3 **1-behind** $30 fills C +1.5 to +3.2 / **R +1.1 to +3.0 bp** ($64–282k per window); top3 at-best C +0.6 to +1.2 / R −0.3 to +0.6. **Our 1-behind fills are positive in every window too (R +0.39 to +0.76) but tiny ($7–14k)**; our at-best fills R −0.35 to 0.
 - At size 0.1 our $30 fills already average ≈ $3.2k (= fleet), so size is not the gap. **where30.py** (nearest own order per side, ticks behind best): 253 base 25% at 1 / **69% at 2** (touch_min 2 pulls the touch on 1-tick spreads → ladder only); 253 front-keep 28% at 1 / 49% at 2 / 22% at 3 (keep_deep lets orders drift); 165 front-keep now 61% at 1.
 - **ABAB speed/abab_one1b_165.sh** (pid 32109, log abab_one1b_165.log; arms B A B): A = front-keep; **B = always 1 behind (touch_min 0, behind 1, keep 0, front 0.25, size 0.1)**. B1 from 01:14:32 UTC (sim 21758); position/churn check 7:27 PM, B1 read 7:51 PM, verdict ≈ 8:57 PM CT.
+
+## §1985 — 7:27 PM CT brief (NOTE; always-1-behind ABAB block B1) + position check
+- 0 tracebacks / 0 fastdec fallbacks; PACE 1–2 blocked; disk 28%; ABAB pid 32109 alive (B1 since 01:14:32 UTC).
+- **Position check (B):** nearest own $30 order per side **97% at 1 behind** (was 28–69% at 2–3 behind); 484 orders per 120 sim s, life p25/p50 15 / 61 s → re-pricing like base, **no churn**. FRONT30 25 of 112 at-best orders kept.
+- **165 (1 h old):** $0/mo yet; making captured 0 (lookback ramp); skill_rank 0.037; score 0.019; call_time 0.173. B1 skill vs 252: −4.9 / +5.0, −5.2 / +8.0 (warm-up).
+- Fleet median $161 / score 0.474 / making_rank 0.69; 210 $290, 169 $272, 251 $209; 252 $162. Prune line ≈ $85–97; 165 protected ≈ 23 h.
