@@ -29765,3 +29765,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Verdict: INCONCLUSIVE (8 fills).** The $30 capture C is fleet-like in both B blocks (+0.91 / +0.93 vs fleet +0.9–1.5), and only B makes $30 volume at all (base: 0). R swings with the window.
 - **Tie → copy the fleet (standing rule):** the next miner starts on B: **live_params_NEXT = base + mk_low_touch_min 0, mk_low_keep 1, mk_low_keep_deep 3, mk_low_front 0.25** (backup live_params_NEXT.json.bak-1979); agents b4a82214 (newminer.sh checks it).
 - Next on the new miner: keep reading front-keep (more $30 fills), then the fixed fleet-style $30 re-run (behind 0 + keep, size 0.1) after a churn check.
+
+## §1980 — 6:30 PM CT — x3 RE-REGISTERED as UID 165 (front-keep settings)
+- User registered x3 → UID 165. `HK=x3 sh newminer.sh 165 253`: regcheck REGISTERED; settings live_params_NEXT (front-keep: touch_min 0, behind 1, keep 1, keep_deep 3, front 0.25; $300 3×, tight 5); agents b4a82214; pace_cold=1 / pace_start 1500; restart 00:25:22 UTC; our_uids.txt = "165 maker x3 21165" (stale 253 line removed; backup our_uids.txt.bak-165).
+- 0 tracebacks; FASTDEC installed; first own fills within 3 min (7 $300 by 00:28 UTC; UID 165's previous owner's fills in the tape are before sim 21165 — filter on ts ≥ 21165).
+- "SETTLEMENT NOT READY (staking proxy missing)" banner: printed on every 253 start too while 253 filled all day → not a sim blocker (check for the exchange's staking-proxy settlement path).
+- Plan: ≈ 1 h of front-keep on the fresh miner (churn check + $30 quality vs fleet), then **speed/abab_fleetfix_165.sh** (A = front-keep, B = FIXED fleet-style $30: touch_min 0, behind 0, keep 1, size 0.1).
