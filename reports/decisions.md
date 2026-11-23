@@ -30019,3 +30019,13 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
   - **165 miner-wide R/C +0.70.**
 - No failure → A2 / B2 continue (verdict ≈ 6:43 AM CT).
 - Brief: 0 tracebacks / fallbacks; PACE 0; disk 28%. **165 $53/mo ($1.77/d)**; making captured 70.3 / realized 26.2 (q 0.37) / rank 0.079; **skill_rank 0.309** (fleet median 0.138); score 0.194; call_time 0.147. Fleet median $163; 169 $329, 210 $270, 251 $202; 252 $209. Prune line ≈ $112; 165 protected ≈ 12 h.
+
+## §2019 — 6:46 AM CT — volume test 1 VERDICT: BOTH ADOPTED ($30 size 0.2, $300/calm ladder ×3); volume test 2 started
+- ABAB done 12:33:13 UTC; live == SETTLED (old) before adoption.
+- **A2 (SETTLED, sim 28774–29052):** $300 34.1k/min (n53) R/C **−1.05**; $30 5.4k/min (n6) R/C +0.86; miner-wide +0.44. Fleet A2: $300 169 +0.62, 210 +0.87, 251 +0.64; $30 169 +0.27, 210 +0.21, 251 +0.55.
+- **B pooled (B1 + B2):** $300 22.1k/min (n85) R/C **+0.66**; $30 **7.9k/min** (n16, p50 $4.9k) R/C **+0.69**; **miner-wide +0.67**; Σα vs 252 B +0.4 / A −1.8. Fleet B: $300 169 −0.18, 210 +0.79, 251 +0.57 (median 0.57); $30 169 +0.50, 210 +0.61, 251 +0.67 (median 0.61); miner-wide 169 +0.37, 210 +0.64, 251 +0.65.
+- **$30 size 0.2: WIN** (volume +46% vs A2, +80% vs the SETTLED ref 4.4k; R/C 0.69 ≥ fleet median 0.61).
+- **$300 ladder ×3: adopted** — R/C 0.66 vs A2 −1.05 (≥ fleet median 0.57), miner-wide 0.44 → 0.67; volume +15% vs the SETTLED ref (19.3k) but below A2's unusually high 34.1k → not "clearly up" on volume alone; bigger ladder orders = fleet-like (tie → copy the fleet).
+- **New SETTLED** = old + mk_low_size 0.2, mk_vol_lad_size 0.08, mk_calm_lad_size 0.06 → live_params_165.json, live_params_165.SETTLED.json, live_params_NEXT.json (backups *.bak-2019; all three equal). Miner log confirms.
+- $300 fills by depth (B): 165 2+ behind 53 fills p50 **$1.5k** (ladder orders) vs 210 24 fills p50 **$3.6k**; 165 1 behind p50 $5.4k (touch 0.3). The ladder-size knob tops out at 0.1 (≈ $1.9k).
+- **Volume test 2: speed/abab_vol2_165.sh** (pid 59455, log abab_vol2__165.log; arms B A B): A = new SETTLED; **B = $30 mk_low_size 0.3 + mk_vol_lad_size 0.1 + mk_calm_lad_size 0.075** (diffed: only those three). B1 from 12:45:39 UTC (sim 29515); B1 read 7:22 AM, verdict ≈ 8:28 AM CT.
