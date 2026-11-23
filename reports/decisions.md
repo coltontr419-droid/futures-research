@@ -29904,3 +29904,11 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 29%; no ABAB running. $30: 406 orders per 120 sim s, life p50 104 s (no churn); FRONT30 54 of 74 kept.
 - **165 (5 h old): $6/mo ($0.20/d)**; making captured 10.3 / realized 2.0 / share 0.0001 / rank 0.014 (q 0.20); skill_rank 0.251 (fleet median 0.262); score 0.133; call_time 0.152 (fleet median 0.216).
 - Fleet median $156 / score 0.460 / making_rank 0.73; 169 $311, 210 $280, 251 $204; 252 $156. Prune line ≈ $93; 165 protected ≈ 19 h.
+
+## §2001 — 11:58 PM CT brief (NOTE) + $300 CHURN FOUND
+- Brief: 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 29%; no test running; tight 5 (SPREAD300 2,308 of 7,634 book-rounds pulled), lad "1:2". $30: 353 orders per 120 sim s, life p50 120 s. **165: $6/mo**; making captured 15.1 / realized 3.7 (q 0.24) / rank 0.000; skill_rank 0.259 (fleet median 0.233); score 0.130; call_time 0.160. Fleet median $156; 169 $311, 210 $280, 251 $204; 252 $156. Prune line ≈ $94; 165 protected ≈ 18.5 h.
+- **$300 offline (qage300_165.py, tight-5 blocks BK1/AK2/BK2):** ≈ 80% of our $300 fill $ come from orders **< 2 s old** (single-taker < 2 s R −0.06; sweep < 2 s R +0.25, 2–10 s −0.20, 10–60 s +0.42). Top3 fills come from all ages, mostly 10–60 s (single 10–60 s R +0.58, < 2 s +0.51; sweep 10–60 s +0.25).
+- **qfront300.py: 165 $300 orders 6,521 per 120 sim s, life p50 0 s** (253 earlier today: 24,325 per 400 sim s, p50 0 s) → **our $300 quotes churn like the $30 ones did**.
+- **churn300.py:** cause = 1-tick target FLICKER: e.g. book 0 bid 303.76 ↔ 303.77 and ask 303.93 ↔ 303.94 almost every round → cancel + re-place each flick (back of queue).
+- History: mk_vol_hold 2 (keep an order the target moved BEHIND, i.e. our order more aggressive) NOT KEPT on 11-21 (§1854, R/C −1.4 vs −0.6). The safe half is the opposite: keep an order that is 1 tick BEHIND the target (less aggressive) instead of stepping up → absorbs the flicker without extra adverse exposure.
+- Next: build knob mk_vol_lag (ticks, default 0 = identical) — $300 vol/calm touch order up to `lag` ticks behind the target is kept as the touch order; churn check + ABAB.
