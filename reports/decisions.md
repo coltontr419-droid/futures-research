@@ -30034,3 +30034,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 28%; ABAB pid 59455 alive (B1 since 12:45:39 UTC). Live vs SETTLED = only the B-arm sizes (0.3 / 0.1 / 0.075). $30 life p50 120 s; $300 p50 0 s.
 - **165 (12.5 h old): $53/mo ($1.77/d)**; making captured 72.8 / realized 27.4 (q 0.38) / share 0.0005 / rank 0.066; skill_rank 0.313 (fleet median 0.123); score 0.189; call_time 0.141.
 - Fleet median $163 / making_rank 0.53 (fleet gauges drifting down this morning); 169 $329, 210 $270, 251 $202; 252 $209. Prune line ≈ $115; 165 protected ≈ 11.5 h.
+
+## §2021 — 7:21 AM CT brief (NOTE; volume test 2: B1 done, A2 running)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 28%; ABAB pid 59455 alive; A2 since 13:17:12 UTC (sim 29912). $30 life p50 116 s; $300 p50 0 s.
+- Block-end log for B1 (sim 29515–29912): $30 11 fills / $48k, C +1.59 / R +0.37 (R/C +0.23); $300 43 fills / $130k, C +0.27 bp / R ≈ +0.00 (R/C ≈ +0.01) → weak; the full B1 read (fleet same window) follows.
+- **165 (13 h old): $63/mo ($2.10/d)**; making captured 79.2 / realized 26.0 (q 0.33) / share 0.0005 / rank 0.073; skill_rank 0.328 (fleet median 0.164); score 0.200; call_time 0.154.
+- Fleet median $166 / making_rank 0.52; 169 $326, 210 $271, 251 $204; 252 $217. Prune line ≈ $100–111; 165 protected ≈ 11 h.
