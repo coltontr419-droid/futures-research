@@ -29939,3 +29939,4 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 1–2; disk 29%; ABAB pid 43739 alive. A2 skill vs 252 (Σα): −1.2 / +20.9, +1.8 / +19.8, +0.9 / +17.8. $300 orders (A, no lag) 4,853 per 90 sim s, p50 0 s; $30 357 per 120 sim s, p50 115 s.
 - **165 (7 h old): $11/mo**; making captured 27.1 / realized 7.4 (q 0.27) / **making_rank 0.044**; skill_rank 0.206 (fleet median 0.150); score 0.125; call_time 0.158.
 - Fleet median $158 / making_rank 0.68; 169 $327, 210 $281, 251 $204; 252 $163. Prune line ≈ $96; 165 protected ≈ 17 h.
+- **§2006 add (1:27 AM, NOTE):** B2 (lag 1) since 07:00:42 UTC (sim 25497), 0 tracebacks; ABAB ends ≈ 07:34 UTC (1:34 AM CT); gauges unchanged from §2006.
