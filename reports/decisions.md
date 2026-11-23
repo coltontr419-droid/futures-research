@@ -30153,3 +30153,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - rest300.py (offline, $300 best-price series): a resting pattern (rest 0–1 behind, re-place only when > k ticks off) needs ≈ 900–1,700 placements per sim min → **≈ 1,800–3,400 $300 messages vs ≈ 7,000 live (−55…−75%)** → ≈ 110–130 messages per fill at 28 fills/min.
 - **patch_rest300.py (agents 61cd0a0f):** mk_rest300 (0/1; default 0 = identical) runs the $30 resting logic (stay mk_rest300_behind behind the others' best, keep up to mk_rest300_keep_deep, keep at-best orders near the front < mk_rest300_front) on $300 vol/calm books via the per-book override; lean-jumped sides are never moved (the $300 skill). Explicit keys added to live / SETTLED / NEXT (mk_rest300 0, behind 1, keep_deep 3, front 0.25).
 - Restart 17:53:43 UTC, 0 tracebacks; newminer.sh → 61cd0a0f. **speed/abab_r300_165.sh** (pid 76729, log abab_r300__165.log; 900-s warm-up; arms B A B): A = SETTLED; **B = + mk_rest300 1** (diffed: only that knob). B1 ≈ 18:11 UTC; early check 12:21, B1 read 12:48, verdict ≈ 1:21 PM CT (then size-0.3 re-run if no burst, then FREEZE).
+
+## §2042 — 12:15 PM CT brief (NOTE; rest300 ABAB in its 900-s warm-up)
+- alerts.txt: no new real alerts since the last review (the UID 58 / 212 / abab_spread lines are old unstamped entries; abab_size3 safety stop already known, §2039).
+- 0 tracebacks / 0 fastdec fallbacks; **PACE 18–29 blocked** (burst continuing; the rest300 ABAB's safety stop at 20 may trip — watch); disk 29%; ABAB pid 76729 waiting (B1 ≈ 18:11 UTC); live == SETTLED. MSGS (SETTLED): vol 2,710 / 2,686, calm 906 / 889, $30 242 / 32 per sim min. $30 life p50 120 s; $300 p50 0 s.
+- **165 (17.5 h old): $73/mo**; making captured 244.4 / realized 96.8 (q 0.40) / share 0.0010 / **making_rank 0.257**; skill_rank 0.303 (fleet median 0.410); **score 0.280**; call_time 0.169.
+- Fleet median $194 / score 0.62 / making_rank 0.78; 210 $272, 169 $246, 251 $224; 252 $185. Prune line ≈ $99–116; 165 protected ≈ 6 h.
+- OTR watch: no making_otr_factor / messages_per_fill gauges anywhere yet (0 series).
