@@ -29776,3 +29776,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - User: use the front-keep time as A1 and go straight to B1. The sim is slow (only ≈ 1 sim min of front-keep after the warm-up minute), so A1 has no usable data → arms **B1, A2, B2**; **A2 (front-keep) is the baseline**.
 - speed/abab_fleetfix_165.sh (pid 30375, log abab_fleetfix_165.log): A = front-keep (touch_min 0, behind 1, keep 1, keep_deep 3, front 0.25); **B = fixed fleet-style $30 (touch_min 0, behind 0, keep 1, size 0.1)**; only the $30 behind/front/keep_deep knobs differ. B1 from 00:32:16 UTC (sim 21229), 33-min blocks; churn check 6:47 PM, B1 read 7:09 PM, verdict ≈ 8:16 PM CT.
 - **§1981 churn check (6:47 PM CT, NOTE):** B1 sim 21229–21416: 498 $30 orders, life p25/p50/p75 26 / 84 / 181 s → **no churn**; KEEP30 2,571–2,843 kept per sim min; 0 tracebacks. Early skill 165 vs 252: −9.1 / +6.8, −14.3 / +7.7 (new-miner lean warm-up). ABAB continues.
+
+## §1982 — 6:58 PM CT brief (NOTE; 165 fleet-style ABAB block B1)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–3 blocked; disk 28%; ABAB pid 30375 alive; KEEP30 ≈ 2,576 kept per sim min; $30 orders last 2 sim min: 356, life p50 120 s (= window) → no churn.
+- **165 (32 min old):** $0/mo yet; making captured 0 / rank 0 (lookback ramp); skill_rank 0.095; score 0.048; call_time 0.183.
+- Fleet median $165 / score 0.453 / making_rank 0.67; 210 $287, 169 $247, 251 $215; 252 $165. Prune line (lowest non-immune) ≈ $72–97; 165 protected ≈ 23.5 h.
+- B1 skill 165 vs 252 (Σα): −14.3 / +7.7, −12.0 / +7.1, −8.4 / +0.7 (new-miner warm-up, improving).
