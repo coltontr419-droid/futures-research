@@ -30210,3 +30210,7 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **mk_rest300 keep_deep 8 = NOT KEPT** (pid 79455 killed at B2 start; live = SETTLED with mk_rest300 0 / keep_deep 3 explicit; log "mk_rest300 1→0, mk_rest300_keep_deep 8→3").
 - **Tolerant decoder deployed:** agents/fastdec.py = /tmp/fastdec_068.py (md5 b6098dc7; backup fastdec.py.bak-pre068); restart 19:34:09 UTC; "FASTDEC installed", 0 tracebacks, 0 fallbacks. QuoteAgent unchanged (61cd0a0f).
 - **speed/abab_r300c_165.sh** (pid 82668, log abab_r300c__165.log; 840-s warm-up; arms B A B; safety ≥ 60): A = SETTLED; **B = mk_rest300 1 + keep_deep 5** (diffed: only those two). B1 ≈ 19:49 UTC; early check 2:01, B1 read 2:26, verdict ≈ 3:00 PM CT.
+
+## §2051 — 1:51 PM CT brief (NOTE; rest300 keep_deep 5 B1 just started)
+- No new alerts; 0 tracebacks / 0 fastdec fallbacks (tolerant decoder live); PACE 0–3 (burst over); disk 30%; ABAB pid 82668 alive, B1 from 19:48:28 UTC (sim 34770); live vs SETTLED = mk_rest300 1 / keep_deep 5 only. Last MSGS line (pre-switch, SETTLED): vol 2,503/2,512, calm 889/862, $30 455/32 ≈ 7,250 / sim min.
+- **165: $75/mo**; making captured 293.3 / realized 120.4 (q 0.41) / share 0.0013 / rank 0.289; skill_rank 0.247; score 0.268; call_time 0.162. Fleet median $214 / score 0.58; 210 $287, 251 $244, 169 $239; 252 $192. Prune line ≈ $105; 165 protected ≈ 4.5 h. OTR gauges: none yet.
