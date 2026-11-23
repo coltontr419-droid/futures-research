@@ -30128,3 +30128,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Burst check ($300 per 2 sim min): normal until sim 32520, then **sim 32640: 165 221k, 210 277k, 169 339k, 251 276k; 32760: 116k / 196k / 280k / 174k** (≈ 10× quiet) → B1's second half is a burst.
 - B1 (sim 32507–32806): **$30 165 28.1k/min (n27) R/C +0.52** (ref §2035 17.0k R/C 0.21) vs 169 18.7k +0.62, 210 22.1k +0.53, 251 21.5k +0.59 → $30 volume above all three top makers at fleet-level capture. $300 165 142.1k R/C +0.46 vs fleet 0.80–0.89 (burst; size 0.3 does not touch $300). Miner-wide 165 +0.48 (ref 0.43) vs fleet 0.76–0.86. Skill vs 252: +4.0, +0.7, +8.6, +3.0, +6.4, +39.4 vs +1.9…+6.5.
 - **PACE 17 → 24 blocked** — also in A2 (SETTLED, size back to 0.2 at 17:17:59) → burst-driven (pacer pulling quotes on books over budget), not the size; the ABAB's safety stop (≥ 20) may end the test early — if so, read what exists and decide at the verdict.
+
+## §2038 — 11:24 AM CT brief (NOTE; size 0.3 retest block A2 = SETTLED, just started)
+- 0 tracebacks / 0 fastdec fallbacks; **PACE 17–24 blocked** (market burst, §2037); disk 29%; ABAB pid 71806 alive (A2 since 17:17:53 UTC); live == SETTLED. $30 life p50 120 s; $300 p50 0 s.
+- **165 (17 h old): $77/mo**; making captured 204.2 / realized 81.2 (q 0.40) / share 0.0009 / **making_rank 0.190** (rank gauge back; was 0.000 glitch, 0.10 before); skill_rank 0.238 (fleet median 0.438); score 0.214; call_time 0.197.
+- Fleet median $185 / score 0.609 / making_rank 0.77 (burst lifts everyone's capture); 169 $298, 210 $262, 251 $208; 252 $185. Prune line ≈ $93–110; 165 protected ≈ 7 h.
