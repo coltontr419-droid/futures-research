@@ -29822,3 +29822,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 ## §1988 — 8:12 PM CT — Discord "MVTRX watchdog stopped" = the alert forwarder still read the OLD box → repointed (user approved)
 - futures-droplet labalerts.py (every 5 min) read alerts.txt from 157.245.86.147 (old box; its watchdog stopped after the migration, last heartbeat ≈ 9:30 AM CT) → posted "watchdog stopped". New-box alerts (e.g. "x3 UID 253: service is DOWN" at 6:20 PM) never reached Discord.
 - Fix (user yes): new box /root/.ssh/authorized_keys += the forwarder's forced-command key (tail -n 60 alerts.txt only; backup authorized_keys.bak-labalerts); labalerts.py host → root@192.241.128.48 (backup labalerts.py.bak-newbox); state _last_ts set to now so old new-box lines don't post. Test run OK (reads new-box heartbeats). Miner 165 was never affected.
+
+## §1989 — 8:27 PM CT brief (NOTE; always-1-behind ABAB: A2 done, B2 running)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 1–3; disk 28%; ABAB pid 32109 alive; B2 since 02:24:46 UTC (sim 22556). $30 orders: 355 per 120 sim s, life p50 67 s (no churn); where30 last 60 sim s (spans the A2→B2 switch): 53% at 1 behind.
+- **A2 (front-keep, sim 22118–22556): $30 16 fills / $16k, C +1.50 / R +1.33 bp, R/C +0.89** (strong too); $300 141 fills / $204k, R/C +0.17.
+- **165 (2 h old):** $0/mo yet; **first making capture: captured 2.4 / realized 0.4** (q 0.18); skill_rank 0.292 (> fleet median 0.271); score 0.146; call_time 0.161.
+- Fleet median $161 / score 0.442 / making_rank 0.73; 210 $287, 169 $279, 251 $208; 252 $157. Prune line ≈ $95; 165 protected ≈ 22 h.
