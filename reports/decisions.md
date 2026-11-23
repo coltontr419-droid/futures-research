@@ -30163,3 +30163,11 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 
 ## §2043 — 12:00 PM CT — rest300 ABAB relaunched with a burst-tolerant safety stop
 - PACE 18–29 blocked in the continuing market burst (pacer protecting budget; same under SETTLED) would trip the ABAB's ≥ 20 stop for reasons unrelated to the arm → killed pid 76729 during its warm-up wait, safety threshold → ≥ 60 blocked (the no-fills stop stays), relaunched as **pid 77691** (700-s wait; B1 ≈ 18:09 UTC = same schedule). Crons re-created with the new pid.
+
+## §2044 — 12:10 PM CT — 0.6.8 impact assessment (user) + standing update procedure
+- git diff 0.6.7 final (20e9785) → 0.6.8 final (d717c50): 29 validator/protocol/config files, +2,526 / −233.
+- **Protocol:** trade events gain Tfb / Tfr / Mfb / Mfr / qs (fee base / refund, quote settled) + a new PriceBandEvent (y 'EPB'). Our fastdec FEv/FBook use forbid_unknown_fields=True → every payload would fall back to the slow decoder (≈ 2.3× slower → call_time) — no crash (fallback path). Fix: let fastdec ignore unknown fields (safe on 0.6.7 payloads); deploy after the rest300 ABAB (needs a restart).
+- **Scoring:** making order-to-trade discount (threshold 200, power 1) — §2039–2043; seam_split / charge_ref new debeta dials (to review).
+- **Market rules (to review):** price_band (volume cut on far orders), fee base/refund, queued_orders, delays, exchange_phases, kept_accounts, fundamental_seed, reward/scoring_shadow.
+- Adoption signals now watched in every brief: OTR gauges (still 0 series), FASTDEC fallbacks (still 0), alerts.txt.
+- Standing procedure saved to memory (mvtrx-update-procedure): detect same hour → diff (protocol → scoring → market) → exposure → default-off fixes → adoption signals → testnet early warning.
