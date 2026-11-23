@@ -30069,3 +30069,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 ## §2027 — 8:15 AM CT — mk_low_max_units built (agents d0ec22ad) + ABAB started
 - patch_lowunits.py: mk_low_max_units (base units; 0 = use max_units = identical) via the $30 per-book override (_low_ov sets max_units on $30 books only).
 - Restart 14:14:25 UTC, 0 tracebacks; newminer.sh → d0ec22ad. **speed/abab_units_165.sh** (pid 65404, log abab_units__165.log; 900-s warm-up, arms B A B): A = SETTLED; **B = + mk_low_max_units 400** (≈ $12k on $30 books = the $300 books' dollar cap). Diffed: only that knob. B1 ≈ 14:31 UTC; check 8:40, B1 read 9:08, verdict ≈ 9:41 AM CT.
+
+## §2028 — 8:23 AM CT brief (NOTE; $30 unit-cap ABAB in its 900-s warm-up, live = SETTLED)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 28%; ABAB pid 65404 waiting (B1 ≈ 14:31 UTC); live == SETTLED. $30 life p50 120 s; $300 p50 0 s.
+- **165 (14 h old): $76/mo ($2.53/d)**; making captured 87.6 / realized 28.5 (q 0.33) / share 0.0006 / **rank 0.103**; skill_rank 0.298 (fleet median 0.177); score 0.201; call_time 0.169.
+- Fleet median $166 / making_rank 0.54; 169 $319, 210 $261, 251 $197; 252 $215. Prune line ≈ $108; 165 protected ≈ 10 h.
