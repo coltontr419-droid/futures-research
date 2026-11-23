@@ -29980,3 +29980,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **SETTLED RECIPE** (agents **526b35e7**, newminer.sh checks it): §1742 base + $300 3× size (mk_vol_size 0.3 / mk_calm_size 0.36) + **mk_tight300 5** + $30 **front-keep** (mk_low_touch_min 0, mk_low_behind 1, mk_low_keep 1, mk_low_keep_deep 3, mk_low_front 0.25, mk_low_size 0.1) + **$30 ladder "1:2"**; mk_vol_lag 0; strong-inside / adapt / stale / imb / gate off. Snapshot live_params_165.SETTLED.json; **live_params_NEXT.json = live_params_165.json** (diff empty; backup NEXT.bak-settled).
 - From now on on 165: no more strategy tests — safety / rollbacks only (user's rule + stop-when-above-median).
 - **Remaining gaps (reported, not tested tonight):** (1) VOLUME — $300 ≈ 73% of the top makers' (19.3k vs 26–27k/min), $30 ≈ 1/4 (4.4k vs 13.6–21.7k; our $30 fills ≈ $1k vs their full $3.6k orders while the cold pace bucket ramps). (2) Gauges still ramping through the 3-sim-hour lookback: 165 $24/mo, making_rank 0.03, skill_rank 0.20 (fleet median 0.16).
+
+## §2012 — 3:22 AM CT brief (NOTE; SETTLED recipe, no tests)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 27%; **no drift** vs live_params_165.SETTLED.json. Order life: $30 p50 120 s (350 per 120 sim s); $300 p50 0 s (6,069 per 120 sim s — the settled $300 behaviour; lag was disproven).
+- **165 (9 h old): $24/mo ($0.80/d)**; making captured 48.0 / realized 16.1 (q 0.34) / share 0.0002 / **rank 0.059**; skill_rank 0.233 (fleet median 0.111); score 0.146; call_time 0.160.
+- Fleet median $168 / score 0.393 / making_rank 0.60; 169 $338, 210 $283, 251 $216; 252 $199. Prune line ≈ $101; 165 protected ≈ 15 h.
