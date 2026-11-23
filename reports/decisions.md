@@ -30261,3 +30261,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - $300 (size unchanged): 165 19.2k R/C +0.11 vs 169 +0.06, 210 +0.02, 251 −1.54 (weak $300 window for everyone).
 - **Miner-wide 165 +0.56** vs 169 +0.48, 210 +0.41, 251 +0.49. Skill −1.9, −6.3, −7.0, +1.8, −2.9, +3.4 vs 252 +0.3 … +6.0 (mixed; similar to SETTLED windows today).
 - Not a failure → A2 / B2 run; verdict + FREEZE ≈ 5:04 PM CT.
+
+## §2060 — 4:21 PM CT brief (NOTE; $30 size 0.3 re-run block A2 = SETTLED)
+- No new alerts; 0 tracebacks / 0 fallbacks; PACE 0–1; disk 31%; ABAB pid 87481 alive; live == SETTLED (A2). $30 life p50 120 s; $300 p50 0 s.
+- A2 skill vs 252: +6.2 / +4.0, +0.9 / +6.3.
+- **165: $83/mo**; making captured 336.4 / realized 129.3 (q 0.38) / share 0.0016 / making_rank 0.331; skill_rank 0.282; score 0.307; call_time 0.172. Fleet median $216 / score 0.55; 210 $296, 251 $252, 169 $249; 252 $190. Prune line ≈ $124; 165 protected ≈ 2 h. OTR gauges: none yet.
