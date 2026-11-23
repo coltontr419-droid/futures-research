@@ -30117,3 +30117,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **B pooled (B1 + B2):** **$30 17.0k/min (n45) R/C +0.21** (B1 −0.13, B2 +0.38); $300 40.2k R/C +0.61; **miner-wide +0.43**. Fleet B: $30 169 12.1k +0.49, 210 17.1k +0.66, 251 14.8k +0.51; miner-wide 0.57–0.70. **Σα vs 252: B +15.1 vs A +9.0.**
 - User rule (9:10 AM: keep if volume up and capture + skill ≈ the same): $30 volume ×2.0 (now ≥ 169/251, = 210); $30 R/C 0.21 vs 0.25 (≈ same; both below the fleet this window); miner-wide 0.43 vs 0.38 (not worse); skill better → **ADOPTED: mk_low_max_units 400** in live_params_165.json, SETTLED, NEXT (explicit key; backups *.bak-2035); log "0.0→400.0".
 - **Last volume step: speed/abab_size3_165.sh** (pid 71806, log abab_size3__165.log; arms B A B, no restart): A = new SETTLED; **B = $30 mk_low_size 0.3** (diffed: only that). B1 from 16:44:17 UTC (sim 32447); B1 read 11:21 AM; verdict + FREEZE ≈ 12:27 PM CT.
+
+## §2036 — 10:52 AM CT brief (NOTE; $30 size 0.3 retest block B1)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–2; disk 29%; ABAB pid 71806 alive; live vs SETTLED = mk_low_size 0.3 only. $30: 510 orders per 120 sim s, life p50 96 s; $300 p50 0 s.
+- B1 skill vs 252: +4.0 (+0.47 bp) / +2.7.
+- **165 (16.5 h old): $77/mo ($2.57/d)** (down from $91 — the incentive smoothing; making_rank still 0.000 for 165, 169, 252); making captured 180.3 / realized 70.0 (q 0.39) / share 0.0009; skill_rank 0.282 (fleet median 0.367); score 0.141; call_time 0.170.
+- Fleet median $185 / score 0.517; 169 $298, 210 $262, 251 $208; 252 $185. Prune line ≈ $91–111; 165 protected ≈ 7.5 h.
