@@ -29882,3 +29882,12 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (4 h old):** $1/mo; making captured 8.8 / realized 1.7 / rank 0.007 (q 0.19); skill_rank 0.253 (fleet median 0.227); score 0.130; call_time 0.161.
 - Fleet median $165 / score 0.442 / making_rank 0.72; 169 $291, 210 $286, 251 $211; 252 $158. Prune line ≈ $104; 165 protected ≈ 20 h.
 - B2 skill vs 252: +5.5 (+0.48 bp) / +20.9 (+0.54 bp).
+
+## §1998 — 11:00 PM CT — deep-ladder VERDICT: $30 lad "1:2" ADOPTED (live + NEXT); $300 gap flagged
+- ABAB done 04:54:42 UTC; final A write restored lad "1" (tight 5 kept). B2 churn check ok (490 orders, life p50 183 s).
+- **blockcmp_165 (B = BK1+BK2 vs A = AK2):** $30 A 3.6k/min C +0.68 / R −0.50 (R/C −0.73); **B 2.9k/min C +1.12 / R +0.68 (R/C +0.60)**. $300 A 30.6k/min R/C **+0.68**; B 24.1k/min R/C **+0.19**. Miner-wide A +0.41 / B +0.30. Σα vs 252: A −17.4, B −23.9 (252 run).
+- Pooled with the other front-keep block (§1992 AJ2): **front-keep lad "1" $30 n26 $34k C +1.08 / R +0.39 (R/C 0.36) vs lad "1:2" n19 $28k C +1.12 / R +0.68 (R/C 0.60).**
+- q1b (B): 1-behind fills age ≥ 90 s R +1.34, front < 10% R +2.29 (n 3–5).
+- Fleet $30 same windows: R/C −0.08 to +0.66 (weak night); fleet $300 R/C 0.56–0.95 in all three windows.
+- **Decision:** the miner-wide criterion failed only via the $300 class, which the $30 ladder does not touch (reply load identical: 113–123 instructions per reply in every block; separate per-book instruction budgets). Judged on its own class, "1:2" wins → **adopted: mk_low_lad "1:2" in live_params_165 + live_params_NEXT** (diff: only mk_low_lad; backups *.bak-1998).
+- **Flag:** our $300 R/C in the two B blocks (0.20 / 0.16) while the fleet's was 0.71–0.95 → watch $300 kept share in the next clean reads; if it stays ≈ 0.2 with "1:2", re-test the ladder against the $300 class directly. Next study: the $300 kept-share gap (offline, fill-level vs 210 / 169 / 251).
