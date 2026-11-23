@@ -29856,3 +29856,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - speed/q1b.py (our $30 fills by depth × order age / queue share): 165 1-behind fills age ≥ 90 s n17 C +1.44 / R +1.24 vs < 30 s n5 R +0.80, 30–90 s n2 R 0.00; front < 10% n7 R +1.56 vs 10–50% n15 R +0.85. 253: 1-behind age ≥ 90 s n4 R +1.05 vs 30–90 s n2 R +0.06. Small n, same direction → offline-positive (weak).
 - **speed/abab_deeplad_165.sh** (pid 36687, log abab_deeplad_165.log; TIGHT default 5): A = front-keep (mk_low_lad "1"); **B = mk_low_lad "1:2"** (ladder orders 2 and 3 behind best, kept up to keep_deep). Arms diffed vs live_params_165: A identical, B differs only in mk_low_lad; miner log "mk_low_lad [1]→[1, 2]" only. B1 from 03:06:45 UTC (sim 22965); check 9:20 PM, B1 read 9:44 PM, verdict ≈ 10:50 PM CT.
 - **§1993 B1 check (9:21 PM CT, NOTE):** no churn (400 $30 orders per 120 sim s, life p50 120 s = window); orders per side now mostly 3 (5,259 snapshots vs 2 before) → deeper ladder active; nearest own order 38% at 1 behind / 36% at 2 / 25% at 3 (watch: less time at 1 behind than front-keep's 53–61%); 0 tracebacks; tight 5, lad "1:2". Skill vs 252: −1.5 / +31.2, +0.5 / +32.1.
+
+## §1994 — 9:28 PM CT brief (NOTE; deep-ladder ABAB block B1)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 28%; ABAB pid 36687 alive. $30: 441 orders per 120 sim s, life p50 109 s (no churn); FRONT30 56 of 69 kept.
+- **165 (3 h old): $1/mo — first pay**; making captured 8.1 / realized 1.6 / rank 0.020 (q 0.20); skill_rank 0.306 (fleet median 0.218); score 0.163; call_time 0.175.
+- Fleet median $165 / score 0.447 / making_rank 0.73; 169 $291, 210 $286, 251 $211; 252 $158. Prune line ≈ $102; 165 protected ≈ 21 h.
+- B1 skill vs 252 (Σα): +0.5 / +32.1, +1.6 / +29.0.
