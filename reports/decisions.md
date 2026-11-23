@@ -30271,3 +30271,5 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - No new alerts; 0 tracebacks / 0 fallbacks; PACE 0; disk 31%; ABAB pid 87481 alive (B2 since ≈ 22:27 UTC); live vs SETTLED = mk_low_size 0.3 only. $30 life p50 120 s; $300 p50 0 s.
 - B2 skill vs 252: +5.7 / +0.7, +4.0 / −0.6.
 - **165: $91/mo ($3.03/d)**; making captured 337.7 / realized 129.2 (q 0.38) / share 0.0016 / making_rank 0.312; skill_rank 0.302; score 0.307; call_time 0.167. Fleet median $222 / score 0.59; 210 $301, 169 $255, 251 $249; 252 $184. **Prune line ≈ $106** (lowest non-immune); 165 protected ≈ 1.5 h. OTR gauges: none yet.
+
+## §2062 — 5:02 PM CT — user closing the laptop until ≈ 6 PM: the size-0.3 verdict + FREEZE deferred to ≈ 6:05 PM CT (the ABAB ends on A = SETTLED size 0.2 by itself; 165's protection ends ≈ 6:25 PM CT).
