@@ -30011,3 +30011,11 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 27%; ABAB pid 55336 alive. Live vs SETTLED differs only in the B-arm sizes (expected during the test). $30 life p50 120 s; $300 p50 0 s (as SETTLED).
 - **165 (11 h old): $40/mo ($1.33/d)**; making captured 65.9 / realized 23.0 (q 0.35) / share 0.0004 / rank 0.080; **skill_rank 0.286** (fleet median 0.151); score 0.183; call_time 0.162.
 - Fleet median $163 / making_rank 0.57; 169 $330, 210 $273, 251 $208; 252 $209 (skill_rank 0.000 this read). Prune line ≈ $107; 165 protected ≈ 13 h.
+
+## §2018 — 6:25 AM CT — volume B1 READ: BOTH classes win big (volume up, quality ≥ fleet) + brief
+- B1 (sim 28440–28714; read ran late, B2 already running since 12:01:56 UTC):
+  - **$300 165: 31.9k/min (n55, p50 $1.5k), C +0.52 / R +0.34, R/C +0.66** (SETTLED ref 19.3k/min R/C 0.66) vs fleet same window 169 21.7k +0.40, 210 16.6k +0.78, 251 18.2k +0.48, 252 35.6k +0.42 → volume now ABOVE the top makers, quality ≥ their median.
+  - **$30 165: 10.5k/min (n10, p50 $4.9k), C +1.42 / R +1.04, R/C +0.73** (ref 4.4k/min R/C 0.45) vs 169 20.5k +0.52, 210 24.7k +0.63, 251 18.2k +0.71.
+  - **165 miner-wide R/C +0.70.**
+- No failure → A2 / B2 continue (verdict ≈ 6:43 AM CT).
+- Brief: 0 tracebacks / fallbacks; PACE 0; disk 28%. **165 $53/mo ($1.77/d)**; making captured 70.3 / realized 26.2 (q 0.37) / rank 0.079; **skill_rank 0.309** (fleet median 0.138); score 0.194; call_time 0.147. Fleet median $163; 169 $329, 210 $270, 251 $202; 252 $209. Prune line ≈ $112; 165 protected ≈ 12 h.
