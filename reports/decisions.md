@@ -30082,3 +30082,6 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Then the cause turned out to be the market:** our $300 maker volume per sim minute jumped at sim 30660 — BEFORE B1 (sim 30743) — and stayed high after the revert; the fleet spiked at the same time (per 2 sim min: 210 302k, 169 376k, 251 296k vs ≈ 20–30k normally; 165 303k). Code: quoting is single-threaded, the $30 override cannot reach $300 books. → B1 is confounded both ways; the stop was premature.
 - $30 effect itself was as designed (§2027 check: two-sided 96%).
 - **Re-run: speed/abab_units2_165.sh** (pid 67796, log abab_units2__165.log; no restart, arms B A B, A writes mk_low_max_units 0.0 explicitly). B1 from 15:00:48 UTC (sim 31130); B1 read 9:37 (with a market-burst check), verdict ≈ 10:43 AM CT.
+
+## §2030 — 9:12 AM CT — user: raise volume; if capture + skill stay ≈ the same, keep the settings and let 165 run UNTESTED
+- Plan: (1) unit-cap re-run verdict ≈ 10:43 AM; (2) if adopted, one last volume step = $30 size 0.3 retest with the cap fixed (0.3 failed while the cap bound); adopt only if volume up with R/C and skill ≈ unchanged; (3) then FREEZE 165 (no more tests; safety/rollback only; briefs continue).
