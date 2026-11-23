@@ -29929,3 +29929,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - $300 split: single 32% (R/C ratio meaningless, C ≈ 0), sweeps 68% R/C +0.16; top3 single +0.84 / sweep +0.55. Order age: still mostly < 2 s and 2–10 s.
 - **Confound (my error):** B1 began 13 wall min (≈ 150 sim s) after the 05:33 restart — I cut the ABAB's warm-up wait from 900 s to 240 s; the lesson says ≥ 900 s (lean warm-up ≈ 300 sim s). Skill −10.2 and PACE 6–8 blocked in B1 = warm-up / cold-bucket signature, which also cuts $300 volume.
 - → Not stopped: A2 (now) and B2 run after warm-up; verdict ≈ 1:31 AM on B2 vs A2 only (B1 excluded).
+
+## §2005 — 12:58 AM CT brief (NOTE; $300 lag ABAB block A2)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 2–3 (down from 6–8); disk 29%; ABAB pid 43739 alive; A2 since 06:23:36 UTC (sim 25047). $300 orders 4,224 per 90 sim s, life p50 0 s (A = no lag); $30 342 per 120 sim s, p50 120 s.
+- **165 (6.5 h old): $11/mo**; making captured 25.1 / realized 6.2 (q 0.25) / rank 0.021; skill_rank 0.233 (fleet median 0.133); score 0.127; call_time 0.165.
+- Fleet median $158; 169 $327, 210 $281, 251 $204; 252 $163 (skill_rank 0.95 tonight). Prune line ≈ $100; 165 protected ≈ 17.5 h.
