@@ -30192,3 +30192,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - B1 skill vs 252: +1.0 / +0.6, −0.4 / +4.1, +0.5 / +3.4 (flat — watch at the B1 read).
 - **165: $73/mo**; making captured 287.6 / realized 117.4 (q 0.41) / share 0.0011 / **making_rank 0.289**; skill_rank 0.285; **score 0.287**; call_time 0.169. Fleet median $194 / score 0.60 / making_rank 0.78; 210 $272, 169 $246, 251 $224; 252 $185 (skill_rank 0.64). Prune line ≈ $128; 165 protected ≈ 5.5 h.
 - OTR gauges: none published yet.
+
+## §2048 — 1:02 PM CT — rest300 (keep_deep 8) B1 READ: messages ✓, but $300 capture + skill DOWN → decide after A2 (likely stop before B2)
+- Burst check: moderately elevated, no spike (fleet $300 9–45k per 2 sim min).
+- B1 (sim 33707–34121): **MSGS ≈ 2,250–2,900 per sim min (first minute 5,673 = switch-over) vs ≈ 7,400 SETTLED**; our fills ≈ 40 / sim min → **≈ 60 messages per fill**.
+- **$300 165: 34.8k/min, 36.2 fills/min (top3 10–12), R/C +0.20** vs 169 +0.58, 210 +0.72, 251 +0.51 (SETTLED ref §2035 0.61). **$30 165 10.4k/min R/C +0.61** (fleet +0.20 … +0.60). Miner-wide 165 +0.38 (ref 0.43) vs 169 +0.41, 210 +0.66, 251 +0.45.
+- **Skill ($300, Σα vs 252): +2.0, +1.0, −0.4, +0.5, −2.7, −4.8** (SETTLED blocks today +8 … +16) → down.
+- Read: resting $300 orders 4–8 ticks deep get many small fills (36/min) with poor kept share — stale quotes hit when the market moves through them; skill (lean) also weaker. Messages per fill fixed, but capture + skill not ≈ the same → not the right $300 resting depth. Plan: let A2 (SETTLED) run for the paired comparison; if A2 confirms ($300 R/C and skill clearly higher), STOP before B2 and test an intermediate keep_deep (≈ 5) — a ≈ 30% message cut is enough for < 200 msgs/fill at 28–40 fills/min.
