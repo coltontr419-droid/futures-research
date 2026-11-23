@@ -30029,3 +30029,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **New SETTLED** = old + mk_low_size 0.2, mk_vol_lad_size 0.08, mk_calm_lad_size 0.06 → live_params_165.json, live_params_165.SETTLED.json, live_params_NEXT.json (backups *.bak-2019; all three equal). Miner log confirms.
 - $300 fills by depth (B): 165 2+ behind 53 fills p50 **$1.5k** (ladder orders) vs 210 24 fills p50 **$3.6k**; 165 1 behind p50 $5.4k (touch 0.3). The ladder-size knob tops out at 0.1 (≈ $1.9k).
 - **Volume test 2: speed/abab_vol2_165.sh** (pid 59455, log abab_vol2__165.log; arms B A B): A = new SETTLED; **B = $30 mk_low_size 0.3 + mk_vol_lad_size 0.1 + mk_calm_lad_size 0.075** (diffed: only those three). B1 from 12:45:39 UTC (sim 29515); B1 read 7:22 AM, verdict ≈ 8:28 AM CT.
+
+## §2020 — 6:50 AM CT brief (NOTE; volume test 2 block B1)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 28%; ABAB pid 59455 alive (B1 since 12:45:39 UTC). Live vs SETTLED = only the B-arm sizes (0.3 / 0.1 / 0.075). $30 life p50 120 s; $300 p50 0 s.
+- **165 (12.5 h old): $53/mo ($1.77/d)**; making captured 72.8 / realized 27.4 (q 0.38) / share 0.0005 / rank 0.066; skill_rank 0.313 (fleet median 0.123); score 0.189; call_time 0.141.
+- Fleet median $163 / making_rank 0.53 (fleet gauges drifting down this morning); 169 $329, 210 $270, 251 $202; 252 $209. Prune line ≈ $115; 165 protected ≈ 11.5 h.
