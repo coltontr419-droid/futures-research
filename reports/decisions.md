@@ -29985,3 +29985,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 27%; **no drift** vs live_params_165.SETTLED.json. Order life: $30 p50 120 s (350 per 120 sim s); $300 p50 0 s (6,069 per 120 sim s — the settled $300 behaviour; lag was disproven).
 - **165 (9 h old): $24/mo ($0.80/d)**; making captured 48.0 / realized 16.1 (q 0.34) / share 0.0002 / **rank 0.059**; skill_rank 0.233 (fleet median 0.111); score 0.146; call_time 0.160.
 - Fleet median $168 / score 0.393 / making_rank 0.60; 169 $338, 210 $283, 251 $216; 252 $199. Prune line ≈ $101; 165 protected ≈ 15 h.
+
+## §2013 — 3:52 AM CT brief (NOTE; SETTLED recipe, no tests)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 27%; no drift vs SETTLED. $30 life p50 106 s; $300 p50 0 s (settled behaviour).
+- **165 (9.5 h old): $31/mo ($1.03/d)**; making captured 52.3 / realized 19.2 (q 0.37) / share 0.0003 / rank 0.059; skill_rank 0.242 (fleet median 0.115); score 0.150; call_time 0.170.
+- Fleet median $166 / making_rank 0.59; 169 $331, 210 $283, 251 $213; 252 $208. Prune line ≈ $90–110; 165 protected ≈ 14.5 h.
