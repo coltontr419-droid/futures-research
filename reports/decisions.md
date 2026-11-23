@@ -30085,3 +30085,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 
 ## §2030 — 9:12 AM CT — user: raise volume; if capture + skill stay ≈ the same, keep the settings and let 165 run UNTESTED
 - Plan: (1) unit-cap re-run verdict ≈ 10:43 AM; (2) if adopted, one last volume step = $30 size 0.3 retest with the cap fixed (0.3 failed while the cap bound); adopt only if volume up with R/C and skill ≈ unchanged; (3) then FREEZE 165 (no more tests; safety/rollback only; briefs continue).
+
+## §2031 — 9:21 AM CT brief (NOTE; unit-cap re-run block B1)
+- 0 tracebacks / 0 fastdec fallbacks; **PACE 4–10 blocked** (two-sided $30 uses more budget; script stop at 20); disk 28%; ABAB pid 67796 alive; live vs SETTLED = only mk_low_max_units 400. SIDES30: both 3,540 / B-only 60 / S-only 240 (92% two-sided). $30 life p50 120 s; $300 p50 0 s.
+- B1 skill vs 252 ($300, Σα / bp): **+51.5 (+1.14) / +0.0, +47.8 (+1.29) / +0.5, +10.9 (+0.46) / +0.4** — 165 notional still elevated after the burst ($236–450k).
+- **165 (15 h old): $76/mo**; making captured **173.9** (from 87.6) / realized 58.4 (q 0.34) / share 0.0007; **making_rank 0.000** in this read — also 0.000 for 169 and 252 (validator rank quirk after the burst, not ours alone); skill_rank 0.318 (fleet median 0.295); score 0.159; call_time 0.170.
+- Fleet median $166; 169 $319, 210 $261, 251 $197; 252 $215. Prune line ≈ $88–108; 165 protected ≈ 9 h.
