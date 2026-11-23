@@ -29923,3 +29923,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (6 h old): $11/mo ($0.37/d)**; making captured 20.2 / realized 5.1 (q 0.25) / rank 0.007; skill_rank 0.193 (fleet median 0.127); score 0.100; call_time 0.141.
 - Fleet median $158; 169 $327, 210 $281, 251 $204; 252 $163. Prune line ≈ $99; 165 protected ≈ 18 h.
 - B1 skill vs 252: −10.2 / +21.2 (post-restart warm-up).
+
+## §2004 — 12:32 AM CT — $300 lag B1 READ: looks bad but CONFOUNDED by restart warm-up → ABAB continues (judge on B2 vs A2)
+- B1 (sim 24645–25047): $300 orders 15,289 (≈ 3,420 per 90 sim s, life p50 1 s). **165 $300 14.8k/min, C +0.21 / R −0.06, R/C −0.28**; $30 5.4k/min R/C −0.07; miner-wide −0.16. Fleet same window: $300 169 +0.66, 210 +0.63, 251 +0.78 (252 +0.08); $30 169 +0.61, 210 +0.23, 251 +0.22.
+- $300 split: single 32% (R/C ratio meaningless, C ≈ 0), sweeps 68% R/C +0.16; top3 single +0.84 / sweep +0.55. Order age: still mostly < 2 s and 2–10 s.
+- **Confound (my error):** B1 began 13 wall min (≈ 150 sim s) after the 05:33 restart — I cut the ABAB's warm-up wait from 900 s to 240 s; the lesson says ≥ 900 s (lean warm-up ≈ 300 sim s). Skill −10.2 and PACE 6–8 blocked in B1 = warm-up / cold-bucket signature, which also cuts $300 volume.
+- → Not stopped: A2 (now) and B2 run after warm-up; verdict ≈ 1:31 AM on B2 vs A2 only (B1 excluded).
