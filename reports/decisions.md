@@ -30172,3 +30172,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Adoption signals now watched in every brief: OTR gauges (still 0 series), FASTDEC fallbacks (still 0), alerts.txt.
 - Standing procedure saved to memory (mvtrx-update-procedure): detect same hour → diff (protocol → scoring → market) → exposure → default-off fixes → adoption signals → testnet early warning.
 - **§2044 add (12:15 PM):** tolerant decoder staged at /opt/mvtrx-lab:/tmp/fastdec_068.py (forbid_unknown_fields=False on FEv/FLevel/FBook): synthetic 0.6.8 trade event (Mfb/Mfr/Tfb/Tfr/qs) decodes with Ma/p intact, EPB price-band event decodes, 3 stored payloads still read. Deploy (restart) right after the rest300 verdict, before the size-0.3 re-run.
+
+## §2045 — 12:35 PM CT — 0.6.8 review finished (user away; fixes/tests continue)
+- **Market-rule files** (price_band, queued_orders, delays, exchange_phases): mostly new validator GAUGES (band cuts/refusals, queued-order delays, exchange round phases); behaviour changes apply to the live-EXCHANGE engine mode (venue queue: cancels before placements, measured delay), not the sim we are scored in → no action.
+- **Scoring:** (1) making ORDER-TO-TRADE discount — effective default **threshold 200 (ON)**: debeta_dial falls back to the parser default (200); the "(0, off)" comment in reward.py is stale. (2) seam_split = 1 (default): skill drift strip done per run across a sim-run change — removes an old-run inventory × new-run move artefact; no action. (3) charge_ref = 'mark' (unchanged behaviour). (4) per-uid skill_share published beside making_share; dust-fill reading published, not paid.
+- **Protocol:** trade-event fields Tfb/Tfr/Mfb/Mfr/qs + PriceBandEvent → tolerant fastdec staged (§2044).
+- **Adoption check:** dashboard has 118 validator_gauges series; none with otr / band / queued / phase names; no miner otr gauges → no validator publishing 0.6.8 yet. The validator-level gauge 'debeta_making_otr_threshold' will show adoption.
+- Remaining 0.6.8 to-dos: rest300 verdict (OTR, 1:21 PM) → deploy tolerant fastdec (restart) → size-0.3 re-run → freeze.
