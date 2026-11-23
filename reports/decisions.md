@@ -29875,3 +29875,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (3.5 h old):** $1/mo; making captured 9.5 / realized 1.7 / share 0.0001 / rank 0.000 (q 0.18); skill_rank 0.205 (fleet median 0.151); score 0.103; call_time 0.176.
 - Fleet median $165 / score 0.430 / making_rank 0.72; 169 $291, 210 $286, 251 $211; 252 $158. Prune line ≈ $103; 165 protected ≈ 20.5 h.
 - A2 skill vs 252 (Σα): +10.5 / +27.7, +11.3 / +25.1 (165 now positive).
+
+## §1997 — 10:28 PM CT brief (NOTE; deep-ladder ABAB: A2 done, B2 running)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 29%; ABAB pid 36687 alive; B2 since ≈ 04:19 UTC; tight 5, lad "1:2". $30: 365 orders per 120 sim s, life p50 78 s (no churn); FRONT30 80 of 97 kept.
+- **A2 (front-keep lad "1", sim 23312–23662, tight 5):** $30 10 fills / $18k, C +0.68 / **R −0.50** (R/C −0.73); **$300 63 fills / $148k, C +0.34 / R +0.23 bp, R/C +0.68** (first tight-5 $300 block: fleet-like).
+- **165 (4 h old):** $1/mo; making captured 8.8 / realized 1.7 / rank 0.007 (q 0.19); skill_rank 0.253 (fleet median 0.227); score 0.130; call_time 0.161.
+- Fleet median $165 / score 0.442 / making_rank 0.72; 169 $291, 210 $286, 251 $211; 252 $158. Prune line ≈ $104; 165 protected ≈ 20 h.
+- B2 skill vs 252: +5.5 (+0.48 bp) / +20.9 (+0.54 bp).
