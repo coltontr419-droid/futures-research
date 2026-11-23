@@ -30249,3 +30249,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 ## §2057 — 3:22 PM CT brief (NOTE; $30 size 0.3 re-run, B1 just started)
 - No new alerts; 0 tracebacks / 0 fallbacks; PACE 0–1; disk 30%; ABAB pid 87481 alive (B1 from 21:21:21 UTC); live vs SETTLED = mk_low_size 0.3 only. Last MSGS (SETTLED minute): vol 2,315/2,305, calm 799/785, $30 217/27 ≈ 6,450.
 - **165: $83/mo ($2.77/d)**; making captured 318.0 / realized 123.0 (q 0.39) / share 0.0015 / making_rank 0.314; skill_rank 0.285; score 0.299; call_time 0.162. Fleet median $216 / score 0.56; 210 $296, 251 $252, 169 $249; 252 $190. Prune line ≈ $118; 165 protected ≈ 3 h. OTR gauges: none yet.
+
+## §2058 — 3:51 PM CT brief (NOTE; $30 size 0.3 re-run block B1)
+- No new alerts; 0 tracebacks / 0 fallbacks; PACE 0–1; disk 31%; ABAB pid 87481 alive. MSGS last sim min: vol 2,868/2,872, calm 844/833, $30 198/26 ≈ 7,640. $30 life p50 120 s; $300 p50 0 s.
+- B1 skill vs 252: −6.3 / +3.5, −7.0 / +0.6, +1.8 / +0.3.
+- **165: $83/mo**; making captured 335.9 / realized 131.9 (q 0.39) / share 0.0015 / **making_rank 0.333**; skill_rank 0.295; **score 0.314**; call_time 0.160. Fleet median $216 / score 0.54; 210 $296, 251 $252, 169 $249; 252 $190. Prune line ≈ $123; 165 protected ≈ 2.5 h. OTR gauges: none yet.
