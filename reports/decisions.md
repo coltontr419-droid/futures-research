@@ -30266,3 +30266,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - No new alerts; 0 tracebacks / 0 fallbacks; PACE 0–1; disk 31%; ABAB pid 87481 alive; live == SETTLED (A2). $30 life p50 120 s; $300 p50 0 s.
 - A2 skill vs 252: +6.2 / +4.0, +0.9 / +6.3.
 - **165: $83/mo**; making captured 336.4 / realized 129.3 (q 0.38) / share 0.0016 / making_rank 0.331; skill_rank 0.282; score 0.307; call_time 0.172. Fleet median $216 / score 0.55; 210 $296, 251 $252, 169 $249; 252 $190. Prune line ≈ $124; 165 protected ≈ 2 h. OTR gauges: none yet.
+
+## §2061 — 4:51 PM CT brief (NOTE; $30 size 0.3 re-run block B2)
+- No new alerts; 0 tracebacks / 0 fallbacks; PACE 0; disk 31%; ABAB pid 87481 alive (B2 since ≈ 22:27 UTC); live vs SETTLED = mk_low_size 0.3 only. $30 life p50 120 s; $300 p50 0 s.
+- B2 skill vs 252: +5.7 / +0.7, +4.0 / −0.6.
+- **165: $91/mo ($3.03/d)**; making captured 337.7 / realized 129.2 (q 0.38) / share 0.0016 / making_rank 0.312; skill_rank 0.302; score 0.307; call_time 0.167. Fleet median $222 / score 0.59; 210 $301, 169 $255, 251 $249; 252 $184. **Prune line ≈ $106** (lowest non-immune); 165 protected ≈ 1.5 h. OTR gauges: none yet.
