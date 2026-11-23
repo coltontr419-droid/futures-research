@@ -29912,3 +29912,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **churn300.py:** cause = 1-tick target FLICKER: e.g. book 0 bid 303.76 ↔ 303.77 and ask 303.93 ↔ 303.94 almost every round → cancel + re-place each flick (back of queue).
 - History: mk_vol_hold 2 (keep an order the target moved BEHIND, i.e. our order more aggressive) NOT KEPT on 11-21 (§1854, R/C −1.4 vs −0.6). The safe half is the opposite: keep an order that is 1 tick BEHIND the target (less aggressive) instead of stepping up → absorbs the flicker without extra adverse exposure.
 - Next: build knob mk_vol_lag (ticks, default 0 = identical) — $300 vol/calm touch order up to `lag` ticks behind the target is kept as the touch order; churn check + ABAB.
+
+## §2002 — 11:45 PM CT — mk_vol_lag built + deployed (agents 526b35e7); $300 lag ABAB started
+- **patch_lag.py** (agents 526b35e7 = b4a82214 + mk_vol_lag): on $300 vol/calm books a resting touch order up to `lag` ticks BEHIND its target is kept as the touch order (skipped when an order already sits exactly at the target; never on $30 books). Default 0 = identical code path. SPREAD300 log adds "lag-kept". newminer.sh → 526b35e7; backup QuoteAgent.py.bak-b4a82214.
+- Restart 05:33:48 UTC, 0 tracebacks, FASTDEC installed. Warm-up check with lag 1: $300 orders 3,483 per 90 sim s, life p50 1 s (vs ≈ 4,900 / p50 0 s) → −29% churn; lag-kept 1,549 per sim min. Remaining churn mostly tight-5 pulls (2,163 of 7,230 book-rounds).
+- **speed/abab_lag_165.sh** (pid 43739, log abab_lag__165.log; arms B A B; 240-s wait): A = live (front-keep + lad "1:2" + tight 5, lag 0), **B = + mk_vol_lag 1**; arms diffed vs live: A identical, B only mk_vol_lag. B1 ≈ 05:46:47 UTC; B1 read 12:24 AM, verdict ≈ 1:31 AM CT.
