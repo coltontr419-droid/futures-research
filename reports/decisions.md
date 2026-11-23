@@ -30215,3 +30215,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - No new alerts; 0 tracebacks / 0 fastdec fallbacks (tolerant decoder live); PACE 0–3 (burst over); disk 30%; ABAB pid 82668 alive, B1 from 19:48:28 UTC (sim 34770); live vs SETTLED = mk_rest300 1 / keep_deep 5 only. Last MSGS line (pre-switch, SETTLED): vol 2,503/2,512, calm 889/862, $30 455/32 ≈ 7,250 / sim min.
 - **165: $75/mo**; making captured 293.3 / realized 120.4 (q 0.41) / share 0.0013 / rank 0.289; skill_rank 0.247; score 0.268; call_time 0.162. Fleet median $214 / score 0.58; 210 $287, 251 $244, 169 $239; 252 $192. Prune line ≈ $105; 165 protected ≈ 4.5 h. OTR gauges: none yet.
 - **§2050 kd5 early check (2:01 PM CT, NOTE):** 'mk_rest300 0→1, mk_rest300_keep_deep 3→5' applied; 0 tracebacks, 0 fallbacks; PACE 0–2. MSGS per sim min **≈ 5,570–5,740** (vol 1,941–2,030 / 1,944–2,003, calm 656–664 / 637–639, $30 353–372 / 28–35) vs SETTLED ≈ 7,250 → **−22…−23%**; $300 orders 3,890 per 90 sim s, life p50 0 / p90 8 s. At ≈ 28–40 fills/min → ≈ 140–200 msgs/fill (borderline at low fill rates). Fills / capture at the B1 read.
+
+## §2052 — 2:21 PM CT brief (NOTE; rest300 keep_deep 5 block B1)
+- No new alerts; 0 tracebacks / 0 fallbacks; PACE 0–3; disk 30%; ABAB pid 82668 alive.
+- MSGS last sim min: vol 2,103/2,069, calm 673/644, $30 323/29 ≈ 5,840; our fills (tape, last 5 sim min) **54.6 / min → ≈ 107 msgs per fill** (SETTLED ≈ 7,250 → ≈ 133 at this fill rate). $300 orders 5,574 per 120 sim s (life p50 0 / p90 7 s).
+- B1 skill vs 252: −2.8 / +4.4, **+6.8 / +3.8, +5.3 / +3.3** (skill back positive).
+- **165: $79/mo**; making captured 292.3 / realized 117.3 (q 0.40) / share 0.0013 / **making_rank 0.301**; skill_rank 0.272; score 0.286; call_time 0.176. Fleet median $217 / score 0.58; 210 $290, 251 $251, 169 $247; 252 $193. Prune line ≈ $114; 165 protected ≈ 4 h. OTR gauges: none yet.
