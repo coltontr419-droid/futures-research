@@ -29862,3 +29862,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (3 h old): $1/mo — first pay**; making captured 8.1 / realized 1.6 / rank 0.020 (q 0.20); skill_rank 0.306 (fleet median 0.218); score 0.163; call_time 0.175.
 - Fleet median $165 / score 0.447 / making_rank 0.73; 169 $291, 210 $286, 251 $211; 252 $158. Prune line ≈ $102; 165 protected ≈ 21 h.
 - B1 skill vs 252 (Σα): +0.5 / +32.1, +1.6 / +29.0.
+
+## §1995 — 9:47 PM CT — deep-ladder B1 READ: $30 positive and above the fleet in a weak window; ABAB continues
+- B1 (sim 23025–23312, tight 5, lad "1:2"): **165 $30 3.5k/min (11 fills), C +1.13 / R +0.58, R/C +0.52**. Fleet same window: 210 14.8k R/C +0.19, 251 14.4k +0.20, 169 9.3k −0.08, 252 −0.35 (weak $30 window).
+  - Depth: 165 1-behind n4 R +1.15, at best n7 R +0.16; top3 1-behind R +0.74, at best R −0.31. q1b: aged ≥ 90 s 1-behind R +1.61, front R +2.40 (tiny n).
+  - Reference: front-keep A2 (§1992, a stronger window) 2.6k/min R +1.33.
+- **$300 165: 21.3k/min, C +0.52 / R +0.10, R/C +0.20** vs 169 +0.77, 210 +0.95, 251 +0.29, 252 +0.60 → **$300 kept share is now our weakest part** (tight 5 on). 165 miner-wide R/C +0.28.
+- Not a loss → A2 / B2 run (verdict ≈ 10:50 PM CT).
