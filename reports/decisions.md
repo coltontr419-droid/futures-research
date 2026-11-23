@@ -30254,3 +30254,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - No new alerts; 0 tracebacks / 0 fallbacks; PACE 0–1; disk 31%; ABAB pid 87481 alive. MSGS last sim min: vol 2,868/2,872, calm 844/833, $30 198/26 ≈ 7,640. $30 life p50 120 s; $300 p50 0 s.
 - B1 skill vs 252: −6.3 / +3.5, −7.0 / +0.6, +1.8 / +0.3.
 - **165: $83/mo**; making captured 335.9 / realized 131.9 (q 0.39) / share 0.0015 / **making_rank 0.333**; skill_rank 0.295; **score 0.314**; call_time 0.160. Fleet median $216 / score 0.54; 210 $296, 251 $252, 169 $249; 252 $190. Prune line ≈ $123; 165 protected ≈ 2.5 h. OTR gauges: none yet.
+
+## §2059 — 3:58 PM CT — $30 size 0.3 re-run B1 READ: $30 volume +44% at higher capture → continue to the verdict
+- No burst (fleet $300 11–33k per 2 sim min). B1 sim 36070–36485.
+- **$30 165: 17.9k/min, 4.2 fills/min, R/C +0.65** (pooled SETTLED ref §2056 12.4k R/C 0.45) vs 169 15.9k +0.68, 210 26.4k +0.44, 251 24.3k +0.60.
+- $300 (size unchanged): 165 19.2k R/C +0.11 vs 169 +0.06, 210 +0.02, 251 −1.54 (weak $300 window for everyone).
+- **Miner-wide 165 +0.56** vs 169 +0.48, 210 +0.41, 251 +0.49. Skill −1.9, −6.3, −7.0, +1.8, −2.9, +3.4 vs 252 +0.3 … +6.0 (mixed; similar to SETTLED windows today).
+- Not a failure → A2 / B2 run; verdict + FREEZE ≈ 5:04 PM CT.
