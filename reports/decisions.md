@@ -29961,3 +29961,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **$30: 165 4.8k/min (11 fills) C +0.40 / R −0.00, R/C −0.01** vs 169 +0.69, 210 +0.42, 251 +0.39 (median 0.42); 252 −0.73.
 - 165 miner-wide R/C +0.51. **Skill (skill_cls2, $300, last 4 sim min): 165 Σα +7.4 = +0.95 bp vs 252 −3.2 = −0.20 bp.**
 - $30 with this recipe so far: +0.52, +0.74, +0.63, +0.63, −0.01 (n 8–27 per block) → W1 likely noise; the cron rule says "clearly misses" — not clear at n 11. Decision deferred to W2, judged on pooled A2 + W1 + W2 per class.
+
+## §2010 — 2:28 AM CT brief (NOTE; clean baseline window W2, no test)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 30%; no test (sim 26554, inside W2). $30: 338 orders per 120 sim s, life p50 120 s.
+- **165 (8 h old): $24/mo ($0.80/d)**; making captured 36.4 / realized 11.1 (q 0.31) / share 0.0002 / rank 0.029; skill_rank 0.197 (fleet median 0.158); score 0.113; call_time 0.151.
+- Fleet median $168 / making_rank 0.63; 169 $338, 210 $283, 251 $216; 252 $199. Prune line ≈ $105; 165 protected ≈ 16 h.
