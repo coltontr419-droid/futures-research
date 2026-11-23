@@ -29756,3 +29756,12 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
   - FRONT30 in B1: 0/9, 4/13, 2/14, 35/43, 2/15, 2/20 at-best orders kept at the front.
 - Read: quality now fleet-like (R/C 0.38 vs fleet 0.5–0.76) but $30 volume ≈ 1/5–1/7 of the fleet; n small. Not a loss → ABAB continues (A2 running, B2 ≈ 23:46–00:19 UTC, ends ≈ 6:20 PM CT).
 - Brief: 0 tracebacks / fallbacks; PACE 1–3; disk 27%. **253 $75/mo**; making captured 46.5 / realized 17.9 / share 0.0005 / making_rank 0.079 (rising); skill_rank 0.328; score 0.204. Fleet median $165 / making_rank 0.67; 210 $282, 169 $236, 251 $214; 252 $160. **Prune line ≈ $101; immunity ends in ≈ 0.3 h (≈ 6:05 PM CT).**
+
+## §1979 — 6:20 PM CT — 253 PRUNED (immunity ended ≈ 6:05 PM); final front-keep reads; next miner starts on front-keep
+- regcheck x3=253 twice: NOT REGISTERED. Last 253 fill sim 20936. ABAB pid 25242 killed; mvtrx-x3 stopped + disabled; our_uids.txt.bak-253pruned. Pay at prune ≈ $75/mo vs line ≈ $101 (making still ramping through the 3-sim-hour lookback: making_rank 0.007 → 0.079 over the day).
+- **Final front-keep ABAB** (B2 cut short at sim 20936; churn check B2: 284 orders, life p50 134 s — no churn):
+  - B2 alone: $30 2.7k/min C +0.93 / **R −0.72** (4 fills, $9k); $300 R/C **−0.21** (unaffected by the $30 change → a bad window: fleet 210 $30 R +0.89 → +0.22, 252 +0.82 → −0.32). A2: $30 0 fills; $300 R/C +0.37.
+  - **Pooled:** A $30 0 fills, miner-wide R/C +0.38; **B $30 2.6k/min, C +0.92 / R −0.07 bp (8 fills, $24k), SUM2MIN +0.60**, miner-wide +0.30 (the $300 B2 dip). Σα vs 252 −1.2 (A) / −2.1 (B).
+- **Verdict: INCONCLUSIVE (8 fills).** The $30 capture C is fleet-like in both B blocks (+0.91 / +0.93 vs fleet +0.9–1.5), and only B makes $30 volume at all (base: 0). R swings with the window.
+- **Tie → copy the fleet (standing rule):** the next miner starts on B: **live_params_NEXT = base + mk_low_touch_min 0, mk_low_keep 1, mk_low_keep_deep 3, mk_low_front 0.25** (backup live_params_NEXT.json.bak-1979); agents b4a82214 (newminer.sh checks it).
+- Next on the new miner: keep reading front-keep (more $30 fills), then the fixed fleet-style $30 re-run (behind 0 + keep, size 0.1) after a churn check.
