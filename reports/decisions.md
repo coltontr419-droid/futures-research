@@ -29966,3 +29966,17 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 0–1; disk 30%; no test (sim 26554, inside W2). $30: 338 orders per 120 sim s, life p50 120 s.
 - **165 (8 h old): $24/mo ($0.80/d)**; making captured 36.4 / realized 11.1 (q 0.31) / share 0.0002 / rank 0.029; skill_rank 0.197 (fleet median 0.158); score 0.113; call_time 0.151.
 - Fleet median $168 / making_rank 0.63; 169 $338, 210 $283, 251 $216; 252 $199. Prune line ≈ $105; 165 protected ≈ 16 h.
+
+## §2011 — 2:55 AM CT — **SETTLED**: $300 and $30 match/beat the fleet top makers on kept share (user's overnight rule)
+- W2 (sim 26390–26780, no test): $300 165 21.7k/min R/C +0.62 (169 +0.67, 210 +0.74, 251 +0.58); $30 165 5.5k/min R/C +0.53 (169 +0.63, 210 +0.26, 251 +0.41); miner-wide 165 +0.60 vs 210 +0.33 / 169 +0.64 / 251 +0.44. Skill ($300, 4 sim min): 165 +0.22 bp vs 252 +0.23 bp.
+- **POOLED A2 + W1 + W2 (≈ 19.5 sim min, live recipe):**
+
+| class | 165 | 169 | 210 | 251 | median of the three |
+|---|---|---|---|---|---|
+| $300 R/C | **+0.66** (19.3k/min, n178) | +0.66 (26.8k) | +0.79 (25.9k) | +0.57 (26.7k) | 0.66 → **matched** |
+| $30 R/C | **+0.45** (4.4k/min, n35) | +0.61 (13.6k) | +0.38 (19.7k) | +0.39 (21.7k) | 0.39 → **beat** |
+| miner-wide R/C | **+0.61** | +0.63 | +0.46 | +0.43 | 0.46 → **beat** |
+
+- **SETTLED RECIPE** (agents **526b35e7**, newminer.sh checks it): §1742 base + $300 3× size (mk_vol_size 0.3 / mk_calm_size 0.36) + **mk_tight300 5** + $30 **front-keep** (mk_low_touch_min 0, mk_low_behind 1, mk_low_keep 1, mk_low_keep_deep 3, mk_low_front 0.25, mk_low_size 0.1) + **$30 ladder "1:2"**; mk_vol_lag 0; strong-inside / adapt / stale / imb / gate off. Snapshot live_params_165.SETTLED.json; **live_params_NEXT.json = live_params_165.json** (diff empty; backup NEXT.bak-settled).
+- From now on on 165: no more strategy tests — safety / rollbacks only (user's rule + stop-when-above-median).
+- **Remaining gaps (reported, not tested tonight):** (1) VOLUME — $300 ≈ 73% of the top makers' (19.3k vs 26–27k/min), $30 ≈ 1/4 (4.4k vs 13.6–21.7k; our $30 fills ≈ $1k vs their full $3.6k orders while the cold pace bucket ramps). (2) Gauges still ramping through the 3-sim-hour lookback: 165 $24/mo, making_rank 0.03, skill_rank 0.20 (fleet median 0.16).
