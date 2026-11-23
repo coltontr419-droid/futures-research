@@ -29834,3 +29834,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Miner log: "LIVE PARAMS applied: mk_tight300 5→0" at 20:29:45 UTC (253) and 00:32:36 UTC (165). So 253 ran tight 0 from 2:29 PM CT until its prune, and 165 since 6:32 PM CT. live_params_NEXT was never touched (tight 5) → 165 started on 5.
 - Restored tight 5 on 165 at 02:33:18 UTC ("mk_tight300 0→5"). Script default TIGHT → "5" in all abab_*_253/165 scripts. The running abab_one1b_165's in-memory mk() still writes 0 at its end → reset after it ends (verdict step).
 - Impact: the $30 A/B comparisons stay valid (both arms had tight 0). The afternoon/evening $300 reads (R/C +0.17 to +0.39) were NOT the settled recipe (tight 5 earlier: +0.48 to +0.71); 253's making ramp before the prune ran without it.
+
+## §1991 — 8:57 PM CT brief (NOTE; always-1-behind ABAB block B2, tight 5 back since 02:33 UTC)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0–2; disk 28%; ABAB pid 32109 alive (B2 ends ≈ 02:58 UTC). tight 5 live (SPREAD300 2,421 pulled per sim min). $30: 502 orders per 120 sim s, life p50 68 s (no churn); **93% at 1 behind**; FRONT30 188 of 272 kept.
+- **165 (2.5 h old):** $0/mo yet; making captured 3.9 / realized 0.7 (q 0.18); skill_rank 0.220 (fleet median 0.172); score 0.110; call_time 0.162.
+- B2 skill vs 252 (Σα): −4.7 / +31.0, −1.7 / +42.9, −1.8 / +49.5 (252 on a big skill run; $300 fills 2–7 per 3 sim min).
+- Fleet median $161 / making_rank 0.73; 210 $287, 169 $279, 251 $208; 252 $157. Prune line ≈ $94; 165 protected ≈ 21.5 h.
