@@ -30000,3 +30000,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 27%; no drift vs SETTLED. $30 life p50 119 s; $300 p50 0 s.
 - **165 (10.5 h old): $40/mo ($1.33/d)**; making captured 59.6 / realized 19.6 (q 0.33) / share 0.0003 / **rank 0.087**; skill_rank 0.230 (fleet median 0.150); score 0.158; call_time 0.148.
 - Fleet median $163 / making_rank 0.58; 169 $330, 210 $273, 251 $208; 252 $209. Prune line ≈ $104; 165 protected ≈ 13.5 h.
+
+## §2016 — 5:00 AM CT — user back; VOLUME tests approved (failures revert to SETTLED); combined volume ABAB started
+- User: "you can start the volume tests, anything that fails today gets stopped and we move back to the current settings."
+- Offline (last 10 sim min, sim ≈ 27770–28371): pace ramp is done ($30 fill p50 $1k → **$3.0k**, p90 $5.0k = our full order). Gap is FILL COUNT / coverage: $30 165 22 fills on 16 books (6.9k/min) vs top3 50–77 fills on 32–43 books (13.8–23.4k/min); $300 165 99 fills / 49 books (23.2k/min, fill p50 **$1.5k** — small ladder orders 0.027) vs top3 106–136 / 59–62 books (28–30k/min, p50 $3.1–3.6k, max $3.68k). PACE 0 blocked; 24h notional median $17k of the $450k cap.
+- **speed/abab_vol_165.sh** (pid 55336, log abab_vol__165.log; arms B A B; no restart): A = SETTLED; **B = $30 mk_low_size 0.2 + $300 mk_vol_lad_size 0.08 + mk_calm_lad_size 0.06** ($30 ladder keeps its own mk_low_lad_size). Diffed vs SETTLED: A identical, B only those three. Miner log: "mk_vol_lad_size 0.027→0.08, mk_calm_lad_size 0.02→0.06, mk_low_size 0.1→0.2". B1 from 10:59:59 UTC (sim 28380); safety check 5:12, B1 read 5:37 (per-class revert on failure), verdict ≈ 6:43 AM CT.
