@@ -29899,3 +29899,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - By depth: 165 1-behind R +0.04 bp vs top3 +0.28; 2+ behind +0.15 vs +0.25; at best +0.23 vs +0.30.
 - Non-sweep split (165, n28 $83k): own share and depth don't isolate it (2+ behind R −0.44, at best −0.09, 1 behind +0.19); small n.
 - Next (offline): per-fill timing of our non-sweep $300 fills — how long the order had rested and whether the book moved toward it just before (stale quote picked off), vs top3; check whether tight-5 pulls arrive late (spread 0–2 fills).
+
+## §2000 — 11:28 PM CT brief (NOTE; no test running — settled so far: front-keep + lad "1:2" + tight 5)
+- 0 tracebacks / 0 fastdec fallbacks; PACE 0; disk 29%; no ABAB running. $30: 406 orders per 120 sim s, life p50 104 s (no churn); FRONT30 54 of 74 kept.
+- **165 (5 h old): $6/mo ($0.20/d)**; making captured 10.3 / realized 2.0 / share 0.0001 / rank 0.014 (q 0.20); skill_rank 0.251 (fleet median 0.262); score 0.133; call_time 0.152 (fleet median 0.216).
+- Fleet median $156 / score 0.460 / making_rank 0.73; 169 $311, 210 $280, 251 $204; 252 $156. Prune line ≈ $93; 165 protected ≈ 19 h.
