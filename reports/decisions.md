@@ -29828,3 +29828,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **A2 (front-keep, sim 22118–22556): $30 16 fills / $16k, C +1.50 / R +1.33 bp, R/C +0.89** (strong too); $300 141 fills / $204k, R/C +0.17.
 - **165 (2 h old):** $0/mo yet; **first making capture: captured 2.4 / realized 0.4** (q 0.18); skill_rank 0.292 (> fleet median 0.271); score 0.146; call_time 0.161.
 - Fleet median $161 / score 0.442 / making_rank 0.73; 210 $287, 169 $279, 251 $208; 252 $157. Prune line ≈ $95; 165 protected ≈ 22 h.
+
+## §1990 — 8:35 PM CT — BUG: the ABAB scripts turned the settled $300 tight 5 OFF (tight 0) since 2:29 PM CT → restored
+- The ABAB template writes mk_tight300 = $TIGHT (default "0") in BOTH arms; earlier runs were started with TIGHT=5, today's (abab_front253, abab_front2_253, abab_fleetfix_165, abab_one1b_165) were not.
+- Miner log: "LIVE PARAMS applied: mk_tight300 5→0" at 20:29:45 UTC (253) and 00:32:36 UTC (165). So 253 ran tight 0 from 2:29 PM CT until its prune, and 165 since 6:32 PM CT. live_params_NEXT was never touched (tight 5) → 165 started on 5.
+- Restored tight 5 on 165 at 02:33:18 UTC ("mk_tight300 0→5"). Script default TIGHT → "5" in all abab_*_253/165 scripts. The running abab_one1b_165's in-memory mk() still writes 0 at its end → reset after it ends (verdict step).
+- Impact: the $30 A/B comparisons stay valid (both arms had tight 0). The afternoon/evening $300 reads (R/C +0.17 to +0.39) were NOT the settled recipe (tight 5 earlier: +0.48 to +0.71); 253's making ramp before the prune ran without it.
