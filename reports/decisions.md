@@ -30238,3 +30238,4 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - MSGS last sim min: vol 2,138/2,152, calm 757/749, $30 254/34 ≈ 6,080 (−16% vs SETTLED ≈ 7,250); SPREAD300 debounce-kept 1,384 per sim min. $300 order life p50 1 s (was 0) / p90 6 s.
 - B1 skill vs 252: −5.1 / +7.3 (1 check).
 - **165: $79/mo**; making captured 305.2 / realized 119.7 (q 0.39) / share 0.0014 / **making_rank 0.314**; skill_rank 0.290; **score 0.302**; call_time 0.164. Fleet median $217 / score 0.52; 210 $290, 251 $251, 169 $247; 252 $193. Prune line ≈ $119; 165 protected ≈ 3.5 h. OTR gauges: none yet.
+- **§2054 early check (2:55 PM CT, NOTE):** 'mk_vol_debounce 0→1' applied; 0 tracebacks, 0 fallbacks; PACE 1. MSGS ≈ 6,080 → 5,700 per sim min (vol 2,055/2,023, calm 692/675, $30 229/31) = **−16…−21%** vs SETTLED ≈ 7,250 (offline ≈ −20%); debounce-kept ≈ 1,383 per sim min. **Duplicate check OK:** $300 orders per side always 1 (10,083 side-rounds, like SETTLED 9,823).
