@@ -29891,3 +29891,11 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Fleet $30 same windows: R/C −0.08 to +0.66 (weak night); fleet $300 R/C 0.56–0.95 in all three windows.
 - **Decision:** the miner-wide criterion failed only via the $300 class, which the $30 ladder does not touch (reply load identical: 113–123 instructions per reply in every block; separate per-book instruction budgets). Judged on its own class, "1:2" wins → **adopted: mk_low_lad "1:2" in live_params_165 + live_params_NEXT** (diff: only mk_low_lad; backups *.bak-1998).
 - **Flag:** our $300 R/C in the two B blocks (0.20 / 0.16) while the fleet's was 0.71–0.95 → watch $300 kept share in the next clean reads; if it stays ≈ 0.2 with "1:2", re-test the ladder against the $300 class directly. Next study: the $300 kept-share gap (offline, fill-level vs 210 / 169 / 251).
+
+## §1999 — 11:10 PM CT — $300 kept-share gap, first offline cut (tight-5 blocks BK1+AK2+BK2)
+- **165 $300 R/C +0.38 ($378k) vs top3 +0.71 ($1,078k), 252 +0.65.**
+- By sweep: **165 single-taker (non-sweep) fills 23% of $ with R/C −1.06**, sweeps 77% R/C +0.44; top3 non-sweep 37% R/C +0.80, sweeps +0.63. → The gap is in NON-SWEEP fills (single takers).
+- By others' spread: 165 fills at 0–2 ticks (4% of $) R/C −4.89 despite tight 5 (stale quotes when the spread narrows?); top3 0–2 ticks +0.90.
+- By depth: 165 1-behind R +0.04 bp vs top3 +0.28; 2+ behind +0.15 vs +0.25; at best +0.23 vs +0.30.
+- Non-sweep split (165, n28 $83k): own share and depth don't isolate it (2+ behind R −0.44, at best −0.09, 1 behind +0.19); small n.
+- Next (offline): per-fill timing of our non-sweep $300 fills — how long the order had rested and whether the book moved toward it just before (stale quote picked off), vs top3; check whether tight-5 pulls arrive late (spread 0–2 fills).
