@@ -29782,3 +29782,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 (32 min old):** $0/mo yet; making captured 0 / rank 0 (lookback ramp); skill_rank 0.095; score 0.048; call_time 0.183.
 - Fleet median $165 / score 0.453 / making_rank 0.67; 210 $287, 169 $247, 251 $215; 252 $165. Prune line (lowest non-immune) ≈ $72–97; 165 protected ≈ 23.5 h.
 - B1 skill 165 vs 252 (Σα): −14.3 / +7.7, −12.0 / +7.1, −8.4 / +0.7 (new-miner warm-up, improving).
+
+## §1983 — 7:12 PM CT — FIXED fleet-style $30 (at best, kept, size 0.1) LOSES on 165 → stopped after B1; front-keep restored
+- B1 (sim 21289–21662, no churn): **$30 34.1k/min (203 fills), C +0.01 / R −0.31 bp** vs fleet same window 210 9.8k/min C +0.99 / R +0.92, 169 9.1k C +0.97 / R +0.83, 251 10.9k C +1.00 / R +0.44 (252 10.5k C +0.17 / R −0.23).
+- $300 165: 24.8k/min C +0.63 / R +0.29 (R/C +0.46, fleet-like). **Miner-wide R ≈ +7.2 − 10.6 < 0 → R/C ≈ −0.2**: the $30 volume would wipe the quality multiplier → clear loss (pid 30375 killed; live_params_165 = front-keep).
+- Queue (qpos30_165): front < 10% n28 C +1.14 / R +0.10; 10–50% n128 R −0.37; back n47 R −0.36. Age (qage30_165): even ≥ 60-s orders lose (n104 C +0.10 / R −0.26), like the non-top fleet (≥ 60 s R −0.36); top3 ≥ 60 s C +1.00 / R +0.25.
+- **Read:** resting orders fixed the churn but not the quality. At-best $30 quoting all the time takes 3× the top makers' volume and gets the adverse flow; the top makers are at best SELECTIVELY (≈ 1/3 of our volume). Queue age alone is not their edge.
+- Next (offline first): compare our losing at-best fills with top3 presence at the same moment — fills where top3 also fill vs where they don't — and find the observable book state that separates them (imbalance, flow, fundamental gap, spread), as a selection gate on top of front-keep.
