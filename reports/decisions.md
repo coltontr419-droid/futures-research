@@ -30471,3 +30471,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 29%; no drift vs FROZEN. $30 two-sided 78%; $30 life p50 120 s; $300 p50 0 s.
 - Live skill ($300, 4 sim min): 171 Σα +12.7 (+0.92 bp) on 22 books vs 252 +8.6. Gauges: **$73/mo ($2.43/d)**; making captured 91.4 / realized 30.4 (q 0.33) / rank 0.169; skill_rank 0.290; score 0.230; net_a +1,077; call_time 0.161.
 - Fleet median $234 / score 0.51; 252 $307, 210 $241 (captured 237), 251 $217 (220), 169 $204. Prune line ≈ $98–115; 171 protected ≈ 9.5 h. OTR gauges: none yet.
+
+## §2096 — 10:15 AM CT brief (NOTE; 171, 14 h 45 min old; no tests / restarts)
+- Testnet TAO: **0**. No new alerts.
+- **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 29%; no drift vs FROZEN. $30 two-sided 76%; $30 life p50 120 s; $300 p50 0 s.
+- Live skill ($300, 4 sim min): 171 Σα +5.8 (+1.01 bp) on 13 books vs 252 −3.1. Gauges: $73/mo; making captured 100.1 / realized 32.3 (q 0.32) / rank **0.126** (dipped); skill_rank 0.273; score 0.200; net_a +979; call_time 0.167.
+- Fleet median $234 / score 0.47 / making_rank 0.53; 252 $307, 210 $241 (captured 246), 251 $217 (232), 169 $204. Prune line ≈ $98–114; 171 protected ≈ 9 h. OTR gauges: none yet.
+- Note: the score has plateaued at ≈ 0.20–0.24 for 3 h (making_rank 0.13–0.20, skill_rank 0.27–0.29) — the clean-window read at 2 PM will confirm the settled level.
