@@ -30450,3 +30450,4 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 29%; no drift vs FROZEN. $30 two-sided 72% (S-only 780, B-only 300); $30 life p50 120 s; $300 p50 0 s.
 - Live skill ($300, 4 sim min): 171 Σα +4.7 (+0.48 bp) vs 252 +5.2 (+0.48). Gauges: **$61/mo ($2.03/d)**; making captured 94.2 / realized 28.4 (q 0.30) / rank 0.176; skill_rank 0.271; score 0.224; net_a +975; call_time 0.177.
 - Fleet median $234 / score 0.50 / making_rank 0.52; 252 $334, 210 $251, 251 $218, 169 $215. Prune line ≈ $114; 171 protected ≈ 11 h. OTR gauges: none yet.
+- **§2091 add (8:20 AM):** user: leave the $30 two-sidedness drift alone on 171 until the testnet miner exists (no cap/unwind test on 171).
