@@ -30534,3 +30534,11 @@ User 1:30 PM: no test TAO → tests back ON for 171 on mainnet until ≈ 7 PM; d
 - **Message sources ($300, msgsrc300.py, per sim min):** placements 2,783 = re-price 2,701 (by ticks: 0: 295, 1: 1,256, 2: 456, 3: 266, 4: 161, 5: 119, 6+: 148) + re-entry after pull 82. Tight-pull toggling is NOT the source.
 - **Ranking of gaps:** (1) OTR 0.37 (biggest, mechanical); (2) realized volume ≈ ½ median; (3) skill kappa 0.25 vs ≥ 1.1; (4) time/size at best.
 - **T1 (OTR) started 19:36:10 UTC (sim 53518):** live_params_171.json = FROZEN + mk_vol_debounce 5 + mk_vol_lag 2 (diffed: only those; backup live_params_171.pre-T1.json). No restart. Reads: msgs/fill (MSGS + block gauges), fills, validator-basis C/R per class vs fleet, skill Σα; early ≈ 1:50 PM, verdict ≈ 2:40 PM CT.
+
+## §2105 — Fleet fill size vs order size (NOTE, 2026-11-24 ≈ 1:52 PM CT)
+- User: we changed our sizes to copy fleet fills and the fleet's fill size keeps moving. Measured on the $300 books, from the 15-sim-min tape (per maker order id):
+  - 210: 3,726 fills on 1,746 orders (2.1 fills/order); $ filled per order median $2,744, p90 $3,636; fill median $76.
+  - 251: 2.1 fills/order; per order median $3,483, p90 $3,640; fill median $77. 169: 1.4; $3,561 / $3,651; fill median $1,964.
+  - 171: 855 fills on 665 orders (1.3); per order median $1,506, p90 $11,830; fill median $1,495.
+- → The fleet's ORDER size is stable at ≈ $3.6k (same as §1278 weeks ago). The $76 median fill is just small takers chewing those orders. Fill size is an outcome; never a copy target. The real gap is how many of our orders get hit at all (665 vs 1,746) = queue position / presence.
+- User: authority to run tests and make changes without asking (spending/keys/registrations excluded).
