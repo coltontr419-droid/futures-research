@@ -30490,3 +30490,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 29%; no drift vs FROZEN. $30 two-sided **72%** (S-only 960 = 16 books capped long); $30 life p50 113 s; $300 p50 0 s.
 - Live skill ($300, 4 sim min): 171 Σα +5.9 (+0.84 bp) vs 252 −0.8. Gauges: $74/mo; making captured 110.0 / realized 36.8 (q 0.33) / rank 0.163; skill_rank 0.221; score 0.192; net_a +910; call_time 0.174.
 - Fleet median $226 / score 0.48; 252 $284, 210 $235 (captured 240), 251 $213 (218), 169 $201. **Prune line ≈ $122** (lowest non-immune 25 $122, 125 $123); 171 protected ≈ 8 h. OTR gauges: none yet.
+
+## §2099 — 11:45 AM CT brief (NOTE; 171, 16 h 15 min old; no tests / restarts)
+- Testnet TAO: **0**. No new alerts.
+- **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 30%; no drift vs FROZEN. $30 two-sided 75% (S-only 900); $30 life p50 120 s; $300 p50 0 s.
+- Live skill ($300, 4 sim min): 171 Σα +6.2 (+0.90 bp) vs 252 +0.7. Gauges: $74/mo; making captured 95.8 / realized 33.3 (q 0.35) / rank 0.156; skill_rank 0.256; score 0.206; net_a +903; call_time 0.173.
+- Fleet median $226 / score 0.46; 252 $284, 210 $235 (captured 237), 251 $213 (197), 169 $201. Prune line ≈ $116; 171 protected ≈ 7.5 h. OTR gauges: none yet.
