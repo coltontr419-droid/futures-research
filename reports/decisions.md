@@ -30282,3 +30282,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
   - $30: front-keep (mk_low_touch_min 0, mk_low_behind 1, mk_low_keep 1, mk_low_keep_deep 3, mk_low_front 0.25), **mk_low_size 0.2**, **mk_low_lad "1:2"**, **mk_low_max_units 400**; mk_inv_own 0.
 - From now: no strategy tests on 165 — safety / rollbacks only; briefs check live == FROZEN, alerts.txt, OTR gauges. 0.6.8 OTR: accept the discount if it goes live (message cuts all hurt $300 capture); revisit only if the live factor is far below 0.74.
 - 165 at freeze: **$100/mo ($3.33/d)**; making captured 330.9 / realized 121.0 / share 0.0017 / rank 0.296; skill_rank 0.278; score 0.287; call_time 0.163. Fleet median $222 / score 0.59 / making_rank 0.81; 210 $299, 169 $256, 251 $248; 252 $180. **Prune line ≈ $124; 165's protection ends in ≈ 0.2 h** (pay still ramping through the lookback) → a prune is possible; if pruned: re-register → newminer.sh (b424e5df) starts on the frozen recipe.
+
+## §2064 — 6:55 PM CT brief (NOTE; 165 FROZEN, protection over)
+- Testnet TAO (coldkey 5HYHoi…): **0** (Discord request pending). No new alerts.
+- **165 REGISTERED** (regcheck ×2) but now **FIRST in the prune order** (lowest non-immune: 165 $99; next 171 $124, 246 $125) → the next mainnet registration on SN79 prunes it unless its pay passes ≈ $124. No action per the user's rule (no survival boosts; FROZEN).
+- 0 tracebacks / 0 fallbacks; PACE 0; disk 32%; no drift vs FROZEN. $30 life p50 116 s; $300 p50 0 s.
+- **165: $100/mo**; making captured 329.3 / realized 120.6 (q 0.37) / share 0.0018 / rank 0.294; skill_rank 0.287; score 0.291; call_time 0.175. Fleet median $222 / score 0.56; 210 $299, 169 $256, 251 $248; 252 $180. OTR gauges: none yet.
