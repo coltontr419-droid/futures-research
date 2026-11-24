@@ -30503,3 +30503,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Live skill 4 min: 171 Σα +6.9 (+0.66 bp, 16 books) vs 252 +9.9 (+0.66 bp, 40 books).
 - Gauges: 171 $76/mo, score 0.174, skill_rank 0.214, making_rank 0.134, captured 97.5 / realized 32.5, net α 881. Fleet median $221 / 0.458; 210 $230 (cap 253.6), 251 $203 (205.8), 169 $197, 252 $262.
 - Prune line ≈ $121 (154 $121, 170 $122, 125 $124); 171 protected ≈ 7 h more. No tests/restarts (user rule).
+
+## §2101 — 12:45 PM CT brief, UID 171 (NOTE, 2026-11-24)
+- Testnet TAO 0. No new alerts (tail = older 165/171 items). 171 REGISTERED; 0 tracebacks/fallbacks, PACE 0, disk 30%, no drift vs FROZEN.
+- $30 two-sided ≈ 75% (unchanged). $30 life p50 120 s; $300 p50 0 s.
+- Gauges: 171 $76/mo, score 0.173, skill_rank 0.174, making_rank 0.172, captured 87.4 / realized 29.2, net α 826. Fleet median $221 / 0.445; 210 $230 (cap 238.3), 251 $203 (198.9), 169 $197, 252 $262.
+- Prune line rose to ≈ $127 (43 $127, 160 $132; 154/170/125 left the list); 171 protected ≈ 6.7 h more. No tests/restarts.
