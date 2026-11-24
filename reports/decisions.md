@@ -30353,3 +30353,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 33%; no drift vs FROZEN. $30 two-sided 92% (B-only 60, S-only 240 of 3,840); $30 life p50 120 s; $300 p50 0 s.
 - Live skill ($300, 4 sim min): 171 **Σα +23.4 (+1.30 bp)** on 33 books ($5.5k/book) vs 252 −0.7. Gauges: $5/mo; skill_rank 0.092; score 0.046; net_a +224; making not counted yet; call_time 0.174.
 - Fleet making gauges dropping across the board this hour (median making_rank 0.55 from 0.76; 210 captured 284 from 400, 169 131 from 262) — market-wide low-capture period. Fleet median $229 / score 0.44; 210 $300, 251 $256, 169 $235; 252 $160. Prune order: 234 at $49 lowest, then ≈ $116; 171 protected ≈ 19 h. OTR gauges: none yet.
+
+## §2076 — 12:45 AM CT brief (NOTE; 171, 5 h 15 min old; no tests overnight)
+- Testnet TAO: **0**. No new alerts.
+- **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 33%; no drift vs FROZEN. $30 two-sided 94%; $30 life p50 120 s; $300 p50 0 s.
+- Live skill ($300, 4 sim min): 171 Σα +0.6 vs 252 +0.5 (flat window). Gauges: $5/mo; skill_rank **0.177**; score 0.088; net_a +341; making not counted yet; call_time 0.168.
+- Fleet making still falling (median making_rank 0.50; 210 captured 255, 169 118) — market-wide low-capture period continues. Fleet median $229 / score 0.43; 210 $300, 251 $256, 169 $235; 252 $160. Prune order: 234 $49, 121 $90, then ≈ $115; 171 protected ≈ 18.5 h. OTR gauges: none yet.
