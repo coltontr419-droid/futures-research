@@ -30516,3 +30516,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - Diagnosis: rank follows skill_shrunk ≈ kappa-driven. Our gap is consistency across books (kappa 0.23 vs 1.10: α spread over 112 books with many negative ones), not total α or bp alone. skill_net_alpha_mark_alt = −309 (theirs positive) → our α depends on the mark; at the alternate mark we lose. The +0.66 bp live 4-min reads are short and at one mark; over 3 sim h we are slightly below 210/251 per notional.
 - Drop since last briefs: net α 881 → 826 → 783 as the window rolls (recent α weaker than the part leaving); fleet ranks moved slightly too.
 - Next: testnet job — per-book α sign consistency + mark_alt robustness on $300 (no change on 171).
+
+## §2103 — 1:20 PM CT brief, UID 171 (NOTE, 2026-11-24; delayed by user wifi outage)
+- Testnet TAO 0. No new alerts. 171 REGISTERED; 0 tracebacks/fallbacks, PACE 0, disk 30%, no drift vs FROZEN; tape still growing.
+- $30 two-sided ≈ 75% (2886/60/894). $30 life p50 120 s; $300 p50 0 s. OTR gauges still absent.
+- Gauges: 171 $67/mo (from $76), score 0.172, skill_rank 0.173, making_rank 0.171, captured 94.5 / realized 32.2, net α 819. Fleet median $220 / 0.442; 210 $231 (cap 258.7), 251 $200 (210.6), 169 $197, 252 $242.
+- Prune line ≈ $123 (167 $123, 122 $125, 114 $126); 171 protected ≈ 6.2 h more. No tests/restarts.
