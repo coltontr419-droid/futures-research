@@ -30293,3 +30293,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - User re-registered x3 → **UID 171** (165 had dropped to first in the prune order at $99). regcheck x3=171 ×2: REGISTERED. Burn at the time ≈ 0.1156 TAO (mainnet balance before ≈ 0.2288).
 - `HK=x3 sh newminer.sh 171 165`: settings live_params_NEXT (= live_params_165.FROZEN.json, diff empty); agents b424e5df; pace_cold start; restart 01:33:45 UTC; FASTDEC installed (fastdec b6098dc7); 0 tracebacks; first own fills by 01:36 UTC. our_uids.txt = "171 maker x3 39426" (backup our_uids.txt.bak-171b); live_params_171.FROZEN.json saved (= 165's frozen recipe).
 - Rules for 171: FROZEN — no tests, no restarts while protected (≈ 24 h); briefs check registration, drift, alerts, $30 two-sidedness, testnet TAO, 0.6.8 gauges.
+
+## §2066 — 7:45 PM CT brief (NOTE; 171 first brief)
+- Testnet TAO: **0**. New alert: "x3 UID 165: scoring validator 5EWwdZB7 shows no gauges for us" (165 was pruned — expected; watchdog still named the old UID before our_uids changed).
+- **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 32%; no drift vs FROZEN.
+- **$30 two-sided from the start: SIDES30 both 3,840 / B-only 0 / S-only 0 (100%)** — the cap fix works on a fresh UID (165 started at ≈ 17%). $30 life p50 120 s; $300 p50 0 s.
+- 171 (10 min old): gauges not populated yet (captured 0, call_time 0.162). Fleet median $230 / score 0.57; 210 $295, 169 $256, 251 $249; 252 $176. Prune line ≈ $117; 171 protected ≈ 23.5 h. OTR gauges: none yet.
