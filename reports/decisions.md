@@ -30299,3 +30299,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 32%; no drift vs FROZEN.
 - **$30 two-sided from the start: SIDES30 both 3,840 / B-only 0 / S-only 0 (100%)** — the cap fix works on a fresh UID (165 started at ≈ 17%). $30 life p50 120 s; $300 p50 0 s.
 - 171 (10 min old): gauges not populated yet (captured 0, call_time 0.162). Fleet median $230 / score 0.57; 210 $295, 169 $256, 251 $249; 252 $176. Prune line ≈ $117; 171 protected ≈ 23.5 h. OTR gauges: none yet.
+
+## §2067 — 8:15 PM CT brief (NOTE; 171, 45 min old)
+- Testnet TAO: **0**. New alert (already discussed): "x3 UID 171: skill net alpha negative two checks in a row (−1.062)" — new-miner warm-up.
+- **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 32%; no drift vs FROZEN. **$30 two-sided 100%** (SIDES30 both 3,840); $30 life p50 75 s; $300 p50 0 s.
+- Skill ($300, last 4 sim min): 171 22 books, $44k notional ($2.0k/book — small orders while the pace bucket fills), Σα −2.8 (−0.64 bp); gauges: net_a +10 (turning positive), captured 0 yet, call_time 0.163.
+- Fleet median $222 / score 0.56; 210 $294, 169 $247, 251 $241; 252 $170. **Prune line ≈ $127**; 171 protected ≈ 23 h. OTR gauges: none yet.
