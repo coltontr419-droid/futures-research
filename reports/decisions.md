@@ -30509,3 +30509,10 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - $30 two-sided ≈ 75% (unchanged). $30 life p50 120 s; $300 p50 0 s.
 - Gauges: 171 $76/mo, score 0.173, skill_rank 0.174, making_rank 0.172, captured 87.4 / realized 29.2, net α 826. Fleet median $221 / 0.445; 210 $230 (cap 238.3), 251 $203 (198.9), 169 $197, 252 $262.
 - Prune line rose to ≈ $127 (43 $127, 160 $132; 154/170/125 left the list); 171 protected ≈ 6.7 h more. No tests/restarts.
+
+## §2102 — Why 171's skill rank is low (NOTE, 2026-11-24 ≈ 1:00 PM CT, read-only)
+- Window: sim now 53235 vs our start 39426 = 3.84 sim h > 3 sim h lookback → all gauges are now from clean (post-start) time. Pay ($76) still lags: score EMA half-life = 3 sim h from 0 (≈ 59% converged) + weight smoothing.
+- Validator skill gauges (171 / 210 / 251 / 169 / 252): net α 783 / 1278 / 1242 / 4138 / 9810; notional 5.7M / 8.4M / 7.6M / 13.0M / 10.9M → α per notional 1.38 / 1.52 / 1.63 / 3.18 / 9.0 bp; skill (kappa) 0.23 / 1.10 / 1.10 / 2.18 / 3.71; books kept 112 / 73 / 79 / 132 / 136; skill_shrunk 4.9 / 13.4 / 12.5 / 29.9 / 69.0 → skill_rank 0.162 / 0.272 / 0.278 / 0.503 / 0.734. Coverage/p11/pool factors all 1.
+- Diagnosis: rank follows skill_shrunk ≈ kappa-driven. Our gap is consistency across books (kappa 0.23 vs 1.10: α spread over 112 books with many negative ones), not total α or bp alone. skill_net_alpha_mark_alt = −309 (theirs positive) → our α depends on the mark; at the alternate mark we lose. The +0.66 bp live 4-min reads are short and at one mark; over 3 sim h we are slightly below 210/251 per notional.
+- Drop since last briefs: net α 881 → 826 → 783 as the window rolls (recent α weaker than the part leaving); fleet ranks moved slightly too.
+- Next: testnet job — per-book α sign consistency + mark_alt robustness on $300 (no change on 171).
