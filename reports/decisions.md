@@ -30288,3 +30288,8 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165 REGISTERED** (regcheck ×2) but now **FIRST in the prune order** (lowest non-immune: 165 $99; next 171 $124, 246 $125) → the next mainnet registration on SN79 prunes it unless its pay passes ≈ $124. No action per the user's rule (no survival boosts; FROZEN).
 - 0 tracebacks / 0 fallbacks; PACE 0; disk 32%; no drift vs FROZEN. $30 life p50 116 s; $300 p50 0 s.
 - **165: $100/mo**; making captured 329.3 / realized 120.6 (q 0.37) / share 0.0018 / rank 0.294; skill_rank 0.287; score 0.291; call_time 0.175. Fleet median $222 / score 0.56; 210 $299, 169 $256, 251 $248; 252 $180. OTR gauges: none yet.
+
+## §2065 — 7:37 PM CT — 165 pruned; x3 RE-REGISTERED as UID 171 on the FROZEN recipe
+- User re-registered x3 → **UID 171** (165 had dropped to first in the prune order at $99). regcheck x3=171 ×2: REGISTERED. Burn at the time ≈ 0.1156 TAO (mainnet balance before ≈ 0.2288).
+- `HK=x3 sh newminer.sh 171 165`: settings live_params_NEXT (= live_params_165.FROZEN.json, diff empty); agents b424e5df; pace_cold start; restart 01:33:45 UTC; FASTDEC installed (fastdec b6098dc7); 0 tracebacks; first own fills by 01:36 UTC. our_uids.txt = "171 maker x3 39426" (backup our_uids.txt.bak-171b); live_params_171.FROZEN.json saved (= 165's frozen recipe).
+- Rules for 171: FROZEN — no tests, no restarts while protected (≈ 24 h); briefs check registration, drift, alerts, $30 two-sidedness, testnet TAO, 0.6.8 gauges.
