@@ -30587,3 +30587,18 @@ User 1:30 PM: no test TAO → tests back ON for 171 on mainnet until ≈ 7 PM; d
 - **Read:** in-window making per book is now at fleet level on $30; the validator gauges (realized 37.8 vs 210 120) lag because the 3-sim-h window (≈ 13 wall h today) still holds the capped/one-sided and OTR-heavy hours. The OTR fix can come from fills (a2) rather than holding orders. T1's holding may cost kept share (a1 0.32–0.41 vs a0 0.50–0.57) — not yet separable from noise.
 - Gauges: score 0.166; making 14.6 / realized 37.8 (OTR 0.39); making_rank 0.193; skill 0.266 / rank 0.139; net α 777. Fleet median score 0.464. Prune line ≈ $111 (220), 112 (58), 115 (131); 171 $63; protected ≈ 3.6 h.
 - AB3 continues; verdict ≈ 4:20 PM CT with ≈ 10+ sim min per arm.
+
+## §2112 — Unseen-risk audit of the making leg: one-sided negative books subtract DOUBLE (2026-11-24 ≈ 4:10 PM CT)
+User: is there anything unseen that would stop making from reaching the median once the validator catches up?
+- Checked: only 5EWwdZB7 publishes scoring gauges (5E7Rbx shows 0 for all); making_basis realized, horizon 20 s, making_floor_scale 0 (off), fee weight 0.005 (config says it is stepped UP later as maker fees fall → future risk for high-fee makers; our maker fee per $ ≈ 74 bp of Mf vs fleet 54–66).
+- **Exact validator credit (repo068 code, speed/fillrecs3.py + speed/credit.py), sim 54160–55146 (16.4 min):** balanced_reward_per_book adds 2·min(C_buy_b, C_sell_b) per book WITHOUT a per-book clamp, so a one-sided book with negative C adds 2× its loss.
+  | | $30 sum/min (+books / −books; one-sided of books) | $300 sum/min | total → credit |
+  |---|---|---|---|
+  | 171 | +0.22 (+0.82 / −0.60; 29 of 42) | −0.45 | −0.23 → 0 |
+  | 210 | +1.00 (+1.31 / −0.31; 15 of 46) | −0.41 | +0.59 (× q 0.54) |
+  | 251 | +0.32 (+0.86 / −0.54; 26 of 53) | −0.39 | ≈ 0 |
+  | 169 | +0.03 | −0.75 | 0 |
+- → **§2111's "$30 matches 210" was wrong** (per-arm ×3 scaling + clamping each side at 0). Exact: our $30 two-sided sum ≈ ¼–⅕ of 210's; our negative $30 books are 2× theirs and 29 of 42 books one-sided. The $300 class drags EVERY maker ≈ −0.4/min (one-sided adverse fills), ours included; 210 survives on its $30 surplus.
+- Short windows bias this negative (books haven't filled both sides); the validator's 3-h sums are kinder (our realized gauge 41 vs 210 123). Background job: the same exact decomposition over the tape's full span (sim 44300/45823–55100 ≈ 2.6 sim h) → /tmp/fr3_3h.jsonl, to reproduce the gauge and split it by class.
+- AB3 per-arm raw two-sided since sim 54740 (6.8 min, thin): $300 a0 −0.19, a1 −0.09, **a2 −0.32** per ⅓ of books → the both-sided $300 arm (OTR fix via fills) deepens the $300 drag; OTR only multiplies a POSITIVE sum, so the sum must be positive first.
+- New priority order for making: (1) a positive two-sided SUM — cut one-sided negative-C fills (mostly $300 adverse lean/sweep fills; $30 negative books) and raise $30 both-sides books; (2) then OTR (messages per fill).
