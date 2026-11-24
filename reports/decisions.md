@@ -30420,3 +30420,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **Watch: $30 two-sidedness drifting down** — SIDES30 both 3,000 / B-only 240 / S-only 600 (**78%**; 100% at start, 94% at midnight, 86% at 4:45). All missing sides = inventory cap (≈ 10 books capped long, ≈ 4 short) as $30 positions slowly accumulate to the 400-unit cap (≈ $12k). Not acted on (FROZEN; no tests overnight) — morning item.
 - Live skill ($300, 4 sim min): 171 **Σα +15.4 (+1.34 bp)** on 20 books ($5.8k/book) vs 252 +3.9. Gauges: $49/mo; making captured 54.0 / realized 17.1 (q 0.32) / **rank 0.131**; skill_rank 0.177; score 0.154; net_a +643; call_time 0.162.
 - Fleet median $236 / score 0.45 / making_rank 0.51; 252 $400, 210 $277, 251 $240, 169 $214. Prune line ≈ $124; 171 protected ≈ 13.5 h. OTR gauges: none yet.
+
+## §2087 — 6:15 AM CT brief (NOTE; 171, 10 h 45 min old; no tests overnight)
+- Testnet TAO: **0**. No new alerts.
+- **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 28%; no drift vs FROZEN. $30 two-sided **77%** (S-only 660 = ≈ 11 books capped long, B-only 240) — still drifting (morning item); $30 life p50 111 s; $300 p50 0 s.
+- Live skill ($300, 4 sim min): 171 Σα +7.5 (+0.94 bp) vs 252 +5.3. Gauges: **$55/mo ($1.83/d)**; making captured 56.6 / realized 17.8 (q 0.31) / rank 0.132; skill_rank 0.199; score 0.166; net_a +674; call_time 0.156.
+- Fleet median $245 / score 0.44 / making_rank 0.50; 252 $391, 210 $277, 251 $240, 169 $231. Prune line ≈ $130; 171 protected ≈ 13 h. OTR gauges: none yet.
