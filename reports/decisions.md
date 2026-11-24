@@ -30438,3 +30438,9 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 28%; no drift vs FROZEN. $30 two-sided 73% (S-only 734, B-only 300 — morning item); $30 life p50 120 s; $300 p50 0 s.
 - Live skill ($300, 4 sim min): 171 **Σα +27.0 (+2.96 bp)** on 14 books vs 252 +2.5. Gauges: $56/mo; making captured **85.3** / realized 26.8 (q 0.31) / **rank 0.199**; skill_rank 0.242; **score 0.220**; net_a +923; call_time **0.144**.
 - Fleet median $237 / score 0.49 / making_rank 0.52; 252 $362, 210 $264, 169 $229, 251 $227. Prune order: 157 $8, 28 $9, then ≈ $115; 171 protected ≈ 12 h. OTR gauges: none yet.
+
+## §2090 — 7:45 AM CT brief (NOTE; 171, 12 h 15 min old; no tests overnight)
+- Testnet TAO: **0**. No new alerts.
+- **171 REGISTERED**; 0 tracebacks / 0 fallbacks; PACE 0; disk 28%; no drift vs FROZEN. $30 two-sided 73% (S-only 720, B-only 300); $30 life p50 120 s; $300 p50 0 s.
+- Live skill ($300, 4 sim min): 171 Σα +10.4 (+1.35 bp) on 13 books vs 252 +5.8. Gauges: $56/mo; making captured 89.5 / realized 27.1 (q 0.30) / rank 0.184; skill_rank 0.262; score 0.223; net_a +964; call_time 0.162.
+- Fleet median $237 / score 0.48 / making_rank 0.52; 252 $362, 210 $264, 169 $229, 251 $227. Prune order: 28 $9, then ≈ $115; 171 protected ≈ 11.5 h. OTR gauges: none yet.
