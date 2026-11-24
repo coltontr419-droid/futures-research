@@ -30602,3 +30602,17 @@ User: is there anything unseen that would stop making from reaching the median o
 - Short windows bias this negative (books haven't filled both sides); the validator's 3-h sums are kinder (our realized gauge 41 vs 210 123). Background job: the same exact decomposition over the tape's full span (sim 44300/45823–55100 ≈ 2.6 sim h) → /tmp/fr3_3h.jsonl, to reproduce the gauge and split it by class.
 - AB3 per-arm raw two-sided since sim 54740 (6.8 min, thin): $300 a0 −0.19, a1 −0.09, **a2 −0.32** per ⅓ of books → the both-sided $300 arm (OTR fix via fills) deepens the $300 drag; OTR only multiplies a POSITIVE sum, so the sum must be positive first.
 - New priority order for making: (1) a positive two-sided SUM — cut one-sided negative-C fills (mostly $300 adverse lean/sweep fills; $30 negative books) and raise $30 both-sides books; (2) then OTR (messages per fill).
+
+## §2113 — 3-hour exact making decomposition (reproduces the gauge) + session handoff (2026-11-24 ≈ 4:15 PM CT)
+- Health 22:07 UTC: REGISTERED; 0 tracebacks; no new alerts; live == AB3 (unchanged — user: no new test; new session next).
+- **Exact validator making over sim 45823–55100 (154.6 min, repo068 code; speed/fillrecs3.py → /tmp/fr3_3h.jsonl, speed/credit.py):**
+  | | all: two-sided C/min, quality, credit/min | $30: two-sided, quality, credit, notional/min | $300: two-sided, quality, notional/min |
+  |---|---|---|---|
+  | 171 | $0.64, 0.33, **$0.21** | $0.80, 0.41, $0.33, $11.7k | ≤ 0, 0.06, $20.5k |
+  | 210 | $1.54, 0.44, **$0.68** | $1.38, 0.49, $0.67, $17.0k | $0.16, 0.31, $33.0k |
+  | 251 | $1.13, 0.35, **$0.40** | $1.20, 0.46, $0.55, $16.7k | ≤ 0, 0.00, $30.4k |
+  171/210 credit 0.31 ≈ gauge realized 41/123 (0.33) → the method reproduces the validator. Over 3 h, 162 of 189 books are two-sided (the §2112 short-window "29 of 42 one-sided" was window bias; the double-negative effect costs ≈ $0.16/min via $300, not the whole total).
+- **Making gap vs 210, factor by factor (pre-OTR credit 0.31×):** $30 notional 0.69×; $30 two-sided C per $ ≈ 0.84×; miner-wide quality 0.75× (0.33 vs 0.44 — our $300 quality 0.06 drags it; $30 alone 0.41 vs 0.49); $300 two-sided sum ≤ 0 vs +0.16. Then OTR 0.38× (fixable via messages/fills, §2104–2111).
+- 171 captured C by condition (3 h): $30 at best +1.05 bp ($1.09M), 1 behind +1.62 bp ($651k), 2+ behind −0.14; $300 everything ≈ +0.14–0.24 bp (inside +1.09 but only $27k); no $300 spread bucket is strongly negative — the $300 problem is the 20-s markout (quality 0.06), not the capture.
+- **Next targets (for the new session):** (1) $300 markout quality (0.06 vs 210 0.31) — it drags the whole miner's quality; (2) $30 volume (+45% to reach 210) at the 1-behind/at-best mix; (3) OTR last. Skill (kappa 0.27 vs 1.3) after making.
+- AB3 left running unchanged (a2 = both-sided $300 deepens the $300 drag — the new session should switch arm 2 off first). Background job finished. Brief cron stopped for the session change.
