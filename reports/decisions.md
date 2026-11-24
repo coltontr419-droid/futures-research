@@ -30273,3 +30273,12 @@ User: if $300 carries our making but we're far from the fleet, how would the $30
 - **165: $91/mo ($3.03/d)**; making captured 337.7 / realized 129.2 (q 0.38) / share 0.0016 / making_rank 0.312; skill_rank 0.302; score 0.307; call_time 0.167. Fleet median $222 / score 0.59; 210 $301, 169 $255, 251 $249; 252 $184. **Prune line ≈ $106** (lowest non-immune); 165 protected ≈ 1.5 h. OTR gauges: none yet.
 
 ## §2062 — 5:02 PM CT — user closing the laptop until ≈ 6 PM: the size-0.3 verdict + FREEZE deferred to ≈ 6:05 PM CT (the ABAB ends on A = SETTLED size 0.2 by itself; 165's protection ends ≈ 6:25 PM CT).
+
+## §2063 — 6:12 PM CT — $30 size 0.3 NOT KEPT; **165 FROZEN** (final recipe)
+- 165 REGISTERED (regcheck); no ABAB running (done 23:10:55 UTC); live == SETTLED; no new alerts. No burst (fleet $300 20–37k per 2 sim min).
+- **Size 0.3 verdict:** A2 (SETTLED 0.2, sim 36545–36963): $30 19.6k/min R/C +0.41, $300 13.7k R/C +0.03, miner-wide +0.37, Σα vs 252 +2.3 / check. B pooled (B1 + B2): **$30 17.5k/min R/C +0.48**, $300 19.9k R/C −0.13, miner-wide +0.36, **Σα −2.3 / check**. Fleet B: $30 169 +0.63, 210 +0.36, 251 +0.63. → $30 volume NOT up vs the paired SETTLED block, skill worse → **mk_low_size stays 0.2** (user rule).
+- **FROZEN (user 9:10 AM rule: volume work done → keep settings, run untested):** agents **b424e5df** (all test knobs default off), fastdec **b6098dc7** (0.6.8-tolerant); snapshot **live_params_165.FROZEN.json** = live_params_165.SETTLED.json = live_params_NEXT.json (diff empty):
+  - $300: mk_vol_size 0.3, mk_calm_size 0.36, **mk_tight300 5**, mk_vol_lad_size 0.08, mk_calm_lad_size 0.06; lag / debounce / rest300 off.
+  - $30: front-keep (mk_low_touch_min 0, mk_low_behind 1, mk_low_keep 1, mk_low_keep_deep 3, mk_low_front 0.25), **mk_low_size 0.2**, **mk_low_lad "1:2"**, **mk_low_max_units 400**; mk_inv_own 0.
+- From now: no strategy tests on 165 — safety / rollbacks only; briefs check live == FROZEN, alerts.txt, OTR gauges. 0.6.8 OTR: accept the discount if it goes live (message cuts all hurt $300 capture); revisit only if the live factor is far below 0.74.
+- 165 at freeze: **$100/mo ($3.33/d)**; making captured 330.9 / realized 121.0 / share 0.0017 / rank 0.296; skill_rank 0.278; score 0.287; call_time 0.163. Fleet median $222 / score 0.59 / making_rank 0.81; 210 $299, 169 $256, 251 $248; 252 $180. **Prune line ≈ $124; 165's protection ends in ≈ 0.2 h** (pay still ramping through the lookback) → a prune is possible; if pruned: re-register → newminer.sh (b424e5df) starts on the frozen recipe.
